@@ -110,8 +110,8 @@ stale context stays a visible warning, while a valid goal model and a valid,
 pre-cutoff offered quote remain necessary to calculate a bet's probability.
 
 Historical value rules remain selectable from their recorded summaries. The
-cagey tier keeps its existing qualification. The master keeps its original
-price-edge pool while displaying overlap with the new main shortlist.
+cagey tier keeps its existing qualification. The master uses the value/cagey nomination union with its own recorded market-reference rule; see
+[master selection](master-market-selection.md).
 
 ## Accuracy comparison foundation
 
@@ -120,3 +120,48 @@ The full published score grid is now archived for offline comparison.
 probabilities without changing live selection or staking. See
 [the phased accuracy plan](research_accuracy_plan.md) for commands, evidence
 limitations and corrections required before later probability changes.
+
+## Research hardening for Pinnacle execution
+
+This production change strengthens evidence quality without fitting new goal-rate,
+weather, player-value or probability coefficients. It follows the Pinnacle-only
+execution change; exact offered prices/lines and all selection/staking rules remain
+subject to that policy. It introduces no experiment lists or parallel live models.
+
+- In-memory research responses now obey the same observation-time and per-call TTL
+  checks as disk caches. A previously memoized three-hour observation cannot satisfy
+  a later five-minute lineup request. Malformed cached responses are refetched or
+  reported unavailable rather than aborting the whole fixture's research.
+- ESPN summaries must match the requested event ID, both teams and kickoff. A wrong,
+  ambiguous or already-started/completed summary cannot supply injuries, starting
+  XIs or venue data. A separately verified scoreboard venue remains available.
+- Team IDs and reported names must agree. An opponent's name paired with another
+  team's ID cannot attach a player report to a fixture.
+- Every newly enriched forecast freezes a versioned factual quality review: both
+  confirmed XIs, absence-report availability, weather freshness/completeness, form
+  and venue sample counts, xG sample counts, and training status/cutoff warnings.
+  Confirmation requires exactly two expected teams and 22 distinct starter IDs.
+  Empty injury data never means 'no injuries'.
+- Within two hours of kickoff, summary observations must be under five minutes
+  old and match-window weather under fifteen minutes old to pass those review
+  checks; outside that window the existing three-hour limits apply. These are
+  evidence freshness limits, not probability coefficients or new shortlist gates.
+
+Value/cagey readable CSVs and Excel tabs now share research coverage warnings and
+quality-review text. The master carries the same warning evidence in its existing
+coverage/uncertainty fields. Existing numeric form, xG thresholds, goal-rate
+shrinkage, score grids, AH settlement, prices, ranking and staking formulas are
+unchanged. Validated, fresher evidence can differ from stale/mismatched material;
+that is a data-quality correction, not proof of an accuracy or betting advantage.
+
+On a price refresh, the versioned review is reassessed against the new evaluation
+clock using the same frozen facts. Old lineup/weather observations become visibly
+stale; no future news is fetched or spliced into replay. Old forecasts without the
+new evidence-quality version keep their original research interpretation. Missing
+or unconfirmed research remains eligible with warnings, in line with the current
+policy. Re-run full forecast collection to obtain newly observed team news.
+
+A 'checks passed' status means the listed evidence checks passed. It is not a
+calibrated confidence score, a complete absence assessment, or a promised edge
+over Pinnacle. Numerical injury, weather, opponent-strength and other new effects
+still require the agreed pre-release comparison on played matches before use.

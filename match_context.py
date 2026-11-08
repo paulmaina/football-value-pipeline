@@ -144,6 +144,26 @@ def collect_weather(row, client, evidence):
         evidence.setdefault('coverage', {})['weather'] = 'Open-Meteo match-window forecast with units and observation time'
 
 
+def verified_summary(data, row, event_id):
+    """A successful HTTP response is insufficient: verify event, teams and kickoff."""
+    from team_research import same_fixture
+    if not isinstance(data, dict) or not isinstance(data.get('header'), dict):
+        return None
+    header = data['header']
+    comps = header.get('competitions')
+    if not isinstance(comps, list) or len(comps) != 1 or not isinstance(comps[0], dict):
+        return None
+    state = header.get('status') or comps[0].get('status') or {}
+    state = state if isinstance(state, dict) else {}
+    kind = state.get('type') or {}
+    if isinstance(kind, dict) and (kind.get('completed') is True or kind.get('state') in ('in', 'post')):
+        return None
+    event = dict(header, date=header.get('date') or comps[0].get('date'))
+    if str(header.get('id')) != str(event_id) or not same_fixture(event, row):
+        return None
+    return data
+
+
 def compact_squads(data, evidence, teams):
     """Retain factual player fields; a roster or predicted XI is not confirmation."""
     def records(value):
@@ -154,8 +174,8 @@ def compact_squads(data, evidence, teams):
         info = obj(group.get('team'))
         expected = teams.get(str(info.get('id')))
         actual = info.get('displayName') or info.get('name')
-        if expected and (not actual or name(actual) == name(expected)):
-            return expected
+        if info.get('id') is not None:
+            return expected if expected and (not actual or name(actual) == name(expected)) else None
         return actual if actual and name(actual) in {name(v) for v in teams.values()} else None
     injury_groups = []
     for group in records(data.get('injuries')):
