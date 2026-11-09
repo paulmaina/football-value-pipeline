@@ -107,7 +107,9 @@ class SwitchTests(OfflineQuotePolicyTestCase):
         self.assertEqual(settings, {'cagey_correction_enabled': True, 'cagey_tier_enabled': True,
                                     'model_version': nm.PRODUCTION_VERSION, 'cagey_tier_rule': v28.TIER_RULE_MARKET_BASIS,
                                     'value_rule': v28.VALUE_RULE_LOCAL_RESEARCH,
-                                    'quote_timing_rule': v28.TIMING_RULE_CUTOFF, 'excluded_markets': ['Over 1.5']})
+                                    'quote_timing_rule': v28.TIMING_RULE_CUTOFF,
+                                    'excluded_markets': ['Double Chance 12', 'Draw No Bet Away',
+                                                         'Draw No Bet Home', 'Over 1.5']})
         self.assertEqual(PRODUCTION_POLICY, v28.POLICY)
         self.assertIn(v27.POLICY, POLICIES)
 
