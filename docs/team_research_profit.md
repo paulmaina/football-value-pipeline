@@ -18,7 +18,8 @@ and replay their recorded rules, prices and selection behavior.
   in the AH group; an actual match-winner/DC quote stays in its own group.
 - Rank all picks by positive-net-return probability. Pushes are not profitable.
   Negative EV remains eligible, flagged; Kelly may recommend zero stake.
-- Keep the 20-minute–48-hour kickoff window and existing bookmaker allowlist.
+- New runs use a 20-minute–24-hour kickoff window and the configured bookmaker allowlist.
+  Archived runs use their recorded horizon.
   Other shortlists retain their own rules; this odds range is for the main list.
 
 All supported leagues, including UCL and UEL, train on validated local competition

@@ -32,6 +32,8 @@ from typing import Dict, List, Mapping, Optional, Tuple
 import numpy as np
 import pandas as pd
 
+import shortlist_window
+
 import market_implied as mi
 from ah_close_backtest import devig_proportional, devig_shin, settle
 from quote_freshness import quote_is_fresh, quote_utc
@@ -417,8 +419,8 @@ def evaluate_candidate(candidate: Mapping, pin: Mapping, fit: mi.Fit, fit_info: 
                        now: pd.Timestamp, kickoff: Optional[pd.Timestamp]) -> Dict[str, object]:
     side, line = candidate['side'], float(candidate['line'])
     reasons = []
-    if kickoff is None or not now + pd.Timedelta(minutes=MIN_MINUTES) <= kickoff <= now + pd.Timedelta(hours=MAX_HOURS):
-        reasons.append('kickoff outside 20-minute to 48-hour window')
+    if kickoff is None or not now + pd.Timedelta(minutes=MIN_MINUTES) <= kickoff <= now + pd.Timedelta(hours=shortlist_window.hours()):
+        reasons.append(shortlist_window.rejection_reason())
     ref = reference(side, line, pin, fit, fit_info)
     price = candidate.get('price')
     item = {'handicap_side': side, 'handicap_line': line, 'market': candidate.get('market') or _ah_market(side, line),
@@ -565,9 +567,9 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
         'n_markets_evaluated': len(decisions), 'n_shortlisted': len(selected), 'n_strict_qualified': len(selected),
         'n_provisional_watchlist': 0, 'n_total_candidates': len(selected), 'target_distinct_matches': None,
         'shortfall': None, 'usable_distinct_fixtures': fixtures,
-        'shortlist_lookahead_hours': MAX_HOURS, 'selected_matches_within_48_hours': bool(len(selected)),
+        'shortlist_lookahead_hours': shortlist_window.hours(), 'selected_matches_within_48_hours': bool(len(selected)),
         'shortlist_window_start_utc': now.isoformat(),
-        'shortlist_window_end_utc': (now + pd.Timedelta(hours=MAX_HOURS)).isoformat(),
+        'shortlist_window_end_utc': (now + pd.Timedelta(hours=shortlist_window.hours())).isoformat(),
         'eligible_markets': ['Home win', 'Away win', 'Double Chance 1X', 'Double Chance X2'] + [
             _ah_market(s, p) for s in ('home', 'away') for p in __import__('asian_handicap').LINES],
         'quote_execution_policy': policy, 'validation_required': VALIDATION_REQUIRED,

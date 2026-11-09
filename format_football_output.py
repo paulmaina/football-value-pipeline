@@ -1586,7 +1586,9 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
                 lambda v: 'yes' if str(v) == 'True' else 'no')
         tier_readable.to_csv(output_dir / "cagey_tier_shortlist_readable.csv", index=False, encoding="utf-8-sig")
         if tier.get('rule_version') == v28.TIER_RULE_MARKET_BASIS:
-            rule_text = ('No narrow gate; rank no-loss, expected return, then odds. Over 1.5 uses the uncorrected '
+            horizon = summary.get('shortlist_lookahead_hours', 48)
+            rule_text = (f'Kickoff 20 minutes–{horizon:g} hours. '
+                         'No narrow gate; rank no-loss, expected return, then odds. Over 1.5 uses the uncorrected '
                          'Pinnacle grid consistently for selection, EV and stakes; other markets use the corrected grid. '
                          'Binary price checks use independent Pinnacle fair prices, or are visibly unavailable. '
                          'Corrected totals/draw deltas are comparison information, not separately validated improvements.')

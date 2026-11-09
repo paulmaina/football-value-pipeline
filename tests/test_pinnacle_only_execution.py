@@ -41,6 +41,21 @@ class PinnacleOnlyTests(OfflineQuotePolicyTestCase):
         self.assertEqual(summary['quote_execution_policy']['allowed_bookmakers'],['Pinnacle'])
         self.assertEqual(row['team_research_json'],original)
 
+    def test_live_shortlists_include_24_hours_but_exclude_later_kickoffs(self):
+        edge = NOW + pd.Timedelta(hours=24)
+        on_boundary = dict(sample(), kickoff_utc=edge.isoformat())
+        after_boundary = dict(sample(), home_team='Later FC',
+                              kickoff_utc=(edge + pd.Timedelta(seconds=1)).isoformat())
+        predictions = pd.DataFrame([on_boundary, after_boundary])
+        value, decisions, summary = v28.build_shortlist(predictions, NOW, execution_policy=PIN)
+        self.assertEqual(summary['shortlist_lookahead_hours'], 24)
+        self.assertEqual(summary['shortlist_window_end_utc'], edge.isoformat())
+        with tempfile.TemporaryDirectory() as tmp:
+            top = master.write(decisions, tmp, summary, predictions)
+        for frame in (value, v28.cagey_tier_list(decisions), top):
+            self.assertEqual(set(frame.home_team), {on_boundary['home_team']})
+        self.assertIn('kickoff 20 minutes–24 hours', summary['master_shortlist']['rule'])
+
     def test_missing_pinnacle_offer_never_falls_back_to_1xbet(self):
         row=row_with_evidence();row['asian_handicap_offers']='[]'
         row['price_edge_quotes']=json.dumps([q for q in json.loads(row['price_edge_quotes']) if q['bookmaker']=='1xBet'])
@@ -54,8 +69,11 @@ class PinnacleOnlyTests(OfflineQuotePolicyTestCase):
         from workflow_checks import raw_check
         from pipeline_health import write_generation_metadata
         row=row_with_evidence();row['asian_handicap_offers']='[]'
+        row['kickoff_utc'] = (NOW + pd.Timedelta(hours=25)).isoformat()
         predictions=pd.DataFrame([row])
-        value,decisions,info=v28.build_shortlist(predictions,NOW,execution_policy=OLD)
+        # Explicit archived settings without a horizon retain the former default.
+        value,decisions,info=v28.build_shortlist(predictions,NOW,execution_policy=OLD,settings=v28.load_settings())
+        self.assertEqual(info['shortlist_lookahead_hours'],48)
         self.assertTrue(value.bookmaker.eq('1xBet').any())
         with tempfile.TemporaryDirectory() as tmp,qp.policy_scope(PIN):
             root=Path(tmp);raw=root/'raw';raw.mkdir()
