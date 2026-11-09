@@ -3502,7 +3502,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
                         coverage_row['asian_handicap_status'] = 'EVENT_IDENTITY_REJECTED'
                     import asian_handicap
                     merged = json.loads(pred.get('asian_handicap_offers') or '[]')+json.loads(extra['asian_handicap_offers'])
-                    unique = {(x['side'], x['line'], x['bookmaker']):x for x in sorted(merged,key=lambda x:(x['last_update_utc'],x['price']))}
+                    unique = {(x['side'], x['line'], x['bookmaker'], x.get('market_key') == 'draw_no_bet'):x for x in sorted(merged,key=lambda x:(x['last_update_utc'],x['price']))}
                     extra['asian_handicap_offers'] = json.dumps(list(unique.values()),sort_keys=True)
                 if 'price_edge_quotes' in extra:
                     from price_edge_shortlist import merge_quotes as merge_price_edge

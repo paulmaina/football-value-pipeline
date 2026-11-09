@@ -561,6 +561,9 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
     reasons = pd.Series([r for text in rejected for r in str(text).split('; ') if r]).value_counts()
     tagged = decisions.loc[decisions.any_tag.fillna(False).astype(bool)]
     fixtures = int(predictions.apply(fixture_key, axis=1).nunique()) if len(predictions) else 0
+    standard_markets = ['Home win', 'Away win', 'Double Chance 1X', 'Double Chance X2'] + [
+        _ah_market(s, p) for s in ('home', 'away') for p in __import__('asian_handicap').LINES]
+    observed_handicaps = {market for market in decisions['market'].dropna() if market.startswith('Asian Handicap ')}
     summary = {
         'generated_at_utc': now.isoformat(), 'selection_policy_version': POLICY, 'selection_objective': OBJECTIVE,
         'status': 'BELOW_TARGET' if len(selected) else 'NO BET', 'n_fixtures': len(predictions),
@@ -570,8 +573,7 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
         'shortlist_lookahead_hours': shortlist_window.hours(), 'selected_matches_within_48_hours': bool(len(selected)),
         'shortlist_window_start_utc': now.isoformat(),
         'shortlist_window_end_utc': (now + pd.Timedelta(hours=shortlist_window.hours())).isoformat(),
-        'eligible_markets': ['Home win', 'Away win', 'Double Chance 1X', 'Double Chance X2'] + [
-            _ah_market(s, p) for s in ('home', 'away') for p in __import__('asian_handicap').LINES],
+        'eligible_markets': standard_markets + sorted(observed_handicaps.difference(standard_markets)),
         'quote_execution_policy': policy, 'validation_required': VALIDATION_REQUIRED,
         # Information only: v27 does not use the model's market audits to select.
         'validation_market_statuses': {league: {key: state.get('status', 'INSUFFICIENT_HISTORY')
