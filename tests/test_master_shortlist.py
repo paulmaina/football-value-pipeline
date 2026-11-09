@@ -252,6 +252,7 @@ class ReplayComparisonTests(OfflineQuotePolicyTestCase):
 class RefreshTests(OfflineQuotePolicyTestCase):
     def test_refresh_rebuilds_the_master_list_and_replaces_a_seeded_copy(self):
         from refresh_conservative_shortlist import _refresh
+        from shortlist_window import scope
         from format_football_output import publish_shortlists, MASTER_READABLE
         import narrow_margin_report as narrow
         predictions = pd.DataFrame([
@@ -283,8 +284,10 @@ class RefreshTests(OfflineQuotePolicyTestCase):
         self.assertNotEqual(report_md, 'previous run')
         self.assertNotIn('Old FC', set(written.home_team))
         self.assertEqual(set(written.evaluated_at_utc), {summary['generated_at_utc']})
-        self.assertEqual(stored['master_shortlist'], ms.summary(written))
-        self.assertTrue(ms.matches(written, ms.build(decisions, predictions, stored['master_shortlist']['version'])))
+        self.assertEqual(stored['shortlist_lookahead_hours'], 24)
+        with scope(stored['shortlist_lookahead_hours']):
+            self.assertEqual(stored['master_shortlist'], ms.summary(written))
+            self.assertTrue(ms.matches(written, ms.build(decisions, predictions, stored['master_shortlist']['version'])))
         self.assertEqual(list(readable.Home), list(written.home_team))
 
     def test_other_policies_remove_a_seeded_copy(self):

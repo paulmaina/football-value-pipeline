@@ -69,8 +69,9 @@ def line(value):
     if isinstance(value, bool):
         raise ValueError('Invalid Asian handicap line')
     value = float(value)
-    if not math.isfinite(value) or value not in LINES:
-        raise ValueError('Asian goal handicap must be a quarter line between -3 and +3')
+    quarters = value * 4
+    if not math.isfinite(quarters) or not quarters.is_integer():
+        raise ValueError('Asian goal handicap must be a finite quarter line')
     return 0.0 if value == 0 else value
 
 
@@ -218,7 +219,7 @@ def parse_quotes(payload, as_of):
                     item = {'side': side, 'line': point if side == 'home' else -point,
                             'price': prices[side], 'opposite_price': prices['away' if side == 'home' else 'home'],
                             'bookmaker': name, 'last_update_utc': stamp, 'market_key': key, 'quote_source':'The Odds API'}
-                    identity = (side, item['line'], name)
+                    identity = (side, item['line'], name, key == 'draw_no_bet')
                     previous = offers.get(identity)
                     if previous is None or (str(stamp), item['price']) > (str(previous['last_update_utc']), previous['price']):
                         offers[identity] = item
@@ -436,6 +437,8 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
             reasons = []
             try:
                 side, point = offer['side'], line(offer['line'])
+                if point not in LINES:
+                    continue  # Earlier shortlist policies used the fixed validation range.
                 name = label(side, point)
                 price, opposite = float(offer['price']), float(offer['opposite_price'])
                 book = bookmaker(offer['bookmaker'])

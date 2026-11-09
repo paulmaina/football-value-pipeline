@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "428b36b889bc8107b0a0c389334f72426054f163962dc5b037f54c55da735d9c",
-  "training_as_of_utc": "2026-11-08T09:00:28.880683+00:00",
+  "training_as_of_utc": "2026-11-08T12:19:39.900635+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -59,21 +59,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target",
     "proposed_weight": 0.2,
-    "audit_baseline_poisson_score": 0.8612715466290578,
-    "audit_candidate_poisson_score": 0.8509913426733718,
-    "audit_gain": 0.010280203955685963,
-    "audit_gain_lower95": 0.0014239740665108083,
+    "audit_baseline_poisson_score": 0.8612732830607709,
+    "audit_candidate_poisson_score": 0.8509932566251447,
+    "audit_gain": 0.0102800264356262,
+    "audit_gain_lower95": 0.001423870545915663,
     "audit_baseline_briers": [
-      0.6219582018170083,
-      0.1819995717434133,
-      0.21029755458536836,
-      0.2434828257916931
+      0.6219594033876717,
+      0.18199975143525454,
+      0.21029920553189915,
+      0.24348376997083734
     ],
     "audit_candidate_briers": [
-      0.6159068267897794,
-      0.18043073875674015,
-      0.2069831658198749,
-      0.24482515541950883
+      0.6159080752133291,
+      0.1804309493685498,
+      0.20698461157632972,
+      0.24482599942713262
     ],
     "audit_brier_order": [
       "1x2",
@@ -87,10 +87,10 @@
   },
   "training_end": "2026-11-02",
   "fit_success": true,
-  "objective": 1665.3012070684474,
-  "base": 0.13094050713499053,
-  "home_adv": 0.24644444849782043,
-  "rho": -0.09645846926781476,
+  "objective": 1664.9686788720849,
+  "base": 0.13096073955620963,
+  "home_adv": 0.24649557733007685,
+  "rho": -0.0964735693979045,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -118,35 +118,15 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 4,
+  "live_odds_matched": 3,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 35,
+  "additional_event_odds_calls_used_before_this_league": 33,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 3,
+  "over_1_5_in_window_quote_fixtures": 2,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
-    {
-      "fixture_id": "cf2febfddf729564889172cf83e8fbab",
-      "event_id": "cf2febfddf729564889172cf83e8fbab",
-      "home_team": "\u00c7aykur Rizespor",
-      "away_team": "Erzurum BB",
-      "kickoff_utc": "2026-11-08T10:30:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "asian_handicap_quotes": 20,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
-    },
     {
       "fixture_id": "6692a3ca274d09ffbfabd943320d62f5",
       "event_id": "6692a3ca274d09ffbfabd943320d62f5",
@@ -208,19 +188,19 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 4,
+  "additional_odds_in_window_linked_fixtures": 3,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 4,
+  "additional_event_odds_calls_this_league": 3,
   "totals_anchor_fixtures": {
-    "ANCHORED_ALTERNATE": 4
+    "ANCHORED_ALTERNATE": 3
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 4
+    "none": 3
   },
   "legacy_comparison_status": {
-    "None": 4
+    "None": 3
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"

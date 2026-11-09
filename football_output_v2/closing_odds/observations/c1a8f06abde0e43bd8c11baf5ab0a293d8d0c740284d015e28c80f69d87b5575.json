@@ -1,0 +1,528 @@
+{
+  "fixture": {
+    "away_team": "Real Betis",
+    "home_team": "Elche CF",
+    "kickoff_utc": "2026-11-08T13:00:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "c35673eb1e889309d6985c091a43a3f5"
+  },
+  "observed_at_utc": "2026-11-08T12:55:48.371230+00:00",
+  "payload": {
+    "away_team": "Real Betis",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-08T12:55:32Z",
+            "outcomes": [
+              {
+                "name": "Elche CF",
+                "price": 4.17
+              },
+              {
+                "name": "Real Betis",
+                "price": 1.88
+              },
+              {
+                "name": "Draw",
+                "price": 3.91
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-08T12:55:32Z",
+            "outcomes": [
+              {
+                "name": "Elche CF",
+                "point": 0.5,
+                "price": 2.04
+              },
+              {
+                "name": "Real Betis",
+                "point": -0.5,
+                "price": 1.89
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-08T12:55:32Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.83
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 2.1
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-08T12:55:32Z",
+            "outcomes": [
+              {
+                "name": "Elche CF",
+                "point": 0.5,
+                "price": 2.04
+              },
+              {
+                "name": "Elche CF",
+                "point": -0.5,
+                "price": 4.11
+              },
+              {
+                "name": "Elche CF",
+                "point": -0.25,
+                "price": 3.62
+              },
+              {
+                "name": "Elche CF",
+                "point": 0.0,
+                "price": 3.13
+              },
+              {
+                "name": "Elche CF",
+                "point": 0.25,
+                "price": 2.4
+              },
+              {
+                "name": "Elche CF",
+                "point": 0.75,
+                "price": 1.81
+              },
+              {
+                "name": "Elche CF",
+                "point": 1.0,
+                "price": 1.58
+              },
+              {
+                "name": "Elche CF",
+                "point": 1.25,
+                "price": 1.47
+              },
+              {
+                "name": "Elche CF",
+                "point": 1.5,
+                "price": 1.39
+              },
+              {
+                "name": "Real Betis",
+                "point": -0.5,
+                "price": 1.89
+              },
+              {
+                "name": "Real Betis",
+                "point": 0.5,
+                "price": 1.27
+              },
+              {
+                "name": "Real Betis",
+                "point": 0.25,
+                "price": 1.32
+              },
+              {
+                "name": "Real Betis",
+                "point": -0.0,
+                "price": 1.41
+              },
+              {
+                "name": "Real Betis",
+                "point": -0.25,
+                "price": 1.65
+              },
+              {
+                "name": "Real Betis",
+                "point": -0.75,
+                "price": 2.12
+              },
+              {
+                "name": "Real Betis",
+                "point": -1.0,
+                "price": 2.53
+              },
+              {
+                "name": "Real Betis",
+                "point": -1.25,
+                "price": 2.86
+              },
+              {
+                "name": "Real Betis",
+                "point": -1.5,
+                "price": 3.2
+              }
+            ]
+          },
+          {
+            "key": "alternate_totals",
+            "last_update": "2026-11-08T12:55:32Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.83
+              },
+              {
+                "name": "Over",
+                "point": 2.0,
+                "price": 1.21
+              },
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 1.37
+              },
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.53
+              },
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.65
+              },
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 2.06
+              },
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.3
+              },
+              {
+                "name": "Over",
+                "point": 3.75,
+                "price": 2.65
+              },
+              {
+                "name": "Over",
+                "point": 4.0,
+                "price": 3.28
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 2.1
+              },
+              {
+                "name": "Under",
+                "point": 2.0,
+                "price": 4.73
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 3.27
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.64
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.37
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.84
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.68
+              },
+              {
+                "name": "Under",
+                "point": 3.75,
+                "price": 1.52
+              },
+              {
+                "name": "Under",
+                "point": 4.0,
+                "price": 1.37
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-11-08T12:55:30Z",
+            "outcomes": [
+              {
+                "name": "Elche CF or Draw",
+                "price": 2.08
+              },
+              {
+                "name": "Real Betis or Draw",
+                "price": 1.25
+              },
+              {
+                "name": "Elche CF or Real Betis",
+                "price": 1.29
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-08T12:55:30Z",
+            "outcomes": [
+              {
+                "name": "Elche CF",
+                "price": 3.31
+              },
+              {
+                "name": "Real Betis",
+                "price": 1.37
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-08T13:00:00Z",
+    "home_team": "Elche CF",
+    "id": "c35673eb1e889309d6985c091a43a3f5",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.08,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.46768275882071436,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-11-08T12:55:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.25,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7782241106776687,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-11-08T12:55:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.29,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.754093130501617,
+      "selection": "home_away",
+      "updated_at_utc": "2026-11-08T12:55:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.41,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.13,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.17,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.23068098524817335,
+      "selection": "home",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.91,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24645117148186005,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.88,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5228678432699666,
+      "selection": "away",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.89,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.04,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.2,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.50",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.86,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.25",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.53,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.00",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.12,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.65,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.32,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.27,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.11,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.62,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.4,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.81,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.58,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.00",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.47,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.25",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.39,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.50",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.53,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6395443914108927,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.64,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.36045560858910736,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.3,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.41863215844351487,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.68,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5813678415564851,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-08T12:55:32+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

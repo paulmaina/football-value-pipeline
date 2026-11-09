@@ -13,8 +13,8 @@ class ProductionAllowlistTests(unittest.TestCase):
     def setUp(self):
         self.config = json.loads((ROOT/'shortlist_quote_policy.json').read_text(encoding='utf-8-sig'))
 
-    def test_allowlist_is_pinnacle_and_1xbet_only(self):
-        self.assertEqual(self.config['allowed_bookmakers'], ['Pinnacle', '1xBet'])
+    def test_allowlist_is_pinnacle_only(self):
+        self.assertEqual(self.config['allowed_bookmakers'], ['Pinnacle'])
         self.assertEqual(self.config['fallback_bookmakers'], [])
 
     def test_names_match_provider_titles_exactly(self):
@@ -25,7 +25,7 @@ class ProductionAllowlistTests(unittest.TestCase):
     def test_bet365_is_not_allowed(self):
         policy = quote_policy.validate_policy(self.config)
         self.assertFalse(quote_policy.usable_bookmaker('bet365', policy))
-        self.assertTrue(quote_policy.usable_bookmaker('1xBet', policy))
+        self.assertFalse(quote_policy.usable_bookmaker('1xBet', policy))
         self.assertTrue(quote_policy.usable_bookmaker('Pinnacle', policy))
 
     def test_provider_payload_titles_resolve(self):
@@ -33,7 +33,7 @@ class ProductionAllowlistTests(unittest.TestCase):
         payload = [{'key': key, 'title': title} for key, title in quote_policy.ODDS_API_TITLES.items()]
         policy = quote_policy.validate_policy(self.config)
         for book in payload:
-            self.assertTrue(quote_policy.usable_bookmaker(book['title'], policy))
+            self.assertEqual(quote_policy.usable_bookmaker(book['title'], policy), book['title'] == 'Pinnacle')
             self.assertEqual(bookmaker(book['title']), book['title'])
 
 

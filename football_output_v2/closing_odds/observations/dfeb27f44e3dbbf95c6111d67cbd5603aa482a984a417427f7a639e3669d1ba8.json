@@ -1,0 +1,400 @@
+{
+  "fixture": {
+    "away_team": "Liverpool",
+    "home_team": "Crystal Palace",
+    "kickoff_utc": "2026-11-08T14:00:00+00:00",
+    "league": "Premier League",
+    "odds_event_id": "0cfbab01e152f81e34f9014e02c7eb79"
+  },
+  "observed_at_utc": "2026-11-08T13:54:13.590114+00:00",
+  "payload": {
+    "away_team": "Liverpool",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-08T13:53:53Z",
+            "outcomes": [
+              {
+                "name": "Crystal Palace",
+                "price": 6.0
+              },
+              {
+                "name": "Liverpool",
+                "price": 1.56
+              },
+              {
+                "name": "Draw",
+                "price": 4.55
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-08T13:53:53Z",
+            "outcomes": [
+              {
+                "name": "Crystal Palace",
+                "point": 1.0,
+                "price": 2.04
+              },
+              {
+                "name": "Liverpool",
+                "point": -1.0,
+                "price": 1.88
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-08T13:53:53Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 2.0
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.9
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-08T13:53:53Z",
+            "outcomes": [
+              {
+                "name": "Crystal Palace",
+                "point": 1.0,
+                "price": 2.04
+              },
+              {
+                "name": "Crystal Palace",
+                "point": 0.0,
+                "price": 4.84
+              },
+              {
+                "name": "Crystal Palace",
+                "point": 0.25,
+                "price": 3.32
+              },
+              {
+                "name": "Crystal Palace",
+                "point": 0.5,
+                "price": 2.67
+              },
+              {
+                "name": "Crystal Palace",
+                "point": 0.75,
+                "price": 2.35
+              },
+              {
+                "name": "Crystal Palace",
+                "point": 1.25,
+                "price": 1.77
+              },
+              {
+                "name": "Crystal Palace",
+                "point": 1.5,
+                "price": 1.61
+              },
+              {
+                "name": "Crystal Palace",
+                "point": 1.75,
+                "price": 1.45
+              },
+              {
+                "name": "Crystal Palace",
+                "point": 2.0,
+                "price": 1.3
+              },
+              {
+                "name": "Liverpool",
+                "point": -1.0,
+                "price": 1.88
+              },
+              {
+                "name": "Liverpool",
+                "point": -0.0,
+                "price": 1.21
+              },
+              {
+                "name": "Liverpool",
+                "point": -0.25,
+                "price": 1.37
+              },
+              {
+                "name": "Liverpool",
+                "point": -0.5,
+                "price": 1.53
+              },
+              {
+                "name": "Liverpool",
+                "point": -0.75,
+                "price": 1.66
+              },
+              {
+                "name": "Liverpool",
+                "point": -1.25,
+                "price": 2.17
+              },
+              {
+                "name": "Liverpool",
+                "point": -1.5,
+                "price": 2.46
+              },
+              {
+                "name": "Liverpool",
+                "point": -1.75,
+                "price": 2.91
+              },
+              {
+                "name": "Liverpool",
+                "point": -2.0,
+                "price": 3.79
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-11-08T13:53:49Z",
+            "outcomes": [
+              {
+                "name": "Crystal Palace or Draw",
+                "price": 2.65
+              },
+              {
+                "name": "Liverpool or Draw",
+                "price": 1.16
+              },
+              {
+                "name": "Crystal Palace or Liverpool",
+                "price": 1.23
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-08T13:53:49Z",
+            "outcomes": [
+              {
+                "name": "Crystal Palace",
+                "price": 4.86
+              },
+              {
+                "name": "Liverpool",
+                "price": 1.21
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-08T14:00:00Z",
+    "home_team": "Crystal Palace",
+    "id": "0cfbab01e152f81e34f9014e02c7eb79",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.65,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.3677177428707653,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-11-08T13:53:49+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.16,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8400448436271795,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-11-08T13:53:49+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.23,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7922374135020553,
+      "selection": "home_away",
+      "updated_at_utc": "2026-11-08T13:53:49+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.21,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-08T13:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.84,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-08T13:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.0,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.15778754185479113,
+      "selection": "home",
+      "updated_at_utc": "2026-11-08T13:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.55,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2098376335817325,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-08T13:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.56,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6323748245634764,
+      "selection": "away",
+      "updated_at_utc": "2026-11-08T13:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.88,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.00",
+      "updated_at_utc": "2026-11-08T13:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.04,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.00",
+      "updated_at_utc": "2026-11-08T13:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.79,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -2.00",
+      "updated_at_utc": "2026-11-08T13:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.91,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.75",
+      "updated_at_utc": "2026-11-08T13:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.46,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.50",
+      "updated_at_utc": "2026-11-08T13:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.17,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.25",
+      "updated_at_utc": "2026-11-08T13:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.66,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-08T13:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.53,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-08T13:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.37,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-08T13:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.32,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-08T13:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.67,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-08T13:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.35,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-08T13:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.77,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.25",
+      "updated_at_utc": "2026-11-08T13:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.61,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.50",
+      "updated_at_utc": "2026-11-08T13:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.45,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.75",
+      "updated_at_utc": "2026-11-08T13:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +2.00",
+      "updated_at_utc": "2026-11-08T13:53:53+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

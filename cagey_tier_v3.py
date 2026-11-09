@@ -2,6 +2,8 @@
 import numpy as np
 import pandas as pd
 
+import shortlist_window
+
 RULE = 'narrow-67-per-market-v3'
 RULE_NO_GATE = 'corrected-no-loss-per-market-v4'
 RULE_MARKET_BASIS = 'no-loss-market-reference-v5'
@@ -61,8 +63,8 @@ def annotate(item, context, row, now, policy, cost, rule=RULE, pin=None):
             or label.startswith('Asian Handicap ')):
         reasons.append('market outside cagey rule')
     kick, offer = quote_utc(row.get('kickoff_utc')), quote_utc(item.get('offered_last_update_utc'))
-    if kick is None or not now+pd.Timedelta(minutes=20) <= kick <= now+pd.Timedelta(hours=48):
-        reasons.append('kickoff outside 20-minute to 48-hour window')
+    if kick is None or not now+pd.Timedelta(minutes=20) <= kick <= now+pd.Timedelta(hours=shortlist_window.hours()):
+        reasons.append(shortlist_window.rejection_reason())
     price = number(item.get('offered_decimal_odds'))
     if price is None or not 1.15 < price <= 2.0:
         reasons.append('cagey offered odds outside (1.15, 2.00]')
