@@ -563,6 +563,13 @@ def report_check(root):
     require(len(predictions)==len(frozen_predictions) and len({r['fixture_key'] for r in predictions})==len(predictions), 'Prediction report coverage mismatch')
     require(all(r['fixture_key'] in frozen_predictions and r['snapshot_commit']==frozen_predictions[r['fixture_key']]['snapshot_commit'] for r in predictions), 'Prediction provenance changed')
     require(metrics['prediction_fixtures_graded']==sum(r['status']=='GRADED' for r in predictions), 'Prediction graded count mismatch')
+    from performance_tracking import DUPLICATE_RESULT, PREDICTION_SCORE_FIELDS, result_identity
+    graded_ids=[result_identity(r) for r in predictions if r['status']=='GRADED']
+    require(None not in graded_ids and len(set(graded_ids))==len(graded_ids), 'Verified result graded more than once')
+    for row in predictions:
+        if row['status']!=DUPLICATE_RESULT: continue
+        require(result_identity(row) in set(graded_ids), 'Duplicate result without its graded forecast')
+        require(all(row.get(f) in ('',None) for f in PREDICTION_SCORE_FIELDS), 'Duplicate result included in scored metrics')
     prediction_brier=[]
     for row in predictions:
         if row['status']!='GRADED': continue
