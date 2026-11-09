@@ -1,0 +1,54 @@
+Fixture and result cache counts 108 Counter({'T1': 90, 'EL': 72, 'SA': 60, 'CL': 54, 'PD': 50, 'PL': 50, 'BL1': 45, 'FL1': 45, 'DED': 27, 'PPL': 26})
+T1 immutable evidence files 3
+T1 date coverage 2026-08-14 2026-11-02
+T1 training-cache max date 2026-11-02
+UNGRADED Super Lig Gazişehir Gaziantep Kasimpasa SK 2026-11-06 17:00:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near []
+UNGRADED Super Lig Eyüpspor Kocaelispor 2026-11-07 10:30:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near []
+UNGRADED Super Lig Samsunspor Torku Konyaspor 2026-11-07 13:00:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near []
+UNGRADED La Liga CA Osasuna Athletic Bilbao 2026-11-07 17:30:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near [('CA Osasuna', 'Athletic Club', '2026-11-07T17:30:00Z', 100, 44)]
+UNGRADED Primeira Liga Nacional Académico de Viseu 2026-11-07 15:30:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near [('FC Alverca', 'Casa Pia AC', '2026-11-07T18:00:00Z', 27, 26)]
+UNGRADED Super Lig Galatasaray Amed SK 2026-11-07 16:00:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near []
+UNGRADED Super Lig Goztepe Basaksehir 2026-11-07 16:00:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near []
+UNGRADED Super Lig Çaykur Rizespor Erzurum BB 2026-11-08 10:30:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near []
+UNGRADED Eredivisie FC Twente Enschede Ajax 2026-11-08 13:30:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near [("FC Twente '65", 'AFC Ajax', '2026-11-08T13:30:00Z', 58, 100)]
+UNGRADED Super Lig Çorum FK Fenerbahce 2026-11-08 13:00:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near []
+UNGRADED La Liga Celta Vigo Levante 2026-11-08 17:30:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near [('RC Celta de Vigo', 'Levante UD', '2026-11-08T17:30:00Z', 87, 82)]
+UNGRADED Serie A Inter Milan Como 2026-11-08 17:00:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near [('FC Internazionale Milano', 'Como 1907', '2026-11-08T17:00:00Z', 100, 62)]
+UNGRADED Ligue 1 Rennes Lille 2026-11-08 14:00:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near [('Stade Rennais FC 1901', 'Lille OSC', '2026-11-08T14:00:00Z', 42, 71)]
+UNGRADED Ligue 1 Angers Nice 2026-11-08 16:15:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near [('Angers SCO', 'OGC Nice', '2026-11-08T16:15:00Z', 75, 67)]
+UNGRADED Ligue 1 Brest Lyon 2026-11-08 16:15:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near [('Le Havre AC', 'FC Lorient', '2026-11-08T16:15:00Z', 31, 55)]
+UNGRADED Eredivisie AZ Alkmaar Groningen 2026-11-08 15:45:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near [('AZ', 'FC Groningen', '2026-11-08T15:45:00Z', 33, 100)]
+UNGRADED Eredivisie FC Utrecht NEC Nijmegen 2026-11-08 19:00:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near [('FC Utrecht', 'NEC', '2026-11-08T19:00:00Z', 100, 40)]
+UNGRADED Primeira Liga Estoril CS Maritimo 2026-11-08 15:30:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near [('Vitória SC', 'FC Porto', '2026-11-08T18:00:00Z', 57, 38)]
+UNGRADED Primeira Liga Nacional Académico de Viseu 2026-11-08 15:30:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near [('CD Nacional', 'Académico de Viseu FC', '2026-11-08T15:30:00Z', 84, 100)]
+UNGRADED Primeira Liga CF Estrela Benfica 2026-11-08 20:30:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near [('CF Estrela da Amadora', 'Sport Lisboa e Benfica', '2026-11-08T20:30:00Z', 56, 48)]
+UNGRADED Super Lig Alanyaspor Trabzonspor 2026-11-08 15:30:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near []
+UNGRADED Super Lig Besiktas JK Genclerbirligi SK 2026-11-08 18:00:00+00:00 UNVERIFIED_FIXTURE_OR_RESULT training match False near []
+UEL_MIN sparta praha bournemouth 13.0 3.0
+UEL_MIN crystal palace hoffenheim 3.0 11.0
+UEL_MIN n.e.c. omonia 3.0 9.0
+UEL_MIN lillestrøm viktoria plzen 3.0 25.0
+UEL_MIN levski sofia jagiellonia 3.0 3.0
+UEL_MIN Benfica Lech Poznań 9.0 3.0
+UEL_MIN sturm graz celje 23.0 3.0
+UEL_MIN sunderland gnk dinamo 3.0 13.0
+UEL_MIN Torreense FC Ararat-Armenia 3.0 3.0
+UEL_MIN h. beer-sheva ofi crete 3.0 3.0
+UEL_MIN Crystal Palace TSG Hoffenheim 3.0 11.0
+UEL_MIN Lillestrom Viktoria Plzeň 3.0 25.0
+UEL_MIN NEC Nijmegen Omonoia FC 3.0 9.0
+UEL_MIN PFC Levski Sofia Jagiellonia Białystok 3.0 3.0
+UEL_MIN Sparta Prague Bournemouth 13.0 3.0
+UEL_MIN Hapoel Be'er Sheva OFI Crete 3.0 3.0
+UEL_MIN SK Sturm Graz NK Celje 23.0 3.0
+UEL_MIN Sunderland Dinamo Zagreb 3.0 13.0
+                    fixture  form_below_5  xg_ge_5
+Bundesliga                9             4        8
+Eredivisie               10             3       14
+La Liga                  11             5       12
+Ligue 1                  10             2       17
+Premier League           10             0       17
+Primeira Liga            10             2       16
+Serie A                  10             1       18
+Super Lig                 9             8        5
+UEFA Europa League       29            19        0
