@@ -103,7 +103,7 @@ class OddsCacheFreshnessTests(OfflineQuotePolicyTestCase):
         self.assertEqual(len(set(windows)), 3)
 
     def test_odds_cache_uses_fetch_time_not_mtime(self):
-        path = self.cache / "oddsapi_odds_ah_v1_EPL_eu.json"
+        path = self.cache / "oddsapi_odds_ah_v2_EPL_eu_all.json"
         path.write_text(json.dumps([dict(OLD_EVENT, bookmakers=[])]), encoding="utf-8")
         os.utime(path, None)
         self.get.return_value = response([dict(EVENT, bookmakers=[])])

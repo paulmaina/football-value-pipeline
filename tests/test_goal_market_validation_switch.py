@@ -1,5 +1,5 @@
 """Goal-market/count-market validation runs only when the selection policy uses it."""
-from datetime import timedelta
+from datetime import datetime, timedelta
 import json
 from pathlib import Path
 import tempfile
@@ -45,6 +45,11 @@ class PipelineTests(OfflineQuotePolicyTestCase):
         fixed = partial(team_research.enrich, clock=lambda: T0)
         self.addCleanup(patch.stopall)
         patch('team_research.enrich', side_effect=fixed).start()
+        # Validation modes must use the same decision cutoff as their frozen research.
+        clock = patch('football_value_pipeline_v2_standalone.datetime', wraps=datetime).start()
+        clock.now.return_value = T0
+        decision_clock = patch('conservative_bet_filter.datetime', wraps=datetime).start()
+        decision_clock.now.return_value = T0
         for flag in ([], ['--goal-market-validation']):
             with tempfile.TemporaryDirectory() as path:
                 raw = Path(path)/'raw'
@@ -68,7 +73,7 @@ class PipelineTests(OfflineQuotePolicyTestCase):
                 outputs[validated] = {name: pd.read_csv(bundle/name) for name in
                                       ('all_leagues_predictions.csv', 'conservative_bet_shortlist.csv',
                                        'cagey_tier_shortlist.csv', 'conservative_bet_rejections.csv')}
-        # Same inputs; only the wall-clock evaluation stamp differs between the two runs.
+        # Same inputs and cutoff; toggling validation must not change probabilities, picks or research.
         for name, frame_off in outputs[False].items():
             pd.testing.assert_frame_equal(frame_off.drop(columns=['evaluated_at_utc'], errors='ignore'),
                                           outputs[True][name].drop(columns=['evaluated_at_utc'], errors='ignore'),

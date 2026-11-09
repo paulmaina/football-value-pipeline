@@ -10,8 +10,8 @@ from football_value_pipeline_v2_standalone import FootballValuePipelineV2
 
 class CoverageTests(OfflineQuotePolicyTestCase):
     def fixtures(self):
-        return pd.DataFrame([dict(Date=pd.Timestamp('2026-10-13'),
-            kickoff_utc='2026-10-13T19:00:00Z', HomeTeam=f'Home{i}',
+        return pd.DataFrame([dict(Date=pd.Timestamp('2026-10-12'),
+            kickoff_utc='2026-10-12T19:00:00Z', HomeTeam=f'Home{i}',
             AwayTeam=f'Away{i}', odds_source='The Odds API', odds_event_id=f'event{i}')
             for i in range(18)])
 
@@ -23,11 +23,11 @@ class CoverageTests(OfflineQuotePolicyTestCase):
         self.assertEqual(prioritized_additional_events(rows, 4, now, 'all'), list(range(18)))
         self.assertEqual(prioritized_additional_events(rows, 4, now, 'ranked'), [])
 
-    def test_additional_fetches_stop_at_current_48_hour_boundary(self):
+    def test_additional_fetches_stop_at_current_24_hour_boundary(self):
         now=datetime(2026,10,12,tzinfo=timezone.utc)
         base={'odds_source':'The Odds API','odds_event_id':'event'}
         rows=[({**base,'kickoff_utc':(pd.Timestamp(now)+delta).isoformat()}, {})
-              for delta in (pd.Timedelta(hours=48),pd.Timedelta(hours=48,seconds=1),pd.Timedelta(hours=72))]
+              for delta in (pd.Timedelta(hours=24),pd.Timedelta(hours=24,seconds=1),pd.Timedelta(hours=72))]
         self.assertEqual(prioritized_additional_events(rows,100,now,'all'),[0])
 
     def run_pipeline(self, mode='all', mixed=False, primary_prediction=None):
