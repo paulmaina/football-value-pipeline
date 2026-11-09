@@ -16,6 +16,8 @@ from typing import Dict, List, Mapping, Optional
 import numpy as np
 import pandas as pd
 
+import shortlist_window
+
 VERSION_V1 = 'master-10-v1'
 VERSION = 'master-10-v2'
 VERSION_MARKET = 'master-profit-market-v5'
@@ -181,11 +183,16 @@ def _event_ids(predictions: Optional[pd.DataFrame]) -> Dict[tuple, str]:
     return events
 
 
-def build(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = None, version: str = None) -> pd.DataFrame:
+def build(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = None, version: str = None, *,
+          execution_policy: Optional[Mapping] = None) -> pd.DataFrame:
     """The master shortlist of one run (empty frame with the version's columns when nothing qualifies).
 
     `predictions` (the run's forecasts) supplies each pick's odds event id under v2.
     """
+    if execution_policy is not None:
+        from quote_policy import policy_scope
+        with policy_scope(execution_policy):
+            return build(decisions, predictions, version)
     from performance_tracking import fixture_key, utc
     if version is None:
         version = VERSION  # historical API default; live writes use the explicit config
@@ -292,15 +299,19 @@ def write(decisions: pd.DataFrame, out_dir, run_summary: Mapping,
         from master_selection import require_generation_clock
         module = selection_module(version)
         clock = require_generation_clock(decisions, run_summary.get('generated_at_utc'))
-        audit = module.evaluate(decisions, predictions, clock)
-        frame = module.select(audit)
+        from quote_policy import policy_scope, load_policy
+        lookahead = run_summary.get('shortlist_lookahead_hours', shortlist_window.LEGACY_HOURS)
+        with shortlist_window.scope(lookahead), policy_scope(run_summary.get('quote_execution_policy') or load_policy()):
+            audit = module.evaluate(decisions, predictions, clock)
+            frame = module.select(audit)
         audit.to_csv(Path(out_dir)/module.AUDIT_FILE, index=False)
     else:
         from master_selection import AUDIT_FILE
         frame = build(decisions, predictions, version)
         (Path(out_dir)/AUDIT_FILE).unlink(missing_ok=True)
     frame.to_csv(Path(out_dir) / FILE, index=False)
-    run_summary['master_shortlist'] = summary(frame, version)
+    with shortlist_window.scope(run_summary.get('shortlist_lookahead_hours', shortlist_window.LEGACY_HOURS)):
+        run_summary['master_shortlist'] = summary(frame, version)
     return frame
 
 

@@ -11,6 +11,8 @@ import math
 import numpy as np
 import pandas as pd
 
+import shortlist_window
+
 RULE = 'team-research-profit-v1'
 RULE_V2 = 'local-research-profit-115-200-dc12-v2'
 RULES = (RULE, RULE_V2)
@@ -31,6 +33,14 @@ def context(row, now):
         # Legacy cached forecasts stay eligible with an explicit coverage gap.
         evidence = prepare(row, now, {'errors': ['research not collected for this forecast']})
     warnings = list(evidence.get('warnings', []))
+    from research_quality import VERSION as QUALITY_VERSION, assess
+    if evidence.get('evidence_quality_version') == QUALITY_VERSION:
+        # Reassess frozen facts at this selection cutoff; never fetch fresh news in replay.
+        import copy
+        evidence = copy.deepcopy(evidence)
+        review = assess(row, evidence, now)
+        evidence.setdefault('evidence', {})['quality_review'] = review
+        warnings = [w for w in warnings if not w.startswith('Research review:')] + review['warnings']
     if pd.notna(stamp) and now-stamp > pd.Timedelta(hours=24):
         warnings.append('research older than 24 hours; refresh team news')
     warnings.append('research probability model has not passed a forward calibration gate')
@@ -63,7 +73,7 @@ def annotate(row, item, now, cost, rule=RULE):
     """Leave the cagey decision and original Pinnacle fields available for their own lists."""
     from quote_freshness import quote_is_fresh, quote_utc
     from team_research import number
-    from price_edge_shortlist import MAX_ODDS, MIN_MINUTES, MAX_HOURS
+    from price_edge_shortlist import MAX_ODDS, MIN_MINUTES
     if rule not in RULES:
         raise ValueError('Unknown researched shortlist rule')
     maximum = 2.0 if rule == RULE_V2 else MAX_ODDS
@@ -82,8 +92,8 @@ def annotate(row, item, now, cost, rule=RULE):
         reasons.extend(eligibility(row))
     price = number(item.get('offered_decimal_odds'))
     kickoff, offered = quote_utc(row.get('kickoff_utc')), quote_utc(item.get('offered_last_update_utc'))
-    if kickoff is None or not now+pd.Timedelta(minutes=MIN_MINUTES) <= kickoff <= now+pd.Timedelta(hours=MAX_HOURS):
-        reasons.append('kickoff outside 20-minute to 48-hour window')
+    if kickoff is None or not now+pd.Timedelta(minutes=MIN_MINUTES) <= kickoff <= now+pd.Timedelta(hours=shortlist_window.hours()):
+        reasons.append(shortlist_window.rejection_reason())
     if price is None or price <= 1:
         reasons.append('no offered quote at an allowed bookmaker')
     elif rule == RULE_V2 and price <= 1.15:

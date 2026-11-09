@@ -2,7 +2,8 @@
 
 The live rule writes master_shortlist.csv, its readable counterpart and
 master_shortlist_audit.csv. Nominate fifteen when the two source shortlists contain
-fifteen executable distinct fixtures. One market per exact fixture. If fewer pass,
+fifteen executable distinct fixtures kicking off 20 minutes to 24 hours after
+the run. One market per exact fixture. If fewer pass,
 record the numerical shortfall; never invent/repeat matches or accept invalid
 inputs to fill fifteen. No minimum EV or probability gate is added. Negative EV is
 labelled and all suggested stakes remain zero while the rule is unvalidated.
@@ -52,9 +53,9 @@ Take only offers marked SHORTLISTED by value or cagey selectors in this run,
 corresponding to conservative_bet_shortlist.csv and cagey_tier_shortlist.csv.
 Membership in both is a label, not independent confirmation or a probability
 bonus. Never introduce an unshortlisted line. Compare valid offered prices and
-choose one market per fixture, then the first ten fixtures. The explicit DC-to-native-AH replacement above is the only extension to those nominated outcomes.
+choose one market per fixture, then the first fifteen fixtures. The explicit DC-to-native-AH replacement above is the only extension to those nominated outcomes.
 
-Require odds strictly above 1.15 and at most 2.00; kickoff 20 minutes–48 hours;
+Require odds strictly above 1.15 and at most 2.00; kickoff 20 minutes–24 hours;
 allowed bookmaker; finite cost; and unique matching frozen fixture identity
 (competition, canonical teams and kickoff). Essential market/fixture information
 is mandatory. Missing optional research produces visible coverage warnings.

@@ -49,6 +49,8 @@ from typing import Dict, List, Mapping, Optional
 import numpy as np
 import pandas as pd
 
+import shortlist_window
+
 import market_implied as mi
 import narrow_margin as nm
 import price_edge_shortlist as v27
@@ -70,7 +72,7 @@ VALUE_COLUMNS = ['fair_odds_uncorrected', 'qualified_only_by_correction', 'corre
 OUTPUT_COLUMNS = [*v27.OUTPUT_COLUMNS[:-1], 'fair_odds_uncorrected', 'qualified_only_by_correction',
                   'corrected_cagey_score', v27.OUTPUT_COLUMNS[-1]]
 # v27's guard order, so corrected rows list their reasons the same way.
-REASON_ORDER = ('kickoff outside 20-minute to 48-hour window', v27.NO_OFFER, 'offered quote stale',
+REASON_ORDER = ('kickoff outside 20-minute to 48-hour window', 'kickoff outside 20-minute to 24-hour window', v27.NO_OFFER, 'offered quote stale',
                 v27.NO_REFERENCE, 'Pinnacle quote stale', 'Pinnacle overround outside [1.00, 1.10]',
                 'offered and Pinnacle quotes more than 10 minutes apart', 'offered price above 1.15 x fair odds',
                 'offered odds above 3.00', 'edge below 2%', 'edge below 3%')
@@ -219,7 +221,7 @@ def load_settings(path: Optional[Path] = None) -> Dict[str, object]:
 TIER_LINES = (1.0, 1.25, 1.5, 1.75, 2.0, 2.25)
 TIER_MIN_NO_LOSS = 0.85
 TIER_QUANTILE = 0.20
-TIER_GUARDS = ('kickoff outside 20-minute to 48-hour window', 'offered quote stale', v27.NO_REFERENCE,
+TIER_GUARDS = ('kickoff outside 20-minute to 48-hour window', 'kickoff outside 20-minute to 24-hour window', 'offered quote stale', v27.NO_REFERENCE,
                'Pinnacle quote stale', 'Pinnacle overround outside [1.00, 1.10]',
                'offered and Pinnacle quotes more than 10 minutes apart', 'offered price above 1.15 x fair odds',
                'offered odds above 3.00')
@@ -610,7 +612,7 @@ def over_1_5_items(row: Mapping, pin: Mapping, fit: mi.Fit, fit_info: Mapping, n
             'cagey_tier_decision': None, 'cagey_tier_reasons': None, 'in_value_tier': None, 'pinnacle_fair_odds': None}
     kickoff = quote_utc(row.get('kickoff_utc'))
     in_window = kickoff is not None and (now + pd.Timedelta(minutes=v27.MIN_MINUTES) <= kickoff
-                                         <= now + pd.Timedelta(hours=v27.MAX_HOURS))
+                                         <= now + pd.Timedelta(hours=shortlist_window.hours()))
     ref = pin.get('ou15')
     p_over_fit = None
     if settlement and fit.usable:
@@ -620,7 +622,7 @@ def over_1_5_items(row: Mapping, pin: Mapping, fit: mi.Fit, fit_info: Mapping, n
     model_p = None if model_p is None else float(row.get('p_over_1_5'))
     items = []
     for name, price, stamp in over_1_5_offers(row, policy):
-        reasons = [] if in_window else ['kickoff outside 20-minute to 48-hour window']
+        reasons = [] if in_window else [shortlist_window.rejection_reason()]
         item = {**base, 'market': OVER_1_5, 'market_to_bet': OVER_1_5, 'ah_equivalent': None, 'handicap_side': None,
                 'handicap_line': None, 'side_role': None, 'source_market': 'totals', 'bookmaker': name,
                 'offered_decimal_odds': price, 'offered_last_update_utc': stamp,
@@ -728,7 +730,7 @@ def apply_cagey_tier(decisions: pd.DataFrame, selected: pd.DataFrame, now: pd.Ti
         decisions[column] = decisions[column].astype(object)
     keys = decisions.apply(fixture_key, axis=1) if len(decisions) else pd.Series(dtype=str)
     kick = pd.to_datetime(decisions.kickoff_utc, utc=True, errors='coerce')
-    in_window = (kick >= now + pd.Timedelta(minutes=v27.MIN_MINUTES)) & (kick <= now + pd.Timedelta(hours=v27.MAX_HOURS))
+    in_window = (kick >= now + pd.Timedelta(minutes=v27.MIN_MINUTES)) & (kick <= now + pd.Timedelta(hours=shortlist_window.hours()))
     scored = in_window & decisions.corrected_cagey_score.notna()
     scores = (pd.DataFrame({'_fixture': keys[scored], 'score': decisions.corrected_cagey_score[scored]})
               .drop_duplicates('_fixture').score.astype(float))
@@ -765,7 +767,7 @@ def _apply_narrow_tier(decisions: pd.DataFrame, selected: pd.DataFrame, now: pd.
         decisions[column] = decisions[column].astype(object)
     keys = decisions.apply(fixture_key, axis=1) if len(decisions) else pd.Series(dtype=str)
     kick = pd.to_datetime(decisions.kickoff_utc, utc=True, errors='coerce')
-    in_window = (kick >= now + pd.Timedelta(minutes=v27.MIN_MINUTES)) & (kick <= now + pd.Timedelta(hours=v27.MAX_HOURS))
+    in_window = (kick >= now + pd.Timedelta(minutes=v27.MIN_MINUTES)) & (kick <= now + pd.Timedelta(hours=shortlist_window.hours()))
     score = pd.to_numeric(decisions.corrected_cagey_score, errors='coerce')
     scored = in_window & score.notna()
     fixtures = pd.DataFrame({'_fixture': keys[scored], 'score': score[scored]}).drop_duplicates('_fixture')
@@ -792,7 +794,7 @@ def _apply_narrow_tier(decisions: pd.DataFrame, selected: pd.DataFrame, now: pd.
             'in_both_tiers': int(decisions.loc[chosen, 'in_value_tier'].fillna(False).astype(bool).sum()),
             'even_odds_picks': int(decisions.loc[chosen, 'even_odds'].fillna(False).astype(bool).sum()),
             'rule': f'every fixture with P(narrow) >= {TIER_MIN_NARROW:.0%} (corrected cagey score <= {cutoff:.2f}) in '
-                    'the 20-minute to 48-hour window; its safest AH +1..+2.25 line at Pinnacle or 1xBet after the data '
+                    f'the 20-minute to {shortlist_window.hours():g}-hour window; its safest AH +1..+2.25 line at Pinnacle or 1xBet after the data '
                     'guards; price_flag says whether expected profit after stake cost under the corrected matrix is >= 0 (value) or '
                     'not (below fair); one per fixture',
             'rule_version': TIER_RULE_NARROW}
@@ -822,6 +824,13 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
     `settings` defaults to cagey_correction_config.json; replays pass the run's recorded settings.
     `monitor`, when a list, receives one correction-monitoring record per fixture (evidence only).
     """
+    lookahead = (shortlist_window.DEFAULT_HOURS if settings is None
+                 else settings.get('shortlist_lookahead_hours', shortlist_window.LEGACY_HOURS))
+    with shortlist_window.scope(lookahead):
+        return _build_shortlist(predictions, as_of, market_reliability, execution_policy, settings, model, monitor)
+
+
+def _build_shortlist(predictions, as_of, market_reliability, execution_policy, settings, model, monitor):
     settings = {**DEFAULT_SETTINGS, 'price_edge_execution_version': EXECUTION_VERSION,
                 **(settings if settings is not None else load_settings())}
     exclusions = excluded_markets(settings)

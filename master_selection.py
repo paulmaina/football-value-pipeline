@@ -11,6 +11,8 @@ import json
 import numpy as np
 import pandas as pd
 
+import shortlist_window
+
 VERSION = 'master-profit-market-v5'
 MIN_EV = .02
 MAX_AGE_MINUTES = 15
@@ -146,8 +148,8 @@ def evaluate(decisions, predictions, now=None):
             if any(not str(r.get(k) or '').strip() for k in ('league', 'home_team', 'away_team')):
                 raise ValueError('fixture identity unavailable')
             kick = quote_utc(r.get('kickoff_utc'))
-            if kick is None or not clock+pd.Timedelta(minutes=20) <= kick <= clock+pd.Timedelta(hours=48):
-                raise ValueError('kickoff outside 20-minute to 48-hour window')
+            if kick is None or not clock+pd.Timedelta(minutes=20) <= kick <= clock+pd.Timedelta(hours=shortlist_window.hours()):
+                raise ValueError(shortlist_window.rejection_reason())
             odds, cost = number(r.get('offered_decimal_odds')), number(r.get('per_stake_cost'))
             if odds is None or not 1.15 < odds <= 2:
                 raise ValueError('offered odds outside (1.15, 2.00]')
@@ -257,7 +259,7 @@ def summary(frame):
         probability_basis='Independent margin-free Pinnacle binary reference or uncorrected fit B; '
             'valid research/corrected distributions are diagnostics only; no blend or missing-evidence ranking bonus',
         validation_status='UNVALIDATED_SELECTION_RULE', automatic_staking=False,
-        rule='Union of value and cagey SHORTLISTED offers only; odds (1.15,2.00]; kickoff 20 minutes–48 hours; '
+        rule=f'Union of value and cagey SHORTLISTED offers only; odds (1.15,2.00]; kickoff 20 minutes–{shortlist_window.hours():g} hours; '
              'fresh synchronized market references; no EV or probability eligibility floor; nominate ten when '
              'ten executable distinct fixtures exist, otherwise explicit shortfall; one market per match; '
              'market profit probability then market net EV then no-loss probability then odds; '

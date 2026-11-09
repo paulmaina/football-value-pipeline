@@ -1,9 +1,10 @@
 # Market-specific no-loss tier (v5)
 
 Current rule: `no-loss-market-reference-v5`. The strict offered-price range
-(1.15, 2.00], 20-minute–48-hour window, one pick per fixture/market group,
+(1.15, 2.00], one pick per fixture/market group,
 no-loss/expected-return/odds ranking, and no narrow/EV/no-loss eligibility floors
-remain unchanged. Weather remains context. Main value selection is unchanged.
+remain unchanged. New runs use a 20-minute–24-hour kickoff window. Archived
+runs retain their recorded horizon. Weather remains context.
 
 ## Probability source, EV and stakes
 
