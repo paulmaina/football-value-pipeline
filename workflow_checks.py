@@ -14,6 +14,8 @@ import sys
 import xml.etree.ElementTree as ET
 from zipfile import ZipFile
 
+import shortlist_window
+
 FORECAST_PATHS = (
     'football_output_v2/raw/current_run.json',
     'football_output_v2/raw/prediction_runs',
@@ -105,7 +107,11 @@ def raw_check(root, *, raw_dir=None):
     win_first = policy_version in WIN_FIRST_POLICIES
     per_market = policy_version in PER_MARKET_POLICIES
     if asian:
-        require(summary.get('shortlist_lookahead_hours')==48 and len(picks)<=MAX_SELECTIONS,'Invalid Asian handicap horizon or cap')
+        allowed_horizons = (shortlist_window.LEGACY_HOURS,)
+        if policy_version == price_edge_cagey_shortlist.POLICY:
+            allowed_horizons += (shortlist_window.DEFAULT_HOURS,)
+        require(summary.get('shortlist_lookahead_hours') in allowed_horizons and len(picks) <= MAX_SELECTIONS,
+                'Invalid Asian handicap horizon or cap')
     if per_market:
         from collections import Counter
         require(max(Counter(r.get('market_group') for r in picks).values(),default=0)<=PER_GROUP_CAP,
@@ -188,7 +194,8 @@ def raw_check(root, *, raw_dir=None):
                 # A run that records no tier rule used value-v1 (tier_rule() maps None to it); a run that
                 # records no execution version used execution v1.
                 settings={**{k: summary.get(k) for k in price_edge_cagey_shortlist.REPLAY_SETTINGS},
-                          'price_edge_execution_version': summary.get('price_edge_execution_version', 1)},
+                          'price_edge_execution_version': summary.get('price_edge_execution_version', 1),
+                          'shortlist_lookahead_hours': summary['shortlist_lookahead_hours']},
                 model=narrow_margin.load(summary['cagey_model_version']) if summary.get('cagey_model_version') else None,
                 monitor=monitoring)
         else:
@@ -235,24 +242,29 @@ def raw_check(root, *, raw_dir=None):
                 require(master_path.exists(), 'Missing current master shortlist')
                 master_version = summary['master_shortlist'].get('version')
                 require(master_version in master_shortlist.VERSIONS, 'Unknown master shortlist version')
-                if master_version in (master_shortlist.VERSION_MARKET, master_shortlist.VERSION_AH, master_shortlist.VERSION_NO_TOTALS, master_shortlist.VERSION_CONTEXT):
+                if master_version in master_shortlist.MARKET_VERSIONS:
                     from master_selection import require_generation_clock
                     require_generation_clock(decisions, summary.get('generated_at_utc'))
-                master_expected = master_shortlist.build(
-                    decisions, pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False), master_version)
+                with shortlist_window.scope(summary['shortlist_lookahead_hours']):
+                    master_expected = master_shortlist.build(
+                        decisions, pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False), master_version,
+                        execution_policy=summary.get('quote_execution_policy', {}))
+                    master_summary_expected = master_shortlist.summary(master_expected, master_version)
                 try:
                     master_actual = pd.read_csv(master_path, low_memory=False)
                 except pd.errors.EmptyDataError:
                     master_actual = pd.DataFrame(columns=master_shortlist.columns(master_version))
                 require(master_shortlist.matches(master_actual, master_expected, master_version),
                         'Current master shortlist differs from deterministic replay')
-                require(equivalent(summary['master_shortlist'], master_shortlist.summary(master_expected, master_version)),
+                require(equivalent(summary['master_shortlist'], master_summary_expected),
                         'Current master shortlist summary differs from replay')
-                if master_version in (master_shortlist.VERSION_MARKET, master_shortlist.VERSION_AH, master_shortlist.VERSION_NO_TOTALS, master_shortlist.VERSION_CONTEXT):
+                if master_version in master_shortlist.MARKET_VERSIONS:
                     module = master_shortlist.selection_module(master_version)
                     audit_path = raw/module.AUDIT_FILE
                     require(audit_path.exists(), 'Missing current master selection audit')
-                    audit_expected = module.evaluate(decisions, pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False))
+                    from quote_policy import policy_scope
+                    with shortlist_window.scope(summary['shortlist_lookahead_hours']), policy_scope(summary.get('quote_execution_policy')):
+                        audit_expected = module.evaluate(decisions, pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False))
                     audit_actual = pd.read_csv(audit_path, low_memory=False)
                     require(master_shortlist.matches(audit_actual, audit_expected, master_version),
                             'Current master selection audit differs from deterministic replay')
@@ -288,7 +300,7 @@ def raw_check(root, *, raw_dir=None):
                       *(['min_edge','min_edge_derived','rejection_counts','tagged_candidates','reference_type_counts']
                         if policy_version in (price_edge_shortlist.POLICY, price_edge_cagey_shortlist.POLICY) else []),
                       *(['cagey_correction_enabled','cagey_tier_enabled','cagey_model_version','correction_only_value_picks',
-                         'cagey_tier']
+                         'cagey_tier','shortlist_lookahead_hours','shortlist_window_end_utc']
                         if policy_version == price_edge_cagey_shortlist.POLICY else []),
                       *(['price_edge_execution_version'] if 'price_edge_execution_version' in summary else []),
                       'eligible_markets', 'quote_execution_policy'):

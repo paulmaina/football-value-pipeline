@@ -120,7 +120,7 @@ class DoubleChanceTests(OfflineQuotePolicyTestCase):
                 r=api.extra_markets_for_event(LEAGUES['EPL'],'example')
                 self.assertIn('alternate_spreads',fetch.call_args.kwargs['params']['markets'])
                 self.assertIn('double_chance',fetch.call_args.kwargs['params']['markets'])
-                self.assertIn('ah_dc_v3',fetch.call_args.args[1])
+                self.assertIn('ah_dc_v4',fetch.call_args.args[1])
                 for dropped in ('btts','alternate_totals_corners','alternate_totals_cards'):
                     self.assertNotIn(dropped,fetch.call_args.kwargs['params']['markets'].split(','))
                 self.assertEqual(r['market_home_draw_odds'],1.35)

@@ -1,7 +1,7 @@
 """Lightweight price check: refresh odds and re-run v27 selection, no model refit.
 
 Re-requests only the main odds market set (h2h, spreads, totals) for leagues
-that have a stored fixture inside the 48-hour window, merges the fresh quotes
+that have a stored fixture inside the shortlist window, merges the fresh quotes
 into the current forecast rows, and re-ranks with the production policy. The
 forecast probabilities, model fits and per-event extra markets are untouched.
 
@@ -21,9 +21,11 @@ from typing import Dict, Iterable, Optional
 import numpy as np
 import pandas as pd
 
+import shortlist_window
+
 MAIN_MARKETS = ('h2h', 'totals', 'spreads')
 INTERVALS = (3, 4, 6)
-WINDOW_HOURS = 48
+WINDOW_HOURS = shortlist_window.DEFAULT_HOURS
 LOOKAHEAD_DAYS = 3
 
 
@@ -35,7 +37,7 @@ def due(clock: datetime, interval: int) -> bool:
 
 
 def leagues_in_window(predictions: pd.DataFrame, clock: datetime) -> list:
-    """Registry keys with a stored fixture kicking off within the next 48 hours."""
+    """Registry keys with a stored fixture kicking off within the shortlist window."""
     from football_value_pipeline_v2_standalone import LEAGUES
     if predictions.empty:
         return []
@@ -81,7 +83,7 @@ def merge_odds(predictions: pd.DataFrame, odds: pd.DataFrame) -> pd.DataFrame:
             continue
         old = json.loads(row.get('asian_handicap_offers') or '[]') if isinstance(row.get('asian_handicap_offers'), str) else []
         new = json.loads(event.get('asian_handicap_offers') or '[]')
-        unique = {(x['side'], x['line'], x['bookmaker']): x
+        unique = {(x['side'], x['line'], x['bookmaker'], x.get('market_key') == 'draw_no_bet'): x
                   for x in sorted(old + new, key=lambda x: (str(x['last_update_utc']), x['price']))}
         result.at[idx, 'asian_handicap_offers'] = json.dumps(list(unique.values()), sort_keys=True)
         result.at[idx, 'price_edge_quotes'] = merge_quotes(row.get('price_edge_quotes'), event.get('price_edge_quotes'))
@@ -123,7 +125,7 @@ def check(root: Path, api, clock: Optional[datetime] = None) -> Dict[str, object
 
 
 def monthly_credits(match_days: Iterable, interval: int, regions: int = 1) -> float:
-    """Expected credits per 30 days for one league: 3 credits per check with a fixture in the next 48 hours."""
+    """Expected credits per 30 days for one league: 3 credits per check with a fixture in the shortlist window."""
     kicks = np.sort(pd.to_datetime(list(match_days), utc=True).as_unit('ns').asi8)
     if not len(kicks):
         return 0.0
@@ -141,7 +143,7 @@ def estimate(cache_dir: Path = Path('.football_cache'), seasons=('2425',)) -> Di
     """Monthly credits for N = 3, 4, 6 hours from a full season of real kickoff dates.
 
     Per league, a check costs 3 credits (h2h, spreads, totals; one region)
-    when that league has a fixture within 48 hours. The 8 football-data
+    when that league has a fixture within the shortlist window. The 8 football-data
     leagues use their real dates; UCL and UEL are approximated by the
     Tuesday-Thursday rounds of the same months (no fixture file is cached).
     """

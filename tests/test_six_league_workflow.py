@@ -37,9 +37,7 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
             stamp=(NOW-timedelta(minutes=1)).isoformat()
             row['price_edge_quotes']=json.dumps([
                 {'bookmaker':'Pinnacle','market':'h2h','market_key':'h2h','point':None,'last_update_utc':stamp,
-                 'prices':{'home':1.9,'draw':3.5,'away':4.4}},
-                {'bookmaker':'1xBet','market':'h2h','market_key':'h2h','point':None,'last_update_utc':stamp,
-                 'prices':{'home':1.95,'draw':3.4,'away':3.9}}])
+                 'prices':{'home':1.9,'draw':3.5,'away':4.4}}])
             frames[key]=pd.DataFrame([row])
             match={'id':i+1,'status':'FINISHED','utcDate':row['kickoff_utc'],
                 'homeTeam':{'name':row['home_team']},'awayTeam':{'name':row['away_team']},
@@ -81,9 +79,7 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 self.assertEqual(summary['selection_policy_version'], '48h-ah-price-edge-cagey-v28')
                 self.assertTrue(summary['cagey_correction_enabled'] and summary['cagey_tier_enabled'])
                 self.assertTrue({'Home win','Away win','Double Chance 1X','Double Chance X2'}.issubset(summary['eligible_markets']))
-                # Draw remains excluded; the researched v2 rule includes all three double chances.
-                self.assertIn('Double Chance 12', summary['eligible_markets'])
-                for excluded in ('Draw',):
+                for excluded in ('Draw', 'Double Chance 12', 'Over 1.5'):
                     self.assertNotIn(excluded,summary['eligible_markets'])
                 self.assertEqual(summary.get('value_rule'), 'local-research-profit-115-200-dc12-v2')
                 # The pipeline writes the master shortlist beside the other lists and records it in the summary.
@@ -91,7 +87,7 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 self.assertEqual(summary['master_shortlist']['n_bets'], len(master))
                 # A negative edge and missing optional research do not block nominations.
                 self.assertEqual(len(master), min(15, len(keys)))
-                self.assertEqual(summary['master_shortlist']['version'], 'master-profit-15-context-v8')
+                self.assertEqual(summary['master_shortlist']['version'], 'master-profit-15-pinnacle-markets-v9')
                 self.assertEqual(summary['master_shortlist']['shortfall'], max(0, 15-len(keys)))
                 self.assertTrue(master.master_suggested_stake.eq(0).all())
                 self.assertEqual(len(master[['league','home_team','away_team','kickoff_utc']].drop_duplicates()),len(master))
@@ -100,7 +96,7 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 self.assertTrue(audit.master_coverage_warning.str.contains('research').all())
                 self.assertNotIn('Over 1.5', summary['eligible_markets'])
                 self.assertEqual(set(picks.market),{'Home win'})
-                self.assertEqual(set(picks.bookmaker),{'1xBet'})
+                self.assertEqual(set(picks.bookmaker),{'Pinnacle'})
                 self.assertIn('Asian Handicap Home +0.00', summary['eligible_markets'])
                 self.assertEqual(format_main(['--root-dir',str(root)]),0)
                 readable = pd.read_csv(root/'readable/conservative_bet_shortlist_readable.csv')

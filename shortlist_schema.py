@@ -77,4 +77,20 @@ def readable(frame, pct, decimal, signed_pct, group_names):
         out['Uncorrected Over 1.5'] = frame.uncorrected_over_1_5_probability.map(pct)
         out['Totals correction delta'] = frame.totals_correction_delta.map(signed_pct)
         out['Draw correction delta vs Pinnacle'] = frame.corrected_draw_delta_vs_pinnacle.map(signed_pct)
+    if 'research_warnings' in frame:
+        out['Coverage warnings'] = frame.research_warnings
+    if 'research_details' in frame:
+        import json
+        def quality_text(value):
+            try:
+                details = json.loads(value) if isinstance(value, str) else {}
+                review = details.get('quality_review', {})
+                if not review:
+                    return ''
+                return review['status'] + ': ' + '; '.join(review.get('warnings', []))
+            except (ValueError, TypeError, AttributeError, KeyError):
+                return ''
+        reviews = frame.research_details.map(quality_text)
+        if reviews.ne('').any():
+            out['Research quality review'] = reviews
     return out

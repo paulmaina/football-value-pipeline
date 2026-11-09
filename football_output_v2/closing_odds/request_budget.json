@@ -1,29 +1,47 @@
 {
   "daily_request_cap": 100,
-  "date": "2026-11-07",
-  "requests": 4,
+  "date": "2026-11-08",
+  "requests": 37,
   "reservations": {
-    "actions-42370283033-1-1": {
+    "actions-42479265039-1-1": {
       "allowance": 10,
-      "reserved_at_utc": "2026-11-07T12:12:25.245644+00:00",
+      "reserved_at_utc": "2026-11-08T12:42:22.220234+00:00",
+      "status": "complete",
+      "used": 10
+    },
+    "actions-42479265039-1-2": {
+      "allowance": 10,
+      "reserved_at_utc": "2026-11-08T12:58:02.023012+00:00",
+      "status": "complete",
+      "used": 8
+    },
+    "actions-42479265039-1-3": {
+      "allowance": 10,
+      "reserved_at_utc": "2026-11-08T13:12:27.015665+00:00",
+      "status": "complete",
+      "used": 10
+    },
+    "actions-42479265039-1-4": {
+      "allowance": 21,
+      "reserved_at_utc": "2026-11-08T13:42:26.482995+00:00",
+      "status": "complete",
+      "used": 5
+    },
+    "actions-42484046523-1-1": {
+      "allowance": 21,
+      "reserved_at_utc": "2026-11-08T13:56:58.293244+00:00",
+      "status": "complete",
+      "used": 2
+    },
+    "actions-42508317382-1-1": {
+      "allowance": 10,
+      "reserved_at_utc": "2026-11-08T18:12:38.846137+00:00",
       "status": "complete",
       "used": 1
     },
-    "actions-42374390253-1-1": {
+    "actions-42509814197-1-1": {
       "allowance": 10,
-      "reserved_at_utc": "2026-11-07T12:53:31.734403+00:00",
-      "status": "complete",
-      "used": 1
-    },
-    "actions-42398434405-1-1": {
-      "allowance": 10,
-      "reserved_at_utc": "2026-11-07T17:53:18.160107+00:00",
-      "status": "complete",
-      "used": 1
-    },
-    "actions-42399022089-1-1": {
-      "allowance": 10,
-      "reserved_at_utc": "2026-11-07T19:27:18.271454+00:00",
+      "reserved_at_utc": "2026-11-08T18:26:38.687768+00:00",
       "status": "complete",
       "used": 1
     }

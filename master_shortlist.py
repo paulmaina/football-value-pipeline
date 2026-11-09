@@ -1,11 +1,10 @@
 """Master shortlist and immutable legacy replay.
 
-Live research runs use master-profit-15-context-v8: Over 1.5 is excluded from the union of the
-value/cagey shortlists, fresh independent market settlement, market profit-first ranking,
-no EV floor, one market per fixture and fifteen nominations when fifteen fixtures pass execution checks. See master_selection.
-Archived v1/v2/v5 rules remain unchanged; v6 uses native Pinnacle AH replacements for DC nominations.
+Live research runs use master-profit-15-pinnacle-markets-v9. The source
+shortlist union supplies native Pinnacle Asian Handicap, win and 1X/X2
+offers for fifteen distinct fixtures, ranked by market profit probability.
+The master keeps the original offered price and shows frozen context for review.
 """
-from __future__ import annotations
 
 import io
 import json
@@ -16,13 +15,18 @@ from typing import Dict, List, Mapping, Optional
 import numpy as np
 import pandas as pd
 
+import shortlist_window
+
 VERSION_V1 = 'master-10-v1'
 VERSION = 'master-10-v2'
 VERSION_MARKET = 'master-profit-market-v5'
 VERSION_AH = 'master-profit-no-dc-v6'
 VERSION_NO_TOTALS = 'master-profit-no-dc-no-over15-v7'
 VERSION_CONTEXT = 'master-profit-15-context-v8'
-VERSIONS = (VERSION_V1, VERSION, VERSION_MARKET, VERSION_AH, VERSION_NO_TOTALS, VERSION_CONTEXT)
+VERSION_PINNACLE_MARKETS = 'master-profit-15-pinnacle-markets-v9'
+CONTEXT_VERSIONS = (VERSION_CONTEXT, VERSION_PINNACLE_MARKETS)
+MARKET_VERSIONS = (VERSION_MARKET, VERSION_AH, VERSION_NO_TOTALS, *CONTEXT_VERSIONS)
+VERSIONS = (VERSION_V1, VERSION, *MARKET_VERSIONS)
 BASIS_PINNACLE = 'Pinnacle fair price'
 BASIS_FIT = 'market-implied fit B'
 BASIS_CORRECTED = 'cagey-corrected fit'
@@ -74,6 +78,9 @@ CONFIG = Path(__file__).with_name('master_shortlist_config.json')
 
 
 def selection_module(version):
+    if version == VERSION_PINNACLE_MARKETS:
+        import master_selection_pinnacle_markets
+        return master_selection_pinnacle_markets
     if version == VERSION_CONTEXT:
         import master_selection_fifteen
         return master_selection_fifteen
@@ -100,7 +107,7 @@ def configured_version():
 def columns(version: str = VERSION) -> List[str]:
     if version not in VERSIONS:
         raise ValueError(f'Unknown master shortlist version {version!r}')
-    if version == VERSION_CONTEXT:
+    if version in CONTEXT_VERSIONS:
         return COLUMNS_CONTEXT
     if version in (VERSION_AH, VERSION_NO_TOTALS):
         return COLUMNS_AH
@@ -181,15 +188,20 @@ def _event_ids(predictions: Optional[pd.DataFrame]) -> Dict[tuple, str]:
     return events
 
 
-def build(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = None, version: str = None) -> pd.DataFrame:
+def build(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = None, version: str = None, *,
+          execution_policy: Optional[Mapping] = None) -> pd.DataFrame:
     """The master shortlist of one run (empty frame with the version's columns when nothing qualifies).
 
     `predictions` (the run's forecasts) supplies each pick's odds event id under v2.
     """
+    if execution_policy is not None:
+        from quote_policy import policy_scope
+        with policy_scope(execution_policy):
+            return build(decisions, predictions, version)
     from performance_tracking import fixture_key, utc
     if version is None:
         version = VERSION  # historical API default; live writes use the explicit config
-    if version in (VERSION_MARKET, VERSION_AH, VERSION_NO_TOTALS, VERSION_CONTEXT):
+    if version in MARKET_VERSIONS:
         module = selection_module(version)
         return module.select(module.evaluate(decisions, predictions))
     wanted = columns(version)
@@ -217,7 +229,7 @@ def build(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = None, v
 def summary(frame: pd.DataFrame, version: str = None) -> Dict[str, object]:
     if version is None:
         version = str(frame.master_version.iloc[0]) if len(frame) else frame.attrs.get('master_version', VERSION)
-    if version in (VERSION_MARKET, VERSION_AH, VERSION_NO_TOTALS, VERSION_CONTEXT):
+    if version in MARKET_VERSIONS:
         return selection_module(version).summary(frame)
     flags = frame['master_price_flag'] if len(frame) else pd.Series(dtype=object)
     extra = {} if version == VERSION_V1 else {
@@ -288,19 +300,23 @@ def write(decisions: pd.DataFrame, out_dir, run_summary: Mapping,
     if version is None:
         version = configured_version()
     columns(version)  # reject unknown versions before writing any output
-    if version in (VERSION_MARKET, VERSION_AH, VERSION_NO_TOTALS, VERSION_CONTEXT):
+    if version in MARKET_VERSIONS:
         from master_selection import require_generation_clock
         module = selection_module(version)
         clock = require_generation_clock(decisions, run_summary.get('generated_at_utc'))
-        audit = module.evaluate(decisions, predictions, clock)
-        frame = module.select(audit)
+        from quote_policy import policy_scope, load_policy
+        lookahead = run_summary.get('shortlist_lookahead_hours', shortlist_window.LEGACY_HOURS)
+        with shortlist_window.scope(lookahead), policy_scope(run_summary.get('quote_execution_policy') or load_policy()):
+            audit = module.evaluate(decisions, predictions, clock)
+            frame = module.select(audit)
         audit.to_csv(Path(out_dir)/module.AUDIT_FILE, index=False)
     else:
         from master_selection import AUDIT_FILE
         frame = build(decisions, predictions, version)
         (Path(out_dir)/AUDIT_FILE).unlink(missing_ok=True)
     frame.to_csv(Path(out_dir) / FILE, index=False)
-    run_summary['master_shortlist'] = summary(frame, version)
+    with shortlist_window.scope(run_summary.get('shortlist_lookahead_hours', shortlist_window.LEGACY_HOURS)):
+        run_summary['master_shortlist'] = summary(frame, version)
     return frame
 
 
