@@ -16,6 +16,8 @@ from typing import Dict, List, Mapping, Optional
 import numpy as np
 import pandas as pd
 
+import shortlist_window
+
 VERSION_V1 = 'master-10-v1'
 VERSION = 'master-10-v2'
 VERSION_MARKET = 'master-profit-market-v5'
@@ -298,7 +300,8 @@ def write(decisions: pd.DataFrame, out_dir, run_summary: Mapping,
         module = selection_module(version)
         clock = require_generation_clock(decisions, run_summary.get('generated_at_utc'))
         from quote_policy import policy_scope, load_policy
-        with policy_scope(run_summary.get('quote_execution_policy') or load_policy()):
+        lookahead = run_summary.get('shortlist_lookahead_hours', shortlist_window.LEGACY_HOURS)
+        with shortlist_window.scope(lookahead), policy_scope(run_summary.get('quote_execution_policy') or load_policy()):
             audit = module.evaluate(decisions, predictions, clock)
             frame = module.select(audit)
         audit.to_csv(Path(out_dir)/module.AUDIT_FILE, index=False)
@@ -307,7 +310,8 @@ def write(decisions: pd.DataFrame, out_dir, run_summary: Mapping,
         frame = build(decisions, predictions, version)
         (Path(out_dir)/AUDIT_FILE).unlink(missing_ok=True)
     frame.to_csv(Path(out_dir) / FILE, index=False)
-    run_summary['master_shortlist'] = summary(frame, version)
+    with shortlist_window.scope(run_summary.get('shortlist_lookahead_hours', shortlist_window.LEGACY_HOURS)):
+        run_summary['master_shortlist'] = summary(frame, version)
     return frame
 
 

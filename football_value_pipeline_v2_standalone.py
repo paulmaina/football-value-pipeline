@@ -4016,7 +4016,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--max-extra-event-odds-requests", type=int, default=24,
                    help="Maximum additional event calls in ranked coverage mode (default: 24).")
     p.add_argument("--additional-odds-coverage", choices=["all", "ranked"], default="all",
-                   help="all: request every linked fixture in the 48h window (more API credits); ranked: capped legacy mode")
+                   help="all: request every linked fixture in the shortlist window (more API credits); ranked: capped legacy mode")
     p.add_argument("--seasons-back", type=int, choices=range(1, 11), default=None,
                    help="Explicit shared history override; otherwise domestic uses six seasons and UCL four; UEL always uses all verified cached history.")
     p.add_argument("--domestic-seasons-back", type=int, choices=range(1, 11), default=None,

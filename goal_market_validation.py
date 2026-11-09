@@ -21,6 +21,8 @@ from typing import Optional
 import numpy as np
 import pandas as pd
 
+import shortlist_window
+
 from league_registry import keys as _league_keys
 
 # Ranked-mode extra event-odds reservations: every league is approved per
@@ -151,12 +153,12 @@ def prioritized_additional_events(
     candidates: list[tuple[float, int]] = []
     for i, (fixture, pred) in enumerate(rows):
         if as_of is not None:
-            from conservative_bet_filter import BALANCED_SHORTLIST_LOOKAHEAD_HOURS, MIN_MINUTES_UNTIL_KICKOFF
+            from conservative_bet_filter import MIN_MINUTES_UNTIL_KICKOFF
             clock = pd.to_datetime(as_of, utc=True)
             kickoff = pd.to_datetime(fixture.get('kickoff_utc'), utc=True, errors='coerce')
             if pd.isna(kickoff) or not (
                 clock + pd.Timedelta(minutes=MIN_MINUTES_UNTIL_KICKOFF)
-                <= kickoff <= clock + pd.Timedelta(hours=BALANCED_SHORTLIST_LOOKAHEAD_HOURS)
+                <= kickoff <= clock + pd.Timedelta(hours=shortlist_window.DEFAULT_HOURS)
             ):
                 continue
         if fixture.get("odds_source") != "The Odds API":
