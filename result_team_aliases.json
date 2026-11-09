@@ -1,0 +1,35 @@
+{
+  "_comment": "Reviewed provider-name pairs for result matching only. Keys are football-data.org competition codes; each maps the team name used in our forecasts to the verified result's team name. Used only when the standard matcher finds no result, and only for a unique result within the kickoff tolerance with both sides in the same order.",
+  "CL": {
+    "AEK Athens": "PAE AEK",
+    "Como": "Como 1907",
+    "Shakhtar Donetsk": "FK Shakhtar Donetsk"
+  },
+  "DED": {
+    "AZ Alkmaar": "AZ",
+    "FC Twente Enschede": "FC Twente '65",
+    "NEC Nijmegen": "NEC"
+  },
+  "FL1": {
+    "Angers": "Angers SCO",
+    "Lille": "Lille OSC",
+    "Lyon": "Olympique Lyonnais",
+    "Nice": "OGC Nice",
+    "Rennes": "Stade Rennais FC 1901"
+  },
+  "PD": {
+    "Athletic Bilbao": "Athletic Club",
+    "Celta Vigo": "RC Celta de Vigo",
+    "Levante": "Levante UD"
+  },
+  "PPL": {
+    "Académico de Viseu": "Académico de Viseu FC",
+    "Benfica": "Sport Lisboa e Benfica",
+    "CF Estrela": "CF Estrela da Amadora",
+    "Estoril": "GD Estoril Praia",
+    "Nacional": "CD Nacional"
+  },
+  "SA": {
+    "Como": "Como 1907"
+  }
+}
