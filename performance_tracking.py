@@ -712,6 +712,31 @@ def score_prediction(row: dict, final: dict | None, state: str) -> dict:
 
 
 DUPLICATE_RESULT = "DUPLICATE_RESULT_IDENTITY"
+LATE_FORECAST = "FORECAST_NOT_BEFORE_VERIFIED_KICKOFF"
+
+
+def lead_checked(row: dict, match: dict | None, state: str) -> tuple[dict | None, str]:
+    """Grade a frozen row only if it was generated and captured before the VERIFIED kickoff.
+
+    The archive checks the 20-minute lead against the scheduled kickoff the
+    forecast carried. The matcher may bind a verified kickoff up to 36 hours
+    away, so a moved match could otherwise grade a forecast made after it
+    started. Rows without both timestamps are not graded. Date-only results
+    (Turkish T1 CSVs bind on the same calendar date) carry no kickoff instant,
+    so the scheduled kickoff the archive already checked stays the reference.
+    """
+    if match is None:
+        return match, state
+    kick = utc(match.get("kickoff_utc")) if "kickoff_utc" in match else utc(row.get("kickoff_utc"))
+    times = [utc(row.get("snapshot_generated_utc")), utc(row.get("snapshot_captured_utc"))]
+    if kick is None or None in times or max(times) > kick - timedelta(minutes=MIN_LEAD_MINUTES):
+        return None, LATE_FORECAST
+    return match, state
+
+
+def graded_match(row: dict, records: list[dict]) -> tuple[dict | None, str]:
+    """fixture_match plus the verified-kickoff lead check, as the report grades a frozen row."""
+    return lead_checked(row, *fixture_match(row, records))
 PREDICTION_SCORE_FIELDS = ("one_x_two_brier", "one_x_two_correct", "over_1_5_correct",
                            "under_3_5_correct", "btts_yes_correct", "btts_no_correct")
 
@@ -1115,7 +1140,7 @@ def review(*, root: Path = ROOT, token: str = "",
         match, state = matches[key]
         if key[-1] is not None and key[-1] > clock-timedelta(hours=2):
             return None, 'PENDING_KICKOFF_OR_FINAL_SCORE'
-        return match, state
+        return lead_checked(row, match, state)
     selections_graded, predictions_graded, history_graded = [], [], []
     for row in history:
         match, state = verified_for(row)
