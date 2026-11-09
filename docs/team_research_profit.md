@@ -8,10 +8,10 @@ pending. Passing software tests does not demonstrate prediction accuracy. Old su
 and replay their recorded rules, prices and selection behavior.
 
 - Offered decimal odds must be strictly greater than 1.15 and at most 2.00.
-- Markets: home win, away win, double chance 1X/X2/12, quoted Asian Handicap
-  and Over 1.5. No synthetic odds or invented handicap equivalents for DC 12.
-  Forward grading and closing-value tracking also handle DC 12 as a non-draw
-  binary market, separately from Over 1.5 and handicap lines.
+- New runs accept Pinnacle home and away wins, native Double Chance 1X and X2,
+  and native Asian Handicap quotes at any valid quarter line. Separate Draw
+  No Bet quotes, Double Chance 12 and totals are excluded. A quoted Asian
+  Handicap 0 line remains eligible. Archived results retain their market rules.
 - Keep one pick per fixture per market group. For AH this means the safest
   actual quoted line inside the odds range: highest positive-net-return
   probability, then expected return, then price. An AH +/-0.5 quote remains

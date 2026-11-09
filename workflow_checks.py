@@ -242,7 +242,7 @@ def raw_check(root, *, raw_dir=None):
                 require(master_path.exists(), 'Missing current master shortlist')
                 master_version = summary['master_shortlist'].get('version')
                 require(master_version in master_shortlist.VERSIONS, 'Unknown master shortlist version')
-                if master_version in (master_shortlist.VERSION_MARKET, master_shortlist.VERSION_AH, master_shortlist.VERSION_NO_TOTALS, master_shortlist.VERSION_CONTEXT):
+                if master_version in master_shortlist.MARKET_VERSIONS:
                     from master_selection import require_generation_clock
                     require_generation_clock(decisions, summary.get('generated_at_utc'))
                 with shortlist_window.scope(summary['shortlist_lookahead_hours']):
@@ -258,7 +258,7 @@ def raw_check(root, *, raw_dir=None):
                         'Current master shortlist differs from deterministic replay')
                 require(equivalent(summary['master_shortlist'], master_summary_expected),
                         'Current master shortlist summary differs from replay')
-                if master_version in (master_shortlist.VERSION_MARKET, master_shortlist.VERSION_AH, master_shortlist.VERSION_NO_TOTALS, master_shortlist.VERSION_CONTEXT):
+                if master_version in master_shortlist.MARKET_VERSIONS:
                     module = master_shortlist.selection_module(master_version)
                     audit_path = raw/module.AUDIT_FILE
                     require(audit_path.exists(), 'Missing current master selection audit')

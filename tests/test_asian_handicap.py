@@ -89,14 +89,14 @@ class AsianHandicapTests(OfflineQuotePolicyTestCase):
         for point in ah.LINES:
             q=ah.probabilities(ah.margins(matrix),'away',point,1.8)
             self.assertAlmostEqual(sum(q['p_'+k] for k in ah.OUTCOMES),1)
-        for bad in (True,.1,4,float('nan')):
+        for bad in (True,.1,4.1,float('nan'),float('inf')):
             with self.assertRaises((ValueError,TypeError)):ah.line(bad)
         for bad in ({'0':.5},{'0':float('nan')},{'x':1},[]):
             with self.assertRaises((ValueError,TypeError)):ah.distribution(bad)
         with self.assertRaises(ValueError):ah.margins(np.ones((2,2)))
         with self.assertRaises(ValueError):ah.profit(1,0,'other',0,2)
         with self.assertRaises(ValueError):ah.label('other',0)
-        self.assertIsNone(ah.parse_label('Asian Handicap Home +9.00'))
+        self.assertEqual(ah.parse_label('Asian Handicap Home +9.00'), ('home', 9.0))
 
     def test_quotes_require_complete_opposite_pairs_and_requested_books(self):
         for book in ('Pinnacle','bet365','1xBet','1xbet'):

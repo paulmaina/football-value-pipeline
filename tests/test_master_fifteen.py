@@ -140,7 +140,7 @@ class FifteenMasterTests(OfflineQuotePolicyTestCase):
         from format_football_output import master_section,write_predictions_workbook
         d,p=pool(16);info={'generated_at_utc':NOW.isoformat()}
         with tempfile.TemporaryDirectory() as tmp,patch('team_research.FreeSources.get',side_effect=AssertionError('Replay must be offline')):
-            root=Path(tmp);frame=master.write(d,root,info,p)
+            root=Path(tmp);frame=master.write(d,root,info,p,version=master.VERSION_CONTEXT)
             expected=master.build(d,p,master.VERSION_CONTEXT)
             self.assertTrue(master.matches(frame,expected))
             self.assertTrue(master.matches(pd.read_csv(root/master.FILE),expected))

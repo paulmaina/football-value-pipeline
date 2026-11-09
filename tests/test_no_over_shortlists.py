@@ -41,8 +41,9 @@ class NoOverShortlistTests(OfflineQuotePolicyTestCase):
         self.assertEqual(replayed,old_summary)
 
     def test_live_config_excludes_over_and_master_has_explicit_version(self):
-        self.assertEqual(v28.load_settings()['excluded_markets'],['Over 1.5'])
-        self.assertEqual(master.configured_version(),master.VERSION_CONTEXT)
+        self.assertEqual(v28.load_settings()['excluded_markets'],
+                         ['Double Chance 12', 'Draw No Bet Away', 'Draw No Bet Home', 'Over 1.5'])
+        self.assertEqual(master.configured_version(),master.VERSION_PINNACLE_MARKETS)
         for invalid in ['Over 1.5',[None],[''],{}]:
             with self.subTest(invalid=invalid), self.assertRaises(ValueError):
                 v28.excluded_markets({'excluded_markets':invalid})

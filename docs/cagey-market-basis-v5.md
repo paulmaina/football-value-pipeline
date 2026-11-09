@@ -4,7 +4,10 @@ Current rule: `no-loss-market-reference-v5`. The strict offered-price range
 (1.15, 2.00], one pick per fixture/market group,
 no-loss/expected-return/odds ranking, and no narrow/EV/no-loss eligibility floors
 remain unchanged. New runs use a 20-minute–24-hour kickoff window. Archived
-runs retain their recorded horizon. Weather remains context.
+runs retain their recorded horizon. Weather remains context. Live market
+eligibility is limited to native Pinnacle Asian Handicap, home or away win,
+and Double Chance 1X or X2. The Over 1.5 behavior below describes historical
+runs that allowed that market.
 
 ## Probability source, EV and stakes
 

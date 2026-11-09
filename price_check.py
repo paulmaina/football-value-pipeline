@@ -83,7 +83,7 @@ def merge_odds(predictions: pd.DataFrame, odds: pd.DataFrame) -> pd.DataFrame:
             continue
         old = json.loads(row.get('asian_handicap_offers') or '[]') if isinstance(row.get('asian_handicap_offers'), str) else []
         new = json.loads(event.get('asian_handicap_offers') or '[]')
-        unique = {(x['side'], x['line'], x['bookmaker']): x
+        unique = {(x['side'], x['line'], x['bookmaker'], x.get('market_key') == 'draw_no_bet'): x
                   for x in sorted(old + new, key=lambda x: (str(x['last_update_utc']), x['price']))}
         result.at[idx, 'asian_handicap_offers'] = json.dumps(list(unique.values()), sort_keys=True)
         result.at[idx, 'price_edge_quotes'] = merge_quotes(row.get('price_edge_quotes'), event.get('price_edge_quotes'))

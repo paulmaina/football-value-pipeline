@@ -117,7 +117,8 @@ def excluded_markets(settings: Mapping) -> list:
 
 
 def apply_market_exclusions(item: dict, settings: Mapping) -> None:
-    if item.get('market') not in excluded_markets(settings):
+    excluded = excluded_markets(settings)
+    if item.get('market') not in excluded and item.get('market_to_bet') not in excluded:
         return
     reason = 'market excluded by shortlist configuration'
     item['decision'] = 'REJECTED'

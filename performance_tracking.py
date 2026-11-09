@@ -838,11 +838,12 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
     selection_history = selections if selection_history is None else selection_history
     write_csv(output / "shortlist_run_history.csv", selection_history, SHORTLIST_COLUMNS)
 
+    handicap_markets = {r["market"] for r in selections if parse_handicap(r.get("market"))}
     groupings = {
         "tier": {tier: stats([r for r in selections if r["selection_tier"] == tier])
                  for tier in ("STRICT", "PROVISIONAL")},
         "market": {market: stats([r for r in selections if r["market"] == market])
-                   for market in sorted(SUPPORTED_MARKETS)},
+                   for market in sorted(SUPPORTED_MARKETS | handicap_markets)},
         "league": {key: stats([r for r in selections if r["league"] == key])
                    for key in sorted({r["league"] for r in selections})},
     }
