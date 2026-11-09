@@ -10,8 +10,11 @@ AUDIT_FILE = previous.AUDIT_FILE
 
 
 def evaluate(decisions, predictions, now=None):
+    return with_context(previous.evaluate(decisions, predictions, now), predictions, now, VERSION)
+
+
+def with_context(audit, predictions, now, version):
     from master_shortlist import COLUMNS_CONTEXT
-    audit = previous.evaluate(decisions, predictions, now)
     forecasts = {}
     if predictions is not None:
         for row in predictions.astype(object).where(predictions.notna(), None).to_dict('records'):
@@ -25,15 +28,20 @@ def evaluate(decisions, predictions, now=None):
         audit.at[index, 'master_coverage_warning'] = '; '.join(filter(None, [
             audit.at[index, 'master_coverage_warning'], 'context review: '+item['master_context_status'],
             'missing context: '+item['master_context_missing'] if item['master_context_missing'] else '']))
-    audit['master_version'] = VERSION
+    audit['master_version'] = version
     return audit.reindex(columns=COLUMNS_CONTEXT)
 
 
 def select(audit):
-    from master_shortlist import COLUMNS_CONTEXT
     eligible = audit.loc[audit.master_decision.eq('ELIGIBLE') & ~previous.is_over(audit)
         & ~audit.market.fillna('').str.startswith('Double Chance ')
-        & ~audit.master_offer_source_market.eq('double_chance')].copy()
+        & ~audit.master_offer_source_market.eq('double_chance')]
+    return rank_eligible(eligible, VERSION)
+
+
+def rank_eligible(eligible, version):
+    from master_shortlist import COLUMNS_CONTEXT
+    eligible = eligible.copy()
     eligible['_fixture'] = [identity(r) for r in eligible.to_dict('records')]
     ordered = eligible.sort_values(['master_profit_probability', 'master_expected_return',
         'master_no_loss_probability', 'offered_decimal_odds', 'kickoff_utc', 'league', 'home_team',
@@ -42,15 +50,18 @@ def select(audit):
     top = ordered.drop_duplicates('_fixture').head(SIZE).copy()
     top['master_rank'] = range(1, len(top)+1)
     top['master_decision'] = 'SHORTLISTED'
-    top['master_version'] = VERSION
+    top['master_version'] = version
     result = top.reindex(columns=COLUMNS_CONTEXT).reset_index(drop=True)
-    result.attrs['master_version'] = VERSION
+    result.attrs['master_version'] = version
     return result
 
 
 def summary(frame):
-    result = previous.summary(frame)
-    result.update(version=VERSION, size=SIZE, target_size=SIZE, shortfall=max(0, SIZE-len(frame)),
+    return context_summary(frame, previous.summary(frame), VERSION)
+
+
+def context_summary(frame, result, version):
+    result.update(version=version, size=SIZE, target_size=SIZE, shortfall=max(0, SIZE-len(frame)),
         context_review_version='master-context-review-v1', context_influence=INFLUENCE,
         context_status_counts={str(k): int(v) for k, v in frame.master_context_status.value_counts().items()},
         context_missing_policy='Remain eligible with explicit warnings; no missing-evidence ranking bonus',

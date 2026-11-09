@@ -7,6 +7,9 @@
   "gate_report": "football_output_v2/performance/cagey_correction/report.md",
   "quote_timing_rule": "observed-by-cutoff-v2",
   "excluded_markets": [
-    "Over 1.5"
+    "Over 1.5",
+    "Double Chance 12",
+    "Draw No Bet Home",
+    "Draw No Bet Away"
   ]
 }

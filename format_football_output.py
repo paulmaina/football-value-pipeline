@@ -1658,7 +1658,7 @@ def master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -
         "On value shortlist": raw.in_value_shortlist.map(lambda v: 'yes' if str(v) == 'True' else 'no'),
         "On cagey tier": raw.in_cagey_tier.map(lambda v: 'yes' if str(v) == 'True' else 'no'),
     })
-    if info.get('version') in (master_shortlist.VERSION_MARKET, master_shortlist.VERSION_AH, master_shortlist.VERSION_NO_TOTALS, master_shortlist.VERSION_CONTEXT):
+    if info.get('version') in master_shortlist.MARKET_VERSIONS:
         readable = readable.drop(columns=['Value price from (1% edge)', 'Price flag (value / below value threshold)'])
         readable['Nomination price assessment'] = raw.master_price_flag
         readable['Lowest comparison no-loss (diagnostic only)'] = raw.master_consensus_no_loss.map(pct)
@@ -1690,7 +1690,7 @@ def master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -
             readable['AH replacement status'] = raw.master_replacement_status
             readable['AH replacement reason'] = raw.master_replacement_reason
             readable['Actual offered market type'] = raw.master_offer_source_market
-        if info.get('version') == master_shortlist.VERSION_CONTEXT:
+        if info.get('version') in master_shortlist.CONTEXT_VERSIONS:
             for label, column in {
                 'Context review status': 'master_context_status',
                 'Research observed at (UTC)': 'master_context_observed_utc',
@@ -1707,7 +1707,9 @@ def master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -
                  if info.get('version') in (master_shortlist.VERSION_AH, master_shortlist.VERSION_NO_TOTALS, master_shortlist.VERSION_CONTEXT) else
                  "One market per match from the union of the value and cagey shortlists. ") +
                 ("Over 1.5 is excluded. " if info.get('version') in (master_shortlist.VERSION_NO_TOTALS, master_shortlist.VERSION_CONTEXT) else "") +
-                (info.get('context_influence', '') + " " if info.get('version') == master_shortlist.VERSION_CONTEXT else "") +
+                ("Eligible markets are Pinnacle Asian Handicap, home or away win, and native Double Chance 1X or X2. "
+                 if info.get('version') == master_shortlist.VERSION_PINNACLE_MARKETS else "") +
+                (info.get('context_influence', '') + " " if info.get('version') in master_shortlist.CONTEXT_VERSIONS else "") +
                 "Fresh market references and valid execution evidence are required. There is no minimum EV or probability gate. "
                 "Ranked by Pinnacle-referenced profit probability, market net EV, no-loss probability and odds. Refunds are not wins. "
                 "Negative-EV nominations remain visible and flagged; they are not proven value bets. This selection rule is unvalidated; suggested stakes are zero. "

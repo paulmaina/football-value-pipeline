@@ -81,7 +81,7 @@ class PinnacleOnlyTests(OfflineQuotePolicyTestCase):
             value.to_csv(raw/'conservative_bet_shortlist.csv',index=False)
             decisions.to_csv(raw/'conservative_bet_rejections.csv',index=False)
             v28.cagey_tier_list(decisions).to_csv(raw/v28.TIER_FILE,index=False)
-            top=master.write(decisions,raw,info,predictions)
+            top=master.write(decisions,raw,info,predictions,version=master.VERSION_CONTEXT)
             self.assertTrue(top.bookmaker.eq('1xBet').any())
             (raw/'conservative_bet_summary.json').write_text(json.dumps(info),encoding='utf-8')
             write_generation_metadata(raw,info)

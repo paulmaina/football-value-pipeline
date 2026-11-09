@@ -159,6 +159,7 @@ def required_quotes(source, selected, observations):
     from performance_tracking import fixture_key, utc
     bet365 = {m[len(BET365_TARGET):] for m in selected if str(m).startswith(BET365_TARGET)}
     selections = {key for key, label in LABELS.items() if label in selected}
+    selections.update(market for market in selected if parse_handicap(market))
     if not selections and not bet365:selections = {'home', 'draw', 'away'}
     expected = {(book, selection) for selection in selections for book in (('pinnacle',) if parse_handicap(selection) else ('1xbet','pinnacle'))}
     expected |= {(book, key) for key, label in LABELS.items() if label in bet365 for book in ('bet365', 'pinnacle')}
@@ -246,7 +247,10 @@ def evaluate(root,archive,clock, *, latest=False):
     observations,rejected=load_observations(root,clock);picks=frozen_rows(archive,'shortlist',latest=latest);rows=[]
     books=('1xbet','pinnacle','bet365') if any(parse_handicap(p.get('market')) for p in picks) else ('1xbet','pinnacle')
     for pick in picks:
-        key=fixture_key(pick);selection=next((k for k,v in LABELS.items() if v==pick.get('market')),None);entry=number(pick.get('offered_decimal_odds'),min_value=1.000001)
+        key=fixture_key(pick)
+        market=pick.get('market')
+        selection=market if parse_handicap(market) else next((k for k,v in LABELS.items() if v==market),None)
+        entry=number(pick.get('offered_decimal_odds'),min_value=1.000001)
         item={**pick,'entry_price_basis':'frozen offered quote; accepted execution unverified','closing':{}}
         if utc(pick['kickoff_utc'])>clock:
             item['closing']={book:{'status':'PENDING_KICKOFF'} for book in books}

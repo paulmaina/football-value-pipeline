@@ -1,4 +1,4 @@
-# Master shortlist: fifteen profit-first nominations with context review (v8)
+# Master shortlist: fifteen profit-first Pinnacle nominations
 
 The live rule writes master_shortlist.csv, its readable counterpart and
 master_shortlist_audit.csv. Nominate fifteen when the two source shortlists contain
@@ -8,9 +8,17 @@ record the numerical shortfall; never invent/repeat matches or accept invalid
 inputs to fill fifteen. No minimum EV or probability gate is added. Negative EV is
 labelled and all suggested stakes remain zero while the rule is unvalidated.
 
-## Native AH replacements for Pinnacle multi-bets
+## Live v9 markets
 
-The live v8 master retains v6’s exclusion of Double Chance offers. A nominated DC 1X outcome
+New runs use `master-profit-15-pinnacle-markets-v9`. Eligible nominations
+are native Pinnacle Asian Handicap, home or away win, and native Double Chance
+1X or X2. Double Chance keeps its actual offered price and market label. An
+independently quoted Asian Handicap +0.5 can qualify on its own. Archived master
+versions replay with the rules originally recorded for the run.
+
+## Archived v6–v8 AH replacements
+
+The archived v8 master retains v6’s exclusion of Double Chance offers. A nominated DC 1X outcome
 may nominate home AH +0.5; X2 may nominate away AH +0.5. These are equivalent
 regulation-time outcomes, but their bookmaker prices need not be equal. Only an
 actual, complete, valid Pinnacle spreads/alternate-spreads quote for the right
