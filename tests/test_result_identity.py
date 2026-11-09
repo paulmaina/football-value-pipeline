@@ -55,6 +55,43 @@ class AliasMatchTest(unittest.TestCase):
         self.assertEqual(final["match_id"], 3)
 
 
+class LeadCheckTest(unittest.TestCase):
+    def frozen(self, generated, captured):
+        return {"snapshot_generated_utc": generated, "snapshot_captured_utc": captured}
+
+    def test_needs_both_times_20_minutes_before_the_verified_kickoff(self):
+        final = result(kick="2026-10-25T13:00:00+00:00")
+        ok = self.frozen("2026-10-25T12:00:00+00:00", "2026-10-25T12:40:00+00:00")
+        late_capture = self.frozen("2026-10-25T12:00:00+00:00", "2026-10-25T12:41:00+00:00")
+        late_generation = self.frozen("2026-10-25T13:20:00+00:00", "2026-10-25T12:00:00+00:00")
+        self.assertIs(pt.lead_checked(ok, final, "VERIFIED_FINISHED")[0], final)
+        for row in (late_capture, late_generation, self.frozen("", "2026-10-25T12:00:00+00:00")):
+            self.assertEqual(pt.lead_checked(row, final, "VERIFIED_FINISHED"), (None, pt.LATE_FORECAST))
+
+    def test_date_only_results_use_the_checked_scheduled_kickoff(self):
+        final = {"match_date": "2026-10-25", "match_id": "t1"}
+        frozen = {**self.frozen("2026-10-25T09:00:00+00:00", "2026-10-25T09:05:00+00:00"),
+                  "kickoff_utc": "2026-10-25T16:00:00+00:00"}
+        self.assertIs(pt.lead_checked(frozen, final, "VERIFIED_FINISHED")[0], final)
+        late = {**frozen, "snapshot_captured_utc": "2026-10-25T15:50:00+00:00"}
+        self.assertEqual(pt.lead_checked(late, final, "VERIFIED_FINISHED")[1], pt.LATE_FORECAST)
+
+    def test_a_late_forecast_cannot_become_the_duplicate_keeper(self):
+        # Two archived keys for one moved match. The forecast nearer the verified
+        # kickoff was captured after it, so the earlier valid forecast is kept.
+        records = [result(9, "Toulouse FC", "ES Troyes AC", kick="2026-10-25T16:15:00+00:00", code="FL1")]
+        valid = row("Toulouse FC", "ES Troyes AC", kick="2026-10-24T15:15:00+00:00", league="Ligue 1",
+                    fixture_key="a", snapshot_generated_utc="2026-10-24T09:00:00+00:00",
+                    snapshot_captured_utc="2026-10-24T09:05:00+00:00")
+        late = row("Toulouse FC", "ES Troyes AC", kick="2026-10-25T17:00:00+00:00", league="Ligue 1",
+                   fixture_key="b", snapshot_generated_utc="2026-10-25T16:30:00+00:00",
+                   snapshot_captured_utc="2026-10-25T16:35:00+00:00")
+        graded = [pt.score_prediction({**r, "snapshot_commit": "x"}, *pt.graded_match(r, records))
+                  for r in (valid, late)]
+        mark_duplicate_results([valid, late], graded, records)
+        self.assertEqual([g["status"] for g in graded], ["GRADED", pt.LATE_FORECAST])
+
+
 class DuplicateResultTest(unittest.TestCase):
     def graded(self, key, kick, match_id=9):
         return {"fixture_key": key, "league": "Ligue 1", "kickoff_utc": kick, "status": "GRADED",

@@ -44,6 +44,35 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
         self.assertEqual(data['snapshots'],1)
         self.assertIn('legacy/unspecified',data['policy_groups'])
 
+    def test_forecast_captured_after_the_verified_kickoff_is_not_graded(self):
+        # The match was played 10 minutes after capture, a day before its scheduled
+        # kickoff. The archive's lead check passed against the stale schedule.
+        capture(SHA,root=self.root,captured_at=T0)
+        record={**verified_record('PL',final()),'kickoff_utc':(T0+timedelta(minutes=10)).isoformat()}
+        write_json(self.root/'performance/verified_results.json',{'PL:90002':record})
+        with patch('performance_tracking.collect_results',return_value=([record],{})):
+            review(root=self.root,clock=KICK+timedelta(days=1))
+        from performance_tracking import LATE_FORECAST, read_csv
+        grades=self.root/'performance'
+        self.assertEqual(read_csv(grades/'prediction_grades.csv')[0]['status'],LATE_FORECAST)
+        self.assertEqual(read_csv(grades/'shortlist_grades.csv')[0]['status'],LATE_FORECAST)
+        result=report_check(self.root)
+        self.assertEqual((result['status'],result['shortlist']['graded']),('VERIFIED',0))
+
+    def test_report_check_rejects_a_forecast_falsely_marked_duplicate(self):
+        self.reviewed()
+        from performance_tracking import DUPLICATE_RESULT, PREDICTION_SCORE_FIELDS, read_csv, write_csv, PREDICTION_COLUMNS
+        path=self.root/'performance/prediction_grades.csv'
+        rows=read_csv(path)
+        rows[0].update({f:'' for f in PREDICTION_SCORE_FIELDS},status=DUPLICATE_RESULT)
+        write_csv(path,rows,PREDICTION_COLUMNS)
+        metrics_path=self.root/'performance/metrics.json'
+        metrics=json.loads(metrics_path.read_text())
+        metrics.update(prediction_fixtures_graded=0,prediction_1x2_multiclass_brier=None)
+        write_json(metrics_path,metrics)
+        with self.assertRaisesRegex(ValueError,'differs from frozen replay'):
+            report_check(self.root)
+
     def test_pending_reports_do_not_claim_zero_success_or_profit(self):
         capture(SHA,root=self.root,captured_at=T0)
         with patch('performance_tracking.collect_results',return_value=([],{})):
