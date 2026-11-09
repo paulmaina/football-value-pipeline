@@ -411,7 +411,7 @@ def expected_stats(rows):
 
 
 def report_check(root):
-    from performance_tracking import read_csv,utc,frozen_rows,snapshots,result_for_market,number,fixture_match,tracking_key,pick_key
+    from performance_tracking import read_csv,utc,frozen_rows,snapshots,result_for_market,number,graded_match,tracking_key,pick_key
     from performance_tracking import verified_result_source
     from asian_handicap import SETTLED, parse_label as parse_handicap
     from performance_excel import REPORT_NAME
@@ -472,7 +472,7 @@ def report_check(root):
         close(row.get('per_stake_cost') or 0,stake_cost(original.get('per_stake_cost') or 0),'Frozen selection cost')
         require(row['selection_tier']==(original.get('selection_tier') or ('STRICT' if original.get('decision')=='SHORTLISTED' else 'PROVISIONAL')), 'Report selection tier changed')
         if row['status'] in SETTLED:
-            verified,state=fixture_match(original,records)
+            verified,state=graded_match(original,records)
             require(verified is not None and str(verified['match_id'])==row.get('source_match_id'), 'Selection result absent from verified cache')
             require(result_source_verified(verified),'Selection cache source is not verified finished')
             require(row.get('final_score')==f"{verified['home_goals']}-{verified['away_goals']}", 'Selection score differs from verified cache')
@@ -516,7 +516,7 @@ def report_check(root):
         for row in history:
             original=originals.get(tracking_key(row))
             require(original is not None,'History without frozen prediction')
-            match,state=fixture_match(original,records)
+            match,state=graded_match(original,records)
             if utc(original['kickoff_utc']) > utc(metrics['reviewed_at_utc'])-timedelta(hours=2):
                 match,state=None,'PENDING_KICKOFF_OR_FINAL_SCORE'
             if match is not None:
@@ -563,11 +563,42 @@ def report_check(root):
     require(len(predictions)==len(frozen_predictions) and len({r['fixture_key'] for r in predictions})==len(predictions), 'Prediction report coverage mismatch')
     require(all(r['fixture_key'] in frozen_predictions and r['snapshot_commit']==frozen_predictions[r['fixture_key']]['snapshot_commit'] for r in predictions), 'Prediction provenance changed')
     require(metrics['prediction_fixtures_graded']==sum(r['status']=='GRADED' for r in predictions), 'Prediction graded count mismatch')
+    # Replay every forecast grade from the frozen rows and the verified cache:
+    # status, bound result, duplicate groups and their keeper must all agree.
+    from performance_tracking import (PREDICTION_SCORE_FIELDS, mark_duplicate_results,
+                                      result_identity, score_prediction)
+    reviewed=utc(metrics['reviewed_at_utc'])
+    def usable_record(record):
+        # The review drops Turkish records whose retained CSV evidence fails.
+        if record.get('league_code')!='T1': return True
+        from turkey_results import validate_evidence
+        try: validate_evidence(root, record, reviewed, evidence_cache=evidence_cache)
+        except (OSError, ValueError): return False
+        return True
+    replay_records=[r for r in records if usable_record(r)]
+    originals=list(frozen_predictions.values())
+    expected=[]
+    for original in originals:
+        match,state=graded_match(original,replay_records)
+        if utc(original['kickoff_utc']) > reviewed-timedelta(hours=2):
+            match,state=None,'PENDING_KICKOFF_OR_FINAL_SCORE'
+        expected.append(score_prediction(original,match,state))
+    mark_duplicate_results(originals,expected,replay_records)
+    reported={r['fixture_key']:r for r in predictions}
+    for want in expected:
+        row=reported[want['fixture_key']]
+        require(row['status']==want['status'], 'Prediction grade status differs from frozen replay')
+        require(str(row.get('source_match_id') or '')==str(want['source_match_id'] or ''), 'Prediction result differs from frozen replay')
+        for field in PREDICTION_SCORE_FIELDS:
+            if want[field] in ('',None): require(row.get(field) in ('',None), 'Prediction '+field+' differs from frozen replay')
+            else: close(row.get(field),want[field],'Prediction '+field)
+    graded_ids=[result_identity(r) for r in predictions if r['status']=='GRADED']
+    require(None not in graded_ids and len(set(graded_ids))==len(graded_ids), 'Verified result graded more than once')
     prediction_brier=[]
     for row in predictions:
         if row['status']!='GRADED': continue
         original=frozen_predictions[row['fixture_key']]
-        verified,state=fixture_match(original,records)
+        verified,state=graded_match(original,records)
         require(verified is not None and str(verified['match_id'])==row.get('source_match_id'),'Prediction result absent from verified cache')
         require(result_source_verified(verified),'Prediction cache source is not verified finished')
         require(row.get('match_source')==verified['source'], 'Prediction result lacks verified source')
