@@ -477,6 +477,58 @@ def _overlap(a: str, b: str) -> float:
     return 100.0 if a and a == b else 100 * SequenceMatcher(None, a, b).ratio() if a and b else 0.0
 
 
+RESULT_ALIAS_FILE = Path(__file__).with_name("result_team_aliases.json")
+_RESULT_ALIASES: dict[str, dict[str, str]] | None = None
+
+
+def result_aliases() -> dict[str, dict[str, str]]:
+    """Reviewed forecast-name -> result-name pairs, scoped per competition code."""
+    global _RESULT_ALIASES
+    if _RESULT_ALIASES is None:
+        raw = load_json(RESULT_ALIAS_FILE, {})
+        _RESULT_ALIASES = {
+            code: {canonical_team_key(k): canonical_team_key(v) for k, v in pairs.items()}
+            for code, pairs in raw.items() if not code.startswith("_") and isinstance(pairs, dict)
+        }
+    return _RESULT_ALIASES
+
+
+def alias_match(row: dict, verified: list[dict], code: str) -> dict | None:
+    """Recover a result the fuzzy matcher misses because a provider names a club differently.
+
+    Fails closed: at least one side must use a reviewed alias for this
+    competition, the other side must still pass the standard 90-point name
+    check, both sides keep their home/away order, the kickoff must equal the
+    verified kickoff exactly, and exactly one verified result may qualify. A
+    forecast frozen under a stale kickoff stays ungraded rather than risk
+    grading a forecast made after the real kickoff.
+    """
+    aliases = result_aliases().get(code, {})
+    if not aliases:
+        return None
+    when = utc(row.get("kickoff_utc"))
+    sides = [canonical_team_key(str(row.get(f"{side}_team", ""))) for side in ("home", "away")]
+    targets = [aliases.get(name) for name in sides]
+    if when is None or not any(targets):
+        return None
+    found = []
+    for match in verified:
+        if match.get("league_code") != code or utc(match.get("kickoff_utc")) != when:
+            continue
+        ok = True
+        for side, target in zip(("home", "away"), targets):
+            names = (match.get(f"{side}_team") or "", match.get(f"{side}_short_name") or "")
+            if target:
+                ok = target in {canonical_team_key(n) for n in names if n}
+            else:
+                ok = max(_overlap(row.get(f"{side}_team", ""), n) for n in names) >= 90
+            if not ok:
+                break
+        if ok:
+            found.append(match)
+    return found[0] if len(found) == 1 else None
+
+
 def fixture_match(row: dict, verified: list[dict]) -> tuple[dict | None, str]:
     when = utc(row.get("kickoff_utc"))
     code = LEAGUE_CODES.get(row.get("league"))
@@ -506,6 +558,9 @@ def fixture_match(row: dict, verified: list[dict]) -> tuple[dict | None, str]:
         if home >= 90 and away >= 90:
             candidates.append((min(home, away), home + away, match))
     if not candidates:
+        recovered = alias_match(row, verified, code)
+        if recovered is not None:
+            return recovered, "VERIFIED_FINISHED"
         return None, "UNVERIFIED_FIXTURE_OR_RESULT"
     candidates.sort(key=lambda x: (x[0], x[1]), reverse=True)
     if len(candidates) > 1 and candidates[0][1] - candidates[1][1] < 8:
@@ -654,6 +709,75 @@ def score_prediction(row: dict, final: dict | None, state: str) -> dict:
             out[f"{key}_correct"] = int((prob >= 0.5) == actual)
     out["status"] = "GRADED"
     return out
+
+
+DUPLICATE_RESULT = "DUPLICATE_RESULT_IDENTITY"
+LATE_FORECAST = "FORECAST_NOT_BEFORE_VERIFIED_KICKOFF"
+
+
+def lead_checked(row: dict, match: dict | None, state: str) -> tuple[dict | None, str]:
+    """Grade a frozen row only if it was generated and captured before the VERIFIED kickoff.
+
+    The archive checks the 20-minute lead against the scheduled kickoff the
+    forecast carried. The matcher may bind a verified kickoff up to 36 hours
+    away, so a moved match could otherwise grade a forecast made after it
+    started. Rows without both timestamps are not graded. Date-only results
+    (Turkish T1 CSVs bind on the same calendar date) carry no kickoff instant,
+    so the scheduled kickoff the archive already checked stays the reference.
+    """
+    if match is None:
+        return match, state
+    kick = utc(match.get("kickoff_utc")) if "kickoff_utc" in match else utc(row.get("kickoff_utc"))
+    times = [utc(row.get("snapshot_generated_utc")), utc(row.get("snapshot_captured_utc"))]
+    if kick is None or None in times or max(times) > kick - timedelta(minutes=MIN_LEAD_MINUTES):
+        return None, LATE_FORECAST
+    return match, state
+
+
+def graded_match(row: dict, records: list[dict]) -> tuple[dict | None, str]:
+    """fixture_match plus the verified-kickoff lead check, as the report grades a frozen row."""
+    return lead_checked(row, *fixture_match(row, records))
+PREDICTION_SCORE_FIELDS = ("one_x_two_brier", "one_x_two_correct", "over_1_5_correct",
+                           "under_3_5_correct", "btts_yes_correct", "btts_no_correct")
+
+
+def result_identity(row: dict) -> tuple[str, str] | None:
+    """The verified match a graded row settled against: (competition code, provider match id)."""
+    code = LEAGUE_CODES.get(row.get("league"))
+    match_id = row.get("source_match_id")
+    return (code, str(match_id)) if code and match_id not in ("", None) else None
+
+
+def mark_duplicate_results(originals: list[dict], graded: list[dict], records: list[dict]) -> None:
+    """Grade each verified match once in the forecast report.
+
+    One match can reach the archive under two fixture keys when a provider
+    renames a club or moves the kickoff date. Every frozen row stays in the
+    report for provenance, but only one row per verified result keeps its
+    scores: the one whose kickoff is closest to the verified kickoff, then the
+    earliest generation, then the fixture key. The rest are marked
+    DUPLICATE_RESULT_IDENTITY and leave every graded metric.
+    """
+    kickoffs = {(r.get("league_code"), str(r.get("match_id"))): utc(r.get("kickoff_utc")) for r in records}
+    groups: dict[tuple[str, str], list[int]] = {}
+    for index, row in enumerate(graded):
+        identity = result_identity(row) if row.get("status") == "GRADED" else None
+        if identity is not None:
+            groups.setdefault(identity, []).append(index)
+
+    def preference(index: int, identity: tuple[str, str]):
+        kick, result_kick = utc(graded[index].get("kickoff_utc")), kickoffs.get(identity)
+        gap = abs((kick - result_kick).total_seconds()) if kick and result_kick else float("inf")
+        generated = utc(originals[index].get("snapshot_generated_utc"))
+        return gap, generated.isoformat() if generated else "", graded[index]["fixture_key"]
+
+    for identity, indexes in groups.items():
+        if len(indexes) < 2:
+            continue
+        keep = min(indexes, key=lambda i: preference(i, identity))
+        for index in indexes:
+            if index != keep:
+                graded[index].update({field: "" for field in PREDICTION_SCORE_FIELDS}, status=DUPLICATE_RESULT)
 
 
 def collect_results(eligible: list[dict], *, root: Path, token: str,
@@ -1016,7 +1140,7 @@ def review(*, root: Path = ROOT, token: str = "",
         match, state = matches[key]
         if key[-1] is not None and key[-1] > clock-timedelta(hours=2):
             return None, 'PENDING_KICKOFF_OR_FINAL_SCORE'
-        return match, state
+        return lead_checked(row, match, state)
     selections_graded, predictions_graded, history_graded = [], [], []
     for row in history:
         match, state = verified_for(row)
@@ -1026,6 +1150,7 @@ def review(*, root: Path = ROOT, token: str = "",
     for row in predictions:
         match, state = verified_for(row)
         predictions_graded.append(score_prediction(row, match, state))
+    mark_duplicate_results(predictions, predictions_graded, records)
     result = report(root, selections_graded, predictions_graded, errors, reviewed_at=iso(clock), selection_history=history_graded)
     try:
         from bbs_statistics_model import forward_assessment
