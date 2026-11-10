@@ -1,0 +1,404 @@
+{
+  "all_changed_forecasts": {
+    "forecasts": 366,
+    "goal_rate_move": {
+      "max": 0.1914669941071736,
+      "mean": 0.036062116866432924
+    },
+    "max_1x2_move": {
+      "max": 0.07128314559744747,
+      "mean": 0.011965569007589882,
+      "median": 0.008922590244185222,
+      "p90": 0.02258808169563109
+    },
+    "max_1x2_move_buckets": {
+      "0.5_to_1_point": 94,
+      "1_to_2_points": 111,
+      "2_points_or_more": 69,
+      "under_0.5_points": 92
+    },
+    "mean_signed_move": {
+      "away": 0.0026696232840072594,
+      "draw": -0.00042763393665906174,
+      "home": -0.002241989347348208
+    },
+    "over_1_5_move": {
+      "max": 0.03458230871339285,
+      "mean": 0.008153003622997049
+    },
+    "repeated_rows_removed": 856
+  },
+  "current_version": "team-form-research-v2",
+  "fixtures_with_research": 108,
+  "forecasts": {
+    "changed": 366,
+    "forecasts": 4379,
+    "frozen_probabilities_checked": 689,
+    "frozen_probabilities_reproduced": 689,
+    "unchanged": 4013,
+    "with_research": 689
+  },
+  "frozen_probabilities_max_abs_diff": 8.326672684688674e-17,
+  "latest_forecast_per_fixture": {
+    "all": {
+      "forecasts": 57,
+      "goal_rate_move": {
+        "max": 0.1914669941071736,
+        "mean": 0.03447589683632183
+      },
+      "max_1x2_move": {
+        "max": 0.04938676205552439,
+        "mean": 0.011456923767940724,
+        "median": 0.010604091475263283,
+        "p90": 0.02251463699014331
+      },
+      "max_1x2_move_buckets": {
+        "0.5_to_1_point": 13,
+        "1_to_2_points": 19,
+        "2_points_or_more": 10,
+        "under_0.5_points": 15
+      },
+      "mean_signed_move": {
+        "away": 0.0017792853097015479,
+        "draw": -0.0006635405712860801,
+        "home": -0.0011157447384154832
+      },
+      "over_1_5_move": {
+        "max": 0.03292728368580877,
+        "mean": 0.007245672241287516
+      },
+      "repeated_rows_removed": 128
+    },
+    "by_league": {
+      "Bundesliga": {
+        "fixtures_with_research": 9,
+        "forecasts": 5,
+        "goal_rate_move": {
+          "max": 0.09091542413757403,
+          "mean": 0.032091913227586234
+        },
+        "max_1x2_move": {
+          "max": 0.020868280533689387,
+          "mean": 0.008175902407305863,
+          "median": 0.006548365996599942,
+          "p90": 0.017322682392611078
+        },
+        "max_1x2_move_buckets": {
+          "0.5_to_1_point": 1,
+          "1_to_2_points": 1,
+          "2_points_or_more": 1,
+          "under_0.5_points": 2
+        },
+        "mean_signed_move": {
+          "away": 0.006575045943180707,
+          "draw": 0.0004719638471998022,
+          "home": -0.007047009790380443
+        },
+        "over_1_5_move": {
+          "max": 0.014269009356406959,
+          "mean": 0.0061019488867465775
+        },
+        "repeated_rows_removed": 9
+      },
+      "Eredivisie": {
+        "fixtures_with_research": 10,
+        "forecasts": 7,
+        "goal_rate_move": {
+          "max": 0.1914669941071736,
+          "mean": 0.04933920165273061
+        },
+        "max_1x2_move": {
+          "max": 0.04938676205552439,
+          "mean": 0.018415018523867583,
+          "median": 0.013470908896955902,
+          "p90": 0.03391876526459356
+        },
+        "max_1x2_move_buckets": {
+          "0.5_to_1_point": 1,
+          "1_to_2_points": 2,
+          "2_points_or_more": 3,
+          "under_0.5_points": 1
+        },
+        "mean_signed_move": {
+          "away": 0.002359016086508514,
+          "draw": -0.0033486939667129573,
+          "home": 0.0009896778802044673
+        },
+        "over_1_5_move": {
+          "max": 0.011840701782729335,
+          "mean": 0.006586065732397347
+        },
+        "repeated_rows_removed": 19
+      },
+      "La Liga": {
+        "fixtures_with_research": 11,
+        "forecasts": 6,
+        "goal_rate_move": {
+          "max": 0.0987774713946532,
+          "mean": 0.05079326131532588
+        },
+        "max_1x2_move": {
+          "max": 0.022284823718829894,
+          "mean": 0.013763560163750096,
+          "median": 0.015131302482187553,
+          "p90": 0.020739486153832587
+        },
+        "max_1x2_move_buckets": {
+          "0.5_to_1_point": 1,
+          "1_to_2_points": 3,
+          "2_points_or_more": 1,
+          "under_0.5_points": 1
+        },
+        "mean_signed_move": {
+          "away": 0.0030850144599374094,
+          "draw": -0.0016600348696063822,
+          "home": -0.001424979590331064
+        },
+        "over_1_5_move": {
+          "max": 0.03292728368580877,
+          "mean": 0.014516626193050108
+        },
+        "repeated_rows_removed": 20
+      },
+      "Ligue 1": {
+        "fixtures_with_research": 10,
+        "forecasts": 7,
+        "goal_rate_move": {
+          "max": 0.052010919956725354,
+          "mean": 0.026549160115477366
+        },
+        "max_1x2_move": {
+          "max": 0.014862768270979987,
+          "mean": 0.00804785525678879,
+          "median": 0.0061182209633305895,
+          "p90": 0.01451669328705445
+        },
+        "max_1x2_move_buckets": {
+          "0.5_to_1_point": 4,
+          "1_to_2_points": 2,
+          "2_points_or_more": 0,
+          "under_0.5_points": 1
+        },
+        "mean_signed_move": {
+          "away": -0.0003567706118300056,
+          "draw": 0.002242329325941535,
+          "home": -0.0018855587141115412
+        },
+        "over_1_5_move": {
+          "max": 0.015954806865988935,
+          "mean": 0.005843841940103995
+        },
+        "repeated_rows_removed": 16
+      },
+      "Premier League": {
+        "fixtures_with_research": 10,
+        "forecasts": 6,
+        "goal_rate_move": {
+          "max": 0.10662627924849155,
+          "mean": 0.02829485208421385
+        },
+        "max_1x2_move": {
+          "max": 0.0361021000618052,
+          "mean": 0.010244890711803187,
+          "median": 0.007782585710280815,
+          "p90": 0.02252616586303996
+        },
+        "max_1x2_move_buckets": {
+          "0.5_to_1_point": 3,
+          "1_to_2_points": 0,
+          "2_points_or_more": 1,
+          "under_0.5_points": 2
+        },
+        "mean_signed_move": {
+          "away": 0.007354488304202452,
+          "draw": -0.00019195982189760633,
+          "home": -0.007162528482304892
+        },
+        "over_1_5_move": {
+          "max": 0.015505978060724623,
+          "mean": 0.007648084711843546
+        },
+        "repeated_rows_removed": 14
+      },
+      "Primeira Liga": {
+        "fixtures_with_research": 10,
+        "forecasts": 7,
+        "goal_rate_move": {
+          "max": 0.07434917749851744,
+          "mean": 0.03186094407666969
+        },
+        "max_1x2_move": {
+          "max": 0.022859356897113436,
+          "mean": 0.014332002060787444,
+          "median": 0.01416500605628046,
+          "p90": 0.021473077841182353
+        },
+        "max_1x2_move_buckets": {
+          "0.5_to_1_point": 2,
+          "1_to_2_points": 3,
+          "2_points_or_more": 2,
+          "under_0.5_points": 0
+        },
+        "mean_signed_move": {
+          "away": -0.002543805610867315,
+          "draw": -0.003609847949994626,
+          "home": 0.00615365356086187
+        },
+        "over_1_5_move": {
+          "max": 0.018074314421378412,
+          "mean": 0.007396488891172059
+        },
+        "repeated_rows_removed": 16
+      },
+      "Serie A": {
+        "fixtures_with_research": 10,
+        "forecasts": 6,
+        "goal_rate_move": {
+          "max": 0.09877747139465343,
+          "mean": 0.02529924940136267
+        },
+        "max_1x2_move": {
+          "max": 0.017722106241916114,
+          "mean": 0.008231409219559865,
+          "median": 0.007955584929491472,
+          "p90": 0.016738642729188125
+        },
+        "max_1x2_move_buckets": {
+          "0.5_to_1_point": 0,
+          "1_to_2_points": 3,
+          "2_points_or_more": 0,
+          "under_0.5_points": 3
+        },
+        "mean_signed_move": {
+          "away": 0.003637029204891997,
+          "draw": 0.00023611422142264435,
+          "home": -0.0038731434263146827
+        },
+        "over_1_5_move": {
+          "max": 0.0214302435415894,
+          "mean": 0.00720235262616407
+        },
+        "repeated_rows_removed": 7
+      },
+      "Super Lig": {
+        "fixtures_with_research": 9,
+        "forecasts": 2,
+        "goal_rate_move": {
+          "max": 0.1314322708189093,
+          "mean": 0.06591029345488414
+        },
+        "max_1x2_move": {
+          "max": 0.0157888802099585,
+          "mean": 0.01499957842350963,
+          "median": 0.01499957842350963,
+          "p90": 0.015631019852668727
+        },
+        "max_1x2_move_buckets": {
+          "0.5_to_1_point": 0,
+          "1_to_2_points": 2,
+          "2_points_or_more": 0,
+          "under_0.5_points": 0
+        },
+        "mean_signed_move": {
+          "away": -0.01499957842350963,
+          "draw": 0.006434817844674756,
+          "home": 0.008564760578834762
+        },
+        "over_1_5_move": {
+          "max": 0.028687145284261084,
+          "mean": 0.01718900559055042
+        },
+        "repeated_rows_removed": 7
+      },
+      "UEFA Europa League": {
+        "fixtures_with_research": 29,
+        "forecasts": 11,
+        "goal_rate_move": {
+          "max": 0.11721464711573404,
+          "mean": 0.026570604445735155
+        },
+        "max_1x2_move": {
+          "max": 0.0314521581655538,
+          "mean": 0.009378426766207915,
+          "median": 0.005452595150545636,
+          "p90": 0.024018940842799763
+        },
+        "max_1x2_move_buckets": {
+          "0.5_to_1_point": 1,
+          "1_to_2_points": 3,
+          "2_points_or_more": 2,
+          "under_0.5_points": 5
+        },
+        "mean_signed_move": {
+          "away": 0.0016249926293849493,
+          "draw": -0.0009402269575276984,
+          "home": -0.0006847656718572353
+        },
+        "over_1_5_move": {
+          "max": 0.010078434029573091,
+          "mean": 0.0030116731824085907
+        },
+        "repeated_rows_removed": 20
+      }
+    },
+    "holdout_leagues": {
+      "forecasts": 16,
+      "goal_rate_move": {
+        "max": 0.1914669941071736,
+        "mean": 0.043763850438473154
+      },
+      "max_1x2_move": {
+        "max": 0.04938676205552439,
+        "mean": 0.01620176880872528,
+        "median": 0.01418764134667061,
+        "p90": 0.023233062150543216
+      },
+      "max_1x2_move_buckets": {
+        "0.5_to_1_point": 3,
+        "1_to_2_points": 7,
+        "2_points_or_more": 5,
+        "under_0.5_points": 1
+      },
+      "mean_signed_move": {
+        "away": -0.001955792719845679,
+        "draw": -0.0022400098579752233,
+        "home": 0.004195802577820868
+      },
+      "over_1_5_move": {
+        "max": 0.028687145284261084,
+        "mean": 0.008265993346630418
+      },
+      "repeated_rows_removed": 42
+    },
+    "other_leagues": {
+      "forecasts": 41,
+      "goal_rate_move": {
+        "max": 0.11721464711573404,
+        "mean": 0.030851329576945703
+      },
+      "max_1x2_move": {
+        "max": 0.0361021000618052,
+        "mean": 0.009605276922756508,
+        "median": 0.007316574213967919,
+        "p90": 0.020868280533689387
+      },
+      "max_1x2_move_buckets": {
+        "0.5_to_1_point": 10,
+        "1_to_2_points": 12,
+        "2_points_or_more": 5,
+        "under_0.5_points": 14
+      },
+      "mean_signed_move": {
+        "away": 0.0032368767358663193,
+        "draw": -4.833304477324371e-05,
+        "home": -0.0031885436910930836
+      },
+      "over_1_5_move": {
+        "max": 0.03292728368580877,
+        "mean": 0.006847498151397602
+      },
+      "repeated_rows_removed": 86
+    }
+  },
+  "note": "before = the version each forecast was frozen with; after = the current version. Same frozen inputs for both. Probabilities only: no result and no odds field is read."
+}
