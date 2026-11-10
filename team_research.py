@@ -18,7 +18,11 @@ import numpy as np
 import pandas as pd
 import requests
 
-VERSION = 'team-form-research-v1'
+VERSION = 'team-form-research-v2'
+# v1 identified a result by its team names, so a match that two sources name
+# differently (ESPN "Hull City", training history "Hull") was counted twice in
+# the last-ten form. Kept only so forecasts frozen under v1 replay exactly.
+LEGACY_VERSION = 'team-form-research-v1'
 ESPN = 'https://site.api.espn.com/apis/site/v2/sports/soccer/'
 LEAGUES = {'Premier League': 'eng.1', 'La Liga': 'esp.1', 'Bundesliga': 'ger.1',
            'Serie A': 'ita.1', 'Ligue 1': 'fra.1', 'Eredivisie': 'ned.1',
@@ -127,6 +131,33 @@ def form_history(history, home, away, cutoff):
             'away': [r for r in rows if name(away) in (name(r['home']), name(r['away']))][:10],
             'h2h': [r for r in rows if {name(home), name(away)} == {name(r['home']), name(r['away'])}
                     and utc(r['date']) >= utc(cutoff) - pd.DateOffset(years=4)][:10]}
+
+
+def form_rows(team, rows, cutoff, version=VERSION):
+    """A team's last ten results before the cutoff day, newest first, each match once.
+
+    Sources spell teams differently, so a match is the same match when the names
+    agree or when the day, the team's venue and the score agree. The first row
+    seen is kept (the training history comes first) and takes verified xG from
+    a later copy. `version=LEGACY_VERSION` replays the v1 rule (names only).
+    """
+    unique, same_result = {}, {}
+    for r in rows:
+        date = utc(r.get('date'))
+        if pd.isna(date) or date >= cutoff.normalize() or name(team) not in (name(r.get('home')), name(r.get('away'))):
+            continue
+        day = date.date().isoformat()
+        key = (day, name(r.get('home')), name(r.get('away')))
+        if version != LEGACY_VERSION:
+            result = (day, name(r.get('home')) == name(team), r.get('home_goals'), r.get('away_goals'))
+            key = same_result.setdefault(result, key)
+        if key not in unique:
+            unique[key] = r
+        elif (unique[key]['home_goals'], unique[key]['away_goals']) == (r['home_goals'], r['away_goals']):
+            if number(r.get('home_xg')) is not None and number(r.get('away_xg')) is not None:
+                unique[key] = {**unique[key], 'home_xg': r['home_xg'], 'away_xg': r['away_xg'],
+                               'xg_source': r.get('source')}
+    return sorted(unique.values(), key=lambda r: r['date'], reverse=True)[:10]
 
 
 def weighted_form(rows, team, venue=None):
@@ -382,8 +413,10 @@ def collect_fixture(row, client):
     return evidence
 
 
-def prepare(row, cutoff, evidence=None):
+def prepare(row, cutoff, evidence=None, version=VERSION):
     """One replayable context and goal model. Prior shrinks ten-game form to the fitted team rates.
+
+    `version` is for replaying a frozen forecast under the rules it was made with (see form_rows).
 
     Enforces the value model input schema: the row is projected onto
     INPUT_SCHEMA and the numbers read only research_evidence(evidence), so no
@@ -403,19 +436,7 @@ def prepare(row, cutoff, evidence=None):
         rows = list(cached.get(side, []))
         if valid_sources:
             rows += view.get('recent', {}).get(side, [])
-        unique = {}
-        for r in rows:
-            date = utc(r.get('date'))
-            if pd.notna(date) and date < cutoff.normalize() and name(team) in (name(r.get('home')), name(r.get('away'))):
-                key = (date.date().isoformat(), name(r.get('home')), name(r.get('away')))
-                if key not in unique:
-                    unique[key] = r
-                elif (unique[key]['home_goals'], unique[key]['away_goals']) == (r['home_goals'], r['away_goals']):
-                    if number(r.get('home_xg')) is not None and number(r.get('away_xg')) is not None:
-                        unique[key] = {**unique[key], 'home_xg': r['home_xg'], 'away_xg': r['away_xg'],
-                                       'xg_source': r.get('source')}
-
-        ordered = sorted(unique.values(), key=lambda r: r['date'], reverse=True)[:10]
+        ordered = form_rows(team, rows, cutoff, version)
         stats[side] = {'all': weighted_form(ordered, team), 'venue': weighted_form(ordered, team, side)}
     coverage = dict(view.get('coverage', {}))
     if view.get('news'):
@@ -461,7 +482,7 @@ def prepare(row, cutoff, evidence=None):
             if own.get('xg_matches', 0) >= 5 and opp.get('xg_matches', 0) >= 5:
                 gf, ga = own['xg_for'], opp['xg_against']
             rates[i] = max(.05, min(8., (10*base[i] + n*(gf+ga)/2) / (10+n)))
-    context = {'version': VERSION, 'observed_at_utc': cutoff.isoformat(), 'form': stats,
+    context = {'version': version, 'observed_at_utc': cutoff.isoformat(), 'form': stats,
                'h2h': h2h, 'coverage': coverage, 'warnings': warnings,
                'evidence': evidence, 'base_rates': base, 'goal_rates': rates,
                'model_note': 'Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient'}

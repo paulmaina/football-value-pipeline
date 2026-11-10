@@ -780,22 +780,16 @@ def _result_key(r):
     return utc(r.get('date')).date().isoformat(), name(r.get('home')), name(r.get('away'))
 
 
-def _used_rows(inputs, evidence, cutoff, side):
-    """The ten results prepare() keeps for one side: same evidence rule, order and de-duplication.
+def _used_rows(inputs, evidence, cutoff, side, version=None):
+    """The ten results prepare() keeps for one side, under the forecast's research version.
 
     Like prepare(), all pre-kickoff evidence is dropped when any source was observed after the cutoff.
     """
-    from team_research import decode, name, observed_by, research_evidence, utc
-    team = inputs.get(side + '_team')
+    from team_research import VERSION, decode, form_rows, observed_by, research_evidence
     rows = list(decode(inputs.get('research_history_json')).get(side, []))
     if observed_by(evidence, cutoff):
         rows += research_evidence(evidence).get('recent', {}).get(side, [])
-    unique = {}
-    for r in rows:
-        date = utc(r.get('date'))
-        if pd.notna(date) and date < cutoff.normalize() and name(team) in (name(r.get('home')), name(r.get('away'))):
-            unique.setdefault(_result_key(r), r)
-    return sorted(unique.values(), key=lambda r: r['date'], reverse=True)[:10]
+    return form_rows(inputs.get(side + '_team'), rows, cutoff, version or VERSION)
 
 
 def _team_day(r, team):
@@ -840,7 +834,7 @@ def _classify(r, team, league_results, season_starts, locked=None):
 
 
 def _double_counted(rows, team) -> int:
-    """Rows kept twice because two sources name the same match differently."""
+    """Rows kept twice because two sources name the same match differently (research v1 only)."""
     seen = Counter(_team_day(r, team) for r in rows)
     return sum(n - 1 for n in seen.values() if n > 1)
 
@@ -864,6 +858,7 @@ def _parity_summary(frame) -> dict:
     compared = frame.loc[col('harness_compared', bool).fillna(False).astype(bool)]
     return {
         'forecasts': int(len(frame)),
+        'research_versions': {str(k): int(v) for k, v in col('research_version', object).dropna().value_counts().items()},
         'same_inputs': {**stats('same_inputs_max_abs_diff', frame),
                         'identical_within_1e-12': bool((col('same_inputs_max_abs_diff') <= 1e-12).all())},
         'evidence_effect_1x2': {**stats('evidence_effect_1x2_max_abs', frame),
@@ -895,8 +890,9 @@ def research_parity(root, cache, cfg):
     parity is reported separately (summary['by_group']['holdout_leagues']).
 
       same_inputs      the shared research step (team_research.prepare + research_grid),
-                       fed the live row's own frozen inputs, must reproduce the frozen
-                       live probabilities. It does not show the harness inputs match live.
+                       fed the live row's own frozen inputs under the research version
+                       it was frozen with, must reproduce the frozen live probabilities.
+                       It does not show the harness inputs match live.
       evidence_effect  live minus live without pre-kickoff evidence: what the ESPN and
                        Understat rows add. The harness never has them.
       harness          C exactly as the historical harness computes it for that match
@@ -907,7 +903,7 @@ def research_parity(root, cache, cfg):
     import performance_tracking as pt
     from asian_handicap import margins as margin_json
     from football_value_pipeline_v2_standalone import DixonColesModel
-    from team_research import decode, form_history, name, prepare, research_inputs, utc
+    from team_research import LEGACY_VERSION, decode, form_history, name, prepare, research_inputs, utc
     latest = {}
     for meta, rows, _ in pt.snapshots(root):
         for row in rows:
@@ -927,13 +923,15 @@ def research_parity(root, cache, cfg):
         for k in DERIVED_EVIDENCE:
             evidence.pop(k, None)
         live = research['margin_distribution']
-        same = prepare(row, stamp, copy.deepcopy(evidence))
+        version = research.get('version', LEGACY_VERSION)
+        same = prepare(row, stamp, copy.deepcopy(evidence), version=version)
         bare = prepare(row, stamp)
         league = LIVE_LEAGUES.get(key[0])
         group = ('no_football_data' if league is None else
                  'holdout_leagues' if league in cfg['holdout_leagues'] else 'other_domestic')
         record = {'league': key[0], 'league_group': group, 'home_team': row.get('home_team'),
                   'away_team': row.get('away_team'), 'kickoff_utc': key[3], 'research_observed_utc': stamp.isoformat(),
+                  'research_version': version,
                   'same_inputs_max_abs_diff': _max_gap(live, same.get('margin_distribution') or {}),
                   'evidence_effect_1x2_max_abs': max(abs(a - b) for a, b in zip(_hda(live), _hda(bare['margin_distribution']))),
                   'live_lambda_home': float(row['lambda_home']), 'live_lambda_away': float(row['lambda_away']),
@@ -956,7 +954,7 @@ def research_parity(root, cache, cfg):
         used = Counter()
         for side in ('home', 'away'):
             team = inputs[side + '_team']
-            rows = _used_rows(inputs, evidence, stamp, side)
+            rows = _used_rows(inputs, evidence, stamp, side, version)
             used['double_counted'] += _double_counted(rows, team)
             for r in rows:
                 if r.get('source') != TRAINING_HISTORY:
