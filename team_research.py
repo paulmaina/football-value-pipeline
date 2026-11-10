@@ -19,19 +19,32 @@ import numpy as np
 import pandas as pd
 import requests
 
-VERSION = 'team-form-research-v3'
+VERSION = 'team-form-research-v4'
+# v3 kept every completed ESPN game in the last-ten form, club friendlies
+# included (most of them international-break friendlies, which aren't
+# competitive evidence). v4 records the ESPN competition of each result and
+# leaves friendlies out of the form (is_friendly); league, cup and European
+# games are unchanged. Kept only so forecasts frozen under v3 replay exactly.
+V3_VERSION = 'team-form-research-v3'
+PREVIOUS_VERSION = V3_VERSION
 # v2 looked a side's training history up by its fixture name, so a side the
 # fixture and the history name differently ("Hull City" / "Hull") got no
 # training-history form at all. v3 resolves each side to its training name
 # (history_team) and freezes that name in research_history_json['teams'].
 # Kept only so forecasts frozen under v2 replay exactly.
-PREVIOUS_VERSION = 'team-form-research-v2'
+V2_VERSION = 'team-form-research-v2'
 # v1 identified a result by its team names, so a match that two sources name
 # differently (ESPN "Hull City", training history "Hull") was counted twice in
 # the last-ten form. Kept only so forecasts frozen under v1 replay exactly.
 LEGACY_VERSION = 'team-form-research-v1'
 # Versions that read a side's history under its fixture name only.
-FIXTURE_NAME_ONLY = (LEGACY_VERSION, PREVIOUS_VERSION)
+FIXTURE_NAME_ONLY = (LEGACY_VERSION, V2_VERSION)
+# Versions whose last-ten form keeps club friendlies.
+FRIENDLIES_KEPT = (LEGACY_VERSION, V2_VERSION, V3_VERSION)
+# ESPN competition slugs of friendlies that don't say "friendly" ("club.friendly",
+# "friendly.emirates_cup" do). Reviewed against every ESPN competition in the live
+# forms of 5-8 Nov 2026 (evaluation/research_parity_latest_rule/espn_competitions.json).
+FRIENDLY_COMPETITIONS = frozenset({'esp.joan_gamper'})
 # Reviewed fixture -> training names that bbs_team_aliases.json and TEAM_ALIASES
 # don't cover; the model reaches these only through its fuzzy fallback, which the
 # research never uses. Every pair below was seen in live forecasts and is the
@@ -86,7 +99,7 @@ INPUT_SCHEMA = {
 # Pre-kickoff research (collect_fixture). Only `recent` rows feed numbers;
 # the other keys are descriptive evidence and coverage.
 EVIDENCE_SCHEMA = ('sources', 'coverage', 'news', 'errors', 'recent', 'schedules')
-RESULT_FIELDS = ('date', 'home', 'away', 'home_goals', 'away_goals', 'home_xg', 'away_xg', 'source')
+RESULT_FIELDS = ('date', 'home', 'away', 'home_goals', 'away_goals', 'home_xg', 'away_xg', 'source', 'competition')
 
 
 def research_inputs(row):
@@ -219,6 +232,13 @@ def history_name(history, side, version=VERSION):
     return teams.get(side) if isinstance(teams, dict) else None
 
 
+def is_friendly(competition) -> bool:
+    """True for an ESPN friendly competition slug. A row without a competition (training
+    history, Understat, ESPN rows frozen before v4) is never treated as a friendly."""
+    slug = str(competition or '').strip().lower()
+    return bool(slug) and ('friendly' in slug or slug in FRIENDLY_COMPETITIONS)
+
+
 def form_rows(team, rows, cutoff, version=VERSION, history_team_name=None):
     """A team's last ten results before the cutoff day, newest first, each match once.
 
@@ -230,7 +250,13 @@ def form_rows(team, rows, cutoff, version=VERSION, history_team_name=None):
     `history_team_name` (v3 on) is the team's training-history name ("Hull" for the
     fixture's "Hull City"); rows naming it are restated with the fixture name, so
     they count as the team's own and the venue is read correctly.
+
+    From v4 on, friendlies (is_friendly on the row's ESPN competition) are left out
+    before the last ten are chosen, so the form reaches back to the team's tenth
+    competitive game.
     """
+    if version not in FRIENDLIES_KEPT:
+        rows = [r for r in rows if not is_friendly(r.get('competition'))]
     if history_team_name and version not in FIXTURE_NAME_ONLY and name(history_team_name) != name(team):
         key = name(history_team_name)
         rows = [{**r, **{f: team for f in ('home', 'away') if name(r.get(f)) == key}} for r in rows]
@@ -389,7 +415,7 @@ def schedule_rows(payload, cutoff, source):
             xg[side] = next((values[k] for k in ('expectedgoals', 'expected_goals', 'xg') if values.get(k) is not None), None)
         out.append({'home_xg': xg.get('home'), 'away_xg': xg.get('away'), 'date': kick.isoformat(), 'home': sides['home']['team'].get('displayName'),
                     'away': sides['away']['team'].get('displayName'), 'home_goals': goals[0], 'away_goals': goals[1],
-                    'source': source})
+                    'source': source, 'competition': e['league'].get('slug') if isinstance(e.get('league'), dict) else None})
     return out
 
 
@@ -524,7 +550,7 @@ def prepare(row, cutoff, evidence=None, version=VERSION):
         evidence = {'errors': ['research observation after evaluation cutoff']}
     # The stored evidence keeps everything collected; the model reads only the schema view.
     view = research_evidence(evidence)
-    stats, unresolved = {}, []
+    stats, unresolved, friendlies = {}, [], {}
     for side in ('home', 'away'):
         team = row.get(side + '_team')
         rows = list(cached.get(side, []))
@@ -533,6 +559,9 @@ def prepare(row, cutoff, evidence=None, version=VERSION):
         own = history_name(cached, side, version)
         ordered = form_rows(team, rows, cutoff, version, own)
         stats[side] = {'all': weighted_form(ordered, team), 'venue': weighted_form(ordered, team, side)}
+        if version not in FRIENDLIES_KEPT:
+            friendlies[side] = len({r.get('date') for r in rows if is_friendly(r.get('competition'))
+                                    and pd.notna(utc(r.get('date'))) and utc(r['date']) < cutoff.normalize()})
         if version not in FIXTURE_NAME_ONLY and 'teams' in cached and not own:
             unresolved.append(f'{side} team {team!r} has no reviewed training-history name; no history form')
     coverage = dict(view.get('coverage', {}))
@@ -583,6 +612,8 @@ def prepare(row, cutoff, evidence=None, version=VERSION):
                'h2h': h2h, 'coverage': coverage, 'warnings': warnings,
                'evidence': evidence, 'base_rates': base, 'goal_rates': rates,
                'model_note': 'Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient'}
+    if any(friendlies.values()):
+        context['form_friendlies_excluded'] = friendlies
     if all(r is not None and r > 0 for r in rates):
         matrix = research_grid(rates)
         from asian_handicap import margins
