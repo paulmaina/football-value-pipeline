@@ -1,0 +1,608 @@
+{
+ "evidence": {
+  "recent": {
+   "away": [
+    {
+     "away": "RB Leipzig",
+     "away_goals": 2.0,
+     "away_xg": null,
+     "competition": "ger.1",
+     "date": "2026-10-31T14:30:00+00:00",
+     "home": "Schalke 04",
+     "home_goals": 0.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/133/schedule"
+    },
+    {
+     "away": "Schalke 04",
+     "away_goals": 0.0,
+     "away_xg": null,
+     "competition": "ger.dfb_pokal",
+     "date": "2026-10-28T17:00:00+00:00",
+     "home": "Dynamo Dresden",
+     "home_goals": 2.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/133/schedule"
+    },
+    {
+     "away": "Schalke 04",
+     "away_goals": 0.0,
+     "away_xg": null,
+     "competition": "ger.1",
+     "date": "2026-10-24T13:30:00+00:00",
+     "home": "FC Cologne",
+     "home_goals": 0.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/133/schedule"
+    },
+    {
+     "away": "Mainz",
+     "away_goals": 1.0,
+     "away_xg": null,
+     "competition": "ger.1",
+     "date": "2026-10-17T13:30:00+00:00",
+     "home": "Schalke 04",
+     "home_goals": 0.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/133/schedule"
+    },
+    {
+     "away": "Schalke 04",
+     "away_goals": 1.0,
+     "away_xg": null,
+     "competition": "ger.1",
+     "date": "2026-10-11T15:30:00+00:00",
+     "home": "SC Freiburg",
+     "home_goals": 2.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/133/schedule"
+    },
+    {
+     "away": "Schalke 04",
+     "away_goals": 1.0,
+     "away_xg": null,
+     "competition": "club.friendly",
+     "date": "2026-10-03T13:00:00+00:00",
+     "home": "Austria Lustenau",
+     "home_goals": 0.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/133/schedule"
+    },
+    {
+     "away": "Schalke 04",
+     "away_goals": 5.0,
+     "away_xg": null,
+     "competition": "club.friendly",
+     "date": "2026-09-24T17:00:00+00:00",
+     "home": "RW Oberhausen",
+     "home_goals": 2.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/133/schedule"
+    },
+    {
+     "away": "SV Elversberg",
+     "away_goals": 0.0,
+     "away_xg": null,
+     "competition": "ger.1",
+     "date": "2026-09-20T15:30:00+00:00",
+     "home": "Schalke 04",
+     "home_goals": 0.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/133/schedule"
+    },
+    {
+     "away": "Schalke 04",
+     "away_goals": 3.0,
+     "away_xg": null,
+     "competition": "ger.1",
+     "date": "2026-09-11T18:30:00+00:00",
+     "home": "1. FC Union Berlin",
+     "home_goals": 1.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/133/schedule"
+    },
+    {
+     "away": "Bayern Munich",
+     "away_goals": 0.0,
+     "away_xg": null,
+     "competition": "ger.1",
+     "date": "2026-09-05T16:30:00+00:00",
+     "home": "Schalke 04",
+     "home_goals": 0.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/133/schedule"
+    },
+    {
+     "away": "Schalke 04",
+     "away_goals": 0.0,
+     "away_xg": null,
+     "competition": "ger.1",
+     "date": "2026-08-30T15:30:00+00:00",
+     "home": "FC Augsburg",
+     "home_goals": 3.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/133/schedule"
+    },
+    {
+     "away": "Real Madrid",
+     "away_goals": 3.0,
+     "away_xg": null,
+     "competition": "club.friendly",
+     "date": "2026-08-16T15:00:00+00:00",
+     "home": "Schalke 04",
+     "home_goals": 0.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/133/schedule"
+    },
+    {
+     "away": "Atalanta",
+     "away_goals": 3.0,
+     "away_xg": null,
+     "competition": "club.friendly",
+     "date": "2026-08-08T15:00:00+00:00",
+     "home": "Schalke 04",
+     "home_goals": 0.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/133/schedule"
+    }
+   ],
+   "home": [
+    {
+     "away": "TSG Hoffenheim",
+     "away_goals": 1.0,
+     "away_xg": null,
+     "competition": "uefa.europa",
+     "date": "2026-11-05T17:45:00+00:00",
+     "home": "Crystal Palace",
+     "home_goals": 1.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/7911/schedule"
+    },
+    {
+     "away": "TSG Hoffenheim",
+     "away_goals": 0.0,
+     "away_xg": null,
+     "competition": "ger.1",
+     "date": "2026-10-31T14:30:00+00:00",
+     "home": "Werder Bremen",
+     "home_goals": 2.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/7911/schedule"
+    },
+    {
+     "away": "Bayer Leverkusen",
+     "away_goals": 0.0,
+     "away_xg": null,
+     "competition": "ger.1",
+     "date": "2026-10-25T14:30:00+00:00",
+     "home": "TSG Hoffenheim",
+     "home_goals": 3.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/7911/schedule"
+    },
+    {
+     "away": "Lyon",
+     "away_goals": 0.0,
+     "away_xg": null,
+     "competition": "uefa.europa",
+     "date": "2026-10-22T19:00:00+00:00",
+     "home": "TSG Hoffenheim",
+     "home_goals": 3.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/7911/schedule"
+    },
+    {
+     "away": "TSG Hoffenheim",
+     "away_goals": 2.0,
+     "away_xg": null,
+     "competition": "ger.1",
+     "date": "2026-10-18T15:30:00+00:00",
+     "home": "Borussia Mönchengladbach",
+     "home_goals": 1.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/7911/schedule"
+    },
+    {
+     "away": "Besiktas",
+     "away_goals": 3.0,
+     "away_xg": null,
+     "competition": "uefa.europa",
+     "date": "2026-10-15T19:00:00+00:00",
+     "home": "TSG Hoffenheim",
+     "home_goals": 2.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/7911/schedule"
+    },
+    {
+     "away": "Hamburg SV",
+     "away_goals": 3.0,
+     "away_xg": null,
+     "competition": "ger.1",
+     "date": "2026-10-10T13:30:00+00:00",
+     "home": "TSG Hoffenheim",
+     "home_goals": 2.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/7911/schedule"
+    },
+    {
+     "away": "SV Elversberg",
+     "away_goals": 3.0,
+     "away_xg": null,
+     "competition": "club.friendly",
+     "date": "2026-10-02T12:30:00+00:00",
+     "home": "TSG Hoffenheim",
+     "home_goals": 2.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/7911/schedule"
+    },
+    {
+     "away": "TSG Hoffenheim",
+     "away_goals": 1.0,
+     "away_xg": null,
+     "competition": "ger.1",
+     "date": "2026-09-20T17:30:00+00:00",
+     "home": "SC Paderborn 07",
+     "home_goals": 3.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/7911/schedule"
+    },
+    {
+     "away": "TSG Hoffenheim",
+     "away_goals": 0.0,
+     "away_xg": null,
+     "competition": "uefa.europa",
+     "date": "2026-09-17T16:45:00+00:00",
+     "home": "OFI Crete",
+     "home_goals": 2.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/7911/schedule"
+    },
+    {
+     "away": "VfB Stuttgart",
+     "away_goals": 1.0,
+     "away_xg": null,
+     "competition": "ger.1",
+     "date": "2026-09-12T13:30:00+00:00",
+     "home": "TSG Hoffenheim",
+     "home_goals": 2.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/7911/schedule"
+    },
+    {
+     "away": "Borussia Dortmund",
+     "away_goals": 3.0,
+     "away_xg": null,
+     "competition": "ger.1",
+     "date": "2026-09-05T13:30:00+00:00",
+     "home": "TSG Hoffenheim",
+     "home_goals": 2.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/7911/schedule"
+    },
+    {
+     "away": "TSG Hoffenheim",
+     "away_goals": 2.0,
+     "away_xg": null,
+     "competition": "ger.1",
+     "date": "2026-08-29T13:30:00+00:00",
+     "home": "FC Cologne",
+     "home_goals": 3.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/7911/schedule"
+    },
+    {
+     "away": "TSG Hoffenheim",
+     "away_goals": 4.0,
+     "away_xg": null,
+     "competition": "ger.dfb_pokal",
+     "date": "2026-08-22T13:30:00+00:00",
+     "home": "FC Erzgebirge Aue",
+     "home_goals": 0.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/7911/schedule"
+    },
+    {
+     "away": "TSG Hoffenheim",
+     "away_goals": 2.0,
+     "away_xg": null,
+     "competition": "club.friendly",
+     "date": "2026-08-16T11:00:00+00:00",
+     "home": "Tottenham Hotspur",
+     "home_goals": 2.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/7911/schedule"
+    },
+    {
+     "away": "TSG Hoffenheim",
+     "away_goals": 0.0,
+     "away_xg": null,
+     "competition": "club.friendly",
+     "date": "2026-08-15T14:00:00+00:00",
+     "home": "Tottenham Hotspur",
+     "home_goals": 3.0,
+     "home_xg": null,
+     "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/7911/schedule"
+    }
+   ]
+  },
+  "sources": [
+   {
+    "observed_at_utc": "2026-11-08T12:19:54.690696+00:00",
+    "reason": null,
+    "status": "available",
+    "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261108"
+   },
+   {
+    "observed_at_utc": "2026-11-08T12:19:56.148580+00:00",
+    "reason": null,
+    "status": "available",
+    "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=401884742"
+   },
+   {
+    "observed_at_utc": "2026-11-08T12:19:56.203566+00:00",
+    "reason": null,
+    "status": "available",
+    "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/7911/schedule"
+   },
+   {
+    "observed_at_utc": "2026-11-08T12:19:56.271644+00:00",
+    "reason": null,
+    "status": "available",
+    "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/133/schedule"
+   },
+   {
+    "observed_at_utc": "2026-11-08T12:19:55.560761+00:00",
+    "reason": null,
+    "status": "available",
+    "url": "https://site.api.espn.com/apis/v2/sports/soccer/ger.1/standings"
+   },
+   {
+    "observed_at_utc": "2026-11-08T12:19:54.745220+00:00",
+    "reason": null,
+    "status": "available",
+    "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/news?limit=20"
+   },
+   {
+    "observed_at_utc": "2026-11-08T12:19:56.470416+00:00",
+    "reason": null,
+    "status": "available",
+    "url": "https://www.bing.com/news/search?q=%22TSG+Hoffenheim%22+%22FC+Schalke+04%22+injury+suspension+lineup+preview&format=rss"
+   },
+   {
+    "observed_at_utc": "2026-11-08T12:19:55.077671+00:00",
+    "reason": null,
+    "status": "available",
+    "url": "https://understat.com/league/Bundesliga/2026"
+   },
+   {
+    "observed_at_utc": "2026-11-08T12:19:55.252696+00:00",
+    "reason": null,
+    "status": "available",
+    "url": "https://understat.com/league/Bundesliga/2025"
+   },
+   {
+    "observed_at_utc": "2026-11-08T12:19:46.007322+00:00",
+    "reason": null,
+    "status": "available",
+    "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"
+   },
+   {
+    "observed_at_utc": "2026-11-08T12:19:46.100745+00:00",
+    "reason": null,
+    "status": "available",
+    "url": "https://www.theguardian.com/football/rss"
+   },
+   {
+    "observed_at_utc": "2026-11-08T12:19:56.537855+00:00",
+    "reason": "HTTPError",
+    "status": "unavailable",
+    "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=TSG+Hoffenheim_vs_FC+Schalke+04&d=2026-11-08"
+   },
+   {
+    "observed_at_utc": "2026-11-08T12:19:56.697941+00:00",
+    "reason": null,
+    "status": "available",
+    "url": "https://geocoding-api.open-meteo.com/v1/search?name=Sinsheim&count=10&language=en&format=json"
+   },
+   {
+    "observed_at_utc": "2026-11-08T12:19:56.770877+00:00",
+    "reason": null,
+    "status": "available",
+    "url": "https://api.open-meteo.com/v1/forecast?latitude=49.2529&longitude=8.87867&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m%2Cwind_gusts_10m%2Crelative_humidity_2m&timezone=UTC&forecast_days=7&wind_speed_unit=kmh&temperature_unit=celsius&precipitation_unit=mm"
+   }
+  ]
+ },
+ "frozen": {
+  "goal_rates": [
+   1.7296282248861525,
+   0.9231202155343065
+  ],
+  "margin_distribution": {
+   "-1": 0.1327749239186347,
+   "-10": 1.0078779034429602e-08,
+   "-11": 8.358031162531644e-10,
+   "-12": 6.364972661402226e-11,
+   "-13": 4.4806865654283975e-12,
+   "-14": 2.9318535959944704e-13,
+   "-15": 1.784885809472013e-14,
+   "-16": 9.363507972208051e-16,
+   "-2": 0.04954922766922187,
+   "-3": 0.013568673723754858,
+   "-4": 0.0029103783587003337,
+   "-5": 0.0005110945605921236,
+   "-6": 7.582918278166336e-05,
+   "-7": 9.728463030452814e-06,
+   "-8": 1.0986235727939302e-06,
+   "-9": 1.1074767651294966e-07,
+   "0": 0.23667195554825476,
+   "1": 0.24877719293998873,
+   "10": 5.374684098733961e-06,
+   "11": 8.35109660175577e-07,
+   "12": 1.1916001959303087e-07,
+   "13": 1.571712439020139e-08,
+   "14": 1.9269271990343506e-09,
+   "15": 2.1980014060574838e-10,
+   "16": 2.160481817618655e-11,
+   "2": 0.17395058488923973,
+   "3": 0.08925260594665331,
+   "4": 0.03586967651960502,
+   "5": 0.01180249346532506,
+   "6": 0.0032809785207299547,
+   "7": 0.0007886889324154426,
+   "8": 0.00016688024506372713,
+   "9": 3.151992249933331e-05
+  },
+  "observed_at_utc": "2026-11-08T12:19:56.823273+00:00",
+  "research_p_away": "0.19940107623098985",
+  "research_p_draw": "0.23667195554825476",
+  "research_p_home": "0.5639269682207554",
+  "research_p_over_1_5": "0.7426372109111002",
+  "version": "team-form-research-v1"
+ },
+ "note": "Real frozen forecast TSG Hoffenheim v FC Schalke 04 (Bundesliga, 8 Nov 2026, research v1), value-model inputs and pre-kickoff ESPN form rows. Each ESPN row carries the competition ESPN files it under, from evaluation/research_parity_latest_rule/espn_competitions.json. schedule_events are two real completed events from cached ESPN all-competitions schedules (.football_cache/match_research), trimmed.",
+ "row": {
+  "away_team": "FC Schalke 04",
+  "home_team": "TSG Hoffenheim",
+  "kickoff_utc": "2026-11-08T18:30:00+00:00",
+  "lambda_away": "0.7352755342272113",
+  "lambda_home": "1.7256123071930138",
+  "research_history_json": "{\"away\": [{\"away\": \"RB Leipzig\", \"away_goals\": 2.0, \"away_xg\": 3.66, \"date\": \"2026-10-31T00:00:00+00:00\", \"home\": \"Schalke 04\", \"home_goals\": 0.0, \"home_xg\": 0.49, \"source\": \"pipeline training history\"}, {\"away\": \"Schalke 04\", \"away_goals\": 0.0, \"away_xg\": 0.61, \"date\": \"2026-10-24T00:00:00+00:00\", \"home\": \"FC Koln\", \"home_goals\": 0.0, \"home_xg\": 1.24, \"source\": \"pipeline training history\"}, {\"away\": \"Mainz\", \"away_goals\": 1.0, \"away_xg\": 1.94, \"date\": \"2026-10-17T00:00:00+00:00\", \"home\": \"Schalke 04\", \"home_goals\": 0.0, \"home_xg\": 0.43, \"source\": \"pipeline training history\"}, {\"away\": \"Schalke 04\", \"away_goals\": 1.0, \"away_xg\": 0.32, \"date\": \"2026-10-11T00:00:00+00:00\", \"home\": \"Freiburg\", \"home_goals\": 2.0, \"home_xg\": 1.15, \"source\": \"pipeline training history\"}, {\"away\": \"Elversberg\", \"away_goals\": 0.0, \"away_xg\": 1.01, \"date\": \"2026-09-20T00:00:00+00:00\", \"home\": \"Schalke 04\", \"home_goals\": 0.0, \"home_xg\": 1.01, \"source\": \"pipeline training history\"}, {\"away\": \"Schalke 04\", \"away_goals\": 3.0, \"away_xg\": 2.51, \"date\": \"2026-09-11T00:00:00+00:00\", \"home\": \"Union Berlin\", \"home_goals\": 1.0, \"home_xg\": 1.95, \"source\": \"pipeline training history\"}, {\"away\": \"Bayern Munich\", \"away_goals\": 0.0, \"away_xg\": 1.94, \"date\": \"2026-09-05T00:00:00+00:00\", \"home\": \"Schalke 04\", \"home_goals\": 0.0, \"home_xg\": 0.21, \"source\": \"pipeline training history\"}, {\"away\": \"Schalke 04\", \"away_goals\": 0.0, \"away_xg\": 1.54, \"date\": \"2026-08-30T00:00:00+00:00\", \"home\": \"Augsburg\", \"home_goals\": 3.0, \"home_xg\": 3.52, \"source\": \"pipeline training history\"}, {\"away\": \"Schalke 04\", \"away_goals\": 2.0, \"away_xg\": null, \"date\": \"2023-05-27T00:00:00+00:00\", \"home\": \"RB Leipzig\", \"home_goals\": 4.0, \"home_xg\": null, \"source\": \"pipeline training history\"}, {\"away\": \"Ein Frankfurt\", \"away_goals\": 2.0, \"away_xg\": null, \"date\": \"2023-05-20T00:00:00+00:00\", \"home\": \"Schalke 04\", \"home_goals\": 2.0, \"home_xg\": null, \"source\": \"pipeline training history\"}], \"h2h\": [], \"home\": []}"
+ },
+ "schedule_events": [
+  {
+   "competitions": [
+    {
+     "competitors": [
+      {
+       "homeAway": "home",
+       "score": {
+        "$ref": "http://sports.core.api.espn.pvt/v2/sports/soccer/leagues/club.friendly/events/401925174/competitions/401925174/competitors/133797/scores/38?lang=en&region=us",
+        "displayValue": "0",
+        "source": {
+         "description": "SA.ENVOY",
+         "id": "38"
+        },
+        "value": 0.0,
+        "winner": false
+       },
+       "team": {
+        "displayName": "PFC Turan Tovuz",
+        "id": "133797"
+       }
+      },
+      {
+       "homeAway": "away",
+       "score": {
+        "$ref": "http://sports.core.api.espn.pvt/v2/sports/soccer/leagues/club.friendly/events/401925174/competitions/401925174/competitors/436/scores/38?lang=en&region=us",
+        "displayValue": "2",
+        "source": {
+         "description": "SA.ENVOY",
+         "id": "38"
+        },
+        "value": 2.0,
+        "winner": true
+       },
+       "team": {
+        "displayName": "Fenerbahce",
+        "id": "436"
+       }
+      }
+     ],
+     "status": {
+      "addedClock": 360.0,
+      "clock": 5400.0,
+      "displayClock": "90'+6'",
+      "period": 2,
+      "type": {
+       "completed": true,
+       "description": "Full Time",
+       "detail": "FT",
+       "id": "28",
+       "name": "STATUS_FULL_TIME",
+       "shortDetail": "FT",
+       "state": "post"
+      }
+     }
+    }
+   ],
+   "date": "2026-10-03T16:00Z",
+   "id": "401925174",
+   "league": {
+    "name": "Club Friendly",
+    "slug": "club.friendly"
+   },
+   "name": "Fenerbahce at PFC Turan Tovuz",
+   "observed_at_utc": "2026-11-05T13:37:37.741119+00:00",
+   "source_file": "007f06c2a502a078b5d2b3fcfe260b3c11c80b6db1ee0ac8a1502659fa5f16bd.json",
+   "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"
+  },
+  {
+   "competitions": [
+    {
+     "competitors": [
+      {
+       "homeAway": "home",
+       "score": {
+        "$ref": "http://sports.core.api.espn.pvt/v2/sports/soccer/leagues/ger.1/events/401884753/competitions/401884753/competitors/131/scores/38?lang=en&region=us",
+        "displayValue": "2",
+        "source": {
+         "description": "SA.ENVOY",
+         "id": "38"
+        },
+        "value": 2.0,
+        "winner": false
+       },
+       "team": {
+        "displayName": "Bayer Leverkusen",
+        "id": "131"
+       }
+      },
+      {
+       "homeAway": "away",
+       "score": {
+        "$ref": "http://sports.core.api.espn.pvt/v2/sports/soccer/leagues/ger.1/events/401884753/competitions/401884753/competitors/134/scores/38?lang=en&region=us",
+        "displayValue": "4",
+        "source": {
+         "description": "SA.ENVOY",
+         "id": "38"
+        },
+        "value": 4.0,
+        "winner": true
+       },
+       "team": {
+        "displayName": "VfB Stuttgart",
+        "id": "134"
+       }
+      }
+     ],
+     "status": {
+      "addedClock": 300.0,
+      "clock": 5400.0,
+      "displayClock": "90'+5'",
+      "period": 2,
+      "type": {
+       "completed": true,
+       "description": "Full Time",
+       "detail": "FT",
+       "id": "28",
+       "name": "STATUS_FULL_TIME",
+       "shortDetail": "FT",
+       "state": "post"
+      }
+     }
+    }
+   ],
+   "date": "2026-10-31T14:30Z",
+   "id": "401884753",
+   "league": {
+    "name": "German Bundesliga",
+    "slug": "ger.1"
+   },
+   "name": "VfB Stuttgart at Bayer Leverkusen",
+   "observed_at_utc": "2026-11-05T13:37:30.463096+00:00",
+   "source_file": "324d755627addd932ef75a52fbbcc5d59f2b3cf305348bc6e3be67662a9024d0.json",
+   "source_url": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/131/schedule"
+  }
+ ],
+ "snapshot_generated_utc": "2026-11-08T12:20:11.356382+00:00"
+}
