@@ -33,17 +33,20 @@ Historical data in `.football_cache` (football-data.co.uk, 8 domestic leagues, 2
 | 1 Aug 2022 – 30 Jun 2025 | Pinnacle pre-match | Development: build and choose candidates |
 | 1 Jul 2025 – 15 Jan 2026 | Pinnacle pre-match | Validation: already inspected by earlier diagnostics; cagey correction is out-of-sample |
 | 16 Jan – 8 Nov 2026 (~2,100 matches) | Bet365, margin removed | Locked holdout, scored once per declared candidate |
-| Future matches | Pinnacle, live | Short forward run in shadow (2–3 gameweeks) |
 
 - Pinnacle prices in the files stop on 15 Jan 2026; Bet365 continues for every league.
 - On matches priced by both, margin-free Bet365 sits about 0.7 points from Pinnacle, with a 1X2 log-loss gap of about 0.0008. The harness measures this gap; on the holdout a candidate must beat the market by more than it.
 - Expected return on the holdout uses synthetic Pinnacle-like prices (Bet365 margin-free probabilities plus Pinnacle's average margin) and is indicative only.
-- Changes that depend on xG, ESPN, news or European matches can't be backtested and need a longer forward test.
+- xG changes become testable for the five Understat leagues once historical xG is backfilled (Phase 2). Changes that depend on ESPN, news or European matches can't be backtested: they go out in shadow straight away and reach production only once live evidence is enough.
 
 ## Release gate
 
 - Primary metric: log loss on AH settlement across all lines; draw-sensitive subset AH 0 and ±0.5; calibration tolerance (still to be set).
 - Uncertainty: whole calendar weeks are resampled; the 95% interval must be clear of zero.
+- Parity test (no waiting): the same match fed through the harness and the live pipeline must give identical probabilities.
+- Replay over saved live runs (no waiting): the candidate runs over every forecast frozen since 5 Nov 2026 and must compute cleanly. Integration check only, not evidence of improvement.
+- Monitoring after release: the weekly performance reports keep grading every pick, with a rollback trigger if the new model falls behind the old one by a set margin over a set number of matches.
+- There is no forward waiting for changes the backtest can test.
 - The holdout is scored only with a declaration file (`--declaration`), and every holdout run is appended to `evaluation/holdout_ledger.json`. A candidate name can be scored once.
 
 ## Phases
@@ -54,7 +57,7 @@ Historical data in `.football_cache` (football-data.co.uk, 8 domestic leagues, 2
    - [ ] Count each verified match once toward the sample size, while scoring each of its offers.
    - [ ] Evaluation scope fixed to PR #135's markets (native Pinnacle AH, home/away win, DC 1X/X2) and the 24-hour window.
    - [ ] Value model input schema plus the odds-perturbation test in the live pipeline.
-2. **Improve the independent research model** (no market data): draw and low-score adjustment fitted on own history; wider xG coverage; domestic form carried into UCL/UEL.
+2. **Improve the independent research model** (no market data): draw and low-score adjustment fitted on own history; wider xG coverage; domestic form carried into UCL/UEL; Understat historical xG backfilled for the five big leagues (via local Claude Code or a GitHub workflow, since the cloud workspace can't reach Understat) so xG changes can be backtested.
 3. **Confirm the cagey tier as the market view**: inputs all market prices; calibration checked out-of-sample.
 4. **Master shortlist reconciliation, in shadow**: both views scored on the same Pinnacle offer. Research edge = positive expected return after costs. Disagreement = 5+ percentage points from Pinnacle's fair probability, a separate flag. Groups: both agree, market-safe, research edge (separate section), conflict (left out), missing evidence (recorded separately). Target stays 15 fixtures.
 5. **Release**: one PR per change that passes; anything else stays in shadow.
