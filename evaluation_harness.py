@@ -79,6 +79,12 @@ SETUP_FILES = ('evaluation_harness.py', 'research_backtest.py', 'historical_benc
                'narrow_margin.py', 'price_edge_cagey_shortlist.py', 'ah_close_backtest.py',
                'evaluation_harness_config.json', 'narrow_margin_models/cagey-correction-through-2425-v1.json')
 CALIBRATION_MIN_BIN = 30
+PROMOTION_RULES = Path(__file__).with_name('benchmark_promotion_rules.json')
+
+
+def promotion_minimums() -> dict:
+    gates = json.loads(PROMOTION_RULES.read_text(encoding='utf-8'))['promotion_review_gates']
+    return {'fixtures': int(gates['minimum_distinct_paired_fixtures']), 'weeks': int(gates['minimum_gameweeks'])}
 GROUPS = ('1X2', 'Over 1.5', 'AH all', 'AH draw-sensitive')
 
 
@@ -230,6 +236,14 @@ def fold_windows(cfg, end):
     return list(zip(bounds, bounds[1:]))
 
 
+def training_rows(data, league, cfg, include_holdout):
+    """Locked runs never train on holdout results, so no diagnostic can carry holdout information."""
+    if include_holdout:
+        return data
+    locked = data.Date.map(lambda d: phase(d, league, cfg) == 'holdout')
+    return data.loc[~locked]
+
+
 def evaluate_league(league, cache, cfg, include_holdout, keep=None):
     """Locked runs skip every holdout match. A holdout run scores ONLY holdout matches,
     and only the candidates in `keep` (declared candidate, baseline and M)."""
@@ -241,8 +255,9 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None):
     end = pd.Timestamp(cfg['end_exclusive'])
     profile = cfg['production_v2']
     records, folds, coverage, overrounds, calib = [], [], Counter(), [], []
+    history = training_rows(data, league, cfg, include_holdout)
     for origin, stop in fold_windows(cfg, end):
-        train = data.loc[data.Date < origin]
+        train = history.loc[history.Date < origin]
         test = data.loc[(data.Date >= origin) & (data.Date < stop)]
         if test.empty:
             continue
@@ -466,9 +481,12 @@ def holdout_verdict(records, calib, declaration, gap):
     worst = max(deviations) if deviations else None
     market = paired(hold.loc[hold.group == declaration['primary_metric']], 'M', cand) if cand != 'M' else None
     bar = max(0., gap.get(declaration['primary_metric'], {}).get('bet365_minus_pinnacle_log_loss', 0.))
-    passed = bool(primary and primary['clear_of_zero'] and worst is not None and worst <= declaration['calibration_tolerance'])
+    minimum = promotion_minimums()
+    enough = bool(primary and primary['fixtures'] >= minimum['fixtures'] and primary['weeks'] >= minimum['weeks'])
+    passed = bool(enough and primary['clear_of_zero'] and worst is not None and worst <= declaration['calibration_tolerance'])
     return {'candidate': cand, 'baseline': base, 'primary_metric': declaration['primary_metric'],
             'primary': primary, 'draw_sensitive': draw,
+            'sample_minimum': minimum, 'sample_minimum_met': enough,
             'calibration_worst_bin_deviation': worst, 'calibration_tolerance': declaration['calibration_tolerance'],
             'versus_market': {**market, 'gap_bar': bar, 'beats_market_after_gap': market['mean_gain'] - bar > 0
                               and market['interval_95'] is not None and market['interval_95'][0] > bar} if market else None,
@@ -491,6 +509,29 @@ def record_holdout(declaration, setup, commit, fixtures, verdict, ledger=LEDGER)
 # Live replay
 # ---------------------------------------------------------------------------
 
+def usable_results(records, root, coverage=None, clock=None):
+    """The report's result checks: a verified source, and for Turkish T1 results the retained
+    source CSV must validate (turkey_results.validate_evidence). Anything else is not scored."""
+    import performance_tracking as pt
+    from turkey_results import validate_evidence
+    clock = clock or pd.Timestamp.now(tz='UTC')
+    coverage = coverage if coverage is not None else Counter()
+    output, evidence_cache = [], {}
+    for record in records:
+        if not isinstance(record, dict):
+            continue
+        try:
+            if not pt.verified_result_source(record):
+                raise ValueError('unverified result source')
+            if record.get('league_code') == 'T1':
+                validate_evidence(root, record, clock, evidence_cache=evidence_cache)
+        except (OSError, ValueError, KeyError) as exc:
+            coverage['result_rejected:' + str(exc)[:60]] += 1
+            continue
+        output.append(record)
+    return output
+
+
 def live_replay(root):
     """Frozen forecasts graded exactly as the performance report grades them, then scored once
     per verified match: C (frozen research), M (fit to frozen Pinnacle quotes), D (cagey), A (published grid)."""
@@ -500,9 +541,8 @@ def live_replay(root):
     from team_research import utc
     cagey_model = nm.production_model()
     verified = pt.load_json(root / 'performance' / 'verified_results.json', {})
-    results = [r for r in (verified.values() if isinstance(verified, dict) else verified)
-               if isinstance(r, dict) and pt.verified_result_source(r)]
     coverage, latest = Counter(), {}
+    results = usable_results(verified.values() if isinstance(verified, dict) else verified, root, coverage)
     for meta, rows, _ in pt.snapshots(root):
         for row in rows:
             frozen = {**row, 'snapshot_generated_utc': meta['generated_at_utc'],

@@ -155,6 +155,43 @@ class HoldoutLockTest(unittest.TestCase):
         self.assertIn('retrospective', {r['phase'] for r in retro})
 
 
+class ReviewGuardTest(unittest.TestCase):
+    def test_holdout_cannot_pass_below_the_sample_minimum(self):
+        records, calib = [], []
+        for i in range(30):
+            for cand, loss in (('D', .6), ('M', .7)):
+                records.append({'fixture_key': f'f{i}', 'league': 'Eredivisie', 'week': f'w{i % 2}',
+                                'phase': 'holdout', 'candidate': cand, 'market': 'AH +0.00', 'log_loss': loss})
+                calib.append({'phase': 'holdout', 'candidate': cand, 'probs': [.45, .25, .30], 'outcome': i % 3 == 0 and 0 or 2})
+        declaration = {'candidate': 'D', 'baseline': 'M', 'primary_metric': 'AH all',
+                       'draw_sensitive_lines': [-.5, 0, .5], 'calibration_tolerance': .2}
+        verdict = eh.holdout_verdict(records, calib, declaration, {})
+        self.assertTrue(verdict['primary']['clear_of_zero'])
+        self.assertFalse(verdict['sample_minimum_met'])
+        self.assertFalse(verdict['passes_holdout_gate'])
+        self.assertEqual(verdict['sample_minimum'], {'fixtures': 300, 'weeks': 6})
+
+    def test_locked_runs_never_train_on_holdout_results(self):
+        data = pd.DataFrame({'Date': pd.to_datetime(['2025-12-01', '2026-01-16', '2026-06-01', '2026-10-11'])})
+        kept = eh.training_rows(data, 'Eredivisie', CFG, False)
+        self.assertEqual(list(kept.Date.dt.date.astype(str)), ['2025-12-01', '2026-10-11'])
+        self.assertEqual(len(eh.training_rows(data, 'Eredivisie', CFG, True)), 4)
+        self.assertEqual(len(eh.training_rows(data, 'EPL', CFG, False)), 4)
+
+    def test_live_replay_rejects_turkish_results_without_source_evidence(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            t1 = {'league_code': 'T1', 'source_status': 'FINISHED', 'match_id': 'x', 'source': 'football-data.co.uk',
+                  'source_season_start': 2026, 'source_sha256': 'f' * 64, 'home_goals': 1, 'away_goals': 0}
+            from unittest.mock import patch
+            with patch('turkey_results.verified', return_value=True):
+                coverage = {}
+                from collections import Counter
+                coverage = Counter()
+                kept = eh.usable_results([t1], Path(tmp), coverage)
+            self.assertEqual(kept, [])
+            self.assertTrue(any(k.startswith('result_rejected') for k in coverage))
+
+
 class SummaryTest(unittest.TestCase):
     def test_headline_uses_one_common_cohort(self):
         records = []

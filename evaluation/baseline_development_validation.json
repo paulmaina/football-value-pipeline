@@ -1313,43 +1313,43 @@
     {
       "bin_lower": 0.0,
       "candidate": "A",
-      "mean_forecast": 0.07200704350357186,
-      "n": 96,
-      "observed_rate": 0.0625,
+      "mean_forecast": 0.07189720882774765,
+      "n": 94,
+      "observed_rate": 0.0425531914893617,
       "outcome": "away",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.1,
       "candidate": "A",
-      "mean_forecast": 0.15479628241672094,
-      "n": 269,
-      "observed_rate": 0.16356877323420074,
+      "mean_forecast": 0.15473169202784517,
+      "n": 270,
+      "observed_rate": 0.16666666666666666,
       "outcome": "away",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.2,
       "candidate": "A",
-      "mean_forecast": 0.25064193623209574,
-      "n": 373,
-      "observed_rate": 0.2761394101876676,
+      "mean_forecast": 0.2515219401750186,
+      "n": 368,
+      "observed_rate": 0.27717391304347827,
       "outcome": "away",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.3,
       "candidate": "A",
-      "mean_forecast": 0.34669244624526985,
-      "n": 304,
-      "observed_rate": 0.26644736842105265,
+      "mean_forecast": 0.34669296689756174,
+      "n": 303,
+      "observed_rate": 0.2706270627062706,
       "outcome": "away",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.4,
       "candidate": "A",
-      "mean_forecast": 0.445065897494753,
+      "mean_forecast": 0.44455407489001425,
       "n": 171,
       "observed_rate": 0.5029239766081871,
       "outcome": "away",
@@ -1358,16 +1358,16 @@
     {
       "bin_lower": 0.5,
       "candidate": "A",
-      "mean_forecast": 0.5472978718358605,
-      "n": 128,
-      "observed_rate": 0.5859375,
+      "mean_forecast": 0.5467233201015533,
+      "n": 127,
+      "observed_rate": 0.5748031496062992,
       "outcome": "away",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.6,
       "candidate": "A",
-      "mean_forecast": 0.637743261832315,
+      "mean_forecast": 0.6364150639776929,
       "n": 69,
       "observed_rate": 0.6231884057971014,
       "outcome": "away",
@@ -1376,9 +1376,9 @@
     {
       "bin_lower": 0.7,
       "candidate": "A",
-      "mean_forecast": 0.7391909467737741,
+      "mean_forecast": 0.734965003537978,
       "n": 28,
-      "observed_rate": 0.8928571428571429,
+      "observed_rate": 0.9285714285714286,
       "outcome": "away",
       "phase": "retrospective"
     },
@@ -1394,7 +1394,7 @@
     {
       "bin_lower": 0.0,
       "candidate": "A",
-      "mean_forecast": 0.07910443896775786,
+      "mean_forecast": 0.07928957643021765,
       "n": 18,
       "observed_rate": 0.0,
       "outcome": "draw",
@@ -1403,115 +1403,115 @@
     {
       "bin_lower": 0.1,
       "candidate": "A",
-      "mean_forecast": 0.16340683891169824,
-      "n": 210,
-      "observed_rate": 0.12380952380952381,
+      "mean_forecast": 0.1641687065212427,
+      "n": 207,
+      "observed_rate": 0.12560386473429952,
       "outcome": "draw",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.2,
       "candidate": "A",
-      "mean_forecast": 0.252920024170464,
-      "n": 1117,
-      "observed_rate": 0.24977618621307074,
+      "mean_forecast": 0.25273372617177386,
+      "n": 1109,
+      "observed_rate": 0.25067628494138866,
       "outcome": "draw",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.3,
       "candidate": "A",
-      "mean_forecast": 0.31131915121733655,
-      "n": 98,
-      "observed_rate": 0.336734693877551,
+      "mean_forecast": 0.311323007040058,
+      "n": 101,
+      "observed_rate": 0.32673267326732675,
       "outcome": "draw",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.0,
       "candidate": "A",
-      "mean_forecast": 0.08368705140884888,
+      "mean_forecast": 0.08439562474612347,
       "n": 19,
-      "observed_rate": 0.05263157894736842,
+      "observed_rate": 0.0,
       "outcome": "home",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.1,
       "candidate": "A",
-      "mean_forecast": 0.1582496150092237,
-      "n": 120,
-      "observed_rate": 0.15,
+      "mean_forecast": 0.15884513099528322,
+      "n": 119,
+      "observed_rate": 0.15126050420168066,
       "outcome": "home",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.2,
       "candidate": "A",
-      "mean_forecast": 0.25099367445984666,
-      "n": 203,
-      "observed_rate": 0.2413793103448276,
+      "mean_forecast": 0.2508836495635121,
+      "n": 202,
+      "observed_rate": 0.24257425742574257,
       "outcome": "home",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.3,
       "candidate": "A",
-      "mean_forecast": 0.3517759796753841,
-      "n": 279,
-      "observed_rate": 0.34767025089605735,
+      "mean_forecast": 0.35195131445403904,
+      "n": 281,
+      "observed_rate": 0.35587188612099646,
       "outcome": "home",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.4,
       "candidate": "A",
-      "mean_forecast": 0.4471158729260918,
-      "n": 315,
-      "observed_rate": 0.47619047619047616,
+      "mean_forecast": 0.44743654552318873,
+      "n": 314,
+      "observed_rate": 0.4713375796178344,
       "outcome": "home",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.5,
       "candidate": "A",
-      "mean_forecast": 0.5449865544114793,
-      "n": 223,
-      "observed_rate": 0.5381165919282511,
+      "mean_forecast": 0.5446528769824424,
+      "n": 216,
+      "observed_rate": 0.5277777777777778,
       "outcome": "home",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.6,
       "candidate": "A",
-      "mean_forecast": 0.6459947050959729,
-      "n": 159,
-      "observed_rate": 0.660377358490566,
+      "mean_forecast": 0.6462788026838868,
+      "n": 162,
+      "observed_rate": 0.6666666666666666,
       "outcome": "home",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.7,
       "candidate": "A",
-      "mean_forecast": 0.744341141580624,
-      "n": 87,
-      "observed_rate": 0.7471264367816092,
+      "mean_forecast": 0.7440312713972683,
+      "n": 85,
+      "observed_rate": 0.7529411764705882,
       "outcome": "home",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.8,
       "candidate": "A",
-      "mean_forecast": 0.8440455998069125,
-      "n": 35,
-      "observed_rate": 0.8857142857142857,
+      "mean_forecast": 0.845406623029823,
+      "n": 34,
+      "observed_rate": 0.8823529411764706,
       "outcome": "home",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.9,
       "candidate": "A",
-      "mean_forecast": 0.9220558268608046,
+      "mean_forecast": 0.9193726586657142,
       "n": 3,
       "observed_rate": 1.0,
       "outcome": "home",
@@ -1520,43 +1520,43 @@
     {
       "bin_lower": 0.0,
       "candidate": "C",
-      "mean_forecast": 0.07018583986046555,
-      "n": 47,
-      "observed_rate": 0.0425531914893617,
+      "mean_forecast": 0.07053986073331579,
+      "n": 46,
+      "observed_rate": 0.043478260869565216,
       "outcome": "away",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.1,
       "candidate": "C",
-      "mean_forecast": 0.15483494100307665,
-      "n": 229,
-      "observed_rate": 0.13973799126637554,
+      "mean_forecast": 0.15501300763067263,
+      "n": 227,
+      "observed_rate": 0.13656387665198239,
       "outcome": "away",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.2,
       "candidate": "C",
-      "mean_forecast": 0.2535160483832949,
-      "n": 401,
-      "observed_rate": 0.24438902743142144,
+      "mean_forecast": 0.252950285594992,
+      "n": 399,
+      "observed_rate": 0.24812030075187969,
       "outcome": "away",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.3,
       "candidate": "C",
-      "mean_forecast": 0.34589627269509327,
+      "mean_forecast": 0.3454271376524263,
       "n": 369,
-      "observed_rate": 0.3062330623306233,
+      "observed_rate": 0.3089430894308943,
       "outcome": "away",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.4,
       "candidate": "C",
-      "mean_forecast": 0.4472711353377334,
+      "mean_forecast": 0.4479479444199814,
       "n": 205,
       "observed_rate": 0.47804878048780486,
       "outcome": "away",
@@ -1565,16 +1565,16 @@
     {
       "bin_lower": 0.5,
       "candidate": "C",
-      "mean_forecast": 0.5451960551406022,
-      "n": 145,
-      "observed_rate": 0.5862068965517241,
+      "mean_forecast": 0.5462077728582749,
+      "n": 142,
+      "observed_rate": 0.5704225352112676,
       "outcome": "away",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.6,
       "candidate": "C",
-      "mean_forecast": 0.6430099453196355,
+      "mean_forecast": 0.6412748778756836,
       "n": 41,
       "observed_rate": 0.7317073170731707,
       "outcome": "away",
@@ -1583,144 +1583,144 @@
     {
       "bin_lower": 0.7,
       "candidate": "C",
-      "mean_forecast": 0.7488172193314984,
-      "n": 11,
-      "observed_rate": 0.7272727272727273,
+      "mean_forecast": 0.74221298596903,
+      "n": 12,
+      "observed_rate": 0.75,
       "outcome": "away",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.8,
       "candidate": "C",
-      "mean_forecast": 0.8706436610854786,
-      "n": 2,
-      "observed_rate": 0.5,
+      "mean_forecast": 0.8961971886160168,
+      "n": 1,
+      "observed_rate": 1.0,
       "outcome": "away",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.0,
       "candidate": "C",
-      "mean_forecast": 0.08369444118255034,
-      "n": 9,
-      "observed_rate": 0.1111111111111111,
+      "mean_forecast": 0.08455652385267137,
+      "n": 8,
+      "observed_rate": 0.125,
       "outcome": "draw",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.1,
       "candidate": "C",
-      "mean_forecast": 0.1706281118145254,
-      "n": 180,
-      "observed_rate": 0.15555555555555556,
+      "mean_forecast": 0.17164022389140432,
+      "n": 174,
+      "observed_rate": 0.16666666666666666,
       "outcome": "draw",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.2,
       "candidate": "C",
-      "mean_forecast": 0.24605537322754464,
-      "n": 1219,
-      "observed_rate": 0.24446267432321575,
+      "mean_forecast": 0.2460500176444742,
+      "n": 1213,
+      "observed_rate": 0.24319868095630667,
       "outcome": "draw",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.3,
       "candidate": "C",
-      "mean_forecast": 0.3170479393645583,
-      "n": 40,
-      "observed_rate": 0.3,
+      "mean_forecast": 0.3192473161694001,
+      "n": 44,
+      "observed_rate": 0.29545454545454547,
       "outcome": "draw",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.4,
       "candidate": "C",
-      "mean_forecast": 0.42586751962434166,
-      "n": 2,
-      "observed_rate": 0.5,
+      "mean_forecast": 0.4215368829308664,
+      "n": 3,
+      "observed_rate": 0.3333333333333333,
       "outcome": "draw",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.0,
       "candidate": "C",
-      "mean_forecast": 0.07147749783502902,
-      "n": 7,
-      "observed_rate": 0.14285714285714285,
+      "mean_forecast": 0.0709280903965513,
+      "n": 6,
+      "observed_rate": 0.0,
       "outcome": "home",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.1,
       "candidate": "C",
-      "mean_forecast": 0.16474822458872912,
-      "n": 90,
-      "observed_rate": 0.15555555555555556,
+      "mean_forecast": 0.1626458355097344,
+      "n": 92,
+      "observed_rate": 0.17391304347826086,
       "outcome": "home",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.2,
       "candidate": "C",
-      "mean_forecast": 0.2524357669803381,
-      "n": 203,
-      "observed_rate": 0.2512315270935961,
+      "mean_forecast": 0.2528400145197401,
+      "n": 204,
+      "observed_rate": 0.25,
       "outcome": "home",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.3,
       "candidate": "C",
-      "mean_forecast": 0.3558632052164543,
-      "n": 306,
-      "observed_rate": 0.33986928104575165,
+      "mean_forecast": 0.35579648855112495,
+      "n": 298,
+      "observed_rate": 0.3288590604026846,
       "outcome": "home",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.4,
       "candidate": "C",
-      "mean_forecast": 0.4488091501604053,
+      "mean_forecast": 0.44825581498789313,
       "n": 395,
-      "observed_rate": 0.47848101265822784,
+      "observed_rate": 0.4911392405063291,
       "outcome": "home",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.5,
       "candidate": "C",
-      "mean_forecast": 0.5485144489262213,
-      "n": 224,
-      "observed_rate": 0.53125,
+      "mean_forecast": 0.5489572018474379,
+      "n": 225,
+      "observed_rate": 0.5244444444444445,
       "outcome": "home",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.6,
       "candidate": "C",
-      "mean_forecast": 0.6445032713679854,
+      "mean_forecast": 0.6438031197293558,
       "n": 150,
-      "observed_rate": 0.68,
+      "observed_rate": 0.6733333333333333,
       "outcome": "home",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.7,
       "candidate": "C",
-      "mean_forecast": 0.7426068922778937,
-      "n": 56,
-      "observed_rate": 0.8392857142857143,
+      "mean_forecast": 0.7417805372812788,
+      "n": 54,
+      "observed_rate": 0.8333333333333334,
       "outcome": "home",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.8,
       "candidate": "C",
-      "mean_forecast": 0.840514265380964,
-      "n": 18,
-      "observed_rate": 0.8333333333333334,
+      "mean_forecast": 0.8390265643983552,
+      "n": 17,
+      "observed_rate": 0.8235294117647058,
       "outcome": "home",
       "phase": "retrospective"
     },
@@ -1736,36 +1736,36 @@
     {
       "bin_lower": 0.0,
       "candidate": "D",
-      "mean_forecast": 0.07282507227784707,
-      "n": 87,
-      "observed_rate": 0.04597701149425287,
+      "mean_forecast": 0.07274378102778344,
+      "n": 86,
+      "observed_rate": 0.03488372093023256,
       "outcome": "away",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.1,
       "candidate": "D",
-      "mean_forecast": 0.15515958597910312,
-      "n": 286,
-      "observed_rate": 0.17832167832167833,
+      "mean_forecast": 0.15512300707553386,
+      "n": 285,
+      "observed_rate": 0.17894736842105263,
       "outcome": "away",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.2,
       "candidate": "D",
-      "mean_forecast": 0.25069889403367207,
-      "n": 387,
-      "observed_rate": 0.26356589147286824,
+      "mean_forecast": 0.2506711571769357,
+      "n": 383,
+      "observed_rate": 0.26631853785900783,
       "outcome": "away",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.3,
       "candidate": "D",
-      "mean_forecast": 0.3468318942301377,
-      "n": 303,
-      "observed_rate": 0.29042904290429045,
+      "mean_forecast": 0.34681243313808685,
+      "n": 302,
+      "observed_rate": 0.28807947019867547,
       "outcome": "away",
       "phase": "retrospective"
     },
@@ -1799,9 +1799,9 @@
     {
       "bin_lower": 0.7,
       "candidate": "D",
-      "mean_forecast": 0.733573192032712,
-      "n": 23,
-      "observed_rate": 0.8695652173913043,
+      "mean_forecast": 0.7328689510279933,
+      "n": 22,
+      "observed_rate": 0.9090909090909091,
       "outcome": "away",
       "phase": "retrospective"
     },
@@ -1826,18 +1826,18 @@
     {
       "bin_lower": 0.1,
       "candidate": "D",
-      "mean_forecast": 0.16516408502790456,
-      "n": 181,
-      "observed_rate": 0.13259668508287292,
+      "mean_forecast": 0.16524655245008835,
+      "n": 179,
+      "observed_rate": 0.1340782122905028,
       "outcome": "draw",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.2,
       "candidate": "D",
-      "mean_forecast": 0.2577777294594551,
-      "n": 1007,
-      "observed_rate": 0.24726911618669314,
+      "mean_forecast": 0.25770256002189496,
+      "n": 1001,
+      "observed_rate": 0.24775224775224775,
       "outcome": "draw",
       "phase": "retrospective"
     },
@@ -1862,9 +1862,9 @@
     {
       "bin_lower": 0.1,
       "candidate": "D",
-      "mean_forecast": 0.1592337776671213,
-      "n": 129,
-      "observed_rate": 0.14728682170542637,
+      "mean_forecast": 0.1596674770641653,
+      "n": 128,
+      "observed_rate": 0.140625,
       "outcome": "home",
       "phase": "retrospective"
     },
@@ -1880,27 +1880,27 @@
     {
       "bin_lower": 0.3,
       "candidate": "D",
-      "mean_forecast": 0.35135052118683474,
-      "n": 296,
-      "observed_rate": 0.34797297297297297,
+      "mean_forecast": 0.3513188774476396,
+      "n": 295,
+      "observed_rate": 0.34915254237288135,
       "outcome": "home",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.4,
       "candidate": "D",
-      "mean_forecast": 0.44570270854387206,
-      "n": 330,
-      "observed_rate": 0.47878787878787876,
+      "mean_forecast": 0.4452761379119441,
+      "n": 326,
+      "observed_rate": 0.4754601226993865,
       "outcome": "home",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.5,
       "candidate": "D",
-      "mean_forecast": 0.5475623382192524,
-      "n": 214,
-      "observed_rate": 0.5280373831775701,
+      "mean_forecast": 0.5474860195159544,
+      "n": 213,
+      "observed_rate": 0.5258215962441315,
       "outcome": "home",
       "phase": "retrospective"
     },
@@ -1916,9 +1916,9 @@
     {
       "bin_lower": 0.7,
       "candidate": "D",
-      "mean_forecast": 0.7422272841490478,
-      "n": 81,
-      "observed_rate": 0.7160493827160493,
+      "mean_forecast": 0.742107242329039,
+      "n": 80,
+      "observed_rate": 0.725,
       "outcome": "home",
       "phase": "retrospective"
     },
@@ -1943,36 +1943,36 @@
     {
       "bin_lower": 0.0,
       "candidate": "M",
-      "mean_forecast": 0.07161707109298845,
-      "n": 91,
-      "observed_rate": 0.054945054945054944,
+      "mean_forecast": 0.07155709311651798,
+      "n": 90,
+      "observed_rate": 0.044444444444444446,
       "outcome": "away",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.1,
       "candidate": "M",
-      "mean_forecast": 0.15476786461772288,
-      "n": 283,
-      "observed_rate": 0.17667844522968199,
+      "mean_forecast": 0.15473944408548349,
+      "n": 282,
+      "observed_rate": 0.1773049645390071,
       "outcome": "away",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.2,
       "candidate": "M",
-      "mean_forecast": 0.25209389796309456,
-      "n": 383,
-      "observed_rate": 0.26370757180156656,
+      "mean_forecast": 0.25207186059275444,
+      "n": 379,
+      "observed_rate": 0.26649076517150394,
       "outcome": "away",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.3,
       "candidate": "M",
-      "mean_forecast": 0.3472698440344863,
-      "n": 292,
-      "observed_rate": 0.2808219178082192,
+      "mean_forecast": 0.3472399004875915,
+      "n": 291,
+      "observed_rate": 0.27835051546391754,
       "outcome": "away",
       "phase": "retrospective"
     },
@@ -2006,9 +2006,9 @@
     {
       "bin_lower": 0.7,
       "candidate": "M",
-      "mean_forecast": 0.7381542841771404,
-      "n": 21,
-      "observed_rate": 0.8571428571428571,
+      "mean_forecast": 0.73789939371691,
+      "n": 20,
+      "observed_rate": 0.9,
       "outcome": "away",
       "phase": "retrospective"
     },
@@ -2033,18 +2033,18 @@
     {
       "bin_lower": 0.1,
       "candidate": "M",
-      "mean_forecast": 0.16699681098440028,
-      "n": 220,
-      "observed_rate": 0.13636363636363635,
+      "mean_forecast": 0.16710100616454215,
+      "n": 218,
+      "observed_rate": 0.13761467889908258,
       "outcome": "draw",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.2,
       "candidate": "M",
-      "mean_forecast": 0.2561724352573728,
-      "n": 1096,
-      "observed_rate": 0.2527372262773723,
+      "mean_forecast": 0.2561504082970367,
+      "n": 1090,
+      "observed_rate": 0.25321100917431194,
       "outcome": "draw",
       "phase": "retrospective"
     },
@@ -2069,9 +2069,9 @@
     {
       "bin_lower": 0.1,
       "candidate": "M",
-      "mean_forecast": 0.1590430222853098,
-      "n": 127,
-      "observed_rate": 0.14960629921259844,
+      "mean_forecast": 0.1594653311854511,
+      "n": 126,
+      "observed_rate": 0.14285714285714285,
       "outcome": "home",
       "phase": "retrospective"
     },
@@ -2087,27 +2087,27 @@
     {
       "bin_lower": 0.3,
       "candidate": "M",
-      "mean_forecast": 0.3510202081738376,
-      "n": 281,
-      "observed_rate": 0.3487544483985765,
+      "mean_forecast": 0.3509729461158073,
+      "n": 280,
+      "observed_rate": 0.35,
       "outcome": "home",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.4,
       "candidate": "M",
-      "mean_forecast": 0.4474374783532367,
-      "n": 329,
-      "observed_rate": 0.48024316109422494,
+      "mean_forecast": 0.4473144378971422,
+      "n": 327,
+      "observed_rate": 0.4801223241590214,
       "outcome": "home",
       "phase": "retrospective"
     },
     {
       "bin_lower": 0.5,
       "candidate": "M",
-      "mean_forecast": 0.5491864055552764,
-      "n": 212,
-      "observed_rate": 0.5,
+      "mean_forecast": 0.5493943462794368,
+      "n": 209,
+      "observed_rate": 0.49282296650717705,
       "outcome": "home",
       "phase": "retrospective"
     },
@@ -2123,9 +2123,9 @@
     {
       "bin_lower": 0.7,
       "candidate": "M",
-      "mean_forecast": 0.7459574273702185,
-      "n": 88,
-      "observed_rate": 0.7159090909090909,
+      "mean_forecast": 0.7457658846494447,
+      "n": 87,
+      "observed_rate": 0.7241379310344828,
       "outcome": "home",
       "phase": "retrospective"
     },
@@ -3475,13 +3475,13 @@
     "EPL:insufficient_training": 136,
     "EPL:market:bet365 prices missing": 1,
     "EPL:market:pinnacle prices missing": 11,
-    "Eredivisie:A:available": 890,
-    "Eredivisie:C:available": 908,
-    "Eredivisie:D:available": 890,
-    "Eredivisie:M:available": 890,
+    "Eredivisie:A:available": 888,
+    "Eredivisie:C:available": 906,
+    "Eredivisie:D:available": 888,
+    "Eredivisie:M:available": 888,
     "Eredivisie:MB:available": 850,
     "Eredivisie:MP:available": 850,
-    "Eredivisie:all:unresolved training team": 3,
+    "Eredivisie:all:unresolved training team": 5,
     "Eredivisie:insufficient_training": 207,
     "Eredivisie:locked_holdout": 214,
     "Eredivisie:market:pinnacle prices missing": 18,
@@ -3504,13 +3504,13 @@
     "Ligue1:all:unresolved training team": 4,
     "Ligue1:insufficient_training": 120,
     "Ligue1:market:pinnacle prices missing": 6,
-    "PrimeiraLiga:A:available": 902,
-    "PrimeiraLiga:C:available": 902,
-    "PrimeiraLiga:D:available": 902,
-    "PrimeiraLiga:M:available": 902,
+    "PrimeiraLiga:A:available": 900,
+    "PrimeiraLiga:C:available": 900,
+    "PrimeiraLiga:D:available": 900,
+    "PrimeiraLiga:M:available": 900,
     "PrimeiraLiga:MB:available": 870,
     "PrimeiraLiga:MP:available": 870,
-    "PrimeiraLiga:all:unresolved training team": 4,
+    "PrimeiraLiga:all:unresolved training team": 6,
     "PrimeiraLiga:insufficient_training": 196,
     "PrimeiraLiga:locked_holdout": 220,
     "SerieA:A:available": 1493,
@@ -3522,14 +3522,14 @@
     "SerieA:all:unresolved training team": 6,
     "SerieA:insufficient_training": 130,
     "SerieA:market:pinnacle prices missing": 1,
-    "SuperLig:A:available": 1069,
-    "SuperLig:C:available": 1122,
-    "SuperLig:D:available": 1068,
-    "SuperLig:M:available": 1068,
+    "SuperLig:A:available": 1065,
+    "SuperLig:C:available": 1118,
+    "SuperLig:D:available": 1064,
+    "SuperLig:M:available": 1064,
     "SuperLig:M:residual 0.0337 above 0.03": 1,
     "SuperLig:MB:available": 1001,
     "SuperLig:MP:available": 1001,
-    "SuperLig:all:unresolved training team": 10,
+    "SuperLig:all:unresolved training team": 14,
     "SuperLig:gap:residual 0.0322 above 0.03": 1,
     "SuperLig:gap:residual 0.0337 above 0.03": 1,
     "SuperLig:insufficient_training": 125,
@@ -6803,113 +6803,113 @@
       "end_exclusive": "2026-02-09",
       "league": "Eredivisie",
       "origin": "2026-01-26",
-      "training_end": "2026-01-25",
-      "training_matches": 1402
+      "training_end": "2026-01-11",
+      "training_matches": 1384
     },
     {
       "end_exclusive": "2026-02-23",
       "league": "Eredivisie",
       "origin": "2026-02-09",
-      "training_end": "2026-02-08",
-      "training_matches": 1420
+      "training_end": "2026-01-11",
+      "training_matches": 1384
     },
     {
       "end_exclusive": "2026-03-09",
       "league": "Eredivisie",
       "origin": "2026-02-23",
-      "training_end": "2026-02-22",
-      "training_matches": 1440
+      "training_end": "2026-01-11",
+      "training_matches": 1384
     },
     {
       "end_exclusive": "2026-03-23",
       "league": "Eredivisie",
       "origin": "2026-03-09",
-      "training_end": "2026-03-08",
-      "training_matches": 1458
+      "training_end": "2026-01-11",
+      "training_matches": 1384
     },
     {
       "end_exclusive": "2026-04-06",
       "league": "Eredivisie",
       "origin": "2026-03-23",
-      "training_end": "2026-03-22",
-      "training_matches": 1476
+      "training_end": "2026-01-11",
+      "training_matches": 1384
     },
     {
       "end_exclusive": "2026-04-20",
       "league": "Eredivisie",
       "origin": "2026-04-06",
-      "training_end": "2026-04-05",
-      "training_matches": 1485
+      "training_end": "2026-01-11",
+      "training_matches": 1384
     },
     {
       "end_exclusive": "2026-05-04",
       "league": "Eredivisie",
       "origin": "2026-04-20",
-      "training_end": "2026-04-12",
-      "training_matches": 1494
+      "training_end": "2026-01-11",
+      "training_matches": 1384
     },
     {
       "end_exclusive": "2026-05-18",
       "league": "Eredivisie",
       "origin": "2026-05-04",
-      "training_end": "2026-05-03",
-      "training_matches": 1512
+      "training_end": "2026-01-11",
+      "training_matches": 1384
     },
     {
       "end_exclusive": "2026-08-10",
       "league": "Eredivisie",
       "origin": "2026-07-27",
-      "training_end": "2026-05-17",
-      "training_matches": 1530
+      "training_end": "2026-01-11",
+      "training_matches": 1384
     },
     {
       "end_exclusive": "2026-08-24",
       "league": "Eredivisie",
       "origin": "2026-08-10",
-      "training_end": "2026-08-09",
-      "training_matches": 1539
+      "training_end": "2026-01-11",
+      "training_matches": 1384
     },
     {
       "end_exclusive": "2026-09-07",
       "league": "Eredivisie",
       "origin": "2026-08-24",
-      "training_end": "2026-08-23",
-      "training_matches": 1554
+      "training_end": "2026-01-11",
+      "training_matches": 1384
     },
     {
       "end_exclusive": "2026-09-21",
       "league": "Eredivisie",
       "origin": "2026-09-07",
-      "training_end": "2026-09-06",
-      "training_matches": 1571
+      "training_end": "2026-01-11",
+      "training_matches": 1384
     },
     {
       "end_exclusive": "2026-10-11",
       "league": "Eredivisie",
       "origin": "2026-10-05",
-      "training_end": "2026-09-20",
-      "training_matches": 1593
+      "training_end": "2026-01-11",
+      "training_matches": 1384
     },
     {
       "end_exclusive": "2026-10-19",
       "league": "Eredivisie",
       "origin": "2026-10-11",
-      "training_end": "2026-10-10",
-      "training_matches": 1598
+      "training_end": "2026-01-11",
+      "training_matches": 1384
     },
     {
       "end_exclusive": "2026-11-02",
       "league": "Eredivisie",
       "origin": "2026-10-19",
       "training_end": "2026-10-18",
-      "training_matches": 1611
+      "training_matches": 1397
     },
     {
       "end_exclusive": "2026-11-09",
       "league": "Eredivisie",
       "origin": "2026-11-02",
       "training_end": "2026-11-01",
-      "training_matches": 1629
+      "training_matches": 1415
     },
     {
       "end_exclusive": "2023-03-13",
@@ -7328,113 +7328,113 @@
       "end_exclusive": "2026-02-09",
       "league": "PrimeiraLiga",
       "origin": "2026-01-26",
-      "training_end": "2026-01-25",
-      "training_matches": 1394
+      "training_end": "2026-01-11",
+      "training_matches": 1377
     },
     {
       "end_exclusive": "2026-02-23",
       "league": "PrimeiraLiga",
       "origin": "2026-02-09",
-      "training_end": "2026-02-08",
-      "training_matches": 1411
+      "training_end": "2026-01-11",
+      "training_matches": 1377
     },
     {
       "end_exclusive": "2026-03-09",
       "league": "PrimeiraLiga",
       "origin": "2026-02-23",
-      "training_end": "2026-02-22",
-      "training_matches": 1430
+      "training_end": "2026-01-11",
+      "training_matches": 1377
     },
     {
       "end_exclusive": "2026-03-23",
       "league": "PrimeiraLiga",
       "origin": "2026-03-09",
-      "training_end": "2026-03-08",
-      "training_matches": 1448
+      "training_end": "2026-01-11",
+      "training_matches": 1377
     },
     {
       "end_exclusive": "2026-04-06",
       "league": "PrimeiraLiga",
       "origin": "2026-03-23",
-      "training_end": "2026-03-22",
-      "training_matches": 1465
+      "training_end": "2026-01-11",
+      "training_matches": 1377
     },
     {
       "end_exclusive": "2026-04-20",
       "league": "PrimeiraLiga",
       "origin": "2026-04-06",
-      "training_end": "2026-04-04",
-      "training_matches": 1472
+      "training_end": "2026-01-11",
+      "training_matches": 1377
     },
     {
       "end_exclusive": "2026-05-04",
       "league": "PrimeiraLiga",
       "origin": "2026-04-20",
-      "training_end": "2026-04-19",
-      "training_matches": 1491
+      "training_end": "2026-01-11",
+      "training_matches": 1377
     },
     {
       "end_exclusive": "2026-05-18",
       "league": "PrimeiraLiga",
       "origin": "2026-05-04",
-      "training_end": "2026-05-03",
-      "training_matches": 1511
+      "training_end": "2026-01-11",
+      "training_matches": 1377
     },
     {
       "end_exclusive": "2026-08-10",
       "league": "PrimeiraLiga",
       "origin": "2026-07-27",
-      "training_end": "2026-05-16",
-      "training_matches": 1530
+      "training_end": "2026-01-11",
+      "training_matches": 1377
     },
     {
       "end_exclusive": "2026-08-24",
       "league": "PrimeiraLiga",
       "origin": "2026-08-10",
-      "training_end": "2026-08-09",
-      "training_matches": 1538
+      "training_end": "2026-01-11",
+      "training_matches": 1377
     },
     {
       "end_exclusive": "2026-09-07",
       "league": "PrimeiraLiga",
       "origin": "2026-08-24",
-      "training_end": "2026-08-23",
-      "training_matches": 1553
+      "training_end": "2026-01-11",
+      "training_matches": 1377
     },
     {
       "end_exclusive": "2026-09-21",
       "league": "PrimeiraLiga",
       "origin": "2026-09-07",
-      "training_end": "2026-09-06",
-      "training_matches": 1571
+      "training_end": "2026-01-11",
+      "training_matches": 1377
     },
     {
       "end_exclusive": "2026-10-11",
       "league": "PrimeiraLiga",
       "origin": "2026-10-05",
-      "training_end": "2026-09-20",
-      "training_matches": 1592
+      "training_end": "2026-01-11",
+      "training_matches": 1377
     },
     {
       "end_exclusive": "2026-10-19",
       "league": "PrimeiraLiga",
       "origin": "2026-10-11",
-      "training_end": "2026-10-10",
-      "training_matches": 1597
+      "training_end": "2026-01-11",
+      "training_matches": 1377
     },
     {
       "end_exclusive": "2026-11-02",
       "league": "PrimeiraLiga",
       "origin": "2026-10-19",
       "training_end": "2026-10-12",
-      "training_matches": 1601
+      "training_matches": 1381
     },
     {
       "end_exclusive": "2026-11-09",
       "league": "PrimeiraLiga",
       "origin": "2026-11-02",
       "training_end": "2026-11-01",
-      "training_matches": 1618
+      "training_matches": 1398
     },
     {
       "end_exclusive": "2023-01-02",
@@ -7923,106 +7923,106 @@
       "end_exclusive": "2026-02-09",
       "league": "SuperLig",
       "origin": "2026-01-26",
-      "training_end": "2026-01-25",
-      "training_matches": 1614
+      "training_end": "2025-12-22",
+      "training_matches": 1597
     },
     {
       "end_exclusive": "2026-02-23",
       "league": "SuperLig",
       "origin": "2026-02-09",
-      "training_end": "2026-02-08",
-      "training_matches": 1630
+      "training_end": "2025-12-22",
+      "training_matches": 1597
     },
     {
       "end_exclusive": "2026-03-09",
       "league": "SuperLig",
       "origin": "2026-02-23",
-      "training_end": "2026-02-22",
-      "training_matches": 1650
+      "training_end": "2025-12-22",
+      "training_matches": 1597
     },
     {
       "end_exclusive": "2026-03-23",
       "league": "SuperLig",
       "origin": "2026-03-09",
-      "training_end": "2026-03-08",
-      "training_matches": 1666
+      "training_end": "2025-12-22",
+      "training_matches": 1597
     },
     {
       "end_exclusive": "2026-04-06",
       "league": "SuperLig",
       "origin": "2026-03-23",
-      "training_end": "2026-03-19",
-      "training_matches": 1685
+      "training_end": "2025-12-22",
+      "training_matches": 1597
     },
     {
       "end_exclusive": "2026-04-20",
       "league": "SuperLig",
       "origin": "2026-04-06",
-      "training_end": "2026-04-05",
-      "training_matches": 1693
+      "training_end": "2025-12-22",
+      "training_matches": 1597
     },
     {
       "end_exclusive": "2026-05-04",
       "league": "SuperLig",
       "origin": "2026-04-20",
-      "training_end": "2026-04-19",
-      "training_matches": 1713
+      "training_end": "2025-12-22",
+      "training_matches": 1597
     },
     {
       "end_exclusive": "2026-05-18",
       "league": "SuperLig",
       "origin": "2026-05-04",
-      "training_end": "2026-05-03",
-      "training_matches": 1732
+      "training_end": "2025-12-22",
+      "training_matches": 1597
     },
     {
       "end_exclusive": "2026-08-24",
       "league": "SuperLig",
       "origin": "2026-08-10",
-      "training_end": "2026-05-17",
-      "training_matches": 1750
+      "training_end": "2025-12-22",
+      "training_matches": 1597
     },
     {
       "end_exclusive": "2026-09-07",
       "league": "SuperLig",
       "origin": "2026-08-24",
-      "training_end": "2026-08-23",
-      "training_matches": 1767
+      "training_end": "2025-12-22",
+      "training_matches": 1597
     },
     {
       "end_exclusive": "2026-09-21",
       "league": "SuperLig",
       "origin": "2026-09-07",
-      "training_end": "2026-09-06",
-      "training_matches": 1784
+      "training_end": "2025-12-22",
+      "training_matches": 1597
     },
     {
       "end_exclusive": "2026-10-11",
       "league": "SuperLig",
       "origin": "2026-10-05",
-      "training_end": "2026-09-20",
-      "training_matches": 1804
+      "training_end": "2025-12-22",
+      "training_matches": 1597
     },
     {
       "end_exclusive": "2026-10-19",
       "league": "SuperLig",
       "origin": "2026-10-11",
-      "training_end": "2026-10-10",
-      "training_matches": 1809
+      "training_end": "2025-12-22",
+      "training_matches": 1597
     },
     {
       "end_exclusive": "2026-11-02",
       "league": "SuperLig",
       "origin": "2026-10-19",
       "training_end": "2026-10-18",
-      "training_matches": 1821
+      "training_matches": 1609
     },
     {
       "end_exclusive": "2026-11-09",
       "league": "SuperLig",
       "origin": "2026-11-02",
       "training_end": "2026-11-01",
-      "training_matches": 1839
+      "training_matches": 1627
     }
   ],
   "inputs": [
@@ -8438,114 +8438,114 @@
     },
     {
       "candidate": "A",
-      "count": 1443,
+      "count": 1435,
       "group": "1X2",
-      "mean": 0.971288780437012,
+      "mean": 0.9704671852330465,
       "phase": "retrospective"
     },
     {
       "candidate": "C",
-      "count": 1450,
+      "count": 1442,
       "group": "1X2",
-      "mean": 0.9907692883781443,
+      "mean": 0.9932200143526864,
       "phase": "retrospective"
     },
     {
       "candidate": "D",
-      "count": 1444,
+      "count": 1436,
       "group": "1X2",
-      "mean": 0.9725954172978448,
+      "mean": 0.9710609470897301,
       "phase": "retrospective"
     },
     {
       "candidate": "M",
-      "count": 1444,
+      "count": 1436,
       "group": "1X2",
-      "mean": 0.9712444659980007,
+      "mean": 0.9697627222220802,
       "phase": "retrospective"
     },
     {
       "candidate": "A",
-      "count": 1443,
+      "count": 1435,
       "group": "AH all",
-      "mean": 0.7143228441273154,
+      "mean": 0.7133455013058292,
       "phase": "retrospective"
     },
     {
       "candidate": "C",
-      "count": 1450,
+      "count": 1442,
       "group": "AH all",
-      "mean": 0.7265657148023974,
+      "mean": 0.7275235425098651,
       "phase": "retrospective"
     },
     {
       "candidate": "D",
-      "count": 1444,
+      "count": 1436,
       "group": "AH all",
-      "mean": 0.7138530893001545,
+      "mean": 0.7128543993141611,
       "phase": "retrospective"
     },
     {
       "candidate": "M",
-      "count": 1444,
+      "count": 1436,
       "group": "AH all",
-      "mean": 0.7141177419053456,
+      "mean": 0.7131457077478743,
       "phase": "retrospective"
     },
     {
       "candidate": "A",
-      "count": 1443,
+      "count": 1435,
       "group": "AH draw-sensitive",
-      "mean": 0.7132153370428365,
+      "mean": 0.712162082022925,
       "phase": "retrospective"
     },
     {
       "candidate": "C",
-      "count": 1450,
+      "count": 1442,
       "group": "AH draw-sensitive",
-      "mean": 0.7291442426718903,
+      "mean": 0.7306901532645205,
       "phase": "retrospective"
     },
     {
       "candidate": "D",
-      "count": 1444,
+      "count": 1436,
       "group": "AH draw-sensitive",
-      "mean": 0.7140867532020068,
+      "mean": 0.7125443033821773,
       "phase": "retrospective"
     },
     {
       "candidate": "M",
-      "count": 1444,
+      "count": 1436,
       "group": "AH draw-sensitive",
-      "mean": 0.7132529226004101,
+      "mean": 0.7117406199695582,
       "phase": "retrospective"
     },
     {
       "candidate": "A",
-      "count": 1443,
+      "count": 1435,
       "group": "Over 1.5",
-      "mean": 0.5173448189077794,
+      "mean": 0.5181238970119122,
       "phase": "retrospective"
     },
     {
       "candidate": "C",
-      "count": 1450,
+      "count": 1442,
       "group": "Over 1.5",
-      "mean": 0.5294309922019339,
+      "mean": 0.5330642201867679,
       "phase": "retrospective"
     },
     {
       "candidate": "D",
-      "count": 1444,
+      "count": 1436,
       "group": "Over 1.5",
-      "mean": 0.5179650894327387,
+      "mean": 0.518801658271883,
       "phase": "retrospective"
     },
     {
       "candidate": "M",
-      "count": 1444,
+      "count": 1436,
       "group": "Over 1.5",
-      "mean": 0.5174957053384382,
+      "mean": 0.5183401327176872,
       "phase": "retrospective"
     },
     {
@@ -8755,38 +8755,38 @@
       "phase": "development"
     },
     {
-      "A": 0.971288780437012,
-      "C": 0.989791012033955,
-      "D": 0.9722062646502017,
-      "M": 0.970859141956867,
-      "fixtures": 1443,
+      "A": 0.9704671852330465,
+      "C": 0.9922482389639455,
+      "D": 0.9706685556327564,
+      "M": 0.9693742174589218,
+      "fixtures": 1435,
       "group": "1X2",
       "phase": "retrospective"
     },
     {
-      "A": 0.7143228441273155,
-      "C": 0.7258517399151319,
-      "D": 0.7132693187488806,
-      "M": 0.7135455498148933,
-      "fixtures": 1443,
+      "A": 0.7133455013058292,
+      "C": 0.7268102596050762,
+      "D": 0.7122666783417052,
+      "M": 0.7125696483606406,
+      "fixtures": 1435,
       "group": "AH all",
       "phase": "retrospective"
     },
     {
-      "A": 0.7132153370428365,
-      "C": 0.7284728723299174,
-      "D": 0.7136763343127039,
-      "M": 0.7128449016898851,
-      "fixtures": 1443,
+      "A": 0.712162082022925,
+      "C": 0.7300225811186543,
+      "D": 0.7121305215653941,
+      "M": 0.7113292705085699,
+      "fixtures": 1435,
       "group": "AH draw-sensitive",
       "phase": "retrospective"
     },
     {
-      "A": 0.5173448189077795,
-      "C": 0.5300507109856613,
-      "D": 0.5182126046203318,
-      "M": 0.5177439569770409,
-      "fixtures": 1443,
+      "A": 0.5181238970119122,
+      "C": 0.5337051169120728,
+      "D": 0.5190511363098871,
+      "M": 0.5185903567886857,
+      "fixtures": 1435,
       "group": "Over 1.5",
       "phase": "retrospective"
     },
@@ -9060,216 +9060,216 @@
       "1X2": {
         "A_vs_C": {
           "clear_of_zero": true,
-          "fixtures": 1443,
+          "fixtures": 1435,
           "interval_95": [
-            0.010921707415311038,
-            0.02671624490099018
+            0.013882390502030217,
+            0.02972584067029828
           ],
-          "mean_gain": 0.018502231596943124,
+          "mean_gain": 0.02178105373089901,
           "weeks": 29
         },
         "C_vs_M": {
           "clear_of_zero": false,
-          "fixtures": 1444,
-          "gain_after_gap_bar": -0.019760551706929568,
+          "fixtures": 1436,
+          "gain_after_gap_bar": -0.023699687446175,
           "gap_bar": 0.0008772288212255344,
           "interval_95": [
-            -0.028597128282203087,
-            -0.009657138609460717
+            -0.03184235789648797,
+            -0.013510623395298902
           ],
-          "mean_gain": -0.018883322885704035,
+          "mean_gain": -0.022822458624949468,
           "weeks": 29
         },
         "D_vs_C": {
           "clear_of_zero": true,
-          "fixtures": 1444,
+          "fixtures": 1436,
           "interval_95": [
-            0.007950919395609799,
-            0.027061793161913872
+            0.01234804542866671,
+            0.030582337029923422
           ],
-          "mean_gain": 0.01753237158585987,
+          "mean_gain": 0.021524233757299414,
           "weeks": 29
         },
         "D_vs_M": {
           "clear_of_zero": false,
-          "fixtures": 1444,
+          "fixtures": 1436,
           "interval_95": [
-            -0.002403706191014408,
-            -0.00017765220352413972
+            -0.002323757704898084,
+            -0.00012412576300981255
           ],
-          "mean_gain": -0.0013509512998441675,
+          "mean_gain": -0.0012982248676500544,
           "weeks": 29
         },
         "M_vs_C": {
           "clear_of_zero": true,
-          "fixtures": 1444,
+          "fixtures": 1436,
           "interval_95": [
-            0.009657138609460714,
-            0.028597128282203087
+            0.013510623395298899,
+            0.03184235789648797
           ],
-          "mean_gain": 0.018883322885704035,
+          "mean_gain": 0.022822458624949468,
           "weeks": 29
         }
       },
       "AH all": {
         "A_vs_C": {
           "clear_of_zero": true,
-          "fixtures": 1443,
+          "fixtures": 1435,
           "interval_95": [
-            0.006746174412253762,
-            0.016213383744271805
+            0.008405816025547599,
+            0.018172595176542374
           ],
-          "mean_gain": 0.011528895787816353,
+          "mean_gain": 0.013464758299247023,
           "weeks": 29
         },
         "C_vs_M": {
           "clear_of_zero": false,
-          "fixtures": 1444,
-          "gain_after_gap_bar": -0.012644945333108105,
+          "fixtures": 1436,
+          "gain_after_gap_bar": -0.014578011540596741,
           "gap_bar": 0.0003401637290022618,
           "interval_95": [
-            -0.01830093624986041,
-            -0.006328597942949569
+            -0.01949462009231,
+            -0.00844496529521563
           ],
-          "mean_gain": -0.012304781604105842,
+          "mean_gain": -0.014237847811594479,
           "weeks": 29
         },
         "D_vs_C": {
           "clear_of_zero": true,
-          "fixtures": 1444,
+          "fixtures": 1436,
           "interval_95": [
-            0.006533925561355435,
-            0.01876189396734883
+            0.009020522425621536,
+            0.019755876529821716
           ],
-          "mean_gain": 0.012569434209296987,
+          "mean_gain": 0.014529156245307694,
           "weeks": 29
         },
         "D_vs_M": {
           "clear_of_zero": false,
-          "fixtures": 1444,
+          "fixtures": 1436,
           "interval_95": [
-            -0.00108011436703435,
-            0.0016182229620297017
+            -0.0010862327834846356,
+            0.001644203816373679
           ],
-          "mean_gain": 0.00026465260519114474,
+          "mean_gain": 0.00029130843371321497,
           "weeks": 29
         },
         "M_vs_C": {
           "clear_of_zero": true,
-          "fixtures": 1444,
+          "fixtures": 1436,
           "interval_95": [
-            0.006328597942949565,
-            0.01830093624986041
+            0.008444965295215627,
+            0.019494620092309997
           ],
-          "mean_gain": 0.012304781604105842,
+          "mean_gain": 0.014237847811594479,
           "weeks": 29
         }
       },
       "AH draw-sensitive": {
         "A_vs_C": {
           "clear_of_zero": true,
-          "fixtures": 1443,
+          "fixtures": 1435,
           "interval_95": [
-            0.008764714965655269,
-            0.022016482928257388
+            0.01132487706570635,
+            0.024435288643120875
           ],
-          "mean_gain": 0.015257535287081098,
+          "mean_gain": 0.017860499095729305,
           "weeks": 29
         },
         "C_vs_M": {
           "clear_of_zero": false,
-          "fixtures": 1444,
-          "gain_after_gap_bar": -0.016007746216153813,
+          "fixtures": 1436,
+          "gain_after_gap_bar": -0.01907020567898869,
           "gap_bar": 0.0005136591253358615,
           "interval_95": [
-            -0.023334299352552317,
-            -0.008152345061369786
+            -0.026063664204397093,
+            -0.011139383484758405
           ],
-          "mean_gain": -0.015494087090817952,
+          "mean_gain": -0.01855654655365283,
           "weeks": 29
         },
         "D_vs_C": {
           "clear_of_zero": true,
-          "fixtures": 1444,
+          "fixtures": 1436,
           "interval_95": [
-            0.007347775151015741,
-            0.02234856369711156
+            0.010421217766827827,
+            0.024982377322685136
           ],
-          "mean_gain": 0.014660256489221266,
+          "mean_gain": 0.017752863141033748,
           "weeks": 29
         },
         "D_vs_M": {
           "clear_of_zero": false,
-          "fixtures": 1444,
+          "fixtures": 1436,
           "interval_95": [
-            -0.0014815297939312095,
-            -0.00011299073775015104
+            -0.00144585511971674,
+            -9.136243550789485e-05
           ],
-          "mean_gain": -0.0008338306015966853,
+          "mean_gain": -0.0008036834126190778,
           "weeks": 29
         },
         "M_vs_C": {
           "clear_of_zero": true,
-          "fixtures": 1444,
+          "fixtures": 1436,
           "interval_95": [
-            0.008152345061369783,
-            0.02333429935255231
+            0.0111393834847584,
+            0.026063664204397086
           ],
-          "mean_gain": 0.015494087090817952,
+          "mean_gain": 0.01855654655365283,
           "weeks": 29
         }
       },
       "Over 1.5": {
         "A_vs_C": {
           "clear_of_zero": true,
-          "fixtures": 1443,
+          "fixtures": 1435,
           "interval_95": [
-            0.004973786264292502,
-            0.020284959469036957
+            0.008376753971890229,
+            0.02235930257354777
           ],
-          "mean_gain": 0.012705892077881868,
+          "mean_gain": 0.01558121990016056,
           "weeks": 29
         },
         "C_vs_M": {
           "clear_of_zero": false,
-          "fixtures": 1444,
-          "gain_after_gap_bar": -0.012981116743563916,
+          "fixtures": 1436,
+          "gain_after_gap_bar": -0.015790924317776855,
           "gap_bar": 0.0,
           "interval_95": [
-            -0.020733961060205912,
-            -0.005330930927115398
+            -0.02293128616857362,
+            -0.008306985969489127
           ],
-          "mean_gain": -0.012981116743563916,
+          "mean_gain": -0.015790924317776855,
           "weeks": 29
         },
         "D_vs_C": {
           "clear_of_zero": true,
-          "fixtures": 1444,
+          "fixtures": 1436,
           "interval_95": [
-            0.004839469113335849,
-            0.020359580746574516
+            0.008070508714206238,
+            0.022368088230492984
           ],
-          "mean_gain": 0.012511732649263545,
+          "mean_gain": 0.015329398763581225,
           "weeks": 29
         },
         "D_vs_M": {
           "clear_of_zero": false,
-          "fixtures": 1444,
+          "fixtures": 1436,
           "interval_95": [
-            -0.0017249056629889486,
-            0.0008521656808171831
+            -0.0017205813185577471,
+            0.0008543650928126337
           ],
-          "mean_gain": -0.0004693840943003687,
+          "mean_gain": -0.0004615255541956328,
           "weeks": 29
         },
         "M_vs_C": {
           "clear_of_zero": true,
-          "fixtures": 1444,
+          "fixtures": 1436,
           "interval_95": [
-            0.005330930927115395,
-            0.02073396106020591
+            0.008306985969489117,
+            0.02293128616857362
           ],
-          "mean_gain": 0.012981116743563916,
+          "mean_gain": 0.015790924317776855,
           "weeks": 29
         }
       }
@@ -9493,7 +9493,7 @@
       }
     }
   },
-  "source_commit": "15448b6f83c24c24962510481ecf8444ae54bfb0",
+  "source_commit": "6e02865f9ff3a56b4773f80fa1b1b69901070d9c",
   "synthetic_price_margin": 0.036708790209470696,
   "version": "evaluation-harness-v2"
 }
