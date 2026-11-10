@@ -7,6 +7,9 @@ leagues. The models are refit every 14 days on earlier matches only, and every
 candidate is scored on the same matches:
 
   C  independent research model (team_form_poisson_v1, value shortlist; uses no odds)
+  C2 candidate: C's goal rates with a draw and low-score correction (research_low_score.py;
+     uses no odds), fitted walk-forward on C's own forecasts of matches played before the
+     fold origin, pooled across leagues (low_score_candidate)
   M  market reference: margin-free fit to Pinnacle, or to Bet365 on the holdout
   D  cagey tier: M corrected toward narrow margins (production correction)
   A  published-grid production proxy (benchmark only; mixes model and market)
@@ -64,6 +67,8 @@ CONFIG = Path(__file__).with_name('evaluation_harness_config.json')
 LEDGER = Path(__file__).with_name('evaluation') / 'holdout_ledger.json'
 CANDIDATES = {
     'C': 'independent research model team_form_poisson_v1 (value shortlist; uses no odds)',
+    'C2': "candidate: C with a draw and low-score correction (rho, delta) fitted walk-forward on C's own "
+          'earlier forecasts and their scores, pooled across leagues (research_low_score.py; uses no odds)',
     'M': 'market reference: margin-free fit to the period bookmaker (Pinnacle, Bet365 on the holdout)',
     'D': 'cagey tier: M corrected toward narrow margins (production correction model)',
     'A': 'published-grid production proxy (benchmark only; mixes model and market)',
@@ -80,7 +85,8 @@ DECLARATION_FIELDS = ('candidate', 'baseline', 'primary_metric', 'draw_sensitive
 SETUP_FILES = ('evaluation_harness.py', 'research_backtest.py', 'historical_benchmark.py', 'team_research.py',
                'score_probability.py', 'football_value_pipeline_v2_standalone.py', 'market_implied.py',
                'narrow_margin.py', 'price_edge_cagey_shortlist.py', 'ah_close_backtest.py',
-               'evaluation_harness_config.json', 'narrow_margin_models/cagey-correction-through-2425-v1.json')
+               'evaluation_harness_config.json', 'narrow_margin_models/cagey-correction-through-2425-v1.json',
+               'research_low_score.py')
 CALIBRATION_MIN_BIN = 30
 PROMOTION_RULES = Path(__file__).with_name('benchmark_promotion_rules.json')
 
@@ -178,12 +184,24 @@ def research_inputs(row, train, origin, info):
     return inputs
 
 
+def research_context(row, train, origin, model):
+    """The research model's context for one match (goal rates from team history only, never odds)."""
+    from team_research import prepare, utc
+    matrix, info = model.score_matrix(row.HomeTeam, row.AwayTeam)
+    return prepare(research_inputs(row, train, origin, info), utc(origin)), matrix, info
+
+
 def research_matrix(row, train, origin, model):
     """C: the independent research model. Reads team history only, never odds."""
-    from team_research import prepare, research_grid, utc
-    matrix, info = model.score_matrix(row.HomeTeam, row.AwayTeam)
-    context = prepare(research_inputs(row, train, origin, info), utc(origin))
+    from team_research import research_grid
+    context, matrix, info = research_context(row, train, origin, model)
     return rb.matrix_value(research_grid(context['goal_rates'])), matrix, info
+
+
+def low_score_matrix(goal_rates, params):
+    """C2: C's goal rates on the draw and low-score corrected grid (research_low_score)."""
+    import research_low_score as rls
+    return rb.matrix_value(rls.adjusted_grid(goal_rates, params))
 
 
 def published_proxy(matrix, info, prices, model, cfg):
@@ -204,13 +222,16 @@ def published_proxy(matrix, info, prices, model, cfg):
 
 
 def candidates(row, train, origin, model, cfg, cagey_model):
+    """C, M, D and A for one match. C's goal rates go out in extra['research_goal_rates'] for C2."""
+    from team_research import research_grid
     if train.Date.max() >= origin:
         raise ValueError('Training reaches prediction origin')
     if row.HomeTeam not in model.teams or row.AwayTeam not in model.teams:
         return {}, {'all': 'unresolved training team'}, {}
     matrices, gaps, extra = {}, {}, {}
-    research, model_grid, info = research_matrix(row, train, origin, model)
-    matrices['C'] = research
+    context, model_grid, info = research_context(row, train, origin, model)
+    matrices['C'] = rb.matrix_value(research_grid(context['goal_rates']))
+    extra['research_goal_rates'] = [float(v) for v in context['goal_rates']]
     book = period_book(row.Date, cfg)
     prices = book_prices(row, book)
     if prices is None:
@@ -267,7 +288,7 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None):
     data, sources, _ = hb.load_history(Path(cache), league, load_cfg)
     end = pd.Timestamp(cfg['end_exclusive'])
     profile = cfg['production_v2']
-    records, folds, coverage, overrounds, calib = [], [], Counter(), [], []
+    records, folds, coverage, overrounds, calib, research = [], [], Counter(), [], [], []
     history = training_rows(data, league, cfg, include_holdout)
     for origin, stop in fold_windows(cfg, end):
         train = history.loc[history.Date < origin]
@@ -284,6 +305,13 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None):
                       'training_end': train.Date.max().date().isoformat(), 'training_matches': len(train)})
         for _, row in test.iterrows():
             name = phase(row.Date, league, cfg)
+            if include_holdout and name != 'holdout' and keep is not None and 'C2' in keep \
+                    and row.HomeTeam in model.teams and row.AwayTeam in model.teams:
+                # Not scored in a holdout run, but C2's walk-forward fit learns from C's forecast of it.
+                context, _, _ = research_context(row, train, origin, model)
+                research.append({'identity': {'league': league, 'phase': name}, 'date': row.Date,
+                                 'goal_rates': [float(v) for v in context['goal_rates']],
+                                 'home_goals': row.FTHG, 'away_goals': row.FTAG, 'scored': False})
             if include_holdout and name != 'holdout':
                 # A holdout run still measures the Bet365-Pinnacle gap on pre-holdout matches.
                 both = {b: book_prices(row, b) for b in BOOKS} if row.Date < pd.Timestamp(cfg['holdout_start']) else {}
@@ -312,6 +340,9 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None):
                         'week': f'{date.isocalendar().year}-W{date.isocalendar().week:02d}',
                         'fixture_key': '|'.join((league, date.date().isoformat(), row.HomeTeam, row.AwayTeam)),
                         'phase': name, 'market_book': extra.get('market_book', '')}
+            if 'research_goal_rates' in extra:
+                research.append({'identity': identity, 'date': date, 'goal_rates': extra['research_goal_rates'],
+                                 'home_goals': row.FTHG, 'away_goals': row.FTAG, 'scored': True})
             records.extend(rb.score_fixture(identity, matrices, row.FTHG, row.FTAG))
             outcome = 0 if row.FTHG > row.FTAG else 1 if row.FTHG == row.FTAG else 2
             for cand, matrix in matrices.items():
@@ -324,7 +355,50 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None):
                 coverage[f'{league}:{key}:{reason}'] += 1
             for key in matrices:
                 coverage[f'{league}:{key}:available'] += 1
-    return records, folds, coverage, overrounds, sources, calib
+    return records, folds, coverage, overrounds, sources, calib, research
+
+
+def low_score_candidate(research, cfg, end, keep=None):
+    """C2 for every scored match: C's goal rates on the corrected grid, walk-forward.
+
+    For each fold window, (rho, delta) is fitted on C's forecasts of the matches played
+    before the window opens, pooled across leagues (research_low_score.fit), and applied
+    to the scored matches inside it. A locked run never computes C for a holdout match,
+    so no holdout result can reach the fit. Reads C's goal rates and final scores only.
+    """
+    import research_low_score as rls
+    records, calib, coverage, fits = [], [], Counter(), []
+    if (keep is not None and 'C2' not in keep) or not research:
+        return records, calib, coverage, fits
+    research = sorted(research, key=lambda r: r['date'])
+    dates = pd.DatetimeIndex([r['date'] for r in research])
+    rates = np.array([r['goal_rates'] for r in research], dtype=float)
+    goals = np.array([(r['home_goals'], r['away_goals']) for r in research], dtype=float)
+    half_life = cfg['production_v2']['half_life_days']
+    for origin, stop in fold_windows(cfg, end):
+        inside = [i for i in np.flatnonzero((dates >= origin) & (dates < stop)) if research[i]['scored']]
+        if not inside:
+            continue
+        past = np.asarray(dates < origin)
+        params = rls.fit(rates[past], goals[past, 0], goals[past, 1],
+                         (origin - dates[past]).total_seconds().to_numpy() / 86400, half_life)
+        fits.append({'origin': origin.date().isoformat(), 'end_exclusive': stop.date().isoformat(),
+                     'scored_matches': len(inside), **params})
+        for i in inside:
+            r = research[i]
+            try:
+                matrix = low_score_matrix(r['goal_rates'], params)
+            except ValueError as exc:
+                coverage[f"{r['identity']['league']}:C2:{exc}"] += 1
+                continue
+            coverage[f"{r['identity']['league']}:C2:available"] += 1
+            hg, ag = r['home_goals'], r['away_goals']
+            records.extend(rb.score_fixture(r['identity'], {'C2': matrix}, hg, ag))
+            h, a = np.indices(matrix.shape)
+            calib.append({'phase': r['identity']['phase'], 'candidate': 'C2',
+                          'probs': [float(matrix[h > a].sum()), float(matrix[h == a].sum()), float(matrix[h < a].sum())],
+                          'outcome': 0 if hg > ag else 1 if hg == ag else 2})
+    return records, calib, coverage, fits
 
 
 # ---------------------------------------------------------------------------
@@ -364,7 +438,7 @@ def paired(scores, baseline, candidate, samples=2000, seed=136):
             'interval_95': interval, 'clear_of_zero': bool(interval and interval[0] > 0)}
 
 
-def common_cohort(scores, names=('C', 'M', 'D', 'A')):
+def common_cohort(scores, names=('C', 'C2', 'M', 'D', 'A')):
     """Mean log loss on the fixtures where every named candidate is available."""
     output = []
     for (name, group), part in scores.groupby(['phase', 'group']):
@@ -401,7 +475,7 @@ def summarize(records, overrounds, coverage, cfg, metadata):
         for group in GROUPS:
             sub = part.loc[part.group == group]
             entry = {}
-            for base, cand in (('C', 'M'), ('C', 'D'), ('C', 'A'), ('M', 'D')):
+            for base, cand in (('C', 'C2'), ('C', 'M'), ('C', 'D'), ('C', 'A'), ('M', 'D')):
                 result = paired(sub, base, cand)
                 if result:
                     entry[f'{cand}_vs_{base}'] = result
@@ -417,7 +491,7 @@ def summarize(records, overrounds, coverage, cfg, metadata):
             'log_loss_all_available': available, 'paired': comparisons,
             'bet365_gap': gap, 'average_margin': margins,
             'synthetic_price_margin': margins.get('pinnacle'),
-            'notes': ['Headline means use the common cohort: fixtures where C, M, D and A are all available.',
+            'notes': ['Headline means use the common cohort: fixtures where C, C2, M, D and A are all available.',
                       'Positive mean_gain means the first-named candidate has the lower log loss than the second.',
                       'Intervals resample whole calendar weeks across all leagues.',
                       'The cagey correction was trained on seasons through 2024/25; D is in-sample in development.',
@@ -1013,12 +1087,15 @@ def research_parity(root, cache, cfg):
 
 def historical(cache, cfg, *, include_holdout=False, keep=None, leagues=None, workers=None):
     leagues = list(leagues or cfg['leagues'])
-    records, folds, coverage, overrounds, sources, calib = [], [], Counter(), [], [], []
+    records, folds, coverage, overrounds, sources, calib, research = [], [], Counter(), [], [], [], []
     with ProcessPoolExecutor(max_workers=workers) as pool:
         futures = [pool.submit(evaluate_league, league, str(cache), cfg, include_holdout, keep) for league in leagues]
         for future in futures:
-            r, f, c, o, s, k = future.result()
-            records += r; folds += f; coverage.update(c); overrounds += o; sources += s; calib += k
+            r, f, c, o, s, k, x = future.result()
+            records += r; folds += f; coverage.update(c); overrounds += o; sources += s; calib += k; research += x
+    r, k, c, fits = low_score_candidate(research, cfg, pd.Timestamp(cfg['end_exclusive']), keep)
+    records += r; calib += k; coverage.update(c)
+    folds.append({'candidate': 'C2', 'walk_forward_fits': fits})
     if not include_holdout and any(r['phase'] == 'holdout' for r in records):
         raise ValueError('Locked holdout rows leaked into an unlocked run')
     if include_holdout and any(r['phase'] != 'holdout' and r['candidate'] not in GAP_CANDIDATES for r in records):

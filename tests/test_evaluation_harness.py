@@ -79,6 +79,11 @@ class IndependenceTest(unittest.TestCase):
         changed[odds] = 9.99
         again, _, _ = eh.research_matrix(changed, train, origin, model)
         np.testing.assert_array_equal(base, again)
+        # C2 reads only C's goal rates (and earlier scores, for its fit): the same goal rates give the same grid.
+        rates = [eh.research_context(r, train, origin, model)[0]['goal_rates'] for r in (row, changed)]
+        self.assertEqual(rates[0], rates[1])
+        params = {'rho': -.05, 'delta': .08}
+        np.testing.assert_array_equal(eh.low_score_matrix(rates[0], params), eh.low_score_matrix(rates[1], params))
 
 
 class PairedTest(unittest.TestCase):
@@ -141,9 +146,12 @@ class HoldoutLockTest(unittest.TestCase):
     def test_locked_runs_skip_the_holdout_and_holdout_runs_score_only_it(self):
         cfg = {**CFG, 'test_start': '2026-01-01', 'end_exclusive': '2026-02-15'}
         cache = str(REPO / '.football_cache')
-        locked, _, coverage, _, _, _ = eh.evaluate_league('Eredivisie', cache, cfg, False)
+        locked, _, coverage, _, _, _, research = eh.evaluate_league('Eredivisie', cache, cfg, False)
         self.assertTrue(locked)
         self.assertEqual({r['phase'] for r in locked}, {'validation'})
+        # C2's walk-forward fit learns only from what the locked run forecast: no holdout match.
+        self.assertTrue(research)
+        self.assertEqual({r['identity']['phase'] for r in research}, {'validation'})
         self.assertGreater(coverage['Eredivisie:locked_holdout'], 0)
         unlocked = eh.evaluate_league('Eredivisie', cache, cfg, True, keep={'D', 'M'})[0]
         holdout = [r for r in unlocked if r['phase'] == 'holdout']

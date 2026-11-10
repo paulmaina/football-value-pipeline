@@ -1,0 +1,1338 @@
+{
+  "c2_fits": {
+    "by_window": [
+      {
+        "delta": 0.0,
+        "end_exclusive": "2022-11-07",
+        "matches": 0,
+        "origin": "2022-10-24",
+        "rho": 0.0,
+        "scored_matches": 20,
+        "status": "warm_up"
+      },
+      {
+        "delta": 0.0,
+        "end_exclusive": "2022-11-21",
+        "matches": 20,
+        "origin": "2022-11-07",
+        "rho": 0.0,
+        "scored_matches": 51,
+        "status": "warm_up"
+      },
+      {
+        "delta": 0.0,
+        "end_exclusive": "2023-01-02",
+        "matches": 71,
+        "origin": "2022-12-19",
+        "rho": 0.0,
+        "scored_matches": 64,
+        "status": "warm_up"
+      },
+      {
+        "delta": 0.0,
+        "end_exclusive": "2023-01-16",
+        "matches": 135,
+        "origin": "2023-01-02",
+        "rho": 0.0,
+        "scored_matches": 118,
+        "status": "warm_up"
+      },
+      {
+        "delta": 0.0,
+        "end_exclusive": "2023-01-30",
+        "matches": 253,
+        "origin": "2023-01-16",
+        "rho": 0.0,
+        "scored_matches": 80,
+        "status": "warm_up"
+      },
+      {
+        "delta": 0.0,
+        "end_exclusive": "2023-02-13",
+        "matches": 333,
+        "origin": "2023-01-30",
+        "rho": 0.0,
+        "scored_matches": 105,
+        "status": "warm_up"
+      },
+      {
+        "delta": 0.0,
+        "end_exclusive": "2023-02-27",
+        "matches": 438,
+        "origin": "2023-02-13",
+        "rho": 0.0,
+        "scored_matches": 84,
+        "status": "warm_up"
+      },
+      {
+        "delta": 0.0,
+        "end_exclusive": "2023-03-13",
+        "matches": 522,
+        "origin": "2023-02-27",
+        "rho": 0.0,
+        "scored_matches": 155,
+        "status": "warm_up"
+      },
+      {
+        "delta": 0.0,
+        "end_exclusive": "2023-03-27",
+        "matches": 677,
+        "origin": "2023-03-13",
+        "rho": 0.0,
+        "scored_matches": 78,
+        "status": "warm_up"
+      },
+      {
+        "delta": 0.0,
+        "end_exclusive": "2023-04-10",
+        "matches": 755,
+        "origin": "2023-03-27",
+        "rho": 0.0,
+        "scored_matches": 155,
+        "status": "warm_up"
+      },
+      {
+        "delta": 0.0,
+        "end_exclusive": "2023-04-24",
+        "matches": 910,
+        "origin": "2023-04-10",
+        "rho": 0.0,
+        "scored_matches": 158,
+        "status": "warm_up"
+      },
+      {
+        "delta": 0.00278992295918321,
+        "end_exclusive": "2023-05-08",
+        "matches": 1068,
+        "neutral_minus_fitted_loss": 0.00012050034779642615,
+        "origin": "2023-04-24",
+        "rho": 0.02087656480109231,
+        "scored_matches": 172,
+        "status": "fitted"
+      },
+      {
+        "delta": -0.06487329564614146,
+        "end_exclusive": "2023-05-22",
+        "matches": 1240,
+        "neutral_minus_fitted_loss": 0.0006963969999893571,
+        "origin": "2023-05-08",
+        "rho": 0.017136759431545363,
+        "scored_matches": 159,
+        "status": "fitted"
+      },
+      {
+        "delta": -0.0983979910070276,
+        "end_exclusive": "2023-06-05",
+        "matches": 1399,
+        "neutral_minus_fitted_loss": 0.0006910187255542155,
+        "origin": "2023-05-22",
+        "rho": -0.008320406451897154,
+        "scored_matches": 131,
+        "status": "fitted"
+      },
+      {
+        "delta": -0.09480026481206132,
+        "end_exclusive": "2023-06-19",
+        "matches": 1530,
+        "neutral_minus_fitted_loss": 0.0007252252976233109,
+        "origin": "2023-06-05",
+        "rho": -0.0030082116579710954,
+        "scored_matches": 9,
+        "status": "fitted"
+      },
+      {
+        "delta": -0.09659690376231894,
+        "end_exclusive": "2023-08-14",
+        "matches": 1539,
+        "neutral_minus_fitted_loss": 0.0007142765490484315,
+        "origin": "2023-07-31",
+        "rho": -0.005178666329286888,
+        "scored_matches": 41,
+        "status": "fitted"
+      },
+      {
+        "delta": -0.1202399181404817,
+        "end_exclusive": "2023-08-28",
+        "matches": 1580,
+        "neutral_minus_fitted_loss": 0.0007581599746204759,
+        "origin": "2023-08-14",
+        "rho": -0.02955700842427891,
+        "scored_matches": 139,
+        "status": "fitted"
+      },
+      {
+        "delta": -0.10677732619811231,
+        "end_exclusive": "2023-09-11",
+        "matches": 1719,
+        "neutral_minus_fitted_loss": 0.0005531830789204939,
+        "origin": "2023-08-28",
+        "rho": -0.04299202103961144,
+        "scored_matches": 80,
+        "status": "fitted"
+      },
+      {
+        "delta": -0.09393200208097645,
+        "end_exclusive": "2023-09-25",
+        "matches": 1799,
+        "neutral_minus_fitted_loss": 0.0004421811372194995,
+        "origin": "2023-09-11",
+        "rho": -0.042237871456631396,
+        "scored_matches": 148,
+        "status": "fitted"
+      },
+      {
+        "delta": -0.07735729841025878,
+        "end_exclusive": "2023-10-09",
+        "matches": 1947,
+        "neutral_minus_fitted_loss": 0.00039862384756306213,
+        "origin": "2023-09-25",
+        "rho": -0.046557258306119995,
+        "scored_matches": 181,
+        "status": "fitted"
+      },
+      {
+        "delta": -0.08011334704104735,
+        "end_exclusive": "2023-10-23",
+        "matches": 2128,
+        "neutral_minus_fitted_loss": 0.00044866441585877936,
+        "origin": "2023-10-09",
+        "rho": -0.0506595663626022,
+        "scored_matches": 61,
+        "status": "fitted"
+      },
+      {
+        "delta": -0.0862561724000285,
+        "end_exclusive": "2023-11-06",
+        "matches": 2189,
+        "neutral_minus_fitted_loss": 0.00048111486628688027,
+        "origin": "2023-10-23",
+        "rho": -0.05170393161597553,
+        "scored_matches": 150,
+        "status": "fitted"
+      },
+      {
+        "delta": -0.06189983380990478,
+        "end_exclusive": "2023-11-20",
+        "matches": 2339,
+        "neutral_minus_fitted_loss": 0.0002606458084453145,
+        "origin": "2023-11-06",
+        "rho": -0.038666918235410776,
+        "scored_matches": 82,
+        "status": "fitted"
+      },
+      {
+        "delta": -0.04668336904089806,
+        "end_exclusive": "2023-12-04",
+        "matches": 2421,
+        "neutral_minus_fitted_loss": 0.00021755117191091244,
+        "origin": "2023-11-20",
+        "rho": -0.0363130061950998,
+        "scored_matches": 140,
+        "status": "fitted"
+      },
+      {
+        "delta": -0.048960114160381006,
+        "end_exclusive": "2023-12-18",
+        "matches": 2561,
+        "neutral_minus_fitted_loss": 0.00040464343936097436,
+        "origin": "2023-12-04",
+        "rho": -0.049368919100737686,
+        "scored_matches": 156,
+        "status": "fitted"
+      },
+      {
+        "delta": -0.040980892076283026,
+        "end_exclusive": "2024-01-01",
+        "matches": 2717,
+        "neutral_minus_fitted_loss": 0.00047303793011010953,
+        "origin": "2023-12-18",
+        "rho": -0.05152767673481112,
+        "scored_matches": 108,
+        "status": "fitted"
+      },
+      {
+        "delta": -0.050513533441977385,
+        "end_exclusive": "2024-01-15",
+        "matches": 2825,
+        "neutral_minus_fitted_loss": 0.0005455497713500179,
+        "origin": "2024-01-01",
+        "rho": -0.0565231728234097,
+        "scored_matches": 115,
+        "status": "fitted"
+      },
+      {
+        "delta": -0.03957622973159067,
+        "end_exclusive": "2024-01-29",
+        "matches": 2940,
+        "neutral_minus_fitted_loss": 0.0007418740373696942,
+        "origin": "2024-01-15",
+        "rho": -0.061983616679880164,
+        "scored_matches": 128,
+        "status": "fitted"
+      },
+      {
+        "delta": -0.002893475612170102,
+        "end_exclusive": "2024-02-12",
+        "matches": 3068,
+        "neutral_minus_fitted_loss": 0.0006979134715732194,
+        "origin": "2024-01-29",
+        "rho": -0.04922163861722638,
+        "scored_matches": 167,
+        "status": "fitted"
+      },
+      {
+        "delta": -0.013636626886640128,
+        "end_exclusive": "2024-02-26",
+        "matches": 3235,
+        "neutral_minus_fitted_loss": 0.0012590989233380867,
+        "origin": "2024-02-12",
+        "rho": -0.06946590380241673,
+        "scored_matches": 155,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.0005213420767647402,
+        "end_exclusive": "2024-03-11",
+        "matches": 3390,
+        "neutral_minus_fitted_loss": 0.0013067654894571845,
+        "origin": "2024-02-26",
+        "rho": -0.06624621292926114,
+        "scored_matches": 155,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.011591922846198689,
+        "end_exclusive": "2024-03-25",
+        "matches": 3545,
+        "neutral_minus_fitted_loss": 0.0009829619646319898,
+        "origin": "2024-03-11",
+        "rho": -0.05338937705766385,
+        "scored_matches": 75,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.00620288432882475,
+        "end_exclusive": "2024-04-08",
+        "matches": 3620,
+        "neutral_minus_fitted_loss": 0.0008315265636964497,
+        "origin": "2024-03-25",
+        "rho": -0.05098710355700375,
+        "scored_matches": 150,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.01565888989937538,
+        "end_exclusive": "2024-04-22",
+        "matches": 3770,
+        "neutral_minus_fitted_loss": 0.0011177432885265404,
+        "origin": "2024-04-08",
+        "rho": -0.055496707269243724,
+        "scored_matches": 134,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.02923927271133633,
+        "end_exclusive": "2024-05-06",
+        "matches": 3904,
+        "neutral_minus_fitted_loss": 0.0010077323850641307,
+        "origin": "2024-04-22",
+        "rho": -0.04659766256829327,
+        "scored_matches": 159,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.03297277444121368,
+        "end_exclusive": "2024-05-20",
+        "matches": 4063,
+        "neutral_minus_fitted_loss": 0.0011126490789714616,
+        "origin": "2024-05-06",
+        "rho": -0.048105556849976194,
+        "scored_matches": 172,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.029104362006306287,
+        "end_exclusive": "2024-06-03",
+        "matches": 4235,
+        "neutral_minus_fitted_loss": 0.000936182713707101,
+        "origin": "2024-05-20",
+        "rho": -0.04487346043341301,
+        "scored_matches": 33,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.030638263442095186,
+        "end_exclusive": "2024-08-12",
+        "matches": 4268,
+        "neutral_minus_fitted_loss": 0.0009884088089471277,
+        "origin": "2024-07-29",
+        "rho": -0.04578745467340271,
+        "scored_matches": 21,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.030781306665462912,
+        "end_exclusive": "2024-08-26",
+        "matches": 4289,
+        "neutral_minus_fitted_loss": 0.0010122727705215162,
+        "origin": "2024-08-12",
+        "rho": -0.04637856330383357,
+        "scored_matches": 125,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.03716258332548656,
+        "end_exclusive": "2024-09-09",
+        "matches": 4414,
+        "neutral_minus_fitted_loss": 0.001047667174117084,
+        "origin": "2024-08-26",
+        "rho": -0.04439763641635211,
+        "scored_matches": 85,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.026146106021315778,
+        "end_exclusive": "2024-09-23",
+        "matches": 4499,
+        "neutral_minus_fitted_loss": 0.001334457937930189,
+        "origin": "2024-09-09",
+        "rho": -0.057533118052317346,
+        "scored_matches": 152,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.02811355053898013,
+        "end_exclusive": "2024-10-07",
+        "matches": 4651,
+        "neutral_minus_fitted_loss": 0.0015654040324593055,
+        "origin": "2024-09-23",
+        "rho": -0.06247913727944546,
+        "scored_matches": 162,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.03331497325167179,
+        "end_exclusive": "2024-10-21",
+        "matches": 4813,
+        "neutral_minus_fitted_loss": 0.0018389647390852915,
+        "origin": "2024-10-07",
+        "rho": -0.06636498333775225,
+        "scored_matches": 62,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.029177106774170885,
+        "end_exclusive": "2024-11-04",
+        "matches": 4875,
+        "neutral_minus_fitted_loss": 0.001672561551825158,
+        "origin": "2024-10-21",
+        "rho": -0.06463814207052535,
+        "scored_matches": 155,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.028685094608819888,
+        "end_exclusive": "2024-11-18",
+        "matches": 5030,
+        "neutral_minus_fitted_loss": 0.0012061257509676793,
+        "origin": "2024-11-04",
+        "rho": -0.05294664605343506,
+        "scored_matches": 81,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.021379271389051664,
+        "end_exclusive": "2024-12-02",
+        "matches": 5111,
+        "neutral_minus_fitted_loss": 0.0011767916603862005,
+        "origin": "2024-11-18",
+        "rho": -0.0553424922579136,
+        "scored_matches": 134,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.020505217165229735,
+        "end_exclusive": "2024-12-16",
+        "matches": 5245,
+        "neutral_minus_fitted_loss": 0.0010256683863807403,
+        "origin": "2024-12-02",
+        "rho": -0.05154452183688366,
+        "scored_matches": 161,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.0372303306517759,
+        "end_exclusive": "2024-12-30",
+        "matches": 5406,
+        "neutral_minus_fitted_loss": 0.0009718493094084124,
+        "origin": "2024-12-16",
+        "rho": -0.042027423399282865,
+        "scored_matches": 108,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.03879268857171618,
+        "end_exclusive": "2025-01-13",
+        "matches": 5514,
+        "neutral_minus_fitted_loss": 0.0011296863575989136,
+        "origin": "2024-12-30",
+        "rho": -0.046027582241150986,
+        "scored_matches": 101,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.05068281189564253,
+        "end_exclusive": "2025-01-27",
+        "matches": 5615,
+        "neutral_minus_fitted_loss": 0.0012362282406370717,
+        "origin": "2025-01-13",
+        "rho": -0.04291674882586983,
+        "scored_matches": 168,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.04257671466259421,
+        "end_exclusive": "2025-02-10",
+        "matches": 5783,
+        "neutral_minus_fitted_loss": 0.00132481516548566,
+        "origin": "2025-01-27",
+        "rho": -0.04977836194227873,
+        "scored_matches": 142,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.03210665416279019,
+        "end_exclusive": "2025-02-24",
+        "matches": 5925,
+        "neutral_minus_fitted_loss": 0.0013690635723366817,
+        "origin": "2025-02-10",
+        "rho": -0.05603749475370128,
+        "scored_matches": 147,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.049656609342667295,
+        "end_exclusive": "2025-03-10",
+        "matches": 6072,
+        "neutral_minus_fitted_loss": 0.0012120478368098375,
+        "origin": "2025-02-24",
+        "rho": -0.04280094019745783,
+        "scored_matches": 145,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.06250470854816163,
+        "end_exclusive": "2025-03-24",
+        "matches": 6217,
+        "neutral_minus_fitted_loss": 0.0011077712466587286,
+        "origin": "2025-03-10",
+        "rho": -0.032471526607950975,
+        "scored_matches": 78,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.07000407805812249,
+        "end_exclusive": "2025-04-07",
+        "matches": 6295,
+        "neutral_minus_fitted_loss": 0.0010366493715090463,
+        "origin": "2025-03-24",
+        "rho": -0.025684672383361244,
+        "scored_matches": 146,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.06835593263203185,
+        "end_exclusive": "2025-04-21",
+        "matches": 6441,
+        "neutral_minus_fitted_loss": 0.0008702720140969511,
+        "origin": "2025-04-07",
+        "rho": -0.0209189485152611,
+        "scored_matches": 144,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.07755360999599001,
+        "end_exclusive": "2025-05-05",
+        "matches": 6585,
+        "neutral_minus_fitted_loss": 0.0008460370937259931,
+        "origin": "2025-04-21",
+        "rho": -0.013909495324736561,
+        "scored_matches": 151,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.08052521889531541,
+        "end_exclusive": "2025-05-19",
+        "matches": 6736,
+        "neutral_minus_fitted_loss": 0.0008029190091205507,
+        "origin": "2025-05-05",
+        "rho": -0.01005391149118102,
+        "scored_matches": 172,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.06161484854643082,
+        "end_exclusive": "2025-06-02",
+        "matches": 6908,
+        "neutral_minus_fitted_loss": 0.0006577277121451175,
+        "origin": "2025-05-19",
+        "rho": -0.016860611929443343,
+        "scored_matches": 51,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.051313652514005194,
+        "end_exclusive": "2025-08-11",
+        "matches": 6959,
+        "neutral_minus_fitted_loss": 0.0006030536620968974,
+        "origin": "2025-07-28",
+        "rho": -0.02103322867980165,
+        "scored_matches": 17,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.047161761608812094,
+        "end_exclusive": "2025-08-25",
+        "matches": 6976,
+        "neutral_minus_fitted_loss": 0.0005741949112314515,
+        "origin": "2025-08-11",
+        "rho": -0.02230595680909688,
+        "scored_matches": 110,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.05265645410494489,
+        "end_exclusive": "2025-09-08",
+        "matches": 7086,
+        "neutral_minus_fitted_loss": 0.0005088188565185447,
+        "origin": "2025-08-25",
+        "rho": -0.015926728720141017,
+        "scored_matches": 84,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.05587554460150627,
+        "end_exclusive": "2025-09-22",
+        "matches": 7170,
+        "neutral_minus_fitted_loss": 0.000505969562875741,
+        "origin": "2025-09-08",
+        "rho": -0.013676642660036794,
+        "scored_matches": 150,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.05988594079072178,
+        "end_exclusive": "2025-10-06",
+        "matches": 7320,
+        "neutral_minus_fitted_loss": 0.0004847836711925346,
+        "origin": "2025-09-22",
+        "rho": -0.009886771510677943,
+        "scored_matches": 166,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.06198684497131817,
+        "end_exclusive": "2025-10-20",
+        "matches": 7486,
+        "neutral_minus_fitted_loss": 0.0006265779897054458,
+        "origin": "2025-10-06",
+        "rho": -0.015271969130838083,
+        "scored_matches": 62,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.06521053361642125,
+        "end_exclusive": "2025-11-03",
+        "matches": 7548,
+        "neutral_minus_fitted_loss": 0.0006524164118988374,
+        "origin": "2025-10-20",
+        "rho": -0.014271235798976612,
+        "scored_matches": 167,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.06218249859088529,
+        "end_exclusive": "2025-11-17",
+        "matches": 7715,
+        "neutral_minus_fitted_loss": 0.0005131941486768987,
+        "origin": "2025-11-03",
+        "rho": -0.00974091498067593,
+        "scored_matches": 83,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.06796034352211638,
+        "end_exclusive": "2025-12-01",
+        "matches": 7798,
+        "neutral_minus_fitted_loss": 0.0005817608170457511,
+        "origin": "2025-11-17",
+        "rho": -0.009061559370564066,
+        "scored_matches": 135,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.0704081017320389,
+        "end_exclusive": "2025-12-15",
+        "matches": 7933,
+        "neutral_minus_fitted_loss": 0.0005167395251350904,
+        "origin": "2025-12-01",
+        "rho": -0.0038323294833733025,
+        "scored_matches": 159,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.07138932013087192,
+        "end_exclusive": "2025-12-29",
+        "matches": 8092,
+        "neutral_minus_fitted_loss": 0.000471781246649261,
+        "origin": "2025-12-15",
+        "rho": -0.00040009807615095933,
+        "scored_matches": 94,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.07915545674323264,
+        "end_exclusive": "2026-01-12",
+        "matches": 8186,
+        "neutral_minus_fitted_loss": 0.0005599219866745386,
+        "origin": "2025-12-29",
+        "rho": 0.0008314623746428014,
+        "scored_matches": 112,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.09873590049123405,
+        "end_exclusive": "2026-01-16",
+        "matches": 8298,
+        "neutral_minus_fitted_loss": 0.0009357535667073869,
+        "origin": "2026-01-12",
+        "rho": -0.0015971768335150348,
+        "scored_matches": 15,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.09412499678358593,
+        "end_exclusive": "2026-01-26",
+        "matches": 8313,
+        "neutral_minus_fitted_loss": 0.0008948685896896791,
+        "origin": "2026-01-16",
+        "rho": -0.003534973481704329,
+        "scored_matches": 93,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.08101421993580962,
+        "end_exclusive": "2026-02-09",
+        "matches": 8406,
+        "neutral_minus_fitted_loss": 0.0008274532913103982,
+        "origin": "2026-01-26",
+        "rho": -0.010612963147210991,
+        "scored_matches": 96,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.08052746113311421,
+        "end_exclusive": "2026-02-23",
+        "matches": 8502,
+        "neutral_minus_fitted_loss": 0.0008557258944388302,
+        "origin": "2026-02-09",
+        "rho": -0.012082620323106374,
+        "scored_matches": 98,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.07936795340822621,
+        "end_exclusive": "2026-03-09",
+        "matches": 8600,
+        "neutral_minus_fitted_loss": 0.0008848505212615265,
+        "origin": "2026-02-23",
+        "rho": -0.01404530164120399,
+        "scored_matches": 100,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.08936960551519613,
+        "end_exclusive": "2026-03-23",
+        "matches": 8700,
+        "neutral_minus_fitted_loss": 0.0007981993145174116,
+        "origin": "2026-03-09",
+        "rho": -0.00299274962037513,
+        "scored_matches": 95,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.08445304201582131,
+        "end_exclusive": "2026-04-06",
+        "matches": 8795,
+        "neutral_minus_fitted_loss": 0.0007732778031859233,
+        "origin": "2026-03-23",
+        "rho": -0.005684441856547585,
+        "scored_matches": 33,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.08512387145232363,
+        "end_exclusive": "2026-04-20",
+        "matches": 8828,
+        "neutral_minus_fitted_loss": 0.0008302761978007389,
+        "origin": "2026-04-06",
+        "rho": -0.007646601408061222,
+        "scored_matches": 87,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.08095925737192827,
+        "end_exclusive": "2026-05-04",
+        "matches": 8915,
+        "neutral_minus_fitted_loss": 0.0007731501413474895,
+        "origin": "2026-04-20",
+        "rho": -0.008278231220148627,
+        "scored_matches": 104,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.08340894378078469,
+        "end_exclusive": "2026-05-18",
+        "matches": 9019,
+        "neutral_minus_fitted_loss": 0.0009062105541266519,
+        "origin": "2026-05-04",
+        "rho": -0.011950235832850821,
+        "scored_matches": 111,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.08195924146117994,
+        "end_exclusive": "2026-06-01",
+        "matches": 9130,
+        "neutral_minus_fitted_loss": 0.0008104002110020936,
+        "origin": "2026-05-18",
+        "rho": -0.009109655799463547,
+        "scored_matches": 33,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.0844940624641651,
+        "end_exclusive": "2026-08-24",
+        "matches": 9163,
+        "neutral_minus_fitted_loss": 0.0008154679114222851,
+        "origin": "2026-08-10",
+        "rho": -0.007440613054232945,
+        "scored_matches": 33,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.08205967303032909,
+        "end_exclusive": "2026-09-07",
+        "matches": 9196,
+        "neutral_minus_fitted_loss": 0.0007997022235901596,
+        "origin": "2026-08-24",
+        "rho": -0.008565906397492,
+        "scored_matches": 98,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.07362710124731746,
+        "end_exclusive": "2026-09-21",
+        "matches": 9294,
+        "neutral_minus_fitted_loss": 0.000773930742952178,
+        "origin": "2026-09-07",
+        "rho": -0.013523974559031206,
+        "scored_matches": 108,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.06634168057219407,
+        "end_exclusive": "2026-10-11",
+        "matches": 9402,
+        "neutral_minus_fitted_loss": 0.0007717040245540652,
+        "origin": "2026-10-05",
+        "rho": -0.018275321700745674,
+        "scored_matches": 26,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.07034442402251898,
+        "end_exclusive": "2026-10-19",
+        "matches": 9428,
+        "neutral_minus_fitted_loss": 0.000748633556419076,
+        "origin": "2026-10-11",
+        "rho": -0.014726313358726163,
+        "scored_matches": 88,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.06003326865904071,
+        "end_exclusive": "2026-11-02",
+        "matches": 9516,
+        "neutral_minus_fitted_loss": 0.0006433465344422018,
+        "origin": "2026-10-19",
+        "rho": -0.017097816309923165,
+        "scored_matches": 157,
+        "status": "fitted"
+      },
+      {
+        "delta": 0.033302224683734255,
+        "end_exclusive": "2026-11-09",
+        "matches": 9673,
+        "neutral_minus_fitted_loss": 0.0004625971395584294,
+        "origin": "2026-11-02",
+        "rho": -0.025000568911532215,
+        "scored_matches": 82,
+        "status": "fitted"
+      }
+    ],
+    "delta_range": [
+      -0.1202399181404817,
+      0.09873590049123405
+    ],
+    "first_fitted_origin": "2023-04-24",
+    "rho_range": [
+      -0.06946590380241673,
+      0.02087656480109231
+    ],
+    "warm_up_windows": 11,
+    "windows": 89
+  },
+  "harness_version": "evaluation-harness-v2",
+  "notes": [
+    "mean_gain > 0 means C2 has the lower log loss (C2_vs_C: C minus C2).",
+    "Intervals resample whole calendar weeks (2,000 draws, seed 136, evaluation_harness.paired).",
+    "Common cohort: fixtures where C, C2, M, D and A are all available.",
+    "No holdout match is scored or used for fitting in a locked run."
+  ],
+  "periods": {
+    "development": {
+      "calibration_1x2": {
+        "C": {
+          "away": {
+            "forecasts": 6959,
+            "mean_forecast": 0.3198492362434983,
+            "observed_rate": 0.309958327345883
+          },
+          "draw": {
+            "forecasts": 6959,
+            "mean_forecast": 0.23504031621069774,
+            "observed_rate": 0.24773674378502658
+          },
+          "home": {
+            "forecasts": 6959,
+            "mean_forecast": 0.4451104475458039,
+            "observed_rate": 0.4423049288690904
+          },
+          "worst_bin": {
+            "abs_deviation": 0.06097905794249259,
+            "bin_lower": 0.8,
+            "mean_forecast": 0.8368311610356096,
+            "n": 137,
+            "observed_rate": 0.8978102189781022,
+            "outcome": "home"
+          }
+        },
+        "C2": {
+          "away": {
+            "forecasts": 6959,
+            "mean_forecast": 0.31598131546600583,
+            "observed_rate": 0.309958327345883
+          },
+          "draw": {
+            "forecasts": 6959,
+            "mean_forecast": 0.24271599850505066,
+            "observed_rate": 0.24773674378502655
+          },
+          "home": {
+            "forecasts": 6959,
+            "mean_forecast": 0.4413026860289435,
+            "observed_rate": 0.4423049288690904
+          },
+          "worst_bin": {
+            "abs_deviation": 0.058628205801048106,
+            "bin_lower": 0.5,
+            "mean_forecast": 0.5438023497545075,
+            "n": 576,
+            "observed_rate": 0.6024305555555556,
+            "outcome": "away"
+          }
+        }
+      },
+      "groups": {
+        "1X2": {
+          "C2_vs_C": {
+            "clear_of_zero": false,
+            "fixtures": 6875,
+            "interval_95": [
+              -5.128901108987627e-05,
+              0.0012659086297672542
+            ],
+            "mean_gain": 0.0006015509283985708,
+            "weeks": 106
+          },
+          "C2_vs_C_after_warm_up (descriptive)": {
+            "clear_of_zero": false,
+            "fixtures": 5824,
+            "interval_95": [
+              -6.949232525543908e-05,
+              0.001517716467719103
+            ],
+            "mean_gain": 0.0007101069080941234,
+            "weeks": 86
+          },
+          "C2_vs_M": {
+            "clear_of_zero": false,
+            "fixtures": 6875,
+            "interval_95": [
+              -0.03286850072116467,
+              -0.022154248145135936
+            ],
+            "mean_gain": -0.027296070810591502,
+            "weeks": 106
+          },
+          "fixtures": 6875,
+          "mean_log_loss": {
+            "A": 0.9571348757844969,
+            "C": 0.9816809868771419,
+            "C2": 0.9810794359487433,
+            "D": 0.954321614753014,
+            "M": 0.9537833651381519
+          }
+        },
+        "AH all": {
+          "C2_vs_C": {
+            "clear_of_zero": false,
+            "fixtures": 6875,
+            "interval_95": [
+              -4.8754439293695436e-05,
+              0.0003720687242659579
+            ],
+            "mean_gain": 0.00016156970568815797,
+            "weeks": 106
+          },
+          "C2_vs_C_after_warm_up (descriptive)": {
+            "clear_of_zero": false,
+            "fixtures": 5824,
+            "interval_95": [
+              -7.158737548345701e-05,
+              0.0004461208329691232
+            ],
+            "mean_gain": 0.00019072660140901203,
+            "weeks": 86
+          },
+          "C2_vs_M": {
+            "clear_of_zero": false,
+            "fixtures": 6875,
+            "interval_95": [
+              -0.022987724873380543,
+              -0.015658774052572835
+            ],
+            "mean_gain": -0.019194865519541766,
+            "weeks": 106
+          },
+          "fixtures": 6875,
+          "mean_log_loss": {
+            "A": 0.7008854797320262,
+            "C": 0.7174251050453613,
+            "C2": 0.7172635353396731,
+            "D": 0.6976633952331704,
+            "M": 0.6980686698201315
+          }
+        },
+        "AH draw-sensitive": {
+          "C2_vs_C": {
+            "clear_of_zero": false,
+            "fixtures": 6875,
+            "interval_95": [
+              -3.913036166023601e-05,
+              0.0006215718795859304
+            ],
+            "mean_gain": 0.0002939215965884663,
+            "weeks": 106
+          },
+          "C2_vs_C_after_warm_up (descriptive)": {
+            "clear_of_zero": false,
+            "fixtures": 5824,
+            "interval_95": [
+              -5.2165750910772317e-05,
+              0.0007447951603381156
+            ],
+            "mean_gain": 0.0003469627363574358,
+            "weeks": 86
+          },
+          "C2_vs_M": {
+            "clear_of_zero": false,
+            "fixtures": 6875,
+            "interval_95": [
+              -0.026999899267623778,
+              -0.018314521346416247
+            ],
+            "mean_gain": -0.0224907228263562,
+            "weeks": 106
+          },
+          "fixtures": 6875,
+          "mean_log_loss": {
+            "A": 0.6954745255205652,
+            "C": 0.7154918228286916,
+            "C2": 0.7151979012321033,
+            "D": 0.6932884766924522,
+            "M": 0.692707178405747
+          }
+        },
+        "Over 1.5": {
+          "C2_vs_C": {
+            "clear_of_zero": false,
+            "fixtures": 6875,
+            "interval_95": [
+              -4.212715481709735e-05,
+              0.0005601003443037992
+            ],
+            "mean_gain": 0.0002583627297608922,
+            "weeks": 106
+          },
+          "C2_vs_C_after_warm_up (descriptive)": {
+            "clear_of_zero": false,
+            "fixtures": 5824,
+            "interval_95": [
+              -4.2415463145106386e-05,
+              0.0006539855004648835
+            ],
+            "mean_gain": 0.000304986910560806,
+            "weeks": 86
+          },
+          "C2_vs_M": {
+            "clear_of_zero": false,
+            "fixtures": 6875,
+            "interval_95": [
+              -0.012436089677008726,
+              -0.007029354358076189
+            ],
+            "mean_gain": -0.009698108113574641,
+            "weeks": 106
+          },
+          "fixtures": 6875,
+          "mean_log_loss": {
+            "A": 0.5161967925334221,
+            "C": 0.5265066425281081,
+            "C2": 0.5262482797983472,
+            "D": 0.5168463331457324,
+            "M": 0.5165501716847726
+          }
+        }
+      }
+    },
+    "validation": {
+      "calibration_1x2": {
+        "C": {
+          "away": {
+            "forecasts": 1354,
+            "mean_forecast": 0.32761097401309786,
+            "observed_rate": 0.30797636632200887
+          },
+          "draw": {
+            "forecasts": 1354,
+            "mean_forecast": 0.23803495577798692,
+            "observed_rate": 0.26440177252584934
+          },
+          "home": {
+            "forecasts": 1354,
+            "mean_forecast": 0.4343540702089152,
+            "observed_rate": 0.4276218611521418
+          },
+          "worst_bin": {
+            "abs_deviation": 0.06545479710561997,
+            "bin_lower": 0.7,
+            "mean_forecast": 0.7453560137051909,
+            "n": 74,
+            "observed_rate": 0.8108108108108109,
+            "outcome": "home"
+          }
+        },
+        "C2": {
+          "away": {
+            "forecasts": 1354,
+            "mean_forecast": 0.32136689716985556,
+            "observed_rate": 0.30797636632200887
+          },
+          "draw": {
+            "forecasts": 1354,
+            "mean_forecast": 0.25190192882847884,
+            "observed_rate": 0.26440177252584934
+          },
+          "home": {
+            "forecasts": 1354,
+            "mean_forecast": 0.42673117400166555,
+            "observed_rate": 0.4276218611521418
+          },
+          "worst_bin": {
+            "abs_deviation": 0.10630679382932096,
+            "bin_lower": 0.7,
+            "mean_forecast": 0.7450445575220304,
+            "n": 74,
+            "observed_rate": 0.8513513513513513,
+            "outcome": "home"
+          }
+        }
+      },
+      "groups": {
+        "1X2": {
+          "C2_vs_C": {
+            "clear_of_zero": false,
+            "fixtures": 1304,
+            "interval_95": [
+              -0.0006077706981297738,
+              0.003941221732690898
+            ],
+            "mean_gain": 0.0016029982154287417,
+            "weeks": 22
+          },
+          "C2_vs_C_after_warm_up (descriptive)": {
+            "clear_of_zero": false,
+            "fixtures": 1304,
+            "interval_95": [
+              -0.0006077706981297738,
+              0.003941221732690898
+            ],
+            "mean_gain": 0.0016029982154287417,
+            "weeks": 22
+          },
+          "C2_vs_M": {
+            "clear_of_zero": false,
+            "fixtures": 1304,
+            "interval_95": [
+              -0.03338632871432762,
+              -0.012537802907766354
+            ],
+            "mean_gain": -0.023356015285798195,
+            "weeks": 22
+          },
+          "fixtures": 1304,
+          "mean_log_loss": {
+            "A": 0.9596829469921045,
+            "C": 0.983632772134282,
+            "C2": 0.9820297739188532,
+            "D": 0.9587387522180143,
+            "M": 0.958673758633055
+          }
+        },
+        "AH all": {
+          "C2_vs_C": {
+            "clear_of_zero": false,
+            "fixtures": 1304,
+            "interval_95": [
+              -0.0003063166641669569,
+              0.0010587221934319113
+            ],
+            "mean_gain": 0.0003647393904862892,
+            "weeks": 22
+          },
+          "C2_vs_C_after_warm_up (descriptive)": {
+            "clear_of_zero": false,
+            "fixtures": 1304,
+            "interval_95": [
+              -0.0003063166641669569,
+              0.0010587221934319113
+            ],
+            "mean_gain": 0.0003647393904862892,
+            "weeks": 22
+          },
+          "C2_vs_M": {
+            "clear_of_zero": false,
+            "fixtures": 1304,
+            "interval_95": [
+              -0.022607469848072676,
+              -0.009025529406915677
+            ],
+            "mean_gain": -0.01618000773769184,
+            "weeks": 22
+          },
+          "fixtures": 1304,
+          "mean_log_loss": {
+            "A": 0.6920279749687426,
+            "C": 0.706571050969833,
+            "C2": 0.7062063115793467,
+            "D": 0.6896444266906719,
+            "M": 0.6900263038416549
+          }
+        },
+        "AH draw-sensitive": {
+          "C2_vs_C": {
+            "clear_of_zero": false,
+            "fixtures": 1304,
+            "interval_95": [
+              -0.00048669557560911787,
+              0.0017324735637332656
+            ],
+            "mean_gain": 0.000606708311697583,
+            "weeks": 22
+          },
+          "C2_vs_C_after_warm_up (descriptive)": {
+            "clear_of_zero": false,
+            "fixtures": 1304,
+            "interval_95": [
+              -0.00048669557560911787,
+              0.0017324735637332656
+            ],
+            "mean_gain": 0.000606708311697583,
+            "weeks": 22
+          },
+          "C2_vs_M": {
+            "clear_of_zero": false,
+            "fixtures": 1304,
+            "interval_95": [
+              -0.027264157861691098,
+              -0.010704253455797641
+            ],
+            "mean_gain": -0.01918958439983714,
+            "weeks": 22
+          },
+          "fixtures": 1304,
+          "mean_log_loss": {
+            "A": 0.6922727288377469,
+            "C": 0.7112509609770753,
+            "C2": 0.7106442526653778,
+            "D": 0.6919528928208449,
+            "M": 0.6914546682655406
+          }
+        },
+        "Over 1.5": {
+          "C2_vs_C": {
+            "clear_of_zero": false,
+            "fixtures": 1304,
+            "interval_95": [
+              -0.00022214370556275425,
+              5.142937468690161e-05
+            ],
+            "mean_gain": -8.151585841712363e-05,
+            "weeks": 22
+          },
+          "C2_vs_C_after_warm_up (descriptive)": {
+            "clear_of_zero": false,
+            "fixtures": 1304,
+            "interval_95": [
+              -0.00022214370556275425,
+              5.142937468690161e-05
+            ],
+            "mean_gain": -8.151585841712363e-05,
+            "weeks": 22
+          },
+          "C2_vs_M": {
+            "clear_of_zero": false,
+            "fixtures": 1304,
+            "interval_95": [
+              -0.014139009748242315,
+              -0.0035911365747680886
+            ],
+            "mean_gain": -0.008784329689022572,
+            "weeks": 22
+          },
+          "fixtures": 1304,
+          "mean_log_loss": {
+            "A": 0.5212166573737808,
+            "C": 0.5301007997362474,
+            "C2": 0.5301823155946644,
+            "D": 0.5224230491025282,
+            "M": 0.5213979859056419
+          }
+        }
+      }
+    }
+  },
+  "source_commit": "570a2a1b0fedb758664d6c19aac76a902f05f064"
+}
