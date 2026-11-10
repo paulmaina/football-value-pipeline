@@ -18,6 +18,7 @@ pip install -r football_value_dev_requirements.txt
 python -m pytest -q tests                                   # full suite (~5 min)
 python evaluation_harness.py --output /tmp/eval             # development + validation, 8 leagues
 python evaluation_harness.py --mode live --output /tmp/live # replay frozen forecasts since 5 Nov 2026
+python evaluation_harness.py --mode parity --output /tmp/parity # research model: harness vs live inputs and probabilities
 python performance_tracking.py review --api-key-source environment && python workflow_checks.py reports
 ```
 
