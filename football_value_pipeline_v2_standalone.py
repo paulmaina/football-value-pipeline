@@ -3273,10 +3273,16 @@ class FootballValuePipelineV2(FootballValuePipeline):
         pred['score_matrix_version'] = 'published-score-matrix-v1'
         pred['goal_margin_distribution'] = margins(matrix)
         pred['raw_goal_margin_distribution'] = raw_margins
-        from team_research import form_history
+        from team_research import form_history, history_team
+        # Each side's own history under its training name ("Hull" for "Hull City"),
+        # from reviewed aliases only; the model's fuzzy fallback is not used here.
+        history_names = {side: history_team(name, model.teams, model.league_key)
+                         for side, name in (('home', home), ('away', away))}
+        if history_names['home'] is not None and history_names['home'] == history_names['away']:
+            history_names = {'home': None, 'away': None}
         pred['research_history_json'] = json.dumps(form_history(
             getattr(self, '_validation_history', None), home, away,
-            model.training_as_of or pd.Timestamp.now(tz='UTC')), sort_keys=True)
+            model.training_as_of or pd.Timestamp.now(tz='UTC'), names=history_names), sort_keys=True)
         pred["raw_p_home"] = raw_x12["home"]
         pred["raw_p_draw"] = raw_x12["draw"]
         pred["raw_p_away"] = raw_x12["away"]

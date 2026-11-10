@@ -7,6 +7,7 @@ unvalidated numerical modifiers. Missing evidence never means 'no absences'.
 from __future__ import annotations
 
 from datetime import datetime, timezone
+from functools import lru_cache
 import hashlib
 import json
 import math
@@ -18,11 +19,38 @@ import numpy as np
 import pandas as pd
 import requests
 
-VERSION = 'team-form-research-v2'
+VERSION = 'team-form-research-v3'
+# v2 looked a side's training history up by its fixture name, so a side the
+# fixture and the history name differently ("Hull City" / "Hull") got no
+# training-history form at all. v3 resolves each side to its training name
+# (history_team) and freezes that name in research_history_json['teams'].
+# Kept only so forecasts frozen under v2 replay exactly.
+PREVIOUS_VERSION = 'team-form-research-v2'
 # v1 identified a result by its team names, so a match that two sources name
 # differently (ESPN "Hull City", training history "Hull") was counted twice in
 # the last-ten form. Kept only so forecasts frozen under v1 replay exactly.
 LEGACY_VERSION = 'team-form-research-v1'
+# Versions that read a side's history under its fixture name only.
+FIXTURE_NAME_ONLY = (LEGACY_VERSION, PREVIOUS_VERSION)
+# Reviewed fixture -> training names that bbs_team_aliases.json and TEAM_ALIASES
+# don't cover; the model reaches these only through its fuzzy fallback, which the
+# research never uses. Every pair below was seen in live forecasts and is the
+# same club. Kept apart from bbs_team_aliases.json, which also decides the BBS
+# statistics identity checks, so adding them leaves the model's goal rates alone.
+HISTORY_ALIASES = {
+    'Bundesliga': {'1. FSV Mainz 05': 'Mainz', 'SV 07 Elversberg': 'Elversberg'},
+    'Eredivisie': {'ADO Den Haag': 'Den Haag', 'AZ': 'AZ Alkmaar', "FC Twente '65": 'Twente',
+                   'FC Twente Enschede': 'Twente', 'NEC Nijmegen': 'Nijmegen', 'PEC Zwolle': 'Zwolle',
+                   'SBV Excelsior': 'Excelsior', 'SC Cambuur-Leeuwarden': 'Cambuur', 'Telstar 1963': 'Telstar',
+                   'Willem II Tilburg': 'Willem II'},
+    'LaLiga': {'CA Osasuna': 'Osasuna', 'Deportivo Alavés': 'Alaves', 'Deportivo La Coruña': 'La Coruna'},
+    'Ligue1': {'Angers SCO': 'Angers', 'Lille OSC': 'Lille', 'Olympique Lyonnais': 'Lyon',
+               'Olympique de Marseille': 'Marseille', 'RC Strasbourg Alsace': 'Strasbourg',
+               'Racing Club de Lens': 'Lens'},
+    'PrimeiraLiga': {'Braga': 'Sp Braga', 'CD Nacional': 'Nacional', 'CD Santa Clara': 'Santa Clara',
+                     'CS Maritimo': 'Maritimo', 'CS Marítimo': 'Maritimo', 'Sport Lisboa e Benfica': 'Benfica'},
+    'SerieA': {'Atalanta BC': 'Atalanta'},
+}
 ESPN = 'https://site.api.espn.com/apis/site/v2/sports/soccer/'
 LEAGUES = {'Premier League': 'eng.1', 'La Liga': 'esp.1', 'Bundesliga': 'ger.1',
            'Serie A': 'ita.1', 'Ligue 1': 'fra.1', 'Eredivisie': 'ned.1',
@@ -111,11 +139,60 @@ def decode(value):
         return {}
 
 
-def form_history(history, home, away, cutoff):
-    """Use completed earlier dates only. Same-day results have no reliable availability time."""
+@lru_cache(maxsize=None)
+def _reviewed_aliases(league_key):
+    """League-scoped reviewed aliases keyed by raw and by canonical name; a canonical key two clubs share is dropped."""
+    from football_value_pipeline_v2_standalone import canonical_team_key
+    path = Path(__file__).with_name('bbs_team_aliases.json')
+    reviewed = {**json.loads(path.read_text(encoding='utf-8')).get(league_key, {}),
+                **HISTORY_ALIASES.get(league_key, {})}
+    keyed, clash = {}, set()
+    for raw, target in reviewed.items():
+        key = canonical_team_key(raw)
+        if keyed.setdefault(key, target) != target and canonical_team_key(keyed[key]) != canonical_team_key(target):
+            clash.add(key)
+    return reviewed, {k: v for k, v in keyed.items() if k not in clash}
+
+
+def history_team(team, teams, league_key=None):
+    """The training-history name of a fixture team, or None when it can't be told for certain.
+
+    The same reviewed identities the model's resolve_team() applies before its fuzzy
+    fallback (an exact name, the league's reviewed alias, the global alias, the
+    canonical key), plus HISTORY_ALIASES; never fuzzy matching, so a side is never
+    given another club's history. The answer must be exactly one training team.
+    """
+    from football_value_pipeline_v2_standalone import TEAM_ALIASES, canonical_team_key, normalize_team_name
+    teams = {t for t in teams if isinstance(t, str) and t}
+    if not isinstance(team, str) or not team:
+        return None
+    if team in teams:
+        return team
+    if league_key == 'UEL':
+        from europa_training import resolver
+        target = resolver()(team)
+        return target if target in teams else None
+    reviewed, keyed = _reviewed_aliases(league_key)
+    target = (reviewed.get(team) or keyed.get(canonical_team_key(team))
+              or TEAM_ALIASES.get(normalize_team_name(team)) or team)
+    found = {t for t in teams if canonical_team_key(t) == canonical_team_key(target)}
+    return found.pop() if len(found) == 1 else None
+
+
+def form_history(history, home, away, cutoff, names=None):
+    """Use completed earlier dates only. Same-day results have no reliable availability time.
+
+    `names` maps 'home'/'away' to each side's training-history name (history_team);
+    it is frozen as 'teams' so prepare() knows which rows are the side's own. Without
+    it a side is looked up under its fixture name, as research v1/v2 did.
+    """
     required = {'Date', 'HomeTeam', 'AwayTeam', 'FTHG', 'FTAG'}
+    empty = {'home': [], 'away': [], 'h2h': []}
+    if names is not None:
+        empty['teams'] = {side: names.get(side) for side in ('home', 'away')}
+        home, away = names.get('home') or home, names.get('away') or away
     if history is None or not required <= set(history):
-        return {'home': [], 'away': [], 'h2h': []}
+        return empty
     frame = history.copy()
     frame = frame.loc[pd.to_datetime(frame.Date, utc=True, errors='coerce') < utc(cutoff).normalize()]
     rows = []
@@ -127,20 +204,36 @@ def form_history(history, home, away, cutoff):
                      'home_goals': h, 'away_goals': a, 'home_xg': number(r.get('HxG')),
                      'away_xg': number(r.get('AxG')), 'source': 'pipeline training history'})
     rows.sort(key=lambda r: r['date'], reverse=True)
-    return {'home': [r for r in rows if name(home) in (name(r['home']), name(r['away']))][:10],
+    return {**empty,
+            'home': [r for r in rows if name(home) in (name(r['home']), name(r['away']))][:10],
             'away': [r for r in rows if name(away) in (name(r['home']), name(r['away']))][:10],
             'h2h': [r for r in rows if {name(home), name(away)} == {name(r['home']), name(r['away'])}
                     and utc(r['date']) >= utc(cutoff) - pd.DateOffset(years=4)][:10]}
 
 
-def form_rows(team, rows, cutoff, version=VERSION):
+def history_name(history, side, version=VERSION):
+    """The side's frozen training-history name, read from research v3 on (None before, or if unresolved)."""
+    if version in FIXTURE_NAME_ONLY:
+        return None
+    teams = decode(history).get('teams')
+    return teams.get(side) if isinstance(teams, dict) else None
+
+
+def form_rows(team, rows, cutoff, version=VERSION, history_team_name=None):
     """A team's last ten results before the cutoff day, newest first, each match once.
 
     Sources spell teams differently, so a match is the same match when the names
     agree or when the day, the team's venue and the score agree. The first row
     seen is kept (the training history comes first) and takes verified xG from
     a later copy. `version=LEGACY_VERSION` replays the v1 rule (names only).
+
+    `history_team_name` (v3 on) is the team's training-history name ("Hull" for the
+    fixture's "Hull City"); rows naming it are restated with the fixture name, so
+    they count as the team's own and the venue is read correctly.
     """
+    if history_team_name and version not in FIXTURE_NAME_ONLY and name(history_team_name) != name(team):
+        key = name(history_team_name)
+        rows = [{**r, **{f: team for f in ('home', 'away') if name(r.get(f)) == key}} for r in rows]
     unique, same_result = {}, {}
     for r in rows:
         date = utc(r.get('date'))
@@ -416,7 +509,8 @@ def collect_fixture(row, client):
 def prepare(row, cutoff, evidence=None, version=VERSION):
     """One replayable context and goal model. Prior shrinks ten-game form to the fitted team rates.
 
-    `version` is for replaying a frozen forecast under the rules it was made with (see form_rows).
+    `version` is for replaying a frozen forecast under the rules it was made with (see form_rows):
+    v3 reads each side's training-history name from research_history_json['teams'].
 
     Enforces the value model input schema: the row is projected onto
     INPUT_SCHEMA and the numbers read only research_evidence(evidence), so no
@@ -430,14 +524,17 @@ def prepare(row, cutoff, evidence=None, version=VERSION):
         evidence = {'errors': ['research observation after evaluation cutoff']}
     # The stored evidence keeps everything collected; the model reads only the schema view.
     view = research_evidence(evidence)
-    stats = {}
+    stats, unresolved = {}, []
     for side in ('home', 'away'):
         team = row.get(side + '_team')
         rows = list(cached.get(side, []))
         if valid_sources:
             rows += view.get('recent', {}).get(side, [])
-        ordered = form_rows(team, rows, cutoff, version)
+        own = history_name(cached, side, version)
+        ordered = form_rows(team, rows, cutoff, version, own)
         stats[side] = {'all': weighted_form(ordered, team), 'venue': weighted_form(ordered, team, side)}
+        if version not in FIXTURE_NAME_ONLY and 'teams' in cached and not own:
+            unresolved.append(f'{side} team {team!r} has no reviewed training-history name; no history form')
     coverage = dict(view.get('coverage', {}))
     if view.get('news'):
         coverage['team_news'] = 'dated news leads; absences and tactics require confirmation'
@@ -467,7 +564,7 @@ def prepare(row, cutoff, evidence=None, version=VERSION):
         if any(v['previous_fixture'].get('venue') for v in evidence['rest_and_travel'].values()):
             coverage['travel'] = 'previous fixture venue; itinerary and fatigue unverified'
     warnings = [c + ' unavailable or unconfirmed' for c in CATEGORIES if c not in coverage]
-    warnings += view.get('errors', [])
+    warnings += view.get('errors', []) + unresolved
     base = [number(row.get('lambda_home')), number(row.get('lambda_away'))]
     rates = list(base)
     for i, side in enumerate(('home', 'away')):
