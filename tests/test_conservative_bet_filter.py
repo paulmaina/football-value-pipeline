@@ -4,6 +4,7 @@ from offline_test_case import OfflineQuotePolicyTestCase
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 import json
+import os
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -310,7 +311,8 @@ class TenMarketTests(OfflineQuotePolicyTestCase):
         row["league"] = "UEFA Champions League"
         with tempfile.TemporaryDirectory() as tmp:
             raw = Path(tmp) / "raw"
-            with patch(
+            # main() loads API keys into os.environ; restore it so later tests see none.
+            with patch.dict(os.environ), patch(
                 "football_value_pipeline_v2_standalone.FootballValuePipelineV2.run_league",
                 return_value=(pd.DataFrame([row]), {
                     "training_end": "2026-09-20", "training_matches": 1000,
@@ -338,7 +340,8 @@ class TenMarketTests(OfflineQuotePolicyTestCase):
         frame = pd.DataFrame([fixture()])
         with tempfile.TemporaryDirectory() as path:
             raw = Path(path) / "raw"
-            with patch(
+            # main() loads API keys into os.environ; restore it so later tests see none.
+            with patch.dict(os.environ), patch(
                 "football_value_pipeline_v2_standalone.FootballValuePipelineV2.run_league",
                 return_value=(frame, {
                     "sample": True, "training_end": "2026-09-20",
