@@ -79,10 +79,15 @@ def frozen_row():
     return inputs, evidence, tr.utc(research['observed_at_utc']), research
 
 
-def replay(row, evidence, cutoff):
-    """team_research.enrich on the frozen pre-kickoff evidence, with no network."""
+def replay(row, evidence, cutoff, version=tr.VERSION):
+    """team_research.enrich on the frozen pre-kickoff evidence, with no network.
+
+    `version` replays a forecast under the research version it was frozen with.
+    """
     frame = pd.DataFrame([row])
+    prepare = tr.prepare
     with tempfile.TemporaryDirectory() as tmp, \
+            patch.object(tr, 'prepare', side_effect=lambda r, c, e=None: prepare(r, c, e, version=version)), \
             patch.object(tr, 'collect_fixture', side_effect=lambda r, c: copy.deepcopy(evidence)):
         out = tr.enrich(frame, tmp, fetch=False, clock=lambda: cutoff.to_pydatetime())
     return out.iloc[0].to_dict()
@@ -135,7 +140,7 @@ class FrozenRowOddsPerturbationTest(unittest.TestCase):
 
     def test_replay_reproduces_the_frozen_research(self):
         row, evidence, cutoff, research = frozen_row()
-        out = replay(row, evidence, cutoff)
+        out = replay(row, evidence, cutoff, version=research['version'])
         context = json.loads(out['team_research_json'])
         self.assertEqual(context['goal_rates'], research['goal_rates'])
         for key, value in research['margin_distribution'].items():
@@ -324,13 +329,14 @@ class KnownParityDifferencesTest(unittest.TestCase):
     """Input differences between live and harness research, reported rather than hidden.
 
     On the real frozen row the live form includes European and cup games the
-    football-data files don't have, and counts one league match twice because ESPN
-    ("Hull City") and the training history ("Hull") name the opponent differently.
+    football-data files don't have. It was frozen under research v1, which counted
+    one league match twice because ESPN ("Hull City") and the training history
+    ("Hull") name the opponent differently (fixed in v2, tests/test_research_form_identity.py).
     evaluation_harness --mode parity reports both across every frozen forecast.
     """
 
     def test_frozen_row_off_league_and_double_counted_rows_are_detected(self):
-        row, evidence, cutoff, _ = frozen_row()
+        row, evidence, cutoff, research = frozen_row()
         data = epl_history()
         results = set()
         for d, h, a, hg, ag in zip(data.Date, data.HomeTeam, data.AwayTeam, data.FTHG, data.FTAG):
@@ -341,7 +347,7 @@ class KnownParityDifferencesTest(unittest.TestCase):
         classes = {}
         for side in ('home', 'away'):
             team = inputs[side + '_team']
-            used = eh._used_rows(inputs, evidence, cutoff, side)
+            used = eh._used_rows(inputs, evidence, cutoff, side, research['version'])
             classes[side] = {(r['home'], r['away']): eh._classify(r, team, results, starts)
                              for r in used if r['source'] != eh.TRAINING_HISTORY}
             classes[side + '_double'] = eh._double_counted(used, team)
@@ -349,6 +355,8 @@ class KnownParityDifferencesTest(unittest.TestCase):
         self.assertEqual(classes['home'][('Getafe', 'Brighton & Hove Albion')], 'off_league_in_season')
         self.assertEqual(classes['away'][('Hull City', 'Brentford')], 'league')
         self.assertEqual((classes['home_double'], classes['away_double']), (0, 1))
+        for side in ('home', 'away'):  # the current version keeps each match once
+            self.assertEqual(eh._double_counted(eh._used_rows(inputs, evidence, cutoff, side), inputs[side + '_team']), 0)
 
     def test_live_research_with_evidence_differs_from_the_harness_view(self):
         row, evidence, cutoff, research = frozen_row()
@@ -382,7 +390,9 @@ class ParityReportTest(unittest.TestCase):
         self.assertEqual(frame.league_group.tolist(), ['other_domestic'])
         group = summary['by_group']['other_domestic']
         self.assertEqual(group['harness_vs_live']['1x2_max_abs']['matches'], 1)
-        self.assertEqual(group['evidence_rows_used']['double_counted'], 1)  # Hull City / Hull
+        self.assertEqual(group['evidence_rows_used']['double_counted'], 1)  # Hull City / Hull, frozen under v1
+        self.assertEqual(group['research_versions'], {tr.LEGACY_VERSION: 1})
+        self.assertTrue(group['same_inputs']['identical_within_1e-12'])
         self.assertGreater(group['evidence_rows_used']['off_league_in_season'], 0)
         self.assertEqual(summary['by_group']['holdout_leagues']['forecasts'], 0)
         self.assertEqual(set(summary['holdout_leagues']), {'Eredivisie', 'PrimeiraLiga', 'SuperLig'})
