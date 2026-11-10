@@ -1,0 +1,135 @@
+{
+  "after_version": "team-form-research-v4",
+  "all_forecasts": {
+    "changed": 192,
+    "forecasts": 689
+  },
+  "before_matches_parity_report": {
+    "checked": 108,
+    "max_abs_diff": 4.985656523320836e-07,
+    "within_csv_rounding_1e-6": 108
+  },
+  "before_version": "team-form-research-v3",
+  "counts": {
+    "espn_espn_rows": 13686,
+    "espn_labelled": 13517,
+    "espn_unlabelled": 169,
+    "forecasts": 5335,
+    "frozen:team-form-research-v1": 689,
+    "with_research": 689,
+    "without_research": 4646
+  },
+  "frozen_probabilities_max_abs_diff": 1.6653345369377348e-16,
+  "history_errors": {},
+  "latest_forecast_per_fixture": {
+    "all": {
+      "changed": 34,
+      "fixtures": 116,
+      "friendly_rows_in_form_before": 53,
+      "largest": "Fiorentina v Juventus (Serie A)",
+      "mean_direction_points": {
+        "away": 0.312964865179734,
+        "draw": -0.11839901445475728,
+        "home": -0.19456585072498103
+      },
+      "move_1x2_points": {
+        "max": 7.478795349995876,
+        "mean": 1.654075584880522,
+        "median": 0.8964437084163807,
+        "p90": 4.4822269135116475,
+        "two_points_or_more": 8
+      },
+      "move_goal_rates": {
+        "max": 0.2442039792821269,
+        "mean": 0.06712774633613386
+      },
+      "move_over_1_5_points": {
+        "max": 3.2458758958187617,
+        "mean": 0.9011939261542697
+      },
+      "with_friendlies_in_form_before": 42
+    },
+    "europa": {
+      "changed": 10,
+      "fixtures": 34,
+      "friendly_rows_in_form_before": 14,
+      "largest": "Sparta Prague v Bournemouth (UEFA Europa League)",
+      "mean_direction_points": {
+        "away": -0.07006400257066066,
+        "draw": -0.2729073188115221,
+        "home": 0.3429713213821768
+      },
+      "move_1x2_points": {
+        "max": 2.205108375420517,
+        "mean": 0.9726986097597603,
+        "median": 0.8272473366062877,
+        "p90": 1.4823440628181848,
+        "two_points_or_more": 1
+      },
+      "move_goal_rates": {
+        "max": 0.1506404299304046,
+        "mean": 0.06039460698744061
+      },
+      "move_over_1_5_points": {
+        "max": 1.5674781328957277,
+        "mean": 0.7162511090678381
+      },
+      "with_friendlies_in_form_before": 13
+    },
+    "five_leagues": {
+      "changed": 21,
+      "fixtures": 52,
+      "friendly_rows_in_form_before": 35,
+      "largest": "Fiorentina v Juventus (Serie A)",
+      "mean_direction_points": {
+        "away": 0.5711380741381699,
+        "draw": -0.06830612161229509,
+        "home": -0.502831952525878
+      },
+      "move_1x2_points": {
+        "max": 7.478795349995876,
+        "mean": 1.9508194772228191,
+        "median": 0.8640119215707731,
+        "p90": 5.069680230156931,
+        "two_points_or_more": 6
+      },
+      "move_goal_rates": {
+        "max": 0.2442039792821269,
+        "mean": 0.07239915716587594
+      },
+      "move_over_1_5_points": {
+        "max": 3.2458758958187617,
+        "mean": 1.0591661263262317
+      },
+      "with_friendlies_in_form_before": 25
+    },
+    "holdout_leagues": {
+      "changed": 3,
+      "fixtures": 30,
+      "friendly_rows_in_form_before": 4,
+      "largest": "\u00c7aykur Rizespor v Erzurum BB (Super Lig)",
+      "mean_direction_points": {
+        "away": -0.2174847050280019,
+        "draw": 0.0459784168372233,
+        "home": 0.17150628819077213
+      },
+      "move_1x2_points": {
+        "max": 2.5149279510443154,
+        "mean": 1.8481249222203158,
+        "median": 1.5377476801339829,
+        "p90": 2.319491896862249,
+        "two_points_or_more": 1
+      },
+      "move_goal_rates": {
+        "max": 0.06460259617002961,
+        "mean": 0.05267166835691676
+      },
+      "move_over_1_5_points": {
+        "max": 0.5711509182855012,
+        "mean": 0.41186458190530795
+      },
+      "with_friendlies_in_form_before": 4
+    }
+  },
+  "note": "Probabilities only: no result and no odds field is read. Holdout leagues (Eredivisie, Primeira Liga, Super Lig) are reported apart. Moves are the largest of the three 1X2 probabilities, in points."
+}
