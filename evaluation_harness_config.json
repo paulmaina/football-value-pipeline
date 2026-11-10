@@ -1,0 +1,28 @@
+{
+  "version": "evaluation-harness-v1",
+  "leagues": ["EPL", "LaLiga", "Bundesliga", "SerieA", "Ligue1", "Eredivisie", "PrimeiraLiga", "SuperLig"],
+  "seasons": ["2122", "2223", "2324", "2425", "2526", "2627"],
+  "test_start": "2022-08-01",
+  "development_end": "2025-07-01",
+  "holdout_start": "2026-01-16",
+  "end_exclusive": "2026-11-09",
+  "step_days": 14,
+  "min_train": 500,
+  "max_goals": 10,
+  "baseline_l2": 0.08,
+  "devig_method": "power",
+  "production_v2": {
+    "model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
+    "market_weight": 0.7,
+    "half_life_days": 480.0,
+    "shot_features": true,
+    "totals_anchor": true
+  },
+  "periods": {
+    "warm_up": "2021/22 is training history only; scoring starts 1 Aug 2022.",
+    "development": "1 Aug 2022 - 30 Jun 2025, Pinnacle pre-match prices. Build and choose candidates here.",
+    "validation": "1 Jul 2025 - 15 Jan 2026, Pinnacle pre-match prices. Already inspected by earlier diagnostics; the cagey correction is out-of-sample here.",
+    "holdout": "16 Jan 2026 - 8 Nov 2026, Bet365 pre-match prices with the margin removed. Pinnacle prices in the files stop on 15 Jan 2026. Locked until a candidate is declared."
+  },
+  "release_rule": "A candidate is scored on the holdout once, against a written declaration. It must beat its baseline with the 95% week-resampled interval clear of zero, and must beat the market reference by more than the measured Bet365-Pinnacle gap to count as beating the market. Changes reach production only through a reviewed PR after a short forward run in shadow."
+}
