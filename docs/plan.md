@@ -56,8 +56,8 @@ Historical data in `.football_cache` (football-data.co.uk, 8 domestic leagues, 2
 1. **Evaluation foundation**
    - [x] Result matching and duplicate grading fixed (PR #136, merged 9 Nov 2026).
    - [ ] Evaluation harness (`evaluation_harness.py`): historical mode and live replay.
-   - [ ] Count each verified match once toward the sample size, while scoring each of its offers.
-   - [ ] Evaluation scope fixed to PR #135's markets (native Pinnacle AH, home/away win, DC 1X/X2) and the 24-hour window.
+   - [x] Count each verified match once toward the sample size, while scoring each of its offers.
+   - [x] Evaluation scope fixed to PR #135's markets (native Pinnacle AH, home/away win, DC 1X/X2) and the 24-hour window.
    - [ ] Value model input schema plus the odds-perturbation test in the live pipeline.
 2. **Improve the independent research model** (no market data): draw and low-score adjustment fitted on own history; wider xG coverage; domestic form carried into UCL/UEL; Understat historical xG backfilled for the five big leagues (via local Claude Code or a GitHub workflow, since the cloud workspace can't reach Understat) so xG changes can be backtested; European backtest using the European results already cached (about 575 UCL matches from 2023/24 via football-data.org and 732 UEL matches from 2022/23 via OpenFootball, Fixture Download and Cornerflick) as results-only test matches, topping up gaps from Cornerflick and Fixture Download.
 3. **Confirm the cagey tier as the market view**: inputs all market prices; calibration checked out-of-sample.
