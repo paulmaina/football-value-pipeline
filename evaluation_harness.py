@@ -36,8 +36,11 @@ build synthetic Pinnacle-like prices from Bet365 probabilities.
 
 Live-replay mode replays the frozen forecasts with the report's grading: each
 forecast must precede the verified kickoff (performance_tracking.graded_match)
-and each verified match is scored once. It scores C, M, D and A on the same
-matches.
+and the latest such forecast stands for its verified match. Scoring is limited
+to PR #135's markets at Pinnacle (native Asian handicap, home or away win, Double
+Chance 1X or X2) and to offers timestamped within 24 hours before kickoff. Each
+such offer is scored for C, M, D and A, but each verified match counts once toward
+the sample: its offers are averaged before pairing and week resampling.
 """
 from __future__ import annotations
 
@@ -532,9 +535,158 @@ def usable_results(records, root, coverage=None, clock=None):
     return output
 
 
+# PR #135's markets, as events on the score grid. Draw, 12, totals, draw-no-bet
+# and every non-Pinnacle offer are out of scope.
+BINARY_MARKETS = {'Home win': lambda h, a: h > a, 'Away win': lambda h, a: h < a,
+                  'Double Chance 1X': lambda h, a: h >= a, 'Double Chance X2': lambda h, a: h <= a}
+DOUBLE_CHANCE_KEYS = {'home_draw': 'Double Chance 1X', 'draw_away': 'Double Chance X2'}
+NATIVE_AH_KEYS = ('spreads', 'alternate_spreads')
+OFFER_WINDOW = pd.Timedelta(hours=24)
+LIVE_GROUPS = ('All offers', 'Asian handicap', 'AH draw-sensitive', 'Win', 'Double chance')
+SETTLEMENT_INDEX = {(1., 0.): 0, (.5, 0.): 1, (0., 0.): 2, (0., .5): 3, (0., 1.): 4}
+
+
+def scoped_offers(row, kickoff, cutoff, coverage=None):
+    """The frozen row's offers in PR #135's scope: Pinnacle only; native Asian handicap
+    (spreads or alternate spreads, one offer per side and line), home or away win, and
+    Double Chance 1X or X2. Each must be timestamped within the 24 hours before kickoff
+    and no later than the forecast (cutoff)."""
+    import asian_handicap
+    from price_edge_shortlist import _json_list, _price, pinnacle_quotes
+    from team_research import utc
+    coverage = coverage if coverage is not None else Counter()
+    found = []
+    h2h = pinnacle_quotes(row)['h2h']
+    if h2h is not None:
+        found += [{'market': 'Home win', 'group': 'Win', 'price': h2h[0], 'stamp': h2h[3]},
+                  {'market': 'Away win', 'group': 'Win', 'price': h2h[2], 'stamp': h2h[3]}]
+    for quote in _json_list(row.get('price_edge_quotes')):
+        if isinstance(quote, dict) and quote.get('bookmaker') == 'Pinnacle' and quote.get('market') == 'double_chance':
+            for key, market in DOUBLE_CHANCE_KEYS.items():
+                price = _price((quote.get('prices') or {}).get(key))
+                if price:
+                    found.append({'market': market, 'group': 'Double chance', 'price': price,
+                                  'stamp': quote.get('last_update_utc')})
+    handicaps = {}
+    for offer in _json_list(row.get('asian_handicap_offers')):
+        if not isinstance(offer, dict) or offer.get('bookmaker') != 'Pinnacle':
+            continue
+        if offer.get('market_key') not in NATIVE_AH_KEYS:
+            coverage['offer_out_of_scope:pinnacle ' + str(offer.get('market_key'))] += 1
+            continue
+        price, side = _price(offer.get('price')), offer.get('side')
+        try:
+            point = asian_handicap.line(offer.get('line'))
+        except (ValueError, TypeError):
+            point = None
+        if not price or side not in ('home', 'away') or point is None:
+            coverage['offer_out_of_scope:invalid handicap offer'] += 1
+            continue
+        item = {'market': asian_handicap.label(side, point), 'group': 'Asian handicap', 'side': side,
+                'line': point, 'price': price, 'stamp': offer.get('last_update_utc'),
+                'source_market': offer.get('market_key')}
+        # One offer per side and line: the main-line copy wins over its alternate duplicate.
+        held = handicaps.get((side, point))
+        if held is None or (held['source_market'] != 'spreads' and item['source_market'] == 'spreads'):
+            handicaps[(side, point)] = item
+    found += handicaps.values()
+    output = []
+    for offer in found:
+        stamp = utc(offer['stamp'])
+        if pd.isna(stamp):
+            reason = 'no timestamp'
+        elif stamp > cutoff or stamp >= kickoff:
+            reason = 'after forecast'
+        elif stamp < kickoff - OFFER_WINDOW:
+            reason = 'older than 24h before kickoff'
+        else:
+            output.append({**offer, 'stamp': stamp})
+            continue
+        coverage['offer_excluded:' + reason] += 1
+    return output
+
+
+def score_offers(identity, matrices, offers, home_goals, away_goals, draw_lines=(-.5, 0., .5)):
+    """One record per offer and candidate: binary log loss for win and Double Chance, the
+    five-way settlement log loss for Asian handicap (quarter lines included)."""
+    from ah_close_backtest import outcome_probabilities, settle
+    if any(not np.isfinite(v) or v < 0 or int(v) != v for v in (home_goals, away_goals)):
+        raise ValueError('Invalid regulation score')
+    draw_lines = {round(float(v), 2) for v in draw_lines}
+    records = []
+    for candidate, matrix in matrices.items():
+        matrix = rb.matrix_value(matrix)
+        h, a = np.indices(matrix.shape)
+        for offer in offers:
+            base = {**identity, 'candidate': candidate, 'market': offer['market'], 'market_group': offer['group'],
+                    'offered_decimal_odds': offer['price'], 'offer_utc': offer['stamp'].isoformat()}
+            if offer['group'] == 'Asian handicap':
+                sign = 1 if offer['side'] == 'home' else -1
+                masses = outcome_probabilities((sign * (h - a)).ravel(), matrix.ravel(), offer['line'])
+                won, lost = settle(sign * (home_goals - away_goals), offer['line'])
+                probs, outcome = np.array([masses[k] for k in rb.KINDS]), SETTLEMENT_INDEX[(float(won), float(lost))]
+                base.update(handicap_side=offer['side'], handicap_line=offer['line'],
+                            draw_sensitive=round(offer['line'], 2) in draw_lines)
+            else:
+                event = BINARY_MARKETS[offer['market']]
+                p = float(matrix[event(h, a)].sum())
+                probs, outcome = np.array([1 - p, p]), int(event(home_goals, away_goals))
+                base.update(probability=p, won=outcome)
+            records.append({**base, 'log_loss': float(-np.log(max(probs[outcome], 1e-15))),
+                            'brier': float(np.sum((probs - np.eye(len(probs))[outcome]) ** 2))})
+    return records
+
+
+def match_scores(records) -> pd.DataFrame:
+    """One log loss per verified match, candidate and group: the mean over that match's offers,
+    so each match counts once toward the sample however many offers it carried."""
+    columns = ['fixture_key', 'league', 'week', 'phase', 'candidate', 'group', 'log_loss', 'offers']
+    if not records:
+        return pd.DataFrame(columns=columns)
+    frame = pd.DataFrame(records)
+    sensitive = (frame['draw_sensitive'] if 'draw_sensitive' in frame else pd.Series(False, index=frame.index))
+    sensitive = sensitive.fillna(False).astype(bool)
+    parts = []
+    for group, mask in (('All offers', frame.market_group.notna()),
+                        ('Asian handicap', frame.market_group == 'Asian handicap'),
+                        ('AH draw-sensitive', sensitive), ('Win', frame.market_group == 'Win'),
+                        ('Double chance', frame.market_group == 'Double chance')):
+        part = (frame.loc[mask].groupby(['fixture_key', 'league', 'week', 'phase', 'candidate'], as_index=False)
+                .log_loss.agg(log_loss='mean', offers='count'))
+        parts.append(part.assign(group=group))
+    return pd.concat(parts, ignore_index=True)[columns]
+
+
+def offer_counts(records) -> dict:
+    """Matches and distinct offers scored, overall, per market group and per market."""
+    if not records:
+        return {'matches': 0, 'offers': 0, 'per_group': {}, 'per_market': {}}
+    offers = pd.DataFrame(records).drop_duplicates(['fixture_key', 'market'])
+
+    def grouped(key):
+        return {name: {'matches': int(part.fixture_key.nunique()), 'offers': len(part)}
+                for name, part in offers.groupby(key)}
+    return {'matches': int(offers.fixture_key.nunique()), 'offers': len(offers),
+            'per_group': grouped('market_group'), 'per_market': grouped('market')}
+
+
+def offer_calibration(records) -> list[dict]:
+    """Reliability of the binary offers (win and Double Chance) per candidate: probability deciles."""
+    bins = defaultdict(list)
+    for r in records:
+        if r.get('market_group') in ('Win', 'Double chance'):
+            p = r['probability']
+            bins[(r['candidate'], r['market_group'], min(9, int(p * 10)))].append((p, r['won']))
+    return [{'candidate': k[0], 'market_group': k[1], 'bin_lower': k[2] / 10, 'n': len(v),
+             'mean_forecast': float(np.mean([p for p, _ in v])), 'observed_rate': float(np.mean([y for _, y in v]))}
+            for k, v in sorted(bins.items())]
+
+
 def live_replay(root):
-    """Frozen forecasts graded exactly as the performance report grades them, then scored once
-    per verified match: C (frozen research), M (fit to frozen Pinnacle quotes), D (cagey), A (published grid)."""
+    """Frozen forecasts graded exactly as the performance report grades them; one forecast
+    (the latest made before the verified kickoff) stands for each verified match. Every
+    in-scope offer on that forecast (scoped_offers) is scored for C (frozen research),
+    M (fit to frozen Pinnacle quotes), D (cagey) and A (published grid)."""
     import narrow_margin as nm
     import performance_tracking as pt
     from price_edge_shortlist import pinnacle_quotes
@@ -556,8 +708,14 @@ def live_replay(root):
             # The latest forecast made before the verified kickoff stands for the match.
             if identity not in latest or generated > latest[identity][0]:
                 latest[identity] = (generated, frozen, final)
-    records, calib = [], []
+    records = []
     for identity, (generated, row, final) in sorted(latest.items()):
+        # The kickoff the lead check used: the verified one when the result carries it.
+        kickoff = utc(final.get('kickoff_utc')) if 'kickoff_utc' in final else utc(row.get('kickoff_utc'))
+        offers = scoped_offers(row, kickoff, generated, coverage)
+        if not offers:
+            coverage['no_in_scope_offer'] += 1
+            continue
         matrices, gaps = rb.archived_candidates(row, generated)
         if 'B' in matrices:
             matrices['M'] = matrices.pop('B')
@@ -577,14 +735,9 @@ def live_replay(root):
             coverage['no_candidate_available'] += 1
             continue
         coverage['matches_scored'] += 1
-        records.extend(rb.score_fixture(ident, matrices, final['home_goals'], final['away_goals']))
-        outcome = 0 if final['home_goals'] > final['away_goals'] else 1 if final['home_goals'] == final['away_goals'] else 2
-        for cand, matrix in matrices.items():
-            h, a = np.indices(matrix.shape)
-            calib.append({'phase': 'live_replay', 'candidate': cand, 'outcome': outcome,
-                          'probs': [float(matrix[h > a].sum()), float(matrix[h == a].sum()), float(matrix[h < a].sum())]})
+        records.extend(score_offers(ident, matrices, offers, final['home_goals'], final['away_goals']))
     coverage['verified_matches_graded'] = len(latest)
-    return records, calib, coverage
+    return records, coverage
 
 
 # ---------------------------------------------------------------------------
@@ -627,16 +780,21 @@ def main(argv=None):
     args.output.mkdir(parents=True, exist_ok=True)
     commit = git_commit()
     if args.mode == 'live':
-        records, calib, coverage = live_replay(args.root)
-        scores = fixture_scores(records)
+        records, coverage = live_replay(args.root)
+        scores = match_scores(records)
         summary = {'version': VERSION, 'mode': 'live_replay', 'source_commit': commit, 'candidates': CANDIDATES,
-                   'coverage': dict(coverage), 'log_loss_common_cohort': common_cohort(scores) if not scores.empty else [],
+                   'scope': {'bookmaker': 'Pinnacle', 'markets': ['native Asian handicap', *BINARY_MARKETS],
+                             'offer_window_hours': OFFER_WINDOW.total_seconds() / 3600,
+                             'sample_unit': 'verified match (its offers averaged before pairing and resampling)'},
+                   'counts': offer_counts(records), 'coverage': dict(coverage),
+                   'log_loss_common_cohort': common_cohort(scores) if not scores.empty else [],
                    'paired': {g: {f'{c}_vs_{b}': paired(scores.loc[scores.group == g], b, c)
-                                  for b, c in (('C', 'M'), ('C', 'D'), ('C', 'A'), ('M', 'D'))} for g in GROUPS},
-                   'calibration_1x2': calibration(calib),
+                                  for b, c in (('C', 'M'), ('C', 'D'), ('C', 'A'), ('M', 'D'))} for g in LIVE_GROUPS},
+                   'calibration_binary_offers': offer_calibration(records),
                    'note': 'Integration check on frozen live inputs; too few matches to be release evidence.'}
         hb.write_json(args.output / 'results.json', summary)
-        scores.to_csv(args.output / 'fixture_scores.csv', index=False)
+        scores.to_csv(args.output / 'match_scores.csv', index=False)
+        pd.DataFrame(records).to_csv(args.output / 'offer_scores.csv', index=False)
         return 0
     cfg = json.loads(args.config.read_text(encoding='utf-8'))
     declaration = setup = keep = None
