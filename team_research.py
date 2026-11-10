@@ -63,6 +63,15 @@ def research_inputs(row):
     return {key: getter(key) for key in INPUT_SCHEMA}
 
 
+def observed_by(evidence, cutoff):
+    """True when every research source was observed at or before the cutoff.
+
+    prepare() drops all pre-kickoff evidence otherwise; evaluation_harness mirrors it.
+    """
+    return all(pd.notna(utc(s.get('observed_at_utc'))) and utc(s['observed_at_utc']) <= cutoff
+               for s in evidence.get('sources', []))
+
+
 def research_evidence(evidence):
     """Numeric view of pre-kickoff research: schema keys, and result fields only in `recent`."""
     out = {k: evidence[k] for k in EVIDENCE_SCHEMA if k in evidence}
@@ -383,8 +392,7 @@ def prepare(row, cutoff, evidence=None):
     row = research_inputs(row)
     evidence = evidence or {}
     cached = decode(row.get('research_history_json'))
-    sources = evidence.get('sources', [])
-    valid_sources = all(pd.notna(utc(s.get('observed_at_utc'))) and utc(s['observed_at_utc']) <= cutoff for s in sources)
+    valid_sources = observed_by(evidence, cutoff)
     if not valid_sources:
         evidence = {'errors': ['research observation after evaluation cutoff']}
     # The stored evidence keeps everything collected; the model reads only the schema view.
