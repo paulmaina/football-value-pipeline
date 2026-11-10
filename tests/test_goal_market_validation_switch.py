@@ -1,6 +1,7 @@
 """Goal-market/count-market validation runs only when the selection policy uses it."""
 from datetime import datetime, timedelta
 import json
+import os
 from pathlib import Path
 import tempfile
 import unittest
@@ -44,6 +45,7 @@ class PipelineTests(OfflineQuotePolicyTestCase):
         from functools import partial
         fixed = partial(team_research.enrich, clock=lambda: T0)
         self.addCleanup(patch.stopall)
+        patch.dict(os.environ).start()  # main() loads API keys into os.environ; restore it afterwards
         patch('team_research.enrich', side_effect=fixed).start()
         # Validation modes must use the same decision cutoff as their frozen research.
         clock = patch('football_value_pipeline_v2_standalone.datetime', wraps=datetime).start()
