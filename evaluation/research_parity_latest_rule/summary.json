@@ -1,0 +1,1170 @@
+{
+  "by_league": {
+    "Bundesliga": {
+      "espn_rows_used": {
+        "domestic_cup": 10,
+        "domestic_other": 0,
+        "european": 16,
+        "friendly": 10,
+        "league": 0,
+        "unknown": 0
+      },
+      "forecasts": 9,
+      "forecasts_using": {
+        "domestic_cup": 6,
+        "domestic_other": 0,
+        "european": 5,
+        "friendly": 6,
+        "league": 0,
+        "unknown": 0
+      },
+      "harness_vs_live": {
+        "compared": 9,
+        "gap_frozen_v1": {
+          "matches": 9,
+          "max": 0.0992665669388339,
+          "mean": 0.03779426966419023,
+          "median": 0.029426836330665507
+        },
+        "gap_league_only": {
+          "matches": 9,
+          "max": 0.013057752421814728,
+          "mean": 0.0020862262377221935,
+          "median": 0.0008081215993962498
+        },
+        "gap_league_only_on_harness_goal_rates": {
+          "matches": 9,
+          "max": 0.006559388229170682,
+          "mean": 0.000728820914352298,
+          "median": 0.0
+        },
+        "gap_live": {
+          "matches": 9,
+          "max": 0.07695013699878117,
+          "mean": 0.020487982300125163,
+          "median": 0.017300897471217214
+        },
+        "gap_no_cup": {
+          "matches": 9,
+          "max": 0.037237397218568336,
+          "mean": 0.015367427096823526,
+          "median": 0.013778226903853552
+        },
+        "gap_no_cup_no_european": {
+          "matches": 9,
+          "max": 0.05191320823876333,
+          "mean": 0.01611063630294304,
+          "median": 0.008017088385939286
+        },
+        "gap_no_european": {
+          "matches": 9,
+          "max": 0.043755940632571044,
+          "mean": 0.015503997728669025,
+          "median": 0.01030581965463473
+        },
+        "lambda_max_abs_diff": {
+          "matches": 9,
+          "max": 0.07740232235354827,
+          "mean": 0.011632392572594692,
+          "median": 0.004162670934501511
+        },
+        "mean_gap_split": {
+          "domestic_cup": 0.0022569583145138107,
+          "european": 0.002120387682668312,
+          "goal_rates": 0.0013574053233698954,
+          "other_non_league (super cups, play-offs, friendlies, unknown)": 0.014024410065220847,
+          "remaining_history (window, staleness, ESPN league copies)": 0.000728820914352298,
+          "total_current_rule": 0.020487982300125163
+        },
+        "note": "Mean of the per-forecast largest 1X2 gap, in probability (0.01 = 1 point). The split is sequential except cup/European (Shapley); max-gap terms are not strictly additive per forecast."
+      },
+      "live_move_when_removed": {
+        "league_only": {
+          "matches": 9,
+          "max": 0.0772439440865037,
+          "mean": 0.021831959245487562,
+          "median": 0.017028881921229422
+        },
+        "no_cup": {
+          "matches": 9,
+          "max": 0.06332505028463481,
+          "mean": 0.01471947706412467,
+          "median": 0.0035226705673636616
+        },
+        "no_cup_no_european": {
+          "matches": 9,
+          "max": 0.0900958143291094,
+          "mean": 0.026561763806370917,
+          "median": 0.014552318839794576
+        },
+        "no_european": {
+          "matches": 9,
+          "max": 0.05223378787913169,
+          "mean": 0.012429193726882289,
+          "median": 0.00563970727418428
+        }
+      },
+      "with_evidence": 9
+    },
+    "Eredivisie": {
+      "espn_rows_used": {
+        "domestic_cup": 7,
+        "domestic_other": 0,
+        "european": 16,
+        "friendly": 1,
+        "league": 0,
+        "unknown": 0
+      },
+      "forecasts": 10,
+      "forecasts_using": {
+        "domestic_cup": 6,
+        "domestic_other": 0,
+        "european": 4,
+        "friendly": 1,
+        "league": 0,
+        "unknown": 0
+      },
+      "harness_vs_live": {
+        "compared": 10,
+        "gap_frozen_v1": {
+          "matches": 10,
+          "max": 0.08437853658856864,
+          "mean": 0.030649708920390213,
+          "median": 0.019983154392551827
+        },
+        "gap_league_only": {
+          "matches": 10,
+          "max": 0.08619471021318537,
+          "mean": 0.04131416711338166,
+          "median": 0.03408238254499876
+        },
+        "gap_league_only_on_harness_goal_rates": {
+          "matches": 10,
+          "max": 0.07039620663703938,
+          "mean": 0.03468184520045024,
+          "median": 0.04187243095966847
+        },
+        "gap_live": {
+          "matches": 10,
+          "max": 0.08196040282771488,
+          "mean": 0.03427174370227648,
+          "median": 0.028798982034672932
+        },
+        "gap_no_cup": {
+          "matches": 10,
+          "max": 0.08196040282771488,
+          "mean": 0.03661959243051528,
+          "median": 0.03135621546871367
+        },
+        "gap_no_cup_no_european": {
+          "matches": 10,
+          "max": 0.08619471021318537,
+          "mean": 0.04241921059576426,
+          "median": 0.03408238254499876
+        },
+        "gap_no_european": {
+          "matches": 10,
+          "max": 0.08619471021318537,
+          "mean": 0.04430700271579423,
+          "median": 0.035492435997139
+        },
+        "lambda_max_abs_diff": {
+          "matches": 10,
+          "max": 0.6752492034294506,
+          "mean": 0.20337315005920686,
+          "median": 0.11080876950409857
+        },
+        "mean_gap_split": {
+          "domestic_cup": -0.0002300283041044189,
+          "european": -0.007917438589383364,
+          "goal_rates": 0.0066323219129314145,
+          "other_non_league (super cups, play-offs, friendlies, unknown)": 0.001105043482382606,
+          "remaining_history (window, staleness, ESPN league copies)": 0.03468184520045024,
+          "total_current_rule": 0.03427174370227648
+        },
+        "note": "Mean of the per-forecast largest 1X2 gap, in probability (0.01 = 1 point). The split is sequential except cup/European (Shapley); max-gap terms are not strictly additive per forecast."
+      },
+      "live_move_when_removed": {
+        "league_only": {
+          "matches": 10,
+          "max": 0.0310607529570488,
+          "mean": 0.011207287678000461,
+          "median": 0.010870245412206103
+        },
+        "no_cup": {
+          "matches": 10,
+          "max": 0.02756012152442372,
+          "mean": 0.005788293317050414,
+          "median": 0.0
+        },
+        "no_cup_no_european": {
+          "matches": 10,
+          "max": 0.0310607529570488,
+          "mean": 0.009669539997866478,
+          "median": 0.0031815070115361888
+        },
+        "no_european": {
+          "matches": 10,
+          "max": 0.03283415782298621,
+          "mean": 0.010456888966781703,
+          "median": 0.0
+        }
+      },
+      "with_evidence": 10
+    },
+    "La Liga": {
+      "espn_rows_used": {
+        "domestic_cup": 4,
+        "domestic_other": 0,
+        "european": 26,
+        "friendly": 1,
+        "league": 0,
+        "unknown": 0
+      },
+      "forecasts": 11,
+      "forecasts_using": {
+        "domestic_cup": 3,
+        "domestic_other": 0,
+        "european": 6,
+        "friendly": 1,
+        "league": 0,
+        "unknown": 0
+      },
+      "harness_vs_live": {
+        "compared": 11,
+        "gap_frozen_v1": {
+          "matches": 11,
+          "max": 0.0680087149241404,
+          "mean": 0.026755860854888267,
+          "median": 0.024709386303021386
+        },
+        "gap_league_only": {
+          "matches": 11,
+          "max": 0.0070270203631350725,
+          "mean": 0.0013475404601068321,
+          "median": 0.00046792880883092525
+        },
+        "gap_league_only_on_harness_goal_rates": {
+          "matches": 11,
+          "max": 0.003283015065230044,
+          "mean": 0.0002984559150209131,
+          "median": 0.0
+        },
+        "gap_live": {
+          "matches": 11,
+          "max": 0.08633322480039718,
+          "mean": 0.018411159346400037,
+          "median": 0.0070270203631350725
+        },
+        "gap_no_cup": {
+          "matches": 11,
+          "max": 0.04691484974662985,
+          "mean": 0.016913657541379315,
+          "median": 0.01165723015857964
+        },
+        "gap_no_cup_no_european": {
+          "matches": 11,
+          "max": 0.01165723015857964,
+          "mean": 0.0023946391094406775,
+          "median": 0.0007210913479896996
+        },
+        "gap_no_european": {
+          "matches": 11,
+          "max": 0.036400663524161825,
+          "mean": 0.005854146164811214,
+          "median": 0.0009994350563013454
+        },
+        "lambda_max_abs_diff": {
+          "matches": 11,
+          "max": 0.039690901527584144,
+          "mean": 0.007599824245366104,
+          "median": 0.005031626711004211
+        },
+        "mean_gap_split": {
+          "domestic_cup": 0.0024785044301956294,
+          "european": 0.01353801580676373,
+          "goal_rates": 0.0010490845450859192,
+          "other_non_league (super cups, play-offs, friendlies, unknown)": 0.0010470986493338454,
+          "remaining_history (window, staleness, ESPN league copies)": 0.0002984559150209131,
+          "total_current_rule": 0.018411159346400037
+        },
+        "note": "Mean of the per-forecast largest 1X2 gap, in probability (0.01 = 1 point). The split is sequential except cup/European (Shapley); max-gap terms are not strictly additive per forecast."
+      },
+      "live_move_when_removed": {
+        "league_only": {
+          "matches": 11,
+          "max": 0.08624781638079349,
+          "mean": 0.017550054323118312,
+          "median": 0.005699656249022994
+        },
+        "no_cup": {
+          "matches": 11,
+          "max": 0.03941837505376733,
+          "mean": 0.0064363773161942965,
+          "median": 0.0
+        },
+        "no_cup_no_european": {
+          "matches": 11,
+          "max": 0.08624781638079349,
+          "mean": 0.018049034079566522,
+          "median": 0.008642576247708644
+        },
+        "no_european": {
+          "matches": 11,
+          "max": 0.049932561276235354,
+          "mean": 0.01301023534831905,
+          "median": 0.0040945359689572025
+        }
+      },
+      "with_evidence": 11
+    },
+    "Ligue 1": {
+      "espn_rows_used": {
+        "domestic_cup": 0,
+        "domestic_other": 0,
+        "european": 14,
+        "friendly": 12,
+        "league": 0,
+        "unknown": 0
+      },
+      "forecasts": 10,
+      "forecasts_using": {
+        "domestic_cup": 0,
+        "domestic_other": 0,
+        "european": 4,
+        "friendly": 8,
+        "league": 0,
+        "unknown": 0
+      },
+      "harness_vs_live": {
+        "compared": 10,
+        "gap_frozen_v1": {
+          "matches": 10,
+          "max": 0.07266483604056811,
+          "mean": 0.023948488184395315,
+          "median": 0.014207129365377186
+        },
+        "gap_league_only": {
+          "matches": 10,
+          "max": 0.042784638546617015,
+          "mean": 0.005935053120186662,
+          "median": 0.0008978821153967365
+        },
+        "gap_league_only_on_harness_goal_rates": {
+          "matches": 10,
+          "max": 0.0360317191750697,
+          "mean": 0.004143685509225526,
+          "median": 0.0
+        },
+        "gap_live": {
+          "matches": 10,
+          "max": 0.07998141025453603,
+          "mean": 0.018728442045413962,
+          "median": 0.006470989507921104
+        },
+        "gap_no_cup": {
+          "matches": 10,
+          "max": 0.07998141025453603,
+          "mean": 0.018728442045413962,
+          "median": 0.006470989507921104
+        },
+        "gap_no_cup_no_european": {
+          "matches": 10,
+          "max": 0.07998141025453603,
+          "mean": 0.012381131551245716,
+          "median": 0.005461409526499039
+        },
+        "gap_no_european": {
+          "matches": 10,
+          "max": 0.07998141025453603,
+          "mean": 0.012381131551245716,
+          "median": 0.005461409526499039
+        },
+        "lambda_max_abs_diff": {
+          "matches": 10,
+          "max": 0.02381223277688771,
+          "mean": 0.009907962471321974,
+          "median": 0.007622303300813371
+        },
+        "mean_gap_split": {
+          "domestic_cup": 0.0,
+          "european": 0.006347310494168246,
+          "goal_rates": 0.0017913676109611362,
+          "other_non_league (super cups, play-offs, friendlies, unknown)": 0.006446078431059054,
+          "remaining_history (window, staleness, ESPN league copies)": 0.004143685509225526,
+          "total_current_rule": 0.018728442045413962
+        },
+        "note": "Mean of the per-forecast largest 1X2 gap, in probability (0.01 = 1 point). The split is sequential except cup/European (Shapley); max-gap terms are not strictly additive per forecast."
+      },
+      "live_move_when_removed": {
+        "league_only": {
+          "matches": 10,
+          "max": 0.042058177131560404,
+          "mean": 0.013896399575939961,
+          "median": 0.006767507254326309
+        },
+        "no_cup": {
+          "matches": 10,
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0
+        },
+        "no_cup_no_european": {
+          "matches": 10,
+          "max": 0.042058177131560404,
+          "mean": 0.008465676505386276,
+          "median": 0.0
+        },
+        "no_european": {
+          "matches": 10,
+          "max": 0.042058177131560404,
+          "mean": 0.008465676505386276,
+          "median": 0.0
+        }
+      },
+      "with_evidence": 10
+    },
+    "Premier League": {
+      "espn_rows_used": {
+        "domestic_cup": 29,
+        "domestic_other": 0,
+        "european": 29,
+        "friendly": 2,
+        "league": 0,
+        "unknown": 0
+      },
+      "forecasts": 10,
+      "forecasts_using": {
+        "domestic_cup": 10,
+        "domestic_other": 0,
+        "european": 7,
+        "friendly": 2,
+        "league": 0,
+        "unknown": 0
+      },
+      "harness_vs_live": {
+        "compared": 10,
+        "gap_frozen_v1": {
+          "matches": 10,
+          "max": 0.05352522459746445,
+          "mean": 0.021520205745642795,
+          "median": 0.01729117460823612
+        },
+        "gap_league_only": {
+          "matches": 10,
+          "max": 0.0213378769774753,
+          "mean": 0.009667414389396306,
+          "median": 0.011844465623508452
+        },
+        "gap_league_only_on_harness_goal_rates": {
+          "matches": 10,
+          "max": 0.011424107705334141,
+          "mean": 0.0011424107705334142,
+          "median": 0.0
+        },
+        "gap_live": {
+          "matches": 10,
+          "max": 0.05291231647692329,
+          "mean": 0.02152124678853702,
+          "median": 0.01729117460823612
+        },
+        "gap_no_cup": {
+          "matches": 10,
+          "max": 0.05828061423101044,
+          "mean": 0.02476742366190568,
+          "median": 0.017225704673485942
+        },
+        "gap_no_cup_no_european": {
+          "matches": 10,
+          "max": 0.03762435234061334,
+          "mean": 0.017063483368021576,
+          "median": 0.014391768135818134
+        },
+        "gap_no_european": {
+          "matches": 10,
+          "max": 0.04093957617853128,
+          "mean": 0.01673511825842701,
+          "median": 0.011082386620775889
+        },
+        "lambda_max_abs_diff": {
+          "matches": 10,
+          "max": 0.0965215740774441,
+          "mean": 0.039136665141599636,
+          "median": 0.03465271558966343
+        },
+        "mean_gap_split": {
+          "domestic_cup": -0.0017872709914816126,
+          "european": 0.006245034411997058,
+          "goal_rates": 0.008525003618862891,
+          "other_non_league (super cups, play-offs, friendlies, unknown)": 0.00739606897862527,
+          "remaining_history (window, staleness, ESPN league copies)": 0.0011424107705334142,
+          "total_current_rule": 0.02152124678853702
+        },
+        "note": "Mean of the per-forecast largest 1X2 gap, in probability (0.01 = 1 point). The split is sequential except cup/European (Shapley); max-gap terms are not strictly additive per forecast."
+      },
+      "live_move_when_removed": {
+        "league_only": {
+          "matches": 10,
+          "max": 0.037573505537730534,
+          "mean": 0.01881124757898303,
+          "median": 0.01913148600010016
+        },
+        "no_cup": {
+          "matches": 10,
+          "max": 0.02562391057435301,
+          "mean": 0.014167867656145628,
+          "median": 0.01341809948214806
+        },
+        "no_cup_no_european": {
+          "matches": 10,
+          "max": 0.042883472280475565,
+          "mean": 0.024116625610109615,
+          "median": 0.02473287703383094
+        },
+        "no_european": {
+          "matches": 10,
+          "max": 0.03762966927691247,
+          "mean": 0.011228618093592704,
+          "median": 0.009694982516344139
+        }
+      },
+      "with_evidence": 10
+    },
+    "Primeira Liga": {
+      "espn_rows_used": {
+        "domestic_cup": 6,
+        "domestic_other": 0,
+        "european": 15,
+        "friendly": 0,
+        "league": 0,
+        "unknown": 0
+      },
+      "forecasts": 10,
+      "forecasts_using": {
+        "domestic_cup": 6,
+        "domestic_other": 0,
+        "european": 4,
+        "friendly": 0,
+        "league": 0,
+        "unknown": 0
+      },
+      "harness_vs_live": {
+        "compared": 10,
+        "gap_frozen_v1": {
+          "matches": 10,
+          "max": 0.12395255569850949,
+          "mean": 0.06717493406339507,
+          "median": 0.0738238640046347
+        },
+        "gap_league_only": {
+          "matches": 10,
+          "max": 0.205166989650578,
+          "mean": 0.09198706381747439,
+          "median": 0.08237255342477645
+        },
+        "gap_league_only_on_harness_goal_rates": {
+          "matches": 10,
+          "max": 0.07585772199770724,
+          "mean": 0.0461682192063328,
+          "median": 0.047886263125318795
+        },
+        "gap_live": {
+          "matches": 10,
+          "max": 0.14788749749073715,
+          "mean": 0.07097587419221703,
+          "median": 0.05969608028509918
+        },
+        "gap_no_cup": {
+          "matches": 10,
+          "max": 0.205166989650578,
+          "mean": 0.09052619228898612,
+          "median": 0.08237255342477645
+        },
+        "gap_no_cup_no_european": {
+          "matches": 10,
+          "max": 0.205166989650578,
+          "mean": 0.09198706381747439,
+          "median": 0.08237255342477645
+        },
+        "gap_no_european": {
+          "matches": 10,
+          "max": 0.14788749749073715,
+          "mean": 0.07591852754556828,
+          "median": 0.0609099958710595
+        },
+        "lambda_max_abs_diff": {
+          "matches": 10,
+          "max": 0.5541791654957733,
+          "mean": 0.24657312528779265,
+          "median": 0.17030912627013883
+        },
+        "mean_gap_split": {
+          "domestic_cup": -0.017809427184337596,
+          "european": -0.003201762440919763,
+          "goal_rates": 0.045818844611141586,
+          "other_non_league (super cups, play-offs, friendlies, unknown)": 0.0,
+          "remaining_history (window, staleness, ESPN league copies)": 0.0461682192063328,
+          "total_current_rule": 0.07097587419221703
+        },
+        "note": "Mean of the per-forecast largest 1X2 gap, in probability (0.01 = 1 point). The split is sequential except cup/European (Shapley); max-gap terms are not strictly additive per forecast."
+      },
+      "live_move_when_removed": {
+        "league_only": {
+          "matches": 10,
+          "max": 0.0736903446795325,
+          "mean": 0.03380277110502511,
+          "median": 0.024101821460414646
+        },
+        "no_cup": {
+          "matches": 10,
+          "max": 0.0736903446795325,
+          "mean": 0.02325170596867466,
+          "median": 0.0026136969713166924
+        },
+        "no_cup_no_european": {
+          "matches": 10,
+          "max": 0.0736903446795325,
+          "mean": 0.03380277110502511,
+          "median": 0.024101821460414646
+        },
+        "no_european": {
+          "matches": 10,
+          "max": 0.05754848560122272,
+          "mean": 0.011198471772757918,
+          "median": 0.0
+        }
+      },
+      "with_evidence": 10
+    },
+    "Serie A": {
+      "espn_rows_used": {
+        "domestic_cup": 7,
+        "domestic_other": 0,
+        "european": 19,
+        "friendly": 9,
+        "league": 0,
+        "unknown": 0
+      },
+      "forecasts": 10,
+      "forecasts_using": {
+        "domestic_cup": 6,
+        "domestic_other": 0,
+        "european": 5,
+        "friendly": 7,
+        "league": 0,
+        "unknown": 0
+      },
+      "harness_vs_live": {
+        "compared": 10,
+        "gap_frozen_v1": {
+          "matches": 10,
+          "max": 0.10971630015790507,
+          "mean": 0.04367459054709335,
+          "median": 0.03408291820446399
+        },
+        "gap_league_only": {
+          "matches": 10,
+          "max": 0.0134884467256432,
+          "mean": 0.0040322402843459,
+          "median": 0.0013900156249561646
+        },
+        "gap_league_only_on_harness_goal_rates": {
+          "matches": 10,
+          "max": 0.004698177441117113,
+          "mean": 0.0004698177441117113,
+          "median": 0.0
+        },
+        "gap_live": {
+          "matches": 10,
+          "max": 0.10971630015790507,
+          "mean": 0.03231209768100485,
+          "median": 0.01740070549629899
+        },
+        "gap_no_cup": {
+          "matches": 10,
+          "max": 0.10971630015790507,
+          "mean": 0.027468435165622872,
+          "median": 0.01361809656543403
+        },
+        "gap_no_cup_no_european": {
+          "matches": 10,
+          "max": 0.04494379709090035,
+          "mean": 0.013535939240528278,
+          "median": 0.009026768943040803
+        },
+        "gap_no_european": {
+          "matches": 10,
+          "max": 0.06917766057496977,
+          "mean": 0.017445378494872155,
+          "median": 0.009948430834815003
+        },
+        "lambda_max_abs_diff": {
+          "matches": 10,
+          "max": 0.05346085812069612,
+          "mean": 0.018509673188244324,
+          "median": 0.0070828403556693065
+        },
+        "mean_gap_split": {
+          "domestic_cup": 0.004376550884862926,
+          "european": 0.014399607555613644,
+          "goal_rates": 0.003562422540234189,
+          "other_non_league (super cups, play-offs, friendlies, unknown)": 0.009503698956182378,
+          "remaining_history (window, staleness, ESPN league copies)": 0.0004698177441117113,
+          "total_current_rule": 0.03231209768100485
+        },
+        "note": "Mean of the per-forecast largest 1X2 gap, in probability (0.01 = 1 point). The split is sequential except cup/European (Shapley); max-gap terms are not strictly additive per forecast."
+      },
+      "live_move_when_removed": {
+        "league_only": {
+          "matches": 10,
+          "max": 0.10899835174968436,
+          "mean": 0.03155814060987021,
+          "median": 0.020180198686137532
+        },
+        "no_cup": {
+          "matches": 10,
+          "max": 0.029287352229689145,
+          "mean": 0.006571023495015293,
+          "median": 0.003916082867816778
+        },
+        "no_cup_no_european": {
+          "matches": 10,
+          "max": 0.0747397371143303,
+          "mean": 0.022166067539435723,
+          "median": 0.01412248489887008
+        },
+        "no_european": {
+          "matches": 10,
+          "max": 0.0747397371143303,
+          "mean": 0.01883979750248435,
+          "median": 0.005756514497558651
+        }
+      },
+      "with_evidence": 10
+    },
+    "Super Lig": {
+      "espn_rows_used": {
+        "domestic_cup": 0,
+        "domestic_other": 0,
+        "european": 6,
+        "friendly": 3,
+        "league": 0,
+        "unknown": 0
+      },
+      "forecasts": 9,
+      "forecasts_using": {
+        "domestic_cup": 0,
+        "domestic_other": 0,
+        "european": 2,
+        "friendly": 3,
+        "league": 0,
+        "unknown": 0
+      },
+      "harness_vs_live": {
+        "compared": 9,
+        "gap_frozen_v1": {
+          "matches": 9,
+          "max": 0.1926060883601109,
+          "mean": 0.0884179884837788,
+          "median": 0.07673838012831066
+        },
+        "gap_league_only": {
+          "matches": 9,
+          "max": 0.17099367505022717,
+          "mean": 0.09423754267942412,
+          "median": 0.10418253472967748
+        },
+        "gap_league_only_on_harness_goal_rates": {
+          "matches": 9,
+          "max": 0.09390417819041846,
+          "mean": 0.04874613967907729,
+          "median": 0.041761039356184804
+        },
+        "gap_live": {
+          "matches": 9,
+          "max": 0.1926060883601109,
+          "mean": 0.09460161173707343,
+          "median": 0.08241017911087273
+        },
+        "gap_no_cup": {
+          "matches": 9,
+          "max": 0.1926060883601109,
+          "mean": 0.09460161173707343,
+          "median": 0.08241017911087273
+        },
+        "gap_no_cup_no_european": {
+          "matches": 9,
+          "max": 0.1926060883601109,
+          "mean": 0.09842741847380168,
+          "median": 0.10418253472967748
+        },
+        "gap_no_european": {
+          "matches": 9,
+          "max": 0.1926060883601109,
+          "mean": 0.09842741847380168,
+          "median": 0.10418253472967748
+        },
+        "lambda_max_abs_diff": {
+          "matches": 9,
+          "max": 1.1252673073827197,
+          "mean": 0.39644168189629897,
+          "median": 0.2015571631251012
+        },
+        "mean_gap_split": {
+          "domestic_cup": 0.0,
+          "european": -0.003825806736728249,
+          "goal_rates": 0.04549140300034683,
+          "other_non_league (super cups, play-offs, friendlies, unknown)": 0.004189875794377559,
+          "remaining_history (window, staleness, ESPN league copies)": 0.04874613967907729,
+          "total_current_rule": 0.09460161173707343
+        },
+        "note": "Mean of the per-forecast largest 1X2 gap, in probability (0.01 = 1 point). The split is sequential except cup/European (Shapley); max-gap terms are not strictly additive per forecast."
+      },
+      "live_move_when_removed": {
+        "league_only": {
+          "matches": 9,
+          "max": 0.03821029956249994,
+          "mean": 0.009997011410414067,
+          "median": 0.0
+        },
+        "no_cup": {
+          "matches": 9,
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0
+        },
+        "no_cup_no_european": {
+          "matches": 9,
+          "max": 0.052105781468174794,
+          "mean": 0.008331528938375903,
+          "median": 0.0
+        },
+        "no_european": {
+          "matches": 9,
+          "max": 0.052105781468174794,
+          "mean": 0.008331528938375903,
+          "median": 0.0
+        }
+      },
+      "with_evidence": 9
+    },
+    "UEFA Europa League": {
+      "espn_rows_used": {
+        "domestic_cup": 6,
+        "domestic_other": 0,
+        "european": 57,
+        "friendly": 11,
+        "league": 113,
+        "unknown": 0
+      },
+      "forecasts": 29,
+      "forecasts_using": {
+        "domestic_cup": 6,
+        "domestic_other": 0,
+        "european": 10,
+        "friendly": 10,
+        "league": 13,
+        "unknown": 0
+      },
+      "live_move_when_removed": {
+        "league_only": {
+          "matches": 29,
+          "max": 0.09704534714365098,
+          "mean": 0.014278384114428598,
+          "median": 0.0
+        },
+        "no_cup": {
+          "matches": 29,
+          "max": 0.019093723852372735,
+          "mean": 0.0012931418859559328,
+          "median": 0.0
+        },
+        "no_cup_no_european": {
+          "matches": 29,
+          "max": 0.06351533308558943,
+          "mean": 0.012114946650100733,
+          "median": 0.0
+        },
+        "no_european": {
+          "matches": 29,
+          "max": 0.06351533308558943,
+          "mean": 0.011753544096953727,
+          "median": 0.0
+        }
+      },
+      "with_evidence": 29
+    }
+  },
+  "coverage": {
+    "harness_compared": 79,
+    "no_football_data_file:UEFA Europa League": 29
+  },
+  "current_research_version": "team-form-research-v3",
+  "current_rule_check": {
+    "forecasts": 108,
+    "matched": 108,
+    "max_abs_diff": 4.985656523320836e-07,
+    "reproduced_within_csv_rounding_1e-6": 108
+  },
+  "groups": {
+    "europa": {
+      "espn_rows_used": {
+        "domestic_cup": 6,
+        "domestic_other": 0,
+        "european": 57,
+        "friendly": 11,
+        "league": 113,
+        "unknown": 0
+      },
+      "forecasts": 29,
+      "forecasts_using": {
+        "domestic_cup": 6,
+        "domestic_other": 0,
+        "european": 10,
+        "friendly": 10,
+        "league": 13,
+        "unknown": 0
+      },
+      "live_move_when_removed": {
+        "league_only": {
+          "matches": 29,
+          "max": 0.09704534714365098,
+          "mean": 0.014278384114428598,
+          "median": 0.0
+        },
+        "no_cup": {
+          "matches": 29,
+          "max": 0.019093723852372735,
+          "mean": 0.0012931418859559328,
+          "median": 0.0
+        },
+        "no_cup_no_european": {
+          "matches": 29,
+          "max": 0.06351533308558943,
+          "mean": 0.012114946650100733,
+          "median": 0.0
+        },
+        "no_european": {
+          "matches": 29,
+          "max": 0.06351533308558943,
+          "mean": 0.011753544096953727,
+          "median": 0.0
+        }
+      },
+      "with_evidence": 29
+    },
+    "five_leagues": {
+      "espn_rows_used": {
+        "domestic_cup": 50,
+        "domestic_other": 0,
+        "european": 104,
+        "friendly": 34,
+        "league": 0,
+        "unknown": 0
+      },
+      "forecasts": 50,
+      "forecasts_using": {
+        "domestic_cup": 25,
+        "domestic_other": 0,
+        "european": 27,
+        "friendly": 24,
+        "league": 0,
+        "unknown": 0
+      },
+      "harness_vs_live": {
+        "compared": 50,
+        "gap_frozen_v1": {
+          "matches": 50,
+          "max": 0.10971630015790507,
+          "mean": 0.03051791482305595,
+          "median": 0.022582685983529555
+        },
+        "gap_league_only": {
+          "matches": 50,
+          "max": 0.042784638546617015,
+          "mean": 0.004598921182799271,
+          "median": 0.0008374971798758291
+        },
+        "gap_league_only_on_harness_goal_rates": {
+          "matches": 50,
+          "max": 0.0360317191750697,
+          "mean": 0.0013480308706621447,
+          "median": 0.0
+        },
+        "gap_live": {
+          "matches": 50,
+          "max": 0.10971630015790507,
+          "mean": 0.022250649173221705,
+          "median": 0.012930113698470858
+        },
+        "gap_no_cup": {
+          "matches": 50,
+          "max": 0.10971630015790507,
+          "mean": 0.020680001711120187,
+          "median": 0.013762986654539205
+        },
+        "gap_no_cup_no_european": {
+          "matches": 50,
+          "max": 0.07998141025453603,
+          "mean": 0.012022845970565809,
+          "median": 0.007148881803563545
+        },
+        "gap_no_european": {
+          "matches": 50,
+          "max": 0.07998141025453603,
+          "mean": 0.013390957408327867,
+          "median": 0.006774460472428023
+        },
+        "lambda_max_abs_diff": {
+          "matches": 50,
+          "max": 0.0965215740774441,
+          "mean": 0.017276652157280775,
+          "median": 0.0063100694113933375
+        },
+        "mean_gap_split": {
+          "domestic_cup": 0.0014693794499317878,
+          "european": 0.008758423752724108,
+          "goal_rates": 0.0032508903121371262,
+          "other_non_league (super cups, play-offs, friendlies, unknown)": 0.007423924787766538,
+          "remaining_history (window, staleness, ESPN league copies)": 0.0013480308706621447,
+          "total_current_rule": 0.022250649173221705
+        },
+        "note": "Mean of the per-forecast largest 1X2 gap, in probability (0.01 = 1 point). The split is sequential except cup/European (Shapley); max-gap terms are not strictly additive per forecast."
+      },
+      "live_move_when_removed": {
+        "league_only": {
+          "matches": 50,
+          "max": 0.10899835174968436,
+          "mean": 0.020643922168232427,
+          "median": 0.01336952488734533
+        },
+        "no_cup": {
+          "matches": 50,
+          "max": 0.06332505028463481,
+          "mean": 0.00821328711133737,
+          "median": 0.0007624229651022191
+        },
+        "no_cup_no_european": {
+          "matches": 50,
+          "max": 0.0900958143291094,
+          "mean": 0.019701578913637722,
+          "median": 0.011709739927066837
+        },
+        "no_european": {
+          "matches": 50,
+          "max": 0.0747397371143303,
+          "mean": 0.01280632506776167,
+          "median": 0.005669681761603637
+        }
+      },
+      "with_evidence": 50
+    },
+    "holdout_leagues": {
+      "espn_rows_used": {
+        "domestic_cup": 13,
+        "domestic_other": 0,
+        "european": 37,
+        "friendly": 4,
+        "league": 0,
+        "unknown": 0
+      },
+      "forecasts": 29,
+      "forecasts_using": {
+        "domestic_cup": 12,
+        "domestic_other": 0,
+        "european": 10,
+        "friendly": 4,
+        "league": 0,
+        "unknown": 0
+      },
+      "harness_vs_live": {
+        "compared": 29,
+        "gap_frozen_v1": {
+          "matches": 29,
+          "max": 0.1926060883601109,
+          "mean": 0.06117270090316766,
+          "median": 0.05011054150576416
+        },
+        "gap_league_only": {
+          "matches": 29,
+          "max": 0.205166989650578,
+          "mean": 0.07521207563528888,
+          "median": 0.05873974705300444
+        },
+        "gap_league_only_on_harness_goal_rates": {
+          "matches": 29,
+          "max": 0.09390417819041846,
+          "mean": 0.043007444868259505,
+          "median": 0.04494702288931862
+        },
+        "gap_live": {
+          "matches": 29,
+          "max": 0.1926060883601109,
+          "mean": 0.0656514029165033,
+          "median": 0.05090037399415992
+        },
+        "gap_no_cup": {
+          "matches": 29,
+          "max": 0.205166989650578,
+          "mean": 0.07320249492512672,
+          "median": 0.051477075804873706
+        },
+        "gap_no_cup_no_european": {
+          "matches": 29,
+          "max": 0.205166989650578,
+          "mean": 0.07689343139298627,
+          "median": 0.05873974705300444
+        },
+        "gap_no_european": {
+          "matches": 29,
+          "max": 0.1926060883601109,
+          "mean": 0.07200351961647725,
+          "median": 0.051477075804873706
+        },
+        "lambda_max_abs_diff": {
+          "matches": 29,
+          "max": 1.1252673073827197,
+          "mean": 0.2781875134667823,
+          "median": 0.14149704483968928
+        },
+        "mean_gap_split": {
+          "domestic_cup": -0.006220501892566219,
+          "european": -0.005021526583916747,
+          "goal_rates": 0.032204630767029375,
+          "other_non_league (super cups, play-offs, friendlies, unknown)": 0.0016813557576973864,
+          "remaining_history (window, staleness, ESPN league copies)": 0.043007444868259505,
+          "total_current_rule": 0.0656514029165033
+        },
+        "note": "Mean of the per-forecast largest 1X2 gap, in probability (0.01 = 1 point). The split is sequential except cup/European (Shapley); max-gap terms are not strictly additive per forecast."
+      },
+      "live_move_when_removed": {
+        "league_only": {
+          "matches": 29,
+          "max": 0.0736903446795325,
+          "mean": 0.018623230707723527,
+          "median": 0.015377476801339829
+        },
+        "no_cup": {
+          "matches": 29,
+          "max": 0.0736903446795325,
+          "mean": 0.010013792857146576,
+          "median": 0.0
+        },
+        "no_cup_no_european": {
+          "matches": 29,
+          "max": 0.0736903446795325,
+          "mean": 0.017576099016355137,
+          "median": 0.0
+        },
+        "no_european": {
+          "matches": 29,
+          "max": 0.05754848560122272,
+          "mean": 0.010053012684164805,
+          "median": 0.0
+        }
+      },
+      "with_evidence": 29
+    }
+  },
+  "note": "Probabilities only; no result is scored and no odds field is read. Harness fits use holdout-free history, so the holdout leagues lack their 16 Jan - 10 Oct 2026 results and are reported apart."
+}
