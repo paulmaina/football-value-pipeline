@@ -759,7 +759,11 @@ LIVE_LEAGUES = {'Premier League': 'EPL', 'La Liga': 'LaLiga', 'Bundesliga': 'Bun
                 'Super Lig': 'SuperLig', 'Süper Lig': 'SuperLig'}
 DERIVED_EVIDENCE = ('quality_review', 'rest_and_travel')  # written by enrich()/prepare(), not inputs
 TRAINING_HISTORY = 'pipeline training history'
-EVIDENCE_CLASSES = ('league', 'off_league_in_season', 'off_league_before_season', 'double_counted')
+EVIDENCE_CLASSES = ('league', 'off_league_in_season', 'off_league_before_season', 'holdout_period_unchecked',
+                    'double_counted')
+# Holdout leagues lose their locked-period results (16 Jan - 10 Oct 2026) from every
+# harness fit, so their parity is reported apart from the other leagues.
+LEAGUE_GROUPS = ('holdout_leagues', 'other_domestic', 'no_football_data')
 
 
 def _hda(margins) -> list[float]:
@@ -777,11 +781,15 @@ def _result_key(r):
 
 
 def _used_rows(inputs, evidence, cutoff, side):
-    """The ten results prepare() keeps for one side (same order and de-duplication)."""
-    from team_research import decode, name, research_evidence, utc
+    """The ten results prepare() keeps for one side: same evidence rule, order and de-duplication.
+
+    Like prepare(), all pre-kickoff evidence is dropped when any source was observed after the cutoff.
+    """
+    from team_research import decode, name, observed_by, research_evidence, utc
     team = inputs.get(side + '_team')
     rows = list(decode(inputs.get('research_history_json')).get(side, []))
-    rows += research_evidence(evidence).get('recent', {}).get(side, [])
+    if observed_by(evidence, cutoff):
+        rows += research_evidence(evidence).get('recent', {}).get(side, [])
     unique = {}
     for r in rows:
         date = utc(r.get('date'))
@@ -791,21 +799,42 @@ def _used_rows(inputs, evidence, cutoff, side):
 
 
 def _team_day(r, team):
-    """(day, team side, home goals, away goals): identifies a result whatever the opponent is called."""
+    """(day, team, venue side, home goals, away goals): identifies a result whatever the opponent is called."""
     from team_research import name, utc
     side = 'home' if name(r.get('home')) == name(team) else 'away'
     return utc(r.get('date')).date().isoformat(), name(team), side, int(r['home_goals']), int(r['away_goals'])
 
 
-def _classify(r, team, league_results, season_starts):
+def league_index(history):
+    """Lookup for _classify. Build it from the holdout-free history (training_rows), never the full files."""
+    results = set()
+    for d, h, a, hg, ag in zip(history.Date, history.HomeTeam, history.AwayTeam, history.FTHG, history.FTAG):
+        for team in (h, a):
+            results.add(_team_day({'date': d, 'home': h, 'away': a, 'home_goals': hg, 'away_goals': ag}, team))
+    starts = {}
+    if len(history):
+        for year in range(history.Date.min().year, history.Date.max().year + 1):
+            later = history.Date.loc[history.Date >= pd.Timestamp(f'{year}-07-01')]
+            if len(later):
+                starts[year] = later.min()
+    return results, starts
+
+
+def _classify(r, team, league_results, season_starts, locked=None):
     """League result in the football-data file (matched on day +/- 1, team, venue and
-    score, since ESPN and the files name opponents differently), or a game they don't have."""
+    score, since ESPN and the files name opponents differently), or a game they don't have.
+
+    `locked(date)` is true inside a holdout league's holdout window. The lookup has no
+    results there, so those rows can't be checked and are counted apart.
+    """
     from team_research import utc
     day, key, side, hg, ag = _team_day(r, team)
     days = {day, *[(utc(r['date']) + pd.Timedelta(days=k)).date().isoformat() for k in (-1, 1)]}
     if any((d, key, side, hg, ag) in league_results for d in days):
         return 'league'
     date = utc(r['date']).tz_convert(None)
+    if locked is not None and locked(date):
+        return 'holdout_period_unchecked'
     start = season_starts.get(date.year if date.month >= 7 else date.year - 1)
     return 'off_league_before_season' if start is not None and date < start else 'off_league_in_season'
 
@@ -816,16 +845,59 @@ def _double_counted(rows, team) -> int:
     return sum(n - 1 for n in seen.values() if n > 1)
 
 
+def _parity_summary(frame) -> dict:
+    """Summary of a set of parity rows. A missing column reads as a typed all-zero Series."""
+    def col(name, dtype=float):
+        if name in frame:
+            return frame[name]
+        return pd.Series(None if dtype is object else 0, index=frame.index, dtype=dtype)
+
+    def stats(name, rows):
+        values = rows[name].dropna() if name in rows else pd.Series(dtype=float)
+        return {'matches': int(len(values)), 'mean': float(values.mean()) if len(values) else None,
+                'max': float(values.max()) if len(values) else None}
+
+    def positive(name, rows=frame):
+        values = rows[name] if name in rows else pd.Series(0, index=rows.index, dtype=float)
+        return values.fillna(0) > 0
+
+    compared = frame.loc[col('harness_compared', bool).fillna(False).astype(bool)]
+    return {
+        'forecasts': int(len(frame)),
+        'same_inputs': {**stats('same_inputs_max_abs_diff', frame),
+                        'identical_within_1e-12': bool((col('same_inputs_max_abs_diff') <= 1e-12).all())},
+        'evidence_effect_1x2': {**stats('evidence_effect_1x2_max_abs', frame),
+                                'matches_changed': int((col('evidence_effect_1x2_max_abs') > 1e-12).sum())},
+        'evidence_rows_used': {k: int(col('evidence_rows_used_' + k).fillna(0).sum()) for k in EVIDENCE_CLASSES},
+        'matches_with_double_counted_rows': int(positive('evidence_rows_used_double_counted').sum()),
+        'matches_using_off_league_rows': int((positive('evidence_rows_used_off_league_in_season')
+                                              | positive('evidence_rows_used_off_league_before_season')).sum()),
+        'live_goal_rate_features': {str(k): int(v) for k, v in
+                                    col('live_goal_rate_features', object).dropna().value_counts().items()},
+        'live_bbs_applied': int(col('live_bbs_applied', bool).fillna(False).astype(bool).sum()),
+        'harness_vs_live': {
+            '1x2_max_abs': stats('harness_vs_live_1x2_max_abs', compared),
+            'lambda_max_abs': stats('lambda_max_abs_diff', compared),
+            'history_days_stale': stats('harness_history_days_stale', compared),
+            'training_end': sorted(compared['harness_training_end'].dropna().unique().tolist())
+            if 'harness_training_end' in compared else [],
+            'matches_history_differs': int((positive('history_rows_only_live', compared)
+                                            | positive('history_rows_only_harness', compared)).sum())},
+    }
+
+
 def research_parity(root, cache, cfg):
     """Release-gate parity for C, on every frozen live forecast that carries research.
 
-    Compares probabilities only; no result is scored. Harness fits never train on
-    holdout results (training_rows), as in a locked run.
+    Compares probabilities only; no result is scored. Harness fits and the league
+    lookup use only holdout-free history (training_rows), as in a locked run. So the
+    harness has no results for the holdout leagues from 16 Jan - 10 Oct 2026, and their
+    parity is reported separately (summary['by_group']['holdout_leagues']).
 
-      same_inputs      the shared research step (team_research.prepare + research_grid)
-                       fed the live row's own frozen inputs must reproduce the frozen
-                       live probabilities. This is the parity requirement.
-      evidence_effect  live minus live-without-pre-kickoff-evidence: what the ESPN and
+      same_inputs      the shared research step (team_research.prepare + research_grid),
+                       fed the live row's own frozen inputs, must reproduce the frozen
+                       live probabilities. It does not show the harness inputs match live.
+      evidence_effect  live minus live without pre-kickoff evidence: what the ESPN and
                        Understat rows add. The harness never has them.
       harness          C exactly as the historical harness computes it for that match
                        (fold refit on football-data, no BBS, history to the fold origin),
@@ -848,7 +920,7 @@ def research_parity(root, cache, cfg):
                 latest[key] = (stamp, row, research)
     profile = cfg['production_v2']
     load_cfg = {**cfg, 'test_end_exclusive': cfg['end_exclusive']}
-    data_by_league, models, matches, coverage = {}, {}, [], Counter()
+    histories, models, matches, coverage = {}, {}, [], Counter()
     for key, (stamp, row, research) in sorted(latest.items()):
         inputs = research_inputs(row)
         evidence = copy.deepcopy(research.get('evidence', {}))
@@ -857,28 +929,29 @@ def research_parity(root, cache, cfg):
         live = research['margin_distribution']
         same = prepare(row, stamp, copy.deepcopy(evidence))
         bare = prepare(row, stamp)
-        record = {'league': key[0], 'home_team': row.get('home_team'), 'away_team': row.get('away_team'),
-                  'kickoff_utc': key[3], 'research_observed_utc': stamp.isoformat(),
+        league = LIVE_LEAGUES.get(key[0])
+        group = ('no_football_data' if league is None else
+                 'holdout_leagues' if league in cfg['holdout_leagues'] else 'other_domestic')
+        record = {'league': key[0], 'league_group': group, 'home_team': row.get('home_team'),
+                  'away_team': row.get('away_team'), 'kickoff_utc': key[3], 'research_observed_utc': stamp.isoformat(),
                   'same_inputs_max_abs_diff': _max_gap(live, same.get('margin_distribution') or {}),
                   'evidence_effect_1x2_max_abs': max(abs(a - b) for a, b in zip(_hda(live), _hda(bare['margin_distribution']))),
                   'live_lambda_home': float(row['lambda_home']), 'live_lambda_away': float(row['lambda_away']),
                   'live_goal_rate_features': row.get('goal_rate_features_used'),
-                  'live_bbs_applied': str(row.get('bbs_statistics_applied')).lower() == 'true'}
-        league = LIVE_LEAGUES.get(key[0])
+                  'live_bbs_applied': str(row.get('bbs_statistics_applied')).lower() == 'true',
+                  'harness_compared': False}
         if league is None:
             coverage['no_football_data_file:' + key[0]] += 1
             matches.append(record)
             continue
-        if league not in data_by_league:
+        if league not in histories:
             data, _, _ = hb.load_history(Path(cache), league, load_cfg)
-            dates = data.Date
-            results = set()
-            for d, h, a, hg, ag in zip(dates, data.HomeTeam, data.AwayTeam, data.FTHG, data.FTAG):
-                for team in (h, a):
-                    results.add(_team_day({'date': d, 'home': h, 'away': a, 'home_goals': hg, 'away_goals': ag}, team))
-            data_by_league[league] = (data, training_rows(data, league, cfg, False), results,
-                                      {y: dates.loc[dates >= pd.Timestamp(f'{y}-07-01')].min() for y in range(2021, 2027)})
-        data, history, league_results, season_starts = data_by_league[league]
+            history = training_rows(data, league, cfg, False)
+            histories[league] = (history, *league_index(history))
+        history, league_results, season_starts = histories[league]
+
+        def locked(date, league=league):
+            return phase(date, league, cfg) == 'holdout'
         # Off-league games actually used in the live ten-match form.
         used = Counter()
         for side in ('home', 'away'):
@@ -887,7 +960,7 @@ def research_parity(root, cache, cfg):
             used['double_counted'] += _double_counted(rows, team)
             for r in rows:
                 if r.get('source') != TRAINING_HISTORY:
-                    used[_classify(r, team, league_results, season_starts)] += 1
+                    used[_classify(r, team, league_results, season_starts, locked)] += 1
         record.update({'evidence_rows_used_' + k: used[k] for k in EVIDENCE_CLASSES})
         kickoff = utc(row['kickoff_utc']).tz_convert(None).normalize()
         bounds = {b for w in fold_windows(cfg, kickoff + pd.Timedelta(days=1)) for b in w}
@@ -909,7 +982,9 @@ def research_parity(root, cache, cfg):
         live_history = decode(row.get('research_history_json'))
         fd_history = form_history(train, teams[0], teams[1], utc(origin))
         record.update(
-            harness_origin=origin.date().isoformat(), harness_history_days_stale=int((stamp.tz_convert(None).normalize() - origin).days),
+            harness_compared=True, harness_origin=origin.date().isoformat(),
+            harness_training_end=train.Date.max().date().isoformat(),
+            harness_history_days_stale=int((stamp.tz_convert(None).normalize() - origin).days),
             harness_lambda_home=info['lambda_home'], harness_lambda_away=info['lambda_away'],
             lambda_max_abs_diff=max(abs(float(row['lambda_home']) - info['lambda_home']),
                                     abs(float(row['lambda_away']) - info['lambda_away'])),
@@ -922,35 +997,13 @@ def research_parity(root, cache, cfg):
         coverage['harness_compared'] += 1
         matches.append(record)
     frame = pd.DataFrame(matches)
-
-    def stats(column, rows=frame):
-        values = rows[column].dropna() if column in rows else pd.Series(dtype=float)
-        return {'matches': int(len(values)), 'mean': float(values.mean()) if len(values) else None,
-                'max': float(values.max()) if len(values) else None}
-    compared = frame.loc[frame.get('harness_vs_live_1x2_max_abs', pd.Series(index=frame.index, dtype=float)).notna()] \
-        if not frame.empty else frame
-    summary = {
-        'forecasts': int(len(frame)), 'coverage': dict(coverage),
-        'same_inputs': {**stats('same_inputs_max_abs_diff'),
-                        'identical_within_1e-12': bool(frame.empty or (frame.same_inputs_max_abs_diff <= 1e-12).all())},
-        'evidence_effect_1x2': {**stats('evidence_effect_1x2_max_abs'),
-                                'matches_changed': int((frame.get('evidence_effect_1x2_max_abs', pd.Series(dtype=float)) > 1e-12).sum())},
-        'evidence_rows_used': {k: int(frame.get('evidence_rows_used_' + k, pd.Series(dtype=float)).fillna(0).sum())
-                               for k in EVIDENCE_CLASSES},
-        'matches_with_double_counted_rows': int((frame.get('evidence_rows_used_double_counted',
-                                                           pd.Series(dtype=float)).fillna(0) > 0).sum()),
-        'matches_using_off_league_rows': int(((frame.get('evidence_rows_used_off_league_in_season', 0) > 0)
-                                              | (frame.get('evidence_rows_used_off_league_before_season', 0) > 0)).sum())
-        if not frame.empty else 0,
-        'live_goal_rate_features': frame.get('live_goal_rate_features', pd.Series(dtype=object)).value_counts().to_dict(),
-        'live_bbs_applied': int(frame.get('live_bbs_applied', pd.Series(dtype=bool)).sum()),
-        'harness_vs_live': {'1x2_max_abs': stats('harness_vs_live_1x2_max_abs', compared),
-                            'lambda_max_abs': stats('lambda_max_abs_diff', compared),
-                            'history_days_stale': stats('harness_history_days_stale', compared),
-                            'matches_history_differs': int(((compared.get('history_rows_only_live', 0) > 0)
-                                                            | (compared.get('history_rows_only_harness', 0) > 0)).sum())
-                            if not compared.empty else 0},
-    }
+    groups = frame['league_group'] if 'league_group' in frame else pd.Series(index=frame.index, dtype=object)
+    summary = {**_parity_summary(frame), 'coverage': dict(coverage),
+               'holdout_leagues': list(cfg['holdout_leagues']),
+               'by_group': {g: _parity_summary(frame.loc[groups.eq(g)]) for g in LEAGUE_GROUPS},
+               'note': ('same_inputs shows the shared research step is identical given the same inputs. Harness '
+                        'and live inputs do not match yet (ESPN form, goal rates): see the measured gap. Harness '
+                        'fits for the holdout leagues exclude their 16 Jan - 10 Oct 2026 results.')}
     return summary, frame
 
 

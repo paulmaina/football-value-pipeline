@@ -198,11 +198,21 @@ def epl_history():
     return data
 
 
+LIVE_NOW = datetime(2026, 11, 8, 11, 0, tzinfo=timezone.utc)
+
+
+class FixedClock(datetime):
+    """The pipeline module's datetime with now() pinned to LIVE_NOW (totals-anchor freshness)."""
+    @classmethod
+    def now(cls, tz=None):
+        return LIVE_NOW if tz is not None else LIVE_NOW.replace(tzinfo=None)
+
+
 class LivePipelineOddsPerturbationTest(unittest.TestCase):
     """Odds enter the live pipeline at _predict_row; the research inputs and probabilities must not move."""
 
     def live_row(self, scale):
-        now = datetime.now(timezone.utc)
+        now = LIVE_NOW
         price = lambda p: round(p * scale + (scale - 1) * .2, 3)
         return pd.Series({
             'HomeTeam': 'Arsenal', 'AwayTeam': 'Chelsea', 'kickoff_utc': (now + timedelta(hours=20)).isoformat(),
@@ -225,7 +235,8 @@ class LivePipelineOddsPerturbationTest(unittest.TestCase):
         model, pipe = toy_model(), live_pipeline(history)
         outputs = []
         for scale in (1.0, 1.6):
-            pred, _ = pipe._predict_row(model, self.live_row(scale))
+            with patch('football_value_pipeline_v2_standalone.datetime', FixedClock):
+                pred, _ = pipe._predict_row(model, self.live_row(scale))
             pred.update(league='Premier League', home_team='Arsenal', away_team='Chelsea',
                         kickoff_utc=self.live_row(scale)['kickoff_utc'])
             outputs.append(pred)
@@ -234,8 +245,7 @@ class LivePipelineOddsPerturbationTest(unittest.TestCase):
         self.assertTrue(first['totals_anchor_applied'])
         self.assertNotAlmostEqual(first['p_home'], second['p_home'], places=4)  # the published grid did move
         for key in tr.INPUT_SCHEMA:
-            if key != 'kickoff_utc':
-                self.assertEqual(first[key], second[key], key)
+            self.assertEqual(first[key], second[key], key)
         cutoff = tr.utc(first['kickoff_utc']) - pd.Timedelta(hours=3)
         with tempfile.TemporaryDirectory() as tmp:
             enriched = [tr.enrich(pd.DataFrame([o]), tmp, fetch=False, clock=lambda: cutoff.to_pydatetime()).iloc[0]
@@ -243,22 +253,37 @@ class LivePipelineOddsPerturbationTest(unittest.TestCase):
         self.assertEqual(research_view(enriched[0]), research_view(enriched[1]))
 
 
+_FOLD = {}
+
+
+def development_fold():
+    """One real harness fold in the development period, fitted once and cached.
+
+    Built from the test, not setUpClass: on Windows under pytest's fd capture, doing
+    this in setUpClass made a later subprocess.run (workflow_checks smoke) fail with an
+    invalid stderr handle (WinError 6) in 3 of 4 runs, against an occasional baseline flake.
+    """
+    if not _FOLD:
+        data = epl_history()
+        origin, stop = next(w for w in eh.fold_windows(CFG, pd.Timestamp(CFG['end_exclusive']))
+                            if w[0] >= pd.Timestamp('2024-02-01'))
+        train = data.loc[data.Date < origin]
+        test = data.loc[(data.Date >= origin) & (data.Date < stop)].head(12)
+        profile = CFG['production_v2']
+        model = DixonColesModel(half_life_days=profile['half_life_days'], l2=CFG['baseline_l2'],
+                                max_goals=CFG['max_goals'], shot_features=profile['shot_features'],
+                                bbs_statistics=False).fit(train.copy(), as_of=origin)
+        assert eh.phase(test.Date.max(), 'EPL', CFG) == 'development'
+        _FOLD.update(origin=origin, train=train, test=test, model=model)
+    return _FOLD
+
+
 class HarnessLiveParityTest(unittest.TestCase):
     """The same development-period matches through the harness and the live pipeline."""
 
-    @classmethod
-    def setUpClass(cls):
-        data = epl_history()
-        # One real harness fold in the development period.
-        cls.origin, stop = next(w for w in eh.fold_windows(CFG, pd.Timestamp(CFG['end_exclusive']))
-                                if w[0] >= pd.Timestamp('2024-02-01'))
-        cls.train = data.loc[data.Date < cls.origin]
-        cls.test = data.loc[(data.Date >= cls.origin) & (data.Date < stop)].head(12)
-        profile = CFG['production_v2']
-        cls.model = DixonColesModel(half_life_days=profile['half_life_days'], l2=CFG['baseline_l2'],
-                                    max_goals=CFG['max_goals'], shot_features=profile['shot_features'],
-                                    bbs_statistics=False).fit(cls.train.copy(), as_of=cls.origin)
-        assert eh.phase(cls.test.Date.max(), 'EPL', CFG) == 'development'
+    def setUp(self):
+        fold = development_fold()
+        self.origin, self.train, self.test, self.model = fold['origin'], fold['train'], fold['test'], fold['model']
 
     def test_harness_and_live_research_probabilities_are_identical(self):
         self.assertGreaterEqual(len(self.test), 10)
@@ -330,6 +355,64 @@ class KnownParityDifferencesTest(unittest.TestCase):
         bare = tr.prepare(row, cutoff)  # what the harness can see: team history only
         self.assertNotEqual(bare['goal_rates'], research['goal_rates'])
         self.assertEqual(bare['base_rates'], research['base_rates'])
+
+
+class ParityReportTest(unittest.TestCase):
+    """research_parity on frozen rows: groups, empty groups, prepare()'s evidence rule, holdout-free lookup."""
+
+    def report(self, *rows):
+        meta = {'generated_at_utc': FIXTURE['snapshot_generated_utc']}
+        with patch('performance_tracking.snapshots', return_value=[(meta, list(rows), [])]):
+            return eh.research_parity(Path('unused'), REPO / '.football_cache', CFG)
+
+    def test_europa_only_run_has_no_league_branch_and_does_not_crash(self):
+        row = {**FIXTURE['row'], 'league': 'UEFA Europa League'}
+        summary, frame = self.report(row)
+        self.assertEqual(len(frame), 1)
+        self.assertEqual(summary['matches_using_off_league_rows'], 0)
+        self.assertEqual(summary['matches_with_double_counted_rows'], 0)
+        self.assertEqual(summary['by_group']['no_football_data']['forecasts'], 1)
+        self.assertEqual(summary['by_group']['holdout_leagues']['forecasts'], 0)
+        self.assertEqual(summary['harness_vs_live']['1x2_max_abs']['matches'], 0)
+        self.assertTrue(summary['same_inputs']['identical_within_1e-12'])
+        self.assertEqual(summary['coverage'], {'no_football_data_file:UEFA Europa League': 1})
+
+    def test_domestic_row_is_grouped_apart_from_holdout_leagues(self):
+        summary, frame = self.report(FIXTURE['row'])
+        self.assertEqual(frame.league_group.tolist(), ['other_domestic'])
+        group = summary['by_group']['other_domestic']
+        self.assertEqual(group['harness_vs_live']['1x2_max_abs']['matches'], 1)
+        self.assertEqual(group['evidence_rows_used']['double_counted'], 1)  # Hull City / Hull
+        self.assertGreater(group['evidence_rows_used']['off_league_in_season'], 0)
+        self.assertEqual(summary['by_group']['holdout_leagues']['forecasts'], 0)
+        self.assertEqual(set(summary['holdout_leagues']), {'Eredivisie', 'PrimeiraLiga', 'SuperLig'})
+
+    def test_used_rows_drop_evidence_observed_after_the_cutoff_like_prepare(self):
+        row, evidence, cutoff, _ = frozen_row()
+        late = copy.deepcopy(evidence)
+        late['sources'][0]['observed_at_utc'] = (cutoff + pd.Timedelta(seconds=1)).isoformat()
+        inputs = tr.research_inputs(row)
+        for side in ('home', 'away'):
+            used = eh._used_rows(inputs, late, cutoff, side)
+            self.assertTrue(used)
+            self.assertTrue(all(r['source'] == eh.TRAINING_HISTORY for r in used))
+            self.assertTrue(any(r['source'] != eh.TRAINING_HISTORY for r in eh._used_rows(inputs, evidence, cutoff, side)))
+        self.assertEqual(tr.prepare(row, cutoff, late)['goal_rates'], tr.prepare(row, cutoff)['goal_rates'])
+
+    def test_league_lookup_is_built_from_holdout_free_history(self):
+        # Synthetic history: no real holdout result is read.
+        history = pd.DataFrame({'Date': pd.to_datetime(['2025-09-01', '2025-12-20', '2026-03-01', '2026-10-25']),
+                                'HomeTeam': ['Ajax', 'PSV', 'Ajax', 'PSV'], 'AwayTeam': ['PSV', 'Ajax', 'PSV', 'Ajax'],
+                                'FTHG': [1, 2, 3, 0], 'FTAG': [0, 2, 1, 0]})
+        free = eh.training_rows(history, 'Eredivisie', CFG, False)
+        self.assertEqual(free.Date.dt.strftime('%Y-%m-%d').tolist(), ['2025-09-01', '2025-12-20', '2026-10-25'])
+        results, starts = eh.league_index(free)
+        locked = lambda date: eh.phase(date, 'Eredivisie', CFG) == 'holdout'
+        row = lambda date, hg, ag: {'date': date + 'T18:00:00+00:00', 'home': 'Ajax', 'away': 'PSV',
+                                    'home_goals': hg, 'away_goals': ag}
+        self.assertEqual(eh._classify(row('2025-09-01', 1, 0), 'Ajax', results, starts, locked), 'league')
+        self.assertEqual(eh._classify(row('2026-03-01', 3, 1), 'Ajax', results, starts, locked), 'holdout_period_unchecked')
+        self.assertEqual(eh._classify(row('2026-10-29', 1, 1), 'Ajax', results, starts, locked), 'off_league_in_season')
 
 
 class ParityModeTest(unittest.TestCase):
