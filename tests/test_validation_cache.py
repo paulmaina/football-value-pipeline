@@ -2,6 +2,7 @@
 from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 import json
+import os
 from pathlib import Path
 import tempfile
 import unittest
@@ -58,7 +59,8 @@ class ValidationCacheTests(OfflineQuotePolicyTestCase):
             raw = Path(directory) / "raw"
             args = ["--leagues", "EPL", "--no-legacy-comparison", "--goal-market-validation", "--out-dir", str(raw)]
             frame = pd.DataFrame([fixture()])
-            with patch(
+            # main() loads API keys into os.environ; restore it so later tests see none.
+            with patch.dict(os.environ), patch(
                 "football_value_pipeline_v2_standalone.FootballValuePipelineV2.run_league",
                 return_value=(frame, {"training_end": "2026-09-20",
                                      "training_matches": 1000, "training_sha256": 'a'*64}, {}),
