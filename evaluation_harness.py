@@ -10,6 +10,10 @@ candidate is scored on the same matches:
   C2 candidate: C's goal rates with a draw and low-score correction (research_low_score.py;
      uses no odds), fitted walk-forward on C's own forecasts of matches played before the
      fold origin, pooled across leagues (low_score_candidate)
+  C3 candidate: C with Understat match xG in the team form (understat_history.py; uses no
+     odds). The training history before the fold origin carries each match's Understat xG,
+     so the research form uses xG wherever team_research.prepare would live (both sides with
+     at least five xG matches in the form). Five big leagues only; elsewhere C3 equals C.
   M  market reference: margin-free fit to Pinnacle, or to Bet365 on the holdout
   D  cagey tier: M corrected toward narrow margins (production correction)
   A  published-grid production proxy (benchmark only; mixes model and market)
@@ -69,6 +73,8 @@ CANDIDATES = {
     'C': 'independent research model team_form_poisson_v1 (value shortlist; uses no odds)',
     'C2': "candidate: C with a draw and low-score correction (rho, delta) fitted walk-forward on C's own "
           'earlier forecasts and their scores, pooled across leagues (research_low_score.py; uses no odds)',
+    'C3': 'candidate: C with historical Understat match xG in the team form, from matches before the fold '
+          'origin only (understat_history.py; five big leagues, C elsewhere; uses no odds)',
     'M': 'market reference: margin-free fit to the period bookmaker (Pinnacle, Bet365 on the holdout)',
     'D': 'cagey tier: M corrected toward narrow margins (production correction model)',
     'A': 'published-grid production proxy (benchmark only; mixes model and market)',
@@ -86,7 +92,7 @@ SETUP_FILES = ('evaluation_harness.py', 'research_backtest.py', 'historical_benc
                'score_probability.py', 'football_value_pipeline_v2_standalone.py', 'market_implied.py',
                'narrow_margin.py', 'price_edge_cagey_shortlist.py', 'ah_close_backtest.py',
                'evaluation_harness_config.json', 'narrow_margin_models/cagey-correction-through-2425-v1.json',
-               'research_low_score.py')
+               'research_low_score.py', 'understat_history.py', 'understat_team_aliases.json')
 CALIBRATION_MIN_BIN = 30
 PROMOTION_RULES = Path(__file__).with_name('benchmark_promotion_rules.json')
 
@@ -221,8 +227,9 @@ def published_proxy(matrix, info, prices, model, cfg):
     return rb.matrix_value(matrix)
 
 
-def candidates(row, train, origin, model, cfg, cagey_model):
-    """C, M, D and A for one match. C's goal rates go out in extra['research_goal_rates'] for C2."""
+def candidates(row, train, origin, model, cfg, cagey_model, xg_train=None):
+    """C, M, D and A for one match (and C3 when `xg_train` is given: the same training rows with
+    Understat xG). C's goal rates go out in extra['research_goal_rates'] for C2."""
     from team_research import research_grid
     if train.Date.max() >= origin:
         raise ValueError('Training reaches prediction origin')
@@ -232,6 +239,15 @@ def candidates(row, train, origin, model, cfg, cagey_model):
     context, model_grid, info = research_context(row, train, origin, model)
     matrices['C'] = rb.matrix_value(research_grid(context['goal_rates']))
     extra['research_goal_rates'] = [float(v) for v in context['goal_rates']]
+    if xg_train is not None:
+        if xg_train.Date.max() >= origin:
+            raise ValueError('xG training reaches prediction origin')
+        if xg_train[['HxG', 'AxG']].notna().any(axis=None):
+            xg_context, _, _ = research_context(row, xg_train, origin, model)
+            matrices['C3'] = rb.matrix_value(research_grid(xg_context['goal_rates']))
+            extra['c3_used_xg'] = 'xg' in xg_context['coverage']
+        else:
+            matrices['C3'], extra['c3_used_xg'] = matrices['C'], False
     book = period_book(row.Date, cfg)
     prices = book_prices(row, book)
     if prices is None:
@@ -290,6 +306,12 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None):
     profile = cfg['production_v2']
     records, folds, coverage, overrounds, calib, research = [], [], Counter(), [], [], []
     history = training_rows(data, league, cfg, include_holdout)
+    xg_history = None
+    if keep is None or 'C3' in keep:
+        import understat_history as uh
+        xg_data, attached = uh.with_xg(history, cache, league)
+        coverage.update({f'{league}:understat_xg:{k}': v for k, v in attached.items()})
+        xg_history = xg_data
     for origin, stop in fold_windows(cfg, end):
         train = history.loc[history.Date < origin]
         test = data.loc[(data.Date >= origin) & (data.Date < stop)]
@@ -332,7 +354,10 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None):
             if name == 'holdout' and not include_holdout:
                 coverage[league + ':locked_holdout'] += 1
                 continue
-            matrices, gaps, extra = candidates(row, train, origin, model, cfg, cagey_model)
+            xg_train = None if xg_history is None else xg_history.loc[xg_history.Date < origin]
+            matrices, gaps, extra = candidates(row, train, origin, model, cfg, cagey_model, xg_train)
+            if 'c3_used_xg' in extra:
+                coverage[f"{league}:C3:{'xg_form' if extra['c3_used_xg'] else 'goals_form'}"] += 1
             if keep is not None:
                 matrices = {k: v for k, v in matrices.items() if k in keep}
             date = row.Date
@@ -348,7 +373,8 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None):
             for cand, matrix in matrices.items():
                 h, a = np.indices(matrix.shape)
                 probs = [float(matrix[h > a].sum()), float(matrix[h == a].sum()), float(matrix[h < a].sum())]
-                calib.append({'phase': identity['phase'], 'candidate': cand, 'probs': probs, 'outcome': outcome})
+                calib.append({'phase': identity['phase'], 'league': league, 'fixture_key': identity['fixture_key'],
+                              'candidate': cand, 'probs': probs, 'outcome': outcome})
             if 'overround' in extra:
                 overrounds.append(extra['overround'])
             for key, reason in gaps.items():
@@ -395,7 +421,8 @@ def low_score_candidate(research, cfg, end, keep=None):
             hg, ag = r['home_goals'], r['away_goals']
             records.extend(rb.score_fixture(r['identity'], {'C2': matrix}, hg, ag))
             h, a = np.indices(matrix.shape)
-            calib.append({'phase': r['identity']['phase'], 'candidate': 'C2',
+            calib.append({'phase': r['identity']['phase'], 'league': r['identity']['league'],
+                          'fixture_key': r['identity']['fixture_key'], 'candidate': 'C2',
                           'probs': [float(matrix[h > a].sum()), float(matrix[h == a].sum()), float(matrix[h < a].sum())],
                           'outcome': 0 if hg > ag else 1 if hg == ag else 2})
     return records, calib, coverage, fits
@@ -438,7 +465,7 @@ def paired(scores, baseline, candidate, samples=2000, seed=136):
             'interval_95': interval, 'clear_of_zero': bool(interval and interval[0] > 0)}
 
 
-def common_cohort(scores, names=('C', 'C2', 'M', 'D', 'A')):
+def common_cohort(scores, names=('C', 'C2', 'C3', 'M', 'D', 'A')):
     """Mean log loss on the fixtures where every named candidate is available."""
     output = []
     for (name, group), part in scores.groupby(['phase', 'group']):
@@ -475,7 +502,7 @@ def summarize(records, overrounds, coverage, cfg, metadata):
         for group in GROUPS:
             sub = part.loc[part.group == group]
             entry = {}
-            for base, cand in (('C', 'C2'), ('C', 'M'), ('C', 'D'), ('C', 'A'), ('M', 'D')):
+            for base, cand in (('C', 'C2'), ('C', 'C3'), ('C2', 'C3'), ('C', 'M'), ('C', 'D'), ('C', 'A'), ('M', 'D')):
                 result = paired(sub, base, cand)
                 if result:
                     entry[f'{cand}_vs_{base}'] = result
@@ -491,7 +518,8 @@ def summarize(records, overrounds, coverage, cfg, metadata):
             'log_loss_all_available': available, 'paired': comparisons,
             'bet365_gap': gap, 'average_margin': margins,
             'synthetic_price_margin': margins.get('pinnacle'),
-            'notes': ['Headline means use the common cohort: fixtures where C, C2, M, D and A are all available.',
+            'notes': ['Headline means use the common cohort: fixtures where C, C2, C3, M, D and A are all available '
+                      '(C3 exists wherever C does).',
                       'Positive mean_gain means the first-named candidate has the lower log loss than the second.',
                       'Intervals resample whole calendar weeks across all leagues.',
                       'The cagey correction was trained on seasons through 2024/25; D is in-sample in development.',
@@ -527,6 +555,10 @@ def setup_fingerprint(cfg, cache, root=Path(__file__).parent) -> dict:
         for season in cfg['seasons']:
             name = f"{season}_{hb.CODES[league]}.csv"
             parts['data/' + name] = file_sha256(Path(cache) / name)
+    import understat_history as uh
+    for league in cfg['leagues']:
+        for path in uh.files(cache, league) if league in uh.LEAGUES else []:
+            parts['data/understat/' + path.name] = file_sha256(path)
     digest = hashlib.sha256(json.dumps({'parts': parts, 'config': cfg}, sort_keys=True).encode()).hexdigest()
     return {'sha256': digest, 'parts': parts}
 
@@ -1160,6 +1192,8 @@ def main(argv=None):
                 'inputs': sources, 'config_sha256': hashlib.sha256(json.dumps(cfg, sort_keys=True).encode()).hexdigest()}
     summary = summarize(records, overrounds, coverage, cfg, metadata)
     summary['calibration_1x2'] = calibration(calib)
+    import understat_history as uh
+    summary['calibration_1x2_understat_leagues'] = calibration([r for r in calib if r.get('league') in uh.LEAGUES])
     if declaration is not None:
         verdict = holdout_verdict(records, calib, declaration, summary['bet365_gap'])
         summary.update(declaration=declaration, setup=setup, holdout_verdict=verdict)
@@ -1167,6 +1201,10 @@ def main(argv=None):
         record_holdout(declaration, setup, commit, fixtures, verdict)
     hb.write_json(args.output / 'results.json', summary)
     fixture_scores(records, cfg['draw_sensitive_lines']).to_csv(args.output / 'fixture_scores.csv', index=False)
+    if declaration is None:  # per-forecast 1X2 for calibration work; locked runs only
+        pd.DataFrame([{k: r[k] for k in ('phase', 'league', 'fixture_key', 'candidate', 'outcome')}
+                      | dict(zip(('p_home', 'p_draw', 'p_away'), r['probs'])) for r in calib
+                      if 'fixture_key' in r]).to_csv(args.output / 'forecasts_1x2.csv', index=False)
     return 0
 
 

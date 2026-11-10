@@ -1,0 +1,10642 @@
+[
+ {
+  "a": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "datetime": "2024-08-17 16:30:00",
+  "forecast": {
+   "d": "0.2689",
+   "l": "0.2755",
+   "w": "0.4556"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "id": "27362",
+  "isResult": true,
+  "xG": {
+   "a": "2.00656",
+   "h": "2.31286"
+  }
+ },
+ {
+  "a": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "datetime": "2024-08-17 16:30:00",
+  "forecast": {
+   "d": "0.2172",
+   "l": "0.1279",
+   "w": "0.6549"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "id": "27363",
+  "isResult": true,
+  "xG": {
+   "a": "0.81313",
+   "h": "1.83796"
+  }
+ },
+ {
+  "a": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "datetime": "2024-08-17 18:45:00",
+  "forecast": {
+   "d": "0.4817",
+   "l": "0.1725",
+   "w": "0.3458"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "id": "27364",
+  "isResult": true,
+  "xG": {
+   "a": "0.327848",
+   "h": "0.578573"
+  }
+ },
+ {
+  "a": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "datetime": "2024-08-17 18:45:00",
+  "forecast": {
+   "d": "0.2176",
+   "l": "0.0886",
+   "w": "0.6938"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "id": "27365",
+  "isResult": true,
+  "xG": {
+   "a": "0.876602",
+   "h": "2.1004"
+  }
+ },
+ {
+  "a": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "datetime": "2024-08-18 16:30:00",
+  "forecast": {
+   "d": "0.2346",
+   "l": "0.1481",
+   "w": "0.6173"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "id": "27366",
+  "isResult": true,
+  "xG": {
+   "a": "0.975176",
+   "h": "1.80536"
+  }
+ },
+ {
+  "a": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "datetime": "2024-08-18 16:30:00",
+  "forecast": {
+   "d": "0.0709",
+   "l": "0.0157",
+   "w": "0.9134"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "id": "27367",
+  "isResult": true,
+  "xG": {
+   "a": "0.944621",
+   "h": "3.3102"
+  }
+ },
+ {
+  "a": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "datetime": "2024-08-18 18:45:00",
+  "forecast": {
+   "d": "0.2992",
+   "l": "0.3617",
+   "w": "0.3391"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "id": "27368",
+  "isResult": true,
+  "xG": {
+   "a": "1.29639",
+   "h": "1.30634"
+  }
+ },
+ {
+  "a": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "datetime": "2024-08-18 18:45:00",
+  "forecast": {
+   "d": "0.1575",
+   "l": "0.0692",
+   "w": "0.7733"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "id": "27369",
+  "isResult": true,
+  "xG": {
+   "a": "0.789649",
+   "h": "2.33223"
+  }
+ },
+ {
+  "a": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "datetime": "2024-08-19 16:30:00",
+  "forecast": {
+   "d": "0.2175",
+   "l": "0.5262",
+   "w": "0.2563"
+  },
+  "goals": {
+   "a": "4",
+   "h": "0"
+  },
+  "h": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "id": "27370",
+  "isResult": true,
+  "xG": {
+   "a": "2.45909",
+   "h": "1.88414"
+  }
+ },
+ {
+  "a": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "datetime": "2024-08-19 18:45:00",
+  "forecast": {
+   "d": "0.2456",
+   "l": "0.0388",
+   "w": "0.7156"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "id": "27371",
+  "isResult": true,
+  "xG": {
+   "a": "0.171238",
+   "h": "1.30582"
+  }
+ },
+ {
+  "a": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "datetime": "2024-08-24 16:30:00",
+  "forecast": {
+   "d": "0.2412",
+   "l": "0.2843",
+   "w": "0.4745"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "id": "27372",
+  "isResult": true,
+  "xG": {
+   "a": "2.09812",
+   "h": "2.46266"
+  }
+ },
+ {
+  "a": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "datetime": "2024-08-24 16:30:00",
+  "forecast": {
+   "d": "0.2781",
+   "l": "0.5091",
+   "w": "0.2128"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "id": "27373",
+  "isResult": true,
+  "xG": {
+   "a": "1.68277",
+   "h": "1.11581"
+  }
+ },
+ {
+  "a": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "datetime": "2024-08-24 18:45:00",
+  "forecast": {
+   "d": "0.4299",
+   "l": "0.3856",
+   "w": "0.1845"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "id": "27374",
+  "isResult": true,
+  "xG": {
+   "a": "0.660299",
+   "h": "0.401371"
+  }
+ },
+ {
+  "a": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "datetime": "2024-08-24 18:45:00",
+  "forecast": {
+   "d": "0.0694",
+   "l": "0.0184",
+   "w": "0.9122"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "id": "27375",
+  "isResult": true,
+  "xG": {
+   "a": "0.335346",
+   "h": "2.48059"
+  }
+ },
+ {
+  "a": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "datetime": "2024-08-25 16:30:00",
+  "forecast": {
+   "d": "0.3398",
+   "l": "0.4544",
+   "w": "0.2058"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "id": "27376",
+  "isResult": true,
+  "xG": {
+   "a": "1.01295",
+   "h": "0.660213"
+  }
+ },
+ {
+  "a": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "datetime": "2024-08-25 16:30:00",
+  "forecast": {
+   "d": "0.219",
+   "l": "0.5108",
+   "w": "0.2702"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "id": "27377",
+  "isResult": true,
+  "xG": {
+   "a": "3.08667",
+   "h": "2.49919"
+  }
+ },
+ {
+  "a": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "datetime": "2024-08-25 18:45:00",
+  "forecast": {
+   "d": "0.1655",
+   "l": "0.0558",
+   "w": "0.7787"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "id": "27378",
+  "isResult": true,
+  "xG": {
+   "a": "0.544518",
+   "h": "2.07052"
+  }
+ },
+ {
+  "a": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "datetime": "2024-08-25 18:45:00",
+  "forecast": {
+   "d": "0.1812",
+   "l": "0.636",
+   "w": "0.1828"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "id": "27379",
+  "isResult": true,
+  "xG": {
+   "a": "3.0773",
+   "h": "2.04246"
+  }
+ },
+ {
+  "a": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "datetime": "2024-08-26 16:30:00",
+  "forecast": {
+   "d": "0.2118",
+   "l": "0.6696",
+   "w": "0.1186"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "id": "27380",
+  "isResult": true,
+  "xG": {
+   "a": "2.08973",
+   "h": "1.03532"
+  }
+ },
+ {
+  "a": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "datetime": "2024-08-26 18:45:00",
+  "forecast": {
+   "d": "0.3109",
+   "l": "0.5017",
+   "w": "0.1874"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "id": "27381",
+  "isResult": true,
+  "xG": {
+   "a": "1.36151",
+   "h": "0.878611"
+  }
+ },
+ {
+  "a": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "datetime": "2024-08-30 16:30:00",
+  "forecast": {
+   "d": "0.206",
+   "l": "0.694",
+   "w": "0.1"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "id": "27382",
+  "isResult": true,
+  "xG": {
+   "a": "1.80895",
+   "h": "0.635612"
+  }
+ },
+ {
+  "a": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "datetime": "2024-08-30 18:45:00",
+  "forecast": {
+   "d": "0.2092",
+   "l": "0.1244",
+   "w": "0.6664"
+  },
+  "goals": {
+   "a": "0",
+   "h": "4"
+  },
+  "h": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "id": "27383",
+  "isResult": true,
+  "xG": {
+   "a": "1.17772",
+   "h": "2.28876"
+  }
+ },
+ {
+  "a": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "datetime": "2024-08-31 16:30:00",
+  "forecast": {
+   "d": "0.2341",
+   "l": "0.3218",
+   "w": "0.4441"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "id": "27384",
+  "isResult": true,
+  "xG": {
+   "a": "2.09263",
+   "h": "2.34113"
+  }
+ },
+ {
+  "a": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "datetime": "2024-08-31 16:30:00",
+  "forecast": {
+   "d": "0.3354",
+   "l": "0.2589",
+   "w": "0.4057"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "id": "27385",
+  "isResult": true,
+  "xG": {
+   "a": "1.11428",
+   "h": "1.35876"
+  }
+ },
+ {
+  "a": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "datetime": "2024-08-31 18:45:00",
+  "forecast": {
+   "d": "0.234",
+   "l": "0.3021",
+   "w": "0.4639"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "id": "27386",
+  "isResult": true,
+  "xG": {
+   "a": "1.90229",
+   "h": "2.33511"
+  }
+ },
+ {
+  "a": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "datetime": "2024-08-31 18:45:00",
+  "forecast": {
+   "d": "0.2132",
+   "l": "0.1393",
+   "w": "0.6475"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "id": "27387",
+  "isResult": true,
+  "xG": {
+   "a": "1.34242",
+   "h": "2.32967"
+  }
+ },
+ {
+  "a": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "datetime": "2024-09-01 16:30:00",
+  "forecast": {
+   "d": "0.1102",
+   "l": "0.0253",
+   "w": "0.8645"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "id": "27388",
+  "isResult": true,
+  "xG": {
+   "a": "0.489982",
+   "h": "2.41541"
+  }
+ },
+ {
+  "a": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "datetime": "2024-09-01 16:30:00",
+  "forecast": {
+   "d": "0.248",
+   "l": "0.5709",
+   "w": "0.1811"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "id": "27389",
+  "isResult": true,
+  "xG": {
+   "a": "2.09653",
+   "h": "1.34735"
+  }
+ },
+ {
+  "a": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "datetime": "2024-09-01 18:45:00",
+  "forecast": {
+   "d": "0.5223",
+   "l": "0.2269",
+   "w": "0.2508"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "id": "27390",
+  "isResult": true,
+  "xG": {
+   "a": "0.382591",
+   "h": "0.415282"
+  }
+ },
+ {
+  "a": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "datetime": "2024-09-01 18:45:00",
+  "forecast": {
+   "d": "0.2945",
+   "l": "0.4762",
+   "w": "0.2293"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "id": "27391",
+  "isResult": true,
+  "xG": {
+   "a": "1.65728",
+   "h": "1.18455"
+  }
+ },
+ {
+  "a": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "datetime": "2024-09-14 13:00:00",
+  "forecast": {
+   "d": "0.2776",
+   "l": "0.2842",
+   "w": "0.4382"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "id": "27397",
+  "isResult": true,
+  "xG": {
+   "a": "1.15087",
+   "h": "1.45782"
+  }
+ },
+ {
+  "a": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "datetime": "2024-09-14 16:00:00",
+  "forecast": {
+   "d": "0.3959",
+   "l": "0.3287",
+   "w": "0.2754"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "id": "27392",
+  "isResult": true,
+  "xG": {
+   "a": "0.726024",
+   "h": "0.601249"
+  }
+ },
+ {
+  "a": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "datetime": "2024-09-14 18:45:00",
+  "forecast": {
+   "d": "0.0707",
+   "l": "0.012",
+   "w": "0.9173"
+  },
+  "goals": {
+   "a": "0",
+   "h": "4"
+  },
+  "h": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "id": "27398",
+  "isResult": true,
+  "xG": {
+   "a": "0.263269",
+   "h": "2.18898"
+  }
+ },
+ {
+  "a": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "datetime": "2024-09-15 10:30:00",
+  "forecast": {
+   "d": "0.1839",
+   "l": "0.6346",
+   "w": "0.1815"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "id": "27394",
+  "isResult": true,
+  "xG": {
+   "a": "2.65805",
+   "h": "1.59603"
+  }
+ },
+ {
+  "a": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "datetime": "2024-09-15 13:00:00",
+  "forecast": {
+   "d": "0.2517",
+   "l": "0.2619",
+   "w": "0.4864"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "id": "27393",
+  "isResult": true,
+  "xG": {
+   "a": "1.96392",
+   "h": "2.4507"
+  }
+ },
+ {
+  "a": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "datetime": "2024-09-15 13:00:00",
+  "forecast": {
+   "d": "0.2119",
+   "l": "0.7277",
+   "w": "0.0604"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "id": "27401",
+  "isResult": true,
+  "xG": {
+   "a": "1.6617",
+   "h": "0.447368"
+  }
+ },
+ {
+  "a": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "datetime": "2024-09-15 16:00:00",
+  "forecast": {
+   "d": "0.2703",
+   "l": "0.5198",
+   "w": "0.2099"
+  },
+  "goals": {
+   "a": "4",
+   "h": "0"
+  },
+  "h": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "id": "27395",
+  "isResult": true,
+  "xG": {
+   "a": "1.42805",
+   "h": "0.881581"
+  }
+ },
+ {
+  "a": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "datetime": "2024-09-15 18:45:00",
+  "forecast": {
+   "d": "0.152",
+   "l": "0.8192",
+   "w": "0.0288"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "id": "27399",
+  "isResult": true,
+  "xG": {
+   "a": "1.8081",
+   "h": "0.217777"
+  }
+ },
+ {
+  "a": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "datetime": "2024-09-16 16:30:00",
+  "forecast": {
+   "d": "0.0768",
+   "l": "0.9006",
+   "w": "0.0226"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "id": "27400",
+  "isResult": true,
+  "xG": {
+   "a": "3.08828",
+   "h": "0.87968"
+  }
+ },
+ {
+  "a": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "datetime": "2024-09-16 18:45:00",
+  "forecast": {
+   "d": "0.1917",
+   "l": "0.0594",
+   "w": "0.7489"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "id": "27396",
+  "isResult": true,
+  "xG": {
+   "a": "0.533276",
+   "h": "1.79243"
+  }
+ },
+ {
+  "a": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "datetime": "2024-09-20 16:30:00",
+  "forecast": {
+   "d": "0.2623",
+   "l": "0.2043",
+   "w": "0.5334"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "id": "27403",
+  "isResult": true,
+  "xG": {
+   "a": "1.02688",
+   "h": "1.68655"
+  }
+ },
+ {
+  "a": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "datetime": "2024-09-20 18:45:00",
+  "forecast": {
+   "d": "0.2013",
+   "l": "0.7068",
+   "w": "0.0919"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "id": "27405",
+  "isResult": true,
+  "xG": {
+   "a": "1.96682",
+   "h": "0.777792"
+  }
+ },
+ {
+  "a": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "datetime": "2024-09-21 13:00:00",
+  "forecast": {
+   "d": "0.0864",
+   "l": "0.0223",
+   "w": "0.8913"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "id": "27411",
+  "isResult": true,
+  "xG": {
+   "a": "0.388857",
+   "h": "2.33503"
+  }
+ },
+ {
+  "a": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "datetime": "2024-09-21 16:00:00",
+  "forecast": {
+   "d": "0.5664",
+   "l": "0.1433",
+   "w": "0.2903"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "id": "27407",
+  "isResult": true,
+  "xG": {
+   "a": "0.233773",
+   "h": "0.419301"
+  }
+ },
+ {
+  "a": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "datetime": "2024-09-21 18:45:00",
+  "forecast": {
+   "d": "0.2207",
+   "l": "0.5843",
+   "w": "0.195"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "id": "27408",
+  "isResult": true,
+  "xG": {
+   "a": "2.054",
+   "h": "1.25857"
+  }
+ },
+ {
+  "a": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "datetime": "2024-09-22 10:30:00",
+  "forecast": {
+   "d": "0.1289",
+   "l": "0.0648",
+   "w": "0.8063"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "id": "27404",
+  "isResult": true,
+  "xG": {
+   "a": "1.14467",
+   "h": "2.85634"
+  }
+ },
+ {
+  "a": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "datetime": "2024-09-22 13:00:00",
+  "forecast": {
+   "d": "0.3003",
+   "l": "0.5478",
+   "w": "0.1519"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "id": "27409",
+  "isResult": true,
+  "xG": {
+   "a": "1.45302",
+   "h": "0.707402"
+  }
+ },
+ {
+  "a": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "datetime": "2024-09-22 16:00:00",
+  "forecast": {
+   "d": "0.0949",
+   "l": "0.0281",
+   "w": "0.877"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "id": "27410",
+  "isResult": true,
+  "xG": {
+   "a": "0.525078",
+   "h": "2.5658"
+  }
+ },
+ {
+  "a": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "datetime": "2024-09-22 18:45:00",
+  "forecast": {
+   "d": "0.1335",
+   "l": "0.7901",
+   "w": "0.0764"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "id": "27406",
+  "isResult": true,
+  "xG": {
+   "a": "2.75751",
+   "h": "0.941382"
+  }
+ },
+ {
+  "a": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "datetime": "2024-09-24 18:45:00",
+  "forecast": {
+   "d": "0.2652",
+   "l": "0.1178",
+   "w": "0.617"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "id": "27402",
+  "isResult": true,
+  "xG": {
+   "a": "0.579703",
+   "h": "1.31694"
+  }
+ },
+ {
+  "a": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "datetime": "2024-09-27 18:45:00",
+  "forecast": {
+   "d": "0.1087",
+   "l": "0.0341",
+   "w": "0.8572"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "id": "27417",
+  "isResult": true,
+  "xG": {
+   "a": "0.462274",
+   "h": "2.43265"
+  }
+ },
+ {
+  "a": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "datetime": "2024-09-28 13:00:00",
+  "forecast": {
+   "d": "0.1843",
+   "l": "0.697",
+   "w": "0.1187"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "id": "27413",
+  "isResult": true,
+  "xG": {
+   "a": "2.30465",
+   "h": "0.984798"
+  }
+ },
+ {
+  "a": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "datetime": "2024-09-28 16:00:00",
+  "forecast": {
+   "d": "0.0499",
+   "l": "0.9412",
+   "w": "0.0089"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "id": "27416",
+  "isResult": true,
+  "xG": {
+   "a": "2.91803",
+   "h": "0.385259"
+  }
+ },
+ {
+  "a": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "datetime": "2024-09-28 18:45:00",
+  "forecast": {
+   "d": "0.0637",
+   "l": "0.9269",
+   "w": "0.0094"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "id": "27412",
+  "isResult": true,
+  "xG": {
+   "a": "2.47751",
+   "h": "0.176428"
+  }
+ },
+ {
+  "a": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "datetime": "2024-09-29 10:30:00",
+  "forecast": {
+   "d": "0.1139",
+   "l": "0.8543",
+   "w": "0.0318"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "id": "27421",
+  "isResult": true,
+  "xG": {
+   "a": "2.24735",
+   "h": "0.494815"
+  }
+ },
+ {
+  "a": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "datetime": "2024-09-29 13:00:00",
+  "forecast": {
+   "d": "0.2214",
+   "l": "0.172",
+   "w": "0.6066"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "id": "27414",
+  "isResult": true,
+  "xG": {
+   "a": "1.5544",
+   "h": "2.47493"
+  }
+ },
+ {
+  "a": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "datetime": "2024-09-29 13:00:00",
+  "forecast": {
+   "d": "0.2337",
+   "l": "0.3946",
+   "w": "0.3717"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "id": "27420",
+  "isResult": true,
+  "xG": {
+   "a": "2.02845",
+   "h": "1.99001"
+  }
+ },
+ {
+  "a": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "datetime": "2024-09-29 16:00:00",
+  "forecast": {
+   "d": "0.2907",
+   "l": "0.5865",
+   "w": "0.1228"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "id": "27415",
+  "isResult": true,
+  "xG": {
+   "a": "1.25438",
+   "h": "0.44778"
+  }
+ },
+ {
+  "a": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "datetime": "2024-09-29 18:45:00",
+  "forecast": {
+   "d": "0.2367",
+   "l": "0.0621",
+   "w": "0.7012"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "id": "27418",
+  "isResult": true,
+  "xG": {
+   "a": "0.298287",
+   "h": "1.35886"
+  }
+ },
+ {
+  "a": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "datetime": "2024-09-30 18:45:00",
+  "forecast": {
+   "d": "0.2061",
+   "l": "0.4175",
+   "w": "0.3764"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "id": "27419",
+  "isResult": true,
+  "xG": {
+   "a": "3.057",
+   "h": "2.98598"
+  }
+ },
+ {
+  "a": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "datetime": "2024-10-04 16:30:00",
+  "forecast": {
+   "d": "0.2003",
+   "l": "0.0656",
+   "w": "0.7341"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "id": "27430",
+  "isResult": true,
+  "xG": {
+   "a": "0.638474",
+   "h": "1.91407"
+  }
+ },
+ {
+  "a": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "datetime": "2024-10-04 18:45:00",
+  "forecast": {
+   "d": "0.2313",
+   "l": "0.2368",
+   "w": "0.5319"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "id": "27427",
+  "isResult": true,
+  "xG": {
+   "a": "1.43755",
+   "h": "2.10738"
+  }
+ },
+ {
+  "a": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "datetime": "2024-10-05 13:00:00",
+  "forecast": {
+   "d": "0.239",
+   "l": "0.1098",
+   "w": "0.6512"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "id": "27431",
+  "isResult": true,
+  "xG": {
+   "a": "0.645952",
+   "h": "1.56312"
+  }
+ },
+ {
+  "a": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "datetime": "2024-10-05 16:00:00",
+  "forecast": {
+   "d": "0.0256",
+   "l": "0.0046",
+   "w": "0.9698"
+  },
+  "goals": {
+   "a": "1",
+   "h": "5"
+  },
+  "h": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "id": "27422",
+  "isResult": true,
+  "xG": {
+   "a": "0.543171",
+   "h": "4.0137"
+  }
+ },
+ {
+  "a": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "datetime": "2024-10-05 18:45:00",
+  "forecast": {
+   "d": "0.1084",
+   "l": "0.0482",
+   "w": "0.8434"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "id": "27428",
+  "isResult": true,
+  "xG": {
+   "a": "1.29026",
+   "h": "3.44641"
+  }
+ },
+ {
+  "a": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "datetime": "2024-10-06 10:30:00",
+  "forecast": {
+   "d": "0.0955",
+   "l": "0.0308",
+   "w": "0.8737"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "id": "27429",
+  "isResult": true,
+  "xG": {
+   "a": "1.045",
+   "h": "3.21709"
+  }
+ },
+ {
+  "a": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "datetime": "2024-10-06 13:00:00",
+  "forecast": {
+   "d": "0.2274",
+   "l": "0.07",
+   "w": "0.7026"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "id": "27423",
+  "isResult": true,
+  "xG": {
+   "a": "0.912844",
+   "h": "2.0459"
+  }
+ },
+ {
+  "a": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "datetime": "2024-10-06 13:00:00",
+  "forecast": {
+   "d": "0.3239",
+   "l": "0.4267",
+   "w": "0.2494"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "id": "27424",
+  "isResult": true,
+  "xG": {
+   "a": "1.08533",
+   "h": "0.835615"
+  }
+ },
+ {
+  "a": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "datetime": "2024-10-06 16:00:00",
+  "forecast": {
+   "d": "0.3234",
+   "l": "0.4287",
+   "w": "0.2479"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "id": "27425",
+  "isResult": true,
+  "xG": {
+   "a": "1.47893",
+   "h": "1.11968"
+  }
+ },
+ {
+  "a": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "datetime": "2024-10-06 18:45:00",
+  "forecast": {
+   "d": "0.2122",
+   "l": "0.5951",
+   "w": "0.1927"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "id": "27426",
+  "isResult": true,
+  "xG": {
+   "a": "2.83446",
+   "h": "1.94286"
+  }
+ },
+ {
+  "a": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "datetime": "2024-10-19 13:00:00",
+  "forecast": {
+   "d": "0.2878",
+   "l": "0.601",
+   "w": "0.1112"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "id": "27434",
+  "isResult": true,
+  "xG": {
+   "a": "1.15682",
+   "h": "0.450285"
+  }
+ },
+ {
+  "a": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "datetime": "2024-10-19 13:00:00",
+  "forecast": {
+   "d": "0.3236",
+   "l": "0.2305",
+   "w": "0.4459"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "id": "27436",
+  "isResult": true,
+  "xG": {
+   "a": "0.918205",
+   "h": "1.28527"
+  }
+ },
+ {
+  "a": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "datetime": "2024-10-19 16:00:00",
+  "forecast": {
+   "d": "0.2922",
+   "l": "0.133",
+   "w": "0.5748"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "id": "27440",
+  "isResult": true,
+  "xG": {
+   "a": "0.522785",
+   "h": "1.20398"
+  }
+ },
+ {
+  "a": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "datetime": "2024-10-19 18:45:00",
+  "forecast": {
+   "d": "0.1859",
+   "l": "0.0116",
+   "w": "0.8025"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "id": "27438",
+  "isResult": true,
+  "xG": {
+   "a": "0.0648311",
+   "h": "1.49305"
+  }
+ },
+ {
+  "a": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "datetime": "2024-10-20 10:30:00",
+  "forecast": {
+   "d": "0.3465",
+   "l": "0.4355",
+   "w": "0.218"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "id": "27435",
+  "isResult": true,
+  "xG": {
+   "a": "1.31758",
+   "h": "1.00465"
+  }
+ },
+ {
+  "a": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "datetime": "2024-10-20 13:00:00",
+  "forecast": {
+   "d": "0.2339",
+   "l": "0.6224",
+   "w": "0.1437"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "id": "27433",
+  "isResult": true,
+  "xG": {
+   "a": "1.83371",
+   "h": "0.881872"
+  }
+ },
+ {
+  "a": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "datetime": "2024-10-20 13:00:00",
+  "forecast": {
+   "d": "0.088",
+   "l": "0.8979",
+   "w": "0.0141"
+  },
+  "goals": {
+   "a": "6",
+   "h": "0"
+  },
+  "h": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "id": "27439",
+  "isResult": true,
+  "xG": {
+   "a": "2.21676",
+   "h": "0.223823"
+  }
+ },
+ {
+  "a": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "datetime": "2024-10-20 16:00:00",
+  "forecast": {
+   "d": "0.274",
+   "l": "0.3012",
+   "w": "0.4248"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "id": "27432",
+  "isResult": true,
+  "xG": {
+   "a": "1.23394",
+   "h": "1.51181"
+  }
+ },
+ {
+  "a": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "datetime": "2024-10-20 18:45:00",
+  "forecast": {
+   "d": "0.3494",
+   "l": "0.3212",
+   "w": "0.3294"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "id": "27441",
+  "isResult": true,
+  "xG": {
+   "a": "0.796917",
+   "h": "0.78742"
+  }
+ },
+ {
+  "a": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "datetime": "2024-10-21 18:45:00",
+  "forecast": {
+   "d": "0.2553",
+   "l": "0.5799",
+   "w": "0.1648"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "id": "27437",
+  "isResult": true,
+  "xG": {
+   "a": "1.56377",
+   "h": "0.81446"
+  }
+ },
+ {
+  "a": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "datetime": "2024-10-25 16:30:00",
+  "forecast": {
+   "d": "0.2906",
+   "l": "0.0439",
+   "w": "0.6655"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "id": "27451",
+  "isResult": true,
+  "xG": {
+   "a": "0.160634",
+   "h": "1.12881"
+  }
+ },
+ {
+  "a": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "datetime": "2024-10-25 18:30:00",
+  "forecast": {
+   "d": "0.317",
+   "l": "0.3359",
+   "w": "0.3471"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "id": "27450",
+  "isResult": true,
+  "xG": {
+   "a": "1.59554",
+   "h": "1.56007"
+  }
+ },
+ {
+  "a": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "datetime": "2024-10-26 13:00:00",
+  "forecast": {
+   "d": "0.097",
+   "l": "0.0255",
+   "w": "0.8775"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "id": "27448",
+  "isResult": true,
+  "xG": {
+   "a": "0.57038",
+   "h": "2.53236"
+  }
+ },
+ {
+  "a": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "datetime": "2024-10-26 18:45:00",
+  "forecast": {
+   "d": "0.0128",
+   "l": "0.001",
+   "w": "0.9862"
+  },
+  "goals": {
+   "a": "1",
+   "h": "6"
+  },
+  "h": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "id": "27443",
+  "isResult": true,
+  "xG": {
+   "a": "0.22446",
+   "h": "3.84122"
+  }
+ },
+ {
+  "a": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "datetime": "2024-10-27 11:30:00",
+  "forecast": {
+   "d": "0.1605",
+   "l": "0.0207",
+   "w": "0.8188"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "id": "27449",
+  "isResult": true,
+  "xG": {
+   "a": "0.14913",
+   "h": "1.43623"
+  }
+ },
+ {
+  "a": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "datetime": "2024-10-27 14:00:00",
+  "forecast": {
+   "d": "0.3668",
+   "l": "0.1703",
+   "w": "0.4629"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "id": "27446",
+  "isResult": true,
+  "xG": {
+   "a": "0.459902",
+   "h": "0.903007"
+  }
+ },
+ {
+  "a": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "datetime": "2024-10-27 14:00:00",
+  "forecast": {
+   "d": "0.0416",
+   "l": "0.0056",
+   "w": "0.9528"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "id": "27447",
+  "isResult": true,
+  "xG": {
+   "a": "0.261739",
+   "h": "2.9799"
+  }
+ },
+ {
+  "a": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "datetime": "2024-10-27 17:00:00",
+  "forecast": {
+   "d": "0.2623",
+   "l": "0.2549",
+   "w": "0.4828"
+  },
+  "goals": {
+   "a": "4",
+   "h": "4"
+  },
+  "h": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "id": "27444",
+  "isResult": true,
+  "xG": {
+   "a": "2.36179",
+   "h": "2.82542"
+  }
+ },
+ {
+  "a": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "datetime": "2024-10-27 19:45:00",
+  "forecast": {
+   "d": "0.009",
+   "l": "0.0014",
+   "w": "0.9896"
+  },
+  "goals": {
+   "a": "1",
+   "h": "5"
+  },
+  "h": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "id": "27445",
+  "isResult": true,
+  "xG": {
+   "a": "0.657353",
+   "h": "4.56893"
+  }
+ },
+ {
+  "a": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "datetime": "2024-10-29 17:30:00",
+  "forecast": {
+   "d": "0.3044",
+   "l": "0.2582",
+   "w": "0.4374"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "id": "27453",
+  "isResult": true,
+  "xG": {
+   "a": "0.872307",
+   "h": "1.18569"
+  }
+ },
+ {
+  "a": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "datetime": "2024-10-29 17:30:00",
+  "forecast": {
+   "d": "0.2345",
+   "l": "0.0458",
+   "w": "0.7197"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "id": "27458",
+  "isResult": true,
+  "xG": {
+   "a": "0.211464",
+   "h": "1.35273"
+  }
+ },
+ {
+  "a": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "datetime": "2024-10-29 19:45:00",
+  "forecast": {
+   "d": "0.3493",
+   "l": "0.4503",
+   "w": "0.2004"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "id": "27459",
+  "isResult": true,
+  "xG": {
+   "a": "0.956912",
+   "h": "0.568256"
+  }
+ },
+ {
+  "a": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "datetime": "2024-10-30 17:30:00",
+  "forecast": {
+   "d": "0.1991",
+   "l": "0.7542",
+   "w": "0.0467"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "id": "27455",
+  "isResult": true,
+  "xG": {
+   "a": "1.68832",
+   "h": "0.319674"
+  }
+ },
+ {
+  "a": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "datetime": "2024-10-30 17:30:00",
+  "forecast": {
+   "d": "0.1886",
+   "l": "0.1062",
+   "w": "0.7052"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "id": "27461",
+  "isResult": true,
+  "xG": {
+   "a": "1.30701",
+   "h": "2.55368"
+  }
+ },
+ {
+  "a": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "datetime": "2024-10-30 19:45:00",
+  "forecast": {
+   "d": "0.1682",
+   "l": "0.0109",
+   "w": "0.8209"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "id": "27452",
+  "isResult": true,
+  "xG": {
+   "a": "0.0805941",
+   "h": "1.65221"
+  }
+ },
+ {
+  "a": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "datetime": "2024-10-30 19:45:00",
+  "forecast": {
+   "d": "0.1773",
+   "l": "0.1241",
+   "w": "0.6986"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "id": "27457",
+  "isResult": true,
+  "xG": {
+   "a": "1.45546",
+   "h": "2.77649"
+  }
+ },
+ {
+  "a": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "datetime": "2024-10-31 17:30:00",
+  "forecast": {
+   "d": "0.3431",
+   "l": "0.358",
+   "w": "0.2989"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "id": "27456",
+  "isResult": true,
+  "xG": {
+   "a": "0.909048",
+   "h": "0.848655"
+  }
+ },
+ {
+  "a": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "datetime": "2024-10-31 19:45:00",
+  "forecast": {
+   "d": "0.1268",
+   "l": "0.8048",
+   "w": "0.0684"
+  },
+  "goals": {
+   "a": "5",
+   "h": "1"
+  },
+  "h": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "id": "27454",
+  "isResult": true,
+  "xG": {
+   "a": "2.96686",
+   "h": "1.16312"
+  }
+ },
+ {
+  "a": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "datetime": "2024-10-31 19:45:00",
+  "forecast": {
+   "d": "0.5787",
+   "l": "0.1139",
+   "w": "0.3074"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "id": "27460",
+  "isResult": true,
+  "xG": {
+   "a": "0.189286",
+   "h": "0.436341"
+  }
+ },
+ {
+  "a": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "datetime": "2024-11-02 14:00:00",
+  "forecast": {
+   "d": "0.2029",
+   "l": "0.0855",
+   "w": "0.7116"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "id": "27467",
+  "isResult": true,
+  "xG": {
+   "a": "0.771878",
+   "h": "2.06051"
+  }
+ },
+ {
+  "a": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "datetime": "2024-11-02 17:00:00",
+  "forecast": {
+   "d": "0.2338",
+   "l": "0.6479",
+   "w": "0.1183"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "id": "27466",
+  "isResult": true,
+  "xG": {
+   "a": "1.55533",
+   "h": "0.573076"
+  }
+ },
+ {
+  "a": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "datetime": "2024-11-02 19:45:00",
+  "forecast": {
+   "d": "0.1466",
+   "l": "0.7804",
+   "w": "0.073"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "id": "27465",
+  "isResult": true,
+  "xG": {
+   "a": "2.91043",
+   "h": "1.23293"
+  }
+ },
+ {
+  "a": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "datetime": "2024-11-03 11:30:00",
+  "forecast": {
+   "d": "0.2498",
+   "l": "0.6206",
+   "w": "0.1296"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "id": "27464",
+  "isResult": true,
+  "xG": {
+   "a": "1.50982",
+   "h": "0.611112"
+  }
+ },
+ {
+  "a": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "datetime": "2024-11-03 14:00:00",
+  "forecast": {
+   "d": "0.4355",
+   "l": "0.2624",
+   "w": "0.3021"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "id": "27470",
+  "isResult": true,
+  "xG": {
+   "a": "0.523302",
+   "h": "0.590362"
+  }
+ },
+ {
+  "a": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "datetime": "2024-11-03 17:00:00",
+  "forecast": {
+   "d": "0.2335",
+   "l": "0.5989",
+   "w": "0.1676"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "id": "27468",
+  "isResult": true,
+  "xG": {
+   "a": "2.38413",
+   "h": "1.51701"
+  }
+ },
+ {
+  "a": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "datetime": "2024-11-03 19:45:00",
+  "forecast": {
+   "d": "0.1008",
+   "l": "0.0441",
+   "w": "0.8551"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "id": "27463",
+  "isResult": true,
+  "xG": {
+   "a": "1.14021",
+   "h": "3.34539"
+  }
+ },
+ {
+  "a": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "datetime": "2024-11-04 17:30:00",
+  "forecast": {
+   "d": "0.4148",
+   "l": "0.179",
+   "w": "0.4062"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "id": "27462",
+  "isResult": true,
+  "xG": {
+   "a": "0.41675",
+   "h": "0.723897"
+  }
+ },
+ {
+  "a": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "datetime": "2024-11-04 17:30:00",
+  "forecast": {
+   "d": "0.3169",
+   "l": "0.4294",
+   "w": "0.2537"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "id": "27469",
+  "isResult": true,
+  "xG": {
+   "a": "1.15243",
+   "h": "0.883705"
+  }
+ },
+ {
+  "a": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "datetime": "2024-11-04 19:45:00",
+  "forecast": {
+   "d": "0.0174",
+   "l": "0.0039",
+   "w": "0.9787"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "id": "27471",
+  "isResult": true,
+  "xG": {
+   "a": "0.274214",
+   "h": "3.39964"
+  }
+ },
+ {
+  "a": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "datetime": "2024-11-07 20:00:00",
+  "forecast": {
+   "d": "0.295",
+   "l": "0.4389",
+   "w": "0.2661"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "id": "27472",
+  "isResult": true,
+  "xG": {
+   "a": "1.37361",
+   "h": "1.03893"
+  }
+ },
+ {
+  "a": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "datetime": "2024-11-08 19:45:00",
+  "forecast": {
+   "d": "0.2734",
+   "l": "0.1491",
+   "w": "0.5775"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "id": "27474",
+  "isResult": true,
+  "xG": {
+   "a": "0.610497",
+   "h": "1.41905"
+  }
+ },
+ {
+  "a": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "datetime": "2024-11-09 14:00:00",
+  "forecast": {
+   "d": "0.3446",
+   "l": "0.2228",
+   "w": "0.4326"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "id": "27477",
+  "isResult": true,
+  "xG": {
+   "a": "0.945022",
+   "h": "1.29642"
+  }
+ },
+ {
+  "a": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "datetime": "2024-11-09 17:00:00",
+  "forecast": {
+   "d": "0.2146",
+   "l": "0.5948",
+   "w": "0.1906"
+  },
+  "goals": {
+   "a": "3",
+   "h": "3"
+  },
+  "h": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "id": "27478",
+  "isResult": true,
+  "xG": {
+   "a": "2.77604",
+   "h": "1.90363"
+  }
+ },
+ {
+  "a": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "datetime": "2024-11-09 19:45:00",
+  "forecast": {
+   "d": "0.1868",
+   "l": "0.0389",
+   "w": "0.7743"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "id": "27480",
+  "isResult": true,
+  "xG": {
+   "a": "0.273931",
+   "h": "1.57325"
+  }
+ },
+ {
+  "a": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "datetime": "2024-11-10 11:30:00",
+  "forecast": {
+   "d": "0.255",
+   "l": "0.1854",
+   "w": "0.5596"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "id": "27481",
+  "isResult": true,
+  "xG": {
+   "a": "0.90914",
+   "h": "1.60488"
+  }
+ },
+ {
+  "a": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "datetime": "2024-11-10 14:00:00",
+  "forecast": {
+   "d": "0.2047",
+   "l": "0.671",
+   "w": "0.1243"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "id": "27476",
+  "isResult": true,
+  "xG": {
+   "a": "2.16772",
+   "h": "1.06974"
+  }
+ },
+ {
+  "a": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "datetime": "2024-11-10 14:00:00",
+  "forecast": {
+   "d": "0.081",
+   "l": "0.027",
+   "w": "0.892"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "id": "27479",
+  "isResult": true,
+  "xG": {
+   "a": "0.53544",
+   "h": "2.77034"
+  }
+ },
+ {
+  "a": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "datetime": "2024-11-10 17:00:00",
+  "forecast": {
+   "d": "0.3133",
+   "l": "0.4748",
+   "w": "0.2119"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "id": "27475",
+  "isResult": true,
+  "xG": {
+   "a": "1.17083",
+   "h": "0.747377"
+  }
+ },
+ {
+  "a": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "datetime": "2024-11-10 19:45:00",
+  "forecast": {
+   "d": "0.3652",
+   "l": "0.1746",
+   "w": "0.4602"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "id": "27473",
+  "isResult": true,
+  "xG": {
+   "a": "1.00611",
+   "h": "1.47373"
+  }
+ },
+ {
+  "a": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "datetime": "2024-11-23 14:00:00",
+  "forecast": {
+   "d": "0.0793",
+   "l": "0.8978",
+   "w": "0.0229"
+  },
+  "goals": {
+   "a": "5",
+   "h": "0"
+  },
+  "h": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "id": "27485",
+  "isResult": true,
+  "xG": {
+   "a": "2.79774",
+   "h": "0.554633"
+  }
+ },
+ {
+  "a": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "datetime": "2024-11-23 17:00:00",
+  "forecast": {
+   "d": "0.4024",
+   "l": "0.4835",
+   "w": "0.1141"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "id": "27490",
+  "isResult": true,
+  "xG": {
+   "a": "0.811307",
+   "h": "0.306342"
+  }
+ },
+ {
+  "a": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "datetime": "2024-11-23 19:45:00",
+  "forecast": {
+   "d": "0.0372",
+   "l": "0.9556",
+   "w": "0.0072"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "id": "27491",
+  "isResult": true,
+  "xG": {
+   "a": "3.54363",
+   "h": "0.622186"
+  }
+ },
+ {
+  "a": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "datetime": "2024-11-24 11:30:00",
+  "forecast": {
+   "d": "0.2186",
+   "l": "0.5312",
+   "w": "0.2502"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "id": "27484",
+  "isResult": true,
+  "xG": {
+   "a": "2.81223",
+   "h": "2.1978"
+  }
+ },
+ {
+  "a": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "datetime": "2024-11-24 14:00:00",
+  "forecast": {
+   "d": "0.316",
+   "l": "0.2343",
+   "w": "0.4497"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "id": "27482",
+  "isResult": true,
+  "xG": {
+   "a": "0.947266",
+   "h": "1.27005"
+  }
+ },
+ {
+  "a": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "datetime": "2024-11-24 14:00:00",
+  "forecast": {
+   "d": "0.2717",
+   "l": "0.2221",
+   "w": "0.5062"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "id": "27488",
+  "isResult": true,
+  "xG": {
+   "a": "0.916564",
+   "h": "1.45433"
+  }
+ },
+ {
+  "a": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "datetime": "2024-11-24 17:00:00",
+  "forecast": {
+   "d": "0.1659",
+   "l": "0.0407",
+   "w": "0.7934"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "id": "27487",
+  "isResult": true,
+  "xG": {
+   "a": "0.592582",
+   "h": "2.02389"
+  }
+ },
+ {
+  "a": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "datetime": "2024-11-24 19:45:00",
+  "forecast": {
+   "d": "0.0325",
+   "l": "0.0022",
+   "w": "0.9653"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "id": "27486",
+  "isResult": true,
+  "xG": {
+   "a": "0.0932634",
+   "h": "2.59912"
+  }
+ },
+ {
+  "a": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "datetime": "2024-11-25 17:00:00",
+  "forecast": {
+   "d": "0.3206",
+   "l": "0.6257",
+   "w": "0.0537"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "id": "27483",
+  "isResult": true,
+  "xG": {
+   "a": "1.09285",
+   "h": "0.166889"
+  }
+ },
+ {
+  "a": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "datetime": "2024-11-25 19:45:00",
+  "forecast": {
+   "d": "0.086",
+   "l": "0.0267",
+   "w": "0.8873"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "id": "27489",
+  "isResult": true,
+  "xG": {
+   "a": "0.624722",
+   "h": "2.88235"
+  }
+ },
+ {
+  "a": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "datetime": "2024-11-29 19:45:00",
+  "forecast": {
+   "d": "0.0993",
+   "l": "0.0355",
+   "w": "0.8652"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "id": "27495",
+  "isResult": true,
+  "xG": {
+   "a": "0.606166",
+   "h": "2.64816"
+  }
+ },
+ {
+  "a": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "datetime": "2024-11-30 14:00:00",
+  "forecast": {
+   "d": "0.2517",
+   "l": "0.4844",
+   "w": "0.2639"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "id": "27496",
+  "isResult": true,
+  "xG": {
+   "a": "1.75565",
+   "h": "1.38648"
+  }
+ },
+ {
+  "a": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "datetime": "2024-11-30 17:00:00",
+  "forecast": {
+   "d": "0.15",
+   "l": "0.0482",
+   "w": "0.8018"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "id": "27498",
+  "isResult": true,
+  "xG": {
+   "a": "0.400556",
+   "h": "2.02293"
+  }
+ },
+ {
+  "a": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "datetime": "2024-11-30 19:45:00",
+  "forecast": {
+   "d": "0.0103",
+   "l": "0.0022",
+   "w": "0.9875"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "id": "27494",
+  "isResult": true,
+  "xG": {
+   "a": "0.357302",
+   "h": "4.16965"
+  }
+ },
+ {
+  "a": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "datetime": "2024-12-01 11:30:00",
+  "forecast": {
+   "d": "0.1433",
+   "l": "0.8359",
+   "w": "0.0208"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "id": "27501",
+  "isResult": true,
+  "xG": {
+   "a": "1.7171",
+   "h": "0.156386"
+  }
+ },
+ {
+  "a": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "datetime": "2024-12-01 14:00:00",
+  "forecast": {
+   "d": "0.1953",
+   "l": "0.6585",
+   "w": "0.1462"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "id": "27499",
+  "isResult": true,
+  "xG": {
+   "a": "2.4176",
+   "h": "1.27449"
+  }
+ },
+ {
+  "a": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "datetime": "2024-12-01 14:00:00",
+  "forecast": {
+   "d": "0.221",
+   "l": "0.702",
+   "w": "0.077"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "id": "27500",
+  "isResult": true,
+  "xG": {
+   "a": "1.64196",
+   "h": "0.442989"
+  }
+ },
+ {
+  "a": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "datetime": "2024-12-01 19:45:00",
+  "forecast": {
+   "d": "0.3607",
+   "l": "0.3076",
+   "w": "0.3317"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "id": "27492",
+  "isResult": true,
+  "xG": {
+   "a": "1.03998",
+   "h": "1.10419"
+  }
+ },
+ {
+  "a": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "datetime": "2024-12-02 19:45:00",
+  "forecast": {
+   "d": "0.2347",
+   "l": "0.672",
+   "w": "0.0933"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "id": "27493",
+  "isResult": true,
+  "xG": {
+   "a": "1.76696",
+   "h": "0.667881"
+  }
+ },
+ {
+  "a": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "datetime": "2024-12-06 17:30:00",
+  "forecast": {
+   "d": "0.0439",
+   "l": "0.0085",
+   "w": "0.9476"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "id": "27507",
+  "isResult": true,
+  "xG": {
+   "a": "0.274097",
+   "h": "3.0797"
+  }
+ },
+ {
+  "a": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "datetime": "2024-12-06 19:45:00",
+  "forecast": {
+   "d": "0.144",
+   "l": "0.0564",
+   "w": "0.7996"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "id": "27502",
+  "isResult": true,
+  "xG": {
+   "a": "0.899516",
+   "h": "2.62823"
+  }
+ },
+ {
+  "a": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "datetime": "2024-12-07 14:00:00",
+  "forecast": {
+   "d": "0.4217",
+   "l": "0.4285",
+   "w": "0.1498"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "id": "27505",
+  "isResult": true,
+  "xG": {
+   "a": "0.70601",
+   "h": "0.327249"
+  }
+ },
+ {
+  "a": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "datetime": "2024-12-07 17:00:00",
+  "forecast": {
+   "d": "0.3607",
+   "l": "0.2968",
+   "w": "0.3425"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "id": "27503",
+  "isResult": true,
+  "xG": {
+   "a": "0.784689",
+   "h": "0.856802"
+  }
+ },
+ {
+  "a": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "datetime": "2024-12-07 19:45:00",
+  "forecast": {
+   "d": "0.1856",
+   "l": "0.0617",
+   "w": "0.7527"
+  },
+  "goals": {
+   "a": "1",
+   "h": "4"
+  },
+  "h": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "id": "27510",
+  "isResult": true,
+  "xG": {
+   "a": "0.826928",
+   "h": "2.38077"
+  }
+ },
+ {
+  "a": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "datetime": "2024-12-08 11:30:00",
+  "forecast": {
+   "d": "0.322",
+   "l": "0.5591",
+   "w": "0.1189"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "id": "27504",
+  "isResult": true,
+  "xG": {
+   "a": "1.00073",
+   "h": "0.412045"
+  }
+ },
+ {
+  "a": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "datetime": "2024-12-08 14:00:00",
+  "forecast": {
+   "d": "0.2911",
+   "l": "0.4742",
+   "w": "0.2347"
+  },
+  "goals": {
+   "a": "4",
+   "h": "1"
+  },
+  "h": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "id": "27506",
+  "isResult": true,
+  "xG": {
+   "a": "1.2903",
+   "h": "0.895085"
+  }
+ },
+ {
+  "a": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "datetime": "2024-12-08 17:00:00",
+  "forecast": {
+   "d": "0.4028",
+   "l": "0.4651",
+   "w": "0.1321"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "id": "27511",
+  "isResult": true,
+  "xG": {
+   "a": "0.779392",
+   "h": "0.303457"
+  }
+ },
+ {
+  "a": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "datetime": "2024-12-08 19:45:00",
+  "forecast": {
+   "d": "0.289",
+   "l": "0.0672",
+   "w": "0.6438"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "id": "27509",
+  "isResult": true,
+  "xG": {
+   "a": "0.243674",
+   "h": "1.14465"
+  }
+ },
+ {
+  "a": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "datetime": "2024-12-09 19:45:00",
+  "forecast": {
+   "d": "0.2398",
+   "l": "0.2646",
+   "w": "0.4956"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "id": "27508",
+  "isResult": true,
+  "xG": {
+   "a": "1.40496",
+   "h": "1.92222"
+  }
+ },
+ {
+  "a": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "datetime": "2024-12-13 19:45:00",
+  "forecast": {
+   "d": "0.3028",
+   "l": "0.4682",
+   "w": "0.229"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "id": "27513",
+  "isResult": true,
+  "xG": {
+   "a": "1.36089",
+   "h": "0.953691"
+  }
+ },
+ {
+  "a": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "datetime": "2024-12-14 14:00:00",
+  "forecast": {
+   "d": "0.2403",
+   "l": "0.4899",
+   "w": "0.2698"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "id": "27517",
+  "isResult": true,
+  "xG": {
+   "a": "2.37449",
+   "h": "1.90937"
+  }
+ },
+ {
+  "a": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "datetime": "2024-12-14 17:00:00",
+  "forecast": {
+   "d": "0.2778",
+   "l": "0.4702",
+   "w": "0.252"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "id": "27521",
+  "isResult": true,
+  "xG": {
+   "a": "1.96425",
+   "h": "1.48544"
+  }
+ },
+ {
+  "a": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "datetime": "2024-12-14 19:45:00",
+  "forecast": {
+   "d": "0.1219",
+   "l": "0.0235",
+   "w": "0.8546"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "id": "27514",
+  "isResult": true,
+  "xG": {
+   "a": "0.586788",
+   "h": "2.18951"
+  }
+ },
+ {
+  "a": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "datetime": "2024-12-15 11:30:00",
+  "forecast": {
+   "d": "0.2667",
+   "l": "0.1348",
+   "w": "0.5985"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "id": "27516",
+  "isResult": true,
+  "xG": {
+   "a": "0.790408",
+   "h": "1.57794"
+  }
+ },
+ {
+  "a": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "datetime": "2024-12-15 14:00:00",
+  "forecast": {
+   "d": "0.1956",
+   "l": "0.1388",
+   "w": "0.6656"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "id": "27518",
+  "isResult": true,
+  "xG": {
+   "a": "1.14307",
+   "h": "2.32266"
+  }
+ },
+ {
+  "a": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "datetime": "2024-12-15 14:00:00",
+  "forecast": {
+   "d": "0.1608",
+   "l": "0.6859",
+   "w": "0.1533"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "id": "27519",
+  "isResult": true,
+  "xG": {
+   "a": "3.70407",
+   "h": "2.30533"
+  }
+ },
+ {
+  "a": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "datetime": "2024-12-15 17:00:00",
+  "forecast": {
+   "d": "0.3326",
+   "l": "0.1892",
+   "w": "0.4782"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "id": "27512",
+  "isResult": true,
+  "xG": {
+   "a": "0.650738",
+   "h": "1.1153"
+  }
+ },
+ {
+  "a": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "datetime": "2024-12-15 19:45:00",
+  "forecast": {
+   "d": "0.2596",
+   "l": "0.0533",
+   "w": "0.6871"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "id": "27520",
+  "isResult": true,
+  "xG": {
+   "a": "0.204497",
+   "h": "1.28243"
+  }
+ },
+ {
+  "a": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "datetime": "2024-12-16 19:45:00",
+  "forecast": {
+   "d": "0.1331",
+   "l": "0.8249",
+   "w": "0.042"
+  },
+  "goals": {
+   "a": "6",
+   "h": "0"
+  },
+  "h": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "id": "27515",
+  "isResult": true,
+  "xG": {
+   "a": "2.33306",
+   "h": "0.634641"
+  }
+ },
+ {
+  "a": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "datetime": "2024-12-20 19:45:00",
+  "forecast": {
+   "d": "0.2773",
+   "l": "0.5764",
+   "w": "0.1463"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "id": "27522",
+  "isResult": true,
+  "xG": {
+   "a": "1.37505",
+   "h": "0.649472"
+  }
+ },
+ {
+  "a": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "datetime": "2024-12-21 14:00:00",
+  "forecast": {
+   "d": "0.1047",
+   "l": "0.8783",
+   "w": "0.017"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "id": "27527",
+  "isResult": true,
+  "xG": {
+   "a": "1.79816",
+   "h": "0.270606"
+  }
+ },
+ {
+  "a": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "datetime": "2024-12-21 17:00:00",
+  "forecast": {
+   "d": "0.2624",
+   "l": "0.5824",
+   "w": "0.1552"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "id": "27524",
+  "isResult": true,
+  "xG": {
+   "a": "1.42377",
+   "h": "0.707336"
+  }
+ },
+ {
+  "a": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "datetime": "2024-12-21 19:45:00",
+  "forecast": {
+   "d": "0.2672",
+   "l": "0.6196",
+   "w": "0.1132"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "id": "27530",
+  "isResult": true,
+  "xG": {
+   "a": "1.95023",
+   "h": "1.09129"
+  }
+ },
+ {
+  "a": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "datetime": "2024-12-22 11:30:00",
+  "forecast": {
+   "d": "0.0025",
+   "l": "0.0002",
+   "w": "0.9973"
+  },
+  "goals": {
+   "a": "0",
+   "h": "5"
+  },
+  "h": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "id": "27529",
+  "isResult": true,
+  "xG": {
+   "a": "0.615694",
+   "h": "5.55856"
+  }
+ },
+ {
+  "a": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "datetime": "2024-12-22 14:00:00",
+  "forecast": {
+   "d": "0.2081",
+   "l": "0.6469",
+   "w": "0.145"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "id": "27526",
+  "isResult": true,
+  "xG": {
+   "a": "2.62545",
+   "h": "1.55318"
+  }
+ },
+ {
+  "a": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "datetime": "2024-12-22 17:00:00",
+  "forecast": {
+   "d": "0.2459",
+   "l": "0.1658",
+   "w": "0.5883"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "id": "27525",
+  "isResult": true,
+  "xG": {
+   "a": "1.21827",
+   "h": "2.08379"
+  }
+ },
+ {
+  "a": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "datetime": "2024-12-22 19:45:00",
+  "forecast": {
+   "d": "0.1472",
+   "l": "0.7681",
+   "w": "0.0847"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "id": "27528",
+  "isResult": true,
+  "xG": {
+   "a": "2.58556",
+   "h": "0.983171"
+  }
+ },
+ {
+  "a": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "datetime": "2024-12-23 17:30:00",
+  "forecast": {
+   "d": "0.271",
+   "l": "0.1619",
+   "w": "0.5671"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "id": "27523",
+  "isResult": true,
+  "xG": {
+   "a": "0.858846",
+   "h": "1.55716"
+  }
+ },
+ {
+  "a": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "datetime": "2024-12-23 19:45:00",
+  "forecast": {
+   "d": "0.1749",
+   "l": "0.0523",
+   "w": "0.7728"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "id": "27531",
+  "isResult": true,
+  "xG": {
+   "a": "0.367536",
+   "h": "1.89916"
+  }
+ },
+ {
+  "a": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "datetime": "2024-12-28 14:00:00",
+  "forecast": {
+   "d": "0.2621",
+   "l": "0.5263",
+   "w": "0.2116"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "id": "27536",
+  "isResult": true,
+  "xG": {
+   "a": "2.01725",
+   "h": "1.42691"
+  }
+ },
+ {
+  "a": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "datetime": "2024-12-28 14:00:00",
+  "forecast": {
+   "d": "0.237",
+   "l": "0.6433",
+   "w": "0.1197"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "id": "27540",
+  "isResult": true,
+  "xG": {
+   "a": "2.2247",
+   "h": "1.22224"
+  }
+ },
+ {
+  "a": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "datetime": "2024-12-28 17:00:00",
+  "forecast": {
+   "d": "0.0315",
+   "l": "0.9627",
+   "w": "0.0058"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "id": "27534",
+  "isResult": true,
+  "xG": {
+   "a": "3.1724",
+   "h": "0.302293"
+  }
+ },
+ {
+  "a": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "datetime": "2024-12-28 19:45:00",
+  "forecast": {
+   "d": "0.0487",
+   "l": "0.9407",
+   "w": "0.0106"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "id": "27535",
+  "isResult": true,
+  "xG": {
+   "a": "2.98315",
+   "h": "0.564499"
+  }
+ },
+ {
+  "a": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "datetime": "2024-12-29 11:30:00",
+  "forecast": {
+   "d": "0.2856",
+   "l": "0.1562",
+   "w": "0.5582"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "id": "27541",
+  "isResult": true,
+  "xG": {
+   "a": "0.603591",
+   "h": "1.23954"
+  }
+ },
+ {
+  "a": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "datetime": "2024-12-29 14:00:00",
+  "forecast": {
+   "d": "0.0946",
+   "l": "0.0184",
+   "w": "0.887"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "id": "27539",
+  "isResult": true,
+  "xG": {
+   "a": "0.462133",
+   "h": "2.55505"
+  }
+ },
+ {
+  "a": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "datetime": "2024-12-29 17:00:00",
+  "forecast": {
+   "d": "0.2516",
+   "l": "0.185",
+   "w": "0.5634"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "id": "27537",
+  "isResult": true,
+  "xG": {
+   "a": "1.02946",
+   "h": "1.74742"
+  }
+ },
+ {
+  "a": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "datetime": "2024-12-29 19:45:00",
+  "forecast": {
+   "d": "0.2462",
+   "l": "0.2253",
+   "w": "0.5285"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "id": "27538",
+  "isResult": true,
+  "xG": {
+   "a": "1.61126",
+   "h": "2.26348"
+  }
+ },
+ {
+  "a": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "datetime": "2024-12-30 17:30:00",
+  "forecast": {
+   "d": "0.1091",
+   "l": "0.0298",
+   "w": "0.8611"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "id": "27533",
+  "isResult": true,
+  "xG": {
+   "a": "0.436266",
+   "h": "2.25936"
+  }
+ },
+ {
+  "a": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "datetime": "2024-12-30 19:45:00",
+  "forecast": {
+   "d": "0.1043",
+   "l": "0.0456",
+   "w": "0.8501"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "id": "27532",
+  "isResult": true,
+  "xG": {
+   "a": "0.798964",
+   "h": "2.86482"
+  }
+ },
+ {
+  "a": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "datetime": "2025-01-04 14:00:00",
+  "forecast": {
+   "d": "0.2329",
+   "l": "0.6769",
+   "w": "0.0902"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "id": "27551",
+  "isResult": true,
+  "xG": {
+   "a": "1.52251",
+   "h": "0.455526"
+  }
+ },
+ {
+  "a": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "datetime": "2025-01-04 17:00:00",
+  "forecast": {
+   "d": "0.2616",
+   "l": "0.5758",
+   "w": "0.1626"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "id": "27544",
+  "isResult": true,
+  "xG": {
+   "a": "1.59728",
+   "h": "0.877617"
+  }
+ },
+ {
+  "a": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "datetime": "2025-01-04 19:45:00",
+  "forecast": {
+   "d": "0.3778",
+   "l": "0.2834",
+   "w": "0.3388"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "id": "27545",
+  "isResult": true,
+  "xG": {
+   "a": "0.655965",
+   "h": "0.745287"
+  }
+ },
+ {
+  "a": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "datetime": "2025-01-05 11:30:00",
+  "forecast": {
+   "d": "0.2466",
+   "l": "0.1267",
+   "w": "0.6267"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "id": "27548",
+  "isResult": true,
+  "xG": {
+   "a": "0.781523",
+   "h": "1.55837"
+  }
+ },
+ {
+  "a": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "datetime": "2025-01-05 14:00:00",
+  "forecast": {
+   "d": "0.3117",
+   "l": "0.5872",
+   "w": "0.1011"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "id": "27547",
+  "isResult": true,
+  "xG": {
+   "a": "1.06752",
+   "h": "0.545634"
+  }
+ },
+ {
+  "a": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "datetime": "2025-01-05 17:00:00",
+  "forecast": {
+   "d": "0.3212",
+   "l": "0.1014",
+   "w": "0.5774"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "id": "27550",
+  "isResult": true,
+  "xG": {
+   "a": "0.321586",
+   "h": "1.0858"
+  }
+ },
+ {
+  "a": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "datetime": "2025-01-05 19:45:00",
+  "forecast": {
+   "d": "0.3148",
+   "l": "0.3498",
+   "w": "0.3354"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "id": "27549",
+  "isResult": true,
+  "xG": {
+   "a": "1.31957",
+   "h": "1.23422"
+  }
+ },
+ {
+  "a": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "datetime": "2025-01-10 19:45:00",
+  "forecast": {
+   "d": "0.2349",
+   "l": "0.5974",
+   "w": "0.1677"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "id": "27559",
+  "isResult": true,
+  "xG": {
+   "a": "1.9019",
+   "h": "1.03936"
+  }
+ },
+ {
+  "a": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "datetime": "2025-01-11 14:00:00",
+  "forecast": {
+   "d": "0.2285",
+   "l": "0.2003",
+   "w": "0.5712"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "id": "27556",
+  "isResult": true,
+  "xG": {
+   "a": "1.57649",
+   "h": "2.31529"
+  }
+ },
+ {
+  "a": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "datetime": "2025-01-11 14:00:00",
+  "forecast": {
+   "d": "0.0918",
+   "l": "0.0152",
+   "w": "0.893"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "id": "27561",
+  "isResult": true,
+  "xG": {
+   "a": "0.233045",
+   "h": "2.05217"
+  }
+ },
+ {
+  "a": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "datetime": "2025-01-11 17:00:00",
+  "forecast": {
+   "d": "0.3616",
+   "l": "0.4874",
+   "w": "0.151"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "id": "27555",
+  "isResult": true,
+  "xG": {
+   "a": "0.94701",
+   "h": "0.411274"
+  }
+ },
+ {
+  "a": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "datetime": "2025-01-11 19:45:00",
+  "forecast": {
+   "d": "0.0751",
+   "l": "0.0159",
+   "w": "0.909"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "id": "27560",
+  "isResult": true,
+  "xG": {
+   "a": "0.308787",
+   "h": "2.43026"
+  }
+ },
+ {
+  "a": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "datetime": "2025-01-12 11:30:00",
+  "forecast": {
+   "d": "0.2348",
+   "l": "0.1063",
+   "w": "0.6589"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "id": "27558",
+  "isResult": true,
+  "xG": {
+   "a": "0.513393",
+   "h": "1.51628"
+  }
+ },
+ {
+  "a": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "datetime": "2025-01-12 14:00:00",
+  "forecast": {
+   "d": "0.1422",
+   "l": "0.7934",
+   "w": "0.0644"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "id": "27557",
+  "isResult": true,
+  "xG": {
+   "a": "2.35271",
+   "h": "0.668042"
+  }
+ },
+ {
+  "a": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "datetime": "2025-01-12 17:00:00",
+  "forecast": {
+   "d": "0.2497",
+   "l": "0.1914",
+   "w": "0.5589"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "id": "27554",
+  "isResult": true,
+  "xG": {
+   "a": "1.58872",
+   "h": "2.28949"
+  }
+ },
+ {
+  "a": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "datetime": "2025-01-12 19:45:00",
+  "forecast": {
+   "d": "0.1756",
+   "l": "0.0326",
+   "w": "0.7918"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "id": "27553",
+  "isResult": true,
+  "xG": {
+   "a": "0.23211",
+   "h": "1.59033"
+  }
+ },
+ {
+  "a": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "datetime": "2025-01-13 19:45:00",
+  "forecast": {
+   "d": "0.2778",
+   "l": "0.5435",
+   "w": "0.1787"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "id": "27552",
+  "isResult": true,
+  "xG": {
+   "a": "1.60714",
+   "h": "0.988429"
+  }
+ },
+ {
+  "a": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "datetime": "2025-01-14 17:30:00",
+  "forecast": {
+   "d": "0.2748",
+   "l": "0.3149",
+   "w": "0.4103"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "id": "27543",
+  "isResult": true,
+  "xG": {
+   "a": "1.44061",
+   "h": "1.63578"
+  }
+ },
+ {
+  "a": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "datetime": "2025-01-14 19:45:00",
+  "forecast": {
+   "d": "0.222",
+   "l": "0.5441",
+   "w": "0.2339"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "id": "27542",
+  "isResult": true,
+  "xG": {
+   "a": "2.27956",
+   "h": "1.5823"
+  }
+ },
+ {
+  "a": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "datetime": "2025-01-15 19:45:00",
+  "forecast": {
+   "d": "0.2415",
+   "l": "0.113",
+   "w": "0.6455"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "id": "27546",
+  "isResult": true,
+  "xG": {
+   "a": "0.914393",
+   "h": "1.79382"
+  }
+ },
+ {
+  "a": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "datetime": "2025-01-17 19:45:00",
+  "forecast": {
+   "d": "0.1648",
+   "l": "0.0418",
+   "w": "0.7934"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "id": "27570",
+  "isResult": true,
+  "xG": {
+   "a": "0.494153",
+   "h": "1.79725"
+  }
+ },
+ {
+  "a": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "datetime": "2025-01-18 14:00:00",
+  "forecast": {
+   "d": "0.1108",
+   "l": "0.0208",
+   "w": "0.8684"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "id": "27571",
+  "isResult": true,
+  "xG": {
+   "a": "0.410907",
+   "h": "2.33675"
+  }
+ },
+ {
+  "a": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "datetime": "2025-01-18 17:00:00",
+  "forecast": {
+   "d": "0.2684",
+   "l": "0.2569",
+   "w": "0.4747"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "id": "27568",
+  "isResult": true,
+  "xG": {
+   "a": "1.17816",
+   "h": "1.56881"
+  }
+ },
+ {
+  "a": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "datetime": "2025-01-18 19:45:00",
+  "forecast": {
+   "d": "0.2877",
+   "l": "0.5331",
+   "w": "0.1792"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "id": "27562",
+  "isResult": true,
+  "xG": {
+   "a": "1.2536",
+   "h": "0.709505"
+  }
+ },
+ {
+  "a": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "datetime": "2025-01-19 11:30:00",
+  "forecast": {
+   "d": "0.2028",
+   "l": "0.0844",
+   "w": "0.7128"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "id": "27565",
+  "isResult": true,
+  "xG": {
+   "a": "0.540016",
+   "h": "1.81758"
+  }
+ },
+ {
+  "a": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "datetime": "2025-01-19 14:00:00",
+  "forecast": {
+   "d": "0.0327",
+   "l": "0.0067",
+   "w": "0.9606"
+  },
+  "goals": {
+   "a": "1",
+   "h": "4"
+  },
+  "h": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "id": "27563",
+  "isResult": true,
+  "xG": {
+   "a": "0.388374",
+   "h": "3.36227"
+  }
+ },
+ {
+  "a": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "datetime": "2025-01-19 14:00:00",
+  "forecast": {
+   "d": "0.3283",
+   "l": "0.2158",
+   "w": "0.4559"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "id": "27569",
+  "isResult": true,
+  "xG": {
+   "a": "1.1784",
+   "h": "1.59615"
+  }
+ },
+ {
+  "a": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "datetime": "2025-01-19 17:00:00",
+  "forecast": {
+   "d": "0.2477",
+   "l": "0.4992",
+   "w": "0.2531"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "id": "27566",
+  "isResult": true,
+  "xG": {
+   "a": "1.99415",
+   "h": "1.48598"
+  }
+ },
+ {
+  "a": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "datetime": "2025-01-19 19:45:00",
+  "forecast": {
+   "d": "0.208",
+   "l": "0.0665",
+   "w": "0.7255"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "id": "27567",
+  "isResult": true,
+  "xG": {
+   "a": "0.412045",
+   "h": "1.6401"
+  }
+ },
+ {
+  "a": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "datetime": "2025-01-20 19:45:00",
+  "forecast": {
+   "d": "0.2597",
+   "l": "0.0791",
+   "w": "0.6612"
+  },
+  "goals": {
+   "a": "1",
+   "h": "4"
+  },
+  "h": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "id": "27564",
+  "isResult": true,
+  "xG": {
+   "a": "0.847427",
+   "h": "1.81904"
+  }
+ },
+ {
+  "a": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "datetime": "2025-01-24 19:45:00",
+  "forecast": {
+   "d": "0.1079",
+   "l": "0.0234",
+   "w": "0.8687"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "id": "27578",
+  "isResult": true,
+  "xG": {
+   "a": "0.270772",
+   "h": "2.23206"
+  }
+ },
+ {
+  "a": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "datetime": "2025-01-25 14:00:00",
+  "forecast": {
+   "d": "0.3289",
+   "l": "0.4558",
+   "w": "0.2153"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "id": "27581",
+  "isResult": true,
+  "xG": {
+   "a": "1.04831",
+   "h": "0.704371"
+  }
+ },
+ {
+  "a": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "datetime": "2025-01-25 17:00:00",
+  "forecast": {
+   "d": "0.2016",
+   "l": "0.0825",
+   "w": "0.7159"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "id": "27577",
+  "isResult": true,
+  "xG": {
+   "a": "1.02538",
+   "h": "2.33562"
+  }
+ },
+ {
+  "a": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "datetime": "2025-01-25 19:45:00",
+  "forecast": {
+   "d": "0.3674",
+   "l": "0.3167",
+   "w": "0.3159"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "id": "27572",
+  "isResult": true,
+  "xG": {
+   "a": "0.898773",
+   "h": "0.83399"
+  }
+ },
+ {
+  "a": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "datetime": "2025-01-26 11:30:00",
+  "forecast": {
+   "d": "0.2357",
+   "l": "0.1689",
+   "w": "0.5954"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "id": "27576",
+  "isResult": true,
+  "xG": {
+   "a": "1.85515",
+   "h": "2.7112"
+  }
+ },
+ {
+  "a": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "datetime": "2025-01-26 14:00:00",
+  "forecast": {
+   "d": "0.1178",
+   "l": "0.8395",
+   "w": "0.0427"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "id": "27579",
+  "isResult": true,
+  "xG": {
+   "a": "2.6168",
+   "h": "0.805147"
+  }
+ },
+ {
+  "a": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "datetime": "2025-01-26 17:00:00",
+  "forecast": {
+   "d": "0.1155",
+   "l": "0.8388",
+   "w": "0.0457"
+  },
+  "goals": {
+   "a": "4",
+   "h": "0"
+  },
+  "h": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "id": "27575",
+  "isResult": true,
+  "xG": {
+   "a": "2.58246",
+   "h": "0.719003"
+  }
+ },
+ {
+  "a": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "datetime": "2025-01-26 19:45:00",
+  "forecast": {
+   "d": "0.2429",
+   "l": "0.1868",
+   "w": "0.5703"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "id": "27574",
+  "isResult": true,
+  "xG": {
+   "a": "1.20023",
+   "h": "2.01121"
+  }
+ },
+ {
+  "a": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "datetime": "2025-01-27 17:30:00",
+  "forecast": {
+   "d": "0.169",
+   "l": "0.775",
+   "w": "0.056"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "id": "27580",
+  "isResult": true,
+  "xG": {
+   "a": "2.17206",
+   "h": "0.709709"
+  }
+ },
+ {
+  "a": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "datetime": "2025-01-27 19:45:00",
+  "forecast": {
+   "d": "0.0343",
+   "l": "0.0062",
+   "w": "0.9595"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "id": "27573",
+  "isResult": true,
+  "xG": {
+   "a": "0.311849",
+   "h": "3.31745"
+  }
+ },
+ {
+  "a": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "datetime": "2025-01-31 19:45:00",
+  "forecast": {
+   "d": "0.1918",
+   "l": "0.0794",
+   "w": "0.7288"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "id": "27590",
+  "isResult": true,
+  "xG": {
+   "a": "0.756887",
+   "h": "2.00006"
+  }
+ },
+ {
+  "a": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "datetime": "2025-02-01 14:00:00",
+  "forecast": {
+   "d": "0.305",
+   "l": "0.4669",
+   "w": "0.2281"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "id": "27583",
+  "isResult": true,
+  "xG": {
+   "a": "1.36255",
+   "h": "0.940092"
+  }
+ },
+ {
+  "a": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "datetime": "2025-02-01 14:00:00",
+  "forecast": {
+   "d": "0.3891",
+   "l": "0.4964",
+   "w": "0.1145"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "id": "27589",
+  "isResult": true,
+  "xG": {
+   "a": "0.854806",
+   "h": "0.279515"
+  }
+ },
+ {
+  "a": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "datetime": "2025-02-01 17:00:00",
+  "forecast": {
+   "d": "0.0474",
+   "l": "0.0111",
+   "w": "0.9415"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "id": "27584",
+  "isResult": true,
+  "xG": {
+   "a": "0.629596",
+   "h": "3.35128"
+  }
+ },
+ {
+  "a": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "datetime": "2025-02-01 19:45:00",
+  "forecast": {
+   "d": "0.2332",
+   "l": "0.1105",
+   "w": "0.6563"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "id": "27585",
+  "isResult": true,
+  "xG": {
+   "a": "0.640061",
+   "h": "1.681"
+  }
+ },
+ {
+  "a": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "datetime": "2025-02-02 11:30:00",
+  "forecast": {
+   "d": "0.2282",
+   "l": "0.1271",
+   "w": "0.6447"
+  },
+  "goals": {
+   "a": "1",
+   "h": "4"
+  },
+  "h": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "id": "27582",
+  "isResult": true,
+  "xG": {
+   "a": "0.94947",
+   "h": "2.00759"
+  }
+ },
+ {
+  "a": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "datetime": "2025-02-02 14:00:00",
+  "forecast": {
+   "d": "0.1945",
+   "l": "0.7089",
+   "w": "0.0966"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "id": "27587",
+  "isResult": true,
+  "xG": {
+   "a": "1.96523",
+   "h": "0.695448"
+  }
+ },
+ {
+  "a": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "datetime": "2025-02-02 17:00:00",
+  "forecast": {
+   "d": "0.243",
+   "l": "0.6157",
+   "w": "0.1413"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "id": "27588",
+  "isResult": true,
+  "xG": {
+   "a": "1.98309",
+   "h": "1.04439"
+  }
+ },
+ {
+  "a": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "datetime": "2025-02-02 19:45:00",
+  "forecast": {
+   "d": "0.5342",
+   "l": "0.2423",
+   "w": "0.2235"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "id": "27591",
+  "isResult": true,
+  "xG": {
+   "a": "0.384749",
+   "h": "0.364702"
+  }
+ },
+ {
+  "a": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "datetime": "2025-02-03 19:45:00",
+  "forecast": {
+   "d": "0.2707",
+   "l": "0.3819",
+   "w": "0.3474"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "id": "27586",
+  "isResult": true,
+  "xG": {
+   "a": "1.9337",
+   "h": "1.82889"
+  }
+ },
+ {
+  "a": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "datetime": "2025-02-06 19:30:00",
+  "forecast": {
+   "d": "0.3287",
+   "l": "0.1854",
+   "w": "0.4859"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "id": "27497",
+  "isResult": true,
+  "xG": {
+   "a": "0.589261",
+   "h": "1.05274"
+  }
+ },
+ {
+  "a": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "datetime": "2025-02-07 17:00:00",
+  "forecast": {
+   "d": "0.3023",
+   "l": "0.4898",
+   "w": "0.2079"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "id": "27592",
+  "isResult": true,
+  "xG": {
+   "a": "1.32392",
+   "h": "0.935692"
+  }
+ },
+ {
+  "a": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "datetime": "2025-02-08 17:00:00",
+  "forecast": {
+   "d": "0.1968",
+   "l": "0.7026",
+   "w": "0.1006"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "id": "27594",
+  "isResult": true,
+  "xG": {
+   "a": "1.90573",
+   "h": "0.668788"
+  }
+ },
+ {
+  "a": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "datetime": "2025-02-08 17:00:00",
+  "forecast": {
+   "d": "0.2381",
+   "l": "0.459",
+   "w": "0.3029"
+  },
+  "goals": {
+   "a": "5",
+   "h": "0"
+  },
+  "h": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "id": "27595",
+  "isResult": true,
+  "xG": {
+   "a": "2.14751",
+   "h": "1.78844"
+  }
+ },
+ {
+  "a": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "datetime": "2025-02-08 17:00:00",
+  "forecast": {
+   "d": "0.4587",
+   "l": "0.1467",
+   "w": "0.3946"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "id": "27599",
+  "isResult": true,
+  "xG": {
+   "a": "0.308682",
+   "h": "0.647236"
+  }
+ },
+ {
+  "a": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "datetime": "2025-02-09 17:00:00",
+  "forecast": {
+   "d": "0.2766",
+   "l": "0.2735",
+   "w": "0.4499"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "id": "27593",
+  "isResult": true,
+  "xG": {
+   "a": "1.15072",
+   "h": "1.49632"
+  }
+ },
+ {
+  "a": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "datetime": "2025-02-09 17:00:00",
+  "forecast": {
+   "d": "0.3585",
+   "l": "0.3126",
+   "w": "0.3289"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "id": "27597",
+  "isResult": true,
+  "xG": {
+   "a": "0.8506",
+   "h": "0.844895"
+  }
+ },
+ {
+  "a": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "datetime": "2025-02-09 17:00:00",
+  "forecast": {
+   "d": "0.185",
+   "l": "0.7266",
+   "w": "0.0884"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "id": "27600",
+  "isResult": true,
+  "xG": {
+   "a": "2.14236",
+   "h": "0.905188"
+  }
+ },
+ {
+  "a": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "datetime": "2025-02-09 17:00:00",
+  "forecast": {
+   "d": "0.0229",
+   "l": "0.0055",
+   "w": "0.9716"
+  },
+  "goals": {
+   "a": "1",
+   "h": "5"
+  },
+  "h": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "id": "27601",
+  "isResult": true,
+  "xG": {
+   "a": "0.87219",
+   "h": "4.42993"
+  }
+ },
+ {
+  "a": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "datetime": "2025-02-09 19:45:00",
+  "forecast": {
+   "d": "0.2486",
+   "l": "0.1785",
+   "w": "0.5729"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "id": "27598",
+  "isResult": true,
+  "xG": {
+   "a": "1.28733",
+   "h": "2.07882"
+  }
+ },
+ {
+  "a": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "datetime": "2025-02-10 19:45:00",
+  "forecast": {
+   "d": "0.2667",
+   "l": "0.1509",
+   "w": "0.5824"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "id": "27596",
+  "isResult": true,
+  "xG": {
+   "a": "1.03291",
+   "h": "1.87526"
+  }
+ },
+ {
+  "a": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "datetime": "2025-02-14 19:45:00",
+  "forecast": {
+   "d": "0.1419",
+   "l": "0.0866",
+   "w": "0.7715"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "id": "27602",
+  "isResult": true,
+  "xG": {
+   "a": "1.64846",
+   "h": "3.46262"
+  }
+ },
+ {
+  "a": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "datetime": "2025-02-15 14:00:00",
+  "forecast": {
+   "d": "0.5749",
+   "l": "0.0722",
+   "w": "0.3529"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "id": "27603",
+  "isResult": true,
+  "xG": {
+   "a": "0.123294",
+   "h": "0.473748"
+  }
+ },
+ {
+  "a": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "datetime": "2025-02-15 17:00:00",
+  "forecast": {
+   "d": "0.3773",
+   "l": "0.2029",
+   "w": "0.4198"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "id": "27609",
+  "isResult": true,
+  "xG": {
+   "a": "0.558588",
+   "h": "0.883377"
+  }
+ },
+ {
+  "a": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "datetime": "2025-02-15 19:45:00",
+  "forecast": {
+   "d": "0.1624",
+   "l": "0.0457",
+   "w": "0.7919"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "id": "27608",
+  "isResult": true,
+  "xG": {
+   "a": "0.372202",
+   "h": "1.8755"
+  }
+ },
+ {
+  "a": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "datetime": "2025-02-16 11:30:00",
+  "forecast": {
+   "d": "0.3846",
+   "l": "0.4497",
+   "w": "0.1657"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "id": "27611",
+  "isResult": true,
+  "xG": {
+   "a": "0.875449",
+   "h": "0.431215"
+  }
+ },
+ {
+  "a": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "datetime": "2025-02-16 14:00:00",
+  "forecast": {
+   "d": "0.2178",
+   "l": "0.2958",
+   "w": "0.4864"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "id": "27604",
+  "isResult": true,
+  "xG": {
+   "a": "2.47474",
+   "h": "2.90516"
+  }
+ },
+ {
+  "a": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "datetime": "2025-02-16 14:00:00",
+  "forecast": {
+   "d": "0.3205",
+   "l": "0.5962",
+   "w": "0.0833"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "id": "27607",
+  "isResult": true,
+  "xG": {
+   "a": "1.10949",
+   "h": "0.278072"
+  }
+ },
+ {
+  "a": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "datetime": "2025-02-16 17:00:00",
+  "forecast": {
+   "d": "0.2231",
+   "l": "0.7178",
+   "w": "0.0591"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "id": "27606",
+  "isResult": true,
+  "xG": {
+   "a": "1.41178",
+   "h": "0.293477"
+  }
+ },
+ {
+  "a": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "datetime": "2025-02-16 19:45:00",
+  "forecast": {
+   "d": "0.2279",
+   "l": "0.5638",
+   "w": "0.2083"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "id": "27610",
+  "isResult": true,
+  "xG": {
+   "a": "2.08504",
+   "h": "1.3662"
+  }
+ },
+ {
+  "a": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "datetime": "2025-02-17 19:45:00",
+  "forecast": {
+   "d": "0.208",
+   "l": "0.0536",
+   "w": "0.7384"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "id": "27605",
+  "isResult": true,
+  "xG": {
+   "a": "0.341183",
+   "h": "1.60036"
+  }
+ },
+ {
+  "a": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "datetime": "2025-02-21 19:45:00",
+  "forecast": {
+   "d": "0.2127",
+   "l": "0.7151",
+   "w": "0.0722"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "id": "27615",
+  "isResult": true,
+  "xG": {
+   "a": "1.52436",
+   "h": "0.484479"
+  }
+ },
+ {
+  "a": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "datetime": "2025-02-22 14:00:00",
+  "forecast": {
+   "d": "0.2633",
+   "l": "0.1315",
+   "w": "0.6052"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "id": "27616",
+  "isResult": true,
+  "xG": {
+   "a": "0.698426",
+   "h": "1.4111"
+  }
+ },
+ {
+  "a": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "datetime": "2025-02-22 14:00:00",
+  "forecast": {
+   "d": "0.3411",
+   "l": "0.276",
+   "w": "0.3829"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "id": "27619",
+  "isResult": true,
+  "xG": {
+   "a": "0.790887",
+   "h": "0.995737"
+  }
+ },
+ {
+  "a": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "datetime": "2025-02-22 17:00:00",
+  "forecast": {
+   "d": "0.1448",
+   "l": "0.7972",
+   "w": "0.058"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "id": "27618",
+  "isResult": true,
+  "xG": {
+   "a": "2.18445",
+   "h": "0.556583"
+  }
+ },
+ {
+  "a": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "datetime": "2025-02-22 19:45:00",
+  "forecast": {
+   "d": "0.2771",
+   "l": "0.4048",
+   "w": "0.3181"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "id": "27614",
+  "isResult": true,
+  "xG": {
+   "a": "1.51356",
+   "h": "1.3989"
+  }
+ },
+ {
+  "a": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "datetime": "2025-02-23 11:30:00",
+  "forecast": {
+   "d": "0.3267",
+   "l": "0.5317",
+   "w": "0.1416"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "id": "27620",
+  "isResult": true,
+  "xG": {
+   "a": "1.10277",
+   "h": "0.466603"
+  }
+ },
+ {
+  "a": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "datetime": "2025-02-23 14:00:00",
+  "forecast": {
+   "d": "0.3086",
+   "l": "0.5596",
+   "w": "0.1318"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "id": "27613",
+  "isResult": true,
+  "xG": {
+   "a": "1.15567",
+   "h": "0.450798"
+  }
+ },
+ {
+  "a": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "datetime": "2025-02-23 17:00:00",
+  "forecast": {
+   "d": "0.1238",
+   "l": "0.8393",
+   "w": "0.0369"
+  },
+  "goals": {
+   "a": "5",
+   "h": "0"
+  },
+  "h": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "id": "27612",
+  "isResult": true,
+  "xG": {
+   "a": "2.50618",
+   "h": "0.775943"
+  }
+ },
+ {
+  "a": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "datetime": "2025-02-23 19:45:00",
+  "forecast": {
+   "d": "0.1031",
+   "l": "0.8789",
+   "w": "0.018"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "id": "27621",
+  "isResult": true,
+  "xG": {
+   "a": "2.20526",
+   "h": "0.225637"
+  }
+ },
+ {
+  "a": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "datetime": "2025-02-24 19:45:00",
+  "forecast": {
+   "d": "0.1221",
+   "l": "0.0299",
+   "w": "0.848"
+  },
+  "goals": {
+   "a": "0",
+   "h": "4"
+  },
+  "h": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "id": "27617",
+  "isResult": true,
+  "xG": {
+   "a": "0.332233",
+   "h": "2.16209"
+  }
+ },
+ {
+  "a": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "datetime": "2025-02-27 19:45:00",
+  "forecast": {
+   "d": "0.2437",
+   "l": "0.1915",
+   "w": "0.5648"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "id": "27442",
+  "isResult": true,
+  "xG": {
+   "a": "1.55538",
+   "h": "2.31992"
+  }
+ },
+ {
+  "a": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "datetime": "2025-02-28 19:45:00",
+  "forecast": {
+   "d": "0.3389",
+   "l": "0.2251",
+   "w": "0.436"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "id": "27624",
+  "isResult": true,
+  "xG": {
+   "a": "1.11638",
+   "h": "1.43821"
+  }
+ },
+ {
+  "a": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "datetime": "2025-03-01 14:00:00",
+  "forecast": {
+   "d": "0.0358",
+   "l": "0.0079",
+   "w": "0.9563"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "id": "27622",
+  "isResult": true,
+  "xG": {
+   "a": "0.359199",
+   "h": "3.34552"
+  }
+ },
+ {
+  "a": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "datetime": "2025-03-01 17:00:00",
+  "forecast": {
+   "d": "0.1849",
+   "l": "0.0598",
+   "w": "0.7553"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "id": "27629",
+  "isResult": true,
+  "xG": {
+   "a": "0.452597",
+   "h": "1.72874"
+  }
+ },
+ {
+  "a": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "datetime": "2025-03-01 19:45:00",
+  "forecast": {
+   "d": "0.1717",
+   "l": "0.0679",
+   "w": "0.7604"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "id": "27631",
+  "isResult": true,
+  "xG": {
+   "a": "0.617812",
+   "h": "2.0589"
+  }
+ },
+ {
+  "a": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "datetime": "2025-03-02 11:30:00",
+  "forecast": {
+   "d": "0.262",
+   "l": "0.6073",
+   "w": "0.1307"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "id": "27628",
+  "isResult": true,
+  "xG": {
+   "a": "1.43219",
+   "h": "0.582104"
+  }
+ },
+ {
+  "a": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "datetime": "2025-03-02 14:00:00",
+  "forecast": {
+   "d": "0.1306",
+   "l": "0.0209",
+   "w": "0.8485"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "id": "27623",
+  "isResult": true,
+  "xG": {
+   "a": "0.68032",
+   "h": "2.25801"
+  }
+ },
+ {
+  "a": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "datetime": "2025-03-02 14:00:00",
+  "forecast": {
+   "d": "0.3062",
+   "l": "0.6353",
+   "w": "0.0585"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "id": "27625",
+  "isResult": true,
+  "xG": {
+   "a": "1.00977",
+   "h": "0.229571"
+  }
+ },
+ {
+  "a": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "datetime": "2025-03-02 17:00:00",
+  "forecast": {
+   "d": "0.2823",
+   "l": "0.2795",
+   "w": "0.4382"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "id": "27630",
+  "isResult": true,
+  "xG": {
+   "a": "1.29634",
+   "h": "1.59518"
+  }
+ },
+ {
+  "a": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "datetime": "2025-03-02 19:45:00",
+  "forecast": {
+   "d": "0.1916",
+   "l": "0.6779",
+   "w": "0.1305"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "id": "27627",
+  "isResult": true,
+  "xG": {
+   "a": "2.53115",
+   "h": "1.28991"
+  }
+ },
+ {
+  "a": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "datetime": "2025-03-03 19:45:00",
+  "forecast": {
+   "d": "0.1516",
+   "l": "0.0377",
+   "w": "0.8107"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "id": "27626",
+  "isResult": true,
+  "xG": {
+   "a": "0.269838",
+   "h": "1.97535"
+  }
+ },
+ {
+  "a": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "datetime": "2025-03-07 19:45:00",
+  "forecast": {
+   "d": "0.2833",
+   "l": "0.5415",
+   "w": "0.1752"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "id": "27632",
+  "isResult": true,
+  "xG": {
+   "a": "1.43054",
+   "h": "0.809829"
+  }
+ },
+ {
+  "a": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "datetime": "2025-03-08 14:00:00",
+  "forecast": {
+   "d": "0.302",
+   "l": "0.503",
+   "w": "0.195"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "id": "27633",
+  "isResult": true,
+  "xG": {
+   "a": "1.80606",
+   "h": "1.2727"
+  }
+ },
+ {
+  "a": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "datetime": "2025-03-08 14:00:00",
+  "forecast": {
+   "d": "0.278",
+   "l": "0.1512",
+   "w": "0.5708"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "id": "27641",
+  "isResult": true,
+  "xG": {
+   "a": "0.72136",
+   "h": "1.48743"
+  }
+ },
+ {
+  "a": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "datetime": "2025-03-08 17:00:00",
+  "forecast": {
+   "d": "0.1001",
+   "l": "0.8508",
+   "w": "0.0491"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "id": "27639",
+  "isResult": true,
+  "xG": {
+   "a": "3.27991",
+   "h": "1.1897"
+  }
+ },
+ {
+  "a": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "datetime": "2025-03-08 19:45:00",
+  "forecast": {
+   "d": "0.0929",
+   "l": "0.0335",
+   "w": "0.8736"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "id": "27636",
+  "isResult": true,
+  "xG": {
+   "a": "0.779109",
+   "h": "3.0629"
+  }
+ },
+ {
+  "a": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "datetime": "2025-03-09 11:30:00",
+  "forecast": {
+   "d": "0.3006",
+   "l": "0.3671",
+   "w": "0.3323"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "id": "27635",
+  "isResult": true,
+  "xG": {
+   "a": "1.38177",
+   "h": "1.28101"
+  }
+ },
+ {
+  "a": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "datetime": "2025-03-09 14:00:00",
+  "forecast": {
+   "d": "0.1316",
+   "l": "0.0633",
+   "w": "0.8051"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "id": "27640",
+  "isResult": true,
+  "xG": {
+   "a": "1.05617",
+   "h": "2.93764"
+  }
+ },
+ {
+  "a": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "datetime": "2025-03-09 17:00:00",
+  "forecast": {
+   "d": "0.0243",
+   "l": "0.9743",
+   "w": "0.0014"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "id": "27634",
+  "isResult": true,
+  "xG": {
+   "a": "2.99912",
+   "h": "0.0771894"
+  }
+ },
+ {
+  "a": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "datetime": "2025-03-09 19:45:00",
+  "forecast": {
+   "d": "0.032",
+   "l": "0.962",
+   "w": "0.006"
+  },
+  "goals": {
+   "a": "4",
+   "h": "0"
+  },
+  "h": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "id": "27637",
+  "isResult": true,
+  "xG": {
+   "a": "3.93513",
+   "h": "0.940693"
+  }
+ },
+ {
+  "a": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "datetime": "2025-03-10 19:45:00",
+  "forecast": {
+   "d": "0.3769",
+   "l": "0.3908",
+   "w": "0.2323"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "id": "27638",
+  "isResult": true,
+  "xG": {
+   "a": "1.23859",
+   "h": "1.01458"
+  }
+ },
+ {
+  "a": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "datetime": "2025-03-14 19:45:00",
+  "forecast": {
+   "d": "0.3504",
+   "l": "0.3781",
+   "w": "0.2715"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "id": "27646",
+  "isResult": true,
+  "xG": {
+   "a": "1.20452",
+   "h": "1.06034"
+  }
+ },
+ {
+  "a": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "datetime": "2025-03-15 14:00:00",
+  "forecast": {
+   "d": "0.358",
+   "l": "0.2102",
+   "w": "0.4318"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "id": "27642",
+  "isResult": true,
+  "xG": {
+   "a": "0.616308",
+   "h": "0.9314"
+  }
+ },
+ {
+  "a": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "datetime": "2025-03-15 14:00:00",
+  "forecast": {
+   "d": "0.4953",
+   "l": "0.3481",
+   "w": "0.1566"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "id": "27650",
+  "isResult": true,
+  "xG": {
+   "a": "0.542985",
+   "h": "0.318009"
+  }
+ },
+ {
+  "a": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "datetime": "2025-03-15 17:00:00",
+  "forecast": {
+   "d": "0.254",
+   "l": "0.2706",
+   "w": "0.4754"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "id": "27647",
+  "isResult": true,
+  "xG": {
+   "a": "1.35523",
+   "h": "1.72803"
+  }
+ },
+ {
+  "a": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "datetime": "2025-03-15 19:45:00",
+  "forecast": {
+   "d": "0.2249",
+   "l": "0.654",
+   "w": "0.1211"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "id": "27649",
+  "isResult": true,
+  "xG": {
+   "a": "1.73375",
+   "h": "0.701071"
+  }
+ },
+ {
+  "a": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "datetime": "2025-03-16 11:30:00",
+  "forecast": {
+   "d": "0.31",
+   "l": "0.3977",
+   "w": "0.2923"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "id": "27651",
+  "isResult": true,
+  "xG": {
+   "a": "1.2665",
+   "h": "1.04696"
+  }
+ },
+ {
+  "a": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "datetime": "2025-03-16 14:00:00",
+  "forecast": {
+   "d": "0.0706",
+   "l": "0.0165",
+   "w": "0.9129"
+  },
+  "goals": {
+   "a": "0",
+   "h": "5"
+  },
+  "h": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "id": "27645",
+  "isResult": true,
+  "xG": {
+   "a": "0.600718",
+   "h": "2.85431"
+  }
+ },
+ {
+  "a": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "datetime": "2025-03-16 15:00:00",
+  "forecast": {
+   "d": "0.2842",
+   "l": "0.2013",
+   "w": "0.5145"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "id": "27648",
+  "isResult": true,
+  "xG": {
+   "a": "1.10046",
+   "h": "1.61105"
+  }
+ },
+ {
+  "a": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "datetime": "2025-03-16 17:00:00",
+  "forecast": {
+   "d": "0.4433",
+   "l": "0.3137",
+   "w": "0.243"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "id": "27644",
+  "isResult": true,
+  "xG": {
+   "a": "0.597644",
+   "h": "0.508254"
+  }
+ },
+ {
+  "a": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "datetime": "2025-03-16 19:45:00",
+  "forecast": {
+   "d": "0.1498",
+   "l": "0.7749",
+   "w": "0.0753"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "id": "27643",
+  "isResult": true,
+  "xG": {
+   "a": "2.28143",
+   "h": "0.682065"
+  }
+ },
+ {
+  "a": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "datetime": "2025-03-29 14:00:00",
+  "forecast": {
+   "d": "0.278",
+   "l": "0.3271",
+   "w": "0.3949"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "id": "27652",
+  "isResult": true,
+  "xG": {
+   "a": "1.78514",
+   "h": "1.93663"
+  }
+ },
+ {
+  "a": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "datetime": "2025-03-29 14:00:00",
+  "forecast": {
+   "d": "0.3186",
+   "l": "0.5205",
+   "w": "0.1609"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "id": "27653",
+  "isResult": true,
+  "xG": {
+   "a": "1.29589",
+   "h": "0.683347"
+  }
+ },
+ {
+  "a": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "datetime": "2025-03-29 17:00:00",
+  "forecast": {
+   "d": "0.1975",
+   "l": "0.0453",
+   "w": "0.7572"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "id": "27659",
+  "isResult": true,
+  "xG": {
+   "a": "0.263169",
+   "h": "1.50908"
+  }
+ },
+ {
+  "a": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "datetime": "2025-03-29 19:45:00",
+  "forecast": {
+   "d": "0.2036",
+   "l": "0.6808",
+   "w": "0.1156"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "id": "27657",
+  "isResult": true,
+  "xG": {
+   "a": "1.90759",
+   "h": "0.694403"
+  }
+ },
+ {
+  "a": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "datetime": "2025-03-30 11:30:00",
+  "forecast": {
+   "d": "0.2162",
+   "l": "0.1184",
+   "w": "0.6654"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "id": "27658",
+  "isResult": true,
+  "xG": {
+   "a": "0.962993",
+   "h": "1.95839"
+  }
+ },
+ {
+  "a": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "datetime": "2025-03-30 14:00:00",
+  "forecast": {
+   "d": "0.2249",
+   "l": "0.1208",
+   "w": "0.6543"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "id": "27661",
+  "isResult": true,
+  "xG": {
+   "a": "0.918743",
+   "h": "1.92673"
+  }
+ },
+ {
+  "a": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "datetime": "2025-03-30 17:00:00",
+  "forecast": {
+   "d": "0.2139",
+   "l": "0.1491",
+   "w": "0.637"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "id": "27655",
+  "isResult": true,
+  "xG": {
+   "a": "1.3398",
+   "h": "2.33787"
+  }
+ },
+ {
+  "a": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "datetime": "2025-03-30 19:45:00",
+  "forecast": {
+   "d": "0.1874",
+   "l": "0.7215",
+   "w": "0.0911"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "id": "27654",
+  "isResult": true,
+  "xG": {
+   "a": "2.25619",
+   "h": "0.945094"
+  }
+ },
+ {
+  "a": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "datetime": "2025-03-31 17:30:00",
+  "forecast": {
+   "d": "0.3896",
+   "l": "0.201",
+   "w": "0.4094"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "id": "27660",
+  "isResult": true,
+  "xG": {
+   "a": "0.501452",
+   "h": "0.765236"
+  }
+ },
+ {
+  "a": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "datetime": "2025-03-31 19:45:00",
+  "forecast": {
+   "d": "0.1969",
+   "l": "0.0892",
+   "w": "0.7139"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "id": "27656",
+  "isResult": true,
+  "xG": {
+   "a": "0.632735",
+   "h": "1.93778"
+  }
+ },
+ {
+  "a": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "datetime": "2025-04-04 18:45:00",
+  "forecast": {
+   "d": "0.2697",
+   "l": "0.2205",
+   "w": "0.5098"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "id": "27667",
+  "isResult": true,
+  "xG": {
+   "a": "1.11114",
+   "h": "1.65486"
+  }
+ },
+ {
+  "a": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "datetime": "2025-04-05 13:00:00",
+  "forecast": {
+   "d": "0.2135",
+   "l": "0.6865",
+   "w": "0.1"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "id": "27663",
+  "isResult": true,
+  "xG": {
+   "a": "2.27029",
+   "h": "1.05971"
+  }
+ },
+ {
+  "a": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "datetime": "2025-04-05 16:00:00",
+  "forecast": {
+   "d": "0.2397",
+   "l": "0.4974",
+   "w": "0.2629"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "id": "27670",
+  "isResult": true,
+  "xG": {
+   "a": "2.17944",
+   "h": "1.66115"
+  }
+ },
+ {
+  "a": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "datetime": "2025-04-05 18:45:00",
+  "forecast": {
+   "d": "0.1976",
+   "l": "0.5909",
+   "w": "0.2115"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "id": "27669",
+  "isResult": true,
+  "xG": {
+   "a": "3.04937",
+   "h": "2.17819"
+  }
+ },
+ {
+  "a": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "datetime": "2025-04-06 10:30:00",
+  "forecast": {
+   "d": "0.2777",
+   "l": "0.2112",
+   "w": "0.5111"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "id": "27668",
+  "isResult": true,
+  "xG": {
+   "a": "0.898847",
+   "h": "1.50136"
+  }
+ },
+ {
+  "a": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "datetime": "2025-04-06 13:00:00",
+  "forecast": {
+   "d": "0.5821",
+   "l": "0.101",
+   "w": "0.3169"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "id": "27666",
+  "isResult": true,
+  "xG": {
+   "a": "0.162801",
+   "h": "0.386589"
+  }
+ },
+ {
+  "a": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "datetime": "2025-04-06 13:00:00",
+  "forecast": {
+   "d": "0.3743",
+   "l": "0.4241",
+   "w": "0.2016"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "id": "27671",
+  "isResult": true,
+  "xG": {
+   "a": "1.32441",
+   "h": "0.963942"
+  }
+ },
+ {
+  "a": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "datetime": "2025-04-06 16:00:00",
+  "forecast": {
+   "d": "0.3257",
+   "l": "0.1646",
+   "w": "0.5097"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "id": "27664",
+  "isResult": true,
+  "xG": {
+   "a": "0.523108",
+   "h": "1.04022"
+  }
+ },
+ {
+  "a": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "datetime": "2025-04-06 18:45:00",
+  "forecast": {
+   "d": "0.2926",
+   "l": "0.2311",
+   "w": "0.4763"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "id": "27662",
+  "isResult": true,
+  "xG": {
+   "a": "0.994645",
+   "h": "1.37162"
+  }
+ },
+ {
+  "a": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "datetime": "2025-04-07 18:45:00",
+  "forecast": {
+   "d": "0.3718",
+   "l": "0.2904",
+   "w": "0.3378"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "id": "27665",
+  "isResult": true,
+  "xG": {
+   "a": "0.99857",
+   "h": "1.11047"
+  }
+ },
+ {
+  "a": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "datetime": "2025-04-11 18:45:00",
+  "forecast": {
+   "d": "0.1054",
+   "l": "0.857",
+   "w": "0.0376"
+  },
+  "goals": {
+   "a": "4",
+   "h": "0"
+  },
+  "h": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "id": "27681",
+  "isResult": true,
+  "xG": {
+   "a": "2.49634",
+   "h": "0.644579"
+  }
+ },
+ {
+  "a": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "datetime": "2025-04-12 13:00:00",
+  "forecast": {
+   "d": "0.2308",
+   "l": "0.0962",
+   "w": "0.673"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "id": "27672",
+  "isResult": true,
+  "xG": {
+   "a": "0.590462",
+   "h": "1.62268"
+  }
+ },
+ {
+  "a": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "datetime": "2025-04-12 16:00:00",
+  "forecast": {
+   "d": "0.2502",
+   "l": "0.1688",
+   "w": "0.581"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "id": "27678",
+  "isResult": true,
+  "xG": {
+   "a": "0.914283",
+   "h": "1.71603"
+  }
+ },
+ {
+  "a": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "datetime": "2025-04-12 18:45:00",
+  "forecast": {
+   "d": "0.216",
+   "l": "0.1448",
+   "w": "0.6392"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "id": "27673",
+  "isResult": true,
+  "xG": {
+   "a": "0.940466",
+   "h": "1.95569"
+  }
+ },
+ {
+  "a": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "datetime": "2025-04-13 10:30:00",
+  "forecast": {
+   "d": "0.2958",
+   "l": "0.142",
+   "w": "0.5622"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "id": "27674",
+  "isResult": true,
+  "xG": {
+   "a": "0.546815",
+   "h": "1.15847"
+  }
+ },
+ {
+  "a": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "datetime": "2025-04-13 13:00:00",
+  "forecast": {
+   "d": "0.4087",
+   "l": "0.2764",
+   "w": "0.3149"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "id": "27676",
+  "isResult": true,
+  "xG": {
+   "a": "0.616318",
+   "h": "0.670714"
+  }
+ },
+ {
+  "a": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "datetime": "2025-04-13 13:00:00",
+  "forecast": {
+   "d": "0.3425",
+   "l": "0.0351",
+   "w": "0.6224"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "id": "27677",
+  "isResult": true,
+  "xG": {
+   "a": "0.111761",
+   "h": "1.00077"
+  }
+ },
+ {
+  "a": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "datetime": "2025-04-13 16:00:00",
+  "forecast": {
+   "d": "0.3092",
+   "l": "0.2928",
+   "w": "0.398"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "id": "27675",
+  "isResult": true,
+  "xG": {
+   "a": "1.04165",
+   "h": "1.23079"
+  }
+ },
+ {
+  "a": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "datetime": "2025-04-13 18:45:00",
+  "forecast": {
+   "d": "0.1203",
+   "l": "0.0213",
+   "w": "0.8584"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "id": "27679",
+  "isResult": true,
+  "xG": {
+   "a": "0.221733",
+   "h": "1.92122"
+  }
+ },
+ {
+  "a": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "datetime": "2025-04-14 18:45:00",
+  "forecast": {
+   "d": "0.2388",
+   "l": "0.2089",
+   "w": "0.5523"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "id": "27680",
+  "isResult": true,
+  "xG": {
+   "a": "1.37277",
+   "h": "2.13717"
+  }
+ },
+ {
+  "a": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "datetime": "2025-04-19 13:00:00",
+  "forecast": {
+   "d": "0.2269",
+   "l": "0.6547",
+   "w": "0.1184"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "id": "27688",
+  "isResult": true,
+  "xG": {
+   "a": "1.65387",
+   "h": "0.666737"
+  }
+ },
+ {
+  "a": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "datetime": "2025-04-19 16:00:00",
+  "forecast": {
+   "d": "0.2486",
+   "l": "0.5789",
+   "w": "0.1725"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "id": "27687",
+  "isResult": true,
+  "xG": {
+   "a": "1.66648",
+   "h": "0.874819"
+  }
+ },
+ {
+  "a": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "datetime": "2025-04-19 18:45:00",
+  "forecast": {
+   "d": "0.2085",
+   "l": "0.0346",
+   "w": "0.7569"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "id": "27690",
+  "isResult": true,
+  "xG": {
+   "a": "0.330349",
+   "h": "1.24696"
+  }
+ },
+ {
+  "a": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "datetime": "2025-04-20 13:00:00",
+  "forecast": {
+   "d": "0.3287",
+   "l": "0.4318",
+   "w": "0.2395"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "id": "27684",
+  "isResult": true,
+  "xG": {
+   "a": "1.48453",
+   "h": "1.14666"
+  }
+ },
+ {
+  "a": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "datetime": "2025-04-20 16:00:00",
+  "forecast": {
+   "d": "0.3357",
+   "l": "0.2011",
+   "w": "0.4632"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "id": "27682",
+  "isResult": true,
+  "xG": {
+   "a": "0.661137",
+   "h": "1.0878"
+  }
+ },
+ {
+  "a": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "datetime": "2025-04-20 18:45:00",
+  "forecast": {
+   "d": "0.1348",
+   "l": "0.8257",
+   "w": "0.0395"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "id": "27686",
+  "isResult": true,
+  "xG": {
+   "a": "2.07826",
+   "h": "0.495327"
+  }
+ },
+ {
+  "a": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "datetime": "2025-04-23 16:30:00",
+  "forecast": {
+   "d": "0.4343",
+   "l": "0.3992",
+   "w": "0.1665"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "id": "27683",
+  "isResult": true,
+  "xG": {
+   "a": "0.701424",
+   "h": "0.367407"
+  }
+ },
+ {
+  "a": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "datetime": "2025-04-23 16:30:00",
+  "forecast": {
+   "d": "0.2772",
+   "l": "0.6014",
+   "w": "0.1214"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "id": "27685",
+  "isResult": true,
+  "xG": {
+   "a": "1.33679",
+   "h": "0.470637"
+  }
+ },
+ {
+  "a": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "datetime": "2025-04-23 16:30:00",
+  "forecast": {
+   "d": "0.3643",
+   "l": "0.3047",
+   "w": "0.331"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "id": "27689",
+  "isResult": true,
+  "xG": {
+   "a": "0.777191",
+   "h": "0.784847"
+  }
+ },
+ {
+  "a": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "datetime": "2025-04-23 16:30:00",
+  "forecast": {
+   "d": "0.3656",
+   "l": "0.3113",
+   "w": "0.3231"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "id": "27691",
+  "isResult": true,
+  "xG": {
+   "a": "0.949917",
+   "h": "0.949162"
+  }
+ },
+ {
+  "a": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "datetime": "2025-04-27 10:30:00",
+  "forecast": {
+   "d": "0.269",
+   "l": "0.1731",
+   "w": "0.5579"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "id": "27694",
+  "isResult": true,
+  "xG": {
+   "a": "1.04585",
+   "h": "1.80373"
+  }
+ },
+ {
+  "a": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "datetime": "2025-04-27 10:30:00",
+  "forecast": {
+   "d": "0.2731",
+   "l": "0.481",
+   "w": "0.2459"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "id": "27701",
+  "isResult": true,
+  "xG": {
+   "a": "1.466",
+   "h": "1.00629"
+  }
+ },
+ {
+  "a": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "datetime": "2025-04-27 13:00:00",
+  "forecast": {
+   "d": "0.4239",
+   "l": "0.2174",
+   "w": "0.3587"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "id": "27695",
+  "isResult": true,
+  "xG": {
+   "a": "0.465943",
+   "h": "0.655092"
+  }
+ },
+ {
+  "a": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "datetime": "2025-04-27 13:00:00",
+  "forecast": {
+   "d": "0.1419",
+   "l": "0.7772",
+   "w": "0.0809"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "id": "27697",
+  "isResult": true,
+  "xG": {
+   "a": "2.79826",
+   "h": "1.10299"
+  }
+ },
+ {
+  "a": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "datetime": "2025-04-27 16:00:00",
+  "forecast": {
+   "d": "0.3123",
+   "l": "0.1818",
+   "w": "0.5059"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "id": "27692",
+  "isResult": true,
+  "xG": {
+   "a": "0.621764",
+   "h": "1.14678"
+  }
+ },
+ {
+  "a": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "datetime": "2025-04-27 18:45:00",
+  "forecast": {
+   "d": "0.2183",
+   "l": "0.1492",
+   "w": "0.6325"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "id": "27693",
+  "isResult": true,
+  "xG": {
+   "a": "1.45404",
+   "h": "2.45836"
+  }
+ },
+ {
+  "a": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "datetime": "2025-04-27 18:45:00",
+  "forecast": {
+   "d": "0.3258",
+   "l": "0.1523",
+   "w": "0.5219"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "id": "27699",
+  "isResult": true,
+  "xG": {
+   "a": "0.660531",
+   "h": "1.23274"
+  }
+ },
+ {
+  "a": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "datetime": "2025-04-28 16:30:00",
+  "forecast": {
+   "d": "0.29",
+   "l": "0.6135",
+   "w": "0.0965"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "id": "27700",
+  "isResult": true,
+  "xG": {
+   "a": "1.17741",
+   "h": "0.387188"
+  }
+ },
+ {
+  "a": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "datetime": "2025-04-28 18:45:00",
+  "forecast": {
+   "d": "0.1013",
+   "l": "0.8819",
+   "w": "0.0168"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "id": "27696",
+  "isResult": true,
+  "xG": {
+   "a": "1.87448",
+   "h": "0.27029"
+  }
+ },
+ {
+  "a": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "datetime": "2025-04-28 18:45:00",
+  "forecast": {
+   "d": "0.243",
+   "l": "0.2074",
+   "w": "0.5496"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "id": "27698",
+  "isResult": true,
+  "xG": {
+   "a": "1.09001",
+   "h": "1.7767"
+  }
+ },
+ {
+  "a": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "datetime": "2025-05-02 18:45:00",
+  "forecast": {
+   "d": "0.2696",
+   "l": "0.1884",
+   "w": "0.542"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "id": "27711",
+  "isResult": true,
+  "xG": {
+   "a": "1.07484",
+   "h": "1.74541"
+  }
+ },
+ {
+  "a": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "datetime": "2025-05-03 13:00:00",
+  "forecast": {
+   "d": "0.2351",
+   "l": "0.6476",
+   "w": "0.1173"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "id": "27703",
+  "isResult": true,
+  "xG": {
+   "a": "1.92066",
+   "h": "0.954534"
+  }
+ },
+ {
+  "a": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "datetime": "2025-05-03 13:00:00",
+  "forecast": {
+   "d": "0.1592",
+   "l": "0.1063",
+   "w": "0.7345"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "id": "27709",
+  "isResult": true,
+  "xG": {
+   "a": "1.32818",
+   "h": "2.74525"
+  }
+ },
+ {
+  "a": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "datetime": "2025-05-03 16:00:00",
+  "forecast": {
+   "d": "0.3838",
+   "l": "0.5119",
+   "w": "0.1043"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "id": "27707",
+  "isResult": true,
+  "xG": {
+   "a": "0.845058",
+   "h": "0.276702"
+  }
+ },
+ {
+  "a": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "datetime": "2025-05-03 18:45:00",
+  "forecast": {
+   "d": "0.1704",
+   "l": "0.0389",
+   "w": "0.7907"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "id": "27706",
+  "isResult": true,
+  "xG": {
+   "a": "0.303341",
+   "h": "1.59903"
+  }
+ },
+ {
+  "a": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "datetime": "2025-05-04 10:30:00",
+  "forecast": {
+   "d": "0.2973",
+   "l": "0.6579",
+   "w": "0.0448"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "id": "27704",
+  "isResult": true,
+  "xG": {
+   "a": "1.12653",
+   "h": "0.18325"
+  }
+ },
+ {
+  "a": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "datetime": "2025-05-04 13:00:00",
+  "forecast": {
+   "d": "0.0901",
+   "l": "0.8676",
+   "w": "0.0423"
+  },
+  "goals": {
+   "a": "4",
+   "h": "0"
+  },
+  "h": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "id": "27708",
+  "isResult": true,
+  "xG": {
+   "a": "3.05078",
+   "h": "0.827428"
+  }
+ },
+ {
+  "a": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "datetime": "2025-05-04 16:00:00",
+  "forecast": {
+   "d": "0.334",
+   "l": "0.2577",
+   "w": "0.4083"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "id": "27710",
+  "isResult": true,
+  "xG": {
+   "a": "0.760529",
+   "h": "1.00134"
+  }
+ },
+ {
+  "a": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "datetime": "2025-05-04 18:45:00",
+  "forecast": {
+   "d": "0.4197",
+   "l": "0.4124",
+   "w": "0.1679"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "id": "27702",
+  "isResult": true,
+  "xG": {
+   "a": "0.681163",
+   "h": "0.390379"
+  }
+ },
+ {
+  "a": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "datetime": "2025-05-05 18:45:00",
+  "forecast": {
+   "d": "0.2723",
+   "l": "0.6027",
+   "w": "0.125"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "id": "27705",
+  "isResult": true,
+  "xG": {
+   "a": "1.29954",
+   "h": "0.54789"
+  }
+ },
+ {
+  "a": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "datetime": "2025-05-09 18:45:00",
+  "forecast": {
+   "d": "0.2111",
+   "l": "0.0643",
+   "w": "0.7246"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "id": "27717",
+  "isResult": true,
+  "xG": {
+   "a": "0.361364",
+   "h": "1.55343"
+  }
+ },
+ {
+  "a": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "datetime": "2025-05-10 13:00:00",
+  "forecast": {
+   "d": "0.2345",
+   "l": "0.2285",
+   "w": "0.537"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "id": "27713",
+  "isResult": true,
+  "xG": {
+   "a": "1.22492",
+   "h": "1.93276"
+  }
+ },
+ {
+  "a": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "datetime": "2025-05-10 16:00:00",
+  "forecast": {
+   "d": "0.3236",
+   "l": "0.2441",
+   "w": "0.4323"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "id": "27716",
+  "isResult": true,
+  "xG": {
+   "a": "1.17931",
+   "h": "1.51119"
+  }
+ },
+ {
+  "a": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "datetime": "2025-05-10 18:45:00",
+  "forecast": {
+   "d": "0.3679",
+   "l": "0.1383",
+   "w": "0.4938"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "id": "27714",
+  "isResult": true,
+  "xG": {
+   "a": "0.404689",
+   "h": "0.989813"
+  }
+ },
+ {
+  "a": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "datetime": "2025-05-11 10:30:00",
+  "forecast": {
+   "d": "0.317",
+   "l": "0.4255",
+   "w": "0.2575"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "id": "27720",
+  "isResult": true,
+  "xG": {
+   "a": "1.63169",
+   "h": "1.45767"
+  }
+ },
+ {
+  "a": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "datetime": "2025-05-11 13:00:00",
+  "forecast": {
+   "d": "0.2933",
+   "l": "0.6054",
+   "w": "0.1013"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "id": "27715",
+  "isResult": true,
+  "xG": {
+   "a": "1.24972",
+   "h": "0.480962"
+  }
+ },
+ {
+  "a": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "datetime": "2025-05-11 16:00:00",
+  "forecast": {
+   "d": "0.2166",
+   "l": "0.5754",
+   "w": "0.208"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "id": "27719",
+  "isResult": true,
+  "xG": {
+   "a": "2.48918",
+   "h": "1.76692"
+  }
+ },
+ {
+  "a": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "datetime": "2025-05-11 18:45:00",
+  "forecast": {
+   "d": "0.1442",
+   "l": "0.059",
+   "w": "0.7968"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "id": "27718",
+  "isResult": true,
+  "xG": {
+   "a": "0.648382",
+   "h": "2.35243"
+  }
+ },
+ {
+  "a": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "datetime": "2025-05-12 16:30:00",
+  "forecast": {
+   "d": "0.178",
+   "l": "0.1118",
+   "w": "0.7102"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "id": "27721",
+  "isResult": true,
+  "xG": {
+   "a": "0.994541",
+   "h": "2.25991"
+  }
+ },
+ {
+  "a": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "datetime": "2025-05-12 18:45:00",
+  "forecast": {
+   "d": "0.0764",
+   "l": "0.0291",
+   "w": "0.8945"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "id": "27712",
+  "isResult": true,
+  "xG": {
+   "a": "0.572288",
+   "h": "2.87542"
+  }
+ },
+ {
+  "a": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "datetime": "2025-05-18 13:00:00",
+  "forecast": {
+   "d": "0.2785",
+   "l": "0.3902",
+   "w": "0.3313"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "id": "27724",
+  "isResult": true,
+  "xG": {
+   "a": "1.56926",
+   "h": "1.44057"
+  }
+ },
+ {
+  "a": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "datetime": "2025-05-18 18:45:00",
+  "forecast": {
+   "d": "0.1171",
+   "l": "0.0472",
+   "w": "0.8357"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "id": "27722",
+  "isResult": true,
+  "xG": {
+   "a": "0.773148",
+   "h": "2.75115"
+  }
+ },
+ {
+  "a": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "datetime": "2025-05-18 18:45:00",
+  "forecast": {
+   "d": "0.3004",
+   "l": "0.3644",
+   "w": "0.3352"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "id": "27723",
+  "isResult": true,
+  "xG": {
+   "a": "1.51953",
+   "h": "1.43018"
+  }
+ },
+ {
+  "a": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "datetime": "2025-05-18 18:45:00",
+  "forecast": {
+   "d": "0.307",
+   "l": "0.205",
+   "w": "0.488"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "id": "27725",
+  "isResult": true,
+  "xG": {
+   "a": "1.12443",
+   "h": "1.55405"
+  }
+ },
+ {
+  "a": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "datetime": "2025-05-18 18:45:00",
+  "forecast": {
+   "d": "0.2385",
+   "l": "0.5606",
+   "w": "0.2009"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "id": "27726",
+  "isResult": true,
+  "xG": {
+   "a": "2.33497",
+   "h": "1.59363"
+  }
+ },
+ {
+  "a": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "datetime": "2025-05-18 18:45:00",
+  "forecast": {
+   "d": "0.3433",
+   "l": "0.17",
+   "w": "0.4867"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "id": "27727",
+  "isResult": true,
+  "xG": {
+   "a": "0.476384",
+   "h": "0.970765"
+  }
+ },
+ {
+  "a": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "datetime": "2025-05-18 18:45:00",
+  "forecast": {
+   "d": "0.2297",
+   "l": "0.6286",
+   "w": "0.1417"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "id": "27728",
+  "isResult": true,
+  "xG": {
+   "a": "1.95845",
+   "h": "1.03178"
+  }
+ },
+ {
+  "a": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "datetime": "2025-05-18 18:45:00",
+  "forecast": {
+   "d": "0.5704",
+   "l": "0.2478",
+   "w": "0.1818"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "id": "27729",
+  "isResult": true,
+  "xG": {
+   "a": "0.379711",
+   "h": "0.296751"
+  }
+ },
+ {
+  "a": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "datetime": "2025-05-18 18:45:00",
+  "forecast": {
+   "d": "0.2706",
+   "l": "0.4207",
+   "w": "0.3087"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "id": "27730",
+  "isResult": true,
+  "xG": {
+   "a": "1.78592",
+   "h": "1.57656"
+  }
+ },
+ {
+  "a": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "datetime": "2025-05-18 18:45:00",
+  "forecast": {
+   "d": "0.0907",
+   "l": "0.0225",
+   "w": "0.8868"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "id": "27731",
+  "isResult": true,
+  "xG": {
+   "a": "0.358909",
+   "h": "2.61362"
+  }
+ },
+ {
+  "a": {
+   "id": "106",
+   "short_title": "INT",
+   "title": "Inter"
+  },
+  "datetime": "2025-05-23 18:45:00",
+  "forecast": {
+   "d": "0.2195",
+   "l": "0.5732",
+   "w": "0.2073"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "286",
+   "short_title": "COM",
+   "title": "Como"
+  },
+  "id": "27735",
+  "isResult": true,
+  "xG": {
+   "a": "2.27789",
+   "h": "1.49032"
+  }
+ },
+ {
+  "a": {
+   "id": "116",
+   "short_title": "CAG",
+   "title": "Cagliari"
+  },
+  "datetime": "2025-05-23 18:45:00",
+  "forecast": {
+   "d": "0.0947",
+   "l": "0.0082",
+   "w": "0.8971"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "105",
+   "short_title": "NAP",
+   "title": "Napoli"
+  },
+  "id": "27739",
+  "isResult": true,
+  "xG": {
+   "a": "0.0969696",
+   "h": "2.16118"
+  }
+ },
+ {
+  "a": {
+   "id": "101",
+   "short_title": "GEN",
+   "title": "Genoa"
+  },
+  "datetime": "2025-05-24 16:00:00",
+  "forecast": {
+   "d": "0.2998",
+   "l": "0.5427",
+   "w": "0.1575"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "97",
+   "short_title": "BOL",
+   "title": "Bologna"
+  },
+  "id": "27734",
+  "isResult": true,
+  "xG": {
+   "a": "1.17343",
+   "h": "0.628377"
+  }
+ },
+ {
+  "a": {
+   "id": "271",
+   "short_title": "MON",
+   "title": "Monza"
+  },
+  "datetime": "2025-05-24 18:45:00",
+  "forecast": {
+   "d": "0.1769",
+   "l": "0.0645",
+   "w": "0.7586"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "111",
+   "short_title": "MIL",
+   "title": "AC Milan"
+  },
+  "id": "27738",
+  "isResult": true,
+  "xG": {
+   "a": "0.516606",
+   "h": "1.99268"
+  }
+ },
+ {
+  "a": {
+   "id": "98",
+   "short_title": "JUV",
+   "title": "Juventus"
+  },
+  "datetime": "2025-05-25 18:45:00",
+  "forecast": {
+   "d": "0.2777",
+   "l": "0.5418",
+   "w": "0.1805"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "265",
+   "short_title": "VEN",
+   "title": "Venezia"
+  },
+  "id": "27732",
+  "isResult": true,
+  "xG": {
+   "a": "1.66948",
+   "h": "1.01327"
+  }
+ },
+ {
+  "a": {
+   "id": "230",
+   "short_title": "PAR",
+   "title": "Parma Calcio 1913"
+  },
+  "datetime": "2025-05-25 18:45:00",
+  "forecast": {
+   "d": "0.1982",
+   "l": "0.5833",
+   "w": "0.2185"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "107",
+   "short_title": "ATA",
+   "title": "Atalanta"
+  },
+  "id": "27733",
+  "isResult": true,
+  "xG": {
+   "a": "2.82535",
+   "h": "1.90265"
+  }
+ },
+ {
+  "a": {
+   "id": "94",
+   "short_title": "VER",
+   "title": "Verona"
+  },
+  "datetime": "2025-05-25 18:45:00",
+  "forecast": {
+   "d": "0.4126",
+   "l": "0.1439",
+   "w": "0.4435"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "108",
+   "short_title": "EMP",
+   "title": "Empoli"
+  },
+  "id": "27736",
+  "isResult": true,
+  "xG": {
+   "a": "0.833807",
+   "h": "1.23351"
+  }
+ },
+ {
+  "a": {
+   "id": "243",
+   "short_title": "LEC",
+   "title": "Lecce"
+  },
+  "datetime": "2025-05-25 18:45:00",
+  "forecast": {
+   "d": "0.2364",
+   "l": "0.1294",
+   "w": "0.6342"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "96",
+   "short_title": "LAZ",
+   "title": "Lazio"
+  },
+  "id": "27737",
+  "isResult": true,
+  "xG": {
+   "a": "0.708667",
+   "h": "1.73521"
+  }
+ },
+ {
+  "a": {
+   "id": "95",
+   "short_title": "ROM",
+   "title": "Roma"
+  },
+  "datetime": "2025-05-25 18:45:00",
+  "forecast": {
+   "d": "0.0708",
+   "l": "0.9109",
+   "w": "0.0183"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "113",
+   "short_title": "TOR",
+   "title": "Torino"
+  },
+  "id": "27740",
+  "isResult": true,
+  "xG": {
+   "a": "2.64436",
+   "h": "0.381059"
+  }
+ },
+ {
+  "a": {
+   "id": "110",
+   "short_title": "FIO",
+   "title": "Fiorentina"
+  },
+  "datetime": "2025-05-25 18:45:00",
+  "forecast": {
+   "d": "0.1785",
+   "l": "0.7102",
+   "w": "0.1113"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "99",
+   "short_title": "UDI",
+   "title": "Udinese"
+  },
+  "id": "27741",
+  "isResult": true,
+  "xG": {
+   "a": "3.06465",
+   "h": "1.61711"
+  }
+ }
+]
