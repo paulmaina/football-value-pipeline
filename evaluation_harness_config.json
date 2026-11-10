@@ -1,0 +1,56 @@
+{
+  "version": "evaluation-harness-v2",
+  "leagues": [
+    "EPL",
+    "LaLiga",
+    "Bundesliga",
+    "SerieA",
+    "Ligue1",
+    "Eredivisie",
+    "PrimeiraLiga",
+    "SuperLig"
+  ],
+  "seasons": [
+    "2122",
+    "2223",
+    "2324",
+    "2425",
+    "2526",
+    "2627"
+  ],
+  "test_start": "2022-08-01",
+  "development_end": "2025-07-01",
+  "holdout_start": "2026-01-16",
+  "holdout_end_exclusive": "2026-10-11",
+  "holdout_leagues": [
+    "Eredivisie",
+    "PrimeiraLiga",
+    "SuperLig"
+  ],
+  "end_exclusive": "2026-11-09",
+  "step_days": 14,
+  "min_train": 500,
+  "max_goals": 10,
+  "baseline_l2": 0.08,
+  "devig_method": "power",
+  "draw_sensitive_lines": [
+    -0.5,
+    0.0,
+    0.5
+  ],
+  "production_v2": {
+    "model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
+    "market_weight": 0.7,
+    "half_life_days": 480.0,
+    "shot_features": true,
+    "totals_anchor": true
+  },
+  "periods": {
+    "warm_up": "2021/22 is training history only; scoring starts 1 Aug 2022.",
+    "development": "1 Aug 2022 - 30 Jun 2025, Pinnacle pre-match prices. Build and choose candidates here.",
+    "validation": "1 Jul 2025 - 15 Jan 2026, Pinnacle pre-match prices. Already inspected by earlier diagnostics; the cagey correction is out-of-sample here.",
+    "holdout": "16 Jan - 10 Oct 2026, Eredivisie, Primeira Liga and Super Lig only (646 matches, 25 weeks), Bet365 pre-match prices with the margin removed. No earlier benchmark or live report scored these results. Locked: one declared candidate per run, once per candidate and once per frozen setup.",
+    "retrospective": "Every other match from 16 Jan 2026, Bet365. The five big leagues to 13 Oct 2026 were scored by the earlier benchmark (historical_benchmark_config.json), and every league from 11 Oct 2026 by the live performance reports. Diagnostics only, never release evidence."
+  },
+  "release_rule": "A candidate is scored on the holdout once, against a written declaration. It must beat its baseline with the 95% week-resampled interval clear of zero, and must beat the market reference by more than the measured Bet365-Pinnacle gap to count as beating the market. Before release it must pass a parity test (harness and live pipeline give identical probabilities) and a replay over the saved live forecasts. There is no forward waiting for backtestable changes. Changes reach production only through a reviewed PR, with monitoring and a rollback trigger afterwards."
+}
