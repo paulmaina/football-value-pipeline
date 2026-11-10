@@ -21,16 +21,16 @@ def priced(**extra):
 
 class PeriodTest(unittest.TestCase):
     def test_periods_and_their_bookmaker(self):
-        cases = [('2024-03-01', 'development', 'pinnacle'), ('2025-09-01', 'validation', 'pinnacle'),
-                 ('2026-01-15', 'validation', 'pinnacle'), ('2026-01-16', 'holdout', 'bet365')]
-        for date, name, book in cases:
-            self.assertEqual((eh.phase(date, CFG), eh.period_book(date, CFG)), (name, book))
+        cases = [('2024-03-01', 'EPL', 'development', 'pinnacle'), ('2025-09-01', 'Eredivisie', 'validation', 'pinnacle'),
+                 ('2026-01-15', 'SuperLig', 'validation', 'pinnacle'), ('2026-01-16', 'Eredivisie', 'holdout', 'bet365'),
+                 ('2026-10-10', 'PrimeiraLiga', 'holdout', 'bet365'), ('2026-10-11', 'SuperLig', 'retrospective', 'bet365'),
+                 ('2026-03-01', 'EPL', 'retrospective', 'bet365'), ('2026-10-20', 'LaLiga', 'retrospective', 'bet365')]
+        for date, league, name, book in cases:
+            self.assertEqual((eh.phase(date, league, CFG), eh.period_book(date, CFG)), (name, book), (date, league))
 
-    def test_fold_windows_break_at_both_period_boundaries(self):
+    def test_fold_windows_break_at_every_period_boundary(self):
         bounds = {b for w in eh.fold_windows(CFG, pd.Timestamp(CFG['end_exclusive'])) for b in w}
-        self.assertTrue({pd.Timestamp(CFG['development_end']), pd.Timestamp(CFG['holdout_start'])} <= bounds)
-        locked = eh.fold_windows(CFG, pd.Timestamp(CFG['holdout_start']))
-        self.assertEqual(locked[-1][1], pd.Timestamp(CFG['holdout_start']))
+        self.assertTrue({pd.Timestamp(CFG[k]) for k in ('development_end', 'holdout_start', 'holdout_end_exclusive')} <= bounds)
 
 
 class PricesTest(unittest.TestCase):
@@ -102,36 +102,83 @@ class HoldoutLockTest(unittest.TestCase):
         self.addCleanup(self.tmp.cleanup)
         self.dir = Path(self.tmp.name)
         self.ledger = self.dir / 'ledger.json'
+        self.setup = {'sha256': 'a' * 64}
 
     def declaration(self, **extra):
-        data = {'candidate': 'research-draw-fix-v1', 'baseline': 'C', 'primary_metric': 'AH all log loss',
+        data = {'candidate': 'D', 'baseline': 'M', 'primary_metric': 'AH all',
                 'draw_sensitive_lines': [-0.5, 0, 0.5], 'calibration_tolerance': 0.05,
                 'declared_by': 'Paul', 'declared_at': '2026-11-10', **extra}
-        path = self.dir / f"{data['candidate']}.json"
+        path = self.dir / 'declaration.json'
         path.write_text(json.dumps(data), encoding='utf-8')
         return path
 
-    def test_a_complete_declaration_unlocks_once(self):
-        declared = eh.validate_declaration(self.declaration(), self.ledger)
-        self.assertEqual(len(declared['sha256']), 64)
-        eh.record_holdout(declared, 'abc', 2100, self.ledger)
-        with self.assertRaisesRegex(ValueError, 'already scored'):
-            eh.validate_declaration(self.declaration(), self.ledger)
+    def test_a_declaration_is_scored_once_per_candidate_and_per_setup(self):
+        declared = eh.validate_declaration(self.declaration(), CFG, self.setup, self.ledger)
+        eh.record_holdout(declared, self.setup, 'abc', 646, {'passes_holdout_gate': False}, self.ledger)
+        with self.assertRaisesRegex(ValueError, "already scored for candidate 'D'"):
+            eh.validate_declaration(self.declaration(), CFG, {'sha256': 'b' * 64}, self.ledger)
+        # Same frozen setup under another candidate: refused too.
+        with self.assertRaisesRegex(ValueError, 'frozen setup'):
+            eh.validate_declaration(self.declaration(candidate='A'), CFG, self.setup, self.ledger)
 
-    def test_incomplete_or_reused_names_are_refused(self):
-        with self.assertRaisesRegex(ValueError, 'missing calibration_tolerance'):
-            eh.validate_declaration(self.declaration(calibration_tolerance=None), self.ledger)
-        with self.assertRaisesRegex(ValueError, 'new named candidate'):
-            eh.validate_declaration(self.declaration(candidate='C'), self.ledger)
+    def test_the_declaration_must_match_registered_candidates_and_scoring(self):
+        bad = [({'calibration_tolerance': None}, 'missing calibration_tolerance'),
+               ({'candidate': 'research-v9'}, 'registered'), ({'candidate': 'M'}, 'registered'),
+               ({'primary_metric': 'profit'}, 'Primary metric'), ({'draw_sensitive_lines': [0]}, 'Draw-sensitive'),
+               ({'calibration_tolerance': 0.5}, 'between 0 and 0.2')]
+        for extra, message in bad:
+            with self.assertRaisesRegex(ValueError, message):
+                eh.validate_declaration(self.declaration(**extra), CFG, self.setup, self.ledger)
 
-    def test_an_unlocked_run_never_scores_the_holdout(self):
+    def test_setup_fingerprint_changes_with_code_data_or_config(self):
+        cfg = {**CFG, 'leagues': ['EPL'], 'seasons': ['2526']}
+        first = eh.setup_fingerprint(cfg, REPO / '.football_cache')
+        self.assertEqual(first, eh.setup_fingerprint(cfg, REPO / '.football_cache'))
+        self.assertNotEqual(first['sha256'], eh.setup_fingerprint({**cfg, 'step_days': 7}, REPO / '.football_cache')['sha256'])
+        self.assertIn('data/2526_E0.csv', first['parts'])
+        self.assertIn('evaluation_harness.py', first['parts'])
+
+    def test_locked_runs_skip_the_holdout_and_holdout_runs_score_only_it(self):
         cfg = {**CFG, 'test_start': '2026-01-01', 'end_exclusive': '2026-02-15'}
-        locked = eh.evaluate_league('EPL', str(REPO / '.football_cache'), cfg, False)[0]
+        cache = str(REPO / '.football_cache')
+        locked, _, coverage, _, _, _ = eh.evaluate_league('Eredivisie', cache, cfg, False)
         self.assertTrue(locked)
         self.assertEqual({r['phase'] for r in locked}, {'validation'})
-        unlocked = eh.evaluate_league('EPL', str(REPO / '.football_cache'), cfg, True)[0]
-        holdout = {(r['market_book']) for r in unlocked if r['phase'] == 'holdout'}
-        self.assertEqual(holdout, {'bet365'})
+        self.assertGreater(coverage['Eredivisie:locked_holdout'], 0)
+        unlocked = eh.evaluate_league('Eredivisie', cache, cfg, True, keep={'D', 'M'})[0]
+        holdout = [r for r in unlocked if r['phase'] == 'holdout']
+        self.assertEqual({r['candidate'] for r in holdout}, {'D', 'M'})
+        self.assertEqual({r['market_book'] for r in holdout}, {'bet365'})
+        self.assertTrue({r['candidate'] for r in unlocked if r['phase'] != 'holdout'} <= {'MP', 'MB'})
+        # Big-league matches after 16 Jan were already scored elsewhere: retrospective, never holdout.
+        retro = eh.evaluate_league('EPL', cache, cfg, False)[0]
+        self.assertIn('retrospective', {r['phase'] for r in retro})
+
+
+class SummaryTest(unittest.TestCase):
+    def test_headline_uses_one_common_cohort(self):
+        records = []
+        for i in range(6):
+            for cand in ('C', 'M', 'D', 'A') if i < 4 else ('C',):
+                records.append({'fixture_key': f'f{i}', 'league': 'EPL', 'week': 'w', 'phase': 'validation',
+                                'candidate': cand, 'market': '1X2', 'log_loss': 1. if cand == 'C' else .9})
+        cohort = eh.common_cohort(eh.fixture_scores(records))
+        row = next(r for r in cohort if r['group'] == '1X2')
+        self.assertEqual(row['fixtures'], 4)
+        self.assertAlmostEqual(row['C'], 1.)
+
+
+class LiveReplayTest(unittest.TestCase):
+    def test_each_verified_match_is_scored_once_with_all_views(self):
+        records, _, coverage = eh.live_replay(REPO / 'football_output_v2')
+        if not records:
+            self.skipTest('no graded live forecasts in this checkout')
+        keys = {r['fixture_key'] for r in records}
+        self.assertEqual(len(keys), coverage['matches_scored'])
+        self.assertLessEqual(coverage['matches_scored'], coverage['verified_matches_graded'])
+        per_fixture = pd.DataFrame(records).query("market == '1X2'").groupby(['fixture_key', 'candidate']).size()
+        self.assertEqual(int(per_fixture.max()), 1)
+        self.assertIn('D', {r['candidate'] for r in records})
 
 
 if __name__ == '__main__':

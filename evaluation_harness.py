@@ -13,12 +13,20 @@ candidate is scored on the same matches:
 
 Periods (configured in evaluation_harness_config.json):
 
-  development  Aug 2022 - Jun 2025, Pinnacle. Build and choose candidates here.
-  validation   Jul 2025 - 15 Jan 2026, Pinnacle. Already inspected by earlier
-               diagnostics; the cagey correction is out-of-sample from here.
-  holdout      16 Jan 2026 - end, Bet365. Pinnacle prices in the files stop on
-               15 Jan 2026. LOCKED: scored only with a declaration file, and every
-               holdout run is appended to evaluation/holdout_ledger.json.
+  development    Aug 2022 - Jun 2025, Pinnacle. Build and choose candidates here.
+  validation     Jul 2025 - 15 Jan 2026, Pinnacle. Already inspected by earlier
+                 diagnostics; the cagey correction is out-of-sample from here.
+  holdout        16 Jan - 10 Oct 2026, Eredivisie, Primeira Liga and Super Lig only,
+                 Bet365. No earlier benchmark or live report scored these results.
+                 LOCKED: scored only for one declared candidate, once per candidate
+                 and once per frozen setup (code, data and config fingerprint), and
+                 recorded in evaluation/holdout_ledger.json.
+  retrospective  Every other match from 16 Jan 2026, Bet365. The five big leagues
+                 were scored by the earlier benchmark (to 13 Oct 2026) and every
+                 league from 11 Oct 2026 by the live performance reports, so these
+                 results are diagnostics only, never release evidence.
+
+Pinnacle prices in the files stop on 15 Jan 2026; Bet365 continues for every league.
 
 On matches priced by both bookmakers before the holdout, the harness measures
 how far margin-free Bet365 sits from margin-free Pinnacle. On the holdout, a
@@ -26,7 +34,10 @@ candidate must beat M by more than that gap before it counts as beating the
 market. Pinnacle's average margin is reported so expected-return work can
 build synthetic Pinnacle-like prices from Bet365 probabilities.
 
-Live-replay mode delegates to research_backtest.archives (frozen forecasts).
+Live-replay mode replays the frozen forecasts with the report's grading: each
+forecast must precede the verified kickoff (performance_tracking.graded_match)
+and each verified match is scored once. It scores C, M, D and A on the same
+matches.
 """
 from __future__ import annotations
 
@@ -45,7 +56,7 @@ import pandas as pd
 import historical_benchmark as hb
 import research_backtest as rb
 
-VERSION = 'evaluation-harness-v1'
+VERSION = 'evaluation-harness-v2'
 CONFIG = Path(__file__).with_name('evaluation_harness_config.json')
 LEDGER = Path(__file__).with_name('evaluation') / 'holdout_ledger.json'
 CANDIDATES = {
@@ -61,6 +72,13 @@ BOOKS = {
 }
 DECLARATION_FIELDS = ('candidate', 'baseline', 'primary_metric', 'draw_sensitive_lines',
                       'calibration_tolerance', 'declared_by', 'declared_at')
+# Everything that can change a score. The setup fingerprint hashes these files,
+# the config and every input CSV, so one frozen setup is evaluated once.
+SETUP_FILES = ('evaluation_harness.py', 'research_backtest.py', 'historical_benchmark.py', 'team_research.py',
+               'score_probability.py', 'football_value_pipeline_v2_standalone.py', 'market_implied.py',
+               'narrow_margin.py', 'price_edge_cagey_shortlist.py', 'ah_close_backtest.py',
+               'evaluation_harness_config.json', 'narrow_margin_models/cagey-correction-through-2425-v1.json')
+CALIBRATION_MIN_BIN = 30
 GROUPS = ('1X2', 'Over 1.5', 'AH all', 'AH draw-sensitive')
 
 
@@ -68,15 +86,16 @@ GROUPS = ('1X2', 'Over 1.5', 'AH all', 'AH draw-sensitive')
 # Periods and market inputs
 # ---------------------------------------------------------------------------
 
-def phase(date, cfg) -> str:
+def phase(date, league, cfg) -> str:
     date = pd.Timestamp(date)
     if date >= pd.Timestamp(cfg['holdout_start']):
-        return 'holdout'
+        untouched = league in cfg['holdout_leagues'] and date < pd.Timestamp(cfg['holdout_end_exclusive'])
+        return 'holdout' if untouched else 'retrospective'
     return 'validation' if date >= pd.Timestamp(cfg['development_end']) else 'development'
 
 
 def period_book(date, cfg) -> str:
-    return 'bet365' if phase(date, cfg) == 'holdout' else 'pinnacle'
+    return 'bet365' if pd.Timestamp(date) >= pd.Timestamp(cfg['holdout_start']) else 'pinnacle'
 
 
 def book_prices(row, book):
@@ -189,7 +208,7 @@ def candidates(row, train, origin, model, cfg, cagey_model):
         except (ValueError, TypeError, KeyError) as exc:
             gaps['A'] = str(exc)
     # Bet365-vs-Pinnacle gap: both books on the same match, before the holdout only.
-    if phase(row.Date, cfg) != 'holdout':
+    if row.Date < pd.Timestamp(cfg['holdout_start']):
         both = {b: book_prices(row, b) for b in BOOKS}
         if all(both.values()):
             try:
@@ -206,18 +225,20 @@ def candidates(row, train, origin, model, cfg, cagey_model):
 
 def fold_windows(cfg, end):
     start = pd.Timestamp(cfg['test_start'])
-    fixed = [pd.Timestamp(cfg['development_end']), pd.Timestamp(cfg['holdout_start']), end]
+    fixed = [pd.Timestamp(cfg[k]) for k in ('development_end', 'holdout_start', 'holdout_end_exclusive')] + [end]
     bounds = sorted({*pd.date_range(start, end, freq=f"{cfg['step_days']}D"), *[b for b in fixed if start < b <= end]})
     return list(zip(bounds, bounds[1:]))
 
 
-def evaluate_league(league, cache, cfg, include_holdout):
+def evaluate_league(league, cache, cfg, include_holdout, keep=None):
+    """Locked runs skip every holdout match. A holdout run scores ONLY holdout matches,
+    and only the candidates in `keep` (declared candidate, baseline and M)."""
     from football_value_pipeline_v2_standalone import DixonColesModel
     import narrow_margin as nm
     cagey_model = nm.production_model()
     load_cfg = {**cfg, 'test_end_exclusive': cfg['end_exclusive']}
     data, sources, _ = hb.load_history(Path(cache), league, load_cfg)
-    end = pd.Timestamp(cfg['end_exclusive'] if include_holdout else cfg['holdout_start'])
+    end = pd.Timestamp(cfg['end_exclusive'])
     profile = cfg['production_v2']
     records, folds, coverage, overrounds, calib = [], [], Counter(), [], []
     for origin, stop in fold_windows(cfg, end):
@@ -234,12 +255,35 @@ def evaluate_league(league, cache, cfg, include_holdout):
         folds.append({'league': league, 'origin': origin.date().isoformat(), 'end_exclusive': stop.date().isoformat(),
                       'training_end': train.Date.max().date().isoformat(), 'training_matches': len(train)})
         for _, row in test.iterrows():
+            name = phase(row.Date, league, cfg)
+            if include_holdout and name != 'holdout':
+                # A holdout run still measures the Bet365-Pinnacle gap on pre-holdout matches.
+                both = {b: book_prices(row, b) for b in BOOKS} if row.Date < pd.Timestamp(cfg['holdout_start']) else {}
+                if not both or not all(both.values()):
+                    coverage[league + ':outside_holdout_run'] += 1
+                    continue
+                try:
+                    matrices = {'MP': market_matrix(both['pinnacle']), 'MB': market_matrix(both['bet365'])}
+                except (ValueError, TypeError, KeyError):
+                    continue
+                identity = {'league': league, 'date': row.Date.date().isoformat(),
+                            'week': f'{row.Date.isocalendar().year}-W{row.Date.isocalendar().week:02d}',
+                            'fixture_key': '|'.join((league, row.Date.date().isoformat(), row.HomeTeam, row.AwayTeam)),
+                            'phase': name, 'market_book': 'both'}
+                records.extend(rb.score_fixture(identity, matrices, row.FTHG, row.FTAG))
+                overrounds.append({b: overround(p) for b, p in both.items()})
+                continue
+            if name == 'holdout' and not include_holdout:
+                coverage[league + ':locked_holdout'] += 1
+                continue
             matrices, gaps, extra = candidates(row, train, origin, model, cfg, cagey_model)
+            if keep is not None:
+                matrices = {k: v for k, v in matrices.items() if k in keep}
             date = row.Date
             identity = {'league': league, 'date': date.date().isoformat(),
                         'week': f'{date.isocalendar().year}-W{date.isocalendar().week:02d}',
                         'fixture_key': '|'.join((league, date.date().isoformat(), row.HomeTeam, row.AwayTeam)),
-                        'phase': phase(date, cfg), 'market_book': extra.get('market_book', '')}
+                        'phase': name, 'market_book': extra.get('market_book', '')}
             records.extend(rb.score_fixture(identity, matrices, row.FTHG, row.FTAG))
             outcome = 0 if row.FTHG > row.FTAG else 1 if row.FTHG == row.FTAG else 2
             for cand, matrix in matrices.items():
@@ -259,7 +303,7 @@ def evaluate_league(league, cache, cfg, include_holdout):
 # Summaries
 # ---------------------------------------------------------------------------
 
-def fixture_scores(records) -> pd.DataFrame:
+def fixture_scores(records, draw_lines=(-.5, 0., .5)) -> pd.DataFrame:
     """One log loss per fixture, candidate and group; AH groups average their lines per fixture."""
     if not records:
         return pd.DataFrame(columns=['fixture_key', 'league', 'week', 'phase', 'candidate', 'group', 'log_loss'])
@@ -267,7 +311,7 @@ def fixture_scores(records) -> pd.DataFrame:
     frame['line'] = frame.market.str.extract(r'^AH ([+-]\d\.\d\d)$')[0].astype(float)
     parts = []
     for group, mask in (('1X2', frame.market == '1X2'), ('Over 1.5', frame.market == 'Over 1.5'),
-                        ('AH all', frame.line.notna()), ('AH draw-sensitive', frame.line.abs() <= .5)):
+                        ('AH all', frame.line.notna()), ('AH draw-sensitive', frame.line.round(2).isin([round(float(v), 2) for v in draw_lines]))):
         part = frame.loc[mask].groupby(['fixture_key', 'league', 'week', 'phase', 'candidate'], as_index=False).log_loss.mean()
         parts.append(part.assign(group=group))
     return pd.concat(parts, ignore_index=True)
@@ -292,6 +336,68 @@ def paired(scores, baseline, candidate, samples=2000, seed=136):
             'interval_95': interval, 'clear_of_zero': bool(interval and interval[0] > 0)}
 
 
+def common_cohort(scores, names=('C', 'M', 'D', 'A')):
+    """Mean log loss on the fixtures where every named candidate is available."""
+    output = []
+    for (name, group), part in scores.groupby(['phase', 'group']):
+        table = part.pivot_table(index='fixture_key', columns='candidate', values='log_loss')
+        present = [n for n in names if n in table]
+        if len(present) < 2:
+            continue
+        common = table[present].dropna()
+        output.append({'phase': name, 'group': group, 'fixtures': len(common),
+                       **{n: float(common[n].mean()) for n in present}})
+    return output
+
+
+def bookmaker_gap(scores):
+    gap = {}
+    pre = scores.loc[scores.phase.isin(['development', 'validation'])]
+    for group in GROUPS:
+        result = paired(pre.loc[pre.group == group], 'MB', 'MP')
+        if result:
+            gap[group] = {**result, 'bet365_minus_pinnacle_log_loss': result['mean_gain']}
+    return gap
+
+
+def summarize(records, overrounds, coverage, cfg, metadata):
+    scores = fixture_scores(records, cfg['draw_sensitive_lines'])
+    available = (scores.groupby(['phase', 'group', 'candidate']).log_loss.agg(['mean', 'count']).reset_index()
+                 .to_dict('records') if not scores.empty else [])
+    gap = bookmaker_gap(scores)
+    margins = {b: float(np.mean([o[b] for o in overrounds])) for b in BOOKS} if overrounds else {}
+    comparisons = {}
+    for name in sorted(scores.phase.unique()) if not scores.empty else []:
+        part = scores.loc[scores.phase == name]
+        comparisons[name] = {}
+        for group in GROUPS:
+            sub = part.loc[part.group == group]
+            entry = {}
+            for base, cand in (('C', 'M'), ('C', 'D'), ('C', 'A'), ('M', 'D')):
+                result = paired(sub, base, cand)
+                if result:
+                    entry[f'{cand}_vs_{base}'] = result
+            versus = paired(sub, 'M', 'C')
+            if versus:
+                bar = max(0., gap.get(group, {}).get('bet365_minus_pinnacle_log_loss', 0.)) \
+                    if name in ('holdout', 'retrospective') else 0.
+                entry['C_vs_M'] = {**versus, 'gap_bar': bar, 'gain_after_gap_bar': versus['mean_gain'] - bar}
+            comparisons[name][group] = entry
+    return {'version': VERSION, 'candidates': CANDIDATES, 'config': cfg, **metadata,
+            'coverage': dict(coverage),
+            'log_loss_common_cohort': common_cohort(scores) if not scores.empty else [],
+            'log_loss_all_available': available, 'paired': comparisons,
+            'bet365_gap': gap, 'average_margin': margins,
+            'synthetic_price_margin': margins.get('pinnacle'),
+            'notes': ['Headline means use the common cohort: fixtures where C, M, D and A are all available.',
+                      'Positive mean_gain means the first-named candidate has the lower log loss than the second.',
+                      'Intervals resample whole calendar weeks across all leagues.',
+                      'The cagey correction was trained on seasons through 2024/25; D is in-sample in development.',
+                      'Retrospective results were already scored elsewhere; they are diagnostics, never release evidence.',
+                      'Historical prices are pre-match snapshots without timestamps; returns are not claimed.',
+                      'No automatic promotion: every production change goes through a reviewed PR.']}
+
+
 def calibration(rows) -> list[dict]:
     """1X2 reliability per phase and candidate: deciles of each outcome's forecast probability."""
     bins = defaultdict(list)
@@ -304,86 +410,159 @@ def calibration(rows) -> list[dict]:
             for k, v in sorted(bins.items())]
 
 
-def summarize(records, overrounds, coverage, cfg, metadata, declaration=None):
-    scores = fixture_scores(records)
-    means = (scores.groupby(['phase', 'group', 'candidate']).log_loss.agg(['mean', 'count']).reset_index()
-             .to_dict('records') if not scores.empty else [])
-    gap = {}
-    pre = scores.loc[scores.phase != 'holdout']
-    for group in GROUPS:
-        result = paired(pre.loc[pre.group == group], 'MB', 'MP')
-        if result:
-            gap[group] = {**result, 'bet365_minus_pinnacle_log_loss': result['mean_gain']}
-    margins = {b: float(np.mean([o[b] for o in overrounds])) for b in BOOKS} if overrounds else {}
-    comparisons = {}
-    for name in sorted(scores.phase.unique()) if not scores.empty else []:
-        part = scores.loc[scores.phase == name]
-        comparisons[name] = {}
-        for group in GROUPS:
-            sub = part.loc[part.group == group]
-            entry = {}
-            for cand in ('M', 'D', 'A'):
-                result = paired(sub, 'C', cand)
-                if result:
-                    entry[f'{cand}_vs_C'] = result
-            versus = paired(sub, 'M', 'C')
-            if versus:
-                bar = max(0., gap.get(group, {}).get('bet365_minus_pinnacle_log_loss', 0.)) if name == 'holdout' else 0.
-                entry['C_vs_M'] = {**versus, 'gap_bar': bar, 'gain_after_gap_bar': versus['mean_gain'] - bar}
-            comparisons[name][group] = entry
-    return {'version': VERSION, 'candidates': CANDIDATES, 'config': cfg, **metadata,
-            'coverage': dict(coverage), 'log_loss': means, 'paired': comparisons,
-            'bet365_gap': gap, 'average_margin': margins,
-            'synthetic_price_margin': margins.get('pinnacle'),
-            'holdout_scored': declaration is not None, 'declaration': declaration,
-            'notes': ['Positive mean_gain means the second-named candidate has the lower log loss.',
-                      'Intervals resample whole calendar weeks across all leagues.',
-                      'The cagey correction was trained on seasons through 2024/25; D is in-sample in development.',
-                      'Historical prices are pre-match snapshots without timestamps; returns are not claimed.',
-                      'No automatic promotion: every production change goes through a reviewed PR.']}
-
-
 # ---------------------------------------------------------------------------
 # Holdout lock
 # ---------------------------------------------------------------------------
 
-def validate_declaration(path, ledger=LEDGER):
+def file_sha256(path) -> str:
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def setup_fingerprint(cfg, cache, root=Path(__file__).parent) -> dict:
+    """Hash of everything that can change a score: scoring code, model files, config and input data."""
+    parts = {name: file_sha256(root / name) for name in SETUP_FILES}
+    for league in cfg['leagues']:
+        for season in cfg['seasons']:
+            name = f"{season}_{hb.CODES[league]}.csv"
+            parts['data/' + name] = file_sha256(Path(cache) / name)
+    digest = hashlib.sha256(json.dumps({'parts': parts, 'config': cfg}, sort_keys=True).encode()).hexdigest()
+    return {'sha256': digest, 'parts': parts}
+
+
+def validate_declaration(path, cfg, setup, ledger=LEDGER):
+    """A declaration names one registered candidate and how it is judged. It must match the
+    configured scoring, and neither the candidate nor the frozen setup may have been scored before."""
     data = json.loads(Path(path).read_text(encoding='utf-8'))
     missing = [k for k in DECLARATION_FIELDS if data.get(k) in (None, '', [])]
     if missing:
         raise ValueError('Declaration missing ' + ', '.join(missing))
-    if data['candidate'] in CANDIDATES or data['baseline'] not in (*CANDIDATES, 'current-production'):
-        raise ValueError('Declare a new named candidate against an existing baseline')
+    if data['candidate'] not in CANDIDATES or data['baseline'] not in CANDIDATES or data['candidate'] == data['baseline']:
+        raise ValueError('Candidate and baseline must be two different candidates registered in the harness')
+    if data['primary_metric'] not in GROUPS:
+        raise ValueError('Primary metric must be one of ' + ', '.join(GROUPS))
+    if sorted(round(float(v), 2) for v in data['draw_sensitive_lines']) != sorted(round(float(v), 2) for v in cfg['draw_sensitive_lines']):
+        raise ValueError('Draw-sensitive lines differ from the configured scoring; change the config in a reviewed PR first')
+    tolerance = float(data['calibration_tolerance'])
+    if not 0 < tolerance <= .2:
+        raise ValueError('Calibration tolerance must be between 0 and 0.2')
     entries = json.loads(ledger.read_text(encoding='utf-8')) if ledger.exists() else []
     if any(e['candidate'] == data['candidate'] for e in entries):
-        raise ValueError(f"Holdout already scored for {data['candidate']!r}; declare a new candidate name")
+        raise ValueError(f"Holdout already scored for candidate {data['candidate']!r}")
+    if any(e.get('setup_sha256') == setup['sha256'] for e in entries):
+        raise ValueError('Holdout already scored for this frozen setup (same code, data and config)')
     digest = hashlib.sha256(json.dumps(data, sort_keys=True).encode()).hexdigest()
-    return {**data, 'sha256': digest}
+    return {**data, 'calibration_tolerance': tolerance, 'sha256': digest}
 
 
-def record_holdout(declaration, commit, fixtures, ledger=LEDGER):
+def holdout_verdict(records, calib, declaration, gap):
+    """Apply the declaration: primary metric, draw-sensitive lines, calibration tolerance, market bar."""
+    scores = fixture_scores(records, declaration['draw_sensitive_lines'])
+    hold = scores.loc[scores.phase == 'holdout']
+    cand, base = declaration['candidate'], declaration['baseline']
+    primary = paired(hold.loc[hold.group == declaration['primary_metric']], base, cand)
+    draw = paired(hold.loc[hold.group == 'AH draw-sensitive'], base, cand)
+    deviations = [abs(b['observed_rate'] - b['mean_forecast']) for b in calibration(calib)
+                  if b['phase'] == 'holdout' and b['candidate'] == cand and b['n'] >= CALIBRATION_MIN_BIN]
+    worst = max(deviations) if deviations else None
+    market = paired(hold.loc[hold.group == declaration['primary_metric']], 'M', cand) if cand != 'M' else None
+    bar = max(0., gap.get(declaration['primary_metric'], {}).get('bet365_minus_pinnacle_log_loss', 0.))
+    passed = bool(primary and primary['clear_of_zero'] and worst is not None and worst <= declaration['calibration_tolerance'])
+    return {'candidate': cand, 'baseline': base, 'primary_metric': declaration['primary_metric'],
+            'primary': primary, 'draw_sensitive': draw,
+            'calibration_worst_bin_deviation': worst, 'calibration_tolerance': declaration['calibration_tolerance'],
+            'versus_market': {**market, 'gap_bar': bar, 'beats_market_after_gap': market['mean_gain'] - bar > 0
+                              and market['interval_95'] is not None and market['interval_95'][0] > bar} if market else None,
+            'passes_holdout_gate': passed,
+            'next_steps': 'Passing the holdout is necessary, not sufficient: parity test and live replay follow, then a reviewed PR.'}
+
+
+def record_holdout(declaration, setup, commit, fixtures, verdict, ledger=LEDGER):
     entries = json.loads(ledger.read_text(encoding='utf-8')) if ledger.exists() else []
-    entries.append({'candidate': declaration['candidate'], 'declaration_sha256': declaration['sha256'],
+    entries.append({'candidate': declaration['candidate'], 'baseline': declaration['baseline'],
+                    'declaration_sha256': declaration['sha256'], 'setup_sha256': setup['sha256'],
                     'source_commit': commit, 'holdout_fixtures': fixtures,
+                    'passes_holdout_gate': verdict['passes_holdout_gate'],
                     'scored_at_utc': datetime.now(timezone.utc).isoformat()})
     ledger.parent.mkdir(parents=True, exist_ok=True)
     ledger.write_text(json.dumps(entries, indent=2) + '\n', encoding='utf-8')
 
 
 # ---------------------------------------------------------------------------
+# Live replay
+# ---------------------------------------------------------------------------
+
+def live_replay(root):
+    """Frozen forecasts graded exactly as the performance report grades them, then scored once
+    per verified match: C (frozen research), M (fit to frozen Pinnacle quotes), D (cagey), A (published grid)."""
+    import narrow_margin as nm
+    import performance_tracking as pt
+    from price_edge_shortlist import pinnacle_quotes
+    from team_research import utc
+    cagey_model = nm.production_model()
+    verified = pt.load_json(root / 'performance' / 'verified_results.json', {})
+    results = [r for r in (verified.values() if isinstance(verified, dict) else verified)
+               if isinstance(r, dict) and pt.verified_result_source(r)]
+    coverage, latest = Counter(), {}
+    for meta, rows, _ in pt.snapshots(root):
+        for row in rows:
+            frozen = {**row, 'snapshot_generated_utc': meta['generated_at_utc'],
+                      'snapshot_captured_utc': meta['captured_at_utc']}
+            final, state = pt.graded_match(frozen, results)
+            if final is None:
+                coverage['ungraded:' + state] += 1
+                continue
+            identity = (final.get('league_code'), str(final.get('match_id')))
+            generated = utc(meta['generated_at_utc'])
+            # The latest forecast made before the verified kickoff stands for the match.
+            if identity not in latest or generated > latest[identity][0]:
+                latest[identity] = (generated, frozen, final)
+    records, calib = [], []
+    for identity, (generated, row, final) in sorted(latest.items()):
+        matrices, gaps = rb.archived_candidates(row, generated)
+        if 'B' in matrices:
+            matrices['M'] = matrices.pop('B')
+            pin = pinnacle_quotes(row)
+            if pin['h2h'] is not None and pin['ou25'] is not None:
+                try:
+                    matrices['D'] = cagey_matrix(matrices['M'], {'hda': pin['h2h'][:3], 'ou': pin['ou25'][:2]}, cagey_model)
+                except (ValueError, TypeError, KeyError) as exc:
+                    gaps['D'] = str(exc)
+        for key, reason in gaps.items():
+            coverage[key.replace('B', 'M') + ':' + reason] += 1
+        date = pd.Timestamp(str(row['kickoff_utc'])[:10])
+        ident = {'league': row['league'], 'date': date.date().isoformat(),
+                 'week': f'{date.isocalendar().year}-W{date.isocalendar().week:02d}',
+                 'fixture_key': ':'.join(identity), 'phase': 'live_replay', 'market_book': 'pinnacle'}
+        if not matrices:
+            coverage['no_candidate_available'] += 1
+            continue
+        coverage['matches_scored'] += 1
+        records.extend(rb.score_fixture(ident, matrices, final['home_goals'], final['away_goals']))
+        outcome = 0 if final['home_goals'] > final['away_goals'] else 1 if final['home_goals'] == final['away_goals'] else 2
+        for cand, matrix in matrices.items():
+            h, a = np.indices(matrix.shape)
+            calib.append({'phase': 'live_replay', 'candidate': cand, 'outcome': outcome,
+                          'probs': [float(matrix[h > a].sum()), float(matrix[h == a].sum()), float(matrix[h < a].sum())]})
+    coverage['verified_matches_graded'] = len(latest)
+    return records, calib, coverage
+
+
+# ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
 
-def historical(cache, cfg, *, include_holdout=False, leagues=None, workers=None):
+def historical(cache, cfg, *, include_holdout=False, keep=None, leagues=None, workers=None):
     leagues = list(leagues or cfg['leagues'])
     records, folds, coverage, overrounds, sources, calib = [], [], Counter(), [], [], []
     with ProcessPoolExecutor(max_workers=workers) as pool:
-        futures = [pool.submit(evaluate_league, league, str(cache), cfg, include_holdout) for league in leagues]
+        futures = [pool.submit(evaluate_league, league, str(cache), cfg, include_holdout, keep) for league in leagues]
         for future in futures:
             r, f, c, o, s, k = future.result()
             records += r; folds += f; coverage.update(c); overrounds += o; sources += s; calib += k
     if not include_holdout and any(r['phase'] == 'holdout' for r in records):
         raise ValueError('Locked holdout rows leaked into an unlocked run')
+    if include_holdout and any(r['phase'] != 'holdout' and r['candidate'] not in GAP_CANDIDATES for r in records):
+        raise ValueError('A holdout run scored non-holdout candidates')
     return records, folds, coverage, overrounds, sources, calib
 
 
@@ -402,28 +581,44 @@ def main(argv=None):
     parser.add_argument('--config', type=Path, default=CONFIG)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--leagues', nargs='+')
-    parser.add_argument('--declaration', type=Path, help='Unlocks the holdout for one declared candidate')
+    parser.add_argument('--declaration', type=Path, help='Scores the locked holdout for one declared candidate, once')
     parser.add_argument('--workers', type=int)
     args = parser.parse_args(argv)
     args.output.mkdir(parents=True, exist_ok=True)
     commit = git_commit()
     if args.mode == 'live':
-        rows, observations, coverage, metadata = rb.archives(args.root, commit)
-        metadata['config_sha256'] = hashlib.sha256(json.dumps(metadata['config'], sort_keys=True).encode()).hexdigest()
-        hb.write_json(args.output / 'results.json', rb.summarize(rows, observations, coverage, metadata))
+        records, calib, coverage = live_replay(args.root)
+        scores = fixture_scores(records)
+        summary = {'version': VERSION, 'mode': 'live_replay', 'source_commit': commit, 'candidates': CANDIDATES,
+                   'coverage': dict(coverage), 'log_loss_common_cohort': common_cohort(scores) if not scores.empty else [],
+                   'paired': {g: {f'{c}_vs_{b}': paired(scores.loc[scores.group == g], b, c)
+                                  for b, c in (('C', 'M'), ('C', 'D'), ('C', 'A'), ('M', 'D'))} for g in GROUPS},
+                   'calibration_1x2': calibration(calib),
+                   'note': 'Integration check on frozen live inputs; too few matches to be release evidence.'}
+        hb.write_json(args.output / 'results.json', summary)
+        scores.to_csv(args.output / 'fixture_scores.csv', index=False)
         return 0
     cfg = json.loads(args.config.read_text(encoding='utf-8'))
-    declaration = validate_declaration(args.declaration) if args.declaration else None
+    declaration = setup = keep = None
+    if args.declaration:
+        if args.leagues:
+            raise ValueError('A holdout run always covers every configured league')
+        setup = setup_fingerprint(cfg, args.cache)
+        declaration = validate_declaration(args.declaration, cfg, setup)
+        keep = {declaration['candidate'], declaration['baseline'], 'M'}
     records, folds, coverage, overrounds, sources, calib = historical(
-        args.cache, cfg, include_holdout=declaration is not None, leagues=args.leagues, workers=args.workers)
-    metadata = {'mode': 'historical', 'source_commit': commit, 'folds': folds, 'inputs': sources,
-                'config_sha256': hashlib.sha256(json.dumps(cfg, sort_keys=True).encode()).hexdigest()}
-    summary = summarize(records, overrounds, coverage, cfg, metadata, declaration)
+        args.cache, cfg, include_holdout=declaration is not None, keep=keep, leagues=args.leagues, workers=args.workers)
+    metadata = {'mode': 'holdout' if declaration else 'historical', 'source_commit': commit, 'folds': folds,
+                'inputs': sources, 'config_sha256': hashlib.sha256(json.dumps(cfg, sort_keys=True).encode()).hexdigest()}
+    summary = summarize(records, overrounds, coverage, cfg, metadata)
     summary['calibration_1x2'] = calibration(calib)
-    hb.write_json(args.output / 'results.json', summary)
-    fixture_scores(records).to_csv(args.output / 'fixture_scores.csv', index=False)
     if declaration is not None:
-        record_holdout(declaration, commit, int(sum(r['phase'] == 'holdout' for r in records if r['market'] == '1X2')))
+        verdict = holdout_verdict(records, calib, declaration, summary['bet365_gap'])
+        summary.update(declaration=declaration, setup=setup, holdout_verdict=verdict)
+        fixtures = len({r['fixture_key'] for r in records if r['phase'] == 'holdout'})
+        record_holdout(declaration, setup, commit, fixtures, verdict)
+    hb.write_json(args.output / 'results.json', summary)
+    fixture_scores(records, cfg['draw_sensitive_lines']).to_csv(args.output / 'fixture_scores.csv', index=False)
     return 0
 
 
