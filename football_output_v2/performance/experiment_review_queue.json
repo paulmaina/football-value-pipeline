@@ -2,6 +2,6 @@
   "automatic_promotion": false,
   "experiments": [],
   "note": "Only live forward trials are queued, and none is live. Notifications invite review, including negative findings; they never approve changes.",
-  "reviewed_at_utc": "2026-11-09T08:59:22.793473+00:00",
+  "reviewed_at_utc": "2026-11-10T02:50:14.850216+00:00",
   "version": "experiment-review-queue-v1"
 }
