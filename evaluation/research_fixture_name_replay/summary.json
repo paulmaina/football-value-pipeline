@@ -1,0 +1,787 @@
+{
+  "after_version": "team-form-research-v3",
+  "all_forecasts": {
+    "changed": 161,
+    "changed_forecasts": {
+      "goal_rate_move": {
+        "max": 0.3341684346455627,
+        "mean": 0.1280862291814211
+      },
+      "largest": [
+        {
+          "away_team": "FC Porto",
+          "home_team": "Vit\u00f3ria SC",
+          "league": "Primeira Liga",
+          "max_1x2_move": 0.10236841819165177
+        },
+        {
+          "away_team": "FC Porto",
+          "home_team": "Vit\u00f3ria SC",
+          "league": "Primeira Liga",
+          "max_1x2_move": 0.10236215348153532
+        },
+        {
+          "away_team": "FC Porto",
+          "home_team": "Vit\u00f3ria SC",
+          "league": "Primeira Liga",
+          "max_1x2_move": 0.1023607646340774
+        },
+        {
+          "away_team": "FC Porto",
+          "home_team": "Vit\u00f3ria SC",
+          "league": "Primeira Liga",
+          "max_1x2_move": 0.10235214866404407
+        },
+        {
+          "away_team": "Atalanta BC",
+          "home_team": "Monza",
+          "league": "Serie A",
+          "max_1x2_move": 0.10188308034668658
+        }
+      ],
+      "max_1x2_move": {
+        "max": 0.10236841819165177,
+        "mean": 0.049228334780110475,
+        "median": 0.04317598269686773,
+        "p90": 0.1005357488203571
+      },
+      "max_1x2_move_buckets": {
+        "1_to_2_points": 18,
+        "2_to_5_points": 58,
+        "5_points_or_more": 71,
+        "under_1_point": 14
+      },
+      "mean_signed_move": {
+        "away": -0.01491855372412746,
+        "draw": 0.0030545452463957433,
+        "home": 0.01186400847773172
+      },
+      "over_1_5_move": {
+        "max": 0.04096197789525968,
+        "mean": 0.02229251288721498
+      }
+    },
+    "forecasts": 689,
+    "sides": 1378,
+    "sides_renamed": 347,
+    "sides_without_any_form_after": 18,
+    "sides_without_any_form_before": 217,
+    "sides_without_history_after": 32,
+    "sides_without_history_before": 379
+  },
+  "before_version": "team-form-research-v2",
+  "forecasts": {
+    "changed": 161,
+    "forecasts": 4379,
+    "frozen_history_sides_checked": 895,
+    "frozen_history_sides_reproduced": 895,
+    "frozen_probabilities_checked": 689,
+    "frozen_probabilities_reproduced": 689,
+    "history_unavailable": 68,
+    "sides_rebuilt": 1242,
+    "sides_renamed": 347,
+    "sides_unresolved": 0,
+    "training_name_agrees_with_model": 1242,
+    "unchanged": 528,
+    "with_research": 689
+  },
+  "frozen_probabilities_max_abs_diff": 8.326672684688674e-17,
+  "history_as_of_utc": "2026-11-08T12:20:11.201012+00:00",
+  "history_load_errors": {
+    "UEL": "ValueError: Europa cache missing: run refresh_europa_training.py"
+  },
+  "latest_forecast_per_fixture": {
+    "all": {
+      "changed": 20,
+      "changed_forecasts": {
+        "goal_rate_move": {
+          "max": 0.33324809750341844,
+          "mean": 0.11356464548600761
+        },
+        "largest": [
+          {
+            "away_team": "Atalanta BC",
+            "home_team": "Monza",
+            "league": "Serie A",
+            "max_1x2_move": 0.10150960536948372
+          },
+          {
+            "away_team": "Bayer Leverkusen",
+            "home_team": "1. FC K\u00f6ln",
+            "league": "Bundesliga",
+            "max_1x2_move": 0.10038599000913834
+          },
+          {
+            "away_team": "FC Porto",
+            "home_team": "Vit\u00f3ria SC",
+            "league": "Primeira Liga",
+            "max_1x2_move": 0.08667364764902608
+          },
+          {
+            "away_team": "Ajax",
+            "home_team": "FC Twente Enschede",
+            "league": "Eredivisie",
+            "max_1x2_move": 0.08061641156399713
+          },
+          {
+            "away_team": "Genclerbirligi SK",
+            "home_team": "Besiktas JK",
+            "league": "Super Lig",
+            "max_1x2_move": 0.07828448725315096
+          }
+        ],
+        "max_1x2_move": {
+          "max": 0.10150960536948372,
+          "mean": 0.04681864266380839,
+          "median": 0.042184161911499596,
+          "p90": 0.08804488188503733
+        },
+        "max_1x2_move_buckets": {
+          "1_to_2_points": 3,
+          "2_to_5_points": 7,
+          "5_points_or_more": 8,
+          "under_1_point": 2
+        },
+        "mean_signed_move": {
+          "away": -0.019483898616191625,
+          "draw": 0.0011270846186105673,
+          "home": 0.018356813997581017
+        },
+        "over_1_5_move": {
+          "max": 0.04095554925084188,
+          "mean": 0.019275133137575402
+        }
+      },
+      "forecasts": 108,
+      "sides": 216,
+      "sides_renamed": 46,
+      "sides_without_any_form_after": 9,
+      "sides_without_any_form_before": 34,
+      "sides_without_history_after": 16,
+      "sides_without_history_before": 62
+    },
+    "by_league": {
+      "Bundesliga": {
+        "changed": 3,
+        "changed_forecasts": {
+          "goal_rate_move": {
+            "max": 0.2848060474093621,
+            "mean": 0.14242883190779024
+          },
+          "largest": [
+            {
+              "away_team": "Bayer Leverkusen",
+              "home_team": "1. FC K\u00f6ln",
+              "league": "Bundesliga",
+              "max_1x2_move": 0.10038599000913834
+            },
+            {
+              "away_team": "Borussia Monchengladbach",
+              "home_team": "Hamburger SV",
+              "league": "Bundesliga",
+              "max_1x2_move": 0.045723223020516957
+            },
+            {
+              "away_team": "Bayern Munich",
+              "home_team": "FSV Mainz 05",
+              "league": "Bundesliga",
+              "max_1x2_move": 0.02792091603200786
+            }
+          ],
+          "max_1x2_move": {
+            "max": 0.10038599000913834,
+            "mean": 0.05801004302055438,
+            "median": 0.045723223020516957,
+            "p90": 0.08945343661141407
+          },
+          "max_1x2_move_buckets": {
+            "1_to_2_points": 0,
+            "2_to_5_points": 2,
+            "5_points_or_more": 1,
+            "under_1_point": 0
+          },
+          "mean_signed_move": {
+            "away": -0.05377403508266535,
+            "draw": 0.003296771538558757,
+            "home": 0.05047726354410657
+          },
+          "over_1_5_move": {
+            "max": 0.03605462964481343,
+            "mean": 0.02056009866844895
+          }
+        },
+        "forecasts": 9,
+        "sides": 18,
+        "sides_renamed": 8,
+        "sides_without_any_form_after": 0,
+        "sides_without_any_form_before": 4,
+        "sides_without_history_after": 0,
+        "sides_without_history_before": 8
+      },
+      "Eredivisie": {
+        "changed": 3,
+        "changed_forecasts": {
+          "goal_rate_move": {
+            "max": 0.3201764361029482,
+            "mean": 0.11934816931584573
+          },
+          "largest": [
+            {
+              "away_team": "Ajax",
+              "home_team": "FC Twente Enschede",
+              "league": "Eredivisie",
+              "max_1x2_move": 0.08061641156399713
+            },
+            {
+              "away_team": "PEC Zwolle",
+              "home_team": "Willem II Tilburg",
+              "league": "Eredivisie",
+              "max_1x2_move": 0.03777584037894677
+            },
+            {
+              "away_team": "Sparta Rotterdam",
+              "home_team": "ADO Den Haag",
+              "league": "Eredivisie",
+              "max_1x2_move": 0.015684803841190142
+            }
+          ],
+          "max_1x2_move": {
+            "max": 0.08061641156399713,
+            "mean": 0.04469235192804468,
+            "median": 0.03777584037894677,
+            "p90": 0.07204829732698706
+          },
+          "max_1x2_move_buckets": {
+            "1_to_2_points": 1,
+            "2_to_5_points": 1,
+            "5_points_or_more": 1,
+            "under_1_point": 0
+          },
+          "mean_signed_move": {
+            "away": 0.009051922447953406,
+            "draw": 0.0009171190625328155,
+            "home": -0.00996904151048611
+          },
+          "over_1_5_move": {
+            "max": 0.04095554925084188,
+            "mean": 0.024744225076820503
+          }
+        },
+        "forecasts": 10,
+        "sides": 20,
+        "sides_renamed": 6,
+        "sides_without_any_form_after": 0,
+        "sides_without_any_form_before": 3,
+        "sides_without_history_after": 0,
+        "sides_without_history_before": 6
+      },
+      "La Liga": {
+        "changed": 4,
+        "changed_forecasts": {
+          "goal_rate_move": {
+            "max": 0.15781580286823815,
+            "mean": 0.08169354194178585
+          },
+          "largest": [
+            {
+              "away_team": "Real Racing Club de Santander",
+              "home_team": "M\u00e1laga",
+              "league": "La Liga",
+              "max_1x2_move": 0.05176415565495368
+            },
+            {
+              "away_team": "Athletic Bilbao",
+              "home_team": "CA Osasuna",
+              "league": "La Liga",
+              "max_1x2_move": 0.04121147334360431
+            },
+            {
+              "away_team": "Deportivo La Coru\u00f1a",
+              "home_team": "Espanyol",
+              "league": "La Liga",
+              "max_1x2_move": 0.03717092131530353
+            },
+            {
+              "away_team": "Deportivo Alav\u00e9s",
+              "home_team": "Sevilla FC",
+              "league": "La Liga",
+              "max_1x2_move": 0.024041775453139624
+            }
+          ],
+          "max_1x2_move": {
+            "max": 0.05176415565495368,
+            "mean": 0.038547081441750286,
+            "median": 0.03919119732945392,
+            "p90": 0.048598350961548874
+          },
+          "max_1x2_move_buckets": {
+            "1_to_2_points": 0,
+            "2_to_5_points": 3,
+            "5_points_or_more": 1,
+            "under_1_point": 0
+          },
+          "mean_signed_move": {
+            "away": -0.01593200383127486,
+            "draw": -0.0028873278348189313,
+            "home": 0.01881933166609373
+          },
+          "over_1_5_move": {
+            "max": 0.02559503813727937,
+            "mean": 0.018226011302920092
+          }
+        },
+        "forecasts": 11,
+        "sides": 22,
+        "sides_renamed": 9,
+        "sides_without_any_form_after": 0,
+        "sides_without_any_form_before": 5,
+        "sides_without_history_after": 0,
+        "sides_without_history_before": 9
+      },
+      "Ligue 1": {
+        "changed": 2,
+        "changed_forecasts": {
+          "goal_rate_move": {
+            "max": 0.07951410533375425,
+            "mean": 0.03865779844116318
+          },
+          "largest": [
+            {
+              "away_team": "Marseille",
+              "home_team": "RC Lens",
+              "league": "Ligue 1",
+              "max_1x2_move": 0.019142936521036158
+            },
+            {
+              "away_team": "RC Strasbourg Alsace",
+              "home_team": "Toulouse FC",
+              "league": "Ligue 1",
+              "max_1x2_move": 0.0170940082840923
+            }
+          ],
+          "max_1x2_move": {
+            "max": 0.019142936521036158,
+            "mean": 0.01811847240256423,
+            "median": 0.01811847240256423,
+            "p90": 0.018938043697341773
+          },
+          "max_1x2_move_buckets": {
+            "1_to_2_points": 2,
+            "2_to_5_points": 0,
+            "5_points_or_more": 0,
+            "under_1_point": 0
+          },
+          "mean_signed_move": {
+            "away": 0.001999461759747412,
+            "draw": -0.0018359732729253536,
+            "home": -0.00016348848682232187
+          },
+          "over_1_5_move": {
+            "max": 0.010935176338203623,
+            "mean": 0.007422089207456739
+          }
+        },
+        "forecasts": 10,
+        "sides": 20,
+        "sides_renamed": 3,
+        "sides_without_any_form_after": 0,
+        "sides_without_any_form_before": 2,
+        "sides_without_history_after": 0,
+        "sides_without_history_before": 3
+      },
+      "Premier League": {
+        "changed": 0,
+        "forecasts": 10,
+        "sides": 20,
+        "sides_renamed": 3,
+        "sides_without_any_form_after": 0,
+        "sides_without_any_form_before": 0,
+        "sides_without_history_after": 0,
+        "sides_without_history_before": 3
+      },
+      "Primeira Liga": {
+        "changed": 2,
+        "changed_forecasts": {
+          "goal_rate_move": {
+            "max": 0.21903936205945262,
+            "mean": 0.14067562980607534
+          },
+          "largest": [
+            {
+              "away_team": "FC Porto",
+              "home_team": "Vit\u00f3ria SC",
+              "league": "Primeira Liga",
+              "max_1x2_move": 0.08667364764902608
+            },
+            {
+              "away_team": "CS Maritimo",
+              "home_team": "Estoril",
+              "league": "Primeira Liga",
+              "max_1x2_move": 0.04315685047939488
+            }
+          ],
+          "max_1x2_move": {
+            "max": 0.08667364764902608,
+            "mean": 0.06491524906421048,
+            "median": 0.06491524906421048,
+            "p90": 0.08232196793206295
+          },
+          "max_1x2_move_buckets": {
+            "1_to_2_points": 0,
+            "2_to_5_points": 1,
+            "5_points_or_more": 1,
+            "under_1_point": 0
+          },
+          "mean_signed_move": {
+            "away": -0.03043331116225481,
+            "draw": 0.016833991532493625,
+            "home": 0.013599319629761117
+          },
+          "over_1_5_move": {
+            "max": 0.03228836260664636,
+            "mean": 0.02708533646942779
+          }
+        },
+        "forecasts": 10,
+        "sides": 20,
+        "sides_renamed": 4,
+        "sides_without_any_form_after": 0,
+        "sides_without_any_form_before": 2,
+        "sides_without_history_after": 0,
+        "sides_without_history_before": 4
+      },
+      "Serie A": {
+        "changed": 1,
+        "changed_forecasts": {
+          "goal_rate_move": {
+            "max": 0.33324809750341844,
+            "mean": 0.2312769835120927
+          },
+          "largest": [
+            {
+              "away_team": "Atalanta BC",
+              "home_team": "Monza",
+              "league": "Serie A",
+              "max_1x2_move": 0.10150960536948372
+            }
+          ],
+          "max_1x2_move": {
+            "max": 0.10150960536948372,
+            "mean": 0.10150960536948372,
+            "median": 0.10150960536948372,
+            "p90": 0.10150960536948372
+          },
+          "max_1x2_move_buckets": {
+            "1_to_2_points": 0,
+            "2_to_5_points": 0,
+            "5_points_or_more": 1,
+            "under_1_point": 0
+          },
+          "mean_signed_move": {
+            "away": -0.10150960536948372,
+            "draw": 0.01449322749985213,
+            "home": 0.08701637786963173
+          },
+          "over_1_5_move": {
+            "max": 0.02437787652654755,
+            "mean": 0.02437787652654755
+          }
+        },
+        "forecasts": 10,
+        "sides": 20,
+        "sides_renamed": 2,
+        "sides_without_any_form_after": 0,
+        "sides_without_any_form_before": 1,
+        "sides_without_history_after": 0,
+        "sides_without_history_before": 2
+      },
+      "Super Lig": {
+        "changed": 5,
+        "changed_forecasts": {
+          "goal_rate_move": {
+            "max": 0.24382420585959919,
+            "mean": 0.11384877965510634
+          },
+          "largest": [
+            {
+              "away_team": "Genclerbirligi SK",
+              "home_team": "Besiktas JK",
+              "league": "Super Lig",
+              "max_1x2_move": 0.07828448725315096
+            },
+            {
+              "away_team": "Torku Konyaspor",
+              "home_team": "Samsunspor",
+              "league": "Super Lig",
+              "max_1x2_move": 0.0612919043757737
+            },
+            {
+              "away_team": "Basaksehir",
+              "home_team": "Goztepe",
+              "league": "Super Lig",
+              "max_1x2_move": 0.051924078347086955
+            },
+            {
+              "away_team": "Kasimpasa SK",
+              "home_team": "Gazi\u015fehir Gaziantep",
+              "league": "Super Lig",
+              "max_1x2_move": 0.009279307416989624
+            },
+            {
+              "away_team": "Amed SK",
+              "home_team": "Galatasaray",
+              "league": "Super Lig",
+              "max_1x2_move": 0.00572051696733511
+            }
+          ],
+          "max_1x2_move": {
+            "max": 0.07828448725315096,
+            "mean": 0.041300058872067266,
+            "median": 0.051924078347086955,
+            "p90": 0.07148745410220006
+          },
+          "max_1x2_move_buckets": {
+            "1_to_2_points": 0,
+            "2_to_5_points": 0,
+            "5_points_or_more": 3,
+            "under_1_point": 2
+          },
+          "mean_signed_move": {
+            "away": -0.006681262984019734,
+            "draw": -0.0046079864221552636,
+            "home": 0.011289249406174939
+          },
+          "over_1_5_move": {
+            "max": 0.030446621184757938,
+            "mean": 0.016658583684740536
+          }
+        },
+        "forecasts": 9,
+        "sides": 18,
+        "sides_renamed": 11,
+        "sides_without_any_form_after": 0,
+        "sides_without_any_form_before": 8,
+        "sides_without_history_after": 0,
+        "sides_without_history_before": 11
+      },
+      "UEFA Europa League": {
+        "changed": 0,
+        "forecasts": 29,
+        "sides": 58,
+        "sides_renamed": 0,
+        "sides_without_any_form_after": 9,
+        "sides_without_any_form_before": 9,
+        "sides_without_history_after": 16,
+        "sides_without_history_before": 16
+      }
+    },
+    "domestic": {
+      "changed": 20,
+      "changed_forecasts": {
+        "goal_rate_move": {
+          "max": 0.33324809750341844,
+          "mean": 0.11356464548600761
+        },
+        "largest": [
+          {
+            "away_team": "Atalanta BC",
+            "home_team": "Monza",
+            "league": "Serie A",
+            "max_1x2_move": 0.10150960536948372
+          },
+          {
+            "away_team": "Bayer Leverkusen",
+            "home_team": "1. FC K\u00f6ln",
+            "league": "Bundesliga",
+            "max_1x2_move": 0.10038599000913834
+          },
+          {
+            "away_team": "FC Porto",
+            "home_team": "Vit\u00f3ria SC",
+            "league": "Primeira Liga",
+            "max_1x2_move": 0.08667364764902608
+          },
+          {
+            "away_team": "Ajax",
+            "home_team": "FC Twente Enschede",
+            "league": "Eredivisie",
+            "max_1x2_move": 0.08061641156399713
+          },
+          {
+            "away_team": "Genclerbirligi SK",
+            "home_team": "Besiktas JK",
+            "league": "Super Lig",
+            "max_1x2_move": 0.07828448725315096
+          }
+        ],
+        "max_1x2_move": {
+          "max": 0.10150960536948372,
+          "mean": 0.04681864266380839,
+          "median": 0.042184161911499596,
+          "p90": 0.08804488188503733
+        },
+        "max_1x2_move_buckets": {
+          "1_to_2_points": 3,
+          "2_to_5_points": 7,
+          "5_points_or_more": 8,
+          "under_1_point": 2
+        },
+        "mean_signed_move": {
+          "away": -0.019483898616191625,
+          "draw": 0.0011270846186105673,
+          "home": 0.018356813997581017
+        },
+        "over_1_5_move": {
+          "max": 0.04095554925084188,
+          "mean": 0.019275133137575402
+        }
+      },
+      "forecasts": 79,
+      "sides": 158,
+      "sides_renamed": 46,
+      "sides_without_any_form_after": 0,
+      "sides_without_any_form_before": 25,
+      "sides_without_history_after": 0,
+      "sides_without_history_before": 46
+    },
+    "holdout_leagues": {
+      "changed": 10,
+      "changed_forecasts": {
+        "goal_rate_move": {
+          "max": 0.3201764361029482,
+          "mean": 0.12086396658352197
+        },
+        "largest": [
+          {
+            "away_team": "FC Porto",
+            "home_team": "Vit\u00f3ria SC",
+            "league": "Primeira Liga",
+            "max_1x2_move": 0.08667364764902608
+          },
+          {
+            "away_team": "Ajax",
+            "home_team": "FC Twente Enschede",
+            "league": "Eredivisie",
+            "max_1x2_move": 0.08061641156399713
+          },
+          {
+            "away_team": "Genclerbirligi SK",
+            "home_team": "Besiktas JK",
+            "league": "Super Lig",
+            "max_1x2_move": 0.07828448725315096
+          },
+          {
+            "away_team": "Torku Konyaspor",
+            "home_team": "Samsunspor",
+            "league": "Super Lig",
+            "max_1x2_move": 0.0612919043757737
+          },
+          {
+            "away_team": "Basaksehir",
+            "home_team": "Goztepe",
+            "league": "Super Lig",
+            "max_1x2_move": 0.051924078347086955
+          }
+        ],
+        "max_1x2_move": {
+          "max": 0.08667364764902608,
+          "mean": 0.047040784827289135,
+          "median": 0.04754046441324092,
+          "p90": 0.08122213517250002
+        },
+        "max_1x2_move_buckets": {
+          "1_to_2_points": 1,
+          "2_to_5_points": 2,
+          "5_points_or_more": 5,
+          "under_1_point": 2
+        },
+        "mean_signed_move": {
+          "away": -0.006711716990074808,
+          "draw": 0.0013379408141809379,
+          "home": 0.0053737761758938605
+        },
+        "over_1_5_move": {
+          "max": 0.04095554925084188,
+          "mean": 0.021169626659301978
+        }
+      },
+      "forecasts": 29,
+      "sides": 58,
+      "sides_renamed": 21,
+      "sides_without_any_form_after": 0,
+      "sides_without_any_form_before": 13,
+      "sides_without_history_after": 0,
+      "sides_without_history_before": 21
+    },
+    "other_leagues": {
+      "changed": 10,
+      "changed_forecasts": {
+        "goal_rate_move": {
+          "max": 0.33324809750341844,
+          "mean": 0.10626532438849332
+        },
+        "largest": [
+          {
+            "away_team": "Atalanta BC",
+            "home_team": "Monza",
+            "league": "Serie A",
+            "max_1x2_move": 0.10150960536948372
+          },
+          {
+            "away_team": "Bayer Leverkusen",
+            "home_team": "1. FC K\u00f6ln",
+            "league": "Bundesliga",
+            "max_1x2_move": 0.10038599000913834
+          },
+          {
+            "away_team": "Real Racing Club de Santander",
+            "home_team": "M\u00e1laga",
+            "league": "La Liga",
+            "max_1x2_move": 0.05176415565495368
+          },
+          {
+            "away_team": "Borussia Monchengladbach",
+            "home_team": "Hamburger SV",
+            "league": "Bundesliga",
+            "max_1x2_move": 0.045723223020516957
+          },
+          {
+            "away_team": "Athletic Bilbao",
+            "home_team": "CA Osasuna",
+            "league": "La Liga",
+            "max_1x2_move": 0.04121147334360431
+          }
+        ],
+        "max_1x2_move": {
+          "max": 0.10150960536948372,
+          "mean": 0.046596500500327646,
+          "median": 0.03919119732945392,
+          "p90": 0.10049835154517288
+        },
+        "max_1x2_move_buckets": {
+          "1_to_2_points": 2,
+          "2_to_5_points": 5,
+          "5_points_or_more": 3,
+          "under_1_point": 0
+        },
+        "mean_signed_move": {
+          "away": -0.03225608024230844,
+          "draw": 0.0009162284230401968,
+          "home": 0.03133985181926817
+        },
+        "over_1_5_move": {
+          "max": 0.03605462964481343,
+          "mean": 0.017380639615848827
+        }
+      },
+      "forecasts": 79,
+      "sides": 158,
+      "sides_renamed": 25,
+      "sides_without_any_form_after": 9,
+      "sides_without_any_form_before": 21,
+      "sides_without_history_after": 16,
+      "sides_without_history_before": 41
+    }
+  },
+  "note": "before = research v2 on the frozen inputs; after = v3, with each renamed side rebuilt from the training history under its training name. Probabilities only: no result and no odds field is read."
+}

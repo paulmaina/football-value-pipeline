@@ -129,7 +129,7 @@ class PrepareTest(unittest.TestCase):
     def test_new_forecasts_are_stamped_with_the_current_version(self):
         with tempfile.TemporaryDirectory() as tmp:
             out = tr.enrich(pd.DataFrame([self.row()]), tmp, fetch=False, clock=lambda: CUTOFF.to_pydatetime())
-        self.assertEqual(json.loads(out.iloc[0]['team_research_json'])['version'], 'team-form-research-v2')
+        self.assertEqual(json.loads(out.iloc[0]['team_research_json'])['version'], 'team-form-research-v3')
 
 
 def frozen():

@@ -785,11 +785,13 @@ def _used_rows(inputs, evidence, cutoff, side, version=None):
 
     Like prepare(), all pre-kickoff evidence is dropped when any source was observed after the cutoff.
     """
-    from team_research import VERSION, decode, form_rows, observed_by, research_evidence
-    rows = list(decode(inputs.get('research_history_json')).get(side, []))
+    from team_research import VERSION, decode, form_rows, history_name, observed_by, research_evidence
+    version = version or VERSION
+    history = decode(inputs.get('research_history_json'))
+    rows = list(history.get(side, []))
     if observed_by(evidence, cutoff):
         rows += research_evidence(evidence).get('recent', {}).get(side, [])
-    return form_rows(inputs.get(side + '_team'), rows, cutoff, version or VERSION)
+    return form_rows(inputs.get(side + '_team'), rows, cutoff, version, history_name(history, side, version))
 
 
 def _team_day(r, team):
