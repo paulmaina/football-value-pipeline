@@ -1,0 +1,623 @@
+{
+  "description": "Understat match xG, five big leagues; written by scripts/fetch_understat_history.py",
+  "files": {
+    "Bundesliga_2021": {
+      "archive_timestamp": "20251008161311",
+      "complete": true,
+      "earlier_attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:30:03+00:00",
+      "file": "Bundesliga_2021.json",
+      "file_sha256": "9d056540e3ec70ccb18f8a36f9559d716db6e040e1f2b0d1dfcdb08b7e528c0b",
+      "http_status": 200,
+      "league": "Bundesliga",
+      "matches": 306,
+      "original_url": "https://understat.com/league/Bundesliga/2021",
+      "raw_bytes": 1039964,
+      "raw_sha256": "f2439ae3945cd2fbea8739e7151cff00901ecbe465f2861489500f3fde13372f",
+      "results": 306,
+      "season": "2021/22",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20251008161311id_/https://understat.com/league/Bundesliga/2021",
+      "understat_league": "Bundesliga"
+    },
+    "Bundesliga_2022": {
+      "archive_timestamp": "20250916035325",
+      "complete": true,
+      "earlier_attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:30:14+00:00",
+      "file": "Bundesliga_2022.json",
+      "file_sha256": "ca44a33c2fb028c163324aa4620a81e4fa63250358e85a7d37acb18ce7f1c474",
+      "http_status": 200,
+      "league": "Bundesliga",
+      "matches": 306,
+      "original_url": "https://understat.com/league/Bundesliga/2022",
+      "raw_bytes": 1036350,
+      "raw_sha256": "45b323c54a1c4dfd5bbdc43d165661dbb0cce6d10d393c09ed878d12c06f776f",
+      "results": 306,
+      "season": "2022/23",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250916035325id_/https://understat.com/league/Bundesliga/2022",
+      "understat_league": "Bundesliga"
+    },
+    "Bundesliga_2023": {
+      "archive_timestamp": "20250916052339",
+      "complete": true,
+      "earlier_attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:30:26+00:00",
+      "file": "Bundesliga_2023.json",
+      "file_sha256": "585d640aa56dea2da12a27abaa7c765cf9f1e9350f0adc61d4df9071d8c3c50f",
+      "http_status": 200,
+      "league": "Bundesliga",
+      "matches": 306,
+      "original_url": "https://understat.com/league/Bundesliga/2023",
+      "raw_bytes": 1029479,
+      "raw_sha256": "5f3dc23db305b67860330f76e9475651e272c80942e4e4a2e13901d4c28bb265",
+      "results": 306,
+      "season": "2023/24",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250916052339id_/https://understat.com/league/Bundesliga/2023",
+      "understat_league": "Bundesliga"
+    },
+    "Bundesliga_2024": {
+      "archive_timestamp": "20251008164908",
+      "complete": true,
+      "earlier_attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:30:38+00:00",
+      "file": "Bundesliga_2024.json",
+      "file_sha256": "422b180f1ed7ffd0dc1959e75d2f43cba152aec5f57ba61964895d3dcb2a060f",
+      "http_status": 200,
+      "league": "Bundesliga",
+      "matches": 306,
+      "original_url": "https://understat.com/league/Bundesliga/2024",
+      "raw_bytes": 1020975,
+      "raw_sha256": "339929c58454404430e93180299760468bab30cf86f732c0e9e1613fcfa89f79",
+      "results": 306,
+      "season": "2024/25",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20251008164908id_/https://understat.com/league/Bundesliga/2024",
+      "understat_league": "Bundesliga"
+    },
+    "EPL_2021": {
+      "archive_timestamp": "20250617130344",
+      "complete": true,
+      "earlier_attempts": [
+        {
+          "outcome": "maintenance page",
+          "status": 200,
+          "url": "https://understat.com/league/EPL/2021"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:27:26+00:00",
+      "file": "EPL_2021.json",
+      "file_sha256": "636f53939a0bc005c37fce0f64df0a441a697c279388611b7a90f0ff86b837fa",
+      "http_status": 200,
+      "league": "EPL",
+      "matches": 380,
+      "original_url": "https://understat.com/league/EPL/2021",
+      "raw_bytes": 1221294,
+      "raw_sha256": "cc4b31acc8c33937a65c04ca8793df884f10f5a68e6f68d8ca9bb10de9957406",
+      "results": 380,
+      "season": "2021/22",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250617130344id_/https://understat.com/league/EPL/2021",
+      "understat_league": "EPL"
+    },
+    "EPL_2022": {
+      "archive_timestamp": "20250916035035",
+      "complete": true,
+      "earlier_attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:27:38+00:00",
+      "file": "EPL_2022.json",
+      "file_sha256": "3bfb1a070e148205c12323593c0131fb58955cdfcf0d73741fd1e62219a9fe27",
+      "http_status": 200,
+      "league": "EPL",
+      "matches": 380,
+      "original_url": "https://understat.com/league/EPL/2022",
+      "raw_bytes": 1232782,
+      "raw_sha256": "62b31d8ec3518f54f6714df81e4502d25097d32a979242ad9e84504db90c0582",
+      "results": 380,
+      "season": "2022/23",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250916035035id_/https://understat.com/league/EPL/2022",
+      "understat_league": "EPL"
+    },
+    "EPL_2023": {
+      "archive_timestamp": "20251107150410",
+      "complete": true,
+      "earlier_attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:27:51+00:00",
+      "file": "EPL_2023.json",
+      "file_sha256": "dae35b70312154dfadfe9b3f0bcb689c58c68b1174c00073b152e6e4453ac356",
+      "http_status": 200,
+      "league": "EPL",
+      "matches": 380,
+      "original_url": "https://understat.com/league/EPL/2023",
+      "raw_bytes": 1241528,
+      "raw_sha256": "3b358dfb12250dbc4a59c94af4b0516e454a47c9b2df9b59467f05cd2c197e82",
+      "results": 380,
+      "season": "2023/24",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20251107150410id_/https://understat.com/league/EPL/2023",
+      "understat_league": "EPL"
+    },
+    "EPL_2024": {
+      "archive_timestamp": "20250920125149",
+      "complete": true,
+      "earlier_attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:28:02+00:00",
+      "file": "EPL_2024.json",
+      "file_sha256": "22722f6605978b0660063c44564290bdfeb8318f287d02d055f184b3bedc2a9c",
+      "http_status": 200,
+      "league": "EPL",
+      "matches": 380,
+      "original_url": "https://understat.com/league/EPL/2024",
+      "raw_bytes": 1237047,
+      "raw_sha256": "ab7064c032b9ae29894bf76d964ffdf91c22f214885e3fabd124716ea7553ac4",
+      "results": 380,
+      "season": "2024/25",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250920125149id_/https://understat.com/league/EPL/2024",
+      "understat_league": "EPL"
+    },
+    "EPL_2025": {
+      "archive_timestamp": "20251108054050",
+      "complete": false,
+      "earlier_attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        },
+        {
+          "outcome": "partial: 100 of 380 results",
+          "url": "https://web.archive.org/web/20251108054050id_/https://understat.com/league/EPL/2025"
+        },
+        {
+          "outcome": "partial: 70 of 380 results",
+          "url": "https://web.archive.org/web/20251008160634id_/https://understat.com/league/EPL/2025"
+        },
+        {
+          "outcome": "partial: 50 of 380 results",
+          "url": "https://web.archive.org/web/20250923141341id_/https://understat.com/league/EPL/2025"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:28:26+00:00",
+      "file": "EPL_2025.json",
+      "file_sha256": "2b108c38a0497f3a80bb7ea8fac037d53a382a975644c888abf090e6a294c96d",
+      "http_status": 200,
+      "league": "EPL",
+      "matches": 380,
+      "original_url": "https://understat.com/league/EPL/2025",
+      "raw_bytes": 657250,
+      "raw_sha256": "a89625000194075b586f771b1dfbc35fc700f37f20d26317c60dea9a5bac4da9",
+      "results": 100,
+      "season": "2025/26",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20251108054050id_/https://understat.com/league/EPL/2025",
+      "understat_league": "EPL"
+    },
+    "La_liga_2021": {
+      "archive_timestamp": "20250916040624",
+      "complete": true,
+      "earlier_attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:28:44+00:00",
+      "file": "La_liga_2021.json",
+      "file_sha256": "d374aec5f8aad4b83f3200b66538cc420f5490326a0bc5492abb7ce89a369145",
+      "http_status": 200,
+      "league": "LaLiga",
+      "matches": 380,
+      "original_url": "https://understat.com/league/La_liga/2021",
+      "raw_bytes": 1263108,
+      "raw_sha256": "48aaad02e7dc32dc3b9da7c10c700c3b93d44fa40d31ed91f8dfe052a6a67705",
+      "results": 380,
+      "season": "2021/22",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250916040624id_/https://understat.com/league/La_liga/2021",
+      "understat_league": "La_liga"
+    },
+    "La_liga_2022": {
+      "archive_timestamp": "20251107162219",
+      "complete": true,
+      "earlier_attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:28:56+00:00",
+      "file": "La_liga_2022.json",
+      "file_sha256": "e478036f7be2800efe32aad8c4659e6455f0fe72572771c3e2d369f2eb0f76a2",
+      "http_status": 200,
+      "league": "LaLiga",
+      "matches": 380,
+      "original_url": "https://understat.com/league/La_liga/2022",
+      "raw_bytes": 1250879,
+      "raw_sha256": "d19e2a9f34bb9128a8cface8e6c86b75d3c629c971744faa8f7664864c9bffbe",
+      "results": 380,
+      "season": "2022/23",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20251107162219id_/https://understat.com/league/La_liga/2022",
+      "understat_league": "La_liga"
+    },
+    "La_liga_2023": {
+      "archive_timestamp": "20240804234915",
+      "complete": true,
+      "earlier_attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:29:08+00:00",
+      "file": "La_liga_2023.json",
+      "file_sha256": "426103e5f58bb795e1e7cbc76daf4586e38272b4c3d8c31004f86fc6890c615d",
+      "http_status": 200,
+      "league": "LaLiga",
+      "matches": 380,
+      "original_url": "https://understat.com/league/La_liga/2023",
+      "raw_bytes": 1048576,
+      "raw_sha256": "d00b197dc1c23d1449780da3ebd939334b48106cbba7272deec8a84f1798e6ac",
+      "results": 380,
+      "season": "2023/24",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20240804234915id_/https://understat.com/league/La_liga/2023",
+      "understat_league": "La_liga"
+    },
+    "La_liga_2024": {
+      "archive_timestamp": "20250525232349",
+      "complete": true,
+      "earlier_attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:29:20+00:00",
+      "file": "La_liga_2024.json",
+      "file_sha256": "c2f20ef39e847682a6fde05c405cfe2ac08b5a46b87450333a87448b4076507d",
+      "http_status": 200,
+      "league": "LaLiga",
+      "matches": 380,
+      "original_url": "https://understat.com/league/La_liga/2024",
+      "raw_bytes": 1255846,
+      "raw_sha256": "44cf9426df8940f36611e39906531a7a87d434e7de184e512eadd0184193d44f",
+      "results": 380,
+      "season": "2024/25",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250525232349id_/https://understat.com/league/La_liga/2024",
+      "understat_league": "La_liga"
+    },
+    "La_liga_2025": {
+      "archive_timestamp": "20251204224709",
+      "complete": false,
+      "earlier_attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        },
+        {
+          "outcome": "partial: 142 of 380 results",
+          "url": "https://web.archive.org/web/20251204224709id_/https://understat.com/league/La_liga/2025"
+        },
+        {
+          "outcome": "partial: 130 of 380 results",
+          "url": "https://web.archive.org/web/20251128082427id_/https://understat.com/league/La_liga/2025"
+        },
+        {
+          "outcome": "partial: 80 of 380 results",
+          "url": "https://web.archive.org/web/20251008161815id_/https://understat.com/league/La_liga/2025"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:29:45+00:00",
+      "file": "La_liga_2025.json",
+      "file_sha256": "f268f70fb9662eb4ec7a03303ff689b7424c2380f413b1fef28dafbb31815269",
+      "http_status": 200,
+      "league": "LaLiga",
+      "matches": 380,
+      "original_url": "https://understat.com/league/La_liga/2025",
+      "raw_bytes": 763204,
+      "raw_sha256": "c4e4d2ac62142c0028a4308c9226bee1659f702b148bdfac5eb58143ca244c8a",
+      "results": 142,
+      "season": "2025/26",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20251204224709id_/https://understat.com/league/La_liga/2025",
+      "understat_league": "La_liga"
+    },
+    "Ligue_1_2021": {
+      "archive_timestamp": "20250802232720",
+      "complete": true,
+      "earlier_attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:32:18+00:00",
+      "file": "Ligue_1_2021.json",
+      "file_sha256": "95464433d7c044e1229d82e982814f3dfce8235e5ff0c61b567c3d70dc709fef",
+      "http_status": 200,
+      "league": "Ligue1",
+      "matches": 380,
+      "original_url": "https://understat.com/league/Ligue_1/2021",
+      "raw_bytes": 1250488,
+      "raw_sha256": "811394c5369ff20941722a4fd5519b81ccc5e44347e68f206995bcbe985bcb2e",
+      "results": 380,
+      "season": "2021/22",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250802232720id_/https://understat.com/league/Ligue_1/2021",
+      "understat_league": "Ligue_1"
+    },
+    "Ligue_1_2022": {
+      "archive_timestamp": "20251008154138",
+      "complete": true,
+      "earlier_attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:32:32+00:00",
+      "file": "Ligue_1_2022.json",
+      "file_sha256": "fb69daf7f57fbf96720e2da02442a39085b816269634766fd144ed4d6029ce1b",
+      "http_status": 200,
+      "league": "Ligue1",
+      "matches": 380,
+      "original_url": "https://understat.com/league/Ligue_1/2022",
+      "raw_bytes": 1248389,
+      "raw_sha256": "f0f9648623d4f2fe485b7a1132ca6ef6864279c834ef5c707f12c73044aabf25",
+      "results": 380,
+      "season": "2022/23",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20251008154138id_/https://understat.com/league/Ligue_1/2022",
+      "understat_league": "Ligue_1"
+    },
+    "Ligue_1_2023": {
+      "archive_timestamp": "20250717161353",
+      "complete": true,
+      "earlier_attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:32:41+00:00",
+      "file": "Ligue_1_2023.json",
+      "file_sha256": "953d0f208bcd5cde7431b427c31d1121655e6bc0325dc6f8be29edc3cc930e28",
+      "http_status": 200,
+      "league": "Ligue1",
+      "matches": 306,
+      "original_url": "https://understat.com/league/Ligue_1/2023",
+      "raw_bytes": 1042189,
+      "raw_sha256": "96e6fe54d30a55a68cf4856dbd0a1b9a35197ea7913118847202735efd25e018",
+      "results": 306,
+      "season": "2023/24",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250717161353id_/https://understat.com/league/Ligue_1/2023",
+      "understat_league": "Ligue_1"
+    },
+    "Ligue_1_2024": {
+      "archive_timestamp": "20250131173528",
+      "complete": false,
+      "earlier_attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        },
+        {
+          "outcome": "partial: 171 of 306 results",
+          "url": "https://web.archive.org/web/20250131173528id_/https://understat.com/league/Ligue_1/2024"
+        },
+        {
+          "outcome": "partial: 99 of 306 results",
+          "url": "https://web.archive.org/web/20241111070156id_/https://understat.com/league/Ligue_1/2024"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:32:58+00:00",
+      "file": "Ligue_1_2024.json",
+      "file_sha256": "77bad069222618309cd17b1e74f86a5c8d4f446a47e6d84813170114fe72c975",
+      "http_status": 200,
+      "league": "Ligue1",
+      "matches": 306,
+      "original_url": "https://understat.com/league/Ligue_1/2024",
+      "raw_bytes": 766280,
+      "raw_sha256": "1d8222b7a2d4aca360e41a41685cc03f8e4c929b207c2908aaa3e2c64203dd84",
+      "results": 171,
+      "season": "2024/25",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250131173528id_/https://understat.com/league/Ligue_1/2024",
+      "understat_league": "Ligue_1"
+    },
+    "Serie_A_2021": {
+      "archive_timestamp": "20250916043854",
+      "complete": true,
+      "earlier_attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:31:02+00:00",
+      "file": "Serie_A_2021.json",
+      "file_sha256": "211143f5f5152aacc640d48dff580c81a20b53f883b257582746c6146ae89710",
+      "http_status": 200,
+      "league": "SerieA",
+      "matches": 380,
+      "original_url": "https://understat.com/league/Serie_A/2021",
+      "raw_bytes": 1259985,
+      "raw_sha256": "ffb752c794ea7ee2a851e09b289fbd43621016ba520c41dc45c193816ce7d986",
+      "results": 380,
+      "season": "2021/22",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250916043854id_/https://understat.com/league/Serie_A/2021",
+      "understat_league": "Serie_A"
+    },
+    "Serie_A_2022": {
+      "archive_timestamp": "20230324114639",
+      "complete": false,
+      "earlier_attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        },
+        {
+          "outcome": "partial: 270 of 380 results",
+          "url": "https://web.archive.org/web/20230324114639id_/https://understat.com/league/Serie_A/2022"
+        },
+        {
+          "outcome": "partial: 150 of 380 results",
+          "url": "https://web.archive.org/web/20221204073701id_/https://understat.com/league/Serie_A/2022"
+        },
+        {
+          "outcome": "partial: 70 of 380 results",
+          "url": "https://web.archive.org/web/20220919052833id_/https://understat.com/league/Serie_A/2022"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:31:26+00:00",
+      "file": "Serie_A_2022.json",
+      "file_sha256": "b0b7e33e722a6825579762517595b38b1f6a4edd8b812d9e47e086aa3e9db78f",
+      "http_status": 200,
+      "league": "SerieA",
+      "matches": 380,
+      "original_url": "https://understat.com/league/Serie_A/2022",
+      "raw_bytes": 1025490,
+      "raw_sha256": "7638cc7d817865aadd5311c96bf218f556d07d23c01cd17082f67b1814a5de35",
+      "results": 270,
+      "season": "2022/23",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20230324114639id_/https://understat.com/league/Serie_A/2022",
+      "understat_league": "Serie_A"
+    },
+    "Serie_A_2023": {
+      "archive_timestamp": "20250617140613",
+      "complete": true,
+      "earlier_attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:31:39+00:00",
+      "file": "Serie_A_2023.json",
+      "file_sha256": "0eda4b2953fb6803007dd593e87ece61e036c3dafda43afccaa0a0fb9b864136",
+      "http_status": 200,
+      "league": "SerieA",
+      "matches": 380,
+      "original_url": "https://understat.com/league/Serie_A/2023",
+      "raw_bytes": 1249822,
+      "raw_sha256": "788624480ea15c4cbe5897cdbf1388b958ea9ac2029d4d5af940a088eb3e138d",
+      "results": 380,
+      "season": "2023/24",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250617140613id_/https://understat.com/league/Serie_A/2023",
+      "understat_league": "Serie_A"
+    },
+    "Serie_A_2024": {
+      "archive_timestamp": "20250717150543",
+      "complete": true,
+      "earlier_attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "fetched_at_utc": "2026-11-10T19:31:50+00:00",
+      "file": "Serie_A_2024.json",
+      "file_sha256": "3188b0df201805a372a156dd268d3fef4e7c49e3d76ee4c52bc8a99e9c2946e6",
+      "http_status": 200,
+      "league": "SerieA",
+      "matches": 380,
+      "original_url": "https://understat.com/league/Serie_A/2024",
+      "raw_bytes": 1256177,
+      "raw_sha256": "b9b29c8f5eed191cb1ac6d16db1aae993dbf028cbcf3a178823e0b58cf8eb99d",
+      "results": 380,
+      "season": "2024/25",
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250717150543id_/https://understat.com/league/Serie_A/2024",
+      "understat_league": "Serie_A"
+    }
+  },
+  "missing": {
+    "Bundesliga_2025": {
+      "attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "checked_at_utc": "2026-11-10T19:30:43.366428+00:00"
+    },
+    "Bundesliga_2026": {
+      "attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "checked_at_utc": "2026-11-10T19:30:49.387817+00:00"
+    },
+    "EPL_2026": {
+      "attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "checked_at_utc": "2026-11-10T19:28:31.319750+00:00"
+    },
+    "La_liga_2026": {
+      "attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "checked_at_utc": "2026-11-10T19:29:49.375725+00:00"
+    },
+    "Ligue_1_2025": {
+      "attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "checked_at_utc": "2026-11-10T19:33:03.698559+00:00"
+    },
+    "Ligue_1_2026": {
+      "attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "checked_at_utc": "2026-11-10T19:33:09.375361+00:00"
+    },
+    "Serie_A_2025": {
+      "attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "checked_at_utc": "2026-11-10T19:31:56.140354+00:00"
+    },
+    "Serie_A_2026": {
+      "attempts": [
+        {
+          "outcome": "understat.com in maintenance (earlier request)"
+        }
+      ],
+      "checked_at_utc": "2026-11-10T19:32:01.536816+00:00"
+    }
+  }
+}
