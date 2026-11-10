@@ -32,7 +32,8 @@ Historical data in `.football_cache` (football-data.co.uk, 8 domestic leagues, 2
 | 2021/22 | — | Training history only (warm-up) |
 | 1 Aug 2022 – 30 Jun 2025 | Pinnacle pre-match | Development: build and choose candidates |
 | 1 Jul 2025 – 15 Jan 2026 | Pinnacle pre-match | Validation: already inspected by earlier diagnostics; cagey correction is out-of-sample |
-| 16 Jan – 8 Nov 2026 (~2,100 matches) | Bet365, margin removed | Locked holdout, scored once per declared candidate |
+| 16 Jan – 10 Oct 2026, Eredivisie, Primeira Liga, Süper Lig (646 matches, 25 weeks) | Bet365, margin removed | Locked holdout: results no earlier benchmark or live report has scored |
+| All other matches from 16 Jan 2026 | Bet365, margin removed | Retrospective: already scored by the earlier benchmark (five big leagues to 13 Oct) or the live reports (all leagues from 11 Oct). Diagnostics only, never release evidence |
 
 - Pinnacle prices in the files stop on 15 Jan 2026; Bet365 continues for every league.
 - On matches priced by both, margin-free Bet365 sits about 0.7 points from Pinnacle, with a 1X2 log-loss gap of about 0.0008. The harness measures this gap; on the holdout a candidate must beat the market by more than it.
@@ -47,7 +48,8 @@ Historical data in `.football_cache` (football-data.co.uk, 8 domestic leagues, 2
 - Replay over saved live runs (no waiting): the candidate runs over every forecast frozen since 5 Nov 2026 and must compute cleanly. Integration check only, not evidence of improvement.
 - Monitoring after release: the weekly performance reports keep grading every pick, with a rollback trigger if the new model falls behind the old one by a set margin over a set number of matches.
 - There is no forward waiting for changes the backtest can test.
-- The holdout is scored only with a declaration file (`--declaration`), and every holdout run is appended to `evaluation/holdout_ledger.json`. A candidate name can be scored once.
+- The holdout is scored only with a declaration file (`--declaration`). The declaration names a candidate and baseline registered in the harness, the primary metric, the draw-sensitive lines (must match the config) and the calibration tolerance, and the harness applies exactly those. A holdout run scores only the declared candidate, its baseline and the market reference.
+- One evaluation per candidate and per frozen setup: the harness fingerprints the scoring code, model files, config and input data, and `evaluation/holdout_ledger.json` refuses a second run of either.
 
 ## Phases
 
@@ -71,4 +73,5 @@ Historical data in `.football_cache` (football-data.co.uk, 8 domestic leagues, 2
 | Research-edge picks | Separate section of the proposed master output |
 | Disagreement threshold | 5 percentage points, as a flag only |
 | Holdout market reference | Bet365 with margin removed, gap-adjusted |
+| Release holdout | The 646 untouched matches (Eredivisie, Primeira Liga, Süper Lig, 16 Jan – 10 Oct 2026) |
 | Still open | Calibration tolerance |

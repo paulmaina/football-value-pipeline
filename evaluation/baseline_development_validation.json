@@ -27,14 +27,14 @@
       "weeks": 128
     },
     "AH draw-sensitive": {
-      "bet365_minus_pinnacle_log_loss": 0.0006590870036917322,
+      "bet365_minus_pinnacle_log_loss": 0.0005136591253358615,
       "clear_of_zero": true,
       "fixtures": 8151,
       "interval_95": [
-        0.00028133865301038346,
-        0.0010573066093052422
+        0.00021386285963136988,
+        0.0008269380450884579
       ],
-      "mean_gain": 0.0006590870036917322,
+      "mean_gain": 0.0005136591253358615,
       "weeks": 128
     },
     "Over 1.5": {
@@ -1313,6 +1313,843 @@
     {
       "bin_lower": 0.0,
       "candidate": "A",
+      "mean_forecast": 0.07200704350357186,
+      "n": 96,
+      "observed_rate": 0.0625,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "A",
+      "mean_forecast": 0.15479628241672094,
+      "n": 269,
+      "observed_rate": 0.16356877323420074,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "A",
+      "mean_forecast": 0.25064193623209574,
+      "n": 373,
+      "observed_rate": 0.2761394101876676,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "A",
+      "mean_forecast": 0.34669244624526985,
+      "n": 304,
+      "observed_rate": 0.26644736842105265,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "A",
+      "mean_forecast": 0.445065897494753,
+      "n": 171,
+      "observed_rate": 0.5029239766081871,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "A",
+      "mean_forecast": 0.5472978718358605,
+      "n": 128,
+      "observed_rate": 0.5859375,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "A",
+      "mean_forecast": 0.637743261832315,
+      "n": 69,
+      "observed_rate": 0.6231884057971014,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "A",
+      "mean_forecast": 0.7391909467737741,
+      "n": 28,
+      "observed_rate": 0.8928571428571429,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "A",
+      "mean_forecast": 0.8223131834840917,
+      "n": 5,
+      "observed_rate": 0.6,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "A",
+      "mean_forecast": 0.07910443896775786,
+      "n": 18,
+      "observed_rate": 0.0,
+      "outcome": "draw",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "A",
+      "mean_forecast": 0.16340683891169824,
+      "n": 210,
+      "observed_rate": 0.12380952380952381,
+      "outcome": "draw",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "A",
+      "mean_forecast": 0.252920024170464,
+      "n": 1117,
+      "observed_rate": 0.24977618621307074,
+      "outcome": "draw",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "A",
+      "mean_forecast": 0.31131915121733655,
+      "n": 98,
+      "observed_rate": 0.336734693877551,
+      "outcome": "draw",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "A",
+      "mean_forecast": 0.08368705140884888,
+      "n": 19,
+      "observed_rate": 0.05263157894736842,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "A",
+      "mean_forecast": 0.1582496150092237,
+      "n": 120,
+      "observed_rate": 0.15,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "A",
+      "mean_forecast": 0.25099367445984666,
+      "n": 203,
+      "observed_rate": 0.2413793103448276,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "A",
+      "mean_forecast": 0.3517759796753841,
+      "n": 279,
+      "observed_rate": 0.34767025089605735,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "A",
+      "mean_forecast": 0.4471158729260918,
+      "n": 315,
+      "observed_rate": 0.47619047619047616,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "A",
+      "mean_forecast": 0.5449865544114793,
+      "n": 223,
+      "observed_rate": 0.5381165919282511,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "A",
+      "mean_forecast": 0.6459947050959729,
+      "n": 159,
+      "observed_rate": 0.660377358490566,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "A",
+      "mean_forecast": 0.744341141580624,
+      "n": 87,
+      "observed_rate": 0.7471264367816092,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "A",
+      "mean_forecast": 0.8440455998069125,
+      "n": 35,
+      "observed_rate": 0.8857142857142857,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.9,
+      "candidate": "A",
+      "mean_forecast": 0.9220558268608046,
+      "n": 3,
+      "observed_rate": 1.0,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "C",
+      "mean_forecast": 0.07018583986046555,
+      "n": 47,
+      "observed_rate": 0.0425531914893617,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "C",
+      "mean_forecast": 0.15483494100307665,
+      "n": 229,
+      "observed_rate": 0.13973799126637554,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "C",
+      "mean_forecast": 0.2535160483832949,
+      "n": 401,
+      "observed_rate": 0.24438902743142144,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "C",
+      "mean_forecast": 0.34589627269509327,
+      "n": 369,
+      "observed_rate": 0.3062330623306233,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "C",
+      "mean_forecast": 0.4472711353377334,
+      "n": 205,
+      "observed_rate": 0.47804878048780486,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "C",
+      "mean_forecast": 0.5451960551406022,
+      "n": 145,
+      "observed_rate": 0.5862068965517241,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "C",
+      "mean_forecast": 0.6430099453196355,
+      "n": 41,
+      "observed_rate": 0.7317073170731707,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "C",
+      "mean_forecast": 0.7488172193314984,
+      "n": 11,
+      "observed_rate": 0.7272727272727273,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "C",
+      "mean_forecast": 0.8706436610854786,
+      "n": 2,
+      "observed_rate": 0.5,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "C",
+      "mean_forecast": 0.08369444118255034,
+      "n": 9,
+      "observed_rate": 0.1111111111111111,
+      "outcome": "draw",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "C",
+      "mean_forecast": 0.1706281118145254,
+      "n": 180,
+      "observed_rate": 0.15555555555555556,
+      "outcome": "draw",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "C",
+      "mean_forecast": 0.24605537322754464,
+      "n": 1219,
+      "observed_rate": 0.24446267432321575,
+      "outcome": "draw",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "C",
+      "mean_forecast": 0.3170479393645583,
+      "n": 40,
+      "observed_rate": 0.3,
+      "outcome": "draw",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "C",
+      "mean_forecast": 0.42586751962434166,
+      "n": 2,
+      "observed_rate": 0.5,
+      "outcome": "draw",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "C",
+      "mean_forecast": 0.07147749783502902,
+      "n": 7,
+      "observed_rate": 0.14285714285714285,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "C",
+      "mean_forecast": 0.16474822458872912,
+      "n": 90,
+      "observed_rate": 0.15555555555555556,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "C",
+      "mean_forecast": 0.2524357669803381,
+      "n": 203,
+      "observed_rate": 0.2512315270935961,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "C",
+      "mean_forecast": 0.3558632052164543,
+      "n": 306,
+      "observed_rate": 0.33986928104575165,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "C",
+      "mean_forecast": 0.4488091501604053,
+      "n": 395,
+      "observed_rate": 0.47848101265822784,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "C",
+      "mean_forecast": 0.5485144489262213,
+      "n": 224,
+      "observed_rate": 0.53125,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "C",
+      "mean_forecast": 0.6445032713679854,
+      "n": 150,
+      "observed_rate": 0.68,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "C",
+      "mean_forecast": 0.7426068922778937,
+      "n": 56,
+      "observed_rate": 0.8392857142857143,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "C",
+      "mean_forecast": 0.840514265380964,
+      "n": 18,
+      "observed_rate": 0.8333333333333334,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.9,
+      "candidate": "C",
+      "mean_forecast": 0.9173775891269942,
+      "n": 1,
+      "observed_rate": 1.0,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "D",
+      "mean_forecast": 0.07282507227784707,
+      "n": 87,
+      "observed_rate": 0.04597701149425287,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "D",
+      "mean_forecast": 0.15515958597910312,
+      "n": 286,
+      "observed_rate": 0.17832167832167833,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "D",
+      "mean_forecast": 0.25069889403367207,
+      "n": 387,
+      "observed_rate": 0.26356589147286824,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "D",
+      "mean_forecast": 0.3468318942301377,
+      "n": 303,
+      "observed_rate": 0.29042904290429045,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "D",
+      "mean_forecast": 0.448135209033729,
+      "n": 171,
+      "observed_rate": 0.5263157894736842,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "D",
+      "mean_forecast": 0.5495000270886345,
+      "n": 126,
+      "observed_rate": 0.5555555555555556,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "D",
+      "mean_forecast": 0.6385018489654992,
+      "n": 55,
+      "observed_rate": 0.6727272727272727,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "D",
+      "mean_forecast": 0.733573192032712,
+      "n": 23,
+      "observed_rate": 0.8695652173913043,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "D",
+      "mean_forecast": 0.828531928507275,
+      "n": 6,
+      "observed_rate": 0.6666666666666666,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "D",
+      "mean_forecast": 0.0805009979682433,
+      "n": 13,
+      "observed_rate": 0.0,
+      "outcome": "draw",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "D",
+      "mean_forecast": 0.16516408502790456,
+      "n": 181,
+      "observed_rate": 0.13259668508287292,
+      "outcome": "draw",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "D",
+      "mean_forecast": 0.2577777294594551,
+      "n": 1007,
+      "observed_rate": 0.24726911618669314,
+      "outcome": "draw",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "D",
+      "mean_forecast": 0.3179212266978141,
+      "n": 243,
+      "observed_rate": 0.2674897119341564,
+      "outcome": "draw",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "D",
+      "mean_forecast": 0.07647127286382466,
+      "n": 16,
+      "observed_rate": 0.0,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "D",
+      "mean_forecast": 0.1592337776671213,
+      "n": 129,
+      "observed_rate": 0.14728682170542637,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "D",
+      "mean_forecast": 0.2534747169998959,
+      "n": 203,
+      "observed_rate": 0.2561576354679803,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "D",
+      "mean_forecast": 0.35135052118683474,
+      "n": 296,
+      "observed_rate": 0.34797297297297297,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "D",
+      "mean_forecast": 0.44570270854387206,
+      "n": 330,
+      "observed_rate": 0.47878787878787876,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "D",
+      "mean_forecast": 0.5475623382192524,
+      "n": 214,
+      "observed_rate": 0.5280373831775701,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "D",
+      "mean_forecast": 0.6451570419859912,
+      "n": 145,
+      "observed_rate": 0.7517241379310344,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "D",
+      "mean_forecast": 0.7422272841490478,
+      "n": 81,
+      "observed_rate": 0.7160493827160493,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "D",
+      "mean_forecast": 0.8416003146292977,
+      "n": 28,
+      "observed_rate": 0.9285714285714286,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.9,
+      "candidate": "D",
+      "mean_forecast": 0.9288263520537456,
+      "n": 2,
+      "observed_rate": 1.0,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "M",
+      "mean_forecast": 0.07161707109298845,
+      "n": 91,
+      "observed_rate": 0.054945054945054944,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "M",
+      "mean_forecast": 0.15476786461772288,
+      "n": 283,
+      "observed_rate": 0.17667844522968199,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "M",
+      "mean_forecast": 0.25209389796309456,
+      "n": 383,
+      "observed_rate": 0.26370757180156656,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "M",
+      "mean_forecast": 0.3472698440344863,
+      "n": 292,
+      "observed_rate": 0.2808219178082192,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "M",
+      "mean_forecast": 0.44665649874805546,
+      "n": 174,
+      "observed_rate": 0.5287356321839081,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "M",
+      "mean_forecast": 0.5477030430332448,
+      "n": 120,
+      "observed_rate": 0.5333333333333333,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "M",
+      "mean_forecast": 0.6405870153093169,
+      "n": 73,
+      "observed_rate": 0.6712328767123288,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "M",
+      "mean_forecast": 0.7381542841771404,
+      "n": 21,
+      "observed_rate": 0.8571428571428571,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "M",
+      "mean_forecast": 0.821466107922934,
+      "n": 7,
+      "observed_rate": 0.7142857142857143,
+      "outcome": "away",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "M",
+      "mean_forecast": 0.08423697642717916,
+      "n": 13,
+      "observed_rate": 0.0,
+      "outcome": "draw",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "M",
+      "mean_forecast": 0.16699681098440028,
+      "n": 220,
+      "observed_rate": 0.13636363636363635,
+      "outcome": "draw",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "M",
+      "mean_forecast": 0.2561724352573728,
+      "n": 1096,
+      "observed_rate": 0.2527372262773723,
+      "outcome": "draw",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "M",
+      "mean_forecast": 0.3136243914522959,
+      "n": 115,
+      "observed_rate": 0.26956521739130435,
+      "outcome": "draw",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "M",
+      "mean_forecast": 0.07764513901877762,
+      "n": 18,
+      "observed_rate": 0.0,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "M",
+      "mean_forecast": 0.1590430222853098,
+      "n": 127,
+      "observed_rate": 0.14960629921259844,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "M",
+      "mean_forecast": 0.2537423500009275,
+      "n": 198,
+      "observed_rate": 0.2474747474747475,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "M",
+      "mean_forecast": 0.3510202081738376,
+      "n": 281,
+      "observed_rate": 0.3487544483985765,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "M",
+      "mean_forecast": 0.4474374783532367,
+      "n": 329,
+      "observed_rate": 0.48024316109422494,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "M",
+      "mean_forecast": 0.5491864055552764,
+      "n": 212,
+      "observed_rate": 0.5,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "M",
+      "mean_forecast": 0.6465959986542237,
+      "n": 159,
+      "observed_rate": 0.7358490566037735,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "M",
+      "mean_forecast": 0.7459574273702185,
+      "n": 88,
+      "observed_rate": 0.7159090909090909,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "M",
+      "mean_forecast": 0.84002497887446,
+      "n": 30,
+      "observed_rate": 0.9333333333333333,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.9,
+      "candidate": "M",
+      "mean_forecast": 0.9218521316435484,
+      "n": 2,
+      "observed_rate": 1.0,
+      "outcome": "home",
+      "phase": "retrospective"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "A",
       "mean_forecast": 0.06879371564539376,
       "n": 94,
       "observed_rate": 0.06382978723404255,
@@ -2563,7 +3400,18 @@
     "baseline_l2": 0.08,
     "development_end": "2025-07-01",
     "devig_method": "power",
+    "draw_sensitive_lines": [
+      -0.5,
+      0.0,
+      0.5
+    ],
     "end_exclusive": "2026-11-09",
+    "holdout_end_exclusive": "2026-10-11",
+    "holdout_leagues": [
+      "Eredivisie",
+      "PrimeiraLiga",
+      "SuperLig"
+    ],
     "holdout_start": "2026-01-16",
     "leagues": [
       "EPL",
@@ -2579,7 +3427,8 @@
     "min_train": 500,
     "periods": {
       "development": "1 Aug 2022 - 30 Jun 2025, Pinnacle pre-match prices. Build and choose candidates here.",
-      "holdout": "16 Jan 2026 - 8 Nov 2026, Bet365 pre-match prices with the margin removed. Pinnacle prices in the files stop on 15 Jan 2026. Locked until a candidate is declared.",
+      "holdout": "16 Jan - 10 Oct 2026, Eredivisie, Primeira Liga and Super Lig only (646 matches, 25 weeks), Bet365 pre-match prices with the margin removed. No earlier benchmark or live report scored these results. Locked: one declared candidate per run, once per candidate and once per frozen setup.",
+      "retrospective": "Every other match from 16 Jan 2026, Bet365. The five big leagues to 13 Oct 2026 were scored by the earlier benchmark (historical_benchmark_config.json), and every league from 11 Oct 2026 by the live performance reports. Diagnostics only, never release evidence.",
       "validation": "1 Jul 2025 - 15 Jan 2026, Pinnacle pre-match prices. Already inspected by earlier diagnostics; the cagey correction is out-of-sample here.",
       "warm_up": "2021/22 is training history only; scoring starts 1 Aug 2022."
     },
@@ -2590,7 +3439,7 @@
       "shot_features": true,
       "totals_anchor": true
     },
-    "release_rule": "A candidate is scored on the holdout once, against a written declaration. It must beat its baseline with the 95% week-resampled interval clear of zero, and must beat the market reference by more than the measured Bet365-Pinnacle gap to count as beating the market. Changes reach production only through a reviewed PR after a short forward run in shadow.",
+    "release_rule": "A candidate is scored on the holdout once, against a written declaration. It must beat its baseline with the 95% week-resampled interval clear of zero, and must beat the market reference by more than the measured Bet365-Pinnacle gap to count as beating the market. Before release it must pass a parity test (harness and live pipeline give identical probabilities) and a replay over the saved live forecasts. There is no forward waiting for backtestable changes. Changes reach production only through a reviewed PR, with monitoring and a rollback trigger afterwards.",
     "seasons": [
       "2122",
       "2223",
@@ -2601,77 +3450,82 @@
     ],
     "step_days": 14,
     "test_start": "2022-08-01",
-    "version": "evaluation-harness-v1"
+    "version": "evaluation-harness-v2"
   },
-  "config_sha256": "7ddf5fcdc462ce46c7aacbbc3a001efe98af214a7d7fc1370b67d45414e4d9e7",
+  "config_sha256": "2bee282d6b84417e30a8ddb7cb0eb6a5249c876a7733839b226d2c0e3e9873e3",
   "coverage": {
-    "Bundesliga:A:No valid totals-scaling bracket": 1,
-    "Bundesliga:A:available": 824,
-    "Bundesliga:C:available": 863,
-    "Bundesliga:D:available": 825,
-    "Bundesliga:M:available": 825,
+    "Bundesliga:A:No valid totals-scaling bracket": 2,
+    "Bundesliga:A:available": 1055,
+    "Bundesliga:C:available": 1096,
+    "Bundesliga:D:available": 1057,
+    "Bundesliga:M:available": 1057,
     "Bundesliga:MB:available": 824,
     "Bundesliga:MP:available": 824,
-    "Bundesliga:all:unresolved training team": 7,
+    "Bundesliga:all:unresolved training team": 11,
     "Bundesliga:insufficient_training": 198,
+    "Bundesliga:market:bet365 prices missing": 1,
     "Bundesliga:market:pinnacle prices missing": 38,
-    "EPL:A:available": 1197,
-    "EPL:C:available": 1208,
-    "EPL:D:available": 1197,
-    "EPL:M:available": 1197,
+    "EPL:A:available": 1464,
+    "EPL:C:available": 1476,
+    "EPL:D:available": 1464,
+    "EPL:M:available": 1464,
     "EPL:MB:available": 1197,
     "EPL:MP:available": 1197,
-    "EPL:all:unresolved training team": 6,
+    "EPL:all:unresolved training team": 8,
     "EPL:insufficient_training": 136,
+    "EPL:market:bet365 prices missing": 1,
     "EPL:market:pinnacle prices missing": 11,
-    "Eredivisie:A:available": 850,
-    "Eredivisie:C:available": 868,
-    "Eredivisie:D:available": 850,
-    "Eredivisie:M:available": 850,
+    "Eredivisie:A:available": 890,
+    "Eredivisie:C:available": 908,
+    "Eredivisie:D:available": 890,
+    "Eredivisie:M:available": 890,
     "Eredivisie:MB:available": 850,
     "Eredivisie:MP:available": 850,
     "Eredivisie:all:unresolved training team": 3,
     "Eredivisie:insufficient_training": 207,
+    "Eredivisie:locked_holdout": 214,
     "Eredivisie:market:pinnacle prices missing": 18,
-    "LaLiga:A:available": 1190,
-    "LaLiga:C:available": 1195,
-    "LaLiga:D:available": 1190,
-    "LaLiga:M:available": 1190,
+    "LaLiga:A:available": 1492,
+    "LaLiga:C:available": 1501,
+    "LaLiga:D:available": 1492,
+    "LaLiga:M:available": 1492,
     "LaLiga:MB:available": 1190,
     "LaLiga:MP:available": 1190,
-    "LaLiga:all:unresolved training team": 5,
+    "LaLiga:all:unresolved training team": 9,
     "LaLiga:insufficient_training": 129,
+    "LaLiga:market:bet365 prices missing": 4,
     "LaLiga:market:pinnacle prices missing": 5,
-    "Ligue1:A:available": 1016,
-    "Ligue1:C:available": 1022,
-    "Ligue1:D:available": 1016,
-    "Ligue1:M:available": 1016,
+    "Ligue1:A:available": 1258,
+    "Ligue1:C:available": 1264,
+    "Ligue1:D:available": 1258,
+    "Ligue1:M:available": 1258,
     "Ligue1:MB:available": 1016,
     "Ligue1:MP:available": 1016,
-    "Ligue1:all:unresolved training team": 3,
+    "Ligue1:all:unresolved training team": 4,
     "Ligue1:insufficient_training": 120,
     "Ligue1:market:pinnacle prices missing": 6,
-    "PrimeiraLiga:A:available": 871,
-    "PrimeiraLiga:C:available": 871,
-    "PrimeiraLiga:D:available": 871,
-    "PrimeiraLiga:M:available": 871,
+    "PrimeiraLiga:A:available": 902,
+    "PrimeiraLiga:C:available": 902,
+    "PrimeiraLiga:D:available": 902,
+    "PrimeiraLiga:M:available": 902,
     "PrimeiraLiga:MB:available": 870,
     "PrimeiraLiga:MP:available": 870,
     "PrimeiraLiga:all:unresolved training team": 4,
     "PrimeiraLiga:insufficient_training": 196,
-    "SerieA:A:available": 1203,
-    "SerieA:C:available": 1204,
-    "SerieA:D:available": 1203,
-    "SerieA:M:available": 1203,
+    "PrimeiraLiga:locked_holdout": 220,
+    "SerieA:A:available": 1493,
+    "SerieA:C:available": 1494,
+    "SerieA:D:available": 1493,
+    "SerieA:M:available": 1493,
     "SerieA:MB:available": 1203,
     "SerieA:MP:available": 1203,
     "SerieA:all:unresolved training team": 6,
     "SerieA:insufficient_training": 130,
     "SerieA:market:pinnacle prices missing": 1,
-    "SuperLig:A:available": 1029,
-    "SuperLig:C:available": 1082,
-    "SuperLig:D:available": 1028,
-    "SuperLig:M:available": 1028,
+    "SuperLig:A:available": 1069,
+    "SuperLig:C:available": 1122,
+    "SuperLig:D:available": 1068,
+    "SuperLig:M:available": 1068,
     "SuperLig:M:residual 0.0337 above 0.03": 1,
     "SuperLig:MB:available": 1001,
     "SuperLig:MP:available": 1001,
@@ -2679,9 +3533,9 @@
     "SuperLig:gap:residual 0.0322 above 0.03": 1,
     "SuperLig:gap:residual 0.0337 above 0.03": 1,
     "SuperLig:insufficient_training": 125,
+    "SuperLig:locked_holdout": 212,
     "SuperLig:market:pinnacle prices missing": 53
   },
-  "declaration": null,
   "folds": [
     {
       "end_exclusive": "2022-11-21",
@@ -3144,6 +3998,118 @@
       "origin": "2025-12-29",
       "training_end": "2025-12-28",
       "training_matches": 1700
+    },
+    {
+      "end_exclusive": "2026-01-26",
+      "league": "EPL",
+      "origin": "2026-01-16",
+      "training_end": "2026-01-08",
+      "training_matches": 1730
+    },
+    {
+      "end_exclusive": "2026-02-09",
+      "league": "EPL",
+      "origin": "2026-01-26",
+      "training_end": "2026-01-25",
+      "training_matches": 1749
+    },
+    {
+      "end_exclusive": "2026-02-23",
+      "league": "EPL",
+      "origin": "2026-02-09",
+      "training_end": "2026-02-08",
+      "training_matches": 1770
+    },
+    {
+      "end_exclusive": "2026-03-09",
+      "league": "EPL",
+      "origin": "2026-02-23",
+      "training_end": "2026-02-22",
+      "training_matches": 1790
+    },
+    {
+      "end_exclusive": "2026-03-23",
+      "league": "EPL",
+      "origin": "2026-03-09",
+      "training_end": "2026-03-05",
+      "training_matches": 1811
+    },
+    {
+      "end_exclusive": "2026-04-20",
+      "league": "EPL",
+      "origin": "2026-04-06",
+      "training_end": "2026-03-22",
+      "training_matches": 1829
+    },
+    {
+      "end_exclusive": "2026-05-04",
+      "league": "EPL",
+      "origin": "2026-04-20",
+      "training_end": "2026-04-19",
+      "training_matches": 1848
+    },
+    {
+      "end_exclusive": "2026-05-18",
+      "league": "EPL",
+      "origin": "2026-05-04",
+      "training_end": "2026-05-03",
+      "training_matches": 1867
+    },
+    {
+      "end_exclusive": "2026-06-01",
+      "league": "EPL",
+      "origin": "2026-05-18",
+      "training_end": "2026-05-17",
+      "training_matches": 1887
+    },
+    {
+      "end_exclusive": "2026-08-24",
+      "league": "EPL",
+      "origin": "2026-08-10",
+      "training_end": "2026-05-24",
+      "training_matches": 1900
+    },
+    {
+      "end_exclusive": "2026-09-07",
+      "league": "EPL",
+      "origin": "2026-08-24",
+      "training_end": "2026-08-23",
+      "training_matches": 1909
+    },
+    {
+      "end_exclusive": "2026-09-21",
+      "league": "EPL",
+      "origin": "2026-09-07",
+      "training_end": "2026-09-06",
+      "training_matches": 1930
+    },
+    {
+      "end_exclusive": "2026-10-11",
+      "league": "EPL",
+      "origin": "2026-10-05",
+      "training_end": "2026-09-20",
+      "training_matches": 1950
+    },
+    {
+      "end_exclusive": "2026-10-19",
+      "league": "EPL",
+      "origin": "2026-10-11",
+      "training_end": "2026-10-10",
+      "training_matches": 1956
+    },
+    {
+      "end_exclusive": "2026-11-02",
+      "league": "EPL",
+      "origin": "2026-10-19",
+      "training_end": "2026-10-18",
+      "training_matches": 1969
+    },
+    {
+      "end_exclusive": "2026-11-09",
+      "league": "EPL",
+      "origin": "2026-11-02",
+      "training_end": "2026-11-01",
+      "training_matches": 1989
     },
     {
       "end_exclusive": "2022-11-21",
@@ -3622,6 +4588,125 @@
       "training_matches": 1708
     },
     {
+      "end_exclusive": "2026-01-26",
+      "league": "LaLiga",
+      "origin": "2026-01-16",
+      "training_end": "2026-01-12",
+      "training_matches": 1709
+    },
+    {
+      "end_exclusive": "2026-02-09",
+      "league": "LaLiga",
+      "origin": "2026-01-26",
+      "training_end": "2026-01-25",
+      "training_matches": 1728
+    },
+    {
+      "end_exclusive": "2026-02-23",
+      "league": "LaLiga",
+      "origin": "2026-02-09",
+      "training_end": "2026-02-08",
+      "training_matches": 1747
+    },
+    {
+      "end_exclusive": "2026-03-09",
+      "league": "LaLiga",
+      "origin": "2026-02-23",
+      "training_end": "2026-02-22",
+      "training_matches": 1768
+    },
+    {
+      "end_exclusive": "2026-03-23",
+      "league": "LaLiga",
+      "origin": "2026-03-09",
+      "training_end": "2026-03-08",
+      "training_matches": 1789
+    },
+    {
+      "end_exclusive": "2026-04-06",
+      "league": "LaLiga",
+      "origin": "2026-03-23",
+      "training_end": "2026-03-22",
+      "training_matches": 1810
+    },
+    {
+      "end_exclusive": "2026-04-20",
+      "league": "LaLiga",
+      "origin": "2026-04-06",
+      "training_end": "2026-04-05",
+      "training_matches": 1819
+    },
+    {
+      "end_exclusive": "2026-05-04",
+      "league": "LaLiga",
+      "origin": "2026-04-20",
+      "training_end": "2026-04-13",
+      "training_matches": 1830
+    },
+    {
+      "end_exclusive": "2026-05-18",
+      "league": "LaLiga",
+      "origin": "2026-05-04",
+      "training_end": "2026-05-03",
+      "training_matches": 1859
+    },
+    {
+      "end_exclusive": "2026-06-01",
+      "league": "LaLiga",
+      "origin": "2026-05-18",
+      "training_end": "2026-05-17",
+      "training_matches": 1890
+    },
+    {
+      "end_exclusive": "2026-08-24",
+      "league": "LaLiga",
+      "origin": "2026-08-10",
+      "training_end": "2026-05-24",
+      "training_matches": 1900
+    },
+    {
+      "end_exclusive": "2026-09-07",
+      "league": "LaLiga",
+      "origin": "2026-08-24",
+      "training_end": "2026-08-23",
+      "training_matches": 1914
+    },
+    {
+      "end_exclusive": "2026-09-21",
+      "league": "LaLiga",
+      "origin": "2026-09-07",
+      "training_end": "2026-09-06",
+      "training_matches": 1939
+    },
+    {
+      "end_exclusive": "2026-10-11",
+      "league": "LaLiga",
+      "origin": "2026-10-05",
+      "training_end": "2026-09-20",
+      "training_matches": 1969
+    },
+    {
+      "end_exclusive": "2026-10-19",
+      "league": "LaLiga",
+      "origin": "2026-10-11",
+      "training_end": "2026-10-10",
+      "training_matches": 1973
+    },
+    {
+      "end_exclusive": "2026-11-02",
+      "league": "LaLiga",
+      "origin": "2026-10-19",
+      "training_end": "2026-10-18",
+      "training_matches": 1987
+    },
+    {
+      "end_exclusive": "2026-11-09",
+      "league": "LaLiga",
+      "origin": "2026-11-02",
+      "training_end": "2026-11-01",
+      "training_matches": 2008
+    },
+    {
       "end_exclusive": "2023-03-13",
       "league": "Bundesliga",
       "origin": "2023-02-27",
@@ -4033,6 +5118,111 @@
       "origin": "2026-01-12",
       "training_end": "2026-01-11",
       "training_matches": 1366
+    },
+    {
+      "end_exclusive": "2026-01-26",
+      "league": "Bundesliga",
+      "origin": "2026-01-16",
+      "training_end": "2026-01-15",
+      "training_matches": 1374
+    },
+    {
+      "end_exclusive": "2026-02-09",
+      "league": "Bundesliga",
+      "origin": "2026-01-26",
+      "training_end": "2026-01-25",
+      "training_matches": 1392
+    },
+    {
+      "end_exclusive": "2026-02-23",
+      "league": "Bundesliga",
+      "origin": "2026-02-09",
+      "training_end": "2026-02-08",
+      "training_matches": 1412
+    },
+    {
+      "end_exclusive": "2026-03-09",
+      "league": "Bundesliga",
+      "origin": "2026-02-23",
+      "training_end": "2026-02-22",
+      "training_matches": 1430
+    },
+    {
+      "end_exclusive": "2026-03-23",
+      "league": "Bundesliga",
+      "origin": "2026-03-09",
+      "training_end": "2026-03-08",
+      "training_matches": 1449
+    },
+    {
+      "end_exclusive": "2026-04-06",
+      "league": "Bundesliga",
+      "origin": "2026-03-23",
+      "training_end": "2026-03-22",
+      "training_matches": 1467
+    },
+    {
+      "end_exclusive": "2026-04-20",
+      "league": "Bundesliga",
+      "origin": "2026-04-06",
+      "training_end": "2026-04-05",
+      "training_matches": 1476
+    },
+    {
+      "end_exclusive": "2026-05-04",
+      "league": "Bundesliga",
+      "origin": "2026-04-20",
+      "training_end": "2026-04-19",
+      "training_matches": 1494
+    },
+    {
+      "end_exclusive": "2026-05-18",
+      "league": "Bundesliga",
+      "origin": "2026-05-04",
+      "training_end": "2026-05-03",
+      "training_matches": 1512
+    },
+    {
+      "end_exclusive": "2026-09-07",
+      "league": "Bundesliga",
+      "origin": "2026-08-24",
+      "training_end": "2026-05-16",
+      "training_matches": 1530
+    },
+    {
+      "end_exclusive": "2026-09-21",
+      "league": "Bundesliga",
+      "origin": "2026-09-07",
+      "training_end": "2026-09-06",
+      "training_matches": 1548
+    },
+    {
+      "end_exclusive": "2026-10-11",
+      "league": "Bundesliga",
+      "origin": "2026-10-05",
+      "training_end": "2026-09-20",
+      "training_matches": 1566
+    },
+    {
+      "end_exclusive": "2026-10-19",
+      "league": "Bundesliga",
+      "origin": "2026-10-11",
+      "training_end": "2026-10-10",
+      "training_matches": 1573
+    },
+    {
+      "end_exclusive": "2026-11-02",
+      "league": "Bundesliga",
+      "origin": "2026-10-19",
+      "training_end": "2026-10-18",
+      "training_matches": 1584
+    },
+    {
+      "end_exclusive": "2026-11-09",
+      "league": "Bundesliga",
+      "origin": "2026-11-02",
+      "training_end": "2026-11-01",
+      "training_matches": 1602
     },
     {
       "end_exclusive": "2022-11-21",
@@ -4497,6 +5687,125 @@
       "training_matches": 1714
     },
     {
+      "end_exclusive": "2026-01-26",
+      "league": "SerieA",
+      "origin": "2026-01-16",
+      "training_end": "2026-01-15",
+      "training_matches": 1720
+    },
+    {
+      "end_exclusive": "2026-02-09",
+      "league": "SerieA",
+      "origin": "2026-01-26",
+      "training_end": "2026-01-25",
+      "training_matches": 1739
+    },
+    {
+      "end_exclusive": "2026-02-23",
+      "league": "SerieA",
+      "origin": "2026-02-09",
+      "training_end": "2026-02-08",
+      "training_matches": 1757
+    },
+    {
+      "end_exclusive": "2026-03-09",
+      "league": "SerieA",
+      "origin": "2026-02-23",
+      "training_end": "2026-02-22",
+      "training_matches": 1778
+    },
+    {
+      "end_exclusive": "2026-03-23",
+      "league": "SerieA",
+      "origin": "2026-03-09",
+      "training_end": "2026-03-08",
+      "training_matches": 1799
+    },
+    {
+      "end_exclusive": "2026-04-06",
+      "league": "SerieA",
+      "origin": "2026-03-23",
+      "training_end": "2026-03-22",
+      "training_matches": 1820
+    },
+    {
+      "end_exclusive": "2026-04-20",
+      "league": "SerieA",
+      "origin": "2026-04-06",
+      "training_end": "2026-04-05",
+      "training_matches": 1826
+    },
+    {
+      "end_exclusive": "2026-05-04",
+      "league": "SerieA",
+      "origin": "2026-04-20",
+      "training_end": "2026-04-19",
+      "training_matches": 1849
+    },
+    {
+      "end_exclusive": "2026-05-18",
+      "league": "SerieA",
+      "origin": "2026-05-04",
+      "training_end": "2026-05-03",
+      "training_matches": 1868
+    },
+    {
+      "end_exclusive": "2026-06-01",
+      "league": "SerieA",
+      "origin": "2026-05-18",
+      "training_end": "2026-05-17",
+      "training_matches": 1890
+    },
+    {
+      "end_exclusive": "2026-08-24",
+      "league": "SerieA",
+      "origin": "2026-08-10",
+      "training_end": "2026-05-24",
+      "training_matches": 1900
+    },
+    {
+      "end_exclusive": "2026-09-07",
+      "league": "SerieA",
+      "origin": "2026-08-24",
+      "training_end": "2026-08-23",
+      "training_matches": 1908
+    },
+    {
+      "end_exclusive": "2026-09-21",
+      "league": "SerieA",
+      "origin": "2026-09-07",
+      "training_end": "2026-09-06",
+      "training_matches": 1928
+    },
+    {
+      "end_exclusive": "2026-10-11",
+      "league": "SerieA",
+      "origin": "2026-10-05",
+      "training_end": "2026-09-20",
+      "training_matches": 1950
+    },
+    {
+      "end_exclusive": "2026-10-19",
+      "league": "SerieA",
+      "origin": "2026-10-11",
+      "training_end": "2026-10-10",
+      "training_matches": 1953
+    },
+    {
+      "end_exclusive": "2026-11-02",
+      "league": "SerieA",
+      "origin": "2026-10-19",
+      "training_end": "2026-10-18",
+      "training_matches": 1968
+    },
+    {
+      "end_exclusive": "2026-11-09",
+      "league": "SerieA",
+      "origin": "2026-11-02",
+      "training_end": "2026-11-01",
+      "training_matches": 1998
+    },
+    {
       "end_exclusive": "2022-11-07",
       "league": "Ligue1",
       "origin": "2022-10-24",
@@ -4952,6 +6261,118 @@
       "training_matches": 1516
     },
     {
+      "end_exclusive": "2026-01-26",
+      "league": "Ligue1",
+      "origin": "2026-01-16",
+      "training_end": "2026-01-04",
+      "training_matches": 1525
+    },
+    {
+      "end_exclusive": "2026-02-09",
+      "league": "Ligue1",
+      "origin": "2026-01-26",
+      "training_end": "2026-01-25",
+      "training_matches": 1543
+    },
+    {
+      "end_exclusive": "2026-02-23",
+      "league": "Ligue1",
+      "origin": "2026-02-09",
+      "training_end": "2026-02-08",
+      "training_matches": 1561
+    },
+    {
+      "end_exclusive": "2026-03-09",
+      "league": "Ligue1",
+      "origin": "2026-02-23",
+      "training_end": "2026-02-22",
+      "training_matches": 1579
+    },
+    {
+      "end_exclusive": "2026-03-23",
+      "league": "Ligue1",
+      "origin": "2026-03-09",
+      "training_end": "2026-03-08",
+      "training_matches": 1597
+    },
+    {
+      "end_exclusive": "2026-04-06",
+      "league": "Ligue1",
+      "origin": "2026-03-23",
+      "training_end": "2026-03-22",
+      "training_matches": 1614
+    },
+    {
+      "end_exclusive": "2026-04-20",
+      "league": "Ligue1",
+      "origin": "2026-04-06",
+      "training_end": "2026-04-05",
+      "training_matches": 1623
+    },
+    {
+      "end_exclusive": "2026-05-04",
+      "league": "Ligue1",
+      "origin": "2026-04-20",
+      "training_end": "2026-04-19",
+      "training_matches": 1639
+    },
+    {
+      "end_exclusive": "2026-05-18",
+      "league": "Ligue1",
+      "origin": "2026-05-04",
+      "training_end": "2026-05-03",
+      "training_matches": 1658
+    },
+    {
+      "end_exclusive": "2026-08-24",
+      "league": "Ligue1",
+      "origin": "2026-08-10",
+      "training_end": "2026-05-17",
+      "training_matches": 1678
+    },
+    {
+      "end_exclusive": "2026-09-07",
+      "league": "Ligue1",
+      "origin": "2026-08-24",
+      "training_end": "2026-08-23",
+      "training_matches": 1687
+    },
+    {
+      "end_exclusive": "2026-09-21",
+      "league": "Ligue1",
+      "origin": "2026-09-07",
+      "training_end": "2026-09-06",
+      "training_matches": 1705
+    },
+    {
+      "end_exclusive": "2026-10-11",
+      "league": "Ligue1",
+      "origin": "2026-10-05",
+      "training_end": "2026-09-20",
+      "training_matches": 1723
+    },
+    {
+      "end_exclusive": "2026-10-19",
+      "league": "Ligue1",
+      "origin": "2026-10-11",
+      "training_end": "2026-10-10",
+      "training_matches": 1729
+    },
+    {
+      "end_exclusive": "2026-11-02",
+      "league": "Ligue1",
+      "origin": "2026-10-19",
+      "training_end": "2026-10-18",
+      "training_matches": 1741
+    },
+    {
+      "end_exclusive": "2026-11-09",
+      "league": "Ligue1",
+      "origin": "2026-11-02",
+      "training_end": "2026-11-01",
+      "training_matches": 1758
+    },
+    {
       "end_exclusive": "2023-03-13",
       "league": "Eredivisie",
       "origin": "2023-02-27",
@@ -5372,6 +6793,125 @@
       "training_matches": 1376
     },
     {
+      "end_exclusive": "2026-01-26",
+      "league": "Eredivisie",
+      "origin": "2026-01-16",
+      "training_end": "2026-01-11",
+      "training_matches": 1384
+    },
+    {
+      "end_exclusive": "2026-02-09",
+      "league": "Eredivisie",
+      "origin": "2026-01-26",
+      "training_end": "2026-01-25",
+      "training_matches": 1402
+    },
+    {
+      "end_exclusive": "2026-02-23",
+      "league": "Eredivisie",
+      "origin": "2026-02-09",
+      "training_end": "2026-02-08",
+      "training_matches": 1420
+    },
+    {
+      "end_exclusive": "2026-03-09",
+      "league": "Eredivisie",
+      "origin": "2026-02-23",
+      "training_end": "2026-02-22",
+      "training_matches": 1440
+    },
+    {
+      "end_exclusive": "2026-03-23",
+      "league": "Eredivisie",
+      "origin": "2026-03-09",
+      "training_end": "2026-03-08",
+      "training_matches": 1458
+    },
+    {
+      "end_exclusive": "2026-04-06",
+      "league": "Eredivisie",
+      "origin": "2026-03-23",
+      "training_end": "2026-03-22",
+      "training_matches": 1476
+    },
+    {
+      "end_exclusive": "2026-04-20",
+      "league": "Eredivisie",
+      "origin": "2026-04-06",
+      "training_end": "2026-04-05",
+      "training_matches": 1485
+    },
+    {
+      "end_exclusive": "2026-05-04",
+      "league": "Eredivisie",
+      "origin": "2026-04-20",
+      "training_end": "2026-04-12",
+      "training_matches": 1494
+    },
+    {
+      "end_exclusive": "2026-05-18",
+      "league": "Eredivisie",
+      "origin": "2026-05-04",
+      "training_end": "2026-05-03",
+      "training_matches": 1512
+    },
+    {
+      "end_exclusive": "2026-08-10",
+      "league": "Eredivisie",
+      "origin": "2026-07-27",
+      "training_end": "2026-05-17",
+      "training_matches": 1530
+    },
+    {
+      "end_exclusive": "2026-08-24",
+      "league": "Eredivisie",
+      "origin": "2026-08-10",
+      "training_end": "2026-08-09",
+      "training_matches": 1539
+    },
+    {
+      "end_exclusive": "2026-09-07",
+      "league": "Eredivisie",
+      "origin": "2026-08-24",
+      "training_end": "2026-08-23",
+      "training_matches": 1554
+    },
+    {
+      "end_exclusive": "2026-09-21",
+      "league": "Eredivisie",
+      "origin": "2026-09-07",
+      "training_end": "2026-09-06",
+      "training_matches": 1571
+    },
+    {
+      "end_exclusive": "2026-10-11",
+      "league": "Eredivisie",
+      "origin": "2026-10-05",
+      "training_end": "2026-09-20",
+      "training_matches": 1593
+    },
+    {
+      "end_exclusive": "2026-10-19",
+      "league": "Eredivisie",
+      "origin": "2026-10-11",
+      "training_end": "2026-10-10",
+      "training_matches": 1598
+    },
+    {
+      "end_exclusive": "2026-11-02",
+      "league": "Eredivisie",
+      "origin": "2026-10-19",
+      "training_end": "2026-10-18",
+      "training_matches": 1611
+    },
+    {
+      "end_exclusive": "2026-11-09",
+      "league": "Eredivisie",
+      "origin": "2026-11-02",
+      "training_end": "2026-11-01",
+      "training_matches": 1629
+    },
+    {
       "end_exclusive": "2023-03-13",
       "league": "PrimeiraLiga",
       "origin": "2023-02-27",
@@ -5776,6 +7316,125 @@
       "origin": "2025-12-29",
       "training_end": "2025-12-28",
       "training_matches": 1365
+    },
+    {
+      "end_exclusive": "2026-01-26",
+      "league": "PrimeiraLiga",
+      "origin": "2026-01-16",
+      "training_end": "2026-01-11",
+      "training_matches": 1377
+    },
+    {
+      "end_exclusive": "2026-02-09",
+      "league": "PrimeiraLiga",
+      "origin": "2026-01-26",
+      "training_end": "2026-01-25",
+      "training_matches": 1394
+    },
+    {
+      "end_exclusive": "2026-02-23",
+      "league": "PrimeiraLiga",
+      "origin": "2026-02-09",
+      "training_end": "2026-02-08",
+      "training_matches": 1411
+    },
+    {
+      "end_exclusive": "2026-03-09",
+      "league": "PrimeiraLiga",
+      "origin": "2026-02-23",
+      "training_end": "2026-02-22",
+      "training_matches": 1430
+    },
+    {
+      "end_exclusive": "2026-03-23",
+      "league": "PrimeiraLiga",
+      "origin": "2026-03-09",
+      "training_end": "2026-03-08",
+      "training_matches": 1448
+    },
+    {
+      "end_exclusive": "2026-04-06",
+      "league": "PrimeiraLiga",
+      "origin": "2026-03-23",
+      "training_end": "2026-03-22",
+      "training_matches": 1465
+    },
+    {
+      "end_exclusive": "2026-04-20",
+      "league": "PrimeiraLiga",
+      "origin": "2026-04-06",
+      "training_end": "2026-04-04",
+      "training_matches": 1472
+    },
+    {
+      "end_exclusive": "2026-05-04",
+      "league": "PrimeiraLiga",
+      "origin": "2026-04-20",
+      "training_end": "2026-04-19",
+      "training_matches": 1491
+    },
+    {
+      "end_exclusive": "2026-05-18",
+      "league": "PrimeiraLiga",
+      "origin": "2026-05-04",
+      "training_end": "2026-05-03",
+      "training_matches": 1511
+    },
+    {
+      "end_exclusive": "2026-08-10",
+      "league": "PrimeiraLiga",
+      "origin": "2026-07-27",
+      "training_end": "2026-05-16",
+      "training_matches": 1530
+    },
+    {
+      "end_exclusive": "2026-08-24",
+      "league": "PrimeiraLiga",
+      "origin": "2026-08-10",
+      "training_end": "2026-08-09",
+      "training_matches": 1538
+    },
+    {
+      "end_exclusive": "2026-09-07",
+      "league": "PrimeiraLiga",
+      "origin": "2026-08-24",
+      "training_end": "2026-08-23",
+      "training_matches": 1553
+    },
+    {
+      "end_exclusive": "2026-09-21",
+      "league": "PrimeiraLiga",
+      "origin": "2026-09-07",
+      "training_end": "2026-09-06",
+      "training_matches": 1571
+    },
+    {
+      "end_exclusive": "2026-10-11",
+      "league": "PrimeiraLiga",
+      "origin": "2026-10-05",
+      "training_end": "2026-09-20",
+      "training_matches": 1592
+    },
+    {
+      "end_exclusive": "2026-10-19",
+      "league": "PrimeiraLiga",
+      "origin": "2026-10-11",
+      "training_end": "2026-10-10",
+      "training_matches": 1597
+    },
+    {
+      "end_exclusive": "2026-11-02",
+      "league": "PrimeiraLiga",
+      "origin": "2026-10-19",
+      "training_end": "2026-10-12",
+      "training_matches": 1601
+    },
+    {
+      "end_exclusive": "2026-11-09",
+      "league": "PrimeiraLiga",
+      "origin": "2026-11-02",
+      "training_end": "2026-11-01",
+      "training_matches": 1618
     },
     {
       "end_exclusive": "2023-01-02",
@@ -6252,9 +7911,120 @@
       "origin": "2025-12-15",
       "training_end": "2025-12-14",
       "training_matches": 1587
+    },
+    {
+      "end_exclusive": "2026-01-26",
+      "league": "SuperLig",
+      "origin": "2026-01-16",
+      "training_end": "2025-12-22",
+      "training_matches": 1597
+    },
+    {
+      "end_exclusive": "2026-02-09",
+      "league": "SuperLig",
+      "origin": "2026-01-26",
+      "training_end": "2026-01-25",
+      "training_matches": 1614
+    },
+    {
+      "end_exclusive": "2026-02-23",
+      "league": "SuperLig",
+      "origin": "2026-02-09",
+      "training_end": "2026-02-08",
+      "training_matches": 1630
+    },
+    {
+      "end_exclusive": "2026-03-09",
+      "league": "SuperLig",
+      "origin": "2026-02-23",
+      "training_end": "2026-02-22",
+      "training_matches": 1650
+    },
+    {
+      "end_exclusive": "2026-03-23",
+      "league": "SuperLig",
+      "origin": "2026-03-09",
+      "training_end": "2026-03-08",
+      "training_matches": 1666
+    },
+    {
+      "end_exclusive": "2026-04-06",
+      "league": "SuperLig",
+      "origin": "2026-03-23",
+      "training_end": "2026-03-19",
+      "training_matches": 1685
+    },
+    {
+      "end_exclusive": "2026-04-20",
+      "league": "SuperLig",
+      "origin": "2026-04-06",
+      "training_end": "2026-04-05",
+      "training_matches": 1693
+    },
+    {
+      "end_exclusive": "2026-05-04",
+      "league": "SuperLig",
+      "origin": "2026-04-20",
+      "training_end": "2026-04-19",
+      "training_matches": 1713
+    },
+    {
+      "end_exclusive": "2026-05-18",
+      "league": "SuperLig",
+      "origin": "2026-05-04",
+      "training_end": "2026-05-03",
+      "training_matches": 1732
+    },
+    {
+      "end_exclusive": "2026-08-24",
+      "league": "SuperLig",
+      "origin": "2026-08-10",
+      "training_end": "2026-05-17",
+      "training_matches": 1750
+    },
+    {
+      "end_exclusive": "2026-09-07",
+      "league": "SuperLig",
+      "origin": "2026-08-24",
+      "training_end": "2026-08-23",
+      "training_matches": 1767
+    },
+    {
+      "end_exclusive": "2026-09-21",
+      "league": "SuperLig",
+      "origin": "2026-09-07",
+      "training_end": "2026-09-06",
+      "training_matches": 1784
+    },
+    {
+      "end_exclusive": "2026-10-11",
+      "league": "SuperLig",
+      "origin": "2026-10-05",
+      "training_end": "2026-09-20",
+      "training_matches": 1804
+    },
+    {
+      "end_exclusive": "2026-10-19",
+      "league": "SuperLig",
+      "origin": "2026-10-11",
+      "training_end": "2026-10-10",
+      "training_matches": 1809
+    },
+    {
+      "end_exclusive": "2026-11-02",
+      "league": "SuperLig",
+      "origin": "2026-10-19",
+      "training_end": "2026-10-18",
+      "training_matches": 1821
+    },
+    {
+      "end_exclusive": "2026-11-09",
+      "league": "SuperLig",
+      "origin": "2026-11-02",
+      "training_end": "2026-11-01",
+      "training_matches": 1839
     }
   ],
-  "holdout_scored": false,
   "inputs": [
     {
       "path": "2122_E0.csv",
@@ -6497,7 +8267,7 @@
       "sha256": "86af3b956c49ea86c5e1a58c8ac45237ba0b7bd52e46e5874e9697f09336bf08"
     }
   ],
-  "log_loss": [
+  "log_loss_all_available": [
     {
       "candidate": "A",
       "count": 6876,
@@ -6586,42 +8356,42 @@
       "candidate": "A",
       "count": 6876,
       "group": "AH draw-sensitive",
-      "mean": 0.8001352693978611,
+      "mean": 0.6954612716793683,
       "phase": "development"
     },
     {
       "candidate": "C",
       "count": 6959,
       "group": "AH draw-sensitive",
-      "mean": 0.8187205309909774,
+      "mean": 0.7128370772667173,
       "phase": "development"
     },
     {
       "candidate": "D",
       "count": 6875,
       "group": "AH draw-sensitive",
-      "mean": 0.7977017319150951,
+      "mean": 0.6932884766914034,
       "phase": "development"
     },
     {
       "candidate": "M",
       "count": 6875,
       "group": "AH draw-sensitive",
-      "mean": 0.7971376530971377,
+      "mean": 0.6927071784047063,
       "phase": "development"
     },
     {
       "candidate": "MB",
       "count": 6846,
       "group": "AH draw-sensitive",
-      "mean": 0.7978146119111745,
+      "mean": 0.6932498923935315,
       "phase": "development"
     },
     {
       "candidate": "MP",
       "count": 6846,
       "group": "AH draw-sensitive",
-      "mean": 0.7970670668796526,
+      "mean": 0.6926695222155308,
       "phase": "development"
     },
     {
@@ -6665,6 +8435,118 @@
       "group": "Over 1.5",
       "mean": 0.5157147610658334,
       "phase": "development"
+    },
+    {
+      "candidate": "A",
+      "count": 1443,
+      "group": "1X2",
+      "mean": 0.971288780437012,
+      "phase": "retrospective"
+    },
+    {
+      "candidate": "C",
+      "count": 1450,
+      "group": "1X2",
+      "mean": 0.9907692883781443,
+      "phase": "retrospective"
+    },
+    {
+      "candidate": "D",
+      "count": 1444,
+      "group": "1X2",
+      "mean": 0.9725954172978448,
+      "phase": "retrospective"
+    },
+    {
+      "candidate": "M",
+      "count": 1444,
+      "group": "1X2",
+      "mean": 0.9712444659980007,
+      "phase": "retrospective"
+    },
+    {
+      "candidate": "A",
+      "count": 1443,
+      "group": "AH all",
+      "mean": 0.7143228441273154,
+      "phase": "retrospective"
+    },
+    {
+      "candidate": "C",
+      "count": 1450,
+      "group": "AH all",
+      "mean": 0.7265657148023974,
+      "phase": "retrospective"
+    },
+    {
+      "candidate": "D",
+      "count": 1444,
+      "group": "AH all",
+      "mean": 0.7138530893001545,
+      "phase": "retrospective"
+    },
+    {
+      "candidate": "M",
+      "count": 1444,
+      "group": "AH all",
+      "mean": 0.7141177419053456,
+      "phase": "retrospective"
+    },
+    {
+      "candidate": "A",
+      "count": 1443,
+      "group": "AH draw-sensitive",
+      "mean": 0.7132153370428365,
+      "phase": "retrospective"
+    },
+    {
+      "candidate": "C",
+      "count": 1450,
+      "group": "AH draw-sensitive",
+      "mean": 0.7291442426718903,
+      "phase": "retrospective"
+    },
+    {
+      "candidate": "D",
+      "count": 1444,
+      "group": "AH draw-sensitive",
+      "mean": 0.7140867532020068,
+      "phase": "retrospective"
+    },
+    {
+      "candidate": "M",
+      "count": 1444,
+      "group": "AH draw-sensitive",
+      "mean": 0.7132529226004101,
+      "phase": "retrospective"
+    },
+    {
+      "candidate": "A",
+      "count": 1443,
+      "group": "Over 1.5",
+      "mean": 0.5173448189077794,
+      "phase": "retrospective"
+    },
+    {
+      "candidate": "C",
+      "count": 1450,
+      "group": "Over 1.5",
+      "mean": 0.5294309922019339,
+      "phase": "retrospective"
+    },
+    {
+      "candidate": "D",
+      "count": 1444,
+      "group": "Over 1.5",
+      "mean": 0.5179650894327387,
+      "phase": "retrospective"
+    },
+    {
+      "candidate": "M",
+      "count": 1444,
+      "group": "Over 1.5",
+      "mean": 0.5174957053384382,
+      "phase": "retrospective"
     },
     {
       "candidate": "A",
@@ -6754,42 +8636,42 @@
       "candidate": "A",
       "count": 1304,
       "group": "AH draw-sensitive",
-      "mean": 0.7992354008157502,
+      "mean": 0.6922701617742547,
       "phase": "validation"
     },
     {
       "candidate": "C",
       "count": 1354,
       "group": "AH draw-sensitive",
-      "mean": 0.8197539887204678,
+      "mean": 0.7111026823273221,
       "phase": "validation"
     },
     {
       "candidate": "D",
       "count": 1305,
       "group": "AH draw-sensitive",
-      "mean": 0.7988519851584425,
+      "mean": 0.6921488165948758,
       "phase": "validation"
     },
     {
       "candidate": "M",
       "count": 1305,
       "group": "AH draw-sensitive",
-      "mean": 0.7985214735079872,
+      "mean": 0.6916477220607199,
       "phase": "validation"
     },
     {
       "candidate": "MB",
       "count": 1305,
       "group": "AH draw-sensitive",
-      "mean": 0.7987165117311992,
+      "mean": 0.6918114165373633,
       "phase": "validation"
     },
     {
       "candidate": "MP",
       "count": 1305,
       "group": "AH draw-sensitive",
-      "mean": 0.7985214735079872,
+      "mean": 0.6916477220607199,
       "phase": "validation"
     },
     {
@@ -6835,11 +8717,123 @@
       "phase": "validation"
     }
   ],
+  "log_loss_common_cohort": [
+    {
+      "A": 0.9571348136794144,
+      "C": 0.9816807088508085,
+      "D": 0.9543216147506326,
+      "M": 0.9537833651357847,
+      "fixtures": 6875,
+      "group": "1X2",
+      "phase": "development"
+    },
+    {
+      "A": 0.7008852968807454,
+      "C": 0.7174246034569205,
+      "D": 0.6976633952329112,
+      "M": 0.6980686698198806,
+      "fixtures": 6875,
+      "group": "AH all",
+      "phase": "development"
+    },
+    {
+      "A": 0.6954744310146661,
+      "C": 0.7154915168902399,
+      "D": 0.6932884766914034,
+      "M": 0.6927071784047063,
+      "fixtures": 6875,
+      "group": "AH draw-sensitive",
+      "phase": "development"
+    },
+    {
+      "A": 0.5161967137245292,
+      "C": 0.5265056517642349,
+      "D": 0.5168463331477532,
+      "M": 0.51655017168673,
+      "fixtures": 6875,
+      "group": "Over 1.5",
+      "phase": "development"
+    },
+    {
+      "A": 0.971288780437012,
+      "C": 0.989791012033955,
+      "D": 0.9722062646502017,
+      "M": 0.970859141956867,
+      "fixtures": 1443,
+      "group": "1X2",
+      "phase": "retrospective"
+    },
+    {
+      "A": 0.7143228441273155,
+      "C": 0.7258517399151319,
+      "D": 0.7132693187488806,
+      "M": 0.7135455498148933,
+      "fixtures": 1443,
+      "group": "AH all",
+      "phase": "retrospective"
+    },
+    {
+      "A": 0.7132153370428365,
+      "C": 0.7284728723299174,
+      "D": 0.7136763343127039,
+      "M": 0.7128449016898851,
+      "fixtures": 1443,
+      "group": "AH draw-sensitive",
+      "phase": "retrospective"
+    },
+    {
+      "A": 0.5173448189077795,
+      "C": 0.5300507109856613,
+      "D": 0.5182126046203318,
+      "M": 0.5177439569770409,
+      "fixtures": 1443,
+      "group": "Over 1.5",
+      "phase": "retrospective"
+    },
+    {
+      "A": 0.9596832593779933,
+      "C": 0.9836134346372923,
+      "D": 0.9587387522221638,
+      "M": 0.9586737586376437,
+      "fixtures": 1304,
+      "group": "1X2",
+      "phase": "validation"
+    },
+    {
+      "A": 0.6920313005589277,
+      "C": 0.7065728577504456,
+      "D": 0.6896444266896913,
+      "M": 0.6900263038411129,
+      "fixtures": 1304,
+      "group": "AH all",
+      "phase": "validation"
+    },
+    {
+      "A": 0.6922701617742547,
+      "C": 0.7112293743173442,
+      "D": 0.6919528928222041,
+      "M": 0.6914546682672825,
+      "fixtures": 1304,
+      "group": "AH draw-sensitive",
+      "phase": "validation"
+    },
+    {
+      "A": 0.5212145887616794,
+      "C": 0.530164194494952,
+      "D": 0.5224230491033217,
+      "M": 0.5213979859067083,
+      "fixtures": 1304,
+      "group": "Over 1.5",
+      "phase": "validation"
+    }
+  ],
   "mode": "historical",
   "notes": [
-    "Positive mean_gain means the second-named candidate has the lower log loss.",
+    "Headline means use the common cohort: fixtures where C, M, D and A are all available.",
+    "Positive mean_gain means the first-named candidate has the lower log loss than the second.",
     "Intervals resample whole calendar weeks across all leagues.",
     "The cagey correction was trained on seasons through 2024/25; D is in-sample in development.",
+    "Retrospective results were already scored elsewhere; they are diagnostics, never release evidence.",
     "Historical prices are pre-match snapshots without timestamps; returns are not claimed.",
     "No automatic promotion: every production change goes through a reviewed PR."
   ],
@@ -6876,6 +8870,16 @@
             0.03299578777954768
           ],
           "mean_gain": 0.027359094100175986,
+          "weeks": 106
+        },
+        "D_vs_M": {
+          "clear_of_zero": false,
+          "fixtures": 6875,
+          "interval_95": [
+            -0.0011911949811779197,
+            0.00012973190435765905
+          ],
+          "mean_gain": -0.0005382496148480179,
           "weeks": 106
         },
         "M_vs_C": {
@@ -6922,6 +8926,16 @@
           "mean_gain": 0.019761208224009327,
           "weeks": 106
         },
+        "D_vs_M": {
+          "clear_of_zero": false,
+          "fixtures": 6875,
+          "interval_95": [
+            -0.00016422445585374527,
+            0.0009880362455272286
+          ],
+          "mean_gain": 0.0004052745869693377,
+          "weeks": 106
+        },
         "M_vs_C": {
           "clear_of_zero": true,
           "fixtures": 6875,
@@ -6938,42 +8952,52 @@
           "clear_of_zero": true,
           "fixtures": 6876,
           "interval_95": [
-            0.018019890222156137,
-            0.02590318108354337
+            0.0165247740091415,
+            0.023743270233703602
           ],
-          "mean_gain": 0.021853646639090816,
+          "mean_gain": 0.02003410929731246,
           "weeks": 106
         },
         "C_vs_M": {
           "clear_of_zero": false,
           "fixtures": 6875,
-          "gain_after_gap_bar": -0.024829540577329706,
+          "gain_after_gap_bar": -0.022784338485533507,
           "gap_bar": 0.0,
           "interval_95": [
-            -0.029622814882591064,
-            -0.0203891975616623
+            -0.02719719962951814,
+            -0.01867770029551348
           ],
-          "mean_gain": -0.024829540577329706,
+          "mean_gain": -0.022784338485533507,
           "weeks": 106
         },
         "D_vs_C": {
           "clear_of_zero": true,
           "fixtures": 6875,
           "interval_95": [
-            0.019813174759206232,
-            0.02917086632537411
+            0.018107974173602017,
+            0.02660641637565912
           ],
-          "mean_gain": 0.0242654617593723,
+          "mean_gain": 0.022203040198836507,
+          "weeks": 106
+        },
+        "D_vs_M": {
+          "clear_of_zero": false,
+          "fixtures": 6875,
+          "interval_95": [
+            -0.0009689508565370283,
+            -0.00016894809608804373
+          ],
+          "mean_gain": -0.0005812982866970007,
           "weeks": 106
         },
         "M_vs_C": {
           "clear_of_zero": true,
           "fixtures": 6875,
           "interval_95": [
-            0.0203891975616623,
-            0.02962281488259106
+            0.018677700295513477,
+            0.02719719962951814
           ],
-          "mean_gain": 0.024829540577329706,
+          "mean_gain": 0.022784338485533507,
           "weeks": 106
         }
       },
@@ -7010,6 +9034,16 @@
           "mean_gain": 0.009659318616481793,
           "weeks": 106
         },
+        "D_vs_M": {
+          "clear_of_zero": false,
+          "fixtures": 6875,
+          "interval_95": [
+            -0.0010086527531086697,
+            0.0004521268536570091
+          ],
+          "mean_gain": -0.0002961614610232173,
+          "weeks": 106
+        },
         "M_vs_C": {
           "clear_of_zero": true,
           "fixtures": 6875,
@@ -7019,6 +9053,224 @@
           ],
           "mean_gain": 0.00995548007750501,
           "weeks": 106
+        }
+      }
+    },
+    "retrospective": {
+      "1X2": {
+        "A_vs_C": {
+          "clear_of_zero": true,
+          "fixtures": 1443,
+          "interval_95": [
+            0.010921707415311038,
+            0.02671624490099018
+          ],
+          "mean_gain": 0.018502231596943124,
+          "weeks": 29
+        },
+        "C_vs_M": {
+          "clear_of_zero": false,
+          "fixtures": 1444,
+          "gain_after_gap_bar": -0.019760551706929568,
+          "gap_bar": 0.0008772288212255344,
+          "interval_95": [
+            -0.028597128282203087,
+            -0.009657138609460717
+          ],
+          "mean_gain": -0.018883322885704035,
+          "weeks": 29
+        },
+        "D_vs_C": {
+          "clear_of_zero": true,
+          "fixtures": 1444,
+          "interval_95": [
+            0.007950919395609799,
+            0.027061793161913872
+          ],
+          "mean_gain": 0.01753237158585987,
+          "weeks": 29
+        },
+        "D_vs_M": {
+          "clear_of_zero": false,
+          "fixtures": 1444,
+          "interval_95": [
+            -0.002403706191014408,
+            -0.00017765220352413972
+          ],
+          "mean_gain": -0.0013509512998441675,
+          "weeks": 29
+        },
+        "M_vs_C": {
+          "clear_of_zero": true,
+          "fixtures": 1444,
+          "interval_95": [
+            0.009657138609460714,
+            0.028597128282203087
+          ],
+          "mean_gain": 0.018883322885704035,
+          "weeks": 29
+        }
+      },
+      "AH all": {
+        "A_vs_C": {
+          "clear_of_zero": true,
+          "fixtures": 1443,
+          "interval_95": [
+            0.006746174412253762,
+            0.016213383744271805
+          ],
+          "mean_gain": 0.011528895787816353,
+          "weeks": 29
+        },
+        "C_vs_M": {
+          "clear_of_zero": false,
+          "fixtures": 1444,
+          "gain_after_gap_bar": -0.012644945333108105,
+          "gap_bar": 0.0003401637290022618,
+          "interval_95": [
+            -0.01830093624986041,
+            -0.006328597942949569
+          ],
+          "mean_gain": -0.012304781604105842,
+          "weeks": 29
+        },
+        "D_vs_C": {
+          "clear_of_zero": true,
+          "fixtures": 1444,
+          "interval_95": [
+            0.006533925561355435,
+            0.01876189396734883
+          ],
+          "mean_gain": 0.012569434209296987,
+          "weeks": 29
+        },
+        "D_vs_M": {
+          "clear_of_zero": false,
+          "fixtures": 1444,
+          "interval_95": [
+            -0.00108011436703435,
+            0.0016182229620297017
+          ],
+          "mean_gain": 0.00026465260519114474,
+          "weeks": 29
+        },
+        "M_vs_C": {
+          "clear_of_zero": true,
+          "fixtures": 1444,
+          "interval_95": [
+            0.006328597942949565,
+            0.01830093624986041
+          ],
+          "mean_gain": 0.012304781604105842,
+          "weeks": 29
+        }
+      },
+      "AH draw-sensitive": {
+        "A_vs_C": {
+          "clear_of_zero": true,
+          "fixtures": 1443,
+          "interval_95": [
+            0.008764714965655269,
+            0.022016482928257388
+          ],
+          "mean_gain": 0.015257535287081098,
+          "weeks": 29
+        },
+        "C_vs_M": {
+          "clear_of_zero": false,
+          "fixtures": 1444,
+          "gain_after_gap_bar": -0.016007746216153813,
+          "gap_bar": 0.0005136591253358615,
+          "interval_95": [
+            -0.023334299352552317,
+            -0.008152345061369786
+          ],
+          "mean_gain": -0.015494087090817952,
+          "weeks": 29
+        },
+        "D_vs_C": {
+          "clear_of_zero": true,
+          "fixtures": 1444,
+          "interval_95": [
+            0.007347775151015741,
+            0.02234856369711156
+          ],
+          "mean_gain": 0.014660256489221266,
+          "weeks": 29
+        },
+        "D_vs_M": {
+          "clear_of_zero": false,
+          "fixtures": 1444,
+          "interval_95": [
+            -0.0014815297939312095,
+            -0.00011299073775015104
+          ],
+          "mean_gain": -0.0008338306015966853,
+          "weeks": 29
+        },
+        "M_vs_C": {
+          "clear_of_zero": true,
+          "fixtures": 1444,
+          "interval_95": [
+            0.008152345061369783,
+            0.02333429935255231
+          ],
+          "mean_gain": 0.015494087090817952,
+          "weeks": 29
+        }
+      },
+      "Over 1.5": {
+        "A_vs_C": {
+          "clear_of_zero": true,
+          "fixtures": 1443,
+          "interval_95": [
+            0.004973786264292502,
+            0.020284959469036957
+          ],
+          "mean_gain": 0.012705892077881868,
+          "weeks": 29
+        },
+        "C_vs_M": {
+          "clear_of_zero": false,
+          "fixtures": 1444,
+          "gain_after_gap_bar": -0.012981116743563916,
+          "gap_bar": 0.0,
+          "interval_95": [
+            -0.020733961060205912,
+            -0.005330930927115398
+          ],
+          "mean_gain": -0.012981116743563916,
+          "weeks": 29
+        },
+        "D_vs_C": {
+          "clear_of_zero": true,
+          "fixtures": 1444,
+          "interval_95": [
+            0.004839469113335849,
+            0.020359580746574516
+          ],
+          "mean_gain": 0.012511732649263545,
+          "weeks": 29
+        },
+        "D_vs_M": {
+          "clear_of_zero": false,
+          "fixtures": 1444,
+          "interval_95": [
+            -0.0017249056629889486,
+            0.0008521656808171831
+          ],
+          "mean_gain": -0.0004693840943003687,
+          "weeks": 29
+        },
+        "M_vs_C": {
+          "clear_of_zero": true,
+          "fixtures": 1444,
+          "interval_95": [
+            0.005330930927115395,
+            0.02073396106020591
+          ],
+          "mean_gain": 0.012981116743563916,
+          "weeks": 29
         }
       }
     },
@@ -7054,6 +9306,16 @@
             0.03539676933597792
           ],
           "mean_gain": 0.025473522953086216,
+          "weeks": 22
+        },
+        "D_vs_M": {
+          "clear_of_zero": false,
+          "fixtures": 1305,
+          "interval_95": [
+            -0.0019336071625544007,
+            0.0017613534437138667
+          ],
+          "mean_gain": -7.463732490436864e-05,
           "weeks": 22
         },
         "M_vs_C": {
@@ -7100,6 +9362,16 @@
           "mean_gain": 0.017578620729994804,
           "weeks": 22
         },
+        "D_vs_M": {
+          "clear_of_zero": false,
+          "fixtures": 1305,
+          "interval_95": [
+            -0.0009601727054669119,
+            0.0015592015994378542
+          ],
+          "mean_gain": 0.0003633109826859782,
+          "weeks": 22
+        },
         "M_vs_C": {
           "clear_of_zero": true,
           "fixtures": 1305,
@@ -7116,42 +9388,52 @@
           "clear_of_zero": true,
           "fixtures": 1304,
           "interval_95": [
-            0.013511124338844821,
-            0.027473734599843348
+            0.012113106376541446,
+            0.02499918168306889
           ],
-          "mean_gain": 0.0209475976295733,
+          "mean_gain": 0.018959212543089486,
           "weeks": 22
         },
         "C_vs_M": {
           "clear_of_zero": false,
           "fixtures": 1305,
-          "gain_after_gap_bar": -0.022283018423749985,
+          "gain_after_gap_bar": -0.020106257187589592,
           "gap_bar": 0.0,
           "interval_95": [
-            -0.03125358267792139,
-            -0.012783212785777275
+            -0.028271285510380363,
+            -0.011536528191378813
           ],
-          "mean_gain": -0.022283018423749985,
+          "mean_gain": -0.020106257187589592,
           "weeks": 22
         },
         "D_vs_C": {
           "clear_of_zero": true,
           "fixtures": 1305,
           "interval_95": [
-            0.01226115277204727,
-            0.030638199765749774
+            0.010868368409347363,
+            0.027585211695854216
           ],
-          "mean_gain": 0.021952506773294685,
+          "mean_gain": 0.01960516265343367,
+          "weeks": 22
+        },
+        "D_vs_M": {
+          "clear_of_zero": false,
+          "fixtures": 1305,
+          "interval_95": [
+            -0.001536720090509569,
+            0.0004769657977835279
+          ],
+          "mean_gain": -0.0005010945341559213,
           "weeks": 22
         },
         "M_vs_C": {
           "clear_of_zero": true,
           "fixtures": 1305,
           "interval_95": [
-            0.012783212785777272,
-            0.03125358267792138
+            0.011536528191378799,
+            0.02827128551038036
           ],
-          "mean_gain": 0.022283018423749985,
+          "mean_gain": 0.020106257187589592,
           "weeks": 22
         }
       },
@@ -7188,6 +9470,16 @@
           "mean_gain": 0.009445895207127599,
           "weeks": 22
         },
+        "D_vs_M": {
+          "clear_of_zero": false,
+          "fixtures": 1305,
+          "interval_95": [
+            -0.0027546424895752808,
+            0.0006392370635891122
+          ],
+          "mean_gain": -0.0010353887186653058,
+          "weeks": 22
+        },
         "M_vs_C": {
           "clear_of_zero": true,
           "fixtures": 1305,
@@ -7201,7 +9493,7 @@
       }
     }
   },
-  "source_commit": "8691747b34ac9c05ee9ce1e1d017c5a6e7b4e531",
+  "source_commit": "15448b6f83c24c24962510481ecf8444ae54bfb0",
   "synthetic_price_margin": 0.036708790209470696,
-  "version": "evaluation-harness-v1"
+  "version": "evaluation-harness-v2"
 }
