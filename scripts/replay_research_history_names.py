@@ -130,7 +130,7 @@ def replay(root: Path, histories):
                 worst = max(worst, gap)
                 counts['frozen_probabilities_checked'] += 1
                 counts['frozen_probabilities_reproduced'] += gap <= TOLERANCE
-            before = tr.prepare(row, cutoff, copy.deepcopy(evidence), version=tr.PREVIOUS_VERSION)
+            before = tr.prepare(row, cutoff, copy.deepcopy(evidence), version=tr.V2_VERSION)
             league_key = keys.get(str(row.get('league')))
             history = histories(league_key) if league_key else None
             checks = {}
@@ -150,7 +150,7 @@ def replay(root: Path, histories):
                     if c['frozen_reproduced'] is not None:
                         counts['frozen_history_sides_checked'] += 1
                         counts['frozen_history_sides_reproduced'] += c['frozen_reproduced']
-            after = tr.prepare(after_row, cutoff, copy.deepcopy(evidence))
+            after = tr.prepare(after_row, cutoff, copy.deepcopy(evidence), version=tr.V3_VERSION)
             same = lambda a, b: json.dumps(a, sort_keys=True, default=str) == json.dumps(b, sort_keys=True, default=str)
             changed = not (same(before['goal_rates'], after['goal_rates'])
                            and same(before.get('margin_distribution'), after.get('margin_distribution')))
@@ -164,7 +164,7 @@ def replay(root: Path, histories):
                 'holdout_league': row.get('league') in HOLDOUT_LEAGUES,
                 'home_team': row.get('home_team'), 'away_team': row.get('away_team'),
                 'kickoff_utc': str(row.get('kickoff_utc')), 'research_observed_utc': cutoff.isoformat(),
-                'frozen_version': frozen_version, 'before_version': tr.PREVIOUS_VERSION, 'after_version': tr.VERSION,
+                'frozen_version': frozen_version, 'before_version': tr.V2_VERSION, 'after_version': tr.V3_VERSION,
                 'changed': changed}
             for i, s in enumerate(SIDES):
                 c = checks.get(s, {})
@@ -264,7 +264,7 @@ def main(argv=None):
         warnings.simplefilter('ignore')
         histories = Histories(as_of.to_pydatetime(), args.cache)
         counts, frame, worst = replay(args.root, histories)
-    summary = {'before_version': tr.PREVIOUS_VERSION, 'after_version': tr.VERSION,
+    summary = {'before_version': tr.V2_VERSION, 'after_version': tr.V3_VERSION,
                'history_as_of_utc': as_of.isoformat(), 'frozen_probabilities_max_abs_diff': worst,
                **summarize(counts, frame, histories.errors)}
     args.output.mkdir(parents=True, exist_ok=True)

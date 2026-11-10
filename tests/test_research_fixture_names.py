@@ -164,7 +164,7 @@ def forecast_row(names=True):
 class PrepareTest(unittest.TestCase):
     def test_v3_gives_hull_city_its_own_form_and_venue_split(self):
         research = tr.prepare(forecast_row(), CUTOFF)
-        self.assertEqual(research['version'], 'team-form-research-v3')
+        self.assertEqual(research['version'], tr.VERSION)
         home = research['form']['home']
         self.assertEqual(home['all']['matches'], 6)
         self.assertEqual(home['all']['results'], 'WDLDWW')
@@ -173,15 +173,15 @@ class PrepareTest(unittest.TestCase):
         self.assertFalse(any('training-history name' in w for w in research['warnings']))
 
     def test_v2_replays_the_old_answer_from_the_same_input(self):
-        old = tr.prepare(forecast_row(), CUTOFF, version=tr.PREVIOUS_VERSION)
-        self.assertEqual(old['version'], tr.PREVIOUS_VERSION)
+        old = tr.prepare(forecast_row(), CUTOFF, version=tr.V2_VERSION)
+        self.assertEqual(old['version'], tr.V2_VERSION)
         self.assertEqual(old['form']['home']['all']['matches'], 0)
         self.assertEqual(old['goal_rates'], old['base_rates'])  # one side without form: no adjustment at all
 
     def test_v3_without_frozen_names_is_v2(self):
         # Every forecast frozen before v3 has no 'teams': v3 changes nothing for it on its own inputs.
         row = forecast_row(names=False)
-        new, old = tr.prepare(row, CUTOFF), tr.prepare(row, CUTOFF, version=tr.PREVIOUS_VERSION)
+        new, old = tr.prepare(row, CUTOFF), tr.prepare(row, CUTOFF, version=tr.V2_VERSION)
         self.assertEqual({k: v for k, v in new.items() if k != 'version'}, {k: v for k, v in old.items() if k != 'version'})
 
     def test_espn_copies_still_count_once(self):
@@ -208,7 +208,7 @@ class PrepareTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             out = tr.enrich(pd.DataFrame([forecast_row()]), tmp, fetch=False, clock=lambda: CUTOFF.to_pydatetime())
         research = json.loads(out.iloc[0]['team_research_json'])
-        self.assertEqual(research['version'], 'team-form-research-v3')
+        self.assertEqual(research['version'], tr.VERSION)
         self.assertEqual(research['form']['home']['all']['matches'], 6)
 
 
