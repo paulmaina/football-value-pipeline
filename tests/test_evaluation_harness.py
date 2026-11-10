@@ -205,17 +205,166 @@ class SummaryTest(unittest.TestCase):
         self.assertAlmostEqual(row['C'], 1.)
 
 
+KICKOFF = pd.Timestamp('2026-11-08T14:00:00Z')
+FORECAST = pd.Timestamp('2026-11-08T12:20:00Z')
+IN_WINDOW = '2026-11-08T12:14:35Z'
+
+
+def ah(side, line, price, opposite, key='alternate_spreads', book='Pinnacle', stamp=IN_WINDOW):
+    return {'bookmaker': book, 'side': side, 'line': line, 'price': price, 'opposite_price': opposite,
+            'market_key': key, 'last_update_utc': stamp}
+
+
+def frozen_row(**extra):
+    quotes = [
+        {'bookmaker': 'Pinnacle', 'market': 'h2h', 'market_key': 'h2h', 'last_update_utc': IN_WINDOW,
+         'prices': {'home': 1.88, 'draw': 4.0, 'away': 4.11}},
+        {'bookmaker': 'Pinnacle', 'market': 'double_chance', 'market_key': 'double_chance', 'last_update_utc': IN_WINDOW,
+         'prices': {'home_draw': 1.27, 'draw_away': 2.03, 'home_away': 1.28}},
+        {'bookmaker': 'Pinnacle', 'market': 'totals', 'market_key': 'totals', 'point': 2.5, 'last_update_utc': IN_WINDOW,
+         'prices': {'over': 1.63, 'under': 2.39}},
+        {'bookmaker': 'Bet365', 'market': 'double_chance', 'last_update_utc': IN_WINDOW,
+         'prices': {'home_draw': 1.25, 'draw_away': 2.0}},
+    ]
+    offers = [ah('home', -0.5, 1.9, 2.0, 'spreads'), ah('away', 0.5, 2.0, 1.9, 'spreads'),
+              ah('home', -0.5, 1.85, 2.05),  # alternate copy of the main line: dropped
+              ah('home', 0.25, 1.33, 3.58), ah('home', 0.0, 1.45, 2.9, 'draw_no_bet'),
+              ah('home', -1.0, 2.6, 1.5, book='1xBet'),
+              ah('home', -1.5, 3.2, 1.35, stamp='2026-11-07T12:00:00Z'),  # older than 24h
+              ah('home', -0.75, 2.2, 1.7, stamp='2026-11-08T12:30:00Z'),  # after the forecast
+              ah('home', 1.0, 1.1, 7.0, stamp=None)]
+    return {'price_edge_quotes': json.dumps(quotes), 'asian_handicap_offers': json.dumps(offers),
+            'kickoff_utc': KICKOFF.isoformat(), 'league': 'EPL', **extra}
+
+
+def grid():
+    goals = np.arange(8)
+    home, away = np.exp(-1.4) * 1.4 ** goals, np.exp(-1.1) * 1.1 ** goals
+    matrix = np.outer(home / np.cumprod(np.r_[1, goals[1:]]), away / np.cumprod(np.r_[1, goals[1:]]))
+    return matrix / matrix.sum()
+
+
+class OfferScopeTest(unittest.TestCase):
+    def test_only_pr135_pinnacle_markets_inside_24_hours(self):
+        from collections import Counter
+        coverage = Counter()
+        offers = eh.scoped_offers(frozen_row(), KICKOFF, FORECAST, coverage)
+        self.assertEqual(sorted(o['market'] for o in offers), [
+            'Asian Handicap Away +0.50', 'Asian Handicap Home +0.25', 'Asian Handicap Home -0.50',
+            'Away win', 'Double Chance 1X', 'Double Chance X2', 'Home win'])
+        main = next(o for o in offers if o['market'] == 'Asian Handicap Home -0.50')
+        self.assertEqual((main['source_market'], main['price']), ('spreads', 1.9))
+        self.assertEqual(coverage['offer_out_of_scope:pinnacle draw_no_bet'], 1)
+        self.assertEqual(coverage['offer_excluded:older than 24h before kickoff'], 1)
+        self.assertEqual(coverage['offer_excluded:after forecast'], 1)
+        self.assertEqual(coverage['offer_excluded:no timestamp'], 1)
+
+    def test_window_is_measured_from_the_kickoff(self):
+        early = frozen_row()
+        self.assertEqual(eh.scoped_offers(early, KICKOFF + pd.Timedelta(hours=24), FORECAST), [])
+        edge = eh.scoped_offers(early, pd.Timestamp(IN_WINDOW) + pd.Timedelta(hours=24), FORECAST)
+        self.assertEqual(len(edge), 7)
+
+
+class OfferScoreTest(unittest.TestCase):
+    def setUp(self):
+        self.matrix = grid()
+        self.offers = eh.scoped_offers(frozen_row(), KICKOFF, FORECAST)
+        self.ident = {'fixture_key': 'PL:1', 'league': 'EPL', 'week': '2026-W45', 'phase': 'live_replay'}
+
+    def test_each_offer_is_scored_for_each_candidate(self):
+        records = eh.score_offers(self.ident, {'M': self.matrix, 'C': self.matrix}, self.offers, 2, 1)
+        self.assertEqual(len(records), 2 * len(self.offers))
+        by = {r['market']: r for r in records if r['candidate'] == 'M'}
+        h, a = np.indices(self.matrix.shape)
+        p_home = self.matrix[h > a].sum()
+        self.assertAlmostEqual(by['Home win']['log_loss'], -np.log(p_home))
+        self.assertAlmostEqual(by['Away win']['log_loss'], -np.log(1 - self.matrix[h < a].sum()))
+        self.assertAlmostEqual(by['Double Chance 1X']['log_loss'], -np.log(self.matrix[h >= a].sum()))
+        self.assertAlmostEqual(by['Double Chance X2']['log_loss'], -np.log(1 - self.matrix[h <= a].sum()))
+        # Home -0.50 wins outright at 2-1; the away side of the same pair loses outright.
+        self.assertAlmostEqual(by['Asian Handicap Home -0.50']['log_loss'], -np.log(p_home))
+        self.assertAlmostEqual(by['Asian Handicap Away +0.50']['log_loss'], -np.log(p_home))
+        self.assertTrue(by['Asian Handicap Home -0.50']['draw_sensitive'])
+        self.assertFalse(by['Asian Handicap Home +0.25']['draw_sensitive'])
+
+    def test_quarter_line_settles_half(self):
+        offer = [o for o in self.offers if o['market'] == 'Asian Handicap Home +0.25']
+        record = eh.score_offers(self.ident, {'M': self.matrix}, offer, 1, 1)[0]
+        h, a = np.indices(self.matrix.shape)
+        self.assertAlmostEqual(record['log_loss'], -np.log(self.matrix[h == a].sum()))  # half win on a draw
+
+    def test_each_match_counts_once_however_many_offers(self):
+        records = []
+        for i in range(10):
+            ident = {**self.ident, 'fixture_key': f'PL:{i}', 'week': f'2026-W{40 + i % 3}'}
+            offers = self.offers if i < 5 else self.offers[:2]
+            records += eh.score_offers(ident, {'M': self.matrix, 'C': grid() ** 1.01 / (grid() ** 1.01).sum()},
+                                       offers, i % 3, 1)
+        scores = eh.match_scores(records)
+        everything = scores.loc[scores.group == 'All offers']
+        self.assertEqual(len(everything), 20)
+        self.assertEqual(sorted(everything.offers.unique()), [2, 7])
+        result = eh.paired(everything, 'C', 'M')
+        self.assertEqual((result['fixtures'], result['weeks']), (10, 3))
+        first = everything.query("fixture_key == 'PL:0' and candidate == 'M'").log_loss.item()
+        self.assertAlmostEqual(first, np.mean([r['log_loss'] for r in records
+                                               if r['fixture_key'] == 'PL:0' and r['candidate'] == 'M']))
+        counts = eh.offer_counts(records)
+        self.assertEqual((counts['matches'], counts['offers']), (10, 5 * 7 + 5 * 2))
+        self.assertEqual(counts['per_market']['Home win'], {'matches': 10, 'offers': 10})
+        self.assertEqual(counts['per_group']['Double chance'], {'matches': 5, 'offers': 10})
+        calib = eh.offer_calibration(records)
+        self.assertEqual(sum(b['n'] for b in calib if b['candidate'] == 'M'),
+                         sum(1 for r in records if r['candidate'] == 'M' and 'won' in r))
+
+
 class LiveReplayTest(unittest.TestCase):
-    def test_each_verified_match_is_scored_once_with_all_views(self):
-        records, _, coverage = eh.live_replay(REPO / 'football_output_v2')
+    def replay(self, snapshots, result):
+        from unittest.mock import patch
+        import performance_tracking as pt
+        import research_backtest as rb
+        with patch.object(pt, 'snapshots', return_value=snapshots), \
+                patch.object(pt, 'load_json', return_value=[result]), \
+                patch.object(eh, 'usable_results', side_effect=lambda records, *a, **k: list(records)), \
+                patch.object(pt, 'fixture_match', side_effect=lambda row, records: (result, 'GRADED')), \
+                patch.object(rb, 'archived_candidates', return_value=({'A': grid()}, {})):
+            return eh.live_replay(REPO / 'football_output_v2')
+
+    def test_latest_pre_kickoff_forecast_stands_and_late_ones_are_not_graded(self):
+        result = {'league_code': 'PL', 'match_id': 1, 'kickoff_utc': KICKOFF.isoformat(), 'home_goals': 2, 'away_goals': 1}
+        meta = lambda when: {'generated_at_utc': when, 'captured_at_utc': when}
+        older = frozen_row(price_edge_quotes='[]', asian_handicap_offers='[]')
+        late = frozen_row()
+        snapshots = [(meta('2026-11-08T09:00:00Z'), [older], []), (meta(FORECAST.isoformat()), [frozen_row()], []),
+                     (meta('2026-11-08T13:50:00Z'), [late], [])]
+        records, coverage = self.replay(snapshots, result)
+        self.assertEqual(coverage['ungraded:FORECAST_NOT_BEFORE_VERIFIED_KICKOFF'], 1)
+        self.assertEqual((coverage['verified_matches_graded'], coverage['matches_scored']), (1, 1))
+        self.assertEqual(len(records), 7)  # the 12:20 forecast's in-scope offers, scored once each
+
+    def test_window_uses_the_verified_kickoff(self):
+        moved = (KICKOFF + pd.Timedelta(hours=30)).isoformat()
+        result = {'league_code': 'PL', 'match_id': 1, 'kickoff_utc': moved, 'home_goals': 0, 'away_goals': 0}
+        meta = {'generated_at_utc': FORECAST.isoformat(), 'captured_at_utc': FORECAST.isoformat()}
+        records, coverage = self.replay([(meta, [frozen_row()], [])], result)
+        self.assertEqual(records, [])
+        self.assertEqual(coverage['no_in_scope_offer'], 1)
+
+    def test_repository_replay_scores_only_scoped_offers_once_per_match(self):
+        records, coverage = eh.live_replay(REPO / 'football_output_v2')
         if not records:
             self.skipTest('no graded live forecasts in this checkout')
-        keys = {r['fixture_key'] for r in records}
-        self.assertEqual(len(keys), coverage['matches_scored'])
+        frame = pd.DataFrame(records)
+        self.assertEqual(frame.fixture_key.nunique(), coverage['matches_scored'])
         self.assertLessEqual(coverage['matches_scored'], coverage['verified_matches_graded'])
-        per_fixture = pd.DataFrame(records).query("market == '1X2'").groupby(['fixture_key', 'candidate']).size()
-        self.assertEqual(int(per_fixture.max()), 1)
-        self.assertIn('D', {r['candidate'] for r in records})
+        self.assertEqual(int(frame.groupby(['fixture_key', 'candidate', 'market']).size().max()), 1)
+        self.assertTrue(set(frame.market_group) <= {'Asian handicap', 'Win', 'Double chance'})
+        binary = set(frame.loc[frame.market_group != 'Asian handicap', 'market'])
+        self.assertTrue(binary <= set(eh.BINARY_MARKETS))
+        self.assertTrue(frame.loc[frame.market_group == 'Asian handicap', 'market'].str.match(
+            r'^Asian Handicap (Home|Away) [+-]\d\.\d\d$').all())
+        self.assertIn('D', set(frame.candidate))
 
 
 if __name__ == '__main__':
