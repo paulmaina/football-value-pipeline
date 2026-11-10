@@ -28,6 +28,49 @@ CATEGORIES = ('form', 'venue_splits', 'xg', 'availability', 'lineups', 'rotation
               'h2h', 'tactics', 'motivation', 'rivalry', 'weather', 'travel')
 TTL_HOURS = 3
 
+# ---------------------------------------------------------------------------
+# Value model input schema
+# ---------------------------------------------------------------------------
+# The value shortlist's research model (team_form_poisson_v1) must stay
+# independent of bookmaker odds. prepare() sees ONLY these fields: every
+# other column of a forecast row (odds, quotes, the published grid, market
+# fits, blended probabilities) is dropped before the model runs. Bookmaker
+# prices are used later, by the selection layer only, to price a research
+# probability against the Pinnacle offer.
+SCHEMA_VERSION = 'value-model-inputs-v1'
+INPUT_SCHEMA = {
+    # Identity and timing.
+    'home_team': 'team identity',
+    'away_team': 'team identity',
+    'kickoff_utc': 'kickoff time, for rest and travel context only',
+    # Independent goal rates: the Dixon-Coles fit to past results (plus the
+    # BBS match-statistics or shot adjustment when its own gate passes), read
+    # before the market blend and the totals anchor touch the score grid.
+    'lambda_home': 'independent home goal rate (pre-blend, pre-anchor)',
+    'lambda_away': 'independent away goal rate (pre-blend, pre-anchor)',
+    # Team history: completed earlier matches from the training files.
+    'research_history_json': 'team history from the training files (form_history)',
+}
+# Pre-kickoff research (collect_fixture). Only `recent` rows feed numbers;
+# the other keys are descriptive evidence and coverage.
+EVIDENCE_SCHEMA = ('sources', 'coverage', 'news', 'errors', 'recent', 'schedules')
+RESULT_FIELDS = ('date', 'home', 'away', 'home_goals', 'away_goals', 'home_xg', 'away_xg', 'source')
+
+
+def research_inputs(row):
+    """Project a forecast row onto the value model's input schema."""
+    getter = row.get if hasattr(row, 'get') else (lambda key: None)
+    return {key: getter(key) for key in INPUT_SCHEMA}
+
+
+def research_evidence(evidence):
+    """Numeric view of pre-kickoff research: schema keys, and result fields only in `recent`."""
+    out = {k: evidence[k] for k in EVIDENCE_SCHEMA if k in evidence}
+    if isinstance(out.get('recent'), dict):
+        out['recent'] = {side: [{k: r.get(k) for k in RESULT_FIELDS if k in r} for r in rows if isinstance(r, dict)]
+                         for side, rows in out['recent'].items() if isinstance(rows, list)}
+    return out
+
 
 def utc(value):
     return pd.to_datetime(value, utc=True, errors='coerce')
@@ -331,19 +374,27 @@ def collect_fixture(row, client):
 
 
 def prepare(row, cutoff, evidence=None):
-    """One replayable context and goal model. Prior shrinks ten-game form to the fitted team rates."""
+    """One replayable context and goal model. Prior shrinks ten-game form to the fitted team rates.
+
+    Enforces the value model input schema: the row is projected onto
+    INPUT_SCHEMA and the numbers read only research_evidence(evidence), so no
+    odds field can reach the research probabilities.
+    """
+    row = research_inputs(row)
     evidence = evidence or {}
     cached = decode(row.get('research_history_json'))
     sources = evidence.get('sources', [])
     valid_sources = all(pd.notna(utc(s.get('observed_at_utc'))) and utc(s['observed_at_utc']) <= cutoff for s in sources)
     if not valid_sources:
         evidence = {'errors': ['research observation after evaluation cutoff']}
+    # The stored evidence keeps everything collected; the model reads only the schema view.
+    view = research_evidence(evidence)
     stats = {}
     for side in ('home', 'away'):
         team = row.get(side + '_team')
         rows = list(cached.get(side, []))
         if valid_sources:
-            rows += evidence.get('recent', {}).get(side, [])
+            rows += view.get('recent', {}).get(side, [])
         unique = {}
         for r in rows:
             date = utc(r.get('date'))
@@ -358,8 +409,8 @@ def prepare(row, cutoff, evidence=None):
 
         ordered = sorted(unique.values(), key=lambda r: r['date'], reverse=True)[:10]
         stats[side] = {'all': weighted_form(ordered, team), 'venue': weighted_form(ordered, team, side)}
-    coverage = dict(evidence.get('coverage', {}))
-    if evidence.get('news'):
+    coverage = dict(view.get('coverage', {}))
+    if view.get('news'):
         coverage['team_news'] = 'dated news leads; absences and tactics require confirmation'
     if all(stats[s]['all']['matches'] >= 5 for s in stats):
         coverage['form'] = 'last ten, exponential rank half-life five matches'
@@ -371,10 +422,10 @@ def prepare(row, cutoff, evidence=None):
         coverage['h2h'] = 'last four years; descriptive only'
     if all(stats[s]['all'].get('xg_matches', 0) >= 5 for s in stats):
         coverage['xg'] = 'verified supplied xG; no goals-to-xG substitution'
-    if evidence.get('schedules'):
+    if view.get('schedules'):
         coverage['rotation'] = 'schedule congestion only; rotation unconfirmed'
         evidence['rest_and_travel'] = {}
-        for side, fixtures in evidence['schedules'].items():
+        for side, fixtures in view['schedules'].items():
             previous = [e for e in fixtures if e.get('completed') is True
                         and pd.notna(utc(e.get('date'))) and utc(e['date']) < cutoff]
             if previous:
@@ -387,7 +438,7 @@ def prepare(row, cutoff, evidence=None):
         if any(v['previous_fixture'].get('venue') for v in evidence['rest_and_travel'].values()):
             coverage['travel'] = 'previous fixture venue; itinerary and fatigue unverified'
     warnings = [c + ' unavailable or unconfirmed' for c in CATEGORIES if c not in coverage]
-    warnings += evidence.get('errors', [])
+    warnings += view.get('errors', [])
     base = [number(row.get('lambda_home')), number(row.get('lambda_away'))]
     rates = list(base)
     for i, side in enumerate(('home', 'away')):
@@ -407,15 +458,21 @@ def prepare(row, cutoff, evidence=None):
                'evidence': evidence, 'base_rates': base, 'goal_rates': rates,
                'model_note': 'Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient'}
     if all(r is not None and r > 0 for r in rates):
-        from score_probability import score_grid
-        # Independent Poisson: do not transfer a fitted DC rho after changing rates.
-        matrix, _ = score_grid(*rates, 0.)
+        matrix = research_grid(rates)
         from asian_handicap import margins
         context.update(margin_distribution=json.loads(margins(matrix)),
                        p_over_1_5=float(matrix[np.add.outer(np.arange(len(matrix)), np.arange(len(matrix))) > 1.5].sum()))
     else:
         warnings.append('team goal-rate model unavailable')
     return context
+
+
+def research_grid(goal_rates):
+    """The research score grid from prepare()'s goal rates; shared by the live pipeline and the harness."""
+    from score_probability import score_grid
+    # Independent Poisson: do not transfer a fitted DC rho after changing rates.
+    matrix, _ = score_grid(*goal_rates, 0.)
+    return matrix
 
 
 def enrich(predictions, cache, fetch=False, client=None, clock=None):

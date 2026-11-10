@@ -31,6 +31,7 @@ def context(row, now):
         return {}, ['research evidence observed after evaluation or missing observation time']
     if not evidence:
         # Legacy cached forecasts stay eligible with an explicit coverage gap.
+        # prepare() projects the row onto team_research.INPUT_SCHEMA, so no odds field is read.
         evidence = prepare(row, now, {'errors': ['research not collected for this forecast']})
     warnings = list(evidence.get('warnings', []))
     from research_quality import VERSION as QUALITY_VERSION, assess
@@ -47,9 +48,19 @@ def context(row, now):
     return evidence, warnings
 
 
+# The only parts of an offer the research probabilities may read: what the bet is,
+# never its price. The price is used afterwards, in annotate(), to qualify the bet.
+OFFER_TERMS = ('market', 'handicap_side', 'handicap_line')
+
+
 def probabilities(row, item, evidence):
+    """Settlement probabilities from the research distribution alone (value model input schema).
+
+    `row` is accepted for compatibility and never read; `item` is reduced to OFFER_TERMS.
+    """
     from narrow_margin import price_distribution
     from asian_handicap import distribution
+    item = {k: item.get(k) for k in OFFER_TERMS}
     if item.get('market') == 'Over 1.5':
         p = evidence.get('p_over_1_5')
         if p is None:
