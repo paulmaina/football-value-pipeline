@@ -2007,7 +2007,7 @@
   "prediction_1x2_multiclass_brier": 0.540451,
   "prediction_fixtures_graded": 377,
   "provider_errors": {},
-  "reviewed_at_utc": "2026-11-11T06:52:53Z",
+  "reviewed_at_utc": "2026-11-11T15:35:57Z",
   "run_history_groups": {
     "2026-10-11T06:32:27.587243+00:00": {
       "brier": 0.232708,
