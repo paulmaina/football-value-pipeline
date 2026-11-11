@@ -615,6 +615,28 @@ def load_domestic_aliases():
     return json.loads(DOMESTIC_ALIASES.read_text(encoding='utf-8'))['aliases']
 
 
+# ---------------------------------------------------------------------------
+# Manual reviewed aliases (Phase 2c alias review; approved in PR review, not fixture evidence)
+# ---------------------------------------------------------------------------
+
+REVIEWED_ALIASES = ROOT / 'docs' / 'audits' / 'european-reviewed-aliases.json'
+REVIEWED_STATUS = 'manual, approved by Paul in PR review'
+
+
+def load_reviewed_aliases(path=REVIEWED_ALIASES):
+    """{'ucl_names': {old: new}, 'domestic': {league: {European name: domestic name}}, 'applies_before': date}.
+
+    Manual aliases for clubs that are plainly the same team but have no fixture evidence. They apply only to
+    European matches before the European holdout start (LOCK_DATE), so no holdout row is renamed or relinked."""
+    data = json.loads(Path(path).read_text(encoding='utf-8'))
+    if data.get('status') != REVIEWED_STATUS or data.get('applies_before') != LOCK_DATE:
+        raise ValueError('Reviewed aliases must be marked manual and apply only before the European holdout start')
+    return {'ucl_names': {k: v['to'] for k, v in data['ucl_names']['aliases'].items()},
+            'domestic': {league: {k: v['to'] for k, v in table.items()}
+                         for league, table in data['domestic']['aliases'].items()},
+            'applies_before': data['applies_before']}
+
+
 def verify_aliases(cache, aliases=None):
     """Sections of the committed file that differ from what fixture evidence derives today (empty when sound)."""
     aliases = load_aliases() if aliases is None else aliases

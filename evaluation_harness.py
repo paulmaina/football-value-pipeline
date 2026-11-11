@@ -1363,7 +1363,7 @@ EUROPEAN_SETUP_FILES = ('evaluation_harness.py', 'european_results.py', 'researc
                         'ucl_training.py', 'match_scores.py', 'scripts/europa_research.py', 'ah_close_backtest.py',
                         'asian_handicap.py', 'evaluation_harness_config.json', 'docs/audits/europa-team-aliases.json',
                         'european_backfill.py', 'docs/audits/european-backfill-aliases.json',
-                        'docs/audits/european-domestic-aliases.json',
+                        'docs/audits/european-domestic-aliases.json', 'docs/audits/european-reviewed-aliases.json',
                         'benchmark_promotion_rules.json')
 
 
@@ -1589,8 +1589,10 @@ def european_domestic_form(cache, cfg, fixtures):
         frame = training_rows(data, league, cfg, False)[['Date', 'HomeTeam', 'AwayTeam']]
         histories[league] = (frame, set(frame.HomeTeam) | set(frame.AwayTeam))
     import european_backfill as eb
+    reviewed = eb.load_reviewed_aliases()
     flags, teams = er.domestic_form_coverage(fixtures, histories, rule['min_matches'], rule['days'],
-                                             extra=eb.load_domestic_aliases())
+                                             extra=eb.load_domestic_aliases(), reviewed=reviewed['domestic'],
+                                             reviewed_before=reviewed['applies_before'])
     table = pd.concat([fixtures[['competition', 'phase', 'stage_group', 'Date', 'HomeTeam', 'AwayTeam']], flags], axis=1)
     summary = {}
     for (competition, name), part in table.groupby(['competition', 'phase']):

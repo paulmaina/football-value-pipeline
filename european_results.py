@@ -105,10 +105,42 @@ def load(cache, competition, now) -> pd.DataFrame:
     return frame[COLUMNS].sort_values(['Date', 'HomeTeam', 'AwayTeam'], kind='stable').reset_index(drop=True)
 
 
-def load_with_backfill(cache, competition, now) -> pd.DataFrame:
+def cached_ucl_names(cache) -> set:
+    """Every team name in the cached football-data.org UCL files (names only; no score is read)."""
+    names = set()
+    for path in ucl_files(cache):
+        for m in json.loads(path.read_text(encoding='utf-8-sig')).get('matches', []):
+            if isinstance(m, dict):
+                names |= {m[s]['name'] for s in ('homeTeam', 'awayTeam') if (m.get(s) or {}).get('name')}
+    return names
+
+
+def rename_reviewed(old, current, names):
+    """Backfilled UCL rows with the manual reviewed names (docs/audits/european-reviewed-aliases.json): an
+    older spelling becomes the football-data.org name, so the club is one team across 2022/23 -> 2023/24.
+    Only backfilled rows (all before the European holdout start) are renamed; the target must be a cached
+    football-data.org name (`current`) and the source must not be one."""
+    import european_backfill as eb
+    for source, target in names.items():
+        if source in current or target not in current:
+            raise ValueError(f'Reviewed UCL alias {source!r} -> {target!r} does not join an older name to a cached one')
+    out = old.copy()
+    if (out.Date >= pd.Timestamp(eb.LOCK_DATE)).any():
+        raise ValueError('A renamed row is on or after the European holdout start')
+    for side in ('HomeTeam', 'AwayTeam'):
+        out[side] = out[side].map(lambda t: names.get(t, t))
+    if (out.HomeTeam == out.AwayTeam).any() or out.duplicated(['Date', 'HomeTeam', 'AwayTeam']).any():
+        raise ValueError('A reviewed UCL alias makes a self or duplicate fixture')
+    return out
+
+
+def load_with_backfill(cache, competition, now, reviewed=True) -> pd.DataFrame:
     """The harness's European results: the reconciled backfill (european_backfill.py; older seasons, harness
     only) followed by exactly what live trains on (`load`). Every backfilled match is before the first cached
-    one, so the live rows, and every row on or after the European holdout start, are untouched."""
+    one, so the live rows, and every row on or after the European holdout start, are untouched.
+
+    `reviewed` applies the manual reviewed UCL names to the backfilled rows only (rename_reviewed, Phase 2c
+    alias review); `reviewed=False` gives the rows as before that review."""
     import european_backfill as eb
     live = load(cache, competition, now)
     old = eb.results(cache, competition)
@@ -117,6 +149,8 @@ def load_with_backfill(cache, competition, now) -> pd.DataFrame:
         raise ValueError(f'{competition} backfill overlaps the cached seasons')
     if (old.Date >= pd.Timestamp(eb.LOCK_DATE)).any():
         raise ValueError('A backfilled row is on or after the European holdout start')
+    if reviewed and competition == 'UCL':
+        old = rename_reviewed(old, cached_ucl_names(cache), eb.load_reviewed_aliases()['ucl_names'])
     old['stage_group'] = [stage_group(competition, s) for s in old['stage']]
     frame = pd.concat([old[COLUMNS], live], ignore_index=True)
     return frame.sort_values(['Date', 'HomeTeam', 'AwayTeam'], kind='stable').reset_index(drop=True)
@@ -300,27 +334,53 @@ def domestic_identities(teams, histories, extra=None):
     return out, ambiguous
 
 
-def domestic_form_coverage(fixtures, histories, min_matches=5, days=365, extra=None):
+def merge_aliases(extra, reviewed):
+    """The fixture-evidence aliases plus the manual reviewed ones ({league: {European: domestic}}); a reviewed
+    alias may never override a fixture-evidence one."""
+    out = {league: dict(table) for league, table in (extra or {}).items()}
+    for league, table in (reviewed or {}).items():
+        for source, target in table.items():
+            if out.setdefault(league, {}).get(source, target) != target:
+                raise ValueError(f'Reviewed alias {source!r} would override a fixture-evidence alias')
+            out[league][source] = target
+    return out
+
+
+def scoped_identities(teams, histories, extra=None, reviewed=None):
+    """(before, after): team identities with the manual reviewed aliases (for European fixtures before the
+    European holdout start) and without them (on or after it)."""
+    after = domestic_identities(teams, histories, extra)
+    before = domestic_identities(teams, histories, merge_aliases(extra, reviewed)) if reviewed else after
+    return before, after
+
+
+def domestic_form_coverage(fixtures, histories, min_matches=5, days=365, extra=None, reviewed=None,
+                           reviewed_before=None):
     """Per European fixture: does each team have at least `min_matches` domestic league matches in the
     `days` before the fixture's day (strictly earlier days only)? Reads domestic dates and team names,
-    never a score. `histories` maps league -> (frame, team names); pass holdout-free frames."""
+    never a score. `histories` maps league -> (frame, team names); pass holdout-free frames. `reviewed`
+    (manual reviewed aliases, {league: {European: domestic}}) applies only to fixtures before `reviewed_before`."""
     teams = sorted(set(fixtures.HomeTeam) | set(fixtures.AwayTeam))
-    mapped, ambiguous = domestic_identities(teams, histories, extra)
+    (mapped_before, ambiguous), (mapped_after, _) = scoped_identities(teams, histories, extra, reviewed)
+    cut = pd.Timestamp(reviewed_before) if reviewed else None
     dates = {}
-    for team, (league, name) in mapped.items():
+    for team, (league, name) in {**mapped_after, **mapped_before}.items():
         frame = histories[league][0]
-        dates[team] = pd.DatetimeIndex(frame.Date.loc[(frame.HomeTeam == name) | (frame.AwayTeam == name)]).sort_values()
-    rows = []
+        dates[(league, name)] = pd.DatetimeIndex(frame.Date.loc[(frame.HomeTeam == name) | (frame.AwayTeam == name)]).sort_values()
+    rows, seen = [], set()
     for r in fixtures.itertuples(index=False):
         day = pd.Timestamp(r.Date).normalize()
+        mapped = mapped_before if cut is not None and pd.Timestamp(r.Date) < cut else mapped_after
         counts = []
         for team in (r.HomeTeam, r.AwayTeam):
-            d = dates.get(team)
+            if team in mapped:
+                seen.add(team)
+            d = dates.get(mapped.get(team))
             counts.append(0 if d is None else int(((d < day) & (d >= day - pd.Timedelta(days=days))).sum()))
         rows.append({'home_domestic_matches': counts[0], 'away_domestic_matches': counts[1],
                      'home_league': mapped.get(r.HomeTeam, (None,))[0], 'away_league': mapped.get(r.AwayTeam, (None,))[0],
                      'both': min(counts) >= min_matches, 'one': max(counts) >= min_matches})
-    unresolved = Counter(t for t in list(fixtures.HomeTeam) + list(fixtures.AwayTeam) if t not in mapped)
-    return pd.DataFrame(rows, index=fixtures.index), {'teams': len(teams), 'mapped_teams': len(mapped),
+    unresolved = Counter(t for t in list(fixtures.HomeTeam) + list(fixtures.AwayTeam) if t not in seen)
+    return pd.DataFrame(rows, index=fixtures.index), {'teams': len(teams), 'mapped_teams': len(seen),
                                                       'ambiguous_teams': sorted(ambiguous),
                                                       'unmapped_by_appearances': unresolved.most_common()}

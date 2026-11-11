@@ -256,6 +256,68 @@ class BackfillHarnessTest(unittest.TestCase):
         self.assertEqual(first['UCL']['declared_run_would_score'] + sum(first['UCL']['left_out'].values()), 288)
 
 
+class ReviewedAliasesTest(unittest.TestCase):
+    """The manual reviewed aliases (docs/audits/european-reviewed-aliases.json, Phase 2c alias review)."""
+    def test_marked_manual_and_scoped_before_the_european_holdout(self):
+        data = json.loads(eb.REVIEWED_ALIASES.read_text(encoding='utf-8'))
+        self.assertEqual(data['status'], 'manual, approved by Paul in PR review')
+        self.assertEqual(data['applies_before'], eb.LOCK_DATE)
+        reviewed = eb.load_reviewed_aliases()
+        self.assertEqual(reviewed['ucl_names'], {
+            'Dinamo Zagreb': 'GNK Dinamo Zagreb', 'Olympiakos Piraeus': 'PAE Olympiakos SFP',
+            'Slavia Praha': 'SK Slavia Praha', 'Qarabağ FK': 'Qarabağ Ağdam FK', 'AEK Athen': 'PAE AEK'})
+        for table in data['domestic']['aliases'].values():
+            for entry in table.values():
+                self.assertTrue(entry['country'] and entry['sources'] and entry['reason'])
+        # None of them is a fixture-evidence alias: each fills a gap the evidence left.
+        derived = eb.load_aliases()['UCL']['to_football_data_org']
+        self.assertFalse(set(reviewed['ucl_names']) & set(derived))
+        evidence = eb.load_domestic_aliases()
+        for league, table in reviewed['domestic'].items():
+            self.assertFalse(set(table) & set(evidence.get(league, {})))
+
+    def test_only_backfilled_rows_are_renamed_and_holdout_rows_are_byte_identical(self):
+        before = er.load_with_backfill(CACHE, 'UCL', END, reviewed=False)
+        after = er.load_with_backfill(CACHE, 'UCL', END)
+        self.assertEqual(len(before), len(after))
+        pd.testing.assert_frame_equal(after.loc[after.Date >= LOCK].reset_index(drop=True),
+                                      before.loc[before.Date >= LOCK].reset_index(drop=True))
+        live = er.load(CACHE, 'UCL', END)
+        pd.testing.assert_frame_equal(after.loc[after.Date >= LOCK].reset_index(drop=True),
+                                      live.loc[live.Date >= LOCK].reset_index(drop=True))
+        changed = (before.HomeTeam != after.HomeTeam) | (before.AwayTeam != after.AwayTeam)
+        self.assertTrue(changed.any())
+        self.assertLess(after.loc[changed].Date.max(), pd.Timestamp('2023-07-01'))  # backfill seasons only
+        names = set(after.HomeTeam) | set(after.AwayTeam)
+        self.assertFalse(set(eb.load_reviewed_aliases()['ucl_names']) & names)
+        uel = er.load_with_backfill(CACHE, 'UEL', END)
+        pd.testing.assert_frame_equal(uel, er.load_with_backfill(CACHE, 'UEL', END, reviewed=False))
+
+    def test_a_reviewed_alias_must_join_an_older_name_to_a_cached_one(self):
+        old = pd.DataFrame({'Date': [pd.Timestamp('2019-09-17')], 'HomeTeam': ['Slavia Praha'], 'AwayTeam': ['Inter']})
+        with self.assertRaises(ValueError):
+            er.rename_reviewed(old, {'Inter'}, {'Slavia Praha': 'SK Slavia Praha'})  # target not cached
+        with self.assertRaises(ValueError):
+            er.rename_reviewed(old, {'Slavia Praha', 'SK Slavia Praha'}, {'Slavia Praha': 'SK Slavia Praha'})
+        with self.assertRaises(ValueError):
+            er.rename_reviewed(old.assign(Date=LOCK), {'SK Slavia Praha'}, {'Slavia Praha': 'SK Slavia Praha'})
+
+    def test_domestic_reviewed_aliases_apply_only_before_the_european_holdout(self):
+        frame = pd.DataFrame({'Date': pd.date_range('2023-08-01', periods=40, freq='7D'),
+                              'HomeTeam': ['Galatasaray', 'Besiktas'] * 20, 'AwayTeam': ['Besiktas', 'Galatasaray'] * 20})
+        histories = {'SuperLig': (frame, {'Galatasaray', 'Besiktas'})}
+        fixtures = pd.DataFrame({'Date': [pd.Timestamp('2024-06-01'), pd.Timestamp('2025-02-01')],
+                                 'HomeTeam': ['Galatasaray SK'] * 2, 'AwayTeam': ['Besiktas'] * 2})
+        flags, _ = er.domestic_form_coverage(fixtures, histories, reviewed={'SuperLig': {'Galatasaray SK': 'Galatasaray'}},
+                                             reviewed_before=eb.LOCK_DATE)
+        self.assertEqual(flags.home_league.iat[0], 'SuperLig')
+        self.assertTrue(pd.isna(flags.home_league.iat[1]))
+        self.assertGreater(flags.home_domestic_matches.iat[0], 0)
+        self.assertEqual(flags.home_domestic_matches.iat[1], 0)
+        with self.assertRaises(ValueError):  # never overrides a fixture-evidence alias
+            er.merge_aliases({'SerieA': {'SSC Napoli': 'Napoli'}}, {'SerieA': {'SSC Napoli': 'Lazio'}})
+
+
 class DomesticBackfillTest(unittest.TestCase):
     def test_domestic_backfill_loads_and_stays_out_of_the_domestic_harness(self):
         rule = CFG['european']['domestic_form']
