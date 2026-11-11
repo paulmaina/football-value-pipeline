@@ -18,6 +18,11 @@ candidate is scored on the same matches:
      uses no odds), fitted walk-forward on C's own forecasts of decided matches played before
      the fold origin, pooled across leagues; the draw is held and C5 equals C until enough
      matches exist (sharpen_candidate)
+  C6 candidate: C2's grid with C5's home/away sharpening on top (research_low_score_sharpen.py;
+     uses no odds). C2's (rho, delta) are fitted as for C2; the slope is fitted walk-forward
+     on C2's own forecasts of decided matches played before the fold origin, pooled across
+     leagues; C2's draw is held and C6 equals C2 until enough matches exist
+     (low_score_sharpen_candidate)
   M  market reference: margin-free fit to Pinnacle, or to Bet365 on the holdout
   D  cagey tier: M corrected toward narrow margins (production correction)
   A  published-grid production proxy (benchmark only; mixes model and market)
@@ -82,7 +87,10 @@ CANDIDATES = {
     'C5': "candidate: C with its home/away split sharpened by a calibration slope fitted walk-forward on C's "
           'own earlier forecasts of decided matches, draw held, pooled across leagues (research_sharpen.py; '
           'uses no odds)',
-    'M': 'market reference: margin-free fit to the period bookmaker (Pinnacle, Bet365 on the holdout)',
+    'C6': "candidate: C2's draw and low-score corrected grid with its home/away split sharpened by a slope "
+          "fitted walk-forward on C2's own earlier forecasts of decided matches, C2's draw held, pooled across "
+          'leagues (research_low_score_sharpen.py; uses no odds)',
+    'M':'market reference: margin-free fit to the period bookmaker (Pinnacle, Bet365 on the holdout)',
     'D': 'cagey tier: M corrected toward narrow margins (production correction model)',
     'A': 'published-grid production proxy (benchmark only; mixes model and market)',
 }
@@ -100,8 +108,8 @@ SETUP_FILES = ('evaluation_harness.py', 'research_backtest.py', 'historical_benc
                'narrow_margin.py', 'price_edge_cagey_shortlist.py', 'ah_close_backtest.py',
                'evaluation_harness_config.json', 'narrow_margin_models/cagey-correction-through-2425-v1.json',
                'research_low_score.py', 'understat_history.py', 'understat_team_aliases.json',
-               'research_sharpen.py')
-CALIBRATION_MIN_BIN = 30
+               'research_sharpen.py', 'research_low_score_sharpen.py')
+CALIBRATION_MIN_BIN = 30  # diagnostics' smallest reported band; the release rule's own minimum is in the config
 PROMOTION_RULES = Path(__file__).with_name('benchmark_promotion_rules.json')
 
 
@@ -335,9 +343,9 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None):
                       'training_end': train.Date.max().date().isoformat(), 'training_matches': len(train)})
         for _, row in test.iterrows():
             name = phase(row.Date, league, cfg)
-            if include_holdout and name != 'holdout' and keep is not None and keep & {'C2', 'C5'} \
+            if include_holdout and name != 'holdout' and keep is not None and keep & {'C2', 'C5', 'C6'} \
                     and row.HomeTeam in model.teams and row.AwayTeam in model.teams:
-                # Not scored in a holdout run, but C2's and C5's walk-forward fits learn from C's forecast of it.
+                # Not scored in a holdout run, but C2's, C5's and C6's walk-forward fits learn from C's forecast of it.
                 context, _, _ = research_context(row, train, origin, model)
                 research.append({'identity': {'league': league, 'phase': name}, 'date': row.Date,
                                  'goal_rates': [float(v) for v in context['goal_rates']],
@@ -482,6 +490,74 @@ def sharpen_candidate(research, cfg, end, keep=None):
     return records, calib, coverage, fits
 
 
+def low_score_sharpen_candidate(research, cfg, end, keep=None):
+    """C6 for every scored match: C2's grid moved onto its sharpened 1X2, walk-forward.
+
+    First C2 is rebuilt for every match C forecast, scored or not: (rho, delta) for the
+    window holding the match, fitted on C's forecasts of matches before that window opens
+    (research_low_score.fit, exactly as low_score_candidate), so each match carries the
+    forecast C2 made of it. Then, for each window, the slope is fitted on C2's forecasts of
+    the decided matches played before the window opens, pooled across leagues
+    (research_sharpen.fit), and applied to C2's grid of the scored matches inside it. A
+    neutral slope gives C2 exactly. A locked run never computes C for a holdout match, so
+    no holdout result can reach either fit. Reads C's goal rates and final scores only.
+    """
+    import research_low_score as rls
+    import research_low_score_sharpen as c6
+    records, calib, coverage, fits = [], [], Counter(), []
+    if (keep is not None and 'C6' not in keep) or not research:
+        return records, calib, coverage, fits
+    research = sorted(research, key=lambda r: r['date'])
+    dates = pd.DatetimeIndex([r['date'] for r in research])
+    rates = np.array([r['goal_rates'] for r in research], dtype=float)
+    goals = np.array([(r['home_goals'], r['away_goals']) for r in research], dtype=float)
+    outcomes = np.where(goals[:, 0] > goals[:, 1], 0, np.where(goals[:, 0] == goals[:, 1], 1, 2))
+    half_life = cfg['production_v2']['half_life_days']
+    windows = fold_windows(cfg, end)
+    low = [None] * len(research)
+    c2_probs = np.full((len(research), 3), np.nan)  # NaN: C2 made no forecast (invalid grid); left out of the fit
+    for origin, stop in windows:
+        inside = np.flatnonzero((dates >= origin) & (dates < stop))
+        if not len(inside):
+            continue
+        past = np.asarray(dates < origin)
+        params = rls.fit(rates[past], goals[past, 0], goals[past, 1],
+                         (origin - dates[past]).total_seconds().to_numpy() / 86400, half_life)
+        for i in inside:
+            low[i] = params
+            try:
+                c2_probs[i] = c6.c2_one_x_two(rates[i], params)
+            except ValueError:
+                pass
+    for origin, stop in windows:
+        inside = [i for i in np.flatnonzero((dates >= origin) & (dates < stop)) if research[i]['scored']]
+        if not inside:
+            continue
+        past = np.asarray(dates < origin) & np.isfinite(c2_probs).all(axis=1)
+        params = c6.fit_slope(c2_probs[past], outcomes[past], (origin - dates[past]).total_seconds().to_numpy() / 86400,
+                              half_life)
+        low_score = low[inside[0]]
+        fits.append({'origin': origin.date().isoformat(), 'end_exclusive': stop.date().isoformat(),
+                     'scored_matches': len(inside), **params,
+                     'low_score': {k: low_score.get(k) for k in ('rho', 'delta', 'status')}})
+        for i in inside:
+            r = research[i]
+            try:
+                matrix = rb.matrix_value(c6.grid(r['goal_rates'], low[i], params))
+            except ValueError as exc:
+                coverage[f"{r['identity']['league']}:C6:{exc}"] += 1
+                continue
+            coverage[f"{r['identity']['league']}:C6:available"] += 1
+            hg, ag = r['home_goals'], r['away_goals']
+            records.extend(rb.score_fixture(r['identity'], {'C6': matrix}, hg, ag))
+            h, a = np.indices(matrix.shape)
+            calib.append({'phase': r['identity']['phase'], 'league': r['identity']['league'],
+                          'fixture_key': r['identity']['fixture_key'], 'candidate': 'C6',
+                          'probs': [float(matrix[h > a].sum()), float(matrix[h == a].sum()), float(matrix[h < a].sum())],
+                          'outcome': int(outcomes[i])})
+    return records, calib, coverage, fits
+
+
 # ---------------------------------------------------------------------------
 # Summaries
 # ---------------------------------------------------------------------------
@@ -519,7 +595,7 @@ def paired(scores, baseline, candidate, samples=2000, seed=136):
             'interval_95': interval, 'clear_of_zero': bool(interval and interval[0] > 0)}
 
 
-def common_cohort(scores, names=('C', 'C2', 'C3', 'C5', 'M', 'D', 'A')):
+def common_cohort(scores, names=('C', 'C2', 'C3', 'C5', 'C6', 'M', 'D', 'A')):
     """Mean log loss on the fixtures where every named candidate is available."""
     output = []
     for (name, group), part in scores.groupby(['phase', 'group']):
@@ -557,7 +633,7 @@ def summarize(records, overrounds, coverage, cfg, metadata):
             sub = part.loc[part.group == group]
             entry = {}
             for base, cand in (('C', 'C2'), ('C', 'C3'), ('C2', 'C3'), ('C', 'C5'), ('C2', 'C5'), ('C3', 'C5'),
-                               ('C', 'M'), ('C', 'D'), ('C', 'A'), ('M', 'D')):
+                               ('C', 'C6'), ('C2', 'C6'), ('C5', 'C6'), ('C', 'M'), ('C', 'D'), ('C', 'A'), ('M', 'D')):
                 result = paired(sub, base, cand)
                 if result:
                     entry[f'{cand}_vs_{base}'] = result
@@ -573,8 +649,8 @@ def summarize(records, overrounds, coverage, cfg, metadata):
             'log_loss_all_available': available, 'paired': comparisons,
             'bet365_gap': gap, 'average_margin': margins,
             'synthetic_price_margin': margins.get('pinnacle'),
-            'notes': ['Headline means use the common cohort: fixtures where C, C2, C3, C5, M, D and A are all '
-                      'available (C3 and C5 exist wherever C does).',
+            'notes': ['Headline means use the common cohort: fixtures where C, C2, C3, C5, C6, M, D and A are all '
+                      'available (C3 and C5 exist wherever C does, C6 wherever C2 does).',
                       'Positive mean_gain means the first-named candidate has the lower log loss than the second.',
                       'Intervals resample whole calendar weeks across all leagues.',
                       'The cagey correction was trained on seasons through 2024/25; D is in-sample in development.',
@@ -593,6 +669,72 @@ def calibration(rows) -> list[dict]:
     return [{'phase': k[0], 'candidate': k[1], 'outcome': k[2], 'bin_lower': k[3] / 10, 'n': len(v),
              'mean_forecast': float(np.mean([p for p, _ in v])), 'observed_rate': float(np.mean([y for _, y in v]))}
             for k, v in sorted(bins.items())]
+
+
+def calibration_slope(p, y) -> float:
+    """Logistic calibration slope b of logit P(y) = a + b * logit(p), by Newton's method (b > 1: too flat).
+    NaN when it is undefined (constant forecasts, or a single outcome); NaN fails any slope tolerance."""
+    p = np.clip(np.asarray(p, float), 1e-6, 1 - 1e-6)
+    x = np.column_stack([np.ones(len(p)), np.log(p / (1 - p))])
+    w = np.zeros(2)
+    for _ in range(50):
+        q = 1 / (1 + np.exp(-x @ w))
+        try:
+            step = np.linalg.solve((x * (q * (1 - q))[:, None]).T @ x, x.T @ (np.asarray(y, float) - q))
+        except np.linalg.LinAlgError:
+            return float('nan')
+        if not np.isfinite(step).all():
+            return float('nan')
+        w += step
+        if np.abs(step).max() < 1e-10:
+            break
+    return float(w[1])
+
+
+def calibration_check(rows, rule) -> dict:
+    """The configured calibration tolerance (cfg['calibration_tolerance']) on one candidate's 1X2 forecasts
+    in one period: the logistic calibration slope of each named outcome inside [slope_min, slope_max], and
+    no outcome band (home, draw and away; width band_width) with at least band_min_matches forecasts more
+    than band_max_deviation from its observed rate. Fails when there are no forecasts."""
+    rows = list(rows)
+    out = {'rule': rule['name'], 'forecasts': len(rows)}
+    if not rows:
+        return {**out, 'slopes': {}, 'slopes_pass': False, 'bands_checked': 0, 'failing_bands': [],
+                'worst_band': None, 'bands_pass': False, 'passes': False}
+    probs = np.array([r['probs'] for r in rows], dtype=float)
+    outcomes = np.array([r['outcome'] for r in rows])
+    names = ('home', 'draw', 'away')
+    slopes = {o: calibration_slope(probs[:, names.index(o)], outcomes == names.index(o)) for o in rule['slope_outcomes']}
+    slopes_pass = all(rule['slope_min'] <= v <= rule['slope_max'] for v in slopes.values())
+    nbins = int(round(1 / rule['band_width']))
+    bands = []
+    for k, outcome in enumerate(names):
+        p, y = probs[:, k], (outcomes == k).astype(float)
+        index = np.minimum(nbins - 1, (p * nbins).astype(int))
+        for b in np.unique(index):
+            m = index == b
+            if m.sum() >= rule['band_min_matches']:
+                deviation = float(y[m].mean() - p[m].mean())
+                bands.append({'outcome': outcome, 'band_lower': b / nbins, 'n': int(m.sum()),
+                              'mean_forecast': float(p[m].mean()), 'observed_rate': float(y[m].mean()),
+                              'observed_minus_forecast': deviation})
+    worst = max(bands, key=lambda b: abs(b['observed_minus_forecast'])) if bands else None
+    failing = [b for b in bands if abs(b['observed_minus_forecast']) > rule['band_max_deviation']]
+    return {**out, 'slopes': slopes, 'slopes_pass': bool(slopes_pass), 'bands_checked': len(bands),
+            'failing_bands': failing, 'worst_band': worst, 'bands_pass': not failing,
+            'passes': bool(slopes_pass and not failing)}
+
+
+def calibration_checks(calib, rule) -> dict:
+    """calibration_check for every period and candidate in `calib` (gap fits excluded)."""
+    groups = defaultdict(list)
+    for r in calib:
+        if r['candidate'] not in GAP_CANDIDATES:
+            groups[(r['phase'], r['candidate'])].append(r)
+    output = defaultdict(dict)
+    for (name, cand), rows in sorted(groups.items()):
+        output[name][cand] = calibration_check(rows, rule)
+    return dict(output)
 
 
 # ---------------------------------------------------------------------------
@@ -631,37 +773,38 @@ def validate_declaration(path, cfg, setup, ledger=LEDGER):
         raise ValueError('Primary metric must be one of ' + ', '.join(GROUPS))
     if sorted(round(float(v), 2) for v in data['draw_sensitive_lines']) != sorted(round(float(v), 2) for v in cfg['draw_sensitive_lines']):
         raise ValueError('Draw-sensitive lines differ from the configured scoring; change the config in a reviewed PR first')
-    tolerance = float(data['calibration_tolerance'])
-    if not 0 < tolerance <= .2:
-        raise ValueError('Calibration tolerance must be between 0 and 0.2')
+    rule = cfg['calibration_tolerance']
+    if data['calibration_tolerance'] != rule['name']:
+        raise ValueError(f"Calibration tolerance must name the configured rule {rule['name']!r}; "
+                         'change the config in a reviewed PR first')
     entries = json.loads(ledger.read_text(encoding='utf-8')) if ledger.exists() else []
     if any(e['candidate'] == data['candidate'] for e in entries):
         raise ValueError(f"Holdout already scored for candidate {data['candidate']!r}")
     if any(e.get('setup_sha256') == setup['sha256'] for e in entries):
         raise ValueError('Holdout already scored for this frozen setup (same code, data and config)')
     digest = hashlib.sha256(json.dumps(data, sort_keys=True).encode()).hexdigest()
-    return {**data, 'calibration_tolerance': tolerance, 'sha256': digest}
+    return {**data, 'calibration_rule': rule, 'sha256': digest}
 
 
 def holdout_verdict(records, calib, declaration, gap):
-    """Apply the declaration: primary metric, draw-sensitive lines, calibration tolerance, market bar."""
+    """Apply the declaration: primary metric, draw-sensitive lines, the configured calibration
+    tolerance (calibration_check on the candidate's holdout forecasts) and the market bar."""
     scores = fixture_scores(records, declaration['draw_sensitive_lines'])
     hold = scores.loc[scores.phase == 'holdout']
     cand, base = declaration['candidate'], declaration['baseline']
     primary = paired(hold.loc[hold.group == declaration['primary_metric']], base, cand)
     draw = paired(hold.loc[hold.group == 'AH draw-sensitive'], base, cand)
-    deviations = [abs(b['observed_rate'] - b['mean_forecast']) for b in calibration(calib)
-                  if b['phase'] == 'holdout' and b['candidate'] == cand and b['n'] >= CALIBRATION_MIN_BIN]
-    worst = max(deviations) if deviations else None
+    calibrated = calibration_check([r for r in calib if r['phase'] == 'holdout' and r['candidate'] == cand],
+                                   declaration['calibration_rule'])
     market = paired(hold.loc[hold.group == declaration['primary_metric']], 'M', cand) if cand != 'M' else None
     bar = max(0., gap.get(declaration['primary_metric'], {}).get('bet365_minus_pinnacle_log_loss', 0.))
     minimum = promotion_minimums()
     enough = bool(primary and primary['fixtures'] >= minimum['fixtures'] and primary['weeks'] >= minimum['weeks'])
-    passed = bool(enough and primary['clear_of_zero'] and worst is not None and worst <= declaration['calibration_tolerance'])
+    passed = bool(enough and primary and primary['clear_of_zero'] and calibrated['passes'])
     return {'candidate': cand, 'baseline': base, 'primary_metric': declaration['primary_metric'],
             'primary': primary, 'draw_sensitive': draw,
             'sample_minimum': minimum, 'sample_minimum_met': enough,
-            'calibration_worst_bin_deviation': worst, 'calibration_tolerance': declaration['calibration_tolerance'],
+            'calibration': calibrated, 'calibration_tolerance': declaration['calibration_rule'],
             'versus_market': {**market, 'gap_bar': bar, 'beats_market_after_gap': market['mean_gain'] - bar > 0
                               and market['interval_95'] is not None and market['interval_95'][0] > bar} if market else None,
             'passes_holdout_gate': passed,
@@ -1186,6 +1329,9 @@ def historical(cache, cfg, *, include_holdout=False, keep=None, leagues=None, wo
     r, k, c, fits = sharpen_candidate(research, cfg, pd.Timestamp(cfg['end_exclusive']), keep)
     records += r; calib += k; coverage.update(c)
     folds.append({'candidate': 'C5', 'walk_forward_fits': fits})
+    r, k, c, fits = low_score_sharpen_candidate(research, cfg, pd.Timestamp(cfg['end_exclusive']), keep)
+    records += r; calib += k; coverage.update(c)
+    folds.append({'candidate': 'C6', 'walk_forward_fits': fits})
     if not include_holdout and any(r['phase'] == 'holdout' for r in records):
         raise ValueError('Locked holdout rows leaked into an unlocked run')
     if include_holdout and any(r['phase'] != 'holdout' and r['candidate'] not in GAP_CANDIDATES for r in records):
@@ -1250,6 +1396,7 @@ def main(argv=None):
                 'inputs': sources, 'config_sha256': hashlib.sha256(json.dumps(cfg, sort_keys=True).encode()).hexdigest()}
     summary = summarize(records, overrounds, coverage, cfg, metadata)
     summary['calibration_1x2'] = calibration(calib)
+    summary['calibration_tolerance_check'] = calibration_checks(calib, cfg['calibration_tolerance'])
     import understat_history as uh
     summary['calibration_1x2_understat_leagues'] = calibration([r for r in calib if r.get('league') in uh.LEAGUES])
     if declaration is not None:

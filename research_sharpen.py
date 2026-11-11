@@ -92,13 +92,19 @@ def sharpened(probs, slope):
     return np.array([rest * share, probs[1], rest * (1 - share)])
 
 
-def sharpened_grid(goal_rates, params):
-    """The research grid for these goal rates, moved onto the sharpened 1X2."""
+def sharpen_matrix(matrix, slope):
+    """A score grid moved onto its own sharpened 1X2 (draw held). Neutral returns it unchanged.
+
+    Shared by C5 (on C's grid) and C6 (on C2's grid, research_low_score_sharpen)."""
     from football_value_pipeline_v2_standalone import reweight_matrix_to_1x2
-    from team_research import research_grid
-    matrix = research_grid(goal_rates)
-    slope = float(params['slope'])
+    slope = float(slope)
     if slope == 1.:
-        return matrix  # neutral: exactly the research grid
+        return matrix  # neutral: exactly the grid it was given
     matrix = reweight_matrix_to_1x2(matrix, sharpened(one_x_two(matrix), slope))
     return matrix / matrix.sum()
+
+
+def sharpened_grid(goal_rates, params):
+    """The research grid for these goal rates, moved onto the sharpened 1X2."""
+    from team_research import research_grid
+    return sharpen_matrix(research_grid(goal_rates), params['slope'])

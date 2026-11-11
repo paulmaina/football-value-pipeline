@@ -89,6 +89,10 @@ class IndependenceTest(unittest.TestCase):
         sharp = {'slope': 1.2}
         np.testing.assert_array_equal(rs.sharpened_grid(rates[0], sharp), rs.sharpened_grid(rates[1], sharp))
         self.assertFalse(np.array_equal(rs.sharpened_grid(rates[0], sharp), base))
+        # C6 likewise: C2's grid for these goal rates, sharpened (its fits: C's and C2's earlier forecasts).
+        import research_low_score_sharpen as c6
+        np.testing.assert_array_equal(c6.grid(rates[0], params, sharp), c6.grid(rates[1], params, sharp))
+        self.assertFalse(np.array_equal(c6.grid(rates[0], params, sharp), eh.low_score_matrix(rates[0], params)))
 
 
 class PairedTest(unittest.TestCase):
@@ -116,7 +120,7 @@ class HoldoutLockTest(unittest.TestCase):
 
     def declaration(self, **extra):
         data = {'candidate': 'D', 'baseline': 'M', 'primary_metric': 'AH all',
-                'draw_sensitive_lines': [-0.5, 0, 0.5], 'calibration_tolerance': 0.05,
+                'draw_sensitive_lines': [-0.5, 0, 0.5], 'calibration_tolerance': CFG['calibration_tolerance']['name'],
                 'declared_by': 'Paul', 'declared_at': '2026-11-10', **extra}
         path = self.dir / 'declaration.json'
         path.write_text(json.dumps(data), encoding='utf-8')
@@ -135,10 +139,15 @@ class HoldoutLockTest(unittest.TestCase):
         bad = [({'calibration_tolerance': None}, 'missing calibration_tolerance'),
                ({'candidate': 'research-v9'}, 'registered'), ({'candidate': 'M'}, 'registered'),
                ({'primary_metric': 'profit'}, 'Primary metric'), ({'draw_sensitive_lines': [0]}, 'Draw-sensitive'),
-               ({'calibration_tolerance': 0.5}, 'between 0 and 0.2')]
+               ({'calibration_tolerance': 0.05}, 'must name the configured rule'),
+               ({'calibration_tolerance': 'slopes-0.80-1.20'}, 'must name the configured rule')]
         for extra, message in bad:
             with self.assertRaisesRegex(ValueError, message):
                 eh.validate_declaration(self.declaration(**extra), CFG, self.setup, self.ledger)
+
+    def test_a_valid_declaration_carries_the_configured_rule(self):
+        declared = eh.validate_declaration(self.declaration(), CFG, self.setup, self.ledger)
+        self.assertEqual(declared['calibration_rule'], CFG['calibration_tolerance'])
 
     def test_setup_fingerprint_changes_with_code_data_or_config(self):
         cfg = {**CFG, 'leagues': ['EPL'], 'seasons': ['2526']}
@@ -177,7 +186,7 @@ class ReviewGuardTest(unittest.TestCase):
                                 'phase': 'holdout', 'candidate': cand, 'market': 'AH +0.00', 'log_loss': loss})
                 calib.append({'phase': 'holdout', 'candidate': cand, 'probs': [.45, .25, .30], 'outcome': i % 3 == 0 and 0 or 2})
         declaration = {'candidate': 'D', 'baseline': 'M', 'primary_metric': 'AH all',
-                       'draw_sensitive_lines': [-.5, 0, .5], 'calibration_tolerance': .2}
+                       'draw_sensitive_lines': [-.5, 0, .5], 'calibration_rule': CFG['calibration_tolerance']}
         verdict = eh.holdout_verdict(records, calib, declaration, {})
         self.assertTrue(verdict['primary']['clear_of_zero'])
         self.assertFalse(verdict['sample_minimum_met'])
@@ -382,3 +391,61 @@ class LiveReplayTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class CalibrationToleranceTest(unittest.TestCase):
+    """The rule decided on 11 Nov 2026 lives in the config; the harness applies exactly that."""
+    RULE = CFG['calibration_tolerance']
+
+    def test_the_configured_rule_is_the_one_decided(self):
+        self.assertEqual((self.RULE['slope_min'], self.RULE['slope_max']), (.9, 1.1))
+        self.assertEqual(self.RULE['slope_outcomes'], ['home', 'away'])
+        self.assertEqual((self.RULE['band_width'], self.RULE['band_min_matches'], self.RULE['band_max_deviation']),
+                         (.1, 30, .05))
+
+    @staticmethod
+    def forecasts(n, flatten=1., seed=5):
+        """Outcomes drawn from true 1X2 probabilities; the forecasts shrink the home/away logit by `flatten`."""
+        rng, rows = np.random.default_rng(seed), []
+        for _ in range(n):
+            share, draw = rng.uniform(.15, .85), rng.uniform(.2, .3)
+            true = np.array([(1 - draw) * share, draw, (1 - draw) * (1 - share)])
+            z = np.log(share / (1 - share)) * flatten
+            shown = 1 / (1 + np.exp(-z))
+            rows.append({'probs': [(1 - draw) * shown, draw, (1 - draw) * (1 - shown)],
+                         'outcome': int(rng.choice(3, p=true))})
+        return rows
+
+    def test_calibrated_forecasts_pass_and_flat_ones_fail(self):
+        good = eh.calibration_check(self.forecasts(20000), self.RULE)
+        self.assertTrue(good['passes'], good)
+        self.assertAlmostEqual(good['slopes']['home'], 1., delta=.06)
+        flat = eh.calibration_check(self.forecasts(20000, flatten=.75), self.RULE)
+        self.assertFalse(flat['slopes_pass'])
+        self.assertGreater(flat['slopes']['home'], 1.1)
+        self.assertFalse(flat['passes'])
+
+    def test_one_band_off_by_more_than_five_points_fails(self):
+        rows = self.forecasts(20000)
+        band = [r for r in rows if .5 <= r['probs'][0] < .6]
+        self.assertGreater(len(band), 30)
+        for r in band[:int(len(band) * .12)]:
+            r['outcome'] = 0 if r['outcome'] else r['outcome']  # more home wins in one band only
+        check = eh.calibration_check(rows, self.RULE)
+        self.assertFalse(check['bands_pass'])
+        self.assertIn(('home', .5), [(b['outcome'], b['band_lower']) for b in check['failing_bands']])
+
+    def test_bands_below_the_minimum_are_ignored_and_no_forecasts_fail(self):
+        rows = self.forecasts(20000)
+        rows.extend({'probs': [.95, .03, .02], 'outcome': 2} for _ in range(29))  # 29 losing forecasts at 0.9+
+        check = eh.calibration_check(rows, self.RULE)
+        self.assertNotIn(('home', .9), [(b['outcome'], b['band_lower']) for b in check['failing_bands']])
+        self.assertFalse(eh.calibration_check([], self.RULE)['passes'])
+
+    def test_the_verdict_applies_the_rule(self):
+        calib = [{**r, 'phase': 'holdout', 'candidate': 'D'} for r in self.forecasts(20000, flatten=.75)]
+        verdict = eh.holdout_verdict([], calib, {'candidate': 'D', 'baseline': 'M', 'primary_metric': 'AH all',
+                                                 'draw_sensitive_lines': [-.5, 0, .5],
+                                                 'calibration_rule': self.RULE}, {})
+        self.assertFalse(verdict['calibration']['passes'])
+        self.assertFalse(verdict['passes_holdout_gate'])
