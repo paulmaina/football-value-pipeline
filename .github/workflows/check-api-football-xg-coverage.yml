@@ -1,0 +1,31 @@
+name: Check API-Football xG coverage
+
+# Read-only probe (about 37 requests): does API-Football carry expected_goals for
+# Eredivisie, Primeira Liga and Super Lig? Commits nothing.
+on:
+  workflow_dispatch:
+  push:
+    branches: [research/api-football-xg-coverage]
+    paths: [.github/workflows/check-api-football-xg-coverage.yml, scripts/check_api_football_xg_coverage.py]
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Probe coverage
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: python scripts/check_api_football_xg_coverage.py | tee coverage.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: api-football-xg-coverage
+          path: coverage.json
