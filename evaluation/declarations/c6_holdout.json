@@ -1,0 +1,11 @@
+{
+  "candidate": "C6",
+  "baseline": "C",
+  "market_reference": "M",
+  "primary_metric": "AH all",
+  "draw_sensitive_lines": [-0.5, 0.0, 0.5],
+  "calibration_tolerance": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+  "declared_by": "Paul (decision), written by Claude Code",
+  "declared_at": "2026-11-11T12:39:16Z",
+  "notes": "Scored once with evaluation_harness.py --declaration. Passing requires C - C6 log loss on AH all lines with the week-resampled 95% interval clear of zero, the sample minimum, and calibration v2 on C6's holdout forecasts. Draw-sensitive and 1X2 are reported, not gating. Against M, C6 counts as beating the market only if it beats it by more than the measured Bet365-Pinnacle gap."
+}
