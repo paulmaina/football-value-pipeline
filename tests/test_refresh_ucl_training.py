@@ -15,12 +15,12 @@ class UCLPublisherTests(OfflineQuotePolicyTestCase):
     def test_publish_retries_main_race_and_keeps_unrelated_work(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);remote=root/'remote.git';repo=root/'repo';other=root/'other'
-            subprocess.run(['git','init','--bare',str(remote)],check=True,capture_output=True)
-            subprocess.run(['git','clone',str(remote),str(repo)],check=True,capture_output=True)
+            subprocess.run(['git','init','--bare',str(remote)],check=True,capture_output=True,stdin=subprocess.DEVNULL)
+            subprocess.run(['git','clone',str(remote),str(repo)],check=True,capture_output=True,stdin=subprocess.DEVNULL)
             git(repo,'config','user.name','Test');git(repo,'config','user.email','test@example.test')
             git(repo,'checkout','-b','main');(repo/'keep.txt').write_text('original')
             git(repo,'add','.');git(repo,'commit','-m','Initial');git(repo,'push','origin','main')
-            subprocess.run(['git','clone','--branch','main',str(remote),str(other)],check=True,capture_output=True)
+            subprocess.run(['git','clone','--branch','main',str(remote),str(other)],check=True,capture_output=True,stdin=subprocess.DEVNULL)
             git(other,'config','user.name','Test');git(other,'config','user.email','test@example.test')
             raced=False
             def race(path,*args,**kwargs):
