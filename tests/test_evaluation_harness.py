@@ -402,6 +402,38 @@ class CalibrationToleranceTest(unittest.TestCase):
         self.assertEqual(self.RULE['slope_outcomes'], ['home', 'away'])
         self.assertEqual((self.RULE['band_width'], self.RULE['band_min_matches'], self.RULE['band_max_deviation']),
                          (.1, 30, .05))
+        self.assertEqual(self.RULE['band_alpha'], .05)
+        self.assertTrue(self.RULE['name'].endswith('-v2'))
+        self.assertEqual(self.RULE['replaces']['name'], 'slopes-0.90-1.10-bands-30-5pp-v1')
+
+    def test_the_band_threshold_is_bonferroni_over_the_bands_checked(self):
+        self.assertAlmostEqual(eh.band_z_threshold(.05, 1), 1.95996, places=4)
+        self.assertAlmostEqual(eh.band_z_threshold(.05, 20), 3.0233, places=3)
+
+    @staticmethod
+    def band_rows(n, forecast, observed, base=20000):
+        """Calibrated rows plus `n` forecasts of home `forecast` (in the 0.0-0.1 band) that win `observed` of the time."""
+        rows = CalibrationToleranceTest.forecasts(base)
+        wins = int(round(n * observed))
+        rows.extend({'probs': [forecast, .25, .75 - forecast], 'outcome': 0 if i < wins else 2} for i in range(n))
+        return rows
+
+    def test_v2_a_large_gap_on_few_matches_is_noise(self):
+        # 113 matches forecast 7.1%, 13.3% observed (C6, development): 6.2 points, z about 2.6 < 3.
+        rows = self.band_rows(113, .071, .133)
+        check = eh.calibration_check(rows, self.RULE)
+        self.assertTrue(check['bands_pass'], check['failing_bands'])
+        v1 = eh.calibration_check(rows, {k: v for k, v in self.RULE.items() if k != 'band_alpha'})
+        self.assertIsNone(v1['band_z_threshold'])
+        band = next(b for b in v1['failing_bands'] if (b['outcome'], b['band_lower']) == ('home', 0.))
+        self.assertGreater(band['observed_minus_forecast'], .05)
+        self.assertLess(band['z'], check['band_z_threshold'])
+
+    def test_v2_a_large_clear_gap_fails_and_a_small_clear_gap_passes(self):
+        big = eh.calibration_check(self.band_rows(600, .071, .171), self.RULE)
+        self.assertIn(('home', 0.), [(b['outcome'], b['band_lower']) for b in big['failing_bands']])
+        small = eh.calibration_check(self.band_rows(5000, .071, .111), self.RULE)  # 4 points, z far above 3
+        self.assertNotIn(('home', 0.), [(b['outcome'], b['band_lower']) for b in small['failing_bands']])
 
     @staticmethod
     def forecasts(n, flatten=1., seed=5):
