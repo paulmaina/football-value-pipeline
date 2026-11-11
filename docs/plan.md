@@ -38,6 +38,20 @@ Historical data in `.football_cache` (football-data.co.uk, 8 domestic leagues, 2
 - Pinnacle prices in the files stop on 15 Jan 2026; Bet365 continues for every league.
 - On matches priced by both, margin-free Bet365 sits about 0.7 points from Pinnacle, with a 1X2 log-loss gap of about 0.0008. The harness measures this gap; on the holdout a candidate must beat the market by more than it.
 - Expected return on the holdout uses synthetic Pinnacle-like prices (Bet365 margin-free probabilities plus Pinnacle's average margin) and is indicative only.
+- European results (UCL and UEL, results only; Phase 2 European backtest, decided 11 Nov 2026 before any European score was computed). Values in `evaluation_harness_config.json` (`european`); each competition is scored only once its fold has 250 earlier matches of that competition (the pipeline's own UCL/UEL walk-forward warm-up):
+
+  | Period | UCL | UEL | Use |
+  | --- | --- | --- | --- |
+  | Before 1 Jul 2024 | 2023/24, 125 (all warm-up) | 2022/23-2023/24, 282 (scored from 22 Feb 2024) | Development |
+  | 1 Jul 2024 - 20 Jan 2025 | 108 (all warm-up) | 108 | Validation: already inspected (the Europa research audit's development season) |
+  | 21 Jan 2025 - 12 Oct 2026 | 288 matches, 29 weeks (270 after the warm-up) | — | Locked European holdout, UCL only |
+  | From 21 Jan 2025 (UEL), from 13 Oct 2026 (UCL) | 54 | 342 | Retrospective: diagnostics only |
+
+  - Why this block. Already scored: UEL by the 22 Oct 2026 Europa audits (research audit: 2024/25 development, 2025/26 audit; production audit: 246 forecasts from match 250, 22 Feb 2024) and by live grading from 22 Oct 2026; UCL by live grading from 13 Oct 2026. Nothing found scored UCL before that in a benchmark, written model audit or live report (`historical_benchmark_config.json` covers the five big leagues only; the AH close backtest excludes UCL/UEL). The holdout is the most recent such block, counted as for the domestic holdout: the pipeline's automated in-run reports (decay tuning, goal-market validation) are not counted, as they also covered the domestic holdout window (Eredivisie decay tuning scored from 26 Oct 2025).
+  - Strictly, counting those in-run reports too, only 64 UCL matches after the warm-up would be untouched (22 Jan - 15 Sep 2025): UCL decay tuning scored from 16 Sep 2025 and UCL goal-market validation from 1 Oct 2025, whose results `docs/audits/2026-10-24-per-market-approval.md` cites.
+  - No untouched block reaches the 300-match, 6-week release minimum after the warm-up under either reading. Paul chose this block knowing that: it stays below the minimum, so a European holdout run cannot pass `holdout_verdict`'s sample minimum unless the minimum is changed in a reviewed PR first. Development is UEL only: UCL before the holdout is all warm-up.
+  - Same lock and ledger rules as the domestic holdout: a locked run never scores the European holdout and never trains on its results; it is scored only with a declaration (`evaluation_harness.py --mode european --declaration`), once per candidate and once per frozen setup, recorded in `evaluation/european_holdout_ledger.json` (the domestic ledger is separate and unchanged).
+  - No historical European prices are cached, so European matches have no market reference and no market bar.
 - xG changes are testable for the five Understat leagues: historical Understat xG is in `.football_cache/understat` (Phase 2d; complete for the development period except two partial seasons). European fixtures become testable against results (no market prices) once the cached European results are added to the harness (Phase 2). Changes that depend on ESPN context or news can't be backtested: the live model keeps them as they are, and any change to them runs in shadow and reaches production only once live evidence is enough.
 
 ## Release gate
