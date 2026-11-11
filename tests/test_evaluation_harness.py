@@ -84,6 +84,11 @@ class IndependenceTest(unittest.TestCase):
         self.assertEqual(rates[0], rates[1])
         params = {'rho': -.05, 'delta': .08}
         np.testing.assert_array_equal(eh.low_score_matrix(rates[0], params), eh.low_score_matrix(rates[1], params))
+        # C5 likewise reads only C's goal rates (its fit: C's earlier forecasts and scores).
+        import research_sharpen as rs
+        sharp = {'slope': 1.2}
+        np.testing.assert_array_equal(rs.sharpened_grid(rates[0], sharp), rs.sharpened_grid(rates[1], sharp))
+        self.assertFalse(np.array_equal(rs.sharpened_grid(rates[0], sharp), base))
 
 
 class PairedTest(unittest.TestCase):
