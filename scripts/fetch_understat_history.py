@@ -25,6 +25,14 @@ with a regular expression and json.
 
     python scripts/fetch_understat_history.py                      # all leagues, 2021 to current season
     python scripts/fetch_understat_history.py --leagues EPL --seasons 2023
+    python scripts/fetch_understat_history.py --replace-archive --no-archive  # direct copies over archive ones
+    python scripts/fetch_understat_history.py --coverage                      # print the table, fetch nothing
+
+`--replace-archive` refetches every season whose saved copy came from the Internet
+Archive, from understat.com only. Where the direct fetch succeeds its file replaces the
+archive copy (the manifest keeps the replaced copy's source, results and sha256 under
+`replaced`); where it fails the archive copy stays and the attempt is recorded under
+`direct_attempts`, so a season is never lost to a failed refetch.
 """
 from __future__ import annotations
 
@@ -155,6 +163,29 @@ def try_archive(client, slug, year, min_length=40_000):
     return best, attempts
 
 
+def coverage(manifest) -> list[dict]:
+    """One row per league and season in the manifest: source, results of matches, complete."""
+    rows = []
+    for key, e in sorted(manifest.get('files', {}).items()):
+        rows.append({'key': key, 'league': e['league'], 'season': e['season'], 'source': e['source'],
+                     'results': e['results'], 'matches': e['matches'], 'complete': e['complete']})
+    for key in sorted(manifest.get('missing', {})):
+        if key not in manifest.get('files', {}):
+            slug, year = key.rsplit('_', 1)
+            league = next((k for k, v in LEAGUES.items() if v == slug), slug)
+            rows.append({'key': key, 'league': league, 'season': f'{year}/{str(int(year) + 1)[2:]}',
+                         'source': 'missing', 'results': 0, 'matches': 0, 'complete': False})
+    return sorted(rows, key=lambda r: (list(LEAGUES).index(r['league']) if r['league'] in LEAGUES else 99, r['key']))
+
+
+def coverage_markdown(manifest) -> str:
+    lines = ['| League | Season | Source | Results / matches | Complete |', '| --- | --- | --- | --- | --- |']
+    for r in coverage(manifest):
+        lines.append(f"| {r['league']} | {r['season']} | {r['source']} | {r['results']} / {r['matches']} | "
+                     f"{'yes' if r['complete'] else 'no'} |")
+    return '\n'.join(lines) + '\n'
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument('--leagues', nargs='+', default=list(LEAGUES))
@@ -163,6 +194,9 @@ def main(argv=None):
     parser.add_argument('--delay', type=float, default=6.)
     parser.add_argument('--refresh', action='store_true', help='refetch seasons already in the manifest')
     parser.add_argument('--no-archive', action='store_true')
+    parser.add_argument('--replace-archive', action='store_true',
+                        help='refetch seasons saved from the Internet Archive; keep the archive copy if that fails')
+    parser.add_argument('--coverage', action='store_true', help='print the coverage table and exit')
     args = parser.parse_args(argv)
     seasons = args.seasons or list(range(FIRST_SEASON, current_season() + 1))
     args.output.mkdir(parents=True, exist_ok=True)
@@ -170,6 +204,9 @@ def main(argv=None):
     manifest = json.loads(manifest_path.read_text(encoding='utf-8')) if manifest_path.exists() else \
         {'description': 'Understat match xG, five big leagues; written by scripts/fetch_understat_history.py',
          'files': {}, 'missing': {}}
+    if args.coverage:
+        print(coverage_markdown(manifest), end='')
+        return 0
     client = Polite(args.delay)
     understat_down = False
     for league in args.leagues:
@@ -177,7 +214,8 @@ def main(argv=None):
         for year in seasons:
             key = f'{slug}_{year}'
             entry = manifest['files'].get(key)
-            if entry and not args.refresh and (entry['complete'] or year < current_season()):
+            replace = args.replace_archive and entry is not None and entry.get('source') == 'internet_archive'
+            if entry and not args.refresh and not replace and (entry['complete'] or year < current_season()):
                 print(key, 'already in manifest; skipped', flush=True)
                 continue
             print(key, flush=True)
@@ -187,7 +225,17 @@ def main(argv=None):
             if found is None and not args.no_archive:
                 found, more = try_archive(client, slug, year)
                 attempts += more
-            if found is None:
+            if found is not None and entry is not None and results(found['values']) < entry['results']:
+                attempts.append({'url': found['url'], 'status': found['status'],
+                                 'outcome': f"fewer results than saved copy: {results(found['values'])} "
+                                            f"of {len(found['values'])}, saved {entry['results']}"})
+                found = None
+            if found is None and entry is not None:
+                # Never drop a saved season because a refetch failed.
+                entry['direct_attempts'] = {'checked_at_utc': datetime.now(timezone.utc).isoformat(timespec='seconds'),
+                                            'attempts': attempts}
+                print(f"  not replaced; kept {entry['source']} copy", flush=True)
+            elif found is None:
                 manifest['missing'][key] = {'checked_at_utc': datetime.now(timezone.utc).isoformat(),
                                             'attempts': attempts}
                 print('  missing', flush=True)
@@ -196,6 +244,8 @@ def main(argv=None):
                 body = (json.dumps(values, ensure_ascii=False, sort_keys=True, indent=1) + '\n').encode('utf-8')
                 (args.output / f'{key}.json').write_bytes(body)
                 manifest['missing'].pop(key, None)
+                previous = {k: entry.get(k) for k in ('source', 'source_url', 'archive_timestamp', 'results',
+                                                      'matches', 'file_sha256', 'fetched_at_utc')} if entry else None
                 manifest['files'][key] = {
                     'league': league, 'understat_league': slug, 'season': f'{year}/{str(year + 1)[2:]}',
                     'file': f'{key}.json', 'file_sha256': hashlib.sha256(body).hexdigest(),
@@ -205,6 +255,8 @@ def main(argv=None):
                     'raw_sha256': hashlib.sha256(found['raw']).hexdigest(), 'raw_bytes': len(found['raw']),
                     'matches': len(values), 'results': results(values), 'complete': results(values) == len(values),
                     'earlier_attempts': attempts}
+                if previous and previous['source'] != found['source']:
+                    manifest['files'][key]['replaced'] = previous
                 print(f"  {found['source']} {results(values)}/{len(values)} results", flush=True)
             manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + '\n', encoding='utf-8')
     return 0
