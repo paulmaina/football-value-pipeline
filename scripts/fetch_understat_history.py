@@ -258,7 +258,9 @@ def main(argv=None):
                 if previous and previous['source'] != found['source']:
                     manifest['files'][key]['replaced'] = previous
                 print(f"  {found['source']} {results(values)}/{len(values)} results", flush=True)
-            manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+            # LF on every platform, so a runner and a local run write the same bytes.
+            manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + '\n', encoding='utf-8',
+                                     newline='\n')
     return 0
 
 
