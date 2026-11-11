@@ -322,7 +322,8 @@ def raw_check(root, *, raw_dir=None):
 def changed_forecasts(repo, before, sha):
     require(re.fullmatch(r'[0-9a-fA-F]{40}',sha or '') is not None, 'Capture requires a full source SHA')
     def git(*args):
-        return subprocess.run(['git','-C',str(repo),*args],check=True,text=True,capture_output=True).stdout
+        return subprocess.run(['git','-C',str(repo),*args],check=True,text=True,capture_output=True,
+                              stdin=subprocess.DEVNULL).stdout
     require(git('rev-parse','HEAD').strip()==sha, 'Capture checkout differs from event SHA')
     if before == '0'*40:
         names=git('ls-tree','-r','--name-only',sha,'--',*FORECAST_PATHS)
@@ -340,7 +341,8 @@ def capture_event(repo,root,event,sha,before=''):
     require(event in ('push','workflow_dispatch'), 'Capture is only permitted for data pushes or explicit manual requests')
     if event=='workflow_dispatch':
         require(re.fullmatch(r'[0-9a-fA-F]{40}',sha or '') is not None,'Capture requires a full source SHA')
-        current=subprocess.run(['git','-C',str(repo),'rev-parse','HEAD'],check=True,text=True,capture_output=True).stdout.strip()
+        current=subprocess.run(['git','-C',str(repo),'rev-parse','HEAD'],check=True,text=True,capture_output=True,
+                               stdin=subprocess.DEVNULL).stdout.strip()
         require(current==sha,'Capture checkout differs from event SHA')
     raw_check(root)
     from prediction_runs import capture_runs
@@ -703,11 +705,25 @@ def registry_check(repo):
     return {'leagues':list(league_registry.LEAGUES),'refresh_methods':methods}
 
 
+def run_help(repo, name):
+    """Run a CLI's --help without inheriting this process's handles.
+
+    Windows cannot always duplicate an inherited stdin/stderr (WinError 6), so
+    stdin is closed and stderr captured, then echoed so output is unchanged.
+    """
+    try:
+        result=subprocess.run([sys.executable,str(repo/name),'--help'],check=True,stdin=subprocess.DEVNULL,
+                              stdout=subprocess.DEVNULL,stderr=subprocess.PIPE,cwd=repo,timeout=30)
+    except (subprocess.CalledProcessError,subprocess.TimeoutExpired) as error:
+        if error.stderr:sys.stderr.write(error.stderr.decode(errors='replace'))
+        raise
+    if result.stderr:sys.stderr.write(result.stderr.decode(errors='replace'))
+
+
 def smoke(repo):
     paths=sorted(repo.glob('*.py'))+sorted((repo/'tests').glob('*.py'))
     for path in paths:compile(path.read_text(encoding='utf-8-sig'),str(path),'exec')
-    for name in CLI_FILES:
-        subprocess.run([sys.executable,str(repo/name),'--help'],check=True,stdout=subprocess.DEVNULL,cwd=repo,timeout=30)
+    for name in CLI_FILES:run_help(repo,name)
     return {'python_modules_compiled':len(paths),'cli_help_checked':len(CLI_FILES),'league_registry':registry_check(repo)}
 
 

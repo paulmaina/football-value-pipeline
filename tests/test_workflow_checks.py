@@ -330,7 +330,7 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
     def test_code_only_push_skips_capture_and_initial_data_push_is_supported(self):
         repo=Path(self.tmp.name)/'repo';repo.mkdir()
         def git(*args):
-            return subprocess.run(['git','-C',str(repo),*args],check=True,text=True,capture_output=True).stdout.strip()
+            return subprocess.run(['git','-C',str(repo),*args],check=True,text=True,capture_output=True,stdin=subprocess.DEVNULL).stdout.strip()
         git('init');git('config','user.name','CI Test');git('config','user.email','ci@example.com')
         (repo/'code.py').write_text('pass\n');git('add','.');git('commit','-m','initial code')
         before=git('rev-parse','HEAD')
