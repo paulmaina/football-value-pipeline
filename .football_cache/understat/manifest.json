@@ -4,6 +4,14 @@
     "Bundesliga_2021": {
       "archive_timestamp": "20251008161311",
       "complete": true,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "understat.com in maintenance (earlier request)"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "understat.com in maintenance (earlier request)"
@@ -27,6 +35,14 @@
     "Bundesliga_2022": {
       "archive_timestamp": "20250916035325",
       "complete": true,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "understat.com in maintenance (earlier request)"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "understat.com in maintenance (earlier request)"
@@ -50,6 +66,14 @@
     "Bundesliga_2023": {
       "archive_timestamp": "20250916052339",
       "complete": true,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "understat.com in maintenance (earlier request)"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "understat.com in maintenance (earlier request)"
@@ -73,6 +97,14 @@
     "Bundesliga_2024": {
       "archive_timestamp": "20251008164908",
       "complete": true,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "understat.com in maintenance (earlier request)"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "understat.com in maintenance (earlier request)"
@@ -96,6 +128,16 @@
     "EPL_2021": {
       "archive_timestamp": "20250617130344",
       "complete": true,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "maintenance page",
+            "status": 200,
+            "url": "https://understat.com/league/EPL/2021"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "maintenance page",
@@ -121,6 +163,14 @@
     "EPL_2022": {
       "archive_timestamp": "20250916035035",
       "complete": true,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "understat.com in maintenance (earlier request)"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "understat.com in maintenance (earlier request)"
@@ -144,6 +194,14 @@
     "EPL_2023": {
       "archive_timestamp": "20251107150410",
       "complete": true,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "understat.com in maintenance (earlier request)"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "understat.com in maintenance (earlier request)"
@@ -167,6 +225,14 @@
     "EPL_2024": {
       "archive_timestamp": "20250920125149",
       "complete": true,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "understat.com in maintenance (earlier request)"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "understat.com in maintenance (earlier request)"
@@ -190,6 +256,14 @@
     "EPL_2025": {
       "archive_timestamp": "20251108054050",
       "complete": false,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "understat.com in maintenance (earlier request)"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "understat.com in maintenance (earlier request)"
@@ -225,6 +299,14 @@
     "La_liga_2021": {
       "archive_timestamp": "20250916040624",
       "complete": true,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "understat.com in maintenance (earlier request)"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "understat.com in maintenance (earlier request)"
@@ -248,6 +330,14 @@
     "La_liga_2022": {
       "archive_timestamp": "20251107162219",
       "complete": true,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "understat.com in maintenance (earlier request)"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "understat.com in maintenance (earlier request)"
@@ -271,6 +361,14 @@
     "La_liga_2023": {
       "archive_timestamp": "20240804234915",
       "complete": true,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "understat.com in maintenance (earlier request)"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "understat.com in maintenance (earlier request)"
@@ -294,6 +392,14 @@
     "La_liga_2024": {
       "archive_timestamp": "20250525232349",
       "complete": true,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "understat.com in maintenance (earlier request)"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "understat.com in maintenance (earlier request)"
@@ -317,6 +423,14 @@
     "La_liga_2025": {
       "archive_timestamp": "20251204224709",
       "complete": false,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "understat.com in maintenance (earlier request)"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "understat.com in maintenance (earlier request)"
@@ -352,6 +466,14 @@
     "Ligue_1_2021": {
       "archive_timestamp": "20250802232720",
       "complete": true,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "understat.com in maintenance (earlier request)"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "understat.com in maintenance (earlier request)"
@@ -375,6 +497,14 @@
     "Ligue_1_2022": {
       "archive_timestamp": "20251008154138",
       "complete": true,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "understat.com in maintenance (earlier request)"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "understat.com in maintenance (earlier request)"
@@ -398,6 +528,14 @@
     "Ligue_1_2023": {
       "archive_timestamp": "20250717161353",
       "complete": true,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "understat.com in maintenance (earlier request)"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "understat.com in maintenance (earlier request)"
@@ -421,6 +559,14 @@
     "Ligue_1_2024": {
       "archive_timestamp": "20250131173528",
       "complete": false,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "understat.com in maintenance (earlier request)"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "understat.com in maintenance (earlier request)"
@@ -452,6 +598,14 @@
     "Serie_A_2021": {
       "archive_timestamp": "20250916043854",
       "complete": true,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "understat.com in maintenance (earlier request)"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "understat.com in maintenance (earlier request)"
@@ -475,6 +629,14 @@
     "Serie_A_2022": {
       "archive_timestamp": "20230324114639",
       "complete": false,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "understat.com in maintenance (earlier request)"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "understat.com in maintenance (earlier request)"
@@ -510,6 +672,14 @@
     "Serie_A_2023": {
       "archive_timestamp": "20250617140613",
       "complete": true,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "understat.com in maintenance (earlier request)"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "understat.com in maintenance (earlier request)"
@@ -533,6 +703,14 @@
     "Serie_A_2024": {
       "archive_timestamp": "20250717150543",
       "complete": true,
+      "direct_attempts": {
+        "attempts": [
+          {
+            "outcome": "understat.com in maintenance (earlier request)"
+          }
+        ],
+        "checked_at_utc": "2026-11-11T05:57:17+00:00"
+      },
       "earlier_attempts": [
         {
           "outcome": "understat.com in maintenance (earlier request)"
@@ -561,7 +739,7 @@
           "outcome": "understat.com in maintenance (earlier request)"
         }
       ],
-      "checked_at_utc": "2026-11-10T19:30:43.366428+00:00"
+      "checked_at_utc": "2026-11-11T05:57:17.162192+00:00"
     },
     "Bundesliga_2026": {
       "attempts": [
@@ -569,7 +747,7 @@
           "outcome": "understat.com in maintenance (earlier request)"
         }
       ],
-      "checked_at_utc": "2026-11-10T19:30:49.387817+00:00"
+      "checked_at_utc": "2026-11-11T05:57:17.162902+00:00"
     },
     "EPL_2026": {
       "attempts": [
@@ -577,7 +755,7 @@
           "outcome": "understat.com in maintenance (earlier request)"
         }
       ],
-      "checked_at_utc": "2026-11-10T19:28:31.319750+00:00"
+      "checked_at_utc": "2026-11-11T05:57:17.153353+00:00"
     },
     "La_liga_2026": {
       "attempts": [
@@ -585,7 +763,7 @@
           "outcome": "understat.com in maintenance (earlier request)"
         }
       ],
-      "checked_at_utc": "2026-11-10T19:29:49.375725+00:00"
+      "checked_at_utc": "2026-11-11T05:57:17.158531+00:00"
     },
     "Ligue_1_2025": {
       "attempts": [
@@ -593,7 +771,7 @@
           "outcome": "understat.com in maintenance (earlier request)"
         }
       ],
-      "checked_at_utc": "2026-11-10T19:33:03.698559+00:00"
+      "checked_at_utc": "2026-11-11T05:57:17.171183+00:00"
     },
     "Ligue_1_2026": {
       "attempts": [
@@ -601,7 +779,7 @@
           "outcome": "understat.com in maintenance (earlier request)"
         }
       ],
-      "checked_at_utc": "2026-11-10T19:33:09.375361+00:00"
+      "checked_at_utc": "2026-11-11T05:57:17.171959+00:00"
     },
     "Serie_A_2025": {
       "attempts": [
@@ -609,7 +787,7 @@
           "outcome": "understat.com in maintenance (earlier request)"
         }
       ],
-      "checked_at_utc": "2026-11-10T19:31:56.140354+00:00"
+      "checked_at_utc": "2026-11-11T05:57:17.166565+00:00"
     },
     "Serie_A_2026": {
       "attempts": [
@@ -617,7 +795,7 @@
           "outcome": "understat.com in maintenance (earlier request)"
         }
       ],
-      "checked_at_utc": "2026-11-10T19:32:01.536816+00:00"
+      "checked_at_utc": "2026-11-11T05:57:17.167315+00:00"
     }
   }
 }
