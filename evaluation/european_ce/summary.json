@@ -1,0 +1,1215 @@
+{
+  "source": {
+    "run_commit": "38276469aaf2dec081c72c6ac731d0e21f790e5e",
+    "config_sha256": "fddd157b5625e6cfe28aaf3b96863ab67e6cc81fac393b0750f09b998a35da64",
+    "european_version": "european-results-v1"
+  },
+  "candidate": {
+    "CE": "European baseline: the research model team_form_poisson_v1 exactly as live runs it for UCL and UEL today: Dixon-Coles goal rates and ten-match form from the competition's own European results before the fold origin (uses no odds and no domestic results)"
+  },
+  "periods_config": {
+    "competitions": [
+      "UCL",
+      "UEL"
+    ],
+    "development_end": "2024-07-01",
+    "domestic_form": {
+      "days": 365,
+      "min_matches": 5
+    },
+    "end_exclusive": "2026-11-09",
+    "holdout_choice": {
+      "below_minimum": "No untouched block reaches 300 matches after the warm-up under either reading. Chosen knowing it is below the minimum.",
+      "decided": "2026-11-11",
+      "decided_by": "Paul",
+      "rule": "The most recent block no benchmark, written model audit or live report scored, counted as for the domestic holdout: automated in-run pipeline reports (decay tuning, goal-market validation) are not counted, as they also covered the domestic holdout window.",
+      "strict_alternative": "Counting the in-run reports too, only 64 UCL matches after the warm-up are untouched (22 Jan - 15 Sep 2025): UCL decay tuning scored from 16 Sep 2025 and UCL goal-market validation from 1 Oct 2025 (cited in docs/audits/2026-10-24-per-market-approval.md)."
+    },
+    "holdout_competitions": [
+      "UCL"
+    ],
+    "holdout_end_exclusive": "2026-10-13",
+    "holdout_ledger": "evaluation/european_holdout_ledger.json",
+    "holdout_start": "2025-01-21",
+    "min_train": 250,
+    "periods": {
+      "development": "Before 1 Jul 2024: UEL 2022/23-2023/24 and UCL 2023/24 (UCL is all warm-up). UEL from 22 Feb 2024 was already scored by the 22 Oct 2026 Europa audits.",
+      "holdout": "UCL only, 21 Jan 2025 - 12 Oct 2026 (288 matches, 29 weeks; 270 after the 250-match warm-up). No benchmark, written model audit or live report scored these results. Locked: never scored or trained on by a locked run; scored only with a declaration, once per candidate and once per frozen setup, recorded in evaluation/european_holdout_ledger.json. Below the 300-fixture release minimum (benchmark_promotion_rules.json), so a holdout run cannot pass the sample minimum as configured.",
+      "retrospective": "UEL from 21 Jan 2025 (scored by the 22 Oct 2026 Europa audits and the pipeline's goal-market validation, live-graded from 22 Oct 2026) and UCL from 13 Oct 2026 (live-graded). Diagnostics only, never release evidence.",
+      "validation": "1 Jul 2024 - 20 Jan 2025: UEL and UCL 2024/25 to 20 Jan (UCL is all warm-up). UEL 2024/25 was the Europa research audit's development period: already inspected.",
+      "warm_up": "Each competition is scored only once its fold has at least 250 earlier matches of that competition (the pipeline's own UCL/UEL walk-forward warm-up): UEL from 22 Feb 2024, UCL from 29 Jan 2025."
+    },
+    "step_days": 14,
+    "test_start": "2022-08-01",
+    "version": "european-results-v1"
+  },
+  "coverage": {
+    "UCL:development:insufficient_training": 125,
+    "UCL:locked_holdout": 288,
+    "UCL:retrospective:CE:scored": 35,
+    "UCL:retrospective:insufficient_training": 18,
+    "UCL:retrospective:no forecast: Invalid Dixon-Coles low-score correction": 1,
+    "UCL:validation:insufficient_training": 108,
+    "UEL:development:CE:scored": 29,
+    "UEL:development:insufficient_training": 253,
+    "UEL:retrospective:CE:scored": 310,
+    "UEL:retrospective:team without earlier UEL match": 32,
+    "UEL:validation:CE:scored": 80,
+    "UEL:validation:team without earlier UEL match": 28
+  },
+  "scored_fixtures": {
+    "development UEL": 29,
+    "retrospective UCL": 35,
+    "retrospective UEL": 310,
+    "validation UEL": 80
+  },
+  "periods": {
+    "development": {
+      "log_loss": {
+        "overall": {
+          "1X2": {
+            "fixtures": 29,
+            "interval_95": [
+              0.9127417816620635,
+              1.1336229030246285
+            ],
+            "mean_log_loss": 0.9894276127772939,
+            "weeks": 7
+          },
+          "AH all": {
+            "fixtures": 29,
+            "interval_95": [
+              0.6946789523369978,
+              0.8913630864681695
+            ],
+            "mean_log_loss": 0.7814419511501057,
+            "weeks": 7
+          },
+          "AH draw-sensitive": {
+            "fixtures": 29,
+            "interval_95": [
+              0.6803487227069995,
+              0.8437099271481805
+            ],
+            "mean_log_loss": 0.7476844340223077,
+            "weeks": 7
+          },
+          "Over 1.5": {
+            "fixtures": 29,
+            "interval_95": [
+              0.38089139407125217,
+              0.7873047956707053
+            ],
+            "mean_log_loss": 0.5202912588906624,
+            "weeks": 7
+          }
+        },
+        "by_competition": {
+          "UEL": {
+            "1X2": {
+              "fixtures": 29,
+              "interval_95": [
+                0.9127417816620635,
+                1.1336229030246285
+              ],
+              "mean_log_loss": 0.9894276127772939,
+              "weeks": 7
+            },
+            "AH all": {
+              "fixtures": 29,
+              "interval_95": [
+                0.6946789523369978,
+                0.8913630864681695
+              ],
+              "mean_log_loss": 0.7814419511501057,
+              "weeks": 7
+            },
+            "AH draw-sensitive": {
+              "fixtures": 29,
+              "interval_95": [
+                0.6803487227069995,
+                0.8437099271481805
+              ],
+              "mean_log_loss": 0.7476844340223077,
+              "weeks": 7
+            },
+            "Over 1.5": {
+              "fixtures": 29,
+              "interval_95": [
+                0.38089139407125217,
+                0.7873047956707053
+              ],
+              "mean_log_loss": 0.5202912588906624,
+              "weeks": 7
+            }
+          }
+        },
+        "by_stage": {
+          "knockout": {
+            "1X2": {
+              "fixtures": 29,
+              "interval_95": [
+                0.9127417816620635,
+                1.1336229030246285
+              ],
+              "mean_log_loss": 0.9894276127772939,
+              "weeks": 7
+            },
+            "AH all": {
+              "fixtures": 29,
+              "interval_95": [
+                0.6946789523369978,
+                0.8913630864681695
+              ],
+              "mean_log_loss": 0.7814419511501057,
+              "weeks": 7
+            },
+            "AH draw-sensitive": {
+              "fixtures": 29,
+              "interval_95": [
+                0.6803487227069995,
+                0.8437099271481805
+              ],
+              "mean_log_loss": 0.7476844340223077,
+              "weeks": 7
+            },
+            "Over 1.5": {
+              "fixtures": 29,
+              "interval_95": [
+                0.38089139407125217,
+                0.7873047956707053
+              ],
+              "mean_log_loss": 0.5202912588906624,
+              "weeks": 7
+            }
+          }
+        },
+        "by_competition_and_stage": {
+          "UEL knockout": {
+            "1X2": {
+              "fixtures": 29,
+              "interval_95": [
+                0.9127417816620635,
+                1.1336229030246285
+              ],
+              "mean_log_loss": 0.9894276127772939,
+              "weeks": 7
+            },
+            "AH all": {
+              "fixtures": 29,
+              "interval_95": [
+                0.6946789523369978,
+                0.8913630864681695
+              ],
+              "mean_log_loss": 0.7814419511501057,
+              "weeks": 7
+            },
+            "AH draw-sensitive": {
+              "fixtures": 29,
+              "interval_95": [
+                0.6803487227069995,
+                0.8437099271481805
+              ],
+              "mean_log_loss": 0.7476844340223077,
+              "weeks": 7
+            },
+            "Over 1.5": {
+              "fixtures": 29,
+              "interval_95": [
+                0.38089139407125217,
+                0.7873047956707053
+              ],
+              "mean_log_loss": 0.5202912588906624,
+              "weeks": 7
+            }
+          }
+        }
+      },
+      "calibration": {
+        "overall": {
+          "home": {
+            "forecasts": 29,
+            "mean_forecast": 0.48954101834008007,
+            "observed_rate": 0.5517241379310345,
+            "calibration_slope": 0.7105872230614423
+          },
+          "draw": {
+            "forecasts": 29,
+            "mean_forecast": 0.22969155874035493,
+            "observed_rate": 0.20689655172413793,
+            "calibration_slope": 1.7251170758968388
+          },
+          "away": {
+            "forecasts": 29,
+            "mean_forecast": 0.2807674229195648,
+            "observed_rate": 0.2413793103448276,
+            "calibration_slope": 0.21439291002461805
+          }
+        },
+        "UEL": {
+          "home": {
+            "forecasts": 29,
+            "mean_forecast": 0.48954101834008007,
+            "observed_rate": 0.5517241379310345,
+            "calibration_slope": 0.7105872230614423
+          },
+          "draw": {
+            "forecasts": 29,
+            "mean_forecast": 0.22969155874035493,
+            "observed_rate": 0.20689655172413793,
+            "calibration_slope": 1.7251170758968388
+          },
+          "away": {
+            "forecasts": 29,
+            "mean_forecast": 0.2807674229195648,
+            "observed_rate": 0.2413793103448276,
+            "calibration_slope": 0.21439291002461805
+          }
+        }
+      },
+      "calibration_rule_v2_reported_not_a_gate": {
+        "UEL": {
+          "band_z_threshold": 1.9599639845400536,
+          "bands_checked": 0,
+          "bands_pass": true,
+          "failing_bands": [],
+          "forecasts": 29,
+          "passes": false,
+          "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+          "slopes": {
+            "away": 0.21439291002461805,
+            "home": 0.7105872230614424
+          },
+          "slopes_pass": false,
+          "worst_band": null
+        },
+        "overall": {
+          "band_z_threshold": 1.9599639845400536,
+          "bands_checked": 0,
+          "bands_pass": true,
+          "failing_bands": [],
+          "forecasts": 29,
+          "passes": false,
+          "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+          "slopes": {
+            "away": 0.21439291002461805,
+            "home": 0.7105872230614424
+          },
+          "slopes_pass": false,
+          "worst_band": null
+        }
+      }
+    },
+    "validation": {
+      "log_loss": {
+        "overall": {
+          "1X2": {
+            "fixtures": 80,
+            "interval_95": [
+              0.9996503207612619,
+              1.290839285092705
+            ],
+            "mean_log_loss": 1.1248741657954466,
+            "weeks": 6
+          },
+          "AH all": {
+            "fixtures": 80,
+            "interval_95": [
+              0.7424557870786918,
+              0.9439983788716146
+            ],
+            "mean_log_loss": 0.836292779414568,
+            "weeks": 6
+          },
+          "AH draw-sensitive": {
+            "fixtures": 80,
+            "interval_95": [
+              0.7234007124219127,
+              0.9750546957262352
+            ],
+            "mean_log_loss": 0.8430953104636124,
+            "weeks": 6
+          },
+          "Over 1.5": {
+            "fixtures": 80,
+            "interval_95": [
+              0.43954339129487674,
+              0.9654045145993656
+            ],
+            "mean_log_loss": 0.6328204333763561,
+            "weeks": 6
+          }
+        },
+        "by_competition": {
+          "UEL": {
+            "1X2": {
+              "fixtures": 80,
+              "interval_95": [
+                0.9996503207612619,
+                1.290839285092705
+              ],
+              "mean_log_loss": 1.1248741657954466,
+              "weeks": 6
+            },
+            "AH all": {
+              "fixtures": 80,
+              "interval_95": [
+                0.7424557870786918,
+                0.9439983788716146
+              ],
+              "mean_log_loss": 0.836292779414568,
+              "weeks": 6
+            },
+            "AH draw-sensitive": {
+              "fixtures": 80,
+              "interval_95": [
+                0.7234007124219127,
+                0.9750546957262352
+              ],
+              "mean_log_loss": 0.8430953104636124,
+              "weeks": 6
+            },
+            "Over 1.5": {
+              "fixtures": 80,
+              "interval_95": [
+                0.43954339129487674,
+                0.9654045145993656
+              ],
+              "mean_log_loss": 0.6328204333763561,
+              "weeks": 6
+            }
+          }
+        },
+        "by_stage": {
+          "league phase": {
+            "1X2": {
+              "fixtures": 80,
+              "interval_95": [
+                0.9996503207612619,
+                1.290839285092705
+              ],
+              "mean_log_loss": 1.1248741657954466,
+              "weeks": 6
+            },
+            "AH all": {
+              "fixtures": 80,
+              "interval_95": [
+                0.7424557870786918,
+                0.9439983788716146
+              ],
+              "mean_log_loss": 0.836292779414568,
+              "weeks": 6
+            },
+            "AH draw-sensitive": {
+              "fixtures": 80,
+              "interval_95": [
+                0.7234007124219127,
+                0.9750546957262352
+              ],
+              "mean_log_loss": 0.8430953104636124,
+              "weeks": 6
+            },
+            "Over 1.5": {
+              "fixtures": 80,
+              "interval_95": [
+                0.43954339129487674,
+                0.9654045145993656
+              ],
+              "mean_log_loss": 0.6328204333763561,
+              "weeks": 6
+            }
+          }
+        },
+        "by_competition_and_stage": {
+          "UEL league phase": {
+            "1X2": {
+              "fixtures": 80,
+              "interval_95": [
+                0.9996503207612619,
+                1.290839285092705
+              ],
+              "mean_log_loss": 1.1248741657954466,
+              "weeks": 6
+            },
+            "AH all": {
+              "fixtures": 80,
+              "interval_95": [
+                0.7424557870786918,
+                0.9439983788716146
+              ],
+              "mean_log_loss": 0.836292779414568,
+              "weeks": 6
+            },
+            "AH draw-sensitive": {
+              "fixtures": 80,
+              "interval_95": [
+                0.7234007124219127,
+                0.9750546957262352
+              ],
+              "mean_log_loss": 0.8430953104636124,
+              "weeks": 6
+            },
+            "Over 1.5": {
+              "fixtures": 80,
+              "interval_95": [
+                0.43954339129487674,
+                0.9654045145993656
+              ],
+              "mean_log_loss": 0.6328204333763561,
+              "weeks": 6
+            }
+          }
+        }
+      },
+      "calibration": {
+        "overall": {
+          "home": {
+            "forecasts": 80,
+            "mean_forecast": 0.4574723772613812,
+            "observed_rate": 0.4375,
+            "calibration_slope": 0.31290210196233764
+          },
+          "draw": {
+            "forecasts": 80,
+            "mean_forecast": 0.22196521258455865,
+            "observed_rate": 0.25,
+            "calibration_slope": 0.49251592843098757
+          },
+          "away": {
+            "forecasts": 80,
+            "mean_forecast": 0.3205624101540601,
+            "observed_rate": 0.3125,
+            "calibration_slope": 0.24632278635605326
+          }
+        },
+        "UEL": {
+          "home": {
+            "forecasts": 80,
+            "mean_forecast": 0.4574723772613812,
+            "observed_rate": 0.4375,
+            "calibration_slope": 0.31290210196233764
+          },
+          "draw": {
+            "forecasts": 80,
+            "mean_forecast": 0.22196521258455865,
+            "observed_rate": 0.25,
+            "calibration_slope": 0.49251592843098757
+          },
+          "away": {
+            "forecasts": 80,
+            "mean_forecast": 0.3205624101540601,
+            "observed_rate": 0.3125,
+            "calibration_slope": 0.24632278635605326
+          }
+        }
+      },
+      "calibration_rule_v2_reported_not_a_gate": {
+        "UEL": {
+          "band_z_threshold": 1.9599639845400536,
+          "bands_checked": 1,
+          "bands_pass": true,
+          "failing_bands": [],
+          "forecasts": 80,
+          "passes": false,
+          "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+          "slopes": {
+            "away": 0.24632278635605437,
+            "home": 0.31290210196233764
+          },
+          "slopes_pass": false,
+          "worst_band": {
+            "band_lower": 0.2,
+            "mean_forecast": 0.24265935780821435,
+            "n": 39,
+            "observed_minus_forecast": -0.11445422960308616,
+            "observed_rate": 0.1282051282051282,
+            "outcome": "draw",
+            "z": 1.667323979395878
+          }
+        },
+        "overall": {
+          "band_z_threshold": 1.9599639845400536,
+          "bands_checked": 1,
+          "bands_pass": true,
+          "failing_bands": [],
+          "forecasts": 80,
+          "passes": false,
+          "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+          "slopes": {
+            "away": 0.24632278635605437,
+            "home": 0.31290210196233764
+          },
+          "slopes_pass": false,
+          "worst_band": {
+            "band_lower": 0.2,
+            "mean_forecast": 0.24265935780821435,
+            "n": 39,
+            "observed_minus_forecast": -0.11445422960308616,
+            "observed_rate": 0.1282051282051282,
+            "outcome": "draw",
+            "z": 1.667323979395878
+          }
+        }
+      }
+    }
+  },
+  "reference_1x2_uniform_log_loss": 1.0986122886681098,
+  "inventory": {
+    "UCL": {
+      "conflicts": "none checkable: football-data.org is the only cached UCL result source",
+      "score_basis": "regulation time; extra time and penalties removed (match_scores.regulation_goals)",
+      "seasons": [
+        {
+          "competition": "UCL",
+          "finished_after_extra_time": 0,
+          "finished_after_penalties": 3,
+          "first": "2023-09-19",
+          "last": "2024-06-01",
+          "matches": 125,
+          "scheduled_not_yet_played": 0,
+          "season": "2023/24",
+          "source": "football-data.org (fdorg_history_UCL_2023.json)",
+          "stages": {
+            "group stage": 96,
+            "knockout": 29
+          }
+        },
+        {
+          "competition": "UCL",
+          "finished_after_extra_time": 1,
+          "finished_after_penalties": 2,
+          "first": "2024-09-17",
+          "last": "2025-05-31",
+          "matches": 189,
+          "scheduled_not_yet_played": 0,
+          "season": "2024/25",
+          "source": "football-data.org (fdorg_history_UCL_2024.json)",
+          "stages": {
+            "knockout": 45,
+            "league phase": 144
+          }
+        },
+        {
+          "competition": "UCL",
+          "finished_after_extra_time": 2,
+          "finished_after_penalties": 1,
+          "first": "2025-09-16",
+          "last": "2026-05-30",
+          "matches": 189,
+          "scheduled_not_yet_played": 0,
+          "season": "2025/26",
+          "source": "football-data.org (fdorg_history_UCL_2025.json)",
+          "stages": {
+            "knockout": 45,
+            "league phase": 144
+          }
+        },
+        {
+          "competition": "UCL",
+          "finished_after_extra_time": 0,
+          "finished_after_penalties": 0,
+          "first": "2026-09-08",
+          "last": "2026-11-04",
+          "matches": 72,
+          "scheduled_not_yet_played": 72,
+          "season": "2026/27",
+          "source": "football-data.org (fdorg_history_UCL_2026.json)",
+          "stages": {
+            "league phase": 72
+          }
+        }
+      ],
+      "top_up": {
+        "added": 0,
+        "reason": "no Cornerflick or Fixture Download UCL file is cached"
+      },
+      "total": 575
+    },
+    "UEL": {
+      "conflicts": {
+        "note": "The reconciliation stops on any unresolved identity or score conflict. Concluding scores that include extra time are replaced by the reviewed regulation score; one Fixture Download opponent is corrected by a reviewed identity correction.",
+        "reported_score": 0
+      },
+      "cornerflick_2026": {
+        "fixture_download_completed_rows": 72,
+        "latest_result": "2026-11-05",
+        "league_phase_rows": 72,
+        "missing_against_fixture_download": 0,
+        "score_conflicts": [],
+        "total_rows": 152,
+        "unclassified_rows_quarantined": 80,
+        "unverified_identities": []
+      },
+      "identity_corrections": 1,
+      "reconciliation": {
+        "2022": {
+          "aet_matches": 6,
+          "cross_source_agreements": 141,
+          "rows": 141
+        },
+        "2023": {
+          "aet_matches": 4,
+          "cross_source_agreements": 141,
+          "rows": 141
+        },
+        "2024": {
+          "aet_matches": 5,
+          "cross_source_agreements": 189,
+          "rows": 189
+        },
+        "2025": {
+          "aet_matches": 5,
+          "identity_limit": "UEFA date not parsed; unique home/away/reported-score links use Fixture Download dates",
+          "rows": 189,
+          "uefa_reported_score_agreements": 189
+        }
+      },
+      "regulation_corrections": 12,
+      "seasons": [
+        {
+          "competition": "UEL",
+          "first": "2022-09-08",
+          "identity_corrections": 1,
+          "last": "2023-05-31",
+          "matches": 141,
+          "regulation_corrections": 3,
+          "season": "2022/23",
+          "source": "OpenFootball, reconciled to Fixture Download",
+          "stages": {
+            "group stage": 96,
+            "knockout": 45
+          }
+        },
+        {
+          "competition": "UEL",
+          "first": "2023-09-21",
+          "identity_corrections": 0,
+          "last": "2024-05-22",
+          "matches": 141,
+          "regulation_corrections": 2,
+          "season": "2023/24",
+          "source": "OpenFootball, reconciled to Fixture Download",
+          "stages": {
+            "group stage": 96,
+            "knockout": 45
+          }
+        },
+        {
+          "competition": "UEL",
+          "first": "2024-09-25",
+          "identity_corrections": 0,
+          "last": "2025-05-21",
+          "matches": 189,
+          "regulation_corrections": 4,
+          "season": "2024/25",
+          "source": "OpenFootball, reconciled to Fixture Download",
+          "stages": {
+            "knockout": 45,
+            "league phase": 144
+          }
+        },
+        {
+          "competition": "UEL",
+          "first": "2025-09-24",
+          "identity_corrections": 0,
+          "last": "2026-05-20",
+          "matches": 189,
+          "regulation_corrections": 3,
+          "season": "2025/26",
+          "source": "Fixture Download matched to UEFA reviewed facts",
+          "stages": {
+            "knockout": 45,
+            "league phase": 144
+          }
+        },
+        {
+          "competition": "UEL",
+          "first": "2026-09-16",
+          "identity_corrections": 0,
+          "last": "2026-11-05",
+          "matches": 72,
+          "regulation_corrections": 0,
+          "season": "2026/27",
+          "source": "Cornerflick + Fixture Download",
+          "stages": {
+            "league phase": 72
+          }
+        }
+      ],
+      "snapshot_verified_at_utc": "2026-11-11T11:54:40.075873+00:00",
+      "snapshot_vs_rebuilt_from_sources": {
+        "differences": []
+      },
+      "top_up": {
+        "added": 0,
+        "reason": "Every result on which two cached sources agree is already in the snapshot. Cornerflick's 80 unclassified 2026/27 rows (no round label; qualifying rounds, July-August) have no second cached source, so none is added."
+      },
+      "total": 732
+    }
+  },
+  "domestic_form": {
+    "by_period": {
+      "development": {
+        "UCL": {
+          "both_teams": 61,
+          "by_stage": {
+            "group stage": {
+              "both_teams": 40,
+              "fixtures": 96
+            },
+            "knockout": {
+              "both_teams": 21,
+              "fixtures": 29
+            }
+          },
+          "fixtures": 125,
+          "one_team_or_more": 115
+        },
+        "UEL": {
+          "both_teams": 90,
+          "by_stage": {
+            "group stage": {
+              "both_teams": 30,
+              "fixtures": 192
+            },
+            "knockout": {
+              "both_teams": 60,
+              "fixtures": 90
+            }
+          },
+          "fixtures": 282,
+          "one_team_or_more": 240
+        }
+      },
+      "holdout": {
+        "UCL": {
+          "both_teams": 160,
+          "by_stage": {
+            "knockout": {
+              "both_teams": 70,
+              "fixtures": 90
+            },
+            "league phase": {
+              "both_teams": 90,
+              "fixtures": 198
+            }
+          },
+          "fixtures": 288,
+          "one_team_or_more": 273
+        }
+      },
+      "retrospective": {
+        "UCL": {
+          "both_teams": 21,
+          "by_stage": {
+            "league phase": {
+              "both_teams": 21,
+              "fixtures": 54
+            }
+          },
+          "fixtures": 54,
+          "one_team_or_more": 48
+        },
+        "UEL": {
+          "both_teams": 95,
+          "by_stage": {
+            "knockout": {
+              "both_teams": 38,
+              "fixtures": 90
+            },
+            "league phase": {
+              "both_teams": 57,
+              "fixtures": 252
+            }
+          },
+          "fixtures": 342,
+          "one_team_or_more": 251
+        }
+      },
+      "validation": {
+        "UCL": {
+          "both_teams": 51,
+          "by_stage": {
+            "league phase": {
+              "both_teams": 51,
+              "fixtures": 108
+            }
+          },
+          "fixtures": 108,
+          "one_team_or_more": 99
+        },
+        "UEL": {
+          "both_teams": 25,
+          "by_stage": {
+            "league phase": {
+              "both_teams": 25,
+              "fixtures": 108
+            }
+          },
+          "fixtures": 108,
+          "one_team_or_more": 77
+        }
+      }
+    },
+    "note": "Domestic form = at least min_matches league matches in the 8 football-data files within the days before the fixture (earlier days only), team names resolved by the reviewed research resolver (team_research.history_team; no fuzzy matching). Domestic holdout results (16 Jan - 10 Oct 2026, Eredivisie, Primeira Liga, Super Lig) are left out, so fixtures then involving those clubs count as without form. European holdout fixtures are counted by identity only.",
+    "rule": {
+      "days": 365,
+      "min_matches": 5
+    },
+    "teams": {
+      "ambiguous_teams": [],
+      "mapped_teams": 94,
+      "teams": 179,
+      "unmapped_by_appearances": [
+        [
+          "ferencvaros",
+          34
+        ],
+        [
+          "union sg",
+          30
+        ],
+        [
+          "midtjylland",
+          28
+        ],
+        [
+          "rangers",
+          28
+        ],
+        [
+          "Club Brugge KV",
+          26
+        ],
+        [
+          "olympiacos",
+          26
+        ],
+        [
+          "viktoria plzen",
+          26
+        ],
+        [
+          "ludogorets",
+          24
+        ],
+        [
+          "sturm graz",
+          24
+        ],
+        [
+          "qarabag",
+          24
+        ],
+        [
+          "Galatasaray SK",
+          22
+        ],
+        [
+          "malmo",
+          22
+        ],
+        [
+          "bodø/glimt",
+          22
+        ],
+        [
+          "SSC Napoli",
+          20
+        ],
+        [
+          "fcsb",
+          20
+        ],
+        [
+          "paok",
+          20
+        ],
+        [
+          "FK Shakhtar Donetsk",
+          18
+        ],
+        [
+          "panathinaikos",
+          18
+        ],
+        [
+          "FC København",
+          16
+        ],
+        [
+          "Celtic FC",
+          16
+        ],
+        [
+          "FK Bodø/Glimt",
+          16
+        ],
+        [
+          "crvena zvezda",
+          16
+        ],
+        [
+          "slavia praha",
+          16
+        ],
+        [
+          "maccabi tel aviv",
+          16
+        ],
+        [
+          "BSC Young Boys",
+          14
+        ],
+        [
+          "FC Red Bull Salzburg",
+          14
+        ],
+        [
+          "FK Crvena Zvezda",
+          14
+        ],
+        [
+          "dynamo kyiv",
+          14
+        ],
+        [
+          "salzburg",
+          14
+        ],
+        [
+          "sparta praha",
+          14
+        ],
+        [
+          "anderlecht",
+          14
+        ],
+        [
+          "gnk dinamo",
+          14
+        ],
+        [
+          "celtic",
+          14
+        ],
+        [
+          "ŠK Slovan Bratislava",
+          12
+        ],
+        [
+          "SK Slavia Praha",
+          12
+        ],
+        [
+          "sheriff",
+          12
+        ],
+        [
+          "frankfurt",
+          12
+        ],
+        [
+          "genk",
+          12
+        ],
+        [
+          "PAE Olympiakos SFP",
+          10
+        ],
+        [
+          "Qarabağ Ağdam FK",
+          10
+        ],
+        [
+          "omonia",
+          10
+        ],
+        [
+          "young boys",
+          10
+        ],
+        [
+          "brann",
+          10
+        ],
+        [
+          "SS Lazio",
+          8
+        ],
+        [
+          "Real Sociedad de Fútbol",
+          8
+        ],
+        [
+          "AC Sparta Praha",
+          8
+        ],
+        [
+          "Bologna FC 1909",
+          8
+        ],
+        [
+          "GNK Dinamo Zagreb",
+          8
+        ],
+        [
+          "SK Sturm Graz",
+          8
+        ],
+        [
+          "FK Kairat",
+          8
+        ],
+        [
+          "Paphos FC",
+          8
+        ],
+        [
+          "Royale Union Saint-Gilloise",
+          8
+        ],
+        [
+          "elfsborg",
+          8
+        ],
+        [
+          "rfs",
+          8
+        ],
+        [
+          "basel",
+          8
+        ],
+        [
+          "Royal Antwerp FC",
+          6
+        ],
+        [
+          "aek larnaca",
+          6
+        ],
+        [
+          "hjk",
+          6
+        ],
+        [
+          "zurich",
+          6
+        ],
+        [
+          "shakhtar donetsk",
+          6
+        ],
+        [
+          "lask",
+          6
+        ],
+        [
+          "servette",
+          6
+        ],
+        [
+          "aek athens",
+          6
+        ],
+        [
+          "aris limassol",
+          6
+        ],
+        [
+          "hacken",
+          6
+        ],
+        [
+          "maccabi haifa",
+          6
+        ],
+        [
+          "molde",
+          6
+        ],
+        [
+          "rakow",
+          6
+        ],
+        [
+          "tsc",
+          6
+        ],
+        [
+          "PAE AEK",
+          4
+        ],
+        [
+          "Fenerbahçe SK",
+          4
+        ],
+        [
+          "Sabah FK",
+          4
+        ],
+        [
+          "Viking FK",
+          4
+        ],
+        [
+          "LASK Linz",
+          4
+        ],
+        [
+          "Real Betis Balompié",
+          4
+        ],
+        [
+          "ararat-armenia",
+          4
+        ],
+        [
+          "h. beer-sheva",
+          4
+        ],
+        [
+          "levski sofia",
+          4
+        ],
+        [
+          "lillestrøm",
+          4
+        ],
+        [
+          "ofi crete",
+          4
+        ],
+        [
+          "celje",
+          4
+        ],
+        [
+          "jagiellonia",
+          4
+        ],
+        [
+          "lech poznan",
+          4
+        ],
+        [
+          "n.e.c.",
+          4
+        ],
+        [
+          "torreense",
+          4
+        ]
+      ]
+    }
+  },
+  "notes": [
+    "Results only: no historical European prices are cached, so there is no market reference (M), no cagey tier (D), no published-grid proxy (A) and no market bar. Log loss is against the result alone.",
+    "Calibration rule v2 is reported for information; it is not a gate for European matches.",
+    "CE is the research model as live runs it for UCL/UEL, without the ESPN form live adds (the harness has none) and with history to the fold origin.",
+    "Intervals resample whole calendar weeks.",
+    "Retrospective results were already scored elsewhere: diagnostics only, never release evidence.",
+    "Retrospective periods are counted in scored_fixtures and coverage but not summarised."
+  ]
+}
