@@ -377,6 +377,7 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
         matrix=ci['jobs']['self-test']['strategy']['matrix']
         self.assertEqual(set(matrix['os']),{'ubuntu-latest','windows-latest'})
         self.assertEqual(set(matrix['python']),{'3.12','3.14'})
+        self.assertEqual(matrix['exclude'],[{'os':'windows-latest','python':'3.12'}])
         self.assertEqual(ci['permissions']['contents'],'read')
         self.assertEqual(review_workflow['permissions']['contents'],'write')
         paths=review_workflow['on']['push']['paths']
