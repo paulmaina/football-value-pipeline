@@ -261,11 +261,12 @@ def inventory(cache, now):
 # Domestic form available for both teams (Phase 2c reach)
 # ---------------------------------------------------------------------------
 
-def load_domestic_backfill(folder, code, seasons):
+def load_domestic_backfill(folder, code, seasons, columns=None):
     """Older football-data.co.uk league files (European domestic-form coverage only; the domestic harness
     never reads them). The same checks as historical_benchmark.load_history, except that a row with every
     field empty (the older files end with one) is dropped and counted. Returns (Date, HomeTeam, AwayTeam)
-    rows of completed matches, and the rows dropped."""
+    rows of completed matches, and the rows dropped. `columns` adds those columns (goals, shots; numeric) for
+    the European candidates' domestic strengths (european_candidates.league_frame)."""
     import io
     frames, dropped = [], Counter()
     for season in seasons:
@@ -290,7 +291,10 @@ def load_domestic_backfill(folder, code, seasons):
         if ((hg.isna() != ag.isna()) | (((hg < 0) | (ag < 0) | (hg > 20) | (ag > 20)) & ~unfinished)).any():
             raise ValueError('Invalid goals ' + path.name)
         out = pd.DataFrame({'Date': dates.dt.normalize(), 'HomeTeam': frame.HomeTeam.astype(str).str.strip(),
-                            'AwayTeam': frame.AwayTeam.astype(str).str.strip()}).loc[~unfinished]
+                            'AwayTeam': frame.AwayTeam.astype(str).str.strip()})
+        for column in [c for c in (columns or ()) if c not in out]:
+            out[column] = pd.to_numeric(frame[column], errors='coerce') if column in frame else float('nan')
+        out = out.loc[~unfinished]
         if (out.HomeTeam == out.AwayTeam).any() or out[['HomeTeam', 'AwayTeam']].isin(['', 'nan']).any().any():
             raise ValueError('Invalid team identity ' + path.name)
         frames.append(out)

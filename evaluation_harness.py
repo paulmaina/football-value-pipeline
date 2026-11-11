@@ -1355,6 +1355,16 @@ EUROPEAN_CANDIDATES = {
     'CE': 'European baseline: the research model team_form_poisson_v1 exactly as live runs it for UCL and UEL '
           "today: Dixon-Coles goal rates and ten-match form from the competition's own European results before "
           'the fold origin (uses no odds and no domestic results)',
+    'CE2': "CE's home/away split rescaled by a slope fitted walk-forward on CE's own earlier European forecasts "
+           '(european_candidates; per competition only when each competition has 1,000 earlier decided matches, '
+           'otherwise pooled; neutral below 300)',
+    'CE2p': 'Context: CE2 always pooled over UCL and UEL',
+    'CE2c': 'Context: CE2 always fitted per competition',
+    'CE3': "CE's goal rates blended (domestic weight 0.85) with domestic research strength (league Dixon-Coles and "
+           'last-ten form, Understat xG where it exists) put on the European scale by league-strength factors fitted '
+           'walk-forward on earlier European results; CE exactly where a team has no domestic form',
+    'CE3n': 'Context: CE3 with goals-only domestic form (no xG)',
+    'CE4': "CE3 followed by CE2's calibration, the slope refitted on CE3's own earlier forecasts",
 }
 # Everything that can change a European score: the European setup fingerprint hashes these files,
 # the config and every cached European result file, so one frozen setup is evaluated once.
@@ -1363,6 +1373,8 @@ EUROPEAN_SETUP_FILES = ('evaluation_harness.py', 'european_results.py', 'researc
                         'ucl_training.py', 'match_scores.py', 'scripts/europa_research.py', 'ah_close_backtest.py',
                         'asian_handicap.py', 'evaluation_harness_config.json', 'docs/audits/europa-team-aliases.json',
                         'european_backfill.py', 'docs/audits/european-backfill-aliases.json',
+                        'european_candidates.py', 'research_sharpen.py', 'understat_history.py',
+                        'understat_team_aliases.json', 'historical_benchmark.py', 'shot_features.py',
                         'docs/audits/european-domestic-aliases.json', 'docs/audits/european-reviewed-aliases.json',
                         'benchmark_promotion_rules.json')
 
@@ -1392,17 +1404,25 @@ def european_ledger(cfg) -> Path:
 
 def european_matrices(row, train, origin, model):
     """CE for one European match: the shared research step (team_research.prepare + research_grid) on the
-    fold's Dixon-Coles goal rates and the competition's own history before the origin. Never odds."""
-    matrix, _, info = research_matrix(row, train, origin, model)
-    return {'CE': matrix}, info
+    fold's Dixon-Coles goal rates and the competition's own history before the origin. Never odds. CE's goal
+    rates go out in info['research_goal_rates'] for CE2-CE4."""
+    from team_research import research_grid
+    context, _, info = research_context(row, train, origin, model)
+    matrix = rb.matrix_value(research_grid(context['goal_rates']))
+    return {'CE': matrix}, {**info, 'research_goal_rates': [float(v) for v in context['goal_rates']]}
 
 
-def evaluate_european(competition, cache, cfg, include_holdout=False, keep=None, data=None):
+def evaluate_european(competition, cache, cfg, include_holdout=False, keep=None, data=None, fit_rows=False):
     """Walk-forward CE for one competition: 14-day folds, the live model settings (half-life, L2, max goals,
     shots; BBS off, as it is not applied live for UCL or UEL), refit on the competition's results before
     each origin. Locked runs skip every European holdout match and never train on one; a holdout run
     scores ONLY holdout matches, and only the candidates in `keep`. `data` replaces the cached results
-    (tests only)."""
+    (tests only).
+
+    Also returns, for CE2-CE4 (european_candidates): `research`, CE's goal rates for every forecast (scored, or,
+    in a holdout run with `fit_rows`, unscored so the walk-forward fits can learn from earlier matches), and
+    `factor_rows`, every result the league-strength factors may train on (warm-up included; never a locked
+    holdout result)."""
     from football_value_pipeline_v2_standalone import DixonColesModel
     import european_results as er
     e = cfg['european']
@@ -1412,7 +1432,7 @@ def evaluate_european(competition, cache, cfg, include_holdout=False, keep=None,
     data = data.loc[data.Date < end].sort_values('Date', kind='stable').reset_index(drop=True)
     profile = cfg['production_v2']
     history = european_training_rows(data, competition, cfg, include_holdout)
-    records, folds, coverage, calib = [], [], Counter(), []
+    records, folds, coverage, calib, research, factor_rows = [], [], Counter(), [], [], []
     for origin, stop in fold_windows(e, end):
         train = history.loc[history.Date < origin]
         test = data.loc[(data.Date >= origin) & (data.Date < stop)]
@@ -1421,15 +1441,24 @@ def evaluate_european(competition, cache, cfg, include_holdout=False, keep=None,
         model = None
         for _, row in test.iterrows():
             name = european_phase(row.Date, competition, cfg)
+            date = row.Date
+            key = '|'.join((competition, date.date().isoformat(), row.HomeTeam, row.AwayTeam))
+            if not (name == 'holdout' and not include_holdout):
+                factor_rows.append({'fixture': key, 'competition': competition, 'date': date, 'origin': origin,
+                                    'home': row.HomeTeam, 'away': row.AwayTeam,
+                                    'home_goals': row.FTHG, 'away_goals': row.FTAG})
             if name == 'warm_up':
                 coverage[competition + ':warm_up'] += 1  # training only, never scored
                 continue
             if name == 'holdout' and not include_holdout:
                 coverage[competition + ':locked_holdout'] += 1
                 continue
+            scored = True
             if include_holdout and name != 'holdout':
                 coverage[competition + ':outside_holdout_run'] += 1
-                continue
+                if not fit_rows:
+                    continue
+                scored = False  # not scored in a holdout run; CE2-CE4's walk-forward fits learn from it
             if len(train) < e['min_train']:
                 coverage[f'{competition}:{name}:insufficient_training'] += 1
                 continue
@@ -1447,19 +1476,22 @@ def evaluate_european(competition, cache, cfg, include_holdout=False, keep=None,
                 coverage[f'{competition}:{name}:team without earlier {competition} match'] += 1
                 continue
             try:
-                matrices, _ = european_matrices(row, train, origin, model)
+                matrices, info = european_matrices(row, train, origin, model)
             except (RuntimeError, ValueError) as exc:
                 # The fold's own Dixon-Coles grid is invalid (rho at its bound with very large goal rates):
                 # no forecast can be made, live or here.
                 coverage[f'{competition}:{name}:no forecast: {exc}'] += 1
                 continue
-            if keep is not None:
-                matrices = {k: v for k, v in matrices.items() if k in keep}
-            date = row.Date
             identity = {'league': competition, 'date': date.date().isoformat(),
                         'week': f'{date.isocalendar().year}-W{date.isocalendar().week:02d}',
-                        'fixture_key': '|'.join((competition, date.date().isoformat(), row.HomeTeam, row.AwayTeam)),
-                        'phase': name, 'stage_group': row.stage_group, 'market_book': ''}
+                        'fixture_key': key, 'phase': name, 'stage_group': row.stage_group, 'market_book': ''}
+            research.append({'identity': identity, 'competition': competition, 'date': date, 'origin': origin,
+                             'fixture': key, 'goal_rates': info['research_goal_rates'],
+                             'home_goals': row.FTHG, 'away_goals': row.FTAG, 'scored': scored})
+            if not scored:
+                continue
+            if keep is not None:
+                matrices = {k: v for k, v in matrices.items() if k in keep}
             records.extend(rb.score_fixture(identity, matrices, row.FTHG, row.FTAG))
             outcome = 0 if row.FTHG > row.FTAG else 1 if row.FTHG == row.FTAG else 2
             for cand, matrix in matrices.items():
@@ -1470,7 +1502,7 @@ def evaluate_european(competition, cache, cfg, include_holdout=False, keep=None,
                               'outcome': outcome})
             for cand in matrices:
                 coverage[f'{competition}:{name}:{cand}:scored'] += 1
-    return records, folds, coverage, calib
+    return records, folds, coverage, calib, (research, factor_rows)
 
 
 def check_development_start(data, competition, cfg):
@@ -1523,20 +1555,74 @@ def european_holdout_reach(cache, cfg):
     return out
 
 
-def european(cache, cfg, *, include_holdout=False, keep=None, competitions=None, data=None):
-    """Every European competition. A holdout run covers only the holdout competitions."""
+def european(cache, cfg, *, include_holdout=False, keep=None, competitions=None, data=None, strengths=None,
+             extras=None):
+    """Every European competition. A holdout run scores only the holdout competitions.
+
+    CE2-CE4 (european_candidates) are built after CE from CE's walk-forward forecasts of both competitions; a
+    holdout run that scores one of them still forecasts (unscored) every non-holdout match of every
+    competition, so its fits learn from the same earlier matches. `strengths` (fixture key -> domestic
+    strengths) replaces european_candidates.domestic_strengths (tests); with neither a cache nor `strengths`,
+    no team has domestic form and CE3 = CE. `extras` (a dict) receives the strengths and the fits."""
+    import european_candidates as ec
     e = cfg['european']
-    competitions = list(competitions or (e['holdout_competitions'] if include_holdout else e['competitions']))
-    records, folds, coverage, calib = [], [], Counter(), []
-    for competition in competitions:
-        r, f, c, k = evaluate_european(competition, cache, cfg, include_holdout, keep,
-                                       None if data is None else data[competition])
-        records += r; folds += f; coverage.update(c); calib += k
+    needs = keep is None or bool(set(keep) & set(ec.CANDIDATE_NAMES))
+    scored = list(competitions or (e['holdout_competitions'] if include_holdout else e['competitions']))
+    run = list(e['competitions']) if include_holdout and needs and competitions is None else scored
+    records, folds, coverage, calib, research, factor_rows = [], [], Counter(), [], [], []
+    for competition in run:
+        r, f, c, k, (x, y) = evaluate_european(competition, cache, cfg, include_holdout, keep,
+                                               None if data is None else data[competition], fit_rows=needs)
+        records += r; folds += f; coverage.update(c); calib += k; research += x; factor_rows += y
+    if needs:
+        r, k, c, fits, found = european_candidate_records(research, factor_rows, cache, cfg, keep, strengths)
+        records += r; calib += k; coverage.update(c)
+        folds.append({'candidate': 'CE2-CE4', 'walk_forward_fits': fits})
+        if extras is not None:
+            extras.update(strengths=found, fits=fits)
     if not include_holdout and any(r['phase'] == 'holdout' for r in records):
         raise ValueError('Locked European holdout rows leaked into an unlocked run')
     if include_holdout and any(r['phase'] != 'holdout' for r in records):
         raise ValueError('A European holdout run scored non-holdout matches')
     return records, folds, coverage, calib
+
+
+def european_candidate_records(research, factor_rows, cache, cfg, keep, strengths=None):
+    """Records and 1X2 rows of CE2-CE4 (european_candidates.build) for every scored CE forecast."""
+    import european_candidates as ec
+    e = cfg['european']
+    if strengths is None:
+        if cache is None or not any(r['scored'] for r in research):
+            strengths = {}
+        else:
+            keys = {r['fixture']: r for r in factor_rows}
+            keys.update({r['fixture']: r for r in research})
+            fixtures = pd.DataFrame([{'competition': r['competition'], 'Date': r['date'], 'HomeTeam': r['fixture'].split('|')[2],
+                                      'AwayTeam': r['fixture'].split('|')[3], 'origin': r['origin']} for r in keys.values()],
+                                    index=list(keys))
+            strengths = ec.domestic_strengths(cache, cfg, fixtures)
+    out, fits = ec.build(research, factor_rows, strengths, fold_windows(e, pd.Timestamp(e['end_exclusive'])),
+                         cfg['leagues'], keep)
+    records, calib, coverage = [], [], Counter()
+    for cand, rows in sorted(out.items()):
+        for r, grid, extra in rows:
+            identity = r['identity']
+            try:
+                matrix = rb.matrix_value(grid)
+            except ValueError as exc:
+                coverage[f"{identity['league']}:{cand}:{exc}"] += 1
+                continue
+            hg, ag = r['home_goals'], r['away_goals']
+            records.extend(rb.score_fixture(identity, {cand: matrix}, hg, ag))
+            h, a = np.indices(matrix.shape)
+            calib.append({'phase': identity['phase'], 'league': identity['league'], 'stage_group': identity['stage_group'],
+                          'fixture_key': identity['fixture_key'], 'candidate': cand,
+                          'probs': [float(matrix[h > a].sum()), float(matrix[h == a].sum()), float(matrix[h < a].sum())],
+                          'outcome': 0 if hg > ag else 1 if hg == ag else 2, 'domestic_used': bool(extra['domestic_used'])})
+            coverage[f"{identity['league']}:{identity['phase']}:{cand}:scored"] += 1
+            if extra['domestic_used']:
+                coverage[f"{identity['league']}:{identity['phase']}:{cand}:domestic_used"] += 1
+    return records, calib, coverage, fits, strengths
 
 
 def week_mean(scores, samples=2000, seed=136):
@@ -1614,13 +1700,12 @@ def european_summary(records, calib, coverage, cfg, metadata):
     scores['stage_group'] = scores.fixture_key.map(stages)
     rule = cfg['calibration_tolerance']
     periods = {}
-    for name in sorted(scores.phase.unique()) if not scores.empty else []:
-        part = scores.loc[scores.phase == name]
-        rows = [r for r in calib if r['phase'] == name]
 
-        def table(frame):
-            return {group: week_mean(frame.loc[frame.group == group]) for group in GROUPS}
-        periods[name] = {
+    def table(frame):
+        return {group: week_mean(frame.loc[frame.group == group]) for group in GROUPS}
+
+    def block(part, rows):
+        return {
             'overall': table(part),
             'by_competition': {c: table(p) for c, p in part.groupby('league')},
             'by_stage': {g: table(p) for g, p in part.groupby('stage_group')},
@@ -1629,6 +1714,13 @@ def european_summary(records, calib, coverage, cfg, metadata):
                 'overall': calibration_check(rows, rule),
                 **{c: calibration_check([r for r in rows if r['league'] == c], rule) for c in sorted({r['league'] for r in rows})}},
         }
+    for name in sorted(scores.phase.unique()) if not scores.empty else []:
+        part = scores.loc[scores.phase == name]
+        rows = [r for r in calib if r['phase'] == name]
+        # CE's block keeps its shape; each candidate also gets its own block (never mixed across candidates).
+        periods[name] = {**block(part.loc[part.candidate == 'CE'], [r for r in rows if r['candidate'] == 'CE']),
+                         'by_candidate': {c: block(part.loc[part.candidate == c], [r for r in rows if r['candidate'] == c])
+                                          for c in sorted(part.candidate.unique())}}
     return {'version': VERSION, 'european_version': cfg['european']['version'], 'candidates': EUROPEAN_CANDIDATES,
             'config': cfg['european'], **metadata, 'coverage': dict(coverage), 'periods': periods,
             'calibration_1x2': calibration(calib),
@@ -1685,8 +1777,9 @@ def european_main(args, cfg, commit):
         setup = european_setup_fingerprint(cfg, args.cache)
         declaration = validate_declaration(args.declaration, cfg, setup, ledger, EUROPEAN_CANDIDATES)
         keep = {declaration['candidate'], declaration['baseline']}
+    extras = {}
     records, folds, coverage, calib = european(args.cache, cfg, include_holdout=declaration is not None, keep=keep,
-                                               competitions=args.leagues)
+                                               competitions=args.leagues, extras=extras)
     metadata = {'mode': 'european_holdout' if declaration else 'european', 'source_commit': commit, 'folds': folds,
                 'config_sha256': hashlib.sha256(json.dumps(cfg, sort_keys=True).encode()).hexdigest()}
     summary = european_summary(records, calib, coverage, cfg, metadata)
@@ -1709,8 +1802,20 @@ def european_main(args, cfg, commit):
         form, summary['domestic_form'] = european_domestic_form(args.cache, cfg, fixtures)
         form.to_csv(args.output / 'domestic_form.csv', index=False)
         pd.DataFrame([{k: r[k] for k in ('phase', 'league', 'stage_group', 'fixture_key', 'candidate', 'outcome')}
-                      | dict(zip(('p_home', 'p_draw', 'p_away'), r['probs'])) for r in calib]
-                     ).to_csv(args.output / 'forecasts_1x2.csv', index=False)
+                      | dict(zip(('p_home', 'p_draw', 'p_away'), r['probs'])) | {'domestic_used': r.get('domestic_used', False)}
+                      for r in calib]).to_csv(args.output / 'forecasts_1x2.csv', index=False)
+        strength_rows = []
+        for key, sides in sorted((extras.get('strengths') or {}).items()):
+            row = {'fixture_key': key}
+            for side in ('home', 'away'):
+                st = sides.get(side) or {}
+                row.update({f'{side}_league': st.get('league'), f'{side}_domestic_matches': st.get('domestic_matches'),
+                            f'{side}_att_goals': (st.get('goals') or (None, None))[0],
+                            f'{side}_def_goals': (st.get('goals') or (None, None))[1],
+                            f'{side}_att_xg': (st.get('xg') or (None, None))[0], f'{side}_def_xg': (st.get('xg') or (None, None))[1],
+                            f'{side}_used_xg': st.get('used_xg')})
+            strength_rows.append(row)
+        pd.DataFrame(strength_rows).to_csv(args.output / 'domestic_strengths.csv', index=False)
     hb.write_json(args.output / 'results.json', summary)
     scores = fixture_scores(records, cfg['draw_sensitive_lines'])
     scores.to_csv(args.output / 'fixture_scores.csv', index=False)
