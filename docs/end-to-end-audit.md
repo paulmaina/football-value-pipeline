@@ -208,7 +208,7 @@ those archives stay.
 |---|---|---|---|
 | price-checks.yml | disabled (`vars.PRICE_CHECKS_ENABLED`); v27 | 10/10 skipped | CHECK FIRST |
 | audit-europa-access.yml, europa-production-check.yml | trigger only on branch `audit/europa-league-access` or dispatch; 0 runs in 14 days | run history | SAFE to remove if the branch is gone |
-| card-bookings-research.yml | checks out `research/card-bookings`; runs `card_bookings.py`, which is not on main | 5 runs | KEEP while that research runs |
+| card-bookings-research.yml | checks out `research/card-bookings`; runs `card_bookings.py`, which is not on main | 5 runs | RETIRED 2026-11-11: collection complete (658/658); PR #96 closed, cached events and study artifacts deleted |
 | pipeline-self-test.yml | push on `**` → 91 of 128 push runs cancelled | run history | KEEP; consider `paths-ignore` for generated outputs |
 
 Secrets referenced: THE_ODDS_API_KEY(+_FALLBACK_1/_2), FOOTBALL_DATA_API_KEY,
