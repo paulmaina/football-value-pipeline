@@ -50,9 +50,11 @@ candidate must beat M by more than that gap before it counts as beating the
 market. Pinnacle's average margin is reported so expected-return work can
 build synthetic Pinnacle-like prices from Bet365 probabilities.
 
-European mode (--mode european) scores the cached UCL and UEL results as results-only
-test matches (european_results.py; periods, the European holdout and its own ledger in
-cfg['european']). Its one candidate so far is CE, the research model exactly as live runs
+European mode (--mode european) scores the cached UCL and UEL results, plus the older
+backfilled seasons (european_backfill.py; harness only), as results-only test matches
+(european_results.py; periods, the European holdout, its own ledger and its 250-fixture
+sample minimum in cfg['european'] and benchmark_promotion_rules.json). Each competition's
+development starts where its 250-match warm-up ends. Its one candidate so far is CE, the research model as live runs
 it for UCL and UEL: walk-forward folds on the competition's own results, no odds and no
 domestic results. There are no historical European prices, so there is no market
 reference and no market bar. The European holdout (UCL, 21 Jan 2025 - 12 Oct 2026) is
@@ -122,8 +124,11 @@ CALIBRATION_MIN_BIN = 30  # diagnostics' smallest reported band; the release rul
 PROMOTION_RULES = Path(__file__).with_name('benchmark_promotion_rules.json')
 
 
-def promotion_minimums() -> dict:
-    gates = json.loads(PROMOTION_RULES.read_text(encoding='utf-8'))['promotion_review_gates']
+def promotion_minimums(scope='domestic') -> dict:
+    """The holdout sample minimum: the domestic release gate, or the European holdout's own minimum
+    (european_holdout_review_gates, decided 11 Nov 2026 before any European holdout scoring)."""
+    rules = json.loads(PROMOTION_RULES.read_text(encoding='utf-8'))
+    gates = rules['promotion_review_gates' if scope == 'domestic' else 'european_holdout_review_gates']
     return {'fixtures': int(gates['minimum_distinct_paired_fixtures']), 'weeks': int(gates['minimum_gameweeks'])}
 GROUPS = ('1X2', 'Over 1.5', 'AH all', 'AH draw-sensitive')
 
@@ -813,9 +818,10 @@ def validate_declaration(path, cfg, setup, ledger=LEDGER, candidates=None):
     return {**data, 'calibration_rule': rule, 'sha256': digest}
 
 
-def holdout_verdict(records, calib, declaration, gap):
+def holdout_verdict(records, calib, declaration, gap, minimum=None):
     """Apply the declaration: primary metric, draw-sensitive lines, the configured calibration
-    tolerance (calibration_check on the candidate's holdout forecasts) and the market bar."""
+    tolerance (calibration_check on the candidate's holdout forecasts) and the market bar.
+    `minimum` is the sample minimum (promotion_minimums(); the European holdout passes its own)."""
     scores = fixture_scores(records, declaration['draw_sensitive_lines'])
     hold = scores.loc[scores.phase == 'holdout']
     cand, base = declaration['candidate'], declaration['baseline']
@@ -825,7 +831,7 @@ def holdout_verdict(records, calib, declaration, gap):
                                    declaration['calibration_rule'])
     market = paired(hold.loc[hold.group == declaration['primary_metric']], 'M', cand) if cand != 'M' else None
     bar = max(0., gap.get(declaration['primary_metric'], {}).get('bet365_minus_pinnacle_log_loss', 0.))
-    minimum = promotion_minimums()
+    minimum = minimum or promotion_minimums()
     enough = bool(primary and primary['fixtures'] >= minimum['fixtures'] and primary['weeks'] >= minimum['weeks'])
     passed = bool(enough and primary and primary['clear_of_zero'] and calibrated['passes'])
     return {'candidate': cand, 'baseline': base, 'primary_metric': declaration['primary_metric'],
@@ -1355,12 +1361,17 @@ EUROPEAN_CANDIDATES = {
 EUROPEAN_SETUP_FILES = ('evaluation_harness.py', 'european_results.py', 'research_backtest.py', 'team_research.py',
                         'score_probability.py', 'football_value_pipeline_v2_standalone.py', 'europa_training.py',
                         'ucl_training.py', 'match_scores.py', 'scripts/europa_research.py', 'ah_close_backtest.py',
-                        'asian_handicap.py', 'evaluation_harness_config.json', 'docs/audits/europa-team-aliases.json')
+                        'asian_handicap.py', 'evaluation_harness_config.json', 'docs/audits/europa-team-aliases.json',
+                        'european_backfill.py', 'docs/audits/european-backfill-aliases.json',
+                        'docs/audits/european-domestic-aliases.json',
+                        'benchmark_promotion_rules.json')
 
 
 def european_phase(date, competition, cfg) -> str:
     e = cfg['european']
     date = pd.Timestamp(date)
+    if date < pd.Timestamp(e.get('development_start', {}).get(competition, e['test_start'])):
+        return 'warm_up'
     if date >= pd.Timestamp(e['holdout_start']):
         locked = competition in e['holdout_competitions'] and date < pd.Timestamp(e['holdout_end_exclusive'])
         return 'holdout' if locked else 'retrospective'
@@ -1397,7 +1408,7 @@ def evaluate_european(competition, cache, cfg, include_holdout=False, keep=None,
     e = cfg['european']
     end = pd.Timestamp(e['end_exclusive'])
     if data is None:
-        data = er.load(cache, competition, end)
+        data = er.load_with_backfill(cache, competition, end)
     data = data.loc[data.Date < end].sort_values('Date', kind='stable').reset_index(drop=True)
     profile = cfg['production_v2']
     history = european_training_rows(data, competition, cfg, include_holdout)
@@ -1410,6 +1421,9 @@ def evaluate_european(competition, cache, cfg, include_holdout=False, keep=None,
         model = None
         for _, row in test.iterrows():
             name = european_phase(row.Date, competition, cfg)
+            if name == 'warm_up':
+                coverage[competition + ':warm_up'] += 1  # training only, never scored
+                continue
             if name == 'holdout' and not include_holdout:
                 coverage[competition + ':locked_holdout'] += 1
                 continue
@@ -1459,6 +1473,56 @@ def evaluate_european(competition, cache, cfg, include_holdout=False, keep=None,
     return records, folds, coverage, calib
 
 
+def check_development_start(data, competition, cfg):
+    """Each competition's development start is where its 250-match warm-up ends: the first fold origin with
+    at least min_train earlier matches of that competition that has matches to score. Reads dates only."""
+    e = cfg['european']
+    dates = pd.Series(sorted(pd.to_datetime(data.Date)))
+    for origin, stop in fold_windows(e, pd.Timestamp(e['end_exclusive'])):
+        if int((dates < origin).sum()) >= e['min_train'] and bool(((dates >= origin) & (dates < stop)).any()):
+            configured = pd.Timestamp(e['development_start'][competition])
+            if origin != configured:
+                raise ValueError(f'{competition} warm-up ends at {origin.date()}, config says {configured.date()}')
+            return origin
+    raise ValueError(f"{competition} never reaches {e['min_train']} training matches")
+
+
+def european_holdout_reach(cache, cfg):
+    """How many European holdout fixtures a declared run would score, by identity only (dates and team
+    names; no score is read). A declared run trains on every result before the fold origin, holdout ones
+    included, so a fixture is scored when its fold has at least min_train earlier matches and both teams have
+    an earlier match in the competition before the origin. (A fold whose Dixon-Coles grid is invalid would
+    still give no forecast; that needs the results, so it is not checked.)"""
+    import european_results as er
+    e = cfg['european']
+    end = pd.Timestamp(e['end_exclusive'])
+    out = {}
+    for competition in e['holdout_competitions']:
+        data = er.load_with_backfill(cache, competition, end)[['Date', 'HomeTeam', 'AwayTeam']]
+        hold = data.loc[data.Date.map(lambda d, c=competition: european_phase(d, c, cfg) == 'holdout')]
+        reasons, new_teams = Counter(), Counter()
+        for origin, stop in fold_windows(e, end):
+            test = hold.loc[(hold.Date >= origin) & (hold.Date < stop)]
+            if test.empty:
+                continue
+            train = data.loc[data.Date < origin]
+            teams = set(train.HomeTeam) | set(train.AwayTeam)
+            for r in test.itertuples(index=False):
+                if len(train) < e['min_train']:
+                    reasons['insufficient training'] += 1
+                elif r.HomeTeam not in teams or r.AwayTeam not in teams:
+                    reasons['team without earlier match'] += 1
+                    new_teams.update(t for t in (r.HomeTeam, r.AwayTeam) if t not in teams)
+                else:
+                    reasons['scored'] += 1
+        out[competition] = {'fixtures': int(len(hold)), 'weeks': int(hold.Date.dt.strftime('%G-%V').nunique()),
+                            'declared_run_would_score': int(reasons['scored']),
+                            'left_out': {k: int(v) for k, v in reasons.items() if k != 'scored'},
+                            'teams_without_earlier_match': dict(sorted(new_teams.items())),
+                            'note': 'Identity only: dates and team names, no score read.'}
+    return out
+
+
 def european(cache, cfg, *, include_holdout=False, keep=None, competitions=None, data=None):
     """Every European competition. A holdout run covers only the holdout competitions."""
     e = cfg['european']
@@ -1492,10 +1556,15 @@ def week_mean(scores, samples=2000, seed=136):
 def european_setup_fingerprint(cfg, cache, root=Path(__file__).parent) -> dict:
     """Hash of everything that can change a European score: code, config and the cached European results."""
     import european_results as er
+    import european_backfill as eb
     parts = {name: file_sha256(root / name) for name in EUROPEAN_SETUP_FILES}
     for path in er.ucl_files(cache):
         parts['data/' + path.name] = file_sha256(path)
     parts['data/europa/training.json'] = file_sha256(er.europa_snapshot(cache))
+    for path in sorted(p for p in eb.folder(cache).rglob('*') if p.is_file()):
+        parts['data/europa/backfill/' + path.relative_to(eb.folder(cache)).as_posix()] = file_sha256(path)
+    for path in sorted((Path(cache) / cfg['european']['domestic_form']['backfill_folder']).glob('*')):
+        parts['data/domestic_backfill/' + path.name] = file_sha256(path)
     digest = hashlib.sha256(json.dumps({'parts': parts, 'config': cfg}, sort_keys=True).encode()).hexdigest()
     return {'sha256': digest, 'parts': parts}
 
@@ -1506,13 +1575,22 @@ def european_domestic_form(cache, cfg, fixtures):
     the domestic histories are holdout-free (training_rows), as in every locked run."""
     import european_results as er
     load_cfg = {**cfg, 'test_end_exclusive': cfg['end_exclusive']}
+    rule = cfg['european']['domestic_form']
     histories = {}
     for league in cfg['leagues']:
         data, _, _ = hb.load_history(Path(cache), league, load_cfg)
+        # Older seasons (2015/16-2020/21) for European domestic-form coverage only: a separate folder that the
+        # domestic harness never reads. They end before the domestic holdout, so training_rows keeps them all.
+        old, _ = er.load_domestic_backfill(Path(cache) / rule['backfill_folder'], hb.CODES[league],
+                                           rule['backfill_seasons'])
+        if not old.empty and old.Date.max() >= data.Date.min():
+            raise ValueError(f'{league} domestic backfill overlaps the cached seasons')
+        data = pd.concat([old, data], ignore_index=True, sort=False)
         frame = training_rows(data, league, cfg, False)[['Date', 'HomeTeam', 'AwayTeam']]
         histories[league] = (frame, set(frame.HomeTeam) | set(frame.AwayTeam))
-    rule = cfg['european']['domestic_form']
-    flags, teams = er.domestic_form_coverage(fixtures, histories, rule['min_matches'], rule['days'])
+    import european_backfill as eb
+    flags, teams = er.domestic_form_coverage(fixtures, histories, rule['min_matches'], rule['days'],
+                                             extra=eb.load_domestic_aliases())
     table = pd.concat([fixtures[['competition', 'phase', 'stage_group', 'Date', 'HomeTeam', 'AwayTeam']], flags], axis=1)
     summary = {}
     for (competition, name), part in table.groupby(['competition', 'phase']):
@@ -1522,7 +1600,8 @@ def european_domestic_form(cache, cfg, fixtures):
     return table, {'rule': rule, 'by_period': summary, 'teams': teams,
                    'note': ('Domestic form = at least min_matches league matches in the 8 football-data files within the '
                             'days before the fixture (earlier days only), team names resolved by the reviewed research '
-                            'resolver (team_research.history_team; no fuzzy matching). Domestic holdout results (16 Jan - '
+                            'resolver (team_research.history_team; no fuzzy matching), over the cached seasons and the '
+                            'older domestic files (2015/16-2020/21, European coverage only). Domestic holdout results (16 Jan - '
                             '10 Oct 2026, Eredivisie, Primeira Liga, Super Lig) are left out, so fixtures then involving '
                             'those clubs count as without form. European holdout fixtures are counted by identity only.')}
 
@@ -1595,6 +1674,9 @@ def european_main(args, cfg, commit):
     e = cfg['european']
     declaration = setup = keep = None
     ledger = european_ledger(cfg)
+    for competition in e['competitions']:  # dates only: the configured development start is where the warm-up ends
+        check_development_start(er.load_with_backfill(args.cache, competition, pd.Timestamp(e['end_exclusive']))[['Date']],
+                                competition, cfg)
     if args.declaration:
         if args.leagues:
             raise ValueError('A European holdout run always covers every holdout competition')
@@ -1607,16 +1689,18 @@ def european_main(args, cfg, commit):
                 'config_sha256': hashlib.sha256(json.dumps(cfg, sort_keys=True).encode()).hexdigest()}
     summary = european_summary(records, calib, coverage, cfg, metadata)
     if declaration is not None:
-        verdict = holdout_verdict(records, calib, declaration, {})
+        verdict = holdout_verdict(records, calib, declaration, {}, minimum=promotion_minimums('european'))
         summary.update(declaration=declaration, setup=setup, holdout_verdict=verdict)
         fixtures = len({r['fixture_key'] for r in records if r['phase'] == 'holdout'})
         record_holdout(declaration, setup, commit, fixtures, verdict, ledger)
     else:
         end = pd.Timestamp(e['end_exclusive'])
         summary['inventory'] = er.inventory(args.cache, end)
+        summary['holdout_reach'] = european_holdout_reach(args.cache, cfg)
+        summary['sample_minimum'] = promotion_minimums('european')
         frames = []
         for competition in args.leagues or e['competitions']:
-            data = er.load(args.cache, competition, end)[['Date', 'HomeTeam', 'AwayTeam', 'stage_group']]
+            data = er.load_with_backfill(args.cache, competition, end)[['Date', 'HomeTeam', 'AwayTeam', 'stage_group']]
             frames.append(data.assign(competition=competition,
                                       phase=data.Date.map(lambda d, c=competition: european_phase(d, c, cfg))))
         fixtures = pd.concat(frames, ignore_index=True)

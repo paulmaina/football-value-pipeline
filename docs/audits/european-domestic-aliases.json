@@ -1,0 +1,214 @@
+{
+ "description": "Reviewed European -> domestic aliases for the European domestic-form coverage only (european_results.domestic_identities, after the research resolver). Each is confirmed by fixture evidence: every domestic fixture of the club, in a source that spells it as the European files do, matches football-data.co.uk on side, date within a day and score. Never fuzzy. Not read by the live pipeline.",
+ "aliases": {
+  "Bundesliga": {
+   "frankfurt": "Ein Frankfurt"
+  },
+  "Eredivisie": {
+   "n.e.c.": "Nijmegen"
+  },
+  "LaLiga": {
+   "Real Betis Balompié": "Betis",
+   "Real Sociedad de Fútbol": "Sociedad"
+  },
+  "SerieA": {
+   "Bologna FC 1909": "Bologna",
+   "SS Lazio": "Lazio",
+   "SSC Napoli": "Napoli"
+  }
+ },
+ "evidence": {
+  "SSC Napoli": {
+   "league": "SerieA",
+   "sources": [
+    {
+     "source": "OpenFootball football.json 2023/24 it.1",
+     "spelled": "SSC Napoli",
+     "domestic": "Napoli",
+     "fixtures_agreeing": 38
+    },
+    {
+     "source": "OpenFootball football.json 2024/25 it.1",
+     "spelled": "SSC Napoli",
+     "domestic": "Napoli",
+     "fixtures_agreeing": 37
+    },
+    {
+     "source": "Fixture Download serie-a 2024/25",
+     "spelled": null,
+     "note": "no team in this source is spelled as the European files spell the club"
+    }
+   ],
+   "alias": "Napoli",
+   "result": "confirmed by fixture evidence"
+  },
+  "SS Lazio": {
+   "league": "SerieA",
+   "sources": [
+    {
+     "source": "OpenFootball football.json 2023/24 it.1",
+     "spelled": "SS Lazio",
+     "domestic": "Lazio",
+     "fixtures_agreeing": 38
+    },
+    {
+     "source": "OpenFootball football.json 2024/25 it.1",
+     "spelled": "SS Lazio",
+     "domestic": "Lazio",
+     "fixtures_agreeing": 37
+    },
+    {
+     "source": "Fixture Download serie-a 2024/25",
+     "spelled": null,
+     "note": "no team in this source is spelled as the European files spell the club"
+    }
+   ],
+   "alias": "Lazio",
+   "result": "confirmed by fixture evidence"
+  },
+  "Bologna FC 1909": {
+   "league": "SerieA",
+   "sources": [
+    {
+     "source": "OpenFootball football.json 2023/24 it.1",
+     "spelled": "Bologna FC 1909",
+     "domestic": "Bologna",
+     "fixtures_agreeing": 38
+    },
+    {
+     "source": "OpenFootball football.json 2024/25 it.1",
+     "spelled": "Bologna FC 1909",
+     "domestic": "Bologna",
+     "fixtures_agreeing": 37
+    },
+    {
+     "source": "Fixture Download serie-a 2024/25",
+     "spelled": null,
+     "note": "no team in this source is spelled as the European files spell the club"
+    }
+   ],
+   "alias": "Bologna",
+   "result": "confirmed by fixture evidence"
+  },
+  "Galatasaray SK": {
+   "league": "SuperLig",
+   "sources": [
+    {
+     "source": "Fixture Download super-lig 2024/25",
+     "spelled": null,
+     "note": "no team in this source is spelled as the European files spell the club"
+    }
+   ],
+   "alias": null,
+   "result": "not added: no source spells the club this way in domestic fixtures"
+  },
+  "Fenerbahçe SK": {
+   "league": "SuperLig",
+   "sources": [
+    {
+     "source": "Fixture Download super-lig 2024/25",
+     "spelled": null,
+     "note": "no team in this source is spelled as the European files spell the club"
+    }
+   ],
+   "alias": null,
+   "result": "not added: no source spells the club this way in domestic fixtures"
+  },
+  "Real Sociedad de Fútbol": {
+   "league": "LaLiga",
+   "sources": [
+    {
+     "source": "OpenFootball football.json 2023/24 es.1",
+     "spelled": "Real Sociedad de Fútbol",
+     "domestic": "Sociedad",
+     "fixtures_agreeing": 38
+    },
+    {
+     "source": "OpenFootball football.json 2024/25 es.1",
+     "spelled": "Real Sociedad de Fútbol",
+     "domestic": "Sociedad",
+     "fixtures_agreeing": 37
+    },
+    {
+     "source": "Fixture Download la-liga 2024/25",
+     "spelled": null,
+     "note": "no team in this source is spelled as the European files spell the club"
+    }
+   ],
+   "alias": "Sociedad",
+   "result": "confirmed by fixture evidence"
+  },
+  "Real Betis Balompié": {
+   "league": "LaLiga",
+   "sources": [
+    {
+     "source": "OpenFootball football.json 2023/24 es.1",
+     "spelled": "Real Betis Balompié",
+     "domestic": "Betis",
+     "fixtures_agreeing": 38
+    },
+    {
+     "source": "OpenFootball football.json 2024/25 es.1",
+     "spelled": "Real Betis Balompié",
+     "domestic": "Betis",
+     "fixtures_agreeing": 37
+    },
+    {
+     "source": "Fixture Download la-liga 2024/25",
+     "spelled": null,
+     "note": "no team in this source is spelled as the European files spell the club"
+    }
+   ],
+   "alias": "Betis",
+   "result": "confirmed by fixture evidence"
+  },
+  "frankfurt": {
+   "league": "Bundesliga",
+   "sources": [
+    {
+     "source": "OpenFootball football.json 2023/24 de.1",
+     "spelled": "Eintracht Frankfurt",
+     "domestic": "Ein Frankfurt",
+     "fixtures_agreeing": 34
+    },
+    {
+     "source": "OpenFootball football.json 2024/25 de.1",
+     "spelled": "Eintracht Frankfurt",
+     "domestic": "Ein Frankfurt",
+     "fixtures_agreeing": 34
+    },
+    {
+     "source": "Fixture Download bundesliga 2024/25",
+     "spelled": "Eintracht Frankfurt",
+     "domestic": "Ein Frankfurt",
+     "fixtures_agreeing": 34
+    }
+   ],
+   "alias": "Ein Frankfurt",
+   "result": "confirmed by fixture evidence"
+  },
+  "n.e.c.": {
+   "league": "Eredivisie",
+   "sources": [
+    {
+     "source": "OpenFootball football.json 2023/24 nl.1",
+     "spelled": null,
+     "note": "no team in this source is spelled as the European files spell the club"
+    },
+    {
+     "source": "OpenFootball football.json 2024/25 nl.1",
+     "spelled": null,
+     "note": "no team in this source is spelled as the European files spell the club"
+    },
+    {
+     "source": "Fixture Download eredivisie 2024/25",
+     "spelled": "N.E.C. Nijmegen",
+     "domestic": "Nijmegen",
+     "fixtures_agreeing": 34
+    }
+   ],
+   "alias": "Nijmegen",
+   "result": "confirmed by fixture evidence"
+  }
+ }
+}
