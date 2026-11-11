@@ -691,16 +691,27 @@ def calibration_slope(p, y) -> float:
     return float(w[1])
 
 
+def band_z_threshold(alpha, bands) -> float:
+    """Two-sided normal quantile for alpha / bands (Bonferroni over the bands checked): about 3.02 for
+    alpha 0.05 and 20 bands."""
+    from statistics import NormalDist
+    return float(NormalDist().inv_cdf(1 - alpha / (2 * max(1, bands))))
+
+
 def calibration_check(rows, rule) -> dict:
     """The configured calibration tolerance (cfg['calibration_tolerance']) on one candidate's 1X2 forecasts
     in one period: the logistic calibration slope of each named outcome inside [slope_min, slope_max], and
-    no outcome band (home, draw and away; width band_width) with at least band_min_matches forecasts more
-    than band_max_deviation from its observed rate. Fails when there are no forecasts."""
+    no failing outcome band (home, draw and away; width band_width; at least band_min_matches forecasts).
+
+    v1 (no band_alpha in the rule): a band fails when it is more than band_max_deviation from its observed
+    rate. v2 (band_alpha set): it fails only when it is more than band_max_deviation away AND the gap is
+    statistically clear, |gap| / sqrt(p(1 - p) / n) above band_z_threshold(band_alpha, bands checked), with
+    p the band's mean forecast. Fails when there are no forecasts."""
     rows = list(rows)
     out = {'rule': rule['name'], 'forecasts': len(rows)}
     if not rows:
-        return {**out, 'slopes': {}, 'slopes_pass': False, 'bands_checked': 0, 'failing_bands': [],
-                'worst_band': None, 'bands_pass': False, 'passes': False}
+        return {**out, 'slopes': {}, 'slopes_pass': False, 'bands_checked': 0, 'band_z_threshold': None,
+                'failing_bands': [], 'worst_band': None, 'bands_pass': False, 'passes': False}
     probs = np.array([r['probs'] for r in rows], dtype=float)
     outcomes = np.array([r['outcome'] for r in rows])
     names = ('home', 'draw', 'away')
@@ -714,14 +725,19 @@ def calibration_check(rows, rule) -> dict:
         for b in np.unique(index):
             m = index == b
             if m.sum() >= rule['band_min_matches']:
-                deviation = float(y[m].mean() - p[m].mean())
-                bands.append({'outcome': outcome, 'band_lower': b / nbins, 'n': int(m.sum()),
-                              'mean_forecast': float(p[m].mean()), 'observed_rate': float(y[m].mean()),
-                              'observed_minus_forecast': deviation})
+                n, mean = int(m.sum()), float(p[m].mean())
+                deviation = float(y[m].mean() - mean)
+                se = float(np.sqrt(mean * (1 - mean) / n))
+                bands.append({'outcome': outcome, 'band_lower': b / nbins, 'n': n,
+                              'mean_forecast': mean, 'observed_rate': float(y[m].mean()),
+                              'observed_minus_forecast': deviation,
+                              'z': abs(deviation) / se if se > 0 else float('inf')})
     worst = max(bands, key=lambda b: abs(b['observed_minus_forecast'])) if bands else None
-    failing = [b for b in bands if abs(b['observed_minus_forecast']) > rule['band_max_deviation']]
+    z_bar = band_z_threshold(rule['band_alpha'], len(bands)) if 'band_alpha' in rule else None
+    failing = [b for b in bands if abs(b['observed_minus_forecast']) > rule['band_max_deviation']
+               and (z_bar is None or b['z'] > z_bar)]
     return {**out, 'slopes': slopes, 'slopes_pass': bool(slopes_pass), 'bands_checked': len(bands),
-            'failing_bands': failing, 'worst_band': worst, 'bands_pass': not failing,
+            'band_z_threshold': z_bar, 'failing_bands': failing, 'worst_band': worst, 'bands_pass': not failing,
             'passes': bool(slopes_pass and not failing)}
 
 
