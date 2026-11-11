@@ -139,7 +139,7 @@ Historical data in `.football_cache` (football-data.co.uk, 8 domestic leagues, 2
        | C2 | 1.12 / 1.19 (fail); away 0.5–0.6 (576, 54.4% / 60.2%) | 1.22 / 1.27 (fail); 3 bands |
        | C3 | 1.16 / 1.22 (fail); home 0.8+, away 0.5–0.6 | 1.23 / 1.27 (fail); 4 bands |
        | C5 | 1.02 / 1.05 (pass); home below 0.1 (108, 7.1% / 13.0%) | 1.07 / 1.08 (pass); away 0.6–0.7 (62, 63.6% / 58.1%) |
-       | C6 | 1.02 / 1.05 (pass); home below 0.1 (113, 7.1% / 13.3%), home 0.8+ (172, 83.8% / 89.0%) | 1.09 / 1.10 (pass); home 0.6–0.7 (142, 64.5% / 71.1%) |
+       | C6 | 1.02 / 1.05 (pass); home below 0.1 (113, 7.1% / 13.3%), home 0.8+ (172, 83.8% / 89.0%) | 1.093 / 1.097 (pass, near the 1.10 limit); home 0.6–0.7 (142, 64.5% / 71.1%) |
 
        C5 and C6 pass the slope part in both periods and fail on one or two bands; sharpening makes very unlikely home wins too unlikely (both, development).
      - Validation, secondary (already inspected; 1,304 fixtures, 22 weeks): C − C6 AH all +0.00189 (−0.00008 to +0.00374); draw-sensitive +0.00281 (+0.00015 to +0.00555); 1X2 +0.00400 (+0.00001 to +0.00814); Over 1.5 +0.00025 (−0.00008 to +0.00057). C5 − C6: AH all +0.00036 (−0.00038 to +0.00108), Over 1.5 −0.00012 (−0.00025 to +0.00001). Draws: C6 forecast 25.2%, observed 26.4%.
