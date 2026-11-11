@@ -1,6 +1,6 @@
 {
   "source": {
-    "run_commit": "defd49f166c9ce67c234032b650f9ee726c35715",
+    "run_commit": "be9adb33b99ff1fe10ca4e0c02dca813189969fe",
     "config_sha256": "7ab5f367fe146af089997912bfb912667df2873b82be8cef3e1c66fd42931a10",
     "european_version": "european-results-v2"
   },
@@ -62,11 +62,11 @@
     "UCL:development:no forecast: Invalid Dixon-Coles low-score correction": 10,
     "UCL:development:team without earlier UCL match": 37,
     "UCL:locked_holdout": 288,
-    "UCL:retrospective:CE:scored": 45,
+    "UCL:retrospective:CE:scored": 46,
     "UCL:retrospective:no forecast: Invalid Dixon-Coles low-score correction": 1,
-    "UCL:retrospective:team without earlier UCL match": 8,
-    "UCL:validation:CE:scored": 100,
-    "UCL:validation:team without earlier UCL match": 8,
+    "UCL:retrospective:team without earlier UCL match": 7,
+    "UCL:validation:CE:scored": 101,
+    "UCL:validation:team without earlier UCL match": 7,
     "UCL:warm_up": 250,
     "UEL:development:CE:scored": 332,
     "UEL:development:team without earlier UEL match": 41,
@@ -79,9 +79,9 @@
   "scored_fixtures": {
     "development UCL": 822,
     "development UEL": 332,
-    "retrospective UCL": 45,
+    "retrospective UCL": 46,
     "retrospective UEL": 317,
-    "validation UCL": 100,
+    "validation UCL": 101,
     "validation UEL": 93
   },
   "periods": {
@@ -91,37 +91,37 @@
           "1X2": {
             "fixtures": 1154,
             "interval_95": [
-              0.9312258446646255,
-              1.0046915346337884
+              0.9312389404343158,
+              1.0046982683379315
             ],
-            "mean_log_loss": 0.9666897693751665,
+            "mean_log_loss": 0.9666969776137814,
             "weeks": 107
           },
           "AH all": {
             "fixtures": 1154,
             "interval_95": [
-              0.724783424244914,
-              0.7666312482265502
+              0.7247923063494492,
+              0.7666351907989999
             ],
-            "mean_log_loss": 0.7449194994224922,
+            "mean_log_loss": 0.7449248863916182,
             "weeks": 107
           },
           "AH draw-sensitive": {
             "fixtures": 1154,
             "interval_95": [
-              0.6907281954305422,
-              0.7469191370147721
+              0.6907346316230775,
+              0.7469206609878438
             ],
-            "mean_log_loss": 0.7174484019124507,
+            "mean_log_loss": 0.7174534122191936,
             "weeks": 107
           },
           "Over 1.5": {
             "fixtures": 1154,
             "interval_95": [
-              0.4950456888558331,
-              0.5626527930608233
+              0.49504723707758513,
+              0.5626610570624307
             ],
-            "mean_log_loss": 0.5290526957593736,
+            "mean_log_loss": 0.5290594034697554,
             "weeks": 107
           }
         },
@@ -130,37 +130,37 @@
             "1X2": {
               "fixtures": 822,
               "interval_95": [
-                0.9050098097830467,
-                0.9874839483031098
+                0.9050148782760873,
+                0.9874876675201694
               ],
-              "mean_log_loss": 0.9455855948562129,
+              "mean_log_loss": 0.9455957144515434,
               "weeks": 102
             },
             "AH all": {
               "fixtures": 822,
               "interval_95": [
-                0.7204363838901108,
-                0.765707103457521
+                0.720440245156293,
+                0.7657187047657851
               ],
-              "mean_log_loss": 0.7422458269618218,
+              "mean_log_loss": 0.7422533896897676,
               "weeks": 102
             },
             "AH draw-sensitive": {
               "fixtures": 822,
               "interval_95": [
-                0.675215911726397,
-                0.7335483421713294
+                0.6752285479980559,
+                0.733556403805523
               ],
-              "mean_log_loss": 0.7034143810123037,
+              "mean_log_loss": 0.7034214149465874,
               "weeks": 102
             },
             "Over 1.5": {
               "fixtures": 822,
               "interval_95": [
-                0.4581789823797466,
-                0.5343660876831813
+                0.4581911926671641,
+                0.5343683130248232
               ],
-              "mean_log_loss": 0.4924563355894582,
+              "mean_log_loss": 0.49246575249673386,
               "weeks": 102
             }
           },
@@ -208,37 +208,37 @@
             "1X2": {
               "fixtures": 847,
               "interval_95": [
-                0.9024930349687539,
-                0.9911234529212748
+                0.9024999191504249,
+                0.9911369994057225
               ],
-              "mean_log_loss": 0.9460401974392714,
+              "mean_log_loss": 0.9460495126408202,
               "weeks": 44
             },
             "AH all": {
               "fixtures": 847,
               "interval_95": [
-                0.711352127164218,
-                0.759466384819514
+                0.7113574382050933,
+                0.7594661855988878
               ],
-              "mean_log_loss": 0.7357078077080899,
+              "mean_log_loss": 0.735715199215749,
               "weeks": 44
             },
             "AH draw-sensitive": {
               "fixtures": 847,
               "interval_95": [
-                0.667662153050877,
-                0.7337776953215078
+                0.6676765395082878,
+                0.7337814939888438
               ],
-              "mean_log_loss": 0.7003767362413191,
+              "mean_log_loss": 0.7003832437856624,
               "weeks": 44
             },
             "Over 1.5": {
               "fixtures": 847,
               "interval_95": [
-                0.469995859364841,
-                0.5445369491798415
+                0.47000620617728084,
+                0.5445473442595872
               ],
-              "mean_log_loss": 0.5065583059047284,
+              "mean_log_loss": 0.5065687128846111,
               "weeks": 44
             }
           },
@@ -246,37 +246,37 @@
             "1X2": {
               "fixtures": 307,
               "interval_95": [
-                0.968092482157668,
-                1.0775391907597647
+                0.9680913606234731,
+                1.0775412910286735
               ],
-              "mean_log_loss": 1.0236610639344605,
+              "mean_log_loss": 1.0236624591515608,
               "weeks": 63
             },
             "AH all": {
               "fixtures": 307,
               "interval_95": [
-                0.7374042388892041,
-                0.8069426299788179
+                0.7374038381901307,
+                0.8069418126500482
               ],
-              "mean_log_loss": 0.7703341667908925,
+              "mean_log_loss": 0.7703340233230876,
               "weeks": 63
             },
             "AH draw-sensitive": {
               "fixtures": 307,
               "interval_95": [
-                0.7253097843588248,
-                0.8075711019541648
+                0.7253116997274984,
+                0.8075710877915883
               ],
-              "mean_log_loss": 0.7645484045946936,
+              "mean_log_loss": 0.7645492840862975,
               "weeks": 63
             },
             "Over 1.5": {
               "fixtures": 307,
               "interval_95": [
-                0.515720439247177,
-                0.6682484811931262
+                0.5157187459443534,
+                0.6682456304391602
               ],
-              "mean_log_loss": 0.5911137648371735,
+              "mean_log_loss": 0.5911102664196486,
               "weeks": 63
             }
           }
@@ -286,37 +286,37 @@
             "1X2": {
               "fixtures": 626,
               "interval_95": [
-                0.8819754708054123,
-                0.9754213236821248
+                0.8819945635622947,
+                0.9754323602713546
               ],
-              "mean_log_loss": 0.9279022134981362,
+              "mean_log_loss": 0.9279148172932029,
               "weeks": 42
             },
             "AH all": {
               "fixtures": 626,
               "interval_95": [
-                0.7095450171341652,
-                0.7593037524833205
+                0.7095527174354678,
+                0.7593300715551755
               ],
-              "mean_log_loss": 0.7332453304352462,
+              "mean_log_loss": 0.7332553314048746,
               "weeks": 42
             },
             "AH draw-sensitive": {
               "fixtures": 626,
               "interval_95": [
-                0.6550320125758512,
-                0.7193086844614581
+                0.6550353241725914,
+                0.7193155800147781
               ],
-              "mean_log_loss": 0.6859859464854376,
+              "mean_log_loss": 0.6859947514216339,
               "weeks": 42
             },
             "Over 1.5": {
               "fixtures": 626,
               "interval_95": [
-                0.43221885771201324,
-                0.5060472572067752
+                0.43224054918437727,
+                0.5060788221367966
               ],
-              "mean_log_loss": 0.4687027747469637,
+              "mean_log_loss": 0.46871685575648553,
               "weeks": 42
             }
           },
@@ -324,37 +324,37 @@
             "1X2": {
               "fixtures": 196,
               "interval_95": [
-                0.9380722506338455,
-                1.0692381882152524
+                0.9380693598581958,
+                1.069245659815888
               ],
-              "mean_log_loss": 1.0020641496019074,
+              "mean_log_loss": 1.0020663349674674,
               "weeks": 60
             },
             "AH all": {
               "fixtures": 196,
               "interval_95": [
-                0.7257375852720099,
-                0.818451997387627
+                0.7257415370494767,
+                0.8184506657698326
               ],
-              "mean_log_loss": 0.7709923107660895,
+              "mean_log_loss": 0.7709920860486603,
               "weeks": 60
             },
             "AH draw-sensitive": {
               "fixtures": 196,
               "interval_95": [
-                0.7114047716216726,
-                0.8088764970176623
+                0.7114058356269698,
+                0.8088824537450848
               ],
-              "mean_log_loss": 0.7590786667970898,
+              "mean_log_loss": 0.7590800443681226,
               "weeks": 60
             },
             "Over 1.5": {
               "fixtures": 196,
               "interval_95": [
-                0.4812208294191519,
-                0.6572479962234433
+                0.4812138133130906,
+                0.6572363702160802
               ],
-              "mean_log_loss": 0.5683223003210989,
+              "mean_log_loss": 0.5683168206569144,
               "weeks": 60
             }
           },
@@ -440,41 +440,41 @@
         "overall": {
           "home": {
             "forecasts": 1154,
-            "mean_forecast": 0.4410178956704815,
+            "mean_forecast": 0.4410150276321581,
             "observed_rate": 0.46013864818024264,
-            "calibration_slope": 0.7523372045337179
+            "calibration_slope": 0.7523216845658163
           },
           "draw": {
             "forecasts": 1154,
-            "mean_forecast": 0.21969124224930606,
+            "mean_forecast": 0.21969187144441027,
             "observed_rate": 0.2097053726169844,
-            "calibration_slope": 0.4237033004201929
+            "calibration_slope": 0.42351796685473797
           },
           "away": {
             "forecasts": 1154,
-            "mean_forecast": 0.33929086208021236,
+            "mean_forecast": 0.3392931009234315,
             "observed_rate": 0.33015597920277295,
-            "calibration_slope": 0.7649591508070948
+            "calibration_slope": 0.7649262289432861
           }
         },
         "UCL": {
           "home": {
             "forecasts": 822,
-            "mean_forecast": 0.43917364065384995,
+            "mean_forecast": 0.43916961423508466,
             "observed_rate": 0.4464720194647202,
-            "calibration_slope": 0.8259877458863065
+            "calibration_slope": 0.8259633630380927
           },
           "draw": {
             "forecasts": 822,
-            "mean_forecast": 0.21492368826370023,
+            "mean_forecast": 0.21492457158626746,
             "observed_rate": 0.20072992700729927,
-            "calibration_slope": 0.5761256446474785
+            "calibration_slope": 0.5758129592117485
           },
           "away": {
             "forecasts": 822,
-            "mean_forecast": 0.3459026710824497,
+            "mean_forecast": 0.3459058141786479,
             "observed_rate": 0.35279805352798055,
-            "calibration_slope": 0.8173326250593631
+            "calibration_slope": 0.8172844999859143
           }
         },
         "UEL": {
@@ -501,41 +501,41 @@
           "UCL group stage": {
             "home": {
               "forecasts": 626,
-              "mean_forecast": 0.43775851907265095,
+              "mean_forecast": 0.43775399094477113,
               "observed_rate": 0.4488817891373802,
-              "calibration_slope": 0.823720536150692
+              "calibration_slope": 0.8236913379708662
             },
             "draw": {
               "forecasts": 626,
-              "mean_forecast": 0.20971000024186537,
+              "mean_forecast": 0.2097108289041534,
               "observed_rate": 0.20766773162939298,
-              "calibration_slope": 0.6545921035346647
+              "calibration_slope": 0.6542457339674798
             },
             "away": {
               "forecasts": 626,
-              "mean_forecast": 0.35253148068548357,
+              "mean_forecast": 0.3525351801510753,
               "observed_rate": 0.34345047923322686,
-              "calibration_slope": 0.8229192822110635
+              "calibration_slope": 0.8228637231529963
             }
           },
           "UCL knockout": {
             "home": {
               "forecasts": 196,
-              "mean_forecast": 0.4436933657040062,
+              "mean_forecast": 0.44369094168271844,
               "observed_rate": 0.4387755102040816,
-              "calibration_slope": 0.8424122108341985
+              "calibration_slope": 0.8424250491648061
             },
             "draw": {
               "forecasts": 196,
-              "mean_forecast": 0.23157556939466262,
+              "mean_forecast": 0.23157662729546843,
               "observed_rate": 0.17857142857142858,
-              "calibration_slope": 0.06502378408250913
+              "calibration_slope": 0.06488695861594286
             },
             "away": {
               "forecasts": 196,
-              "mean_forecast": 0.3247310649013312,
+              "mean_forecast": 0.32473243102181315,
               "observed_rate": 0.3826530612244898,
-              "calibration_slope": 0.8744211812564544
+              "calibration_slope": 0.874425915615029
             }
           },
           "UEL group stage": {
@@ -590,18 +590,18 @@
           "passes": false,
           "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
           "slopes": {
-            "away": 0.8173326250593632,
-            "home": 0.8259877458863066
+            "away": 0.8172844999859145,
+            "home": 0.8259633630380928
           },
           "slopes_pass": false,
           "worst_band": {
             "band_lower": 0.8,
-            "mean_forecast": 0.8437797744853214,
+            "mean_forecast": 0.8437936871361723,
             "n": 46,
-            "observed_minus_forecast": -0.08291020926793002,
+            "observed_minus_forecast": -0.08292412191878096,
             "observed_rate": 0.7608695652173914,
             "outcome": "home",
-            "z": 1.5488299619326173
+            "z": 1.549146074032507
           }
         },
         "UEL": {
@@ -644,30 +644,30 @@
           "failing_bands": [
             {
               "band_lower": 0.0,
-              "mean_forecast": 0.05520753091081674,
+              "mean_forecast": 0.055208382645315815,
               "n": 75,
-              "observed_minus_forecast": 0.09145913575584994,
+              "observed_minus_forecast": 0.09145828402135085,
               "observed_rate": 0.14666666666666667,
               "outcome": "home",
-              "z": 3.4680899363907787
+              "z": 3.468032450160965
             }
           ],
           "forecasts": 1154,
           "passes": false,
           "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
           "slopes": {
-            "away": 0.7649591508070949,
-            "home": 0.752337204533718
+            "away": 0.7649262289432862,
+            "home": 0.7523216845658164
           },
           "slopes_pass": false,
           "worst_band": {
             "band_lower": 0.6,
-            "mean_forecast": 0.6456198044851102,
+            "mean_forecast": 0.6456207413587483,
             "n": 77,
-            "observed_minus_forecast": -0.11315227201757783,
+            "observed_minus_forecast": -0.11315320889121583,
             "observed_rate": 0.5324675324675324,
             "outcome": "away",
-            "z": 2.0757999521384316
+            "z": 2.0758183770509073
           }
         }
       }
@@ -676,78 +676,78 @@
       "log_loss": {
         "overall": {
           "1X2": {
-            "fixtures": 193,
+            "fixtures": 194,
             "interval_95": [
-              0.907537959129785,
-              1.0496407616890417
+              0.8976096014021819,
+              1.046907522425705
             ],
-            "mean_log_loss": 0.9897783048426687,
+            "mean_log_loss": 0.9845774740768791,
             "weeks": 7
           },
           "AH all": {
-            "fixtures": 193,
+            "fixtures": 194,
             "interval_95": [
-              0.7068405885761856,
-              0.8463968986834388
+              0.7040224238868382,
+              0.8462936846134559
             ],
-            "mean_log_loss": 0.778904214252117,
+            "mean_log_loss": 0.7770921744366099,
             "weeks": 7
           },
           "AH draw-sensitive": {
-            "fixtures": 193,
+            "fixtures": 194,
             "interval_95": [
-              0.6690690319333221,
-              0.7970418192367815
+              0.6625216123894007,
+              0.7964266832616708
             ],
-            "mean_log_loss": 0.7395317543977957,
+            "mean_log_loss": 0.7363932940226686,
             "weeks": 7
           },
           "Over 1.5": {
-            "fixtures": 193,
+            "fixtures": 194,
             "interval_95": [
-              0.4434917998721379,
-              0.7218372797360024
+              0.44270552011154557,
+              0.7173444076372376
             ],
-            "mean_log_loss": 0.5643300531985452,
+            "mean_log_loss": 0.5611947113522952,
             "weeks": 7
           }
         },
         "by_competition": {
           "UCL": {
             "1X2": {
-              "fixtures": 100,
+              "fixtures": 101,
               "interval_95": [
-                0.8749428399822828,
-                1.053568818320199
+                0.8655613850621763,
+                1.0500574564876255
               ],
-              "mean_log_loss": 0.9701543633786831,
+              "mean_log_loss": 0.9603589452885923,
               "weeks": 6
             },
             "AH all": {
-              "fixtures": 100,
+              "fixtures": 101,
               "interval_95": [
-                0.7136818704295361,
-                0.9001812215061861
+                0.7041716582649011,
+                0.8996264578571144
               ],
-              "mean_log_loss": 0.8031514438261346,
+              "mean_log_loss": 0.7994308205213588,
               "weeks": 6
             },
             "AH draw-sensitive": {
-              "fixtures": 100,
+              "fixtures": 101,
               "interval_95": [
-                0.6592751648159859,
-                0.8185326646312326
+                0.6501349477073463,
+                0.8134214174411722
               ],
-              "mean_log_loss": 0.737750881849851,
+              "mean_log_loss": 0.731740184421864,
               "weeks": 6
             },
             "Over 1.5": {
-              "fixtures": 100,
+              "fixtures": 101,
               "interval_95": [
-                0.4917683808027731,
-                0.6719191589750164
+                0.4890027690482201,
+                0.6655191775077275
               ],
-              "mean_log_loss": 0.5826730566875427,
+              "mean_log_loss": 0.5764691030077258,
               "weeks": 6
             }
           },
@@ -793,39 +793,39 @@
         "by_stage": {
           "league phase": {
             "1X2": {
-              "fixtures": 193,
+              "fixtures": 194,
               "interval_95": [
-                0.907537959129785,
-                1.0496407616890417
+                0.8976096014021819,
+                1.046907522425705
               ],
-              "mean_log_loss": 0.9897783048426687,
+              "mean_log_loss": 0.9845774740768791,
               "weeks": 7
             },
             "AH all": {
-              "fixtures": 193,
+              "fixtures": 194,
               "interval_95": [
-                0.7068405885761856,
-                0.8463968986834388
+                0.7040224238868382,
+                0.8462936846134559
               ],
-              "mean_log_loss": 0.778904214252117,
+              "mean_log_loss": 0.7770921744366099,
               "weeks": 7
             },
             "AH draw-sensitive": {
-              "fixtures": 193,
+              "fixtures": 194,
               "interval_95": [
-                0.6690690319333221,
-                0.7970418192367815
+                0.6625216123894007,
+                0.7964266832616708
               ],
-              "mean_log_loss": 0.7395317543977957,
+              "mean_log_loss": 0.7363932940226686,
               "weeks": 7
             },
             "Over 1.5": {
-              "fixtures": 193,
+              "fixtures": 194,
               "interval_95": [
-                0.4434917998721379,
-                0.7218372797360024
+                0.44270552011154557,
+                0.7173444076372376
               ],
-              "mean_log_loss": 0.5643300531985452,
+              "mean_log_loss": 0.5611947113522952,
               "weeks": 7
             }
           }
@@ -833,39 +833,39 @@
         "by_competition_and_stage": {
           "UCL league phase": {
             "1X2": {
-              "fixtures": 100,
+              "fixtures": 101,
               "interval_95": [
-                0.8749428399822828,
-                1.053568818320199
+                0.8655613850621763,
+                1.0500574564876255
               ],
-              "mean_log_loss": 0.9701543633786831,
+              "mean_log_loss": 0.9603589452885923,
               "weeks": 6
             },
             "AH all": {
-              "fixtures": 100,
+              "fixtures": 101,
               "interval_95": [
-                0.7136818704295361,
-                0.9001812215061861
+                0.7041716582649011,
+                0.8996264578571144
               ],
-              "mean_log_loss": 0.8031514438261346,
+              "mean_log_loss": 0.7994308205213588,
               "weeks": 6
             },
             "AH draw-sensitive": {
-              "fixtures": 100,
+              "fixtures": 101,
               "interval_95": [
-                0.6592751648159859,
-                0.8185326646312326
+                0.6501349477073463,
+                0.8134214174411722
               ],
-              "mean_log_loss": 0.737750881849851,
+              "mean_log_loss": 0.731740184421864,
               "weeks": 6
             },
             "Over 1.5": {
-              "fixtures": 100,
+              "fixtures": 101,
               "interval_95": [
-                0.4917683808027731,
-                0.6719191589750164
+                0.4890027690482201,
+                0.6655191775077275
               ],
-              "mean_log_loss": 0.5826730566875427,
+              "mean_log_loss": 0.5764691030077258,
               "weeks": 6
             }
           },
@@ -912,42 +912,42 @@
       "calibration": {
         "overall": {
           "home": {
-            "forecasts": 193,
-            "mean_forecast": 0.44836333946519424,
-            "observed_rate": 0.46632124352331605,
-            "calibration_slope": 0.6001117141738562
+            "forecasts": 194,
+            "mean_forecast": 0.4502951502555964,
+            "observed_rate": 0.4690721649484536,
+            "calibration_slope": 0.6163506980488932
           },
           "draw": {
-            "forecasts": 193,
-            "mean_forecast": 0.22327202103351237,
-            "observed_rate": 0.19170984455958548,
-            "calibration_slope": -0.030445452546251923
+            "forecasts": 194,
+            "mean_forecast": 0.22331200210506627,
+            "observed_rate": 0.19072164948453607,
+            "calibration_slope": 0.017869573336144192
           },
           "away": {
-            "forecasts": 193,
-            "mean_forecast": 0.3283646395012933,
-            "observed_rate": 0.34196891191709844,
-            "calibration_slope": 0.797486919263785
+            "forecasts": 194,
+            "mean_forecast": 0.3263928476393373,
+            "observed_rate": 0.3402061855670103,
+            "calibration_slope": 0.794960634903236
           }
         },
         "UCL": {
           "home": {
-            "forecasts": 100,
-            "mean_forecast": 0.4367144674362432,
-            "observed_rate": 0.48,
-            "calibration_slope": 0.5040304759940708
+            "forecasts": 101,
+            "mean_forecast": 0.4405404096675993,
+            "observed_rate": 0.48514851485148514,
+            "calibration_slope": 0.5306134350044346
           },
           "draw": {
-            "forecasts": 100,
-            "mean_forecast": 0.21904152135456392,
-            "observed_rate": 0.14,
-            "calibration_slope": -0.3090821296217625
+            "forecasts": 101,
+            "mean_forecast": 0.2191602028155581,
+            "observed_rate": 0.13861386138613863,
+            "calibration_slope": -0.25272496895344126
           },
           "away": {
-            "forecasts": 100,
-            "mean_forecast": 0.3442440112091926,
-            "observed_rate": 0.38,
-            "calibration_slope": 0.8679425153791039
+            "forecasts": 101,
+            "mean_forecast": 0.3402993875168426,
+            "observed_rate": 0.37623762376237624,
+            "calibration_slope": 0.8634494036084016
           }
         },
         "UEL": {
@@ -973,22 +973,22 @@
         "by_competition_and_stage": {
           "UCL league phase": {
             "home": {
-              "forecasts": 100,
-              "mean_forecast": 0.4367144674362432,
-              "observed_rate": 0.48,
-              "calibration_slope": 0.5040304759940708
+              "forecasts": 101,
+              "mean_forecast": 0.4405404096675993,
+              "observed_rate": 0.48514851485148514,
+              "calibration_slope": 0.5306134350044346
             },
             "draw": {
-              "forecasts": 100,
-              "mean_forecast": 0.21904152135456392,
-              "observed_rate": 0.14,
-              "calibration_slope": -0.3090821296217625
+              "forecasts": 101,
+              "mean_forecast": 0.2191602028155581,
+              "observed_rate": 0.13861386138613863,
+              "calibration_slope": -0.25272496895344126
             },
             "away": {
-              "forecasts": 100,
-              "mean_forecast": 0.3442440112091926,
-              "observed_rate": 0.38,
-              "calibration_slope": 0.8679425153791039
+              "forecasts": 101,
+              "mean_forecast": 0.3402993875168426,
+              "observed_rate": 0.37623762376237624,
+              "calibration_slope": 0.8634494036084016
             }
           },
           "UEL league phase": {
@@ -1019,22 +1019,22 @@
           "bands_checked": 1,
           "bands_pass": true,
           "failing_bands": [],
-          "forecasts": 100,
+          "forecasts": 101,
           "passes": false,
           "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
           "slopes": {
-            "away": 0.867942515379104,
-            "home": 0.5040304759940712
+            "away": 0.8634494036084018,
+            "home": 0.5306134350044349
           },
           "slopes_pass": false,
           "worst_band": {
             "band_lower": 0.2,
-            "mean_forecast": 0.23725131360285415,
+            "mean_forecast": 0.23510655565640642,
             "n": 54,
-            "observed_minus_forecast": -0.10762168397322452,
-            "observed_rate": 0.12962962962962962,
+            "observed_minus_forecast": -0.08695840750825828,
+            "observed_rate": 0.14814814814814814,
             "outcome": "draw",
-            "z": 1.8590951424292033
+            "z": 1.5068694175780817
           }
         },
         "UEL": {
@@ -1065,22 +1065,22 @@
           "bands_checked": 7,
           "bands_pass": true,
           "failing_bands": [],
-          "forecasts": 193,
+          "forecasts": 194,
           "passes": false,
           "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
           "slopes": {
-            "away": 0.7974869192637852,
-            "home": 0.6001117141738564
+            "away": 0.7949606349032364,
+            "home": 0.6163506980488934
           },
           "slopes_pass": false,
           "worst_band": {
             "band_lower": 0.4,
-            "mean_forecast": 0.44581618588006267,
-            "n": 34,
-            "observed_minus_forecast": 0.11300734353170205,
-            "observed_rate": 0.5588235294117647,
+            "mean_forecast": 0.44443601563562235,
+            "n": 33,
+            "observed_minus_forecast": 0.13132156012195345,
+            "observed_rate": 0.5757575757575758,
             "outcome": "home",
-            "z": 1.3256878925988227
+            "z": 1.5181732635330711
           }
         }
       }
@@ -1776,25 +1776,25 @@
     "by_period": {
       "development": {
         "UCL": {
-          "both_teams": 491,
+          "both_teams": 519,
           "by_stage": {
             "group stage": {
-              "both_teams": 306,
+              "both_teams": 332,
               "fixtures": 672
             },
             "knockout": {
-              "both_teams": 185,
+              "both_teams": 187,
               "fixtures": 197
             }
           },
           "fixtures": 869,
-          "one_team_or_more": 827
+          "one_team_or_more": 837
         },
         "UEL": {
-          "both_teams": 124,
+          "both_teams": 125,
           "by_stage": {
             "group stage": {
-              "both_teams": 38,
+              "both_teams": 39,
               "fixtures": 240
             },
             "knockout": {
@@ -1803,7 +1803,7 @@
             }
           },
           "fixtures": 373,
-          "one_team_or_more": 315
+          "one_team_or_more": 317
         }
       },
       "holdout": {
@@ -1877,25 +1877,25 @@
       },
       "warm_up": {
         "UCL": {
-          "both_teams": 102,
+          "both_teams": 126,
           "by_stage": {
             "group stage": {
-              "both_teams": 56,
+              "both_teams": 74,
               "fixtures": 192
             },
             "knockout": {
-              "both_teams": 46,
+              "both_teams": 52,
               "fixtures": 58
             }
           },
           "fixtures": 250,
-          "one_team_or_more": 217
+          "one_team_or_more": 228
         },
         "UEL": {
-          "both_teams": 43,
+          "both_teams": 46,
           "by_stage": {
             "group stage": {
-              "both_teams": 22,
+              "both_teams": 25,
               "fixtures": 191
             },
             "knockout": {
@@ -1904,7 +1904,7 @@
             }
           },
           "fixtures": 252,
-          "one_team_or_more": 176
+          "one_team_or_more": 184
         }
       }
     },
@@ -1924,8 +1924,8 @@
     },
     "teams": {
       "ambiguous_teams": [],
-      "mapped_teams": 113,
-      "teams": 245,
+      "mapped_teams": 119,
+      "teams": 240,
       "unmapped_by_appearances": [
         [
           "Club Brugge KV",
@@ -1938,10 +1938,6 @@
         [
           "rangers",
           53
-        ],
-        [
-          "Galatasaray SK",
-          40
         ],
         [
           "FC Red Bull Salzburg",
@@ -1960,6 +1956,10 @@
           36
         ],
         [
+          "PAE Olympiakos SFP",
+          34
+        ],
+        [
           "Celtic FC",
           34
         ],
@@ -1970,6 +1970,10 @@
         [
           "midtjylland",
           34
+        ],
+        [
+          "GNK Dinamo Zagreb",
+          32
         ],
         [
           "crvena zvezda",
@@ -2028,14 +2032,6 @@
           26
         ],
         [
-          "Dinamo Zagreb",
-          24
-        ],
-        [
-          "Olympiakos Piraeus",
-          24
-        ],
-        [
           "CSKA Moskva",
           24
         ],
@@ -2052,10 +2048,6 @@
           22
         ],
         [
-          "Bor. Mönchengladbach",
-          20
-        ],
-        [
           "young boys",
           20
         ],
@@ -2065,6 +2057,10 @@
         ],
         [
           "Lokomotiv Moskva",
+          18
+        ],
+        [
+          "SK Slavia Praha",
           18
         ],
         [
@@ -2080,7 +2076,7 @@
           18
         ],
         [
-          "VfL Wolfsburg",
+          "Qarabağ Ağdam FK",
           16
         ],
         [
@@ -2101,10 +2097,6 @@
         ],
         [
           "FC Basel 1893",
-          14
-        ],
-        [
-          "leicester city",
           14
         ],
         [
@@ -2132,10 +2124,6 @@
           12
         ],
         [
-          "SK Slavia Praha",
-          12
-        ],
-        [
           "rapid wien",
           12
         ],
@@ -2148,15 +2136,7 @@
           12
         ],
         [
-          "Leicester City",
-          10
-        ],
-        [
-          "PAE Olympiakos SFP",
-          10
-        ],
-        [
-          "Qarabağ Ağdam FK",
+          "PAE AEK",
           10
         ],
         [
@@ -2181,10 +2161,6 @@
         ],
         [
           "AC Sparta Praha",
-          8
-        ],
-        [
-          "GNK Dinamo Zagreb",
           8
         ],
         [
@@ -2256,23 +2232,11 @@
           6
         ],
         [
-          "Qarabağ FK",
-          6
-        ],
-        [
           "RSC Anderlecht",
           6
         ],
         [
-          "AEK Athen",
-          6
-        ],
-        [
           "KRC Genk",
-          6
-        ],
-        [
-          "Slavia Praha",
           6
         ],
         [
@@ -2281,10 +2245,6 @@
         ],
         [
           "FK Krasnodar",
-          6
-        ],
-        [
-          "İstanbul Başakşehir",
           6
         ],
         [
@@ -2396,10 +2356,6 @@
           6
         ],
         [
-          "PAE AEK",
-          4
-        ],
-        [
           "Fenerbahçe SK",
           4
         ],
@@ -2460,10 +2416,10 @@
   },
   "holdout_reach_identity_only": {
     "UCL": {
-      "declared_run_would_score": 276,
+      "declared_run_would_score": 277,
       "fixtures": 288,
       "left_out": {
-        "team without earlier match": 12
+        "team without earlier match": 11
       },
       "note": "Identity only: dates and team names, no score read.",
       "teams_without_earlier_match": {
@@ -2473,13 +2429,9 @@
         "FK Kairat": 1,
         "Fenerbahçe SK": 1,
         "LASK Linz": 1,
-        "PAE AEK": 1,
-        "PAE Olympiakos SFP": 1,
         "Paphos FC": 1,
-        "Qarabağ Ağdam FK": 1,
         "Real Betis Balompié": 1,
         "Royale Union Saint-Gilloise": 1,
-        "SK Slavia Praha": 1,
         "Sabah FK": 1,
         "Viking FK": 1
       },
