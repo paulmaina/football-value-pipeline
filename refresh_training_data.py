@@ -189,7 +189,7 @@ def apply_batch(repo, batch, clock):
 
 
 def git(repo, *args, check=True):
-    return subprocess.run(['git','-C',str(repo),*args],check=check,text=True,
+    return subprocess.run(['git','-C',str(repo),*args],check=check,text=True,stdin=subprocess.DEVNULL,
                           stdout=subprocess.PIPE,stderr=subprocess.PIPE)
 
 
