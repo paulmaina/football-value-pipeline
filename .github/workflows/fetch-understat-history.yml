@@ -4,8 +4,6 @@ name: Fetch Understat history (direct)
 # GitHub runner, and replaces the Internet Archive copies where the direct fetch
 # succeeds (scripts/fetch_understat_history.py --replace-archive). Nothing is
 # pushed to main: the files and manifest go to a separate branch for review.
-# The push trigger only lets the workflow run once from its own PR branch before
-# it reaches main (workflow_dispatch needs the file on the default branch).
 on:
   workflow_dispatch:
     inputs:
@@ -25,9 +23,6 @@ on:
         description: Branch that receives the files and manifest (never main)
         default: data/understat-direct
         type: string
-  push:
-    branches: ['research/understat-direct-fetch']
-    paths: ['.github/workflows/fetch-understat-history.yml']
 
 permissions:
   contents: write
