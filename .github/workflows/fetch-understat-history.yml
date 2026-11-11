@@ -1,0 +1,91 @@
+name: Fetch Understat history (direct)
+
+# Refetches the five leagues' Understat match xG from understat.com itself, from a
+# GitHub runner, and replaces the Internet Archive copies where the direct fetch
+# succeeds (scripts/fetch_understat_history.py --replace-archive). Nothing is
+# pushed to main: the files and manifest go to a separate branch for review.
+# The push trigger only lets the workflow run once from its own PR branch before
+# it reaches main (workflow_dispatch needs the file on the default branch).
+on:
+  workflow_dispatch:
+    inputs:
+      leagues:
+        description: Leagues (space-separated; EPL LaLiga Bundesliga SerieA Ligue1)
+        default: EPL LaLiga Bundesliga SerieA Ligue1
+        type: string
+      seasons:
+        description: First-year seasons (space-separated); empty means 2021 to the current season
+        default: ''
+        type: string
+      delay:
+        description: Minimum seconds between requests to a host
+        default: '8'
+        type: string
+      target_branch:
+        description: Branch that receives the files and manifest (never main)
+        default: data/understat-direct
+        type: string
+  push:
+    branches: ['research/understat-direct-fetch']
+    paths: ['.github/workflows/fetch-understat-history.yml']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: understat-history-fetch
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install requests
+      - name: Coverage before
+        run: |
+          python scripts/fetch_understat_history.py --coverage > "$RUNNER_TEMP/before.md"
+          { echo '### Coverage before'; cat "$RUNNER_TEMP/before.md"; } >> "$GITHUB_STEP_SUMMARY"
+      - name: Fetch from understat.com (archive copies kept where it fails)
+        env:
+          LEAGUES: ${{ inputs.leagues || 'EPL LaLiga Bundesliga SerieA Ligue1' }}
+          SEASONS: ${{ inputs.seasons }}
+          DELAY: ${{ inputs.delay || '8' }}
+        run: |
+          seasons=
+          if [ -n "$SEASONS" ]; then seasons="--seasons $SEASONS"; fi
+          python scripts/fetch_understat_history.py --leagues $LEAGUES $seasons --delay "$DELAY" \
+            --replace-archive --no-archive | tee "$RUNNER_TEMP/fetch.log"
+      - name: Coverage after
+        run: |
+          python scripts/fetch_understat_history.py --coverage > "$RUNNER_TEMP/after.md"
+          { echo '### Coverage after'; cat "$RUNNER_TEMP/after.md";
+            echo '### Fetch log'; echo '```'; cat "$RUNNER_TEMP/fetch.log"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: understat-history-${{ github.run_id }}
+          path: .football_cache/understat/
+          retention-days: 14
+      - name: Commit files and manifest to the target branch
+        env:
+          TARGET: ${{ inputs.target_branch || 'data/understat-direct' }}
+        run: |
+          case "$TARGET" in main|master|'') echo "refusing to push to '$TARGET'"; exit 1;; esac
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898333+github-actions[bot]@users.noreply.github.com'
+          git checkout -B "$TARGET"
+          git add .football_cache/understat
+          if git diff --cached --quiet; then
+            echo 'No Understat files changed; nothing to commit.' | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          git commit -m "Fetch Understat history directly from understat.com (run $GITHUB_RUN_ID)"
+          git push --force-with-lease origin "$TARGET"
+          echo "Pushed to \`$TARGET\`." >> "$GITHUB_STEP_SUMMARY"
