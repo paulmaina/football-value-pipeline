@@ -1,0 +1,10642 @@
+[
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2023-08-11 19:00:00",
+  "forecast": {
+   "d": "0.0854",
+   "l": "0.8969",
+   "w": "0.0177"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "22275",
+  "isResult": true,
+  "xG": {
+   "a": "2.40074",
+   "h": "0.311032"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2023-08-12 11:30:00",
+  "forecast": {
+   "d": "0.3363",
+   "l": "0.384",
+   "w": "0.2797"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "22276",
+  "isResult": true,
+  "xG": {
+   "a": "0.966305",
+   "h": "0.84262"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2023-08-12 14:00:00",
+  "forecast": {
+   "d": "0.3169",
+   "l": "0.3272",
+   "w": "0.3559"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "22277",
+  "isResult": true,
+  "xG": {
+   "a": "1.4834",
+   "h": "1.51025"
+  }
+ },
+ {
+  "a": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "datetime": "2023-08-12 14:00:00",
+  "forecast": {
+   "d": "0.0876",
+   "l": "0.0334",
+   "w": "0.879"
+  },
+  "goals": {
+   "a": "1",
+   "h": "4"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "22278",
+  "isResult": true,
+  "xG": {
+   "a": "1.88594",
+   "h": "4.36748"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2023-08-12 14:00:00",
+  "forecast": {
+   "d": "0.1989",
+   "l": "0.164",
+   "w": "0.6371"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "22279",
+  "isResult": true,
+  "xG": {
+   "a": "1.58144",
+   "h": "2.59001"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2023-08-12 14:00:00",
+  "forecast": {
+   "d": "0.1179",
+   "l": "0.8463",
+   "w": "0.0358"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "id": "22280",
+  "isResult": true,
+  "xG": {
+   "a": "2.27616",
+   "h": "0.422704"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2023-08-12 16:30:00",
+  "forecast": {
+   "d": "0.0665",
+   "l": "0.0348",
+   "w": "0.8987"
+  },
+  "goals": {
+   "a": "1",
+   "h": "5"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "22281",
+  "isResult": true,
+  "xG": {
+   "a": "1.486",
+   "h": "4.32208"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2023-08-13 13:00:00",
+  "forecast": {
+   "d": "0.2608",
+   "l": "0.2407",
+   "w": "0.4985"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "22282",
+  "isResult": true,
+  "xG": {
+   "a": "1.45316",
+   "h": "1.90756"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2023-08-13 15:30:00",
+  "forecast": {
+   "d": "0.2472",
+   "l": "0.2205",
+   "w": "0.5323"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "22283",
+  "isResult": true,
+  "xG": {
+   "a": "1.29994",
+   "h": "1.93258"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2023-08-14 19:00:00",
+  "forecast": {
+   "d": "0.2505",
+   "l": "0.3076",
+   "w": "0.4419"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "22284",
+  "isResult": true,
+  "xG": {
+   "a": "1.72228",
+   "h": "1.97087"
+  }
+ },
+ {
+  "a": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "datetime": "2023-08-18 18:45:00",
+  "forecast": {
+   "d": "0.2786",
+   "l": "0.1249",
+   "w": "0.5965"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "22285",
+  "isResult": true,
+  "xG": {
+   "a": "0.551038",
+   "h": "1.37181"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2023-08-19 14:00:00",
+  "forecast": {
+   "d": "0.2057",
+   "l": "0.4897",
+   "w": "0.3046"
+  },
+  "goals": {
+   "a": "4",
+   "h": "1"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "22286",
+  "isResult": true,
+  "xG": {
+   "a": "3.15562",
+   "h": "2.68821"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2023-08-19 14:00:00",
+  "forecast": {
+   "d": "0.0284",
+   "l": "0.9666",
+   "w": "0.005"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "22287",
+  "isResult": true,
+  "xG": {
+   "a": "3.46888",
+   "h": "0.399899"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2023-08-19 14:00:00",
+  "forecast": {
+   "d": "0.1308",
+   "l": "0.066",
+   "w": "0.8032"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "22288",
+  "isResult": true,
+  "xG": {
+   "a": "1.3867",
+   "h": "3.25448"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2023-08-19 16:30:00",
+  "forecast": {
+   "d": "0.2102",
+   "l": "0.3687",
+   "w": "0.4211"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "22290",
+  "isResult": true,
+  "xG": {
+   "a": "2.44604",
+   "h": "2.53904"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2023-08-19 19:00:00",
+  "forecast": {
+   "d": "0.2857",
+   "l": "0.0694",
+   "w": "0.6449"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "22291",
+  "isResult": true,
+  "xG": {
+   "a": "0.257154",
+   "h": "1.22528"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2023-08-20 13:00:00",
+  "forecast": {
+   "d": "0.0655",
+   "l": "0.0207",
+   "w": "0.9138"
+  },
+  "goals": {
+   "a": "0",
+   "h": "4"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "22292",
+  "isResult": true,
+  "xG": {
+   "a": "0.721465",
+   "h": "3.24336"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2023-08-20 15:30:00",
+  "forecast": {
+   "d": "0.2905",
+   "l": "0.3148",
+   "w": "0.3947"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "22293",
+  "isResult": true,
+  "xG": {
+   "a": "1.60916",
+   "h": "1.71234"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2023-08-21 19:00:00",
+  "forecast": {
+   "d": "0.1973",
+   "l": "0.6748",
+   "w": "0.1279"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "22294",
+  "isResult": true,
+  "xG": {
+   "a": "2.20593",
+   "h": "1.06916"
+  }
+ },
+ {
+  "a": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "datetime": "2023-08-25 19:00:00",
+  "forecast": {
+   "d": "0.0473",
+   "l": "0.0105",
+   "w": "0.9422"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "22295",
+  "isResult": true,
+  "xG": {
+   "a": "0.465741",
+   "h": "3.41419"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2023-08-26 11:30:00",
+  "forecast": {
+   "d": "0.129",
+   "l": "0.8272",
+   "w": "0.0438"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "22296",
+  "isResult": true,
+  "xG": {
+   "a": "2.26115",
+   "h": "0.483582"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2023-08-26 14:00:00",
+  "forecast": {
+   "d": "0.0845",
+   "l": "0.0244",
+   "w": "0.8911"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "22297",
+  "isResult": true,
+  "xG": {
+   "a": "0.849817",
+   "h": "3.23088"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2023-08-26 14:00:00",
+  "forecast": {
+   "d": "0.3264",
+   "l": "0.3653",
+   "w": "0.3083"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "22298",
+  "isResult": true,
+  "xG": {
+   "a": "1.06061",
+   "h": "0.948011"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2023-08-26 14:00:00",
+  "forecast": {
+   "d": "0.2476",
+   "l": "0.2581",
+   "w": "0.4943"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "22299",
+  "isResult": true,
+  "xG": {
+   "a": "1.40228",
+   "h": "1.89792"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2023-08-26 14:00:00",
+  "forecast": {
+   "d": "0.1027",
+   "l": "0.0363",
+   "w": "0.861"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "22300",
+  "isResult": true,
+  "xG": {
+   "a": "0.960354",
+   "h": "3.02803"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2023-08-26 16:30:00",
+  "forecast": {
+   "d": "0.1413",
+   "l": "0.7599",
+   "w": "0.0988"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "22301",
+  "isResult": true,
+  "xG": {
+   "a": "2.9527",
+   "h": "1.3743"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2023-08-27 13:00:00",
+  "forecast": {
+   "d": "0.0821",
+   "l": "0.8958",
+   "w": "0.0221"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "22302",
+  "isResult": true,
+  "xG": {
+   "a": "2.83691",
+   "h": "0.630605"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2023-08-27 13:00:00",
+  "forecast": {
+   "d": "0.0443",
+   "l": "0.9458",
+   "w": "0.0099"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "id": "22303",
+  "isResult": true,
+  "xG": {
+   "a": "3.84804",
+   "h": "0.762232"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2023-08-27 15:30:00",
+  "forecast": {
+   "d": "0.2581",
+   "l": "0.1831",
+   "w": "0.5588"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "22304",
+  "isResult": true,
+  "xG": {
+   "a": "0.856121",
+   "h": "1.62037"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2023-09-01 19:00:00",
+  "forecast": {
+   "d": "0.2473",
+   "l": "0.1713",
+   "w": "0.5814"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "id": "21925",
+  "isResult": true,
+  "xG": {
+   "a": "1.22528",
+   "h": "2.02244"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2023-09-02 11:30:00",
+  "forecast": {
+   "d": "0.2031",
+   "l": "0.6708",
+   "w": "0.1261"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "id": "21926",
+  "isResult": true,
+  "xG": {
+   "a": "2.73871",
+   "h": "1.575"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2023-09-02 14:00:00",
+  "forecast": {
+   "d": "0.3082",
+   "l": "0.1688",
+   "w": "0.523"
+  },
+  "goals": {
+   "a": "1",
+   "h": "5"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "21927",
+  "isResult": true,
+  "xG": {
+   "a": "1.46427",
+   "h": "2.00152"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2023-09-02 14:00:00",
+  "forecast": {
+   "d": "0.2049",
+   "l": "0.1958",
+   "w": "0.5993"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "21928",
+  "isResult": true,
+  "xG": {
+   "a": "2.11013",
+   "h": "3.07185"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2023-09-02 14:00:00",
+  "forecast": {
+   "d": "0.2163",
+   "l": "0.5605",
+   "w": "0.2232"
+  },
+  "goals": {
+   "a": "5",
+   "h": "2"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "21929",
+  "isResult": true,
+  "xG": {
+   "a": "2.39785",
+   "h": "1.66604"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2023-09-02 14:00:00",
+  "forecast": {
+   "d": "0.2127",
+   "l": "0.1266",
+   "w": "0.6607"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "21930",
+  "isResult": true,
+  "xG": {
+   "a": "1.1505",
+   "h": "2.28442"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2023-09-02 16:30:00",
+  "forecast": {
+   "d": "0.3005",
+   "l": "0.2233",
+   "w": "0.4762"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "21931",
+  "isResult": true,
+  "xG": {
+   "a": "0.90476",
+   "h": "1.32258"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2023-09-03 13:00:00",
+  "forecast": {
+   "d": "0.1878",
+   "l": "0.1275",
+   "w": "0.6847"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "21932",
+  "isResult": true,
+  "xG": {
+   "a": "1.13911",
+   "h": "2.32935"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2023-09-03 13:00:00",
+  "forecast": {
+   "d": "0.0998",
+   "l": "0.0318",
+   "w": "0.8684"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "21933",
+  "isResult": true,
+  "xG": {
+   "a": "0.615503",
+   "h": "2.73138"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2023-09-03 15:30:00",
+  "forecast": {
+   "d": "0.2273",
+   "l": "0.1437",
+   "w": "0.629"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "21934",
+  "isResult": true,
+  "xG": {
+   "a": "0.966109",
+   "h": "1.90973"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2023-09-16 11:30:00",
+  "forecast": {
+   "d": "0.0705",
+   "l": "0.9106",
+   "w": "0.0189"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "21935",
+  "isResult": true,
+  "xG": {
+   "a": "2.82701",
+   "h": "0.538833"
+  }
+ },
+ {
+  "a": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "datetime": "2023-09-16 14:00:00",
+  "forecast": {
+   "d": "0.187",
+   "l": "0.1016",
+   "w": "0.7114"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "21936",
+  "isResult": true,
+  "xG": {
+   "a": "0.790655",
+   "h": "2.15909"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2023-09-16 14:00:00",
+  "forecast": {
+   "d": "0.0352",
+   "l": "0.9525",
+   "w": "0.0123"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "21937",
+  "isResult": true,
+  "xG": {
+   "a": "4.15046",
+   "h": "0.895632"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2023-09-16 14:00:00",
+  "forecast": {
+   "d": "0.201",
+   "l": "0.1115",
+   "w": "0.6875"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "21938",
+  "isResult": true,
+  "xG": {
+   "a": "1.11696",
+   "h": "2.31518"
+  }
+ },
+ {
+  "a": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "datetime": "2023-09-16 14:00:00",
+  "forecast": {
+   "d": "0.2865",
+   "l": "0.2784",
+   "w": "0.4351"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "21939",
+  "isResult": true,
+  "xG": {
+   "a": "1.45705",
+   "h": "1.75704"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2023-09-16 14:00:00",
+  "forecast": {
+   "d": "0.1835",
+   "l": "0.711",
+   "w": "0.1055"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "21940",
+  "isResult": true,
+  "xG": {
+   "a": "1.93908",
+   "h": "0.719951"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2023-09-16 16:30:00",
+  "forecast": {
+   "d": "0.2452",
+   "l": "0.1078",
+   "w": "0.647"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "21943",
+  "isResult": true,
+  "xG": {
+   "a": "0.633678",
+   "h": "1.50126"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2023-09-17 13:00:00",
+  "forecast": {
+   "d": "0.2784",
+   "l": "0.3736",
+   "w": "0.348"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "21942",
+  "isResult": true,
+  "xG": {
+   "a": "1.39677",
+   "h": "1.32515"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2023-09-17 15:30:00",
+  "forecast": {
+   "d": "0.414",
+   "l": "0.474",
+   "w": "0.112"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "21941",
+  "isResult": true,
+  "xG": {
+   "a": "0.802605",
+   "h": "0.28317"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2023-09-18 18:45:00",
+  "forecast": {
+   "d": "0.3669",
+   "l": "0.3607",
+   "w": "0.2724"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "21944",
+  "isResult": true,
+  "xG": {
+   "a": "0.807651",
+   "h": "0.705795"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2023-09-23 14:00:00",
+  "forecast": {
+   "d": "0.1815",
+   "l": "0.0414",
+   "w": "0.7771"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "id": "21945",
+  "isResult": true,
+  "xG": {
+   "a": "0.762984",
+   "h": "2.24101"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2023-09-23 14:00:00",
+  "forecast": {
+   "d": "0.2792",
+   "l": "0.1755",
+   "w": "0.5453"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "21946",
+  "isResult": true,
+  "xG": {
+   "a": "0.729109",
+   "h": "1.33984"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2023-09-23 14:00:00",
+  "forecast": {
+   "d": "0.488",
+   "l": "0.3134",
+   "w": "0.1986"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "21948",
+  "isResult": true,
+  "xG": {
+   "a": "0.542678",
+   "h": "0.37236"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2023-09-23 16:30:00",
+  "forecast": {
+   "d": "0.2246",
+   "l": "0.605",
+   "w": "0.1704"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "21949",
+  "isResult": true,
+  "xG": {
+   "a": "2.51497",
+   "h": "1.57402"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2023-09-23 19:00:00",
+  "forecast": {
+   "d": "0.3448",
+   "l": "0.2981",
+   "w": "0.3571"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "21950",
+  "isResult": true,
+  "xG": {
+   "a": "0.840273",
+   "h": "0.935444"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2023-09-24 13:00:00",
+  "forecast": {
+   "d": "0.2965",
+   "l": "0.3289",
+   "w": "0.3746"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "21947",
+  "isResult": true,
+  "xG": {
+   "a": "1.13479",
+   "h": "1.19716"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2023-09-24 13:00:00",
+  "forecast": {
+   "d": "0.2401",
+   "l": "0.2366",
+   "w": "0.5233"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "21951",
+  "isResult": true,
+  "xG": {
+   "a": "1.58984",
+   "h": "2.14533"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2023-09-24 13:00:00",
+  "forecast": {
+   "d": "0.2392",
+   "l": "0.3438",
+   "w": "0.417"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "21952",
+  "isResult": true,
+  "xG": {
+   "a": "2.21166",
+   "h": "2.3429"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2023-09-24 13:00:00",
+  "forecast": {
+   "d": "0.0793",
+   "l": "0.0387",
+   "w": "0.882"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "21953",
+  "isResult": true,
+  "xG": {
+   "a": "1.53878",
+   "h": "4.14262"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2023-09-24 15:30:00",
+  "forecast": {
+   "d": "0.0084",
+   "l": "0.9884",
+   "w": "0.0032"
+  },
+  "goals": {
+   "a": "8",
+   "h": "0"
+  },
+  "h": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "id": "21954",
+  "isResult": true,
+  "xG": {
+   "a": "5.1082",
+   "h": "0.579392"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2023-09-30 11:30:00",
+  "forecast": {
+   "d": "0.2584",
+   "l": "0.3283",
+   "w": "0.4133"
+  },
+  "goals": {
+   "a": "1",
+   "h": "6"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "21955",
+  "isResult": true,
+  "xG": {
+   "a": "1.72819",
+   "h": "1.90746"
+  }
+ },
+ {
+  "a": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "datetime": "2023-09-30 14:00:00",
+  "forecast": {
+   "d": "0.1072",
+   "l": "0.0428",
+   "w": "0.85"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "21956",
+  "isResult": true,
+  "xG": {
+   "a": "1.5102",
+   "h": "3.65377"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2023-09-30 14:00:00",
+  "forecast": {
+   "d": "0.2712",
+   "l": "0.2727",
+   "w": "0.4561"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "21957",
+  "isResult": true,
+  "xG": {
+   "a": "1.19015",
+   "h": "1.55408"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2023-09-30 14:00:00",
+  "forecast": {
+   "d": "0.0819",
+   "l": "0.0247",
+   "w": "0.8934"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "21958",
+  "isResult": true,
+  "xG": {
+   "a": "0.801849",
+   "h": "3.08516"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2023-09-30 14:00:00",
+  "forecast": {
+   "d": "0.0212",
+   "l": "0.9736",
+   "w": "0.0052"
+  },
+  "goals": {
+   "a": "4",
+   "h": "0"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "21959",
+  "isResult": true,
+  "xG": {
+   "a": "4.0742",
+   "h": "0.644443"
+  }
+ },
+ {
+  "a": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "datetime": "2023-09-30 14:00:00",
+  "forecast": {
+   "d": "0.0908",
+   "l": "0.0409",
+   "w": "0.8683"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "21960",
+  "isResult": true,
+  "xG": {
+   "a": "0.911997",
+   "h": "3.19753"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2023-09-30 14:00:00",
+  "forecast": {
+   "d": "0.3543",
+   "l": "0.399",
+   "w": "0.2467"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "21961",
+  "isResult": true,
+  "xG": {
+   "a": "0.98075",
+   "h": "0.673985"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2023-09-30 16:30:00",
+  "forecast": {
+   "d": "0.2076",
+   "l": "0.1406",
+   "w": "0.6518"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "21962",
+  "isResult": true,
+  "xG": {
+   "a": "1.12299",
+   "h": "2.18823"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2023-10-01 13:00:00",
+  "forecast": {
+   "d": "0.2359",
+   "l": "0.6169",
+   "w": "0.1472"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "21963",
+  "isResult": true,
+  "xG": {
+   "a": "1.75862",
+   "h": "0.800317"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2023-10-02 19:00:00",
+  "forecast": {
+   "d": "0.2252",
+   "l": "0.6652",
+   "w": "0.1096"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "21964",
+  "isResult": true,
+  "xG": {
+   "a": "1.98461",
+   "h": "0.889383"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2023-10-03 18:30:00",
+  "forecast": {
+   "d": "0.2762",
+   "l": "0.1982",
+   "w": "0.5256"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "id": "22289",
+  "isResult": true,
+  "xG": {
+   "a": "0.920206",
+   "h": "1.53058"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2023-10-07 11:30:00",
+  "forecast": {
+   "d": "0.1565",
+   "l": "0.7597",
+   "w": "0.0838"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "id": "21971",
+  "isResult": true,
+  "xG": {
+   "a": "2.37947",
+   "h": "0.848118"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2023-10-07 14:00:00",
+  "forecast": {
+   "d": "0.2281",
+   "l": "0.6605",
+   "w": "0.1114"
+  },
+  "goals": {
+   "a": "4",
+   "h": "1"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "21967",
+  "isResult": true,
+  "xG": {
+   "a": "1.97566",
+   "h": "0.956642"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2023-10-07 14:00:00",
+  "forecast": {
+   "d": "0.0938",
+   "l": "0.034",
+   "w": "0.8722"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "21969",
+  "isResult": true,
+  "xG": {
+   "a": "0.981732",
+   "h": "3.16482"
+  }
+ },
+ {
+  "a": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "datetime": "2023-10-07 14:00:00",
+  "forecast": {
+   "d": "0.1012",
+   "l": "0.0207",
+   "w": "0.8781"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "21970",
+  "isResult": true,
+  "xG": {
+   "a": "0.251809",
+   "h": "2.26612"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2023-10-07 14:00:00",
+  "forecast": {
+   "d": "0.2936",
+   "l": "0.2793",
+   "w": "0.4271"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "21972",
+  "isResult": true,
+  "xG": {
+   "a": "1.02509",
+   "h": "1.29356"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2023-10-07 16:30:00",
+  "forecast": {
+   "d": "0.3104",
+   "l": "0.4076",
+   "w": "0.282"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "21968",
+  "isResult": true,
+  "xG": {
+   "a": "1.22105",
+   "h": "0.982452"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2023-10-08 13:00:00",
+  "forecast": {
+   "d": "0.236",
+   "l": "0.448",
+   "w": "0.316"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "21966",
+  "isResult": true,
+  "xG": {
+   "a": "2.51029",
+   "h": "2.23187"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2023-10-08 13:00:00",
+  "forecast": {
+   "d": "0.2316",
+   "l": "0.6757",
+   "w": "0.0927"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "21973",
+  "isResult": true,
+  "xG": {
+   "a": "1.97865",
+   "h": "0.931345"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2023-10-08 13:00:00",
+  "forecast": {
+   "d": "0.2589",
+   "l": "0.3739",
+   "w": "0.3672"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "21974",
+  "isResult": true,
+  "xG": {
+   "a": "1.81618",
+   "h": "1.76232"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2023-10-08 15:30:00",
+  "forecast": {
+   "d": "0.3669",
+   "l": "0.4959",
+   "w": "0.1372"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "21965",
+  "isResult": true,
+  "xG": {
+   "a": "0.858071",
+   "h": "0.386558"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2023-10-21 11:30:00",
+  "forecast": {
+   "d": "0.0613",
+   "l": "0.0045",
+   "w": "0.9342"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "21979",
+  "isResult": true,
+  "xG": {
+   "a": "0.0937725",
+   "h": "2.28568"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2023-10-21 14:00:00",
+  "forecast": {
+   "d": "0.2",
+   "l": "0.698",
+   "w": "0.102"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "21975",
+  "isResult": true,
+  "xG": {
+   "a": "2.30454",
+   "h": "1.01839"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2023-10-21 14:00:00",
+  "forecast": {
+   "d": "0.0745",
+   "l": "0.0188",
+   "w": "0.9067"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "21977",
+  "isResult": true,
+  "xG": {
+   "a": "0.693129",
+   "h": "3.15685"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2023-10-21 14:00:00",
+  "forecast": {
+   "d": "0.3286",
+   "l": "0.3347",
+   "w": "0.3367"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "21980",
+  "isResult": true,
+  "xG": {
+   "a": "0.963733",
+   "h": "0.962509"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2023-10-21 14:00:00",
+  "forecast": {
+   "d": "0.0693",
+   "l": "0.0284",
+   "w": "0.9023"
+  },
+  "goals": {
+   "a": "0",
+   "h": "4"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "21981",
+  "isResult": true,
+  "xG": {
+   "a": "1.08795",
+   "h": "3.73336"
+  }
+ },
+ {
+  "a": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "datetime": "2023-10-21 14:00:00",
+  "forecast": {
+   "d": "0.1325",
+   "l": "0.0858",
+   "w": "0.7817"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "21982",
+  "isResult": true,
+  "xG": {
+   "a": "1.49555",
+   "h": "3.27549"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2023-10-21 16:30:00",
+  "forecast": {
+   "d": "0.2612",
+   "l": "0.1792",
+   "w": "0.5596"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "21978",
+  "isResult": true,
+  "xG": {
+   "a": "1.05791",
+   "h": "1.71838"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2023-10-21 19:00:00",
+  "forecast": {
+   "d": "0.3137",
+   "l": "0.3505",
+   "w": "0.3358"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "id": "21983",
+  "isResult": true,
+  "xG": {
+   "a": "1.46187",
+   "h": "1.41074"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2023-10-22 15:30:00",
+  "forecast": {
+   "d": "0.1326",
+   "l": "0.0534",
+   "w": "0.814"
+  },
+  "goals": {
+   "a": "1",
+   "h": "4"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "21976",
+  "isResult": true,
+  "xG": {
+   "a": "0.659622",
+   "h": "2.34143"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2023-10-23 19:00:00",
+  "forecast": {
+   "d": "0.2524",
+   "l": "0.1383",
+   "w": "0.6093"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "21984",
+  "isResult": true,
+  "xG": {
+   "a": "0.745838",
+   "h": "1.63523"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2023-10-27 19:00:00",
+  "forecast": {
+   "d": "0.342",
+   "l": "0.4806",
+   "w": "0.1774"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "21990",
+  "isResult": true,
+  "xG": {
+   "a": "0.989103",
+   "h": "0.561834"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2023-10-28 11:30:00",
+  "forecast": {
+   "d": "0.2109",
+   "l": "0.5745",
+   "w": "0.2146"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "21989",
+  "isResult": true,
+  "xG": {
+   "a": "2.48137",
+   "h": "1.71801"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2023-10-28 14:00:00",
+  "forecast": {
+   "d": "0.3582",
+   "l": "0.2697",
+   "w": "0.3721"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "21985",
+  "isResult": true,
+  "xG": {
+   "a": "0.90255",
+   "h": "1.10052"
+  }
+ },
+ {
+  "a": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "datetime": "2023-10-28 14:00:00",
+  "forecast": {
+   "d": "0.0156",
+   "l": "0.0002",
+   "w": "0.9842"
+  },
+  "goals": {
+   "a": "0",
+   "h": "5"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "21986",
+  "isResult": true,
+  "xG": {
+   "a": "0.0281554",
+   "h": "3.03496"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2023-10-28 16:30:00",
+  "forecast": {
+   "d": "0.1559",
+   "l": "0.7802",
+   "w": "0.0639"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "21994",
+  "isResult": true,
+  "xG": {
+   "a": "2.31987",
+   "h": "0.863393"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2023-10-29 13:00:00",
+  "forecast": {
+   "d": "0.3788",
+   "l": "0.3523",
+   "w": "0.2689"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "21993",
+  "isResult": true,
+  "xG": {
+   "a": "0.733813",
+   "h": "0.618578"
+  }
+ },
+ {
+  "a": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "datetime": "2023-10-29 14:00:00",
+  "forecast": {
+   "d": "0.0493",
+   "l": "0.01",
+   "w": "0.9407"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "21987",
+  "isResult": true,
+  "xG": {
+   "a": "0.453117",
+   "h": "3.07654"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2023-10-29 14:00:00",
+  "forecast": {
+   "d": "0.2799",
+   "l": "0.1498",
+   "w": "0.5703"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "21988",
+  "isResult": true,
+  "xG": {
+   "a": "0.552523",
+   "h": "1.31996"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2023-10-29 14:00:00",
+  "forecast": {
+   "d": "0.0954",
+   "l": "0.0313",
+   "w": "0.8733"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "21991",
+  "isResult": true,
+  "xG": {
+   "a": "0.642014",
+   "h": "2.70428"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2023-10-29 15:30:00",
+  "forecast": {
+   "d": "0.0138",
+   "l": "0.9833",
+   "w": "0.0029"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "21992",
+  "isResult": true,
+  "xG": {
+   "a": "4.54595",
+   "h": "0.714628"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2023-11-04 12:30:00",
+  "forecast": {
+   "d": "0.3166",
+   "l": "0.2031",
+   "w": "0.4803"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "21998",
+  "isResult": true,
+  "xG": {
+   "a": "0.697095",
+   "h": "1.18241"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2023-11-04 15:00:00",
+  "forecast": {
+   "d": "0.2981",
+   "l": "0.3389",
+   "w": "0.363"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "21995",
+  "isResult": true,
+  "xG": {
+   "a": "1.75505",
+   "h": "1.82944"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2023-11-04 15:00:00",
+  "forecast": {
+   "d": "0.3072",
+   "l": "0.3357",
+   "w": "0.3571"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "21996",
+  "isResult": true,
+  "xG": {
+   "a": "1.43653",
+   "h": "1.4998"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2023-11-04 15:00:00",
+  "forecast": {
+   "d": "0.4439",
+   "l": "0.2067",
+   "w": "0.3494"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "21997",
+  "isResult": true,
+  "xG": {
+   "a": "0.442489",
+   "h": "0.617607"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2023-11-04 15:00:00",
+  "forecast": {
+   "d": "0.1463",
+   "l": "0.0574",
+   "w": "0.7963"
+  },
+  "goals": {
+   "a": "1",
+   "h": "6"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "22000",
+  "isResult": true,
+  "xG": {
+   "a": "0.643127",
+   "h": "2.39949"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2023-11-04 15:00:00",
+  "forecast": {
+   "d": "0.3733",
+   "l": "0.3258",
+   "w": "0.3009"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "id": "22003",
+  "isResult": true,
+  "xG": {
+   "a": "1.14803",
+   "h": "1.10165"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2023-11-04 17:30:00",
+  "forecast": {
+   "d": "0.3043",
+   "l": "0.1187",
+   "w": "0.577"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "22001",
+  "isResult": true,
+  "xG": {
+   "a": "0.535473",
+   "h": "1.12355"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2023-11-05 14:00:00",
+  "forecast": {
+   "d": "0.2983",
+   "l": "0.5561",
+   "w": "0.1456"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "22002",
+  "isResult": true,
+  "xG": {
+   "a": "1.33116",
+   "h": "0.592447"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2023-11-05 16:30:00",
+  "forecast": {
+   "d": "0.1522",
+   "l": "0.7757",
+   "w": "0.0721"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "id": "21999",
+  "isResult": true,
+  "xG": {
+   "a": "3.03925",
+   "h": "1.3411"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2023-11-06 20:00:00",
+  "forecast": {
+   "d": "0.0329",
+   "l": "0.9577",
+   "w": "0.0094"
+  },
+  "goals": {
+   "a": "4",
+   "h": "1"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "22004",
+  "isResult": true,
+  "xG": {
+   "a": "4.05865",
+   "h": "0.959108"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2023-11-11 12:30:00",
+  "forecast": {
+   "d": "0.1722",
+   "l": "0.054",
+   "w": "0.7738"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "22014",
+  "isResult": true,
+  "xG": {
+   "a": "0.432315",
+   "h": "1.90884"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2023-11-11 15:00:00",
+  "forecast": {
+   "d": "0.0415",
+   "l": "0.0041",
+   "w": "0.9544"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "22006",
+  "isResult": true,
+  "xG": {
+   "a": "0.327706",
+   "h": "2.63194"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2023-11-11 15:00:00",
+  "forecast": {
+   "d": "0.2887",
+   "l": "0.331",
+   "w": "0.3803"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "22010",
+  "isResult": true,
+  "xG": {
+   "a": "1.7904",
+   "h": "1.89194"
+  }
+ },
+ {
+  "a": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "datetime": "2023-11-11 15:00:00",
+  "forecast": {
+   "d": "0.0661",
+   "l": "0.017",
+   "w": "0.9169"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "22012",
+  "isResult": true,
+  "xG": {
+   "a": "0.408265",
+   "h": "2.74105"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2023-11-11 17:30:00",
+  "forecast": {
+   "d": "0.0517",
+   "l": "0.0109",
+   "w": "0.9374"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "22005",
+  "isResult": true,
+  "xG": {
+   "a": "0.306141",
+   "h": "2.78424"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2023-11-12 14:00:00",
+  "forecast": {
+   "d": "0.0642",
+   "l": "0.0131",
+   "w": "0.9227"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "22007",
+  "isResult": true,
+  "xG": {
+   "a": "0.648745",
+   "h": "2.86039"
+  }
+ },
+ {
+  "a": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "datetime": "2023-11-12 14:00:00",
+  "forecast": {
+   "d": "0.3328",
+   "l": "0.2605",
+   "w": "0.4067"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "22008",
+  "isResult": true,
+  "xG": {
+   "a": "0.84434",
+   "h": "1.08601"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2023-11-12 14:00:00",
+  "forecast": {
+   "d": "0.264",
+   "l": "0.3385",
+   "w": "0.3975"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "22011",
+  "isResult": true,
+  "xG": {
+   "a": "1.44954",
+   "h": "1.56004"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2023-11-12 14:00:00",
+  "forecast": {
+   "d": "0.2455",
+   "l": "0.2247",
+   "w": "0.5298"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "22013",
+  "isResult": true,
+  "xG": {
+   "a": "1.42128",
+   "h": "2.06402"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2023-11-12 16:30:00",
+  "forecast": {
+   "d": "0.2211",
+   "l": "0.3239",
+   "w": "0.455"
+  },
+  "goals": {
+   "a": "4",
+   "h": "4"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "22009",
+  "isResult": true,
+  "xG": {
+   "a": "3.19324",
+   "h": "3.47238"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2023-11-25 12:30:00",
+  "forecast": {
+   "d": "0.2244",
+   "l": "0.1284",
+   "w": "0.6472"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "22020",
+  "isResult": true,
+  "xG": {
+   "a": "0.766278",
+   "h": "1.79622"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2023-11-25 15:00:00",
+  "forecast": {
+   "d": "0.308",
+   "l": "0.3212",
+   "w": "0.3708"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "22016",
+  "isResult": true,
+  "xG": {
+   "a": "1.36963",
+   "h": "1.44228"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2023-11-25 15:00:00",
+  "forecast": {
+   "d": "0.2577",
+   "l": "0.5886",
+   "w": "0.1537"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "id": "22019",
+  "isResult": true,
+  "xG": {
+   "a": "1.83546",
+   "h": "0.996153"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2023-11-25 15:00:00",
+  "forecast": {
+   "d": "0.1926",
+   "l": "0.1226",
+   "w": "0.6848"
+  },
+  "goals": {
+   "a": "1",
+   "h": "4"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "22021",
+  "isResult": true,
+  "xG": {
+   "a": "0.968061",
+   "h": "2.15227"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2023-11-25 15:00:00",
+  "forecast": {
+   "d": "0.2258",
+   "l": "0.136",
+   "w": "0.6382"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "22022",
+  "isResult": true,
+  "xG": {
+   "a": "1.21792",
+   "h": "2.22655"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2023-11-25 15:00:00",
+  "forecast": {
+   "d": "0.095",
+   "l": "0.8645",
+   "w": "0.0405"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "id": "22023",
+  "isResult": true,
+  "xG": {
+   "a": "3.13975",
+   "h": "0.816227"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2023-11-25 17:30:00",
+  "forecast": {
+   "d": "0.274",
+   "l": "0.3922",
+   "w": "0.3338"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "22015",
+  "isResult": true,
+  "xG": {
+   "a": "1.82699",
+   "h": "1.66315"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2023-11-26 14:00:00",
+  "forecast": {
+   "d": "0.2488",
+   "l": "0.4179",
+   "w": "0.3333"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "22024",
+  "isResult": true,
+  "xG": {
+   "a": "2.39755",
+   "h": "2.22542"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2023-11-26 16:30:00",
+  "forecast": {
+   "d": "0.2624",
+   "l": "0.275",
+   "w": "0.4626"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "22017",
+  "isResult": true,
+  "xG": {
+   "a": "2.07334",
+   "h": "2.49764"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2023-11-27 20:00:00",
+  "forecast": {
+   "d": "0.2309",
+   "l": "0.1378",
+   "w": "0.6313"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "22018",
+  "isResult": true,
+  "xG": {
+   "a": "1.57875",
+   "h": "2.49057"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2023-12-02 15:00:00",
+  "forecast": {
+   "d": "0.0986",
+   "l": "0.0392",
+   "w": "0.8622"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "22026",
+  "isResult": true,
+  "xG": {
+   "a": "1.07886",
+   "h": "3.30368"
+  }
+ },
+ {
+  "a": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "datetime": "2023-12-02 15:00:00",
+  "forecast": {
+   "d": "0.0298",
+   "l": "0.0041",
+   "w": "0.9661"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "22027",
+  "isResult": true,
+  "xG": {
+   "a": "0.227176",
+   "h": "3.25952"
+  }
+ },
+ {
+  "a": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "datetime": "2023-12-02 15:00:00",
+  "forecast": {
+   "d": "0.1154",
+   "l": "0.0347",
+   "w": "0.8499"
+  },
+  "goals": {
+   "a": "0",
+   "h": "5"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "22028",
+  "isResult": true,
+  "xG": {
+   "a": "0.618131",
+   "h": "2.60469"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2023-12-02 17:30:00",
+  "forecast": {
+   "d": "0.4027",
+   "l": "0.2854",
+   "w": "0.3119"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "22033",
+  "isResult": true,
+  "xG": {
+   "a": "0.623789",
+   "h": "0.673085"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2023-12-02 20:00:00",
+  "forecast": {
+   "d": "0.0633",
+   "l": "0.0143",
+   "w": "0.9224"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "22032",
+  "isResult": true,
+  "xG": {
+   "a": "0.422674",
+   "h": "2.90191"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2023-12-03 14:00:00",
+  "forecast": {
+   "d": "0.144",
+   "l": "0.0632",
+   "w": "0.7928"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "22025",
+  "isResult": true,
+  "xG": {
+   "a": "0.89511",
+   "h": "2.54937"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2023-12-03 14:00:00",
+  "forecast": {
+   "d": "0.2445",
+   "l": "0.1376",
+   "w": "0.6179"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "22029",
+  "isResult": true,
+  "xG": {
+   "a": "0.855058",
+   "h": "1.66304"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2023-12-03 14:00:00",
+  "forecast": {
+   "d": "0.1927",
+   "l": "0.1425",
+   "w": "0.6648"
+  },
+  "goals": {
+   "a": "3",
+   "h": "4"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "22030",
+  "isResult": true,
+  "xG": {
+   "a": "1.51005",
+   "h": "2.72831"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2023-12-03 14:00:00",
+  "forecast": {
+   "d": "0.3287",
+   "l": "0.2958",
+   "w": "0.3755"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "22034",
+  "isResult": true,
+  "xG": {
+   "a": "0.987682",
+   "h": "1.1466"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2023-12-03 16:30:00",
+  "forecast": {
+   "d": "0.0719",
+   "l": "0.019",
+   "w": "0.9091"
+  },
+  "goals": {
+   "a": "3",
+   "h": "3"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "22031",
+  "isResult": true,
+  "xG": {
+   "a": "0.433077",
+   "h": "2.90729"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2023-12-05 19:30:00",
+  "forecast": {
+   "d": "0.34",
+   "l": "0.2229",
+   "w": "0.4371"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "22042",
+  "isResult": true,
+  "xG": {
+   "a": "0.781542",
+   "h": "1.11886"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2023-12-05 20:15:00",
+  "forecast": {
+   "d": "0.1032",
+   "l": "0.8669",
+   "w": "0.0299"
+  },
+  "goals": {
+   "a": "4",
+   "h": "3"
+  },
+  "h": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "id": "22039",
+  "isResult": true,
+  "xG": {
+   "a": "2.58815",
+   "h": "0.526254"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2023-12-06 19:30:00",
+  "forecast": {
+   "d": "0.3121",
+   "l": "0.2616",
+   "w": "0.4263"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "22036",
+  "isResult": true,
+  "xG": {
+   "a": "1.22007",
+   "h": "1.54099"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2023-12-06 19:30:00",
+  "forecast": {
+   "d": "0.0204",
+   "l": "0.0027",
+   "w": "0.9769"
+  },
+  "goals": {
+   "a": "0",
+   "h": "5"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "22038",
+  "isResult": true,
+  "xG": {
+   "a": "0.218659",
+   "h": "3.09427"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2023-12-06 19:30:00",
+  "forecast": {
+   "d": "0.234",
+   "l": "0.6263",
+   "w": "0.1397"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "id": "22040",
+  "isResult": true,
+  "xG": {
+   "a": "1.80116",
+   "h": "0.834172"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2023-12-06 19:30:00",
+  "forecast": {
+   "d": "0.2553",
+   "l": "0.5226",
+   "w": "0.2221"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "22043",
+  "isResult": true,
+  "xG": {
+   "a": "1.79997",
+   "h": "1.26441"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2023-12-06 20:15:00",
+  "forecast": {
+   "d": "0.2247",
+   "l": "0.0872",
+   "w": "0.6881"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "22035",
+  "isResult": true,
+  "xG": {
+   "a": "1.00198",
+   "h": "2.1922"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2023-12-06 20:15:00",
+  "forecast": {
+   "d": "0.1466",
+   "l": "0.1196",
+   "w": "0.7338"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "22044",
+  "isResult": true,
+  "xG": {
+   "a": "2.3512",
+   "h": "4.03949"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2023-12-07 19:30:00",
+  "forecast": {
+   "d": "0.1534",
+   "l": "0.0922",
+   "w": "0.7544"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "22037",
+  "isResult": true,
+  "xG": {
+   "a": "1.29564",
+   "h": "2.95393"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2023-12-07 20:15:00",
+  "forecast": {
+   "d": "0.2535",
+   "l": "0.4146",
+   "w": "0.3319"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "22041",
+  "isResult": true,
+  "xG": {
+   "a": "1.7409",
+   "h": "1.61268"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2023-12-09 12:30:00",
+  "forecast": {
+   "d": "0.276",
+   "l": "0.2394",
+   "w": "0.4846"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "22047",
+  "isResult": true,
+  "xG": {
+   "a": "1.3708",
+   "h": "1.79152"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2023-12-09 15:00:00",
+  "forecast": {
+   "d": "0.1267",
+   "l": "0.0544",
+   "w": "0.8189"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "22046",
+  "isResult": true,
+  "xG": {
+   "a": "1.05162",
+   "h": "2.96247"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2023-12-09 15:00:00",
+  "forecast": {
+   "d": "0.2242",
+   "l": "0.6219",
+   "w": "0.1539"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "22051",
+  "isResult": true,
+  "xG": {
+   "a": "1.9742",
+   "h": "1.11296"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2023-12-09 15:00:00",
+  "forecast": {
+   "d": "0.3656",
+   "l": "0.2435",
+   "w": "0.3909"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "id": "22052",
+  "isResult": true,
+  "xG": {
+   "a": "0.644638",
+   "h": "0.841976"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2023-12-09 15:00:00",
+  "forecast": {
+   "d": "0.3237",
+   "l": "0.4018",
+   "w": "0.2745"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "22054",
+  "isResult": true,
+  "xG": {
+   "a": "1.21801",
+   "h": "1.02199"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2023-12-09 17:30:00",
+  "forecast": {
+   "d": "0.2163",
+   "l": "0.6859",
+   "w": "0.0978"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "22045",
+  "isResult": true,
+  "xG": {
+   "a": "1.71667",
+   "h": "0.628499"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2023-12-10 14:00:00",
+  "forecast": {
+   "d": "0.3286",
+   "l": "0.2469",
+   "w": "0.4245"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "22048",
+  "isResult": true,
+  "xG": {
+   "a": "0.885512",
+   "h": "1.11437"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2023-12-10 14:00:00",
+  "forecast": {
+   "d": "0.1905",
+   "l": "0.1236",
+   "w": "0.6859"
+  },
+  "goals": {
+   "a": "0",
+   "h": "5"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "22049",
+  "isResult": true,
+  "xG": {
+   "a": "0.983",
+   "h": "2.1884"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2023-12-10 14:00:00",
+  "forecast": {
+   "d": "0.178",
+   "l": "0.768",
+   "w": "0.054"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "id": "22050",
+  "isResult": true,
+  "xG": {
+   "a": "2.23353",
+   "h": "0.689037"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2023-12-10 16:30:00",
+  "forecast": {
+   "d": "0.0703",
+   "l": "0.0336",
+   "w": "0.8961"
+  },
+  "goals": {
+   "a": "1",
+   "h": "4"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "22053",
+  "isResult": true,
+  "xG": {
+   "a": "1.61368",
+   "h": "4.40118"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2023-12-15 20:00:00",
+  "forecast": {
+   "d": "0.2583",
+   "l": "0.3506",
+   "w": "0.3911"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "22063",
+  "isResult": true,
+  "xG": {
+   "a": "1.60738",
+   "h": "1.70569"
+  }
+ },
+ {
+  "a": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "datetime": "2023-12-16 15:00:00",
+  "forecast": {
+   "d": "0.0315",
+   "l": "0.008",
+   "w": "0.9605"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "22059",
+  "isResult": true,
+  "xG": {
+   "a": "0.44014",
+   "h": "3.27322"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2023-12-16 15:00:00",
+  "forecast": {
+   "d": "0.2489",
+   "l": "0.1964",
+   "w": "0.5547"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "22061",
+  "isResult": true,
+  "xG": {
+   "a": "1.64977",
+   "h": "2.41646"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2023-12-16 15:00:00",
+  "forecast": {
+   "d": "0.0089",
+   "l": "0.0011",
+   "w": "0.99"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "22062",
+  "isResult": true,
+  "xG": {
+   "a": "0.471042",
+   "h": "4.27933"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2023-12-16 17:30:00",
+  "forecast": {
+   "d": "0.1611",
+   "l": "0.7569",
+   "w": "0.082"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "22058",
+  "isResult": true,
+  "xG": {
+   "a": "2.22305",
+   "h": "0.811435"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2023-12-17 14:00:00",
+  "forecast": {
+   "d": "0.1165",
+   "l": "0.0396",
+   "w": "0.8439"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "22056",
+  "isResult": true,
+  "xG": {
+   "a": "0.663054",
+   "h": "2.76976"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2023-12-17 14:00:00",
+  "forecast": {
+   "d": "0.2816",
+   "l": "0.541",
+   "w": "0.1774"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "22057",
+  "isResult": true,
+  "xG": {
+   "a": "1.4664",
+   "h": "0.796812"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2023-12-17 14:00:00",
+  "forecast": {
+   "d": "0.3306",
+   "l": "0.183",
+   "w": "0.4864"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "22064",
+  "isResult": true,
+  "xG": {
+   "a": "0.556206",
+   "h": "1.03828"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2023-12-17 16:30:00",
+  "forecast": {
+   "d": "0.1924",
+   "l": "0.0928",
+   "w": "0.7148"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "22060",
+  "isResult": true,
+  "xG": {
+   "a": "0.632715",
+   "h": "1.97111"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2023-12-21 20:00:00",
+  "forecast": {
+   "d": "0.2631",
+   "l": "0.2819",
+   "w": "0.455"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "22066",
+  "isResult": true,
+  "xG": {
+   "a": "1.33653",
+   "h": "1.65409"
+  }
+ },
+ {
+  "a": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "datetime": "2023-12-22 20:00:00",
+  "forecast": {
+   "d": "0.3312",
+   "l": "0.1687",
+   "w": "0.5001"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "22065",
+  "isResult": true,
+  "xG": {
+   "a": "0.646159",
+   "h": "1.21861"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2023-12-23 12:30:00",
+  "forecast": {
+   "d": "0.2598",
+   "l": "0.1477",
+   "w": "0.5925"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "22072",
+  "isResult": true,
+  "xG": {
+   "a": "0.730496",
+   "h": "1.51468"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2023-12-23 15:00:00",
+  "forecast": {
+   "d": "0.2621",
+   "l": "0.1016",
+   "w": "0.6363"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "22067",
+  "isResult": true,
+  "xG": {
+   "a": "0.41714",
+   "h": "1.38096"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2023-12-23 15:00:00",
+  "forecast": {
+   "d": "0.2508",
+   "l": "0.263",
+   "w": "0.4862"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "id": "22069",
+  "isResult": true,
+  "xG": {
+   "a": "1.41488",
+   "h": "1.81844"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2023-12-23 15:00:00",
+  "forecast": {
+   "d": "0.2073",
+   "l": "0.6624",
+   "w": "0.1303"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "22070",
+  "isResult": true,
+  "xG": {
+   "a": "1.89067",
+   "h": "0.791806"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2023-12-23 15:00:00",
+  "forecast": {
+   "d": "0.2354",
+   "l": "0.4767",
+   "w": "0.2879"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "22071",
+  "isResult": true,
+  "xG": {
+   "a": "1.98385",
+   "h": "1.57527"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2023-12-23 17:30:00",
+  "forecast": {
+   "d": "0.3338",
+   "l": "0.2892",
+   "w": "0.377"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "22068",
+  "isResult": true,
+  "xG": {
+   "a": "0.851681",
+   "h": "0.982901"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2023-12-24 13:00:00",
+  "forecast": {
+   "d": "0.2626",
+   "l": "0.3771",
+   "w": "0.3603"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "22073",
+  "isResult": true,
+  "xG": {
+   "a": "1.75447",
+   "h": "1.74626"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2023-12-26 12:30:00",
+  "forecast": {
+   "d": "0.2328",
+   "l": "0.4608",
+   "w": "0.3064"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "22083",
+  "isResult": true,
+  "xG": {
+   "a": "3.1074",
+   "h": "2.79106"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2023-12-26 15:00:00",
+  "forecast": {
+   "d": "0.1194",
+   "l": "0.0251",
+   "w": "0.8555"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "22075",
+  "isResult": true,
+  "xG": {
+   "a": "0.324365",
+   "h": "2.07911"
+  }
+ },
+ {
+  "a": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "datetime": "2023-12-26 15:00:00",
+  "forecast": {
+   "d": "0.044",
+   "l": "0.0138",
+   "w": "0.9422"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "id": "22084",
+  "isResult": true,
+  "xG": {
+   "a": "0.715575",
+   "h": "3.61788"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2023-12-26 17:30:00",
+  "forecast": {
+   "d": "0.2625",
+   "l": "0.5381",
+   "w": "0.1994"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "22079",
+  "isResult": true,
+  "xG": {
+   "a": "1.68451",
+   "h": "0.972389"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2023-12-26 20:00:00",
+  "forecast": {
+   "d": "0.2573",
+   "l": "0.5442",
+   "w": "0.1985"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "22082",
+  "isResult": true,
+  "xG": {
+   "a": "1.83637",
+   "h": "1.20104"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2023-12-27 19:30:00",
+  "forecast": {
+   "d": "0.2254",
+   "l": "0.2318",
+   "w": "0.5428"
+  },
+  "goals": {
+   "a": "4",
+   "h": "1"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "22077",
+  "isResult": true,
+  "xG": {
+   "a": "1.89483",
+   "h": "2.59347"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2023-12-27 19:30:00",
+  "forecast": {
+   "d": "0.135",
+   "l": "0.0572",
+   "w": "0.8078"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "22080",
+  "isResult": true,
+  "xG": {
+   "a": "0.958077",
+   "h": "2.73005"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2023-12-27 20:15:00",
+  "forecast": {
+   "d": "0.2182",
+   "l": "0.6437",
+   "w": "0.1381"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "22081",
+  "isResult": true,
+  "xG": {
+   "a": "2.28321",
+   "h": "1.23529"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2023-12-28 19:30:00",
+  "forecast": {
+   "d": "0.1299",
+   "l": "0.1031",
+   "w": "0.767"
+  },
+  "goals": {
+   "a": "2",
+   "h": "4"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "22078",
+  "isResult": true,
+  "xG": {
+   "a": "2.06955",
+   "h": "3.84702"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2023-12-28 20:15:00",
+  "forecast": {
+   "d": "0.2038",
+   "l": "0.1427",
+   "w": "0.6535"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "22076",
+  "isResult": true,
+  "xG": {
+   "a": "1.59711",
+   "h": "2.7884"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2023-12-30 12:30:00",
+  "forecast": {
+   "d": "0.2081",
+   "l": "0.1324",
+   "w": "0.6595"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "id": "22089",
+  "isResult": true,
+  "xG": {
+   "a": "1.57463",
+   "h": "2.64093"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2023-12-30 15:00:00",
+  "forecast": {
+   "d": "0.131",
+   "l": "0.0624",
+   "w": "0.8066"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "22085",
+  "isResult": true,
+  "xG": {
+   "a": "1.11923",
+   "h": "2.92587"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2023-12-30 15:00:00",
+  "forecast": {
+   "d": "0.2865",
+   "l": "0.277",
+   "w": "0.4365"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "22086",
+  "isResult": true,
+  "xG": {
+   "a": "1.28731",
+   "h": "1.61057"
+  }
+ },
+ {
+  "a": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "datetime": "2023-12-30 15:00:00",
+  "forecast": {
+   "d": "0.0761",
+   "l": "0.0098",
+   "w": "0.9141"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "22090",
+  "isResult": true,
+  "xG": {
+   "a": "0.263211",
+   "h": "2.24229"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2023-12-30 15:00:00",
+  "forecast": {
+   "d": "0.0694",
+   "l": "0.0146",
+   "w": "0.916"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "22094",
+  "isResult": true,
+  "xG": {
+   "a": "0.519641",
+   "h": "2.64477"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2023-12-30 17:30:00",
+  "forecast": {
+   "d": "0.3817",
+   "l": "0.2751",
+   "w": "0.3432"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "22091",
+  "isResult": true,
+  "xG": {
+   "a": "0.651905",
+   "h": "0.744348"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2023-12-31 14:00:00",
+  "forecast": {
+   "d": "0.286",
+   "l": "0.3928",
+   "w": "0.3212"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "22087",
+  "isResult": true,
+  "xG": {
+   "a": "1.6591",
+   "h": "1.52829"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2023-12-31 14:00:00",
+  "forecast": {
+   "d": "0.2287",
+   "l": "0.2536",
+   "w": "0.5177"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "22092",
+  "isResult": true,
+  "xG": {
+   "a": "1.58229",
+   "h": "2.15027"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2024-01-01 19:00:00",
+  "forecast": {
+   "d": "0.0015",
+   "l": "0.0004",
+   "w": "0.9981"
+  },
+  "goals": {
+   "a": "2",
+   "h": "4"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "22088",
+  "isResult": true,
+  "xG": {
+   "a": "0.910974",
+   "h": "6.67151"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2024-01-02 18:30:00",
+  "forecast": {
+   "d": "0.2187",
+   "l": "0.6598",
+   "w": "0.1215"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "22093",
+  "isResult": true,
+  "xG": {
+   "a": "2.1552",
+   "h": "0.9831"
+  }
+ },
+ {
+  "a": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "datetime": "2024-01-12 19:45:00",
+  "forecast": {
+   "d": "0.2735",
+   "l": "0.2125",
+   "w": "0.514"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "22096",
+  "isResult": true,
+  "xG": {
+   "a": "0.965167",
+   "h": "1.52023"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2024-01-13 12:30:00",
+  "forecast": {
+   "d": "0.1756",
+   "l": "0.0778",
+   "w": "0.7466"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "22097",
+  "isResult": true,
+  "xG": {
+   "a": "0.697847",
+   "h": "2.0456"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2024-01-13 17:30:00",
+  "forecast": {
+   "d": "0.1796",
+   "l": "0.7002",
+   "w": "0.1202"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "22100",
+  "isResult": true,
+  "xG": {
+   "a": "2.55452",
+   "h": "1.23638"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2024-01-14 14:00:00",
+  "forecast": {
+   "d": "0.3045",
+   "l": "0.4236",
+   "w": "0.2719"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "22098",
+  "isResult": true,
+  "xG": {
+   "a": "1.3435",
+   "h": "1.03664"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2024-01-14 16:30:00",
+  "forecast": {
+   "d": "0.3057",
+   "l": "0.4592",
+   "w": "0.2351"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "22099",
+  "isResult": true,
+  "xG": {
+   "a": "1.31224",
+   "h": "0.923233"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2024-01-20 12:30:00",
+  "forecast": {
+   "d": "0.029",
+   "l": "0.004",
+   "w": "0.967"
+  },
+  "goals": {
+   "a": "0",
+   "h": "5"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "22103",
+  "isResult": true,
+  "xG": {
+   "a": "0.288083",
+   "h": "3.52167"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2024-01-20 17:30:00",
+  "forecast": {
+   "d": "0.2428",
+   "l": "0.196",
+   "w": "0.5612"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "22104",
+  "isResult": true,
+  "xG": {
+   "a": "1.22251",
+   "h": "1.94219"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2024-01-21 14:00:00",
+  "forecast": {
+   "d": "0.2342",
+   "l": "0.3387",
+   "w": "0.4271"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "id": "22101",
+  "isResult": true,
+  "xG": {
+   "a": "2.4241",
+   "h": "2.61362"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2024-01-21 16:30:00",
+  "forecast": {
+   "d": "0.2667",
+   "l": "0.5632",
+   "w": "0.1701"
+  },
+  "goals": {
+   "a": "4",
+   "h": "0"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "22102",
+  "isResult": true,
+  "xG": {
+   "a": "1.53344",
+   "h": "0.834585"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2024-01-22 19:45:00",
+  "forecast": {
+   "d": "0.3324",
+   "l": "0.2697",
+   "w": "0.3979"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "22095",
+  "isResult": true,
+  "xG": {
+   "a": "1.14116",
+   "h": "1.3701"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2024-01-30 19:30:00",
+  "forecast": {
+   "d": "0.2831",
+   "l": "0.5597",
+   "w": "0.1572"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "22108",
+  "isResult": true,
+  "xG": {
+   "a": "1.39143",
+   "h": "0.631618"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2024-01-30 19:45:00",
+  "forecast": {
+   "d": "0.2134",
+   "l": "0.4786",
+   "w": "0.308"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "22106",
+  "isResult": true,
+  "xG": {
+   "a": "2.83317",
+   "h": "2.37499"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2024-01-30 19:45:00",
+  "forecast": {
+   "d": "0.0547",
+   "l": "0.0169",
+   "w": "0.9284"
+  },
+  "goals": {
+   "a": "0",
+   "h": "4"
+  },
+  "h": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "id": "22107",
+  "isResult": true,
+  "xG": {
+   "a": "1.01366",
+   "h": "3.63312"
+  }
+ },
+ {
+  "a": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "datetime": "2024-01-30 20:00:00",
+  "forecast": {
+   "d": "0.3204",
+   "l": "0.2112",
+   "w": "0.4684"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "22112",
+  "isResult": true,
+  "xG": {
+   "a": "0.768467",
+   "h": "1.1601"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2024-01-30 20:15:00",
+  "forecast": {
+   "d": "0.1228",
+   "l": "0.8025",
+   "w": "0.0747"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "22105",
+  "isResult": true,
+  "xG": {
+   "a": "3.3224",
+   "h": "1.44485"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2024-01-31 19:30:00",
+  "forecast": {
+   "d": "0.1393",
+   "l": "0.0829",
+   "w": "0.7778"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "22109",
+  "isResult": true,
+  "xG": {
+   "a": "1.59637",
+   "h": "3.36194"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2024-01-31 19:30:00",
+  "forecast": {
+   "d": "0.2838",
+   "l": "0.2662",
+   "w": "0.45"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "22114",
+  "isResult": true,
+  "xG": {
+   "a": "1.49114",
+   "h": "1.84756"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2024-01-31 20:15:00",
+  "forecast": {
+   "d": "0.0301",
+   "l": "0.0065",
+   "w": "0.9634"
+  },
+  "goals": {
+   "a": "1",
+   "h": "4"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "22113",
+  "isResult": true,
+  "xG": {
+   "a": "0.477972",
+   "h": "3.6627"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2024-02-01 19:30:00",
+  "forecast": {
+   "d": "0.3213",
+   "l": "0.2691",
+   "w": "0.4096"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "22110",
+  "isResult": true,
+  "xG": {
+   "a": "1.13487",
+   "h": "1.3128"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2024-02-01 20:15:00",
+  "forecast": {
+   "d": "0.209",
+   "l": "0.603",
+   "w": "0.188"
+  },
+  "goals": {
+   "a": "4",
+   "h": "3"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "22111",
+  "isResult": true,
+  "xG": {
+   "a": "3.22698",
+   "h": "2.27609"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2024-02-03 12:30:00",
+  "forecast": {
+   "d": "0.0526",
+   "l": "0.012",
+   "w": "0.9354"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "22121",
+  "isResult": true,
+  "xG": {
+   "a": "0.922371",
+   "h": "3.25881"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2024-02-03 15:00:00",
+  "forecast": {
+   "d": "0.129",
+   "l": "0.0247",
+   "w": "0.8463"
+  },
+  "goals": {
+   "a": "1",
+   "h": "4"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "22118",
+  "isResult": true,
+  "xG": {
+   "a": "0.241137",
+   "h": "1.92591"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2024-02-03 15:00:00",
+  "forecast": {
+   "d": "0.293",
+   "l": "0.4258",
+   "w": "0.2812"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "22119",
+  "isResult": true,
+  "xG": {
+   "a": "1.28806",
+   "h": "1.00428"
+  }
+ },
+ {
+  "a": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "datetime": "2024-02-03 15:00:00",
+  "forecast": {
+   "d": "0.2276",
+   "l": "0.4586",
+   "w": "0.3138"
+  },
+  "goals": {
+   "a": "4",
+   "h": "4"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "22123",
+  "isResult": true,
+  "xG": {
+   "a": "2.67463",
+   "h": "2.37353"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2024-02-03 17:30:00",
+  "forecast": {
+   "d": "0.1699",
+   "l": "0.7352",
+   "w": "0.0949"
+  },
+  "goals": {
+   "a": "5",
+   "h": "0"
+  },
+  "h": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "id": "22124",
+  "isResult": true,
+  "xG": {
+   "a": "2.99015",
+   "h": "1.52784"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2024-02-04 14:00:00",
+  "forecast": {
+   "d": "0.2803",
+   "l": "0.0858",
+   "w": "0.6339"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "22115",
+  "isResult": true,
+  "xG": {
+   "a": "0.456548",
+   "h": "1.1895"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2024-02-04 14:00:00",
+  "forecast": {
+   "d": "0.229",
+   "l": "0.4147",
+   "w": "0.3563"
+  },
+  "goals": {
+   "a": "4",
+   "h": "2"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "22120",
+  "isResult": true,
+  "xG": {
+   "a": "2.48996",
+   "h": "2.35967"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2024-02-04 14:00:00",
+  "forecast": {
+   "d": "0.3006",
+   "l": "0.403",
+   "w": "0.2964"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "22122",
+  "isResult": true,
+  "xG": {
+   "a": "1.1807",
+   "h": "0.96721"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2024-02-04 16:30:00",
+  "forecast": {
+   "d": "0.0841",
+   "l": "0.0265",
+   "w": "0.8894"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "22116",
+  "isResult": true,
+  "xG": {
+   "a": "0.542052",
+   "h": "2.8526"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2024-02-05 20:00:00",
+  "forecast": {
+   "d": "0.1938",
+   "l": "0.6816",
+   "w": "0.1246"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "22117",
+  "isResult": true,
+  "xG": {
+   "a": "2.10785",
+   "h": "0.865741"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2024-02-10 12:30:00",
+  "forecast": {
+   "d": "0.1961",
+   "l": "0.0336",
+   "w": "0.7703"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "22130",
+  "isResult": true,
+  "xG": {
+   "a": "0.192072",
+   "h": "1.58971"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2024-02-10 15:00:00",
+  "forecast": {
+   "d": "0.2217",
+   "l": "0.5759",
+   "w": "0.2024"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "22127",
+  "isResult": true,
+  "xG": {
+   "a": "2.60612",
+   "h": "1.7456"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2024-02-10 15:00:00",
+  "forecast": {
+   "d": "0.1243",
+   "l": "0.0702",
+   "w": "0.8055"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "22128",
+  "isResult": true,
+  "xG": {
+   "a": "1.11123",
+   "h": "3.14734"
+  }
+ },
+ {
+  "a": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "datetime": "2024-02-10 15:00:00",
+  "forecast": {
+   "d": "0.2842",
+   "l": "0.4221",
+   "w": "0.2937"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "id": "22129",
+  "isResult": true,
+  "xG": {
+   "a": "1.98283",
+   "h": "1.76215"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2024-02-10 15:00:00",
+  "forecast": {
+   "d": "0.2553",
+   "l": "0.2265",
+   "w": "0.5182"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "22132",
+  "isResult": true,
+  "xG": {
+   "a": "1.49285",
+   "h": "2.10928"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2024-02-10 15:00:00",
+  "forecast": {
+   "d": "0.2406",
+   "l": "0.59",
+   "w": "0.1694"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "22134",
+  "isResult": true,
+  "xG": {
+   "a": "1.84908",
+   "h": "1.05781"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2024-02-10 17:30:00",
+  "forecast": {
+   "d": "0.3509",
+   "l": "0.1686",
+   "w": "0.4805"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "22131",
+  "isResult": true,
+  "xG": {
+   "a": "0.511375",
+   "h": "0.968075"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2024-02-11 14:00:00",
+  "forecast": {
+   "d": "0.0121",
+   "l": "0.9865",
+   "w": "0.0014"
+  },
+  "goals": {
+   "a": "6",
+   "h": "0"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "22133",
+  "isResult": true,
+  "xG": {
+   "a": "3.99893",
+   "h": "0.191065"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2024-02-11 16:30:00",
+  "forecast": {
+   "d": "0.2256",
+   "l": "0.3377",
+   "w": "0.4367"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "22125",
+  "isResult": true,
+  "xG": {
+   "a": "2.44591",
+   "h": "2.64675"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2024-02-12 20:00:00",
+  "forecast": {
+   "d": "0.2941",
+   "l": "0.519",
+   "w": "0.1869"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "22126",
+  "isResult": true,
+  "xG": {
+   "a": "1.26948",
+   "h": "0.719516"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2024-02-17 12:30:00",
+  "forecast": {
+   "d": "0.1713",
+   "l": "0.6987",
+   "w": "0.13"
+  },
+  "goals": {
+   "a": "4",
+   "h": "1"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "22135",
+  "isResult": true,
+  "xG": {
+   "a": "3.08952",
+   "h": "1.69518"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2024-02-17 15:00:00",
+  "forecast": {
+   "d": "0.1051",
+   "l": "0.8734",
+   "w": "0.0215"
+  },
+  "goals": {
+   "a": "5",
+   "h": "0"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "22136",
+  "isResult": true,
+  "xG": {
+   "a": "2.20575",
+   "h": "0.335143"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2024-02-17 15:00:00",
+  "forecast": {
+   "d": "0.2655",
+   "l": "0.4111",
+   "w": "0.3234"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "22138",
+  "isResult": true,
+  "xG": {
+   "a": "1.57297",
+   "h": "1.41796"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2024-02-17 15:00:00",
+  "forecast": {
+   "d": "0.2915",
+   "l": "0.2761",
+   "w": "0.4324"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "22141",
+  "isResult": true,
+  "xG": {
+   "a": "2.08098",
+   "h": "2.38425"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2024-02-17 15:00:00",
+  "forecast": {
+   "d": "0.0916",
+   "l": "0.0315",
+   "w": "0.8769"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "22142",
+  "isResult": true,
+  "xG": {
+   "a": "0.520016",
+   "h": "2.66942"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2024-02-17 15:00:00",
+  "forecast": {
+   "d": "0.2596",
+   "l": "0.4222",
+   "w": "0.3182"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "22144",
+  "isResult": true,
+  "xG": {
+   "a": "1.77591",
+   "h": "1.59768"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2024-02-17 17:30:00",
+  "forecast": {
+   "d": "0.1949",
+   "l": "0.2142",
+   "w": "0.5909"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "22140",
+  "isResult": true,
+  "xG": {
+   "a": "1.82903",
+   "h": "2.77713"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2024-02-18 14:00:00",
+  "forecast": {
+   "d": "0.0482",
+   "l": "0.9398",
+   "w": "0.012"
+  },
+  "goals": {
+   "a": "5",
+   "h": "0"
+  },
+  "h": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "id": "22143",
+  "isResult": true,
+  "xG": {
+   "a": "3.35549",
+   "h": "0.586214"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2024-02-18 16:30:00",
+  "forecast": {
+   "d": "0.1195",
+   "l": "0.8004",
+   "w": "0.0801"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "id": "22139",
+  "isResult": true,
+  "xG": {
+   "a": "3.58973",
+   "h": "1.57234"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2024-02-19 20:00:00",
+  "forecast": {
+   "d": "0.1381",
+   "l": "0.0554",
+   "w": "0.8065"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "22137",
+  "isResult": true,
+  "xG": {
+   "a": "0.734685",
+   "h": "2.44588"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2024-02-20 18:30:00",
+  "forecast": {
+   "d": "0.1154",
+   "l": "0.0396",
+   "w": "0.845"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "22074",
+  "isResult": true,
+  "xG": {
+   "a": "0.503799",
+   "h": "2.53766"
+  }
+ },
+ {
+  "a": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "datetime": "2024-02-21 15:00:00",
+  "forecast": {
+   "d": "0.0729",
+   "l": "0.031",
+   "w": "0.8961"
+  },
+  "goals": {
+   "a": "1",
+   "h": "4"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "22151",
+  "isResult": true,
+  "xG": {
+   "a": "0.956512",
+   "h": "3.70302"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2024-02-24 15:00:00",
+  "forecast": {
+   "d": "0.188",
+   "l": "0.1444",
+   "w": "0.6676"
+  },
+  "goals": {
+   "a": "2",
+   "h": "4"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "22147",
+  "isResult": true,
+  "xG": {
+   "a": "2.25569",
+   "h": "3.48861"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2024-02-24 15:00:00",
+  "forecast": {
+   "d": "0.2016",
+   "l": "0.0518",
+   "w": "0.7466"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "22148",
+  "isResult": true,
+  "xG": {
+   "a": "0.286655",
+   "h": "1.6538"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2024-02-24 15:00:00",
+  "forecast": {
+   "d": "0.042",
+   "l": "0.0023",
+   "w": "0.9557"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "22150",
+  "isResult": true,
+  "xG": {
+   "a": "0.0760216",
+   "h": "2.41612"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2024-02-24 15:00:00",
+  "forecast": {
+   "d": "0.2309",
+   "l": "0.1743",
+   "w": "0.5948"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "22152",
+  "isResult": true,
+  "xG": {
+   "a": "1.1385",
+   "h": "1.96036"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2024-02-24 17:30:00",
+  "forecast": {
+   "d": "0.2393",
+   "l": "0.623",
+   "w": "0.1377"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "22145",
+  "isResult": true,
+  "xG": {
+   "a": "1.79636",
+   "h": "0.925889"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2024-02-24 20:00:00",
+  "forecast": {
+   "d": "0.0583",
+   "l": "0.0087",
+   "w": "0.933"
+  },
+  "goals": {
+   "a": "1",
+   "h": "4"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "22146",
+  "isResult": true,
+  "xG": {
+   "a": "0.217373",
+   "h": "2.59336"
+  }
+ },
+ {
+  "a": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "datetime": "2024-02-25 13:30:00",
+  "forecast": {
+   "d": "0.3025",
+   "l": "0.1821",
+   "w": "0.5154"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "22154",
+  "isResult": true,
+  "xG": {
+   "a": "0.654342",
+   "h": "1.21618"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2024-02-26 20:00:00",
+  "forecast": {
+   "d": "0.2315",
+   "l": "0.1926",
+   "w": "0.5759"
+  },
+  "goals": {
+   "a": "2",
+   "h": "4"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "22153",
+  "isResult": true,
+  "xG": {
+   "a": "1.33683",
+   "h": "2.06873"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2024-03-02 15:00:00",
+  "forecast": {
+   "d": "0.2411",
+   "l": "0.3171",
+   "w": "0.4418"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "22155",
+  "isResult": true,
+  "xG": {
+   "a": "2.1523",
+   "h": "2.4732"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2024-03-02 15:00:00",
+  "forecast": {
+   "d": "0.2042",
+   "l": "0.1917",
+   "w": "0.6041"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "22157",
+  "isResult": true,
+  "xG": {
+   "a": "2.17948",
+   "h": "3.12075"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2024-03-02 15:00:00",
+  "forecast": {
+   "d": "0.2805",
+   "l": "0.2981",
+   "w": "0.4214"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "22158",
+  "isResult": true,
+  "xG": {
+   "a": "1.15198",
+   "h": "1.37604"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2024-03-02 15:00:00",
+  "forecast": {
+   "d": "0.0375",
+   "l": "0.0097",
+   "w": "0.9528"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "22161",
+  "isResult": true,
+  "xG": {
+   "a": "0.507769",
+   "h": "3.33495"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2024-03-02 15:00:00",
+  "forecast": {
+   "d": "0.2868",
+   "l": "0.4462",
+   "w": "0.267"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "22162",
+  "isResult": true,
+  "xG": {
+   "a": "1.32259",
+   "h": "0.971466"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2024-03-02 15:00:00",
+  "forecast": {
+   "d": "0.0622",
+   "l": "0.0093",
+   "w": "0.9285"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "22164",
+  "isResult": true,
+  "xG": {
+   "a": "0.277887",
+   "h": "2.6625"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2024-03-02 17:30:00",
+  "forecast": {
+   "d": "0.2474",
+   "l": "0.2878",
+   "w": "0.4648"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "id": "22159",
+  "isResult": true,
+  "xG": {
+   "a": "2.08586",
+   "h": "2.43312"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2024-03-03 13:00:00",
+  "forecast": {
+   "d": "0.2635",
+   "l": "0.3163",
+   "w": "0.4202"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "22156",
+  "isResult": true,
+  "xG": {
+   "a": "1.43616",
+   "h": "1.60461"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2024-03-03 15:30:00",
+  "forecast": {
+   "d": "0.0569",
+   "l": "0.0056",
+   "w": "0.9375"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "22160",
+  "isResult": true,
+  "xG": {
+   "a": "0.153764",
+   "h": "2.64173"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2024-03-04 20:00:00",
+  "forecast": {
+   "d": "0.089",
+   "l": "0.8978",
+   "w": "0.0132"
+  },
+  "goals": {
+   "a": "6",
+   "h": "0"
+  },
+  "h": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "id": "22163",
+  "isResult": true,
+  "xG": {
+   "a": "2.47294",
+   "h": "0.201374"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2024-03-09 12:30:00",
+  "forecast": {
+   "d": "0.188",
+   "l": "0.1581",
+   "w": "0.6539"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "22172",
+  "isResult": true,
+  "xG": {
+   "a": "1.8214",
+   "h": "2.9016"
+  }
+ },
+ {
+  "a": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "datetime": "2024-03-09 15:00:00",
+  "forecast": {
+   "d": "0.1317",
+   "l": "0.0856",
+   "w": "0.7827"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "22165",
+  "isResult": true,
+  "xG": {
+   "a": "1.91752",
+   "h": "3.92657"
+  }
+ },
+ {
+  "a": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "datetime": "2024-03-09 15:00:00",
+  "forecast": {
+   "d": "0.1087",
+   "l": "0.0428",
+   "w": "0.8485"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "22170",
+  "isResult": true,
+  "xG": {
+   "a": "1.08531",
+   "h": "3.25103"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2024-03-09 15:00:00",
+  "forecast": {
+   "d": "0.1555",
+   "l": "0.7489",
+   "w": "0.0956"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "22174",
+  "isResult": true,
+  "xG": {
+   "a": "2.94155",
+   "h": "1.29589"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2024-03-09 17:30:00",
+  "forecast": {
+   "d": "0.262",
+   "l": "0.1464",
+   "w": "0.5916"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "22166",
+  "isResult": true,
+  "xG": {
+   "a": "0.733239",
+   "h": "1.59369"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2024-03-10 13:00:00",
+  "forecast": {
+   "d": "0.2079",
+   "l": "0.648",
+   "w": "0.1441"
+  },
+  "goals": {
+   "a": "4",
+   "h": "0"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "22167",
+  "isResult": true,
+  "xG": {
+   "a": "2.25381",
+   "h": "1.23267"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2024-03-10 14:00:00",
+  "forecast": {
+   "d": "0.4127",
+   "l": "0.3547",
+   "w": "0.2326"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "22168",
+  "isResult": true,
+  "xG": {
+   "a": "0.687034",
+   "h": "0.534518"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2024-03-10 14:00:00",
+  "forecast": {
+   "d": "0.2337",
+   "l": "0.1493",
+   "w": "0.617"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "22173",
+  "isResult": true,
+  "xG": {
+   "a": "0.88131",
+   "h": "1.87414"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2024-03-10 15:45:00",
+  "forecast": {
+   "d": "0.2435",
+   "l": "0.1703",
+   "w": "0.5862"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "22171",
+  "isResult": true,
+  "xG": {
+   "a": "1.37289",
+   "h": "2.25492"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2024-03-11 20:00:00",
+  "forecast": {
+   "d": "0.1839",
+   "l": "0.0612",
+   "w": "0.7549"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "22169",
+  "isResult": true,
+  "xG": {
+   "a": "0.568435",
+   "h": "1.78315"
+  }
+ },
+ {
+  "a": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "datetime": "2024-03-13 19:30:00",
+  "forecast": {
+   "d": "0.23",
+   "l": "0.3826",
+   "w": "0.3874"
+  },
+  "goals": {
+   "a": "3",
+   "h": "4"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "25861",
+  "isResult": true,
+  "xG": {
+   "a": "2.79419",
+   "h": "2.84403"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2024-03-16 15:00:00",
+  "forecast": {
+   "d": "0.1712",
+   "l": "0.0956",
+   "w": "0.7332"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "22177",
+  "isResult": true,
+  "xG": {
+   "a": "1.25123",
+   "h": "2.69776"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2024-03-16 15:00:00",
+  "forecast": {
+   "d": "0.2202",
+   "l": "0.6562",
+   "w": "0.1236"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "id": "22181",
+  "isResult": true,
+  "xG": {
+   "a": "1.95268",
+   "h": "0.853782"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2024-03-16 17:30:00",
+  "forecast": {
+   "d": "0.2511",
+   "l": "0.2992",
+   "w": "0.4497"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "22180",
+  "isResult": true,
+  "xG": {
+   "a": "2.14564",
+   "h": "2.47234"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2024-03-17 14:00:00",
+  "forecast": {
+   "d": "0.3004",
+   "l": "0.2384",
+   "w": "0.4612"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "22183",
+  "isResult": true,
+  "xG": {
+   "a": "0.911274",
+   "h": "1.32829"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2024-03-30 12:30:00",
+  "forecast": {
+   "d": "0.0607",
+   "l": "0.0252",
+   "w": "0.9141"
+  },
+  "goals": {
+   "a": "3",
+   "h": "4"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "22191",
+  "isResult": true,
+  "xG": {
+   "a": "0.994584",
+   "h": "3.80922"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2024-03-30 15:00:00",
+  "forecast": {
+   "d": "0.3187",
+   "l": "0.1977",
+   "w": "0.4836"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "22185",
+  "isResult": true,
+  "xG": {
+   "a": "0.93378",
+   "h": "1.39268"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2024-03-30 15:00:00",
+  "forecast": {
+   "d": "0.0971",
+   "l": "0.0695",
+   "w": "0.8334"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "22188",
+  "isResult": true,
+  "xG": {
+   "a": "2.10422",
+   "h": "4.46643"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2024-03-30 15:00:00",
+  "forecast": {
+   "d": "0.3583",
+   "l": "0.3568",
+   "w": "0.2849"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "22192",
+  "isResult": true,
+  "xG": {
+   "a": "0.900972",
+   "h": "0.784652"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2024-03-30 15:00:00",
+  "forecast": {
+   "d": "0.2465",
+   "l": "0.1876",
+   "w": "0.5659"
+  },
+  "goals": {
+   "a": "3",
+   "h": "3"
+  },
+  "h": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "id": "22193",
+  "isResult": true,
+  "xG": {
+   "a": "1.10254",
+   "h": "1.78824"
+  }
+ },
+ {
+  "a": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "datetime": "2024-03-30 15:00:00",
+  "forecast": {
+   "d": "0.093",
+   "l": "0.0217",
+   "w": "0.8853"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "22194",
+  "isResult": true,
+  "xG": {
+   "a": "0.402402",
+   "h": "2.46523"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2024-03-30 17:30:00",
+  "forecast": {
+   "d": "0.2583",
+   "l": "0.4736",
+   "w": "0.2681"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "22186",
+  "isResult": true,
+  "xG": {
+   "a": "1.66232",
+   "h": "1.28271"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2024-03-30 20:00:00",
+  "forecast": {
+   "d": "0.1192",
+   "l": "0.0537",
+   "w": "0.8271"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "22187",
+  "isResult": true,
+  "xG": {
+   "a": "0.989565",
+   "h": "3.16487"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2024-03-31 14:00:00",
+  "forecast": {
+   "d": "0.06",
+   "l": "0.0152",
+   "w": "0.9248"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "22189",
+  "isResult": true,
+  "xG": {
+   "a": "0.43922",
+   "h": "3.21149"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2024-03-31 16:30:00",
+  "forecast": {
+   "d": "0.2805",
+   "l": "0.1238",
+   "w": "0.5957"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "22190",
+  "isResult": true,
+  "xG": {
+   "a": "0.511402",
+   "h": "1.22009"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2024-04-02 18:30:00",
+  "forecast": {
+   "d": "0.215",
+   "l": "0.1717",
+   "w": "0.6133"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "22198",
+  "isResult": true,
+  "xG": {
+   "a": "1.04304",
+   "h": "1.94619"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2024-04-02 18:30:00",
+  "forecast": {
+   "d": "0.2173",
+   "l": "0.1729",
+   "w": "0.6098"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "22202",
+  "isResult": true,
+  "xG": {
+   "a": "1.69834",
+   "h": "2.65009"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2024-04-02 18:45:00",
+  "forecast": {
+   "d": "0.2403",
+   "l": "0.0414",
+   "w": "0.7183"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "22195",
+  "isResult": true,
+  "xG": {
+   "a": "0.174389",
+   "h": "1.30969"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2024-04-02 18:45:00",
+  "forecast": {
+   "d": "0.3116",
+   "l": "0.3093",
+   "w": "0.3791"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "22197",
+  "isResult": true,
+  "xG": {
+   "a": "1.01021",
+   "h": "1.12581"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2024-04-02 19:15:00",
+  "forecast": {
+   "d": "0.3037",
+   "l": "0.3272",
+   "w": "0.3691"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "22199",
+  "isResult": true,
+  "xG": {
+   "a": "1.39423",
+   "h": "1.47017"
+  }
+ },
+ {
+  "a": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "datetime": "2024-04-03 18:30:00",
+  "forecast": {
+   "d": "0.301",
+   "l": "0.0841",
+   "w": "0.6149"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "22196",
+  "isResult": true,
+  "xG": {
+   "a": "0.292082",
+   "h": "1.14384"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2024-04-03 18:30:00",
+  "forecast": {
+   "d": "0.2938",
+   "l": "0.5878",
+   "w": "0.1184"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "22200",
+  "isResult": true,
+  "xG": {
+   "a": "1.22404",
+   "h": "0.423299"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2024-04-03 19:15:00",
+  "forecast": {
+   "d": "0.0723",
+   "l": "0.0381",
+   "w": "0.8896"
+  },
+  "goals": {
+   "a": "1",
+   "h": "4"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "22204",
+  "isResult": true,
+  "xG": {
+   "a": "1.18643",
+   "h": "3.87704"
+  }
+ },
+ {
+  "a": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "datetime": "2024-04-04 18:30:00",
+  "forecast": {
+   "d": "0.151",
+   "l": "0.0521",
+   "w": "0.7969"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "22203",
+  "isResult": true,
+  "xG": {
+   "a": "0.720948",
+   "h": "2.51772"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2024-04-04 19:15:00",
+  "forecast": {
+   "d": "0.1251",
+   "l": "0.0872",
+   "w": "0.7877"
+  },
+  "goals": {
+   "a": "3",
+   "h": "4"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "22201",
+  "isResult": true,
+  "xG": {
+   "a": "1.56686",
+   "h": "3.48048"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2024-04-06 11:30:00",
+  "forecast": {
+   "d": "0.2307",
+   "l": "0.5583",
+   "w": "0.211"
+  },
+  "goals": {
+   "a": "4",
+   "h": "2"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "22207",
+  "isResult": true,
+  "xG": {
+   "a": "2.26381",
+   "h": "1.49472"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2024-04-06 14:00:00",
+  "forecast": {
+   "d": "0.2872",
+   "l": "0.4455",
+   "w": "0.2673"
+  },
+  "goals": {
+   "a": "3",
+   "h": "3"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "22205",
+  "isResult": true,
+  "xG": {
+   "a": "1.42064",
+   "h": "1.16333"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2024-04-06 14:00:00",
+  "forecast": {
+   "d": "0.4499",
+   "l": "0.1674",
+   "w": "0.3827"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "22208",
+  "isResult": true,
+  "xG": {
+   "a": "0.34699",
+   "h": "0.659844"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2024-04-06 14:00:00",
+  "forecast": {
+   "d": "0.3084",
+   "l": "0.4527",
+   "w": "0.2389"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "22209",
+  "isResult": true,
+  "xG": {
+   "a": "1.18012",
+   "h": "0.834564"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2024-04-06 14:00:00",
+  "forecast": {
+   "d": "0.2877",
+   "l": "0.1564",
+   "w": "0.5559"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "id": "22210",
+  "isResult": true,
+  "xG": {
+   "a": "0.616108",
+   "h": "1.30478"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2024-04-06 14:00:00",
+  "forecast": {
+   "d": "0.2917",
+   "l": "0.1525",
+   "w": "0.5558"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "22214",
+  "isResult": true,
+  "xG": {
+   "a": "1.14133",
+   "h": "1.78341"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2024-04-06 16:30:00",
+  "forecast": {
+   "d": "0.0185",
+   "l": "0.9775",
+   "w": "0.004"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "22206",
+  "isResult": true,
+  "xG": {
+   "a": "4.16518",
+   "h": "0.428514"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2024-04-07 14:30:00",
+  "forecast": {
+   "d": "0.0309",
+   "l": "0.9621",
+   "w": "0.007"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "22211",
+  "isResult": true,
+  "xG": {
+   "a": "4.43457",
+   "h": "0.814509"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2024-04-07 16:30:00",
+  "forecast": {
+   "d": "0.2028",
+   "l": "0.0765",
+   "w": "0.7207"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "id": "22212",
+  "isResult": true,
+  "xG": {
+   "a": "0.521789",
+   "h": "1.74265"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2024-04-07 19:00:00",
+  "forecast": {
+   "d": "0.2793",
+   "l": "0.4803",
+   "w": "0.2404"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "22213",
+  "isResult": true,
+  "xG": {
+   "a": "2.00122",
+   "h": "1.61978"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2024-04-13 11:30:00",
+  "forecast": {
+   "d": "0.0843",
+   "l": "0.0316",
+   "w": "0.8841"
+  },
+  "goals": {
+   "a": "0",
+   "h": "4"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "22222",
+  "isResult": true,
+  "xG": {
+   "a": "0.737596",
+   "h": "3.1483"
+  }
+ },
+ {
+  "a": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "datetime": "2024-04-13 14:00:00",
+  "forecast": {
+   "d": "0.3275",
+   "l": "0.2628",
+   "w": "0.4097"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "22217",
+  "isResult": true,
+  "xG": {
+   "a": "0.834498",
+   "h": "1.09071"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2024-04-13 14:00:00",
+  "forecast": {
+   "d": "0.2124",
+   "l": "0.1393",
+   "w": "0.6483"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "22218",
+  "isResult": true,
+  "xG": {
+   "a": "0.889445",
+   "h": "1.8522"
+  }
+ },
+ {
+  "a": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "datetime": "2024-04-13 14:00:00",
+  "forecast": {
+   "d": "0.0253",
+   "l": "0.006",
+   "w": "0.9687"
+  },
+  "goals": {
+   "a": "1",
+   "h": "5"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "22221",
+  "isResult": true,
+  "xG": {
+   "a": "0.809775",
+   "h": "4.64245"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2024-04-13 14:00:00",
+  "forecast": {
+   "d": "0.2841",
+   "l": "0.286",
+   "w": "0.4299"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "22223",
+  "isResult": true,
+  "xG": {
+   "a": "1.45688",
+   "h": "1.76244"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2024-04-13 16:30:00",
+  "forecast": {
+   "d": "0.2409",
+   "l": "0.174",
+   "w": "0.5851"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "22215",
+  "isResult": true,
+  "xG": {
+   "a": "1.52274",
+   "h": "2.38519"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2024-04-14 13:00:00",
+  "forecast": {
+   "d": "0.205",
+   "l": "0.209",
+   "w": "0.586"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "22220",
+  "isResult": true,
+  "xG": {
+   "a": "2.12879",
+   "h": "3.04497"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2024-04-14 13:00:00",
+  "forecast": {
+   "d": "0.1047",
+   "l": "0.8402",
+   "w": "0.0551"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "22224",
+  "isResult": true,
+  "xG": {
+   "a": "3.61413",
+   "h": "1.45307"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2024-04-14 15:30:00",
+  "forecast": {
+   "d": "0.2246",
+   "l": "0.1442",
+   "w": "0.6312"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "22216",
+  "isResult": true,
+  "xG": {
+   "a": "0.929049",
+   "h": "1.89003"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2024-04-15 19:00:00",
+  "forecast": {
+   "d": "0.0806",
+   "l": "0.0237",
+   "w": "0.8957"
+  },
+  "goals": {
+   "a": "0",
+   "h": "6"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "22219",
+  "isResult": true,
+  "xG": {
+   "a": "1.21791",
+   "h": "3.37093"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2024-04-20 14:00:00",
+  "forecast": {
+   "d": "0.0305",
+   "l": "0.9639",
+   "w": "0.0056"
+  },
+  "goals": {
+   "a": "5",
+   "h": "1"
+  },
+  "h": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "id": "22230",
+  "isResult": true,
+  "xG": {
+   "a": "3.7809",
+   "h": "0.497799"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2024-04-20 14:00:00",
+  "forecast": {
+   "d": "0.2176",
+   "l": "0.4976",
+   "w": "0.2848"
+  },
+  "goals": {
+   "a": "4",
+   "h": "1"
+  },
+  "h": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "id": "22232",
+  "isResult": true,
+  "xG": {
+   "a": "2.42338",
+   "h": "1.97816"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2024-04-20 18:30:00",
+  "forecast": {
+   "d": "0.1824",
+   "l": "0.7913",
+   "w": "0.0263"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "22234",
+  "isResult": true,
+  "xG": {
+   "a": "1.66179",
+   "h": "0.164516"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2024-04-21 12:30:00",
+  "forecast": {
+   "d": "0.289",
+   "l": "0.5979",
+   "w": "0.1131"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "22228",
+  "isResult": true,
+  "xG": {
+   "a": "1.18916",
+   "h": "0.473233"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2024-04-21 14:00:00",
+  "forecast": {
+   "d": "0.2532",
+   "l": "0.2283",
+   "w": "0.5185"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "22225",
+  "isResult": true,
+  "xG": {
+   "a": "2.05211",
+   "h": "2.62687"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2024-04-21 14:00:00",
+  "forecast": {
+   "d": "0.0909",
+   "l": "0.0319",
+   "w": "0.8772"
+  },
+  "goals": {
+   "a": "2",
+   "h": "5"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "22227",
+  "isResult": true,
+  "xG": {
+   "a": "1.34536",
+   "h": "3.7185"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2024-04-21 15:30:00",
+  "forecast": {
+   "d": "0.3265",
+   "l": "0.3803",
+   "w": "0.2932"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "22229",
+  "isResult": true,
+  "xG": {
+   "a": "1.02445",
+   "h": "0.83885"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2024-04-23 19:00:00",
+  "forecast": {
+   "d": "0.1394",
+   "l": "0.0904",
+   "w": "0.7702"
+  },
+  "goals": {
+   "a": "0",
+   "h": "5"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "22175",
+  "isResult": true,
+  "xG": {
+   "a": "1.60343",
+   "h": "3.45858"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2024-04-24 18:45:00",
+  "forecast": {
+   "d": "0.1264",
+   "l": "0.8315",
+   "w": "0.0421"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "22184",
+  "isResult": true,
+  "xG": {
+   "a": "2.40311",
+   "h": "0.484454"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2024-04-24 19:00:00",
+  "forecast": {
+   "d": "0.2628",
+   "l": "0.1215",
+   "w": "0.6157"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "22178",
+  "isResult": true,
+  "xG": {
+   "a": "0.55129",
+   "h": "1.43661"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2024-04-24 19:00:00",
+  "forecast": {
+   "d": "0.2422",
+   "l": "0.3707",
+   "w": "0.3871"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "22179",
+  "isResult": true,
+  "xG": {
+   "a": "1.87155",
+   "h": "1.89111"
+  }
+ },
+ {
+  "a": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "datetime": "2024-04-24 19:00:00",
+  "forecast": {
+   "d": "0.0946",
+   "l": "0.0434",
+   "w": "0.862"
+  },
+  "goals": {
+   "a": "2",
+   "h": "4"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "22182",
+  "isResult": true,
+  "xG": {
+   "a": "1.20517",
+   "h": "3.51311"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2024-04-25 19:00:00",
+  "forecast": {
+   "d": "0.192",
+   "l": "0.7357",
+   "w": "0.0723"
+  },
+  "goals": {
+   "a": "4",
+   "h": "0"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "22176",
+  "isResult": true,
+  "xG": {
+   "a": "1.90507",
+   "h": "0.572021"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2024-04-27 11:30:00",
+  "forecast": {
+   "d": "0.1784",
+   "l": "0.7255",
+   "w": "0.0961"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "22243",
+  "isResult": true,
+  "xG": {
+   "a": "2.29298",
+   "h": "0.794025"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2024-04-27 14:00:00",
+  "forecast": {
+   "d": "0.286",
+   "l": "0.2539",
+   "w": "0.4601"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "22238",
+  "isResult": true,
+  "xG": {
+   "a": "1.05387",
+   "h": "1.39418"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2024-04-27 14:00:00",
+  "forecast": {
+   "d": "0.1894",
+   "l": "0.1776",
+   "w": "0.633"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "22239",
+  "isResult": true,
+  "xG": {
+   "a": "1.89591",
+   "h": "3.06197"
+  }
+ },
+ {
+  "a": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "datetime": "2024-04-27 14:00:00",
+  "forecast": {
+   "d": "0.1843",
+   "l": "0.181",
+   "w": "0.6347"
+  },
+  "goals": {
+   "a": "1",
+   "h": "5"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "22240",
+  "isResult": true,
+  "xG": {
+   "a": "1.82408",
+   "h": "2.93477"
+  }
+ },
+ {
+  "a": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "datetime": "2024-04-27 14:00:00",
+  "forecast": {
+   "d": "0.2771",
+   "l": "0.1914",
+   "w": "0.5315"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "22244",
+  "isResult": true,
+  "xG": {
+   "a": "0.90435",
+   "h": "1.49011"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2024-04-27 16:30:00",
+  "forecast": {
+   "d": "0.3107",
+   "l": "0.2763",
+   "w": "0.413"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "22237",
+  "isResult": true,
+  "xG": {
+   "a": "0.956356",
+   "h": "1.21399"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2024-04-27 19:00:00",
+  "forecast": {
+   "d": "0.2418",
+   "l": "0.636",
+   "w": "0.1222"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "22236",
+  "isResult": true,
+  "xG": {
+   "a": "1.56401",
+   "h": "0.612257"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2024-04-28 13:00:00",
+  "forecast": {
+   "d": "0.2038",
+   "l": "0.1341",
+   "w": "0.6621"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "22235",
+  "isResult": true,
+  "xG": {
+   "a": "1.35682",
+   "h": "2.48132"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2024-04-28 13:00:00",
+  "forecast": {
+   "d": "0.2025",
+   "l": "0.1417",
+   "w": "0.6558"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "22241",
+  "isResult": true,
+  "xG": {
+   "a": "1.51469",
+   "h": "2.60458"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2024-04-28 15:30:00",
+  "forecast": {
+   "d": "0.1854",
+   "l": "0.0984",
+   "w": "0.7162"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "22242",
+  "isResult": true,
+  "xG": {
+   "a": "0.932063",
+   "h": "2.17312"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2024-05-02 18:30:00",
+  "forecast": {
+   "d": "0.2125",
+   "l": "0.1734",
+   "w": "0.6141"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "22149",
+  "isResult": true,
+  "xG": {
+   "a": "1.27064",
+   "h": "2.22432"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2024-05-03 19:00:00",
+  "forecast": {
+   "d": "0.3209",
+   "l": "0.4374",
+   "w": "0.2417"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "id": "22252",
+  "isResult": true,
+  "xG": {
+   "a": "1.22959",
+   "h": "0.950391"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2024-05-04 11:30:00",
+  "forecast": {
+   "d": "0.0291",
+   "l": "0.0055",
+   "w": "0.9654"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "22245",
+  "isResult": true,
+  "xG": {
+   "a": "0.4687",
+   "h": "3.91372"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2024-05-04 14:00:00",
+  "forecast": {
+   "d": "0.2963",
+   "l": "0.5322",
+   "w": "0.1715"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "22246",
+  "isResult": true,
+  "xG": {
+   "a": "1.45579",
+   "h": "0.809379"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2024-05-04 14:00:00",
+  "forecast": {
+   "d": "0.0508",
+   "l": "0.9314",
+   "w": "0.0178"
+  },
+  "goals": {
+   "a": "4",
+   "h": "1"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "22248",
+  "isResult": true,
+  "xG": {
+   "a": "4.25643",
+   "h": "1.28632"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2024-05-04 14:00:00",
+  "forecast": {
+   "d": "0.2253",
+   "l": "0.2688",
+   "w": "0.5059"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "id": "22254",
+  "isResult": true,
+  "xG": {
+   "a": "1.93818",
+   "h": "2.48986"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2024-05-04 16:30:00",
+  "forecast": {
+   "d": "0.0079",
+   "l": "0.0011",
+   "w": "0.991"
+  },
+  "goals": {
+   "a": "1",
+   "h": "5"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "22253",
+  "isResult": true,
+  "xG": {
+   "a": "0.396887",
+   "h": "4.52542"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2024-05-05 13:00:00",
+  "forecast": {
+   "d": "0.0239",
+   "l": "0.0008",
+   "w": "0.9753"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "22247",
+  "isResult": true,
+  "xG": {
+   "a": "0.0644055",
+   "h": "2.63566"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2024-05-05 13:00:00",
+  "forecast": {
+   "d": "0.0394",
+   "l": "0.0174",
+   "w": "0.9432"
+  },
+  "goals": {
+   "a": "0",
+   "h": "5"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "22249",
+  "isResult": true,
+  "xG": {
+   "a": "0.893899",
+   "h": "4.21838"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2024-05-05 15:30:00",
+  "forecast": {
+   "d": "0.1185",
+   "l": "0.05",
+   "w": "0.8315"
+  },
+  "goals": {
+   "a": "2",
+   "h": "4"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "22251",
+  "isResult": true,
+  "xG": {
+   "a": "1.17205",
+   "h": "3.26222"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2024-05-06 19:00:00",
+  "forecast": {
+   "d": "0.137",
+   "l": "0.0333",
+   "w": "0.8297"
+  },
+  "goals": {
+   "a": "0",
+   "h": "4"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "22250",
+  "isResult": true,
+  "xG": {
+   "a": "0.341417",
+   "h": "2.0656"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2024-05-11 11:30:00",
+  "forecast": {
+   "d": "0.0222",
+   "l": "0.9768",
+   "w": "0.001"
+  },
+  "goals": {
+   "a": "4",
+   "h": "0"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "22258",
+  "isResult": true,
+  "xG": {
+   "a": "3.15218",
+   "h": "0.0886245"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2024-05-11 14:00:00",
+  "forecast": {
+   "d": "0.2389",
+   "l": "0.5952",
+   "w": "0.1659"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "22255",
+  "isResult": true,
+  "xG": {
+   "a": "1.92722",
+   "h": "1.07237"
+  }
+ },
+ {
+  "a": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "datetime": "2024-05-11 14:00:00",
+  "forecast": {
+   "d": "0.1746",
+   "l": "0.0604",
+   "w": "0.765"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "22257",
+  "isResult": true,
+  "xG": {
+   "a": "0.465523",
+   "h": "1.82411"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2024-05-11 14:00:00",
+  "forecast": {
+   "d": "0.2298",
+   "l": "0.2704",
+   "w": "0.4998"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "22260",
+  "isResult": true,
+  "xG": {
+   "a": "1.91556",
+   "h": "2.45163"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2024-05-11 14:00:00",
+  "forecast": {
+   "d": "0.1169",
+   "l": "0.047",
+   "w": "0.8361"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "22262",
+  "isResult": true,
+  "xG": {
+   "a": "0.950331",
+   "h": "3.00238"
+  }
+ },
+ {
+  "a": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "datetime": "2024-05-11 14:00:00",
+  "forecast": {
+   "d": "0.0361",
+   "l": "0.0072",
+   "w": "0.9567"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "22263",
+  "isResult": true,
+  "xG": {
+   "a": "0.640456",
+   "h": "3.71009"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2024-05-11 14:00:00",
+  "forecast": {
+   "d": "0.1802",
+   "l": "0.7249",
+   "w": "0.0949"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "22264",
+  "isResult": true,
+  "xG": {
+   "a": "2.51452",
+   "h": "1.1561"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2024-05-11 16:30:00",
+  "forecast": {
+   "d": "0.2374",
+   "l": "0.3709",
+   "w": "0.3917"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "22261",
+  "isResult": true,
+  "xG": {
+   "a": "2.41068",
+   "h": "2.44569"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2024-05-12 15:30:00",
+  "forecast": {
+   "d": "0.1941",
+   "l": "0.7443",
+   "w": "0.0616"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "22259",
+  "isResult": true,
+  "xG": {
+   "a": "1.73104",
+   "h": "0.551669"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2024-05-13 19:00:00",
+  "forecast": {
+   "d": "0.2272",
+   "l": "0.1982",
+   "w": "0.5746"
+  },
+  "goals": {
+   "a": "3",
+   "h": "3"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "22256",
+  "isResult": true,
+  "xG": {
+   "a": "1.89968",
+   "h": "2.71655"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2024-05-14 19:00:00",
+  "forecast": {
+   "d": "0.2244",
+   "l": "0.6066",
+   "w": "0.169"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "22233",
+  "isResult": true,
+  "xG": {
+   "a": "2.70331",
+   "h": "1.84285"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2024-05-15 18:45:00",
+  "forecast": {
+   "d": "0.2856",
+   "l": "0.4166",
+   "w": "0.2978"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "22226",
+  "isResult": true,
+  "xG": {
+   "a": "1.544",
+   "h": "1.32423"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2024-05-15 19:00:00",
+  "forecast": {
+   "d": "0.2203",
+   "l": "0.5615",
+   "w": "0.2182"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "22231",
+  "isResult": true,
+  "xG": {
+   "a": "2.27657",
+   "h": "1.49706"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2024-05-19 15:00:00",
+  "forecast": {
+   "d": "0.0673",
+   "l": "0.0128",
+   "w": "0.9199"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "22265",
+  "isResult": true,
+  "xG": {
+   "a": "0.664904",
+   "h": "3.2117"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2024-05-19 15:00:00",
+  "forecast": {
+   "d": "0.1234",
+   "l": "0.8",
+   "w": "0.0766"
+  },
+  "goals": {
+   "a": "4",
+   "h": "2"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "22266",
+  "isResult": true,
+  "xG": {
+   "a": "3.65044",
+   "h": "1.70157"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2024-05-19 15:00:00",
+  "forecast": {
+   "d": "0.2248",
+   "l": "0.1513",
+   "w": "0.6239"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "22267",
+  "isResult": true,
+  "xG": {
+   "a": "1.00404",
+   "h": "1.9717"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2024-05-19 15:00:00",
+  "forecast": {
+   "d": "0.2662",
+   "l": "0.4991",
+   "w": "0.2347"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "22268",
+  "isResult": true,
+  "xG": {
+   "a": "1.57962",
+   "h": "1.08222"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2024-05-19 15:00:00",
+  "forecast": {
+   "d": "0.2387",
+   "l": "0.487",
+   "w": "0.2743"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "22269",
+  "isResult": true,
+  "xG": {
+   "a": "2.002",
+   "h": "1.59771"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2024-05-19 15:00:00",
+  "forecast": {
+   "d": "0.1508",
+   "l": "0.0579",
+   "w": "0.7913"
+  },
+  "goals": {
+   "a": "0",
+   "h": "5"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "22270",
+  "isResult": true,
+  "xG": {
+   "a": "0.598846",
+   "h": "2.23189"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2024-05-19 15:00:00",
+  "forecast": {
+   "d": "0.0057",
+   "l": "0.0004",
+   "w": "0.9939"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "22271",
+  "isResult": true,
+  "xG": {
+   "a": "0.731254",
+   "h": "5.65937"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2024-05-19 15:00:00",
+  "forecast": {
+   "d": "0.2206",
+   "l": "0.1521",
+   "w": "0.6273"
+  },
+  "goals": {
+   "a": "4",
+   "h": "2"
+  },
+  "h": {
+   "id": "256",
+   "short_title": "LUT",
+   "title": "Luton"
+  },
+  "id": "22272",
+  "isResult": true,
+  "xG": {
+   "a": "1.11598",
+   "h": "2.06743"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2024-05-19 15:00:00",
+  "forecast": {
+   "d": "0.1018",
+   "l": "0.0185",
+   "w": "0.8797"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "22273",
+  "isResult": true,
+  "xG": {
+   "a": "0.240159",
+   "h": "2.31504"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2024-05-19 15:00:00",
+  "forecast": {
+   "d": "0.0617",
+   "l": "0.9232",
+   "w": "0.0151"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "238",
+   "short_title": "SHE",
+   "title": "Sheffield United"
+  },
+  "id": "22274",
+  "isResult": true,
+  "xG": {
+   "a": "3.19675",
+   "h": "0.697312"
+  }
+ }
+]

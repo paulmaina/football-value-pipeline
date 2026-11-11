@@ -1,0 +1,9242 @@
+[
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2025-08-15 19:00:00",
+  "forecast": {
+   "d": "0.2276",
+   "l": "0.2226",
+   "w": "0.5498"
+  },
+  "goals": {
+   "a": "2",
+   "h": "4"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "28778",
+  "isResult": true,
+  "xG": {
+   "a": "1.57303",
+   "h": "2.33007"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2025-08-16 11:30:00",
+  "forecast": {
+   "d": "0.2371",
+   "l": "0.7",
+   "w": "0.0629"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "28779",
+  "isResult": true,
+  "xG": {
+   "a": "1.40098",
+   "h": "0.318601"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2025-08-16 14:00:00",
+  "forecast": {
+   "d": "0.3088",
+   "l": "0.1754",
+   "w": "0.5158"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "28780",
+  "isResult": true,
+  "xG": {
+   "a": "0.902883",
+   "h": "1.44008"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2025-08-16 14:00:00",
+  "forecast": {
+   "d": "0.391",
+   "l": "0.246",
+   "w": "0.363"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "id": "28781",
+  "isResult": true,
+  "xG": {
+   "a": "0.558948",
+   "h": "0.724368"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2025-08-16 14:00:00",
+  "forecast": {
+   "d": "0.1993",
+   "l": "0.0975",
+   "w": "0.7032"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "28782",
+  "isResult": true,
+  "xG": {
+   "a": "0.734138",
+   "h": "1.97858"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2025-08-16 16:30:00",
+  "forecast": {
+   "d": "0.1179",
+   "l": "0.8417",
+   "w": "0.0404"
+  },
+  "goals": {
+   "a": "4",
+   "h": "0"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "28783",
+  "isResult": true,
+  "xG": {
+   "a": "2.29903",
+   "h": "0.519436"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2025-08-17 13:00:00",
+  "forecast": {
+   "d": "0.2929",
+   "l": "0.2667",
+   "w": "0.4404"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "28784",
+  "isResult": true,
+  "xG": {
+   "a": "1.03414",
+   "h": "1.36793"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2025-08-17 13:00:00",
+  "forecast": {
+   "d": "0.2855",
+   "l": "0.2431",
+   "w": "0.4714"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "28785",
+  "isResult": true,
+  "xG": {
+   "a": "1.32516",
+   "h": "1.7555"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2025-08-17 15:30:00",
+  "forecast": {
+   "d": "0.3074",
+   "l": "0.3518",
+   "w": "0.3408"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "28786",
+  "isResult": true,
+  "xG": {
+   "a": "1.3304",
+   "h": "1.37653"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2025-08-18 19:00:00",
+  "forecast": {
+   "d": "0.1394",
+   "l": "0.049",
+   "w": "0.8116"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "id": "28787",
+  "isResult": true,
+  "xG": {
+   "a": "0.674338",
+   "h": "2.3812"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2025-08-22 19:00:00",
+  "forecast": {
+   "d": "0.0485",
+   "l": "0.9362",
+   "w": "0.0153"
+  },
+  "goals": {
+   "a": "5",
+   "h": "1"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "28788",
+  "isResult": true,
+  "xG": {
+   "a": "3.94997",
+   "h": "0.978572"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2025-08-23 11:30:00",
+  "forecast": {
+   "d": "0.2889",
+   "l": "0.3585",
+   "w": "0.3526"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "28789",
+  "isResult": true,
+  "xG": {
+   "a": "1.28015",
+   "h": "1.2475"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2025-08-23 14:00:00",
+  "forecast": {
+   "d": "0.3328",
+   "l": "0.2653",
+   "w": "0.4019"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "28790",
+  "isResult": true,
+  "xG": {
+   "a": "0.976852",
+   "h": "1.12964"
+  }
+ },
+ {
+  "a": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "datetime": "2025-08-23 14:00:00",
+  "forecast": {
+   "d": "0.3293",
+   "l": "0.3729",
+   "w": "0.2978"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "28791",
+  "isResult": true,
+  "xG": {
+   "a": "1.12127",
+   "h": "1.00381"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2025-08-23 14:00:00",
+  "forecast": {
+   "d": "0.1642",
+   "l": "0.047",
+   "w": "0.7888"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "28792",
+  "isResult": true,
+  "xG": {
+   "a": "0.373367",
+   "h": "1.78462"
+  }
+ },
+ {
+  "a": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "datetime": "2025-08-23 16:30:00",
+  "forecast": {
+   "d": "0.039",
+   "l": "0.0041",
+   "w": "0.9569"
+  },
+  "goals": {
+   "a": "0",
+   "h": "5"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "28793",
+  "isResult": true,
+  "xG": {
+   "a": "0.156761",
+   "h": "2.73761"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2025-08-24 13:00:00",
+  "forecast": {
+   "d": "0.3071",
+   "l": "0.4107",
+   "w": "0.2822"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "28794",
+  "isResult": true,
+  "xG": {
+   "a": "1.32987",
+   "h": "1.10188"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2025-08-24 13:00:00",
+  "forecast": {
+   "d": "0.2775",
+   "l": "0.446",
+   "w": "0.2765"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "28795",
+  "isResult": true,
+  "xG": {
+   "a": "2.08487",
+   "h": "1.80116"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2025-08-24 15:30:00",
+  "forecast": {
+   "d": "0.2852",
+   "l": "0.328",
+   "w": "0.3868"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "28796",
+  "isResult": true,
+  "xG": {
+   "a": "1.54603",
+   "h": "1.65333"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2025-08-25 19:00:00",
+  "forecast": {
+   "d": "0.1793",
+   "l": "0.0714",
+   "w": "0.7493"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "28797",
+  "isResult": true,
+  "xG": {
+   "a": "0.646559",
+   "h": "1.96342"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2025-08-30 11:30:00",
+  "forecast": {
+   "d": "0.1338",
+   "l": "0.0552",
+   "w": "0.811"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "28798",
+  "isResult": true,
+  "xG": {
+   "a": "0.736228",
+   "h": "2.4324"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2025-08-30 14:00:00",
+  "forecast": {
+   "d": "0.1089",
+   "l": "0.8751",
+   "w": "0.016"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "28799",
+  "isResult": true,
+  "xG": {
+   "a": "2.1201",
+   "h": "0.17067"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2025-08-30 14:00:00",
+  "forecast": {
+   "d": "0.2084",
+   "l": "0.6711",
+   "w": "0.1205"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "28800",
+  "isResult": true,
+  "xG": {
+   "a": "2.03791",
+   "h": "0.943257"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2025-08-30 14:00:00",
+  "forecast": {
+   "d": "0.3194",
+   "l": "0.3152",
+   "w": "0.3654"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "id": "28801",
+  "isResult": true,
+  "xG": {
+   "a": "1.44604",
+   "h": "1.57127"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2025-08-30 14:00:00",
+  "forecast": {
+   "d": "0.0655",
+   "l": "0.0235",
+   "w": "0.911"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "28802",
+  "isResult": true,
+  "xG": {
+   "a": "1.32618",
+   "h": "4.02237"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2025-08-30 16:30:00",
+  "forecast": {
+   "d": "0.4518",
+   "l": "0.1402",
+   "w": "0.408"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "id": "28803",
+  "isResult": true,
+  "xG": {
+   "a": "0.303635",
+   "h": "0.6773"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2025-08-31 13:00:00",
+  "forecast": {
+   "d": "0.1552",
+   "l": "0.7854",
+   "w": "0.0594"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "28804",
+  "isResult": true,
+  "xG": {
+   "a": "2.236",
+   "h": "0.716018"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2025-08-31 13:00:00",
+  "forecast": {
+   "d": "0.2726",
+   "l": "0.3446",
+   "w": "0.3828"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "28805",
+  "isResult": true,
+  "xG": {
+   "a": "2.13418",
+   "h": "2.20864"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2025-08-31 15:30:00",
+  "forecast": {
+   "d": "0.4624",
+   "l": "0.2695",
+   "w": "0.2681"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "28806",
+  "isResult": true,
+  "xG": {
+   "a": "0.485679",
+   "h": "0.481404"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2025-08-31 18:00:00",
+  "forecast": {
+   "d": "0.161",
+   "l": "0.7656",
+   "w": "0.0734"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "28807",
+  "isResult": true,
+  "xG": {
+   "a": "2.59713",
+   "h": "1.20586"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2025-09-13 11:30:00",
+  "forecast": {
+   "d": "0.048",
+   "l": "0.0101",
+   "w": "0.9419"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "28808",
+  "isResult": true,
+  "xG": {
+   "a": "0.293681",
+   "h": "2.8817"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2025-09-13 14:00:00",
+  "forecast": {
+   "d": "0.2851",
+   "l": "0.0915",
+   "w": "0.6234"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "28809",
+  "isResult": true,
+  "xG": {
+   "a": "0.375942",
+   "h": "1.19186"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2025-09-13 14:00:00",
+  "forecast": {
+   "d": "0.2664",
+   "l": "0.1159",
+   "w": "0.6177"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "28810",
+  "isResult": true,
+  "xG": {
+   "a": "0.624923",
+   "h": "1.44187"
+  }
+ },
+ {
+  "a": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "datetime": "2025-09-13 14:00:00",
+  "forecast": {
+   "d": "0.1686",
+   "l": "0.0491",
+   "w": "0.7823"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "28811",
+  "isResult": true,
+  "xG": {
+   "a": "0.354129",
+   "h": "1.75805"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2025-09-13 14:00:00",
+  "forecast": {
+   "d": "0.1658",
+   "l": "0.0495",
+   "w": "0.7847"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "28812",
+  "isResult": true,
+  "xG": {
+   "a": "0.354327",
+   "h": "1.8927"
+  }
+ },
+ {
+  "a": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "datetime": "2025-09-13 14:00:00",
+  "forecast": {
+   "d": "0.3383",
+   "l": "0.2246",
+   "w": "0.4371"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "28813",
+  "isResult": true,
+  "xG": {
+   "a": "0.830398",
+   "h": "1.13979"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2025-09-13 16:30:00",
+  "forecast": {
+   "d": "0.2807",
+   "l": "0.5497",
+   "w": "0.1696"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "28814",
+  "isResult": true,
+  "xG": {
+   "a": "1.51402",
+   "h": "0.793248"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2025-09-13 19:00:00",
+  "forecast": {
+   "d": "0.2994",
+   "l": "0.2056",
+   "w": "0.495"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "28815",
+  "isResult": true,
+  "xG": {
+   "a": "0.755999",
+   "h": "1.17533"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2025-09-14 13:00:00",
+  "forecast": {
+   "d": "0.0387",
+   "l": "0.9576",
+   "w": "0.0037"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "28816",
+  "isResult": true,
+  "xG": {
+   "a": "2.79492",
+   "h": "0.168041"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2025-09-14 15:30:00",
+  "forecast": {
+   "d": "0.2573",
+   "l": "0.2628",
+   "w": "0.4799"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "28817",
+  "isResult": true,
+  "xG": {
+   "a": "1.51915",
+   "h": "1.99725"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2025-09-20 11:30:00",
+  "forecast": {
+   "d": "0.33",
+   "l": "0.2245",
+   "w": "0.4455"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "28818",
+  "isResult": true,
+  "xG": {
+   "a": "0.721371",
+   "h": "1.06166"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2025-09-20 14:00:00",
+  "forecast": {
+   "d": "0.1161",
+   "l": "0.8489",
+   "w": "0.035"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "28819",
+  "isResult": true,
+  "xG": {
+   "a": "2.33565",
+   "h": "0.466365"
+  }
+ },
+ {
+  "a": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "datetime": "2025-09-20 14:00:00",
+  "forecast": {
+   "d": "0.2266",
+   "l": "0.0856",
+   "w": "0.6878"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "28820",
+  "isResult": true,
+  "xG": {
+   "a": "0.456988",
+   "h": "1.5661"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2025-09-20 14:00:00",
+  "forecast": {
+   "d": "0.3289",
+   "l": "0.2683",
+   "w": "0.4028"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "28821",
+  "isResult": true,
+  "xG": {
+   "a": "1.19181",
+   "h": "1.40466"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2025-09-20 14:00:00",
+  "forecast": {
+   "d": "0.3168",
+   "l": "0.2435",
+   "w": "0.4397"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "28822",
+  "isResult": true,
+  "xG": {
+   "a": "0.830779",
+   "h": "1.14159"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2025-09-20 16:30:00",
+  "forecast": {
+   "d": "0.2748",
+   "l": "0.0958",
+   "w": "0.6294"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "28824",
+  "isResult": true,
+  "xG": {
+   "a": "0.469843",
+   "h": "1.34458"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2025-09-20 19:00:00",
+  "forecast": {
+   "d": "0.2588",
+   "l": "0.1769",
+   "w": "0.5643"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "28825",
+  "isResult": true,
+  "xG": {
+   "a": "0.826556",
+   "h": "1.52431"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2025-09-21 13:00:00",
+  "forecast": {
+   "d": "0.5216",
+   "l": "0.0842",
+   "w": "0.3942"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "28823",
+  "isResult": true,
+  "xG": {
+   "a": "0.153629",
+   "h": "0.55066"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2025-09-21 13:00:00",
+  "forecast": {
+   "d": "0.3463",
+   "l": "0.3279",
+   "w": "0.3258"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "id": "28826",
+  "isResult": true,
+  "xG": {
+   "a": "0.939354",
+   "h": "0.938312"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2025-09-21 15:30:00",
+  "forecast": {
+   "d": "0.3221",
+   "l": "0.4751",
+   "w": "0.2028"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "28827",
+  "isResult": true,
+  "xG": {
+   "a": "1.1227",
+   "h": "0.718575"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2025-09-27 11:30:00",
+  "forecast": {
+   "d": "0.2491",
+   "l": "0.2391",
+   "w": "0.5118"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "28828",
+  "isResult": true,
+  "xG": {
+   "a": "2.23609",
+   "h": "2.78726"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2025-09-27 14:00:00",
+  "forecast": {
+   "d": "0.2482",
+   "l": "0.4915",
+   "w": "0.2603"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "28829",
+  "isResult": true,
+  "xG": {
+   "a": "2.4751",
+   "h": "2.02653"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2025-09-27 14:00:00",
+  "forecast": {
+   "d": "0.1968",
+   "l": "0.316",
+   "w": "0.4872"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "28830",
+  "isResult": true,
+  "xG": {
+   "a": "3.10176",
+   "h": "3.53323"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2025-09-27 14:00:00",
+  "forecast": {
+   "d": "0.219",
+   "l": "0.1552",
+   "w": "0.6258"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "id": "28832",
+  "isResult": true,
+  "xG": {
+   "a": "1.06033",
+   "h": "2.04728"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2025-09-27 14:00:00",
+  "forecast": {
+   "d": "0.0602",
+   "l": "0.0119",
+   "w": "0.9279"
+  },
+  "goals": {
+   "a": "1",
+   "h": "5"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "28833",
+  "isResult": true,
+  "xG": {
+   "a": "0.509491",
+   "h": "3.22133"
+  }
+ },
+ {
+  "a": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "datetime": "2025-09-27 16:30:00",
+  "forecast": {
+   "d": "0.2346",
+   "l": "0.5127",
+   "w": "0.2527"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "28834",
+  "isResult": true,
+  "xG": {
+   "a": "1.94154",
+   "h": "1.4203"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2025-09-27 19:00:00",
+  "forecast": {
+   "d": "0.3376",
+   "l": "0.4443",
+   "w": "0.2181"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "28835",
+  "isResult": true,
+  "xG": {
+   "a": "1.15951",
+   "h": "0.818711"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2025-09-28 13:00:00",
+  "forecast": {
+   "d": "0.293",
+   "l": "0.2278",
+   "w": "0.4792"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "28831",
+  "isResult": true,
+  "xG": {
+   "a": "0.952612",
+   "h": "1.36575"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2025-09-28 15:30:00",
+  "forecast": {
+   "d": "0.1872",
+   "l": "0.7172",
+   "w": "0.0956"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "28836",
+  "isResult": true,
+  "xG": {
+   "a": "2.07048",
+   "h": "0.739851"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2025-09-29 19:00:00",
+  "forecast": {
+   "d": "0.3478",
+   "l": "0.2883",
+   "w": "0.3639"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "28837",
+  "isResult": true,
+  "xG": {
+   "a": "0.775766",
+   "h": "0.909703"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2025-10-03 19:00:00",
+  "forecast": {
+   "d": "0.2971",
+   "l": "0.1992",
+   "w": "0.5037"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "28838",
+  "isResult": true,
+  "xG": {
+   "a": "0.84335",
+   "h": "1.33458"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2025-10-04 11:30:00",
+  "forecast": {
+   "d": "0.2633",
+   "l": "0.1367",
+   "w": "0.6"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "id": "28844",
+  "isResult": true,
+  "xG": {
+   "a": "0.688198",
+   "h": "1.48051"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2025-10-04 14:00:00",
+  "forecast": {
+   "d": "0.0891",
+   "l": "0.0233",
+   "w": "0.8876"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "28839",
+  "isResult": true,
+  "xG": {
+   "a": "0.864549",
+   "h": "3.0585"
+  }
+ },
+ {
+  "a": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "datetime": "2025-10-04 14:00:00",
+  "forecast": {
+   "d": "0.2067",
+   "l": "0.1107",
+   "w": "0.6826"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "28845",
+  "isResult": true,
+  "xG": {
+   "a": "0.807119",
+   "h": "1.9298"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2025-10-04 16:30:00",
+  "forecast": {
+   "d": "0.2554",
+   "l": "0.5843",
+   "w": "0.1603"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "28842",
+  "isResult": true,
+  "xG": {
+   "a": "2.05981",
+   "h": "1.23721"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2025-10-05 13:00:00",
+  "forecast": {
+   "d": "0.2168",
+   "l": "0.0803",
+   "w": "0.7029"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "28840",
+  "isResult": true,
+  "xG": {
+   "a": "0.502292",
+   "h": "1.73572"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2025-10-05 13:00:00",
+  "forecast": {
+   "d": "0.2646",
+   "l": "0.3731",
+   "w": "0.3623"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "28843",
+  "isResult": true,
+  "xG": {
+   "a": "2.17789",
+   "h": "2.13876"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2025-10-05 13:00:00",
+  "forecast": {
+   "d": "0.0182",
+   "l": "0.003",
+   "w": "0.9788"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "28846",
+  "isResult": true,
+  "xG": {
+   "a": "0.337689",
+   "h": "3.81662"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2025-10-05 13:00:00",
+  "forecast": {
+   "d": "0.2474",
+   "l": "0.6729",
+   "w": "0.0797"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "28847",
+  "isResult": true,
+  "xG": {
+   "a": "1.39158",
+   "h": "0.369404"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2025-10-05 15:30:00",
+  "forecast": {
+   "d": "0.3477",
+   "l": "0.4396",
+   "w": "0.2127"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "28841",
+  "isResult": true,
+  "xG": {
+   "a": "1.09647",
+   "h": "0.693758"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2025-10-18 11:30:00",
+  "forecast": {
+   "d": "0.2325",
+   "l": "0.4914",
+   "w": "0.2761"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "28854",
+  "isResult": true,
+  "xG": {
+   "a": "2.5583",
+   "h": "2.0555"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2025-10-18 14:00:00",
+  "forecast": {
+   "d": "0.2943",
+   "l": "0.4717",
+   "w": "0.234"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "28848",
+  "isResult": true,
+  "xG": {
+   "a": "1.28313",
+   "h": "0.857104"
+  }
+ },
+ {
+  "a": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "datetime": "2025-10-18 14:00:00",
+  "forecast": {
+   "d": "0.1277",
+   "l": "0.8405",
+   "w": "0.0318"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "28849",
+  "isResult": true,
+  "xG": {
+   "a": "2.33152",
+   "h": "0.509647"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2025-10-18 14:00:00",
+  "forecast": {
+   "d": "0.0764",
+   "l": "0.0343",
+   "w": "0.8893"
+  },
+  "goals": {
+   "a": "3",
+   "h": "3"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "28850",
+  "isResult": true,
+  "xG": {
+   "a": "2.0471",
+   "h": "4.56284"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2025-10-18 14:00:00",
+  "forecast": {
+   "d": "0.157",
+   "l": "0.0559",
+   "w": "0.7871"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "28853",
+  "isResult": true,
+  "xG": {
+   "a": "0.794622",
+   "h": "2.4799"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2025-10-18 14:00:00",
+  "forecast": {
+   "d": "0.3322",
+   "l": "0.2157",
+   "w": "0.4521"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "id": "28855",
+  "isResult": true,
+  "xG": {
+   "a": "0.676323",
+   "h": "1.02481"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2025-10-18 16:30:00",
+  "forecast": {
+   "d": "0.1423",
+   "l": "0.8068",
+   "w": "0.0509"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "28851",
+  "isResult": true,
+  "xG": {
+   "a": "2.07823",
+   "h": "0.502332"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2025-10-19 13:00:00",
+  "forecast": {
+   "d": "0.2099",
+   "l": "0.0655",
+   "w": "0.7246"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "28856",
+  "isResult": true,
+  "xG": {
+   "a": "0.352231",
+   "h": "1.51461"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2025-10-19 15:30:00",
+  "forecast": {
+   "d": "0.2349",
+   "l": "0.3621",
+   "w": "0.403"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "28852",
+  "isResult": true,
+  "xG": {
+   "a": "2.53117",
+   "h": "2.60972"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2025-10-20 19:00:00",
+  "forecast": {
+   "d": "0.0286",
+   "l": "0.9658",
+   "w": "0.0056"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "28857",
+  "isResult": true,
+  "xG": {
+   "a": "3.46635",
+   "h": "0.260251"
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2025-10-24 19:00:00",
+  "forecast": {
+   "d": "0.1246",
+   "l": "0.0412",
+   "w": "0.8342"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "id": "28864",
+  "isResult": true,
+  "xG": {
+   "a": "0.498653",
+   "h": "2.2214"
+  }
+ },
+ {
+  "a": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "datetime": "2025-10-25 14:00:00",
+  "forecast": {
+   "d": "0.2876",
+   "l": "0.4595",
+   "w": "0.2529"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "28862",
+  "isResult": true,
+  "xG": {
+   "a": "1.5506",
+   "h": "1.21332"
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2025-10-25 14:00:00",
+  "forecast": {
+   "d": "0.1854",
+   "l": "0.1162",
+   "w": "0.6984"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "28866",
+  "isResult": true,
+  "xG": {
+   "a": "1.52001",
+   "h": "2.76806"
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2025-10-25 16:30:00",
+  "forecast": {
+   "d": "0.216",
+   "l": "0.1472",
+   "w": "0.6368"
+  },
+  "goals": {
+   "a": "2",
+   "h": "4"
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "28865",
+  "isResult": true,
+  "xG": {
+   "a": "0.947154",
+   "h": "1.96231"
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2025-10-25 19:00:00",
+  "forecast": {
+   "d": "0.1867",
+   "l": "0.1667",
+   "w": "0.6466"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "28861",
+  "isResult": true,
+  "xG": {
+   "a": "2.11838",
+   "h": "3.27126"
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2025-10-26 13:00:00",
+  "forecast": {
+   "d": "0.4563",
+   "l": "0.1428",
+   "w": "0.4009"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "28858",
+  "isResult": true,
+  "xG": {
+   "a": "0.305493",
+   "h": "0.656601"
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2025-10-26 13:00:00",
+  "forecast": {
+   "d": "0.3843",
+   "l": "0.1339",
+   "w": "0.4818"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "28859",
+  "isResult": true,
+  "xG": {
+   "a": "0.350534",
+   "h": "0.856175"
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2025-10-26 13:00:00",
+  "forecast": {
+   "d": "0.289",
+   "l": "0.4919",
+   "w": "0.2191"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "28860",
+  "isResult": true,
+  "xG": {
+   "a": "1.36914",
+   "h": "0.843906"
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2025-10-26 13:00:00",
+  "forecast": {
+   "d": "0.2132",
+   "l": "0.1442",
+   "w": "0.6426"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "28867",
+  "isResult": true,
+  "xG": {
+   "a": "1.54544",
+   "h": "2.58132"
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2025-10-26 15:30:00",
+  "forecast": {
+   "d": "0.2511",
+   "l": "0.5556",
+   "w": "0.1933"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "28863",
+  "isResult": true,
+  "xG": {
+   "a": "2.09327",
+   "h": "1.4032"
+  }
+ },
+ {
+  "a": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "datetime": "2025-11-01 15:00:00",
+  "forecast": {
+   "d": "0.0719",
+   "l": "0.013",
+   "w": "0.9151"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "28868",
+  "isResult": true,
+  "xG": {
+   "a": "0.35919",
+   "h": "2.64127"
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2025-11-01 15:00:00",
+  "forecast": {
+   "d": "0.1281",
+   "l": "0.8373",
+   "w": "0.0346"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "28869",
+  "isResult": true,
+  "xG": {
+   "a": "2.51649",
+   "h": "0.679177"
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2025-11-01 15:00:00",
+  "forecast": {
+   "d": "0.3671",
+   "l": "0.3489",
+   "w": "0.284"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "28870",
+  "isResult": true,
+  "xG": {
+   "a": "0.820498",
+   "h": "0.734558"
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2025-11-01 15:00:00",
+  "forecast": {
+   "d": "0.1234",
+   "l": "0.0209",
+   "w": "0.8557"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "28871",
+  "isResult": true,
+  "xG": {
+   "a": "0.209934",
+   "h": "1.91207"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2025-11-01 15:00:00",
+  "forecast": {
+   "d": "0.2598",
+   "l": "0.1849",
+   "w": "0.5553"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "28874",
+  "isResult": true,
+  "xG": {
+   "a": "0.91622",
+   "h": "1.55066"
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2025-11-01 17:30:00",
+  "forecast": {
+   "d": "0.0201",
+   "l": "0.9783",
+   "w": "0.0016"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "28876",
+  "isResult": true,
+  "xG": {
+   "a": "3.34251",
+   "h": "0.146954"
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2025-11-01 20:00:00",
+  "forecast": {
+   "d": "0.2552",
+   "l": "0.0954",
+   "w": "0.6494"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "28872",
+  "isResult": true,
+  "xG": {
+   "a": "0.43502",
+   "h": "1.47021"
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2025-11-02 14:00:00",
+  "forecast": {
+   "d": "0.2546",
+   "l": "0.1099",
+   "w": "0.6355"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "28877",
+  "isResult": true,
+  "xG": {
+   "a": "0.523615",
+   "h": "1.41383"
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2025-11-02 16:30:00",
+  "forecast": {
+   "d": "0.1598",
+   "l": "0.0709",
+   "w": "0.7693"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "28873",
+  "isResult": true,
+  "xG": {
+   "a": "0.899846",
+   "h": "2.48999"
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2025-11-03 20:00:00",
+  "forecast": {
+   "d": "0.3203",
+   "l": "0.3079",
+   "w": "0.3718"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "id": "28875",
+  "isResult": true,
+  "xG": {
+   "a": "1.00741",
+   "h": "1.18068"
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2025-11-08 12:30:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "28886",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2025-11-08 15:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "28882",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2025-11-08 15:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "28887",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2025-11-08 17:30:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "id": "28885",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2025-11-08 20:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "28880",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2025-11-09 14:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "28878",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2025-11-09 14:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "28879",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2025-11-09 14:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "28881",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "datetime": "2025-11-09 14:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "28884",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2025-11-09 16:30:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "28883",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2025-11-22 12:30:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "28891",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2025-11-22 15:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "28888",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2025-11-22 15:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "28890",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "datetime": "2025-11-22 15:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "28892",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2025-11-22 15:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "28894",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2025-11-22 15:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "28897",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2025-11-22 17:30:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "28896",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2025-11-23 14:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "id": "28893",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2025-11-23 16:30:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "28889",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2025-11-24 20:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "28895",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2025-11-29 15:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "28899",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "datetime": "2025-11-29 15:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "28903",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2025-11-29 15:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "id": "28905",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2025-11-29 17:30:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "28902",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2025-11-29 20:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "28906",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2025-11-30 12:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "28901",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2025-11-30 14:05:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "28898",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2025-11-30 14:05:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "28904",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2025-11-30 14:05:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "28907",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2025-11-30 16:30:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "28900",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2025-12-03 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "28908",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2025-12-03 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "28909",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2025-12-03 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "28910",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2025-12-03 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "28911",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2025-12-03 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "28912",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2025-12-03 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "id": "28913",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "datetime": "2025-12-03 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "28914",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2025-12-03 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "28915",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2025-12-03 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "28916",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2025-12-03 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "28917",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2025-12-06 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "28918",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2025-12-06 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "28919",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2025-12-06 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "28920",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2025-12-06 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "28921",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2025-12-06 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "28922",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2025-12-06 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "id": "28923",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "datetime": "2025-12-06 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "28924",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2025-12-06 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "28925",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2025-12-06 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "28926",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2025-12-06 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "28927",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2025-12-13 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "28928",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "datetime": "2025-12-13 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "28929",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2025-12-13 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "28930",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2025-12-13 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "28931",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2025-12-13 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "28932",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2025-12-13 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "28933",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2025-12-13 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "28934",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2025-12-13 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "28935",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2025-12-13 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "id": "28936",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2025-12-13 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "28937",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2025-12-20 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "28938",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2025-12-20 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "28939",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "datetime": "2025-12-20 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "28940",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2025-12-20 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "28941",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2025-12-20 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "28942",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2025-12-20 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "id": "28943",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2025-12-20 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "28944",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2025-12-20 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "28945",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2025-12-20 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "28946",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2025-12-20 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "28947",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2025-12-27 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "28948",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2025-12-27 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "28949",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2025-12-27 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "28950",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2025-12-27 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "28951",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2025-12-27 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "28952",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2025-12-27 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "28953",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2025-12-27 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "28954",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2025-12-27 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "28955",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "datetime": "2025-12-27 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "id": "28956",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2025-12-27 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "28957",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2025-12-30 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "28958",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2025-12-30 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "28959",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2025-12-30 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "28960",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2025-12-30 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "28961",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2025-12-30 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "28962",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "datetime": "2025-12-30 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "28963",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2025-12-30 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "28964",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2025-12-30 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "28965",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2025-12-30 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "id": "28966",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2025-12-30 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "28967",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2026-01-03 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "28968",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "datetime": "2026-01-03 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "28969",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2026-01-03 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "28970",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2026-01-03 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "28971",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2026-01-03 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "28972",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2026-01-03 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "28973",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2026-01-03 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "28974",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2026-01-03 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "28975",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2026-01-03 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "id": "28976",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2026-01-03 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "28977",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2026-01-07 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "28978",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2026-01-07 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "28979",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2026-01-07 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "28980",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "datetime": "2026-01-07 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "28981",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2026-01-07 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "28982",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2026-01-07 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "28983",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2026-01-07 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "28984",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2026-01-07 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "28985",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "datetime": "2026-01-07 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "28986",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2026-01-07 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "28987",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2026-01-17 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "28988",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2026-01-17 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "28989",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2026-01-17 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "28990",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2026-01-17 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "id": "28991",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2026-01-17 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "28992",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2026-01-17 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "28993",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2026-01-17 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "28994",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2026-01-17 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "id": "28995",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2026-01-17 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "28996",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2026-01-17 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "28997",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2026-01-24 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "28998",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2026-01-24 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "28999",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2026-01-24 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "29000",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2026-01-24 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "29001",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2026-01-24 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "29002",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "datetime": "2026-01-24 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "29003",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2026-01-24 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "29004",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2026-01-24 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "29005",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2026-01-24 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "29006",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "datetime": "2026-01-24 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "29007",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2026-01-31 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "29008",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2026-01-31 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "29009",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2026-01-31 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "29010",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2026-01-31 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "id": "29011",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2026-01-31 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "29012",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2026-01-31 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "29013",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2026-01-31 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "29014",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2026-01-31 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "id": "29015",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2026-01-31 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "29016",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2026-01-31 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "29017",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2026-02-07 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "29018",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "datetime": "2026-02-07 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "29019",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2026-02-07 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "29020",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2026-02-07 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "29021",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2026-02-07 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "29022",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2026-02-07 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "id": "29023",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2026-02-07 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "29024",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2026-02-07 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "29025",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2026-02-07 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "29026",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2026-02-07 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "29027",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2026-02-11 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "29028",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2026-02-11 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "29029",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "datetime": "2026-02-11 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "29030",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2026-02-11 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "29031",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2026-02-11 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "29032",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2026-02-11 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "29033",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2026-02-11 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "29034",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2026-02-11 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "id": "29035",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2026-02-11 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "29036",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2026-02-11 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "29037",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "datetime": "2026-02-21 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "29038",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2026-02-21 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "29039",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2026-02-21 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "29040",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2026-02-21 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "29041",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2026-02-21 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "29042",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2026-02-21 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "29043",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2026-02-21 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "29044",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2026-02-21 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "id": "29045",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2026-02-21 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "29046",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2026-02-21 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "29047",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "datetime": "2026-02-28 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "29048",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2026-02-28 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "29049",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2026-02-28 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "29050",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2026-02-28 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "29051",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2026-02-28 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "29052",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2026-02-28 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "id": "29053",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2026-02-28 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "29054",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2026-02-28 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "29055",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2026-02-28 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "29056",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2026-02-28 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "29057",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2026-03-04 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "29058",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2026-03-04 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "29059",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2026-03-04 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "29060",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2026-03-04 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "29061",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2026-03-04 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "29062",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "datetime": "2026-03-04 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "id": "29063",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2026-03-04 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "29064",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2026-03-04 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "29065",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2026-03-04 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "29066",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2026-03-04 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "29067",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2026-03-14 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "29068",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2026-03-14 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "29069",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2026-03-14 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "29070",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2026-03-14 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "29071",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "datetime": "2026-03-14 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "29072",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2026-03-14 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "29073",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2026-03-14 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "29074",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2026-03-14 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "29075",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2026-03-14 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "id": "29076",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2026-03-14 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "29077",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2026-03-21 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "29078",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2026-03-21 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "29079",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2026-03-21 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "29080",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2026-03-21 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "29081",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2026-03-21 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "29082",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2026-03-21 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "id": "29083",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2026-03-21 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "29084",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "datetime": "2026-03-21 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "29085",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2026-03-21 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "29086",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2026-03-21 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "29087",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "datetime": "2026-04-11 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "29088",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2026-04-11 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "29089",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2026-04-11 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "id": "29090",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2026-04-11 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "29091",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2026-04-11 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "29092",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2026-04-11 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "29093",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2026-04-11 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "29094",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2026-04-11 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "29095",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2026-04-11 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "29096",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2026-04-11 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "29097",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "datetime": "2026-04-18 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "29098",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2026-04-18 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "29099",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2026-04-18 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "29100",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2026-04-18 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "29101",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2026-04-18 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "29102",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2026-04-18 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "id": "29103",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2026-04-18 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "29104",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2026-04-18 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "29105",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2026-04-18 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "29106",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2026-04-18 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "29107",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "datetime": "2026-04-25 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "29108",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2026-04-25 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "29109",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2026-04-25 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "29110",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2026-04-25 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "29111",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2026-04-25 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "29112",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2026-04-25 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "29113",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2026-04-25 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "29114",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2026-04-25 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "id": "29115",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2026-04-25 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "29116",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2026-04-25 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "29117",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2026-05-02 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "29118",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2026-05-02 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "29119",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2026-05-02 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "29120",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2026-05-02 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "29121",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2026-05-02 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "29122",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2026-05-02 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "29123",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2026-05-02 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "id": "29124",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2026-05-02 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "29125",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2026-05-02 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "29126",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "datetime": "2026-05-02 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "29127",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2026-05-09 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "29128",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2026-05-09 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "29129",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2026-05-09 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "29130",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2026-05-09 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "29131",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2026-05-09 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "29132",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2026-05-09 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "29133",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2026-05-09 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "29134",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2026-05-09 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "id": "29135",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "datetime": "2026-05-09 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "29136",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2026-05-09 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "29137",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "datetime": "2026-05-17 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "id": "29138",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "datetime": "2026-05-17 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "id": "29139",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "datetime": "2026-05-17 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "id": "29140",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "datetime": "2026-05-17 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "id": "29141",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "datetime": "2026-05-17 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "id": "29142",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "datetime": "2026-05-17 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "id": "29143",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "datetime": "2026-05-17 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "id": "29144",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "datetime": "2026-05-17 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "id": "29145",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "datetime": "2026-05-17 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "id": "29146",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "datetime": "2026-05-17 13:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "id": "29147",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "89",
+   "short_title": "MUN",
+   "title": "Manchester United"
+  },
+  "datetime": "2026-05-24 14:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "220",
+   "short_title": "BRI",
+   "title": "Brighton"
+  },
+  "id": "29148",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "229",
+   "short_title": "WOL",
+   "title": "Wolverhampton Wanderers"
+  },
+  "datetime": "2026-05-24 14:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "92",
+   "short_title": "BUR",
+   "title": "Burnley"
+  },
+  "id": "29149",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "83",
+   "short_title": "ARS",
+   "title": "Arsenal"
+  },
+  "datetime": "2026-05-24 14:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "78",
+   "short_title": "CRY",
+   "title": "Crystal Palace"
+  },
+  "id": "29150",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "86",
+   "short_title": "NEW",
+   "title": "Newcastle United"
+  },
+  "datetime": "2026-05-24 14:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "228",
+   "short_title": "FLH",
+   "title": "Fulham"
+  },
+  "id": "29151",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "244",
+   "short_title": "BRE",
+   "title": "Brentford"
+  },
+  "datetime": "2026-05-24 14:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "87",
+   "short_title": "LIV",
+   "title": "Liverpool"
+  },
+  "id": "29152",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "71",
+   "short_title": "AVL",
+   "title": "Aston Villa"
+  },
+  "datetime": "2026-05-24 14:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "88",
+   "short_title": "MCI",
+   "title": "Manchester City"
+  },
+  "id": "29153",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "73",
+   "short_title": "BOU",
+   "title": "Bournemouth"
+  },
+  "datetime": "2026-05-24 14:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "249",
+   "short_title": "NOT",
+   "title": "Nottingham Forest"
+  },
+  "id": "29154",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "80",
+   "short_title": "CHE",
+   "title": "Chelsea"
+  },
+  "datetime": "2026-05-24 14:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "77",
+   "short_title": "SUN",
+   "title": "Sunderland"
+  },
+  "id": "29155",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "72",
+   "short_title": "EVE",
+   "title": "Everton"
+  },
+  "datetime": "2026-05-24 14:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "82",
+   "short_title": "TOT",
+   "title": "Tottenham"
+  },
+  "id": "29156",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "245",
+   "short_title": "LED",
+   "title": "Leeds"
+  },
+  "datetime": "2026-05-24 14:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "81",
+   "short_title": "WHU",
+   "title": "West Ham"
+  },
+  "id": "29157",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ }
+]

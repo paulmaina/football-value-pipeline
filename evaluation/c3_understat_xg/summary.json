@@ -1,0 +1,2286 @@
+{
+  "all_eight_leagues": {
+    "1X2": {
+      "C3_vs_C": {
+        "clear_of_zero": false,
+        "fixtures": 6875,
+        "interval_95": [
+          -0.0005966521001105918,
+          0.0015330661031622962
+        ],
+        "mean_gain": 0.0004263484466815794,
+        "weeks": 106
+      },
+      "C3_vs_C2": {
+        "clear_of_zero": false,
+        "fixtures": 6875,
+        "interval_95": [
+          -0.0014868940787874148,
+          0.0011532937835298997
+        ],
+        "mean_gain": -0.00017520248171699134,
+        "weeks": 106
+      },
+      "C3_vs_M": {
+        "clear_of_zero": false,
+        "fixtures": 6875,
+        "interval_95": [
+          -0.03298757370849486,
+          -0.02219781236771088
+        ],
+        "mean_gain": -0.027471273292308494,
+        "weeks": 106
+      },
+      "fixtures": 6875,
+      "mean_log_loss": {
+        "A": 0.9571348757844969,
+        "C": 0.9816809868771419,
+        "C2": 0.9810794359487433,
+        "C3": 0.9812546384304603,
+        "D": 0.954321614753014,
+        "M": 0.9537833651381519
+      }
+    },
+    "AH all": {
+      "C3_vs_C": {
+        "clear_of_zero": false,
+        "fixtures": 6875,
+        "interval_95": [
+          -0.00044312667223814857,
+          0.0012007872237702972
+        ],
+        "mean_gain": 0.00034213526593361603,
+        "weeks": 106
+      },
+      "C3_vs_C2": {
+        "clear_of_zero": false,
+        "fixtures": 6875,
+        "interval_95": [
+          -0.0006623277872975187,
+          0.001089289365140175
+        ],
+        "mean_gain": 0.00018056556024545798,
+        "weeks": 106
+      },
+      "C3_vs_M": {
+        "clear_of_zero": false,
+        "fixtures": 6875,
+        "interval_95": [
+          -0.022761266598139106,
+          -0.01540875997501118
+        ],
+        "mean_gain": -0.019014299959296304,
+        "weeks": 106
+      },
+      "fixtures": 6875,
+      "mean_log_loss": {
+        "A": 0.7008854797320262,
+        "C": 0.7174251050453613,
+        "C2": 0.7172635353396731,
+        "C3": 0.7170829697794276,
+        "D": 0.6976633952331704,
+        "M": 0.6980686698201315
+      }
+    },
+    "AH draw-sensitive": {
+      "C3_vs_C": {
+        "clear_of_zero": false,
+        "fixtures": 6875,
+        "interval_95": [
+          -0.0005007592822198813,
+          0.0013071956357704063
+        ],
+        "mean_gain": 0.00036464748860170354,
+        "weeks": 106
+      },
+      "C3_vs_C2": {
+        "clear_of_zero": false,
+        "fixtures": 6875,
+        "interval_95": [
+          -0.0008966857386007995,
+          0.0010999568007058918
+        ],
+        "mean_gain": 7.072589201323713e-05,
+        "weeks": 106
+      },
+      "C3_vs_M": {
+        "clear_of_zero": false,
+        "fixtures": 6875,
+        "interval_95": [
+          -0.027058778716835877,
+          -0.017983839868940636
+        ],
+        "mean_gain": -0.022419996934342965,
+        "weeks": 106
+      },
+      "fixtures": 6875,
+      "mean_log_loss": {
+        "A": 0.6954745255205652,
+        "C": 0.7154918228286916,
+        "C2": 0.7151979012321033,
+        "C3": 0.7151271753400901,
+        "D": 0.6932884766924522,
+        "M": 0.692707178405747
+      }
+    },
+    "Over 1.5": {
+      "C3_vs_C": {
+        "clear_of_zero": true,
+        "fixtures": 6875,
+        "interval_95": [
+          0.001059704344932734,
+          0.0028461869211419623
+        ],
+        "mean_gain": 0.0019384068510188823,
+        "weeks": 106
+      },
+      "C3_vs_C2": {
+        "clear_of_zero": true,
+        "fixtures": 6875,
+        "interval_95": [
+          0.0008230569398603606,
+          0.0026088279605105233
+        ],
+        "mean_gain": 0.0016800441212579899,
+        "weeks": 106
+      },
+      "C3_vs_M": {
+        "clear_of_zero": false,
+        "fixtures": 6875,
+        "interval_95": [
+          -0.01056279835427158,
+          -0.005519775946069028
+        ],
+        "mean_gain": -0.008018063992316651,
+        "weeks": 106
+      },
+      "fixtures": 6875,
+      "mean_log_loss": {
+        "A": 0.5161967925334221,
+        "C": 0.5265066425281081,
+        "C2": 0.5262482797983472,
+        "C3": 0.5245682356770892,
+        "D": 0.5168463331457324,
+        "M": 0.5165501716847726
+      }
+    }
+  },
+  "c3_movement_five_leagues": {
+    "changed": 2579,
+    "fixtures": 4598,
+    "max_1x2_move_points": 13.44839622162954,
+    "mean_max_1x2_move_points": 1.6649802875769697,
+    "p90_max_1x2_move_points": 4.805179466804484
+  },
+  "calibration_1x2_five_leagues": {
+    "C": {
+      "away": {
+        "calibration_slope": 1.149462843755873,
+        "deciles": [
+          {
+            "bin_lower": 0.0,
+            "mean_forecast": 0.07562491951050361,
+            "n": 196,
+            "observed_minus_forecast": 0.006007733550720873,
+            "observed_rate": 0.08163265306122448
+          },
+          {
+            "bin_lower": 0.1,
+            "mean_forecast": 0.1579873028167194,
+            "n": 876,
+            "observed_minus_forecast": -0.039265841629504805,
+            "observed_rate": 0.1187214611872146
+          },
+          {
+            "bin_lower": 0.2,
+            "mean_forecast": 0.24982488204268002,
+            "n": 1203,
+            "observed_minus_forecast": -0.016242172150743195,
+            "observed_rate": 0.23358270989193683
+          },
+          {
+            "bin_lower": 0.3,
+            "mean_forecast": 0.34679472765099406,
+            "n": 1025,
+            "observed_minus_forecast": -0.002404483748555064,
+            "observed_rate": 0.344390243902439
+          },
+          {
+            "bin_lower": 0.4,
+            "mean_forecast": 0.4477095207588505,
+            "n": 700,
+            "observed_minus_forecast": 0.009433336384006619,
+            "observed_rate": 0.45714285714285713
+          },
+          {
+            "bin_lower": 0.5,
+            "mean_forecast": 0.5434130433722115,
+            "n": 399,
+            "observed_minus_forecast": 0.038040590713001476,
+            "observed_rate": 0.581453634085213
+          },
+          {
+            "bin_lower": 0.6,
+            "mean_forecast": 0.6394544918147226,
+            "n": 149,
+            "observed_minus_forecast": -0.03542764617713867,
+            "observed_rate": 0.6040268456375839
+          },
+          {
+            "bin_lower": 0.7,
+            "mean_forecast": 0.7398807193470059,
+            "n": 43,
+            "observed_minus_forecast": 0.027561141118110366,
+            "observed_rate": 0.7674418604651163
+          },
+          {
+            "bin_lower": 0.8,
+            "mean_forecast": 0.8261392893521691,
+            "n": 7,
+            "observed_minus_forecast": 0.031003567790688025,
+            "observed_rate": 0.8571428571428571
+          }
+        ],
+        "forecasts": 4598,
+        "mean_forecast": 0.32020842203253713,
+        "observed_rate": 0.3120922140060896
+      },
+      "draw": {
+        "calibration_slope": 0.9573616290739324,
+        "deciles": [
+          {
+            "bin_lower": 0.0,
+            "mean_forecast": 0.07797910315017823,
+            "n": 17,
+            "observed_minus_forecast": 0.039667955673351185,
+            "observed_rate": 0.11764705882352941
+          },
+          {
+            "bin_lower": 0.1,
+            "mean_forecast": 0.17089392165415748,
+            "n": 698,
+            "observed_minus_forecast": 0.002458513875928464,
+            "observed_rate": 0.17335243553008595
+          },
+          {
+            "bin_lower": 0.2,
+            "mean_forecast": 0.24716129253448124,
+            "n": 3696,
+            "observed_minus_forecast": 0.01934303646984778,
+            "observed_rate": 0.266504329004329
+          },
+          {
+            "bin_lower": 0.3,
+            "mean_forecast": 0.315586259605766,
+            "n": 186,
+            "observed_minus_forecast": 0.006994385555524341,
+            "observed_rate": 0.3225806451612903
+          },
+          {
+            "bin_lower": 0.4,
+            "mean_forecast": 0.4218248684509557,
+            "n": 1,
+            "observed_minus_forecast": -0.4218248684509557,
+            "observed_rate": 0.0
+          }
+        ],
+        "forecasts": 4598,
+        "mean_forecast": 0.2377639426774078,
+        "observed_rate": 0.25402348847324924
+      },
+      "home": {
+        "calibration_slope": 1.1153091849584553,
+        "deciles": [
+          {
+            "bin_lower": 0.0,
+            "mean_forecast": 0.07867894353565201,
+            "n": 27,
+            "observed_minus_forecast": -0.00460486946157794,
+            "observed_rate": 0.07407407407407407
+          },
+          {
+            "bin_lower": 0.1,
+            "mean_forecast": 0.16222521305166704,
+            "n": 254,
+            "observed_minus_forecast": -0.00868190596505286,
+            "observed_rate": 0.15354330708661418
+          },
+          {
+            "bin_lower": 0.2,
+            "mean_forecast": 0.25413657294733677,
+            "n": 706,
+            "observed_minus_forecast": -0.024674816573399094,
+            "observed_rate": 0.22946175637393768
+          },
+          {
+            "bin_lower": 0.3,
+            "mean_forecast": 0.3498205473707615,
+            "n": 910,
+            "observed_minus_forecast": -0.02454582209603623,
+            "observed_rate": 0.3252747252747253
+          },
+          {
+            "bin_lower": 0.4,
+            "mean_forecast": 0.4492746934756376,
+            "n": 1052,
+            "observed_minus_forecast": -0.009160625034572933,
+            "observed_rate": 0.44011406844106465
+          },
+          {
+            "bin_lower": 0.5,
+            "mean_forecast": 0.5486133695215257,
+            "n": 829,
+            "observed_minus_forecast": -0.00699696421392626,
+            "observed_rate": 0.5416164053075995
+          },
+          {
+            "bin_lower": 0.6,
+            "mean_forecast": 0.6436538297357848,
+            "n": 512,
+            "observed_minus_forecast": 0.03212742026421522,
+            "observed_rate": 0.67578125
+          },
+          {
+            "bin_lower": 0.7,
+            "mean_forecast": 0.7403449815448636,
+            "n": 244,
+            "observed_minus_forecast": 0.017851739766611807,
+            "observed_rate": 0.7581967213114754
+          },
+          {
+            "bin_lower": 0.8,
+            "mean_forecast": 0.8344934601246288,
+            "n": 60,
+            "observed_minus_forecast": 0.015506539875371206,
+            "observed_rate": 0.85
+          },
+          {
+            "bin_lower": 0.9,
+            "mean_forecast": 0.9136020165030542,
+            "n": 4,
+            "observed_minus_forecast": -0.41360201650305417,
+            "observed_rate": 0.5
+          }
+        ],
+        "forecasts": 4598,
+        "mean_forecast": 0.44202763529005495,
+        "observed_rate": 0.43388429752066116
+      },
+      "strong_favourites": {
+        "0.6+": {
+          "mean_forecast": 0.6838032553807051,
+          "n": 1019,
+          "observed_minus_forecast": 0.015902338338627642,
+          "observed_win_rate": 0.6997055937193327
+        },
+        "0.7+": {
+          "mean_forecast": 0.7596816679548133,
+          "n": 358,
+          "observed_minus_forecast": 0.014061348804963236,
+          "observed_win_rate": 0.7737430167597765
+        }
+      }
+    },
+    "C2": {
+      "away": {
+        "calibration_slope": 1.1397176290480182,
+        "deciles": [
+          {
+            "bin_lower": 0.0,
+            "mean_forecast": 0.0752884452132076,
+            "n": 211,
+            "observed_minus_forecast": 0.010019611658830321,
+            "observed_rate": 0.08530805687203792
+          },
+          {
+            "bin_lower": 0.1,
+            "mean_forecast": 0.15791865227287663,
+            "n": 907,
+            "observed_minus_forecast": -0.038844782372104855,
+            "observed_rate": 0.11907386990077178
+          },
+          {
+            "bin_lower": 0.2,
+            "mean_forecast": 0.25019954387051657,
+            "n": 1216,
+            "observed_minus_forecast": -0.006778491238937617,
+            "observed_rate": 0.24342105263157895
+          },
+          {
+            "bin_lower": 0.3,
+            "mean_forecast": 0.34721667674599205,
+            "n": 1002,
+            "observed_minus_forecast": -0.0039033034924990107,
+            "observed_rate": 0.34331337325349304
+          },
+          {
+            "bin_lower": 0.4,
+            "mean_forecast": 0.4471661765371066,
+            "n": 681,
+            "observed_minus_forecast": 0.024199462229413216,
+            "observed_rate": 0.4713656387665198
+          },
+          {
+            "bin_lower": 0.5,
+            "mean_forecast": 0.5422989421127997,
+            "n": 391,
+            "observed_minus_forecast": 0.030591083462647828,
+            "observed_rate": 0.5728900255754475
+          },
+          {
+            "bin_lower": 0.6,
+            "mean_forecast": 0.6388867971683385,
+            "n": 141,
+            "observed_minus_forecast": -0.028957719154154127,
+            "observed_rate": 0.6099290780141844
+          },
+          {
+            "bin_lower": 0.7,
+            "mean_forecast": 0.7398932057323571,
+            "n": 43,
+            "observed_minus_forecast": 0.0042928407792708345,
+            "observed_rate": 0.7441860465116279
+          },
+          {
+            "bin_lower": 0.8,
+            "mean_forecast": 0.8284036297052548,
+            "n": 6,
+            "observed_minus_forecast": 0.17159637029474517,
+            "observed_rate": 1.0
+          }
+        ],
+        "forecasts": 4598,
+        "mean_forecast": 0.3163766323642564,
+        "observed_rate": 0.3120922140060896
+      },
+      "draw": {
+        "calibration_slope": 0.8941142603205972,
+        "deciles": [
+          {
+            "bin_lower": 0.0,
+            "mean_forecast": 0.07688930906412061,
+            "n": 16,
+            "observed_minus_forecast": 0.048110690935879385,
+            "observed_rate": 0.125
+          },
+          {
+            "bin_lower": 0.1,
+            "mean_forecast": 0.16970920206359677,
+            "n": 587,
+            "observed_minus_forecast": -0.00446218332424414,
+            "observed_rate": 0.16524701873935263
+          },
+          {
+            "bin_lower": 0.2,
+            "mean_forecast": 0.2509294109780663,
+            "n": 3630,
+            "observed_minus_forecast": 0.015461773594936445,
+            "observed_rate": 0.26639118457300276
+          },
+          {
+            "bin_lower": 0.3,
+            "mean_forecast": 0.3179447067062711,
+            "n": 364,
+            "observed_minus_forecast": -0.037724926486490895,
+            "observed_rate": 0.2802197802197802
+          },
+          {
+            "bin_lower": 0.4,
+            "mean_forecast": 0.412982515750573,
+            "n": 1,
+            "observed_minus_forecast": -0.412982515750573,
+            "observed_rate": 0.0
+          }
+        ],
+        "forecasts": 4598,
+        "mean_forecast": 0.24529537802600507,
+        "observed_rate": 0.25402348847324924
+      },
+      "home": {
+        "calibration_slope": 1.111266869186859,
+        "deciles": [
+          {
+            "bin_lower": 0.0,
+            "mean_forecast": 0.07886673921230088,
+            "n": 30,
+            "observed_minus_forecast": -0.01220007254563421,
+            "observed_rate": 0.06666666666666667
+          },
+          {
+            "bin_lower": 0.1,
+            "mean_forecast": 0.16227546975726384,
+            "n": 271,
+            "observed_minus_forecast": -0.010983956842134684,
+            "observed_rate": 0.15129151291512916
+          },
+          {
+            "bin_lower": 0.2,
+            "mean_forecast": 0.2535744618647704,
+            "n": 722,
+            "observed_minus_forecast": -0.022272522806598638,
+            "observed_rate": 0.23130193905817176
+          },
+          {
+            "bin_lower": 0.3,
+            "mean_forecast": 0.34979542549176507,
+            "n": 918,
+            "observed_minus_forecast": -0.017551416777168094,
+            "observed_rate": 0.332244008714597
+          },
+          {
+            "bin_lower": 0.4,
+            "mean_forecast": 0.4493491247799069,
+            "n": 1048,
+            "observed_minus_forecast": -0.0037384377570061633,
+            "observed_rate": 0.44561068702290074
+          },
+          {
+            "bin_lower": 0.5,
+            "mean_forecast": 0.5492151592809892,
+            "n": 812,
+            "observed_minus_forecast": -0.006111711005127085,
+            "observed_rate": 0.5431034482758621
+          },
+          {
+            "bin_lower": 0.6,
+            "mean_forecast": 0.6437027583416053,
+            "n": 500,
+            "observed_minus_forecast": 0.04029724165839477,
+            "observed_rate": 0.684
+          },
+          {
+            "bin_lower": 0.7,
+            "mean_forecast": 0.7406406693014921,
+            "n": 235,
+            "observed_minus_forecast": 0.021061458358082374,
+            "observed_rate": 0.7617021276595745
+          },
+          {
+            "bin_lower": 0.8,
+            "mean_forecast": 0.8353345137697804,
+            "n": 58,
+            "observed_minus_forecast": -0.007748306873228694,
+            "observed_rate": 0.8275862068965517
+          },
+          {
+            "bin_lower": 0.9,
+            "mean_forecast": 0.9161373290947555,
+            "n": 4,
+            "observed_minus_forecast": -0.16613732909475554,
+            "observed_rate": 0.75
+          }
+        ],
+        "forecasts": 4598,
+        "mean_forecast": 0.43832798960973846,
+        "observed_rate": 0.43388429752066116
+      },
+      "strong_favourites": {
+        "0.6+": {
+          "mean_forecast": 0.6837738151946688,
+          "n": 987,
+          "observed_minus_forecast": 0.02139335805761078,
+          "observed_win_rate": 0.7051671732522796
+        },
+        "0.7+": {
+          "mean_forecast": 0.7599720752184966,
+          "n": 346,
+          "observed_minus_forecast": 0.014594398769942618,
+          "observed_win_rate": 0.7745664739884393
+        }
+      }
+    },
+    "C3": {
+      "away": {
+        "calibration_slope": 1.1882966203961234,
+        "deciles": [
+          {
+            "bin_lower": 0.0,
+            "mean_forecast": 0.07674360618276797,
+            "n": 178,
+            "observed_minus_forecast": -0.003709898317599436,
+            "observed_rate": 0.07303370786516854
+          },
+          {
+            "bin_lower": 0.1,
+            "mean_forecast": 0.15723645235715922,
+            "n": 870,
+            "observed_minus_forecast": -0.03999507304681439,
+            "observed_rate": 0.11724137931034483
+          },
+          {
+            "bin_lower": 0.2,
+            "mean_forecast": 0.24977645253095654,
+            "n": 1252,
+            "observed_minus_forecast": -0.02373811387280958,
+            "observed_rate": 0.22603833865814696
+          },
+          {
+            "bin_lower": 0.3,
+            "mean_forecast": 0.34729460023283965,
+            "n": 1052,
+            "observed_minus_forecast": 0.006317567067540608,
+            "observed_rate": 0.35361216730038025
+          },
+          {
+            "bin_lower": 0.4,
+            "mean_forecast": 0.44750853515521993,
+            "n": 680,
+            "observed_minus_forecast": 0.028962053080074157,
+            "observed_rate": 0.4764705882352941
+          },
+          {
+            "bin_lower": 0.5,
+            "mean_forecast": 0.542690048895606,
+            "n": 384,
+            "observed_minus_forecast": 0.032830784437727356,
+            "observed_rate": 0.5755208333333334
+          },
+          {
+            "bin_lower": 0.6,
+            "mean_forecast": 0.6374842739761701,
+            "n": 140,
+            "observed_minus_forecast": -0.008912845404741576,
+            "observed_rate": 0.6285714285714286
+          },
+          {
+            "bin_lower": 0.7,
+            "mean_forecast": 0.7367437968516047,
+            "n": 35,
+            "observed_minus_forecast": 0.006113346005538145,
+            "observed_rate": 0.7428571428571429
+          },
+          {
+            "bin_lower": 0.8,
+            "mean_forecast": 0.8261392893521691,
+            "n": 7,
+            "observed_minus_forecast": 0.031003567790688025,
+            "observed_rate": 0.8571428571428571
+          }
+        ],
+        "forecasts": 4598,
+        "mean_forecast": 0.31797427194831746,
+        "observed_rate": 0.3120922140060896
+      },
+      "draw": {
+        "calibration_slope": 1.0468675655079,
+        "deciles": [
+          {
+            "bin_lower": 0.0,
+            "mean_forecast": 0.07968341973681835,
+            "n": 18,
+            "observed_minus_forecast": 0.03142769137429276,
+            "observed_rate": 0.1111111111111111
+          },
+          {
+            "bin_lower": 0.1,
+            "mean_forecast": 0.1714212221819271,
+            "n": 688,
+            "observed_minus_forecast": 0.001543894097142673,
+            "observed_rate": 0.17296511627906977
+          },
+          {
+            "bin_lower": 0.2,
+            "mean_forecast": 0.24592476964213283,
+            "n": 3763,
+            "observed_minus_forecast": 0.020352137081226185,
+            "observed_rate": 0.266276906723359
+          },
+          {
+            "bin_lower": 0.3,
+            "mean_forecast": 0.31353013303699384,
+            "n": 128,
+            "observed_minus_forecast": 0.03803236696300616,
+            "observed_rate": 0.3515625
+          },
+          {
+            "bin_lower": 0.4,
+            "mean_forecast": 0.4218248684509557,
+            "n": 1,
+            "observed_minus_forecast": -0.4218248684509557,
+            "observed_rate": 0.0
+          }
+        ],
+        "forecasts": 4598,
+        "mean_forecast": 0.2360462576069945,
+        "observed_rate": 0.25402348847324924
+      },
+      "home": {
+        "calibration_slope": 1.159141226554564,
+        "deciles": [
+          {
+            "bin_lower": 0.0,
+            "mean_forecast": 0.07495846141442596,
+            "n": 19,
+            "observed_minus_forecast": -0.022326882467057538,
+            "observed_rate": 0.05263157894736842
+          },
+          {
+            "bin_lower": 0.1,
+            "mean_forecast": 0.1632311863768529,
+            "n": 228,
+            "observed_minus_forecast": -0.005336449534747656,
+            "observed_rate": 0.15789473684210525
+          },
+          {
+            "bin_lower": 0.2,
+            "mean_forecast": 0.255029647697434,
+            "n": 680,
+            "observed_minus_forecast": -0.0359120006386105,
+            "observed_rate": 0.21911764705882353
+          },
+          {
+            "bin_lower": 0.3,
+            "mean_forecast": 0.350867986593867,
+            "n": 921,
+            "observed_minus_forecast": -0.03273552188159773,
+            "observed_rate": 0.31813246471226925
+          },
+          {
+            "bin_lower": 0.4,
+            "mean_forecast": 0.4498146654099337,
+            "n": 1062,
+            "observed_minus_forecast": -0.020436134336487388,
+            "observed_rate": 0.4293785310734463
+          },
+          {
+            "bin_lower": 0.5,
+            "mean_forecast": 0.5470744690963831,
+            "n": 862,
+            "observed_minus_forecast": -0.008791406451371553,
+            "observed_rate": 0.5382830626450116
+          },
+          {
+            "bin_lower": 0.6,
+            "mean_forecast": 0.64347919773889,
+            "n": 526,
+            "observed_minus_forecast": 0.04283258933335343,
+            "observed_rate": 0.6863117870722434
+          },
+          {
+            "bin_lower": 0.7,
+            "mean_forecast": 0.7393519768021476,
+            "n": 240,
+            "observed_minus_forecast": 0.027314689864519126,
+            "observed_rate": 0.7666666666666667
+          },
+          {
+            "bin_lower": 0.8,
+            "mean_forecast": 0.8313429486553829,
+            "n": 56,
+            "observed_minus_forecast": 0.04365705134461706,
+            "observed_rate": 0.875
+          },
+          {
+            "bin_lower": 0.9,
+            "mean_forecast": 0.9130007905918714,
+            "n": 4,
+            "observed_minus_forecast": -0.41300079059187145,
+            "observed_rate": 0.5
+          }
+        ],
+        "forecasts": 4598,
+        "mean_forecast": 0.44597947044468805,
+        "observed_rate": 0.43388429752066116
+      },
+      "strong_favourites": {
+        "0.6+": {
+          "mean_forecast": 0.6814866537719996,
+          "n": 1008,
+          "observed_minus_forecast": 0.028830806545460774,
+          "observed_win_rate": 0.7103174603174603
+        },
+        "0.7+": {
+          "mean_forecast": 0.7579552357744319,
+          "n": 342,
+          "observed_minus_forecast": 0.022746518611532984,
+          "observed_win_rate": 0.7807017543859649
+        }
+      }
+    }
+  },
+  "five_understat_leagues (primary)": {
+    "1X2": {
+      "C3_vs_C": {
+        "clear_of_zero": false,
+        "fixtures": 4547,
+        "interval_95": [
+          -0.0010652926893191155,
+          0.0022745151787556036
+        ],
+        "mean_gain": 0.0006446328504367406,
+        "weeks": 101
+      },
+      "C3_vs_C2": {
+        "clear_of_zero": false,
+        "fixtures": 4547,
+        "interval_95": [
+          -0.0017406410013733832,
+          0.0021469583366797245
+        ],
+        "mean_gain": 0.0002308020010675293,
+        "weeks": 101
+      },
+      "C3_vs_M": {
+        "clear_of_zero": false,
+        "fixtures": 4547,
+        "interval_95": [
+          -0.02816493011075832,
+          -0.018418244380387798
+        ],
+        "mean_gain": -0.02327336157516396,
+        "weeks": 101
+      },
+      "fixtures": 4547,
+      "mean_log_loss": {
+        "A": 0.9737037122548479,
+        "C": 0.99485119406839,
+        "C2": 0.9944373632190208,
+        "C3": 0.9942065612179533,
+        "D": 0.9712664397610011,
+        "M": 0.9709331996427893
+      }
+    },
+    "AH all": {
+      "C3_vs_C": {
+        "clear_of_zero": false,
+        "fixtures": 4547,
+        "interval_95": [
+          -0.0007298842650833371,
+          0.0017434503948620364
+        ],
+        "mean_gain": 0.0005173037064643964,
+        "weeks": 101
+      },
+      "C3_vs_C2": {
+        "clear_of_zero": false,
+        "fixtures": 4547,
+        "interval_95": [
+          -0.0009163652853953025,
+          0.0017174577585849862
+        ],
+        "mean_gain": 0.0004122623757730818,
+        "weeks": 101
+      },
+      "C3_vs_M": {
+        "clear_of_zero": false,
+        "fixtures": 4547,
+        "interval_95": [
+          -0.018927799325742782,
+          -0.01208176762738832
+        ],
+        "mean_gain": -0.015582081066221205,
+        "weeks": 101
+      },
+      "fixtures": 4547,
+      "mean_log_loss": {
+        "A": 0.7067233355038391,
+        "C": 0.7206566065493222,
+        "C2": 0.720551565218631,
+        "C3": 0.7201393028428578,
+        "D": 0.703890418004818,
+        "M": 0.7045572217766366
+      }
+    },
+    "AH draw-sensitive": {
+      "C3_vs_C": {
+        "clear_of_zero": false,
+        "fixtures": 4547,
+        "interval_95": [
+          -0.0008832422358693406,
+          0.0019442891436148397
+        ],
+        "mean_gain": 0.0005513418702741833,
+        "weeks": 101
+      },
+      "C3_vs_C2": {
+        "clear_of_zero": false,
+        "fixtures": 4547,
+        "interval_95": [
+          -0.0012168482280981183,
+          0.0017736044176029334
+        ],
+        "mean_gain": 0.000335177240188652,
+        "weeks": 101
+      },
+      "C3_vs_M": {
+        "clear_of_zero": false,
+        "fixtures": 4547,
+        "interval_95": [
+          -0.0230065026246992,
+          -0.015013718125090962
+        ],
+        "mean_gain": -0.019014033575283217,
+        "weeks": 101
+      },
+      "fixtures": 4547,
+      "mean_log_loss": {
+        "A": 0.7073954610245219,
+        "C": 0.7246623856811872,
+        "C2": 0.7244462210511017,
+        "C3": 0.7241110438109131,
+        "D": 0.705534736514218,
+        "M": 0.7050970102356298
+      }
+    },
+    "Over 1.5": {
+      "C3_vs_C": {
+        "clear_of_zero": true,
+        "fixtures": 4547,
+        "interval_95": [
+          0.0016230987768994928,
+          0.004326280753323277
+        ],
+        "mean_gain": 0.002930843875248475,
+        "weeks": 101
+      },
+      "C3_vs_C2": {
+        "clear_of_zero": true,
+        "fixtures": 4547,
+        "interval_95": [
+          0.0013256202259680282,
+          0.0038976813014521315
+        ],
+        "mean_gain": 0.002559064323174405,
+        "weeks": 101
+      },
+      "C3_vs_M": {
+        "clear_of_zero": false,
+        "fixtures": 4547,
+        "interval_95": [
+          -0.009241792593605686,
+          -0.0024202276211254346
+        ],
+        "mean_gain": -0.005803426883723187,
+        "weeks": 101
+      },
+      "fixtures": 4547,
+      "mean_log_loss": {
+        "A": 0.5214676986255701,
+        "C": 0.5303597221224507,
+        "C2": 0.5299879425703766,
+        "C3": 0.5274288782472023,
+        "D": 0.5219353045630053,
+        "M": 0.521625451363479
+      }
+    }
+  },
+  "harness_version": "evaluation-harness-v2",
+  "notes": [
+    "Development period only (1 Aug 2022 - 30 Jun 2025); no other period is read.",
+    "mean_gain > 0 means C3 has the lower log loss (C3_vs_C: C minus C3; C3_vs_C2: C2 minus C3).",
+    "Intervals resample whole calendar weeks (2,000 draws, seed 136, evaluation_harness.paired).",
+    "Calibration slope > 1 means the forecasts are too flat (outcomes more extreme than forecast).",
+    "Strong favourite: the side with the higher of the home and away probabilities."
+  ],
+  "phase": "development",
+  "source_commit": "1edc1f98cb3d5719ad7a6f89dcbb10e7b68e5f21",
+  "team_mapping": {
+    "Bundesliga": {
+      "attach_counts": {
+        "attached": 1223,
+        "no_understat_match": 387,
+        "score_mismatch": 1,
+        "understat_unused": 1
+      },
+      "by_season": {
+        "2122": {
+          "football_data_matches": 306,
+          "with_xg": 306
+        },
+        "2223": {
+          "football_data_matches": 306,
+          "with_xg": 306
+        },
+        "2324": {
+          "football_data_matches": 306,
+          "with_xg": 306
+        },
+        "2425": {
+          "football_data_matches": 306,
+          "with_xg": 305
+        },
+        "2526": {
+          "football_data_matches": 306,
+          "with_xg": 0
+        },
+        "2627": {
+          "football_data_matches": 81,
+          "with_xg": 0
+        }
+      },
+      "football_data_teams_without_understat": [],
+      "teams": {
+        "Arminia Bielefeld": {
+          "agreeing_matches": 34,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Bielefeld",
+          "reviewed_alias": true,
+          "understat_matches": 34
+        },
+        "Augsburg": {
+          "agreeing_matches": 136,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Augsburg",
+          "reviewed_alias": false,
+          "understat_matches": 136
+        },
+        "Bayer Leverkusen": {
+          "agreeing_matches": 136,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Leverkusen",
+          "reviewed_alias": true,
+          "understat_matches": 136
+        },
+        "Bayern Munich": {
+          "agreeing_matches": 136,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Bayern Munich",
+          "reviewed_alias": false,
+          "understat_matches": 136
+        },
+        "Bochum": {
+          "agreeing_matches": 135,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Bochum",
+          "reviewed_alias": false,
+          "understat_matches": 136
+        },
+        "Borussia Dortmund": {
+          "agreeing_matches": 136,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Dortmund",
+          "reviewed_alias": true,
+          "understat_matches": 136
+        },
+        "Borussia M.Gladbach": {
+          "agreeing_matches": 136,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "M'gladbach",
+          "reviewed_alias": true,
+          "understat_matches": 136
+        },
+        "Darmstadt": {
+          "agreeing_matches": 34,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Darmstadt",
+          "reviewed_alias": false,
+          "understat_matches": 34
+        },
+        "Eintracht Frankfurt": {
+          "agreeing_matches": 136,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Ein Frankfurt",
+          "reviewed_alias": true,
+          "understat_matches": 136
+        },
+        "FC Cologne": {
+          "agreeing_matches": 102,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "FC Koln",
+          "reviewed_alias": true,
+          "understat_matches": 102
+        },
+        "FC Heidenheim": {
+          "agreeing_matches": 68,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Heidenheim",
+          "reviewed_alias": true,
+          "understat_matches": 68
+        },
+        "Freiburg": {
+          "agreeing_matches": 136,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Freiburg",
+          "reviewed_alias": false,
+          "understat_matches": 136
+        },
+        "Greuther Fuerth": {
+          "agreeing_matches": 34,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Greuther Furth",
+          "reviewed_alias": true,
+          "understat_matches": 34
+        },
+        "Hertha Berlin": {
+          "agreeing_matches": 68,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Hertha",
+          "reviewed_alias": true,
+          "understat_matches": 68
+        },
+        "Hoffenheim": {
+          "agreeing_matches": 136,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Hoffenheim",
+          "reviewed_alias": false,
+          "understat_matches": 136
+        },
+        "Holstein Kiel": {
+          "agreeing_matches": 34,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Holstein Kiel",
+          "reviewed_alias": false,
+          "understat_matches": 34
+        },
+        "Mainz 05": {
+          "agreeing_matches": 136,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Mainz",
+          "reviewed_alias": true,
+          "understat_matches": 136
+        },
+        "RasenBallsport Leipzig": {
+          "agreeing_matches": 136,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "RB Leipzig",
+          "reviewed_alias": true,
+          "understat_matches": 136
+        },
+        "Schalke 04": {
+          "agreeing_matches": 34,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Schalke 04",
+          "reviewed_alias": false,
+          "understat_matches": 34
+        },
+        "St. Pauli": {
+          "agreeing_matches": 34,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "St Pauli",
+          "reviewed_alias": true,
+          "understat_matches": 34
+        },
+        "Union Berlin": {
+          "agreeing_matches": 135,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Union Berlin",
+          "reviewed_alias": false,
+          "understat_matches": 136
+        },
+        "VfB Stuttgart": {
+          "agreeing_matches": 136,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Stuttgart",
+          "reviewed_alias": true,
+          "understat_matches": 136
+        },
+        "Werder Bremen": {
+          "agreeing_matches": 102,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Werder Bremen",
+          "reviewed_alias": false,
+          "understat_matches": 102
+        },
+        "Wolfsburg": {
+          "agreeing_matches": 136,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Wolfsburg",
+          "reviewed_alias": false,
+          "understat_matches": 136
+        }
+      },
+      "understat_teams_unmatched": []
+    },
+    "EPL": {
+      "attach_counts": {
+        "attached": 1620,
+        "no_understat_match": 380,
+        "understat_unused": 0
+      },
+      "by_season": {
+        "2122": {
+          "football_data_matches": 380,
+          "with_xg": 380
+        },
+        "2223": {
+          "football_data_matches": 380,
+          "with_xg": 380
+        },
+        "2324": {
+          "football_data_matches": 380,
+          "with_xg": 380
+        },
+        "2425": {
+          "football_data_matches": 380,
+          "with_xg": 380
+        },
+        "2526": {
+          "football_data_matches": 380,
+          "with_xg": 100
+        },
+        "2627": {
+          "football_data_matches": 100,
+          "with_xg": 0
+        }
+      },
+      "football_data_teams_without_understat": [],
+      "teams": {
+        "Arsenal": {
+          "agreeing_matches": 162,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Arsenal",
+          "reviewed_alias": false,
+          "understat_matches": 162
+        },
+        "Aston Villa": {
+          "agreeing_matches": 162,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Aston Villa",
+          "reviewed_alias": false,
+          "understat_matches": 162
+        },
+        "Bournemouth": {
+          "agreeing_matches": 124,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Bournemouth",
+          "reviewed_alias": false,
+          "understat_matches": 124
+        },
+        "Brentford": {
+          "agreeing_matches": 162,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Brentford",
+          "reviewed_alias": false,
+          "understat_matches": 162
+        },
+        "Brighton": {
+          "agreeing_matches": 162,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Brighton",
+          "reviewed_alias": false,
+          "understat_matches": 162
+        },
+        "Burnley": {
+          "agreeing_matches": 86,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Burnley",
+          "reviewed_alias": false,
+          "understat_matches": 86
+        },
+        "Chelsea": {
+          "agreeing_matches": 162,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Chelsea",
+          "reviewed_alias": false,
+          "understat_matches": 162
+        },
+        "Crystal Palace": {
+          "agreeing_matches": 162,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Crystal Palace",
+          "reviewed_alias": false,
+          "understat_matches": 162
+        },
+        "Everton": {
+          "agreeing_matches": 162,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Everton",
+          "reviewed_alias": false,
+          "understat_matches": 162
+        },
+        "Fulham": {
+          "agreeing_matches": 124,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Fulham",
+          "reviewed_alias": false,
+          "understat_matches": 124
+        },
+        "Ipswich": {
+          "agreeing_matches": 38,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Ipswich",
+          "reviewed_alias": false,
+          "understat_matches": 38
+        },
+        "Leeds": {
+          "agreeing_matches": 86,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Leeds",
+          "reviewed_alias": false,
+          "understat_matches": 86
+        },
+        "Leicester": {
+          "agreeing_matches": 114,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Leicester",
+          "reviewed_alias": false,
+          "understat_matches": 114
+        },
+        "Liverpool": {
+          "agreeing_matches": 162,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Liverpool",
+          "reviewed_alias": false,
+          "understat_matches": 162
+        },
+        "Luton": {
+          "agreeing_matches": 38,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Luton",
+          "reviewed_alias": false,
+          "understat_matches": 38
+        },
+        "Manchester City": {
+          "agreeing_matches": 162,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Man City",
+          "reviewed_alias": true,
+          "understat_matches": 162
+        },
+        "Manchester United": {
+          "agreeing_matches": 162,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Man United",
+          "reviewed_alias": true,
+          "understat_matches": 162
+        },
+        "Newcastle United": {
+          "agreeing_matches": 162,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Newcastle",
+          "reviewed_alias": true,
+          "understat_matches": 162
+        },
+        "Norwich": {
+          "agreeing_matches": 38,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Norwich",
+          "reviewed_alias": false,
+          "understat_matches": 38
+        },
+        "Nottingham Forest": {
+          "agreeing_matches": 124,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Nott'm Forest",
+          "reviewed_alias": true,
+          "understat_matches": 124
+        },
+        "Sheffield United": {
+          "agreeing_matches": 38,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Sheffield United",
+          "reviewed_alias": false,
+          "understat_matches": 38
+        },
+        "Southampton": {
+          "agreeing_matches": 114,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Southampton",
+          "reviewed_alias": false,
+          "understat_matches": 114
+        },
+        "Sunderland": {
+          "agreeing_matches": 10,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Sunderland",
+          "reviewed_alias": false,
+          "understat_matches": 10
+        },
+        "Tottenham": {
+          "agreeing_matches": 162,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Tottenham",
+          "reviewed_alias": false,
+          "understat_matches": 162
+        },
+        "Watford": {
+          "agreeing_matches": 38,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Watford",
+          "reviewed_alias": false,
+          "understat_matches": 38
+        },
+        "West Ham": {
+          "agreeing_matches": 162,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "West Ham",
+          "reviewed_alias": false,
+          "understat_matches": 162
+        },
+        "Wolverhampton Wanderers": {
+          "agreeing_matches": 162,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Wolves",
+          "reviewed_alias": true,
+          "understat_matches": 162
+        }
+      },
+      "understat_teams_unmatched": []
+    },
+    "LaLiga": {
+      "attach_counts": {
+        "attached": 1662,
+        "no_understat_match": 357,
+        "understat_unused": 0
+      },
+      "by_season": {
+        "2122": {
+          "football_data_matches": 380,
+          "with_xg": 380
+        },
+        "2223": {
+          "football_data_matches": 380,
+          "with_xg": 380
+        },
+        "2324": {
+          "football_data_matches": 380,
+          "with_xg": 380
+        },
+        "2425": {
+          "football_data_matches": 380,
+          "with_xg": 380
+        },
+        "2526": {
+          "football_data_matches": 380,
+          "with_xg": 142
+        },
+        "2627": {
+          "football_data_matches": 119,
+          "with_xg": 0
+        }
+      },
+      "football_data_teams_without_understat": [],
+      "teams": {
+        "Alaves": {
+          "agreeing_matches": 128,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Alaves",
+          "reviewed_alias": false,
+          "understat_matches": 128
+        },
+        "Almeria": {
+          "agreeing_matches": 76,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Almeria",
+          "reviewed_alias": false,
+          "understat_matches": 76
+        },
+        "Athletic Club": {
+          "agreeing_matches": 167,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Ath Bilbao",
+          "reviewed_alias": true,
+          "understat_matches": 167
+        },
+        "Atletico Madrid": {
+          "agreeing_matches": 167,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Ath Madrid",
+          "reviewed_alias": true,
+          "understat_matches": 167
+        },
+        "Barcelona": {
+          "agreeing_matches": 167,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Barcelona",
+          "reviewed_alias": false,
+          "understat_matches": 167
+        },
+        "Cadiz": {
+          "agreeing_matches": 114,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Cadiz",
+          "reviewed_alias": false,
+          "understat_matches": 114
+        },
+        "Celta Vigo": {
+          "agreeing_matches": 166,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Celta",
+          "reviewed_alias": true,
+          "understat_matches": 166
+        },
+        "Elche": {
+          "agreeing_matches": 90,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Elche",
+          "reviewed_alias": false,
+          "understat_matches": 90
+        },
+        "Espanyol": {
+          "agreeing_matches": 128,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Espanol",
+          "reviewed_alias": true,
+          "understat_matches": 128
+        },
+        "Getafe": {
+          "agreeing_matches": 166,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Getafe",
+          "reviewed_alias": false,
+          "understat_matches": 166
+        },
+        "Girona": {
+          "agreeing_matches": 128,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Girona",
+          "reviewed_alias": false,
+          "understat_matches": 128
+        },
+        "Granada": {
+          "agreeing_matches": 76,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Granada",
+          "reviewed_alias": false,
+          "understat_matches": 76
+        },
+        "Las Palmas": {
+          "agreeing_matches": 76,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Las Palmas",
+          "reviewed_alias": false,
+          "understat_matches": 76
+        },
+        "Leganes": {
+          "agreeing_matches": 38,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Leganes",
+          "reviewed_alias": false,
+          "understat_matches": 38
+        },
+        "Levante": {
+          "agreeing_matches": 52,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Levante",
+          "reviewed_alias": false,
+          "understat_matches": 52
+        },
+        "Mallorca": {
+          "agreeing_matches": 166,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Mallorca",
+          "reviewed_alias": false,
+          "understat_matches": 166
+        },
+        "Osasuna": {
+          "agreeing_matches": 166,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Osasuna",
+          "reviewed_alias": false,
+          "understat_matches": 166
+        },
+        "Rayo Vallecano": {
+          "agreeing_matches": 166,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Vallecano",
+          "reviewed_alias": true,
+          "understat_matches": 166
+        },
+        "Real Betis": {
+          "agreeing_matches": 166,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Betis",
+          "reviewed_alias": true,
+          "understat_matches": 166
+        },
+        "Real Madrid": {
+          "agreeing_matches": 167,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Real Madrid",
+          "reviewed_alias": false,
+          "understat_matches": 167
+        },
+        "Real Oviedo": {
+          "agreeing_matches": 14,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Oviedo",
+          "reviewed_alias": true,
+          "understat_matches": 14
+        },
+        "Real Sociedad": {
+          "agreeing_matches": 166,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Sociedad",
+          "reviewed_alias": true,
+          "understat_matches": 166
+        },
+        "Real Valladolid": {
+          "agreeing_matches": 76,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Valladolid",
+          "reviewed_alias": true,
+          "understat_matches": 76
+        },
+        "Sevilla": {
+          "agreeing_matches": 166,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Sevilla",
+          "reviewed_alias": false,
+          "understat_matches": 166
+        },
+        "Valencia": {
+          "agreeing_matches": 166,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Valencia",
+          "reviewed_alias": false,
+          "understat_matches": 166
+        },
+        "Villarreal": {
+          "agreeing_matches": 166,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Villarreal",
+          "reviewed_alias": false,
+          "understat_matches": 166
+        }
+      },
+      "understat_teams_unmatched": []
+    },
+    "Ligue1": {
+      "attach_counts": {
+        "attached": 1236,
+        "no_understat_match": 532,
+        "understat_unused": 1
+      },
+      "by_season": {
+        "2122": {
+          "football_data_matches": 380,
+          "with_xg": 380
+        },
+        "2223": {
+          "football_data_matches": 380,
+          "with_xg": 379
+        },
+        "2324": {
+          "football_data_matches": 306,
+          "with_xg": 306
+        },
+        "2425": {
+          "football_data_matches": 306,
+          "with_xg": 171
+        },
+        "2526": {
+          "football_data_matches": 306,
+          "with_xg": 0
+        },
+        "2627": {
+          "football_data_matches": 90,
+          "with_xg": 0
+        }
+      },
+      "football_data_teams_without_understat": [],
+      "teams": {
+        "Ajaccio": {
+          "agreeing_matches": 38,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Ajaccio",
+          "reviewed_alias": false,
+          "understat_matches": 38
+        },
+        "Angers": {
+          "agreeing_matches": 95,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Angers",
+          "reviewed_alias": false,
+          "understat_matches": 95
+        },
+        "Auxerre": {
+          "agreeing_matches": 57,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Auxerre",
+          "reviewed_alias": false,
+          "understat_matches": 57
+        },
+        "Bordeaux": {
+          "agreeing_matches": 38,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Bordeaux",
+          "reviewed_alias": false,
+          "understat_matches": 38
+        },
+        "Brest": {
+          "agreeing_matches": 129,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Brest",
+          "reviewed_alias": false,
+          "understat_matches": 129
+        },
+        "Clermont Foot": {
+          "agreeing_matches": 110,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Clermont",
+          "reviewed_alias": true,
+          "understat_matches": 110
+        },
+        "Le Havre": {
+          "agreeing_matches": 53,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Le Havre",
+          "reviewed_alias": false,
+          "understat_matches": 53
+        },
+        "Lens": {
+          "agreeing_matches": 129,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Lens",
+          "reviewed_alias": false,
+          "understat_matches": 129
+        },
+        "Lille": {
+          "agreeing_matches": 129,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Lille",
+          "reviewed_alias": false,
+          "understat_matches": 129
+        },
+        "Lorient": {
+          "agreeing_matches": 110,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Lorient",
+          "reviewed_alias": false,
+          "understat_matches": 110
+        },
+        "Lyon": {
+          "agreeing_matches": 128,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Lyon",
+          "reviewed_alias": false,
+          "understat_matches": 129
+        },
+        "Marseille": {
+          "agreeing_matches": 129,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Marseille",
+          "reviewed_alias": false,
+          "understat_matches": 129
+        },
+        "Metz": {
+          "agreeing_matches": 72,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Metz",
+          "reviewed_alias": false,
+          "understat_matches": 72
+        },
+        "Monaco": {
+          "agreeing_matches": 129,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Monaco",
+          "reviewed_alias": false,
+          "understat_matches": 129
+        },
+        "Montpellier": {
+          "agreeing_matches": 129,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Montpellier",
+          "reviewed_alias": false,
+          "understat_matches": 129
+        },
+        "Nantes": {
+          "agreeing_matches": 129,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Nantes",
+          "reviewed_alias": false,
+          "understat_matches": 129
+        },
+        "Nice": {
+          "agreeing_matches": 129,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Nice",
+          "reviewed_alias": false,
+          "understat_matches": 129
+        },
+        "Paris Saint Germain": {
+          "agreeing_matches": 129,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Paris SG",
+          "reviewed_alias": true,
+          "understat_matches": 129
+        },
+        "Reims": {
+          "agreeing_matches": 129,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Reims",
+          "reviewed_alias": false,
+          "understat_matches": 129
+        },
+        "Rennes": {
+          "agreeing_matches": 129,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Rennes",
+          "reviewed_alias": false,
+          "understat_matches": 129
+        },
+        "Saint-Etienne": {
+          "agreeing_matches": 57,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "St Etienne",
+          "reviewed_alias": true,
+          "understat_matches": 57
+        },
+        "Strasbourg": {
+          "agreeing_matches": 128,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Strasbourg",
+          "reviewed_alias": false,
+          "understat_matches": 129
+        },
+        "Toulouse": {
+          "agreeing_matches": 91,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Toulouse",
+          "reviewed_alias": false,
+          "understat_matches": 91
+        },
+        "Troyes": {
+          "agreeing_matches": 76,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Troyes",
+          "reviewed_alias": false,
+          "understat_matches": 76
+        }
+      },
+      "understat_teams_unmatched": []
+    },
+    "SerieA": {
+      "attach_counts": {
+        "attached": 1409,
+        "no_understat_match": 601,
+        "understat_unused": 1
+      },
+      "by_season": {
+        "2122": {
+          "football_data_matches": 380,
+          "with_xg": 380
+        },
+        "2223": {
+          "football_data_matches": 380,
+          "with_xg": 270
+        },
+        "2324": {
+          "football_data_matches": 380,
+          "with_xg": 379
+        },
+        "2425": {
+          "football_data_matches": 380,
+          "with_xg": 380
+        },
+        "2526": {
+          "football_data_matches": 380,
+          "with_xg": 0
+        },
+        "2627": {
+          "football_data_matches": 110,
+          "with_xg": 0
+        }
+      },
+      "football_data_teams_without_understat": [],
+      "teams": {
+        "AC Milan": {
+          "agreeing_matches": 141,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Milan",
+          "reviewed_alias": true,
+          "understat_matches": 141
+        },
+        "Atalanta": {
+          "agreeing_matches": 141,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Atalanta",
+          "reviewed_alias": false,
+          "understat_matches": 141
+        },
+        "Bologna": {
+          "agreeing_matches": 141,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Bologna",
+          "reviewed_alias": false,
+          "understat_matches": 141
+        },
+        "Cagliari": {
+          "agreeing_matches": 114,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Cagliari",
+          "reviewed_alias": false,
+          "understat_matches": 114
+        },
+        "Como": {
+          "agreeing_matches": 38,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Como",
+          "reviewed_alias": false,
+          "understat_matches": 38
+        },
+        "Cremonese": {
+          "agreeing_matches": 27,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Cremonese",
+          "reviewed_alias": false,
+          "understat_matches": 27
+        },
+        "Empoli": {
+          "agreeing_matches": 141,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Empoli",
+          "reviewed_alias": false,
+          "understat_matches": 141
+        },
+        "Fiorentina": {
+          "agreeing_matches": 141,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Fiorentina",
+          "reviewed_alias": false,
+          "understat_matches": 141
+        },
+        "Frosinone": {
+          "agreeing_matches": 38,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Frosinone",
+          "reviewed_alias": false,
+          "understat_matches": 38
+        },
+        "Genoa": {
+          "agreeing_matches": 114,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Genoa",
+          "reviewed_alias": false,
+          "understat_matches": 114
+        },
+        "Inter": {
+          "agreeing_matches": 141,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Inter",
+          "reviewed_alias": false,
+          "understat_matches": 141
+        },
+        "Juventus": {
+          "agreeing_matches": 141,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Juventus",
+          "reviewed_alias": false,
+          "understat_matches": 141
+        },
+        "Lazio": {
+          "agreeing_matches": 141,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Lazio",
+          "reviewed_alias": false,
+          "understat_matches": 141
+        },
+        "Lecce": {
+          "agreeing_matches": 103,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Lecce",
+          "reviewed_alias": false,
+          "understat_matches": 103
+        },
+        "Monza": {
+          "agreeing_matches": 103,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Monza",
+          "reviewed_alias": false,
+          "understat_matches": 103
+        },
+        "Napoli": {
+          "agreeing_matches": 141,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Napoli",
+          "reviewed_alias": false,
+          "understat_matches": 141
+        },
+        "Parma Calcio 1913": {
+          "agreeing_matches": 38,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Parma",
+          "reviewed_alias": true,
+          "understat_matches": 38
+        },
+        "Roma": {
+          "agreeing_matches": 140,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Roma",
+          "reviewed_alias": false,
+          "understat_matches": 141
+        },
+        "Salernitana": {
+          "agreeing_matches": 103,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Salernitana",
+          "reviewed_alias": false,
+          "understat_matches": 103
+        },
+        "Sampdoria": {
+          "agreeing_matches": 65,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Sampdoria",
+          "reviewed_alias": false,
+          "understat_matches": 65
+        },
+        "Sassuolo": {
+          "agreeing_matches": 103,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Sassuolo",
+          "reviewed_alias": false,
+          "understat_matches": 103
+        },
+        "Spezia": {
+          "agreeing_matches": 65,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Spezia",
+          "reviewed_alias": false,
+          "understat_matches": 65
+        },
+        "Torino": {
+          "agreeing_matches": 141,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Torino",
+          "reviewed_alias": false,
+          "understat_matches": 141
+        },
+        "Udinese": {
+          "agreeing_matches": 140,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Udinese",
+          "reviewed_alias": false,
+          "understat_matches": 141
+        },
+        "Venezia": {
+          "agreeing_matches": 76,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Venezia",
+          "reviewed_alias": false,
+          "understat_matches": 76
+        },
+        "Verona": {
+          "agreeing_matches": 141,
+          "agrees_with_fixture_evidence": true,
+          "football_data": "Verona",
+          "reviewed_alias": false,
+          "understat_matches": 141
+        }
+      },
+      "understat_teams_unmatched": []
+    }
+  },
+  "understat_manifest": {
+    "Bundesliga_2021": {
+      "complete": true,
+      "fetched_at_utc": "2026-11-10T19:30:03+00:00",
+      "file_sha256": "9d056540e3ec70ccb18f8a36f9559d716db6e040e1f2b0d1dfcdb08b7e528c0b",
+      "matches": 306,
+      "raw_sha256": "f2439ae3945cd2fbea8739e7151cff00901ecbe465f2861489500f3fde13372f",
+      "results": 306,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20251008161311id_/https://understat.com/league/Bundesliga/2021"
+    },
+    "Bundesliga_2022": {
+      "complete": true,
+      "fetched_at_utc": "2026-11-10T19:30:14+00:00",
+      "file_sha256": "ca44a33c2fb028c163324aa4620a81e4fa63250358e85a7d37acb18ce7f1c474",
+      "matches": 306,
+      "raw_sha256": "45b323c54a1c4dfd5bbdc43d165661dbb0cce6d10d393c09ed878d12c06f776f",
+      "results": 306,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250916035325id_/https://understat.com/league/Bundesliga/2022"
+    },
+    "Bundesliga_2023": {
+      "complete": true,
+      "fetched_at_utc": "2026-11-10T19:30:26+00:00",
+      "file_sha256": "585d640aa56dea2da12a27abaa7c765cf9f1e9350f0adc61d4df9071d8c3c50f",
+      "matches": 306,
+      "raw_sha256": "5f3dc23db305b67860330f76e9475651e272c80942e4e4a2e13901d4c28bb265",
+      "results": 306,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250916052339id_/https://understat.com/league/Bundesliga/2023"
+    },
+    "Bundesliga_2024": {
+      "complete": true,
+      "fetched_at_utc": "2026-11-10T19:30:38+00:00",
+      "file_sha256": "422b180f1ed7ffd0dc1959e75d2f43cba152aec5f57ba61964895d3dcb2a060f",
+      "matches": 306,
+      "raw_sha256": "339929c58454404430e93180299760468bab30cf86f732c0e9e1613fcfa89f79",
+      "results": 306,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20251008164908id_/https://understat.com/league/Bundesliga/2024"
+    },
+    "EPL_2021": {
+      "complete": true,
+      "fetched_at_utc": "2026-11-10T19:27:26+00:00",
+      "file_sha256": "636f53939a0bc005c37fce0f64df0a441a697c279388611b7a90f0ff86b837fa",
+      "matches": 380,
+      "raw_sha256": "cc4b31acc8c33937a65c04ca8793df884f10f5a68e6f68d8ca9bb10de9957406",
+      "results": 380,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250617130344id_/https://understat.com/league/EPL/2021"
+    },
+    "EPL_2022": {
+      "complete": true,
+      "fetched_at_utc": "2026-11-10T19:27:38+00:00",
+      "file_sha256": "3bfb1a070e148205c12323593c0131fb58955cdfcf0d73741fd1e62219a9fe27",
+      "matches": 380,
+      "raw_sha256": "62b31d8ec3518f54f6714df81e4502d25097d32a979242ad9e84504db90c0582",
+      "results": 380,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250916035035id_/https://understat.com/league/EPL/2022"
+    },
+    "EPL_2023": {
+      "complete": true,
+      "fetched_at_utc": "2026-11-10T19:27:51+00:00",
+      "file_sha256": "dae35b70312154dfadfe9b3f0bcb689c58c68b1174c00073b152e6e4453ac356",
+      "matches": 380,
+      "raw_sha256": "3b358dfb12250dbc4a59c94af4b0516e454a47c9b2df9b59467f05cd2c197e82",
+      "results": 380,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20251107150410id_/https://understat.com/league/EPL/2023"
+    },
+    "EPL_2024": {
+      "complete": true,
+      "fetched_at_utc": "2026-11-10T19:28:02+00:00",
+      "file_sha256": "22722f6605978b0660063c44564290bdfeb8318f287d02d055f184b3bedc2a9c",
+      "matches": 380,
+      "raw_sha256": "ab7064c032b9ae29894bf76d964ffdf91c22f214885e3fabd124716ea7553ac4",
+      "results": 380,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250920125149id_/https://understat.com/league/EPL/2024"
+    },
+    "EPL_2025": {
+      "complete": false,
+      "fetched_at_utc": "2026-11-10T19:28:26+00:00",
+      "file_sha256": "2b108c38a0497f3a80bb7ea8fac037d53a382a975644c888abf090e6a294c96d",
+      "matches": 380,
+      "raw_sha256": "a89625000194075b586f771b1dfbc35fc700f37f20d26317c60dea9a5bac4da9",
+      "results": 100,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20251108054050id_/https://understat.com/league/EPL/2025"
+    },
+    "La_liga_2021": {
+      "complete": true,
+      "fetched_at_utc": "2026-11-10T19:28:44+00:00",
+      "file_sha256": "d374aec5f8aad4b83f3200b66538cc420f5490326a0bc5492abb7ce89a369145",
+      "matches": 380,
+      "raw_sha256": "48aaad02e7dc32dc3b9da7c10c700c3b93d44fa40d31ed91f8dfe052a6a67705",
+      "results": 380,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250916040624id_/https://understat.com/league/La_liga/2021"
+    },
+    "La_liga_2022": {
+      "complete": true,
+      "fetched_at_utc": "2026-11-10T19:28:56+00:00",
+      "file_sha256": "e478036f7be2800efe32aad8c4659e6455f0fe72572771c3e2d369f2eb0f76a2",
+      "matches": 380,
+      "raw_sha256": "d19e2a9f34bb9128a8cface8e6c86b75d3c629c971744faa8f7664864c9bffbe",
+      "results": 380,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20251107162219id_/https://understat.com/league/La_liga/2022"
+    },
+    "La_liga_2023": {
+      "complete": true,
+      "fetched_at_utc": "2026-11-10T19:29:08+00:00",
+      "file_sha256": "426103e5f58bb795e1e7cbc76daf4586e38272b4c3d8c31004f86fc6890c615d",
+      "matches": 380,
+      "raw_sha256": "d00b197dc1c23d1449780da3ebd939334b48106cbba7272deec8a84f1798e6ac",
+      "results": 380,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20240804234915id_/https://understat.com/league/La_liga/2023"
+    },
+    "La_liga_2024": {
+      "complete": true,
+      "fetched_at_utc": "2026-11-10T19:29:20+00:00",
+      "file_sha256": "c2f20ef39e847682a6fde05c405cfe2ac08b5a46b87450333a87448b4076507d",
+      "matches": 380,
+      "raw_sha256": "44cf9426df8940f36611e39906531a7a87d434e7de184e512eadd0184193d44f",
+      "results": 380,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250525232349id_/https://understat.com/league/La_liga/2024"
+    },
+    "La_liga_2025": {
+      "complete": false,
+      "fetched_at_utc": "2026-11-10T19:29:45+00:00",
+      "file_sha256": "f268f70fb9662eb4ec7a03303ff689b7424c2380f413b1fef28dafbb31815269",
+      "matches": 380,
+      "raw_sha256": "c4e4d2ac62142c0028a4308c9226bee1659f702b148bdfac5eb58143ca244c8a",
+      "results": 142,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20251204224709id_/https://understat.com/league/La_liga/2025"
+    },
+    "Ligue_1_2021": {
+      "complete": true,
+      "fetched_at_utc": "2026-11-10T19:32:18+00:00",
+      "file_sha256": "95464433d7c044e1229d82e982814f3dfce8235e5ff0c61b567c3d70dc709fef",
+      "matches": 380,
+      "raw_sha256": "811394c5369ff20941722a4fd5519b81ccc5e44347e68f206995bcbe985bcb2e",
+      "results": 380,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250802232720id_/https://understat.com/league/Ligue_1/2021"
+    },
+    "Ligue_1_2022": {
+      "complete": true,
+      "fetched_at_utc": "2026-11-10T19:32:32+00:00",
+      "file_sha256": "fb69daf7f57fbf96720e2da02442a39085b816269634766fd144ed4d6029ce1b",
+      "matches": 380,
+      "raw_sha256": "f0f9648623d4f2fe485b7a1132ca6ef6864279c834ef5c707f12c73044aabf25",
+      "results": 380,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20251008154138id_/https://understat.com/league/Ligue_1/2022"
+    },
+    "Ligue_1_2023": {
+      "complete": true,
+      "fetched_at_utc": "2026-11-10T19:32:41+00:00",
+      "file_sha256": "953d0f208bcd5cde7431b427c31d1121655e6bc0325dc6f8be29edc3cc930e28",
+      "matches": 306,
+      "raw_sha256": "96e6fe54d30a55a68cf4856dbd0a1b9a35197ea7913118847202735efd25e018",
+      "results": 306,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250717161353id_/https://understat.com/league/Ligue_1/2023"
+    },
+    "Ligue_1_2024": {
+      "complete": false,
+      "fetched_at_utc": "2026-11-10T19:32:58+00:00",
+      "file_sha256": "77bad069222618309cd17b1e74f86a5c8d4f446a47e6d84813170114fe72c975",
+      "matches": 306,
+      "raw_sha256": "1d8222b7a2d4aca360e41a41685cc03f8e4c929b207c2908aaa3e2c64203dd84",
+      "results": 171,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250131173528id_/https://understat.com/league/Ligue_1/2024"
+    },
+    "Serie_A_2021": {
+      "complete": true,
+      "fetched_at_utc": "2026-11-10T19:31:02+00:00",
+      "file_sha256": "211143f5f5152aacc640d48dff580c81a20b53f883b257582746c6146ae89710",
+      "matches": 380,
+      "raw_sha256": "ffb752c794ea7ee2a851e09b289fbd43621016ba520c41dc45c193816ce7d986",
+      "results": 380,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250916043854id_/https://understat.com/league/Serie_A/2021"
+    },
+    "Serie_A_2022": {
+      "complete": false,
+      "fetched_at_utc": "2026-11-10T19:31:26+00:00",
+      "file_sha256": "b0b7e33e722a6825579762517595b38b1f6a4edd8b812d9e47e086aa3e9db78f",
+      "matches": 380,
+      "raw_sha256": "7638cc7d817865aadd5311c96bf218f556d07d23c01cd17082f67b1814a5de35",
+      "results": 270,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20230324114639id_/https://understat.com/league/Serie_A/2022"
+    },
+    "Serie_A_2023": {
+      "complete": true,
+      "fetched_at_utc": "2026-11-10T19:31:39+00:00",
+      "file_sha256": "0eda4b2953fb6803007dd593e87ece61e036c3dafda43afccaa0a0fb9b864136",
+      "matches": 380,
+      "raw_sha256": "788624480ea15c4cbe5897cdbf1388b958ea9ac2029d4d5af940a088eb3e138d",
+      "results": 380,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250617140613id_/https://understat.com/league/Serie_A/2023"
+    },
+    "Serie_A_2024": {
+      "complete": true,
+      "fetched_at_utc": "2026-11-10T19:31:50+00:00",
+      "file_sha256": "3188b0df201805a372a156dd268d3fef4e7c49e3d76ee4c52bc8a99e9c2946e6",
+      "matches": 380,
+      "raw_sha256": "b9b29c8f5eed191cb1ac6d16db1aae993dbf028cbcf3a178823e0b58cf8eb99d",
+      "results": 380,
+      "source": "internet_archive",
+      "source_url": "https://web.archive.org/web/20250717150543id_/https://understat.com/league/Serie_A/2024"
+    }
+  },
+  "understat_missing": [
+    "Bundesliga_2025",
+    "Bundesliga_2026",
+    "EPL_2026",
+    "La_liga_2026",
+    "Ligue_1_2025",
+    "Ligue_1_2026",
+    "Serie_A_2025",
+    "Serie_A_2026"
+  ]
+}
