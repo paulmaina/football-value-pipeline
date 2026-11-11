@@ -1,0 +1,200 @@
+Match Number,Round Number,Date,Location,Home Team,Away Team,Group,Result
+1,1,19/09/2019 16:55,GSP Stadium,APOEL,Dudelange,Group A,3 - 4
+2,1,19/09/2019 16:55,Tofig Bahramov Republican stadium,Qarabag,Sevilla,Group A,0 - 3
+3,1,19/09/2019 16:55,Parken Stadium,Copenhagen,Lugano,Group B,1 - 0
+4,1,19/09/2019 16:55,NSK Olimpiyskiy,Dynamo Kyiv,Malmö,Group B,1 - 0
+5,1,19/09/2019 16:55,St. Jakob-Park,Basel,Krasnodar,Group C,5 - 0
+6,1,19/09/2019 16:55,Coliseum Alfonso Pérez,Getafe,Trabzonspor,Group C,1 - 0
+7,1,19/09/2019 16:55,Linzer Stadion,LASK,Rosenborg,Group D,1 - 0
+8,1,19/09/2019 16:55,PSV Stadion,PSV,Sporting CP,Group D,3 - 2
+9,1,19/09/2019 16:55,Stadionul Dr. Constantin Radulescu,CFR Cluj,Lazio,Group E,2 - 1
+10,1,19/09/2019 16:55,Roazhon Park,Rennes,Celtic,Group E,1 - 1
+11,1,19/09/2019 16:55,Stade Maurice Dufrasne,Standard Liège,Vitória SC,Group F,2 - 0
+12,1,19/09/2019 16:55,Frankfurt Stadion,Frankfurt,Arsenal,Group F,0 - 3
+13,1,19/09/2019 19:00,Ibrox Stadium,Rangers,Feyenoord,Group G,1 - 0
+14,1,19/09/2019 19:00,Estádio do Dragão,Porto,Young Boys,Group G,2 - 1
+15,1,19/09/2019 19:00,RCDE Stadium,Espanyol,Ferencváros,Group H,1 - 1
+16,1,19/09/2019 19:00,Ludogorets Arena,Ludogorets,CSKA Moskva,Group H,5 - 1
+17,1,19/09/2019 19:00,VfL Wolfsburg Arena,Wolfsburg,Olexandriya,Group I,3 - 1
+18,1,19/09/2019 19:00,KAA Gent Stadium,Gent,St-Étienne,Group I,3 - 2
+19,1,19/09/2019 19:00,Borussia-Park,Mönchengladbach,Wolfsberg,Group J,0 - 4
+20,1,19/09/2019 19:00,Stadio Olimpico,Roma,Istanbul Basaksehir,Group J,4 - 0
+21,1,19/09/2019 19:00,Molineux,Wolves,Braga,Group K,0 - 1
+22,1,19/09/2019 19:00,Národný futbalový štadión,Slovan Bratislava,Besiktas,Group K,4 - 2
+23,1,19/09/2019 19:00,Old Trafford,Man. United,Astana,Group L,1 - 0
+24,1,19/09/2019 19:00,Stadion FK Partizan,Partizan,AZ Alkmaar,Group L,2 - 2
+26,2,03/10/2019 14:50,Astana Arena,Astana,Partizan,Group L,1 - 2
+27,2,03/10/2019 16:55,Stade de Suisse,Young Boys,Rangers,Group G,2 - 1
+28,2,03/10/2019 16:55,Stadion Feijenoord,Feyenoord,Porto,Group G,2 - 0
+29,2,03/10/2019 16:55,CSKA Arena,CSKA Moskva,Espanyol,Group H,0 - 2
+30,2,03/10/2019 16:55,Groupama Aréna,Ferencváros,Ludogorets,Group H,0 - 3
+31,2,03/10/2019 16:55,Stade Geoffroy Guichard,St-Étienne,Wolfsburg,Group I,1 - 1
+32,2,03/10/2019 16:55,Arena Lviv,Olexandriya,Gent,Group I,1 - 1
+33,2,03/10/2019 16:55,Basaksehir Fatih Terim Stadyumu,Istanbul Basaksehir,Mönchengladbach,Group J,1 - 1
+34,2,03/10/2019 16:55,Stadion Graz Liebenau,Wolfsberg,Roma,Group J,1 - 1
+35,2,03/10/2019 16:55,Vodafone Park,Besiktas,Wolves,Group K,0 - 1
+36,2,03/10/2019 16:55,Estádio Municipal de Braga,Braga,Slovan Bratislava,Group K,2 - 2
+37,2,03/10/2019 16:55,ADO Den Haag Stadium,AZ Alkmaar,Man. United,Group L,0 - 0
+25,2,03/10/2019 19:00,Estádio D. Afonso Henriques,Vitória SC,Frankfurt,Group F,0 - 1
+38,2,03/10/2019 19:00,Estadio Ramón Sánchez-Pizjuán,Sevilla,APOEL,Group A,1 - 0
+39,2,03/10/2019 19:00,Stade Josy Barthel,Dudelange,Qarabag,Group A,1 - 4
+40,2,03/10/2019 19:00,Malmö New Stadium,Malmö,Copenhagen,Group B,1 - 1
+41,2,03/10/2019 19:00,Kybunpark St. Gallen,Lugano,Dynamo Kyiv,Group B,0 - 0
+42,2,03/10/2019 19:00,Senol Günes Stadium,Trabzonspor,Basel,Group C,2 - 2
+43,2,03/10/2019 19:00,Stadium Krasnodar,Krasnodar,Getafe,Group C,1 - 2
+44,2,03/10/2019 19:00,Estádio José Alvalade,Sporting CP,LASK,Group D,2 - 1
+45,2,03/10/2019 19:00,Lerkendal Stadion,Rosenborg,PSV,Group D,1 - 4
+46,2,03/10/2019 19:00,Celtic Park,Celtic,CFR Cluj,Group E,2 - 0
+47,2,03/10/2019 19:00,Stadio Olimpico,Lazio,Rennes,Group E,2 - 1
+48,2,03/10/2019 19:00,Arsenal Stadium,Arsenal,Standard Liège,Group F,4 - 0
+49,3,24/10/2019 16:55,Tofig Bahramov Republican stadium,Qarabag,APOEL,Group A,2 - 2
+50,3,24/10/2019 16:55,Estádio do Dragão,Porto,Rangers,Group G,1 - 1
+51,3,24/10/2019 16:55,Stade de Suisse,Young Boys,Feyenoord,Group G,2 - 0
+52,3,24/10/2019 16:55,Ludogorets Arena,Ludogorets,Espanyol,Group H,0 - 1
+53,3,24/10/2019 16:55,CSKA Arena,CSKA Moskva,Ferencváros,Group H,0 - 1
+54,3,24/10/2019 16:55,KAA Gent Stadium,Gent,Wolfsburg,Group I,2 - 2
+55,3,24/10/2019 16:55,Stade Geoffroy Guichard,St-Étienne,Olexandriya,Group I,1 - 1
+56,3,24/10/2019 16:55,Stadio Olimpico,Roma,Mönchengladbach,Group J,1 - 1
+57,3,24/10/2019 16:55,Basaksehir Fatih Terim Stadyumu,Istanbul Basaksehir,Wolfsberg,Group J,1 - 0
+58,3,24/10/2019 16:55,Národný futbalový štadión,Slovan Bratislava,Wolves,Group K,1 - 2
+59,3,24/10/2019 16:55,Vodafone Park,Besiktas,Braga,Group K,1 - 2
+60,3,24/10/2019 16:55,Stadion FK Partizan,Partizan,Man. United,Group L,0 - 1
+61,3,24/10/2019 16:55,ADO Den Haag Stadium,AZ Alkmaar,Astana,Group L,6 - 0
+62,3,24/10/2019 19:00,Estadio Ramón Sánchez-Pizjuán,Sevilla,Dudelange,Group A,3 - 0
+63,3,24/10/2019 19:00,NSK Olimpiyskiy,Dynamo Kyiv,Copenhagen,Group B,1 - 1
+64,3,24/10/2019 19:00,Malmö New Stadium,Malmö,Lugano,Group B,2 - 1
+65,3,24/10/2019 19:00,Coliseum Alfonso Pérez,Getafe,Basel,Group C,0 - 1
+66,3,24/10/2019 19:00,Senol Günes Stadium,Trabzonspor,Krasnodar,Group C,0 - 2
+67,3,24/10/2019 19:00,PSV Stadion,PSV,LASK,Group D,0 - 0
+68,3,24/10/2019 19:00,Estádio José Alvalade,Sporting CP,Rosenborg,Group D,1 - 0
+69,3,24/10/2019 19:00,Roazhon Park,Rennes,CFR Cluj,Group E,0 - 1
+70,3,24/10/2019 19:00,Celtic Park,Celtic,Lazio,Group E,2 - 1
+71,3,24/10/2019 19:00,Frankfurt Stadion,Frankfurt,Standard Liège,Group F,2 - 1
+72,3,24/10/2019 19:00,Arsenal Stadium,Arsenal,Vitória SC,Group F,3 - 2
+73,4,06/11/2019 15:50,Estádio D. Afonso Henriques,Vitória SC,Arsenal,Group F,1 - 1
+74,4,07/11/2019 15:50,Astana Arena,Astana,AZ Alkmaar,Group L,0 - 5
+75,4,07/11/2019 17:55,GSP Stadium,APOEL,Qarabag,Group A,2 - 1
+76,4,07/11/2019 17:55,Stade Josy Barthel,Dudelange,Sevilla,Group A,2 - 5
+77,4,07/11/2019 17:55,Parken Stadium,Copenhagen,Dynamo Kyiv,Group B,1 - 1
+78,4,07/11/2019 17:55,Kybunpark St. Gallen,Lugano,Malmö,Group B,0 - 0
+79,4,07/11/2019 17:55,St. Jakob-Park,Basel,Getafe,Group C,2 - 1
+80,4,07/11/2019 17:55,Stadium Krasnodar,Krasnodar,Trabzonspor,Group C,3 - 1
+81,4,07/11/2019 17:55,Linzer Stadion,LASK,PSV,Group D,4 - 1
+82,4,07/11/2019 17:55,Lerkendal Stadion,Rosenborg,Sporting CP,Group D,0 - 2
+83,4,07/11/2019 17:55,Stadionul Dr. Constantin Radulescu,CFR Cluj,Rennes,Group E,1 - 0
+84,4,07/11/2019 17:55,Stadio Olimpico,Lazio,Celtic,Group E,1 - 2
+85,4,07/11/2019 17:55,Stade Maurice Dufrasne,Standard Liège,Frankfurt,Group F,2 - 1
+86,4,07/11/2019 20:00,Ibrox Stadium,Rangers,Porto,Group G,2 - 0
+87,4,07/11/2019 20:00,Stadion Feijenoord,Feyenoord,Young Boys,Group G,1 - 1
+88,4,07/11/2019 20:00,RCDE Stadium,Espanyol,Ludogorets,Group H,6 - 0
+89,4,07/11/2019 20:00,Groupama Aréna,Ferencváros,CSKA Moskva,Group H,0 - 0
+90,4,07/11/2019 20:00,VfL Wolfsburg Arena,Wolfsburg,Gent,Group I,1 - 3
+91,4,07/11/2019 20:00,Arena Lviv,Olexandriya,St-Étienne,Group I,2 - 2
+92,4,07/11/2019 20:00,Borussia-Park,Mönchengladbach,Roma,Group J,2 - 1
+93,4,07/11/2019 20:00,Stadion Graz Liebenau,Wolfsberg,Istanbul Basaksehir,Group J,0 - 3
+94,4,07/11/2019 20:00,Molineux,Wolves,Slovan Bratislava,Group K,1 - 0
+95,4,07/11/2019 20:00,Estádio Municipal de Braga,Braga,Besiktas,Group K,3 - 1
+96,4,07/11/2019 20:00,Old Trafford,Man. United,Partizan,Group L,3 - 0
+98,5,28/11/2019 15:50,Stadium Krasnodar,Krasnodar,Basel,Group C,1 - 0
+99,5,28/11/2019 15:50,Senol Günes Stadium,Trabzonspor,Getafe,Group C,0 - 1
+100,5,28/11/2019 15:50,Astana Arena,Astana,Man. United,Group L,2 - 1
+101,5,28/11/2019 17:55,Stadion Feijenoord,Feyenoord,Rangers,Group G,2 - 2
+102,5,28/11/2019 17:55,Stade de Suisse,Young Boys,Porto,Group G,1 - 2
+103,5,28/11/2019 17:55,Groupama Aréna,Ferencváros,Espanyol,Group H,2 - 2
+104,5,28/11/2019 17:55,CSKA Arena,CSKA Moskva,Ludogorets,Group H,1 - 1
+105,5,28/11/2019 17:55,Arena Lviv,Olexandriya,Wolfsburg,Group I,0 - 1
+106,5,28/11/2019 17:55,Stade Geoffroy Guichard,St-Étienne,Gent,Group I,0 - 0
+107,5,28/11/2019 17:55,Stadion Graz Liebenau,Wolfsberg,Mönchengladbach,Group J,0 - 1
+108,5,28/11/2019 17:55,Basaksehir Fatih Terim Stadyumu,Istanbul Basaksehir,Roma,Group J,0 - 3
+109,5,28/11/2019 17:55,Estádio Municipal de Braga,Braga,Wolves,Group K,3 - 3
+110,5,28/11/2019 17:55,Vodafone Park,Besiktas,Slovan Bratislava,Group K,2 - 1
+111,5,28/11/2019 17:55,ADO Den Haag Stadium,AZ Alkmaar,Partizan,Group L,2 - 2
+97,5,28/11/2019 20:00,Estádio D. Afonso Henriques,Vitória SC,Standard Liège,Group F,1 - 1
+112,5,28/11/2019 20:00,Stade Josy Barthel,Dudelange,APOEL,Group A,0 - 2
+113,5,28/11/2019 20:00,Estadio Ramón Sánchez-Pizjuán,Sevilla,Qarabag,Group A,2 - 0
+114,5,28/11/2019 20:00,Kybunpark St. Gallen,Lugano,Copenhagen,Group B,0 - 1
+115,5,28/11/2019 20:00,Malmö New Stadium,Malmö,Dynamo Kyiv,Group B,4 - 3
+116,5,28/11/2019 20:00,Lerkendal Stadion,Rosenborg,LASK,Group D,1 - 2
+117,5,28/11/2019 20:00,Estádio José Alvalade,Sporting CP,PSV,Group D,4 - 0
+118,5,28/11/2019 20:00,Stadio Olimpico,Lazio,CFR Cluj,Group E,1 - 0
+119,5,28/11/2019 20:00,Celtic Park,Celtic,Rennes,Group E,3 - 1
+120,5,28/11/2019 20:00,Arsenal Stadium,Arsenal,Frankfurt,Group F,1 - 2
+121,6,12/12/2019 17:55,GSP Stadium,APOEL,Sevilla,Group A,1 - 0
+122,6,12/12/2019 17:55,Tofig Bahramov Republican stadium,Qarabag,Dudelange,Group A,1 - 1
+123,6,12/12/2019 17:55,Parken Stadium,Copenhagen,Malmö,Group B,0 - 1
+124,6,12/12/2019 17:55,NSK Olimpiyskiy,Dynamo Kyiv,Lugano,Group B,1 - 1
+125,6,12/12/2019 17:55,St. Jakob-Park,Basel,Trabzonspor,Group C,2 - 0
+126,6,12/12/2019 17:55,Coliseum Alfonso Pérez,Getafe,Krasnodar,Group C,3 - 0
+127,6,12/12/2019 17:55,Linzer Stadion,LASK,Sporting CP,Group D,3 - 0
+128,6,12/12/2019 17:55,PSV Stadion,PSV,Rosenborg,Group D,1 - 1
+129,6,12/12/2019 17:55,Stadionul Dr. Constantin Radulescu,CFR Cluj,Celtic,Group E,2 - 0
+130,6,12/12/2019 17:55,Roazhon Park,Rennes,Lazio,Group E,2 - 0
+131,6,12/12/2019 17:55,Stade Maurice Dufrasne,Standard Liège,Arsenal,Group F,2 - 2
+132,6,12/12/2019 17:55,Frankfurt Stadion,Frankfurt,Vitória SC,Group F,2 - 3
+133,6,12/12/2019 20:00,Ibrox Stadium,Rangers,Young Boys,Group G,1 - 1
+134,6,12/12/2019 20:00,Estádio do Dragão,Porto,Feyenoord,Group G,3 - 2
+135,6,12/12/2019 20:00,RCDE Stadium,Espanyol,CSKA Moskva,Group H,0 - 1
+136,6,12/12/2019 20:00,Ludogorets Arena,Ludogorets,Ferencváros,Group H,1 - 1
+137,6,12/12/2019 20:00,VfL Wolfsburg Arena,Wolfsburg,St-Étienne,Group I,1 - 0
+138,6,12/12/2019 20:00,KAA Gent Stadium,Gent,Olexandriya,Group I,2 - 1
+139,6,12/12/2019 20:00,Borussia-Park,Mönchengladbach,Istanbul Basaksehir,Group J,1 - 2
+140,6,12/12/2019 20:00,Stadio Olimpico,Roma,Wolfsberg,Group J,2 - 2
+141,6,12/12/2019 20:00,Molineux,Wolves,Besiktas,Group K,4 - 0
+142,6,12/12/2019 20:00,Národný futbalový štadión,Slovan Bratislava,Braga,Group K,2 - 4
+143,6,12/12/2019 20:00,Old Trafford,Man. United,AZ Alkmaar,Group L,4 - 0
+144,6,12/12/2019 20:00,Stadion FK Partizan,Partizan,Astana,Group L,4 - 1
+145,R32 Game 1,20/02/2020 17:55,OSK Metalist Stadion,Shakhtar Donetsk,Benfica,,2 - 1
+146,R32 Game 1,20/02/2020 17:55,Frankfurt Stadion,Frankfurt,Salzburg,,4 - 1
+147,R32 Game 1,20/02/2020 17:55,Ludogorets Arena,Ludogorets,Internazionale,,0 - 2
+148,R32 Game 1,20/02/2020 17:55,Jan Breydelstadion,Club Brugge,Man. United,,1 - 1
+149,R32 Game 1,20/02/2020 17:55,Stadionul Dr. Constantin Radulescu,CFR Cluj,Sevilla,,1 - 1
+150,R32 Game 1,20/02/2020 17:55,Parken Stadium,Copenhagen,Celtic,,1 - 1
+151,R32 Game 1,20/02/2020 17:55,Coliseum Alfonso Pérez,Getafe,Ajax,,2 - 0
+152,R32 Game 1,20/02/2020 17:55,Estádio José Alvalade,Sporting CP,Istanbul Basaksehir,,3 - 1
+153,R32 Game 1,20/02/2020 20:00,Ibrox Stadium,Rangers,Braga,,3 - 2
+154,R32 Game 1,20/02/2020 20:00,Stadio Olimpico,Roma,Gent,,1 - 0
+155,R32 Game 1,20/02/2020 20:00,VfL Wolfsburg Arena,Wolfsburg,Malmö,,2 - 1
+156,R32 Game 1,20/02/2020 20:00,AZ Stadion,AZ Alkmaar,LASK,,1 - 1
+157,R32 Game 1,20/02/2020 20:00,Stadio Georgios Karaiskakis,Olympiacos,Arsenal,,0 - 1
+158,R32 Game 1,20/02/2020 20:00,GSP Stadium,APOEL,Basel,,0 - 3
+159,R32 Game 1,20/02/2020 20:00,BayArena,Leverkusen,Porto,,2 - 1
+160,R32 Game 1,20/02/2020 20:00,Molineux,Wolves,Espanyol,,4 - 0
+161,R32 Game 2,26/02/2020 17:00,Estádio Municipal de Braga,Braga,Rangers,,0 - 1
+162,R32 Game 2,27/02/2020 17:55,KAA Gent Stadium,Gent,Roma,,1 - 1
+163,R32 Game 2,27/02/2020 17:55,Malmö New Stadium,Malmö,Wolfsburg,,0 - 3
+164,R32 Game 2,27/02/2020 17:55,Linzer Stadion,LASK,AZ Alkmaar,,2 - 0
+165,R32 Game 2,27/02/2020 17:55,St. Jakob-Park,Basel,APOEL,,1 - 0
+166,R32 Game 2,27/02/2020 17:55,Estádio do Dragão,Porto,Leverkusen,,1 - 3
+167,R32 Game 2,27/02/2020 17:55,Basaksehir Fatih Terim Stadyumu,Istanbul Basaksehir,Sporting CP,,4 - 1
+168,R32 Game 2,27/02/2020 17:55,RCDE Stadium,Espanyol,Wolves,,3 - 2
+169,R32 Game 2,27/02/2020 20:00,Estádio do Sport Lisboa e Benfica,Benfica,Shakhtar Donetsk,,3 - 3
+171,R32 Game 2,27/02/2020 20:00,Stadio San Siro,Internazionale,Ludogorets,,2 - 1
+172,R32 Game 2,27/02/2020 20:00,Old Trafford,Man. United,Club Brugge,,5 - 0
+173,R32 Game 2,27/02/2020 20:00,Arsenal Stadium,Arsenal,Olympiacos,,1 - 2
+174,R32 Game 2,27/02/2020 20:00,Estadio Ramón Sánchez-Pizjuán,Sevilla,CFR Cluj,,0 - 0
+175,R32 Game 2,27/02/2020 20:00,Celtic Park,Celtic,Copenhagen,,1 - 3
+176,R32 Game 2,27/02/2020 20:00,Johan Cruijff Arena,Ajax,Getafe,,2 - 1
+170,R32 Game 2,28/02/2020 17:00,Stadion Salzburg,Salzburg,Frankfurt,,2 - 2
+177,R16 Game 1,12/03/2020 17:55,Linzer Stadion,LASK,Man. United,,0 - 5
+178,R16 Game 1,12/03/2020 17:55,Frankfurt Stadion,Frankfurt,Basel,,0 - 3
+179,R16 Game 1,12/03/2020 17:55,Estadio Ramón Sánchez-Pizjuán,Sevilla,Roma,,
+180,R16 Game 1,12/03/2020 17:55,Basaksehir Fatih Terim Stadyumu,Istanbul Basaksehir,Copenhagen,,1 - 0
+181,R16 Game 1,12/03/2020 20:00,Stadio San Siro,Internazionale,Getafe,,
+182,R16 Game 1,12/03/2020 20:00,VfL Wolfsburg Arena,Wolfsburg,Shakhtar Donetsk,,1 - 2
+183,R16 Game 1,12/03/2020 20:00,Ibrox Stadium,Rangers,Leverkusen,,1 - 3
+184,R16 Game 1,12/03/2020 20:00,Stadio Georgios Karaiskakis,Olympiacos,Wolves,,1 - 1
+186,R16 Game 2,05/08/2020 16:55,OSK Metalist Stadion,Shakhtar Donetsk,Wolfsburg,,3 - 0
+192,R16 Game 2,05/08/2020 16:55,Parken Stadium,Copenhagen,Istanbul Basaksehir,,3 - 0
+185,R16 Game 2,05/08/2020 19:00,Arena AufSchalke,Internazionale,Getafe,,2 - 0
+189,R16 Game 2,05/08/2020 19:00,Old Trafford,Man. United,LASK,,2 - 1
+187,R16 Game 2,06/08/2020 16:55,BayArena,Leverkusen,Rangers,,1 - 0
+191,R16 Game 2,06/08/2020 16:55,MSV Arena,Sevilla,Roma,,2 - 0
+188,R16 Game 2,06/08/2020 19:00,Molineux,Wolves,Olympiacos,,1 - 0
+190,R16 Game 2,06/08/2020 19:00,St. Jakob-Park,Basel,Frankfurt,,1 - 0
+193,Quarter Finals,10/08/2020 19:00,Düsseldorf Arena,Internazionale,Leverkusen,,2 - 1
+194,Quarter Finals,10/08/2020 19:00,Stadion Köln,Man. United,Copenhagen,,1 - 0
+195,Quarter Finals,11/08/2020 19:00,MSV Arena,Wolves,Sevilla,,0 - 1
+196,Quarter Finals,11/08/2020 19:00,Arena AufSchalke,Shakhtar Donetsk,Basel,,4 - 1
+201,Semi Finals,16/08/2020 19:00,Stadion Köln,Sevilla,Man. United,,2 - 1
+202,Semi Finals,17/08/2020 19:00,Düsseldorf Arena,Internazionale,Shakhtar Donetsk,,5 - 0
+205,Final,21/08/2020 19:00,Stadion Köln,Sevilla,Internazionale,,3 - 2
