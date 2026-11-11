@@ -1,0 +1,7895 @@
+[
+ {
+  "a": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "datetime": "2024-08-16 18:45:00",
+  "forecast": {
+   "d": "0.0384",
+   "l": "0.9571",
+   "w": "0.0045"
+  },
+  "goals": {
+   "a": "4",
+   "h": "1"
+  },
+  "h": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "id": "28048",
+  "isResult": true,
+  "xG": {
+   "a": "2.9098",
+   "h": "0.197023"
+  }
+ },
+ {
+  "a": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "datetime": "2024-08-17 15:00:00",
+  "forecast": {
+   "d": "0.1596",
+   "l": "0.7554",
+   "w": "0.085"
+  },
+  "goals": {
+   "a": "5",
+   "h": "1"
+  },
+  "h": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "id": "28049",
+  "isResult": true,
+  "xG": {
+   "a": "2.96496",
+   "h": "1.51475"
+  }
+ },
+ {
+  "a": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "datetime": "2024-08-17 17:00:00",
+  "forecast": {
+   "d": "0.0667",
+   "l": "0.9295",
+   "w": "0.0038"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "id": "28050",
+  "isResult": true,
+  "xG": {
+   "a": "2.31711",
+   "h": "0.0758907"
+  }
+ },
+ {
+  "a": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "datetime": "2024-08-17 19:00:00",
+  "forecast": {
+   "d": "0.0852",
+   "l": "0.0279",
+   "w": "0.8869"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "id": "28051",
+  "isResult": true,
+  "xG": {
+   "a": "0.484117",
+   "h": "2.78444"
+  }
+ },
+ {
+  "a": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "datetime": "2024-08-18 13:00:00",
+  "forecast": {
+   "d": "0.0721",
+   "l": "0.0237",
+   "w": "0.9042"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "id": "28052",
+  "isResult": true,
+  "xG": {
+   "a": "0.58056",
+   "h": "3.03248"
+  }
+ },
+ {
+  "a": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "datetime": "2024-08-18 15:00:00",
+  "forecast": {
+   "d": "0.309",
+   "l": "0.2386",
+   "w": "0.4524"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "id": "28053",
+  "isResult": true,
+  "xG": {
+   "a": "1.10476",
+   "h": "1.44704"
+  }
+ },
+ {
+  "a": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "datetime": "2024-08-18 15:00:00",
+  "forecast": {
+   "d": "0.2438",
+   "l": "0.1077",
+   "w": "0.6485"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "id": "28054",
+  "isResult": true,
+  "xG": {
+   "a": "0.513845",
+   "h": "1.50937"
+  }
+ },
+ {
+  "a": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "datetime": "2024-08-18 15:00:00",
+  "forecast": {
+   "d": "0.3357",
+   "l": "0.5724",
+   "w": "0.0919"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "id": "28055",
+  "isResult": true,
+  "xG": {
+   "a": "1.04077",
+   "h": "0.297792"
+  }
+ },
+ {
+  "a": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "datetime": "2024-08-18 18:45:00",
+  "forecast": {
+   "d": "0.231",
+   "l": "0.3174",
+   "w": "0.4516"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "id": "28056",
+  "isResult": true,
+  "xG": {
+   "a": "2.20066",
+   "h": "2.57411"
+  }
+ },
+ {
+  "a": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "datetime": "2024-08-23 18:45:00",
+  "forecast": {
+   "d": "0.0181",
+   "l": "0.0039",
+   "w": "0.978"
+  },
+  "goals": {
+   "a": "0",
+   "h": "6"
+  },
+  "h": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "id": "28057",
+  "isResult": true,
+  "xG": {
+   "a": "0.772997",
+   "h": "4.93703"
+  }
+ },
+ {
+  "a": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "datetime": "2024-08-24 15:00:00",
+  "forecast": {
+   "d": "0.0379",
+   "l": "0.9619",
+   "w": "0.0002"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "id": "28058",
+  "isResult": true,
+  "xG": {
+   "a": "2.60916",
+   "h": "0.0144803"
+  }
+ },
+ {
+  "a": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "datetime": "2024-08-24 17:00:00",
+  "forecast": {
+   "d": "0.3095",
+   "l": "0.1977",
+   "w": "0.4928"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "id": "28059",
+  "isResult": true,
+  "xG": {
+   "a": "0.737042",
+   "h": "1.25796"
+  }
+ },
+ {
+  "a": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "datetime": "2024-08-24 19:00:00",
+  "forecast": {
+   "d": "0.2287",
+   "l": "0.5752",
+   "w": "0.1961"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "id": "28060",
+  "isResult": true,
+  "xG": {
+   "a": "2.23362",
+   "h": "1.48827"
+  }
+ },
+ {
+  "a": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "datetime": "2024-08-25 13:00:00",
+  "forecast": {
+   "d": "0.0367",
+   "l": "0.0121",
+   "w": "0.9512"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "id": "28061",
+  "isResult": true,
+  "xG": {
+   "a": "0.695576",
+   "h": "4.01926"
+  }
+ },
+ {
+  "a": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "datetime": "2024-08-25 15:00:00",
+  "forecast": {
+   "d": "0.3071",
+   "l": "0.2567",
+   "w": "0.4362"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "id": "28062",
+  "isResult": true,
+  "xG": {
+   "a": "0.946618",
+   "h": "1.23725"
+  }
+ },
+ {
+  "a": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "datetime": "2024-08-25 15:00:00",
+  "forecast": {
+   "d": "0.2783",
+   "l": "0.3187",
+   "w": "0.403"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "id": "28063",
+  "isResult": true,
+  "xG": {
+   "a": "1.40309",
+   "h": "1.58875"
+  }
+ },
+ {
+  "a": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "datetime": "2024-08-25 15:00:00",
+  "forecast": {
+   "d": "0.2703",
+   "l": "0.1818",
+   "w": "0.5479"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "id": "28064",
+  "isResult": true,
+  "xG": {
+   "a": "0.876338",
+   "h": "1.52541"
+  }
+ },
+ {
+  "a": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "datetime": "2024-08-25 18:45:00",
+  "forecast": {
+   "d": "0.128",
+   "l": "0.066",
+   "w": "0.806"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "id": "28065",
+  "isResult": true,
+  "xG": {
+   "a": "1.01201",
+   "h": "2.94016"
+  }
+ },
+ {
+  "a": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "datetime": "2024-08-30 18:45:00",
+  "forecast": {
+   "d": "0.1893",
+   "l": "0.2525",
+   "w": "0.5582"
+  },
+  "goals": {
+   "a": "3",
+   "h": "4"
+  },
+  "h": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "id": "28066",
+  "isResult": true,
+  "xG": {
+   "a": "2.44695",
+   "h": "3.22754"
+  }
+ },
+ {
+  "a": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "datetime": "2024-08-31 15:00:00",
+  "forecast": {
+   "d": "0.0132",
+   "l": "0.0015",
+   "w": "0.9853"
+  },
+  "goals": {
+   "a": "0",
+   "h": "4"
+  },
+  "h": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "id": "28067",
+  "isResult": true,
+  "xG": {
+   "a": "0.256612",
+   "h": "3.60698"
+  }
+ },
+ {
+  "a": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "datetime": "2024-08-31 17:00:00",
+  "forecast": {
+   "d": "0.2444",
+   "l": "0.6537",
+   "w": "0.1019"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "id": "28068",
+  "isResult": true,
+  "xG": {
+   "a": "1.69437",
+   "h": "0.745975"
+  }
+ },
+ {
+  "a": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "datetime": "2024-08-31 19:00:00",
+  "forecast": {
+   "d": "0.2977",
+   "l": "0.5838",
+   "w": "0.1185"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "id": "28069",
+  "isResult": true,
+  "xG": {
+   "a": "1.29819",
+   "h": "0.485368"
+  }
+ },
+ {
+  "a": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "datetime": "2024-09-01 13:00:00",
+  "forecast": {
+   "d": "0.2088",
+   "l": "0.6764",
+   "w": "0.1148"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "id": "28070",
+  "isResult": true,
+  "xG": {
+   "a": "1.91297",
+   "h": "0.905621"
+  }
+ },
+ {
+  "a": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "datetime": "2024-09-01 15:00:00",
+  "forecast": {
+   "d": "0.1046",
+   "l": "0.0275",
+   "w": "0.8679"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "id": "28071",
+  "isResult": true,
+  "xG": {
+   "a": "0.743523",
+   "h": "2.83661"
+  }
+ },
+ {
+  "a": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "datetime": "2024-09-01 15:00:00",
+  "forecast": {
+   "d": "0.2122",
+   "l": "0.1528",
+   "w": "0.635"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "id": "28072",
+  "isResult": true,
+  "xG": {
+   "a": "1.02619",
+   "h": "2.00948"
+  }
+ },
+ {
+  "a": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "datetime": "2024-09-01 15:00:00",
+  "forecast": {
+   "d": "0.2062",
+   "l": "0.6988",
+   "w": "0.095"
+  },
+  "goals": {
+   "a": "4",
+   "h": "1"
+  },
+  "h": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "id": "28073",
+  "isResult": true,
+  "xG": {
+   "a": "2.53408",
+   "h": "1.33204"
+  }
+ },
+ {
+  "a": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "datetime": "2024-09-01 18:45:00",
+  "forecast": {
+   "d": "0.1402",
+   "l": "0.7742",
+   "w": "0.0856"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "id": "28074",
+  "isResult": true,
+  "xG": {
+   "a": "3.24139",
+   "h": "1.57562"
+  }
+ },
+ {
+  "a": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "datetime": "2024-09-13 18:30:00",
+  "forecast": {
+   "d": "0.1582",
+   "l": "0.7435",
+   "w": "0.0983"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "id": "28075",
+  "isResult": true,
+  "xG": {
+   "a": "2.73176",
+   "h": "1.1774"
+  }
+ },
+ {
+  "a": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "datetime": "2024-09-14 15:00:00",
+  "forecast": {
+   "d": "0.2536",
+   "l": "0.5604",
+   "w": "0.186"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "id": "28076",
+  "isResult": true,
+  "xG": {
+   "a": "1.72041",
+   "h": "1.02694"
+  }
+ },
+ {
+  "a": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "datetime": "2024-09-14 17:00:00",
+  "forecast": {
+   "d": "0.0408",
+   "l": "0.9501",
+   "w": "0.0091"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "id": "28077",
+  "isResult": true,
+  "xG": {
+   "a": "3.37672",
+   "h": "0.419427"
+  }
+ },
+ {
+  "a": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "datetime": "2024-09-14 19:00:00",
+  "forecast": {
+   "d": "0.1294",
+   "l": "0.0457",
+   "w": "0.8249"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "id": "28079",
+  "isResult": true,
+  "xG": {
+   "a": "1.00928",
+   "h": "2.91245"
+  }
+ },
+ {
+  "a": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "datetime": "2024-09-15 13:00:00",
+  "forecast": {
+   "d": "0.2414",
+   "l": "0.0649",
+   "w": "0.6937"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "id": "28080",
+  "isResult": true,
+  "xG": {
+   "a": "0.310262",
+   "h": "1.26867"
+  }
+ },
+ {
+  "a": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "datetime": "2024-09-15 15:00:00",
+  "forecast": {
+   "d": "0.2462",
+   "l": "0.1214",
+   "w": "0.6324"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "id": "28081",
+  "isResult": true,
+  "xG": {
+   "a": "0.549218",
+   "h": "1.43325"
+  }
+ },
+ {
+  "a": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "datetime": "2024-09-15 15:00:00",
+  "forecast": {
+   "d": "0.135",
+   "l": "0.0184",
+   "w": "0.8466"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "id": "28082",
+  "isResult": true,
+  "xG": {
+   "a": "0.15045",
+   "h": "1.8674"
+  }
+ },
+ {
+  "a": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "datetime": "2024-09-15 15:00:00",
+  "forecast": {
+   "d": "0.1477",
+   "l": "0.0638",
+   "w": "0.7885"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "id": "28083",
+  "isResult": true,
+  "xG": {
+   "a": "0.855084",
+   "h": "2.47918"
+  }
+ },
+ {
+  "a": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "datetime": "2024-09-15 18:45:00",
+  "forecast": {
+   "d": "0.4363",
+   "l": "0.2578",
+   "w": "0.3059"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "id": "28078",
+  "isResult": true,
+  "xG": {
+   "a": "0.529029",
+   "h": "0.623644"
+  }
+ },
+ {
+  "a": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "datetime": "2024-09-20 18:45:00",
+  "forecast": {
+   "d": "0.0015",
+   "l": "0.0002",
+   "w": "0.9983"
+  },
+  "goals": {
+   "a": "0",
+   "h": "8"
+  },
+  "h": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "id": "28085",
+  "isResult": true,
+  "xG": {
+   "a": "0.335532",
+   "h": "4.50007"
+  }
+ },
+ {
+  "a": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "datetime": "2024-09-21 15:00:00",
+  "forecast": {
+   "d": "0.2233",
+   "l": "0.551",
+   "w": "0.2257"
+  },
+  "goals": {
+   "a": "3",
+   "h": "3"
+  },
+  "h": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "id": "28090",
+  "isResult": true,
+  "xG": {
+   "a": "3.02005",
+   "h": "2.30213"
+  }
+ },
+ {
+  "a": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "datetime": "2024-09-21 17:00:00",
+  "forecast": {
+   "d": "0.3219",
+   "l": "0.1811",
+   "w": "0.497"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "id": "28091",
+  "isResult": true,
+  "xG": {
+   "a": "0.853348",
+   "h": "1.34636"
+  }
+ },
+ {
+  "a": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "datetime": "2024-09-21 19:00:00",
+  "forecast": {
+   "d": "0.2105",
+   "l": "0.6843",
+   "w": "0.1052"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "id": "28086",
+  "isResult": true,
+  "xG": {
+   "a": "1.90277",
+   "h": "0.760314"
+  }
+ },
+ {
+  "a": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "datetime": "2024-09-22 13:00:00",
+  "forecast": {
+   "d": "0.1695",
+   "l": "0.0521",
+   "w": "0.7784"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "id": "28092",
+  "isResult": true,
+  "xG": {
+   "a": "0.580512",
+   "h": "1.84023"
+  }
+ },
+ {
+  "a": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "datetime": "2024-09-22 15:00:00",
+  "forecast": {
+   "d": "0.1361",
+   "l": "0.8177",
+   "w": "0.0462"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "id": "28087",
+  "isResult": true,
+  "xG": {
+   "a": "2.3505",
+   "h": "0.709045"
+  }
+ },
+ {
+  "a": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "datetime": "2024-09-22 15:00:00",
+  "forecast": {
+   "d": "0.3693",
+   "l": "0.456",
+   "w": "0.1747"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "id": "28088",
+  "isResult": true,
+  "xG": {
+   "a": "1.28588",
+   "h": "0.82486"
+  }
+ },
+ {
+  "a": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "datetime": "2024-09-22 15:00:00",
+  "forecast": {
+   "d": "0.2695",
+   "l": "0.2719",
+   "w": "0.4586"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "id": "28089",
+  "isResult": true,
+  "xG": {
+   "a": "1.42586",
+   "h": "1.78396"
+  }
+ },
+ {
+  "a": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "datetime": "2024-09-22 18:45:00",
+  "forecast": {
+   "d": "0.0326",
+   "l": "0.008",
+   "w": "0.9594"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "id": "28084",
+  "isResult": true,
+  "xG": {
+   "a": "0.675578",
+   "h": "3.89273"
+  }
+ },
+ {
+  "a": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "datetime": "2024-09-27 17:00:00",
+  "forecast": {
+   "d": "0.09",
+   "l": "0.0335",
+   "w": "0.8765"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "id": "28095",
+  "isResult": true,
+  "xG": {
+   "a": "0.726126",
+   "h": "2.9504"
+  }
+ },
+ {
+  "a": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "datetime": "2024-09-27 19:00:00",
+  "forecast": {
+   "d": "0.1833",
+   "l": "0.1516",
+   "w": "0.6651"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "id": "28094",
+  "isResult": true,
+  "xG": {
+   "a": "2.02646",
+   "h": "3.22405"
+  }
+ },
+ {
+  "a": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "datetime": "2024-09-28 15:00:00",
+  "forecast": {
+   "d": "0.1975",
+   "l": "0.142",
+   "w": "0.6605"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "id": "28096",
+  "isResult": true,
+  "xG": {
+   "a": "0.9614",
+   "h": "2.06424"
+  }
+ },
+ {
+  "a": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "datetime": "2024-09-28 17:00:00",
+  "forecast": {
+   "d": "0.0305",
+   "l": "0.963",
+   "w": "0.0065"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "id": "28098",
+  "isResult": true,
+  "xG": {
+   "a": "3.5706",
+   "h": "0.488988"
+  }
+ },
+ {
+  "a": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "datetime": "2024-09-28 19:00:00",
+  "forecast": {
+   "d": "0.0645",
+   "l": "0.0245",
+   "w": "0.911"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "id": "28100",
+  "isResult": true,
+  "xG": {
+   "a": "0.768868",
+   "h": "3.45707"
+  }
+ },
+ {
+  "a": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "datetime": "2024-09-29 13:00:00",
+  "forecast": {
+   "d": "0.3861",
+   "l": "0.3174",
+   "w": "0.2965"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "id": "28099",
+  "isResult": true,
+  "xG": {
+   "a": "0.730803",
+   "h": "0.716626"
+  }
+ },
+ {
+  "a": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "datetime": "2024-09-29 15:00:00",
+  "forecast": {
+   "d": "0.1635",
+   "l": "0.0583",
+   "w": "0.7782"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "id": "28097",
+  "isResult": true,
+  "xG": {
+   "a": "1.0242",
+   "h": "2.61562"
+  }
+ },
+ {
+  "a": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "datetime": "2024-09-29 15:00:00",
+  "forecast": {
+   "d": "0.0508",
+   "l": "0.9298",
+   "w": "0.0194"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "id": "28101",
+  "isResult": true,
+  "xG": {
+   "a": "4.18122",
+   "h": "1.08284"
+  }
+ },
+ {
+  "a": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "datetime": "2024-09-29 18:45:00",
+  "forecast": {
+   "d": "0.2408",
+   "l": "0.1436",
+   "w": "0.6156"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "id": "28093",
+  "isResult": true,
+  "xG": {
+   "a": "0.782395",
+   "h": "1.67455"
+  }
+ },
+ {
+  "a": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "datetime": "2024-10-04 18:45:00",
+  "forecast": {
+   "d": "0.3033",
+   "l": "0.445",
+   "w": "0.2517"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "id": "28109",
+  "isResult": true,
+  "xG": {
+   "a": "1.19435",
+   "h": "0.896807"
+  }
+ },
+ {
+  "a": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "datetime": "2024-10-05 15:00:00",
+  "forecast": {
+   "d": "0.1414",
+   "l": "0.0594",
+   "w": "0.7992"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "id": "28107",
+  "isResult": true,
+  "xG": {
+   "a": "0.71964",
+   "h": "2.45106"
+  }
+ },
+ {
+  "a": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "datetime": "2024-10-05 17:00:00",
+  "forecast": {
+   "d": "0.2996",
+   "l": "0.3742",
+   "w": "0.3262"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "id": "28106",
+  "isResult": true,
+  "xG": {
+   "a": "1.43654",
+   "h": "1.37754"
+  }
+ },
+ {
+  "a": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "datetime": "2024-10-05 19:00:00",
+  "forecast": {
+   "d": "0.4311",
+   "l": "0.2396",
+   "w": "0.3293"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "id": "28103",
+  "isResult": true,
+  "xG": {
+   "a": "0.498715",
+   "h": "0.640297"
+  }
+ },
+ {
+  "a": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "datetime": "2024-10-06 13:00:00",
+  "forecast": {
+   "d": "0.154",
+   "l": "0.0667",
+   "w": "0.7793"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "id": "28102",
+  "isResult": true,
+  "xG": {
+   "a": "0.765938",
+   "h": "2.43324"
+  }
+ },
+ {
+  "a": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "datetime": "2024-10-06 15:00:00",
+  "forecast": {
+   "d": "0.0484",
+   "l": "0.0124",
+   "w": "0.9392"
+  },
+  "goals": {
+   "a": "2",
+   "h": "4"
+  },
+  "h": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "id": "28105",
+  "isResult": true,
+  "xG": {
+   "a": "0.874094",
+   "h": "3.71514"
+  }
+ },
+ {
+  "a": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "datetime": "2024-10-06 15:00:00",
+  "forecast": {
+   "d": "0.2038",
+   "l": "0.6919",
+   "w": "0.1043"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "id": "28108",
+  "isResult": true,
+  "xG": {
+   "a": "2.11913",
+   "h": "0.890433"
+  }
+ },
+ {
+  "a": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "datetime": "2024-10-06 15:00:00",
+  "forecast": {
+   "d": "0.3059",
+   "l": "0.3717",
+   "w": "0.3224"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "id": "28110",
+  "isResult": true,
+  "xG": {
+   "a": "1.43012",
+   "h": "1.31135"
+  }
+ },
+ {
+  "a": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "datetime": "2024-10-06 18:45:00",
+  "forecast": {
+   "d": "0.4024",
+   "l": "0.4592",
+   "w": "0.1384"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "id": "28104",
+  "isResult": true,
+  "xG": {
+   "a": "0.822322",
+   "h": "0.326466"
+  }
+ },
+ {
+  "a": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "datetime": "2024-10-18 18:45:00",
+  "forecast": {
+   "d": "0.2824",
+   "l": "0.0482",
+   "w": "0.6694"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "id": "28111",
+  "isResult": true,
+  "xG": {
+   "a": "0.163769",
+   "h": "1.1914"
+  }
+ },
+ {
+  "a": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "datetime": "2024-10-19 15:00:00",
+  "forecast": {
+   "d": "0.4199",
+   "l": "0.1899",
+   "w": "0.3902"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "id": "28118",
+  "isResult": true,
+  "xG": {
+   "a": "1.14445",
+   "h": "1.42573"
+  }
+ },
+ {
+  "a": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "datetime": "2024-10-19 17:00:00",
+  "forecast": {
+   "d": "0.2811",
+   "l": "0.5321",
+   "w": "0.1868"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "id": "28117",
+  "isResult": true,
+  "xG": {
+   "a": "1.35593",
+   "h": "0.782727"
+  }
+ },
+ {
+  "a": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "datetime": "2024-10-19 19:00:00",
+  "forecast": {
+   "d": "0.0934",
+   "l": "0.0435",
+   "w": "0.8631"
+  },
+  "goals": {
+   "a": "2",
+   "h": "4"
+  },
+  "h": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "id": "28119",
+  "isResult": true,
+  "xG": {
+   "a": "2.22038",
+   "h": "4.66981"
+  }
+ },
+ {
+  "a": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "datetime": "2024-10-20 13:00:00",
+  "forecast": {
+   "d": "0.0534",
+   "l": "0.9355",
+   "w": "0.0111"
+  },
+  "goals": {
+   "a": "4",
+   "h": "0"
+  },
+  "h": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "id": "28115",
+  "isResult": true,
+  "xG": {
+   "a": "2.76676",
+   "h": "0.360268"
+  }
+ },
+ {
+  "a": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "datetime": "2024-10-20 15:00:00",
+  "forecast": {
+   "d": "0.141",
+   "l": "0.0596",
+   "w": "0.7994"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "id": "28113",
+  "isResult": true,
+  "xG": {
+   "a": "1.22872",
+   "h": "2.86385"
+  }
+ },
+ {
+  "a": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "datetime": "2024-10-20 15:00:00",
+  "forecast": {
+   "d": "0.2212",
+   "l": "0.1425",
+   "w": "0.6363"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "id": "28114",
+  "isResult": true,
+  "xG": {
+   "a": "1.47299",
+   "h": "2.43778"
+  }
+ },
+ {
+  "a": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "datetime": "2024-10-20 15:00:00",
+  "forecast": {
+   "d": "0.3649",
+   "l": "0.292",
+   "w": "0.3431"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "id": "28116",
+  "isResult": true,
+  "xG": {
+   "a": "0.776883",
+   "h": "0.832336"
+  }
+ },
+ {
+  "a": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "datetime": "2024-10-20 18:45:00",
+  "forecast": {
+   "d": "0.1111",
+   "l": "0.8214",
+   "w": "0.0675"
+  },
+  "goals": {
+   "a": "5",
+   "h": "0"
+  },
+  "h": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "id": "28112",
+  "isResult": true,
+  "xG": {
+   "a": "3.88109",
+   "h": "1.75684"
+  }
+ },
+ {
+  "a": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "datetime": "2024-10-25 18:45:00",
+  "forecast": {
+   "d": "0.1544",
+   "l": "0.0363",
+   "w": "0.8093"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "id": "28123",
+  "isResult": true,
+  "xG": {
+   "a": "0.272294",
+   "h": "1.84154"
+  }
+ },
+ {
+  "a": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "datetime": "2024-10-26 15:00:00",
+  "forecast": {
+   "d": "0.102",
+   "l": "0.0419",
+   "w": "0.8561"
+  },
+  "goals": {
+   "a": "2",
+   "h": "4"
+  },
+  "h": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "id": "28121",
+  "isResult": true,
+  "xG": {
+   "a": "1.33",
+   "h": "3.26778"
+  }
+ },
+ {
+  "a": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "datetime": "2024-10-26 17:00:00",
+  "forecast": {
+   "d": "0.281",
+   "l": "0.4156",
+   "w": "0.3034"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "id": "28122",
+  "isResult": true,
+  "xG": {
+   "a": "1.64092",
+   "h": "1.44911"
+  }
+ },
+ {
+  "a": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "datetime": "2024-10-26 19:00:00",
+  "forecast": {
+   "d": "0.2837",
+   "l": "0.5333",
+   "w": "0.183"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "id": "28120",
+  "isResult": true,
+  "xG": {
+   "a": "1.47637",
+   "h": "0.865293"
+  }
+ },
+ {
+  "a": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "datetime": "2024-10-27 14:00:00",
+  "forecast": {
+   "d": "0.1948",
+   "l": "0.1342",
+   "w": "0.671"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "id": "28126",
+  "isResult": true,
+  "xG": {
+   "a": "1.0609",
+   "h": "2.21183"
+  }
+ },
+ {
+  "a": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "datetime": "2024-10-27 16:00:00",
+  "forecast": {
+   "d": "0.0486",
+   "l": "0.9417",
+   "w": "0.0097"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "id": "28124",
+  "isResult": true,
+  "xG": {
+   "a": "2.88708",
+   "h": "0.241419"
+  }
+ },
+ {
+  "a": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "datetime": "2024-10-27 16:00:00",
+  "forecast": {
+   "d": "0.1963",
+   "l": "0.0913",
+   "w": "0.7124"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "id": "28125",
+  "isResult": true,
+  "xG": {
+   "a": "0.761926",
+   "h": "1.99679"
+  }
+ },
+ {
+  "a": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "datetime": "2024-10-27 16:00:00",
+  "forecast": {
+   "d": "0.2386",
+   "l": "0.134",
+   "w": "0.6274"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "id": "28128",
+  "isResult": true,
+  "xG": {
+   "a": "0.796703",
+   "h": "1.79435"
+  }
+ },
+ {
+  "a": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "datetime": "2024-10-27 19:45:00",
+  "forecast": {
+   "d": "0.0137",
+   "l": "0.9846",
+   "w": "0.0017"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "id": "28127",
+  "isResult": true,
+  "xG": {
+   "a": "4.04221",
+   "h": "0.277951"
+  }
+ },
+ {
+  "a": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "datetime": "2024-11-01 18:00:00",
+  "forecast": {
+   "d": "0.2301",
+   "l": "0.1017",
+   "w": "0.6682"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "id": "28129",
+  "isResult": true,
+  "xG": {
+   "a": "0.50003",
+   "h": "1.47525"
+  }
+ },
+ {
+  "a": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "datetime": "2024-11-01 20:00:00",
+  "forecast": {
+   "d": "0.2675",
+   "l": "0.3482",
+   "w": "0.3843"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "id": "28136",
+  "isResult": true,
+  "xG": {
+   "a": "1.58011",
+   "h": "1.67241"
+  }
+ },
+ {
+  "a": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "datetime": "2024-11-02 16:00:00",
+  "forecast": {
+   "d": "0.1113",
+   "l": "0.0495",
+   "w": "0.8392"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "id": "28130",
+  "isResult": true,
+  "xG": {
+   "a": "0.803421",
+   "h": "2.76932"
+  }
+ },
+ {
+  "a": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "datetime": "2024-11-02 18:00:00",
+  "forecast": {
+   "d": "0.2238",
+   "l": "0.6363",
+   "w": "0.1399"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "id": "28134",
+  "isResult": true,
+  "xG": {
+   "a": "1.92085",
+   "h": "1.02021"
+  }
+ },
+ {
+  "a": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "datetime": "2024-11-02 20:00:00",
+  "forecast": {
+   "d": "0.0593",
+   "l": "0.0167",
+   "w": "0.924"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "id": "28137",
+  "isResult": true,
+  "xG": {
+   "a": "0.451174",
+   "h": "2.82745"
+  }
+ },
+ {
+  "a": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "datetime": "2024-11-03 14:00:00",
+  "forecast": {
+   "d": "0.354",
+   "l": "0.3005",
+   "w": "0.3455"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "id": "28132",
+  "isResult": true,
+  "xG": {
+   "a": "0.818661",
+   "h": "0.910081"
+  }
+ },
+ {
+  "a": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "datetime": "2024-11-03 16:00:00",
+  "forecast": {
+   "d": "0.1305",
+   "l": "0.0481",
+   "w": "0.8214"
+  },
+  "goals": {
+   "a": "0",
+   "h": "4"
+  },
+  "h": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "id": "28131",
+  "isResult": true,
+  "xG": {
+   "a": "0.701873",
+   "h": "2.39897"
+  }
+ },
+ {
+  "a": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "datetime": "2024-11-03 16:00:00",
+  "forecast": {
+   "d": "0.2041",
+   "l": "0.1001",
+   "w": "0.6958"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "id": "28133",
+  "isResult": true,
+  "xG": {
+   "a": "0.722691",
+   "h": "1.7998"
+  }
+ },
+ {
+  "a": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "datetime": "2024-11-03 19:45:00",
+  "forecast": {
+   "d": "0.3288",
+   "l": "0.2392",
+   "w": "0.432"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "id": "28135",
+  "isResult": true,
+  "xG": {
+   "a": "0.876221",
+   "h": "1.25901"
+  }
+ },
+ {
+  "a": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "datetime": "2024-11-08 19:45:00",
+  "forecast": {
+   "d": "0.2662",
+   "l": "0.3965",
+   "w": "0.3373"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "id": "28146",
+  "isResult": true,
+  "xG": {
+   "a": "2.09466",
+   "h": "2.02831"
+  }
+ },
+ {
+  "a": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "datetime": "2024-11-09 16:00:00",
+  "forecast": {
+   "d": "0.0634",
+   "l": "0.9203",
+   "w": "0.0163"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "id": "28140",
+  "isResult": true,
+  "xG": {
+   "a": "3.42574",
+   "h": "0.771173"
+  }
+ },
+ {
+  "a": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "datetime": "2024-11-09 18:00:00",
+  "forecast": {
+   "d": "0.0927",
+   "l": "0.0289",
+   "w": "0.8784"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "id": "28139",
+  "isResult": true,
+  "xG": {
+   "a": "1.49891",
+   "h": "3.74705"
+  }
+ },
+ {
+  "a": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "datetime": "2024-11-09 20:00:00",
+  "forecast": {
+   "d": "0.0509",
+   "l": "0.9302",
+   "w": "0.0189"
+  },
+  "goals": {
+   "a": "4",
+   "h": "2"
+  },
+  "h": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "id": "28142",
+  "isResult": true,
+  "xG": {
+   "a": "4.38095",
+   "h": "1.21483"
+  }
+ },
+ {
+  "a": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "datetime": "2024-11-10 14:00:00",
+  "forecast": {
+   "d": "0.2541",
+   "l": "0.436",
+   "w": "0.3099"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "id": "28141",
+  "isResult": true,
+  "xG": {
+   "a": "2.19562",
+   "h": "1.92983"
+  }
+ },
+ {
+  "a": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "datetime": "2024-11-10 16:00:00",
+  "forecast": {
+   "d": "0.2498",
+   "l": "0.6826",
+   "w": "0.0676"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "id": "28138",
+  "isResult": true,
+  "xG": {
+   "a": "1.31564",
+   "h": "0.31279"
+  }
+ },
+ {
+  "a": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "datetime": "2024-11-10 16:00:00",
+  "forecast": {
+   "d": "0.2003",
+   "l": "0.687",
+   "w": "0.1127"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "id": "28143",
+  "isResult": true,
+  "xG": {
+   "a": "2.69952",
+   "h": "1.51035"
+  }
+ },
+ {
+  "a": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "datetime": "2024-11-10 16:00:00",
+  "forecast": {
+   "d": "0.1922",
+   "l": "0.1368",
+   "w": "0.671"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "id": "28144",
+  "isResult": true,
+  "xG": {
+   "a": "1.88669",
+   "h": "3.03758"
+  }
+ },
+ {
+  "a": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "datetime": "2024-11-10 19:45:00",
+  "forecast": {
+   "d": "0.1485",
+   "l": "0.0615",
+   "w": "0.79"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "id": "28145",
+  "isResult": true,
+  "xG": {
+   "a": "0.703111",
+   "h": "2.28647"
+  }
+ },
+ {
+  "a": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "datetime": "2024-11-22 18:00:00",
+  "forecast": {
+   "d": "0.1943",
+   "l": "0.133",
+   "w": "0.6727"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "id": "28153",
+  "isResult": true,
+  "xG": {
+   "a": "1.38684",
+   "h": "2.55781"
+  }
+ },
+ {
+  "a": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "datetime": "2024-11-22 20:00:00",
+  "forecast": {
+   "d": "0.2561",
+   "l": "0.432",
+   "w": "0.3119"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "id": "28147",
+  "isResult": true,
+  "xG": {
+   "a": "1.84157",
+   "h": "1.63216"
+  }
+ },
+ {
+  "a": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "datetime": "2024-11-23 16:00:00",
+  "forecast": {
+   "d": "0.2199",
+   "l": "0.2007",
+   "w": "0.5794"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "id": "28148",
+  "isResult": true,
+  "xG": {
+   "a": "1.37895",
+   "h": "2.1723"
+  }
+ },
+ {
+  "a": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "datetime": "2024-11-23 18:00:00",
+  "forecast": {
+   "d": "0.2973",
+   "l": "0.2293",
+   "w": "0.4734"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "id": "28150",
+  "isResult": true,
+  "xG": {
+   "a": "0.862794",
+   "h": "1.27297"
+  }
+ },
+ {
+  "a": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "datetime": "2024-11-23 20:00:00",
+  "forecast": {
+   "d": "0.2478",
+   "l": "0.5666",
+   "w": "0.1856"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "id": "28155",
+  "isResult": true,
+  "xG": {
+   "a": "1.92683",
+   "h": "1.17295"
+  }
+ },
+ {
+  "a": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "datetime": "2024-11-24 14:00:00",
+  "forecast": {
+   "d": "0.4492",
+   "l": "0.0829",
+   "w": "0.4679"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "id": "28151",
+  "isResult": true,
+  "xG": {
+   "a": "0.178059",
+   "h": "0.641516"
+  }
+ },
+ {
+  "a": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "datetime": "2024-11-24 16:00:00",
+  "forecast": {
+   "d": "0.3348",
+   "l": "0.3772",
+   "w": "0.288"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "id": "28152",
+  "isResult": true,
+  "xG": {
+   "a": "0.977121",
+   "h": "0.846924"
+  }
+ },
+ {
+  "a": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "datetime": "2024-11-24 16:00:00",
+  "forecast": {
+   "d": "0.3196",
+   "l": "0.4796",
+   "w": "0.2008"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "id": "28154",
+  "isResult": true,
+  "xG": {
+   "a": "1.14148",
+   "h": "0.683126"
+  }
+ },
+ {
+  "a": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "datetime": "2024-11-24 19:45:00",
+  "forecast": {
+   "d": "0.1746",
+   "l": "0.0601",
+   "w": "0.7653"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "id": "28149",
+  "isResult": true,
+  "xG": {
+   "a": "0.524154",
+   "h": "2.03827"
+  }
+ },
+ {
+  "a": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "datetime": "2024-11-29 19:45:00",
+  "forecast": {
+   "d": "0.2625",
+   "l": "0.6121",
+   "w": "0.1254"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "id": "28156",
+  "isResult": true,
+  "xG": {
+   "a": "1.40788",
+   "h": "0.589301"
+  }
+ },
+ {
+  "a": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "datetime": "2024-11-30 16:00:00",
+  "forecast": {
+   "d": "0.0258",
+   "l": "0.0029",
+   "w": "0.9713"
+  },
+  "goals": {
+   "a": "0",
+   "h": "5"
+  },
+  "h": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "id": "28157",
+  "isResult": true,
+  "xG": {
+   "a": "0.168428",
+   "h": "3.01812"
+  }
+ },
+ {
+  "a": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "datetime": "2024-11-30 18:00:00",
+  "forecast": {
+   "d": "0.1056",
+   "l": "0.0423",
+   "w": "0.8521"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "id": "28159",
+  "isResult": true,
+  "xG": {
+   "a": "0.930345",
+   "h": "2.90417"
+  }
+ },
+ {
+  "a": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "datetime": "2024-11-30 20:00:00",
+  "forecast": {
+   "d": "0.0395",
+   "l": "0.0081",
+   "w": "0.9524"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "id": "28161",
+  "isResult": true,
+  "xG": {
+   "a": "0.742742",
+   "h": "3.85838"
+  }
+ },
+ {
+  "a": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "datetime": "2024-12-01 14:00:00",
+  "forecast": {
+   "d": "0.2602",
+   "l": "0.589",
+   "w": "0.1508"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "id": "28160",
+  "isResult": true,
+  "xG": {
+   "a": "2.06485",
+   "h": "1.28241"
+  }
+ },
+ {
+  "a": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "datetime": "2024-12-01 16:00:00",
+  "forecast": {
+   "d": "0.1208",
+   "l": "0.8516",
+   "w": "0.0276"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "id": "28158",
+  "isResult": true,
+  "xG": {
+   "a": "2.10367",
+   "h": "0.322626"
+  }
+ },
+ {
+  "a": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "datetime": "2024-12-01 16:00:00",
+  "forecast": {
+   "d": "0.2164",
+   "l": "0.1918",
+   "w": "0.5918"
+  },
+  "goals": {
+   "a": "1",
+   "h": "4"
+  },
+  "h": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "id": "28163",
+  "isResult": true,
+  "xG": {
+   "a": "2.03621",
+   "h": "2.88467"
+  }
+ },
+ {
+  "a": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "datetime": "2024-12-01 16:00:00",
+  "forecast": {
+   "d": "0.0345",
+   "l": "0.0023",
+   "w": "0.9632"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "id": "28164",
+  "isResult": true,
+  "xG": {
+   "a": "0.129647",
+   "h": "2.78623"
+  }
+ },
+ {
+  "a": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "datetime": "2024-12-01 19:45:00",
+  "forecast": {
+   "d": "0.2551",
+   "l": "0.1568",
+   "w": "0.5881"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "id": "28162",
+  "isResult": true,
+  "xG": {
+   "a": "0.958578",
+   "h": "1.65632"
+  }
+ },
+ {
+  "a": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "datetime": "2024-12-06 18:00:00",
+  "forecast": {
+   "d": "0.0727",
+   "l": "0.0184",
+   "w": "0.9089"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "id": "28169",
+  "isResult": true,
+  "xG": {
+   "a": "0.740372",
+   "h": "3.01042"
+  }
+ },
+ {
+  "a": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "datetime": "2024-12-06 20:00:00",
+  "forecast": {
+   "d": "0.0569",
+   "l": "0.9321",
+   "w": "0.011"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "id": "28166",
+  "isResult": true,
+  "xG": {
+   "a": "3.04535",
+   "h": "0.34154"
+  }
+ },
+ {
+  "a": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "datetime": "2024-12-07 16:00:00",
+  "forecast": {
+   "d": "0.0581",
+   "l": "0.0103",
+   "w": "0.9316"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "id": "28173",
+  "isResult": true,
+  "xG": {
+   "a": "0.232536",
+   "h": "2.8043"
+  }
+ },
+ {
+  "a": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "datetime": "2024-12-07 18:00:00",
+  "forecast": {
+   "d": "0.2325",
+   "l": "0.1737",
+   "w": "0.5938"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "id": "28165",
+  "isResult": true,
+  "xG": {
+   "a": "1.42884",
+   "h": "2.27599"
+  }
+ },
+ {
+  "a": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "datetime": "2024-12-07 20:00:00",
+  "forecast": {
+   "d": "0.1647",
+   "l": "0.7719",
+   "w": "0.0634"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "id": "28168",
+  "isResult": true,
+  "xG": {
+   "a": "2.02701",
+   "h": "0.505438"
+  }
+ },
+ {
+  "a": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "datetime": "2024-12-08 14:00:00",
+  "forecast": {
+   "d": "0.2965",
+   "l": "0.4985",
+   "w": "0.205"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "id": "28170",
+  "isResult": true,
+  "xG": {
+   "a": "1.51819",
+   "h": "1.10272"
+  }
+ },
+ {
+  "a": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "datetime": "2024-12-08 16:00:00",
+  "forecast": {
+   "d": "0.3133",
+   "l": "0.3958",
+   "w": "0.2909"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "id": "28171",
+  "isResult": true,
+  "xG": {
+   "a": "1.28455",
+   "h": "1.0949"
+  }
+ },
+ {
+  "a": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "datetime": "2024-12-08 16:00:00",
+  "forecast": {
+   "d": "0.1712",
+   "l": "0.0429",
+   "w": "0.7859"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "id": "28172",
+  "isResult": true,
+  "xG": {
+   "a": "0.285927",
+   "h": "1.70972"
+  }
+ },
+ {
+  "a": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "datetime": "2024-12-08 19:45:00",
+  "forecast": {
+   "d": "0.0292",
+   "l": "0.9689",
+   "w": "0.0019"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "id": "28167",
+  "isResult": true,
+  "xG": {
+   "a": "2.9851",
+   "h": "0.166752"
+  }
+ },
+ {
+  "a": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "datetime": "2024-12-13 19:45:00",
+  "forecast": {
+   "d": "0.1862",
+   "l": "0.041",
+   "w": "0.7728"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "id": "28178",
+  "isResult": true,
+  "xG": {
+   "a": "0.388289",
+   "h": "1.73249"
+  }
+ },
+ {
+  "a": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "datetime": "2024-12-14 16:00:00",
+  "forecast": {
+   "d": "0.2923",
+   "l": "0.3542",
+   "w": "0.3535"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "id": "28181",
+  "isResult": true,
+  "xG": {
+   "a": "1.24013",
+   "h": "1.21515"
+  }
+ },
+ {
+  "a": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "datetime": "2024-12-14 18:00:00",
+  "forecast": {
+   "d": "0.209",
+   "l": "0.7016",
+   "w": "0.0894"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "id": "28177",
+  "isResult": true,
+  "xG": {
+   "a": "1.73768",
+   "h": "0.51026"
+  }
+ },
+ {
+  "a": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "datetime": "2024-12-14 20:00:00",
+  "forecast": {
+   "d": "0.275",
+   "l": "0.3028",
+   "w": "0.4222"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "id": "28176",
+  "isResult": true,
+  "xG": {
+   "a": "1.3291",
+   "h": "1.52074"
+  }
+ },
+ {
+  "a": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "datetime": "2024-12-15 14:00:00",
+  "forecast": {
+   "d": "0.2035",
+   "l": "0.1923",
+   "w": "0.6042"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "id": "28179",
+  "isResult": true,
+  "xG": {
+   "a": "1.55192",
+   "h": "2.45121"
+  }
+ },
+ {
+  "a": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "datetime": "2024-12-15 16:00:00",
+  "forecast": {
+   "d": "0.4484",
+   "l": "0.1954",
+   "w": "0.3562"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "id": "28174",
+  "isResult": true,
+  "xG": {
+   "a": "0.391796",
+   "h": "0.62717"
+  }
+ },
+ {
+  "a": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "datetime": "2024-12-15 16:00:00",
+  "forecast": {
+   "d": "0.2912",
+   "l": "0.2984",
+   "w": "0.4104"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "id": "28175",
+  "isResult": true,
+  "xG": {
+   "a": "1.39172",
+   "h": "1.58328"
+  }
+ },
+ {
+  "a": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "datetime": "2024-12-15 16:00:00",
+  "forecast": {
+   "d": "0.2224",
+   "l": "0.1955",
+   "w": "0.5821"
+  },
+  "goals": {
+   "a": "1",
+   "h": "4"
+  },
+  "h": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "id": "28180",
+  "isResult": true,
+  "xG": {
+   "a": "1.39913",
+   "h": "2.20104"
+  }
+ },
+ {
+  "a": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "datetime": "2024-12-15 19:45:00",
+  "forecast": {
+   "d": "0.1857",
+   "l": "0.0897",
+   "w": "0.7246"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "id": "28182",
+  "isResult": true,
+  "xG": {
+   "a": "1.23945",
+   "h": "2.59615"
+  }
+ },
+ {
+  "a": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "datetime": "2024-12-18 20:00:00",
+  "forecast": {
+   "d": "0.2103",
+   "l": "0.2398",
+   "w": "0.5499"
+  },
+  "goals": {
+   "a": "4",
+   "h": "2"
+  },
+  "h": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "id": "28183",
+  "isResult": true,
+  "xG": {
+   "a": "2.40654",
+   "h": "3.10193"
+  }
+ },
+ {
+  "a": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "datetime": "2025-01-03 20:00:00",
+  "forecast": {
+   "d": "0.2872",
+   "l": "0.3571",
+   "w": "0.3557"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "id": "28191",
+  "isResult": true,
+  "xG": {
+   "a": "1.50451",
+   "h": "1.51944"
+  }
+ },
+ {
+  "a": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "datetime": "2025-01-04 16:00:00",
+  "forecast": {
+   "d": "0.1235",
+   "l": "0.0631",
+   "w": "0.8134"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "id": "28186",
+  "isResult": true,
+  "xG": {
+   "a": "1.27612",
+   "h": "3.18639"
+  }
+ },
+ {
+  "a": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "datetime": "2025-01-04 18:00:00",
+  "forecast": {
+   "d": "0.3462",
+   "l": "0.3219",
+   "w": "0.3319"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "id": "28188",
+  "isResult": true,
+  "xG": {
+   "a": "1.07277",
+   "h": "1.13415"
+  }
+ },
+ {
+  "a": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "datetime": "2025-01-04 20:00:00",
+  "forecast": {
+   "d": "0.2671",
+   "l": "0.4938",
+   "w": "0.2391"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "id": "28184",
+  "isResult": true,
+  "xG": {
+   "a": "1.55585",
+   "h": "1.07725"
+  }
+ },
+ {
+  "a": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "datetime": "2025-01-05 14:00:00",
+  "forecast": {
+   "d": "0.2246",
+   "l": "0.613",
+   "w": "0.1624"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "id": "28185",
+  "isResult": true,
+  "xG": {
+   "a": "2.19226",
+   "h": "1.32887"
+  }
+ },
+ {
+  "a": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "datetime": "2025-01-05 14:00:00",
+  "forecast": {
+   "d": "0.1706",
+   "l": "0.0713",
+   "w": "0.7581"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "id": "28187",
+  "isResult": true,
+  "xG": {
+   "a": "0.608874",
+   "h": "1.90119"
+  }
+ },
+ {
+  "a": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "datetime": "2025-01-05 14:00:00",
+  "forecast": {
+   "d": "0.1973",
+   "l": "0.1461",
+   "w": "0.6566"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "id": "28190",
+  "isResult": true,
+  "xG": {
+   "a": "1.7605",
+   "h": "2.89722"
+  }
+ },
+ {
+  "a": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "datetime": "2025-01-05 19:45:00",
+  "forecast": {
+   "d": "0.0794",
+   "l": "0.0166",
+   "w": "0.904"
+  },
+  "goals": {
+   "a": "1",
+   "h": "5"
+  },
+  "h": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "id": "28189",
+  "isResult": true,
+  "xG": {
+   "a": "0.885341",
+   "h": "3.17491"
+  }
+ },
+ {
+  "a": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "datetime": "2025-01-10 18:00:00",
+  "forecast": {
+   "d": "0.106",
+   "l": "0.8437",
+   "w": "0.0503"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "id": "28193",
+  "isResult": true,
+  "xG": {
+   "a": "3.48791",
+   "h": "1.41184"
+  }
+ },
+ {
+  "a": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "datetime": "2025-01-10 20:00:00",
+  "forecast": {
+   "d": "0.2369",
+   "l": "0.6612",
+   "w": "0.1019"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "id": "28194",
+  "isResult": true,
+  "xG": {
+   "a": "1.51829",
+   "h": "0.601359"
+  }
+ },
+ {
+  "a": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "datetime": "2025-01-11 16:00:00",
+  "forecast": {
+   "d": "0.2895",
+   "l": "0.3841",
+   "w": "0.3264"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "id": "28198",
+  "isResult": true,
+  "xG": {
+   "a": "1.40093",
+   "h": "1.28964"
+  }
+ },
+ {
+  "a": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "datetime": "2025-01-11 18:00:00",
+  "forecast": {
+   "d": "0.0905",
+   "l": "0.8766",
+   "w": "0.0329"
+  },
+  "goals": {
+   "a": "4",
+   "h": "2"
+  },
+  "h": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "id": "28195",
+  "isResult": true,
+  "xG": {
+   "a": "3.22004",
+   "h": "0.950928"
+  }
+ },
+ {
+  "a": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "datetime": "2025-01-11 20:00:00",
+  "forecast": {
+   "d": "0.2472",
+   "l": "0.5458",
+   "w": "0.207"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "id": "28200",
+  "isResult": true,
+  "xG": {
+   "a": "2.49254",
+   "h": "1.76569"
+  }
+ },
+ {
+  "a": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "datetime": "2025-01-12 14:00:00",
+  "forecast": {
+   "d": "0.1975",
+   "l": "0.6757",
+   "w": "0.1268"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "id": "28196",
+  "isResult": true,
+  "xG": {
+   "a": "3.10793",
+   "h": "1.84216"
+  }
+ },
+ {
+  "a": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "datetime": "2025-01-12 16:15:00",
+  "forecast": {
+   "d": "0.2503",
+   "l": "0.556",
+   "w": "0.1937"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "id": "28192",
+  "isResult": true,
+  "xG": {
+   "a": "1.82783",
+   "h": "1.19281"
+  }
+ },
+ {
+  "a": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "datetime": "2025-01-12 16:15:00",
+  "forecast": {
+   "d": "0.1178",
+   "l": "0.8262",
+   "w": "0.056"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "id": "28197",
+  "isResult": true,
+  "xG": {
+   "a": "3.46863",
+   "h": "1.44663"
+  }
+ },
+ {
+  "a": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "datetime": "2025-01-12 19:45:00",
+  "forecast": {
+   "d": "0.0057",
+   "l": "0.0008",
+   "w": "0.9935"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "id": "28199",
+  "isResult": true,
+  "xG": {
+   "a": "0.410024",
+   "h": "5.07062"
+  }
+ },
+ {
+  "a": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "datetime": "2025-01-17 18:00:00",
+  "forecast": {
+   "d": "0.1913",
+   "l": "0.2059",
+   "w": "0.6028"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "id": "28206",
+  "isResult": true,
+  "xG": {
+   "a": "1.74957",
+   "h": "2.60645"
+  }
+ },
+ {
+  "a": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "datetime": "2025-01-17 20:05:00",
+  "forecast": {
+   "d": "0.1469",
+   "l": "0.7892",
+   "w": "0.0639"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "id": "28203",
+  "isResult": true,
+  "xG": {
+   "a": "2.90437",
+   "h": "1.29219"
+  }
+ },
+ {
+  "a": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "datetime": "2025-01-18 16:00:00",
+  "forecast": {
+   "d": "0.2823",
+   "l": "0.4184",
+   "w": "0.2993"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "id": "28202",
+  "isResult": true,
+  "xG": {
+   "a": "1.57299",
+   "h": "1.34901"
+  }
+ },
+ {
+  "a": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "datetime": "2025-01-18 18:00:00",
+  "forecast": {
+   "d": "0.2571",
+   "l": "0.3661",
+   "w": "0.3768"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "id": "28209",
+  "isResult": true,
+  "xG": {
+   "a": "1.87321",
+   "h": "1.92675"
+  }
+ },
+ {
+  "a": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "datetime": "2025-01-18 20:05:00",
+  "forecast": {
+   "d": "0.2722",
+   "l": "0.5842",
+   "w": "0.1436"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "id": "28204",
+  "isResult": true,
+  "xG": {
+   "a": "1.36611",
+   "h": "0.619056"
+  }
+ },
+ {
+  "a": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "datetime": "2025-01-19 14:00:00",
+  "forecast": {
+   "d": "0.2881",
+   "l": "0.5116",
+   "w": "0.2003"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "id": "28205",
+  "isResult": true,
+  "xG": {
+   "a": "1.36031",
+   "h": "0.836137"
+  }
+ },
+ {
+  "a": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "datetime": "2025-01-19 16:15:00",
+  "forecast": {
+   "d": "0.328",
+   "l": "0.2794",
+   "w": "0.3926"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "id": "28207",
+  "isResult": true,
+  "xG": {
+   "a": "1.29453",
+   "h": "1.49091"
+  }
+ },
+ {
+  "a": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "datetime": "2025-01-19 16:15:00",
+  "forecast": {
+   "d": "0.2925",
+   "l": "0.1265",
+   "w": "0.581"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "id": "28208",
+  "isResult": true,
+  "xG": {
+   "a": "0.462137",
+   "h": "1.21759"
+  }
+ },
+ {
+  "a": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "datetime": "2025-01-19 19:45:00",
+  "forecast": {
+   "d": "0.0668",
+   "l": "0.0242",
+   "w": "0.909"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "id": "28201",
+  "isResult": true,
+  "xG": {
+   "a": "0.854933",
+   "h": "3.29082"
+  }
+ },
+ {
+  "a": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "datetime": "2025-01-24 19:45:00",
+  "forecast": {
+   "d": "0.2928",
+   "l": "0.6006",
+   "w": "0.1066"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "id": "28214",
+  "isResult": true,
+  "xG": {
+   "a": "1.1913",
+   "h": "0.582829"
+  }
+ },
+ {
+  "a": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "datetime": "2025-01-25 16:00:00",
+  "forecast": {
+   "d": "0.1537",
+   "l": "0.0979",
+   "w": "0.7484"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "id": "28211",
+  "isResult": true,
+  "xG": {
+   "a": "1.85205",
+   "h": "3.47384"
+  }
+ },
+ {
+  "a": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "datetime": "2025-01-25 18:00:00",
+  "forecast": {
+   "d": "0.2384",
+   "l": "0.5655",
+   "w": "0.1961"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "id": "28210",
+  "isResult": true,
+  "xG": {
+   "a": "1.95469",
+   "h": "1.19703"
+  }
+ },
+ {
+  "a": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "datetime": "2025-01-25 20:05:00",
+  "forecast": {
+   "d": "0.2088",
+   "l": "0.0989",
+   "w": "0.6923"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "id": "28216",
+  "isResult": true,
+  "xG": {
+   "a": "0.613384",
+   "h": "1.79628"
+  }
+ },
+ {
+  "a": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "datetime": "2025-01-26 14:00:00",
+  "forecast": {
+   "d": "0.1363",
+   "l": "0.8079",
+   "w": "0.0558"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "id": "28213",
+  "isResult": true,
+  "xG": {
+   "a": "2.38282",
+   "h": "0.696232"
+  }
+ },
+ {
+  "a": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "datetime": "2025-01-26 16:15:00",
+  "forecast": {
+   "d": "0.3087",
+   "l": "0.2355",
+   "w": "0.4558"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "id": "28212",
+  "isResult": true,
+  "xG": {
+   "a": "0.939857",
+   "h": "1.34257"
+  }
+ },
+ {
+  "a": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "datetime": "2025-01-26 16:15:00",
+  "forecast": {
+   "d": "0.1058",
+   "l": "0.0062",
+   "w": "0.888"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "id": "28215",
+  "isResult": true,
+  "xG": {
+   "a": "0.0813578",
+   "h": "2.01118"
+  }
+ },
+ {
+  "a": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "datetime": "2025-01-26 16:15:00",
+  "forecast": {
+   "d": "0.2716",
+   "l": "0.3456",
+   "w": "0.3828"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "id": "28218",
+  "isResult": true,
+  "xG": {
+   "a": "1.61762",
+   "h": "1.62983"
+  }
+ },
+ {
+  "a": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "datetime": "2025-01-26 19:45:00",
+  "forecast": {
+   "d": "0.2091",
+   "l": "0.1636",
+   "w": "0.6273"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "id": "28217",
+  "isResult": true,
+  "xG": {
+   "a": "1.11157",
+   "h": "2.10992"
+  }
+ },
+ {
+  "a": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "datetime": "2025-01-31 19:45:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "id": "28221",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "datetime": "2025-02-01 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "id": "28220",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "datetime": "2025-02-01 18:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "id": "28227",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "datetime": "2025-02-01 20:05:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "id": "28222",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "datetime": "2025-02-02 14:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "id": "28225",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "datetime": "2025-02-02 16:15:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "id": "28223",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "datetime": "2025-02-02 16:15:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "id": "28224",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "datetime": "2025-02-02 16:15:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "id": "28226",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "datetime": "2025-02-02 19:45:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "id": "28219",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "datetime": "2025-02-07 20:05:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "id": "28233",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "datetime": "2025-02-08 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "id": "28236",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "datetime": "2025-02-08 20:05:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "id": "28232",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "datetime": "2025-02-09 14:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "id": "28234",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "datetime": "2025-02-09 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "id": "28229",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "datetime": "2025-02-09 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "id": "28231",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "datetime": "2025-02-09 16:15:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "id": "28228",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "datetime": "2025-02-09 16:15:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "id": "28230",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "datetime": "2025-02-09 19:45:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "id": "28235",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "datetime": "2025-02-16 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "id": "28237",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "datetime": "2025-02-16 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "id": "28238",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "datetime": "2025-02-16 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "id": "28239",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "datetime": "2025-02-16 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "id": "28240",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "datetime": "2025-02-16 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "id": "28241",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "datetime": "2025-02-16 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "id": "28242",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "datetime": "2025-02-16 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "id": "28243",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "datetime": "2025-02-16 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "id": "28244",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "datetime": "2025-02-16 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "id": "28245",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "datetime": "2025-02-23 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "id": "28246",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "datetime": "2025-02-23 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "id": "28247",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "datetime": "2025-02-23 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "id": "28248",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "datetime": "2025-02-23 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "id": "28249",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "datetime": "2025-02-23 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "id": "28250",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "datetime": "2025-02-23 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "id": "28251",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "datetime": "2025-02-23 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "id": "28252",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "datetime": "2025-02-23 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "id": "28253",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "datetime": "2025-02-23 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "id": "28254",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "datetime": "2025-03-02 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "id": "28255",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "datetime": "2025-03-02 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "id": "28256",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "datetime": "2025-03-02 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "id": "28257",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "datetime": "2025-03-02 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "id": "28258",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "datetime": "2025-03-02 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "id": "28259",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "datetime": "2025-03-02 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "id": "28260",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "datetime": "2025-03-02 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "id": "28261",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "datetime": "2025-03-02 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "id": "28262",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "datetime": "2025-03-02 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "id": "28263",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "datetime": "2025-03-09 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "id": "28264",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "datetime": "2025-03-09 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "id": "28265",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "datetime": "2025-03-09 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "id": "28266",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "datetime": "2025-03-09 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "id": "28267",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "datetime": "2025-03-09 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "id": "28268",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "datetime": "2025-03-09 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "id": "28269",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "datetime": "2025-03-09 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "id": "28270",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "datetime": "2025-03-09 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "id": "28271",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "datetime": "2025-03-09 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "id": "28272",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "datetime": "2025-03-16 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "id": "28273",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "datetime": "2025-03-16 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "id": "28274",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "datetime": "2025-03-16 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "id": "28275",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "datetime": "2025-03-16 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "id": "28276",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "datetime": "2025-03-16 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "id": "28277",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "datetime": "2025-03-16 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "id": "28278",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "datetime": "2025-03-16 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "id": "28279",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "datetime": "2025-03-16 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "id": "28280",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "datetime": "2025-03-16 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "id": "28281",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "datetime": "2025-03-30 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "id": "28282",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "datetime": "2025-03-30 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "id": "28283",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "datetime": "2025-03-30 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "id": "28284",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "datetime": "2025-03-30 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "id": "28285",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "datetime": "2025-03-30 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "id": "28286",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "datetime": "2025-03-30 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "id": "28287",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "datetime": "2025-03-30 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "id": "28288",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "datetime": "2025-03-30 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "id": "28289",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "datetime": "2025-03-30 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "id": "28290",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "datetime": "2025-04-06 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "id": "28291",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "datetime": "2025-04-06 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "id": "28292",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "datetime": "2025-04-06 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "id": "28293",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "datetime": "2025-04-06 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "id": "28294",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "datetime": "2025-04-06 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "id": "28295",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "datetime": "2025-04-06 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "id": "28296",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "datetime": "2025-04-06 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "id": "28297",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "datetime": "2025-04-06 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "id": "28298",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "datetime": "2025-04-06 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "id": "28299",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "datetime": "2025-04-13 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "id": "28300",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "datetime": "2025-04-13 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "id": "28301",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "datetime": "2025-04-13 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "id": "28302",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "datetime": "2025-04-13 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "id": "28303",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "datetime": "2025-04-13 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "id": "28304",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "datetime": "2025-04-13 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "id": "28305",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "datetime": "2025-04-13 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "id": "28306",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "datetime": "2025-04-13 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "id": "28307",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "datetime": "2025-04-13 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "id": "28308",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "datetime": "2025-04-20 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "id": "28309",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "datetime": "2025-04-20 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "id": "28310",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "datetime": "2025-04-20 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "id": "28311",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "datetime": "2025-04-20 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "id": "28312",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "datetime": "2025-04-20 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "id": "28313",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "datetime": "2025-04-20 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "id": "28314",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "datetime": "2025-04-20 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "id": "28315",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "datetime": "2025-04-20 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "id": "28316",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "datetime": "2025-04-20 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "id": "28317",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "datetime": "2025-04-27 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "id": "28318",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "datetime": "2025-04-27 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "id": "28319",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "datetime": "2025-04-27 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "id": "28320",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "datetime": "2025-04-27 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "id": "28321",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "datetime": "2025-04-27 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "id": "28322",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "datetime": "2025-04-27 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "id": "28323",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "datetime": "2025-04-27 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "id": "28324",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "datetime": "2025-04-27 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "id": "28325",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "datetime": "2025-04-27 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "id": "28326",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "datetime": "2025-05-04 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "id": "28327",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "datetime": "2025-05-04 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "id": "28328",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "datetime": "2025-05-04 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "id": "28329",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "datetime": "2025-05-04 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "id": "28330",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "datetime": "2025-05-04 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "id": "28331",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "datetime": "2025-05-04 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "id": "28332",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "datetime": "2025-05-04 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "id": "28333",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "datetime": "2025-05-04 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "id": "28334",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "datetime": "2025-05-04 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "id": "28335",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "datetime": "2025-05-11 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "id": "28336",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "datetime": "2025-05-11 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "id": "28337",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "datetime": "2025-05-11 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "id": "28338",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "datetime": "2025-05-11 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "id": "28339",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "datetime": "2025-05-11 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "id": "28340",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "datetime": "2025-05-11 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "id": "28341",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "datetime": "2025-05-11 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "id": "28342",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "datetime": "2025-05-11 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "id": "28343",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "datetime": "2025-05-11 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "id": "28344",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "282",
+   "short_title": "LHV",
+   "title": "Le Havre"
+  },
+  "datetime": "2025-05-18 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "225",
+   "short_title": "STR",
+   "title": "Strasbourg"
+  },
+  "id": "28345",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "163",
+   "short_title": "REN",
+   "title": "Rennes"
+  },
+  "datetime": "2025-05-18 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "164",
+   "short_title": "MAR",
+   "title": "Marseille"
+  },
+  "id": "28346",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "166",
+   "short_title": "MPL",
+   "title": "Montpellier"
+  },
+  "datetime": "2025-05-18 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "168",
+   "short_title": "NAN",
+   "title": "Nantes"
+  },
+  "id": "28347",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "167",
+   "short_title": "ANG",
+   "title": "Angers"
+  },
+  "datetime": "2025-05-18 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "178",
+   "short_title": "LYO",
+   "title": "Lyon"
+  },
+  "id": "28348",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "171",
+   "short_title": "MON",
+   "title": "Monaco"
+  },
+  "datetime": "2025-05-18 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "210",
+   "short_title": "LEN",
+   "title": "Lens"
+  },
+  "id": "28349",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "241",
+   "short_title": "BRE",
+   "title": "Brest"
+  },
+  "datetime": "2025-05-18 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "170",
+   "short_title": "NIC",
+   "title": "Nice"
+  },
+  "id": "28350",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "275",
+   "short_title": "AUX",
+   "title": "Auxerre"
+  },
+  "datetime": "2025-05-18 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "161",
+   "short_title": "PSG",
+   "title": "Paris Saint Germain"
+  },
+  "id": "28351",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "174",
+   "short_title": "TOU",
+   "title": "Toulouse"
+  },
+  "datetime": "2025-05-18 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "175",
+   "short_title": "SEN",
+   "title": "Saint-Etienne"
+  },
+  "id": "28352",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ },
+ {
+  "a": {
+   "id": "177",
+   "short_title": "REI",
+   "title": "Reims"
+  },
+  "datetime": "2025-05-18 16:00:00",
+  "goals": {
+   "a": null,
+   "h": null
+  },
+  "h": {
+   "id": "160",
+   "short_title": "LIL",
+   "title": "Lille"
+  },
+  "id": "28353",
+  "isResult": false,
+  "xG": {
+   "a": null,
+   "h": null
+  }
+ }
+]

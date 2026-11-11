@@ -1,0 +1,8570 @@
+[
+ {
+  "a": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "datetime": "2022-08-05 18:30:00",
+  "forecast": {
+   "d": "0.0183",
+   "l": "0.9772",
+   "w": "0.0045"
+  },
+  "goals": {
+   "a": "6",
+   "h": "1"
+  },
+  "h": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "id": "19342",
+  "isResult": true,
+  "xG": {
+   "a": "4.56023",
+   "h": "0.756176"
+  }
+ },
+ {
+  "a": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "datetime": "2022-08-06 13:30:00",
+  "forecast": {
+   "d": "0.2969",
+   "l": "0.1032",
+   "w": "0.5999"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "id": "19343",
+  "isResult": true,
+  "xG": {
+   "a": "0.350984",
+   "h": "1.18263"
+  }
+ },
+ {
+  "a": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "datetime": "2022-08-06 13:30:00",
+  "forecast": {
+   "d": "0.1091",
+   "l": "0.0115",
+   "w": "0.8794"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "id": "19344",
+  "isResult": true,
+  "xG": {
+   "a": "0.119138",
+   "h": "2.07456"
+  }
+ },
+ {
+  "a": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "datetime": "2022-08-06 13:30:00",
+  "forecast": {
+   "d": "0.3422",
+   "l": "0.3697",
+   "w": "0.2881"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "id": "19345",
+  "isResult": true,
+  "xG": {
+   "a": "1.04228",
+   "h": "0.954909"
+  }
+ },
+ {
+  "a": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "datetime": "2022-08-06 13:30:00",
+  "forecast": {
+   "d": "0.2539",
+   "l": "0.5795",
+   "w": "0.1666"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "id": "19346",
+  "isResult": true,
+  "xG": {
+   "a": "1.59439",
+   "h": "0.818183"
+  }
+ },
+ {
+  "a": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "datetime": "2022-08-06 13:30:00",
+  "forecast": {
+   "d": "0.2466",
+   "l": "0.6275",
+   "w": "0.1259"
+  },
+  "goals": {
+   "a": "4",
+   "h": "0"
+  },
+  "h": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "id": "19347",
+  "isResult": true,
+  "xG": {
+   "a": "1.54255",
+   "h": "0.585905"
+  }
+ },
+ {
+  "a": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "datetime": "2022-08-06 16:30:00",
+  "forecast": {
+   "d": "0.2169",
+   "l": "0.1003",
+   "w": "0.6828"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "id": "19348",
+  "isResult": true,
+  "xG": {
+   "a": "1.23566",
+   "h": "2.38349"
+  }
+ },
+ {
+  "a": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "datetime": "2022-08-07 13:30:00",
+  "forecast": {
+   "d": "0.1571",
+   "l": "0.7825",
+   "w": "0.0604"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "id": "19349",
+  "isResult": true,
+  "xG": {
+   "a": "2.13153",
+   "h": "0.565488"
+  }
+ },
+ {
+  "a": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "datetime": "2022-08-07 15:30:00",
+  "forecast": {
+   "d": "0.0056",
+   "l": "0.0007",
+   "w": "0.9937"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "id": "19350",
+  "isResult": true,
+  "xG": {
+   "a": "0.227735",
+   "h": "4.42242"
+  }
+ },
+ {
+  "a": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "datetime": "2022-08-12 18:30:00",
+  "forecast": {
+   "d": "0.3243",
+   "l": "0.2496",
+   "w": "0.4261"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "id": "19351",
+  "isResult": true,
+  "xG": {
+   "a": "0.781529",
+   "h": "1.0831"
+  }
+ },
+ {
+  "a": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "datetime": "2022-08-13 13:30:00",
+  "forecast": {
+   "d": "0.123",
+   "l": "0.0414",
+   "w": "0.8356"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "id": "19352",
+  "isResult": true,
+  "xG": {
+   "a": "0.749163",
+   "h": "2.7843"
+  }
+ },
+ {
+  "a": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "datetime": "2022-08-13 13:30:00",
+  "forecast": {
+   "d": "0.2954",
+   "l": "0.4436",
+   "w": "0.261"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "id": "19353",
+  "isResult": true,
+  "xG": {
+   "a": "1.51583",
+   "h": "1.17885"
+  }
+ },
+ {
+  "a": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "datetime": "2022-08-13 13:30:00",
+  "forecast": {
+   "d": "0.2982",
+   "l": "0.5381",
+   "w": "0.1637"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "id": "19354",
+  "isResult": true,
+  "xG": {
+   "a": "1.31637",
+   "h": "0.704357"
+  }
+ },
+ {
+  "a": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "datetime": "2022-08-13 13:30:00",
+  "forecast": {
+   "d": "0.2337",
+   "l": "0.1636",
+   "w": "0.6027"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "id": "19355",
+  "isResult": true,
+  "xG": {
+   "a": "1.47438",
+   "h": "2.3761"
+  }
+ },
+ {
+  "a": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "datetime": "2022-08-13 13:30:00",
+  "forecast": {
+   "d": "0.227",
+   "l": "0.1738",
+   "w": "0.5992"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "id": "19356",
+  "isResult": true,
+  "xG": {
+   "a": "1.20421",
+   "h": "2.06497"
+  }
+ },
+ {
+  "a": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "datetime": "2022-08-13 16:30:00",
+  "forecast": {
+   "d": "0.2807",
+   "l": "0.279",
+   "w": "0.4403"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "id": "19357",
+  "isResult": true,
+  "xG": {
+   "a": "1.41135",
+   "h": "1.69324"
+  }
+ },
+ {
+  "a": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "datetime": "2022-08-14 13:30:00",
+  "forecast": {
+   "d": "0.451",
+   "l": "0.1522",
+   "w": "0.3968"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "id": "19358",
+  "isResult": true,
+  "xG": {
+   "a": "0.301432",
+   "h": "0.648549"
+  }
+ },
+ {
+  "a": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "datetime": "2022-08-14 15:30:00",
+  "forecast": {
+   "d": "0.2627",
+   "l": "0.1057",
+   "w": "0.6316"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "id": "19359",
+  "isResult": true,
+  "xG": {
+   "a": "0.443318",
+   "h": "1.4017"
+  }
+ },
+ {
+  "a": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "datetime": "2022-08-19 18:30:00",
+  "forecast": {
+   "d": "0.1772",
+   "l": "0.0928",
+   "w": "0.73"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "id": "19360",
+  "isResult": true,
+  "xG": {
+   "a": "0.967668",
+   "h": "2.26575"
+  }
+ },
+ {
+  "a": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "datetime": "2022-08-20 13:30:00",
+  "forecast": {
+   "d": "0.3272",
+   "l": "0.299",
+   "w": "0.3738"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "id": "19361",
+  "isResult": true,
+  "xG": {
+   "a": "1.03296",
+   "h": "1.20648"
+  }
+ },
+ {
+  "a": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "datetime": "2022-08-20 13:30:00",
+  "forecast": {
+   "d": "0.1138",
+   "l": "0.8622",
+   "w": "0.024"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "id": "19362",
+  "isResult": true,
+  "xG": {
+   "a": "2.04608",
+   "h": "0.306368"
+  }
+ },
+ {
+  "a": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "datetime": "2022-08-20 13:30:00",
+  "forecast": {
+   "d": "0.3476",
+   "l": "0.3843",
+   "w": "0.2681"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "id": "19363",
+  "isResult": true,
+  "xG": {
+   "a": "0.903953",
+   "h": "0.766656"
+  }
+ },
+ {
+  "a": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "datetime": "2022-08-20 13:30:00",
+  "forecast": {
+   "d": "0.3142",
+   "l": "0.5033",
+   "w": "0.1825"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "id": "19364",
+  "isResult": true,
+  "xG": {
+   "a": "1.20064",
+   "h": "0.625547"
+  }
+ },
+ {
+  "a": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "datetime": "2022-08-20 13:30:00",
+  "forecast": {
+   "d": "0.2946",
+   "l": "0.4148",
+   "w": "0.2906"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "id": "19365",
+  "isResult": true,
+  "xG": {
+   "a": "1.30099",
+   "h": "1.10143"
+  }
+ },
+ {
+  "a": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "datetime": "2022-08-20 16:30:00",
+  "forecast": {
+   "d": "0.341",
+   "l": "0.4274",
+   "w": "0.2316"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "id": "19366",
+  "isResult": true,
+  "xG": {
+   "a": "0.958767",
+   "h": "0.642263"
+  }
+ },
+ {
+  "a": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "datetime": "2022-08-21 13:30:00",
+  "forecast": {
+   "d": "0.5192",
+   "l": "0.1275",
+   "w": "0.3533"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "id": "19367",
+  "isResult": true,
+  "xG": {
+   "a": "0.236472",
+   "h": "0.54009"
+  }
+ },
+ {
+  "a": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "datetime": "2022-08-21 15:30:00",
+  "forecast": {
+   "d": "0.033",
+   "l": "0.9577",
+   "w": "0.0093"
+  },
+  "goals": {
+   "a": "7",
+   "h": "0"
+  },
+  "h": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "id": "19368",
+  "isResult": true,
+  "xG": {
+   "a": "3.98121",
+   "h": "0.747624"
+  }
+ },
+ {
+  "a": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "datetime": "2022-08-26 18:30:00",
+  "forecast": {
+   "d": "0.032",
+   "l": "0.009",
+   "w": "0.959"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "id": "19369",
+  "isResult": true,
+  "xG": {
+   "a": "1.13013",
+   "h": "4.40931"
+  }
+ },
+ {
+  "a": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "datetime": "2022-08-27 13:30:00",
+  "forecast": {
+   "d": "0.0258",
+   "l": "0.0046",
+   "w": "0.9696"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "id": "19370",
+  "isResult": true,
+  "xG": {
+   "a": "0.520425",
+   "h": "3.79244"
+  }
+ },
+ {
+  "a": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "datetime": "2022-08-27 13:30:00",
+  "forecast": {
+   "d": "0.2775",
+   "l": "0.3088",
+   "w": "0.4137"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "id": "19371",
+  "isResult": true,
+  "xG": {
+   "a": "1.40426",
+   "h": "1.62032"
+  }
+ },
+ {
+  "a": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "datetime": "2022-08-27 13:30:00",
+  "forecast": {
+   "d": "0.164",
+   "l": "0.0557",
+   "w": "0.7803"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "id": "19372",
+  "isResult": true,
+  "xG": {
+   "a": "0.458737",
+   "h": "2.00234"
+  }
+ },
+ {
+  "a": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "datetime": "2022-08-27 13:30:00",
+  "forecast": {
+   "d": "0.0625",
+   "l": "0.9226",
+   "w": "0.0149"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "id": "19373",
+  "isResult": true,
+  "xG": {
+   "a": "2.97427",
+   "h": "0.353045"
+  }
+ },
+ {
+  "a": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "datetime": "2022-08-27 13:30:00",
+  "forecast": {
+   "d": "0.2333",
+   "l": "0.1719",
+   "w": "0.5948"
+  },
+  "goals": {
+   "a": "6",
+   "h": "1"
+  },
+  "h": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "id": "19374",
+  "isResult": true,
+  "xG": {
+   "a": "1.0651",
+   "h": "1.86616"
+  }
+ },
+ {
+  "a": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "datetime": "2022-08-27 16:30:00",
+  "forecast": {
+   "d": "0.0592",
+   "l": "0.0153",
+   "w": "0.9255"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "id": "19375",
+  "isResult": true,
+  "xG": {
+   "a": "0.548057",
+   "h": "3.17378"
+  }
+ },
+ {
+  "a": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "datetime": "2022-08-28 13:30:00",
+  "forecast": {
+   "d": "0.1519",
+   "l": "0.8056",
+   "w": "0.0425"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "id": "19376",
+  "isResult": true,
+  "xG": {
+   "a": "1.96538",
+   "h": "0.385951"
+  }
+ },
+ {
+  "a": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "datetime": "2022-08-28 15:30:00",
+  "forecast": {
+   "d": "0.2685",
+   "l": "0.3596",
+   "w": "0.3719"
+  },
+  "goals": {
+   "a": "4",
+   "h": "3"
+  },
+  "h": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "id": "19377",
+  "isResult": true,
+  "xG": {
+   "a": "1.87305",
+   "h": "1.88918"
+  }
+ },
+ {
+  "a": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "datetime": "2022-09-02 18:30:00",
+  "forecast": {
+   "d": "0.087",
+   "l": "0.0194",
+   "w": "0.8936"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "id": "19378",
+  "isResult": true,
+  "xG": {
+   "a": "0.360446",
+   "h": "2.521"
+  }
+ },
+ {
+  "a": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "datetime": "2022-09-03 13:30:00",
+  "forecast": {
+   "d": "0.2735",
+   "l": "0.524",
+   "w": "0.2025"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "id": "19379",
+  "isResult": true,
+  "xG": {
+   "a": "2.35383",
+   "h": "1.79727"
+  }
+ },
+ {
+  "a": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "datetime": "2022-09-03 13:30:00",
+  "forecast": {
+   "d": "0.2743",
+   "l": "0.6272",
+   "w": "0.0985"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "id": "19380",
+  "isResult": true,
+  "xG": {
+   "a": "1.38204",
+   "h": "0.443137"
+  }
+ },
+ {
+  "a": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "datetime": "2022-09-03 13:30:00",
+  "forecast": {
+   "d": "0.1754",
+   "l": "0.7457",
+   "w": "0.0789"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "id": "19381",
+  "isResult": true,
+  "xG": {
+   "a": "2.10477",
+   "h": "0.706188"
+  }
+ },
+ {
+  "a": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "datetime": "2022-09-03 13:30:00",
+  "forecast": {
+   "d": "0.1069",
+   "l": "0.8475",
+   "w": "0.0456"
+  },
+  "goals": {
+   "a": "4",
+   "h": "2"
+  },
+  "h": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "id": "19382",
+  "isResult": true,
+  "xG": {
+   "a": "3.08366",
+   "h": "0.96728"
+  }
+ },
+ {
+  "a": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "datetime": "2022-09-03 13:30:00",
+  "forecast": {
+   "d": "0.2392",
+   "l": "0.5718",
+   "w": "0.189"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "id": "19383",
+  "isResult": true,
+  "xG": {
+   "a": "1.9903",
+   "h": "1.22972"
+  }
+ },
+ {
+  "a": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "datetime": "2022-09-03 16:30:00",
+  "forecast": {
+   "d": "0.011",
+   "l": "0.0012",
+   "w": "0.9878"
+  },
+  "goals": {
+   "a": "0",
+   "h": "4"
+  },
+  "h": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "id": "19384",
+  "isResult": true,
+  "xG": {
+   "a": "0.220403",
+   "h": "3.62625"
+  }
+ },
+ {
+  "a": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "datetime": "2022-09-04 13:30:00",
+  "forecast": {
+   "d": "0.0407",
+   "l": "0.9531",
+   "w": "0.0062"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "id": "19385",
+  "isResult": true,
+  "xG": {
+   "a": "2.87153",
+   "h": "0.311026"
+  }
+ },
+ {
+  "a": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "datetime": "2022-09-04 15:30:00",
+  "forecast": {
+   "d": "0.2133",
+   "l": "0.1006",
+   "w": "0.6861"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "id": "19386",
+  "isResult": true,
+  "xG": {
+   "a": "0.630863",
+   "h": "1.70822"
+  }
+ },
+ {
+  "a": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "datetime": "2022-09-09 18:30:00",
+  "forecast": {
+   "d": "0.2856",
+   "l": "0.3471",
+   "w": "0.3673"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "id": "19387",
+  "isResult": true,
+  "xG": {
+   "a": "1.7824",
+   "h": "1.83702"
+  }
+ },
+ {
+  "a": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "datetime": "2022-09-10 13:30:00",
+  "forecast": {
+   "d": "0.2219",
+   "l": "0.1302",
+   "w": "0.6479"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "id": "19388",
+  "isResult": true,
+  "xG": {
+   "a": "1.18754",
+   "h": "2.2976"
+  }
+ },
+ {
+  "a": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "datetime": "2022-09-10 13:30:00",
+  "forecast": {
+   "d": "0.1846",
+   "l": "0.0501",
+   "w": "0.7653"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "id": "19389",
+  "isResult": true,
+  "xG": {
+   "a": "0.334567",
+   "h": "1.70495"
+  }
+ },
+ {
+  "a": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "datetime": "2022-09-10 13:30:00",
+  "forecast": {
+   "d": "0.0329",
+   "l": "0.0096",
+   "w": "0.9575"
+  },
+  "goals": {
+   "a": "1",
+   "h": "4"
+  },
+  "h": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "id": "19390",
+  "isResult": true,
+  "xG": {
+   "a": "1.08619",
+   "h": "4.64891"
+  }
+ },
+ {
+  "a": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "datetime": "2022-09-10 13:30:00",
+  "forecast": {
+   "d": "0.3434",
+   "l": "0.503",
+   "w": "0.1536"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "id": "19391",
+  "isResult": true,
+  "xG": {
+   "a": "0.969737",
+   "h": "0.453438"
+  }
+ },
+ {
+  "a": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "datetime": "2022-09-10 13:30:00",
+  "forecast": {
+   "d": "0.2291",
+   "l": "0.2416",
+   "w": "0.5293"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "id": "19392",
+  "isResult": true,
+  "xG": {
+   "a": "1.76829",
+   "h": "2.35137"
+  }
+ },
+ {
+  "a": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "datetime": "2022-09-10 16:30:00",
+  "forecast": {
+   "d": "0.2777",
+   "l": "0.3389",
+   "w": "0.3834"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "id": "19393",
+  "isResult": true,
+  "xG": {
+   "a": "1.31293",
+   "h": "1.4133"
+  }
+ },
+ {
+  "a": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "datetime": "2022-09-11 13:30:00",
+  "forecast": {
+   "d": "0.2882",
+   "l": "0.5424",
+   "w": "0.1694"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "id": "19394",
+  "isResult": true,
+  "xG": {
+   "a": "1.51157",
+   "h": "0.878517"
+  }
+ },
+ {
+  "a": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "datetime": "2022-09-11 15:30:00",
+  "forecast": {
+   "d": "0.2881",
+   "l": "0.471",
+   "w": "0.2409"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "id": "19395",
+  "isResult": true,
+  "xG": {
+   "a": "1.37892",
+   "h": "0.991055"
+  }
+ },
+ {
+  "a": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "datetime": "2022-09-16 18:30:00",
+  "forecast": {
+   "d": "0.5066",
+   "l": "0.2729",
+   "w": "0.2205"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "id": "19396",
+  "isResult": true,
+  "xG": {
+   "a": "0.437555",
+   "h": "0.38983"
+  }
+ },
+ {
+  "a": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "datetime": "2022-09-17 13:30:00",
+  "forecast": {
+   "d": "0.0545",
+   "l": "0.0031",
+   "w": "0.9424"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "id": "19397",
+  "isResult": true,
+  "xG": {
+   "a": "0.0971459",
+   "h": "2.5349"
+  }
+ },
+ {
+  "a": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "datetime": "2022-09-17 13:30:00",
+  "forecast": {
+   "d": "0.2392",
+   "l": "0.424",
+   "w": "0.3368"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "id": "19398",
+  "isResult": true,
+  "xG": {
+   "a": "2.02218",
+   "h": "1.82302"
+  }
+ },
+ {
+  "a": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "datetime": "2022-09-17 13:30:00",
+  "forecast": {
+   "d": "0.2262",
+   "l": "0.2876",
+   "w": "0.4862"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "id": "19399",
+  "isResult": true,
+  "xG": {
+   "a": "1.82063",
+   "h": "2.20918"
+  }
+ },
+ {
+  "a": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "datetime": "2022-09-17 13:30:00",
+  "forecast": {
+   "d": "0.2658",
+   "l": "0.5658",
+   "w": "0.1684"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "id": "19400",
+  "isResult": true,
+  "xG": {
+   "a": "1.49027",
+   "h": "0.773751"
+  }
+ },
+ {
+  "a": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "datetime": "2022-09-17 16:30:00",
+  "forecast": {
+   "d": "0.1462",
+   "l": "0.0993",
+   "w": "0.7545"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "id": "19401",
+  "isResult": true,
+  "xG": {
+   "a": "1.25609",
+   "h": "2.97746"
+  }
+ },
+ {
+  "a": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "datetime": "2022-09-18 13:30:00",
+  "forecast": {
+   "d": "0.326",
+   "l": "0.0737",
+   "w": "0.6003"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "id": "19402",
+  "isResult": true,
+  "xG": {
+   "a": "0.218049",
+   "h": "1.07406"
+  }
+ },
+ {
+  "a": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "datetime": "2022-09-18 15:30:00",
+  "forecast": {
+   "d": "0.1716",
+   "l": "0.7877",
+   "w": "0.0407"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "id": "19403",
+  "isResult": true,
+  "xG": {
+   "a": "1.8077",
+   "h": "0.292667"
+  }
+ },
+ {
+  "a": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "datetime": "2022-09-18 17:30:00",
+  "forecast": {
+   "d": "0.3846",
+   "l": "0.2871",
+   "w": "0.3283"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "id": "19404",
+  "isResult": true,
+  "xG": {
+   "a": "0.6761",
+   "h": "0.74318"
+  }
+ },
+ {
+  "a": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "datetime": "2022-09-30 18:30:00",
+  "forecast": {
+   "d": "0.2046",
+   "l": "0.1238",
+   "w": "0.6716"
+  },
+  "goals": {
+   "a": "0",
+   "h": "4"
+  },
+  "h": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "id": "19405",
+  "isResult": true,
+  "xG": {
+   "a": "0.940717",
+   "h": "2.13413"
+  }
+ },
+ {
+  "a": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "datetime": "2022-10-01 13:30:00",
+  "forecast": {
+   "d": "0.004",
+   "l": "0.0002",
+   "w": "0.9958"
+  },
+  "goals": {
+   "a": "0",
+   "h": "4"
+  },
+  "h": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "id": "19406",
+  "isResult": true,
+  "xG": {
+   "a": "0.146803",
+   "h": "4.21544"
+  }
+ },
+ {
+  "a": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "datetime": "2022-10-01 13:30:00",
+  "forecast": {
+   "d": "0.2803",
+   "l": "0.3194",
+   "w": "0.4003"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "id": "19407",
+  "isResult": true,
+  "xG": {
+   "a": "1.84485",
+   "h": "1.97161"
+  }
+ },
+ {
+  "a": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "datetime": "2022-10-01 13:30:00",
+  "forecast": {
+   "d": "0.2059",
+   "l": "0.4608",
+   "w": "0.3333"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "id": "19408",
+  "isResult": true,
+  "xG": {
+   "a": "2.46961",
+   "h": "2.1489"
+  }
+ },
+ {
+  "a": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "datetime": "2022-10-01 13:30:00",
+  "forecast": {
+   "d": "0.3223",
+   "l": "0.2156",
+   "w": "0.4621"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "id": "19409",
+  "isResult": true,
+  "xG": {
+   "a": "0.767128",
+   "h": "1.18241"
+  }
+ },
+ {
+  "a": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "datetime": "2022-10-01 13:30:00",
+  "forecast": {
+   "d": "0.2431",
+   "l": "0.5272",
+   "w": "0.2297"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "id": "19410",
+  "isResult": true,
+  "xG": {
+   "a": "2.34936",
+   "h": "1.75417"
+  }
+ },
+ {
+  "a": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "datetime": "2022-10-01 16:30:00",
+  "forecast": {
+   "d": "0.1785",
+   "l": "0.1833",
+   "w": "0.6382"
+  },
+  "goals": {
+   "a": "1",
+   "h": "5"
+  },
+  "h": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "id": "19413",
+  "isResult": true,
+  "xG": {
+   "a": "2.27257",
+   "h": "3.34501"
+  }
+ },
+ {
+  "a": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "datetime": "2022-10-02 13:30:00",
+  "forecast": {
+   "d": "0.2682",
+   "l": "0.5365",
+   "w": "0.1953"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "id": "19411",
+  "isResult": true,
+  "xG": {
+   "a": "1.60101",
+   "h": "0.958712"
+  }
+ },
+ {
+  "a": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "datetime": "2022-10-02 15:30:00",
+  "forecast": {
+   "d": "0.2515",
+   "l": "0.2245",
+   "w": "0.524"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "id": "19412",
+  "isResult": true,
+  "xG": {
+   "a": "1.48391",
+   "h": "2.0592"
+  }
+ },
+ {
+  "a": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "datetime": "2022-10-07 18:30:00",
+  "forecast": {
+   "d": "0.3038",
+   "l": "0.393",
+   "w": "0.3032"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "id": "19417",
+  "isResult": true,
+  "xG": {
+   "a": "1.43801",
+   "h": "1.30088"
+  }
+ },
+ {
+  "a": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "datetime": "2022-10-08 13:30:00",
+  "forecast": {
+   "d": "0.1009",
+   "l": "0.012",
+   "w": "0.8871"
+  },
+  "goals": {
+   "a": "0",
+   "h": "4"
+  },
+  "h": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "id": "19415",
+  "isResult": true,
+  "xG": {
+   "a": "0.139609",
+   "h": "2.06947"
+  }
+ },
+ {
+  "a": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "datetime": "2022-10-08 13:30:00",
+  "forecast": {
+   "d": "0.2592",
+   "l": "0.6075",
+   "w": "0.1333"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "id": "19416",
+  "isResult": true,
+  "xG": {
+   "a": "1.4696",
+   "h": "0.649518"
+  }
+ },
+ {
+  "a": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "datetime": "2022-10-08 13:30:00",
+  "forecast": {
+   "d": "0.3768",
+   "l": "0.3634",
+   "w": "0.2598"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "id": "19419",
+  "isResult": true,
+  "xG": {
+   "a": "0.78428",
+   "h": "0.649959"
+  }
+ },
+ {
+  "a": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "datetime": "2022-10-08 13:30:00",
+  "forecast": {
+   "d": "0.2622",
+   "l": "0.4423",
+   "w": "0.2955"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "id": "19420",
+  "isResult": true,
+  "xG": {
+   "a": "2.30655",
+   "h": "2.01628"
+  }
+ },
+ {
+  "a": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "datetime": "2022-10-08 16:30:00",
+  "forecast": {
+   "d": "0.287",
+   "l": "0.3102",
+   "w": "0.4028"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "id": "19414",
+  "isResult": true,
+  "xG": {
+   "a": "1.22934",
+   "h": "1.42928"
+  }
+ },
+ {
+  "a": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "datetime": "2022-10-09 13:30:00",
+  "forecast": {
+   "d": "0.2007",
+   "l": "0.0868",
+   "w": "0.7125"
+  },
+  "goals": {
+   "a": "2",
+   "h": "5"
+  },
+  "h": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "id": "19418",
+  "isResult": true,
+  "xG": {
+   "a": "1.45617",
+   "h": "2.72658"
+  }
+ },
+ {
+  "a": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "datetime": "2022-10-09 15:30:00",
+  "forecast": {
+   "d": "0.2835",
+   "l": "0.4944",
+   "w": "0.2221"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "id": "19422",
+  "isResult": true,
+  "xG": {
+   "a": "1.75899",
+   "h": "1.25889"
+  }
+ },
+ {
+  "a": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "datetime": "2022-10-09 17:30:00",
+  "forecast": {
+   "d": "0.3368",
+   "l": "0.221",
+   "w": "0.4422"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "id": "19421",
+  "isResult": true,
+  "xG": {
+   "a": "0.73441",
+   "h": "1.09713"
+  }
+ },
+ {
+  "a": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "datetime": "2022-10-14 18:30:00",
+  "forecast": {
+   "d": "0.0497",
+   "l": "0.9357",
+   "w": "0.0146"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "id": "19430",
+  "isResult": true,
+  "xG": {
+   "a": "3.51699",
+   "h": "0.697562"
+  }
+ },
+ {
+  "a": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "datetime": "2022-10-15 13:30:00",
+  "forecast": {
+   "d": "0.0129",
+   "l": "0.0029",
+   "w": "0.9842"
+  },
+  "goals": {
+   "a": "1",
+   "h": "5"
+  },
+  "h": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "id": "19427",
+  "isResult": true,
+  "xG": {
+   "a": "0.503272",
+   "h": "4.35761"
+  }
+ },
+ {
+  "a": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "datetime": "2022-10-15 13:30:00",
+  "forecast": {
+   "d": "0.2499",
+   "l": "0.1579",
+   "w": "0.5922"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "id": "19428",
+  "isResult": true,
+  "xG": {
+   "a": "0.895157",
+   "h": "1.74427"
+  }
+ },
+ {
+  "a": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "datetime": "2022-10-15 13:30:00",
+  "forecast": {
+   "d": "0.2178",
+   "l": "0.1912",
+   "w": "0.591"
+  },
+  "goals": {
+   "a": "1",
+   "h": "4"
+  },
+  "h": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "id": "19429",
+  "isResult": true,
+  "xG": {
+   "a": "1.52762",
+   "h": "2.40775"
+  }
+ },
+ {
+  "a": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "datetime": "2022-10-15 13:30:00",
+  "forecast": {
+   "d": "0.292",
+   "l": "0.3293",
+   "w": "0.3787"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "id": "19431",
+  "isResult": true,
+  "xG": {
+   "a": "1.10835",
+   "h": "1.20268"
+  }
+ },
+ {
+  "a": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "datetime": "2022-10-15 16:30:00",
+  "forecast": {
+   "d": "0.2264",
+   "l": "0.1655",
+   "w": "0.6081"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "id": "19424",
+  "isResult": true,
+  "xG": {
+   "a": "2.42152",
+   "h": "3.30191"
+  }
+ },
+ {
+  "a": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "datetime": "2022-10-16 13:30:00",
+  "forecast": {
+   "d": "0.1978",
+   "l": "0.034",
+   "w": "0.7682"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "id": "19426",
+  "isResult": true,
+  "xG": {
+   "a": "0.207517",
+   "h": "1.54576"
+  }
+ },
+ {
+  "a": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "datetime": "2022-10-16 15:30:00",
+  "forecast": {
+   "d": "0.2727",
+   "l": "0.1654",
+   "w": "0.5619"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "id": "19425",
+  "isResult": true,
+  "xG": {
+   "a": "0.797656",
+   "h": "1.47199"
+  }
+ },
+ {
+  "a": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "datetime": "2022-10-16 17:30:00",
+  "forecast": {
+   "d": "0.1441",
+   "l": "0.0344",
+   "w": "0.8215"
+  },
+  "goals": {
+   "a": "0",
+   "h": "5"
+  },
+  "h": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "id": "19423",
+  "isResult": true,
+  "xG": {
+   "a": "0.328313",
+   "h": "2.07998"
+  }
+ },
+ {
+  "a": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "datetime": "2022-10-21 18:30:00",
+  "forecast": {
+   "d": "0.1904",
+   "l": "0.0911",
+   "w": "0.7185"
+  },
+  "goals": {
+   "a": "0",
+   "h": "5"
+  },
+  "h": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "id": "19435",
+  "isResult": true,
+  "xG": {
+   "a": "0.930558",
+   "h": "2.21787"
+  }
+ },
+ {
+  "a": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "datetime": "2022-10-22 13:30:00",
+  "forecast": {
+   "d": "0.1455",
+   "l": "0.0662",
+   "w": "0.7883"
+  },
+  "goals": {
+   "a": "0",
+   "h": "5"
+  },
+  "h": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "id": "19432",
+  "isResult": true,
+  "xG": {
+   "a": "0.989781",
+   "h": "2.63936"
+  }
+ },
+ {
+  "a": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "datetime": "2022-10-22 13:30:00",
+  "forecast": {
+   "d": "0.1851",
+   "l": "0.0714",
+   "w": "0.7435"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "id": "19433",
+  "isResult": true,
+  "xG": {
+   "a": "1.15093",
+   "h": "2.36747"
+  }
+ },
+ {
+  "a": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "datetime": "2022-10-22 13:30:00",
+  "forecast": {
+   "d": "0.0421",
+   "l": "0.0094",
+   "w": "0.9485"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "id": "19434",
+  "isResult": true,
+  "xG": {
+   "a": "0.393506",
+   "h": "3.33695"
+  }
+ },
+ {
+  "a": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "datetime": "2022-10-22 13:30:00",
+  "forecast": {
+   "d": "0.0794",
+   "l": "0.8939",
+   "w": "0.0267"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "id": "19436",
+  "isResult": true,
+  "xG": {
+   "a": "3.12799",
+   "h": "0.766181"
+  }
+ },
+ {
+  "a": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "datetime": "2022-10-22 13:30:00",
+  "forecast": {
+   "d": "0.2495",
+   "l": "0.4893",
+   "w": "0.2612"
+  },
+  "goals": {
+   "a": "3",
+   "h": "3"
+  },
+  "h": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "id": "19439",
+  "isResult": true,
+  "xG": {
+   "a": "2.38989",
+   "h": "1.91261"
+  }
+ },
+ {
+  "a": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "datetime": "2022-10-22 16:30:00",
+  "forecast": {
+   "d": "0.267",
+   "l": "0.4771",
+   "w": "0.2559"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "id": "19437",
+  "isResult": true,
+  "xG": {
+   "a": "1.80175",
+   "h": "1.36544"
+  }
+ },
+ {
+  "a": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "datetime": "2022-10-23 13:30:00",
+  "forecast": {
+   "d": "0.3557",
+   "l": "0.2912",
+   "w": "0.3531"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "id": "19438",
+  "isResult": true,
+  "xG": {
+   "a": "1.00303",
+   "h": "1.11544"
+  }
+ },
+ {
+  "a": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "datetime": "2022-10-23 15:30:00",
+  "forecast": {
+   "d": "0.3305",
+   "l": "0.1653",
+   "w": "0.5042"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "id": "19440",
+  "isResult": true,
+  "xG": {
+   "a": "0.522522",
+   "h": "1.05778"
+  }
+ },
+ {
+  "a": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "datetime": "2022-10-28 18:30:00",
+  "forecast": {
+   "d": "0.2512",
+   "l": "0.1186",
+   "w": "0.6302"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "id": "19449",
+  "isResult": true,
+  "xG": {
+   "a": "0.572257",
+   "h": "1.53976"
+  }
+ },
+ {
+  "a": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "datetime": "2022-10-29 13:30:00",
+  "forecast": {
+   "d": "0.0839",
+   "l": "0.0398",
+   "w": "0.8763"
+  },
+  "goals": {
+   "a": "2",
+   "h": "6"
+  },
+  "h": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "id": "19441",
+  "isResult": true,
+  "xG": {
+   "a": "1.78114",
+   "h": "4.33442"
+  }
+ },
+ {
+  "a": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "datetime": "2022-10-29 13:30:00",
+  "forecast": {
+   "d": "0.1624",
+   "l": "0.0188",
+   "w": "0.8188"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "id": "19442",
+  "isResult": true,
+  "xG": {
+   "a": "0.141987",
+   "h": "1.63234"
+  }
+ },
+ {
+  "a": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "datetime": "2022-10-29 13:30:00",
+  "forecast": {
+   "d": "0.0925",
+   "l": "0.0324",
+   "w": "0.8751"
+  },
+  "goals": {
+   "a": "0",
+   "h": "4"
+  },
+  "h": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "id": "19446",
+  "isResult": true,
+  "xG": {
+   "a": "0.444056",
+   "h": "2.58922"
+  }
+ },
+ {
+  "a": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "datetime": "2022-10-29 13:30:00",
+  "forecast": {
+   "d": "0.0862",
+   "l": "0.0367",
+   "w": "0.8771"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "id": "19447",
+  "isResult": true,
+  "xG": {
+   "a": "0.754506",
+   "h": "3.12054"
+  }
+ },
+ {
+  "a": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "datetime": "2022-10-29 16:30:00",
+  "forecast": {
+   "d": "0.2435",
+   "l": "0.1344",
+   "w": "0.6221"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "id": "19445",
+  "isResult": true,
+  "xG": {
+   "a": "0.730506",
+   "h": "1.71027"
+  }
+ },
+ {
+  "a": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "datetime": "2022-10-30 14:30:00",
+  "forecast": {
+   "d": "0.2938",
+   "l": "0.2774",
+   "w": "0.4288"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "id": "19443",
+  "isResult": true,
+  "xG": {
+   "a": "1.01241",
+   "h": "1.28667"
+  }
+ },
+ {
+  "a": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "datetime": "2022-10-30 16:30:00",
+  "forecast": {
+   "d": "0.1708",
+   "l": "0.7489",
+   "w": "0.0803"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "id": "19448",
+  "isResult": true,
+  "xG": {
+   "a": "2.25332",
+   "h": "0.841369"
+  }
+ },
+ {
+  "a": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "datetime": "2022-10-30 18:30:00",
+  "forecast": {
+   "d": "0.3647",
+   "l": "0.2677",
+   "w": "0.3676"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "id": "19444",
+  "isResult": true,
+  "xG": {
+   "a": "0.778986",
+   "h": "0.979672"
+  }
+ },
+ {
+  "a": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "datetime": "2022-11-04 18:30:00",
+  "forecast": {
+   "d": "0.2771",
+   "l": "0.3999",
+   "w": "0.323"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "id": "19453",
+  "isResult": true,
+  "xG": {
+   "a": "1.46207",
+   "h": "1.33462"
+  }
+ },
+ {
+  "a": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "datetime": "2022-11-05 14:30:00",
+  "forecast": {
+   "d": "0.3099",
+   "l": "0.2117",
+   "w": "0.4784"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "id": "19451",
+  "isResult": true,
+  "xG": {
+   "a": "0.809102",
+   "h": "1.24483"
+  }
+ },
+ {
+  "a": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "datetime": "2022-11-05 14:30:00",
+  "forecast": {
+   "d": "0.2648",
+   "l": "0.4939",
+   "w": "0.2413"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "id": "19452",
+  "isResult": true,
+  "xG": {
+   "a": "1.66347",
+   "h": "1.16126"
+  }
+ },
+ {
+  "a": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "datetime": "2022-11-05 14:30:00",
+  "forecast": {
+   "d": "0.3081",
+   "l": "0.4097",
+   "w": "0.2822"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "id": "19454",
+  "isResult": true,
+  "xG": {
+   "a": "1.31556",
+   "h": "1.07354"
+  }
+ },
+ {
+  "a": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "datetime": "2022-11-05 14:30:00",
+  "forecast": {
+   "d": "0.2266",
+   "l": "0.6749",
+   "w": "0.0985"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "id": "19455",
+  "isResult": true,
+  "xG": {
+   "a": "2.23326",
+   "h": "1.09255"
+  }
+ },
+ {
+  "a": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "datetime": "2022-11-05 14:30:00",
+  "forecast": {
+   "d": "0.2481",
+   "l": "0.0708",
+   "w": "0.6811"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "id": "19457",
+  "isResult": true,
+  "xG": {
+   "a": "0.496214",
+   "h": "1.43174"
+  }
+ },
+ {
+  "a": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "datetime": "2022-11-05 17:30:00",
+  "forecast": {
+   "d": "0.2863",
+   "l": "0.3647",
+   "w": "0.349"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "id": "19456",
+  "isResult": true,
+  "xG": {
+   "a": "1.35128",
+   "h": "1.33073"
+  }
+ },
+ {
+  "a": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "datetime": "2022-11-06 14:30:00",
+  "forecast": {
+   "d": "0.1514",
+   "l": "0.027",
+   "w": "0.8216"
+  },
+  "goals": {
+   "a": "0",
+   "h": "5"
+  },
+  "h": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "id": "19458",
+  "isResult": true,
+  "xG": {
+   "a": "0.231839",
+   "h": "1.7807"
+  }
+ },
+ {
+  "a": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "datetime": "2022-11-06 16:30:00",
+  "forecast": {
+   "d": "0.2957",
+   "l": "0.2276",
+   "w": "0.4767"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "id": "19450",
+  "isResult": true,
+  "xG": {
+   "a": "0.995484",
+   "h": "1.46258"
+  }
+ },
+ {
+  "a": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "datetime": "2022-11-08 17:30:00",
+  "forecast": {
+   "d": "0.1438",
+   "l": "0.1053",
+   "w": "0.7509"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "id": "19464",
+  "isResult": true,
+  "xG": {
+   "a": "1.29685",
+   "h": "2.9101"
+  }
+ },
+ {
+  "a": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "datetime": "2022-11-08 19:30:00",
+  "forecast": {
+   "d": "0.012",
+   "l": "0.0024",
+   "w": "0.9856"
+  },
+  "goals": {
+   "a": "1",
+   "h": "6"
+  },
+  "h": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "id": "19459",
+  "isResult": true,
+  "xG": {
+   "a": "1.44045",
+   "h": "5.72728"
+  }
+ },
+ {
+  "a": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "datetime": "2022-11-08 19:30:00",
+  "forecast": {
+   "d": "0.2513",
+   "l": "0.1175",
+   "w": "0.6312"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "id": "19465",
+  "isResult": true,
+  "xG": {
+   "a": "0.766603",
+   "h": "1.68574"
+  }
+ },
+ {
+  "a": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "datetime": "2022-11-08 19:30:00",
+  "forecast": {
+   "d": "0.2155",
+   "l": "0.1675",
+   "w": "0.617"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "id": "19466",
+  "isResult": true,
+  "xG": {
+   "a": "1.05233",
+   "h": "2.00216"
+  }
+ },
+ {
+  "a": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "datetime": "2022-11-09 17:30:00",
+  "forecast": {
+   "d": "0.3021",
+   "l": "0.2664",
+   "w": "0.4315"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "id": "19462",
+  "isResult": true,
+  "xG": {
+   "a": "1.04474",
+   "h": "1.38128"
+  }
+ },
+ {
+  "a": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "datetime": "2022-11-09 19:30:00",
+  "forecast": {
+   "d": "0.0139",
+   "l": "0.0014",
+   "w": "0.9847"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "id": "19460",
+  "isResult": true,
+  "xG": {
+   "a": "0.148116",
+   "h": "3.28873"
+  }
+ },
+ {
+  "a": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "datetime": "2022-11-09 19:30:00",
+  "forecast": {
+   "d": "0.1547",
+   "l": "0.0343",
+   "w": "0.811"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "id": "19461",
+  "isResult": true,
+  "xG": {
+   "a": "0.29444",
+   "h": "1.84012"
+  }
+ },
+ {
+  "a": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "datetime": "2022-11-09 19:30:00",
+  "forecast": {
+   "d": "0.096",
+   "l": "0.0486",
+   "w": "0.8554"
+  },
+  "goals": {
+   "a": "2",
+   "h": "4"
+  },
+  "h": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "id": "19463",
+  "isResult": true,
+  "xG": {
+   "a": "1.52829",
+   "h": "3.78193"
+  }
+ },
+ {
+  "a": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "datetime": "2022-11-09 19:30:00",
+  "forecast": {
+   "d": "0.1788",
+   "l": "0.0818",
+   "w": "0.7394"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "id": "19467",
+  "isResult": true,
+  "xG": {
+   "a": "0.60888",
+   "h": "1.97962"
+  }
+ },
+ {
+  "a": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "datetime": "2022-11-11 19:30:00",
+  "forecast": {
+   "d": "0.1813",
+   "l": "0.6269",
+   "w": "0.1918"
+  },
+  "goals": {
+   "a": "2",
+   "h": "4"
+  },
+  "h": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "id": "19472",
+  "isResult": true,
+  "xG": {
+   "a": "3.6823",
+   "h": "2.64014"
+  }
+ },
+ {
+  "a": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "datetime": "2022-11-12 14:30:00",
+  "forecast": {
+   "d": "0.1277",
+   "l": "0.0239",
+   "w": "0.8484"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "id": "19468",
+  "isResult": true,
+  "xG": {
+   "a": "0.277105",
+   "h": "1.88305"
+  }
+ },
+ {
+  "a": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "datetime": "2022-11-12 14:30:00",
+  "forecast": {
+   "d": "0.2848",
+   "l": "0.2423",
+   "w": "0.4729"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "id": "19471",
+  "isResult": true,
+  "xG": {
+   "a": "0.94899",
+   "h": "1.42352"
+  }
+ },
+ {
+  "a": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "datetime": "2022-11-12 14:30:00",
+  "forecast": {
+   "d": "0.1942",
+   "l": "0.1073",
+   "w": "0.6985"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "id": "19473",
+  "isResult": true,
+  "xG": {
+   "a": "1.13531",
+   "h": "2.34583"
+  }
+ },
+ {
+  "a": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "datetime": "2022-11-12 14:30:00",
+  "forecast": {
+   "d": "0.2663",
+   "l": "0.3226",
+   "w": "0.4111"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "id": "19474",
+  "isResult": true,
+  "xG": {
+   "a": "1.93705",
+   "h": "2.13441"
+  }
+ },
+ {
+  "a": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "datetime": "2022-11-12 14:30:00",
+  "forecast": {
+   "d": "0.2285",
+   "l": "0.6631",
+   "w": "0.1084"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "id": "19476",
+  "isResult": true,
+  "xG": {
+   "a": "2.1323",
+   "h": "1.03468"
+  }
+ },
+ {
+  "a": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "datetime": "2022-11-12 17:30:00",
+  "forecast": {
+   "d": "0.2604",
+   "l": "0.5704",
+   "w": "0.1692"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "id": "19475",
+  "isResult": true,
+  "xG": {
+   "a": "1.65233",
+   "h": "0.891772"
+  }
+ },
+ {
+  "a": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "datetime": "2022-11-13 14:30:00",
+  "forecast": {
+   "d": "0.3609",
+   "l": "0.2019",
+   "w": "0.4372"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "id": "19470",
+  "isResult": true,
+  "xG": {
+   "a": "1.39797",
+   "h": "1.78634"
+  }
+ },
+ {
+  "a": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "datetime": "2022-11-13 16:30:00",
+  "forecast": {
+   "d": "0.2337",
+   "l": "0.0942",
+   "w": "0.6721"
+  },
+  "goals": {
+   "a": "1",
+   "h": "4"
+  },
+  "h": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "id": "19469",
+  "isResult": true,
+  "xG": {
+   "a": "1.65553",
+   "h": "2.69015"
+  }
+ },
+ {
+  "a": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "datetime": "2023-01-20 19:30:00",
+  "forecast": {
+   "d": "0.3888",
+   "l": "0.2227",
+   "w": "0.3885"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "id": "19478",
+  "isResult": true,
+  "xG": {
+   "a": "0.813529",
+   "h": "1.03072"
+  }
+ },
+ {
+  "a": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "datetime": "2023-01-21 14:30:00",
+  "forecast": {
+   "d": "0.1527",
+   "l": "0.0763",
+   "w": "0.771"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "id": "19479",
+  "isResult": true,
+  "xG": {
+   "a": "0.966541",
+   "h": "2.48055"
+  }
+ },
+ {
+  "a": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "datetime": "2023-01-21 14:30:00",
+  "forecast": {
+   "d": "0.2184",
+   "l": "0.5476",
+   "w": "0.234"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "id": "19482",
+  "isResult": true,
+  "xG": {
+   "a": "2.37825",
+   "h": "1.68109"
+  }
+ },
+ {
+  "a": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "datetime": "2023-01-21 14:30:00",
+  "forecast": {
+   "d": "0.1015",
+   "l": "0.04",
+   "w": "0.8585"
+  },
+  "goals": {
+   "a": "0",
+   "h": "6"
+  },
+  "h": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "id": "19483",
+  "isResult": true,
+  "xG": {
+   "a": "0.808738",
+   "h": "2.88084"
+  }
+ },
+ {
+  "a": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "datetime": "2023-01-21 14:30:00",
+  "forecast": {
+   "d": "0.2296",
+   "l": "0.1236",
+   "w": "0.6468"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "id": "19484",
+  "isResult": true,
+  "xG": {
+   "a": "0.732458",
+   "h": "1.67446"
+  }
+ },
+ {
+  "a": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "datetime": "2023-01-21 14:30:00",
+  "forecast": {
+   "d": "0.2751",
+   "l": "0.2375",
+   "w": "0.4874"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "id": "19485",
+  "isResult": true,
+  "xG": {
+   "a": "1.38032",
+   "h": "1.8803"
+  }
+ },
+ {
+  "a": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "datetime": "2023-01-21 17:30:00",
+  "forecast": {
+   "d": "0.0401",
+   "l": "0.0068",
+   "w": "0.9531"
+  },
+  "goals": {
+   "a": "1",
+   "h": "7"
+  },
+  "h": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "id": "19480",
+  "isResult": true,
+  "xG": {
+   "a": "0.252782",
+   "h": "3.1904"
+  }
+ },
+ {
+  "a": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "datetime": "2023-01-22 14:30:00",
+  "forecast": {
+   "d": "0.1619",
+   "l": "0.1638",
+   "w": "0.6743"
+  },
+  "goals": {
+   "a": "3",
+   "h": "4"
+  },
+  "h": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "id": "19477",
+  "isResult": true,
+  "xG": {
+   "a": "1.92914",
+   "h": "3.27016"
+  }
+ },
+ {
+  "a": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "datetime": "2023-01-22 16:30:00",
+  "forecast": {
+   "d": "0.2553",
+   "l": "0.5517",
+   "w": "0.193"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "id": "19481",
+  "isResult": true,
+  "xG": {
+   "a": "1.68471",
+   "h": "0.993895"
+  }
+ },
+ {
+  "a": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "datetime": "2023-01-24 17:30:00",
+  "forecast": {
+   "d": "0.0181",
+   "l": "0.9786",
+   "w": "0.0033"
+  },
+  "goals": {
+   "a": "6",
+   "h": "1"
+  },
+  "h": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "id": "19493",
+  "isResult": true,
+  "xG": {
+   "a": "4.23438",
+   "h": "0.503614"
+  }
+ },
+ {
+  "a": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "datetime": "2023-01-24 19:30:00",
+  "forecast": {
+   "d": "0.3012",
+   "l": "0.1676",
+   "w": "0.5312"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "id": "19486",
+  "isResult": true,
+  "xG": {
+   "a": "0.782641",
+   "h": "1.4893"
+  }
+ },
+ {
+  "a": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "datetime": "2023-01-24 19:30:00",
+  "forecast": {
+   "d": "0.212",
+   "l": "0.1",
+   "w": "0.688"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "id": "19490",
+  "isResult": true,
+  "xG": {
+   "a": "0.658333",
+   "h": "1.82139"
+  }
+ },
+ {
+  "a": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "datetime": "2023-01-24 19:30:00",
+  "forecast": {
+   "d": "0.0781",
+   "l": "0.9028",
+   "w": "0.0191"
+  },
+  "goals": {
+   "a": "5",
+   "h": "0"
+  },
+  "h": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "id": "19492",
+  "isResult": true,
+  "xG": {
+   "a": "2.94882",
+   "h": "0.572863"
+  }
+ },
+ {
+  "a": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "datetime": "2023-01-25 17:30:00",
+  "forecast": {
+   "d": "0.3009",
+   "l": "0.4461",
+   "w": "0.253"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "id": "19489",
+  "isResult": true,
+  "xG": {
+   "a": "1.15874",
+   "h": "0.84968"
+  }
+ },
+ {
+  "a": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "datetime": "2023-01-25 19:30:00",
+  "forecast": {
+   "d": "0.2142",
+   "l": "0.1062",
+   "w": "0.6796"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "id": "19487",
+  "isResult": true,
+  "xG": {
+   "a": "0.821758",
+   "h": "1.8906"
+  }
+ },
+ {
+  "a": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "datetime": "2023-01-25 19:30:00",
+  "forecast": {
+   "d": "0.1558",
+   "l": "0.0283",
+   "w": "0.8159"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "id": "19488",
+  "isResult": true,
+  "xG": {
+   "a": "0.261869",
+   "h": "1.78609"
+  }
+ },
+ {
+  "a": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "datetime": "2023-01-25 19:30:00",
+  "forecast": {
+   "d": "0.3844",
+   "l": "0.214",
+   "w": "0.4016"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "id": "19491",
+  "isResult": true,
+  "xG": {
+   "a": "0.512384",
+   "h": "0.869679"
+  }
+ },
+ {
+  "a": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "datetime": "2023-01-25 19:30:00",
+  "forecast": {
+   "d": "0.3288",
+   "l": "0.4849",
+   "w": "0.1863"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "id": "19494",
+  "isResult": true,
+  "xG": {
+   "a": "1.05412",
+   "h": "0.566574"
+  }
+ },
+ {
+  "a": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "datetime": "2023-01-27 19:30:00",
+  "forecast": {
+   "d": "0.2704",
+   "l": "0.4382",
+   "w": "0.2914"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "id": "19497",
+  "isResult": true,
+  "xG": {
+   "a": "1.86965",
+   "h": "1.59146"
+  }
+ },
+ {
+  "a": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "datetime": "2023-01-28 14:30:00",
+  "forecast": {
+   "d": "0.2682",
+   "l": "0.3914",
+   "w": "0.3404"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "id": "19498",
+  "isResult": true,
+  "xG": {
+   "a": "2.00438",
+   "h": "1.92228"
+  }
+ },
+ {
+  "a": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "datetime": "2023-01-28 14:30:00",
+  "forecast": {
+   "d": "0.108",
+   "l": "0.0449",
+   "w": "0.8471"
+  },
+  "goals": {
+   "a": "2",
+   "h": "5"
+  },
+  "h": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "id": "19499",
+  "isResult": true,
+  "xG": {
+   "a": "0.912111",
+   "h": "2.86841"
+  }
+ },
+ {
+  "a": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "datetime": "2023-01-28 14:30:00",
+  "forecast": {
+   "d": "0.2896",
+   "l": "0.3144",
+   "w": "0.396"
+  },
+  "goals": {
+   "a": "4",
+   "h": "1"
+  },
+  "h": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "id": "19500",
+  "isResult": true,
+  "xG": {
+   "a": "1.79941",
+   "h": "1.96043"
+  }
+ },
+ {
+  "a": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "datetime": "2023-01-28 14:30:00",
+  "forecast": {
+   "d": "0.3589",
+   "l": "0.485",
+   "w": "0.1561"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "id": "19501",
+  "isResult": true,
+  "xG": {
+   "a": "0.884274",
+   "h": "0.46457"
+  }
+ },
+ {
+  "a": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "datetime": "2023-01-28 14:30:00",
+  "forecast": {
+   "d": "0.2248",
+   "l": "0.0952",
+   "w": "0.68"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "id": "19503",
+  "isResult": true,
+  "xG": {
+   "a": "0.696581",
+   "h": "1.80059"
+  }
+ },
+ {
+  "a": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "datetime": "2023-01-28 17:30:00",
+  "forecast": {
+   "d": "0.2923",
+   "l": "0.2135",
+   "w": "0.4942"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "id": "19495",
+  "isResult": true,
+  "xG": {
+   "a": "0.882875",
+   "h": "1.38005"
+  }
+ },
+ {
+  "a": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "datetime": "2023-01-29 14:30:00",
+  "forecast": {
+   "d": "0.3124",
+   "l": "0.0924",
+   "w": "0.5952"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "id": "19502",
+  "isResult": true,
+  "xG": {
+   "a": "0.329216",
+   "h": "1.11694"
+  }
+ },
+ {
+  "a": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "datetime": "2023-01-29 16:30:00",
+  "forecast": {
+   "d": "0.2513",
+   "l": "0.1606",
+   "w": "0.5881"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "id": "19496",
+  "isResult": true,
+  "xG": {
+   "a": "0.977834",
+   "h": "1.84499"
+  }
+ },
+ {
+  "a": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "datetime": "2023-02-03 19:30:00",
+  "forecast": {
+   "d": "0.3517",
+   "l": "0.1644",
+   "w": "0.4839"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "id": "19511",
+  "isResult": true,
+  "xG": {
+   "a": "0.461505",
+   "h": "0.924397"
+  }
+ },
+ {
+  "a": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "datetime": "2023-02-04 14:30:00",
+  "forecast": {
+   "d": "0.1338",
+   "l": "0.0259",
+   "w": "0.8403"
+  },
+  "goals": {
+   "a": "1",
+   "h": "5"
+  },
+  "h": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "id": "19504",
+  "isResult": true,
+  "xG": {
+   "a": "0.243795",
+   "h": "2.10421"
+  }
+ },
+ {
+  "a": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "datetime": "2023-02-04 14:30:00",
+  "forecast": {
+   "d": "0.401",
+   "l": "0.3429",
+   "w": "0.2561"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "id": "19505",
+  "isResult": true,
+  "xG": {
+   "a": "1.09283",
+   "h": "0.978155"
+  }
+ },
+ {
+  "a": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "datetime": "2023-02-04 14:30:00",
+  "forecast": {
+   "d": "0.3492",
+   "l": "0.4499",
+   "w": "0.2009"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "id": "19506",
+  "isResult": true,
+  "xG": {
+   "a": "1.00025",
+   "h": "0.607143"
+  }
+ },
+ {
+  "a": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "datetime": "2023-02-04 14:30:00",
+  "forecast": {
+   "d": "0.2038",
+   "l": "0.1235",
+   "w": "0.6727"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "id": "19508",
+  "isResult": true,
+  "xG": {
+   "a": "0.93959",
+   "h": "2.00234"
+  }
+ },
+ {
+  "a": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "datetime": "2023-02-04 14:30:00",
+  "forecast": {
+   "d": "0.1247",
+   "l": "0.0463",
+   "w": "0.829"
+  },
+  "goals": {
+   "a": "2",
+   "h": "5"
+  },
+  "h": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "id": "19510",
+  "isResult": true,
+  "xG": {
+   "a": "0.82308",
+   "h": "2.74719"
+  }
+ },
+ {
+  "a": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "datetime": "2023-02-04 17:30:00",
+  "forecast": {
+   "d": "0.3033",
+   "l": "0.3612",
+   "w": "0.3355"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "id": "19507",
+  "isResult": true,
+  "xG": {
+   "a": "1.18272",
+   "h": "1.12913"
+  }
+ },
+ {
+  "a": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "datetime": "2023-02-05 14:30:00",
+  "forecast": {
+   "d": "0.2303",
+   "l": "0.0928",
+   "w": "0.6769"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "id": "19512",
+  "isResult": true,
+  "xG": {
+   "a": "0.45062",
+   "h": "1.48817"
+  }
+ },
+ {
+  "a": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "datetime": "2023-02-05 16:30:00",
+  "forecast": {
+   "d": "0.1378",
+   "l": "0.0492",
+   "w": "0.813"
+  },
+  "goals": {
+   "a": "4",
+   "h": "2"
+  },
+  "h": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "id": "19509",
+  "isResult": true,
+  "xG": {
+   "a": "0.568665",
+   "h": "2.39463"
+  }
+ },
+ {
+  "a": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "datetime": "2023-02-10 19:30:00",
+  "forecast": {
+   "d": "0.2903",
+   "l": "0.4847",
+   "w": "0.225"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "id": "19520",
+  "isResult": true,
+  "xG": {
+   "a": "1.39713",
+   "h": "0.999355"
+  }
+ },
+ {
+  "a": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "datetime": "2023-02-11 14:30:00",
+  "forecast": {
+   "d": "0.0085",
+   "l": "0.0013",
+   "w": "0.9902"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "id": "19513",
+  "isResult": true,
+  "xG": {
+   "a": "0.242356",
+   "h": "4.37602"
+  }
+ },
+ {
+  "a": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "datetime": "2023-02-11 14:30:00",
+  "forecast": {
+   "d": "0.1825",
+   "l": "0.095",
+   "w": "0.7225"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "id": "19515",
+  "isResult": true,
+  "xG": {
+   "a": "1.02739",
+   "h": "2.21054"
+  }
+ },
+ {
+  "a": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "datetime": "2023-02-11 14:30:00",
+  "forecast": {
+   "d": "0.0754",
+   "l": "0.0351",
+   "w": "0.8895"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "id": "19517",
+  "isResult": true,
+  "xG": {
+   "a": "1.45453",
+   "h": "4.00745"
+  }
+ },
+ {
+  "a": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "datetime": "2023-02-11 14:30:00",
+  "forecast": {
+   "d": "0.2716",
+   "l": "0.5617",
+   "w": "0.1667"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "id": "19518",
+  "isResult": true,
+  "xG": {
+   "a": "1.47655",
+   "h": "0.781599"
+  }
+ },
+ {
+  "a": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "datetime": "2023-02-11 14:30:00",
+  "forecast": {
+   "d": "0.0994",
+   "l": "0.8688",
+   "w": "0.0318"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "id": "19521",
+  "isResult": true,
+  "xG": {
+   "a": "2.66556",
+   "h": "0.587473"
+  }
+ },
+ {
+  "a": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "datetime": "2023-02-11 17:30:00",
+  "forecast": {
+   "d": "0.3882",
+   "l": "0.3651",
+   "w": "0.2467"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "id": "19514",
+  "isResult": true,
+  "xG": {
+   "a": "1.04126",
+   "h": "0.891399"
+  }
+ },
+ {
+  "a": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "datetime": "2023-02-12 14:30:00",
+  "forecast": {
+   "d": "0.0748",
+   "l": "0.0178",
+   "w": "0.9074"
+  },
+  "goals": {
+   "a": "1",
+   "h": "4"
+  },
+  "h": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "id": "19519",
+  "isResult": true,
+  "xG": {
+   "a": "0.421257",
+   "h": "2.64788"
+  }
+ },
+ {
+  "a": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "datetime": "2023-02-12 16:30:00",
+  "forecast": {
+   "d": "0.1653",
+   "l": "0.0408",
+   "w": "0.7939"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "id": "19516",
+  "isResult": true,
+  "xG": {
+   "a": "0.368809",
+   "h": "1.72186"
+  }
+ },
+ {
+  "a": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "datetime": "2023-02-17 19:30:00",
+  "forecast": {
+   "d": "0.2084",
+   "l": "0.047",
+   "w": "0.7446"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "id": "19529",
+  "isResult": true,
+  "xG": {
+   "a": "0.446218",
+   "h": "1.48158"
+  }
+ },
+ {
+  "a": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "datetime": "2023-02-18 14:30:00",
+  "forecast": {
+   "d": "0.2043",
+   "l": "0.1609",
+   "w": "0.6348"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "id": "19525",
+  "isResult": true,
+  "xG": {
+   "a": "1.22226",
+   "h": "2.26574"
+  }
+ },
+ {
+  "a": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "datetime": "2023-02-18 14:30:00",
+  "forecast": {
+   "d": "0.0441",
+   "l": "0.9482",
+   "w": "0.0077"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "id": "19527",
+  "isResult": true,
+  "xG": {
+   "a": "3.04805",
+   "h": "0.26411"
+  }
+ },
+ {
+  "a": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "datetime": "2023-02-18 14:30:00",
+  "forecast": {
+   "d": "0.2079",
+   "l": "0.617",
+   "w": "0.1751"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "id": "19528",
+  "isResult": true,
+  "xG": {
+   "a": "2.39926",
+   "h": "1.40839"
+  }
+ },
+ {
+  "a": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "datetime": "2023-02-18 14:30:00",
+  "forecast": {
+   "d": "0.2028",
+   "l": "0.0744",
+   "w": "0.7228"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "id": "19530",
+  "isResult": true,
+  "xG": {
+   "a": "0.452073",
+   "h": "1.69842"
+  }
+ },
+ {
+  "a": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "datetime": "2023-02-18 17:30:00",
+  "forecast": {
+   "d": "0.0925",
+   "l": "0.0129",
+   "w": "0.8946"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "id": "19526",
+  "isResult": true,
+  "xG": {
+   "a": "0.150794",
+   "h": "2.08148"
+  }
+ },
+ {
+  "a": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "datetime": "2023-02-19 14:30:00",
+  "forecast": {
+   "d": "0.3805",
+   "l": "0.1436",
+   "w": "0.4759"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "id": "19524",
+  "isResult": true,
+  "xG": {
+   "a": "0.385916",
+   "h": "0.827192"
+  }
+ },
+ {
+  "a": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "datetime": "2023-02-19 16:30:00",
+  "forecast": {
+   "d": "0.217",
+   "l": "0.1597",
+   "w": "0.6233"
+  },
+  "goals": {
+   "a": "1",
+   "h": "4"
+  },
+  "h": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "id": "19522",
+  "isResult": true,
+  "xG": {
+   "a": "1.41428",
+   "h": "2.34937"
+  }
+ },
+ {
+  "a": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "datetime": "2023-02-19 18:30:00",
+  "forecast": {
+   "d": "0.1992",
+   "l": "0.1757",
+   "w": "0.6251"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "id": "19523",
+  "isResult": true,
+  "xG": {
+   "a": "2.00397",
+   "h": "3.01434"
+  }
+ },
+ {
+  "a": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "datetime": "2023-02-24 19:30:00",
+  "forecast": {
+   "d": "0.0867",
+   "l": "0.0301",
+   "w": "0.8832"
+  },
+  "goals": {
+   "a": "0",
+   "h": "4"
+  },
+  "h": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "id": "19535",
+  "isResult": true,
+  "xG": {
+   "a": "0.718556",
+   "h": "2.95117"
+  }
+ },
+ {
+  "a": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "datetime": "2023-02-25 14:30:00",
+  "forecast": {
+   "d": "0.2078",
+   "l": "0.1363",
+   "w": "0.6559"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "id": "19532",
+  "isResult": true,
+  "xG": {
+   "a": "0.85563",
+   "h": "1.89992"
+  }
+ },
+ {
+  "a": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "datetime": "2023-02-25 14:30:00",
+  "forecast": {
+   "d": "0.353",
+   "l": "0.3288",
+   "w": "0.3182"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "id": "19534",
+  "isResult": true,
+  "xG": {
+   "a": "1.00016",
+   "h": "1.03484"
+  }
+ },
+ {
+  "a": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "datetime": "2023-02-25 14:30:00",
+  "forecast": {
+   "d": "0.1333",
+   "l": "0.8089",
+   "w": "0.0578"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "id": "19536",
+  "isResult": true,
+  "xG": {
+   "a": "2.75881",
+   "h": "0.873677"
+  }
+ },
+ {
+  "a": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "datetime": "2023-02-25 14:30:00",
+  "forecast": {
+   "d": "0.507",
+   "l": "0.2307",
+   "w": "0.2623"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "id": "19537",
+  "isResult": true,
+  "xG": {
+   "a": "0.405958",
+   "h": "0.452901"
+  }
+ },
+ {
+  "a": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "datetime": "2023-02-25 14:30:00",
+  "forecast": {
+   "d": "0.3093",
+   "l": "0.1055",
+   "w": "0.5852"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "id": "19539",
+  "isResult": true,
+  "xG": {
+   "a": "0.396228",
+   "h": "1.17524"
+  }
+ },
+ {
+  "a": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "datetime": "2023-02-25 17:30:00",
+  "forecast": {
+   "d": "0.2659",
+   "l": "0.314",
+   "w": "0.4201"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "id": "19538",
+  "isResult": true,
+  "xG": {
+   "a": "1.66843",
+   "h": "1.86618"
+  }
+ },
+ {
+  "a": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "datetime": "2023-02-26 14:30:00",
+  "forecast": {
+   "d": "0.2655",
+   "l": "0.565",
+   "w": "0.1695"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "id": "19533",
+  "isResult": true,
+  "xG": {
+   "a": "2.0609",
+   "h": "1.288"
+  }
+ },
+ {
+  "a": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "datetime": "2023-02-26 16:30:00",
+  "forecast": {
+   "d": "0.0154",
+   "l": "0.002",
+   "w": "0.9826"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "id": "19531",
+  "isResult": true,
+  "xG": {
+   "a": "0.212984",
+   "h": "3.86403"
+  }
+ },
+ {
+  "a": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "datetime": "2023-03-03 19:30:00",
+  "forecast": {
+   "d": "0.2298",
+   "l": "0.661",
+   "w": "0.1092"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "id": "19540",
+  "isResult": true,
+  "xG": {
+   "a": "2.19847",
+   "h": "1.12897"
+  }
+ },
+ {
+  "a": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "datetime": "2023-03-04 14:30:00",
+  "forecast": {
+   "d": "0.3912",
+   "l": "0.4281",
+   "w": "0.1807"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "id": "19542",
+  "isResult": true,
+  "xG": {
+   "a": "0.798698",
+   "h": "0.456889"
+  }
+ },
+ {
+  "a": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "datetime": "2023-03-04 14:30:00",
+  "forecast": {
+   "d": "0.3311",
+   "l": "0.2109",
+   "w": "0.458"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "id": "19543",
+  "isResult": true,
+  "xG": {
+   "a": "0.616344",
+   "h": "1.03595"
+  }
+ },
+ {
+  "a": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "datetime": "2023-03-04 14:30:00",
+  "forecast": {
+   "d": "0.2939",
+   "l": "0.0794",
+   "w": "0.6267"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "id": "19544",
+  "isResult": true,
+  "xG": {
+   "a": "0.286316",
+   "h": "1.11415"
+  }
+ },
+ {
+  "a": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "datetime": "2023-03-04 14:30:00",
+  "forecast": {
+   "d": "0.3647",
+   "l": "0.2874",
+   "w": "0.3479"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "id": "19546",
+  "isResult": true,
+  "xG": {
+   "a": "0.873349",
+   "h": "0.926001"
+  }
+ },
+ {
+  "a": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "datetime": "2023-03-04 14:30:00",
+  "forecast": {
+   "d": "0.2231",
+   "l": "0.685",
+   "w": "0.0919"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "id": "19547",
+  "isResult": true,
+  "xG": {
+   "a": "1.68845",
+   "h": "0.493189"
+  }
+ },
+ {
+  "a": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "datetime": "2023-03-04 17:30:00",
+  "forecast": {
+   "d": "0.1143",
+   "l": "0.8436",
+   "w": "0.0421"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "id": "19548",
+  "isResult": true,
+  "xG": {
+   "a": "2.55612",
+   "h": "0.596921"
+  }
+ },
+ {
+  "a": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "datetime": "2023-03-05 14:30:00",
+  "forecast": {
+   "d": "0.2018",
+   "l": "0.0822",
+   "w": "0.716"
+  },
+  "goals": {
+   "a": "1",
+   "h": "4"
+  },
+  "h": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "id": "19541",
+  "isResult": true,
+  "xG": {
+   "a": "0.957931",
+   "h": "2.2646"
+  }
+ },
+ {
+  "a": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "datetime": "2023-03-05 16:30:00",
+  "forecast": {
+   "d": "0.2599",
+   "l": "0.2191",
+   "w": "0.521"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "id": "19545",
+  "isResult": true,
+  "xG": {
+   "a": "1.18348",
+   "h": "1.7728"
+  }
+ },
+ {
+  "a": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "datetime": "2023-03-10 19:30:00",
+  "forecast": {
+   "d": "0.1928",
+   "l": "0.7269",
+   "w": "0.0803"
+  },
+  "goals": {
+   "a": "2",
+   "h": "0"
+  },
+  "h": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "id": "19552",
+  "isResult": true,
+  "xG": {
+   "a": "1.73391",
+   "h": "0.585398"
+  }
+ },
+ {
+  "a": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "datetime": "2023-03-11 14:30:00",
+  "forecast": {
+   "d": "0.225",
+   "l": "0.3878",
+   "w": "0.3872"
+  },
+  "goals": {
+   "a": "3",
+   "h": "5"
+  },
+  "h": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "id": "19549",
+  "isResult": true,
+  "xG": {
+   "a": "2.48124",
+   "h": "2.49393"
+  }
+ },
+ {
+  "a": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "datetime": "2023-03-11 14:30:00",
+  "forecast": {
+   "d": "0.2383",
+   "l": "0.166",
+   "w": "0.5957"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "id": "19550",
+  "isResult": true,
+  "xG": {
+   "a": "1.44596",
+   "h": "2.26747"
+  }
+ },
+ {
+  "a": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "datetime": "2023-03-11 14:30:00",
+  "forecast": {
+   "d": "0.4725",
+   "l": "0.2287",
+   "w": "0.2988"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "id": "19553",
+  "isResult": true,
+  "xG": {
+   "a": "0.434277",
+   "h": "0.525223"
+  }
+ },
+ {
+  "a": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "datetime": "2023-03-11 14:30:00",
+  "forecast": {
+   "d": "0.1868",
+   "l": "0.0502",
+   "w": "0.763"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "id": "19555",
+  "isResult": true,
+  "xG": {
+   "a": "0.388401",
+   "h": "1.61723"
+  }
+ },
+ {
+  "a": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "datetime": "2023-03-11 17:30:00",
+  "forecast": {
+   "d": "0.2929",
+   "l": "0.2381",
+   "w": "0.469"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "id": "19556",
+  "isResult": true,
+  "xG": {
+   "a": "1.2204",
+   "h": "1.52455"
+  }
+ },
+ {
+  "a": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "datetime": "2023-03-12 14:30:00",
+  "forecast": {
+   "d": "0.3106",
+   "l": "0.5657",
+   "w": "0.1237"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "id": "19551",
+  "isResult": true,
+  "xG": {
+   "a": "1.16149",
+   "h": "0.452025"
+  }
+ },
+ {
+  "a": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "datetime": "2023-03-12 16:30:00",
+  "forecast": {
+   "d": "0.274",
+   "l": "0.2192",
+   "w": "0.5068"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "id": "19557",
+  "isResult": true,
+  "xG": {
+   "a": "1.21761",
+   "h": "1.70833"
+  }
+ },
+ {
+  "a": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "datetime": "2023-03-12 18:30:00",
+  "forecast": {
+   "d": "0.3112",
+   "l": "0.3217",
+   "w": "0.3671"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "id": "19554",
+  "isResult": true,
+  "xG": {
+   "a": "1.22513",
+   "h": "1.33065"
+  }
+ },
+ {
+  "a": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "datetime": "2023-03-17 19:30:00",
+  "forecast": {
+   "d": "0.0487",
+   "l": "0.0197",
+   "w": "0.9316"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "id": "19563",
+  "isResult": true,
+  "xG": {
+   "a": "0.764773",
+   "h": "3.68386"
+  }
+ },
+ {
+  "a": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "datetime": "2023-03-18 14:30:00",
+  "forecast": {
+   "d": "0.1119",
+   "l": "0.0472",
+   "w": "0.8409"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "id": "19562",
+  "isResult": true,
+  "xG": {
+   "a": "0.807728",
+   "h": "2.61296"
+  }
+ },
+ {
+  "a": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "datetime": "2023-03-18 14:30:00",
+  "forecast": {
+   "d": "0.2721",
+   "l": "0.5001",
+   "w": "0.2278"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "id": "19564",
+  "isResult": true,
+  "xG": {
+   "a": "1.92026",
+   "h": "1.31052"
+  }
+ },
+ {
+  "a": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "datetime": "2023-03-18 14:30:00",
+  "forecast": {
+   "d": "0.1923",
+   "l": "0.7573",
+   "w": "0.0504"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "id": "19565",
+  "isResult": true,
+  "xG": {
+   "a": "1.68365",
+   "h": "0.395653"
+  }
+ },
+ {
+  "a": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "datetime": "2023-03-18 14:30:00",
+  "forecast": {
+   "d": "0.4169",
+   "l": "0.3653",
+   "w": "0.2178"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "id": "19566",
+  "isResult": true,
+  "xG": {
+   "a": "0.6744",
+   "h": "0.471275"
+  }
+ },
+ {
+  "a": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "datetime": "2023-03-18 17:30:00",
+  "forecast": {
+   "d": "0.1154",
+   "l": "0.052",
+   "w": "0.8326"
+  },
+  "goals": {
+   "a": "1",
+   "h": "6"
+  },
+  "h": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "id": "19558",
+  "isResult": true,
+  "xG": {
+   "a": "1.46899",
+   "h": "3.37102"
+  }
+ },
+ {
+  "a": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "datetime": "2023-03-19 14:30:00",
+  "forecast": {
+   "d": "0.2198",
+   "l": "0.6218",
+   "w": "0.1584"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "id": "19560",
+  "isResult": true,
+  "xG": {
+   "a": "2.20535",
+   "h": "1.23036"
+  }
+ },
+ {
+  "a": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "datetime": "2023-03-19 16:30:00",
+  "forecast": {
+   "d": "0.245",
+   "l": "0.1518",
+   "w": "0.6032"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "id": "19559",
+  "isResult": true,
+  "xG": {
+   "a": "1.10651",
+   "h": "1.85014"
+  }
+ },
+ {
+  "a": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "datetime": "2023-03-19 18:30:00",
+  "forecast": {
+   "d": "0.2909",
+   "l": "0.2975",
+   "w": "0.4116"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "id": "19561",
+  "isResult": true,
+  "xG": {
+   "a": "1.35257",
+   "h": "1.57837"
+  }
+ },
+ {
+  "a": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "datetime": "2023-03-31 19:30:00",
+  "forecast": {
+   "d": "0.1278",
+   "l": "0.0494",
+   "w": "0.8228"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "id": "19570",
+  "isResult": true,
+  "xG": {
+   "a": "1.15016",
+   "h": "3.09855"
+  }
+ },
+ {
+  "a": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "datetime": "2023-04-01 13:30:00",
+  "forecast": {
+   "d": "0.2209",
+   "l": "0.5934",
+   "w": "0.1857"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "id": "19567",
+  "isResult": true,
+  "xG": {
+   "a": "2.62164",
+   "h": "1.70372"
+  }
+ },
+ {
+  "a": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "datetime": "2023-04-01 13:30:00",
+  "forecast": {
+   "d": "0.1928",
+   "l": "0.6908",
+   "w": "0.1164"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "id": "19568",
+  "isResult": true,
+  "xG": {
+   "a": "2.08511",
+   "h": "0.862445"
+  }
+ },
+ {
+  "a": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "datetime": "2023-04-01 13:30:00",
+  "forecast": {
+   "d": "0.0513",
+   "l": "0.0158",
+   "w": "0.9329"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "id": "19571",
+  "isResult": true,
+  "xG": {
+   "a": "0.918055",
+   "h": "3.93815"
+  }
+ },
+ {
+  "a": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "datetime": "2023-04-01 13:30:00",
+  "forecast": {
+   "d": "0.0826",
+   "l": "0.8897",
+   "w": "0.0277"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "id": "19572",
+  "isResult": true,
+  "xG": {
+   "a": "3.28042",
+   "h": "0.976664"
+  }
+ },
+ {
+  "a": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "datetime": "2023-04-01 13:30:00",
+  "forecast": {
+   "d": "0.1168",
+   "l": "0.8426",
+   "w": "0.0406"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "id": "19575",
+  "isResult": true,
+  "xG": {
+   "a": "2.54838",
+   "h": "0.584058"
+  }
+ },
+ {
+  "a": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "datetime": "2023-04-01 16:30:00",
+  "forecast": {
+   "d": "0.1539",
+   "l": "0.0832",
+   "w": "0.7629"
+  },
+  "goals": {
+   "a": "2",
+   "h": "4"
+  },
+  "h": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "id": "19574",
+  "isResult": true,
+  "xG": {
+   "a": "1.57525",
+   "h": "3.10094"
+  }
+ },
+ {
+  "a": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "datetime": "2023-04-02 13:30:00",
+  "forecast": {
+   "d": "0.3359",
+   "l": "0.1685",
+   "w": "0.4956"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "id": "19569",
+  "isResult": true,
+  "xG": {
+   "a": "0.520471",
+   "h": "1.05192"
+  }
+ },
+ {
+  "a": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "datetime": "2023-04-02 15:30:00",
+  "forecast": {
+   "d": "0.2282",
+   "l": "0.6526",
+   "w": "0.1192"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "id": "19573",
+  "isResult": true,
+  "xG": {
+   "a": "1.63673",
+   "h": "0.67338"
+  }
+ },
+ {
+  "a": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "datetime": "2023-04-08 13:30:00",
+  "forecast": {
+   "d": "0.0965",
+   "l": "0.021",
+   "w": "0.8825"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "id": "19576",
+  "isResult": true,
+  "xG": {
+   "a": "0.522776",
+   "h": "2.5021"
+  }
+ },
+ {
+  "a": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "datetime": "2023-04-08 13:30:00",
+  "forecast": {
+   "d": "0.1623",
+   "l": "0.0719",
+   "w": "0.7658"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "id": "19577",
+  "isResult": true,
+  "xG": {
+   "a": "0.7609",
+   "h": "2.35055"
+  }
+ },
+ {
+  "a": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "datetime": "2023-04-08 13:30:00",
+  "forecast": {
+   "d": "0.1319",
+   "l": "0.8039",
+   "w": "0.0642"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "id": "19578",
+  "isResult": true,
+  "xG": {
+   "a": "3.09211",
+   "h": "1.0909"
+  }
+ },
+ {
+  "a": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "datetime": "2023-04-08 13:30:00",
+  "forecast": {
+   "d": "0.2315",
+   "l": "0.1538",
+   "w": "0.6147"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "id": "19579",
+  "isResult": true,
+  "xG": {
+   "a": "1.08214",
+   "h": "1.98671"
+  }
+ },
+ {
+  "a": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "datetime": "2023-04-08 13:30:00",
+  "forecast": {
+   "d": "0.2237",
+   "l": "0.6835",
+   "w": "0.0928"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "id": "19583",
+  "isResult": true,
+  "xG": {
+   "a": "2.0605",
+   "h": "0.941865"
+  }
+ },
+ {
+  "a": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "datetime": "2023-04-08 16:30:00",
+  "forecast": {
+   "d": "0.0799",
+   "l": "0.9002",
+   "w": "0.0199"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "id": "19584",
+  "isResult": true,
+  "xG": {
+   "a": "2.57231",
+   "h": "0.503827"
+  }
+ },
+ {
+  "a": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "datetime": "2023-04-09 13:30:00",
+  "forecast": {
+   "d": "0.2973",
+   "l": "0.2538",
+   "w": "0.4489"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "id": "19581",
+  "isResult": true,
+  "xG": {
+   "a": "1.22997",
+   "h": "1.55684"
+  }
+ },
+ {
+  "a": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "datetime": "2023-04-09 15:30:00",
+  "forecast": {
+   "d": "0.2713",
+   "l": "0.3981",
+   "w": "0.3306"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "id": "19582",
+  "isResult": true,
+  "xG": {
+   "a": "2.37385",
+   "h": "2.22259"
+  }
+ },
+ {
+  "a": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "datetime": "2023-04-09 17:30:00",
+  "forecast": {
+   "d": "0.1463",
+   "l": "0.0478",
+   "w": "0.8059"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "id": "19580",
+  "isResult": true,
+  "xG": {
+   "a": "0.561062",
+   "h": "2.17705"
+  }
+ },
+ {
+  "a": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "datetime": "2023-04-14 18:30:00",
+  "forecast": {
+   "d": "0.2273",
+   "l": "0.1424",
+   "w": "0.6303"
+  },
+  "goals": {
+   "a": "2",
+   "h": "5"
+  },
+  "h": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "id": "19592",
+  "isResult": true,
+  "xG": {
+   "a": "1.12148",
+   "h": "2.09935"
+  }
+ },
+ {
+  "a": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "datetime": "2023-04-15 13:30:00",
+  "forecast": {
+   "d": "0.1517",
+   "l": "0.0354",
+   "w": "0.8129"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "id": "19585",
+  "isResult": true,
+  "xG": {
+   "a": "0.27365",
+   "h": "1.88997"
+  }
+ },
+ {
+  "a": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "datetime": "2023-04-15 13:30:00",
+  "forecast": {
+   "d": "0.3127",
+   "l": "0.2661",
+   "w": "0.4212"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "id": "19586",
+  "isResult": true,
+  "xG": {
+   "a": "0.864778",
+   "h": "1.13772"
+  }
+ },
+ {
+  "a": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "datetime": "2023-04-15 13:30:00",
+  "forecast": {
+   "d": "0.3771",
+   "l": "0.2705",
+   "w": "0.3524"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "id": "19588",
+  "isResult": true,
+  "xG": {
+   "a": "0.762976",
+   "h": "0.937521"
+  }
+ },
+ {
+  "a": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "datetime": "2023-04-15 13:30:00",
+  "forecast": {
+   "d": "0.2825",
+   "l": "0.4037",
+   "w": "0.3138"
+  },
+  "goals": {
+   "a": "3",
+   "h": "3"
+  },
+  "h": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "id": "19591",
+  "isResult": true,
+  "xG": {
+   "a": "1.52309",
+   "h": "1.34955"
+  }
+ },
+ {
+  "a": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "datetime": "2023-04-15 16:30:00",
+  "forecast": {
+   "d": "0.1681",
+   "l": "0.0611",
+   "w": "0.7708"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "id": "19589",
+  "isResult": true,
+  "xG": {
+   "a": "0.640098",
+   "h": "2.17369"
+  }
+ },
+ {
+  "a": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "datetime": "2023-04-16 13:30:00",
+  "forecast": {
+   "d": "0.2348",
+   "l": "0.086",
+   "w": "0.6792"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "id": "19593",
+  "isResult": true,
+  "xG": {
+   "a": "0.473775",
+   "h": "1.43107"
+  }
+ },
+ {
+  "a": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "datetime": "2023-04-16 15:30:00",
+  "forecast": {
+   "d": "0.3163",
+   "l": "0.4804",
+   "w": "0.2033"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "id": "19587",
+  "isResult": true,
+  "xG": {
+   "a": "1.51987",
+   "h": "1.05608"
+  }
+ },
+ {
+  "a": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "datetime": "2023-04-16 17:30:00",
+  "forecast": {
+   "d": "0.3358",
+   "l": "0.4493",
+   "w": "0.2149"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "id": "19590",
+  "isResult": true,
+  "xG": {
+   "a": "0.992006",
+   "h": "0.616929"
+  }
+ },
+ {
+  "a": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "datetime": "2023-04-21 18:30:00",
+  "forecast": {
+   "d": "0.4428",
+   "l": "0.4606",
+   "w": "0.0966"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "id": "19601",
+  "isResult": true,
+  "xG": {
+   "a": "1.17537",
+   "h": "0.729024"
+  }
+ },
+ {
+  "a": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "datetime": "2023-04-22 13:30:00",
+  "forecast": {
+   "d": "0.1745",
+   "l": "0.7274",
+   "w": "0.0981"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "id": "19597",
+  "isResult": true,
+  "xG": {
+   "a": "2.70283",
+   "h": "1.29569"
+  }
+ },
+ {
+  "a": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "datetime": "2023-04-22 13:30:00",
+  "forecast": {
+   "d": "0.1825",
+   "l": "0.7287",
+   "w": "0.0888"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "id": "19598",
+  "isResult": true,
+  "xG": {
+   "a": "2.07085",
+   "h": "0.776652"
+  }
+ },
+ {
+  "a": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "datetime": "2023-04-22 13:30:00",
+  "forecast": {
+   "d": "0.2174",
+   "l": "0.5262",
+   "w": "0.2564"
+  },
+  "goals": {
+   "a": "5",
+   "h": "1"
+  },
+  "h": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "id": "19600",
+  "isResult": true,
+  "xG": {
+   "a": "3.34214",
+   "h": "2.7745"
+  }
+ },
+ {
+  "a": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "datetime": "2023-04-22 13:30:00",
+  "forecast": {
+   "d": "0.2283",
+   "l": "0.5457",
+   "w": "0.226"
+  },
+  "goals": {
+   "a": "4",
+   "h": "2"
+  },
+  "h": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "id": "19602",
+  "isResult": true,
+  "xG": {
+   "a": "2.33844",
+   "h": "1.67149"
+  }
+ },
+ {
+  "a": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "datetime": "2023-04-22 16:30:00",
+  "forecast": {
+   "d": "0.2532",
+   "l": "0.1048",
+   "w": "0.642"
+  },
+  "goals": {
+   "a": "0",
+   "h": "4"
+  },
+  "h": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "id": "19594",
+  "isResult": true,
+  "xG": {
+   "a": "0.452485",
+   "h": "1.43834"
+  }
+ },
+ {
+  "a": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "datetime": "2023-04-23 13:30:00",
+  "forecast": {
+   "d": "0.0913",
+   "l": "0.0249",
+   "w": "0.8838"
+  },
+  "goals": {
+   "a": "0",
+   "h": "4"
+  },
+  "h": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "id": "19596",
+  "isResult": true,
+  "xG": {
+   "a": "0.388444",
+   "h": "2.63573"
+  }
+ },
+ {
+  "a": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "datetime": "2023-04-23 15:30:00",
+  "forecast": {
+   "d": "0.2339",
+   "l": "0.6608",
+   "w": "0.1053"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "id": "19595",
+  "isResult": true,
+  "xG": {
+   "a": "2.11824",
+   "h": "1.03404"
+  }
+ },
+ {
+  "a": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "datetime": "2023-04-23 17:30:00",
+  "forecast": {
+   "d": "0.294",
+   "l": "0.5904",
+   "w": "0.1156"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "id": "19599",
+  "isResult": true,
+  "xG": {
+   "a": "1.21726",
+   "h": "0.40847"
+  }
+ },
+ {
+  "a": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "datetime": "2023-04-28 18:30:00",
+  "forecast": {
+   "d": "0.0736",
+   "l": "0.9046",
+   "w": "0.0218"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "id": "19609",
+  "isResult": true,
+  "xG": {
+   "a": "2.93268",
+   "h": "0.57291"
+  }
+ },
+ {
+  "a": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "datetime": "2023-04-29 13:30:00",
+  "forecast": {
+   "d": "0.1719",
+   "l": "0.0315",
+   "w": "0.7966"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "id": "19604",
+  "isResult": true,
+  "xG": {
+   "a": "0.217156",
+   "h": "1.70758"
+  }
+ },
+ {
+  "a": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "datetime": "2023-04-29 13:30:00",
+  "forecast": {
+   "d": "0.4297",
+   "l": "0.274",
+   "w": "0.2963"
+  },
+  "goals": {
+   "a": "0",
+   "h": "0"
+  },
+  "h": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "id": "19605",
+  "isResult": true,
+  "xG": {
+   "a": "0.550938",
+   "h": "0.580861"
+  }
+ },
+ {
+  "a": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "datetime": "2023-04-29 13:30:00",
+  "forecast": {
+   "d": "0.2827",
+   "l": "0.336",
+   "w": "0.3813"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "id": "19606",
+  "isResult": true,
+  "xG": {
+   "a": "1.3678",
+   "h": "1.47854"
+  }
+ },
+ {
+  "a": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "datetime": "2023-04-29 13:30:00",
+  "forecast": {
+   "d": "0.4706",
+   "l": "0.2438",
+   "w": "0.2856"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "id": "19607",
+  "isResult": true,
+  "xG": {
+   "a": "0.461266",
+   "h": "0.526804"
+  }
+ },
+ {
+  "a": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "datetime": "2023-04-29 13:30:00",
+  "forecast": {
+   "d": "0.1617",
+   "l": "0.053",
+   "w": "0.7853"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "id": "19610",
+  "isResult": true,
+  "xG": {
+   "a": "1.2489",
+   "h": "2.73645"
+  }
+ },
+ {
+  "a": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "datetime": "2023-04-29 16:30:00",
+  "forecast": {
+   "d": "0.2749",
+   "l": "0.4318",
+   "w": "0.2933"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "id": "19611",
+  "isResult": true,
+  "xG": {
+   "a": "1.48812",
+   "h": "1.24953"
+  }
+ },
+ {
+  "a": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "datetime": "2023-04-30 13:30:00",
+  "forecast": {
+   "d": "0.0339",
+   "l": "0.003",
+   "w": "0.9631"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "id": "19603",
+  "isResult": true,
+  "xG": {
+   "a": "0.0835934",
+   "h": "2.92722"
+  }
+ },
+ {
+  "a": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "datetime": "2023-04-30 15:30:00",
+  "forecast": {
+   "d": "0.2835",
+   "l": "0.3576",
+   "w": "0.3589"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "id": "19608",
+  "isResult": true,
+  "xG": {
+   "a": "1.44665",
+   "h": "1.44113"
+  }
+ },
+ {
+  "a": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "datetime": "2023-05-05 18:30:00",
+  "forecast": {
+   "d": "0.331",
+   "l": "0.4337",
+   "w": "0.2353"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "id": "19613",
+  "isResult": true,
+  "xG": {
+   "a": "1.02795",
+   "h": "0.724879"
+  }
+ },
+ {
+  "a": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "datetime": "2023-05-05 18:30:00",
+  "forecast": {
+   "d": "0.0952",
+   "l": "0.8722",
+   "w": "0.0326"
+  },
+  "goals": {
+   "a": "3",
+   "h": "2"
+  },
+  "h": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "id": "19615",
+  "isResult": true,
+  "xG": {
+   "a": "3.14666",
+   "h": "0.990997"
+  }
+ },
+ {
+  "a": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "datetime": "2023-05-06 13:30:00",
+  "forecast": {
+   "d": "0.1066",
+   "l": "0.8791",
+   "w": "0.0143"
+  },
+  "goals": {
+   "a": "1",
+   "h": "0"
+  },
+  "h": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "id": "19614",
+  "isResult": true,
+  "xG": {
+   "a": "1.89448",
+   "h": "0.150751"
+  }
+ },
+ {
+  "a": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "datetime": "2023-05-06 13:30:00",
+  "forecast": {
+   "d": "0.2603",
+   "l": "0.4354",
+   "w": "0.3043"
+  },
+  "goals": {
+   "a": "1",
+   "h": "3"
+  },
+  "h": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "id": "19616",
+  "isResult": true,
+  "xG": {
+   "a": "2.41375",
+   "h": "2.13012"
+  }
+ },
+ {
+  "a": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "datetime": "2023-05-06 13:30:00",
+  "forecast": {
+   "d": "0.1851",
+   "l": "0.1134",
+   "w": "0.7015"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "id": "19617",
+  "isResult": true,
+  "xG": {
+   "a": "0.921673",
+   "h": "2.31852"
+  }
+ },
+ {
+  "a": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "datetime": "2023-05-06 13:30:00",
+  "forecast": {
+   "d": "0.3418",
+   "l": "0.1711",
+   "w": "0.4871"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "id": "19618",
+  "isResult": true,
+  "xG": {
+   "a": "0.485635",
+   "h": "1.00945"
+  }
+ },
+ {
+  "a": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "datetime": "2023-05-06 13:30:00",
+  "forecast": {
+   "d": "0.3014",
+   "l": "0.2245",
+   "w": "0.4741"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "id": "19619",
+  "isResult": true,
+  "xG": {
+   "a": "1.08971",
+   "h": "1.4984"
+  }
+ },
+ {
+  "a": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "datetime": "2023-05-06 16:30:00",
+  "forecast": {
+   "d": "0.1891",
+   "l": "0.7014",
+   "w": "0.1095"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "id": "19620",
+  "isResult": true,
+  "xG": {
+   "a": "2.02292",
+   "h": "0.805974"
+  }
+ },
+ {
+  "a": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "datetime": "2023-05-07 15:30:00",
+  "forecast": {
+   "d": "0.0129",
+   "l": "0.0041",
+   "w": "0.983"
+  },
+  "goals": {
+   "a": "0",
+   "h": "6"
+  },
+  "h": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "id": "19612",
+  "isResult": true,
+  "xG": {
+   "a": "0.946113",
+   "h": "5.13701"
+  }
+ },
+ {
+  "a": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "datetime": "2023-05-12 18:30:00",
+  "forecast": {
+   "d": "0.0317",
+   "l": "0.0123",
+   "w": "0.956"
+  },
+  "goals": {
+   "a": "2",
+   "h": "5"
+  },
+  "h": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "id": "19625",
+  "isResult": true,
+  "xG": {
+   "a": "1.11757",
+   "h": "4.72652"
+  }
+ },
+ {
+  "a": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "datetime": "2023-05-13 13:30:00",
+  "forecast": {
+   "d": "0.0027",
+   "l": "0.0007",
+   "w": "0.9966"
+  },
+  "goals": {
+   "a": "0",
+   "h": "6"
+  },
+  "h": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "id": "19621",
+  "isResult": true,
+  "xG": {
+   "a": "0.33961",
+   "h": "5.05599"
+  }
+ },
+ {
+  "a": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "datetime": "2023-05-13 13:30:00",
+  "forecast": {
+   "d": "0.2489",
+   "l": "0.5538",
+   "w": "0.1973"
+  },
+  "goals": {
+   "a": "2",
+   "h": "4"
+  },
+  "h": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "id": "19624",
+  "isResult": true,
+  "xG": {
+   "a": "2.08886",
+   "h": "1.44733"
+  }
+ },
+ {
+  "a": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "datetime": "2023-05-13 13:30:00",
+  "forecast": {
+   "d": "0.2212",
+   "l": "0.118",
+   "w": "0.6608"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "id": "19626",
+  "isResult": true,
+  "xG": {
+   "a": "0.944589",
+   "h": "2.03828"
+  }
+ },
+ {
+  "a": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "datetime": "2023-05-13 13:30:00",
+  "forecast": {
+   "d": "0.3418",
+   "l": "0.2549",
+   "w": "0.4033"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "id": "19627",
+  "isResult": true,
+  "xG": {
+   "a": "0.758147",
+   "h": "0.971216"
+  }
+ },
+ {
+  "a": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "datetime": "2023-05-13 13:30:00",
+  "forecast": {
+   "d": "0.3095",
+   "l": "0.3404",
+   "w": "0.3501"
+  },
+  "goals": {
+   "a": "2",
+   "h": "3"
+  },
+  "h": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "id": "19628",
+  "isResult": true,
+  "xG": {
+   "a": "1.32904",
+   "h": "1.32347"
+  }
+ },
+ {
+  "a": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "datetime": "2023-05-13 16:30:00",
+  "forecast": {
+   "d": "0.0092",
+   "l": "0.0023",
+   "w": "0.9885"
+  },
+  "goals": {
+   "a": "2",
+   "h": "5"
+  },
+  "h": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "id": "19622",
+  "isResult": true,
+  "xG": {
+   "a": "1.63094",
+   "h": "6.24513"
+  }
+ },
+ {
+  "a": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "datetime": "2023-05-14 13:30:00",
+  "forecast": {
+   "d": "0.3355",
+   "l": "0.3784",
+   "w": "0.2861"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "id": "19629",
+  "isResult": true,
+  "xG": {
+   "a": "1.57634",
+   "h": "1.42711"
+  }
+ },
+ {
+  "a": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "datetime": "2023-05-14 15:30:00",
+  "forecast": {
+   "d": "0.2629",
+   "l": "0.2147",
+   "w": "0.5224"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "id": "19623",
+  "isResult": true,
+  "xG": {
+   "a": "1.17378",
+   "h": "1.7972"
+  }
+ },
+ {
+  "a": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "datetime": "2023-05-19 18:30:00",
+  "forecast": {
+   "d": "0.278",
+   "l": "0.1406",
+   "w": "0.5814"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "id": "19632",
+  "isResult": true,
+  "xG": {
+   "a": "0.658973",
+   "h": "1.44647"
+  }
+ },
+ {
+  "a": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "datetime": "2023-05-20 13:30:00",
+  "forecast": {
+   "d": "0.2159",
+   "l": "0.1904",
+   "w": "0.5937"
+  },
+  "goals": {
+   "a": "2",
+   "h": "4"
+  },
+  "h": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "id": "19634",
+  "isResult": true,
+  "xG": {
+   "a": "1.67535",
+   "h": "2.49016"
+  }
+ },
+ {
+  "a": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "datetime": "2023-05-20 13:30:00",
+  "forecast": {
+   "d": "0.2661",
+   "l": "0.4451",
+   "w": "0.2888"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "id": "19636",
+  "isResult": true,
+  "xG": {
+   "a": "1.65012",
+   "h": "1.36159"
+  }
+ },
+ {
+  "a": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "datetime": "2023-05-20 13:30:00",
+  "forecast": {
+   "d": "0.3234",
+   "l": "0.4247",
+   "w": "0.2519"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "id": "19637",
+  "isResult": true,
+  "xG": {
+   "a": "1.36879",
+   "h": "1.13388"
+  }
+ },
+ {
+  "a": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "datetime": "2023-05-20 13:30:00",
+  "forecast": {
+   "d": "0.2656",
+   "l": "0.3456",
+   "w": "0.3888"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "id": "19638",
+  "isResult": true,
+  "xG": {
+   "a": "1.85587",
+   "h": "1.96517"
+  }
+ },
+ {
+  "a": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "datetime": "2023-05-20 16:30:00",
+  "forecast": {
+   "d": "0.2008",
+   "l": "0.6286",
+   "w": "0.1706"
+  },
+  "goals": {
+   "a": "3",
+   "h": "1"
+  },
+  "h": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "id": "19630",
+  "isResult": true,
+  "xG": {
+   "a": "2.63992",
+   "h": "1.63955"
+  }
+ },
+ {
+  "a": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "datetime": "2023-05-21 13:30:00",
+  "forecast": {
+   "d": "0.346",
+   "l": "0.3341",
+   "w": "0.3199"
+  },
+  "goals": {
+   "a": "4",
+   "h": "1"
+  },
+  "h": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "id": "19633",
+  "isResult": true,
+  "xG": {
+   "a": "1.40314",
+   "h": "1.41611"
+  }
+ },
+ {
+  "a": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "datetime": "2023-05-21 15:30:00",
+  "forecast": {
+   "d": "0.0254",
+   "l": "0.9701",
+   "w": "0.0045"
+  },
+  "goals": {
+   "a": "3",
+   "h": "0"
+  },
+  "h": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "id": "19635",
+  "isResult": true,
+  "xG": {
+   "a": "3.88007",
+   "h": "0.407359"
+  }
+ },
+ {
+  "a": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "datetime": "2023-05-21 17:30:00",
+  "forecast": {
+   "d": "0.2646",
+   "l": "0.415",
+   "w": "0.3204"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "id": "19631",
+  "isResult": true,
+  "xG": {
+   "a": "2.06056",
+   "h": "1.89906"
+  }
+ },
+ {
+  "a": {
+   "id": "125",
+   "short_title": "MAI",
+   "title": "Mainz 05"
+  },
+  "datetime": "2023-05-27 13:30:00",
+  "forecast": {
+   "d": "0.0958",
+   "l": "0.0594",
+   "w": "0.8448"
+  },
+  "goals": {
+   "a": "2",
+   "h": "2"
+  },
+  "h": {
+   "id": "129",
+   "short_title": "DOR",
+   "title": "Borussia Dortmund"
+  },
+  "id": "19639",
+  "isResult": true,
+  "xG": {
+   "a": "1.68097",
+   "h": "4.09921"
+  }
+ },
+ {
+  "a": {
+   "id": "124",
+   "short_title": "SCH",
+   "title": "Schalke 04"
+  },
+  "datetime": "2023-05-27 13:30:00",
+  "forecast": {
+   "d": "0.1425",
+   "l": "0.0896",
+   "w": "0.7679"
+  },
+  "goals": {
+   "a": "2",
+   "h": "4"
+  },
+  "h": {
+   "id": "136",
+   "short_title": "RBL",
+   "title": "RasenBallsport Leipzig"
+  },
+  "id": "19640",
+  "isResult": true,
+  "xG": {
+   "a": "1.21648",
+   "h": "2.97191"
+  }
+ },
+ {
+  "a": {
+   "id": "123",
+   "short_title": "WER",
+   "title": "Werder Bremen"
+  },
+  "datetime": "2023-05-27 13:30:00",
+  "forecast": {
+   "d": "0.4095",
+   "l": "0.1712",
+   "w": "0.4193"
+  },
+  "goals": {
+   "a": "0",
+   "h": "1"
+  },
+  "h": {
+   "id": "240",
+   "short_title": "UNI",
+   "title": "Union Berlin"
+  },
+  "id": "19641",
+  "isResult": true,
+  "xG": {
+   "a": "0.399601",
+   "h": "0.783196"
+  }
+ },
+ {
+  "a": {
+   "id": "117",
+   "short_title": "BAY",
+   "title": "Bayern Munich"
+  },
+  "datetime": "2023-05-27 13:30:00",
+  "forecast": {
+   "d": "0.288",
+   "l": "0.5011",
+   "w": "0.2109"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "134",
+   "short_title": "COL",
+   "title": "FC Cologne"
+  },
+  "id": "19642",
+  "isResult": true,
+  "xG": {
+   "a": "1.68032",
+   "h": "1.15669"
+  }
+ },
+ {
+  "a": {
+   "id": "121",
+   "short_title": "AUG",
+   "title": "Augsburg"
+  },
+  "datetime": "2023-05-27 13:30:00",
+  "forecast": {
+   "d": "0.0629",
+   "l": "0.0157",
+   "w": "0.9214"
+  },
+  "goals": {
+   "a": "0",
+   "h": "2"
+  },
+  "h": {
+   "id": "130",
+   "short_title": "BMG",
+   "title": "Borussia M.Gladbach"
+  },
+  "id": "19643",
+  "isResult": true,
+  "xG": {
+   "a": "0.434493",
+   "h": "2.98996"
+  }
+ },
+ {
+  "a": {
+   "id": "135",
+   "short_title": "FRE",
+   "title": "Freiburg"
+  },
+  "datetime": "2023-05-27 13:30:00",
+  "forecast": {
+   "d": "0.2402",
+   "l": "0.2228",
+   "w": "0.537"
+  },
+  "goals": {
+   "a": "1",
+   "h": "2"
+  },
+  "h": {
+   "id": "132",
+   "short_title": "EIN",
+   "title": "Eintracht Frankfurt"
+  },
+  "id": "19644",
+  "isResult": true,
+  "xG": {
+   "a": "1.46472",
+   "h": "2.04195"
+  }
+ },
+ {
+  "a": {
+   "id": "122",
+   "short_title": "HER",
+   "title": "Hertha Berlin"
+  },
+  "datetime": "2023-05-27 13:30:00",
+  "forecast": {
+   "d": "0.1351",
+   "l": "0.0681",
+   "w": "0.7968"
+  },
+  "goals": {
+   "a": "2",
+   "h": "1"
+  },
+  "h": {
+   "id": "131",
+   "short_title": "WOL",
+   "title": "Wolfsburg"
+  },
+  "id": "19645",
+  "isResult": true,
+  "xG": {
+   "a": "1.44156",
+   "h": "3.20986"
+  }
+ },
+ {
+  "a": {
+   "id": "119",
+   "short_title": "LEV",
+   "title": "Bayer Leverkusen"
+  },
+  "datetime": "2023-05-27 13:30:00",
+  "forecast": {
+   "d": "0.2614",
+   "l": "0.1876",
+   "w": "0.551"
+  },
+  "goals": {
+   "a": "0",
+   "h": "3"
+  },
+  "h": {
+   "id": "268",
+   "short_title": "BOC",
+   "title": "Bochum"
+  },
+  "id": "19646",
+  "isResult": true,
+  "xG": {
+   "a": "0.863964",
+   "h": "1.56183"
+  }
+ },
+ {
+  "a": {
+   "id": "120",
+   "short_title": "HOF",
+   "title": "Hoffenheim"
+  },
+  "datetime": "2023-05-27 13:30:00",
+  "forecast": {
+   "d": "0.2217",
+   "l": "0.1534",
+   "w": "0.6249"
+  },
+  "goals": {
+   "a": "1",
+   "h": "1"
+  },
+  "h": {
+   "id": "133",
+   "short_title": "STU",
+   "title": "VfB Stuttgart"
+  },
+  "id": "19647",
+  "isResult": true,
+  "xG": {
+   "a": "1.16078",
+   "h": "2.19198"
+  }
+ }
+]

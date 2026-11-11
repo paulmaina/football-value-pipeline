@@ -1,0 +1,47 @@
+{
+  "description": "Reviewed Understat team title -> football-data.co.uk team name, per harness league. Exact names need no entry. Each entry was checked against fixture evidence (same date within a day and same score) by scripts/c3_development_report.py; never fuzzy matching.",
+  "leagues": {
+    "EPL": {
+      "Manchester City": "Man City",
+      "Manchester United": "Man United",
+      "Newcastle United": "Newcastle",
+      "Nottingham Forest": "Nott'm Forest",
+      "Wolverhampton Wanderers": "Wolves"
+    },
+    "LaLiga": {
+      "Athletic Club": "Ath Bilbao",
+      "Atletico Madrid": "Ath Madrid",
+      "Celta Vigo": "Celta",
+      "Espanyol": "Espanol",
+      "Rayo Vallecano": "Vallecano",
+      "Real Betis": "Betis",
+      "Real Oviedo": "Oviedo",
+      "Real Sociedad": "Sociedad",
+      "Real Valladolid": "Valladolid"
+    },
+    "Bundesliga": {
+      "Arminia Bielefeld": "Bielefeld",
+      "Bayer Leverkusen": "Leverkusen",
+      "Borussia Dortmund": "Dortmund",
+      "Borussia M.Gladbach": "M'gladbach",
+      "Eintracht Frankfurt": "Ein Frankfurt",
+      "FC Cologne": "FC Koln",
+      "FC Heidenheim": "Heidenheim",
+      "Greuther Fuerth": "Greuther Furth",
+      "Hertha Berlin": "Hertha",
+      "Mainz 05": "Mainz",
+      "RasenBallsport Leipzig": "RB Leipzig",
+      "St. Pauli": "St Pauli",
+      "VfB Stuttgart": "Stuttgart"
+    },
+    "SerieA": {
+      "AC Milan": "Milan",
+      "Parma Calcio 1913": "Parma"
+    },
+    "Ligue1": {
+      "Clermont Foot": "Clermont",
+      "Paris Saint Germain": "Paris SG",
+      "Saint-Etienne": "St Etienne"
+    }
+  }
+}
