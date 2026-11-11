@@ -52,7 +52,7 @@ def home_share_logit(probs):
     return np.log(share / (1 - share))
 
 
-def fit(probs, outcomes, age_days, half_life_days, min_matches=MIN_MATCHES, bounds=SLOPE_BOUNDS):
+def fit(probs, outcomes, age_days, half_life_days, min_matches=None, bounds=None):
     """The slope by weighted maximum likelihood on C's earlier forecasts of decided matches.
 
     `probs` is C's (n, 3) 1X2 for each earlier match, `outcomes` 0/1/2 (home/draw/away)
@@ -61,6 +61,8 @@ def fit(probs, outcomes, age_days, half_life_days, min_matches=MIN_MATCHES, boun
     fails, so a bad fit never moves a price. `min_matches` and `bounds` default to C5's;
     the European CE2 and CE4 pass their own (european_candidates).
     """
+    min_matches = MIN_MATCHES if min_matches is None else min_matches  # read at call time (tests patch them)
+    bounds = SLOPE_BOUNDS if bounds is None else bounds
     probs = np.asarray(probs, dtype=float).reshape(-1, 3)
     outcomes, age = np.asarray(outcomes), np.asarray(age_days, dtype=float)
     if (age < 0).any() or not np.isfinite(probs).all():
