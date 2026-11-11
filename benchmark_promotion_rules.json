@@ -25,6 +25,14 @@
     "data_integrity": "No unexplained missing-data, source, timing or execution differences between candidate and baseline",
     "approval": "Human review and explicit versioned production change; never automatic"
   },
+  "european_holdout_review_gates": {
+    "minimum_distinct_paired_fixtures": 250,
+    "minimum_gameweeks": 6,
+    "applies_to": "The European holdout only (UCL, 21 Jan 2025 - 12 Oct 2026; evaluation_harness.py --mode european --declaration). Domestic holdouts keep promotion_review_gates (300 fixtures).",
+    "decided": "2026-11-11",
+    "decided_before_scoring": "Decided on 11 Nov 2026, before any European holdout scoring: evaluation/european_holdout_ledger.json has no entry. The block is unchanged (288 fixtures, 29 weeks); no untouched European block reaches 300.",
+    "other_gates": "Primary result, calibration and approval as in promotion_review_gates"
+  },
   "betting_edge_claim_requirements": [
     "Actual accepted prices and stakes, rejected bets and applicable costs",
     "Comparable timestamped sharp and execution-book closing quotes with documented margin removal",
