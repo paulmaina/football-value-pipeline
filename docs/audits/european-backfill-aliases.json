@@ -1,0 +1,425 @@
+{
+ "description": "Reviewed team aliases for the European backfill (european_backfill.py). Every entry is confirmed by fixture evidence: each fixture of the club in the two sources compared has the same side, a date within a day and the same score; no string comparison of any kind. Only rows before 21 Jan 2025 are read. Harness only: the live pipeline does not read this file.",
+ "UCL": {
+  "to_football_data_org": {
+   "AS Monaco": "AS Monaco FC",
+   "Atalanta": "Atalanta BC",
+   "Atlético Madrid": "Club Atlético de Madrid",
+   "Bayer Leverkusen": "Bayer 04 Leverkusen",
+   "Bayern München": "FC Bayern München",
+   "Crvena Zvezda": "FK Crvena Zvezda",
+   "Feyenoord": "Feyenoord Rotterdam",
+   "Galatasaray": "Galatasaray SK",
+   "Inter": "FC Internazionale Milano",
+   "Juventus": "Juventus FC",
+   "Lazio Roma": "SS Lazio",
+   "Manchester City": "Manchester City FC",
+   "Manchester United": "Manchester United FC",
+   "Olympique Marseille": "Olympique de Marseille",
+   "PSV Eindhoven": "PSV",
+   "Paris Saint-Germain": "Paris Saint-Germain FC",
+   "RB Salzburg": "FC Red Bull Salzburg",
+   "Real Madrid": "Real Madrid CF",
+   "SL Benfica": "Sport Lisboa e Benfica",
+   "Shakhtar Donetsk": "FK Shakhtar Donetsk",
+   "Sporting CP": "Sporting Clube de Portugal",
+   "Tottenham Hotspur": "Tottenham Hotspur FC"
+  },
+  "fixture_download_to_openfootball": {
+   "2017": {
+    "APOEL": "APOEL Nikosia",
+    "Anderlecht": "RSC Anderlecht",
+    "Barcelona": "FC Barcelona",
+    "Basel": "FC Basel 1893",
+    "Bayern Munich": "Bayern München",
+    "Benfica": "SL Benfica",
+    "Besiktas": "Beşiktaş",
+    "CSKA Moscow": "CSKA Moskva",
+    "Celtic": "Celtic FC",
+    "Chelsea": "Chelsea FC",
+    "Liverpool": "Liverpool FC",
+    "Maribor": "NK Maribor",
+    "Monaco": "AS Monaco",
+    "Napoli": "SSC Napoli",
+    "Olympiacos": "Olympiakos Piraeus",
+    "Porto": "FC Porto",
+    "Qarabag": "Qarabağ FK",
+    "Roma": "AS Roma",
+    "Sevilla": "Sevilla FC",
+    "Spartak Moscow": "Spartak Moskva"
+   },
+   "2018": {
+    "AEK": "AEK Athen",
+    "Ajax": "AFC Ajax",
+    "Atlético": "Atlético Madrid",
+    "Barcelona": "FC Barcelona",
+    "Bayern": "Bayern München",
+    "Benfica": "SL Benfica",
+    "Club Brugge": "Club Brugge KV",
+    "Crvena zvezda": "Crvena Zvezda",
+    "Dortmund": "Borussia Dortmund",
+    "Hoffenheim": "1899 Hoffenheim",
+    "Internazionale": "Inter",
+    "Liverpool": "Liverpool FC",
+    "Lyon": "Olympique Lyonnais",
+    "Man. City": "Manchester City",
+    "Man. United": "Manchester United",
+    "Monaco": "AS Monaco",
+    "Napoli": "SSC Napoli",
+    "PSV": "PSV Eindhoven",
+    "Paris": "Paris Saint-Germain",
+    "Plzen": "Viktoria Plzeň",
+    "Porto": "FC Porto",
+    "Roma": "AS Roma",
+    "Schalke": "FC Schalke 04",
+    "Tottenham": "Tottenham Hotspur",
+    "Valencia": "Valencia CF",
+    "Young Boys": "BSC Young Boys"
+   },
+   "2019": {
+    "Ajax": "AFC Ajax",
+    "Atlético": "Atlético Madrid",
+    "Barcelona": "FC Barcelona",
+    "Bayern": "Bayern München",
+    "Benfica": "SL Benfica",
+    "Chelsea": "Chelsea FC",
+    "Club Brugge": "Club Brugge KV",
+    "Crvena zvezda": "Crvena Zvezda",
+    "Dortmund": "Borussia Dortmund",
+    "Genk": "KRC Genk",
+    "Internazionale": "Inter",
+    "LOSC": "Lille OSC",
+    "Leipzig": "RB Leipzig",
+    "Leverkusen": "Bayer Leverkusen",
+    "Liverpool": "Liverpool FC",
+    "Lyon": "Olympique Lyonnais",
+    "Man. City": "Manchester City",
+    "Napoli": "SSC Napoli",
+    "Olympiacos": "Olympiakos Piraeus",
+    "Paris": "Paris Saint-Germain",
+    "Salzburg": "RB Salzburg",
+    "Tottenham": "Tottenham Hotspur",
+    "Valencia": "Valencia CF",
+    "Zenit": "Zenit St. Petersburg"
+   },
+   "2020": {
+    "Ajax": "AFC Ajax",
+    "Atlético": "Atlético Madrid",
+    "Barcelona": "FC Barcelona",
+    "Bayern": "Bayern München",
+    "Chelsea": "Chelsea FC",
+    "Club Brugge": "Club Brugge KV",
+    "Dortmund": "Borussia Dortmund",
+    "Dynamo Kyiv": "Dinamo Kiev",
+    "Ferencváros": "Ferencvárosi TC",
+    "Internazionale": "Inter",
+    "Istanbul Basaksehir": "İstanbul Başakşehir",
+    "Krasnodar": "FK Krasnodar",
+    "Lazio": "Lazio Roma",
+    "Leipzig": "RB Leipzig",
+    "Liverpool": "Liverpool FC",
+    "Man. City": "Manchester City",
+    "Man. United": "Manchester United",
+    "Marseille": "Olympique Marseille",
+    "Midtjylland": "FC Midtjylland",
+    "Mönchengladbach": "Bor. Mönchengladbach",
+    "Olympiacos": "Olympiakos Piraeus",
+    "Paris": "Paris Saint-Germain",
+    "Porto": "FC Porto",
+    "Rennes": "Stade Rennais",
+    "Salzburg": "RB Salzburg",
+    "Sevilla": "Sevilla FC",
+    "Zenit": "Zenit St. Petersburg"
+   },
+   "2021": {
+    "Ajax": "AFC Ajax",
+    "Atlético": "Atlético Madrid",
+    "Barcelona": "FC Barcelona",
+    "Bayern": "Bayern München",
+    "Benfica": "SL Benfica",
+    "Besiktas": "Beşiktaş",
+    "Chelsea": "Chelsea FC",
+    "Club Brugge": "Club Brugge KV",
+    "Dortmund": "Borussia Dortmund",
+    "Dynamo Kyiv": "Dinamo Kiev",
+    "LOSC": "Lille OSC",
+    "Leipzig": "RB Leipzig",
+    "Liverpool": "Liverpool FC",
+    "Malmö": "Malmö FF",
+    "Man. City": "Manchester City",
+    "Man. United": "Manchester United",
+    "Milan": "AC Milan",
+    "Paris": "Paris Saint-Germain",
+    "Porto": "FC Porto",
+    "Salzburg": "RB Salzburg",
+    "Sevilla": "Sevilla FC",
+    "Sheriff": "FC Sheriff",
+    "Villarreal": "Villarreal CF",
+    "Wolfsburg": "VfL Wolfsburg",
+    "Young Boys": "BSC Young Boys",
+    "Zenit": "Zenit St. Petersburg"
+   },
+   "2022": {
+    "Ajax": "AFC Ajax",
+    "Atlético": "Atlético Madrid",
+    "Barcelona": "FC Barcelona",
+    "Bayern": "Bayern München",
+    "Benfica": "SL Benfica",
+    "Celtic": "Celtic FC",
+    "Chelsea": "Chelsea FC",
+    "Club Brugge": "Club Brugge KV",
+    "Copenhagen": "FC København",
+    "Dortmund": "Borussia Dortmund",
+    "Frankfurt": "Eintracht Frankfurt",
+    "Leipzig": "RB Leipzig",
+    "Leverkusen": "Bayer Leverkusen",
+    "Liverpool": "Liverpool FC",
+    "M. Haifa": "Maccabi Haifa",
+    "Man City": "Manchester City",
+    "Marseille": "Olympique Marseille",
+    "Milan": "AC Milan",
+    "Napoli": "SSC Napoli",
+    "Paris": "Paris Saint-Germain",
+    "Plzen": "Viktoria Plzeň",
+    "Porto": "FC Porto",
+    "Rangers": "Rangers FC",
+    "Salzburg": "RB Salzburg",
+    "Sevilla": "Sevilla FC",
+    "Tottenham": "Tottenham Hotspur"
+   }
+  },
+  "evidence": {
+   "openfootball_2023_2024_equals_football_data_org": {
+    "names": 49,
+    "fixtures": 466,
+    "unresolved": []
+   },
+   "fixture_download_2023_to_football_data_org": {
+    "names": 32,
+    "fixtures": 250,
+    "unresolved": []
+   },
+   "fixture_download_2024_to_football_data_org": {
+    "names": 36,
+    "fixtures": 216,
+    "unresolved": []
+   },
+   "fixture_download_2017_to_openfootball": {
+    "names": 32,
+    "fixtures": 250,
+    "unresolved": []
+   },
+   "fixture_download_2018_to_openfootball": {
+    "names": 32,
+    "fixtures": 250,
+    "unresolved": []
+   },
+   "fixture_download_2019_to_openfootball": {
+    "names": 32,
+    "fixtures": 238,
+    "unresolved": []
+   },
+   "fixture_download_2020_to_openfootball": {
+    "names": 32,
+    "fixtures": 250,
+    "unresolved": []
+   },
+   "fixture_download_2021_to_openfootball": {
+    "names": 32,
+    "fixtures": 250,
+    "unresolved": []
+   },
+   "fixture_download_2022_to_openfootball": {
+    "names": 32,
+    "fixtures": 250,
+    "unresolved": []
+   },
+   "links": {
+    "older_openfootball_names": 81,
+    "same_spelling_as_football_data_org": [
+     "AC Milan",
+     "AFC Ajax",
+     "AS Roma",
+     "Arsenal FC",
+     "BSC Young Boys",
+     "Borussia Dortmund",
+     "Celtic FC",
+     "Chelsea FC",
+     "Club Brugge KV",
+     "Eintracht Frankfurt",
+     "FC Barcelona",
+     "FC København",
+     "FC Porto",
+     "Lille OSC",
+     "Liverpool FC",
+     "RB Leipzig",
+     "SSC Napoli",
+     "Sevilla FC",
+     "Villarreal CF"
+    ],
+    "linked": {
+     "AS Monaco": [
+      "fixture_download_spelling",
+      "domestic_club"
+     ],
+     "Atalanta": [
+      "fixture_download_spelling",
+      "domestic_club"
+     ],
+     "Atlético Madrid": [
+      "domestic_club"
+     ],
+     "Bayer Leverkusen": [
+      "fixture_download_spelling",
+      "domestic_club"
+     ],
+     "Bayern München": [
+      "fixture_download_spelling",
+      "domestic_club"
+     ],
+     "Crvena Zvezda": [
+      "fixture_download_spelling"
+     ],
+     "Feyenoord": [
+      "fixture_download_spelling",
+      "domestic_club"
+     ],
+     "Galatasaray": [
+      "fixture_download_spelling"
+     ],
+     "Inter": [
+      "fixture_download_spelling",
+      "domestic_club"
+     ],
+     "Juventus": [
+      "fixture_download_spelling",
+      "domestic_club"
+     ],
+     "Lazio Roma": [
+      "fixture_download_spelling"
+     ],
+     "Manchester City": [
+      "fixture_download_spelling",
+      "domestic_club"
+     ],
+     "Manchester United": [
+      "domestic_club"
+     ],
+     "Olympique Marseille": [
+      "domestic_club"
+     ],
+     "PSV Eindhoven": [
+      "fixture_download_spelling",
+      "domestic_club"
+     ],
+     "Paris Saint-Germain": [
+      "fixture_download_spelling",
+      "domestic_club"
+     ],
+     "RB Salzburg": [
+      "fixture_download_spelling"
+     ],
+     "Real Madrid": [
+      "fixture_download_spelling",
+      "domestic_club"
+     ],
+     "SL Benfica": [
+      "fixture_download_spelling"
+     ],
+     "Shakhtar Donetsk": [
+      "fixture_download_spelling"
+     ],
+     "Sporting CP": [
+      "fixture_download_spelling",
+      "domestic_club"
+     ],
+     "Tottenham Hotspur": [
+      "domestic_club"
+     ]
+    },
+    "not_linked": [
+     "1899 Hoffenheim",
+     "AEK Athen",
+     "APOEL Nikosia",
+     "BATE Borisov",
+     "Beşiktaş",
+     "Bor. Mönchengladbach",
+     "CSKA Moskva",
+     "Dinamo Kiev",
+     "Dinamo Zagreb",
+     "FC Basel 1893",
+     "FC Midtjylland",
+     "FC Schalke 04",
+     "FC Sheriff",
+     "FK Astana",
+     "FK Krasnodar",
+     "FK Rostov",
+     "Ferencvárosi TC",
+     "KAA Gent",
+     "KRC Genk",
+     "Legia Warszawa",
+     "Leicester City",
+     "Lokomotiv Moskva",
+     "Maccabi Haifa",
+     "Maccabi Tel Aviv",
+     "Malmö FF",
+     "NK Maribor",
+     "Olympiakos Piraeus",
+     "Olympique Lyonnais",
+     "PFC Ludogorets Razgrad",
+     "Qarabağ FK",
+     "RSC Anderlecht",
+     "Rangers FC",
+     "Slavia Praha",
+     "Spartak Moskva",
+     "Stade Rennais",
+     "Valencia CF",
+     "VfL Wolfsburg",
+     "Viktoria Plzeň",
+     "Zenit St. Petersburg",
+     "İstanbul Başakşehir"
+    ]
+   }
+  }
+ },
+ "UEL": {
+  "aliases": {
+   "AEK": "aek athens",
+   "Antwerp": "royal antwerp fc",
+   "Brøndby": "brøndby if",
+   "CSKA-Sofia": "cska sofia",
+   "Celtic FC": "celtic",
+   "Club Brugge": "club brugge kv",
+   "Dortmund": "borussia dortmund",
+   "Dundalk": "dundalk fc",
+   "Gent": "kaa gent",
+   "Granada": "granada cf",
+   "KRC Genk": "genk",
+   "Krasnodar": "fk krasnodar",
+   "LOSC": "lille osc",
+   "Lech": "lech poznan",
+   "Legia": "legia warszawa",
+   "Leicester": "leicester city",
+   "Leipzig": "rb leipzig",
+   "Liberec": "slovan liberec",
+   "Man. United": "manchester united",
+   "Napoli": "ssc napoli",
+   "Rijeka": "hnk rijeka",
+   "Wolfsberg": "wolfsberger ac",
+   "Zenit": "zenit st. petersburg",
+   "Zorya Luhansk": "zorya lugansk"
+  },
+  "evidence": {
+   "fixture_download_2020_to_openfootball": {
+    "names": 56,
+    "fixtures": 410,
+    "unresolved": []
+   },
+   "fixture_download_2021_to_openfootball": {
+    "names": 40,
+    "fixtures": 278,
+    "unresolved": []
+   }
+  }
+ }
+}

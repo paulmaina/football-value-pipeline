@@ -75,12 +75,16 @@
     }
   },
   "european": {
-    "version": "european-results-v1",
+    "version": "european-results-v2",
     "competitions": [
       "UCL",
       "UEL"
     ],
-    "test_start": "2022-08-01",
+    "test_start": "2015-06-29",
+    "development_start": {
+      "UCL": "2017-09-04",
+      "UEL": "2021-10-25"
+    },
     "development_end": "2024-07-01",
     "holdout_start": "2025-01-21",
     "holdout_end_exclusive": "2026-10-13",
@@ -93,21 +97,31 @@
     "holdout_ledger": "evaluation/european_holdout_ledger.json",
     "domestic_form": {
       "min_matches": 5,
-      "days": 365
+      "days": 365,
+      "backfill_folder": "domestic_backfill",
+      "backfill_seasons": [
+        "1516",
+        "1617",
+        "1718",
+        "1819",
+        "1920",
+        "2021"
+      ]
     },
+    "backfill": "Older UCL (2015/16-2022/23) and UEL (2020/21-2021/22) results in .football_cache/europa/backfill, reconciled by european_backfill.py (OpenFootball and Fixture Download agree, or OpenFootball alone in the labelled single-source UCL seasons 2015/16-2016/17). Harness only: the live loaders are unchanged. Every backfilled match is before the first cached season, so no row on or after 21 Jan 2025 changes.",
     "periods": {
-      "warm_up": "Each competition is scored only once its fold has at least 250 earlier matches of that competition (the pipeline's own UCL/UEL walk-forward warm-up): UEL from 22 Feb 2024, UCL from 29 Jan 2025.",
-      "development": "Before 1 Jul 2024: UEL 2022/23-2023/24 and UCL 2023/24 (UCL is all warm-up). UEL from 22 Feb 2024 was already scored by the 22 Oct 2026 Europa audits.",
-      "validation": "1 Jul 2024 - 20 Jan 2025: UEL and UCL 2024/25 to 20 Jan (UCL is all warm-up). UEL 2024/25 was the Europa research audit's development period: already inspected.",
-      "holdout": "UCL only, 21 Jan 2025 - 12 Oct 2026 (288 matches, 29 weeks; 270 after the 250-match warm-up). No benchmark, written model audit or live report scored these results. Locked: never scored or trained on by a locked run; scored only with a declaration, once per candidate and once per frozen setup, recorded in evaluation/european_holdout_ledger.json. Below the 300-fixture release minimum (benchmark_promotion_rules.json), so a holdout run cannot pass the sample minimum as configured.",
+      "warm_up": "Training only, never scored: each competition's results until its 14-day fold has at least 250 earlier matches of that competition (the pipeline's own UCL/UEL walk-forward warm-up). UCL: 2015/16-2016/17 (exactly 250, the two single-source seasons); development from the 4 Sep 2017 fold. UEL: 2020/21 and 2021/22 to 24 Oct 2021; development from the 25 Oct 2021 fold. Checked against the data by evaluation_harness.check_development_start.",
+      "development": "From the end of each competition's warm-up to 30 Jun 2024: UCL 2017/18-2023/24 (backfill to 2022/23, football-data.org 2023/24); UEL 2021/22 from 25 Oct 2021 (backfill) and 2022/23-2023/24 (snapshot). UEL from 22 Feb 2024 was already scored by the 22 Oct 2026 Europa audits.",
+      "validation": "1 Jul 2024 - 20 Jan 2025 (unchanged): UEL, and UCL 2024/25 to 20 Jan. UEL 2024/25 was the Europa research audit's development period: already inspected.",
+      "holdout": "UCL only, 21 Jan 2025 - 12 Oct 2026 (unchanged: 288 matches, 29 weeks; the warm-up now ends in 2017, so none is in the warm-up). No benchmark, written model audit or live report scored these results. Locked: never scored or trained on by a locked run; scored only with a declaration, once per candidate and once per frozen setup, recorded in evaluation/european_holdout_ledger.json. Sample minimum: 250 fixtures and 6 weeks (benchmark_promotion_rules.json, european_holdout_review_gates, decided 11 Nov 2026 before any European holdout scoring).",
       "retrospective": "UEL from 21 Jan 2025 (scored by the 22 Oct 2026 Europa audits and the pipeline's goal-market validation, live-graded from 22 Oct 2026) and UCL from 13 Oct 2026 (live-graded). Diagnostics only, never release evidence."
     },
     "holdout_choice": {
       "decided": "2026-11-11",
-      "decided_by": "Paul",
+      "decided_by": "Prompt 5 chose the block by the rule \"most recent block no earlier benchmark, audit or live report has scored\"; Paul approved it on 11 Nov 2026.",
       "rule": "The most recent block no benchmark, written model audit or live report scored, counted as for the domestic holdout: automated in-run pipeline reports (decay tuning, goal-market validation) are not counted, as they also covered the domestic holdout window.",
-      "strict_alternative": "Counting the in-run reports too, only 64 UCL matches after the warm-up are untouched (22 Jan - 15 Sep 2025): UCL decay tuning scored from 16 Sep 2025 and UCL goal-market validation from 1 Oct 2025 (cited in docs/audits/2026-10-24-per-market-approval.md).",
-      "below_minimum": "No untouched block reaches 300 matches after the warm-up under either reading. Chosen knowing it is below the minimum."
+      "strict_alternative": "Counting the in-run reports too, only 64 UCL matches after the warm-up of the time (to 28 Jan 2025) are untouched (22 Jan - 15 Sep 2025): UCL decay tuning scored from 16 Sep 2025 and UCL goal-market validation from 1 Oct 2025 (cited in docs/audits/2026-10-24-per-market-approval.md).",
+      "below_minimum": "No untouched block reaches the domestic 300-match minimum under either reading. The European holdout has its own minimum of 250 fixtures and 6 weeks (european_holdout_review_gates in benchmark_promotion_rules.json), decided on 11 Nov 2026 before any European holdout scoring (the European ledger has no entry); the block itself is unchanged."
     }
   }
 }
