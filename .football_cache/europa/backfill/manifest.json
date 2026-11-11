@@ -1,0 +1,296 @@
+{
+ "description": "Raw UCL/UEL results for the European backfill (evaluation harness only; the live pipeline never reads this folder). Reconciled by european_backfill.py.",
+ "written_by": "scripts/fetch_european_backfill.py",
+ "files": {
+  "evidence/domestic/fixture-bundesliga-2024.csv": {
+   "source_url": "https://fixturedownload.com/download/bundesliga-2024-UTC.csv",
+   "role": "domestic name evidence only",
+   "fetched_at_utc": "2026-11-11T17:03:43+00:00",
+   "http_status": 200,
+   "bytes": 24189,
+   "sha256": "f888ff01287748a76157822c18ec49488469f4d4101b47dca6ba02f107b56092"
+  },
+  "evidence/domestic/fixture-eredivisie-2024.csv": {
+   "source_url": "https://fixturedownload.com/download/eredivisie-2024-UTC.csv",
+   "role": "domestic name evidence only",
+   "fetched_at_utc": "2026-11-11T17:03:45+00:00",
+   "http_status": 200,
+   "bytes": 21588,
+   "sha256": "2760effaae048342e4f4526325873fcfb7e3559070c2210a317b6322bc8c307d"
+  },
+  "evidence/domestic/fixture-la-liga-2024.csv": {
+   "source_url": "https://fixturedownload.com/download/la-liga-2024-UTC.csv",
+   "role": "domestic name evidence only",
+   "fetched_at_utc": "2026-11-11T17:03:40+00:00",
+   "http_status": 200,
+   "bytes": 30555,
+   "sha256": "7e0642c01e08a983ac20afb44a3c1d55e8dfb11776f5c11a5c8fb81b9016f7f3"
+  },
+  "evidence/domestic/fixture-serie-a-2024.csv": {
+   "source_url": "https://fixturedownload.com/download/serie-a-2024-UTC.csv",
+   "role": "domestic name evidence only",
+   "fetched_at_utc": "2026-11-11T17:03:38+00:00",
+   "http_status": 200,
+   "bytes": 23715,
+   "sha256": "a138551cfe7b576214b49ac0ec1e3f73cd4b927f884e1097f9c99bcb069de674"
+  },
+  "evidence/domestic/fixture-super-lig-2024.csv": {
+   "source_url": "https://fixturedownload.com/download/super-lig-2024-UTC.csv",
+   "role": "domestic name evidence only",
+   "fetched_at_utc": "2026-11-11T17:03:47+00:00",
+   "http_status": 200,
+   "bytes": 25848,
+   "sha256": "db44bec6f68ef68cada8d60a22115978ff46c24fa308b221ce15767fbef3c1ba"
+  },
+  "evidence/domestic/football-json-2023-de.1.json": {
+   "source_url": "https://raw.githubusercontent.com/openfootball/football.json/e6744429ee395bc86f247348c6184bb08d4eb361/2023-24/de.1.json",
+   "role": "domestic name evidence only",
+   "fetched_at_utc": "2026-11-11T17:03:23+00:00",
+   "http_status": 200,
+   "bytes": 93743,
+   "sha256": "d104edde48a5e254545eac3d3ed379a09801e1ebcef5c6480e28bc36fcfa202d"
+  },
+  "evidence/domestic/football-json-2023-es.1.json": {
+   "source_url": "https://raw.githubusercontent.com/openfootball/football.json/e6744429ee395bc86f247348c6184bb08d4eb361/2023-24/es.1.json",
+   "role": "domestic name evidence only",
+   "fetched_at_utc": "2026-11-11T17:03:21+00:00",
+   "http_status": 200,
+   "bytes": 114187,
+   "sha256": "e4c1e1a958f224ba3c815c898982ab495b9577315cc58ee7a5e7b532960f738b"
+  },
+  "evidence/domestic/football-json-2023-it.1.json": {
+   "source_url": "https://raw.githubusercontent.com/openfootball/football.json/e6744429ee395bc86f247348c6184bb08d4eb361/2023-24/it.1.json",
+   "role": "domestic name evidence only",
+   "fetched_at_utc": "2026-11-11T17:03:18+00:00",
+   "http_status": 200,
+   "bytes": 113014,
+   "sha256": "47734fc8d2ec34c5529ca814c97d1c86ecddc4a2c8095506d9b12f29cb283308"
+  },
+  "evidence/domestic/football-json-2023-nl.1.json": {
+   "source_url": "https://raw.githubusercontent.com/openfootball/football.json/e6744429ee395bc86f247348c6184bb08d4eb361/2023-24/nl.1.json",
+   "role": "domestic name evidence only",
+   "fetched_at_utc": "2026-11-11T17:03:26+00:00",
+   "http_status": 200,
+   "bytes": 90812,
+   "sha256": "7fca2acdd40027c59890e68cc5b8cba667eebed353c2e4870315ae02f3ef5380"
+  },
+  "evidence/domestic/football-json-2024-de.1.json": {
+   "source_url": "https://raw.githubusercontent.com/openfootball/football.json/e6744429ee395bc86f247348c6184bb08d4eb361/2024-25/de.1.json",
+   "role": "domestic name evidence only",
+   "fetched_at_utc": "2026-11-11T17:03:33+00:00",
+   "http_status": 200,
+   "bytes": 88232,
+   "sha256": "f473d6595e6c29ebedc08b09177aed6a6b2ff0fa8378b82f51dea469139f44c3"
+  },
+  "evidence/domestic/football-json-2024-es.1.json": {
+   "source_url": "https://raw.githubusercontent.com/openfootball/football.json/e6744429ee395bc86f247348c6184bb08d4eb361/2024-25/es.1.json",
+   "role": "domestic name evidence only",
+   "fetched_at_utc": "2026-11-11T17:03:31+00:00",
+   "http_status": 200,
+   "bytes": 108296,
+   "sha256": "da5bfa1b3634e1039d9e71aec50bdc847f8761189e3de235a4e730e0dc64ca38"
+  },
+  "evidence/domestic/football-json-2024-it.1.json": {
+   "source_url": "https://raw.githubusercontent.com/openfootball/football.json/e6744429ee395bc86f247348c6184bb08d4eb361/2024-25/it.1.json",
+   "role": "domestic name evidence only",
+   "fetched_at_utc": "2026-11-11T17:03:28+00:00",
+   "http_status": 200,
+   "bytes": 105098,
+   "sha256": "7d9bb936de3ccaeec54d57371512a58a5eeb21277e7d5f0882911a834d22b659"
+  },
+  "evidence/domestic/football-json-2024-nl.1.json": {
+   "source_url": "https://raw.githubusercontent.com/openfootball/football.json/e6744429ee395bc86f247348c6184bb08d4eb361/2024-25/nl.1.json",
+   "role": "domestic name evidence only",
+   "fetched_at_utc": "2026-11-11T17:03:35+00:00",
+   "http_status": 200,
+   "bytes": 85924,
+   "sha256": "e6398379f3d68eb2863cc7dcac12c60219ab186614366bb86560039638b2f6c5"
+  },
+  "evidence/fixture-cl-2023.csv": {
+   "source_url": "https://fixturedownload.com/download/champions-league-2023-UTC.csv",
+   "role": "name evidence only",
+   "fetched_at_utc": "2026-11-11T16:48:06+00:00",
+   "http_status": 200,
+   "bytes": 9568,
+   "sha256": "a6101ed5173ec5621fe3ec265720c582d5d485a902df5cbe4c1006c76784957f"
+  },
+  "evidence/fixture-cl-2024.csv": {
+   "source_url": "https://fixturedownload.com/download/champions-league-2024-UTC.csv",
+   "role": "name evidence only",
+   "fetched_at_utc": "2026-11-11T16:48:09+00:00",
+   "http_status": 200,
+   "bytes": 13231,
+   "sha256": "760b9d25e1379134eec48a9c1ca1409afde0bc6231766d89e6d0a434f21ad882"
+  },
+  "evidence/openfootball-cl-2023.txt": {
+   "source_url": "https://raw.githubusercontent.com/openfootball/champions-league/abfaeddc2ee3d14f99ecc163c9ddb46cb4d67cef/2023-24/cl.txt",
+   "role": "name evidence only",
+   "fetched_at_utc": "2026-11-11T16:40:53+00:00",
+   "http_status": 200,
+   "bytes": 10428,
+   "sha256": "5872bee720b32410f28c5272fb7fe7b07aa0f66bcb31ffe157893d75c14c47c5"
+  },
+  "evidence/openfootball-cl-2024.txt": {
+   "source_url": "https://raw.githubusercontent.com/openfootball/champions-league/abfaeddc2ee3d14f99ecc163c9ddb46cb4d67cef/2024-25/cl.txt",
+   "role": "name evidence only",
+   "fetched_at_utc": "2026-11-11T16:40:56+00:00",
+   "http_status": 200,
+   "bytes": 15374,
+   "sha256": "c2692b22af02c5df4587b69c5f430aebf7d936845b5337aee462ce8e649eb1b5"
+  },
+  "fixture-cl-2017.csv": {
+   "source_url": "https://fixturedownload.com/download/champions-league-2017-UTC.csv",
+   "role": "results",
+   "fetched_at_utc": "2026-11-11T16:40:26+00:00",
+   "http_status": 200,
+   "bytes": 11247,
+   "sha256": "0edd1652149bc1fe1cb11b9ecbdf159aae87abe11e5dad2f24fb8783a3ec45ff"
+  },
+  "fixture-cl-2018.csv": {
+   "source_url": "https://fixturedownload.com/download/champions-league-2018-UTC.csv",
+   "role": "results",
+   "fetched_at_utc": "2026-11-11T16:40:29+00:00",
+   "http_status": 200,
+   "bytes": 9361,
+   "sha256": "03bfb6bdcd4061f101b6c98c6d83a98335ceec766147e3e21c8179094124b8d6"
+  },
+  "fixture-cl-2019.csv": {
+   "source_url": "https://fixturedownload.com/download/champions-league-2019-UTC.csv",
+   "role": "results",
+   "fetched_at_utc": "2026-11-11T16:40:32+00:00",
+   "http_status": 200,
+   "bytes": 9104,
+   "sha256": "2239f0252e94e75c343e9045a1a841142f1d01b983ed2da6fa0f57584626e7a1"
+  },
+  "fixture-cl-2020.csv": {
+   "source_url": "https://fixturedownload.com/download/champions-league-2020-UTC.csv",
+   "role": "results",
+   "fetched_at_utc": "2026-11-11T16:40:35+00:00",
+   "http_status": 200,
+   "bytes": 9686,
+   "sha256": "f05b211992ab229c8f209d5a79358e27ae50070b162ff646adc77a54b666bb60"
+  },
+  "fixture-cl-2021.csv": {
+   "source_url": "https://fixturedownload.com/download/champions-league-2021-UTC.csv",
+   "role": "results",
+   "fetched_at_utc": "2026-11-11T16:40:38+00:00",
+   "http_status": 200,
+   "bytes": 9389,
+   "sha256": "634fc6276c40e2c04df2e30d71b8cad86694671d4ea430bcbc7148f1220f50c0"
+  },
+  "fixture-cl-2022.csv": {
+   "source_url": "https://fixturedownload.com/download/champions-league-2022-UTC.csv",
+   "role": "results",
+   "fetched_at_utc": "2026-11-11T16:40:42+00:00",
+   "http_status": 200,
+   "bytes": 9418,
+   "sha256": "6ff10b44af33e3b5079291fe2a6a849457bae55ab439969888dd26f4e410d4b4"
+  },
+  "fixture-el-2019.csv": {
+   "source_url": "https://fixturedownload.com/download/europa-league-2019-UTC.csv",
+   "role": "results",
+   "fetched_at_utc": "2026-11-11T16:40:45+00:00",
+   "http_status": 200,
+   "bytes": 15207,
+   "sha256": "338ac40f5c9e3ead3ed3981b156e67130b9a8ed87dc73bf23679e6b14f1f8193"
+  },
+  "fixture-el-2020.csv": {
+   "source_url": "https://fixturedownload.com/download/europa-league-2020-UTC.csv",
+   "role": "results",
+   "fetched_at_utc": "2026-11-11T16:40:48+00:00",
+   "http_status": 200,
+   "bytes": 15657,
+   "sha256": "b852a5d862d6ac72755bf236336f6e01470706a6fdebd7020b3e6fbd0c4b9cba"
+  },
+  "fixture-el-2021.csv": {
+   "source_url": "https://fixturedownload.com/download/europa-league-2021-UTC.csv",
+   "role": "results",
+   "fetched_at_utc": "2026-11-11T16:40:51+00:00",
+   "http_status": 200,
+   "bytes": 10688,
+   "sha256": "8f52be87789b4a2f0c7729a2fe000859dd388bef01e4bc05f5fb8df3ae35f344"
+  },
+  "openfootball-cl-2015.txt": {
+   "source_url": "https://raw.githubusercontent.com/openfootball/champions-league/abfaeddc2ee3d14f99ecc163c9ddb46cb4d67cef/2015-16/cl.txt",
+   "role": "results",
+   "fetched_at_utc": "2026-11-11T16:40:01+00:00",
+   "http_status": 200,
+   "bytes": 10471,
+   "sha256": "09b7c605a6c723ffd85b9cb8a36f6bcf427485b9b0427b49014da22d455a8d8c"
+  },
+  "openfootball-cl-2016.txt": {
+   "source_url": "https://raw.githubusercontent.com/openfootball/champions-league/abfaeddc2ee3d14f99ecc163c9ddb46cb4d67cef/2016-17/cl.txt",
+   "role": "results",
+   "fetched_at_utc": "2026-11-11T16:40:03+00:00",
+   "http_status": 200,
+   "bytes": 10446,
+   "sha256": "fe604207c9e945d2a76ed9d660b5499c4680d8b474aeeb166d585f819c029a31"
+  },
+  "openfootball-cl-2017.txt": {
+   "source_url": "https://raw.githubusercontent.com/openfootball/champions-league/abfaeddc2ee3d14f99ecc163c9ddb46cb4d67cef/2017-18/cl.txt",
+   "role": "results",
+   "fetched_at_utc": "2026-11-11T16:40:05+00:00",
+   "http_status": 200,
+   "bytes": 10389,
+   "sha256": "5f022938be481f3f9fa88fa7580033aab631a9dd321170d2e7b7ee558c92e468"
+  },
+  "openfootball-cl-2018.txt": {
+   "source_url": "https://raw.githubusercontent.com/openfootball/champions-league/abfaeddc2ee3d14f99ecc163c9ddb46cb4d67cef/2018-19/cl.txt",
+   "role": "results",
+   "fetched_at_utc": "2026-11-11T16:40:08+00:00",
+   "http_status": 200,
+   "bytes": 10379,
+   "sha256": "7ae98396b779c3e97d049e77bbd0af6dabedcecdd73fa17d27a212aadd18c727"
+  },
+  "openfootball-cl-2019.txt": {
+   "source_url": "https://raw.githubusercontent.com/openfootball/champions-league/abfaeddc2ee3d14f99ecc163c9ddb46cb4d67cef/2019-20/cl.txt",
+   "role": "results",
+   "fetched_at_utc": "2026-11-11T16:40:10+00:00",
+   "http_status": 200,
+   "bytes": 9967,
+   "sha256": "e0f6d8990b3110108193eecdcd698dfa48b6f324ffa7532cdc11aea19f7ee419"
+  },
+  "openfootball-cl-2020.txt": {
+   "source_url": "https://raw.githubusercontent.com/openfootball/champions-league/abfaeddc2ee3d14f99ecc163c9ddb46cb4d67cef/2020-21/cl.txt",
+   "role": "results",
+   "fetched_at_utc": "2026-11-11T16:40:13+00:00",
+   "http_status": 200,
+   "bytes": 10495,
+   "sha256": "9d94e40aa2fe2e98cbe5eedcffb7b9223daaaf3acf682411f4965f92a65d666e"
+  },
+  "openfootball-cl-2021.txt": {
+   "source_url": "https://raw.githubusercontent.com/openfootball/champions-league/abfaeddc2ee3d14f99ecc163c9ddb46cb4d67cef/2021-22/cl.txt",
+   "role": "results",
+   "fetched_at_utc": "2026-11-11T16:40:15+00:00",
+   "http_status": 200,
+   "bytes": 10428,
+   "sha256": "36241f4479aa9efda62c62318366bbf36f84cc8719f6387c5747cb5dea7ec519"
+  },
+  "openfootball-cl-2022.txt": {
+   "source_url": "https://raw.githubusercontent.com/openfootball/champions-league/abfaeddc2ee3d14f99ecc163c9ddb46cb4d67cef/2022-23/cl.txt",
+   "role": "results",
+   "fetched_at_utc": "2026-11-11T16:40:18+00:00",
+   "http_status": 200,
+   "bytes": 10399,
+   "sha256": "bf9cd05939b055f12ee9b095bec1c20a0922277bef8940172218548de2e7b93a"
+  },
+  "openfootball-el-2020.txt": {
+   "source_url": "https://raw.githubusercontent.com/openfootball/champions-league/abfaeddc2ee3d14f99ecc163c9ddb46cb4d67cef/2020-21/el.txt",
+   "role": "results",
+   "fetched_at_utc": "2026-11-11T16:40:20+00:00",
+   "http_status": 200,
+   "bytes": 16559,
+   "sha256": "d494cc0c88c951d92b3839f2e425752a382f2779de251a0df115a1f19b308f21"
+  },
+  "openfootball-el-2021.txt": {
+   "source_url": "https://raw.githubusercontent.com/openfootball/champions-league/abfaeddc2ee3d14f99ecc163c9ddb46cb4d67cef/2021-22/el.txt",
+   "role": "results",
+   "fetched_at_utc": "2026-11-11T16:40:23+00:00",
+   "http_status": 200,
+   "bytes": 11655,
+   "sha256": "0bd953fd4927f096a8e4162c414b639801d4c5d33b49cba33ac54fcf565bf788"
+  }
+ },
+ "openfootball_commit": "abfaeddc2ee3d14f99ecc163c9ddb46cb4d67cef",
+ "football_json_commit": "e6744429ee395bc86f247348c6184bb08d4eb361"
+}
