@@ -319,7 +319,9 @@ class FreeSources:
         self.memo = {}
         self.source_requests = {}
 
-    def get(self, url, xml=False, max_age_minutes=None):
+    def get(self, url, xml=False, max_age_minutes=None, check=None):
+        """`check(data)` returns a reason when an HTTP 2xx response is not the source's data
+        (a placeholder such as a maintenance page); the observation is then unavailable."""
         now = utc(self.clock())
         def fresh(value):
             if not isinstance(value, dict):
@@ -359,7 +361,11 @@ class FreeSources:
                 data = response.text if xml else response.json()
                 if not xml and not isinstance(data, dict):
                     raise ValueError('research response is not an object')
-                result.update(status='available', data=data)
+                reason = check(data) if check else None
+                if reason:
+                    result['reason'] = reason
+                else:
+                    result.update(status='available', data=data)
             except (requests.RequestException, ValueError, OSError) as exc:
                 # Do not store URLs from exceptions or headers which may contain credentials.
                 result['reason'] = type(exc).__name__
@@ -513,7 +519,7 @@ def collect_fixture(row, client):
         season = kick.year if kick.month >= 7 else kick.year-1
         for year in (season, season-1):
             url = f'https://understat.com/league/{slug}/{year}'
-            page = client.get(url, xml=True)
+            page = client.get(url, xml=True, check=understat_check)
             evidence['sources'].append({k: page.get(k) for k in ('url', 'observed_at_utc', 'status', 'reason')})
             for past in understat_rows(page.get('data'), url, utc(client.clock())):
                 for side in ('home', 'away'):
@@ -672,16 +678,34 @@ UNDERSTAT = {'Premier League': 'EPL', 'La Liga': 'La_liga', 'Bundesliga': 'Bunde
              'Serie A': 'Serie_A', 'Ligue 1': 'Ligue_1'}
 
 
-def understat_rows(html, source, cutoff):
-    """Read the public completed-match JSON, without executing page JavaScript."""
+def understat_matches(html):
+    """The page's embedded match list (`datesData`), or None when the page carries none.
+
+    understat.com answers HTTP 200 with a maintenance page for every URL, so a 2xx
+    response alone does not mean match data."""
     import re
     import codecs
     match = re.search(r"datesData\s*=\s*JSON\.parse\('([^']*)'\)", html or '')
     if not match:
-        return []
+        return None
     try:
         values = json.loads(codecs.decode(match[1], 'unicode_escape'))
     except (ValueError, UnicodeError):
+        return None
+    return values if isinstance(values, list) else None
+
+
+def understat_check(html):
+    """FreeSources check: a reason when an Understat response has no match data."""
+    if understat_matches(html):  # an empty list is no match data either
+        return None
+    return 'no match data (maintenance page)' if 'We will come back soon' in (html or '') else 'no match data'
+
+
+def understat_rows(html, source, cutoff):
+    """Read the public completed-match JSON, without executing page JavaScript."""
+    values = understat_matches(html)
+    if values is None:
         return []
     out = []
     for row in values:
