@@ -303,7 +303,7 @@ This repository is maintained under the GitHub user `paulmaina` and is described
 
 ## Workflow verification
 
-Pipeline CI now tests Python 3.12/3.14 on Linux and Windows, enforces application and critical-module coverage floors, and exercises the six-league prediction/experiment/format/capture/review path offline. Forward review validates immutable archives and independently reconciles generated reports before publishing, retains failure diagnostics, and reports provider health, training dates and policy groups. Windows LF/CRLF conversion no longer silently excludes experimental sidecars.
+Pipeline CI tests Python 3.12 and 3.14 on Linux and Python 3.14 on Windows, enforces application and critical-module coverage floors, and exercises the six-league prediction/experiment/format/capture/review path offline. Forward review validates immutable archives and independently reconciles generated reports before publishing, retains failure diagnostics, and reports provider health, training dates and policy groups. Windows LF/CRLF conversion no longer silently excludes experimental sidecars.
 
 See [Workflow checks and evidence](docs/workflow-assurance.md) for controls, artifacts, local commands and limitations. Historical snapshots, including retired experiments' sidecars, are preserved.
 # Daily evidence and execution checks
