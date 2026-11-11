@@ -52,5 +52,19 @@
     "holdout": "16 Jan - 10 Oct 2026, Eredivisie, Primeira Liga and Super Lig only (646 matches, 25 weeks), Bet365 pre-match prices with the margin removed. No earlier benchmark or live report scored these results. Locked: one declared candidate per run, once per candidate and once per frozen setup.",
     "retrospective": "Every other match from 16 Jan 2026, Bet365. The five big leagues to 13 Oct 2026 were scored by the earlier benchmark (historical_benchmark_config.json), and every league from 11 Oct 2026 by the live performance reports. Diagnostics only, never release evidence."
   },
-  "release_rule": "A candidate is scored on the holdout once, against a written declaration. It must beat its baseline with the 95% week-resampled interval clear of zero, and must beat the market reference by more than the measured Bet365-Pinnacle gap to count as beating the market. Before release it must pass a parity test (harness and live pipeline give identical probabilities) and a replay over the saved live forecasts. There is no forward waiting for backtestable changes. Changes reach production only through a reviewed PR, with monitoring and a rollback trigger afterwards."
+  "release_rule": "A candidate is scored on the holdout once, against a written declaration. It must beat its baseline with the 95% week-resampled interval clear of zero, and must beat the market reference by more than the measured Bet365-Pinnacle gap to count as beating the market. Before release it must pass a parity test (harness and live pipeline give identical probabilities) and a replay over the saved live forecasts. There is no forward waiting for backtestable changes. Changes reach production only through a reviewed PR, with monitoring and a rollback trigger afterwards.",
+  "calibration_tolerance": {
+    "name": "slopes-0.90-1.10-bands-30-5pp-v1",
+    "decided": "2026-11-11",
+    "slope_outcomes": [
+      "home",
+      "away"
+    ],
+    "slope_min": 0.9,
+    "slope_max": 1.1,
+    "band_width": 0.1,
+    "band_min_matches": 30,
+    "band_max_deviation": 0.05,
+    "rule": "Logistic calibration slope (logit P(outcome) = a + b logit(p), fitted per outcome) of the home and of the away probability both between 0.90 and 1.10 inclusive, and no outcome probability band (home, draw and away, tenths of probability) with at least 30 matches more than 5 percentage points from its observed rate."
+  }
 }
