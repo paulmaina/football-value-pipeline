@@ -1,0 +1,206 @@
+Match Number,Round Number,Date,Location,Home Team,Away Team,Group,Result
+1,1,22/10/2020 16:55,Natsionalen Stadion Vasil Levski,CSKA-Sofia,CFR Cluj,Group A,0 - 2
+2,1,22/10/2020 16:55,Stadion Wankdorf,Young Boys,Roma,Group A,1 - 2
+3,1,22/10/2020 16:55,Tallaght Stadium,Dundalk,Molde,Group B,1 - 2
+4,1,22/10/2020 16:55,Weststadion,Rapid Wien,Arsenal,Group B,1 - 2
+5,1,22/10/2020 16:55,BayArena,Leverkusen,Nice,Group C,6 - 2
+6,1,22/10/2020 16:55,Itztadion HaMoshava,H. Beer-Sheva,Slavia Praha,Group C,3 - 1
+7,1,22/10/2020 16:55,Stade Maurice Dufrasne,Standard Liège,Rangers,Group D,0 - 2
+8,1,22/10/2020 16:55,Stadion Poznan,Lech,Benfica,Group D,2 - 4
+9,1,22/10/2020 16:55,PSV Stadion,PSV,Granada,Group E,1 - 2
+10,1,22/10/2020 16:55,Stadio Toumba,PAOK,Omonoia,Group E,1 - 1
+11,1,22/10/2020 16:55,Stadio Diego Armando Maradona,Napoli,AZ Alkmaar,Group F,0 - 1
+12,1,22/10/2020 16:55,Stadion HNK Rijeka,Rijeka,Real Sociedad,Group F,0 - 1
+13,1,22/10/2020 19:00,Estádio Municipal de Braga,Braga,AEK,Group G,3 - 0
+14,1,22/10/2020 19:00,Leicester City Stadium,Leicester,Zorya Luhansk,Group G,3 - 0
+15,1,22/10/2020 19:00,Stadion Letná,Sparta Praha,LOSC,Group H,1 - 4
+16,1,22/10/2020 19:00,Celtic Park,Celtic,Milan,Group H,1 - 3
+17,1,22/10/2020 19:00,Bloomfield Stadium,M. Tel-Aviv,Qarabag,Group I,1 - 0
+18,1,22/10/2020 19:00,Estadio de la Cerámica,Villarreal,Sivasspor,Group I,5 - 3
+19,1,22/10/2020 19:00,Tottenham Hotspur Stadium,Tottenham,LASK,Group J,3 - 0
+20,1,22/10/2020 19:00,Ludogorets Arena,Ludogorets,Antwerp,Group J,1 - 2
+21,1,22/10/2020 19:00,Wörthersee Stadion,Wolfsberg,CSKA Moskva,Group K,1 - 1
+22,1,22/10/2020 19:00,Stadion Maksimir,Dinamo Zagreb,Feyenoord,Group K,0 - 0
+23,1,22/10/2020 19:00,Stadion u Nisy,Liberec,Gent,Group L,1 - 0
+24,1,22/10/2020 19:00,Rhein-Neckar-Arena,Hoffenheim,Crvena zvezda,Group L,2 - 0
+25,2,29/10/2020 17:55,Zaporizhzhya City Stadium,Zorya Luhansk,Braga,Group G,1 - 2
+26,2,29/10/2020 17:55,Olympic Athletic Center of Athens ""Spyros Louis"",AEK,Leicester,Group G,1 - 2
+27,2,29/10/2020 17:55,Stadio San Siro,Milan,Sparta Praha,Group H,3 - 0
+28,2,29/10/2020 17:55,Stade Pierre Mauroy,LOSC,Celtic,Group H,2 - 2
+29,2,29/10/2020 17:55,Yeni 4 Eylül Stadyumu,Sivasspor,M. Tel-Aviv,Group I,1 - 2
+30,2,29/10/2020 17:55,Istanbul Basaksehir Fatih Terim Stadyumu,Qarabag,Villarreal,Group I,1 - 3
+31,2,29/10/2020 17:55,Bosuil,Antwerp,Tottenham,Group J,1 - 0
+32,2,29/10/2020 17:55,Stadion der Stadt Linz,LASK,Ludogorets,Group J,4 - 3
+33,2,29/10/2020 17:55,Stadion Feijenoord,Feyenoord,Wolfsberg,Group K,1 - 4
+34,2,29/10/2020 17:55,CSKA Arena,CSKA Moskva,Dinamo Zagreb,Group K,0 - 0
+35,2,29/10/2020 17:55,Stadion Rajko Mitic,Crvena zvezda,Liberec,Group L,5 - 1
+36,2,29/10/2020 17:55,KAA Gent Stadium,Gent,Hoffenheim,Group L,1 - 4
+37,2,29/10/2020 20:00,Stadio Olimpico,Roma,CSKA-Sofia,Group A,0 - 0
+38,2,29/10/2020 20:00,Stadionul Dr. Constantin Radulescu,CFR Cluj,Young Boys,Group A,1 - 1
+39,2,29/10/2020 20:00,Arsenal Stadium,Arsenal,Dundalk,Group B,3 - 0
+40,2,29/10/2020 20:00,Molde Stadion,Molde,Rapid Wien,Group B,1 - 0
+41,2,29/10/2020 20:00,Eden Arena,Slavia Praha,Leverkusen,Group C,1 - 0
+42,2,29/10/2020 20:00,Grand Stade de Nice,Nice,H. Beer-Sheva,Group C,1 - 0
+43,2,29/10/2020 20:00,Estádio do SL Benfica,Benfica,Standard Liège,Group D,3 - 0
+44,2,29/10/2020 20:00,Ibrox Stadium,Rangers,Lech,Group D,1 - 0
+45,2,29/10/2020 20:00,GSP,Omonoia,PSV,Group E,1 - 2
+46,2,29/10/2020 20:00,Estadio Municipal Nuevo Los Cármenes,Granada,PAOK,Group E,0 - 0
+47,2,29/10/2020 20:00,Estadio de Anoeta,Real Sociedad,Napoli,Group F,0 - 1
+48,2,29/10/2020 20:00,AZ Stadion,AZ Alkmaar,Rijeka,Group F,4 - 1
+49,3,05/11/2020 17:55,Stadio Olimpico,Roma,CFR Cluj,Group A,5 - 0
+50,3,05/11/2020 17:55,Weststadion,Rapid Wien,Dundalk,Group B,4 - 3
+51,3,05/11/2020 17:55,Itztadion HaMoshava,H. Beer-Sheva,Leverkusen,Group C,2 - 4
+52,3,05/11/2020 17:55,Eden Arena,Slavia Praha,Nice,Group C,3 - 2
+53,3,05/11/2020 17:55,Stadion Poznan,Lech,Standard Liège,Group D,3 - 1
+54,3,05/11/2020 17:55,Estádio do SL Benfica,Benfica,Rangers,Group D,3 - 3
+55,3,05/11/2020 17:55,Stadio Toumba,PAOK,PSV,Group E,4 - 1
+56,3,05/11/2020 17:55,GSP,Omonoia,Granada,Group E,0 - 2
+57,3,05/11/2020 17:55,Stadion HNK Rijeka,Rijeka,Napoli,Group F,1 - 2
+58,3,05/11/2020 17:55,Estadio de Anoeta,Real Sociedad,AZ Alkmaar,Group F,1 - 0
+59,3,05/11/2020 17:55,Yeni 4 Eylül Stadyumu,Sivasspor,Qarabag,Group I,2 - 0
+60,3,05/11/2020 17:55,Ludogorets Arena,Ludogorets,Tottenham,Group J,1 - 3
+61,3,05/11/2020 20:00,Stadion Wankdorf,Young Boys,CSKA-Sofia,Group A,3 - 0
+62,3,05/11/2020 20:00,Arsenal Stadium,Arsenal,Molde,Group B,4 - 1
+63,3,05/11/2020 20:00,Leicester City Stadium,Leicester,Braga,Group G,4 - 0
+64,3,05/11/2020 20:00,Zaporizhzhya City Stadium,Zorya Luhansk,AEK,Group G,1 - 4
+65,3,05/11/2020 20:00,Celtic Park,Celtic,Sparta Praha,Group H,1 - 4
+66,3,05/11/2020 20:00,Stadio San Siro,Milan,LOSC,Group H,0 - 3
+67,3,05/11/2020 20:00,Estadio de la Cerámica,Villarreal,M. Tel-Aviv,Group I,4 - 0
+68,3,05/11/2020 20:00,Bosuil,Antwerp,LASK,Group J,0 - 1
+69,3,05/11/2020 20:00,Stadion Maksimir,Dinamo Zagreb,Wolfsberg,Group K,1 - 0
+70,3,05/11/2020 20:00,Stadion Feijenoord,Feyenoord,CSKA Moskva,Group K,3 - 1
+71,3,05/11/2020 20:00,Rhein-Neckar-Arena,Hoffenheim,Liberec,Group L,5 - 0
+72,3,05/11/2020 20:00,Stadion Rajko Mitic,Crvena zvezda,Gent,Group L,2 - 1
+73,4,26/11/2020 17:55,Natsionalen Stadion Vasil Levski,CSKA-Sofia,Young Boys,Group A,0 - 1
+74,4,26/11/2020 17:55,Molde Stadion,Molde,Arsenal,Group B,0 - 3
+75,4,26/11/2020 17:55,Estádio Municipal de Braga,Braga,Leicester,Group G,3 - 3
+76,4,26/11/2020 17:55,Olympic Athletic Center of Athens ""Spyros Louis"",AEK,Zorya Luhansk,Group G,0 - 3
+77,4,26/11/2020 17:55,Stadion Letná,Sparta Praha,Celtic,Group H,4 - 1
+78,4,26/11/2020 17:55,Stade Pierre Mauroy,LOSC,Milan,Group H,1 - 1
+79,4,26/11/2020 17:55,Bloomfield Stadium,M. Tel-Aviv,Villarreal,Group I,1 - 1
+80,4,26/11/2020 17:55,Istanbul Basaksehir Fatih Terim Stadyumu,Qarabag,Sivasspor,Group I,2 - 3
+81,4,26/11/2020 17:55,Stadion der Stadt Linz,LASK,Antwerp,Group J,0 - 2
+82,4,26/11/2020 17:55,Wörthersee Stadion,Wolfsberg,Dinamo Zagreb,Group K,0 - 3
+83,4,26/11/2020 17:55,CSKA Arena,CSKA Moskva,Feyenoord,Group K,0 - 0
+84,4,26/11/2020 17:55,Stadion u Nisy,Liberec,Hoffenheim,Group L,0 - 2
+85,4,26/11/2020 17:55,KAA Gent Stadium,Gent,Crvena zvezda,Group L,0 - 2
+86,4,26/11/2020 20:00,Stadionul Dr. Constantin Radulescu,CFR Cluj,Roma,Group A,0 - 2
+87,4,26/11/2020 20:00,Dublin Arena,Dundalk,Rapid Wien,Group B,1 - 3
+88,4,26/11/2020 20:00,BayArena,Leverkusen,H. Beer-Sheva,Group C,4 - 1
+89,4,26/11/2020 20:00,Grand Stade de Nice,Nice,Slavia Praha,Group C,1 - 3
+90,4,26/11/2020 20:00,Stade Maurice Dufrasne,Standard Liège,Lech,Group D,2 - 1
+91,4,26/11/2020 20:00,Ibrox Stadium,Rangers,Benfica,Group D,2 - 2
+92,4,26/11/2020 20:00,PSV Stadion,PSV,PAOK,Group E,3 - 2
+93,4,26/11/2020 20:00,Estadio Municipal Nuevo Los Cármenes,Granada,Omonoia,Group E,2 - 1
+94,4,26/11/2020 20:00,Stadio Diego Armando Maradona,Napoli,Rijeka,Group F,2 - 0
+95,4,26/11/2020 20:00,AZ Stadion,AZ Alkmaar,Real Sociedad,Group F,0 - 0
+96,4,26/11/2020 20:00,Tottenham Hotspur Stadium,Tottenham,Ludogorets,Group J,4 - 0
+97,5,03/12/2020 17:55,Olympic Athletic Center of Athens ""Spyros Louis"",AEK,Braga,Group G,2 - 4
+98,5,03/12/2020 17:55,Zaporizhzhya City Stadium,Zorya Luhansk,Leicester,Group G,1 - 0
+99,5,03/12/2020 17:55,Stade Pierre Mauroy,LOSC,Sparta Praha,Group H,2 - 1
+100,5,03/12/2020 17:55,Stadio San Siro,Milan,Celtic,Group H,4 - 2
+101,5,03/12/2020 17:55,Istanbul Basaksehir Fatih Terim Stadyumu,Qarabag,M. Tel-Aviv,Group I,1 - 1
+102,5,03/12/2020 17:55,Yeni 4 Eylül Stadyumu,Sivasspor,Villarreal,Group I,0 - 1
+103,5,03/12/2020 17:55,Stadion der Stadt Linz,LASK,Tottenham,Group J,3 - 3
+104,5,03/12/2020 17:55,Bosuil,Antwerp,Ludogorets,Group J,3 - 1
+105,5,03/12/2020 17:55,CSKA Arena,CSKA Moskva,Wolfsberg,Group K,0 - 1
+106,5,03/12/2020 17:55,Stadion Feijenoord,Feyenoord,Dinamo Zagreb,Group K,0 - 2
+107,5,03/12/2020 17:55,KAA Gent Stadium,Gent,Liberec,Group L,1 - 2
+108,5,03/12/2020 17:55,Stadion Rajko Mitic,Crvena zvezda,Hoffenheim,Group L,0 - 0
+109,5,03/12/2020 20:00,Stadionul Dr. Constantin Radulescu,CFR Cluj,CSKA-Sofia,Group A,0 - 0
+110,5,03/12/2020 20:00,Stadio Olimpico,Roma,Young Boys,Group A,3 - 1
+111,5,03/12/2020 20:00,Molde Stadion,Molde,Dundalk,Group B,3 - 1
+112,5,03/12/2020 20:00,Arsenal Stadium,Arsenal,Rapid Wien,Group B,4 - 1
+113,5,03/12/2020 20:00,Grand Stade de Nice,Nice,Leverkusen,Group C,2 - 3
+114,5,03/12/2020 20:00,Eden Arena,Slavia Praha,H. Beer-Sheva,Group C,3 - 0
+115,5,03/12/2020 20:00,Ibrox Stadium,Rangers,Standard Liège,Group D,3 - 2
+116,5,03/12/2020 20:00,Estádio do SL Benfica,Benfica,Lech,Group D,4 - 0
+117,5,03/12/2020 20:00,Estadio Municipal Nuevo Los Cármenes,Granada,PSV,Group E,0 - 1
+118,5,03/12/2020 20:00,GSP,Omonoia,PAOK,Group E,2 - 1
+119,5,03/12/2020 20:00,AZ Stadion,AZ Alkmaar,Napoli,Group F,1 - 1
+120,5,03/12/2020 20:00,Estadio de Anoeta,Real Sociedad,Rijeka,Group F,2 - 2
+121,6,10/12/2020 17:55,Natsionalen Stadion Vasil Levski,CSKA-Sofia,Roma,Group A,3 - 1
+122,6,10/12/2020 17:55,Stadion Wankdorf,Young Boys,CFR Cluj,Group A,2 - 1
+123,6,10/12/2020 17:55,Dublin Arena,Dundalk,Arsenal,Group B,2 - 4
+124,6,10/12/2020 17:55,Weststadion,Rapid Wien,Molde,Group B,2 - 2
+125,6,10/12/2020 17:55,BayArena,Leverkusen,Slavia Praha,Group C,4 - 0
+126,6,10/12/2020 17:55,Itztadion HaMoshava,H. Beer-Sheva,Nice,Group C,1 - 0
+127,6,10/12/2020 17:55,Stade Maurice Dufrasne,Standard Liège,Benfica,Group D,2 - 2
+128,6,10/12/2020 17:55,Stadion Poznan,Lech,Rangers,Group D,0 - 2
+129,6,10/12/2020 17:55,PSV Stadion,PSV,Omonoia,Group E,4 - 0
+130,6,10/12/2020 17:55,Stadio Toumba,PAOK,Granada,Group E,0 - 0
+131,6,10/12/2020 17:55,Stadio Diego Armando Maradona,Napoli,Real Sociedad,Group F,1 - 1
+132,6,10/12/2020 17:55,Stadion HNK Rijeka,Rijeka,AZ Alkmaar,Group F,2 - 1
+133,6,10/12/2020 20:00,Estádio Municipal de Braga,Braga,Zorya Luhansk,Group G,2 - 0
+134,6,10/12/2020 20:00,Leicester City Stadium,Leicester,AEK,Group G,2 - 0
+135,6,10/12/2020 20:00,Stadion Letná,Sparta Praha,Milan,Group H,0 - 1
+136,6,10/12/2020 20:00,Celtic Park,Celtic,LOSC,Group H,3 - 2
+137,6,10/12/2020 20:00,Bloomfield Stadium,M. Tel-Aviv,Sivasspor,Group I,1 - 0
+138,6,10/12/2020 20:00,Estadio de la Cerámica,Villarreal,Qarabag,Group I,3 - 0
+139,6,10/12/2020 20:00,Tottenham Hotspur Stadium,Tottenham,Antwerp,Group J,2 - 0
+140,6,10/12/2020 20:00,Ludogorets Arena,Ludogorets,LASK,Group J,1 - 3
+141,6,10/12/2020 20:00,Wörthersee Stadion,Wolfsberg,Feyenoord,Group K,1 - 0
+142,6,10/12/2020 20:00,Stadion Maksimir,Dinamo Zagreb,CSKA Moskva,Group K,3 - 1
+143,6,10/12/2020 20:00,Stadion u Nisy,Liberec,Crvena zvezda,Group L,0 - 0
+144,6,10/12/2020 20:00,Rhein-Neckar-Arena,Hoffenheim,Gent,Group L,4 - 1
+152,R32 Game 1,18/02/2021 15:00,NSC Olimpiyskiy,Dynamo Kyiv,Club Brugge,,1 - 1
+145,R32 Game 1,18/02/2021 17:55,Stadio Georgios Karaiskakis,Olympiacos,PSV,,4 - 2
+146,R32 Game 1,18/02/2021 17:55,Stadion Wankdorf,Young Boys,Leverkusen,,4 - 3
+147,R32 Game 1,18/02/2021 17:55,Stadium Krasnodar,Krasnodar,Dinamo Zagreb,,2 - 3
+148,R32 Game 1,18/02/2021 17:55,Estádio Municipal de Braga,Braga,Roma,,0 - 2
+149,R32 Game 1,18/02/2021 17:55,Eden Arena,Slavia Praha,Leicester,,0 - 0
+150,R32 Game 1,18/02/2021 17:55,Stadion Rajko Mitic,Crvena zvezda,Milan,,2 - 2
+151,R32 Game 1,18/02/2021 17:55,Juventus Stadium,Real Sociedad,Man. United,,0 - 4
+153,R32 Game 1,18/02/2021 17:55,Puskás Aréna,Wolfsberg,Tottenham,,1 - 4
+154,R32 Game 1,18/02/2021 20:00,Stade Pierre Mauroy,LOSC,Ajax,,1 - 2
+155,R32 Game 1,18/02/2021 20:00,Bloomfield Stadium,M. Tel-Aviv,Shakhtar Donetsk,,0 - 2
+156,R32 Game 1,18/02/2021 20:00,Estadio Municipal Nuevo Los Cármenes,Granada,Napoli,,2 - 0
+157,R32 Game 1,18/02/2021 20:00,Estadio de la Cerámica,Molde,Hoffenheim,,3 - 3
+158,R32 Game 1,18/02/2021 20:00,Stadion Salzburg,Salzburg,Villarreal,,0 - 2
+159,R32 Game 1,18/02/2021 20:00,Bosuil,Antwerp,Rangers,,3 - 4
+160,R32 Game 1,18/02/2021 20:00,Stadio Olimpico,Benfica,Arsenal,,1 - 1
+161,R32 Game 2,24/02/2021 17:00,Tottenham Hotspur Stadium,Tottenham,Wolfsberg,,4 - 0
+162,R32 Game 2,25/02/2021 17:55,Johan Cruijff ArenA,Ajax,LOSC,,2 - 1
+163,R32 Game 2,25/02/2021 17:55,NSC Olimpiyskiy,Shakhtar Donetsk,M. Tel-Aviv,,1 - 0
+164,R32 Game 2,25/02/2021 17:55,Stadio Diego Armando Maradona,Napoli,Granada,,2 - 1
+165,R32 Game 2,25/02/2021 17:55,Rhein-Neckar-Arena,Hoffenheim,Molde,,0 - 2
+166,R32 Game 2,25/02/2021 17:55,Estadio de la Cerámica,Villarreal,Salzburg,,2 - 1
+167,R32 Game 2,25/02/2021 17:55,Ibrox Stadium,Rangers,Antwerp,,5 - 2
+168,R32 Game 2,25/02/2021 17:55,Stadio Georgios Karaiskakis,Arsenal,Benfica,,3 - 2
+169,R32 Game 2,25/02/2021 20:00,PSV Stadion,PSV,Olympiacos,,2 - 1
+170,R32 Game 2,25/02/2021 20:00,BayArena,Leverkusen,Young Boys,,0 - 2
+171,R32 Game 2,25/02/2021 20:00,Stadion Maksimir,Dinamo Zagreb,Krasnodar,,1 - 0
+172,R32 Game 2,25/02/2021 20:00,Stadio Olimpico,Roma,Braga,,3 - 1
+173,R32 Game 2,25/02/2021 20:00,Leicester City Stadium,Leicester,Slavia Praha,,0 - 2
+174,R32 Game 2,25/02/2021 20:00,Stadio San Siro,Milan,Crvena zvezda,,1 - 1
+175,R32 Game 2,25/02/2021 20:00,Old Trafford,Man. United,Real Sociedad,,0 - 0
+176,R32 Game 2,25/02/2021 20:00,Jan Breydelstadion,Club Brugge,Dynamo Kyiv,,0 - 1
+177,R16 Game 1,11/03/2021 17:55,Eden Arena,Slavia Praha,Rangers,,1 - 1
+178,R16 Game 1,11/03/2021 17:55,Old Trafford,Man. United,Milan,,1 - 1
+179,R16 Game 1,11/03/2021 17:55,NSC Olimpiyskiy,Dynamo Kyiv,Villarreal,,0 - 2
+180,R16 Game 1,11/03/2021 17:55,Johan Cruijff ArenA,Ajax,Young Boys,,3 - 0
+181,R16 Game 1,11/03/2021 20:00,Estadio Municipal Nuevo Los Cármenes,Granada,Molde,,2 - 0
+182,R16 Game 1,11/03/2021 20:00,Tottenham Hotspur Stadium,Tottenham,Dinamo Zagreb,,2 - 0
+183,R16 Game 1,11/03/2021 20:00,Stadio Georgios Karaiskakis,Olympiacos,Arsenal,,1 - 3
+184,R16 Game 1,11/03/2021 20:00,Stadio Olimpico,Roma,Shakhtar Donetsk,,3 - 0
+185,R16 Game 2,18/03/2021 17:55,Puskás Aréna,Molde,Granada,,2 - 1
+186,R16 Game 2,18/03/2021 17:55,Stadion Maksimir,Dinamo Zagreb,Tottenham,,3 - 0
+187,R16 Game 2,18/03/2021 17:55,Arsenal Stadium,Arsenal,Olympiacos,,0 - 1
+188,R16 Game 2,18/03/2021 17:55,NSC Olimpiyskiy,Shakhtar Donetsk,Roma,,1 - 2
+189,R16 Game 2,18/03/2021 20:00,Ibrox Stadium,Rangers,Slavia Praha,,0 - 2
+190,R16 Game 2,18/03/2021 20:00,Stadio San Siro,Milan,Man. United,,0 - 1
+191,R16 Game 2,18/03/2021 20:00,Estadio de la Cerámica,Villarreal,Dynamo Kyiv,,2 - 0
+192,R16 Game 2,18/03/2021 20:00,Stadion Wankdorf,Young Boys,Ajax,,0 - 2
+193,QF Game 1,08/04/2021 19:00,Stadion Maksimir,Dinamo Zagreb,Villarreal,,0 - 1
+194,QF Game 1,08/04/2021 19:00,Johan Cruijff ArenA,Ajax,Roma,,1 - 2
+195,QF Game 1,08/04/2021 19:00,Arsenal Stadium,Arsenal,Slavia Praha,,1 - 1
+196,QF Game 1,08/04/2021 19:00,Estadio Municipal Nuevo Los Cármenes,Granada,Man. United,,0 - 2
+197,QF Game 2,15/04/2021 19:00,Estadio de la Cerámica,Villarreal,Dinamo Zagreb,,2 - 1
+198,QF Game 2,15/04/2021 19:00,Stadio Olimpico,Roma,Ajax,,1 - 1
+199,QF Game 2,15/04/2021 19:00,Eden Arena,Slavia Praha,Arsenal,,0 - 4
+200,QF Game 2,15/04/2021 19:00,Old Trafford,Man. United,Granada,,2 - 0
+201,SF Game 1,29/04/2021 19:00,Estadio de la Cerámica,Villarreal,Arsenal,,2 - 1
+202,SF Game 1,29/04/2021 19:00,Old Trafford,Man. United,Roma,,6 - 2
+203,SF Game 2,06/05/2021 19:00,Arsenal Stadium,Arsenal,Villarreal,,0 - 0
+204,SF Game 2,06/05/2021 19:00,Stadio Olimpico,Roma,Man. United,,3 - 2
+205,Final,26/05/2021 19:00,Gdansk Stadium,Villarreal,Man. United,,1 - 1

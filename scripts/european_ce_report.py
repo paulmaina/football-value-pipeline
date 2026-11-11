@@ -7,8 +7,9 @@ are no historical European prices, so there is no market reference and no market
 
 Reported: 1X2 log loss, AH all lines and draw-sensitive lines (0, +/-0.5) settled on the result,
 Over 1.5; overall, by competition and by stage (group stage or league phase, knockouts); logistic
-calibration slopes and calibration rule v2 (reported, not a gate); the cached inventory; and how
-many European fixtures have domestic form for both teams in the 8 cached leagues (Phase 2c reach).
+calibration slopes and calibration rule v2 (reported, not a gate); the cached inventory and the backfill;
+how many European fixtures have domestic form for both teams in the 8 cached leagues (Phase 2c reach); and
+how many European holdout fixtures a declared run would score, counted by identity only (no score read).
 
     python scripts/european_ce_report.py --run DIR --output evaluation/european_ce
 """
@@ -54,7 +55,9 @@ def report(run: Path) -> dict:
         periods[name] = {
             'log_loss': {k: period[k] for k in ('overall', 'by_competition', 'by_stage', 'by_competition_and_stage')},
             'calibration': {'overall': calibration(part),
-                            **{c: calibration(p) for c, p in part.groupby('league')}},
+                            **{c: calibration(p) for c, p in part.groupby('league')},
+                            'by_competition_and_stage': {f'{c} {g}': calibration(p)
+                                                         for (c, g), p in part.groupby(['league', 'stage_group'])}},
             'calibration_rule_v2_reported_not_a_gate': period['calibration_tolerance_check'],
         }
     counts = scores.loc[scores.group == '1X2'].groupby(['phase', 'league']).fixture_key.nunique()
@@ -69,6 +72,8 @@ def report(run: Path) -> dict:
         'reference_1x2_uniform_log_loss': 1.0986122886681098,  # ln 3: forecasting 1/3 each, needs no data
         'inventory': results['inventory'],
         'domestic_form': results['domestic_form'],
+        'holdout_reach_identity_only': results.get('holdout_reach'),
+        'european_holdout_sample_minimum': results.get('sample_minimum'),
         'notes': results['notes'] + ['Retrospective periods are counted in scored_fixtures and coverage but not summarised.'],
     }
 

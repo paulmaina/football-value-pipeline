@@ -80,7 +80,10 @@ class EuropeanPeriodTest(unittest.TestCase):
                  ('2024-10-01', 'UCL', 'validation'), ('2025-01-20 20:00', 'UCL', 'validation'),
                  ('2025-01-21 17:45', 'UCL', 'holdout'), ('2026-10-12 21:00', 'UCL', 'holdout'),
                  ('2026-10-13', 'UCL', 'retrospective'), ('2025-01-21', 'UEL', 'retrospective'),
-                 ('2026-04-01', 'UEL', 'retrospective')]
+                 ('2026-04-01', 'UEL', 'retrospective'),
+                 # Each competition's warm-up (training only) ends where its 250-match warm-up ends.
+                 ('2017-06-03', 'UCL', 'warm_up'), ('2017-09-12', 'UCL', 'development'),
+                 ('2021-10-21', 'UEL', 'warm_up'), ('2021-10-28', 'UEL', 'development')]
         for date, competition, name in cases:
             self.assertEqual(eh.european_phase(date, competition, CFG), name, (date, competition))
 
@@ -102,7 +105,9 @@ class EuropeanLockTest(unittest.TestCase):
         records, _, coverage, calib = eh.european(CACHE, cfg)
         self.assertTrue(records)
         self.assertNotIn('holdout', {r['phase'] for r in records} | {r['phase'] for r in calib})
-        self.assertEqual({r['league'] for r in records}, {'UEL'})
+        # With the backfill UCL is past its warm-up: its validation fixtures are scored, its holdout never.
+        self.assertEqual({r['league'] for r in records}, {'UCL', 'UEL'})
+        self.assertEqual({r['phase'] for r in records if r['league'] == 'UCL'}, {'validation'})
         self.assertGreater(coverage['UCL:locked_holdout'], 0)
         self.assertIn('retrospective', {r['phase'] for r in records})
 
@@ -153,6 +158,9 @@ class EuropeanLockTest(unittest.TestCase):
         self.assertIn('data/europa/training.json', first['parts'])
         self.assertIn('data/fdorg_history_UCL_2024.json', first['parts'])
         self.assertIn('european_results.py', first['parts'])
+        self.assertIn('data/europa/backfill/openfootball-cl-2015.txt', first['parts'])
+        self.assertIn('data/domestic_backfill/1516_E0.csv', first['parts'])
+        self.assertIn('docs/audits/european-backfill-aliases.json', first['parts'])
         self.assertNotEqual(first['sha256'], eh.european_setup_fingerprint(window(min_train=200), CACHE)['sha256'])
 
     def test_a_european_verdict_has_no_market_reference(self):
@@ -167,6 +175,21 @@ class EuropeanLockTest(unittest.TestCase):
         verdict = eh.holdout_verdict(records, calib, declaration, {})
         self.assertIsNone(verdict['versus_market'])
         self.assertFalse(verdict['passes_holdout_gate'])  # 40 fixtures: below the sample minimum
+
+    def test_the_european_holdout_minimum_is_250_and_the_domestic_one_300(self):
+        self.assertEqual(eh.promotion_minimums(), {'fixtures': 300, 'weeks': 6})
+        self.assertEqual(eh.promotion_minimums('european'), {'fixtures': 250, 'weeks': 6})
+        records, calib = [], []
+        for i in range(260):
+            for cand, loss in (('CE2', .6 + .001 * (i % 5)), ('CE', .7)):
+                records.append({'fixture_key': f'f{i}', 'league': 'UCL', 'week': f'w{i % 10}', 'phase': 'holdout',
+                                'candidate': cand, 'market': 'AH +0.00', 'log_loss': loss})
+        declaration = {'candidate': 'CE2', 'baseline': 'CE', 'primary_metric': 'AH all',
+                       'draw_sensitive_lines': [-.5, 0, .5], 'calibration_rule': CFG['calibration_tolerance']}
+        domestic = eh.holdout_verdict(records, calib, declaration, {})
+        european = eh.holdout_verdict(records, calib, declaration, {}, minimum=eh.promotion_minimums('european'))
+        self.assertFalse(domestic['sample_minimum_met'])  # 260 fixtures < 300
+        self.assertTrue(european['sample_minimum_met'])   # 260 fixtures >= 250, 10 weeks
 
 
 class CEIndependenceTest(unittest.TestCase):
@@ -229,6 +252,7 @@ class CEIndependenceTest(unittest.TestCase):
                 shutil.copy(path, only / path.name)
             (only / 'europa').mkdir()
             shutil.copy(er.europa_snapshot(CACHE), only / 'europa' / 'training.json')
+            shutil.copytree(CACHE / 'europa' / 'backfill', only / 'europa' / 'backfill')
             alone = eh.european(only, cfg)
         self.assertTrue(full[0])
         self.assertEqual(full[0], alone[0])

@@ -10,6 +10,9 @@ Loads each competition's results exactly as the live pipeline trains on them:
        Download matched to UEFA's reviewed facts (2025/26), Cornerflick + Fixture Download
        (2026/27 league phase). Regulation-time scores; reviewed corrections only.
 
+The harness reads `load_with_backfill`: older seasons from european_backfill.py (UCL 2015/16-2022/23, UEL
+2020/21-2021/22; harness only) followed by exactly what `load` returns, so no cached row changes.
+
 No odds are read: there are no historical European prices, so these are results-only test matches.
 The inventory reconciles the cached sources with the existing reviewed reconciliation
 (scripts/europa_research.reconcile, audit_cornerflick) and the reviewed aliases only; no fuzzy matching.
@@ -102,6 +105,23 @@ def load(cache, competition, now) -> pd.DataFrame:
     return frame[COLUMNS].sort_values(['Date', 'HomeTeam', 'AwayTeam'], kind='stable').reset_index(drop=True)
 
 
+def load_with_backfill(cache, competition, now) -> pd.DataFrame:
+    """The harness's European results: the reconciled backfill (european_backfill.py; older seasons, harness
+    only) followed by exactly what live trains on (`load`). Every backfilled match is before the first cached
+    one, so the live rows, and every row on or after the European holdout start, are untouched."""
+    import european_backfill as eb
+    live = load(cache, competition, now)
+    old = eb.results(cache, competition)
+    old = old.loc[old.Date < utc(now).tz_convert(None)].copy()
+    if not old.empty and not live.empty and old.Date.max() >= live.Date.min():
+        raise ValueError(f'{competition} backfill overlaps the cached seasons')
+    if (old.Date >= pd.Timestamp(eb.LOCK_DATE)).any():
+        raise ValueError('A backfilled row is on or after the European holdout start')
+    old['stage_group'] = [stage_group(competition, s) for s in old['stage']]
+    frame = pd.concat([old[COLUMNS], live], ignore_index=True)
+    return frame.sort_values(['Date', 'HomeTeam', 'AwayTeam'], kind='stable').reset_index(drop=True)
+
+
 # ---------------------------------------------------------------------------
 # Inventory: every cached European result, its source and conflicts
 # ---------------------------------------------------------------------------
@@ -184,25 +204,95 @@ def uel_inventory(cache, now):
                                   'qualifying rounds, July-August) have no second cached source, so none is added.')}}
 
 
+def backfill_inventory(cache):
+    """Per competition and season: matches, sources, agreements and conflicts of the backfill."""
+    import european_backfill as eb
+    frame, report = eb.reconcile(cache)
+    aliases = eb.load_aliases()
+    return {'seasons': report,
+            'total': {c: int((frame.competition == c).sum()) for c in eb.SEASONS},
+            'rule': ('A result counts when OpenFootball and Fixture Download agree on the fixture (same teams, dates '
+                     'within a day) and the concluding score, or when OpenFootball is the only source (single-source '
+                     'season, labelled). Regulation score from OpenFootball\'s explicit periods. Awarded and cancelled '
+                     'matches are left out; a conflict would be left out and reported.'),
+            'names': {'UCL': aliases['UCL']['evidence'], 'UEL': aliases['UEL']['evidence']},
+            'live_rows_unchanged': 'Backfilled rows all precede the cached seasons; load() is unchanged.'}
+
+
 def inventory(cache, now):
-    return {'UCL': ucl_inventory(cache, now), 'UEL': uel_inventory(cache, now)}
+    return {'UCL': ucl_inventory(cache, now), 'UEL': uel_inventory(cache, now), 'backfill': backfill_inventory(cache)}
 
 
 # ---------------------------------------------------------------------------
 # Domestic form available for both teams (Phase 2c reach)
 # ---------------------------------------------------------------------------
 
-def domestic_identities(teams, histories):
+def load_domestic_backfill(folder, code, seasons):
+    """Older football-data.co.uk league files (European domestic-form coverage only; the domestic harness
+    never reads them). The same checks as historical_benchmark.load_history, except that a row with every
+    field empty (the older files end with one) is dropped and counted. Returns (Date, HomeTeam, AwayTeam)
+    rows of completed matches, and the rows dropped."""
+    import io
+    frames, dropped = [], Counter()
+    for season in seasons:
+        path = Path(folder) / f'{season}_{code}.csv'
+        raw = path.read_bytes()
+        try:
+            text = raw.decode('utf-8-sig')
+        except UnicodeDecodeError:
+            text = raw.decode('latin1')
+        frame = pd.read_csv(io.StringIO(text), on_bad_lines='error', low_memory=False)
+        empty = frame.isna().all(axis=1)
+        dropped['empty_rows'] += int(empty.sum())
+        frame = frame.loc[~empty].copy()
+        if {'Date', 'HomeTeam', 'AwayTeam', 'FTHG', 'FTAG'} - set(frame):
+            raise ValueError('Missing columns ' + path.name)
+        dates = pd.to_datetime(frame.Date.astype(str).str.strip(), format='mixed', dayfirst=True, errors='coerce')
+        if dates.isna().any():
+            raise ValueError('Invalid date ' + path.name)
+        hg, ag = pd.to_numeric(frame.FTHG, errors='coerce'), pd.to_numeric(frame.FTAG, errors='coerce')
+        unfinished = hg.isna() & ag.isna()
+        dropped['unfinished_rows'] += int(unfinished.sum())
+        if ((hg.isna() != ag.isna()) | (((hg < 0) | (ag < 0) | (hg > 20) | (ag > 20)) & ~unfinished)).any():
+            raise ValueError('Invalid goals ' + path.name)
+        out = pd.DataFrame({'Date': dates.dt.normalize(), 'HomeTeam': frame.HomeTeam.astype(str).str.strip(),
+                            'AwayTeam': frame.AwayTeam.astype(str).str.strip()}).loc[~unfinished]
+        if (out.HomeTeam == out.AwayTeam).any() or out[['HomeTeam', 'AwayTeam']].isin(['', 'nan']).any().any():
+            raise ValueError('Invalid team identity ' + path.name)
+        frames.append(out)
+    data = pd.concat(frames, ignore_index=True).sort_values(['Date', 'HomeTeam', 'AwayTeam']).reset_index(drop=True)
+    if data.duplicated(['Date', 'HomeTeam', 'AwayTeam']).any():
+        raise ValueError('Duplicate fixture in the domestic backfill')
+    return data, dict(dropped)
+
+
+def domestic_identities(teams, histories, extra=None):
     """European team -> (league, domestic training name), from reviewed identities only.
 
     Uses team_research.history_team, the live research resolver (exact name, the league's reviewed
-    aliases, the global alias table, the canonical key; never fuzzy). A team found in more than one
+    aliases, the global alias table, the canonical key; never fuzzy), then `extra` ({league: {European name:
+    domestic name}}, the reviewed docs/audits/european-domestic-aliases.json, each confirmed by fixture
+    evidence; harness only; matched by exact name or reviewed Europa key). A team found in more than one
     domestic league is ambiguous and left out."""
     from team_research import history_team
+    extra = extra or {}
     out, ambiguous = {}, set()
+
+    from scripts.europa_research import key
+    keyed = {league: {key(k): v for k, v in table.items()} for league, table in extra.items()}
+
+    def resolve(team, names, league):
+        # The alias is looked up by its exact name or by the reviewed Europa key (case and accents folded),
+        # the form UEL names take ("SSC Napoli" -> "ssc napoli"); never fuzzy.
+        name = history_team(team, names, league)
+        if name is None:
+            target = extra.get(league, {}).get(team) or keyed.get(league, {}).get(key(team))
+            if target in names:
+                name = target
+        return name
     for team in teams:
         found = {(league, name) for league, (frame, names) in histories.items()
-                 if (name := history_team(team, names, league)) is not None}
+                 if (name := resolve(team, names, league)) is not None}
         if len(found) == 1:
             out[team] = found.pop()
         elif found:
@@ -210,12 +300,12 @@ def domestic_identities(teams, histories):
     return out, ambiguous
 
 
-def domestic_form_coverage(fixtures, histories, min_matches=5, days=365):
+def domestic_form_coverage(fixtures, histories, min_matches=5, days=365, extra=None):
     """Per European fixture: does each team have at least `min_matches` domestic league matches in the
     `days` before the fixture's day (strictly earlier days only)? Reads domestic dates and team names,
     never a score. `histories` maps league -> (frame, team names); pass holdout-free frames."""
     teams = sorted(set(fixtures.HomeTeam) | set(fixtures.AwayTeam))
-    mapped, ambiguous = domestic_identities(teams, histories)
+    mapped, ambiguous = domestic_identities(teams, histories, extra)
     dates = {}
     for team, (league, name) in mapped.items():
         frame = histories[league][0]

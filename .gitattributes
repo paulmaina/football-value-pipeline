@@ -13,3 +13,6 @@ football_output_v2/raw/prediction_runs/** -text
 football_output_v2/performance/result_sources/** -text
 # Understat history: manifest.json binds each season file by its exact bytes (SHA-256).
 .football_cache/understat/** -text
+# European backfill and domestic-form backfill: manifest.json binds each raw file by its exact bytes (SHA-256).
+.football_cache/europa/backfill/** -text
+.football_cache/domestic_backfill/** -text
