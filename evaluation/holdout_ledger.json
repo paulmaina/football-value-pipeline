@@ -1,0 +1,12 @@
+[
+  {
+    "candidate": "C6",
+    "baseline": "C",
+    "declaration_sha256": "675bbf54924920f28ba6d2c35a70fb5e61821ef649319512f92ca3fb24fd1be0",
+    "setup_sha256": "c9664bab87094f9566a945c287939808852a2e6c46ecadd2bfebb910a2ce007c",
+    "source_commit": "060d2c5fcdf84f8c081963ab18c8d7b89be8760c",
+    "holdout_fixtures": 640,
+    "passes_holdout_gate": false,
+    "scored_at_utc": "2026-11-11T12:51:39.160116+00:00"
+  }
+]

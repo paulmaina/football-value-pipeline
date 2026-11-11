@@ -54,7 +54,7 @@
   },
   "release_rule": "A candidate is scored on the holdout once, against a written declaration. It must beat its baseline with the 95% week-resampled interval clear of zero, and must beat the market reference by more than the measured Bet365-Pinnacle gap to count as beating the market. Before release it must pass a parity test (harness and live pipeline give identical probabilities) and a replay over the saved live forecasts. There is no forward waiting for backtestable changes. Changes reach production only through a reviewed PR, with monitoring and a rollback trigger afterwards.",
   "calibration_tolerance": {
-    "name": "slopes-0.90-1.10-bands-30-5pp-v1",
+    "name": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
     "decided": "2026-11-11",
     "slope_outcomes": [
       "home",
@@ -65,6 +65,13 @@
     "band_width": 0.1,
     "band_min_matches": 30,
     "band_max_deviation": 0.05,
-    "rule": "Logistic calibration slope (logit P(outcome) = a + b logit(p), fitted per outcome) of the home and of the away probability both between 0.90 and 1.10 inclusive, and no outcome probability band (home, draw and away, tenths of probability) with at least 30 matches more than 5 percentage points from its observed rate."
+    "band_alpha": 0.05,
+    "rule": "Logistic calibration slope (logit P(outcome) = a + b logit(p), fitted per outcome) of the home and of the away probability both between 0.90 and 1.10 inclusive, and no failing outcome probability band (home, draw and away, tenths of probability, at least 30 matches). A band fails only if it is more than 5 percentage points from its observed rate AND the gap is statistically clear: |gap| / sqrt(p(1-p)/n) above the two-sided normal quantile for 0.05 divided by the number of bands checked (Bonferroni; about 3.0 for 20 bands), p = the band's mean forecast.",
+    "replaces": {
+      "name": "slopes-0.90-1.10-bands-30-5pp-v1",
+      "replaced": "2026-11-11",
+      "reason": "Replaced before any holdout scoring: v1 failed a band on any gap above 5 points, however few matches, so it failed even the market reference M on noise.",
+      "rule": "Same slopes; a band failed whenever it was more than 5 percentage points from its observed rate (at least 30 matches), with no allowance for sample size."
+    }
   }
 }

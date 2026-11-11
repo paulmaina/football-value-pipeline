@@ -1,0 +1,6413 @@
+{
+  "average_margin": {
+    "bet365": 0.058231474502433704,
+    "pinnacle": 0.03671579924528588
+  },
+  "bet365_gap": {
+    "1X2": {
+      "bet365_minus_pinnacle_log_loss": 0.0008822921263751664,
+      "clear_of_zero": true,
+      "fixtures": 8194,
+      "interval_95": [
+        0.000378608796104141,
+        0.001399242622309116
+      ],
+      "mean_gain": 0.0008822921263751664,
+      "weeks": 128
+    },
+    "AH all": {
+      "bet365_minus_pinnacle_log_loss": 0.00033257168701297546,
+      "clear_of_zero": true,
+      "fixtures": 8194,
+      "interval_95": [
+        0.00011529497930944294,
+        0.0005674657536523387
+      ],
+      "mean_gain": 0.00033257168701297546,
+      "weeks": 128
+    },
+    "AH draw-sensitive": {
+      "bet365_minus_pinnacle_log_loss": 0.0005167226656742358,
+      "clear_of_zero": true,
+      "fixtures": 8194,
+      "interval_95": [
+        0.00021782045555178396,
+        0.0008306055586912046
+      ],
+      "mean_gain": 0.0005167226656742358,
+      "weeks": 128
+    },
+    "Over 1.5": {
+      "bet365_minus_pinnacle_log_loss": -0.0002450407774045667,
+      "clear_of_zero": false,
+      "fixtures": 8194,
+      "interval_95": [
+        -0.0006427251539639586,
+        0.0001270871138868264
+      ],
+      "mean_gain": -0.0002450407774045667,
+      "weeks": 128
+    }
+  },
+  "calibration_1x2": [
+    {
+      "bin_lower": 0.0,
+      "candidate": "C",
+      "mean_forecast": 0.07039554255662543,
+      "n": 44,
+      "observed_rate": 0.022727272727272728,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "C",
+      "mean_forecast": 0.15415906026199375,
+      "n": 119,
+      "observed_rate": 0.10084033613445378,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "C",
+      "mean_forecast": 0.25295264724412986,
+      "n": 168,
+      "observed_rate": 0.24404761904761904,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "C",
+      "mean_forecast": 0.3448793070043878,
+      "n": 137,
+      "observed_rate": 0.30656934306569344,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "C",
+      "mean_forecast": 0.44628592500519165,
+      "n": 70,
+      "observed_rate": 0.4857142857142857,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "C",
+      "mean_forecast": 0.5438024539341486,
+      "n": 53,
+      "observed_rate": 0.6226415094339622,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "C",
+      "mean_forecast": 0.6481090685653788,
+      "n": 32,
+      "observed_rate": 0.6875,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "C",
+      "mean_forecast": 0.7364169626488742,
+      "n": 15,
+      "observed_rate": 0.6,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "C",
+      "mean_forecast": 0.8133544903470138,
+      "n": 2,
+      "observed_rate": 0.0,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "C",
+      "mean_forecast": 0.07038753430236837,
+      "n": 3,
+      "observed_rate": 0.6666666666666666,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "C",
+      "mean_forecast": 0.16650381270837147,
+      "n": 143,
+      "observed_rate": 0.20279720279720279,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "C",
+      "mean_forecast": 0.2454448343617991,
+      "n": 468,
+      "observed_rate": 0.28846153846153844,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "C",
+      "mean_forecast": 0.3150088205187197,
+      "n": 26,
+      "observed_rate": 0.23076923076923078,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "C",
+      "mean_forecast": 0.0813143125920691,
+      "n": 10,
+      "observed_rate": 0.3,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "C",
+      "mean_forecast": 0.15111291762981924,
+      "n": 46,
+      "observed_rate": 0.17391304347826086,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "C",
+      "mean_forecast": 0.24884395028178966,
+      "n": 79,
+      "observed_rate": 0.189873417721519,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "C",
+      "mean_forecast": 0.35309798686456295,
+      "n": 117,
+      "observed_rate": 0.3333333333333333,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "C",
+      "mean_forecast": 0.44924874788040753,
+      "n": 145,
+      "observed_rate": 0.4482758620689655,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "C",
+      "mean_forecast": 0.5419660212513239,
+      "n": 102,
+      "observed_rate": 0.46078431372549017,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "C",
+      "mean_forecast": 0.6458927184421699,
+      "n": 79,
+      "observed_rate": 0.620253164556962,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "C",
+      "mean_forecast": 0.747647228688254,
+      "n": 43,
+      "observed_rate": 0.813953488372093,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "C",
+      "mean_forecast": 0.8288970061244311,
+      "n": 17,
+      "observed_rate": 0.7058823529411765,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.9,
+      "candidate": "C",
+      "mean_forecast": 0.9184294620336972,
+      "n": 2,
+      "observed_rate": 0.5,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "C6",
+      "mean_forecast": 0.06386612107272205,
+      "n": 76,
+      "observed_rate": 0.02631578947368421,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "C6",
+      "mean_forecast": 0.15147692001655197,
+      "n": 123,
+      "observed_rate": 0.14634146341463414,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "C6",
+      "mean_forecast": 0.2489848653463705,
+      "n": 162,
+      "observed_rate": 0.2716049382716049,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "C6",
+      "mean_forecast": 0.34478196856339133,
+      "n": 111,
+      "observed_rate": 0.32432432432432434,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "C6",
+      "mean_forecast": 0.4467179897443467,
+      "n": 63,
+      "observed_rate": 0.42857142857142855,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "C6",
+      "mean_forecast": 0.5474787819554913,
+      "n": 53,
+      "observed_rate": 0.660377358490566,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "C6",
+      "mean_forecast": 0.6530020598846125,
+      "n": 32,
+      "observed_rate": 0.625,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "C6",
+      "mean_forecast": 0.7385126813906533,
+      "n": 17,
+      "observed_rate": 0.7058823529411765,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "C6",
+      "mean_forecast": 0.8172559162560202,
+      "n": 3,
+      "observed_rate": 0.0,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "C6",
+      "mean_forecast": 0.06478801535430805,
+      "n": 2,
+      "observed_rate": 0.5,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "C6",
+      "mean_forecast": 0.16589030060150445,
+      "n": 96,
+      "observed_rate": 0.20833333333333334,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "C6",
+      "mean_forecast": 0.25606656240753545,
+      "n": 482,
+      "observed_rate": 0.2800829875518672,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "C6",
+      "mean_forecast": 0.3204623184677783,
+      "n": 60,
+      "observed_rate": 0.26666666666666666,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "C6",
+      "mean_forecast": 0.07150521703583082,
+      "n": 20,
+      "observed_rate": 0.2,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "C6",
+      "mean_forecast": 0.1521320620797019,
+      "n": 61,
+      "observed_rate": 0.21311475409836064,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "C6",
+      "mean_forecast": 0.25318559572327837,
+      "n": 71,
+      "observed_rate": 0.2112676056338028,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "C6",
+      "mean_forecast": 0.35283046240127575,
+      "n": 107,
+      "observed_rate": 0.3644859813084112,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "C6",
+      "mean_forecast": 0.44979120589451566,
+      "n": 131,
+      "observed_rate": 0.42748091603053434,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "C6",
+      "mean_forecast": 0.5419523186211516,
+      "n": 98,
+      "observed_rate": 0.4387755102040816,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "C6",
+      "mean_forecast": 0.6466596681301089,
+      "n": 80,
+      "observed_rate": 0.6125,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "C6",
+      "mean_forecast": 0.7466927616843656,
+      "n": 49,
+      "observed_rate": 0.7755102040816326,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "C6",
+      "mean_forecast": 0.8332991690798308,
+      "n": 21,
+      "observed_rate": 0.7619047619047619,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.9,
+      "candidate": "C6",
+      "mean_forecast": 0.9229841975220698,
+      "n": 2,
+      "observed_rate": 0.5,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "M",
+      "mean_forecast": 0.06836357538076815,
+      "n": 58,
+      "observed_rate": 0.0,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "M",
+      "mean_forecast": 0.15259864519091557,
+      "n": 127,
+      "observed_rate": 0.11811023622047244,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "M",
+      "mean_forecast": 0.2477784555297214,
+      "n": 144,
+      "observed_rate": 0.24305555555555555,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "M",
+      "mean_forecast": 0.3480265272973104,
+      "n": 134,
+      "observed_rate": 0.3358208955223881,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "M",
+      "mean_forecast": 0.44717015017917827,
+      "n": 66,
+      "observed_rate": 0.3939393939393939,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "M",
+      "mean_forecast": 0.5566584793884565,
+      "n": 48,
+      "observed_rate": 0.6458333333333334,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "M",
+      "mean_forecast": 0.6401323841225168,
+      "n": 32,
+      "observed_rate": 0.625,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "M",
+      "mean_forecast": 0.7423074496421479,
+      "n": 27,
+      "observed_rate": 0.7777777777777778,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "M",
+      "mean_forecast": 0.8381564422889178,
+      "n": 2,
+      "observed_rate": 0.5,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "M",
+      "mean_forecast": 0.09526159572392176,
+      "n": 2,
+      "observed_rate": 0.5,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "M",
+      "mean_forecast": 0.16285258054812596,
+      "n": 137,
+      "observed_rate": 0.17518248175182483,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "M",
+      "mean_forecast": 0.2554058185736177,
+      "n": 472,
+      "observed_rate": 0.2860169491525424,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "M",
+      "mean_forecast": 0.30916143519118333,
+      "n": 27,
+      "observed_rate": 0.4074074074074074,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "M",
+      "mean_forecast": 0.07758370412389595,
+      "n": 21,
+      "observed_rate": 0.14285714285714285,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "M",
+      "mean_forecast": 0.15655776881273298,
+      "n": 61,
+      "observed_rate": 0.11475409836065574,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "M",
+      "mean_forecast": 0.25057345657597413,
+      "n": 71,
+      "observed_rate": 0.2535211267605634,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "M",
+      "mean_forecast": 0.35292267899685437,
+      "n": 124,
+      "observed_rate": 0.3548387096774194,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "M",
+      "mean_forecast": 0.44911871251852975,
+      "n": 120,
+      "observed_rate": 0.44166666666666665,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "M",
+      "mean_forecast": 0.5485036822158751,
+      "n": 98,
+      "observed_rate": 0.4489795918367347,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "M",
+      "mean_forecast": 0.6465187981413176,
+      "n": 66,
+      "observed_rate": 0.6515151515151515,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "M",
+      "mean_forecast": 0.7466267030642818,
+      "n": 53,
+      "observed_rate": 0.7924528301886793,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "M",
+      "mean_forecast": 0.8284100731664648,
+      "n": 24,
+      "observed_rate": 0.7916666666666666,
+      "outcome": "home",
+      "phase": "holdout"
+    }
+  ],
+  "calibration_1x2_understat_leagues": [],
+  "calibration_tolerance_check": {
+    "holdout": {
+      "C": {
+        "band_z_threshold": 2.9551668474978343,
+        "bands_checked": 16,
+        "bands_pass": true,
+        "failing_bands": [],
+        "forecasts": 640,
+        "passes": false,
+        "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+        "slopes": {
+          "away": 1.149848918351005,
+          "home": 0.8781532659007553
+        },
+        "slopes_pass": false,
+        "worst_band": {
+          "band_lower": 0.5,
+          "mean_forecast": 0.5419660212513239,
+          "n": 102,
+          "observed_minus_forecast": -0.0811817075258337,
+          "observed_rate": 0.46078431372549017,
+          "outcome": "home",
+          "z": 1.645596631272699
+        }
+      },
+      "C6": {
+        "band_z_threshold": 2.973819901220312,
+        "bands_checked": 17,
+        "bands_pass": true,
+        "failing_bands": [],
+        "forecasts": 640,
+        "passes": false,
+        "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+        "slopes": {
+          "away": 1.0133836211633787,
+          "home": 0.7888675603403738
+        },
+        "slopes_pass": false,
+        "worst_band": {
+          "band_lower": 0.5,
+          "mean_forecast": 0.5474787819554913,
+          "n": 53,
+          "observed_minus_forecast": 0.11289857653507474,
+          "observed_rate": 0.660377358490566,
+          "outcome": "away",
+          "z": 1.6512897347904223
+        }
+      },
+      "M": {
+        "band_z_threshold": 2.9551668474978343,
+        "bands_checked": 16,
+        "bands_pass": true,
+        "failing_bands": [],
+        "forecasts": 638,
+        "passes": false,
+        "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+        "slopes": {
+          "away": 1.2093854499365049,
+          "home": 0.9830142232388411
+        },
+        "slopes_pass": false,
+        "worst_band": {
+          "band_lower": 0.5,
+          "mean_forecast": 0.5485036822158751,
+          "n": 98,
+          "observed_minus_forecast": -0.0995240903791404,
+          "observed_rate": 0.4489795918367347,
+          "outcome": "home",
+          "z": 1.9798139258261693
+        }
+      }
+    }
+  },
+  "candidates": {
+    "A": "published-grid production proxy (benchmark only; mixes model and market)",
+    "C": "independent research model team_form_poisson_v1 (value shortlist; uses no odds)",
+    "C2": "candidate: C with a draw and low-score correction (rho, delta) fitted walk-forward on C's own earlier forecasts and their scores, pooled across leagues (research_low_score.py; uses no odds)",
+    "C3": "candidate: C with historical Understat match xG in the team form, from matches before the fold origin only (understat_history.py; five big leagues, C elsewhere; uses no odds)",
+    "C5": "candidate: C with its home/away split sharpened by a calibration slope fitted walk-forward on C's own earlier forecasts of decided matches, draw held, pooled across leagues (research_sharpen.py; uses no odds)",
+    "C6": "candidate: C2's draw and low-score corrected grid with its home/away split sharpened by a slope fitted walk-forward on C2's own earlier forecasts of decided matches, C2's draw held, pooled across leagues (research_low_score_sharpen.py; uses no odds)",
+    "D": "cagey tier: M corrected toward narrow margins (production correction model)",
+    "M": "market reference: margin-free fit to the period bookmaker (Pinnacle, Bet365 on the holdout)"
+  },
+  "config": {
+    "baseline_l2": 0.08,
+    "calibration_tolerance": {
+      "band_alpha": 0.05,
+      "band_max_deviation": 0.05,
+      "band_min_matches": 30,
+      "band_width": 0.1,
+      "decided": "2026-11-11",
+      "name": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+      "replaces": {
+        "name": "slopes-0.90-1.10-bands-30-5pp-v1",
+        "reason": "Replaced before any holdout scoring: v1 failed a band on any gap above 5 points, however few matches, so it failed even the market reference M on noise.",
+        "replaced": "2026-11-11",
+        "rule": "Same slopes; a band failed whenever it was more than 5 percentage points from its observed rate (at least 30 matches), with no allowance for sample size."
+      },
+      "rule": "Logistic calibration slope (logit P(outcome) = a + b logit(p), fitted per outcome) of the home and of the away probability both between 0.90 and 1.10 inclusive, and no failing outcome probability band (home, draw and away, tenths of probability, at least 30 matches). A band fails only if it is more than 5 percentage points from its observed rate AND the gap is statistically clear: |gap| / sqrt(p(1-p)/n) above the two-sided normal quantile for 0.05 divided by the number of bands checked (Bonferroni; about 3.0 for 20 bands), p = the band's mean forecast.",
+      "slope_max": 1.1,
+      "slope_min": 0.9,
+      "slope_outcomes": [
+        "home",
+        "away"
+      ]
+    },
+    "development_end": "2025-07-01",
+    "devig_method": "power",
+    "draw_sensitive_lines": [
+      -0.5,
+      0.0,
+      0.5
+    ],
+    "end_exclusive": "2026-11-09",
+    "holdout_end_exclusive": "2026-10-11",
+    "holdout_leagues": [
+      "Eredivisie",
+      "PrimeiraLiga",
+      "SuperLig"
+    ],
+    "holdout_start": "2026-01-16",
+    "leagues": [
+      "EPL",
+      "LaLiga",
+      "Bundesliga",
+      "SerieA",
+      "Ligue1",
+      "Eredivisie",
+      "PrimeiraLiga",
+      "SuperLig"
+    ],
+    "max_goals": 10,
+    "min_train": 500,
+    "periods": {
+      "development": "1 Aug 2022 - 30 Jun 2025, Pinnacle pre-match prices. Build and choose candidates here.",
+      "holdout": "16 Jan - 10 Oct 2026, Eredivisie, Primeira Liga and Super Lig only (646 matches, 25 weeks), Bet365 pre-match prices with the margin removed. No earlier benchmark or live report scored these results. Locked: one declared candidate per run, once per candidate and once per frozen setup.",
+      "retrospective": "Every other match from 16 Jan 2026, Bet365. The five big leagues to 13 Oct 2026 were scored by the earlier benchmark (historical_benchmark_config.json), and every league from 11 Oct 2026 by the live performance reports. Diagnostics only, never release evidence.",
+      "validation": "1 Jul 2025 - 15 Jan 2026, Pinnacle pre-match prices. Already inspected by earlier diagnostics; the cagey correction is out-of-sample here.",
+      "warm_up": "2021/22 is training history only; scoring starts 1 Aug 2022."
+    },
+    "production_v2": {
+      "half_life_days": 480.0,
+      "market_weight": 0.7,
+      "model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
+      "shot_features": true,
+      "totals_anchor": true
+    },
+    "release_rule": "A candidate is scored on the holdout once, against a written declaration. It must beat its baseline with the 95% week-resampled interval clear of zero, and must beat the market reference by more than the measured Bet365-Pinnacle gap to count as beating the market. Before release it must pass a parity test (harness and live pipeline give identical probabilities) and a replay over the saved live forecasts. There is no forward waiting for backtestable changes. Changes reach production only through a reviewed PR, with monitoring and a rollback trigger afterwards.",
+    "seasons": [
+      "2122",
+      "2223",
+      "2324",
+      "2425",
+      "2526",
+      "2627"
+    ],
+    "step_days": 14,
+    "test_start": "2022-08-01",
+    "version": "evaluation-harness-v2"
+  },
+  "config_sha256": "fe4092b515f1df335f59014047d6c244bae48696eb9e8e00d468cdf28203691d",
+  "coverage": {
+    "Bundesliga:insufficient_training": 198,
+    "Bundesliga:outside_holdout_run": 276,
+    "EPL:insufficient_training": 136,
+    "EPL:outside_holdout_run": 281,
+    "Eredivisie:C6:available": 213,
+    "Eredivisie:C:available": 213,
+    "Eredivisie:M:available": 211,
+    "Eredivisie:all:unresolved training team": 1,
+    "Eredivisie:insufficient_training": 207,
+    "Eredivisie:market:bet365 prices missing": 2,
+    "Eredivisie:outside_holdout_run": 58,
+    "LaLiga:insufficient_training": 129,
+    "LaLiga:outside_holdout_run": 315,
+    "Ligue1:insufficient_training": 120,
+    "Ligue1:outside_holdout_run": 249,
+    "PrimeiraLiga:C6:available": 219,
+    "PrimeiraLiga:C:available": 219,
+    "PrimeiraLiga:M:available": 219,
+    "PrimeiraLiga:all:unresolved training team": 1,
+    "PrimeiraLiga:insufficient_training": 196,
+    "PrimeiraLiga:outside_holdout_run": 33,
+    "SerieA:insufficient_training": 130,
+    "SerieA:outside_holdout_run": 291,
+    "SuperLig:C6:available": 208,
+    "SuperLig:C:available": 208,
+    "SuperLig:M:available": 208,
+    "SuperLig:all:unresolved training team": 4,
+    "SuperLig:insufficient_training": 125,
+    "SuperLig:outside_holdout_run": 119
+  },
+  "declaration": {
+    "baseline": "C",
+    "calibration_rule": {
+      "band_alpha": 0.05,
+      "band_max_deviation": 0.05,
+      "band_min_matches": 30,
+      "band_width": 0.1,
+      "decided": "2026-11-11",
+      "name": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+      "replaces": {
+        "name": "slopes-0.90-1.10-bands-30-5pp-v1",
+        "reason": "Replaced before any holdout scoring: v1 failed a band on any gap above 5 points, however few matches, so it failed even the market reference M on noise.",
+        "replaced": "2026-11-11",
+        "rule": "Same slopes; a band failed whenever it was more than 5 percentage points from its observed rate (at least 30 matches), with no allowance for sample size."
+      },
+      "rule": "Logistic calibration slope (logit P(outcome) = a + b logit(p), fitted per outcome) of the home and of the away probability both between 0.90 and 1.10 inclusive, and no failing outcome probability band (home, draw and away, tenths of probability, at least 30 matches). A band fails only if it is more than 5 percentage points from its observed rate AND the gap is statistically clear: |gap| / sqrt(p(1-p)/n) above the two-sided normal quantile for 0.05 divided by the number of bands checked (Bonferroni; about 3.0 for 20 bands), p = the band's mean forecast.",
+      "slope_max": 1.1,
+      "slope_min": 0.9,
+      "slope_outcomes": [
+        "home",
+        "away"
+      ]
+    },
+    "calibration_tolerance": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+    "candidate": "C6",
+    "declared_at": "2026-11-11T12:39:16Z",
+    "declared_by": "Paul (decision), written by Claude Code",
+    "draw_sensitive_lines": [
+      -0.5,
+      0.0,
+      0.5
+    ],
+    "market_reference": "M",
+    "notes": "Scored once with evaluation_harness.py --declaration. Passing requires C - C6 log loss on AH all lines with the week-resampled 95% interval clear of zero, the sample minimum, and calibration v2 on C6's holdout forecasts. Draw-sensitive and 1X2 are reported, not gating. Against M, C6 counts as beating the market only if it beats it by more than the measured Bet365-Pinnacle gap.",
+    "primary_metric": "AH all",
+    "sha256": "675bbf54924920f28ba6d2c35a70fb5e61821ef649319512f92ca3fb24fd1be0"
+  },
+  "folds": [
+    {
+      "end_exclusive": "2022-11-21",
+      "league": "EPL",
+      "origin": "2022-11-07",
+      "training_end": "2022-11-06",
+      "training_matches": 516
+    },
+    {
+      "end_exclusive": "2023-01-02",
+      "league": "EPL",
+      "origin": "2022-12-19",
+      "training_end": "2022-11-13",
+      "training_matches": 526
+    },
+    {
+      "end_exclusive": "2023-01-16",
+      "league": "EPL",
+      "origin": "2023-01-02",
+      "training_end": "2023-01-01",
+      "training_matches": 546
+    },
+    {
+      "end_exclusive": "2023-01-30",
+      "league": "EPL",
+      "origin": "2023-01-16",
+      "training_end": "2023-01-15",
+      "training_matches": 567
+    },
+    {
+      "end_exclusive": "2023-02-13",
+      "league": "EPL",
+      "origin": "2023-01-30",
+      "training_end": "2023-01-23",
+      "training_matches": 579
+    },
+    {
+      "end_exclusive": "2023-02-27",
+      "league": "EPL",
+      "origin": "2023-02-13",
+      "training_end": "2023-02-12",
+      "training_matches": 599
+    },
+    {
+      "end_exclusive": "2023-03-13",
+      "league": "EPL",
+      "origin": "2023-02-27",
+      "training_end": "2023-02-26",
+      "training_matches": 619
+    },
+    {
+      "end_exclusive": "2023-03-27",
+      "league": "EPL",
+      "origin": "2023-03-13",
+      "training_end": "2023-03-12",
+      "training_matches": 641
+    },
+    {
+      "end_exclusive": "2023-04-10",
+      "league": "EPL",
+      "origin": "2023-03-27",
+      "training_end": "2023-03-19",
+      "training_matches": 650
+    },
+    {
+      "end_exclusive": "2023-04-24",
+      "league": "EPL",
+      "origin": "2023-04-10",
+      "training_end": "2023-04-09",
+      "training_matches": 676
+    },
+    {
+      "end_exclusive": "2023-05-08",
+      "league": "EPL",
+      "origin": "2023-04-24",
+      "training_end": "2023-04-23",
+      "training_matches": 694
+    },
+    {
+      "end_exclusive": "2023-05-22",
+      "league": "EPL",
+      "origin": "2023-05-08",
+      "training_end": "2023-05-07",
+      "training_matches": 724
+    },
+    {
+      "end_exclusive": "2023-06-05",
+      "league": "EPL",
+      "origin": "2023-05-22",
+      "training_end": "2023-05-21",
+      "training_matches": 747
+    },
+    {
+      "end_exclusive": "2023-08-14",
+      "league": "EPL",
+      "origin": "2023-07-31",
+      "training_end": "2023-05-28",
+      "training_matches": 760
+    },
+    {
+      "end_exclusive": "2023-08-28",
+      "league": "EPL",
+      "origin": "2023-08-14",
+      "training_end": "2023-08-13",
+      "training_matches": 769
+    },
+    {
+      "end_exclusive": "2023-09-11",
+      "league": "EPL",
+      "origin": "2023-08-28",
+      "training_end": "2023-08-27",
+      "training_matches": 789
+    },
+    {
+      "end_exclusive": "2023-09-25",
+      "league": "EPL",
+      "origin": "2023-09-11",
+      "training_end": "2023-09-03",
+      "training_matches": 799
+    },
+    {
+      "end_exclusive": "2023-10-09",
+      "league": "EPL",
+      "origin": "2023-09-25",
+      "training_end": "2023-09-24",
+      "training_matches": 819
+    },
+    {
+      "end_exclusive": "2023-10-23",
+      "league": "EPL",
+      "origin": "2023-10-09",
+      "training_end": "2023-10-08",
+      "training_matches": 840
+    },
+    {
+      "end_exclusive": "2023-11-06",
+      "league": "EPL",
+      "origin": "2023-10-23",
+      "training_end": "2023-10-22",
+      "training_matches": 849
+    },
+    {
+      "end_exclusive": "2023-11-20",
+      "league": "EPL",
+      "origin": "2023-11-06",
+      "training_end": "2023-11-05",
+      "training_matches": 869
+    },
+    {
+      "end_exclusive": "2023-12-04",
+      "league": "EPL",
+      "origin": "2023-11-20",
+      "training_end": "2023-11-12",
+      "training_matches": 880
+    },
+    {
+      "end_exclusive": "2023-12-18",
+      "league": "EPL",
+      "origin": "2023-12-04",
+      "training_end": "2023-12-03",
+      "training_matches": 900
+    },
+    {
+      "end_exclusive": "2024-01-01",
+      "league": "EPL",
+      "origin": "2023-12-18",
+      "training_end": "2023-12-17",
+      "training_matches": 929
+    },
+    {
+      "end_exclusive": "2024-01-15",
+      "league": "EPL",
+      "origin": "2024-01-01",
+      "training_end": "2023-12-31",
+      "training_matches": 956
+    },
+    {
+      "end_exclusive": "2024-01-29",
+      "league": "EPL",
+      "origin": "2024-01-15",
+      "training_end": "2024-01-14",
+      "training_matches": 963
+    },
+    {
+      "end_exclusive": "2024-02-12",
+      "league": "EPL",
+      "origin": "2024-01-29",
+      "training_end": "2024-01-22",
+      "training_matches": 968
+    },
+    {
+      "end_exclusive": "2024-02-26",
+      "league": "EPL",
+      "origin": "2024-02-12",
+      "training_end": "2024-02-11",
+      "training_matches": 997
+    },
+    {
+      "end_exclusive": "2024-03-11",
+      "league": "EPL",
+      "origin": "2024-02-26",
+      "training_end": "2024-02-25",
+      "training_matches": 1017
+    },
+    {
+      "end_exclusive": "2024-03-25",
+      "league": "EPL",
+      "origin": "2024-03-11",
+      "training_end": "2024-03-10",
+      "training_matches": 1037
+    },
+    {
+      "end_exclusive": "2024-04-08",
+      "league": "EPL",
+      "origin": "2024-03-25",
+      "training_end": "2024-03-17",
+      "training_matches": 1043
+    },
+    {
+      "end_exclusive": "2024-04-22",
+      "league": "EPL",
+      "origin": "2024-04-08",
+      "training_end": "2024-04-07",
+      "training_matches": 1073
+    },
+    {
+      "end_exclusive": "2024-05-06",
+      "league": "EPL",
+      "origin": "2024-04-22",
+      "training_end": "2024-04-21",
+      "training_matches": 1090
+    },
+    {
+      "end_exclusive": "2024-05-20",
+      "league": "EPL",
+      "origin": "2024-05-06",
+      "training_end": "2024-05-05",
+      "training_matches": 1116
+    },
+    {
+      "end_exclusive": "2024-08-26",
+      "league": "EPL",
+      "origin": "2024-08-12",
+      "training_end": "2024-05-19",
+      "training_matches": 1140
+    },
+    {
+      "end_exclusive": "2024-09-09",
+      "league": "EPL",
+      "origin": "2024-08-26",
+      "training_end": "2024-08-25",
+      "training_matches": 1160
+    },
+    {
+      "end_exclusive": "2024-09-23",
+      "league": "EPL",
+      "origin": "2024-09-09",
+      "training_end": "2024-09-01",
+      "training_matches": 1170
+    },
+    {
+      "end_exclusive": "2024-10-07",
+      "league": "EPL",
+      "origin": "2024-09-23",
+      "training_end": "2024-09-22",
+      "training_matches": 1190
+    },
+    {
+      "end_exclusive": "2024-10-21",
+      "league": "EPL",
+      "origin": "2024-10-07",
+      "training_end": "2024-10-06",
+      "training_matches": 1210
+    },
+    {
+      "end_exclusive": "2024-11-04",
+      "league": "EPL",
+      "origin": "2024-10-21",
+      "training_end": "2024-10-20",
+      "training_matches": 1219
+    },
+    {
+      "end_exclusive": "2024-11-18",
+      "league": "EPL",
+      "origin": "2024-11-04",
+      "training_end": "2024-11-03",
+      "training_matches": 1239
+    },
+    {
+      "end_exclusive": "2024-12-02",
+      "league": "EPL",
+      "origin": "2024-11-18",
+      "training_end": "2024-11-10",
+      "training_matches": 1250
+    },
+    {
+      "end_exclusive": "2024-12-16",
+      "league": "EPL",
+      "origin": "2024-12-02",
+      "training_end": "2024-12-01",
+      "training_matches": 1270
+    },
+    {
+      "end_exclusive": "2024-12-30",
+      "league": "EPL",
+      "origin": "2024-12-16",
+      "training_end": "2024-12-15",
+      "training_matches": 1298
+    },
+    {
+      "end_exclusive": "2025-01-13",
+      "league": "EPL",
+      "origin": "2024-12-30",
+      "training_end": "2024-12-29",
+      "training_matches": 1325
+    },
+    {
+      "end_exclusive": "2025-01-27",
+      "league": "EPL",
+      "origin": "2025-01-13",
+      "training_end": "2025-01-06",
+      "training_matches": 1339
+    },
+    {
+      "end_exclusive": "2025-02-10",
+      "league": "EPL",
+      "origin": "2025-01-27",
+      "training_end": "2025-01-26",
+      "training_matches": 1369
+    },
+    {
+      "end_exclusive": "2025-02-24",
+      "league": "EPL",
+      "origin": "2025-02-10",
+      "training_end": "2025-02-03",
+      "training_matches": 1379
+    },
+    {
+      "end_exclusive": "2025-03-10",
+      "league": "EPL",
+      "origin": "2025-02-24",
+      "training_end": "2025-02-23",
+      "training_matches": 1401
+    },
+    {
+      "end_exclusive": "2025-03-24",
+      "league": "EPL",
+      "origin": "2025-03-10",
+      "training_end": "2025-03-09",
+      "training_matches": 1420
+    },
+    {
+      "end_exclusive": "2025-04-07",
+      "league": "EPL",
+      "origin": "2025-03-24",
+      "training_end": "2025-03-16",
+      "training_matches": 1429
+    },
+    {
+      "end_exclusive": "2025-04-21",
+      "league": "EPL",
+      "origin": "2025-04-07",
+      "training_end": "2025-04-06",
+      "training_matches": 1448
+    },
+    {
+      "end_exclusive": "2025-05-05",
+      "league": "EPL",
+      "origin": "2025-04-21",
+      "training_end": "2025-04-20",
+      "training_matches": 1469
+    },
+    {
+      "end_exclusive": "2025-05-19",
+      "league": "EPL",
+      "origin": "2025-05-05",
+      "training_end": "2025-05-04",
+      "training_matches": 1489
+    },
+    {
+      "end_exclusive": "2025-06-02",
+      "league": "EPL",
+      "origin": "2025-05-19",
+      "training_end": "2025-05-18",
+      "training_matches": 1507
+    },
+    {
+      "end_exclusive": "2025-08-25",
+      "league": "EPL",
+      "origin": "2025-08-11",
+      "training_end": "2025-05-25",
+      "training_matches": 1520
+    },
+    {
+      "end_exclusive": "2025-09-08",
+      "league": "EPL",
+      "origin": "2025-08-25",
+      "training_end": "2025-08-24",
+      "training_matches": 1539
+    },
+    {
+      "end_exclusive": "2025-09-22",
+      "league": "EPL",
+      "origin": "2025-09-08",
+      "training_end": "2025-08-31",
+      "training_matches": 1550
+    },
+    {
+      "end_exclusive": "2025-10-06",
+      "league": "EPL",
+      "origin": "2025-09-22",
+      "training_end": "2025-09-21",
+      "training_matches": 1570
+    },
+    {
+      "end_exclusive": "2025-10-20",
+      "league": "EPL",
+      "origin": "2025-10-06",
+      "training_end": "2025-10-05",
+      "training_matches": 1590
+    },
+    {
+      "end_exclusive": "2025-11-03",
+      "league": "EPL",
+      "origin": "2025-10-20",
+      "training_end": "2025-10-19",
+      "training_matches": 1599
+    },
+    {
+      "end_exclusive": "2025-11-17",
+      "league": "EPL",
+      "origin": "2025-11-03",
+      "training_end": "2025-11-02",
+      "training_matches": 1619
+    },
+    {
+      "end_exclusive": "2025-12-01",
+      "league": "EPL",
+      "origin": "2025-11-17",
+      "training_end": "2025-11-09",
+      "training_matches": 1630
+    },
+    {
+      "end_exclusive": "2025-12-15",
+      "league": "EPL",
+      "origin": "2025-12-01",
+      "training_end": "2025-11-30",
+      "training_matches": 1650
+    },
+    {
+      "end_exclusive": "2025-12-29",
+      "league": "EPL",
+      "origin": "2025-12-15",
+      "training_end": "2025-12-14",
+      "training_matches": 1679
+    },
+    {
+      "end_exclusive": "2026-01-12",
+      "league": "EPL",
+      "origin": "2025-12-29",
+      "training_end": "2025-12-28",
+      "training_matches": 1700
+    },
+    {
+      "end_exclusive": "2026-01-26",
+      "league": "EPL",
+      "origin": "2026-01-16",
+      "training_end": "2026-01-08",
+      "training_matches": 1730
+    },
+    {
+      "end_exclusive": "2026-02-09",
+      "league": "EPL",
+      "origin": "2026-01-26",
+      "training_end": "2026-01-25",
+      "training_matches": 1749
+    },
+    {
+      "end_exclusive": "2026-02-23",
+      "league": "EPL",
+      "origin": "2026-02-09",
+      "training_end": "2026-02-08",
+      "training_matches": 1770
+    },
+    {
+      "end_exclusive": "2026-03-09",
+      "league": "EPL",
+      "origin": "2026-02-23",
+      "training_end": "2026-02-22",
+      "training_matches": 1790
+    },
+    {
+      "end_exclusive": "2026-03-23",
+      "league": "EPL",
+      "origin": "2026-03-09",
+      "training_end": "2026-03-05",
+      "training_matches": 1811
+    },
+    {
+      "end_exclusive": "2026-04-20",
+      "league": "EPL",
+      "origin": "2026-04-06",
+      "training_end": "2026-03-22",
+      "training_matches": 1829
+    },
+    {
+      "end_exclusive": "2026-05-04",
+      "league": "EPL",
+      "origin": "2026-04-20",
+      "training_end": "2026-04-19",
+      "training_matches": 1848
+    },
+    {
+      "end_exclusive": "2026-05-18",
+      "league": "EPL",
+      "origin": "2026-05-04",
+      "training_end": "2026-05-03",
+      "training_matches": 1867
+    },
+    {
+      "end_exclusive": "2026-06-01",
+      "league": "EPL",
+      "origin": "2026-05-18",
+      "training_end": "2026-05-17",
+      "training_matches": 1887
+    },
+    {
+      "end_exclusive": "2026-08-24",
+      "league": "EPL",
+      "origin": "2026-08-10",
+      "training_end": "2026-05-24",
+      "training_matches": 1900
+    },
+    {
+      "end_exclusive": "2026-09-07",
+      "league": "EPL",
+      "origin": "2026-08-24",
+      "training_end": "2026-08-23",
+      "training_matches": 1909
+    },
+    {
+      "end_exclusive": "2026-09-21",
+      "league": "EPL",
+      "origin": "2026-09-07",
+      "training_end": "2026-09-06",
+      "training_matches": 1930
+    },
+    {
+      "end_exclusive": "2026-10-11",
+      "league": "EPL",
+      "origin": "2026-10-05",
+      "training_end": "2026-09-20",
+      "training_matches": 1950
+    },
+    {
+      "end_exclusive": "2026-10-19",
+      "league": "EPL",
+      "origin": "2026-10-11",
+      "training_end": "2026-10-10",
+      "training_matches": 1956
+    },
+    {
+      "end_exclusive": "2026-11-02",
+      "league": "EPL",
+      "origin": "2026-10-19",
+      "training_end": "2026-10-18",
+      "training_matches": 1969
+    },
+    {
+      "end_exclusive": "2026-11-09",
+      "league": "EPL",
+      "origin": "2026-11-02",
+      "training_end": "2026-11-01",
+      "training_matches": 1989
+    },
+    {
+      "end_exclusive": "2022-11-21",
+      "league": "LaLiga",
+      "origin": "2022-11-07",
+      "training_end": "2022-11-06",
+      "training_matches": 509
+    },
+    {
+      "end_exclusive": "2023-01-02",
+      "league": "LaLiga",
+      "origin": "2022-12-19",
+      "training_end": "2022-11-10",
+      "training_matches": 520
+    },
+    {
+      "end_exclusive": "2023-01-16",
+      "league": "LaLiga",
+      "origin": "2023-01-02",
+      "training_end": "2022-12-31",
+      "training_matches": 530
+    },
+    {
+      "end_exclusive": "2023-01-30",
+      "league": "LaLiga",
+      "origin": "2023-01-16",
+      "training_end": "2023-01-15",
+      "training_matches": 547
+    },
+    {
+      "end_exclusive": "2023-02-13",
+      "league": "LaLiga",
+      "origin": "2023-01-30",
+      "training_end": "2023-01-29",
+      "training_matches": 567
+    },
+    {
+      "end_exclusive": "2023-02-27",
+      "league": "LaLiga",
+      "origin": "2023-02-13",
+      "training_end": "2023-02-12",
+      "training_matches": 588
+    },
+    {
+      "end_exclusive": "2023-03-13",
+      "league": "LaLiga",
+      "origin": "2023-02-27",
+      "training_end": "2023-02-26",
+      "training_matches": 609
+    },
+    {
+      "end_exclusive": "2023-03-27",
+      "league": "LaLiga",
+      "origin": "2023-03-13",
+      "training_end": "2023-03-12",
+      "training_matches": 629
+    },
+    {
+      "end_exclusive": "2023-04-10",
+      "league": "LaLiga",
+      "origin": "2023-03-27",
+      "training_end": "2023-03-19",
+      "training_matches": 640
+    },
+    {
+      "end_exclusive": "2023-04-24",
+      "league": "LaLiga",
+      "origin": "2023-04-10",
+      "training_end": "2023-04-09",
+      "training_matches": 659
+    },
+    {
+      "end_exclusive": "2023-05-08",
+      "league": "LaLiga",
+      "origin": "2023-04-24",
+      "training_end": "2023-04-23",
+      "training_matches": 680
+    },
+    {
+      "end_exclusive": "2023-05-22",
+      "league": "LaLiga",
+      "origin": "2023-05-08",
+      "training_end": "2023-05-04",
+      "training_matches": 710
+    },
+    {
+      "end_exclusive": "2023-06-05",
+      "league": "LaLiga",
+      "origin": "2023-05-22",
+      "training_end": "2023-05-21",
+      "training_matches": 730
+    },
+    {
+      "end_exclusive": "2023-08-14",
+      "league": "LaLiga",
+      "origin": "2023-07-31",
+      "training_end": "2023-06-04",
+      "training_matches": 760
+    },
+    {
+      "end_exclusive": "2023-08-28",
+      "league": "LaLiga",
+      "origin": "2023-08-14",
+      "training_end": "2023-08-13",
+      "training_matches": 768
+    },
+    {
+      "end_exclusive": "2023-09-11",
+      "league": "LaLiga",
+      "origin": "2023-08-28",
+      "training_end": "2023-08-27",
+      "training_matches": 788
+    },
+    {
+      "end_exclusive": "2023-09-25",
+      "league": "LaLiga",
+      "origin": "2023-09-11",
+      "training_end": "2023-09-03",
+      "training_matches": 799
+    },
+    {
+      "end_exclusive": "2023-10-09",
+      "league": "LaLiga",
+      "origin": "2023-09-25",
+      "training_end": "2023-09-24",
+      "training_matches": 819
+    },
+    {
+      "end_exclusive": "2023-10-23",
+      "league": "LaLiga",
+      "origin": "2023-10-09",
+      "training_end": "2023-10-08",
+      "training_matches": 849
+    },
+    {
+      "end_exclusive": "2023-11-06",
+      "league": "LaLiga",
+      "origin": "2023-10-23",
+      "training_end": "2023-10-22",
+      "training_matches": 858
+    },
+    {
+      "end_exclusive": "2023-11-20",
+      "league": "LaLiga",
+      "origin": "2023-11-06",
+      "training_end": "2023-11-05",
+      "training_matches": 878
+    },
+    {
+      "end_exclusive": "2023-12-04",
+      "league": "LaLiga",
+      "origin": "2023-11-20",
+      "training_end": "2023-11-12",
+      "training_matches": 888
+    },
+    {
+      "end_exclusive": "2023-12-18",
+      "league": "LaLiga",
+      "origin": "2023-12-04",
+      "training_end": "2023-12-03",
+      "training_matches": 908
+    },
+    {
+      "end_exclusive": "2024-01-01",
+      "league": "LaLiga",
+      "origin": "2023-12-18",
+      "training_end": "2023-12-17",
+      "training_matches": 928
+    },
+    {
+      "end_exclusive": "2024-01-15",
+      "league": "LaLiga",
+      "origin": "2024-01-01",
+      "training_end": "2023-12-23",
+      "training_matches": 940
+    },
+    {
+      "end_exclusive": "2024-01-29",
+      "league": "LaLiga",
+      "origin": "2024-01-15",
+      "training_end": "2024-01-14",
+      "training_matches": 957
+    },
+    {
+      "end_exclusive": "2024-02-12",
+      "league": "LaLiga",
+      "origin": "2024-01-29",
+      "training_end": "2024-01-28",
+      "training_matches": 976
+    },
+    {
+      "end_exclusive": "2024-02-26",
+      "league": "LaLiga",
+      "origin": "2024-02-12",
+      "training_end": "2024-02-11",
+      "training_matches": 999
+    },
+    {
+      "end_exclusive": "2024-03-11",
+      "league": "LaLiga",
+      "origin": "2024-02-26",
+      "training_end": "2024-02-25",
+      "training_matches": 1018
+    },
+    {
+      "end_exclusive": "2024-03-25",
+      "league": "LaLiga",
+      "origin": "2024-03-11",
+      "training_end": "2024-03-10",
+      "training_matches": 1038
+    },
+    {
+      "end_exclusive": "2024-04-08",
+      "league": "LaLiga",
+      "origin": "2024-03-25",
+      "training_end": "2024-03-17",
+      "training_matches": 1049
+    },
+    {
+      "end_exclusive": "2024-04-22",
+      "league": "LaLiga",
+      "origin": "2024-04-08",
+      "training_end": "2024-04-04",
+      "training_matches": 1060
+    },
+    {
+      "end_exclusive": "2024-05-06",
+      "league": "LaLiga",
+      "origin": "2024-04-22",
+      "training_end": "2024-04-21",
+      "training_matches": 1079
+    },
+    {
+      "end_exclusive": "2024-05-20",
+      "league": "LaLiga",
+      "origin": "2024-05-06",
+      "training_end": "2024-05-05",
+      "training_matches": 1100
+    },
+    {
+      "end_exclusive": "2024-06-03",
+      "league": "LaLiga",
+      "origin": "2024-05-20",
+      "training_end": "2024-05-19",
+      "training_matches": 1130
+    },
+    {
+      "end_exclusive": "2024-08-26",
+      "league": "LaLiga",
+      "origin": "2024-08-12",
+      "training_end": "2024-05-26",
+      "training_matches": 1140
+    },
+    {
+      "end_exclusive": "2024-09-09",
+      "league": "LaLiga",
+      "origin": "2024-08-26",
+      "training_end": "2024-08-25",
+      "training_matches": 1160
+    },
+    {
+      "end_exclusive": "2024-09-23",
+      "league": "LaLiga",
+      "origin": "2024-09-09",
+      "training_end": "2024-09-01",
+      "training_matches": 1179
+    },
+    {
+      "end_exclusive": "2024-10-07",
+      "league": "LaLiga",
+      "origin": "2024-09-23",
+      "training_end": "2024-09-22",
+      "training_matches": 1201
+    },
+    {
+      "end_exclusive": "2024-10-21",
+      "league": "LaLiga",
+      "origin": "2024-10-07",
+      "training_end": "2024-10-06",
+      "training_matches": 1230
+    },
+    {
+      "end_exclusive": "2024-11-04",
+      "league": "LaLiga",
+      "origin": "2024-10-21",
+      "training_end": "2024-10-20",
+      "training_matches": 1239
+    },
+    {
+      "end_exclusive": "2024-11-18",
+      "league": "LaLiga",
+      "origin": "2024-11-04",
+      "training_end": "2024-11-03",
+      "training_matches": 1257
+    },
+    {
+      "end_exclusive": "2024-12-02",
+      "league": "LaLiga",
+      "origin": "2024-11-18",
+      "training_end": "2024-11-10",
+      "training_matches": 1267
+    },
+    {
+      "end_exclusive": "2024-12-16",
+      "league": "LaLiga",
+      "origin": "2024-12-02",
+      "training_end": "2024-12-01",
+      "training_matches": 1286
+    },
+    {
+      "end_exclusive": "2024-12-30",
+      "league": "LaLiga",
+      "origin": "2024-12-16",
+      "training_end": "2024-12-15",
+      "training_matches": 1309
+    },
+    {
+      "end_exclusive": "2025-01-13",
+      "league": "LaLiga",
+      "origin": "2024-12-30",
+      "training_end": "2024-12-22",
+      "training_matches": 1321
+    },
+    {
+      "end_exclusive": "2025-01-27",
+      "league": "LaLiga",
+      "origin": "2025-01-13",
+      "training_end": "2025-01-12",
+      "training_matches": 1329
+    },
+    {
+      "end_exclusive": "2025-02-10",
+      "league": "LaLiga",
+      "origin": "2025-01-27",
+      "training_end": "2025-01-26",
+      "training_matches": 1349
+    },
+    {
+      "end_exclusive": "2025-02-24",
+      "league": "LaLiga",
+      "origin": "2025-02-10",
+      "training_end": "2025-02-09",
+      "training_matches": 1369
+    },
+    {
+      "end_exclusive": "2025-03-10",
+      "league": "LaLiga",
+      "origin": "2025-02-24",
+      "training_end": "2025-02-23",
+      "training_matches": 1389
+    },
+    {
+      "end_exclusive": "2025-03-24",
+      "league": "LaLiga",
+      "origin": "2025-03-10",
+      "training_end": "2025-03-09",
+      "training_matches": 1407
+    },
+    {
+      "end_exclusive": "2025-04-07",
+      "league": "LaLiga",
+      "origin": "2025-03-24",
+      "training_end": "2025-03-16",
+      "training_matches": 1418
+    },
+    {
+      "end_exclusive": "2025-04-21",
+      "league": "LaLiga",
+      "origin": "2025-04-07",
+      "training_end": "2025-04-06",
+      "training_matches": 1438
+    },
+    {
+      "end_exclusive": "2025-05-05",
+      "league": "LaLiga",
+      "origin": "2025-04-21",
+      "training_end": "2025-04-20",
+      "training_matches": 1458
+    },
+    {
+      "end_exclusive": "2025-05-19",
+      "league": "LaLiga",
+      "origin": "2025-05-05",
+      "training_end": "2025-05-04",
+      "training_matches": 1479
+    },
+    {
+      "end_exclusive": "2025-06-02",
+      "league": "LaLiga",
+      "origin": "2025-05-19",
+      "training_end": "2025-05-18",
+      "training_matches": 1510
+    },
+    {
+      "end_exclusive": "2025-08-25",
+      "league": "LaLiga",
+      "origin": "2025-08-11",
+      "training_end": "2025-05-25",
+      "training_matches": 1520
+    },
+    {
+      "end_exclusive": "2025-09-08",
+      "league": "LaLiga",
+      "origin": "2025-08-25",
+      "training_end": "2025-08-24",
+      "training_matches": 1538
+    },
+    {
+      "end_exclusive": "2025-09-22",
+      "league": "LaLiga",
+      "origin": "2025-09-08",
+      "training_end": "2025-08-31",
+      "training_matches": 1551
+    },
+    {
+      "end_exclusive": "2025-10-06",
+      "league": "LaLiga",
+      "origin": "2025-09-22",
+      "training_end": "2025-09-21",
+      "training_matches": 1571
+    },
+    {
+      "end_exclusive": "2025-10-20",
+      "league": "LaLiga",
+      "origin": "2025-10-06",
+      "training_end": "2025-10-05",
+      "training_matches": 1600
+    },
+    {
+      "end_exclusive": "2025-11-03",
+      "league": "LaLiga",
+      "origin": "2025-10-20",
+      "training_end": "2025-10-19",
+      "training_matches": 1609
+    },
+    {
+      "end_exclusive": "2025-11-17",
+      "league": "LaLiga",
+      "origin": "2025-11-03",
+      "training_end": "2025-11-02",
+      "training_matches": 1629
+    },
+    {
+      "end_exclusive": "2025-12-01",
+      "league": "LaLiga",
+      "origin": "2025-11-17",
+      "training_end": "2025-11-09",
+      "training_matches": 1640
+    },
+    {
+      "end_exclusive": "2025-12-15",
+      "league": "LaLiga",
+      "origin": "2025-12-01",
+      "training_end": "2025-11-30",
+      "training_matches": 1659
+    },
+    {
+      "end_exclusive": "2025-12-29",
+      "league": "LaLiga",
+      "origin": "2025-12-15",
+      "training_end": "2025-12-14",
+      "training_matches": 1680
+    },
+    {
+      "end_exclusive": "2026-01-12",
+      "league": "LaLiga",
+      "origin": "2025-12-29",
+      "training_end": "2025-12-22",
+      "training_matches": 1691
+    },
+    {
+      "end_exclusive": "2026-01-16",
+      "league": "LaLiga",
+      "origin": "2026-01-12",
+      "training_end": "2026-01-11",
+      "training_matches": 1708
+    },
+    {
+      "end_exclusive": "2026-01-26",
+      "league": "LaLiga",
+      "origin": "2026-01-16",
+      "training_end": "2026-01-12",
+      "training_matches": 1709
+    },
+    {
+      "end_exclusive": "2026-02-09",
+      "league": "LaLiga",
+      "origin": "2026-01-26",
+      "training_end": "2026-01-25",
+      "training_matches": 1728
+    },
+    {
+      "end_exclusive": "2026-02-23",
+      "league": "LaLiga",
+      "origin": "2026-02-09",
+      "training_end": "2026-02-08",
+      "training_matches": 1747
+    },
+    {
+      "end_exclusive": "2026-03-09",
+      "league": "LaLiga",
+      "origin": "2026-02-23",
+      "training_end": "2026-02-22",
+      "training_matches": 1768
+    },
+    {
+      "end_exclusive": "2026-03-23",
+      "league": "LaLiga",
+      "origin": "2026-03-09",
+      "training_end": "2026-03-08",
+      "training_matches": 1789
+    },
+    {
+      "end_exclusive": "2026-04-06",
+      "league": "LaLiga",
+      "origin": "2026-03-23",
+      "training_end": "2026-03-22",
+      "training_matches": 1810
+    },
+    {
+      "end_exclusive": "2026-04-20",
+      "league": "LaLiga",
+      "origin": "2026-04-06",
+      "training_end": "2026-04-05",
+      "training_matches": 1819
+    },
+    {
+      "end_exclusive": "2026-05-04",
+      "league": "LaLiga",
+      "origin": "2026-04-20",
+      "training_end": "2026-04-13",
+      "training_matches": 1830
+    },
+    {
+      "end_exclusive": "2026-05-18",
+      "league": "LaLiga",
+      "origin": "2026-05-04",
+      "training_end": "2026-05-03",
+      "training_matches": 1859
+    },
+    {
+      "end_exclusive": "2026-06-01",
+      "league": "LaLiga",
+      "origin": "2026-05-18",
+      "training_end": "2026-05-17",
+      "training_matches": 1890
+    },
+    {
+      "end_exclusive": "2026-08-24",
+      "league": "LaLiga",
+      "origin": "2026-08-10",
+      "training_end": "2026-05-24",
+      "training_matches": 1900
+    },
+    {
+      "end_exclusive": "2026-09-07",
+      "league": "LaLiga",
+      "origin": "2026-08-24",
+      "training_end": "2026-08-23",
+      "training_matches": 1914
+    },
+    {
+      "end_exclusive": "2026-09-21",
+      "league": "LaLiga",
+      "origin": "2026-09-07",
+      "training_end": "2026-09-06",
+      "training_matches": 1939
+    },
+    {
+      "end_exclusive": "2026-10-11",
+      "league": "LaLiga",
+      "origin": "2026-10-05",
+      "training_end": "2026-09-20",
+      "training_matches": 1969
+    },
+    {
+      "end_exclusive": "2026-10-19",
+      "league": "LaLiga",
+      "origin": "2026-10-11",
+      "training_end": "2026-10-10",
+      "training_matches": 1973
+    },
+    {
+      "end_exclusive": "2026-11-02",
+      "league": "LaLiga",
+      "origin": "2026-10-19",
+      "training_end": "2026-10-18",
+      "training_matches": 1987
+    },
+    {
+      "end_exclusive": "2026-11-09",
+      "league": "LaLiga",
+      "origin": "2026-11-02",
+      "training_end": "2026-11-01",
+      "training_matches": 2008
+    },
+    {
+      "end_exclusive": "2023-03-13",
+      "league": "Bundesliga",
+      "origin": "2023-02-27",
+      "training_end": "2023-02-26",
+      "training_matches": 504
+    },
+    {
+      "end_exclusive": "2023-03-27",
+      "league": "Bundesliga",
+      "origin": "2023-03-13",
+      "training_end": "2023-03-12",
+      "training_matches": 522
+    },
+    {
+      "end_exclusive": "2023-04-10",
+      "league": "Bundesliga",
+      "origin": "2023-03-27",
+      "training_end": "2023-03-19",
+      "training_matches": 531
+    },
+    {
+      "end_exclusive": "2023-04-24",
+      "league": "Bundesliga",
+      "origin": "2023-04-10",
+      "training_end": "2023-04-09",
+      "training_matches": 549
+    },
+    {
+      "end_exclusive": "2023-05-08",
+      "league": "Bundesliga",
+      "origin": "2023-04-24",
+      "training_end": "2023-04-23",
+      "training_matches": 567
+    },
+    {
+      "end_exclusive": "2023-05-22",
+      "league": "Bundesliga",
+      "origin": "2023-05-08",
+      "training_end": "2023-05-07",
+      "training_matches": 585
+    },
+    {
+      "end_exclusive": "2023-06-05",
+      "league": "Bundesliga",
+      "origin": "2023-05-22",
+      "training_end": "2023-05-21",
+      "training_matches": 603
+    },
+    {
+      "end_exclusive": "2023-08-28",
+      "league": "Bundesliga",
+      "origin": "2023-08-14",
+      "training_end": "2023-05-27",
+      "training_matches": 612
+    },
+    {
+      "end_exclusive": "2023-09-11",
+      "league": "Bundesliga",
+      "origin": "2023-08-28",
+      "training_end": "2023-08-27",
+      "training_matches": 630
+    },
+    {
+      "end_exclusive": "2023-09-25",
+      "league": "Bundesliga",
+      "origin": "2023-09-11",
+      "training_end": "2023-09-03",
+      "training_matches": 639
+    },
+    {
+      "end_exclusive": "2023-10-09",
+      "league": "Bundesliga",
+      "origin": "2023-09-25",
+      "training_end": "2023-09-24",
+      "training_matches": 657
+    },
+    {
+      "end_exclusive": "2023-10-23",
+      "league": "Bundesliga",
+      "origin": "2023-10-09",
+      "training_end": "2023-10-08",
+      "training_matches": 675
+    },
+    {
+      "end_exclusive": "2023-11-06",
+      "league": "Bundesliga",
+      "origin": "2023-10-23",
+      "training_end": "2023-10-22",
+      "training_matches": 684
+    },
+    {
+      "end_exclusive": "2023-11-20",
+      "league": "Bundesliga",
+      "origin": "2023-11-06",
+      "training_end": "2023-11-05",
+      "training_matches": 702
+    },
+    {
+      "end_exclusive": "2023-12-04",
+      "league": "Bundesliga",
+      "origin": "2023-11-20",
+      "training_end": "2023-11-12",
+      "training_matches": 711
+    },
+    {
+      "end_exclusive": "2023-12-18",
+      "league": "Bundesliga",
+      "origin": "2023-12-04",
+      "training_end": "2023-12-03",
+      "training_matches": 728
+    },
+    {
+      "end_exclusive": "2024-01-01",
+      "league": "Bundesliga",
+      "origin": "2023-12-18",
+      "training_end": "2023-12-17",
+      "training_matches": 746
+    },
+    {
+      "end_exclusive": "2024-01-15",
+      "league": "Bundesliga",
+      "origin": "2024-01-01",
+      "training_end": "2023-12-20",
+      "training_matches": 755
+    },
+    {
+      "end_exclusive": "2024-01-29",
+      "league": "Bundesliga",
+      "origin": "2024-01-15",
+      "training_end": "2024-01-14",
+      "training_matches": 764
+    },
+    {
+      "end_exclusive": "2024-02-12",
+      "league": "Bundesliga",
+      "origin": "2024-01-29",
+      "training_end": "2024-01-28",
+      "training_matches": 782
+    },
+    {
+      "end_exclusive": "2024-02-26",
+      "league": "Bundesliga",
+      "origin": "2024-02-12",
+      "training_end": "2024-02-11",
+      "training_matches": 801
+    },
+    {
+      "end_exclusive": "2024-03-11",
+      "league": "Bundesliga",
+      "origin": "2024-02-26",
+      "training_end": "2024-02-25",
+      "training_matches": 819
+    },
+    {
+      "end_exclusive": "2024-03-25",
+      "league": "Bundesliga",
+      "origin": "2024-03-11",
+      "training_end": "2024-03-10",
+      "training_matches": 837
+    },
+    {
+      "end_exclusive": "2024-04-08",
+      "league": "Bundesliga",
+      "origin": "2024-03-25",
+      "training_end": "2024-03-17",
+      "training_matches": 846
+    },
+    {
+      "end_exclusive": "2024-04-22",
+      "league": "Bundesliga",
+      "origin": "2024-04-08",
+      "training_end": "2024-04-07",
+      "training_matches": 864
+    },
+    {
+      "end_exclusive": "2024-05-06",
+      "league": "Bundesliga",
+      "origin": "2024-04-22",
+      "training_end": "2024-04-21",
+      "training_matches": 882
+    },
+    {
+      "end_exclusive": "2024-05-20",
+      "league": "Bundesliga",
+      "origin": "2024-05-06",
+      "training_end": "2024-05-05",
+      "training_matches": 900
+    },
+    {
+      "end_exclusive": "2024-08-26",
+      "league": "Bundesliga",
+      "origin": "2024-08-12",
+      "training_end": "2024-05-18",
+      "training_matches": 918
+    },
+    {
+      "end_exclusive": "2024-09-09",
+      "league": "Bundesliga",
+      "origin": "2024-08-26",
+      "training_end": "2024-08-25",
+      "training_matches": 927
+    },
+    {
+      "end_exclusive": "2024-09-23",
+      "league": "Bundesliga",
+      "origin": "2024-09-09",
+      "training_end": "2024-09-01",
+      "training_matches": 936
+    },
+    {
+      "end_exclusive": "2024-10-07",
+      "league": "Bundesliga",
+      "origin": "2024-09-23",
+      "training_end": "2024-09-22",
+      "training_matches": 954
+    },
+    {
+      "end_exclusive": "2024-10-21",
+      "league": "Bundesliga",
+      "origin": "2024-10-07",
+      "training_end": "2024-10-06",
+      "training_matches": 972
+    },
+    {
+      "end_exclusive": "2024-11-04",
+      "league": "Bundesliga",
+      "origin": "2024-10-21",
+      "training_end": "2024-10-20",
+      "training_matches": 981
+    },
+    {
+      "end_exclusive": "2024-11-18",
+      "league": "Bundesliga",
+      "origin": "2024-11-04",
+      "training_end": "2024-11-03",
+      "training_matches": 999
+    },
+    {
+      "end_exclusive": "2024-12-02",
+      "league": "Bundesliga",
+      "origin": "2024-11-18",
+      "training_end": "2024-11-10",
+      "training_matches": 1008
+    },
+    {
+      "end_exclusive": "2024-12-16",
+      "league": "Bundesliga",
+      "origin": "2024-12-02",
+      "training_end": "2024-12-01",
+      "training_matches": 1026
+    },
+    {
+      "end_exclusive": "2024-12-30",
+      "league": "Bundesliga",
+      "origin": "2024-12-16",
+      "training_end": "2024-12-15",
+      "training_matches": 1044
+    },
+    {
+      "end_exclusive": "2025-01-13",
+      "league": "Bundesliga",
+      "origin": "2024-12-30",
+      "training_end": "2024-12-22",
+      "training_matches": 1053
+    },
+    {
+      "end_exclusive": "2025-01-27",
+      "league": "Bundesliga",
+      "origin": "2025-01-13",
+      "training_end": "2025-01-12",
+      "training_matches": 1062
+    },
+    {
+      "end_exclusive": "2025-02-10",
+      "league": "Bundesliga",
+      "origin": "2025-01-27",
+      "training_end": "2025-01-26",
+      "training_matches": 1089
+    },
+    {
+      "end_exclusive": "2025-02-24",
+      "league": "Bundesliga",
+      "origin": "2025-02-10",
+      "training_end": "2025-02-09",
+      "training_matches": 1107
+    },
+    {
+      "end_exclusive": "2025-03-10",
+      "league": "Bundesliga",
+      "origin": "2025-02-24",
+      "training_end": "2025-02-23",
+      "training_matches": 1125
+    },
+    {
+      "end_exclusive": "2025-03-24",
+      "league": "Bundesliga",
+      "origin": "2025-03-10",
+      "training_end": "2025-03-09",
+      "training_matches": 1143
+    },
+    {
+      "end_exclusive": "2025-04-07",
+      "league": "Bundesliga",
+      "origin": "2025-03-24",
+      "training_end": "2025-03-16",
+      "training_matches": 1152
+    },
+    {
+      "end_exclusive": "2025-04-21",
+      "league": "Bundesliga",
+      "origin": "2025-04-07",
+      "training_end": "2025-04-06",
+      "training_matches": 1170
+    },
+    {
+      "end_exclusive": "2025-05-05",
+      "league": "Bundesliga",
+      "origin": "2025-04-21",
+      "training_end": "2025-04-20",
+      "training_matches": 1188
+    },
+    {
+      "end_exclusive": "2025-05-19",
+      "league": "Bundesliga",
+      "origin": "2025-05-05",
+      "training_end": "2025-05-04",
+      "training_matches": 1206
+    },
+    {
+      "end_exclusive": "2025-08-25",
+      "league": "Bundesliga",
+      "origin": "2025-08-11",
+      "training_end": "2025-05-17",
+      "training_matches": 1224
+    },
+    {
+      "end_exclusive": "2025-09-08",
+      "league": "Bundesliga",
+      "origin": "2025-08-25",
+      "training_end": "2025-08-24",
+      "training_matches": 1233
+    },
+    {
+      "end_exclusive": "2025-09-22",
+      "league": "Bundesliga",
+      "origin": "2025-09-08",
+      "training_end": "2025-08-31",
+      "training_matches": 1242
+    },
+    {
+      "end_exclusive": "2025-10-06",
+      "league": "Bundesliga",
+      "origin": "2025-09-22",
+      "training_end": "2025-09-21",
+      "training_matches": 1260
+    },
+    {
+      "end_exclusive": "2025-10-20",
+      "league": "Bundesliga",
+      "origin": "2025-10-06",
+      "training_end": "2025-10-05",
+      "training_matches": 1278
+    },
+    {
+      "end_exclusive": "2025-11-03",
+      "league": "Bundesliga",
+      "origin": "2025-10-20",
+      "training_end": "2025-10-19",
+      "training_matches": 1287
+    },
+    {
+      "end_exclusive": "2025-11-17",
+      "league": "Bundesliga",
+      "origin": "2025-11-03",
+      "training_end": "2025-11-02",
+      "training_matches": 1305
+    },
+    {
+      "end_exclusive": "2025-12-01",
+      "league": "Bundesliga",
+      "origin": "2025-11-17",
+      "training_end": "2025-11-09",
+      "training_matches": 1314
+    },
+    {
+      "end_exclusive": "2025-12-15",
+      "league": "Bundesliga",
+      "origin": "2025-12-01",
+      "training_end": "2025-11-30",
+      "training_matches": 1332
+    },
+    {
+      "end_exclusive": "2025-12-29",
+      "league": "Bundesliga",
+      "origin": "2025-12-15",
+      "training_end": "2025-12-14",
+      "training_matches": 1350
+    },
+    {
+      "end_exclusive": "2026-01-12",
+      "league": "Bundesliga",
+      "origin": "2025-12-29",
+      "training_end": "2025-12-21",
+      "training_matches": 1359
+    },
+    {
+      "end_exclusive": "2026-01-16",
+      "league": "Bundesliga",
+      "origin": "2026-01-12",
+      "training_end": "2026-01-11",
+      "training_matches": 1366
+    },
+    {
+      "end_exclusive": "2026-01-26",
+      "league": "Bundesliga",
+      "origin": "2026-01-16",
+      "training_end": "2026-01-15",
+      "training_matches": 1374
+    },
+    {
+      "end_exclusive": "2026-02-09",
+      "league": "Bundesliga",
+      "origin": "2026-01-26",
+      "training_end": "2026-01-25",
+      "training_matches": 1392
+    },
+    {
+      "end_exclusive": "2026-02-23",
+      "league": "Bundesliga",
+      "origin": "2026-02-09",
+      "training_end": "2026-02-08",
+      "training_matches": 1412
+    },
+    {
+      "end_exclusive": "2026-03-09",
+      "league": "Bundesliga",
+      "origin": "2026-02-23",
+      "training_end": "2026-02-22",
+      "training_matches": 1430
+    },
+    {
+      "end_exclusive": "2026-03-23",
+      "league": "Bundesliga",
+      "origin": "2026-03-09",
+      "training_end": "2026-03-08",
+      "training_matches": 1449
+    },
+    {
+      "end_exclusive": "2026-04-06",
+      "league": "Bundesliga",
+      "origin": "2026-03-23",
+      "training_end": "2026-03-22",
+      "training_matches": 1467
+    },
+    {
+      "end_exclusive": "2026-04-20",
+      "league": "Bundesliga",
+      "origin": "2026-04-06",
+      "training_end": "2026-04-05",
+      "training_matches": 1476
+    },
+    {
+      "end_exclusive": "2026-05-04",
+      "league": "Bundesliga",
+      "origin": "2026-04-20",
+      "training_end": "2026-04-19",
+      "training_matches": 1494
+    },
+    {
+      "end_exclusive": "2026-05-18",
+      "league": "Bundesliga",
+      "origin": "2026-05-04",
+      "training_end": "2026-05-03",
+      "training_matches": 1512
+    },
+    {
+      "end_exclusive": "2026-09-07",
+      "league": "Bundesliga",
+      "origin": "2026-08-24",
+      "training_end": "2026-05-16",
+      "training_matches": 1530
+    },
+    {
+      "end_exclusive": "2026-09-21",
+      "league": "Bundesliga",
+      "origin": "2026-09-07",
+      "training_end": "2026-09-06",
+      "training_matches": 1548
+    },
+    {
+      "end_exclusive": "2026-10-11",
+      "league": "Bundesliga",
+      "origin": "2026-10-05",
+      "training_end": "2026-09-20",
+      "training_matches": 1566
+    },
+    {
+      "end_exclusive": "2026-10-19",
+      "league": "Bundesliga",
+      "origin": "2026-10-11",
+      "training_end": "2026-10-10",
+      "training_matches": 1573
+    },
+    {
+      "end_exclusive": "2026-11-02",
+      "league": "Bundesliga",
+      "origin": "2026-10-19",
+      "training_end": "2026-10-18",
+      "training_matches": 1584
+    },
+    {
+      "end_exclusive": "2026-11-09",
+      "league": "Bundesliga",
+      "origin": "2026-11-02",
+      "training_end": "2026-11-01",
+      "training_matches": 1602
+    },
+    {
+      "end_exclusive": "2022-11-21",
+      "league": "SerieA",
+      "origin": "2022-11-07",
+      "training_end": "2022-11-06",
+      "training_matches": 510
+    },
+    {
+      "end_exclusive": "2023-01-16",
+      "league": "SerieA",
+      "origin": "2023-01-02",
+      "training_end": "2022-11-13",
+      "training_matches": 530
+    },
+    {
+      "end_exclusive": "2023-01-30",
+      "league": "SerieA",
+      "origin": "2023-01-16",
+      "training_end": "2023-01-15",
+      "training_matches": 559
+    },
+    {
+      "end_exclusive": "2023-02-13",
+      "league": "SerieA",
+      "origin": "2023-01-30",
+      "training_end": "2023-01-29",
+      "training_matches": 579
+    },
+    {
+      "end_exclusive": "2023-02-27",
+      "league": "SerieA",
+      "origin": "2023-02-13",
+      "training_end": "2023-02-12",
+      "training_matches": 598
+    },
+    {
+      "end_exclusive": "2023-03-13",
+      "league": "SerieA",
+      "origin": "2023-02-27",
+      "training_end": "2023-02-26",
+      "training_matches": 616
+    },
+    {
+      "end_exclusive": "2023-03-27",
+      "league": "SerieA",
+      "origin": "2023-03-13",
+      "training_end": "2023-03-12",
+      "training_matches": 639
+    },
+    {
+      "end_exclusive": "2023-04-10",
+      "league": "SerieA",
+      "origin": "2023-03-27",
+      "training_end": "2023-03-19",
+      "training_matches": 650
+    },
+    {
+      "end_exclusive": "2023-04-24",
+      "league": "SerieA",
+      "origin": "2023-04-10",
+      "training_end": "2023-04-08",
+      "training_matches": 670
+    },
+    {
+      "end_exclusive": "2023-05-08",
+      "league": "SerieA",
+      "origin": "2023-04-24",
+      "training_end": "2023-04-23",
+      "training_matches": 689
+    },
+    {
+      "end_exclusive": "2023-05-22",
+      "league": "SerieA",
+      "origin": "2023-05-08",
+      "training_end": "2023-05-07",
+      "training_matches": 717
+    },
+    {
+      "end_exclusive": "2023-06-05",
+      "league": "SerieA",
+      "origin": "2023-05-22",
+      "training_end": "2023-05-21",
+      "training_matches": 738
+    },
+    {
+      "end_exclusive": "2023-08-28",
+      "league": "SerieA",
+      "origin": "2023-08-14",
+      "training_end": "2023-06-04",
+      "training_matches": 760
+    },
+    {
+      "end_exclusive": "2023-09-11",
+      "league": "SerieA",
+      "origin": "2023-08-28",
+      "training_end": "2023-08-27",
+      "training_matches": 778
+    },
+    {
+      "end_exclusive": "2023-09-25",
+      "league": "SerieA",
+      "origin": "2023-09-11",
+      "training_end": "2023-09-03",
+      "training_matches": 790
+    },
+    {
+      "end_exclusive": "2023-10-09",
+      "league": "SerieA",
+      "origin": "2023-09-25",
+      "training_end": "2023-09-24",
+      "training_matches": 810
+    },
+    {
+      "end_exclusive": "2023-10-23",
+      "league": "SerieA",
+      "origin": "2023-10-09",
+      "training_end": "2023-10-08",
+      "training_matches": 840
+    },
+    {
+      "end_exclusive": "2023-11-06",
+      "league": "SerieA",
+      "origin": "2023-10-23",
+      "training_end": "2023-10-22",
+      "training_matches": 848
+    },
+    {
+      "end_exclusive": "2023-11-20",
+      "league": "SerieA",
+      "origin": "2023-11-06",
+      "training_end": "2023-11-05",
+      "training_matches": 868
+    },
+    {
+      "end_exclusive": "2023-12-04",
+      "league": "SerieA",
+      "origin": "2023-11-20",
+      "training_end": "2023-11-12",
+      "training_matches": 880
+    },
+    {
+      "end_exclusive": "2023-12-18",
+      "league": "SerieA",
+      "origin": "2023-12-04",
+      "training_end": "2023-12-03",
+      "training_matches": 899
+    },
+    {
+      "end_exclusive": "2024-01-01",
+      "league": "SerieA",
+      "origin": "2023-12-18",
+      "training_end": "2023-12-17",
+      "training_matches": 919
+    },
+    {
+      "end_exclusive": "2024-01-15",
+      "league": "SerieA",
+      "origin": "2024-01-01",
+      "training_end": "2023-12-30",
+      "training_matches": 940
+    },
+    {
+      "end_exclusive": "2024-01-29",
+      "league": "SerieA",
+      "origin": "2024-01-15",
+      "training_end": "2024-01-14",
+      "training_matches": 958
+    },
+    {
+      "end_exclusive": "2024-02-12",
+      "league": "SerieA",
+      "origin": "2024-01-29",
+      "training_end": "2024-01-28",
+      "training_matches": 975
+    },
+    {
+      "end_exclusive": "2024-02-26",
+      "league": "SerieA",
+      "origin": "2024-02-12",
+      "training_end": "2024-02-11",
+      "training_matches": 995
+    },
+    {
+      "end_exclusive": "2024-03-11",
+      "league": "SerieA",
+      "origin": "2024-02-26",
+      "training_end": "2024-02-25",
+      "training_matches": 1016
+    },
+    {
+      "end_exclusive": "2024-03-25",
+      "league": "SerieA",
+      "origin": "2024-03-11",
+      "training_end": "2024-03-10",
+      "training_matches": 1039
+    },
+    {
+      "end_exclusive": "2024-04-08",
+      "league": "SerieA",
+      "origin": "2024-03-25",
+      "training_end": "2024-03-17",
+      "training_matches": 1049
+    },
+    {
+      "end_exclusive": "2024-04-22",
+      "league": "SerieA",
+      "origin": "2024-04-08",
+      "training_end": "2024-04-07",
+      "training_matches": 1068
+    },
+    {
+      "end_exclusive": "2024-05-06",
+      "league": "SerieA",
+      "origin": "2024-04-22",
+      "training_end": "2024-04-21",
+      "training_matches": 1086
+    },
+    {
+      "end_exclusive": "2024-05-20",
+      "league": "SerieA",
+      "origin": "2024-05-06",
+      "training_end": "2024-05-05",
+      "training_matches": 1107
+    },
+    {
+      "end_exclusive": "2024-06-03",
+      "league": "SerieA",
+      "origin": "2024-05-20",
+      "training_end": "2024-05-19",
+      "training_matches": 1127
+    },
+    {
+      "end_exclusive": "2024-08-26",
+      "league": "SerieA",
+      "origin": "2024-08-12",
+      "training_end": "2024-06-02",
+      "training_matches": 1140
+    },
+    {
+      "end_exclusive": "2024-09-09",
+      "league": "SerieA",
+      "origin": "2024-08-26",
+      "training_end": "2024-08-25",
+      "training_matches": 1158
+    },
+    {
+      "end_exclusive": "2024-09-23",
+      "league": "SerieA",
+      "origin": "2024-09-09",
+      "training_end": "2024-09-01",
+      "training_matches": 1170
+    },
+    {
+      "end_exclusive": "2024-10-07",
+      "league": "SerieA",
+      "origin": "2024-09-23",
+      "training_end": "2024-09-22",
+      "training_matches": 1189
+    },
+    {
+      "end_exclusive": "2024-10-21",
+      "league": "SerieA",
+      "origin": "2024-10-07",
+      "training_end": "2024-10-06",
+      "training_matches": 1210
+    },
+    {
+      "end_exclusive": "2024-11-04",
+      "league": "SerieA",
+      "origin": "2024-10-21",
+      "training_end": "2024-10-20",
+      "training_matches": 1219
+    },
+    {
+      "end_exclusive": "2024-11-18",
+      "league": "SerieA",
+      "origin": "2024-11-04",
+      "training_end": "2024-11-03",
+      "training_matches": 1246
+    },
+    {
+      "end_exclusive": "2024-12-02",
+      "league": "SerieA",
+      "origin": "2024-11-18",
+      "training_end": "2024-11-10",
+      "training_matches": 1259
+    },
+    {
+      "end_exclusive": "2024-12-16",
+      "league": "SerieA",
+      "origin": "2024-12-02",
+      "training_end": "2024-12-01",
+      "training_matches": 1277
+    },
+    {
+      "end_exclusive": "2024-12-30",
+      "league": "SerieA",
+      "origin": "2024-12-16",
+      "training_end": "2024-12-15",
+      "training_matches": 1297
+    },
+    {
+      "end_exclusive": "2025-01-13",
+      "league": "SerieA",
+      "origin": "2024-12-30",
+      "training_end": "2024-12-29",
+      "training_matches": 1316
+    },
+    {
+      "end_exclusive": "2025-01-27",
+      "league": "SerieA",
+      "origin": "2025-01-13",
+      "training_end": "2025-01-12",
+      "training_matches": 1334
+    },
+    {
+      "end_exclusive": "2025-02-10",
+      "league": "SerieA",
+      "origin": "2025-01-27",
+      "training_end": "2025-01-26",
+      "training_matches": 1356
+    },
+    {
+      "end_exclusive": "2025-02-24",
+      "league": "SerieA",
+      "origin": "2025-02-10",
+      "training_end": "2025-02-09",
+      "training_matches": 1378
+    },
+    {
+      "end_exclusive": "2025-03-10",
+      "league": "SerieA",
+      "origin": "2025-02-24",
+      "training_end": "2025-02-23",
+      "training_matches": 1398
+    },
+    {
+      "end_exclusive": "2025-03-24",
+      "league": "SerieA",
+      "origin": "2025-03-10",
+      "training_end": "2025-03-09",
+      "training_matches": 1419
+    },
+    {
+      "end_exclusive": "2025-04-07",
+      "league": "SerieA",
+      "origin": "2025-03-24",
+      "training_end": "2025-03-16",
+      "training_matches": 1430
+    },
+    {
+      "end_exclusive": "2025-04-21",
+      "league": "SerieA",
+      "origin": "2025-04-07",
+      "training_end": "2025-04-06",
+      "training_matches": 1449
+    },
+    {
+      "end_exclusive": "2025-05-05",
+      "league": "SerieA",
+      "origin": "2025-04-21",
+      "training_end": "2025-04-20",
+      "training_matches": 1466
+    },
+    {
+      "end_exclusive": "2025-05-19",
+      "league": "SerieA",
+      "origin": "2025-05-05",
+      "training_end": "2025-05-04",
+      "training_matches": 1489
+    },
+    {
+      "end_exclusive": "2025-06-02",
+      "league": "SerieA",
+      "origin": "2025-05-19",
+      "training_end": "2025-05-18",
+      "training_matches": 1510
+    },
+    {
+      "end_exclusive": "2025-08-25",
+      "league": "SerieA",
+      "origin": "2025-08-11",
+      "training_end": "2025-05-25",
+      "training_matches": 1520
+    },
+    {
+      "end_exclusive": "2025-09-08",
+      "league": "SerieA",
+      "origin": "2025-08-25",
+      "training_end": "2025-08-24",
+      "training_matches": 1528
+    },
+    {
+      "end_exclusive": "2025-09-22",
+      "league": "SerieA",
+      "origin": "2025-09-08",
+      "training_end": "2025-08-31",
+      "training_matches": 1540
+    },
+    {
+      "end_exclusive": "2025-10-06",
+      "league": "SerieA",
+      "origin": "2025-09-22",
+      "training_end": "2025-09-21",
+      "training_matches": 1559
+    },
+    {
+      "end_exclusive": "2025-10-20",
+      "league": "SerieA",
+      "origin": "2025-10-06",
+      "training_end": "2025-10-05",
+      "training_matches": 1580
+    },
+    {
+      "end_exclusive": "2025-11-03",
+      "league": "SerieA",
+      "origin": "2025-10-20",
+      "training_end": "2025-10-19",
+      "training_matches": 1589
+    },
+    {
+      "end_exclusive": "2025-11-17",
+      "league": "SerieA",
+      "origin": "2025-11-03",
+      "training_end": "2025-11-02",
+      "training_matches": 1618
+    },
+    {
+      "end_exclusive": "2025-12-01",
+      "league": "SerieA",
+      "origin": "2025-11-17",
+      "training_end": "2025-11-09",
+      "training_matches": 1630
+    },
+    {
+      "end_exclusive": "2025-12-15",
+      "league": "SerieA",
+      "origin": "2025-12-01",
+      "training_end": "2025-11-30",
+      "training_matches": 1649
+    },
+    {
+      "end_exclusive": "2025-12-29",
+      "league": "SerieA",
+      "origin": "2025-12-15",
+      "training_end": "2025-12-14",
+      "training_matches": 1669
+    },
+    {
+      "end_exclusive": "2026-01-12",
+      "league": "SerieA",
+      "origin": "2025-12-29",
+      "training_end": "2025-12-28",
+      "training_matches": 1685
+    },
+    {
+      "end_exclusive": "2026-01-16",
+      "league": "SerieA",
+      "origin": "2026-01-12",
+      "training_end": "2026-01-11",
+      "training_matches": 1714
+    },
+    {
+      "end_exclusive": "2026-01-26",
+      "league": "SerieA",
+      "origin": "2026-01-16",
+      "training_end": "2026-01-15",
+      "training_matches": 1720
+    },
+    {
+      "end_exclusive": "2026-02-09",
+      "league": "SerieA",
+      "origin": "2026-01-26",
+      "training_end": "2026-01-25",
+      "training_matches": 1739
+    },
+    {
+      "end_exclusive": "2026-02-23",
+      "league": "SerieA",
+      "origin": "2026-02-09",
+      "training_end": "2026-02-08",
+      "training_matches": 1757
+    },
+    {
+      "end_exclusive": "2026-03-09",
+      "league": "SerieA",
+      "origin": "2026-02-23",
+      "training_end": "2026-02-22",
+      "training_matches": 1778
+    },
+    {
+      "end_exclusive": "2026-03-23",
+      "league": "SerieA",
+      "origin": "2026-03-09",
+      "training_end": "2026-03-08",
+      "training_matches": 1799
+    },
+    {
+      "end_exclusive": "2026-04-06",
+      "league": "SerieA",
+      "origin": "2026-03-23",
+      "training_end": "2026-03-22",
+      "training_matches": 1820
+    },
+    {
+      "end_exclusive": "2026-04-20",
+      "league": "SerieA",
+      "origin": "2026-04-06",
+      "training_end": "2026-04-05",
+      "training_matches": 1826
+    },
+    {
+      "end_exclusive": "2026-05-04",
+      "league": "SerieA",
+      "origin": "2026-04-20",
+      "training_end": "2026-04-19",
+      "training_matches": 1849
+    },
+    {
+      "end_exclusive": "2026-05-18",
+      "league": "SerieA",
+      "origin": "2026-05-04",
+      "training_end": "2026-05-03",
+      "training_matches": 1868
+    },
+    {
+      "end_exclusive": "2026-06-01",
+      "league": "SerieA",
+      "origin": "2026-05-18",
+      "training_end": "2026-05-17",
+      "training_matches": 1890
+    },
+    {
+      "end_exclusive": "2026-08-24",
+      "league": "SerieA",
+      "origin": "2026-08-10",
+      "training_end": "2026-05-24",
+      "training_matches": 1900
+    },
+    {
+      "end_exclusive": "2026-09-07",
+      "league": "SerieA",
+      "origin": "2026-08-24",
+      "training_end": "2026-08-23",
+      "training_matches": 1908
+    },
+    {
+      "end_exclusive": "2026-09-21",
+      "league": "SerieA",
+      "origin": "2026-09-07",
+      "training_end": "2026-09-06",
+      "training_matches": 1928
+    },
+    {
+      "end_exclusive": "2026-10-11",
+      "league": "SerieA",
+      "origin": "2026-10-05",
+      "training_end": "2026-09-20",
+      "training_matches": 1950
+    },
+    {
+      "end_exclusive": "2026-10-19",
+      "league": "SerieA",
+      "origin": "2026-10-11",
+      "training_end": "2026-10-10",
+      "training_matches": 1953
+    },
+    {
+      "end_exclusive": "2026-11-02",
+      "league": "SerieA",
+      "origin": "2026-10-19",
+      "training_end": "2026-10-18",
+      "training_matches": 1968
+    },
+    {
+      "end_exclusive": "2026-11-09",
+      "league": "SerieA",
+      "origin": "2026-11-02",
+      "training_end": "2026-11-01",
+      "training_matches": 1998
+    },
+    {
+      "end_exclusive": "2022-11-07",
+      "league": "Ligue1",
+      "origin": "2022-10-24",
+      "training_end": "2022-10-23",
+      "training_matches": 500
+    },
+    {
+      "end_exclusive": "2022-11-21",
+      "league": "Ligue1",
+      "origin": "2022-11-07",
+      "training_end": "2022-11-06",
+      "training_matches": 520
+    },
+    {
+      "end_exclusive": "2023-01-02",
+      "league": "Ligue1",
+      "origin": "2022-12-19",
+      "training_end": "2022-11-13",
+      "training_matches": 530
+    },
+    {
+      "end_exclusive": "2023-01-16",
+      "league": "Ligue1",
+      "origin": "2023-01-02",
+      "training_end": "2023-01-01",
+      "training_matches": 546
+    },
+    {
+      "end_exclusive": "2023-01-30",
+      "league": "Ligue1",
+      "origin": "2023-01-16",
+      "training_end": "2023-01-15",
+      "training_matches": 570
+    },
+    {
+      "end_exclusive": "2023-02-13",
+      "league": "Ligue1",
+      "origin": "2023-01-30",
+      "training_end": "2023-01-29",
+      "training_matches": 580
+    },
+    {
+      "end_exclusive": "2023-02-27",
+      "league": "Ligue1",
+      "origin": "2023-02-13",
+      "training_end": "2023-02-12",
+      "training_matches": 610
+    },
+    {
+      "end_exclusive": "2023-03-13",
+      "league": "Ligue1",
+      "origin": "2023-02-27",
+      "training_end": "2023-02-26",
+      "training_matches": 630
+    },
+    {
+      "end_exclusive": "2023-03-27",
+      "league": "Ligue1",
+      "origin": "2023-03-13",
+      "training_end": "2023-03-12",
+      "training_matches": 650
+    },
+    {
+      "end_exclusive": "2023-04-10",
+      "league": "Ligue1",
+      "origin": "2023-03-27",
+      "training_end": "2023-03-19",
+      "training_matches": 660
+    },
+    {
+      "end_exclusive": "2023-04-24",
+      "league": "Ligue1",
+      "origin": "2023-04-10",
+      "training_end": "2023-04-09",
+      "training_matches": 680
+    },
+    {
+      "end_exclusive": "2023-05-08",
+      "league": "Ligue1",
+      "origin": "2023-04-24",
+      "training_end": "2023-04-23",
+      "training_matches": 700
+    },
+    {
+      "end_exclusive": "2023-05-22",
+      "league": "Ligue1",
+      "origin": "2023-05-08",
+      "training_end": "2023-05-07",
+      "training_matches": 720
+    },
+    {
+      "end_exclusive": "2023-06-05",
+      "league": "Ligue1",
+      "origin": "2023-05-22",
+      "training_end": "2023-05-21",
+      "training_matches": 740
+    },
+    {
+      "end_exclusive": "2023-08-14",
+      "league": "Ligue1",
+      "origin": "2023-07-31",
+      "training_end": "2023-06-03",
+      "training_matches": 760
+    },
+    {
+      "end_exclusive": "2023-08-28",
+      "league": "Ligue1",
+      "origin": "2023-08-14",
+      "training_end": "2023-08-13",
+      "training_matches": 769
+    },
+    {
+      "end_exclusive": "2023-09-11",
+      "league": "Ligue1",
+      "origin": "2023-08-28",
+      "training_end": "2023-08-27",
+      "training_matches": 787
+    },
+    {
+      "end_exclusive": "2023-09-25",
+      "league": "Ligue1",
+      "origin": "2023-09-11",
+      "training_end": "2023-09-03",
+      "training_matches": 796
+    },
+    {
+      "end_exclusive": "2023-10-09",
+      "league": "Ligue1",
+      "origin": "2023-09-25",
+      "training_end": "2023-09-24",
+      "training_matches": 813
+    },
+    {
+      "end_exclusive": "2023-10-23",
+      "league": "Ligue1",
+      "origin": "2023-10-09",
+      "training_end": "2023-10-08",
+      "training_matches": 831
+    },
+    {
+      "end_exclusive": "2023-11-06",
+      "league": "Ligue1",
+      "origin": "2023-10-23",
+      "training_end": "2023-10-22",
+      "training_matches": 840
+    },
+    {
+      "end_exclusive": "2023-11-20",
+      "league": "Ligue1",
+      "origin": "2023-11-06",
+      "training_end": "2023-11-05",
+      "training_matches": 857
+    },
+    {
+      "end_exclusive": "2023-12-04",
+      "league": "Ligue1",
+      "origin": "2023-11-20",
+      "training_end": "2023-11-12",
+      "training_matches": 865
+    },
+    {
+      "end_exclusive": "2023-12-18",
+      "league": "Ligue1",
+      "origin": "2023-12-04",
+      "training_end": "2023-12-03",
+      "training_matches": 884
+    },
+    {
+      "end_exclusive": "2024-01-01",
+      "league": "Ligue1",
+      "origin": "2023-12-18",
+      "training_end": "2023-12-17",
+      "training_matches": 904
+    },
+    {
+      "end_exclusive": "2024-01-15",
+      "league": "Ligue1",
+      "origin": "2024-01-01",
+      "training_end": "2023-12-20",
+      "training_matches": 913
+    },
+    {
+      "end_exclusive": "2024-01-29",
+      "league": "Ligue1",
+      "origin": "2024-01-15",
+      "training_end": "2024-01-14",
+      "training_matches": 922
+    },
+    {
+      "end_exclusive": "2024-02-12",
+      "league": "Ligue1",
+      "origin": "2024-01-29",
+      "training_end": "2024-01-28",
+      "training_matches": 931
+    },
+    {
+      "end_exclusive": "2024-02-26",
+      "league": "Ligue1",
+      "origin": "2024-02-12",
+      "training_end": "2024-02-11",
+      "training_matches": 949
+    },
+    {
+      "end_exclusive": "2024-03-11",
+      "league": "Ligue1",
+      "origin": "2024-02-26",
+      "training_end": "2024-02-25",
+      "training_matches": 967
+    },
+    {
+      "end_exclusive": "2024-03-25",
+      "league": "Ligue1",
+      "origin": "2024-03-11",
+      "training_end": "2024-03-10",
+      "training_matches": 985
+    },
+    {
+      "end_exclusive": "2024-04-08",
+      "league": "Ligue1",
+      "origin": "2024-03-25",
+      "training_end": "2024-03-17",
+      "training_matches": 994
+    },
+    {
+      "end_exclusive": "2024-04-22",
+      "league": "Ligue1",
+      "origin": "2024-04-08",
+      "training_end": "2024-04-07",
+      "training_matches": 1012
+    },
+    {
+      "end_exclusive": "2024-05-06",
+      "league": "Ligue1",
+      "origin": "2024-04-22",
+      "training_end": "2024-04-21",
+      "training_matches": 1027
+    },
+    {
+      "end_exclusive": "2024-05-20",
+      "league": "Ligue1",
+      "origin": "2024-05-06",
+      "training_end": "2024-05-04",
+      "training_matches": 1045
+    },
+    {
+      "end_exclusive": "2024-08-26",
+      "league": "Ligue1",
+      "origin": "2024-08-12",
+      "training_end": "2024-05-19",
+      "training_matches": 1066
+    },
+    {
+      "end_exclusive": "2024-09-09",
+      "league": "Ligue1",
+      "origin": "2024-08-26",
+      "training_end": "2024-08-25",
+      "training_matches": 1084
+    },
+    {
+      "end_exclusive": "2024-09-23",
+      "league": "Ligue1",
+      "origin": "2024-09-09",
+      "training_end": "2024-09-01",
+      "training_matches": 1093
+    },
+    {
+      "end_exclusive": "2024-10-07",
+      "league": "Ligue1",
+      "origin": "2024-09-23",
+      "training_end": "2024-09-22",
+      "training_matches": 1111
+    },
+    {
+      "end_exclusive": "2024-10-21",
+      "league": "Ligue1",
+      "origin": "2024-10-07",
+      "training_end": "2024-10-06",
+      "training_matches": 1129
+    },
+    {
+      "end_exclusive": "2024-11-04",
+      "league": "Ligue1",
+      "origin": "2024-10-21",
+      "training_end": "2024-10-20",
+      "training_matches": 1138
+    },
+    {
+      "end_exclusive": "2024-11-18",
+      "league": "Ligue1",
+      "origin": "2024-11-04",
+      "training_end": "2024-11-03",
+      "training_matches": 1156
+    },
+    {
+      "end_exclusive": "2024-12-02",
+      "league": "Ligue1",
+      "origin": "2024-11-18",
+      "training_end": "2024-11-10",
+      "training_matches": 1165
+    },
+    {
+      "end_exclusive": "2024-12-16",
+      "league": "Ligue1",
+      "origin": "2024-12-02",
+      "training_end": "2024-12-01",
+      "training_matches": 1183
+    },
+    {
+      "end_exclusive": "2024-12-30",
+      "league": "Ligue1",
+      "origin": "2024-12-16",
+      "training_end": "2024-12-15",
+      "training_matches": 1201
+    },
+    {
+      "end_exclusive": "2025-01-13",
+      "league": "Ligue1",
+      "origin": "2024-12-30",
+      "training_end": "2024-12-18",
+      "training_matches": 1202
+    },
+    {
+      "end_exclusive": "2025-01-27",
+      "league": "Ligue1",
+      "origin": "2025-01-13",
+      "training_end": "2025-01-12",
+      "training_matches": 1219
+    },
+    {
+      "end_exclusive": "2025-02-10",
+      "league": "Ligue1",
+      "origin": "2025-01-27",
+      "training_end": "2025-01-26",
+      "training_matches": 1237
+    },
+    {
+      "end_exclusive": "2025-02-24",
+      "league": "Ligue1",
+      "origin": "2025-02-10",
+      "training_end": "2025-02-09",
+      "training_matches": 1255
+    },
+    {
+      "end_exclusive": "2025-03-10",
+      "league": "Ligue1",
+      "origin": "2025-02-24",
+      "training_end": "2025-02-23",
+      "training_matches": 1273
+    },
+    {
+      "end_exclusive": "2025-03-24",
+      "league": "Ligue1",
+      "origin": "2025-03-10",
+      "training_end": "2025-03-09",
+      "training_matches": 1291
+    },
+    {
+      "end_exclusive": "2025-04-07",
+      "league": "Ligue1",
+      "origin": "2025-03-24",
+      "training_end": "2025-03-16",
+      "training_matches": 1300
+    },
+    {
+      "end_exclusive": "2025-04-21",
+      "league": "Ligue1",
+      "origin": "2025-04-07",
+      "training_end": "2025-04-06",
+      "training_matches": 1318
+    },
+    {
+      "end_exclusive": "2025-05-05",
+      "league": "Ligue1",
+      "origin": "2025-04-21",
+      "training_end": "2025-04-20",
+      "training_matches": 1335
+    },
+    {
+      "end_exclusive": "2025-05-19",
+      "league": "Ligue1",
+      "origin": "2025-05-05",
+      "training_end": "2025-05-04",
+      "training_matches": 1354
+    },
+    {
+      "end_exclusive": "2025-08-25",
+      "league": "Ligue1",
+      "origin": "2025-08-11",
+      "training_end": "2025-05-17",
+      "training_matches": 1372
+    },
+    {
+      "end_exclusive": "2025-09-08",
+      "league": "Ligue1",
+      "origin": "2025-08-25",
+      "training_end": "2025-08-24",
+      "training_matches": 1390
+    },
+    {
+      "end_exclusive": "2025-09-22",
+      "league": "Ligue1",
+      "origin": "2025-09-08",
+      "training_end": "2025-08-31",
+      "training_matches": 1399
+    },
+    {
+      "end_exclusive": "2025-10-06",
+      "league": "Ligue1",
+      "origin": "2025-09-22",
+      "training_end": "2025-09-21",
+      "training_matches": 1416
+    },
+    {
+      "end_exclusive": "2025-10-20",
+      "league": "Ligue1",
+      "origin": "2025-10-06",
+      "training_end": "2025-10-05",
+      "training_matches": 1435
+    },
+    {
+      "end_exclusive": "2025-11-03",
+      "league": "Ligue1",
+      "origin": "2025-10-20",
+      "training_end": "2025-10-19",
+      "training_matches": 1444
+    },
+    {
+      "end_exclusive": "2025-11-17",
+      "league": "Ligue1",
+      "origin": "2025-11-03",
+      "training_end": "2025-11-02",
+      "training_matches": 1471
+    },
+    {
+      "end_exclusive": "2025-12-01",
+      "league": "Ligue1",
+      "origin": "2025-11-17",
+      "training_end": "2025-11-09",
+      "training_matches": 1480
+    },
+    {
+      "end_exclusive": "2025-12-15",
+      "league": "Ligue1",
+      "origin": "2025-12-01",
+      "training_end": "2025-11-30",
+      "training_matches": 1498
+    },
+    {
+      "end_exclusive": "2026-01-12",
+      "league": "Ligue1",
+      "origin": "2025-12-29",
+      "training_end": "2025-12-14",
+      "training_matches": 1516
+    },
+    {
+      "end_exclusive": "2026-01-26",
+      "league": "Ligue1",
+      "origin": "2026-01-16",
+      "training_end": "2026-01-04",
+      "training_matches": 1525
+    },
+    {
+      "end_exclusive": "2026-02-09",
+      "league": "Ligue1",
+      "origin": "2026-01-26",
+      "training_end": "2026-01-25",
+      "training_matches": 1543
+    },
+    {
+      "end_exclusive": "2026-02-23",
+      "league": "Ligue1",
+      "origin": "2026-02-09",
+      "training_end": "2026-02-08",
+      "training_matches": 1561
+    },
+    {
+      "end_exclusive": "2026-03-09",
+      "league": "Ligue1",
+      "origin": "2026-02-23",
+      "training_end": "2026-02-22",
+      "training_matches": 1579
+    },
+    {
+      "end_exclusive": "2026-03-23",
+      "league": "Ligue1",
+      "origin": "2026-03-09",
+      "training_end": "2026-03-08",
+      "training_matches": 1597
+    },
+    {
+      "end_exclusive": "2026-04-06",
+      "league": "Ligue1",
+      "origin": "2026-03-23",
+      "training_end": "2026-03-22",
+      "training_matches": 1614
+    },
+    {
+      "end_exclusive": "2026-04-20",
+      "league": "Ligue1",
+      "origin": "2026-04-06",
+      "training_end": "2026-04-05",
+      "training_matches": 1623
+    },
+    {
+      "end_exclusive": "2026-05-04",
+      "league": "Ligue1",
+      "origin": "2026-04-20",
+      "training_end": "2026-04-19",
+      "training_matches": 1639
+    },
+    {
+      "end_exclusive": "2026-05-18",
+      "league": "Ligue1",
+      "origin": "2026-05-04",
+      "training_end": "2026-05-03",
+      "training_matches": 1658
+    },
+    {
+      "end_exclusive": "2026-08-24",
+      "league": "Ligue1",
+      "origin": "2026-08-10",
+      "training_end": "2026-05-17",
+      "training_matches": 1678
+    },
+    {
+      "end_exclusive": "2026-09-07",
+      "league": "Ligue1",
+      "origin": "2026-08-24",
+      "training_end": "2026-08-23",
+      "training_matches": 1687
+    },
+    {
+      "end_exclusive": "2026-09-21",
+      "league": "Ligue1",
+      "origin": "2026-09-07",
+      "training_end": "2026-09-06",
+      "training_matches": 1705
+    },
+    {
+      "end_exclusive": "2026-10-11",
+      "league": "Ligue1",
+      "origin": "2026-10-05",
+      "training_end": "2026-09-20",
+      "training_matches": 1723
+    },
+    {
+      "end_exclusive": "2026-10-19",
+      "league": "Ligue1",
+      "origin": "2026-10-11",
+      "training_end": "2026-10-10",
+      "training_matches": 1729
+    },
+    {
+      "end_exclusive": "2026-11-02",
+      "league": "Ligue1",
+      "origin": "2026-10-19",
+      "training_end": "2026-10-18",
+      "training_matches": 1741
+    },
+    {
+      "end_exclusive": "2026-11-09",
+      "league": "Ligue1",
+      "origin": "2026-11-02",
+      "training_end": "2026-11-01",
+      "training_matches": 1758
+    },
+    {
+      "end_exclusive": "2023-03-13",
+      "league": "Eredivisie",
+      "origin": "2023-02-27",
+      "training_end": "2023-02-26",
+      "training_matches": 513
+    },
+    {
+      "end_exclusive": "2023-03-27",
+      "league": "Eredivisie",
+      "origin": "2023-03-13",
+      "training_end": "2023-03-12",
+      "training_matches": 530
+    },
+    {
+      "end_exclusive": "2023-04-10",
+      "league": "Eredivisie",
+      "origin": "2023-03-27",
+      "training_end": "2023-03-19",
+      "training_matches": 539
+    },
+    {
+      "end_exclusive": "2023-04-24",
+      "league": "Eredivisie",
+      "origin": "2023-04-10",
+      "training_end": "2023-04-09",
+      "training_matches": 557
+    },
+    {
+      "end_exclusive": "2023-05-08",
+      "league": "Eredivisie",
+      "origin": "2023-04-24",
+      "training_end": "2023-04-23",
+      "training_matches": 575
+    },
+    {
+      "end_exclusive": "2023-05-22",
+      "league": "Eredivisie",
+      "origin": "2023-05-08",
+      "training_end": "2023-05-07",
+      "training_matches": 585
+    },
+    {
+      "end_exclusive": "2023-06-05",
+      "league": "Eredivisie",
+      "origin": "2023-05-22",
+      "training_end": "2023-05-21",
+      "training_matches": 603
+    },
+    {
+      "end_exclusive": "2023-08-14",
+      "league": "Eredivisie",
+      "origin": "2023-07-31",
+      "training_end": "2023-05-28",
+      "training_matches": 612
+    },
+    {
+      "end_exclusive": "2023-08-28",
+      "league": "Eredivisie",
+      "origin": "2023-08-14",
+      "training_end": "2023-08-13",
+      "training_matches": 621
+    },
+    {
+      "end_exclusive": "2023-09-11",
+      "league": "Eredivisie",
+      "origin": "2023-08-28",
+      "training_end": "2023-08-27",
+      "training_matches": 635
+    },
+    {
+      "end_exclusive": "2023-09-25",
+      "league": "Eredivisie",
+      "origin": "2023-09-11",
+      "training_end": "2023-09-03",
+      "training_matches": 644
+    },
+    {
+      "end_exclusive": "2023-10-09",
+      "league": "Eredivisie",
+      "origin": "2023-09-25",
+      "training_end": "2023-09-24",
+      "training_matches": 661
+    },
+    {
+      "end_exclusive": "2023-10-23",
+      "league": "Eredivisie",
+      "origin": "2023-10-09",
+      "training_end": "2023-10-08",
+      "training_matches": 682
+    },
+    {
+      "end_exclusive": "2023-11-06",
+      "league": "Eredivisie",
+      "origin": "2023-10-23",
+      "training_end": "2023-10-22",
+      "training_matches": 691
+    },
+    {
+      "end_exclusive": "2023-11-20",
+      "league": "Eredivisie",
+      "origin": "2023-11-06",
+      "training_end": "2023-11-05",
+      "training_matches": 709
+    },
+    {
+      "end_exclusive": "2023-12-04",
+      "league": "Eredivisie",
+      "origin": "2023-11-20",
+      "training_end": "2023-11-12",
+      "training_matches": 718
+    },
+    {
+      "end_exclusive": "2023-12-18",
+      "league": "Eredivisie",
+      "origin": "2023-12-04",
+      "training_end": "2023-12-03",
+      "training_matches": 736
+    },
+    {
+      "end_exclusive": "2024-01-15",
+      "league": "Eredivisie",
+      "origin": "2024-01-01",
+      "training_end": "2023-12-17",
+      "training_matches": 756
+    },
+    {
+      "end_exclusive": "2024-01-29",
+      "league": "Eredivisie",
+      "origin": "2024-01-15",
+      "training_end": "2024-01-14",
+      "training_matches": 765
+    },
+    {
+      "end_exclusive": "2024-02-12",
+      "league": "Eredivisie",
+      "origin": "2024-01-29",
+      "training_end": "2024-01-28",
+      "training_matches": 783
+    },
+    {
+      "end_exclusive": "2024-02-26",
+      "league": "Eredivisie",
+      "origin": "2024-02-12",
+      "training_end": "2024-02-11",
+      "training_matches": 801
+    },
+    {
+      "end_exclusive": "2024-03-11",
+      "league": "Eredivisie",
+      "origin": "2024-02-26",
+      "training_end": "2024-02-25",
+      "training_matches": 819
+    },
+    {
+      "end_exclusive": "2024-03-25",
+      "league": "Eredivisie",
+      "origin": "2024-03-11",
+      "training_end": "2024-03-10",
+      "training_matches": 837
+    },
+    {
+      "end_exclusive": "2024-04-08",
+      "league": "Eredivisie",
+      "origin": "2024-03-25",
+      "training_end": "2024-03-17",
+      "training_matches": 846
+    },
+    {
+      "end_exclusive": "2024-04-22",
+      "league": "Eredivisie",
+      "origin": "2024-04-08",
+      "training_end": "2024-04-07",
+      "training_matches": 873
+    },
+    {
+      "end_exclusive": "2024-05-06",
+      "league": "Eredivisie",
+      "origin": "2024-04-22",
+      "training_end": "2024-04-14",
+      "training_matches": 882
+    },
+    {
+      "end_exclusive": "2024-05-20",
+      "league": "Eredivisie",
+      "origin": "2024-05-06",
+      "training_end": "2024-05-05",
+      "training_matches": 899
+    },
+    {
+      "end_exclusive": "2024-08-12",
+      "league": "Eredivisie",
+      "origin": "2024-07-29",
+      "training_end": "2024-05-19",
+      "training_matches": 918
+    },
+    {
+      "end_exclusive": "2024-08-26",
+      "league": "Eredivisie",
+      "origin": "2024-08-12",
+      "training_end": "2024-08-11",
+      "training_matches": 927
+    },
+    {
+      "end_exclusive": "2024-09-09",
+      "league": "Eredivisie",
+      "origin": "2024-08-26",
+      "training_end": "2024-08-25",
+      "training_matches": 943
+    },
+    {
+      "end_exclusive": "2024-09-23",
+      "league": "Eredivisie",
+      "origin": "2024-09-09",
+      "training_end": "2024-09-01",
+      "training_matches": 951
+    },
+    {
+      "end_exclusive": "2024-10-07",
+      "league": "Eredivisie",
+      "origin": "2024-09-23",
+      "training_end": "2024-09-22",
+      "training_matches": 970
+    },
+    {
+      "end_exclusive": "2024-10-21",
+      "league": "Eredivisie",
+      "origin": "2024-10-07",
+      "training_end": "2024-10-06",
+      "training_matches": 988
+    },
+    {
+      "end_exclusive": "2024-11-04",
+      "league": "Eredivisie",
+      "origin": "2024-10-21",
+      "training_end": "2024-10-20",
+      "training_matches": 997
+    },
+    {
+      "end_exclusive": "2024-11-18",
+      "league": "Eredivisie",
+      "origin": "2024-11-04",
+      "training_end": "2024-11-03",
+      "training_matches": 1016
+    },
+    {
+      "end_exclusive": "2024-12-02",
+      "league": "Eredivisie",
+      "origin": "2024-11-18",
+      "training_end": "2024-11-10",
+      "training_matches": 1025
+    },
+    {
+      "end_exclusive": "2024-12-16",
+      "league": "Eredivisie",
+      "origin": "2024-12-02",
+      "training_end": "2024-12-01",
+      "training_matches": 1043
+    },
+    {
+      "end_exclusive": "2024-12-30",
+      "league": "Eredivisie",
+      "origin": "2024-12-16",
+      "training_end": "2024-12-15",
+      "training_matches": 1062
+    },
+    {
+      "end_exclusive": "2025-01-13",
+      "league": "Eredivisie",
+      "origin": "2024-12-30",
+      "training_end": "2024-12-22",
+      "training_matches": 1070
+    },
+    {
+      "end_exclusive": "2025-01-27",
+      "league": "Eredivisie",
+      "origin": "2025-01-13",
+      "training_end": "2025-01-12",
+      "training_matches": 1079
+    },
+    {
+      "end_exclusive": "2025-02-10",
+      "league": "Eredivisie",
+      "origin": "2025-01-27",
+      "training_end": "2025-01-26",
+      "training_matches": 1094
+    },
+    {
+      "end_exclusive": "2025-02-24",
+      "league": "Eredivisie",
+      "origin": "2025-02-10",
+      "training_end": "2025-02-09",
+      "training_matches": 1113
+    },
+    {
+      "end_exclusive": "2025-03-10",
+      "league": "Eredivisie",
+      "origin": "2025-02-24",
+      "training_end": "2025-02-23",
+      "training_matches": 1125
+    },
+    {
+      "end_exclusive": "2025-03-24",
+      "league": "Eredivisie",
+      "origin": "2025-03-10",
+      "training_end": "2025-03-09",
+      "training_matches": 1141
+    },
+    {
+      "end_exclusive": "2025-04-07",
+      "league": "Eredivisie",
+      "origin": "2025-03-24",
+      "training_end": "2025-03-16",
+      "training_matches": 1150
+    },
+    {
+      "end_exclusive": "2025-04-21",
+      "league": "Eredivisie",
+      "origin": "2025-04-07",
+      "training_end": "2025-04-06",
+      "training_matches": 1170
+    },
+    {
+      "end_exclusive": "2025-05-05",
+      "league": "Eredivisie",
+      "origin": "2025-04-21",
+      "training_end": "2025-04-20",
+      "training_matches": 1181
+    },
+    {
+      "end_exclusive": "2025-05-19",
+      "league": "Eredivisie",
+      "origin": "2025-05-05",
+      "training_end": "2025-05-04",
+      "training_matches": 1197
+    },
+    {
+      "end_exclusive": "2025-08-11",
+      "league": "Eredivisie",
+      "origin": "2025-07-28",
+      "training_end": "2025-05-18",
+      "training_matches": 1224
+    },
+    {
+      "end_exclusive": "2025-08-25",
+      "league": "Eredivisie",
+      "origin": "2025-08-11",
+      "training_end": "2025-08-10",
+      "training_matches": 1233
+    },
+    {
+      "end_exclusive": "2025-09-08",
+      "league": "Eredivisie",
+      "origin": "2025-08-25",
+      "training_end": "2025-08-24",
+      "training_matches": 1249
+    },
+    {
+      "end_exclusive": "2025-09-22",
+      "league": "Eredivisie",
+      "origin": "2025-09-08",
+      "training_end": "2025-08-31",
+      "training_matches": 1258
+    },
+    {
+      "end_exclusive": "2025-10-06",
+      "league": "Eredivisie",
+      "origin": "2025-09-22",
+      "training_end": "2025-09-21",
+      "training_matches": 1277
+    },
+    {
+      "end_exclusive": "2025-10-20",
+      "league": "Eredivisie",
+      "origin": "2025-10-06",
+      "training_end": "2025-10-05",
+      "training_matches": 1296
+    },
+    {
+      "end_exclusive": "2025-11-03",
+      "league": "Eredivisie",
+      "origin": "2025-10-20",
+      "training_end": "2025-10-19",
+      "training_matches": 1305
+    },
+    {
+      "end_exclusive": "2025-11-17",
+      "league": "Eredivisie",
+      "origin": "2025-11-03",
+      "training_end": "2025-11-02",
+      "training_matches": 1323
+    },
+    {
+      "end_exclusive": "2025-12-01",
+      "league": "Eredivisie",
+      "origin": "2025-11-17",
+      "training_end": "2025-11-09",
+      "training_matches": 1332
+    },
+    {
+      "end_exclusive": "2025-12-15",
+      "league": "Eredivisie",
+      "origin": "2025-12-01",
+      "training_end": "2025-11-30",
+      "training_matches": 1349
+    },
+    {
+      "end_exclusive": "2025-12-29",
+      "league": "Eredivisie",
+      "origin": "2025-12-15",
+      "training_end": "2025-12-14",
+      "training_matches": 1367
+    },
+    {
+      "end_exclusive": "2026-01-12",
+      "league": "Eredivisie",
+      "origin": "2025-12-29",
+      "training_end": "2025-12-21",
+      "training_matches": 1376
+    },
+    {
+      "end_exclusive": "2026-01-26",
+      "league": "Eredivisie",
+      "origin": "2026-01-16",
+      "training_end": "2026-01-11",
+      "training_matches": 1384
+    },
+    {
+      "end_exclusive": "2026-02-09",
+      "league": "Eredivisie",
+      "origin": "2026-01-26",
+      "training_end": "2026-01-25",
+      "training_matches": 1402
+    },
+    {
+      "end_exclusive": "2026-02-23",
+      "league": "Eredivisie",
+      "origin": "2026-02-09",
+      "training_end": "2026-02-08",
+      "training_matches": 1420
+    },
+    {
+      "end_exclusive": "2026-03-09",
+      "league": "Eredivisie",
+      "origin": "2026-02-23",
+      "training_end": "2026-02-22",
+      "training_matches": 1440
+    },
+    {
+      "end_exclusive": "2026-03-23",
+      "league": "Eredivisie",
+      "origin": "2026-03-09",
+      "training_end": "2026-03-08",
+      "training_matches": 1458
+    },
+    {
+      "end_exclusive": "2026-04-06",
+      "league": "Eredivisie",
+      "origin": "2026-03-23",
+      "training_end": "2026-03-22",
+      "training_matches": 1476
+    },
+    {
+      "end_exclusive": "2026-04-20",
+      "league": "Eredivisie",
+      "origin": "2026-04-06",
+      "training_end": "2026-04-05",
+      "training_matches": 1485
+    },
+    {
+      "end_exclusive": "2026-05-04",
+      "league": "Eredivisie",
+      "origin": "2026-04-20",
+      "training_end": "2026-04-12",
+      "training_matches": 1494
+    },
+    {
+      "end_exclusive": "2026-05-18",
+      "league": "Eredivisie",
+      "origin": "2026-05-04",
+      "training_end": "2026-05-03",
+      "training_matches": 1512
+    },
+    {
+      "end_exclusive": "2026-08-10",
+      "league": "Eredivisie",
+      "origin": "2026-07-27",
+      "training_end": "2026-05-17",
+      "training_matches": 1530
+    },
+    {
+      "end_exclusive": "2026-08-24",
+      "league": "Eredivisie",
+      "origin": "2026-08-10",
+      "training_end": "2026-08-09",
+      "training_matches": 1539
+    },
+    {
+      "end_exclusive": "2026-09-07",
+      "league": "Eredivisie",
+      "origin": "2026-08-24",
+      "training_end": "2026-08-23",
+      "training_matches": 1554
+    },
+    {
+      "end_exclusive": "2026-09-21",
+      "league": "Eredivisie",
+      "origin": "2026-09-07",
+      "training_end": "2026-09-06",
+      "training_matches": 1571
+    },
+    {
+      "end_exclusive": "2026-10-11",
+      "league": "Eredivisie",
+      "origin": "2026-10-05",
+      "training_end": "2026-09-20",
+      "training_matches": 1593
+    },
+    {
+      "end_exclusive": "2026-10-19",
+      "league": "Eredivisie",
+      "origin": "2026-10-11",
+      "training_end": "2026-10-10",
+      "training_matches": 1598
+    },
+    {
+      "end_exclusive": "2026-11-02",
+      "league": "Eredivisie",
+      "origin": "2026-10-19",
+      "training_end": "2026-10-18",
+      "training_matches": 1611
+    },
+    {
+      "end_exclusive": "2026-11-09",
+      "league": "Eredivisie",
+      "origin": "2026-11-02",
+      "training_end": "2026-11-01",
+      "training_matches": 1629
+    },
+    {
+      "end_exclusive": "2023-03-13",
+      "league": "PrimeiraLiga",
+      "origin": "2023-02-27",
+      "training_end": "2023-02-26",
+      "training_matches": 502
+    },
+    {
+      "end_exclusive": "2023-03-27",
+      "league": "PrimeiraLiga",
+      "origin": "2023-03-13",
+      "training_end": "2023-03-12",
+      "training_matches": 521
+    },
+    {
+      "end_exclusive": "2023-04-10",
+      "league": "PrimeiraLiga",
+      "origin": "2023-03-27",
+      "training_end": "2023-03-19",
+      "training_matches": 530
+    },
+    {
+      "end_exclusive": "2023-04-24",
+      "league": "PrimeiraLiga",
+      "origin": "2023-04-10",
+      "training_end": "2023-04-09",
+      "training_matches": 548
+    },
+    {
+      "end_exclusive": "2023-05-08",
+      "league": "PrimeiraLiga",
+      "origin": "2023-04-24",
+      "training_end": "2023-04-23",
+      "training_matches": 566
+    },
+    {
+      "end_exclusive": "2023-05-22",
+      "league": "PrimeiraLiga",
+      "origin": "2023-05-08",
+      "training_end": "2023-05-07",
+      "training_matches": 583
+    },
+    {
+      "end_exclusive": "2023-06-05",
+      "league": "PrimeiraLiga",
+      "origin": "2023-05-22",
+      "training_end": "2023-05-21",
+      "training_matches": 603
+    },
+    {
+      "end_exclusive": "2023-08-14",
+      "league": "PrimeiraLiga",
+      "origin": "2023-07-31",
+      "training_end": "2023-05-27",
+      "training_matches": 612
+    },
+    {
+      "end_exclusive": "2023-08-28",
+      "league": "PrimeiraLiga",
+      "origin": "2023-08-14",
+      "training_end": "2023-08-13",
+      "training_matches": 619
+    },
+    {
+      "end_exclusive": "2023-09-11",
+      "league": "PrimeiraLiga",
+      "origin": "2023-08-28",
+      "training_end": "2023-08-27",
+      "training_matches": 637
+    },
+    {
+      "end_exclusive": "2023-09-25",
+      "league": "PrimeiraLiga",
+      "origin": "2023-09-11",
+      "training_end": "2023-09-09",
+      "training_matches": 648
+    },
+    {
+      "end_exclusive": "2023-10-09",
+      "league": "PrimeiraLiga",
+      "origin": "2023-09-25",
+      "training_end": "2023-09-24",
+      "training_matches": 665
+    },
+    {
+      "end_exclusive": "2023-11-06",
+      "league": "PrimeiraLiga",
+      "origin": "2023-10-23",
+      "training_end": "2023-10-08",
+      "training_matches": 684
+    },
+    {
+      "end_exclusive": "2023-11-20",
+      "league": "PrimeiraLiga",
+      "origin": "2023-11-06",
+      "training_end": "2023-11-05",
+      "training_matches": 701
+    },
+    {
+      "end_exclusive": "2023-12-04",
+      "league": "PrimeiraLiga",
+      "origin": "2023-11-20",
+      "training_end": "2023-11-12",
+      "training_matches": 711
+    },
+    {
+      "end_exclusive": "2023-12-18",
+      "league": "PrimeiraLiga",
+      "origin": "2023-12-04",
+      "training_end": "2023-12-03",
+      "training_matches": 719
+    },
+    {
+      "end_exclusive": "2024-01-01",
+      "league": "PrimeiraLiga",
+      "origin": "2023-12-18",
+      "training_end": "2023-12-17",
+      "training_matches": 737
+    },
+    {
+      "end_exclusive": "2024-01-15",
+      "league": "PrimeiraLiga",
+      "origin": "2024-01-01",
+      "training_end": "2023-12-30",
+      "training_matches": 747
+    },
+    {
+      "end_exclusive": "2024-01-29",
+      "league": "PrimeiraLiga",
+      "origin": "2024-01-15",
+      "training_end": "2024-01-14",
+      "training_matches": 764
+    },
+    {
+      "end_exclusive": "2024-02-12",
+      "league": "PrimeiraLiga",
+      "origin": "2024-01-29",
+      "training_end": "2024-01-28",
+      "training_matches": 779
+    },
+    {
+      "end_exclusive": "2024-02-26",
+      "league": "PrimeiraLiga",
+      "origin": "2024-02-12",
+      "training_end": "2024-02-11",
+      "training_matches": 798
+    },
+    {
+      "end_exclusive": "2024-03-11",
+      "league": "PrimeiraLiga",
+      "origin": "2024-02-26",
+      "training_end": "2024-02-25",
+      "training_matches": 817
+    },
+    {
+      "end_exclusive": "2024-03-25",
+      "league": "PrimeiraLiga",
+      "origin": "2024-03-11",
+      "training_end": "2024-03-10",
+      "training_matches": 835
+    },
+    {
+      "end_exclusive": "2024-04-08",
+      "league": "PrimeiraLiga",
+      "origin": "2024-03-25",
+      "training_end": "2024-03-17",
+      "training_matches": 845
+    },
+    {
+      "end_exclusive": "2024-04-22",
+      "league": "PrimeiraLiga",
+      "origin": "2024-04-08",
+      "training_end": "2024-04-07",
+      "training_matches": 862
+    },
+    {
+      "end_exclusive": "2024-05-06",
+      "league": "PrimeiraLiga",
+      "origin": "2024-04-22",
+      "training_end": "2024-04-21",
+      "training_matches": 881
+    },
+    {
+      "end_exclusive": "2024-05-20",
+      "league": "PrimeiraLiga",
+      "origin": "2024-05-06",
+      "training_end": "2024-05-05",
+      "training_matches": 900
+    },
+    {
+      "end_exclusive": "2024-08-12",
+      "league": "PrimeiraLiga",
+      "origin": "2024-07-29",
+      "training_end": "2024-05-18",
+      "training_matches": 918
+    },
+    {
+      "end_exclusive": "2024-08-26",
+      "league": "PrimeiraLiga",
+      "origin": "2024-08-12",
+      "training_end": "2024-08-11",
+      "training_matches": 926
+    },
+    {
+      "end_exclusive": "2024-09-09",
+      "league": "PrimeiraLiga",
+      "origin": "2024-08-26",
+      "training_end": "2024-08-25",
+      "training_matches": 945
+    },
+    {
+      "end_exclusive": "2024-09-23",
+      "league": "PrimeiraLiga",
+      "origin": "2024-09-09",
+      "training_end": "2024-09-01",
+      "training_matches": 954
+    },
+    {
+      "end_exclusive": "2024-10-07",
+      "league": "PrimeiraLiga",
+      "origin": "2024-09-23",
+      "training_end": "2024-09-22",
+      "training_matches": 971
+    },
+    {
+      "end_exclusive": "2024-11-04",
+      "league": "PrimeiraLiga",
+      "origin": "2024-10-21",
+      "training_end": "2024-10-06",
+      "training_matches": 989
+    },
+    {
+      "end_exclusive": "2024-11-18",
+      "league": "PrimeiraLiga",
+      "origin": "2024-11-04",
+      "training_end": "2024-11-03",
+      "training_matches": 1006
+    },
+    {
+      "end_exclusive": "2024-12-02",
+      "league": "PrimeiraLiga",
+      "origin": "2024-11-18",
+      "training_end": "2024-11-10",
+      "training_matches": 1016
+    },
+    {
+      "end_exclusive": "2024-12-16",
+      "league": "PrimeiraLiga",
+      "origin": "2024-12-02",
+      "training_end": "2024-12-01",
+      "training_matches": 1023
+    },
+    {
+      "end_exclusive": "2024-12-30",
+      "league": "PrimeiraLiga",
+      "origin": "2024-12-16",
+      "training_end": "2024-12-15",
+      "training_matches": 1040
+    },
+    {
+      "end_exclusive": "2025-01-13",
+      "league": "PrimeiraLiga",
+      "origin": "2024-12-30",
+      "training_end": "2024-12-29",
+      "training_matches": 1061
+    },
+    {
+      "end_exclusive": "2025-01-27",
+      "league": "PrimeiraLiga",
+      "origin": "2025-01-13",
+      "training_end": "2025-01-12",
+      "training_matches": 1071
+    },
+    {
+      "end_exclusive": "2025-02-10",
+      "league": "PrimeiraLiga",
+      "origin": "2025-01-27",
+      "training_end": "2025-01-26",
+      "training_matches": 1088
+    },
+    {
+      "end_exclusive": "2025-02-24",
+      "league": "PrimeiraLiga",
+      "origin": "2025-02-10",
+      "training_end": "2025-02-09",
+      "training_matches": 1106
+    },
+    {
+      "end_exclusive": "2025-03-10",
+      "league": "PrimeiraLiga",
+      "origin": "2025-02-24",
+      "training_end": "2025-02-23",
+      "training_matches": 1124
+    },
+    {
+      "end_exclusive": "2025-03-24",
+      "league": "PrimeiraLiga",
+      "origin": "2025-03-10",
+      "training_end": "2025-03-09",
+      "training_matches": 1141
+    },
+    {
+      "end_exclusive": "2025-04-07",
+      "league": "PrimeiraLiga",
+      "origin": "2025-03-24",
+      "training_end": "2025-03-16",
+      "training_matches": 1151
+    },
+    {
+      "end_exclusive": "2025-04-21",
+      "league": "PrimeiraLiga",
+      "origin": "2025-04-07",
+      "training_end": "2025-04-06",
+      "training_matches": 1167
+    },
+    {
+      "end_exclusive": "2025-05-05",
+      "league": "PrimeiraLiga",
+      "origin": "2025-04-21",
+      "training_end": "2025-04-19",
+      "training_matches": 1188
+    },
+    {
+      "end_exclusive": "2025-05-19",
+      "league": "PrimeiraLiga",
+      "origin": "2025-05-05",
+      "training_end": "2025-05-04",
+      "training_matches": 1204
+    },
+    {
+      "end_exclusive": "2025-08-11",
+      "league": "PrimeiraLiga",
+      "origin": "2025-07-28",
+      "training_end": "2025-05-17",
+      "training_matches": 1224
+    },
+    {
+      "end_exclusive": "2025-08-25",
+      "league": "PrimeiraLiga",
+      "origin": "2025-08-11",
+      "training_end": "2025-08-10",
+      "training_matches": 1230
+    },
+    {
+      "end_exclusive": "2025-09-08",
+      "league": "PrimeiraLiga",
+      "origin": "2025-08-25",
+      "training_end": "2025-08-24",
+      "training_matches": 1248
+    },
+    {
+      "end_exclusive": "2025-09-22",
+      "league": "PrimeiraLiga",
+      "origin": "2025-09-08",
+      "training_end": "2025-09-06",
+      "training_matches": 1259
+    },
+    {
+      "end_exclusive": "2025-10-06",
+      "league": "PrimeiraLiga",
+      "origin": "2025-09-22",
+      "training_end": "2025-09-21",
+      "training_matches": 1276
+    },
+    {
+      "end_exclusive": "2025-11-03",
+      "league": "PrimeiraLiga",
+      "origin": "2025-10-20",
+      "training_end": "2025-10-05",
+      "training_matches": 1296
+    },
+    {
+      "end_exclusive": "2025-11-17",
+      "league": "PrimeiraLiga",
+      "origin": "2025-11-03",
+      "training_end": "2025-11-02",
+      "training_matches": 1313
+    },
+    {
+      "end_exclusive": "2025-12-01",
+      "league": "PrimeiraLiga",
+      "origin": "2025-11-17",
+      "training_end": "2025-11-09",
+      "training_matches": 1323
+    },
+    {
+      "end_exclusive": "2025-12-15",
+      "league": "PrimeiraLiga",
+      "origin": "2025-12-01",
+      "training_end": "2025-11-30",
+      "training_matches": 1331
+    },
+    {
+      "end_exclusive": "2025-12-29",
+      "league": "PrimeiraLiga",
+      "origin": "2025-12-15",
+      "training_end": "2025-12-14",
+      "training_matches": 1347
+    },
+    {
+      "end_exclusive": "2026-01-12",
+      "league": "PrimeiraLiga",
+      "origin": "2025-12-29",
+      "training_end": "2025-12-28",
+      "training_matches": 1365
+    },
+    {
+      "end_exclusive": "2026-01-26",
+      "league": "PrimeiraLiga",
+      "origin": "2026-01-16",
+      "training_end": "2026-01-11",
+      "training_matches": 1377
+    },
+    {
+      "end_exclusive": "2026-02-09",
+      "league": "PrimeiraLiga",
+      "origin": "2026-01-26",
+      "training_end": "2026-01-25",
+      "training_matches": 1394
+    },
+    {
+      "end_exclusive": "2026-02-23",
+      "league": "PrimeiraLiga",
+      "origin": "2026-02-09",
+      "training_end": "2026-02-08",
+      "training_matches": 1411
+    },
+    {
+      "end_exclusive": "2026-03-09",
+      "league": "PrimeiraLiga",
+      "origin": "2026-02-23",
+      "training_end": "2026-02-22",
+      "training_matches": 1430
+    },
+    {
+      "end_exclusive": "2026-03-23",
+      "league": "PrimeiraLiga",
+      "origin": "2026-03-09",
+      "training_end": "2026-03-08",
+      "training_matches": 1448
+    },
+    {
+      "end_exclusive": "2026-04-06",
+      "league": "PrimeiraLiga",
+      "origin": "2026-03-23",
+      "training_end": "2026-03-22",
+      "training_matches": 1465
+    },
+    {
+      "end_exclusive": "2026-04-20",
+      "league": "PrimeiraLiga",
+      "origin": "2026-04-06",
+      "training_end": "2026-04-04",
+      "training_matches": 1472
+    },
+    {
+      "end_exclusive": "2026-05-04",
+      "league": "PrimeiraLiga",
+      "origin": "2026-04-20",
+      "training_end": "2026-04-19",
+      "training_matches": 1491
+    },
+    {
+      "end_exclusive": "2026-05-18",
+      "league": "PrimeiraLiga",
+      "origin": "2026-05-04",
+      "training_end": "2026-05-03",
+      "training_matches": 1511
+    },
+    {
+      "end_exclusive": "2026-08-10",
+      "league": "PrimeiraLiga",
+      "origin": "2026-07-27",
+      "training_end": "2026-05-16",
+      "training_matches": 1530
+    },
+    {
+      "end_exclusive": "2026-08-24",
+      "league": "PrimeiraLiga",
+      "origin": "2026-08-10",
+      "training_end": "2026-08-09",
+      "training_matches": 1538
+    },
+    {
+      "end_exclusive": "2026-09-07",
+      "league": "PrimeiraLiga",
+      "origin": "2026-08-24",
+      "training_end": "2026-08-23",
+      "training_matches": 1553
+    },
+    {
+      "end_exclusive": "2026-09-21",
+      "league": "PrimeiraLiga",
+      "origin": "2026-09-07",
+      "training_end": "2026-09-06",
+      "training_matches": 1571
+    },
+    {
+      "end_exclusive": "2026-10-11",
+      "league": "PrimeiraLiga",
+      "origin": "2026-10-05",
+      "training_end": "2026-09-20",
+      "training_matches": 1592
+    },
+    {
+      "end_exclusive": "2026-10-19",
+      "league": "PrimeiraLiga",
+      "origin": "2026-10-11",
+      "training_end": "2026-10-10",
+      "training_matches": 1597
+    },
+    {
+      "end_exclusive": "2026-11-02",
+      "league": "PrimeiraLiga",
+      "origin": "2026-10-19",
+      "training_end": "2026-10-12",
+      "training_matches": 1601
+    },
+    {
+      "end_exclusive": "2026-11-09",
+      "league": "PrimeiraLiga",
+      "origin": "2026-11-02",
+      "training_end": "2026-11-01",
+      "training_matches": 1618
+    },
+    {
+      "end_exclusive": "2023-01-02",
+      "league": "SuperLig",
+      "origin": "2022-12-19",
+      "training_end": "2022-11-13",
+      "training_matches": 505
+    },
+    {
+      "end_exclusive": "2023-01-16",
+      "league": "SuperLig",
+      "origin": "2023-01-02",
+      "training_end": "2022-12-29",
+      "training_matches": 523
+    },
+    {
+      "end_exclusive": "2023-01-30",
+      "league": "SuperLig",
+      "origin": "2023-01-16",
+      "training_end": "2023-01-15",
+      "training_matches": 550
+    },
+    {
+      "end_exclusive": "2023-02-13",
+      "league": "SuperLig",
+      "origin": "2023-01-30",
+      "training_end": "2023-01-29",
+      "training_matches": 568
+    },
+    {
+      "end_exclusive": "2023-02-27",
+      "league": "SuperLig",
+      "origin": "2023-02-13",
+      "training_end": "2023-02-05",
+      "training_matches": 583
+    },
+    {
+      "end_exclusive": "2023-03-13",
+      "league": "SuperLig",
+      "origin": "2023-02-27",
+      "training_end": "2023-02-26",
+      "training_matches": 588
+    },
+    {
+      "end_exclusive": "2023-03-27",
+      "league": "SuperLig",
+      "origin": "2023-03-13",
+      "training_end": "2023-03-12",
+      "training_matches": 604
+    },
+    {
+      "end_exclusive": "2023-04-10",
+      "league": "SuperLig",
+      "origin": "2023-03-27",
+      "training_end": "2023-03-19",
+      "training_matches": 614
+    },
+    {
+      "end_exclusive": "2023-04-24",
+      "league": "SuperLig",
+      "origin": "2023-04-10",
+      "training_end": "2023-04-09",
+      "training_matches": 630
+    },
+    {
+      "end_exclusive": "2023-05-08",
+      "league": "SuperLig",
+      "origin": "2023-04-24",
+      "training_end": "2023-04-23",
+      "training_matches": 656
+    },
+    {
+      "end_exclusive": "2023-05-22",
+      "league": "SuperLig",
+      "origin": "2023-05-08",
+      "training_end": "2023-05-07",
+      "training_matches": 675
+    },
+    {
+      "end_exclusive": "2023-06-05",
+      "league": "SuperLig",
+      "origin": "2023-05-22",
+      "training_end": "2023-05-21",
+      "training_matches": 694
+    },
+    {
+      "end_exclusive": "2023-06-19",
+      "league": "SuperLig",
+      "origin": "2023-06-05",
+      "training_end": "2023-06-04",
+      "training_matches": 713
+    },
+    {
+      "end_exclusive": "2023-08-14",
+      "league": "SuperLig",
+      "origin": "2023-07-31",
+      "training_end": "2023-06-07",
+      "training_matches": 722
+    },
+    {
+      "end_exclusive": "2023-08-28",
+      "league": "SuperLig",
+      "origin": "2023-08-14",
+      "training_end": "2023-08-13",
+      "training_matches": 730
+    },
+    {
+      "end_exclusive": "2023-09-11",
+      "league": "SuperLig",
+      "origin": "2023-08-28",
+      "training_end": "2023-08-27",
+      "training_matches": 749
+    },
+    {
+      "end_exclusive": "2023-09-25",
+      "league": "SuperLig",
+      "origin": "2023-09-11",
+      "training_end": "2023-09-03",
+      "training_matches": 758
+    },
+    {
+      "end_exclusive": "2023-10-09",
+      "league": "SuperLig",
+      "origin": "2023-09-25",
+      "training_end": "2023-09-24",
+      "training_matches": 777
+    },
+    {
+      "end_exclusive": "2023-10-23",
+      "league": "SuperLig",
+      "origin": "2023-10-09",
+      "training_end": "2023-10-08",
+      "training_matches": 801
+    },
+    {
+      "end_exclusive": "2023-11-06",
+      "league": "SuperLig",
+      "origin": "2023-10-23",
+      "training_end": "2023-10-22",
+      "training_matches": 809
+    },
+    {
+      "end_exclusive": "2023-11-20",
+      "league": "SuperLig",
+      "origin": "2023-11-06",
+      "training_end": "2023-11-05",
+      "training_matches": 829
+    },
+    {
+      "end_exclusive": "2023-12-04",
+      "league": "SuperLig",
+      "origin": "2023-11-20",
+      "training_end": "2023-11-12",
+      "training_matches": 842
+    },
+    {
+      "end_exclusive": "2023-12-18",
+      "league": "SuperLig",
+      "origin": "2023-12-04",
+      "training_end": "2023-12-03",
+      "training_matches": 861
+    },
+    {
+      "end_exclusive": "2024-01-01",
+      "league": "SuperLig",
+      "origin": "2023-12-18",
+      "training_end": "2023-12-11",
+      "training_matches": 872
+    },
+    {
+      "end_exclusive": "2024-01-15",
+      "league": "SuperLig",
+      "origin": "2024-01-01",
+      "training_end": "2023-12-25",
+      "training_matches": 892
+    },
+    {
+      "end_exclusive": "2024-01-29",
+      "league": "SuperLig",
+      "origin": "2024-01-15",
+      "training_end": "2024-01-14",
+      "training_matches": 921
+    },
+    {
+      "end_exclusive": "2024-02-12",
+      "league": "SuperLig",
+      "origin": "2024-01-29",
+      "training_end": "2024-01-28",
+      "training_matches": 948
+    },
+    {
+      "end_exclusive": "2024-02-26",
+      "league": "SuperLig",
+      "origin": "2024-02-12",
+      "training_end": "2024-02-11",
+      "training_matches": 969
+    },
+    {
+      "end_exclusive": "2024-03-11",
+      "league": "SuperLig",
+      "origin": "2024-02-26",
+      "training_end": "2024-02-25",
+      "training_matches": 991
+    },
+    {
+      "end_exclusive": "2024-03-25",
+      "league": "SuperLig",
+      "origin": "2024-03-11",
+      "training_end": "2024-03-10",
+      "training_matches": 1011
+    },
+    {
+      "end_exclusive": "2024-04-08",
+      "league": "SuperLig",
+      "origin": "2024-03-25",
+      "training_end": "2024-03-17",
+      "training_matches": 1022
+    },
+    {
+      "end_exclusive": "2024-04-22",
+      "league": "SuperLig",
+      "origin": "2024-04-08",
+      "training_end": "2024-04-04",
+      "training_matches": 1032
+    },
+    {
+      "end_exclusive": "2024-05-06",
+      "league": "SuperLig",
+      "origin": "2024-04-22",
+      "training_end": "2024-04-21",
+      "training_matches": 1051
+    },
+    {
+      "end_exclusive": "2024-05-20",
+      "league": "SuperLig",
+      "origin": "2024-05-06",
+      "training_end": "2024-05-05",
+      "training_matches": 1070
+    },
+    {
+      "end_exclusive": "2024-06-03",
+      "league": "SuperLig",
+      "origin": "2024-05-20",
+      "training_end": "2024-05-19",
+      "training_matches": 1092
+    },
+    {
+      "end_exclusive": "2024-08-12",
+      "league": "SuperLig",
+      "origin": "2024-07-29",
+      "training_end": "2024-05-26",
+      "training_matches": 1102
+    },
+    {
+      "end_exclusive": "2024-08-26",
+      "league": "SuperLig",
+      "origin": "2024-08-12",
+      "training_end": "2024-08-11",
+      "training_matches": 1109
+    },
+    {
+      "end_exclusive": "2024-09-09",
+      "league": "SuperLig",
+      "origin": "2024-08-26",
+      "training_end": "2024-08-25",
+      "training_matches": 1126
+    },
+    {
+      "end_exclusive": "2024-09-23",
+      "league": "SuperLig",
+      "origin": "2024-09-09",
+      "training_end": "2024-09-01",
+      "training_matches": 1135
+    },
+    {
+      "end_exclusive": "2024-10-07",
+      "league": "SuperLig",
+      "origin": "2024-09-23",
+      "training_end": "2024-09-22",
+      "training_matches": 1154
+    },
+    {
+      "end_exclusive": "2024-10-21",
+      "league": "SuperLig",
+      "origin": "2024-10-07",
+      "training_end": "2024-10-06",
+      "training_matches": 1174
+    },
+    {
+      "end_exclusive": "2024-11-04",
+      "league": "SuperLig",
+      "origin": "2024-10-21",
+      "training_end": "2024-10-20",
+      "training_matches": 1182
+    },
+    {
+      "end_exclusive": "2024-11-18",
+      "league": "SuperLig",
+      "origin": "2024-11-04",
+      "training_end": "2024-11-03",
+      "training_matches": 1200
+    },
+    {
+      "end_exclusive": "2024-12-02",
+      "league": "SuperLig",
+      "origin": "2024-11-18",
+      "training_end": "2024-11-10",
+      "training_matches": 1210
+    },
+    {
+      "end_exclusive": "2024-12-16",
+      "league": "SuperLig",
+      "origin": "2024-12-02",
+      "training_end": "2024-12-01",
+      "training_matches": 1226
+    },
+    {
+      "end_exclusive": "2024-12-30",
+      "league": "SuperLig",
+      "origin": "2024-12-16",
+      "training_end": "2024-12-15",
+      "training_matches": 1244
+    },
+    {
+      "end_exclusive": "2025-01-13",
+      "league": "SuperLig",
+      "origin": "2024-12-30",
+      "training_end": "2024-12-23",
+      "training_matches": 1255
+    },
+    {
+      "end_exclusive": "2025-01-27",
+      "league": "SuperLig",
+      "origin": "2025-01-13",
+      "training_end": "2025-01-12",
+      "training_matches": 1271
+    },
+    {
+      "end_exclusive": "2025-02-10",
+      "league": "SuperLig",
+      "origin": "2025-01-27",
+      "training_end": "2025-01-26",
+      "training_matches": 1290
+    },
+    {
+      "end_exclusive": "2025-02-24",
+      "league": "SuperLig",
+      "origin": "2025-02-10",
+      "training_end": "2025-02-09",
+      "training_matches": 1307
+    },
+    {
+      "end_exclusive": "2025-03-10",
+      "league": "SuperLig",
+      "origin": "2025-02-24",
+      "training_end": "2025-02-23",
+      "training_matches": 1326
+    },
+    {
+      "end_exclusive": "2025-03-24",
+      "league": "SuperLig",
+      "origin": "2025-03-10",
+      "training_end": "2025-03-09",
+      "training_matches": 1344
+    },
+    {
+      "end_exclusive": "2025-04-07",
+      "league": "SuperLig",
+      "origin": "2025-03-24",
+      "training_end": "2025-03-16",
+      "training_matches": 1354
+    },
+    {
+      "end_exclusive": "2025-04-21",
+      "league": "SuperLig",
+      "origin": "2025-04-07",
+      "training_end": "2025-04-06",
+      "training_matches": 1370
+    },
+    {
+      "end_exclusive": "2025-05-05",
+      "league": "SuperLig",
+      "origin": "2025-04-21",
+      "training_end": "2025-04-20",
+      "training_matches": 1389
+    },
+    {
+      "end_exclusive": "2025-05-19",
+      "league": "SuperLig",
+      "origin": "2025-05-05",
+      "training_end": "2025-05-04",
+      "training_matches": 1407
+    },
+    {
+      "end_exclusive": "2025-06-02",
+      "league": "SuperLig",
+      "origin": "2025-05-19",
+      "training_end": "2025-05-18",
+      "training_matches": 1426
+    },
+    {
+      "end_exclusive": "2025-08-11",
+      "league": "SuperLig",
+      "origin": "2025-07-28",
+      "training_end": "2025-06-01",
+      "training_matches": 1444
+    },
+    {
+      "end_exclusive": "2025-08-25",
+      "league": "SuperLig",
+      "origin": "2025-08-11",
+      "training_end": "2025-08-10",
+      "training_matches": 1449
+    },
+    {
+      "end_exclusive": "2025-09-08",
+      "league": "SuperLig",
+      "origin": "2025-08-25",
+      "training_end": "2025-08-24",
+      "training_matches": 1464
+    },
+    {
+      "end_exclusive": "2025-09-22",
+      "league": "SuperLig",
+      "origin": "2025-09-08",
+      "training_end": "2025-08-31",
+      "training_matches": 1474
+    },
+    {
+      "end_exclusive": "2025-10-06",
+      "league": "SuperLig",
+      "origin": "2025-09-22",
+      "training_end": "2025-09-21",
+      "training_matches": 1494
+    },
+    {
+      "end_exclusive": "2025-10-20",
+      "league": "SuperLig",
+      "origin": "2025-10-06",
+      "training_end": "2025-10-05",
+      "training_matches": 1514
+    },
+    {
+      "end_exclusive": "2025-11-03",
+      "league": "SuperLig",
+      "origin": "2025-10-20",
+      "training_end": "2025-10-19",
+      "training_matches": 1522
+    },
+    {
+      "end_exclusive": "2025-11-17",
+      "league": "SuperLig",
+      "origin": "2025-11-03",
+      "training_end": "2025-11-02",
+      "training_matches": 1540
+    },
+    {
+      "end_exclusive": "2025-12-01",
+      "league": "SuperLig",
+      "origin": "2025-11-17",
+      "training_end": "2025-11-09",
+      "training_matches": 1552
+    },
+    {
+      "end_exclusive": "2025-12-15",
+      "league": "SuperLig",
+      "origin": "2025-12-01",
+      "training_end": "2025-11-30",
+      "training_matches": 1568
+    },
+    {
+      "end_exclusive": "2025-12-29",
+      "league": "SuperLig",
+      "origin": "2025-12-15",
+      "training_end": "2025-12-14",
+      "training_matches": 1587
+    },
+    {
+      "end_exclusive": "2026-01-26",
+      "league": "SuperLig",
+      "origin": "2026-01-16",
+      "training_end": "2025-12-22",
+      "training_matches": 1597
+    },
+    {
+      "end_exclusive": "2026-02-09",
+      "league": "SuperLig",
+      "origin": "2026-01-26",
+      "training_end": "2026-01-25",
+      "training_matches": 1614
+    },
+    {
+      "end_exclusive": "2026-02-23",
+      "league": "SuperLig",
+      "origin": "2026-02-09",
+      "training_end": "2026-02-08",
+      "training_matches": 1630
+    },
+    {
+      "end_exclusive": "2026-03-09",
+      "league": "SuperLig",
+      "origin": "2026-02-23",
+      "training_end": "2026-02-22",
+      "training_matches": 1650
+    },
+    {
+      "end_exclusive": "2026-03-23",
+      "league": "SuperLig",
+      "origin": "2026-03-09",
+      "training_end": "2026-03-08",
+      "training_matches": 1666
+    },
+    {
+      "end_exclusive": "2026-04-06",
+      "league": "SuperLig",
+      "origin": "2026-03-23",
+      "training_end": "2026-03-19",
+      "training_matches": 1685
+    },
+    {
+      "end_exclusive": "2026-04-20",
+      "league": "SuperLig",
+      "origin": "2026-04-06",
+      "training_end": "2026-04-05",
+      "training_matches": 1693
+    },
+    {
+      "end_exclusive": "2026-05-04",
+      "league": "SuperLig",
+      "origin": "2026-04-20",
+      "training_end": "2026-04-19",
+      "training_matches": 1713
+    },
+    {
+      "end_exclusive": "2026-05-18",
+      "league": "SuperLig",
+      "origin": "2026-05-04",
+      "training_end": "2026-05-03",
+      "training_matches": 1732
+    },
+    {
+      "end_exclusive": "2026-08-24",
+      "league": "SuperLig",
+      "origin": "2026-08-10",
+      "training_end": "2026-05-17",
+      "training_matches": 1750
+    },
+    {
+      "end_exclusive": "2026-09-07",
+      "league": "SuperLig",
+      "origin": "2026-08-24",
+      "training_end": "2026-08-23",
+      "training_matches": 1767
+    },
+    {
+      "end_exclusive": "2026-09-21",
+      "league": "SuperLig",
+      "origin": "2026-09-07",
+      "training_end": "2026-09-06",
+      "training_matches": 1784
+    },
+    {
+      "end_exclusive": "2026-10-11",
+      "league": "SuperLig",
+      "origin": "2026-10-05",
+      "training_end": "2026-09-20",
+      "training_matches": 1804
+    },
+    {
+      "end_exclusive": "2026-10-19",
+      "league": "SuperLig",
+      "origin": "2026-10-11",
+      "training_end": "2026-10-10",
+      "training_matches": 1809
+    },
+    {
+      "end_exclusive": "2026-11-02",
+      "league": "SuperLig",
+      "origin": "2026-10-19",
+      "training_end": "2026-10-18",
+      "training_matches": 1821
+    },
+    {
+      "end_exclusive": "2026-11-09",
+      "league": "SuperLig",
+      "origin": "2026-11-02",
+      "training_end": "2026-11-01",
+      "training_matches": 1839
+    },
+    {
+      "candidate": "C2",
+      "walk_forward_fits": []
+    },
+    {
+      "candidate": "C5",
+      "walk_forward_fits": []
+    },
+    {
+      "candidate": "C6",
+      "walk_forward_fits": [
+        {
+          "end_exclusive": "2026-01-26",
+          "low_score": {
+            "delta": 0.09412499678358593,
+            "rho": -0.003534973481704329,
+            "status": "fitted"
+          },
+          "matches": 6231,
+          "neutral_minus_fitted_loss": 0.002422877943874191,
+          "origin": "2026-01-16",
+          "scored_matches": 52,
+          "slope": 1.1872936135367405,
+          "status": "fitted"
+        },
+        {
+          "end_exclusive": "2026-02-09",
+          "low_score": {
+            "delta": 0.08358513716034363,
+            "rho": -0.010166312668440246,
+            "status": "fitted"
+          },
+          "matches": 6342,
+          "neutral_minus_fitted_loss": 0.0020792303639640686,
+          "origin": "2026-01-26",
+          "scored_matches": 51,
+          "slope": 1.172530456964524,
+          "status": "fitted"
+        },
+        {
+          "end_exclusive": "2026-02-23",
+          "low_score": {
+            "delta": 0.08764205073098554,
+            "rho": -0.011259296191258943,
+            "status": "fitted"
+          },
+          "matches": 6447,
+          "neutral_minus_fitted_loss": 0.0021791907355646067,
+          "origin": "2026-02-09",
+          "scored_matches": 59,
+          "slope": 1.177039915187064,
+          "status": "fitted"
+        },
+        {
+          "end_exclusive": "2026-03-09",
+          "low_score": {
+            "delta": 0.07494645586213289,
+            "rho": -0.017976314575282204,
+            "status": "fitted"
+          },
+          "matches": 6568,
+          "neutral_minus_fitted_loss": 0.0020746892914207393,
+          "origin": "2026-02-23",
+          "scored_matches": 52,
+          "slope": 1.1724993496087095,
+          "status": "fitted"
+        },
+        {
+          "end_exclusive": "2026-03-23",
+          "low_score": {
+            "delta": 0.0906923669948139,
+            "rho": -0.01130451739319186,
+            "status": "fitted"
+          },
+          "matches": 6675,
+          "neutral_minus_fitted_loss": 0.0020882139308457948,
+          "origin": "2026-03-09",
+          "scored_matches": 54,
+          "slope": 1.1731978653093331,
+          "status": "fitted"
+        },
+        {
+          "end_exclusive": "2026-04-06",
+          "low_score": {
+            "delta": 0.08234196702110838,
+            "rho": -0.011939583388611667,
+            "status": "fitted"
+          },
+          "matches": 6792,
+          "neutral_minus_fitted_loss": 0.0021024838531472634,
+          "origin": "2026-03-23",
+          "scored_matches": 24,
+          "slope": 1.1740923864441266,
+          "status": "fitted"
+        },
+        {
+          "end_exclusive": "2026-04-20",
+          "low_score": {
+            "delta": 0.07807258852985231,
+            "rho": -0.016764565231541857,
+            "status": "fitted"
+          },
+          "matches": 6833,
+          "neutral_minus_fitted_loss": 0.0022421526406278813,
+          "origin": "2026-04-06",
+          "scored_matches": 48,
+          "slope": 1.1802342525168323,
+          "status": "fitted"
+        },
+        {
+          "end_exclusive": "2026-05-04",
+          "low_score": {
+            "delta": 0.08294956750459317,
+            "rho": -0.01580059556431344,
+            "status": "fitted"
+          },
+          "matches": 6930,
+          "neutral_minus_fitted_loss": 0.002109143076606812,
+          "origin": "2026-04-20",
+          "scored_matches": 57,
+          "slope": 1.174659744257003,
+          "status": "fitted"
+        },
+        {
+          "end_exclusive": "2026-05-18",
+          "low_score": {
+            "delta": 0.08688504055965517,
+            "rho": -0.020129520743862532,
+            "status": "fitted"
+          },
+          "matches": 7042,
+          "neutral_minus_fitted_loss": 0.0022037750095416087,
+          "origin": "2026-05-04",
+          "scored_matches": 55,
+          "slope": 1.1788638208733093,
+          "status": "fitted"
+        },
+        {
+          "end_exclusive": "2026-08-10",
+          "low_score": {
+            "delta": 0.08299337310292881,
+            "rho": -0.017866512531024323,
+            "status": "fitted"
+          },
+          "matches": 7195,
+          "neutral_minus_fitted_loss": 0.0017666252261108184,
+          "origin": "2026-07-27",
+          "scored_matches": 15,
+          "slope": 1.1594053780576254,
+          "status": "fitted"
+        },
+        {
+          "end_exclusive": "2026-08-24",
+          "low_score": {
+            "delta": 0.08957508471362723,
+            "rho": -0.012738596625055361,
+            "status": "fitted"
+          },
+          "matches": 7206,
+          "neutral_minus_fitted_loss": 0.0017838317332847797,
+          "origin": "2026-08-10",
+          "scored_matches": 43,
+          "slope": 1.1602708778140765,
+          "status": "fitted"
+        },
+        {
+          "end_exclusive": "2026-09-07",
+          "low_score": {
+            "delta": 0.09542326526117209,
+            "rho": -0.005637459839077061,
+            "status": "fitted"
+          },
+          "matches": 7265,
+          "neutral_minus_fitted_loss": 0.001609810974121051,
+          "origin": "2026-08-24",
+          "scored_matches": 52,
+          "slope": 1.1515055973067692,
+          "status": "fitted"
+        },
+        {
+          "end_exclusive": "2026-09-21",
+          "low_score": {
+            "delta": 0.08808662946816423,
+            "rho": -0.008749360055614717,
+            "status": "fitted"
+          },
+          "matches": 7380,
+          "neutral_minus_fitted_loss": 0.0015358952882873478,
+          "origin": "2026-09-07",
+          "scored_matches": 63,
+          "slope": 1.1479074368569067,
+          "status": "fitted"
+        },
+        {
+          "end_exclusive": "2026-10-11",
+          "low_score": {
+            "delta": 0.08556223848265812,
+            "rho": -0.013490277924699541,
+            "status": "fitted"
+          },
+          "matches": 7505,
+          "neutral_minus_fitted_loss": 0.0013104461960514735,
+          "origin": "2026-10-05",
+          "scored_matches": 15,
+          "slope": 1.13618631771006,
+          "status": "fitted"
+        }
+      ]
+    }
+  ],
+  "holdout_verdict": {
+    "baseline": "C",
+    "calibration": {
+      "band_z_threshold": 2.973819901220312,
+      "bands_checked": 17,
+      "bands_pass": true,
+      "failing_bands": [],
+      "forecasts": 640,
+      "passes": false,
+      "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+      "slopes": {
+        "away": 1.0133836211633787,
+        "home": 0.7888675603403738
+      },
+      "slopes_pass": false,
+      "worst_band": {
+        "band_lower": 0.5,
+        "mean_forecast": 0.5474787819554913,
+        "n": 53,
+        "observed_minus_forecast": 0.11289857653507474,
+        "observed_rate": 0.660377358490566,
+        "outcome": "away",
+        "z": 1.6512897347904223
+      }
+    },
+    "calibration_tolerance": {
+      "band_alpha": 0.05,
+      "band_max_deviation": 0.05,
+      "band_min_matches": 30,
+      "band_width": 0.1,
+      "decided": "2026-11-11",
+      "name": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+      "replaces": {
+        "name": "slopes-0.90-1.10-bands-30-5pp-v1",
+        "reason": "Replaced before any holdout scoring: v1 failed a band on any gap above 5 points, however few matches, so it failed even the market reference M on noise.",
+        "replaced": "2026-11-11",
+        "rule": "Same slopes; a band failed whenever it was more than 5 percentage points from its observed rate (at least 30 matches), with no allowance for sample size."
+      },
+      "rule": "Logistic calibration slope (logit P(outcome) = a + b logit(p), fitted per outcome) of the home and of the away probability both between 0.90 and 1.10 inclusive, and no failing outcome probability band (home, draw and away, tenths of probability, at least 30 matches). A band fails only if it is more than 5 percentage points from its observed rate AND the gap is statistically clear: |gap| / sqrt(p(1-p)/n) above the two-sided normal quantile for 0.05 divided by the number of bands checked (Bonferroni; about 3.0 for 20 bands), p = the band's mean forecast.",
+      "slope_max": 1.1,
+      "slope_min": 0.9,
+      "slope_outcomes": [
+        "home",
+        "away"
+      ]
+    },
+    "candidate": "C6",
+    "draw_sensitive": {
+      "clear_of_zero": false,
+      "fixtures": 640,
+      "interval_95": [
+        -0.002490450951561671,
+        0.005205392306697884
+      ],
+      "mean_gain": 0.0013160471859712361,
+      "weeks": 25
+    },
+    "next_steps": "Passing the holdout is necessary, not sufficient: parity test and live replay follow, then a reviewed PR.",
+    "passes_holdout_gate": false,
+    "primary": {
+      "clear_of_zero": false,
+      "fixtures": 640,
+      "interval_95": [
+        -0.002002678856013991,
+        0.003432946819259018
+      ],
+      "mean_gain": 0.0006787825424340351,
+      "weeks": 25
+    },
+    "primary_metric": "AH all",
+    "sample_minimum": {
+      "fixtures": 300,
+      "weeks": 6
+    },
+    "sample_minimum_met": true,
+    "versus_market": {
+      "beats_market_after_gap": false,
+      "clear_of_zero": false,
+      "fixtures": 638,
+      "gap_bar": 0.00033257168701297546,
+      "interval_95": [
+        -0.03474388839587507,
+        -0.007767457729843135
+      ],
+      "mean_gain": -0.02118334179770593,
+      "weeks": 25
+    }
+  },
+  "inputs": [
+    {
+      "path": "2122_E0.csv",
+      "rows": 380,
+      "sha256": "335afcbabeb2939fa10ab39ba3e8215072d0b577cb8d0705c1e44c56e934e703"
+    },
+    {
+      "path": "2223_E0.csv",
+      "rows": 380,
+      "sha256": "8442792d3b614c94ea3cf381bd2736805889cc1713169035368fff19c3d02380"
+    },
+    {
+      "path": "2324_E0.csv",
+      "rows": 380,
+      "sha256": "b2e057b0ed959f198b0f63d2391c01239f3608e6de5db68edab3f88e04d07ff3"
+    },
+    {
+      "path": "2425_E0.csv",
+      "rows": 380,
+      "sha256": "d0c8ce4a96d886cf60cf101f570f4a3893844226f91c7bd769eb568c49edbfa4"
+    },
+    {
+      "path": "2526_E0.csv",
+      "rows": 380,
+      "sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62"
+    },
+    {
+      "path": "2627_E0.csv",
+      "rows": 100,
+      "sha256": "d598a5f681e1a9a4acf9dad9fb203b68da6f67e2d195678dbe99e95fbba14593"
+    },
+    {
+      "path": "2122_SP1.csv",
+      "rows": 380,
+      "sha256": "2d9e619700712823d15716c07715133f8c3b1a09046930dcfc785a38633dee2e"
+    },
+    {
+      "path": "2223_SP1.csv",
+      "rows": 380,
+      "sha256": "53348112526b5165539df240be350083989bb258f30c0ff7cacbc0165ca7e4b3"
+    },
+    {
+      "path": "2324_SP1.csv",
+      "rows": 380,
+      "sha256": "5323f596c7ed318e4bce95557a369d809d98501fa499ea5f41350cd45cf3c7d9"
+    },
+    {
+      "path": "2425_SP1.csv",
+      "rows": 380,
+      "sha256": "c086e96d6a53f6e6c0fce4e35db0d1728c773b4362323da0161a34769e315a36"
+    },
+    {
+      "path": "2526_SP1.csv",
+      "rows": 380,
+      "sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5"
+    },
+    {
+      "path": "2627_SP1.csv",
+      "rows": 119,
+      "sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828"
+    },
+    {
+      "path": "2122_D1.csv",
+      "rows": 306,
+      "sha256": "034d0e1296e944dddf25e3c91b85ef5bd1ad25661b89d73878f5c73bfea4b9fc"
+    },
+    {
+      "path": "2223_D1.csv",
+      "rows": 306,
+      "sha256": "b716517b25033ce8e0243e967aa961876425a4c41e97c8aa8fa59f2aca061341"
+    },
+    {
+      "path": "2324_D1.csv",
+      "rows": 306,
+      "sha256": "1de8bc12a133dbbf71bc6ffda62082642f087f61b1b7c15ae9f2d320876fb07e"
+    },
+    {
+      "path": "2425_D1.csv",
+      "rows": 306,
+      "sha256": "a295c58033cfe6393cbbc28f7db85671839b960c5f1153fd3678e20ad2adb92e"
+    },
+    {
+      "path": "2526_D1.csv",
+      "rows": 306,
+      "sha256": "618301a4b39918225a8ccc57f0f839d675e1abd92fa3a3ccd9a67acd7c79dd7f"
+    },
+    {
+      "path": "2627_D1.csv",
+      "rows": 81,
+      "sha256": "85b5ff5199866f452016473e927ff2431c05c7b2ae045b5edd3b7f5bb5847d2a"
+    },
+    {
+      "path": "2122_I1.csv",
+      "rows": 380,
+      "sha256": "6a9555d5a90e652a883fd2862a52545c06e264016cd770347c067a6d7c993170"
+    },
+    {
+      "path": "2223_I1.csv",
+      "rows": 380,
+      "sha256": "9960837f37a97ae700f876c87b85a8b7a2f5a5d05a53077830c21b9db8880c45"
+    },
+    {
+      "path": "2324_I1.csv",
+      "rows": 380,
+      "sha256": "343a89db026fe4204ebeabd663cdfee8d02a45457828fc1cb63fa630ca170723"
+    },
+    {
+      "path": "2425_I1.csv",
+      "rows": 380,
+      "sha256": "79d87a5b18771e066ac7419b7876bfd9771a68ca117a9712375d6bc9685abee3"
+    },
+    {
+      "path": "2526_I1.csv",
+      "rows": 380,
+      "sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb"
+    },
+    {
+      "path": "2627_I1.csv",
+      "rows": 110,
+      "sha256": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0"
+    },
+    {
+      "path": "2122_F1.csv",
+      "rows": 380,
+      "sha256": "9e9eaefb8704264f8d55a718a119d940de4af7d7b4217ac4097b957406e16213"
+    },
+    {
+      "path": "2223_F1.csv",
+      "rows": 380,
+      "sha256": "18ea07d922e8b6360b81189637efd5aaf44779765db856bff208d5b1acf69b2f"
+    },
+    {
+      "path": "2324_F1.csv",
+      "rows": 306,
+      "sha256": "ca0a4bf51d5b1ccfd0e1558ea41de6bb829df6c96c759888a87248d296d5adb7"
+    },
+    {
+      "path": "2425_F1.csv",
+      "rows": 306,
+      "sha256": "fe6ae6a0c30d05f0ac88e0fc4a31452c7203e2b444703dfa941e22f38f20ab63"
+    },
+    {
+      "path": "2526_F1.csv",
+      "rows": 306,
+      "sha256": "898b7ddcd373cfe955ae353b1a98cf7f1c8757ca10b69d53039f4e098e88f192"
+    },
+    {
+      "path": "2627_F1.csv",
+      "rows": 90,
+      "sha256": "351303e69ffd3e18a25ac6f06463929faa3db6b86abbf2564709f3c5a9f92f31"
+    },
+    {
+      "path": "2122_N1.csv",
+      "rows": 306,
+      "sha256": "1798f02c9e2d55d399503bce4adf82d9cb31969caab01de8a4ac0632947b692a"
+    },
+    {
+      "path": "2223_N1.csv",
+      "rows": 306,
+      "sha256": "a52a916c302ab414705fdcbba2077c301f9f0baefd3d519ea5434a2a5f5c4e8f"
+    },
+    {
+      "path": "2324_N1.csv",
+      "rows": 306,
+      "sha256": "bbef260d01917668069697c60e5179571600ddca6f3cc353b81d46143697dad4"
+    },
+    {
+      "path": "2425_N1.csv",
+      "rows": 306,
+      "sha256": "7f97f0a7fd1f9b2cff6ac09588cdc14fd07f19950cb75e821fa58ab41e541d0a"
+    },
+    {
+      "path": "2526_N1.csv",
+      "rows": 306,
+      "sha256": "dfb092a866e0df4b4c8fde7778d47f41a4307f5c5ac5a6f55d2276e45c80e604"
+    },
+    {
+      "path": "2627_N1.csv",
+      "rows": 108,
+      "sha256": "46d37b0084ce615220b3a4ba02b5190df724f3664f8f1fa4bf4869d14d2ed184"
+    },
+    {
+      "path": "2122_P1.csv",
+      "rows": 306,
+      "sha256": "c4477c4f40da93fbba978fa52b76dc962df3a998a464f9c5ae5462d1b36e3a63"
+    },
+    {
+      "path": "2223_P1.csv",
+      "rows": 306,
+      "sha256": "acb35c152f1198de9d02cdea622bc815e1438bae00d1822e0fe48a787405a84a"
+    },
+    {
+      "path": "2324_P1.csv",
+      "rows": 306,
+      "sha256": "681e132bee3948b432436e907a935ea8fc4a8ccace86dad67d61be0159035758"
+    },
+    {
+      "path": "2425_P1.csv",
+      "rows": 306,
+      "sha256": "e3cceff81e471c59e72c1f60f81b2e62df21d1a58af167062d4915484da00255"
+    },
+    {
+      "path": "2526_P1.csv",
+      "rows": 306,
+      "sha256": "f1353dc7404bfa0d27daa3ca6c164bb450ec20558ee02fffb7160fae182213dc"
+    },
+    {
+      "path": "2627_P1.csv",
+      "rows": 98,
+      "sha256": "e3a2fddeee1f705dbc66c872328ade03b7dc0a8c092b279ac601c62b7d1f13d0"
+    },
+    {
+      "path": "2122_T1.csv",
+      "rows": 380,
+      "sha256": "d945315d283f2c3b48e8ff67d9ac460ccc2c817ad719e0448000db995b5ab9ce"
+    },
+    {
+      "path": "2223_T1.csv",
+      "rows": 342,
+      "sha256": "129aacfe9576679cd287a63c401823b7df4ecd8bddb7eeb1ed0fcd22c867e0e3"
+    },
+    {
+      "path": "2324_T1.csv",
+      "rows": 380,
+      "sha256": "17097f7d31bad40f830dc6f0f85090e9f76876e6812ec14997bc80423a05924b"
+    },
+    {
+      "path": "2425_T1.csv",
+      "rows": 342,
+      "sha256": "fd91680cc815f356c94fdd733078431ca771707305994ec49c5f1270cf9c9f5c"
+    },
+    {
+      "path": "2526_T1.csv",
+      "rows": 306,
+      "sha256": "d35e97d42b53ca870b13683da3998aa2758eeb43280fbe71d5d935bae47cdd23"
+    },
+    {
+      "path": "2627_T1.csv",
+      "rows": 99,
+      "sha256": "86af3b956c49ea86c5e1a58c8ac45237ba0b7bd52e46e5874e9697f09336bf08"
+    }
+  ],
+  "log_loss_all_available": [
+    {
+      "candidate": "MB",
+      "count": 6875,
+      "group": "1X2",
+      "mean": 0.9544313806304465,
+      "phase": "development"
+    },
+    {
+      "candidate": "MP",
+      "count": 6875,
+      "group": "1X2",
+      "mean": 0.9534394358585985,
+      "phase": "development"
+    },
+    {
+      "candidate": "MB",
+      "count": 6875,
+      "group": "AH all",
+      "mean": 0.6984263641168874,
+      "phase": "development"
+    },
+    {
+      "candidate": "MP",
+      "count": 6875,
+      "group": "AH all",
+      "mean": 0.6980745564036764,
+      "phase": "development"
+    },
+    {
+      "candidate": "MB",
+      "count": 6875,
+      "group": "AH draw-sensitive",
+      "mean": 0.6930903129834837,
+      "phase": "development"
+    },
+    {
+      "candidate": "MP",
+      "count": 6875,
+      "group": "AH draw-sensitive",
+      "mean": 0.6925191059741314,
+      "phase": "development"
+    },
+    {
+      "candidate": "MB",
+      "count": 6875,
+      "group": "Over 1.5",
+      "mean": 0.5147938782152293,
+      "phase": "development"
+    },
+    {
+      "candidate": "MP",
+      "count": 6875,
+      "group": "Over 1.5",
+      "mean": 0.5151640451949543,
+      "phase": "development"
+    },
+    {
+      "candidate": "C",
+      "count": 640,
+      "group": "1X2",
+      "mean": 0.999852514667389,
+      "phase": "holdout"
+    },
+    {
+      "candidate": "C6",
+      "count": 640,
+      "group": "1X2",
+      "mean": 0.9966375629065249,
+      "phase": "holdout"
+    },
+    {
+      "candidate": "M",
+      "count": 638,
+      "group": "1X2",
+      "mean": 0.9653949665522129,
+      "phase": "holdout"
+    },
+    {
+      "candidate": "C",
+      "count": 640,
+      "group": "AH all",
+      "mean": 0.7152327466335215,
+      "phase": "holdout"
+    },
+    {
+      "candidate": "C6",
+      "count": 640,
+      "group": "AH all",
+      "mean": 0.7145539640910876,
+      "phase": "holdout"
+    },
+    {
+      "candidate": "M",
+      "count": 638,
+      "group": "AH all",
+      "mean": 0.6933436346064201,
+      "phase": "holdout"
+    },
+    {
+      "candidate": "C",
+      "count": 640,
+      "group": "AH draw-sensitive",
+      "mean": 0.7213909611659381,
+      "phase": "holdout"
+    },
+    {
+      "candidate": "C6",
+      "count": 640,
+      "group": "AH draw-sensitive",
+      "mean": 0.7200749139799669,
+      "phase": "holdout"
+    },
+    {
+      "candidate": "M",
+      "count": 638,
+      "group": "AH draw-sensitive",
+      "mean": 0.6946822313403156,
+      "phase": "holdout"
+    },
+    {
+      "candidate": "C",
+      "count": 640,
+      "group": "Over 1.5",
+      "mean": 0.4872961234701167,
+      "phase": "holdout"
+    },
+    {
+      "candidate": "C6",
+      "count": 640,
+      "group": "Over 1.5",
+      "mean": 0.4867370523777309,
+      "phase": "holdout"
+    },
+    {
+      "candidate": "M",
+      "count": 638,
+      "group": "Over 1.5",
+      "mean": 0.4773852602755216,
+      "phase": "holdout"
+    },
+    {
+      "candidate": "MB",
+      "count": 1319,
+      "group": "1X2",
+      "mean": 0.9569894901035727,
+      "phase": "validation"
+    },
+    {
+      "candidate": "MP",
+      "count": 1319,
+      "group": "1X2",
+      "mean": 0.9566787384909402,
+      "phase": "validation"
+    },
+    {
+      "candidate": "MB",
+      "count": 1319,
+      "group": "AH all",
+      "mean": 0.6898515615080575,
+      "phase": "validation"
+    },
+    {
+      "candidate": "MP",
+      "count": 1319,
+      "group": "AH all",
+      "mean": 0.6896192534147603,
+      "phase": "validation"
+    },
+    {
+      "candidate": "MB",
+      "count": 1319,
+      "group": "AH draw-sensitive",
+      "mean": 0.6904145746241365,
+      "phase": "validation"
+    },
+    {
+      "candidate": "MP",
+      "count": 1319,
+      "group": "AH draw-sensitive",
+      "mean": 0.6901818397240325,
+      "phase": "validation"
+    },
+    {
+      "candidate": "MB",
+      "count": 1319,
+      "group": "Over 1.5",
+      "mean": 0.5224350778142353,
+      "phase": "validation"
+    },
+    {
+      "candidate": "MP",
+      "count": 1319,
+      "group": "Over 1.5",
+      "mean": 0.5220279255355722,
+      "phase": "validation"
+    }
+  ],
+  "log_loss_common_cohort": [
+    {
+      "C": 0.9994168676882417,
+      "C6": 0.9963200790119466,
+      "M": 0.9653949665522131,
+      "fixtures": 638,
+      "group": "1X2",
+      "phase": "holdout"
+    },
+    {
+      "C": 0.7151530505252497,
+      "C6": 0.7145269764041261,
+      "M": 0.6933436346064201,
+      "fixtures": 638,
+      "group": "AH all",
+      "phase": "holdout"
+    },
+    {
+      "C": 0.7213695266339508,
+      "C6": 0.7201249485656268,
+      "M": 0.6946822313403156,
+      "fixtures": 638,
+      "group": "AH draw-sensitive",
+      "phase": "holdout"
+    },
+    {
+      "C": 0.4881150906360814,
+      "C6": 0.4875605596103801,
+      "M": 0.4773852602755216,
+      "fixtures": 638,
+      "group": "Over 1.5",
+      "phase": "holdout"
+    }
+  ],
+  "mode": "holdout",
+  "notes": [
+    "Headline means use the common cohort: fixtures where C, C2, C3, C5, C6, M, D and A are all available (C3 and C5 exist wherever C does, C6 wherever C2 does).",
+    "Positive mean_gain means the first-named candidate has the lower log loss than the second.",
+    "Intervals resample whole calendar weeks across all leagues.",
+    "The cagey correction was trained on seasons through 2024/25; D is in-sample in development.",
+    "Retrospective results were already scored elsewhere; they are diagnostics, never release evidence.",
+    "Historical prices are pre-match snapshots without timestamps; returns are not claimed.",
+    "No automatic promotion: every production change goes through a reviewed PR."
+  ],
+  "paired": {
+    "development": {
+      "1X2": {},
+      "AH all": {},
+      "AH draw-sensitive": {},
+      "Over 1.5": {}
+    },
+    "holdout": {
+      "1X2": {
+        "C6_vs_C": {
+          "clear_of_zero": false,
+          "fixtures": 640,
+          "interval_95": [
+            -0.0031511560430386096,
+            0.009608490935359433
+          ],
+          "mean_gain": 0.0032149517608641444,
+          "weeks": 25
+        },
+        "C_vs_M": {
+          "clear_of_zero": false,
+          "fixtures": 638,
+          "gain_after_gap_bar": -0.03490419326240383,
+          "gap_bar": 0.0008822921263751664,
+          "interval_95": [
+            -0.04972390308553723,
+            -0.018339353488861426
+          ],
+          "mean_gain": -0.03402190113602866,
+          "weeks": 25
+        },
+        "M_vs_C": {
+          "clear_of_zero": true,
+          "fixtures": 638,
+          "interval_95": [
+            0.01833935348886141,
+            0.049723903085537216
+          ],
+          "mean_gain": 0.03402190113602866,
+          "weeks": 25
+        }
+      },
+      "AH all": {
+        "C6_vs_C": {
+          "clear_of_zero": false,
+          "fixtures": 640,
+          "interval_95": [
+            -0.002002678856013991,
+            0.003432946819259018
+          ],
+          "mean_gain": 0.0006787825424340351,
+          "weeks": 25
+        },
+        "C_vs_M": {
+          "clear_of_zero": false,
+          "fixtures": 638,
+          "gain_after_gap_bar": -0.022141987605842482,
+          "gap_bar": 0.00033257168701297546,
+          "interval_95": [
+            -0.03414350073236637,
+            -0.009650595663091507
+          ],
+          "mean_gain": -0.021809415918829508,
+          "weeks": 25
+        },
+        "M_vs_C": {
+          "clear_of_zero": true,
+          "fixtures": 638,
+          "interval_95": [
+            0.009650595663091502,
+            0.03414350073236637
+          ],
+          "mean_gain": 0.021809415918829508,
+          "weeks": 25
+        }
+      },
+      "AH draw-sensitive": {
+        "C6_vs_C": {
+          "clear_of_zero": false,
+          "fixtures": 640,
+          "interval_95": [
+            -0.002490450951561671,
+            0.005205392306697884
+          ],
+          "mean_gain": 0.0013160471859712361,
+          "weeks": 25
+        },
+        "C_vs_M": {
+          "clear_of_zero": false,
+          "fixtures": 638,
+          "gain_after_gap_bar": -0.027204017959309483,
+          "gap_bar": 0.0005167226656742358,
+          "interval_95": [
+            -0.03985526382834423,
+            -0.013583689504226929
+          ],
+          "mean_gain": -0.026687295293635248,
+          "weeks": 25
+        },
+        "M_vs_C": {
+          "clear_of_zero": true,
+          "fixtures": 638,
+          "interval_95": [
+            0.013583689504226927,
+            0.03985526382834422
+          ],
+          "mean_gain": 0.026687295293635248,
+          "weeks": 25
+        }
+      },
+      "Over 1.5": {
+        "C6_vs_C": {
+          "clear_of_zero": true,
+          "fixtures": 640,
+          "interval_95": [
+            0.00021657128371356817,
+            0.000948897020949432
+          ],
+          "mean_gain": 0.0005590710923858518,
+          "weeks": 25
+        },
+        "C_vs_M": {
+          "clear_of_zero": false,
+          "fixtures": 638,
+          "gain_after_gap_bar": -0.010729830360559757,
+          "gap_bar": 0.0,
+          "interval_95": [
+            -0.022398433299250013,
+            0.0014949979167501383
+          ],
+          "mean_gain": -0.010729830360559757,
+          "weeks": 25
+        },
+        "M_vs_C": {
+          "clear_of_zero": false,
+          "fixtures": 638,
+          "interval_95": [
+            -0.0014949979167501405,
+            0.022398433299250006
+          ],
+          "mean_gain": 0.010729830360559757,
+          "weeks": 25
+        }
+      }
+    },
+    "validation": {
+      "1X2": {},
+      "AH all": {},
+      "AH draw-sensitive": {},
+      "Over 1.5": {}
+    }
+  },
+  "setup": {
+    "parts": {
+      "ah_close_backtest.py": "98f09dc60e7ba7e49a17256aa60deed8f8bc11ebaed7000476109be01e9d3a48",
+      "data/2122_D1.csv": "034d0e1296e944dddf25e3c91b85ef5bd1ad25661b89d73878f5c73bfea4b9fc",
+      "data/2122_E0.csv": "335afcbabeb2939fa10ab39ba3e8215072d0b577cb8d0705c1e44c56e934e703",
+      "data/2122_F1.csv": "9e9eaefb8704264f8d55a718a119d940de4af7d7b4217ac4097b957406e16213",
+      "data/2122_I1.csv": "6a9555d5a90e652a883fd2862a52545c06e264016cd770347c067a6d7c993170",
+      "data/2122_N1.csv": "1798f02c9e2d55d399503bce4adf82d9cb31969caab01de8a4ac0632947b692a",
+      "data/2122_P1.csv": "c4477c4f40da93fbba978fa52b76dc962df3a998a464f9c5ae5462d1b36e3a63",
+      "data/2122_SP1.csv": "2d9e619700712823d15716c07715133f8c3b1a09046930dcfc785a38633dee2e",
+      "data/2122_T1.csv": "d945315d283f2c3b48e8ff67d9ac460ccc2c817ad719e0448000db995b5ab9ce",
+      "data/2223_D1.csv": "b716517b25033ce8e0243e967aa961876425a4c41e97c8aa8fa59f2aca061341",
+      "data/2223_E0.csv": "8442792d3b614c94ea3cf381bd2736805889cc1713169035368fff19c3d02380",
+      "data/2223_F1.csv": "18ea07d922e8b6360b81189637efd5aaf44779765db856bff208d5b1acf69b2f",
+      "data/2223_I1.csv": "9960837f37a97ae700f876c87b85a8b7a2f5a5d05a53077830c21b9db8880c45",
+      "data/2223_N1.csv": "a52a916c302ab414705fdcbba2077c301f9f0baefd3d519ea5434a2a5f5c4e8f",
+      "data/2223_P1.csv": "acb35c152f1198de9d02cdea622bc815e1438bae00d1822e0fe48a787405a84a",
+      "data/2223_SP1.csv": "53348112526b5165539df240be350083989bb258f30c0ff7cacbc0165ca7e4b3",
+      "data/2223_T1.csv": "129aacfe9576679cd287a63c401823b7df4ecd8bddb7eeb1ed0fcd22c867e0e3",
+      "data/2324_D1.csv": "1de8bc12a133dbbf71bc6ffda62082642f087f61b1b7c15ae9f2d320876fb07e",
+      "data/2324_E0.csv": "b2e057b0ed959f198b0f63d2391c01239f3608e6de5db68edab3f88e04d07ff3",
+      "data/2324_F1.csv": "ca0a4bf51d5b1ccfd0e1558ea41de6bb829df6c96c759888a87248d296d5adb7",
+      "data/2324_I1.csv": "343a89db026fe4204ebeabd663cdfee8d02a45457828fc1cb63fa630ca170723",
+      "data/2324_N1.csv": "bbef260d01917668069697c60e5179571600ddca6f3cc353b81d46143697dad4",
+      "data/2324_P1.csv": "681e132bee3948b432436e907a935ea8fc4a8ccace86dad67d61be0159035758",
+      "data/2324_SP1.csv": "5323f596c7ed318e4bce95557a369d809d98501fa499ea5f41350cd45cf3c7d9",
+      "data/2324_T1.csv": "17097f7d31bad40f830dc6f0f85090e9f76876e6812ec14997bc80423a05924b",
+      "data/2425_D1.csv": "a295c58033cfe6393cbbc28f7db85671839b960c5f1153fd3678e20ad2adb92e",
+      "data/2425_E0.csv": "d0c8ce4a96d886cf60cf101f570f4a3893844226f91c7bd769eb568c49edbfa4",
+      "data/2425_F1.csv": "fe6ae6a0c30d05f0ac88e0fc4a31452c7203e2b444703dfa941e22f38f20ab63",
+      "data/2425_I1.csv": "79d87a5b18771e066ac7419b7876bfd9771a68ca117a9712375d6bc9685abee3",
+      "data/2425_N1.csv": "7f97f0a7fd1f9b2cff6ac09588cdc14fd07f19950cb75e821fa58ab41e541d0a",
+      "data/2425_P1.csv": "e3cceff81e471c59e72c1f60f81b2e62df21d1a58af167062d4915484da00255",
+      "data/2425_SP1.csv": "c086e96d6a53f6e6c0fce4e35db0d1728c773b4362323da0161a34769e315a36",
+      "data/2425_T1.csv": "fd91680cc815f356c94fdd733078431ca771707305994ec49c5f1270cf9c9f5c",
+      "data/2526_D1.csv": "618301a4b39918225a8ccc57f0f839d675e1abd92fa3a3ccd9a67acd7c79dd7f",
+      "data/2526_E0.csv": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "data/2526_F1.csv": "898b7ddcd373cfe955ae353b1a98cf7f1c8757ca10b69d53039f4e098e88f192",
+      "data/2526_I1.csv": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+      "data/2526_N1.csv": "dfb092a866e0df4b4c8fde7778d47f41a4307f5c5ac5a6f55d2276e45c80e604",
+      "data/2526_P1.csv": "f1353dc7404bfa0d27daa3ca6c164bb450ec20558ee02fffb7160fae182213dc",
+      "data/2526_SP1.csv": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+      "data/2526_T1.csv": "d35e97d42b53ca870b13683da3998aa2758eeb43280fbe71d5d935bae47cdd23",
+      "data/2627_D1.csv": "85b5ff5199866f452016473e927ff2431c05c7b2ae045b5edd3b7f5bb5847d2a",
+      "data/2627_E0.csv": "d598a5f681e1a9a4acf9dad9fb203b68da6f67e2d195678dbe99e95fbba14593",
+      "data/2627_F1.csv": "351303e69ffd3e18a25ac6f06463929faa3db6b86abbf2564709f3c5a9f92f31",
+      "data/2627_I1.csv": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0",
+      "data/2627_N1.csv": "46d37b0084ce615220b3a4ba02b5190df724f3664f8f1fa4bf4869d14d2ed184",
+      "data/2627_P1.csv": "e3a2fddeee1f705dbc66c872328ade03b7dc0a8c092b279ac601c62b7d1f13d0",
+      "data/2627_SP1.csv": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
+      "data/2627_T1.csv": "86af3b956c49ea86c5e1a58c8ac45237ba0b7bd52e46e5874e9697f09336bf08",
+      "data/understat/Bundesliga_2021.json": "9d056540e3ec70ccb18f8a36f9559d716db6e040e1f2b0d1dfcdb08b7e528c0b",
+      "data/understat/Bundesliga_2022.json": "ca44a33c2fb028c163324aa4620a81e4fa63250358e85a7d37acb18ce7f1c474",
+      "data/understat/Bundesliga_2023.json": "585d640aa56dea2da12a27abaa7c765cf9f1e9350f0adc61d4df9071d8c3c50f",
+      "data/understat/Bundesliga_2024.json": "422b180f1ed7ffd0dc1959e75d2f43cba152aec5f57ba61964895d3dcb2a060f",
+      "data/understat/EPL_2021.json": "636f53939a0bc005c37fce0f64df0a441a697c279388611b7a90f0ff86b837fa",
+      "data/understat/EPL_2022.json": "3bfb1a070e148205c12323593c0131fb58955cdfcf0d73741fd1e62219a9fe27",
+      "data/understat/EPL_2023.json": "dae35b70312154dfadfe9b3f0bcb689c58c68b1174c00073b152e6e4453ac356",
+      "data/understat/EPL_2024.json": "22722f6605978b0660063c44564290bdfeb8318f287d02d055f184b3bedc2a9c",
+      "data/understat/EPL_2025.json": "2b108c38a0497f3a80bb7ea8fac037d53a382a975644c888abf090e6a294c96d",
+      "data/understat/La_liga_2021.json": "d374aec5f8aad4b83f3200b66538cc420f5490326a0bc5492abb7ce89a369145",
+      "data/understat/La_liga_2022.json": "e478036f7be2800efe32aad8c4659e6455f0fe72572771c3e2d369f2eb0f76a2",
+      "data/understat/La_liga_2023.json": "426103e5f58bb795e1e7cbc76daf4586e38272b4c3d8c31004f86fc6890c615d",
+      "data/understat/La_liga_2024.json": "c2f20ef39e847682a6fde05c405cfe2ac08b5a46b87450333a87448b4076507d",
+      "data/understat/La_liga_2025.json": "f268f70fb9662eb4ec7a03303ff689b7424c2380f413b1fef28dafbb31815269",
+      "data/understat/Ligue_1_2021.json": "95464433d7c044e1229d82e982814f3dfce8235e5ff0c61b567c3d70dc709fef",
+      "data/understat/Ligue_1_2022.json": "fb69daf7f57fbf96720e2da02442a39085b816269634766fd144ed4d6029ce1b",
+      "data/understat/Ligue_1_2023.json": "953d0f208bcd5cde7431b427c31d1121655e6bc0325dc6f8be29edc3cc930e28",
+      "data/understat/Ligue_1_2024.json": "77bad069222618309cd17b1e74f86a5c8d4f446a47e6d84813170114fe72c975",
+      "data/understat/Serie_A_2021.json": "211143f5f5152aacc640d48dff580c81a20b53f883b257582746c6146ae89710",
+      "data/understat/Serie_A_2022.json": "b0b7e33e722a6825579762517595b38b1f6a4edd8b812d9e47e086aa3e9db78f",
+      "data/understat/Serie_A_2023.json": "0eda4b2953fb6803007dd593e87ece61e036c3dafda43afccaa0a0fb9b864136",
+      "data/understat/Serie_A_2024.json": "3188b0df201805a372a156dd268d3fef4e7c49e3d76ee4c52bc8a99e9c2946e6",
+      "evaluation_harness.py": "c28351e9b5bd9c97f7c22c7c36960b1ac83ac6a232955f21d40a3b0ddba6e2b5",
+      "evaluation_harness_config.json": "26e4804c9c2eef8dc13e10362921331d8b446442e73cf0517e4dd3604fe0bf62",
+      "football_value_pipeline_v2_standalone.py": "d45ff98660f3197ed9efff28c68b790a6512b8fa4f898b1ffb25bd592d8f14ec",
+      "historical_benchmark.py": "368b0f118a6069f362d719546a32438e465066630e5c3ef1ecdba85c42e87ed5",
+      "market_implied.py": "5caa22d465cdd57791fd0d05c4a652ab35211cd0ab709ed2c0bdcae75fc72304",
+      "narrow_margin.py": "4671ad17c983fb68390f88289c1fc4d41e2785212efec17261f4d20cf0ff4fa5",
+      "narrow_margin_models/cagey-correction-through-2425-v1.json": "f6cc300f6b246aea28ec7602e3395634826bf2ac5227b31d08821ca6272c0826",
+      "price_edge_cagey_shortlist.py": "928808b5537e198286358aa3eca10807d2a5e8e6cd0114f6e3ff8b4da7b97003",
+      "research_backtest.py": "4f76c7b5a32d8f45000be8493800904a5c666f2463a46834992b377992ed8dfc",
+      "research_low_score.py": "5c32735ee9f9eaaa17efab0073117aa9e9fd1f7419098301466910dc4609a350",
+      "research_low_score_sharpen.py": "b7092ec18569757524d1905b1594b93a929464d5490ed0a16aece5fb0c53680d",
+      "research_sharpen.py": "edd9424c762839c4bf99aed3d5c902c6bbeb4c59a75f2d1637f8b858592dc36f",
+      "score_probability.py": "89eaeedf0cde2c34b8f4c9347d42c66f834195e591595dd10fcde177ad358429",
+      "team_research.py": "408e277e0513c2029df37205f1cfcdfdf08829ff2ac8ee6dfe8327582aee56f5",
+      "understat_history.py": "9a5f9603128b2efb0e0808c4194d5614c101fc6531acbfa90acf7fb504d9d0fe",
+      "understat_team_aliases.json": "6c9c533f2dba7c4c60a172137ee4af26ea46c0a492b0e8672f1ecab9ee03b387"
+    },
+    "sha256": "c9664bab87094f9566a945c287939808852a2e6c46ecadd2bfebb910a2ce007c"
+  },
+  "source_commit": "060d2c5fcdf84f8c081963ab18c8d7b89be8760c",
+  "synthetic_price_margin": 0.03671579924528588,
+  "version": "evaluation-harness-v2"
+}
