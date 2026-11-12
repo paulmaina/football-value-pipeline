@@ -16,6 +16,7 @@ import pandas as pd
 import european_candidates as ec
 import european_results as er
 import evaluation_harness as eh
+from tests.european_locked_run import locked_run
 
 REPO = Path(__file__).resolve().parents[1]
 CACHE = REPO / '.football_cache'
@@ -69,12 +70,14 @@ def by_candidate(calib):
 
 
 class SyntheticTest(unittest.TestCase):
-    CFG = window(min_train=40, test_start='2023-09-04', end_exclusive='2024-07-01', step_days=14,
-                 development_start={'UCL': '2023-09-04', 'UEL': '2023-09-04'})
+    # Small synthetic results: 6 clubs, six months, min_train and the fit minimums lowered (tests only).
+    CFG = window(min_train=30, test_start='2023-07-03', end_exclusive='2023-12-01', step_days=14,
+                 development_start={'UCL': '2023-07-03', 'UEL': '2023-07-03'})
+    CUT, MOVED = pd.Timestamp('2023-10-02'), '2023-10-20'  # results changed from CUT; forecasts from MOVED move
 
     @classmethod
     def setUpClass(cls):
-        cls.data = {'UCL': synthetic('2023-06-01', 520), 'UEL': synthetic('2023-06-01', 520, seed=8)}
+        cls.data = {'UCL': synthetic('2023-06-01', 180, teams=6), 'UEL': synthetic('2023-06-01', 180, teams=6, seed=8)}
         cls.strengths = fake_strengths(cls.data)
         with small_minimums():
             cls.base = eh.european(None, cls.CFG, data=cls.data, strengths=cls.strengths, extras=(extras := {}))
@@ -116,7 +119,7 @@ class SyntheticTest(unittest.TestCase):
 
     def test_a_later_european_result_never_changes_an_earlier_forecast(self):
         changed = {c: f.copy() for c, f in self.data.items()}
-        cut = pd.Timestamp('2024-03-01')
+        cut = self.CUT
         later = changed['UEL'].index[changed['UEL'].Date >= cut]
         changed['UEL'].loc[later, ['FTHG', 'FTAG']] = [[6, 0]] * len(later)
         with small_minimums():
@@ -125,19 +128,21 @@ class SyntheticTest(unittest.TestCase):
         origin = max(o for o, _ in eh.fold_windows(self.CFG['european'], pd.Timestamp(self.CFG['european']['end_exclusive']))
                      if o <= cut)
         earlier = [k for k in b if k[1].split('|')[1] < origin.date().isoformat()]
-        moved = [k for k in b if k[1].split('|')[1] >= '2024-04-01' and k in a and k[0] != 'CE']
+        moved = [k for k in b if k[1].split('|')[1] >= self.MOVED and k in a and k[0] != 'CE']
         self.assertTrue(earlier and moved)
         for k in earlier:
             self.assertEqual(b[k], a[k], k)
         self.assertTrue(any(b[k] != a[k] for k in moved))
 
     def test_holdout_runs_score_only_the_holdout_for_every_candidate(self):
-        cfg = window(min_train=40, test_start='2024-09-01', end_exclusive='2026-11-01', step_days=28)
-        data = {'UCL': synthetic('2024-09-01', 420), 'UEL': synthetic('2024-09-01', 420, seed=8)}
+        # Small synthetic results (6 clubs, three months) across the holdout start; min_train lowered to fit.
+        cfg = window(min_train=30, test_start='2024-12-01', end_exclusive='2025-03-01', step_days=28)
+        data = {'UCL': synthetic('2024-12-01', 90, teams=6), 'UEL': synthetic('2024-12-01', 90, teams=6, seed=8)}
         strengths = fake_strengths(data)
         with small_minimums():
             locked, _, coverage, _ = eh.european(None, cfg, data=data, strengths=strengths)
             self.assertNotIn('holdout', {r['phase'] for r in locked})
+            self.assertTrue({'CE2', 'CE3', 'CE4'} <= {r['candidate'] for r in locked})
             self.assertGreater(coverage['UCL:locked_holdout'], 0)
             for name in ('CE2', 'CE3', 'CE4'):
                 run, folds, _, calib = eh.european(None, cfg, include_holdout=True, keep={name, 'CE'}, data=data,
@@ -257,8 +262,8 @@ class RealDataTest(unittest.TestCase):
         self.assertEqual(rule['weight'], ec.DOMESTIC_WEIGHT)
 
     def test_the_european_lock_holds_for_every_candidate(self):
-        cfg = window(test_start='2024-12-30', end_exclusive='2025-02-24')
-        records, _, coverage, calib = eh.european(CACHE, cfg)
+        # A short window across the holdout start (tests/european_locked_run.py), shared with the CE lock test.
+        records, _, coverage, calib = locked_run()
         self.assertTrue(records)
         self.assertNotIn('holdout', {r['phase'] for r in records} | {r['phase'] for r in calib})
         self.assertGreater(coverage['UCL:locked_holdout'], 0)
