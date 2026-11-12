@@ -2,7 +2,7 @@
 
 Phase 2 of `docs/plan.md`. PR #158 (11 Nov 2026) added the cached European club results to `evaluation_harness.py` (`--mode european`), so that a later candidate carrying domestic form into UCL/UEL (Phase 2c) can be backtested. The European backfill (also 11 Nov 2026) adds older UCL and UEL seasons, so development has real data.
 
-Phase 2c (section 6) adds the reviewed manual aliases and three candidates, CE2, CE3 and CE4. Production is unchanged. The European holdout was locked (commit 966fc1b) before any European score was computed, and it has not been scored.
+Phase 2c (section 6) adds the reviewed manual aliases and three candidates, CE2, CE3 and CE4. Production is unchanged. The European holdout was locked (commit 966fc1b) before any European score was computed. It has been scored once, on 12 Nov 2026, for CE3n against CE under a declaration (section 7): not proven.
 
 ```bash
 python evaluation_harness.py --mode european --output /tmp/europe          # locked: never scores the European holdout
@@ -416,3 +416,13 @@ On UCL validation (101) CE3's AH all is +0.0462 (+0.0197 to +0.0727), clear of z
 1. Register it in `EUROPEAN_CANDIDATES` and compute it next to CE in `evaluation_harness.european_matrices`. The candidate may read domestic results only from before the fold origin; the older domestic seasons are in `domestic_backfill`.
 2. Compare it with CE on development and validation.
 3. A European holdout run needs a declaration (`--mode european --declaration`), recorded in `evaluation/european_holdout_ledger.json`. Its sample minimum is 250 fixtures and 6 weeks; by identity, 276 holdout fixtures would be scored.
+
+## 7. European holdout: CE3n against CE (12 Nov 2026, scored once)
+
+Declaration `evaluation/declarations/ce3n_european_holdout.json` (committed on its own before the run): CE3n against CE, primary metric AH all lines, draw-sensitive lines −0.5 / 0 / +0.5, calibration rule v3 (relative slopes, decided 12 Nov 2026), sample minimum 250 fixtures and 6 weeks. Results only: no historical European prices are cached, so no market reference or bar. Set up before scoring: the reviewed aliases on every fixture (Paul, 12 Nov 2026) and rule v3. One declared run, recorded in `evaluation/european_holdout_ledger.json`; output in `evaluation/european_holdout_ce3n/`.
+
+- Scored: 277 of 288 UCL holdout fixtures, 29 weeks; CE3n used domestic form on 178.
+- CE minus CE3n, AH all lines (primary): +0.0027 (−0.0115 to +0.0158), not clear of zero. Draw-sensitive +0.0045 (−0.0117 to +0.0208); 1X2 +0.0063 (−0.0131 to +0.0251); Over 1.5 +0.0163 (+0.0023 to +0.0315).
+- Context: league phase (187) AH all +0.0114 (−0.0016 to +0.0243); knockouts (90) −0.0154 (−0.0427 to +0.0129).
+- Calibration v3: pass (CE3n 0.91 / 1.00; CE 0.79 / 0.93 on the same fixtures; no band fails).
+- **Verdict: not proven.** Production unchanged; CE3n stays offline. Full tables in `docs/plan.md` (Phase 2c).

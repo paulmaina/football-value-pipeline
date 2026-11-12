@@ -1,0 +1,13 @@
+[
+  {
+    "candidate": "CE3n",
+    "baseline": "CE",
+    "declaration_sha256": "bca3ab5dfcda8cf3e93e1299348d9eab45d69b5c136b50bcc5b3c0cd4143a5f4",
+    "setup_sha256": "79513ee77a8c6b09877c78e1894f932b07ea478249659b5fcffb815f7ceacb08",
+    "source_commit": "b4a0bf0530d7413e5a4632b4877989117ed4bcce",
+    "holdout_fixtures": 277,
+    "passes_holdout_gate": false,
+    "scored_at_utc": "2026-11-12T08:04:44.958351+00:00",
+    "outcome": "Not proven (12 Nov 2026): CE minus CE3n AH all +0.0027 (95% -0.0115 to +0.0158), not clear of zero; calibration v3 passes (CE3n 0.91 / 1.00, CE 0.79 / 0.93). Production unchanged; CE3n stays offline. Results in evaluation/european_holdout_ce3n/. Added after the run; every other field is as the harness wrote it."
+  }
+]
