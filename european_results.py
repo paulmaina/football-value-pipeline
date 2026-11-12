@@ -351,8 +351,9 @@ def merge_aliases(extra, reviewed):
 
 
 def scoped_identities(teams, histories, extra=None, reviewed=None):
-    """(before, after): team identities with the manual reviewed aliases (for European fixtures before the
-    European holdout start) and without them (on or after it)."""
+    """(with, without): team identities with the manual reviewed aliases and without them. Since 12 Nov 2026
+    the reviewed aliases apply to every European fixture, so callers use the first; the second serves a
+    caller that passes a date limit (domestic_form_coverage's reviewed_before)."""
     after = domestic_identities(teams, histories, extra)
     before = domestic_identities(teams, histories, merge_aliases(extra, reviewed)) if reviewed else after
     return before, after
@@ -363,10 +364,11 @@ def domestic_form_coverage(fixtures, histories, min_matches=5, days=365, extra=N
     """Per European fixture: does each team have at least `min_matches` domestic league matches in the
     `days` before the fixture's day (strictly earlier days only)? Reads domestic dates and team names,
     never a score. `histories` maps league -> (frame, team names); pass holdout-free frames. `reviewed`
-    (manual reviewed aliases, {league: {European: domestic}}) applies only to fixtures before `reviewed_before`."""
+    (manual reviewed aliases, {league: {European: domestic}}) applies to every fixture, or, when
+    `reviewed_before` is given, only to fixtures before it."""
     teams = sorted(set(fixtures.HomeTeam) | set(fixtures.AwayTeam))
     (mapped_before, ambiguous), (mapped_after, _) = scoped_identities(teams, histories, extra, reviewed)
-    cut = pd.Timestamp(reviewed_before) if reviewed else None
+    cut = pd.Timestamp(reviewed_before) if reviewed and reviewed_before is not None else None
     dates = {}
     for team, (league, name) in {**mapped_after, **mapped_before}.items():
         frame = histories[league][0]
@@ -374,7 +376,7 @@ def domestic_form_coverage(fixtures, histories, min_matches=5, days=365, extra=N
     rows, seen = [], set()
     for r in fixtures.itertuples(index=False):
         day = pd.Timestamp(r.Date).normalize()
-        mapped = mapped_before if cut is not None and pd.Timestamp(r.Date) < cut else mapped_after
+        mapped = mapped_after if cut is not None and pd.Timestamp(r.Date) >= cut else mapped_before
         counts = []
         for team in (r.HomeTeam, r.AwayTeam):
             if team in mapped:
