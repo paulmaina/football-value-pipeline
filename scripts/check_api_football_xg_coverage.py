@@ -1,4 +1,5 @@
-"""Check whether API-Football fixture statistics carry expected_goals for the holdout leagues.
+"""Rerun 2026-11-12 after the daily reset.
+Check whether API-Football fixture statistics carry expected_goals for the holdout leagues.
 
 Read-only probe for Phase 2b. For each league and season it makes one fixture-list
 request and samples three finished fixtures (early, middle, late) for statistics.
