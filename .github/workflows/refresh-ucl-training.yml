@@ -29,7 +29,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-python@v7
         with:
-          python-version: '3.12'
+          python-version: '3.14'
       - run: python -m pip install -r football_value_requirements.txt
       - name: Fetch, validate and publish current-season results
         env:
