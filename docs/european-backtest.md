@@ -117,7 +117,7 @@ The European holdout is unchanged. Its split and the reasons for it are in `docs
 - **Warm-up end.** Each competition's development now starts where its 250-match warm-up ends: the first 14-day fold origin with at least 250 earlier matches of that competition. That is the pipeline's own UCL/UEL walk-forward warm-up. The configured dates (`development_start`) are checked against the data on every run (`check_development_start`).
 - **Fold grid.** `test_start` moved to 29 Jun 2015, exactly 185 folds before the old 1 Aug 2022, so every earlier fold boundary is kept.
 - **Holdout minimum: 250 fixtures and 6 weeks.** This is `european_holdout_review_gates` in `benchmark_promotion_rules.json`, decided on 11 Nov 2026 before any European holdout scoring; the European ledger has no entry. The domestic minimum stays 300.
-- **What a declared run would now score.** The warm-up ends in 2017, so no holdout fixture is in the warm-up (before, 18 were). Counted by identity only (dates and team names, no score read), a declared run would score **277 of the 288** holdout fixtures, in 29 weeks (276 before the Phase 2c alias review). That clears the 250 minimum.
+- **What a declared run would now score.** The warm-up ends in 2017, so no holdout fixture is in the warm-up (before, 18 were). Counted by identity only (dates and team names, no score read), a declared run would score **277 of the 288** holdout fixtures, in 29 weeks (276 before the Phase 2c alias review; unchanged by the 12 Nov 2026 alias scope change). That clears the 250 minimum.
 - **The 11 left out** each have a team with no earlier UCL match, as live excludes them: Athletic Club, Como, Bodø/Glimt, Kairat, Fenerbahçe, LASK, Paphos, Real Betis, Union Saint-Gilloise, Sabah and Viking.
   - The reviewed aliases give AEK, Olympiakos, Qarabağ and Slavia Praha their older UCL matches, but only one more fixture becomes reachable: in the others the opponent is also new (for example Olympiakos v Paphos).
   - A fold whose Dixon-Coles grid is invalid would also give no forecast. That can't be checked without the results.
@@ -206,10 +206,10 @@ These counts show how many fixtures have domestic form for both teams. Domestic 
 | Warm-up | 126 / 250 | 46 / 252 |
 | Development | **519 / 869 (60%)** | **125 / 373 (34%)** |
 | Validation | 56 / 108 (52%) | 27 / 108 (25%) |
-| Holdout | 170 / 288 (59%) | — |
-| Retrospective | 26 / 54 | 101 / 342 |
+| Holdout | 182 / 288 (63%) | — |
+| Retrospective | 31 / 54 | 101 / 342 |
 
-With the Phase 2c reviewed aliases (before them: warm-up 102 / 43, development 491 / 124). The holdout count is unchanged because the manual domestic aliases apply only before 21 Jan 2025. 119 of the 240 European team names resolve to one domestic club (113 of 245 before the five UCL renames), and none is ambiguous. Most of the others play in leagues with no cached file (Belgium, Scotland, Greece, Austria, Czechia, the Nordic leagues and others).
+With the Phase 2c reviewed aliases (before them: warm-up 102 / 43, development 491 / 124). Since 12 Nov 2026 the manual aliases also link holdout and later fixtures (holdout 170 → 182, UCL retrospective 26 → 31; identity only). 119 of the 240 European team names resolve to one domestic club (113 of 245 before the five UCL renames), and none is ambiguous. Most of the others play in leagues with no cached file (Belgium, Scotland, Greece, Austria, Czechia, the Nordic leagues and others).
 
 ### Alias review (the nine gaps from #158)
 
@@ -284,7 +284,9 @@ python scripts/european_candidates_report.py --run /tmp/europe --output evaluati
 
 ### Reviewed manual aliases
 
-`docs/audits/european-reviewed-aliases.json`, marked "manual, approved by Paul in PR review". These are clubs that are plainly the same team but couldn't be linked by fixture evidence. They apply only to European matches before 21 Jan 2025, so every holdout row is byte-identical (tested against `reviewed=False` and against the live loader).
+`docs/audits/european-reviewed-aliases.json`, marked "manual, approved by Paul in PR review". These are clubs that are plainly the same team but couldn't be linked by fixture evidence. Every holdout result row is byte-identical (tested against `reviewed=False` and against the live loader): the UCL renames touch only backfilled rows.
+
+**Scope (12 Nov 2026).** Until then they applied only to European matches before 21 Jan 2025. Paul approved removing that limit on 12 Nov 2026, before any European holdout scoring, so they now link names in every European fixture, holdout fixtures included (`applies_to`, `scope_history` in the file). An alias is an identity mapping; no holdout result trains, fits or chooses anything. Effect (identity only): holdout reach stays 277 of 288; holdout fixtures with domestic form for both teams 170 → 182 (league phase 108 / 198, knockouts 74 / 90). European development and validation are unchanged for CE and all candidates (identical to 1e-12).
 
 | Older / European spelling | Linked to | Country | Sources | Reason |
 | --- | --- | --- | --- | --- |
@@ -304,7 +306,7 @@ Effect:
 
 - **CE.** Development unchanged to three decimals. Validation goes from 193 to 194 fixtures, with AH all 0.779 → 0.777 (section 3).
 - **Holdout reach.** 276 → 277 of 288, counted by identity only.
-- **Both teams with domestic form.** Development UCL 491 → 519, UEL 124 → 125. The holdout stays at 170 / 288, because the domestic aliases stop at 21 Jan 2025: in a declared run, holdout fixtures of Galatasaray SK and Fenerbahçe SK would have no domestic form (Paul may want to lift that scope before any declaration).
+- **Both teams with domestic form.** Development UCL 491 → 519, UEL 124 → 125. The holdout stayed at 170 / 288 while the domestic aliases stopped at 21 Jan 2025; with the limit removed (12 Nov 2026) it is 182 / 288, as holdout fixtures of Galatasaray SK and Fenerbahçe SK now link to their domestic form.
 
 ### The candidates (`european_candidates.py`)
 
