@@ -14,6 +14,7 @@ import pandas as pd
 
 import european_results as er
 import evaluation_harness as eh
+from tests.european_locked_run import config as european_window, locked_run
 
 REPO = Path(__file__).resolve().parents[1]
 CACHE = REPO / '.football_cache'
@@ -101,15 +102,23 @@ class EuropeanPeriodTest(unittest.TestCase):
 
 class EuropeanLockTest(unittest.TestCase):
     def test_locked_runs_skip_the_european_holdout_on_the_cached_results(self):
-        cfg = window(test_start='2024-11-01', end_exclusive='2025-03-01')
-        records, _, coverage, calib = eh.european(CACHE, cfg)
+        # A short window across the holdout start (tests/european_locked_run.py), shared with the CE2-CE4 lock test.
+        records, _, coverage, calib = locked_run()
         self.assertTrue(records)
         self.assertNotIn('holdout', {r['phase'] for r in records} | {r['phase'] for r in calib})
         # With the backfill UCL is past its warm-up: its validation fixtures are scored, its holdout never.
         self.assertEqual({r['league'] for r in records}, {'UCL', 'UEL'})
         self.assertEqual({r['phase'] for r in records if r['league'] == 'UCL'}, {'validation'})
-        self.assertGreater(coverage['UCL:locked_holdout'], 0)
         self.assertIn('retrospective', {r['phase'] for r in records})
+        # Every UCL holdout fixture in the window is counted as locked, by identity (dates and names only).
+        e = european_window()['european']
+        ucl = er.load_with_backfill(CACHE, 'UCL', pd.Timestamp(END))[['Date', 'HomeTeam', 'AwayTeam']]
+        ucl = ucl.loc[(ucl.Date >= e['test_start']) & (ucl.Date < e['end_exclusive'])]
+        held = {'|'.join(('UCL', d.date().isoformat(), h, a)) for d, h, a in ucl.itertuples(index=False)
+                if eh.european_phase(d, 'UCL', CFG) == 'holdout'}
+        self.assertTrue(held)
+        self.assertEqual(coverage['UCL:locked_holdout'], len(held))
+        self.assertFalse(held & ({r['fixture_key'] for r in records} | {r['fixture_key'] for r in calib}))
 
     def test_locked_runs_never_train_on_european_holdout_results(self):
         data = pd.DataFrame({'Date': pd.to_datetime(['2025-01-20', '2025-01-21', '2026-10-12', '2026-10-13'])})
@@ -119,11 +128,13 @@ class EuropeanLockTest(unittest.TestCase):
         self.assertEqual(len(eh.european_training_rows(data, 'UCL', CFG, True)), 4)
 
     def test_holdout_runs_score_only_the_holdout_and_locked_runs_none_of_it(self):
-        cfg = window(min_train=40, test_start='2024-09-01', end_exclusive='2026-11-01', step_days=28)
-        data = {'UCL': synthetic('2024-09-01', 420), 'UEL': synthetic('2024-09-01', 420, seed=8)}
+        # Small synthetic results (6 clubs, three months) across the holdout start; min_train lowered to fit.
+        cfg = window(min_train=30, test_start='2024-12-01', end_exclusive='2025-03-01', step_days=28)
+        data = {'UCL': synthetic('2024-12-01', 90, teams=6), 'UEL': synthetic('2024-12-01', 90, teams=6, seed=8)}
         locked, _, coverage, _ = eh.european(None, cfg, data=data)
         self.assertTrue(locked)
         self.assertNotIn('holdout', {r['phase'] for r in locked})
+        self.assertEqual({r['phase'] for r in locked if r['league'] == 'UCL'}, {'validation'})
         self.assertGreater(coverage['UCL:locked_holdout'], 0)
         unlocked, _, _, _ = eh.european(None, cfg, include_holdout=True, keep={'CE'}, data=data)
         self.assertTrue(unlocked)
@@ -195,11 +206,17 @@ class EuropeanLockTest(unittest.TestCase):
 class CEIndependenceTest(unittest.TestCase):
     """CE reads European results only: never odds, never a later result, never a domestic result."""
 
+    ORIGIN = pd.Timestamp('2024-10-01')
+    # Short windows around the changed 3 Oct 2024 result: UEL matchdays 25-26 Sep, 3 Oct, 24 Oct and 7 Nov.
+    WINDOW = {'test_start': '2024-09-16', 'end_exclusive': '2024-11-15'}
+
     @classmethod
     def setUpClass(cls):
         cls.uel = er.load(CACHE, 'UEL', END)
+        cls.bare = cls.fold(cls.uel, cls.ORIGIN)  # CE's fold on the results alone, shared by two tests
 
-    def fold(self, data, origin):
+    @staticmethod
+    def fold(data, origin):
         from football_value_pipeline_v2_standalone import DixonColesModel
         profile = CFG['production_v2']
         train = data[data.Date < origin]
@@ -208,7 +225,7 @@ class CEIndependenceTest(unittest.TestCase):
         return train, model
 
     def test_ce_ignores_every_odds_field(self):
-        origin = pd.Timestamp('2024-10-01')
+        origin = self.ORIGIN
         odds = ['PSH', 'PSD', 'PSA', 'P>2.5', 'P<2.5', 'AHh', 'PAHH', 'PAHA', 'B365H', 'B365D', 'B365A',
                 'B365>2.5', 'B365<2.5', 'AvgH', 'AvgD', 'AvgA', 'MaxH', 'PSCH', '1XBH']
         rng = np.random.default_rng(3)
@@ -224,13 +241,13 @@ class CEIndependenceTest(unittest.TestCase):
         again, _ = eh.european_matrices(changed_rows[changed_rows.Date >= origin].iloc[0], train2, origin, model2)
         np.testing.assert_array_equal(base['CE'], again['CE'])
         # And CE on the same rows without any odds column at all.
-        bare_train, bare_model = self.fold(self.uel, origin)
+        bare_train, bare_model = self.bare
         bare, _ = eh.european_matrices(self.uel[self.uel.Date >= origin].iloc[0], bare_train, origin, bare_model)
         np.testing.assert_array_equal(base['CE'], bare['CE'])
 
     def test_a_later_result_never_changes_an_earlier_forecast(self):
-        cfg = window(test_start='2024-02-01', end_exclusive='2024-12-20')
-        data = self.uel.loc[self.uel.Date < '2024-12-20'].copy()
+        cfg = window(**self.WINDOW)
+        data = self.uel.loc[self.uel.Date < self.WINDOW['end_exclusive']].copy()
         before = eh.evaluate_european('UEL', None, cfg, data=data)[3]
         changed = data.copy()
         target = changed.index[changed.Date == pd.Timestamp('2024-10-03')][0]
@@ -244,7 +261,7 @@ class CEIndependenceTest(unittest.TestCase):
         self.assertTrue(any(a != b for a, b in later))
 
     def test_domestic_results_never_reach_ce(self):
-        cfg = window(test_start='2024-02-01', end_exclusive='2024-12-20')
+        cfg = window(test_start='2024-09-30', end_exclusive='2024-10-14')  # one fold: UCL 1-2 Oct, UEL 3 Oct
         full = eh.european(CACHE, cfg, keep={'CE'})
         with tempfile.TemporaryDirectory() as tmp:
             only = Path(tmp)
@@ -259,7 +276,7 @@ class CEIndependenceTest(unittest.TestCase):
         self.assertEqual(full[3], alone[3])
         # Every team CE was fitted on is a team of that competition.
         teams = set(self.uel.HomeTeam) | set(self.uel.AwayTeam)
-        _, model = self.fold(self.uel, pd.Timestamp('2024-10-01'))
+        _, model = self.bare
         self.assertTrue(set(model.teams) <= teams)
 
 

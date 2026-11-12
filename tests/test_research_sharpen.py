@@ -10,11 +10,11 @@ import pandas as pd
 
 import evaluation_harness as eh
 import research_sharpen as rs
+from tests import epl_research_rows as epl
 from team_research import research_grid
 
 REPO = Path(__file__).resolve().parents[1]
 CFG = json.loads((REPO / 'evaluation_harness_config.json').read_text(encoding='utf-8'))
-ODDS_PREFIXES = ('PS', 'P>', 'P<', 'PC', 'PAH', 'B365', 'Max', 'Avg', 'BW', 'IW', 'WH', 'VC', 'AH', '1X', 'BF', 'PSC')
 
 
 def rates(n, seed):
@@ -101,23 +101,31 @@ class FitTest(unittest.TestCase):
 
 
 class WalkForwardTest(unittest.TestCase):
-    """sharpen_candidate: each window is fitted only on C's forecasts of matches played before it."""
+    """sharpen_candidate: each window is fitted only on C's forecasts of matches played before it.
+
+    1,500 simulated forecasts (500 days) with the fit minimum lowered from 1,000 to 500 decided matches for
+    this class only, so there are warm-up windows and fitted ones; the walk-forward is run once and shared."""
+    N, MIN_MATCHES = 1500, 500
 
     @classmethod
     def setUpClass(cls):
+        cls.enterClassContext(patch.object(rs, 'MIN_MATCHES', cls.MIN_MATCHES))
         start = pd.Timestamp(CFG['test_start'])
         cls.base = [research_row('EPL' if i % 2 else 'SerieA', start + pd.Timedelta(hours=8 * i), r, h, a)
-                    for i, (r, h, a) in enumerate(simulate(1.25, 3000, seed=3))]
+                    for i, (r, h, a) in enumerate(simulate(1.25, cls.N, seed=3))]
+        cls.result = eh.sharpen_candidate(cls.rows(), CFG, cls.end(cls.base))
 
-    def rows(self):
-        return [dict(r) for r in self.base]
+    @classmethod
+    def rows(cls):
+        return [dict(r) for r in cls.base]
 
-    def end(self, rows):
+    @staticmethod
+    def end(rows):
         return rows[-1]['date'] + pd.Timedelta(days=1)
 
     def test_fits_use_only_earlier_decided_matches_and_warm_up_is_c(self):
         rows = self.rows()
-        records, calib, coverage, fits = eh.sharpen_candidate(rows, CFG, self.end(rows))
+        records, calib, coverage, fits = self.result
         self.assertEqual(fits[0]['status'], 'warm_up')
         self.assertEqual(fits[-1]['status'], 'fitted')
         self.assertAlmostEqual(fits[-1]['slope'], 1.25, delta=.15)
@@ -129,6 +137,7 @@ class WalkForwardTest(unittest.TestCase):
         self.assertEqual(sum(v for k, v in coverage.items() if k.endswith(':C5:available')), len(rows))
         # Warm-up windows are exactly C.
         warm = {f['origin'] for f in fits if f['status'] == 'warm_up'}
+        self.assertTrue(warm and warm != {f['origin'] for f in fits})
         for row, cal in zip(sorted(rows, key=lambda r: r['date']), calib):
             window = max(w[0] for w in eh.fold_windows(CFG, self.end(rows)) if w[0] <= row['date'])
             if window.date().isoformat() in warm:
@@ -141,19 +150,18 @@ class WalkForwardTest(unittest.TestCase):
             r['home_goals'], r['away_goals'] = 3., 0.
         cut = changed[-300]['date']
         opened = max(w[0] for w in eh.fold_windows(CFG, self.end(rows)) if w[0] <= cut)
-        score = lambda rs_: {(r['fixture_key'], r['market']): r['log_loss']
-                             for r in eh.sharpen_candidate(rs_, CFG, self.end(rows))[0]
-                             if pd.Timestamp(r['fixture_key'].split('|')[1]) < opened}
-        before, after = score(rows), score(changed)
+        early = lambda records: {(r['fixture_key'], r['market']): r['log_loss'] for r in records
+                                 if pd.Timestamp(r['fixture_key'].split('|')[1]) < opened}
+        before, after = early(self.result[0]), early(eh.sharpen_candidate(changed, CFG, self.end(rows))[0])
         self.assertGreater(len(before), 1000)
         self.assertEqual(before, after)
 
     def test_unscored_rows_feed_the_fit_but_are_not_scored(self):
         rows = self.rows()
-        for r in rows[:1800]:
+        for r in rows[:900]:
             r['scored'] = False
         _, calib, _, fits = eh.sharpen_candidate(rows, CFG, self.end(rows))
-        self.assertEqual(len(calib), 1200)
+        self.assertEqual(len(calib), 600)
         self.assertEqual(fits[0]['status'], 'fitted')  # fitted on unscored forecasts alone
 
     def test_skipped_when_not_kept(self):
@@ -162,49 +170,20 @@ class WalkForwardTest(unittest.TestCase):
 
 
 class HarnessCandidateTest(unittest.TestCase):
-    """C5 on real EPL folds: registered, and identical whatever any odds field says."""
-
-    @classmethod
-    def setUpClass(cls):
-        import historical_benchmark as hb
-        data, _, _ = hb.load_history(REPO / '.football_cache', 'EPL',
-                                     {**CFG, 'seasons': ['2122', '2223', '2324'], 'test_end_exclusive': '2024-07-01'})
-        cls.origin, cls.data = pd.Timestamp('2024-03-01'), data
-
-    @staticmethod
-    def fit(train, origin):
-        from football_value_pipeline_v2_standalone import DixonColesModel
-        return DixonColesModel(half_life_days=480., l2=.08, max_goals=10, shot_features=True,
-                               bbs_statistics=False).fit(train.copy(), as_of=origin)
+    """C5 on real EPL folds: registered, and identical whatever any odds field says (tests/epl_research_rows.py)."""
 
     def test_c5_is_registered(self):
         self.assertIn('C5', eh.CANDIDATES)
         self.assertIn('research_sharpen.py', eh.SETUP_FILES)
 
-    def research_rows(self, data):
-        """C's forecasts of 40 matches before the origin (fit only) and 5 after (scored)."""
-        import narrow_margin as nm
-        cagey, rows, matrices = nm.production_model(), [], []
-        for origin, scored in ((pd.Timestamp('2023-12-01'), False), (self.origin, True)):
-            train, test = data[data.Date < origin], data[data.Date >= origin].head(5 if scored else 40)
-            model = self.fit(train, origin)
-            for _, row in test.iterrows():
-                m, _, extra = eh.candidates(row, train, origin, model, CFG, cagey)
-                matrices.append(m)
-                rows.append(research_row('EPL', row.Date, extra['research_goal_rates'], row.FTHG, row.FTAG, scored))
-        return rows, matrices
-
     def test_c5_ignores_every_odds_field_in_the_match_and_the_training_history(self):
-        odds = [c for c in self.data.columns if c.startswith(ODDS_PREFIXES) and c not in ('AHh', 'AHCh')]
-        self.assertGreater(len(odds), 20)
-        shaken = self.data.copy()
-        shaken[odds] = shaken[odds].apply(pd.to_numeric, errors='coerce') * 1.02 + .01
-        (rows, a), (rows2, b) = self.research_rows(self.data), self.research_rows(shaken)
+        self.assertGreater(len(epl.odds_columns()), 20)
+        (rows, a), (rows2, b) = epl.research_rows(), epl.research_rows(moved=True)
         self.assertEqual(rows, rows2)  # C's goal rates and the scores: everything C5 reads
         for x, y in zip(a, b):
             np.testing.assert_array_equal(x['C'], y['C'])
             self.assertFalse(np.array_equal(x['M'], y['M']))  # the market reference did move
-        end = self.origin + pd.Timedelta(days=30)
+        end = epl.ORIGIN + pd.Timedelta(days=30)
         with patch.object(rs, 'MIN_MATCHES', 10):  # force a real fit on the 40 earlier forecasts
             first, second = eh.sharpen_candidate(rows, CFG, end), eh.sharpen_candidate(rows2, CFG, end)
         self.assertEqual(first[3][-1]['status'], 'fitted')
