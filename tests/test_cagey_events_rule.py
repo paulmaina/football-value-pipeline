@@ -236,5 +236,148 @@ class CheckTest(unittest.TestCase):
         self.assertEqual(eh.cagey_events_checks([], RULE), {})
 
 
+class DeclarationTest(unittest.TestCase):
+    """A declaration may make calibration the deciding criterion; declarations without one read as before."""
+
+    def setUp(self):
+        import tempfile
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.dir = Path(self.tmp.name)
+        self.ledger = self.dir / 'ledger.json'
+        self.setup = {'sha256': 'c' * 64}
+
+    def declaration(self, **extra):
+        data = {'candidate': 'D', 'baseline': 'M', 'primary_metric': 'AH all', 'draw_sensitive_lines': [-0.5, 0, 0.5],
+                'calibration_tolerance': NAME, 'deciding_criterion': 'calibration',
+                'reported_not_deciding': ['AH all', 'AH draw-sensitive'],
+                'sample_minimum': {'fixtures': 300, 'weeks': 6}, 'declared_by': 'Paul', 'declared_at': '2026-11-13'}
+        data.update(extra)
+        data = {k: v for k, v in data.items() if v is not ...}
+        path = self.dir / 'declaration.json'
+        path.write_text(json.dumps(data), encoding='utf-8')
+        return path
+
+    def test_a_calibration_deciding_declaration_validates_and_carries_the_rule(self):
+        declared = eh.validate_declaration(self.declaration(), CFG, self.setup, self.ledger)
+        self.assertEqual(declared['calibration_rule'], RULE)
+        self.assertEqual(declared['deciding_criterion'], 'calibration')
+
+    def test_bad_calibration_declarations_are_refused(self):
+        bad = [({'deciding_criterion': 'profit'}, 'Deciding criterion'),
+               ({'candidate': 'C6', 'baseline': 'C'}, 'judges D against M only'),
+               ({'candidate': 'M', 'baseline': 'D'}, 'judges D against M only'),
+               ({'sample_minimum': {'fixtures': 250, 'weeks': 6}}, 'sample minimum'),
+               ({'sample_minimum': ...}, 'sample minimum'),
+               ({'reported_not_deciding': ['ROI']}, 'reported_not_deciding')]
+        for extra, message in bad:
+            with self.assertRaisesRegex(ValueError, message):
+                eh.validate_declaration(self.declaration(**extra), CFG, self.setup, self.ledger)
+        # The event rule can't be named by a log-loss declaration of another candidate either.
+        with self.assertRaisesRegex(ValueError, 'judges D against M only'):
+            eh.validate_declaration(self.declaration(candidate='C6', baseline='C', deciding_criterion=...),
+                                    CFG, self.setup, self.ledger)
+
+    def test_existing_declarations_read_as_before(self):
+        c6 = eh.validate_declaration(REPO / 'evaluation/declarations/c6_holdout.json', CFG, self.setup, self.ledger)
+        self.assertNotIn('deciding_criterion', c6)
+        self.assertEqual(c6['calibration_rule'], CFG['calibration_tolerance'])
+        self.assertEqual(c6['sha256'], '675bbf54924920f28ba6d2c35a70fb5e61821ef649319512f92ca3fb24fd1be0')
+        ce3n = eh.validate_declaration(REPO / 'evaluation/declarations/ce3n_european_holdout.json', CFG, self.setup,
+                                       self.ledger, eh.EUROPEAN_CANDIDATES)
+        self.assertNotIn('deciding_criterion', ce3n)
+        # The real ledgers still refuse both candidates.
+        with self.assertRaisesRegex(ValueError, "already scored for candidate 'C6'"):
+            eh.validate_declaration(REPO / 'evaluation/declarations/c6_holdout.json', CFG, self.setup)
+
+    @staticmethod
+    def holdout(n_weeks=10, per_week=40, d_loss=.70, m_loss=.70, flatten_d=1., seed=4):
+        """Holdout AH records and D/M calib rows with cagey inputs from real priced grids."""
+        import narrow_margin as nm
+        rng = np.random.default_rng(seed)
+        model = nm.production_model()
+        records, calib = [], []
+        i = 0
+        while i < n_weeks * per_week:
+            home = float(rng.uniform(.36, .50))
+            row = priced(AHh=-0.25, B365H=1 / (home * 1.05), B365D=1 / (.27 * 1.05), B365A=1 / ((.73 - home) * 1.05),
+                         B365AHH=1.9, B365AHA=1.95)
+            prices = eh.book_prices(row, 'bet365')
+            try:
+                m = eh.market_matrix(prices)
+            except ValueError:
+                continue  # the fixed main line doesn't fit these 1X2 prices
+            d = eh.cagey_matrix(m, prices, model)
+            margins, probs = __import__('market_implied').margin_distribution(d)
+            margin = int(rng.choice(margins, p=probs / probs.sum()))
+            key, week = f'f{i}', f'2026-W{i // per_week:02d}'
+            for cand, grid, loss in (('D', d, d_loss), ('M', m, m_loss)):
+                records.append({'fixture_key': key, 'league': 'Eredivisie', 'week': week, 'phase': 'holdout',
+                                'candidate': cand, 'market': 'AH +0.00', 'log_loss': loss + rng.normal(0, .01)})
+                calib.append({'phase': 'holdout', 'fixture_key': key, 'candidate': cand, 'probs': [.4, .3, .3],
+                              'outcome': 0, 'cagey': eh.cagey_inputs(grid, prices, 'bet365', week, margin)})
+            i += 1
+        return records, calib
+
+    def declared(self, **extra):
+        return eh.validate_declaration(self.declaration(**extra), CFG, self.setup, self.ledger)
+
+    def test_calibration_decides_and_log_loss_is_reported_only(self):
+        records, calib = self.holdout()  # D's own grid draws the results: D is calibrated; no log-loss gain
+        verdict = eh.holdout_verdict(records, calib, self.declared(), {})
+        self.assertEqual(verdict['deciding_criterion'], 'calibration')
+        self.assertEqual(verdict['primary_metric_role'], 'reported, not deciding')
+        self.assertTrue(verdict['sample_minimum_met'])
+        self.assertFalse(verdict['primary']['clear_of_zero'])
+        self.assertEqual(verdict['calibration']['rule'], NAME)
+        self.assertEqual(set(verdict['calibration']['families']), {'narrow', 'no_loss'})
+        self.assertEqual(verdict['baseline_calibration']['candidate'], 'M')
+        self.assertEqual(verdict['passes_holdout_gate'], verdict['calibration']['passes'])
+        self.assertIsNotNone(verdict['draw_sensitive'])
+        # Under log-loss superiority the same data could not pass (no gain clear of zero).
+        superiority = eh.holdout_verdict(records, calib, {**self.declared(), 'deciding_criterion': 'log_loss_superiority'}, {})
+        self.assertFalse(superiority['passes_holdout_gate'])
+
+    def test_calibration_verdict_needs_the_sample_minimum_and_a_pass(self):
+        records, calib = self.holdout(n_weeks=5, per_week=40)  # 200 fixtures: below 300
+        verdict = eh.holdout_verdict(records, calib, self.declared(), {})
+        self.assertFalse(verdict['sample_minimum_met'])
+        self.assertFalse(verdict['passes_holdout_gate'])
+        records, calib = self.holdout()
+        failing = {**self.declared(), 'calibration_rule': {**RULE, 'band_max_deviation': -1., 'slope_min': 5., 'slope_max': 6.}}
+        verdict = eh.holdout_verdict(records, calib, failing, {})
+        self.assertFalse(verdict['calibration']['passes'])
+        self.assertFalse(verdict['passes_holdout_gate'])
+
+    def test_a_superiority_verdict_is_unchanged(self):
+        """The C6-style verdict: same keys and the same pass logic as before 13 Nov 2026."""
+        records, calib = [], []
+        rng = np.random.default_rng(1)
+        for i in range(400):
+            for cand, loss in (('C6', .6), ('C', .7)):
+                records.append({'fixture_key': f'f{i}', 'league': 'Eredivisie', 'week': f'w{i % 10}', 'phase': 'holdout',
+                                'candidate': cand, 'market': 'AH +0.00', 'log_loss': loss + rng.normal(0, .01)})
+        declaration = {'candidate': 'C6', 'baseline': 'C', 'primary_metric': 'AH all', 'draw_sensitive_lines': [-.5, 0, .5],
+                       'calibration_rule': CFG['calibration_tolerance']}
+        verdict = eh.holdout_verdict(records, calib, declaration, {})
+        self.assertEqual(set(verdict), {'candidate', 'baseline', 'primary_metric', 'primary', 'draw_sensitive',
+                                        'sample_minimum', 'sample_minimum_met', 'calibration', 'calibration_tolerance',
+                                        'versus_market', 'passes_holdout_gate', 'next_steps'})
+        self.assertTrue(verdict['primary']['clear_of_zero'])
+        self.assertFalse(verdict['passes_holdout_gate'])  # no calibration forecasts: v2 fails
+
+    def test_the_ledger_records_the_deciding_criterion_only_when_declared(self):
+        declared = self.declared()
+        eh.record_holdout(declared, self.setup, 'abc', 640, {'passes_holdout_gate': True}, self.ledger)
+        entry = json.loads(self.ledger.read_text(encoding='utf-8'))[0]
+        self.assertEqual((entry['deciding_criterion'], entry['calibration_tolerance']), ('calibration', NAME))
+        with self.assertRaisesRegex(ValueError, "already scored for candidate 'D'"):
+            eh.validate_declaration(self.declaration(), CFG, {'sha256': 'd' * 64}, self.ledger)
+        other = self.dir / 'other.json'
+        c6 = eh.validate_declaration(REPO / 'evaluation/declarations/c6_holdout.json', CFG, {'sha256': 'e' * 64}, other)
+        eh.record_holdout(c6, {'sha256': 'e' * 64}, 'abc', 640, {'passes_holdout_gate': False}, other)
+        self.assertNotIn('deciding_criterion', json.loads(other.read_text(encoding='utf-8'))[0])
+
+
 if __name__ == '__main__':
     unittest.main()
