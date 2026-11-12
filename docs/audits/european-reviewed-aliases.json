@@ -1,0 +1,32 @@
+{
+ "status": "manual, approved by Paul in PR review",
+ "description": "Reviewed aliases for clubs that are plainly the same team but could not be linked by fixture evidence (european_backfill.derive_names, european_backfill.domestic_aliases). Unlike docs/audits/european-backfill-aliases.json and european-domestic-aliases.json, these are manual: each was proposed from the spellings, the club's country and its history, not derived from shared fixtures, and is approved only in PR review. Harness only (European mode): the live pipeline does not read this file. Applied only to European matches before 21 Jan 2025 (the European holdout start), and only to link history: no European row on or after that date is renamed, so every holdout row is byte-identical.",
+ "applies_before": "2025-01-21",
+ "ucl_names": {
+  "description": "Older UCL backfill name (OpenFootball, 2015/16-2022/23) -> the football-data.org name the live UCL loader uses. The backfilled rows are renamed; the club is then one team to the model across 2022/23 -> 2023/24. Every backfilled row is before 21 Jan 2025.",
+  "aliases": {
+   "Dinamo Zagreb": {"to": "GNK Dinamo Zagreb", "country": "Croatia", "sources": "OpenFootball UCL 2015/16, 2016/17, 2019/20, 2022/23 / football-data.org UCL 2024/25", "reason": "GNK (Građanski nogometni klub) is the club's legal prefix; the only Zagreb club in the UCL in these seasons."},
+   "Olympiakos Piraeus": {"to": "PAE Olympiakos SFP", "country": "Greece", "sources": "OpenFootball UCL 2015/16, 2017/18, 2019/20, 2020/21 / football-data.org UCL 2025/26", "reason": "PAE Olympiakos SFP is the legal name of Olympiacos of Piraeus; the only Olympiakos in the UCL."},
+   "Slavia Praha": {"to": "SK Slavia Praha", "country": "Czechia", "sources": "OpenFootball UCL 2019/20 / football-data.org UCL 2025/26-2026/27", "reason": "Same club with its SK (sportovní klub) prefix."},
+   "Qarabağ FK": {"to": "Qarabağ Ağdam FK", "country": "Azerbaijan", "sources": "OpenFootball UCL 2017/18 / football-data.org UCL 2025/26", "reason": "Qarabağ FK of Ağdam (playing in Baku); the only Qarabağ club."},
+   "AEK Athen": {"to": "PAE AEK", "country": "Greece", "sources": "OpenFootball UCL 2018/19 / football-data.org UCL 2026/27", "reason": "AEK Athens, PAE (football company) prefix; the only AEK in the UCL (AEK Larnaca is Cypriot and never in the UCL proper)."}
+  }
+ },
+ "domestic": {
+  "description": "European name -> football-data.co.uk domestic name, used by the European domestic-form lookups (european_results.domestic_identities) after the research resolver and the fixture-evidence aliases. Looked up by exact name or reviewed Europa key, like european-domestic-aliases.json. Applied only to European fixtures before 21 Jan 2025.",
+  "aliases": {
+   "SuperLig": {
+    "Galatasaray SK": {"to": "Galatasaray", "country": "Turkey", "sources": "football-data.org UCL (and backfill via the reviewed link Galatasaray -> Galatasaray SK) / football-data.co.uk T1", "reason": "SK (Spor Kulübü) suffix; the only Galatasaray in Süper Lig. No source spells it 'Galatasaray SK' in domestic fixtures, so no fixture evidence exists."},
+    "Fenerbahçe SK": {"to": "Fenerbahce", "country": "Turkey", "sources": "football-data.org UCL 2026/27 / football-data.co.uk T1", "reason": "SK suffix and the ç; the only Fenerbahçe in Süper Lig. Its UCL rows are all after 21 Jan 2025, so this alias currently links nothing."},
+    "İstanbul Başakşehir": {"to": "Buyuksehyr", "country": "Turkey", "sources": "OpenFootball UCL 2020/21 / football-data.co.uk T1", "reason": "football-data.co.uk spells İstanbul Başakşehir (formerly İstanbul Büyükşehir Belediyespor) 'Buyuksehyr'; the only Başakşehir in Süper Lig."}
+   },
+   "Bundesliga": {
+    "Bor. Mönchengladbach": {"to": "M'gladbach", "country": "Germany", "sources": "OpenFootball UCL 2015/16, 2016/17, 2020/21 / football-data.co.uk D1", "reason": "Borussia Mönchengladbach, abbreviated both ways; the only Mönchengladbach club in the Bundesliga."},
+    "VfL Wolfsburg": {"to": "Wolfsburg", "country": "Germany", "sources": "OpenFootball UCL 2015/16, 2021/22 / football-data.co.uk D1", "reason": "VfL prefix; the only Wolfsburg club in the Bundesliga."}
+   },
+   "EPL": {
+    "Leicester City": {"to": "Leicester", "country": "England", "sources": "OpenFootball UCL 2016/17; UEL 'leicester city' (reviewed Europa key, 2020/21-2021/22) / football-data.co.uk E0", "reason": "football-data.co.uk drops 'City'; the only Leicester club in the Premier League."}
+   }
+  }
+ }
+}
