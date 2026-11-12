@@ -366,6 +366,15 @@ class DeclarationTest(unittest.TestCase):
         self.assertTrue(verdict['primary']['clear_of_zero'])
         self.assertFalse(verdict['passes_holdout_gate'])  # no calibration forecasts: v2 fails
 
+    def test_the_committed_declaration_is_valid_and_d_is_now_locked(self):
+        path = REPO / 'evaluation/declarations/cagey_d_holdout.json'
+        declared = eh.validate_declaration(path, CFG, self.setup, self.ledger)
+        self.assertEqual((declared['candidate'], declared['baseline'], declared['deciding_criterion']), ('D', 'M', 'calibration'))
+        self.assertEqual(declared['calibration_rule'], RULE)
+        self.assertEqual(declared['sha256'], 'd464bc071c6aedc558593dbb8f0a30279cfc945fd57a1b51ad2157ed07b5604b')
+        with self.assertRaisesRegex(ValueError, "already scored for candidate 'D'"):
+            eh.validate_declaration(path, CFG, self.setup)
+
     def test_the_ledger_records_the_deciding_criterion_only_when_declared(self):
         declared = self.declared()
         eh.record_holdout(declared, self.setup, 'abc', 640, {'passes_holdout_gate': True}, self.ledger)
