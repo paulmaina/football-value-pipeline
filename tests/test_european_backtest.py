@@ -261,7 +261,7 @@ class CEIndependenceTest(unittest.TestCase):
         self.assertTrue(any(a != b for a, b in later))
 
     def test_domestic_results_never_reach_ce(self):
-        cfg = window(**self.WINDOW)
+        cfg = window(test_start='2024-09-30', end_exclusive='2024-10-14')  # one fold: UCL 1-2 Oct, UEL 3 Oct
         full = eh.european(CACHE, cfg, keep={'CE'})
         with tempfile.TemporaryDirectory() as tmp:
             only = Path(tmp)
