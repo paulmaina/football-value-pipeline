@@ -1029,6 +1029,22 @@ def validate_declaration(path, cfg, setup, ledger=LEDGER, candidates=None):
                          f"or one in calibration_tolerance_rules ({', '.join(sorted(rules))}); "
                          'change the config in a reviewed PR first')
     rule = rules[data['calibration_tolerance']]
+    # Optional, for declarations from 12 Nov 2026: what decides the verdict. Without it (C6, CE3n) the
+    # verdict is log-loss superiority on the primary metric, read exactly as before.
+    criterion = data.get('deciding_criterion', 'log_loss_superiority')
+    if criterion not in DECIDING_CRITERIA:
+        raise ValueError('Deciding criterion must be one of ' + ', '.join(DECIDING_CRITERIA))
+    if not is_1x2_rule(rule) and (data['candidate'], data['baseline']) != (rule['event_selector'], rule['price_basis']):
+        raise ValueError(f"Calibration rule {rule['name']!r} judges {rule['event_selector']} against "
+                         f"{rule['price_basis']} only")
+    if criterion == 'calibration':
+        minimum = promotion_minimums('domestic' if registry is CANDIDATES else 'european')
+        declared = data.get('sample_minimum') or {}
+        if not isinstance(declared, dict) or {k: declared.get(k) for k in minimum} != minimum:
+            raise ValueError(f'A calibration-deciding declaration must state the sample minimum {minimum}')
+        reported = data.get('reported_not_deciding', [])
+        if not isinstance(reported, list) or not set(reported) <= set(GROUPS):
+            raise ValueError('reported_not_deciding must list metrics from ' + ', '.join(GROUPS))
     entries = json.loads(ledger.read_text(encoding='utf-8')) if ledger.exists() else []
     if any(e['candidate'] == data['candidate'] for e in entries):
         raise ValueError(f"Holdout already scored for candidate {data['candidate']!r}")
@@ -1040,29 +1056,54 @@ def validate_declaration(path, cfg, setup, ledger=LEDGER, candidates=None):
 
 def holdout_verdict(records, calib, declaration, gap, minimum=None):
     """Apply the declaration: primary metric, draw-sensitive lines, the configured calibration
-    tolerance (calibration_check on the candidate's holdout forecasts) and the market bar.
-    `minimum` is the sample minimum (promotion_minimums(); the European holdout passes its own)."""
+    tolerance (calibration_check on the candidate's holdout forecasts, or cagey_events_check for rule
+    cagey-events-v1) and the market bar. `minimum` is the sample minimum (promotion_minimums(); the
+    European holdout passes its own).
+
+    Deciding criterion: without one (C6, CE3n) the candidate must beat the baseline on the primary metric
+    with the interval clear of zero, meet the sample minimum and pass calibration. With
+    'deciding_criterion': 'calibration' it must meet the sample minimum and pass calibration; log loss is
+    reported, not deciding."""
     scores = fixture_scores(records, declaration['draw_sensitive_lines'])
     hold = scores.loc[scores.phase == 'holdout']
     cand, base = declaration['candidate'], declaration['baseline']
+    rule = declaration['calibration_rule']
+    criterion = declaration.get('deciding_criterion', 'log_loss_superiority')
     primary = paired(hold.loc[hold.group == declaration['primary_metric']], base, cand)
     draw = paired(hold.loc[hold.group == 'AH draw-sensitive'], base, cand)
-    calibrated = calibration_check([r for r in calib if r['phase'] == 'holdout' and r['candidate'] == cand],
-                                   declaration['calibration_rule'],
-                                   [r for r in calib if r['phase'] == 'holdout' and r['candidate'] == base])
+    held = [r for r in calib if r['phase'] == 'holdout']
+    baseline_calibration = None
+    if is_1x2_rule(rule):
+        calibrated = calibration_check([r for r in held if r['candidate'] == cand], rule,
+                                       [r for r in held if r['candidate'] == base])
+    else:
+        events = cagey_events(held, rule)
+        calibrated = cagey_events_check(events, rule, cand, base)
+        baseline_calibration = cagey_events_check(events, rule, base, base)
     market = paired(hold.loc[hold.group == declaration['primary_metric']], 'M', cand) if cand != 'M' else None
     bar = max(0., gap.get(declaration['primary_metric'], {}).get('bet365_minus_pinnacle_log_loss', 0.))
     minimum = minimum or promotion_minimums()
     enough = bool(primary and primary['fixtures'] >= minimum['fixtures'] and primary['weeks'] >= minimum['weeks'])
-    passed = bool(enough and primary and primary['clear_of_zero'] and calibrated['passes'])
-    return {'candidate': cand, 'baseline': base, 'primary_metric': declaration['primary_metric'],
-            'primary': primary, 'draw_sensitive': draw,
-            'sample_minimum': minimum, 'sample_minimum_met': enough,
-            'calibration': calibrated, 'calibration_tolerance': declaration['calibration_rule'],
-            'versus_market': {**market, 'gap_bar': bar, 'beats_market_after_gap': market['mean_gain'] - bar > 0
-                              and market['interval_95'] is not None and market['interval_95'][0] > bar} if market else None,
-            'passes_holdout_gate': passed,
-            'next_steps': 'Passing the holdout is necessary, not sufficient: parity test and live replay follow, then a reviewed PR.'}
+    if criterion == 'calibration':
+        passed = bool(enough and calibrated['passes'])
+    else:
+        passed = bool(enough and primary and primary['clear_of_zero'] and calibrated['passes'])
+    verdict = {'candidate': cand, 'baseline': base, 'primary_metric': declaration['primary_metric'],
+               'primary': primary, 'draw_sensitive': draw,
+               'sample_minimum': minimum, 'sample_minimum_met': enough,
+               'calibration': calibrated, 'calibration_tolerance': declaration['calibration_rule'],
+               'versus_market': {**market, 'gap_bar': bar, 'beats_market_after_gap': market['mean_gain'] - bar > 0
+                                 and market['interval_95'] is not None and market['interval_95'][0] > bar} if market else None,
+               'passes_holdout_gate': passed,
+               'next_steps': 'Passing the holdout is necessary, not sufficient: parity test and live replay follow, then a reviewed PR.'}
+    if 'deciding_criterion' in declaration or baseline_calibration is not None:
+        verdict.update(deciding_criterion=criterion, baseline_calibration=baseline_calibration,
+                       reported_not_deciding=declaration.get('reported_not_deciding', []))
+        if criterion == 'calibration':
+            verdict['primary_metric_role'] = 'reported, not deciding'
+            verdict['next_steps'] = ('Calibration-deciding test: passing confirms the candidate against its baseline '
+                                     'on the declared rule; any production change still needs a reviewed PR.')
+    return verdict
 
 
 def record_holdout(declaration, setup, commit, fixtures, verdict, ledger=LEDGER):
@@ -1071,6 +1112,9 @@ def record_holdout(declaration, setup, commit, fixtures, verdict, ledger=LEDGER)
                     'declaration_sha256': declaration['sha256'], 'setup_sha256': setup['sha256'],
                     'source_commit': commit, 'holdout_fixtures': fixtures,
                     'passes_holdout_gate': verdict['passes_holdout_gate'],
+                    **({'deciding_criterion': declaration['deciding_criterion'],
+                        'calibration_tolerance': declaration['calibration_rule']['name']}
+                       if 'deciding_criterion' in declaration else {}),
                     'scored_at_utc': datetime.now(timezone.utc).isoformat()})
     ledger.parent.mkdir(parents=True, exist_ok=True)
     ledger.write_text(json.dumps(entries, indent=2) + '\n', encoding='utf-8')
