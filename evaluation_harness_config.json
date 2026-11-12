@@ -74,6 +74,28 @@
       "rule": "Same slopes; a band failed whenever it was more than 5 percentage points from its observed rate (at least 30 matches), with no allowance for sample size."
     }
   },
+  "calibration_tolerance_rules": {
+    "description": "Further named calibration rules a declaration may name instead of calibration_tolerance (v2, which stays the rule locked runs report first and the rule of C6's holdout record). Each applies only to candidates not yet scored on a holdout.",
+    "rules": {
+      "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+        "name": "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3",
+        "decided": "2026-11-12",
+        "decided_note": "Decided on 12 Nov 2026, before any European holdout scoring (evaluation/european_holdout_ledger.json has no entry). Applies only to candidates not yet scored on a holdout; v2 stays for C6's record.",
+        "slope_outcomes": [
+          "home",
+          "away"
+        ],
+        "slope_min": 0.9,
+        "slope_max": 1.1,
+        "slope_relative_to_baseline": true,
+        "band_width": 0.1,
+        "band_min_matches": 30,
+        "band_max_deviation": 0.05,
+        "band_alpha": 0.05,
+        "rule": "Relative slopes. Each of the candidate's home and away logistic calibration slopes (logit P(outcome) = a + b logit(p), fitted per outcome) passes if it is between 0.90 and 1.10 inclusive, OR its distance from 1.0 is smaller than the declared baseline's slope for the same outcome on the same fixtures (both slopes fitted on the fixtures both forecast). Bands exactly as v2: no outcome probability band (home, draw and away, tenths of probability, at least 30 matches) more than 5 percentage points from its observed rate AND statistically clear (|gap| / sqrt(p(1-p)/n) above the two-sided normal quantile for 0.05 divided by the number of bands checked; Bonferroni), p = the band's mean forecast."
+      }
+    }
+  },
   "european": {
     "version": "european-results-v2",
     "competitions": [

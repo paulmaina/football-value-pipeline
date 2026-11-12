@@ -1,0 +1,18 @@
+{
+  "candidate": "CE3n",
+  "baseline": "CE",
+  "holdout": "European holdout: UCL, 21 Jan 2025 - 12 Oct 2026 (288 fixtures, 29 weeks; 277 reachable by identity); evaluation_harness.py --mode european --declaration, recorded in evaluation/european_holdout_ledger.json",
+  "primary_metric": "AH all",
+  "draw_sensitive_lines": [-0.5, 0.0, 0.5],
+  "calibration_tolerance": "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3",
+  "sample_minimum": {"fixtures": 250, "weeks": 6, "source": "benchmark_promotion_rules.json, european_holdout_review_gates (decided 11 Nov 2026)"},
+  "market_reference": null,
+  "market_bar": null,
+  "results_only_reason": "No historical European prices are cached (the only European odds are live Odds API snapshots from Oct-Nov 2026, which are not used), so the European holdout has no market reference, no cagey tier, no published-grid proxy and no market bar. CE3n is judged against CE on the result alone.",
+  "reported_not_gating": ["AH draw-sensitive (lines -0.5, 0, +0.5)", "1X2", "Over 1.5", "UCL league phase and UCL knockouts separately (context, CE minus CE3n with week-resampled 95% intervals from the run's own fixture_scores.csv)"],
+  "pass_rule": "Passes only if CE minus CE3n log loss on AH all lines is positive with the week-resampled 95% interval clear of zero, the sample minimum (250 fixtures, 6 weeks) is met, and CE3n's holdout forecasts pass calibration rule v3 against CE on the same fixtures (holdout_verdict.passes_holdout_gate).",
+  "setup": "Reviewed aliases on every European fixture (approved by Paul 12 Nov 2026), calibration rule v3 (decided 12 Nov 2026), both before any European holdout scoring. CE3n as built in PR #160 (domestic weight 0.85, goals-only domestic form, league factors with N(0, 0.3^2) prior); nothing tuned on the holdout.",
+  "declared_by": "Paul (decision), written by Claude Code",
+  "declared_at": "2026-11-12T07:42:18Z",
+  "notes": "Scored once. No rerun, no change to the setup after it, and no other candidate scored on the European holdout. If it passes, next are the parity test and the live replay, including loading the backfilled European history in live; if not proven, production is unchanged and CE3n stays offline."
+}
