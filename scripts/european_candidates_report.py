@@ -7,8 +7,8 @@ Retrospective rows (already scored elsewhere) are never summarised. Results only
 For each candidate: CE minus candidate log loss (positive = candidate better) with a 95% interval from
 resampling whole calendar weeks, on 1X2, AH all lines (primary), AH draw-sensitive (0, +/-0.5) and Over 1.5;
 overall, by competition, by stage, and on the fixtures where both teams have domestic form (CE3 used its
-domestic strength). Logistic calibration slopes and calibration rule v2 (pass or fail) per candidate,
-competition and stage. The walk-forward fits: CE2's slope and the rule's choice, CE4's slope, the
+domestic strength). Logistic calibration slopes and calibration rules v2 and v3 (v3: each slope in
+0.90-1.10 or closer to 1 than CE's on the same fixtures; pass or fail) per candidate, competition and stage. The walk-forward fits: CE2's slope and the rule's choice, CE4's slope, the
 league-strength factors. Views after a warm-up and the domestic-form subset are labelled context: they
 were not declared beforehand.
 
@@ -44,16 +44,27 @@ def means(scores, candidates=('CE',) + CANDIDATES):
             for c in candidates}
 
 
-def calibration(forecasts, cfg, candidates=('CE',) + CANDIDATES):
+def calibration(forecasts, cfg, candidates=('CE',) + CANDIDATES, baseline='CE'):
     import evaluation_harness as eh
     rule = cfg['calibration_tolerance']
+    further = {n: r for n, r in eh.calibration_rules(cfg).items() if n != rule['name']}
+
+    def rows_of(cand):
+        return [{'probs': [r.p_home, r.p_draw, r.p_away], 'outcome': int(r.outcome), 'fixture_key': r.fixture_key}
+                for r in forecasts.loc[forecasts.candidate == cand].itertuples(index=False)]
+    base_rows = rows_of(baseline)
     out = {}
     for cand in candidates:
-        rows = [{'probs': [r.p_home, r.p_draw, r.p_away], 'outcome': int(r.outcome)}
-                for r in forecasts.loc[forecasts.candidate == cand].itertuples(index=False)]
+        rows = rows_of(cand)
         check = eh.calibration_check(rows, rule)
+        relative = {}
+        for name, r in further.items():
+            c = eh.calibration_check(rows, r, base_rows)
+            relative[name] = {'baseline': baseline, 'passes': c['passes'], 'slopes_pass': c['slopes_pass'],
+                              'bands_pass': c['bands_pass'], 'relative_slopes': c.get('relative_slopes')}
         out[cand] = {'forecasts': check['forecasts'], 'slopes': check['slopes'], 'slopes_pass': check['slopes_pass'],
                      'failing_bands': check['failing_bands'], 'passes_v2': check['passes'],
+                     'further_rules': relative,
                      'mean_forecast': {o: float(forecasts.loc[forecasts.candidate == cand, 'p_' + o].mean())
                                        for o in ('home', 'draw', 'away')},
                      'observed': {o: float((forecasts.loc[forecasts.candidate == cand].outcome == k).mean())

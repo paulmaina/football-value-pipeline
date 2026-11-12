@@ -17,7 +17,7 @@
       "min": 0.6488972236074826
     },
     "ce4_slope": {
-      "last": 0.8067511239797789,
+      "last": 0.8148442933235157,
       "max": 1.0516688856573222,
       "median": 0.9388943172078006,
       "min": 0.7092597865291274
@@ -25,24 +25,24 @@
     "factors_first_fitted_fold": "2018-10-01",
     "factors_last": {
       "goals": {
-        "Bundesliga": 0.10474621054698033,
-        "EPL": 0.2912853518105484,
-        "Eredivisie": -0.21612017445246612,
-        "LaLiga": 0.050345420255066435,
-        "Ligue1": -0.058101517563286575,
-        "PrimeiraLiga": -0.10305241148191704,
-        "SerieA": 0.0763021252212178,
-        "SuperLig": -0.14540500433614315
+        "Bundesliga": 0.11267614335357004,
+        "EPL": 0.31732250646036886,
+        "Eredivisie": -0.21089056507796305,
+        "LaLiga": 0.06889994195407907,
+        "Ligue1": -0.06368736378033271,
+        "PrimeiraLiga": -0.09385408470190663,
+        "SerieA": 0.08814059536331867,
+        "SuperLig": -0.21860717357113418
       },
       "xg": {
-        "Bundesliga": 0.09805804467098272,
-        "EPL": 0.29763726492230347,
-        "Eredivisie": -0.22090141569121916,
-        "LaLiga": 0.059657708590208795,
-        "Ligue1": -0.05795136479339311,
-        "PrimeiraLiga": -0.10480061167522624,
-        "SerieA": 0.07772932900506282,
-        "SuperLig": -0.1494289550287193
+        "Bundesliga": 0.10592762151046503,
+        "EPL": 0.32345385979905145,
+        "Eredivisie": -0.2156538887989627,
+        "LaLiga": 0.07791505527732556,
+        "Ligue1": -0.06335383495939494,
+        "PrimeiraLiga": -0.0956550269377897,
+        "SerieA": 0.0894506019579779,
+        "SuperLig": -0.22208438784867282
       }
     },
     "folds": 119,
@@ -62,6 +62,37 @@
             "CE": {
               "failing_bands": [],
               "forecasts": 822,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8172844999859143,
+                      "home": 0.8259633630380927
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.8172844999859143,
+                      "home": 0.8259633630380927
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": false,
+                      "home": false
+                    },
+                    "fixtures_compared": 822,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": false,
+                      "home": false
+                    }
+                  },
+                  "slopes_pass": false
+                }
+              },
               "mean_forecast": {
                 "away": 0.3459058141786479,
                 "draw": 0.21492457158626746,
@@ -82,6 +113,37 @@
             "CE2": {
               "failing_bands": [],
               "forecasts": 822,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8172844999859143,
+                      "home": 0.8259633630380927
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.8697488579810004,
+                      "home": 0.881237711775317
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 822,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.3478729713297101,
                 "draw": 0.21492457158626746,
@@ -102,6 +164,37 @@
             "CE2c": {
               "failing_bands": [],
               "forecasts": 822,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8172844999859143,
+                      "home": 0.8259633630380927
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.8490193416560975,
+                      "home": 0.8607327779168314
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 822,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.3471231948738591,
                 "draw": 0.21492457158626746,
@@ -122,6 +215,37 @@
             "CE2p": {
               "failing_bands": [],
               "forecasts": 822,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8172844999859143,
+                      "home": 0.8259633630380927
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.8697488579810004,
+                      "home": 0.881237711775317
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 822,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.3478729713297101,
                 "draw": 0.21492457158626746,
@@ -142,6 +266,37 @@
             "CE3": {
               "failing_bands": [],
               "forecasts": 822,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8172844999859143,
+                      "home": 0.8259633630380927
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.9026296676025153,
+                      "home": 0.9291774345758668
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 822,
+                    "in_band": {
+                      "away": true,
+                      "home": true
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.34363576000725804,
                 "draw": 0.21301324082807752,
@@ -162,6 +317,37 @@
             "CE3n": {
               "failing_bands": [],
               "forecasts": 822,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8172844999859143,
+                      "home": 0.8259633630380927
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.9034845646789798,
+                      "home": 0.9273641698944134
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 822,
+                    "in_band": {
+                      "away": true,
+                      "home": true
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.34371545507828094,
                 "draw": 0.21308458722416565,
@@ -182,6 +368,37 @@
             "CE4": {
               "failing_bands": [],
               "forecasts": 822,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8172844999859143,
+                      "home": 0.8259633630380927
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.9332853332310391,
+                      "home": 0.9599918837649013
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 822,
+                    "in_band": {
+                      "away": true,
+                      "home": true
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.34484122019512264,
                 "draw": 0.21301324082807752,
@@ -738,6 +955,37 @@
                 }
               ],
               "forecasts": 332,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": false,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.6058997917139821,
+                      "home": 0.569373459557602
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.6058997917139821,
+                      "home": 0.569373459557602
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": false,
+                      "home": false
+                    },
+                    "fixtures_compared": 332,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": false,
+                      "home": false
+                    }
+                  },
+                  "slopes_pass": false
+                }
+              },
               "mean_forecast": {
                 "away": 0.32292066027346816,
                 "draw": 0.23149524639439042,
@@ -768,6 +1016,37 @@
                 }
               ],
               "forecasts": 332,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": false,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.6058997917139821,
+                      "home": 0.569373459557602
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.6801138134712934,
+                      "home": 0.6658142313567529
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 332,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.3313776314725552,
                 "draw": 0.23149524639439042,
@@ -798,6 +1077,37 @@
                 }
               ],
               "forecasts": 332,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": false,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.6058997917139821,
+                      "home": 0.569373459557602
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.6058997917139821,
+                      "home": 0.569373459557602
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": false,
+                      "home": false
+                    },
+                    "fixtures_compared": 332,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": false,
+                      "home": false
+                    }
+                  },
+                  "slopes_pass": false
+                }
+              },
               "mean_forecast": {
                 "away": 0.32292066027346816,
                 "draw": 0.23149524639439042,
@@ -828,6 +1138,37 @@
                 }
               ],
               "forecasts": 332,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": false,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.6058997917139821,
+                      "home": 0.569373459557602
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.6801138134712934,
+                      "home": 0.6658142313567529
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 332,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.3313776314725552,
                 "draw": 0.23149524639439042,
@@ -848,6 +1189,37 @@
             "CE3": {
               "failing_bands": [],
               "forecasts": 332,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.6058997917139821,
+                      "home": 0.569373459557602
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.6543679509857,
+                      "home": 0.6359251876518588
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 332,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.3280266201128254,
                 "draw": 0.230264010647024,
@@ -868,6 +1240,37 @@
             "CE3n": {
               "failing_bands": [],
               "forecasts": 332,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.6058997917139821,
+                      "home": 0.569373459557602
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.6639459559650257,
+                      "home": 0.6325072121491738
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 332,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.328288199622608,
                 "draw": 0.23010114186699548,
@@ -888,6 +1291,37 @@
             "CE4": {
               "failing_bands": [],
               "forecasts": 332,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.6058997917139821,
+                      "home": 0.569373459557602
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.6879424822729316,
+                      "home": 0.6925861905016825
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 332,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.33117271933771514,
                 "draw": 0.230264010647024,
@@ -1436,6 +1870,37 @@
             "CE": {
               "failing_bands": [],
               "forecasts": 626,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8228637231529963,
+                      "home": 0.8236913379708662
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.8228637231529963,
+                      "home": 0.8236913379708662
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": false,
+                      "home": false
+                    },
+                    "fixtures_compared": 626,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": false,
+                      "home": false
+                    }
+                  },
+                  "slopes_pass": false
+                }
+              },
               "mean_forecast": {
                 "away": 0.3525351801510753,
                 "draw": 0.2097108289041534,
@@ -1456,6 +1921,37 @@
             "CE2": {
               "failing_bands": [],
               "forecasts": 626,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8228637231529963,
+                      "home": 0.8236913379708662
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.8815544792163507,
+                      "home": 0.8821161174026172
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 626,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.35411024512604344,
                 "draw": 0.2097108289041534,
@@ -1476,6 +1972,37 @@
             "CE2c": {
               "failing_bands": [],
               "forecasts": 626,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8228637231529963,
+                      "home": 0.8236913379708662
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.858505601003466,
+                      "home": 0.8599923026330062
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 626,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.353524325590931,
                 "draw": 0.2097108289041534,
@@ -1496,6 +2023,37 @@
             "CE2p": {
               "failing_bands": [],
               "forecasts": 626,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8228637231529963,
+                      "home": 0.8236913379708662
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.8815544792163507,
+                      "home": 0.8821161174026172
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 626,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.35411024512604344,
                 "draw": 0.2097108289041534,
@@ -1516,6 +2074,37 @@
             "CE3": {
               "failing_bands": [],
               "forecasts": 626,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8228637231529963,
+                      "home": 0.8236913379708662
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.9386980527589598,
+                      "home": 0.9196715889787411
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 626,
+                    "in_band": {
+                      "away": true,
+                      "home": true
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.3493336644643493,
                 "draw": 0.20916439481428956,
@@ -1536,6 +2125,37 @@
             "CE3n": {
               "failing_bands": [],
               "forecasts": 626,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8228637231529963,
+                      "home": 0.8236913379708662
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.9333325489575933,
+                      "home": 0.9143297530917095
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 626,
+                    "in_band": {
+                      "away": true,
+                      "home": true
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.3492950841990135,
                 "draw": 0.20903849803122015,
@@ -1556,6 +2176,37 @@
             "CE4": {
               "failing_bands": [],
               "forecasts": 626,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8228637231529963,
+                      "home": 0.8236913379708662
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.972658197922166,
+                      "home": 0.9516676191756022
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 626,
+                    "in_band": {
+                      "away": true,
+                      "home": true
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.3504748004602823,
                 "draw": 0.20916439481428956,
@@ -2102,6 +2753,37 @@
             "CE": {
               "failing_bands": [],
               "forecasts": 196,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.874425915615029,
+                      "home": 0.8424250491648061
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.874425915615029,
+                      "home": 0.8424250491648061
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": false,
+                      "home": false
+                    },
+                    "fixtures_compared": 196,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": false,
+                      "home": false
+                    }
+                  },
+                  "slopes_pass": false
+                }
+              },
               "mean_forecast": {
                 "away": 0.32473243102181315,
                 "draw": 0.23157662729546843,
@@ -2122,6 +2804,37 @@
             "CE2": {
               "failing_bands": [],
               "forecasts": 196,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.874425915615029,
+                      "home": 0.8424250491648061
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.893589153465797,
+                      "home": 0.8755810667082342
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 196,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.3279518825720334,
                 "draw": 0.2315766272954684,
@@ -2142,6 +2855,37 @@
             "CE2c": {
               "failing_bands": [],
               "forecasts": 196,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.874425915615029,
+                      "home": 0.8424250491648061
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.8847981805615084,
+                      "home": 0.8662988536967431
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 196,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.32667876717545613,
                 "draw": 0.23157662729546843,
@@ -2162,6 +2906,37 @@
             "CE2p": {
               "failing_bands": [],
               "forecasts": 196,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.874425915615029,
+                      "home": 0.8424250491648061
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.893589153465797,
+                      "home": 0.8755810667082342
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 196,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.3279518825720334,
                 "draw": 0.2315766272954684,
@@ -2182,6 +2957,37 @@
             "CE3": {
               "failing_bands": [],
               "forecasts": 196,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.874425915615029,
+                      "home": 0.8424250491648061
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.7902486338824877,
+                      "home": 0.9865050502644851
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": false,
+                      "home": true
+                    },
+                    "fixtures_compared": 196,
+                    "in_band": {
+                      "away": false,
+                      "home": true
+                    },
+                    "slope_passes": {
+                      "away": false,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": false
+                }
+              },
               "mean_forecast": {
                 "away": 0.32543735087389497,
                 "draw": 0.22530598370884933,
@@ -2202,6 +3008,37 @@
             "CE3n": {
               "failing_bands": [],
               "forecasts": 196,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.874425915615029,
+                      "home": 0.8424250491648061
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.8215188755329438,
+                      "home": 1.0046911802546945
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": false,
+                      "home": true
+                    },
+                    "fixtures_compared": 196,
+                    "in_band": {
+                      "away": false,
+                      "home": true
+                    },
+                    "slope_passes": {
+                      "away": false,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": false
+                }
+              },
               "mean_forecast": {
                 "away": 0.3258948028865535,
                 "draw": 0.22600730066694044,
@@ -2222,6 +3059,37 @@
             "CE4": {
               "failing_bands": [],
               "forecasts": 196,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.874425915615029,
+                      "home": 0.8424250491648061
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.8080222352393158,
+                      "home": 1.0106537257525343
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": false,
+                      "home": true
+                    },
+                    "fixtures_compared": 196,
+                    "in_band": {
+                      "away": false,
+                      "home": true
+                    },
+                    "slope_passes": {
+                      "away": false,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": false
+                }
+              },
               "mean_forecast": {
                 "away": 0.3268482546543578,
                 "draw": 0.22530598370884933,
@@ -2778,6 +3646,37 @@
                 }
               ],
               "forecasts": 221,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": false,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.606895127477755,
+                      "home": 0.6091608374911827
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.606895127477755,
+                      "home": 0.6091608374911827
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": false,
+                      "home": false
+                    },
+                    "fixtures_compared": 221,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": false,
+                      "home": false
+                    }
+                  },
+                  "slopes_pass": false
+                }
+              },
               "mean_forecast": {
                 "away": 0.33179768301618373,
                 "draw": 0.22279225234337022,
@@ -2808,6 +3707,37 @@
                 }
               ],
               "forecasts": 221,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": false,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.606895127477755,
+                      "home": 0.6091608374911827
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.6799690971936062,
+                      "home": 0.7213838914379616
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 221,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.3395100046135913,
                 "draw": 0.22279225234337022,
@@ -2838,6 +3768,37 @@
                 }
               ],
               "forecasts": 221,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": false,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.606895127477755,
+                      "home": 0.6091608374911827
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.606895127477755,
+                      "home": 0.6091608374911827
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": false,
+                      "home": false
+                    },
+                    "fixtures_compared": 221,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": false,
+                      "home": false
+                    }
+                  },
+                  "slopes_pass": false
+                }
+              },
               "mean_forecast": {
                 "away": 0.33179768301618373,
                 "draw": 0.22279225234337022,
@@ -2868,6 +3829,37 @@
                 }
               ],
               "forecasts": 221,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": false,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.606895127477755,
+                      "home": 0.6091608374911827
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.6799690971936062,
+                      "home": 0.7213838914379616
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 221,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.3395100046135913,
                 "draw": 0.22279225234337022,
@@ -2888,6 +3880,37 @@
             "CE3": {
               "failing_bands": [],
               "forecasts": 221,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.606895127477755,
+                      "home": 0.6091608374911827
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.6265339646286427,
+                      "home": 0.6785570413557048
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 221,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.3396853287305881,
                 "draw": 0.22290957660777783,
@@ -2908,6 +3931,37 @@
             "CE3n": {
               "failing_bands": [],
               "forecasts": 221,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.606895127477755,
+                      "home": 0.6091608374911827
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.6360162308226882,
+                      "home": 0.6745527632479987
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 221,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.34077874572572026,
                 "draw": 0.22306903973013853,
@@ -2928,6 +3982,37 @@
             "CE4": {
               "failing_bands": [],
               "forecasts": 221,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.606895127477755,
+                      "home": 0.6091608374911827
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.6620989333093824,
+                      "home": 0.7462419044961942
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 221,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.34290922852830935,
                 "draw": 0.22290957660777783,
@@ -3474,6 +4559,37 @@
             "CE": {
               "failing_bands": [],
               "forecasts": 111,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.4954907620312358,
+                      "home": 0.35171866627568626
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.4954907620312358,
+                      "home": 0.35171866627568626
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": false,
+                      "home": false
+                    },
+                    "fixtures_compared": 111,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": false,
+                      "home": false
+                    }
+                  },
+                  "slopes_pass": false
+                }
+              },
               "mean_forecast": {
                 "away": 0.3052465879658994,
                 "draw": 0.24882282914461978,
@@ -3494,6 +4610,37 @@
             "CE2": {
               "failing_bands": [],
               "forecasts": 111,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.4954907620312358,
+                      "home": 0.35171866627568626
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.5625645934995838,
+                      "home": 0.38483223823328994
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 111,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.31518614981337534,
                 "draw": 0.24882282914461978,
@@ -3514,6 +4661,37 @@
             "CE2c": {
               "failing_bands": [],
               "forecasts": 111,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.4954907620312358,
+                      "home": 0.35171866627568626
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.4954907620312358,
+                      "home": 0.35171866627568626
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": false,
+                      "home": false
+                    },
+                    "fixtures_compared": 111,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": false,
+                      "home": false
+                    }
+                  },
+                  "slopes_pass": false
+                }
+              },
               "mean_forecast": {
                 "away": 0.3052465879658994,
                 "draw": 0.24882282914461978,
@@ -3534,6 +4712,37 @@
             "CE2p": {
               "failing_bands": [],
               "forecasts": 111,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.4954907620312358,
+                      "home": 0.35171866627568626
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.5625645934995838,
+                      "home": 0.38483223823328994
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 111,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.31518614981337534,
                 "draw": 0.24882282914461978,
@@ -3554,6 +4763,37 @@
             "CE3": {
               "failing_bands": [],
               "forecasts": 111,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.4954907620312358,
+                      "home": 0.35171866627568626
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.7383875031542702,
+                      "home": 0.3796030892774035
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 111,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.30481423628827087,
                 "draw": 0.2449066225630006,
@@ -3574,6 +4814,37 @@
             "CE3n": {
               "failing_bands": [],
               "forecasts": 111,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.4954907620312358,
+                      "home": 0.35171866627568626
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.7424030826072406,
+                      "home": 0.39059707992013887
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 111,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.30341963485875395,
                 "draw": 0.24410199386920597,
@@ -3594,6 +4865,37 @@
             "CE4": {
               "failing_bands": [],
               "forecasts": 111,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.4954907620312358,
+                      "home": 0.35171866627568626
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.7393647416337701,
+                      "home": 0.40157525530512167
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 111,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.3078054352735591,
                 "draw": 0.2449066225630006,
@@ -4399,6 +5701,37 @@
           "CE": {
             "failing_bands": [],
             "forecasts": 546,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": false,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.7847982940661945,
+                    "home": 0.7353520964754988
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.7847982940661945,
+                    "home": 0.7353520964754988
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": false,
+                    "home": false
+                  },
+                  "fixtures_compared": 546,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": false,
+                    "home": false
+                  }
+                },
+                "slopes_pass": false
+              }
+            },
             "mean_forecast": {
               "away": 0.3266078933185353,
               "draw": 0.23764038132551757,
@@ -4419,6 +5752,37 @@
           "CE2": {
             "failing_bands": [],
             "forecasts": 546,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.7847982940661945,
+                    "home": 0.7353520964754988
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.8828134590021033,
+                    "home": 0.8260926983320036
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 546,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "slopes_pass": true
+              }
+            },
             "mean_forecast": {
               "away": 0.33146481956090906,
               "draw": 0.23764038132551762,
@@ -4439,6 +5803,37 @@
           "CE2c": {
             "failing_bands": [],
             "forecasts": 546,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.7847982940661945,
+                    "home": 0.7353520964754988
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.8232441431421113,
+                    "home": 0.7637825706040519
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 546,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "slopes_pass": true
+              }
+            },
             "mean_forecast": {
               "away": 0.32810917614135515,
               "draw": 0.23764038132551762,
@@ -4459,6 +5854,37 @@
           "CE2p": {
             "failing_bands": [],
             "forecasts": 546,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.7847982940661945,
+                    "home": 0.7353520964754988
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.8828134590021033,
+                    "home": 0.8260926983320036
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 546,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "slopes_pass": true
+              }
+            },
             "mean_forecast": {
               "away": 0.33146481956090906,
               "draw": 0.23764038132551762,
@@ -4479,6 +5905,37 @@
           "CE3": {
             "failing_bands": [],
             "forecasts": 546,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.7847982940661945,
+                    "home": 0.7353520964754988
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 1.130358225587975,
+                    "home": 1.1243656259034798
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 546,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "slopes_pass": true
+              }
+            },
             "mean_forecast": {
               "away": 0.32629506206905573,
               "draw": 0.23401421987614437,
@@ -4499,6 +5956,37 @@
           "CE3n": {
             "failing_bands": [],
             "forecasts": 546,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.7847982940661945,
+                    "home": 0.7353520964754988
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 1.1360600133463443,
+                    "home": 1.103843983409971
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 546,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "slopes_pass": true
+              }
+            },
             "mean_forecast": {
               "away": 0.3265740982332108,
               "draw": 0.23402259771976155,
@@ -4519,6 +6007,37 @@
           "CE4": {
             "failing_bands": [],
             "forecasts": 546,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.7847982940661945,
+                    "home": 0.7353520964754988
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 1.1915960593615185,
+                    "home": 1.181749052414484
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 546,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "slopes_pass": true
+              }
+            },
             "mean_forecast": {
               "away": 0.3285256698836927,
               "draw": 0.23401421987614437,
@@ -5078,6 +6597,37 @@
               }
             ],
             "forecasts": 1154,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": false,
+                "baseline": "CE",
+                "passes": false,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.7649262289432861,
+                    "home": 0.7523216845658163
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.7649262289432861,
+                    "home": 0.7523216845658163
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": false,
+                    "home": false
+                  },
+                  "fixtures_compared": 1154,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": false,
+                    "home": false
+                  }
+                },
+                "slopes_pass": false
+              }
+            },
             "mean_forecast": {
               "away": 0.3392931009234315,
               "draw": 0.21969187144441027,
@@ -5098,6 +6648,37 @@
           "CE2": {
             "failing_bands": [],
             "forecasts": 1154,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.7649262289432861,
+                    "home": 0.7523216845658163
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.8296503809742877,
+                    "home": 0.8245650110164489
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 1154,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "slopes_pass": true
+              }
+            },
             "mean_forecast": {
               "away": 0.3431273449583276,
               "draw": 0.21969187144441027,
@@ -5128,6 +6709,37 @@
               }
             ],
             "forecasts": 1154,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": false,
+                "baseline": "CE",
+                "passes": false,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.7649262289432861,
+                    "home": 0.7523216845658163
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.7836590925568053,
+                    "home": 0.77267715431603
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 1154,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "slopes_pass": true
+              }
+            },
             "mean_forecast": {
               "away": 0.34016024731118166,
               "draw": 0.21969187144441027,
@@ -5148,6 +6760,37 @@
           "CE2p": {
             "failing_bands": [],
             "forecasts": 1154,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.7649262289432861,
+                    "home": 0.7523216845658163
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.8296503809742877,
+                    "home": 0.8245650110164489
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 1154,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "slopes_pass": true
+              }
+            },
             "mean_forecast": {
               "away": 0.3431273449583276,
               "draw": 0.21969187144441027,
@@ -5168,6 +6811,37 @@
           "CE3": {
             "failing_bands": [],
             "forecasts": 1154,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.7649262289432861,
+                    "home": 0.7523216845658163
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.8360406788866426,
+                    "home": 0.8401204526850032
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 1154,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "slopes_pass": true
+              }
+            },
             "mean_forecast": {
               "away": 0.3391450889111128,
               "draw": 0.2179762006026791,
@@ -5188,6 +6862,37 @@
           "CE3n": {
             "failing_bands": [],
             "forecasts": 1154,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.7649262289432861,
+                    "home": 0.7523216845658163
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.8397310026386553,
+                    "home": 0.837949843625341
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 1154,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "slopes_pass": true
+              }
+            },
             "mean_forecast": {
               "away": 0.3392771112210162,
               "draw": 0.21798016446976312,
@@ -5208,6 +6913,37 @@
           "CE4": {
             "failing_bands": [],
             "forecasts": 1154,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.7649262289432861,
+                    "home": 0.7523216845658163
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.8702124504708499,
+                    "home": 0.881390899273278
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 1154,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "slopes_pass": true
+              }
+            },
             "mean_forecast": {
               "away": 0.34090886119628444,
               "draw": 0.2179762006026791,
@@ -5757,6 +7493,37 @@
             "CE": {
               "failing_bands": [],
               "forecasts": 101,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8634494036084016,
+                      "home": 0.5306134350044346
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.8634494036084016,
+                      "home": 0.5306134350044346
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": false,
+                      "home": false
+                    },
+                    "fixtures_compared": 101,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": false,
+                      "home": false
+                    }
+                  },
+                  "slopes_pass": false
+                }
+              },
               "mean_forecast": {
                 "away": 0.3402993875168426,
                 "draw": 0.2191602028155581,
@@ -5777,6 +7544,37 @@
             "CE2": {
               "failing_bands": [],
               "forecasts": 101,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8634494036084016,
+                      "home": 0.5306134350044346
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.9985283669019773,
+                      "home": 0.6206009907134626
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 101,
+                    "in_band": {
+                      "away": true,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.34679692598535306,
                 "draw": 0.21916020281555815,
@@ -5797,6 +7595,37 @@
             "CE2c": {
               "failing_bands": [],
               "forecasts": 101,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8634494036084016,
+                      "home": 0.5306134350044346
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.9693011079187627,
+                      "home": 0.6047020820031249
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 101,
+                    "in_band": {
+                      "away": true,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.34620746832268584,
                 "draw": 0.2191602028155581,
@@ -5817,6 +7646,37 @@
             "CE2p": {
               "failing_bands": [],
               "forecasts": 101,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8634494036084016,
+                      "home": 0.5306134350044346
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.9985283669019773,
+                      "home": 0.6206009907134626
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 101,
+                    "in_band": {
+                      "away": true,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.34679692598535306,
                 "draw": 0.21916020281555815,
@@ -5837,6 +7697,37 @@
             "CE3": {
               "failing_bands": [],
               "forecasts": 101,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8634494036084016,
+                      "home": 0.5306134350044346
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.9740608951330928,
+                      "home": 0.8377406573851993
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 101,
+                    "in_band": {
+                      "away": true,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.34642982597781424,
                 "draw": 0.21691602564601706,
@@ -5857,6 +7748,37 @@
             "CE3n": {
               "failing_bands": [],
               "forecasts": 101,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8634494036084016,
+                      "home": 0.5306134350044346
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.9566223560673018,
+                      "home": 0.8461638749094295
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 101,
+                    "in_band": {
+                      "away": true,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.3434841604922111,
                 "draw": 0.21779025459674076,
@@ -5877,6 +7799,37 @@
             "CE4": {
               "failing_bands": [],
               "forecasts": 101,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8634494036084016,
+                      "home": 0.5306134350044346
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.9535222837060571,
+                      "home": 0.8270323826909466
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 101,
+                    "in_band": {
+                      "away": true,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.3461158041753114,
                 "draw": 0.2169160256460171,
@@ -6423,6 +8376,37 @@
             "CE": {
               "failing_bands": [],
               "forecasts": 93,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.6704563868102223,
+                      "home": 0.7689231566289636
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.6704563868102223,
+                      "home": 0.7689231566289636
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": false,
+                      "home": false
+                    },
+                    "fixtures_compared": 93,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": false,
+                      "home": false
+                    }
+                  },
+                  "slopes_pass": false
+                }
+              },
               "mean_forecast": {
                 "away": 0.31129004626699286,
                 "draw": 0.2278209454194784,
@@ -6443,6 +8427,37 @@
             "CE2": {
               "failing_bands": [],
               "forecasts": 93,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.6704563868102223,
+                      "home": 0.7689231566289636
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.8084650354110253,
+                      "home": 0.880036329816735
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 93,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.32059661417845003,
                 "draw": 0.2278209454194784,
@@ -6463,6 +8478,37 @@
             "CE2c": {
               "failing_bands": [],
               "forecasts": 93,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.6704563868102223,
+                      "home": 0.7689231566289636
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.6687481764383909,
+                      "home": 0.748284664599395
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": false,
+                      "home": false
+                    },
+                    "fixtures_compared": 93,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": false,
+                      "home": false
+                    }
+                  },
+                  "slopes_pass": false
+                }
+              },
               "mean_forecast": {
                 "away": 0.3140171714612932,
                 "draw": 0.2278209454194784,
@@ -6483,6 +8529,37 @@
             "CE2p": {
               "failing_bands": [],
               "forecasts": 93,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.6704563868102223,
+                      "home": 0.7689231566289636
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.8084650354110253,
+                      "home": 0.880036329816735
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 93,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.32059661417845003,
                 "draw": 0.2278209454194784,
@@ -6503,6 +8580,37 @@
             "CE3": {
               "failing_bands": [],
               "forecasts": 93,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.6704563868102223,
+                      "home": 0.7689231566289636
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 1.1664929537478508,
+                      "home": 1.11116743764659
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 93,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.30134661182305206,
                 "draw": 0.2304032275720527,
@@ -6523,6 +8631,37 @@
             "CE3n": {
               "failing_bands": [],
               "forecasts": 93,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.6704563868102223,
+                      "home": 0.7689231566289636
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 1.1578108655961616,
+                      "home": 1.0719962954051325
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 93,
+                    "in_band": {
+                      "away": false,
+                      "home": true
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.301201474289045,
                 "draw": 0.23091529632495542,
@@ -6543,6 +8682,37 @@
             "CE4": {
               "failing_bands": [],
               "forecasts": 93,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.6704563868102223,
+                      "home": 0.7689231566289636
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 1.1597800101133169,
+                      "home": 1.1049065063141497
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 93,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.3012875569904518,
                 "draw": 0.2304032275720527,
@@ -7091,6 +9261,37 @@
             "CE": {
               "failing_bands": [],
               "forecasts": 101,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8634494036084016,
+                      "home": 0.5306134350044346
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.8634494036084016,
+                      "home": 0.5306134350044346
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": false,
+                      "home": false
+                    },
+                    "fixtures_compared": 101,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": false,
+                      "home": false
+                    }
+                  },
+                  "slopes_pass": false
+                }
+              },
               "mean_forecast": {
                 "away": 0.3402993875168426,
                 "draw": 0.2191602028155581,
@@ -7111,6 +9312,37 @@
             "CE2": {
               "failing_bands": [],
               "forecasts": 101,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8634494036084016,
+                      "home": 0.5306134350044346
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.9985283669019773,
+                      "home": 0.6206009907134626
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 101,
+                    "in_band": {
+                      "away": true,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.34679692598535306,
                 "draw": 0.21916020281555815,
@@ -7131,6 +9363,37 @@
             "CE2c": {
               "failing_bands": [],
               "forecasts": 101,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8634494036084016,
+                      "home": 0.5306134350044346
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.9693011079187627,
+                      "home": 0.6047020820031249
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 101,
+                    "in_band": {
+                      "away": true,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.34620746832268584,
                 "draw": 0.2191602028155581,
@@ -7151,6 +9414,37 @@
             "CE2p": {
               "failing_bands": [],
               "forecasts": 101,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8634494036084016,
+                      "home": 0.5306134350044346
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.9985283669019773,
+                      "home": 0.6206009907134626
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 101,
+                    "in_band": {
+                      "away": true,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.34679692598535306,
                 "draw": 0.21916020281555815,
@@ -7171,6 +9465,37 @@
             "CE3": {
               "failing_bands": [],
               "forecasts": 101,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8634494036084016,
+                      "home": 0.5306134350044346
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.9740608951330928,
+                      "home": 0.8377406573851993
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 101,
+                    "in_band": {
+                      "away": true,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.34642982597781424,
                 "draw": 0.21691602564601706,
@@ -7191,6 +9516,37 @@
             "CE3n": {
               "failing_bands": [],
               "forecasts": 101,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8634494036084016,
+                      "home": 0.5306134350044346
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.9566223560673018,
+                      "home": 0.8461638749094295
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 101,
+                    "in_band": {
+                      "away": true,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.3434841604922111,
                 "draw": 0.21779025459674076,
@@ -7211,6 +9567,37 @@
             "CE4": {
               "failing_bands": [],
               "forecasts": 101,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.8634494036084016,
+                      "home": 0.5306134350044346
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.9535222837060571,
+                      "home": 0.8270323826909466
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 101,
+                    "in_band": {
+                      "away": true,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.3461158041753114,
                 "draw": 0.2169160256460171,
@@ -7757,6 +10144,37 @@
             "CE": {
               "failing_bands": [],
               "forecasts": 93,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.6704563868102223,
+                      "home": 0.7689231566289636
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.6704563868102223,
+                      "home": 0.7689231566289636
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": false,
+                      "home": false
+                    },
+                    "fixtures_compared": 93,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": false,
+                      "home": false
+                    }
+                  },
+                  "slopes_pass": false
+                }
+              },
               "mean_forecast": {
                 "away": 0.31129004626699286,
                 "draw": 0.2278209454194784,
@@ -7777,6 +10195,37 @@
             "CE2": {
               "failing_bands": [],
               "forecasts": 93,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.6704563868102223,
+                      "home": 0.7689231566289636
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.8084650354110253,
+                      "home": 0.880036329816735
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 93,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.32059661417845003,
                 "draw": 0.2278209454194784,
@@ -7797,6 +10246,37 @@
             "CE2c": {
               "failing_bands": [],
               "forecasts": 93,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": false,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.6704563868102223,
+                      "home": 0.7689231566289636
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.6687481764383909,
+                      "home": 0.748284664599395
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": false,
+                      "home": false
+                    },
+                    "fixtures_compared": 93,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": false,
+                      "home": false
+                    }
+                  },
+                  "slopes_pass": false
+                }
+              },
               "mean_forecast": {
                 "away": 0.3140171714612932,
                 "draw": 0.2278209454194784,
@@ -7817,6 +10297,37 @@
             "CE2p": {
               "failing_bands": [],
               "forecasts": 93,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.6704563868102223,
+                      "home": 0.7689231566289636
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 0.8084650354110253,
+                      "home": 0.880036329816735
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 93,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.32059661417845003,
                 "draw": 0.2278209454194784,
@@ -7837,6 +10348,37 @@
             "CE3": {
               "failing_bands": [],
               "forecasts": 93,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.6704563868102223,
+                      "home": 0.7689231566289636
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 1.1664929537478508,
+                      "home": 1.11116743764659
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 93,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.30134661182305206,
                 "draw": 0.2304032275720527,
@@ -7857,6 +10399,37 @@
             "CE3n": {
               "failing_bands": [],
               "forecasts": 93,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.6704563868102223,
+                      "home": 0.7689231566289636
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 1.1578108655961616,
+                      "home": 1.0719962954051325
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 93,
+                    "in_band": {
+                      "away": false,
+                      "home": true
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.301201474289045,
                 "draw": 0.23091529632495542,
@@ -7877,6 +10450,37 @@
             "CE4": {
               "failing_bands": [],
               "forecasts": 93,
+              "further_rules": {
+                "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                  "bands_pass": true,
+                  "baseline": "CE",
+                  "passes": true,
+                  "relative_slopes": {
+                    "baseline_on_common_fixtures": {
+                      "away": 0.6704563868102223,
+                      "home": 0.7689231566289636
+                    },
+                    "candidate_on_common_fixtures": {
+                      "away": 1.1597800101133169,
+                      "home": 1.1049065063141497
+                    },
+                    "closer_to_one_than_baseline": {
+                      "away": true,
+                      "home": true
+                    },
+                    "fixtures_compared": 93,
+                    "in_band": {
+                      "away": false,
+                      "home": false
+                    },
+                    "slope_passes": {
+                      "away": true,
+                      "home": true
+                    }
+                  },
+                  "slopes_pass": true
+                }
+              },
               "mean_forecast": {
                 "away": 0.3012875569904518,
                 "draw": 0.2304032275720527,
@@ -8682,6 +11286,37 @@
           "CE": {
             "failing_bands": [],
             "forecasts": 75,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": false,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.23389362364562344,
+                    "home": 0.04845679429635244
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.23389362364562344,
+                    "home": 0.04845679429635244
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": false,
+                    "home": false
+                  },
+                  "fixtures_compared": 75,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": false,
+                    "home": false
+                  }
+                },
+                "slopes_pass": false
+              }
+            },
             "mean_forecast": {
               "away": 0.3017056090899457,
               "draw": 0.2383461158138214,
@@ -8702,6 +11337,37 @@
           "CE2": {
             "failing_bands": [],
             "forecasts": 75,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": false,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.23389362364562344,
+                    "home": 0.04845679429635244
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.24635502988876715,
+                    "home": 0.03118546045072217
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": false
+                  },
+                  "fixtures_compared": 75,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": false
+                  }
+                },
+                "slopes_pass": false
+              }
+            },
             "mean_forecast": {
               "away": 0.3123236818605159,
               "draw": 0.23834611581382134,
@@ -8722,6 +11388,37 @@
           "CE2c": {
             "failing_bands": [],
             "forecasts": 75,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": false,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.23389362364562344,
+                    "home": 0.04845679429635244
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.1965250944837117,
+                    "home": 0.01969682408207724
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": false,
+                    "home": false
+                  },
+                  "fixtures_compared": 75,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": false,
+                    "home": false
+                  }
+                },
+                "slopes_pass": false
+              }
+            },
             "mean_forecast": {
               "away": 0.3098770214183927,
               "draw": 0.23834611581382134,
@@ -8742,6 +11439,37 @@
           "CE2p": {
             "failing_bands": [],
             "forecasts": 75,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": false,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.23389362364562344,
+                    "home": 0.04845679429635244
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.24635502988876715,
+                    "home": 0.03118546045072217
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": false
+                  },
+                  "fixtures_compared": 75,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": false
+                  }
+                },
+                "slopes_pass": false
+              }
+            },
             "mean_forecast": {
               "away": 0.3123236818605159,
               "draw": 0.23834611581382134,
@@ -8762,6 +11490,37 @@
           "CE3": {
             "failing_bands": [],
             "forecasts": 75,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.23389362364562344,
+                    "home": 0.04845679429635244
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.7589625452192647,
+                    "home": 0.7729464178763741
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 75,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "slopes_pass": true
+              }
+            },
             "mean_forecast": {
               "away": 0.297631407506901,
               "draw": 0.23852598709469822,
@@ -8782,6 +11541,37 @@
           "CE3n": {
             "failing_bands": [],
             "forecasts": 75,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.23389362364562344,
+                    "home": 0.04845679429635244
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.6957970796658357,
+                    "home": 0.7243169884058634
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 75,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "slopes_pass": true
+              }
+            },
             "mean_forecast": {
               "away": 0.2934846074441198,
               "draw": 0.24033824733527231,
@@ -8802,6 +11592,37 @@
           "CE4": {
             "failing_bands": [],
             "forecasts": 75,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.23389362364562344,
+                    "home": 0.04845679429635244
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.7161519673182013,
+                    "home": 0.7601533129773249
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 75,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "slopes_pass": true
+              }
+            },
             "mean_forecast": {
               "away": 0.29732426848433824,
               "draw": 0.23852598709469822,
@@ -9351,6 +12172,37 @@
           "CE": {
             "failing_bands": [],
             "forecasts": 194,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": false,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.794960634903236,
+                    "home": 0.6163506980488932
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.794960634903236,
+                    "home": 0.6163506980488932
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": false,
+                    "home": false
+                  },
+                  "fixtures_compared": 194,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": false,
+                    "home": false
+                  }
+                },
+                "slopes_pass": false
+              }
+            },
             "mean_forecast": {
               "away": 0.3263928476393373,
               "draw": 0.22331200210506627,
@@ -9371,6 +12223,37 @@
           "CE2": {
             "failing_bands": [],
             "forecasts": 194,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.794960634903236,
+                    "home": 0.6163506980488932
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.9349618028065745,
+                    "home": 0.7153597194313731
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 194,
+                  "in_band": {
+                    "away": true,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "slopes_pass": true
+              }
+            },
             "mean_forecast": {
               "away": 0.3342369826964769,
               "draw": 0.22331200210506624,
@@ -9391,6 +12274,37 @@
           "CE2c": {
             "failing_bands": [],
             "forecasts": 194,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.794960634903236,
+                    "home": 0.6163506980488932
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.8465631071970766,
+                    "home": 0.6597823224087469
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 194,
+                  "in_band": {
+                    "away": false,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "slopes_pass": true
+              }
+            },
             "mean_forecast": {
               "away": 0.33077603735304917,
               "draw": 0.22331200210506624,
@@ -9411,6 +12325,37 @@
           "CE2p": {
             "failing_bands": [],
             "forecasts": 194,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.794960634903236,
+                    "home": 0.6163506980488932
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.9349618028065745,
+                    "home": 0.7153597194313731
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 194,
+                  "in_band": {
+                    "away": true,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "slopes_pass": true
+              }
+            },
             "mean_forecast": {
               "away": 0.3342369826964769,
               "draw": 0.22331200210506624,
@@ -9431,6 +12376,37 @@
           "CE3": {
             "failing_bands": [],
             "forecasts": 194,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.794960634903236,
+                    "home": 0.6163506980488932
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 1.0590619777390182,
+                    "home": 0.9396567285344193
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 194,
+                  "in_band": {
+                    "away": true,
+                    "home": true
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "slopes_pass": true
+              }
+            },
             "mean_forecast": {
               "away": 0.3248177697077479,
               "draw": 0.22338153997138463,
@@ -9451,6 +12427,37 @@
           "CE3n": {
             "failing_bands": [],
             "forecasts": 194,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.794960634903236,
+                    "home": 0.6163506980488932
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 1.044365938875977,
+                    "home": 0.9303592060515175
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 194,
+                  "in_band": {
+                    "away": true,
+                    "home": true
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "slopes_pass": true
+              }
+            },
             "mean_forecast": {
               "away": 0.3232146253535799,
               "draw": 0.2240821560437715,
@@ -9471,6 +12478,37 @@
           "CE4": {
             "failing_bands": [],
             "forecasts": 194,
+            "further_rules": {
+              "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+                "bands_pass": true,
+                "baseline": "CE",
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.794960634903236,
+                    "home": 0.6163506980488932
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 1.0435227844214952,
+                    "home": 0.9313186805066714
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 194,
+                  "in_band": {
+                    "away": true,
+                    "home": true
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "slopes_pass": true
+              }
+            },
             "mean_forecast": {
               "away": 0.3246259743392705,
               "draw": 0.22338153997138466,
@@ -10014,5 +13052,5 @@
       }
     }
   },
-  "run_commit": "be9adb33b99ff1fe10ca4e0c02dca813189969fe"
+  "run_commit": "f4c63c6b5b842831f31c62104dfd940a4bb94477"
 }
