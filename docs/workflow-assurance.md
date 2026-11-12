@@ -2,9 +2,10 @@
 
 ## Pipeline self-test
 
-Each code PR and relevant branch push runs four combinations: Python 3.12 and
-3.14 on Ubuntu and Windows. Manual dispatch is supported. Read-only permissions,
-20-minute job limits, and branch concurrency avoid overlapping duplicate runs.
+Each code PR and relevant branch push runs two combinations: Python 3.14 on
+Ubuntu and Windows (every workflow runs Python 3.14). Manual dispatch is supported.
+Read-only permissions, 30-minute job limits, and branch concurrency avoid
+overlapping duplicate runs.
 All matrix legs run even if one fails.
 
 Each leg checks installed dependencies, compiles every root/test Python module,

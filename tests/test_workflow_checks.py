@@ -376,8 +376,17 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
         review_workflow=yaml.load((workflows/'forward-performance.yml').read_text(),Loader=yaml.BaseLoader)
         matrix=ci['jobs']['self-test']['strategy']['matrix']
         self.assertEqual(set(matrix['os']),{'ubuntu-latest','windows-latest'})
-        self.assertEqual(set(matrix['python']),{'3.12','3.14'})
-        self.assertEqual(matrix['exclude'],[{'os':'windows-latest','python':'3.12'}])
+        self.assertEqual(matrix['python'],['3.14'])
+        self.assertNotIn('exclude',matrix)
+        self.assertEqual(ci['jobs']['self-test']['timeout-minutes'],'30')
+        # Every other workflow sets up the production Python, 3.14.
+        for path in sorted(workflows.glob('*.yml')):
+            if path.name=='pipeline-self-test.yml':
+                continue
+            jobs=yaml.load(path.read_text(encoding='utf-8'),Loader=yaml.BaseLoader)['jobs'].values()
+            setups=[s for job in jobs for s in job.get('steps',[]) if str(s.get('uses','')).startswith('actions/setup-python@')]
+            self.assertTrue(setups,path.name)
+            self.assertEqual({s['with']['python-version'] for s in setups},{'3.14'},path.name)
         self.assertEqual(ci['permissions']['contents'],'read')
         self.assertEqual(review_workflow['permissions']['contents'],'write')
         paths=review_workflow['on']['push']['paths']
