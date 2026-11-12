@@ -179,7 +179,8 @@ fresh `main`:
    its probabilities. Across leagues it writes:
    - the v28 value-tier shortlist (`conservative_bet_shortlist.csv`) and the
      separate cagey tier (`cagey_tier_shortlist.csv`) ([rules](docs/cagey-correction-v28.md);
-     v27 base rules in [docs/price-edge-shortlist-v27.md](docs/price-edge-shortlist-v27.md));
+     v27 base rules in [docs/price-edge-shortlist-v27.md](docs/price-edge-shortlist-v27.md);
+     what its probability columns mean: [docs/cagey-market-basis-v5.md](docs/cagey-market-basis-v5.md#probability-columns-on-cagey_tier_shortlistcsv));
    - `cagey_correction_monitoring.csv`: one correction record per fixture, from
      the correction the shortlist already computed;
    - `price_edge_tagged_candidates.csv` and `bet365_vs_pinnacle.csv`.

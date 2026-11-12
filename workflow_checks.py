@@ -212,7 +212,10 @@ def raw_check(root, *, raw_dir=None):
                 'Current shortlist differs from deterministic ranking replay')
         if policy_version == price_edge_cagey_shortlist.POLICY:
             # The cagey tier is a separate list: bind its rows to the same replay.
-            tier_expected = price_edge_cagey_shortlist.cagey_tier_list(decisions)
+            # Labelled as the run recorded (runs before cagey-own-probabilities-v1 record nothing).
+            tier_labels = summary.get('cagey_tier_labels_version')
+            require(tier_labels in price_edge_cagey_shortlist.TIER_LABELS_VERSIONS, 'Unknown cagey-tier labels version')
+            tier_expected = price_edge_cagey_shortlist.cagey_tier_list(decisions, tier_labels)
             tier_path = raw/price_edge_cagey_shortlist.TIER_FILE
             if replay['cagey_tier']['enabled']:
                 require(tier_path.exists(), 'Missing current cagey-tier shortlist')
@@ -303,6 +306,7 @@ def raw_check(root, *, raw_dir=None):
                          'cagey_tier','shortlist_lookahead_hours','shortlist_window_end_utc']
                         if policy_version == price_edge_cagey_shortlist.POLICY else []),
                       *(['price_edge_execution_version'] if 'price_edge_execution_version' in summary else []),
+                      *(['cagey_tier_labels_version'] if 'cagey_tier_labels_version' in summary else []),
                       'eligible_markets', 'quote_execution_policy'):
             require(equivalent(summary.get(field), replay[field]),
                     f'Current shortlist summary {field} differs from ranking replay')

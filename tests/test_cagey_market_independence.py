@@ -11,7 +11,9 @@ with the training results, shots and xG changed and the research model refitted,
 
 Some research columns ride along on cagey rows because the value tier annotates the shared decision rows
 before the cagey list is cut (RESEARCH_CARRIED). They are labels only: no cagey probability, decision or
-rank reads them, and the test pins that they are the only columns that move.
+rank reads them, and the test pins that they are the only columns that move. Since cagey-own-probabilities-v1
+the list's p_no_loss, predicted_probability and rank_probability carry the cagey tier's own figure, so they
+must not move either; the research no-loss figure is research_p_no_loss.
 """
 from __future__ import annotations
 
@@ -43,7 +45,7 @@ MARKET_PREFIXES = ('market_', 'price_edge_quotes', 'asian_handicap_offers', 'bet
 RESEARCH_FIELDS = ('team_research_json', 'research_history_json', 'research_p_home', 'research_p_draw',
                    'research_p_away', 'research_p_over_1_5', 'research_probability_basis')
 # Value-tier (research) or published-model columns carried on cagey rows; never read by the cagey tier.
-RESEARCH_CARRIED = {'p_no_loss', 'predicted_probability', 'rank_probability', 'in_value_tier', 'decision',
+RESEARCH_CARRIED = {'research_p_no_loss', 'in_value_tier', 'decision',
                     'rejection_reasons', 'selection_tier', 'model_win_share', 'model_vs_pinnacle_gap',
                     'profit_model_fair_odds', 'profit_model_edge', 'profit_probability', 'profit_expected_return',
                     'profit_price_flag', 'research_probability_basis', 'research_coverage', 'research_warnings',
