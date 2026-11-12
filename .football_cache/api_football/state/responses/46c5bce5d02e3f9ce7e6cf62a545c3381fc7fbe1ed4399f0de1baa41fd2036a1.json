@@ -1,1 +1,1 @@
-{"observed":"2026-11-04T10:59:53.203821+00:00","payload":"{\"errors\":[],\"get\":\"fixtures/statistics\",\"paging\":{\"current\":1,\"total\":1},\"parameters\":{\"fixture\":\"1223728\"},\"response\":[],\"results\":0}","query":"/fixtures/statistics?fixture=1223728"}
+{"observed":"2026-11-12T01:30:21.995942+00:00","payload":"{\"errors\":[],\"get\":\"fixtures/statistics\",\"paging\":{\"current\":1,\"total\":1},\"parameters\":{\"fixture\":\"1223728\"},\"response\":[],\"results\":0}","query":"/fixtures/statistics?fixture=1223728"}
