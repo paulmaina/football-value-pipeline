@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest import mock
 
 import numpy as np
 import pandas as pd
@@ -164,24 +165,63 @@ class HoldoutLockTest(unittest.TestCase):
         self.assertIn('data/2526_E0.csv', first['parts'])
         self.assertIn('evaluation_harness.py', first['parts'])
 
+    # The match results (football-data columns); everything else in a row is identity or a pre-match price.
+    RESULTS = ('FTHG', 'FTAG', 'FTR', 'HTHG', 'HTAG', 'HTR', 'HS', 'AS', 'HST', 'AST', 'HF', 'AF', 'HC', 'AC',
+               'HY', 'AY', 'HR', 'AR')
+
     def test_locked_runs_skip_the_holdout_and_holdout_runs_score_only_it(self):
-        cfg = {**CFG, 'test_start': '2026-01-01', 'end_exclusive': '2026-02-15'}
+        # Two fold windows across the holdout start (16 Jan 2026): Eredivisie 10-11 Jan is validation, 17-18 Jan
+        # holdout; EPL 7-8 Jan is validation, 17-18 Jan retrospective. Three seasons are enough training.
+        cfg = {**CFG, 'test_start': '2026-01-05', 'end_exclusive': '2026-01-19', 'seasons': ['2324', '2425', '2526']}
         cache = str(REPO / '.football_cache')
-        locked, _, coverage, _, _, _, research = eh.evaluate_league('Eredivisie', cache, cfg, False)
-        self.assertTrue(locked)
-        self.assertEqual({r['phase'] for r in locked}, {'validation'})
-        # C2's walk-forward fit learns only from what the locked run forecast: no holdout match.
-        self.assertTrue(research)
-        self.assertEqual({r['identity']['phase'] for r in research}, {'validation'})
-        self.assertGreater(coverage['Eredivisie:locked_holdout'], 0)
-        unlocked = eh.evaluate_league('Eredivisie', cache, cfg, True, keep={'D', 'M'})[0]
-        holdout = [r for r in unlocked if r['phase'] == 'holdout']
-        self.assertEqual({r['candidate'] for r in holdout}, {'D', 'M'})
-        self.assertEqual({r['market_book'] for r in holdout}, {'bet365'})
-        self.assertTrue({r['candidate'] for r in unlocked if r['phase'] != 'holdout'} <= {'MP', 'MB'})
-        # Big-league matches after 16 Jan were already scored elsewhere: retrospective, never holdout.
-        retro = eh.evaluate_league('EPL', cache, cfg, False)[0]
-        self.assertIn('retrospective', {r['phase'] for r in retro})
+        load = eh.hb.load_history
+        held = {}
+
+        def without_holdout_results(cache_dir, league, load_cfg):
+            """The cached history with every real holdout result blanked: no run below can score one."""
+            data, sources, extra = load(cache_dir, league, load_cfg)
+            locked = data.Date.map(lambda d: eh.phase(d, league, cfg) == 'holdout')
+            data = data.copy()
+            data.loc[locked, [c for c in self.RESULTS if c in data]] = np.nan
+            held[league] = {'|'.join((league, d.date().isoformat(), h, a)) for d, h, a in
+                            data.loc[locked & (data.Date >= cfg['test_start']) & (data.Date < cfg['end_exclusive']),
+                                     ['Date', 'HomeTeam', 'AwayTeam']].itertuples(index=False)}
+            return data, sources, extra
+
+        scored = []
+
+        def identities_only(identity, matrices, home_goals, away_goals):
+            """Records which fixtures and candidates a holdout run computes, without scoring them."""
+            scored.append((identity['fixture_key'], home_goals, away_goals))
+            return [{**identity, 'candidate': c} for c in matrices]
+
+        with mock.patch.object(eh.hb, 'load_history', without_holdout_results):
+            locked, _, coverage, _, _, calib, research = eh.evaluate_league('Eredivisie', cache, cfg, False)
+            self.assertEqual(len(held['Eredivisie']), 9)
+            self.assertTrue(locked)
+            self.assertEqual({r['phase'] for r in locked}, {'validation'})
+            self.assertEqual({r['phase'] for r in calib}, {'validation'})
+            self.assertFalse(held['Eredivisie'] & {r['fixture_key'] for r in locked})
+            # C2's walk-forward fit learns only from what the locked run forecast: no holdout match.
+            self.assertTrue(research)
+            self.assertEqual({r['identity']['phase'] for r in research}, {'validation'})
+            self.assertEqual(coverage['Eredivisie:locked_holdout'], len(held['Eredivisie']))
+            with mock.patch.object(eh.rb, 'score_fixture', identities_only):
+                unlocked = eh.evaluate_league('Eredivisie', cache, cfg, True, keep={'D', 'M'})[0]
+            holdout = [r for r in unlocked if r['phase'] == 'holdout']
+            # Exactly the holdout fixtures are computed, for the declared candidate and baseline only ...
+            self.assertEqual({r['fixture_key'] for r in holdout}, held['Eredivisie'])
+            self.assertEqual({r['candidate'] for r in holdout}, {'D', 'M'})
+            self.assertEqual({r['market_book'] for r in holdout}, {'bet365'})
+            self.assertTrue({r['candidate'] for r in unlocked if r['phase'] != 'holdout'} <= {'MP', 'MB'})
+            # ... and none of them with a real result: every holdout result reached the scorer blank.
+            blank = [(h, a) for key, h, a in scored if key in held['Eredivisie']]
+            self.assertEqual(len(blank), len(held['Eredivisie']))
+            self.assertTrue(all(np.isnan(h) and np.isnan(a) for h, a in blank))
+            # Big-league matches after 16 Jan were already scored elsewhere: retrospective, never holdout.
+            retro = eh.evaluate_league('EPL', cache, cfg, False)[0]
+            self.assertEqual(held['EPL'], set())
+            self.assertIn('retrospective', {r['phase'] for r in retro})
 
 
 class ReviewGuardTest(unittest.TestCase):
