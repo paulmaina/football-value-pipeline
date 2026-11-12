@@ -373,6 +373,7 @@ Over 1.5 is clear of zero for CE3, CE3n and CE4 in both competitions.
 | Validation, UCL / UEL | 0.53 / 0.86, 0.77 / 0.67 | 0.62 / 1.00, 0.88 / 0.81 | 0.84 / 0.97, 1.11 / 1.17 (both fail) | 0.83 / 0.95, 1.10 / 1.16 (both fail) |
 
 - CE's development band failure (home below 0.1: 5.5% forecast, 14.7% observed) does not appear for CE2, CE3 or CE4. No band fails for them in either period.
+- **Rule v3 (12 Nov 2026; relative slopes, each candidate against CE on the same fixtures; bands as v2).** Development and validation, overall and on UCL: CE fails (it can't be closer than itself), CE2, CE3, CE3n and CE4 pass. UCL knockouts (development): CE3, CE3n, CE4 fail (away 0.79–0.82 against CE's 0.87), CE2 passes. UEL development: CE2 fails on a band, CE3, CE3n and CE4 pass. Details in `docs/plan.md` (release gate) and `evaluation/european_candidates/summary.json` (`further_rules`).
 - Draws are forecast at their level: development 21.8% (CE3) against 21.0% observed.
 
 ### Context, not declared beforehand

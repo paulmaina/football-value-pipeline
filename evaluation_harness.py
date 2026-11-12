@@ -712,16 +712,40 @@ def band_z_threshold(alpha, bands) -> float:
     return float(NormalDist().inv_cdf(1 - alpha / (2 * max(1, bands))))
 
 
-def calibration_check(rows, rule) -> dict:
-    """The configured calibration tolerance (cfg['calibration_tolerance']) on one candidate's 1X2 forecasts
-    in one period: the logistic calibration slope of each named outcome inside [slope_min, slope_max], and
-    no failing outcome band (home, draw and away; width band_width; at least band_min_matches forecasts).
+def calibration_rules(cfg) -> dict:
+    """Every named calibration rule a declaration may name: cfg['calibration_tolerance'] (v2) and the rules in
+    cfg['calibration_tolerance_rules'] (v3, decided 12 Nov 2026), by name."""
+    rules = {cfg['calibration_tolerance']['name']: cfg['calibration_tolerance']}
+    for name, rule in (cfg.get('calibration_tolerance_rules') or {}).get('rules', {}).items():
+        if rule['name'] != name or name in rules:
+            raise ValueError(f'Calibration rule {name!r} is misnamed or duplicated in the config')
+        rules[name] = rule
+    return rules
+
+
+def _slopes(rows, named):
+    names = ('home', 'draw', 'away')
+    probs = np.array([r['probs'] for r in rows], dtype=float)
+    outcomes = np.array([r['outcome'] for r in rows])
+    return {o: calibration_slope(probs[:, names.index(o)], outcomes == names.index(o)) for o in named}
+
+
+def calibration_check(rows, rule, baseline_rows=None) -> dict:
+    """A configured calibration tolerance on one candidate's 1X2 forecasts in one period: the logistic
+    calibration slope of each named outcome inside [slope_min, slope_max], and no failing outcome band
+    (home, draw and away; width band_width; at least band_min_matches forecasts).
 
     v1 (no band_alpha in the rule): a band fails when it is more than band_max_deviation from its observed
     rate. v2 (band_alpha set): it fails only when it is more than band_max_deviation away AND the gap is
     statistically clear, |gap| / sqrt(p(1 - p) / n) above band_z_threshold(band_alpha, bands checked), with
-    p the band's mean forecast. Fails when there are no forecasts."""
+    p the band's mean forecast. v3 (slope_relative_to_baseline): bands as v2; a slope outside
+    [slope_min, slope_max] also passes when its distance from 1 is smaller than the baseline's slope for the
+    same outcome, both fitted on the fixtures both forecast (`baseline_rows`: the declared baseline's rows,
+    matched by fixture_key). Fails when there are no forecasts."""
     rows = list(rows)
+    relative = bool(rule.get('slope_relative_to_baseline'))
+    if relative and baseline_rows is None:
+        raise ValueError(f"Calibration rule {rule['name']!r} compares slopes with the baseline's: pass baseline_rows")
     out = {'rule': rule['name'], 'forecasts': len(rows)}
     if not rows:
         return {**out, 'slopes': {}, 'slopes_pass': False, 'bands_checked': 0, 'band_z_threshold': None,
@@ -729,8 +753,22 @@ def calibration_check(rows, rule) -> dict:
     probs = np.array([r['probs'] for r in rows], dtype=float)
     outcomes = np.array([r['outcome'] for r in rows])
     names = ('home', 'draw', 'away')
-    slopes = {o: calibration_slope(probs[:, names.index(o)], outcomes == names.index(o)) for o in rule['slope_outcomes']}
-    slopes_pass = all(rule['slope_min'] <= v <= rule['slope_max'] for v in slopes.values())
+    slopes = _slopes(rows, rule['slope_outcomes'])
+    in_band = {o: bool(rule['slope_min'] <= v <= rule['slope_max']) for o, v in slopes.items()}
+    slopes_pass = all(in_band.values())
+    if relative:
+        common = {r['fixture_key'] for r in rows} & {r['fixture_key'] for r in baseline_rows}
+        cand = [r for r in rows if r['fixture_key'] in common]
+        base = [r for r in baseline_rows if r['fixture_key'] in common]
+        cand_common = _slopes(cand, rule['slope_outcomes']) if cand else {}
+        base_common = _slopes(base, rule['slope_outcomes']) if base else {}
+        closer = {o: bool(o in cand_common and abs(cand_common[o] - 1) < abs(base_common[o] - 1))
+                  for o in rule['slope_outcomes']}
+        slope_pass = {o: in_band[o] or closer[o] for o in rule['slope_outcomes']}
+        slopes_pass = all(slope_pass.values())
+        out['relative_slopes'] = {'fixtures_compared': len(common), 'candidate_on_common_fixtures': cand_common,
+                                  'baseline_on_common_fixtures': base_common, 'in_band': in_band,
+                                  'closer_to_one_than_baseline': closer, 'slope_passes': slope_pass}
     nbins = int(round(1 / rule['band_width']))
     bands = []
     for k, outcome in enumerate(names):
@@ -805,10 +843,12 @@ def validate_declaration(path, cfg, setup, ledger=LEDGER, candidates=None):
         raise ValueError('Primary metric must be one of ' + ', '.join(GROUPS))
     if sorted(round(float(v), 2) for v in data['draw_sensitive_lines']) != sorted(round(float(v), 2) for v in cfg['draw_sensitive_lines']):
         raise ValueError('Draw-sensitive lines differ from the configured scoring; change the config in a reviewed PR first')
-    rule = cfg['calibration_tolerance']
-    if data['calibration_tolerance'] != rule['name']:
-        raise ValueError(f"Calibration tolerance must name the configured rule {rule['name']!r}; "
+    rules = calibration_rules(cfg)
+    if not isinstance(data['calibration_tolerance'], str) or data['calibration_tolerance'] not in rules:
+        raise ValueError(f"Calibration tolerance must name the configured rule {cfg['calibration_tolerance']['name']!r} "
+                         f"or one in calibration_tolerance_rules ({', '.join(sorted(rules))}); "
                          'change the config in a reviewed PR first')
+    rule = rules[data['calibration_tolerance']]
     entries = json.loads(ledger.read_text(encoding='utf-8')) if ledger.exists() else []
     if any(e['candidate'] == data['candidate'] for e in entries):
         raise ValueError(f"Holdout already scored for candidate {data['candidate']!r}")
@@ -828,7 +868,8 @@ def holdout_verdict(records, calib, declaration, gap, minimum=None):
     primary = paired(hold.loc[hold.group == declaration['primary_metric']], base, cand)
     draw = paired(hold.loc[hold.group == 'AH draw-sensitive'], base, cand)
     calibrated = calibration_check([r for r in calib if r['phase'] == 'holdout' and r['candidate'] == cand],
-                                   declaration['calibration_rule'])
+                                   declaration['calibration_rule'],
+                                   [r for r in calib if r['phase'] == 'holdout' and r['candidate'] == base])
     market = paired(hold.loc[hold.group == declaration['primary_metric']], 'M', cand) if cand != 'M' else None
     bar = max(0., gap.get(declaration['primary_metric'], {}).get('bet365_minus_pinnacle_log_loss', 0.))
     minimum = minimum or promotion_minimums()
@@ -1699,12 +1740,21 @@ def european_summary(records, calib, coverage, cfg, metadata):
     stages = {r['fixture_key']: r['stage_group'] for r in records}
     scores['stage_group'] = scores.fixture_key.map(stages)
     rule = cfg['calibration_tolerance']
+    extra_rules = {n: r for n, r in calibration_rules(cfg).items() if n != rule['name']}
     periods = {}
 
     def table(frame):
         return {group: week_mean(frame.loc[frame.group == group]) for group in GROUPS}
 
-    def block(part, rows):
+    def relative(rows, base_rows):
+        # Further named rules (v3): the candidate against CE, the baseline every European candidate is compared with.
+        comps = sorted({r['league'] for r in rows})
+        return {name: {'baseline': 'CE', 'overall': calibration_check(rows, r, base_rows),
+                       **{c: calibration_check([x for x in rows if x['league'] == c], r,
+                                               [x for x in base_rows if x['league'] == c]) for c in comps}}
+                for name, r in extra_rules.items()}
+
+    def block(part, rows, base_rows=None):
         return {
             'overall': table(part),
             'by_competition': {c: table(p) for c, p in part.groupby('league')},
@@ -1713,13 +1763,16 @@ def european_summary(records, calib, coverage, cfg, metadata):
             'calibration_tolerance_check': {
                 'overall': calibration_check(rows, rule),
                 **{c: calibration_check([r for r in rows if r['league'] == c], rule) for c in sorted({r['league'] for r in rows})}},
+            **({'calibration_tolerance_rules': relative(rows, base_rows)} if base_rows is not None and extra_rules else {}),
         }
     for name in sorted(scores.phase.unique()) if not scores.empty else []:
         part = scores.loc[scores.phase == name]
         rows = [r for r in calib if r['phase'] == name]
         # CE's block keeps its shape; each candidate also gets its own block (never mixed across candidates).
-        periods[name] = {**block(part.loc[part.candidate == 'CE'], [r for r in rows if r['candidate'] == 'CE']),
-                         'by_candidate': {c: block(part.loc[part.candidate == c], [r for r in rows if r['candidate'] == c])
+        ce_rows = [r for r in rows if r['candidate'] == 'CE']
+        periods[name] = {**block(part.loc[part.candidate == 'CE'], ce_rows),
+                         'by_candidate': {c: block(part.loc[part.candidate == c], [r for r in rows if r['candidate'] == c],
+                                                   ce_rows)
                                           for c in sorted(part.candidate.unique())}}
     return {'version': VERSION, 'european_version': cfg['european']['version'], 'candidates': EUROPEAN_CANDIDATES,
             'config': cfg['european'], **metadata, 'coverage': dict(coverage), 'periods': periods,
@@ -1727,7 +1780,8 @@ def european_summary(records, calib, coverage, cfg, metadata):
             'notes': ['Results only: no historical European prices are cached, so there is no market reference (M), '
                       'no cagey tier (D), no published-grid proxy (A) and no market bar. Log loss is against the '
                       'result alone.',
-                      'Calibration rule v2 is reported for information; it is not a gate for European matches.',
+                      'Calibration rules v2 (calibration_tolerance_check) and v3 (calibration_tolerance_rules, each '
+                      'candidate against CE) are reported for information; only a declared run applies one, as a gate.',
                       'CE is the research model as live runs it for UCL/UEL, without the ESPN form live adds (the '
                       'harness has none) and with history to the fold origin.',
                       'Intervals resample whole calendar weeks.',
