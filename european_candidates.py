@@ -219,7 +219,8 @@ def _league_job(args):
 def domestic_strengths(cache, cfg, fixtures, workers=None):
     """Per European fixture (index of `fixtures`: competition, Date, HomeTeam, AwayTeam, origin), each team's
     domestic strength at the fold origin, or None. Identities through the reviewed resolver and the reviewed
-    aliases (manual reviewed aliases only for fixtures before the European holdout start)."""
+    aliases, manual reviewed aliases included, for every fixture (identity mappings; no date limit since
+    12 Nov 2026)."""
     from concurrent.futures import ProcessPoolExecutor
     import european_backfill as eb
     import european_results as er
@@ -231,11 +232,11 @@ def domestic_strengths(cache, cfg, fixtures, workers=None):
     reviewed = eb.load_reviewed_aliases()
     teams = sorted(set(fixtures.HomeTeam) | set(fixtures.AwayTeam))
     (before, _), (after, _) = er.scoped_identities(teams, names, eb.load_domestic_aliases(), reviewed['domestic'])
-    cut = pd.Timestamp(reviewed['applies_before'])
+    cut = None if reviewed['applies_before'] is None else pd.Timestamp(reviewed['applies_before'])
     sides = {}
     requests = {league: {} for league in cfg['leagues']}
     for idx, r in fixtures.iterrows():
-        mapped = before if pd.Timestamp(r.Date) < cut else after
+        mapped = after if cut is not None and pd.Timestamp(r.Date) >= cut else before
         origin = pd.Timestamp(r.origin).date().isoformat()
         for side, team in (('home', r.HomeTeam), ('away', r.AwayTeam)):
             ident = mapped.get(team)

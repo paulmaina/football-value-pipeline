@@ -258,11 +258,17 @@ class BackfillHarnessTest(unittest.TestCase):
 
 class ReviewedAliasesTest(unittest.TestCase):
     """The manual reviewed aliases (docs/audits/european-reviewed-aliases.json, Phase 2c alias review)."""
-    def test_marked_manual_and_scoped_before_the_european_holdout(self):
+    def test_marked_manual_and_scoped_to_every_european_fixture(self):
         data = json.loads(eb.REVIEWED_ALIASES.read_text(encoding='utf-8'))
         self.assertEqual(data['status'], 'manual, approved by Paul in PR review')
-        self.assertEqual(data['applies_before'], eb.LOCK_DATE)
+        self.assertEqual(data['applies_to'], 'all European fixtures')
+        self.assertNotIn('applies_before', data)
+        # The 12 Nov 2026 scope change is recorded with its approval, before any European holdout scoring.
+        self.assertEqual([s['from'] for s in data['scope_history']], ['2026-11-11', '2026-11-12'])
+        self.assertIn('Paul approved this on 12 Nov 2026, before any European holdout scoring',
+                      data['scope_history'][-1]['approved'])
         reviewed = eb.load_reviewed_aliases()
+        self.assertIsNone(reviewed['applies_before'])
         self.assertEqual(reviewed['ucl_names'], {
             'Dinamo Zagreb': 'GNK Dinamo Zagreb', 'Olympiakos Piraeus': 'PAE Olympiakos SFP',
             'Slavia Praha': 'SK Slavia Praha', 'Qarabağ FK': 'Qarabağ Ağdam FK', 'AEK Athen': 'PAE AEK'})
@@ -302,18 +308,23 @@ class ReviewedAliasesTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             er.rename_reviewed(old.assign(Date=LOCK), {'SK Slavia Praha'}, {'Slavia Praha': 'SK Slavia Praha'})
 
-    def test_domestic_reviewed_aliases_apply_only_before_the_european_holdout(self):
+    def test_domestic_reviewed_aliases_link_every_european_fixture(self):
         frame = pd.DataFrame({'Date': pd.date_range('2023-08-01', periods=40, freq='7D'),
                               'HomeTeam': ['Galatasaray', 'Besiktas'] * 20, 'AwayTeam': ['Besiktas', 'Galatasaray'] * 20})
         histories = {'SuperLig': (frame, {'Galatasaray', 'Besiktas'})}
         fixtures = pd.DataFrame({'Date': [pd.Timestamp('2024-06-01'), pd.Timestamp('2025-02-01')],
                                  'HomeTeam': ['Galatasaray SK'] * 2, 'AwayTeam': ['Besiktas'] * 2})
-        flags, _ = er.domestic_form_coverage(fixtures, histories, reviewed={'SuperLig': {'Galatasaray SK': 'Galatasaray'}},
-                                             reviewed_before=eb.LOCK_DATE)
-        self.assertEqual(flags.home_league.iat[0], 'SuperLig')
-        self.assertTrue(pd.isna(flags.home_league.iat[1]))
-        self.assertGreater(flags.home_domestic_matches.iat[0], 0)
-        self.assertEqual(flags.home_domestic_matches.iat[1], 0)
+        reviewed = {'SuperLig': {'Galatasaray SK': 'Galatasaray'}}
+        loaded = eb.load_reviewed_aliases()
+        flags, _ = er.domestic_form_coverage(fixtures, histories, reviewed=reviewed,
+                                             reviewed_before=loaded['applies_before'])
+        self.assertEqual(list(flags.home_league), ['SuperLig', 'SuperLig'])  # before and on/after 21 Jan 2025
+        self.assertTrue((flags.home_domestic_matches > 0).all())
+        # A caller can still pass a date limit (the scope before 12 Nov 2026).
+        limited, _ = er.domestic_form_coverage(fixtures, histories, reviewed=reviewed, reviewed_before=eb.LOCK_DATE)
+        self.assertEqual(limited.home_league.iat[0], 'SuperLig')
+        self.assertTrue(pd.isna(limited.home_league.iat[1]))
+        self.assertEqual(limited.home_domestic_matches.iat[1], 0)
         with self.assertRaises(ValueError):  # never overrides a fixture-evidence alias
             er.merge_aliases({'SerieA': {'SSC Napoli': 'Napoli'}}, {'SerieA': {'SSC Napoli': 'Lazio'}})
 

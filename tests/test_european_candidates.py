@@ -273,12 +273,18 @@ class RealDataTest(unittest.TestCase):
             self.assertIn(name, eh.EUROPEAN_CANDIDATES)
         for name in ('european_candidates.py', 'docs/audits/european-reviewed-aliases.json', 'understat_history.py'):
             self.assertIn(name, eh.EUROPEAN_SETUP_FILES)
-        # Both ledgers are untouched by this candidate work.
-        for ledger in (eh.LEDGER, eh.european_ledger(CFG)):
-            if ledger.exists():
-                data = json.loads(ledger.read_text(encoding='utf-8'))
-                runs = data if isinstance(data, list) else data.get('runs', data.get('entries', []))
-                self.assertFalse([r for r in runs if isinstance(r, dict) and str(r.get('candidate', '')).startswith('CE')])
+        # The domestic ledger never holds a European candidate. The European ledger holds exactly one run:
+        # CE3n against CE, declared in evaluation/declarations/ce3n_european_holdout.json and scored once on
+        # 12 Nov 2026 (not proven). No other European candidate has been scored.
+        domestic = json.loads(eh.LEDGER.read_text(encoding='utf-8')) if eh.LEDGER.exists() else []
+        self.assertFalse([r for r in domestic if str(r.get('candidate', '')).startswith('CE')])
+        european = json.loads(eh.european_ledger(CFG).read_text(encoding='utf-8'))
+        self.assertEqual([(r['candidate'], r['baseline'], r['passes_holdout_gate']) for r in european],
+                         [('CE3n', 'CE', False)])
+        declaration = json.loads((eh.european_ledger(CFG).parent / 'declarations' / 'ce3n_european_holdout.json')
+                                 .read_text(encoding='utf-8'))
+        self.assertEqual(european[0]['declaration_sha256'],
+                         hashlib.sha256(json.dumps(declaration, sort_keys=True).encode()).hexdigest())
 
 
 if __name__ == '__main__':

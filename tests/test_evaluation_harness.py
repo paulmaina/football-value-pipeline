@@ -149,6 +149,13 @@ class HoldoutLockTest(unittest.TestCase):
         declared = eh.validate_declaration(self.declaration(), CFG, self.setup, self.ledger)
         self.assertEqual(declared['calibration_rule'], CFG['calibration_tolerance'])
 
+    def test_a_declaration_may_name_v3_and_carries_it(self):
+        name = 'slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3'
+        declared = eh.validate_declaration(self.declaration(calibration_tolerance=name), CFG, self.setup, self.ledger)
+        self.assertEqual(declared['calibration_rule'], CFG['calibration_tolerance_rules']['rules'][name])
+        with self.assertRaisesRegex(ValueError, 'must name the configured rule'):
+            eh.validate_declaration(self.declaration(calibration_tolerance='description'), CFG, self.setup, self.ledger)
+
     def test_setup_fingerprint_changes_with_code_data_or_config(self):
         cfg = {**CFG, 'leagues': ['EPL'], 'seasons': ['2526']}
         first = eh.setup_fingerprint(cfg, REPO / '.football_cache')
@@ -473,6 +480,61 @@ class CalibrationToleranceTest(unittest.TestCase):
         check = eh.calibration_check(rows, self.RULE)
         self.assertNotIn(('home', .9), [(b['outcome'], b['band_lower']) for b in check['failing_bands']])
         self.assertFalse(eh.calibration_check([], self.RULE)['passes'])
+
+    V3 = CFG['calibration_tolerance_rules']['rules']['slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3']
+
+    @classmethod
+    def keyed(cls, n, flatten=1.):
+        return [{**r, 'fixture_key': f'f{i}'} for i, r in enumerate(cls.forecasts(n, flatten))]
+
+    def test_v3_is_configured_beside_v2_with_the_same_bands(self):
+        self.assertTrue(self.RULE['name'].endswith('-v2'))  # v2 stays the configured rule (C6's record)
+        self.assertEqual(self.V3['decided'], '2026-11-12')
+        self.assertTrue(self.V3['slope_relative_to_baseline'])
+        for key in ('slope_outcomes', 'slope_min', 'slope_max', 'band_width', 'band_min_matches',
+                    'band_max_deviation', 'band_alpha'):
+            self.assertEqual(self.V3[key], self.RULE[key], key)
+        self.assertEqual(set(eh.calibration_rules(CFG)), {self.RULE['name'], self.V3['name']})
+
+    def test_v3_a_slope_outside_the_band_passes_when_closer_to_one_than_the_baseline(self):
+        candidate, baseline = self.keyed(20000, flatten=.87), self.keyed(20000, flatten=.75)
+        v2 = eh.calibration_check(candidate, self.RULE)
+        self.assertFalse(v2['slopes_pass'])
+        self.assertGreater(v2['slopes']['home'], 1.1)
+        v3 = eh.calibration_check(candidate, self.V3, baseline)
+        self.assertTrue(v3['passes'], v3['relative_slopes'])
+        self.assertEqual(v3['relative_slopes']['fixtures_compared'], 20000)
+        self.assertFalse(any(v3['relative_slopes']['in_band'].values()))
+        self.assertTrue(all(v3['relative_slopes']['closer_to_one_than_baseline'].values()))
+        # The other way round, and against itself (not strictly closer), it fails.
+        self.assertFalse(eh.calibration_check(baseline, self.V3, candidate)['slopes_pass'])
+        self.assertFalse(eh.calibration_check(candidate, self.V3, candidate)['slopes_pass'])
+        # In the band it passes whatever the baseline, as under v2.
+        good = self.keyed(20000)
+        self.assertTrue(eh.calibration_check(good, self.V3, good)['passes'])
+        with self.assertRaisesRegex(ValueError, 'baseline_rows'):
+            eh.calibration_check(candidate, self.V3)
+
+    def test_v3_compares_slopes_on_the_fixtures_both_forecast_and_keeps_the_v2_bands(self):
+        candidate, baseline = self.keyed(20000, flatten=.87), self.keyed(20000, flatten=.75)
+        v3 = eh.calibration_check(candidate, self.V3, baseline[:10000])
+        self.assertEqual(v3['relative_slopes']['fixtures_compared'], 10000)
+        banded = [{**r, 'fixture_key': f'b{i}'} for i, r in enumerate(self.band_rows(600, .071, .171))]
+        failing = eh.calibration_check(banded, self.V3, banded)
+        self.assertEqual(failing['failing_bands'], eh.calibration_check(banded, self.RULE)['failing_bands'])
+        self.assertFalse(failing['passes'])
+
+    def test_the_v3_verdict_uses_the_declared_baselines_holdout_forecasts(self):
+        calib = ([{**r, 'phase': 'holdout', 'candidate': 'CE3n'} for r in self.keyed(20000, flatten=.87)]
+                 + [{**r, 'phase': 'holdout', 'candidate': 'CE'} for r in self.keyed(20000, flatten=.75)]
+                 + [{**r, 'phase': 'development', 'candidate': 'CE'} for r in self.keyed(20000, flatten=.95)])
+        declaration = {'candidate': 'CE3n', 'baseline': 'CE', 'primary_metric': 'AH all',
+                       'draw_sensitive_lines': [-.5, 0, .5], 'calibration_rule': self.V3}
+        verdict = eh.holdout_verdict([], calib, declaration, {})
+        self.assertTrue(verdict['calibration']['passes'])
+        self.assertEqual(verdict['calibration']['relative_slopes']['fixtures_compared'], 20000)
+        self.assertIsNone(verdict['versus_market'])  # results only: no market reference
+        self.assertFalse(verdict['passes_holdout_gate'])  # no scores, so no primary metric
 
     def test_the_verdict_applies_the_rule(self):
         calib = [{**r, 'phase': 'holdout', 'candidate': 'D'} for r in self.forecasts(20000, flatten=.75)]
