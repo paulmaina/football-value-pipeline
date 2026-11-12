@@ -25,6 +25,27 @@ their literal corrected meaning and are not relabelled uncorrected values.
 The shared readable columns use the actual chosen market source. Missing
 settlement/timing means unavailable staking, never source substitution.
 
+## Probability columns on `cagey_tier_shortlist.csv`
+
+A cagey row shares its decision row with the value tier, so the raw list also
+carries value-tier and published-model columns. Read the cagey figures from:
+
+| Column | On a cagey row |
+| --- | --- |
+| `cagey_no_loss_probability` | The cagey tier's no-loss probability: what it ranks by (then `cagey_expected_return`, then odds). Earlier rules without it rank by `corrected_no_loss_probability`. |
+| `p_no_loss`, `predicted_probability`, `rank_probability` | The same figure as `cagey_no_loss_probability` (or `corrected_no_loss_probability` for earlier rules). Since `cagey-own-probabilities-v1`. |
+| `probability_basis` | The source of that figure: `cagey_probability_basis` (`pinnacle_cagey_corrected_matrix_v1`, or `pinnacle_uncorrected_matrix_v1` for Over 1.5); `corrected_matrix` for earlier rules. |
+| `cagey_p_win` … `cagey_p_loss`, `cagey_p_profit`, `cagey_expected_return` | The cagey settlement distribution, positive-return probability and expected return. Stakes use these. |
+| `research_p_no_loss`, `research_p_*`, `profit_*`, `in_value_tier` | The value tier's research model on the same offer (`research_p_no_loss` is what `p_no_loss` used to hold; `profit_probability` is what `predicted_probability` and `rank_probability` used to hold). Context only; the cagey tier never reads them. |
+| `model_win_share`, `model_vs_pinnacle_gap` | The published forecast grid. Context only. |
+
+Only the list is relabelled: the shared decision rows
+(`conservative_bet_rejections.csv`) keep the value tier's figures, and no
+decision, ranking, stake, grade or master-shortlist input reads these columns.
+Runs record `cagey_tier_labels_version` in their summary; runs written before
+it (no entry) keep the research figures in those columns, and
+`workflow_checks.py raw` replays each run with the labels it recorded.
+
 Corrected and uncorrected Over 1.5 probabilities, their delta, and the corrected
 draw delta against fresh margin-free Pinnacle 1X2 are visible comparisons.
 Narrow-margin validation is not independent validation of those totals/draw
