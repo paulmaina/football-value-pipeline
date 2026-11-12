@@ -1,0 +1,901 @@
+{
+  "cagey_events_check": {
+    "cagey-events-v1": {
+      "development": {
+        "D": {
+          "baseline": "M",
+          "candidate": "D",
+          "families": {
+            "narrow": {
+              "band_z_threshold": 2.638257273476751,
+              "bands": [
+                {
+                  "band_lower": 0.2,
+                  "mean_forecast": 0.25829048027109025,
+                  "n": 47,
+                  "observed_minus_forecast": -0.0029713313349200576,
+                  "observed_rate": 0.2553191489361702,
+                  "z": 0.0465402686001655
+                },
+                {
+                  "band_lower": 0.3,
+                  "mean_forecast": 0.36264030319794593,
+                  "n": 204,
+                  "observed_minus_forecast": 0.019712637978524628,
+                  "observed_rate": 0.38235294117647056,
+                  "z": 0.5856383340604437
+                },
+                {
+                  "band_lower": 0.4,
+                  "mean_forecast": 0.4560927063204505,
+                  "n": 530,
+                  "observed_minus_forecast": 0.006171444622945721,
+                  "observed_rate": 0.46226415094339623,
+                  "z": 0.2852566425230456
+                },
+                {
+                  "band_lower": 0.5,
+                  "mean_forecast": 0.5593848116513888,
+                  "n": 1283,
+                  "observed_minus_forecast": -0.02080336192418686,
+                  "observed_rate": 0.5385814497272019,
+                  "z": 1.5009346580501866
+                },
+                {
+                  "band_lower": 0.6,
+                  "mean_forecast": 0.6539461269902778,
+                  "n": 3403,
+                  "observed_minus_forecast": -0.0054007258736159525,
+                  "observed_rate": 0.6485454011166618,
+                  "z": 0.6622779040295639
+                },
+                {
+                  "band_lower": 0.7,
+                  "mean_forecast": 0.7284051215240797,
+                  "n": 1400,
+                  "observed_minus_forecast": 0.01659487847592034,
+                  "observed_rate": 0.745,
+                  "z": 1.3960173340141928
+                }
+              ],
+              "bands_checked": 6,
+              "bands_pass": true,
+              "baseline_mean_forecast": 0.5990599701648954,
+              "baseline_slope": 1.0828933781412908,
+              "closer_to_one_than_baseline": true,
+              "events": 6875,
+              "failing_bands": [],
+              "fixtures": 6875,
+              "mean_forecast": 0.6247664874277645,
+              "observed_rate": 0.6224,
+              "passes": true,
+              "slope": 1.0214733726401077,
+              "slope_in_band": true,
+              "slope_passes": true,
+              "weeks": 106
+            },
+            "no_loss": {
+              "band_z_threshold": 2.5758293035489,
+              "bands": [
+                {
+                  "band_lower": 0.4,
+                  "mean_forecast": 0.47122563589088334,
+                  "n": 1212,
+                  "observed_minus_forecast": -0.042182731600454326,
+                  "observed_rate": 0.429042904290429,
+                  "z": 2.9419572602719306
+                },
+                {
+                  "band_lower": 0.5,
+                  "mean_forecast": 0.5537819101257763,
+                  "n": 2909,
+                  "observed_minus_forecast": -0.015108826591915814,
+                  "observed_rate": 0.5386730835338605,
+                  "z": 1.6393044902461662
+                },
+                {
+                  "band_lower": 0.6,
+                  "mean_forecast": 0.6445479522069327,
+                  "n": 3047,
+                  "observed_minus_forecast": -0.01901464075304371,
+                  "observed_rate": 0.625533311453889,
+                  "z": 2.192836366197
+                },
+                {
+                  "band_lower": 0.7,
+                  "mean_forecast": 0.7560159099813132,
+                  "n": 3509,
+                  "observed_minus_forecast": -0.0008149980405893764,
+                  "observed_rate": 0.7552009119407238,
+                  "z": 0.11240924413012582
+                },
+                {
+                  "band_lower": 0.8,
+                  "mean_forecast": 0.83890530390045,
+                  "n": 4260,
+                  "observed_minus_forecast": -0.0008771348863655382,
+                  "observed_rate": 0.8380281690140845,
+                  "z": 0.1557306488534664
+                }
+              ],
+              "bands_checked": 5,
+              "bands_pass": true,
+              "baseline_mean_forecast": 0.6791629318268382,
+              "baseline_slope": 1.0931771853950722,
+              "closer_to_one_than_baseline": true,
+              "events": 14937,
+              "events_by_family_k": {
+                "+0": 4537,
+                "+1": 6340,
+                "+2": 2983,
+                "+3": 769,
+                "-1": 254,
+                "-2": 48,
+                "-3": 6
+              },
+              "events_by_side": {
+                "away": 9831,
+                "home": 5106
+              },
+              "failing_bands": [],
+              "fixtures": 6875,
+              "mean_forecast": 0.694423986099652,
+              "observed_rate": 0.6837383678114749,
+              "passes": true,
+              "slope": 1.0712034086738509,
+              "slope_in_band": true,
+              "slope_passes": true,
+              "weeks": 106
+            }
+          },
+          "passes": true,
+          "rule": "cagey-events-v1"
+        },
+        "M": {
+          "baseline": "M",
+          "candidate": "M",
+          "families": {
+            "narrow": {
+              "band_z_threshold": 2.638257273476751,
+              "bands": [
+                {
+                  "band_lower": 0.2,
+                  "mean_forecast": 0.25945622747265734,
+                  "n": 53,
+                  "observed_minus_forecast": 0.0046947159235690705,
+                  "observed_rate": 0.2641509433962264,
+                  "z": 0.07797220868770927
+                },
+                {
+                  "band_lower": 0.3,
+                  "mean_forecast": 0.36310080040453363,
+                  "n": 274,
+                  "observed_minus_forecast": 0.012811608354590442,
+                  "observed_rate": 0.3759124087591241,
+                  "z": 0.4409912584302881
+                },
+                {
+                  "band_lower": 0.4,
+                  "mean_forecast": 0.4569288507404298,
+                  "n": 656,
+                  "observed_minus_forecast": 0.03087602730835065,
+                  "observed_rate": 0.4878048780487805,
+                  "z": 1.587525390712699
+                },
+                {
+                  "band_lower": 0.5,
+                  "mean_forecast": 0.5586856491088374,
+                  "n": 1580,
+                  "observed_minus_forecast": 0.011567515448124621,
+                  "observed_rate": 0.5702531645569621,
+                  "z": 0.9259997055316727
+                },
+                {
+                  "band_lower": 0.6,
+                  "mean_forecast": 0.6488370210486665,
+                  "n": 3929,
+                  "observed_minus_forecast": 0.02156257172303111,
+                  "observed_rate": 0.6703995927716976,
+                  "z": 2.831518466234534
+                },
+                {
+                  "band_lower": 0.7,
+                  "mean_forecast": 0.7142224233390768,
+                  "n": 383,
+                  "observed_minus_forecast": 0.08734415629538794,
+                  "observed_rate": 0.8015665796344648,
+                  "z": 3.783575686685065
+                }
+              ],
+              "bands_checked": 6,
+              "bands_pass": false,
+              "baseline_mean_forecast": 0.5990599701648954,
+              "baseline_slope": 1.0828933781412908,
+              "closer_to_one_than_baseline": false,
+              "events": 6875,
+              "failing_bands": [
+                {
+                  "band_lower": 0.7,
+                  "mean_forecast": 0.7142224233390768,
+                  "n": 383,
+                  "observed_minus_forecast": 0.08734415629538794,
+                  "observed_rate": 0.8015665796344648,
+                  "z": 3.783575686685065
+                }
+              ],
+              "fixtures": 6875,
+              "mean_forecast": 0.5990599701648954,
+              "observed_rate": 0.6224,
+              "passes": false,
+              "slope": 1.0828933781412908,
+              "slope_in_band": true,
+              "slope_passes": true,
+              "weeks": 106
+            },
+            "no_loss": {
+              "band_z_threshold": 2.5758293035489,
+              "bands": [
+                {
+                  "band_lower": 0.4,
+                  "mean_forecast": 0.46521259918266766,
+                  "n": 1557,
+                  "observed_minus_forecast": -0.021410415496090907,
+                  "observed_rate": 0.44380218368657676,
+                  "z": 1.6937647261426203
+                },
+                {
+                  "band_lower": 0.5,
+                  "mean_forecast": 0.5532456726191355,
+                  "n": 3066,
+                  "observed_minus_forecast": 0.0035057950912363856,
+                  "observed_rate": 0.5567514677103719,
+                  "z": 0.3904623889633838
+                },
+                {
+                  "band_lower": 0.6,
+                  "mean_forecast": 0.6457490486354496,
+                  "n": 3139,
+                  "observed_minus_forecast": -0.0022320049909768658,
+                  "observed_rate": 0.6435170436444727,
+                  "z": 0.2614588936249614
+                },
+                {
+                  "band_lower": 0.7,
+                  "mean_forecast": 0.7559196519708993,
+                  "n": 3658,
+                  "observed_minus_forecast": 0.02046088384101985,
+                  "observed_rate": 0.7763805358119191,
+                  "z": 2.8809917553681146
+                },
+                {
+                  "band_lower": 0.8,
+                  "mean_forecast": 0.8336392132338848,
+                  "n": 3517,
+                  "observed_minus_forecast": 0.006565506697875256,
+                  "observed_rate": 0.84020471993176,
+                  "z": 1.0455381461689042
+                }
+              ],
+              "bands_checked": 5,
+              "bands_pass": true,
+              "baseline_mean_forecast": 0.6791629318268382,
+              "baseline_slope": 1.0931771853950722,
+              "closer_to_one_than_baseline": false,
+              "events": 14937,
+              "events_by_family_k": {
+                "+0": 4537,
+                "+1": 6340,
+                "+2": 2983,
+                "+3": 769,
+                "-1": 254,
+                "-2": 48,
+                "-3": 6
+              },
+              "events_by_side": {
+                "away": 9831,
+                "home": 5106
+              },
+              "failing_bands": [],
+              "fixtures": 6875,
+              "mean_forecast": 0.6791629318268382,
+              "observed_rate": 0.6837383678114749,
+              "passes": true,
+              "slope": 1.0931771853950722,
+              "slope_in_band": true,
+              "slope_passes": true,
+              "weeks": 106
+            }
+          },
+          "passes": false,
+          "rule": "cagey-events-v1"
+        }
+      },
+      "retrospective": {
+        "D": {
+          "baseline": "M",
+          "candidate": "D",
+          "families": {
+            "narrow": {
+              "band_z_threshold": 2.4977054744123737,
+              "bands": [
+                {
+                  "band_lower": 0.4,
+                  "mean_forecast": 0.4562689748725032,
+                  "n": 105,
+                  "observed_minus_forecast": -0.01817373677726508,
+                  "observed_rate": 0.4380952380952381,
+                  "z": 0.3738835489984574
+                },
+                {
+                  "band_lower": 0.5,
+                  "mean_forecast": 0.561543835774907,
+                  "n": 292,
+                  "observed_minus_forecast": 0.0069493149100245954,
+                  "observed_rate": 0.5684931506849316,
+                  "z": 0.23931972537899104
+                },
+                {
+                  "band_lower": 0.6,
+                  "mean_forecast": 0.6509506480688685,
+                  "n": 753,
+                  "observed_minus_forecast": 0.02501216733617795,
+                  "observed_rate": 0.6759628154050464,
+                  "z": 1.4398967908307514
+                },
+                {
+                  "band_lower": 0.7,
+                  "mean_forecast": 0.7288332921564574,
+                  "n": 241,
+                  "observed_minus_forecast": -0.0068415909116441576,
+                  "observed_rate": 0.7219917012448133,
+                  "z": 0.2389094552858439
+                }
+              ],
+              "bands_checked": 4,
+              "bands_pass": true,
+              "baseline_mean_forecast": 0.5996690921502902,
+              "baseline_slope": 1.0782413657980263,
+              "closer_to_one_than_baseline": true,
+              "events": 1436,
+              "failing_bands": [],
+              "fixtures": 1436,
+              "mean_forecast": 0.621761627190873,
+              "observed_rate": 0.6364902506963789,
+              "passes": true,
+              "slope": 0.9581556716114112,
+              "slope_in_band": true,
+              "slope_passes": true,
+              "weeks": 29
+            },
+            "no_loss": {
+              "band_z_threshold": 2.5758293035489,
+              "bands": [
+                {
+                  "band_lower": 0.4,
+                  "mean_forecast": 0.4675562131772084,
+                  "n": 320,
+                  "observed_minus_forecast": 0.016818786822791587,
+                  "observed_rate": 0.484375,
+                  "z": 0.6029979796862384
+                },
+                {
+                  "band_lower": 0.5,
+                  "mean_forecast": 0.5533716851396095,
+                  "n": 593,
+                  "observed_minus_forecast": -0.04746949289677649,
+                  "observed_rate": 0.5059021922428331,
+                  "z": 2.3252001697395466
+                },
+                {
+                  "band_lower": 0.6,
+                  "mean_forecast": 0.6464047529312242,
+                  "n": 648,
+                  "observed_minus_forecast": 0.003286605093467121,
+                  "observed_rate": 0.6496913580246914,
+                  "z": 0.17499657425993714
+                },
+                {
+                  "band_lower": 0.7,
+                  "mean_forecast": 0.7534721423925347,
+                  "n": 717,
+                  "observed_minus_forecast": 0.0038500333396829234,
+                  "observed_rate": 0.7573221757322176,
+                  "z": 0.2391979577322653
+                },
+                {
+                  "band_lower": 0.8,
+                  "mean_forecast": 0.8357299418007005,
+                  "n": 821,
+                  "observed_minus_forecast": 0.0010544674563032208,
+                  "observed_rate": 0.8367844092570037,
+                  "z": 0.08154410545780014
+                }
+              ],
+              "bands_checked": 5,
+              "bands_pass": true,
+              "baseline_mean_forecast": 0.6717742610745989,
+              "baseline_slope": 1.0840240551853566,
+              "closer_to_one_than_baseline": true,
+              "events": 3099,
+              "events_by_family_k": {
+                "+0": 1018,
+                "+1": 1286,
+                "+2": 518,
+                "+3": 103,
+                "-1": 130,
+                "-2": 37,
+                "-3": 7
+              },
+              "events_by_side": {
+                "away": 1968,
+                "home": 1131
+              },
+              "failing_bands": [],
+              "fixtures": 1436,
+              "mean_forecast": 0.6850634029421591,
+              "observed_rate": 0.6795740561471443,
+              "passes": true,
+              "slope": 1.06501476188634,
+              "slope_in_band": true,
+              "slope_passes": true,
+              "weeks": 29
+            }
+          },
+          "passes": true,
+          "rule": "cagey-events-v1"
+        },
+        "M": {
+          "baseline": "M",
+          "candidate": "M",
+          "families": {
+            "narrow": {
+              "band_z_threshold": 2.5758293035489,
+              "bands": [
+                {
+                  "band_lower": 0.3,
+                  "mean_forecast": 0.3525842449142853,
+                  "n": 32,
+                  "observed_minus_forecast": 0.1161657550857147,
+                  "observed_rate": 0.46875,
+                  "z": 1.3754031855238538
+                },
+                {
+                  "band_lower": 0.4,
+                  "mean_forecast": 0.45232234339545396,
+                  "n": 125,
+                  "observed_minus_forecast": -0.004322343395453954,
+                  "observed_rate": 0.448,
+                  "z": 0.09709295999864978
+                },
+                {
+                  "band_lower": 0.5,
+                  "mean_forecast": 0.5606364296782497,
+                  "n": 375,
+                  "observed_minus_forecast": 0.018030236988416992,
+                  "observed_rate": 0.5786666666666667,
+                  "z": 0.7035004659249643
+                },
+                {
+                  "band_lower": 0.6,
+                  "mean_forecast": 0.6454501191737831,
+                  "n": 818,
+                  "observed_minus_forecast": 0.05381638449369852,
+                  "observed_rate": 0.6992665036674817,
+                  "z": 3.2175192568047355
+                },
+                {
+                  "band_lower": 0.7,
+                  "mean_forecast": 0.7152456744841904,
+                  "n": 72,
+                  "observed_minus_forecast": -0.006912341150857038,
+                  "observed_rate": 0.7083333333333334,
+                  "z": 0.12996566322388706
+                }
+              ],
+              "bands_checked": 5,
+              "bands_pass": false,
+              "baseline_mean_forecast": 0.5996690921502902,
+              "baseline_slope": 1.0782413657980263,
+              "closer_to_one_than_baseline": false,
+              "events": 1436,
+              "failing_bands": [
+                {
+                  "band_lower": 0.6,
+                  "mean_forecast": 0.6454501191737831,
+                  "n": 818,
+                  "observed_minus_forecast": 0.05381638449369852,
+                  "observed_rate": 0.6992665036674817,
+                  "z": 3.2175192568047355
+                }
+              ],
+              "fixtures": 1436,
+              "mean_forecast": 0.5996690921502902,
+              "observed_rate": 0.6364902506963789,
+              "passes": false,
+              "slope": 1.0782413657980263,
+              "slope_in_band": true,
+              "slope_passes": true,
+              "weeks": 29
+            },
+            "no_loss": {
+              "band_z_threshold": 2.5758293035489,
+              "bands": [
+                {
+                  "band_lower": 0.4,
+                  "mean_forecast": 0.4622783053656838,
+                  "n": 382,
+                  "observed_minus_forecast": 0.029868291492954946,
+                  "observed_rate": 0.49214659685863876,
+                  "z": 1.1708776790401738
+                },
+                {
+                  "band_lower": 0.5,
+                  "mean_forecast": 0.5537513243369986,
+                  "n": 624,
+                  "observed_minus_forecast": -0.037725683311357505,
+                  "observed_rate": 0.5160256410256411,
+                  "z": 1.8957608510624013
+                },
+                {
+                  "band_lower": 0.6,
+                  "mean_forecast": 0.6469824425423226,
+                  "n": 665,
+                  "observed_minus_forecast": 0.023694249187000693,
+                  "observed_rate": 0.6706766917293233,
+                  "z": 1.2785254391596952
+                },
+                {
+                  "band_lower": 0.7,
+                  "mean_forecast": 0.7546121010996603,
+                  "n": 742,
+                  "observed_minus_forecast": 0.01627738677095969,
+                  "observed_rate": 0.77088948787062,
+                  "z": 1.0303818069711235
+                },
+                {
+                  "band_lower": 0.8,
+                  "mean_forecast": 0.8302212721976845,
+                  "n": 686,
+                  "observed_minus_forecast": 0.01234432546995401,
+                  "observed_rate": 0.8425655976676385,
+                  "z": 0.8611738935919638
+                }
+              ],
+              "bands_checked": 5,
+              "bands_pass": true,
+              "baseline_mean_forecast": 0.6717742610745989,
+              "baseline_slope": 1.0840240551853566,
+              "closer_to_one_than_baseline": false,
+              "events": 3099,
+              "events_by_family_k": {
+                "+0": 1018,
+                "+1": 1286,
+                "+2": 518,
+                "+3": 103,
+                "-1": 130,
+                "-2": 37,
+                "-3": 7
+              },
+              "events_by_side": {
+                "away": 1968,
+                "home": 1131
+              },
+              "failing_bands": [],
+              "fixtures": 1436,
+              "mean_forecast": 0.6717742610745989,
+              "observed_rate": 0.6795740561471443,
+              "passes": true,
+              "slope": 1.0840240551853566,
+              "slope_in_band": true,
+              "slope_passes": true,
+              "weeks": 29
+            }
+          },
+          "passes": false,
+          "rule": "cagey-events-v1"
+        }
+      },
+      "validation": {
+        "D": {
+          "baseline": "M",
+          "candidate": "D",
+          "families": {
+            "narrow": {
+              "band_z_threshold": 2.5758293035489,
+              "bands": [
+                {
+                  "band_lower": 0.3,
+                  "mean_forecast": 0.3673773959922488,
+                  "n": 31,
+                  "observed_minus_forecast": -0.10931287986321653,
+                  "observed_rate": 0.25806451612903225,
+                  "z": 1.2624774058388442
+                },
+                {
+                  "band_lower": 0.4,
+                  "mean_forecast": 0.45333857549475104,
+                  "n": 83,
+                  "observed_minus_forecast": 0.01654094257753813,
+                  "observed_rate": 0.46987951807228917,
+                  "z": 0.30271138003828735
+                },
+                {
+                  "band_lower": 0.5,
+                  "mean_forecast": 0.5591611986878791,
+                  "n": 222,
+                  "observed_minus_forecast": -0.05015218967887003,
+                  "observed_rate": 0.509009009009009,
+                  "z": 1.5050743921141183
+                },
+                {
+                  "band_lower": 0.6,
+                  "mean_forecast": 0.6537771238023585,
+                  "n": 642,
+                  "observed_minus_forecast": 0.020677704858077628,
+                  "observed_rate": 0.6744548286604362,
+                  "z": 1.1012276471576457
+                },
+                {
+                  "band_lower": 0.7,
+                  "mean_forecast": 0.7296539298951632,
+                  "n": 322,
+                  "observed_minus_forecast": -0.0029458553610016702,
+                  "observed_rate": 0.7267080745341615,
+                  "z": 0.11902025105902594
+                }
+              ],
+              "bands_checked": 5,
+              "bands_pass": true,
+              "baseline_mean_forecast": 0.607965273943101,
+              "baseline_slope": 1.3060866779941491,
+              "closer_to_one_than_baseline": true,
+              "events": 1305,
+              "failing_bands": [],
+              "fixtures": 1305,
+              "mean_forecast": 0.6352651572161212,
+              "observed_rate": 0.6344827586206897,
+              "passes": true,
+              "slope": 1.205982334141458,
+              "slope_in_band": false,
+              "slope_passes": true,
+              "weeks": 22
+            },
+            "no_loss": {
+              "band_z_threshold": 2.5758293035489,
+              "bands": [
+                {
+                  "band_lower": 0.4,
+                  "mean_forecast": 0.4720116924820842,
+                  "n": 240,
+                  "observed_minus_forecast": 0.02382164085124916,
+                  "observed_rate": 0.49583333333333335,
+                  "z": 0.7392456242964638
+                },
+                {
+                  "band_lower": 0.5,
+                  "mean_forecast": 0.5553217496625364,
+                  "n": 541,
+                  "observed_minus_forecast": 0.0010553298199035277,
+                  "observed_rate": 0.55637707948244,
+                  "z": 0.04939597438449635
+                },
+                {
+                  "band_lower": 0.6,
+                  "mean_forecast": 0.6435828676753079,
+                  "n": 568,
+                  "observed_minus_forecast": -0.0361885014781248,
+                  "observed_rate": 0.6073943661971831,
+                  "z": 1.8007907228587017
+                },
+                {
+                  "band_lower": 0.7,
+                  "mean_forecast": 0.7566236059398561,
+                  "n": 661,
+                  "observed_minus_forecast": 0.017960357751520606,
+                  "observed_rate": 0.7745839636913767,
+                  "z": 1.0760601376932246
+                },
+                {
+                  "band_lower": 0.8,
+                  "mean_forecast": 0.8402787195569567,
+                  "n": 813,
+                  "observed_minus_forecast": -0.014940466174422795,
+                  "observed_rate": 0.8253382533825339,
+                  "z": 1.1628303204252584
+                }
+              ],
+              "bands_checked": 5,
+              "bands_pass": true,
+              "baseline_mean_forecast": 0.6791987708517203,
+              "baseline_slope": 1.0032392053087995,
+              "closer_to_one_than_baseline": false,
+              "events": 2823,
+              "events_by_family_k": {
+                "+0": 906,
+                "+1": 1216,
+                "+2": 526,
+                "+3": 115,
+                "-1": 48,
+                "-2": 11,
+                "-3": 1
+              },
+              "events_by_side": {
+                "away": 1846,
+                "home": 977
+              },
+              "failing_bands": [],
+              "fixtures": 1305,
+              "mean_forecast": 0.6951972171904915,
+              "observed_rate": 0.6900460503010981,
+              "passes": true,
+              "slope": 0.9661296731264079,
+              "slope_in_band": true,
+              "slope_passes": true,
+              "weeks": 22
+            }
+          },
+          "passes": true,
+          "rule": "cagey-events-v1"
+        },
+        "M": {
+          "baseline": "M",
+          "candidate": "M",
+          "families": {
+            "narrow": {
+              "band_z_threshold": 2.5758293035489,
+              "bands": [
+                {
+                  "band_lower": 0.3,
+                  "mean_forecast": 0.36615990651614805,
+                  "n": 44,
+                  "observed_minus_forecast": -0.11615990651614805,
+                  "observed_rate": 0.25,
+                  "z": 1.599400930440949
+                },
+                {
+                  "band_lower": 0.4,
+                  "mean_forecast": 0.45637919066584026,
+                  "n": 104,
+                  "observed_minus_forecast": 0.05323619394954432,
+                  "observed_rate": 0.5096153846153846,
+                  "z": 1.0899654077186904
+                },
+                {
+                  "band_lower": 0.5,
+                  "mean_forecast": 0.557664139668968,
+                  "n": 282,
+                  "observed_minus_forecast": -0.03284144463350702,
+                  "observed_rate": 0.524822695035461,
+                  "z": 1.1104125793965667
+                },
+                {
+                  "band_lower": 0.6,
+                  "mean_forecast": 0.6496730645210304,
+                  "n": 774,
+                  "observed_minus_forecast": 0.05704528173219958,
+                  "observed_rate": 0.7067183462532299,
+                  "z": 3.3266415992448897
+                },
+                {
+                  "band_lower": 0.7,
+                  "mean_forecast": 0.7132655319198183,
+                  "n": 96,
+                  "observed_minus_forecast": -0.0049321985864849704,
+                  "observed_rate": 0.7083333333333334,
+                  "z": 0.10685887583137577
+                }
+              ],
+              "bands_checked": 5,
+              "bands_pass": false,
+              "baseline_mean_forecast": 0.607965273943101,
+              "baseline_slope": 1.3060866779941491,
+              "closer_to_one_than_baseline": false,
+              "events": 1305,
+              "failing_bands": [
+                {
+                  "band_lower": 0.6,
+                  "mean_forecast": 0.6496730645210304,
+                  "n": 774,
+                  "observed_minus_forecast": 0.05704528173219958,
+                  "observed_rate": 0.7067183462532299,
+                  "z": 3.3266415992448897
+                }
+              ],
+              "fixtures": 1305,
+              "mean_forecast": 0.607965273943101,
+              "observed_rate": 0.6344827586206897,
+              "passes": false,
+              "slope": 1.3060866779941491,
+              "slope_in_band": false,
+              "slope_passes": false,
+              "weeks": 22
+            },
+            "no_loss": {
+              "band_z_threshold": 2.5758293035489,
+              "bands": [
+                {
+                  "band_lower": 0.4,
+                  "mean_forecast": 0.46549124135709685,
+                  "n": 301,
+                  "observed_minus_forecast": 0.04281440648343471,
+                  "observed_rate": 0.5083056478405316,
+                  "z": 1.489155349134391
+                },
+                {
+                  "band_lower": 0.5,
+                  "mean_forecast": 0.5544787746238887,
+                  "n": 577,
+                  "observed_minus_forecast": -0.0016191559063843952,
+                  "observed_rate": 0.5528596187175043,
+                  "z": 0.07825280469789973
+                },
+                {
+                  "band_lower": 0.6,
+                  "mean_forecast": 0.643957224450943,
+                  "n": 577,
+                  "observed_minus_forecast": -0.011374902093924,
+                  "observed_rate": 0.6325823223570191,
+                  "z": 0.5706318062301575
+                },
+                {
+                  "band_lower": 0.7,
+                  "mean_forecast": 0.7551140116889569,
+                  "n": 695,
+                  "observed_minus_forecast": 0.020425556656366917,
+                  "observed_rate": 0.7755395683453238,
+                  "z": 1.2522126033950605
+                },
+                {
+                  "band_lower": 0.8,
+                  "mean_forecast": 0.8335266818364298,
+                  "n": 673,
+                  "observed_minus_forecast": 0.016399023958518222,
+                  "observed_rate": 0.849925705794948,
+                  "z": 1.1420719397335704
+                }
+              ],
+              "bands_checked": 5,
+              "bands_pass": true,
+              "baseline_mean_forecast": 0.6791987708517203,
+              "baseline_slope": 1.0032392053087995,
+              "closer_to_one_than_baseline": false,
+              "events": 2823,
+              "events_by_family_k": {
+                "+0": 906,
+                "+1": 1216,
+                "+2": 526,
+                "+3": 115,
+                "-1": 48,
+                "-2": 11,
+                "-3": 1
+              },
+              "events_by_side": {
+                "away": 1846,
+                "home": 977
+              },
+              "failing_bands": [],
+              "fixtures": 1305,
+              "mean_forecast": 0.6791987708517203,
+              "observed_rate": 0.6900460503010981,
+              "passes": true,
+              "slope": 1.0032392053087995,
+              "slope_in_band": true,
+              "slope_passes": true,
+              "weeks": 22
+            }
+          },
+          "passes": false,
+          "rule": "cagey-events-v1"
+        }
+      }
+    }
+  },
+  "config_sha256": "97b8b162bfa0fb98f8ac27b7a227b6bb605f09337c2e0620f0849ce9e2d7ad05",
+  "outputs_unchanged": {
+    "fixture_scores.csv_sha256_prefix": "4d7fa12fd753",
+    "forecasts_1x2.csv_sha256_prefix": "843ac3d829e0",
+    "note": "byte-identical to PR #166 (main at 68c74e5)"
+  },
+  "source": "evaluation_harness.py --output <dir> (locked: development, validation, retrospective; 646 holdout matches skipped)",
+  "source_commit": "63cd67c71d50ac99b6cf9376322a3457124ecd18"
+}
