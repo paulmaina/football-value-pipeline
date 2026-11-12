@@ -45,7 +45,7 @@ jobs:
       - uses: actions/setup-python@v7
         if: steps.plan.outputs.ready == 'true'
         with:
-          python-version: '3.12'
+          python-version: '3.14'
           cache: pip
           cache-dependency-path: football_value_requirements.txt
       - name: Install runtime dependencies only for an upcoming fixture
