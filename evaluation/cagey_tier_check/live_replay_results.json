@@ -1,0 +1,854 @@
+{
+  "calibration_binary_offers": [
+    {
+      "bin_lower": 0.0,
+      "candidate": "A",
+      "market_group": "Double chance",
+      "mean_forecast": 0.08473993886851064,
+      "n": 1,
+      "observed_rate": 0.0
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "A",
+      "market_group": "Double chance",
+      "mean_forecast": 0.1481230391508641,
+      "n": 1,
+      "observed_rate": 0.0
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "A",
+      "market_group": "Double chance",
+      "mean_forecast": 0.2506130293677804,
+      "n": 8,
+      "observed_rate": 0.25
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "A",
+      "market_group": "Double chance",
+      "mean_forecast": 0.35319162792148934,
+      "n": 6,
+      "observed_rate": 0.16666666666666666
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "A",
+      "market_group": "Double chance",
+      "mean_forecast": 0.4512630026264125,
+      "n": 22,
+      "observed_rate": 0.36363636363636365
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "A",
+      "market_group": "Double chance",
+      "mean_forecast": 0.5500917229440795,
+      "n": 19,
+      "observed_rate": 0.5789473684210527
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "A",
+      "market_group": "Double chance",
+      "mean_forecast": 0.6556079389230358,
+      "n": 25,
+      "observed_rate": 0.6
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "A",
+      "market_group": "Double chance",
+      "mean_forecast": 0.7534579621752862,
+      "n": 24,
+      "observed_rate": 0.9166666666666666
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "A",
+      "market_group": "Double chance",
+      "mean_forecast": 0.845610772802633,
+      "n": 19,
+      "observed_rate": 0.7894736842105263
+    },
+    {
+      "bin_lower": 0.9,
+      "candidate": "A",
+      "market_group": "Double chance",
+      "mean_forecast": 0.9361921587461209,
+      "n": 5,
+      "observed_rate": 0.8
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "A",
+      "market_group": "Win",
+      "mean_forecast": 0.06575194840625836,
+      "n": 8,
+      "observed_rate": 0.125
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "A",
+      "market_group": "Win",
+      "mean_forecast": 0.15612957757046508,
+      "n": 25,
+      "observed_rate": 0.16
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "A",
+      "market_group": "Win",
+      "mean_forecast": 0.25368987366192447,
+      "n": 37,
+      "observed_rate": 0.16216216216216217
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "A",
+      "market_group": "Win",
+      "mean_forecast": 0.3491286716902226,
+      "n": 32,
+      "observed_rate": 0.40625
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "A",
+      "market_group": "Win",
+      "mean_forecast": 0.44526183319848606,
+      "n": 29,
+      "observed_rate": 0.41379310344827586
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "A",
+      "market_group": "Win",
+      "mean_forecast": 0.546423898299202,
+      "n": 27,
+      "observed_rate": 0.6296296296296297
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "A",
+      "market_group": "Win",
+      "mean_forecast": 0.642415256774962,
+      "n": 10,
+      "observed_rate": 0.9
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "A",
+      "market_group": "Win",
+      "mean_forecast": 0.7498745625844082,
+      "n": 10,
+      "observed_rate": 0.8
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "A",
+      "market_group": "Win",
+      "mean_forecast": 0.8388443240587228,
+      "n": 3,
+      "observed_rate": 1.0
+    },
+    {
+      "bin_lower": 0.9,
+      "candidate": "A",
+      "market_group": "Win",
+      "mean_forecast": 0.9152600611314895,
+      "n": 1,
+      "observed_rate": 1.0
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "D",
+      "market_group": "Double chance",
+      "mean_forecast": 0.1655636004237683,
+      "n": 3,
+      "observed_rate": 0.0
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "D",
+      "market_group": "Double chance",
+      "mean_forecast": 0.26511142933500464,
+      "n": 6,
+      "observed_rate": 0.16666666666666666
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "D",
+      "market_group": "Double chance",
+      "mean_forecast": 0.35723601608903216,
+      "n": 11,
+      "observed_rate": 0.36363636363636365
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "D",
+      "market_group": "Double chance",
+      "mean_forecast": 0.4608125634129803,
+      "n": 23,
+      "observed_rate": 0.391304347826087
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "D",
+      "market_group": "Double chance",
+      "mean_forecast": 0.551016275470303,
+      "n": 30,
+      "observed_rate": 0.43333333333333335
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "D",
+      "market_group": "Double chance",
+      "mean_forecast": 0.6648303695303742,
+      "n": 24,
+      "observed_rate": 0.625
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "D",
+      "market_group": "Double chance",
+      "mean_forecast": 0.7543356658738897,
+      "n": 35,
+      "observed_rate": 0.8857142857142857
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "D",
+      "market_group": "Double chance",
+      "mean_forecast": 0.846047109187617,
+      "n": 21,
+      "observed_rate": 0.7619047619047619
+    },
+    {
+      "bin_lower": 0.9,
+      "candidate": "D",
+      "market_group": "Double chance",
+      "mean_forecast": 0.934413569902139,
+      "n": 5,
+      "observed_rate": 1.0
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "D",
+      "market_group": "Win",
+      "mean_forecast": 0.06787727346491365,
+      "n": 13,
+      "observed_rate": 0.0
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "D",
+      "market_group": "Win",
+      "mean_forecast": 0.1554399885939146,
+      "n": 39,
+      "observed_rate": 0.23076923076923078
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "D",
+      "market_group": "Win",
+      "mean_forecast": 0.24842368281836172,
+      "n": 62,
+      "observed_rate": 0.1935483870967742
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "D",
+      "market_group": "Win",
+      "mean_forecast": 0.345974787294954,
+      "n": 64,
+      "observed_rate": 0.34375
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "D",
+      "market_group": "Win",
+      "mean_forecast": 0.44665806314879575,
+      "n": 50,
+      "observed_rate": 0.56
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "D",
+      "market_group": "Win",
+      "mean_forecast": 0.5415294716710588,
+      "n": 41,
+      "observed_rate": 0.6341463414634146
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "D",
+      "market_group": "Win",
+      "mean_forecast": 0.6478816328842081,
+      "n": 19,
+      "observed_rate": 0.6842105263157895
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "D",
+      "market_group": "Win",
+      "mean_forecast": 0.7343237369539418,
+      "n": 12,
+      "observed_rate": 0.9166666666666666
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "D",
+      "market_group": "Win",
+      "mean_forecast": 0.8284892323145092,
+      "n": 7,
+      "observed_rate": 0.8571428571428571
+    },
+    {
+      "bin_lower": 0.9,
+      "candidate": "D",
+      "market_group": "Win",
+      "mean_forecast": 0.9014208630370796,
+      "n": 1,
+      "observed_rate": 1.0
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "M",
+      "market_group": "Double chance",
+      "mean_forecast": 0.16044590324590635,
+      "n": 3,
+      "observed_rate": 0.0
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "M",
+      "market_group": "Double chance",
+      "mean_forecast": 0.2584207176889142,
+      "n": 6,
+      "observed_rate": 0.16666666666666666
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "M",
+      "market_group": "Double chance",
+      "mean_forecast": 0.35058530548834865,
+      "n": 11,
+      "observed_rate": 0.36363636363636365
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "M",
+      "market_group": "Double chance",
+      "mean_forecast": 0.4576952673576757,
+      "n": 25,
+      "observed_rate": 0.4
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "M",
+      "market_group": "Double chance",
+      "mean_forecast": 0.5512506848281531,
+      "n": 28,
+      "observed_rate": 0.42857142857142855
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "M",
+      "market_group": "Double chance",
+      "mean_forecast": 0.6657499323957714,
+      "n": 26,
+      "observed_rate": 0.6538461538461539
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "M",
+      "market_group": "Double chance",
+      "mean_forecast": 0.7564750496987714,
+      "n": 33,
+      "observed_rate": 0.8787878787878788
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "M",
+      "market_group": "Double chance",
+      "mean_forecast": 0.846416181949068,
+      "n": 21,
+      "observed_rate": 0.7619047619047619
+    },
+    {
+      "bin_lower": 0.9,
+      "candidate": "M",
+      "market_group": "Double chance",
+      "mean_forecast": 0.9372707271385103,
+      "n": 5,
+      "observed_rate": 1.0
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "M",
+      "market_group": "Win",
+      "mean_forecast": 0.06791521004670854,
+      "n": 14,
+      "observed_rate": 0.0
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "M",
+      "market_group": "Win",
+      "mean_forecast": 0.15645715226733534,
+      "n": 38,
+      "observed_rate": 0.23684210526315788
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "M",
+      "market_group": "Win",
+      "mean_forecast": 0.24713004426543284,
+      "n": 59,
+      "observed_rate": 0.1864406779661017
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "M",
+      "market_group": "Win",
+      "mean_forecast": 0.3434699804772359,
+      "n": 64,
+      "observed_rate": 0.375
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "M",
+      "market_group": "Win",
+      "mean_forecast": 0.4465170171202196,
+      "n": 52,
+      "observed_rate": 0.5
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "M",
+      "market_group": "Win",
+      "mean_forecast": 0.5460289405191774,
+      "n": 41,
+      "observed_rate": 0.6341463414634146
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "M",
+      "market_group": "Win",
+      "mean_forecast": 0.6498757339085458,
+      "n": 19,
+      "observed_rate": 0.6842105263157895
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "M",
+      "market_group": "Win",
+      "mean_forecast": 0.7380693689980853,
+      "n": 13,
+      "observed_rate": 0.9230769230769231
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "M",
+      "market_group": "Win",
+      "mean_forecast": 0.8415007623161128,
+      "n": 8,
+      "observed_rate": 0.875
+    }
+  ],
+  "candidates": {
+    "A": "published-grid production proxy (benchmark only; mixes model and market)",
+    "C": "independent research model team_form_poisson_v1 (value shortlist; uses no odds)",
+    "C2": "candidate: C with a draw and low-score correction (rho, delta) fitted walk-forward on C's own earlier forecasts and their scores, pooled across leagues (research_low_score.py; uses no odds)",
+    "C3": "candidate: C with historical Understat match xG in the team form, from matches before the fold origin only (understat_history.py; five big leagues, C elsewhere; uses no odds)",
+    "C5": "candidate: C with its home/away split sharpened by a calibration slope fitted walk-forward on C's own earlier forecasts of decided matches, draw held, pooled across leagues (research_sharpen.py; uses no odds)",
+    "C6": "candidate: C2's draw and low-score corrected grid with its home/away split sharpened by a slope fitted walk-forward on C2's own earlier forecasts of decided matches, C2's draw held, pooled across leagues (research_low_score_sharpen.py; uses no odds)",
+    "D": "cagey tier: M corrected toward narrow margins (production correction model)",
+    "M": "market reference: margin-free fit to the period bookmaker (Pinnacle, Bet365 on the holdout)"
+  },
+  "counts": {
+    "matches": 156,
+    "offers": 3204,
+    "per_group": {
+      "Asian handicap": {
+        "matches": 156,
+        "offers": 2730
+      },
+      "Double chance": {
+        "matches": 81,
+        "offers": 162
+      },
+      "Win": {
+        "matches": 156,
+        "offers": 312
+      }
+    },
+    "per_market": {
+      "Asian Handicap Away +0.00": {
+        "matches": 94,
+        "offers": 94
+      },
+      "Asian Handicap Away +0.25": {
+        "matches": 124,
+        "offers": 124
+      },
+      "Asian Handicap Away +0.50": {
+        "matches": 119,
+        "offers": 119
+      },
+      "Asian Handicap Away +0.75": {
+        "matches": 104,
+        "offers": 104
+      },
+      "Asian Handicap Away +1.00": {
+        "matches": 91,
+        "offers": 91
+      },
+      "Asian Handicap Away +1.25": {
+        "matches": 79,
+        "offers": 79
+      },
+      "Asian Handicap Away +1.50": {
+        "matches": 54,
+        "offers": 54
+      },
+      "Asian Handicap Away +1.75": {
+        "matches": 39,
+        "offers": 39
+      },
+      "Asian Handicap Away +2.00": {
+        "matches": 26,
+        "offers": 26
+      },
+      "Asian Handicap Away +2.25": {
+        "matches": 23,
+        "offers": 23
+      },
+      "Asian Handicap Away +2.50": {
+        "matches": 15,
+        "offers": 15
+      },
+      "Asian Handicap Away +2.75": {
+        "matches": 9,
+        "offers": 9
+      },
+      "Asian Handicap Away +3.00": {
+        "matches": 8,
+        "offers": 8
+      },
+      "Asian Handicap Away -0.25": {
+        "matches": 122,
+        "offers": 122
+      },
+      "Asian Handicap Away -0.50": {
+        "matches": 113,
+        "offers": 113
+      },
+      "Asian Handicap Away -0.75": {
+        "matches": 100,
+        "offers": 100
+      },
+      "Asian Handicap Away -1.00": {
+        "matches": 75,
+        "offers": 75
+      },
+      "Asian Handicap Away -1.25": {
+        "matches": 60,
+        "offers": 60
+      },
+      "Asian Handicap Away -1.50": {
+        "matches": 44,
+        "offers": 44
+      },
+      "Asian Handicap Away -1.75": {
+        "matches": 28,
+        "offers": 28
+      },
+      "Asian Handicap Away -2.00": {
+        "matches": 17,
+        "offers": 17
+      },
+      "Asian Handicap Away -2.25": {
+        "matches": 9,
+        "offers": 9
+      },
+      "Asian Handicap Away -2.50": {
+        "matches": 8,
+        "offers": 8
+      },
+      "Asian Handicap Away -2.75": {
+        "matches": 3,
+        "offers": 3
+      },
+      "Asian Handicap Away -3.00": {
+        "matches": 1,
+        "offers": 1
+      },
+      "Asian Handicap Home +0.00": {
+        "matches": 94,
+        "offers": 94
+      },
+      "Asian Handicap Home +0.25": {
+        "matches": 122,
+        "offers": 122
+      },
+      "Asian Handicap Home +0.50": {
+        "matches": 113,
+        "offers": 113
+      },
+      "Asian Handicap Home +0.75": {
+        "matches": 100,
+        "offers": 100
+      },
+      "Asian Handicap Home +1.00": {
+        "matches": 75,
+        "offers": 75
+      },
+      "Asian Handicap Home +1.25": {
+        "matches": 60,
+        "offers": 60
+      },
+      "Asian Handicap Home +1.50": {
+        "matches": 44,
+        "offers": 44
+      },
+      "Asian Handicap Home +1.75": {
+        "matches": 28,
+        "offers": 28
+      },
+      "Asian Handicap Home +2.00": {
+        "matches": 17,
+        "offers": 17
+      },
+      "Asian Handicap Home +2.25": {
+        "matches": 9,
+        "offers": 9
+      },
+      "Asian Handicap Home +2.50": {
+        "matches": 8,
+        "offers": 8
+      },
+      "Asian Handicap Home +2.75": {
+        "matches": 3,
+        "offers": 3
+      },
+      "Asian Handicap Home +3.00": {
+        "matches": 1,
+        "offers": 1
+      },
+      "Asian Handicap Home -0.25": {
+        "matches": 124,
+        "offers": 124
+      },
+      "Asian Handicap Home -0.50": {
+        "matches": 119,
+        "offers": 119
+      },
+      "Asian Handicap Home -0.75": {
+        "matches": 104,
+        "offers": 104
+      },
+      "Asian Handicap Home -1.00": {
+        "matches": 91,
+        "offers": 91
+      },
+      "Asian Handicap Home -1.25": {
+        "matches": 79,
+        "offers": 79
+      },
+      "Asian Handicap Home -1.50": {
+        "matches": 54,
+        "offers": 54
+      },
+      "Asian Handicap Home -1.75": {
+        "matches": 39,
+        "offers": 39
+      },
+      "Asian Handicap Home -2.00": {
+        "matches": 26,
+        "offers": 26
+      },
+      "Asian Handicap Home -2.25": {
+        "matches": 23,
+        "offers": 23
+      },
+      "Asian Handicap Home -2.50": {
+        "matches": 15,
+        "offers": 15
+      },
+      "Asian Handicap Home -2.75": {
+        "matches": 9,
+        "offers": 9
+      },
+      "Asian Handicap Home -3.00": {
+        "matches": 8,
+        "offers": 8
+      },
+      "Away win": {
+        "matches": 156,
+        "offers": 156
+      },
+      "Double Chance 1X": {
+        "matches": 81,
+        "offers": 81
+      },
+      "Double Chance X2": {
+        "matches": 81,
+        "offers": 81
+      },
+      "Home win": {
+        "matches": 156,
+        "offers": 156
+      }
+    }
+  },
+  "coverage": {
+    "A:missing or invalid full published grid; no reconstruction": 142,
+    "C:frozen research unavailable: unsupported frozen research version": 233,
+    "M:missing input: home; missing input: draw; missing input: away; missing input: over_2_5": 69,
+    "M:missing input: over_2_5": 9,
+    "M:missing input: over_2_5; missing input: ah_main; missing input: ah_line": 1,
+    "matches_scored": 156,
+    "no_candidate_available": 77,
+    "no_in_scope_offer": 144,
+    "offer_excluded:no timestamp": 14,
+    "offer_excluded:older than 24h before kickoff": 182,
+    "offer_out_of_scope:pinnacle draw_no_bet": 186,
+    "ungraded:FORECAST_NOT_BEFORE_VERIFIED_KICKOFF": 269,
+    "ungraded:UNVERIFIED_FIXTURE_OR_RESULT": 47,
+    "verified_matches_graded": 377
+  },
+  "log_loss_common_cohort": [
+    {
+      "A": 0.7026512594341718,
+      "D": 0.711397882487137,
+      "M": 0.7097112056129837,
+      "fixtures": 81,
+      "group": "AH draw-sensitive",
+      "phase": "live_replay"
+    },
+    {
+      "A": 0.8674401114843843,
+      "D": 0.8552824177716413,
+      "M": 0.8581146179045801,
+      "fixtures": 89,
+      "group": "All offers",
+      "phase": "live_replay"
+    },
+    {
+      "A": 0.9256069877061909,
+      "D": 0.9094891606399055,
+      "M": 0.913042054404876,
+      "fixtures": 89,
+      "group": "Asian handicap",
+      "phase": "live_replay"
+    },
+    {
+      "A": 0.5816272200464384,
+      "D": 0.5895209693205178,
+      "M": 0.589261449394216,
+      "fixtures": 63,
+      "group": "Double chance",
+      "phase": "live_replay"
+    },
+    {
+      "A": 0.5666076565085184,
+      "D": 0.570986269321535,
+      "M": 0.5699683948289413,
+      "fixtures": 89,
+      "group": "Win",
+      "phase": "live_replay"
+    }
+  ],
+  "mode": "live_replay",
+  "note": "Integration check on frozen live inputs; too few matches to be release evidence.",
+  "paired": {
+    "AH draw-sensitive": {
+      "A_vs_C": null,
+      "D_vs_C": null,
+      "D_vs_M": {
+        "clear_of_zero": false,
+        "fixtures": 143,
+        "interval_95": [
+          -0.0015452418759943607,
+          -0.0014132105900295886
+        ],
+        "mean_gain": -0.0015027702735161824,
+        "weeks": 2
+      },
+      "M_vs_C": null
+    },
+    "All offers": {
+      "A_vs_C": null,
+      "D_vs_C": null,
+      "D_vs_M": {
+        "clear_of_zero": false,
+        "fixtures": 154,
+        "interval_95": [
+          -0.006078439852403555,
+          0.0033260146201884422
+        ],
+        "mean_gain": 0.00033368819709098867,
+        "weeks": 2
+      },
+      "M_vs_C": null
+    },
+    "Asian handicap": {
+      "A_vs_C": null,
+      "D_vs_C": null,
+      "D_vs_M": {
+        "clear_of_zero": false,
+        "fixtures": 154,
+        "interval_95": [
+          -0.006768741168306287,
+          0.004165409197800972
+        ],
+        "mean_gain": 0.0006863613540395716,
+        "weeks": 2
+      },
+      "M_vs_C": null
+    },
+    "Double chance": {
+      "A_vs_C": null,
+      "D_vs_C": null,
+      "D_vs_M": {
+        "clear_of_zero": false,
+        "fixtures": 79,
+        "interval_95": null,
+        "mean_gain": -0.000397398111415305,
+        "weeks": 1
+      },
+      "M_vs_C": null
+    },
+    "Win": {
+      "A_vs_C": null,
+      "D_vs_C": null,
+      "D_vs_M": {
+        "clear_of_zero": false,
+        "fixtures": 154,
+        "interval_95": [
+          -0.0010060526217678379,
+          -0.00038996712523604106
+        ],
+        "mean_gain": -0.0008100254183259025,
+        "weeks": 2
+      },
+      "M_vs_C": null
+    }
+  },
+  "scope": {
+    "bookmaker": "Pinnacle",
+    "markets": [
+      "native Asian handicap",
+      "Home win",
+      "Away win",
+      "Double Chance 1X",
+      "Double Chance X2"
+    ],
+    "offer_window_hours": 24.0,
+    "sample_unit": "verified match (its offers averaged before pairing and resampling)"
+  },
+  "source_commit": "68c74e522845235ed2215b3c1da50554b7f1c769",
+  "version": "evaluation-harness-v2"
+}
