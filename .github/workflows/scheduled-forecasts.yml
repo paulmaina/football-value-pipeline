@@ -46,7 +46,7 @@ jobs:
       - uses: actions/setup-python@v7
         if: steps.credentials.outputs.ready == 'true'
         with:
-          python-version: '3.12'
+          python-version: '3.14'
           cache: pip
           cache-dependency-path: football_value_dev_requirements.txt
       - name: Install dependencies

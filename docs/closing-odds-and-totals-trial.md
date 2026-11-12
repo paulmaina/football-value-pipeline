@@ -72,7 +72,7 @@ It accepts responses only within the existing
 is exhausted, or the planned last kickoff is reached. It does not extend the
 collection window to rescue delayed runs; missing coverage remains missing.
 
-One serialized Linux/Python 3.12 job stays ready between kickoff groups. Queued
+One serialized Linux/Python 3.14 job stays ready between kickoff groups. Queued
 checks cannot cancel the active collector; GitHub may replace older pending runs.
 There are 65 scheduled opportunities/day, not 65 simultaneous watchers. The job
 limit is six hours: five hours standby plus up to 18 minutes to finish a started

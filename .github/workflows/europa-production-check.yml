@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
         with:
-          python-version: '3.12'
+          python-version: '3.14'
       - run: python -m pip install -r football_value_requirements.txt
       - name: Generate Europa forecasts with one additional event quote call maximum
         run: >-
