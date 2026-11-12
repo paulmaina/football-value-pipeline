@@ -534,7 +534,9 @@ class CalibrationToleranceTest(unittest.TestCase):
         for key in ('slope_outcomes', 'slope_min', 'slope_max', 'band_width', 'band_min_matches',
                     'band_max_deviation', 'band_alpha'):
             self.assertEqual(self.V3[key], self.RULE[key], key)
-        self.assertEqual(set(eh.calibration_rules(CFG)), {self.RULE['name'], self.V3['name']})
+        # The 1X2 rules; cagey-events-v1 (tests/test_cagey_events_rule.py) judges the cagey tier's events.
+        self.assertEqual({n for n, r in eh.calibration_rules(CFG).items() if eh.is_1x2_rule(r)},
+                         {self.RULE['name'], self.V3['name']})
 
     def test_v3_a_slope_outside_the_band_passes_when_closer_to_one_than_the_baseline(self):
         candidate, baseline = self.keyed(20000, flatten=.87), self.keyed(20000, flatten=.75)
