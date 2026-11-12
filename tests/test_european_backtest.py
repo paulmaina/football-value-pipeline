@@ -245,7 +245,7 @@ class CEIndependenceTest(unittest.TestCase):
 
     def test_domestic_results_never_reach_ce(self):
         cfg = window(test_start='2024-02-01', end_exclusive='2024-12-20')
-        full = eh.european(CACHE, cfg)
+        full = eh.european(CACHE, cfg, keep={'CE'})
         with tempfile.TemporaryDirectory() as tmp:
             only = Path(tmp)
             for path in er.ucl_files(CACHE):
@@ -253,7 +253,7 @@ class CEIndependenceTest(unittest.TestCase):
             (only / 'europa').mkdir()
             shutil.copy(er.europa_snapshot(CACHE), only / 'europa' / 'training.json')
             shutil.copytree(CACHE / 'europa' / 'backfill', only / 'europa' / 'backfill')
-            alone = eh.european(only, cfg)
+            alone = eh.european(only, cfg, keep={'CE'})
         self.assertTrue(full[0])
         self.assertEqual(full[0], alone[0])
         self.assertEqual(full[3], alone[3])

@@ -46,6 +46,8 @@ def report(run: Path) -> dict:
     forecasts = pd.read_csv(run / 'forecasts_1x2.csv')
     if 'holdout' in set(scores.phase) | set(forecasts.phase) or 'holdout' in results['periods']:
         raise ValueError('A European holdout row is present: this report reads locked runs only')
+    # CE only: a run may also hold CE2-CE4 (scripts/european_candidates_report.py reports those).
+    scores, forecasts = scores.loc[scores.candidate == 'CE'], forecasts.loc[forecasts.candidate == 'CE']
     periods = {}
     for name in PHASES:
         period = results['periods'].get(name)
@@ -64,9 +66,9 @@ def report(run: Path) -> dict:
     return {
         'source': {'run_commit': results['source_commit'], 'config_sha256': results['config_sha256'],
                    'european_version': results['european_version']},
-        'candidate': results['candidates'],
+        'candidate': {'CE': results['candidates']['CE']},
         'periods_config': results['config'],
-        'coverage': results['coverage'],
+        'coverage': {k: v for k, v in results['coverage'].items() if not any(f':{c}:' in k for c in results['candidates'] if c != 'CE')},
         'scored_fixtures': {f'{p} {c}': int(n) for (p, c), n in counts.items()},
         'periods': periods,
         'reference_1x2_uniform_log_loss': 1.0986122886681098,  # ln 3: forecasting 1/3 each, needs no data

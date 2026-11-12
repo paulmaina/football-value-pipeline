@@ -52,20 +52,23 @@ def home_share_logit(probs):
     return np.log(share / (1 - share))
 
 
-def fit(probs, outcomes, age_days, half_life_days):
+def fit(probs, outcomes, age_days, half_life_days, min_matches=None, bounds=None):
     """The slope by weighted maximum likelihood on C's earlier forecasts of decided matches.
 
     `probs` is C's (n, 3) 1X2 for each earlier match, `outcomes` 0/1/2 (home/draw/away)
     and `age_days` how long before the fold origin it was played. Draws are dropped.
     Returns NEUTRAL (C5 == C) below MIN_MATCHES decided matches or when the optimiser
-    fails, so a bad fit never moves a price.
+    fails, so a bad fit never moves a price. `min_matches` and `bounds` default to C5's;
+    the European CE2 and CE4 pass their own (european_candidates).
     """
+    min_matches = MIN_MATCHES if min_matches is None else min_matches  # read at call time (tests patch them)
+    bounds = SLOPE_BOUNDS if bounds is None else bounds
     probs = np.asarray(probs, dtype=float).reshape(-1, 3)
     outcomes, age = np.asarray(outcomes), np.asarray(age_days, dtype=float)
     if (age < 0).any() or not np.isfinite(probs).all():
         raise ValueError('Fit rows must precede the origin and carry finite probabilities')
     decided = outcomes != 1
-    if decided.sum() < MIN_MATCHES:
+    if decided.sum() < min_matches:
         return {**NEUTRAL, 'status': 'warm_up', 'matches': int(decided.sum())}
     x, y = home_share_logit(probs[decided]), (outcomes[decided] == 0).astype(float)
     w = np.exp(-math.log(2) * age[decided] / half_life_days)
@@ -74,7 +77,7 @@ def fit(probs, outcomes, age_days, half_life_days):
         z = slope * x
         return float((w * (np.logaddexp(0., z) - y * z)).sum() / w.sum())  # weighted logistic log loss
 
-    result = minimize_scalar(loss, bounds=SLOPE_BOUNDS, method='bounded', options={'xatol': 1e-6})
+    result = minimize_scalar(loss, bounds=bounds, method='bounded', options={'xatol': 1e-6})
     if not result.success or not np.isfinite(result.fun):
         return {**NEUTRAL, 'status': 'optimiser_failed', 'matches': int(decided.sum())}
     return {'slope': float(result.x), 'status': 'fitted', 'matches': int(decided.sum()),
