@@ -1,0 +1,5634 @@
+{
+  "calibration_1x2": [
+    {
+      "bin_lower": 0.0,
+      "candidate": "CE",
+      "mean_forecast": 0.051680094638583245,
+      "n": 29,
+      "observed_rate": 0.034482758620689655,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "CE",
+      "mean_forecast": 0.14464173567099012,
+      "n": 48,
+      "observed_rate": 0.16666666666666666,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "CE",
+      "mean_forecast": 0.2501677656842685,
+      "n": 61,
+      "observed_rate": 0.21311475409836064,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "CE",
+      "mean_forecast": 0.3460042302334389,
+      "n": 48,
+      "observed_rate": 0.4166666666666667,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "CE",
+      "mean_forecast": 0.44511101311191253,
+      "n": 41,
+      "observed_rate": 0.4878048780487805,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "CE",
+      "mean_forecast": 0.5441970105434437,
+      "n": 28,
+      "observed_rate": 0.5714285714285714,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "CE",
+      "mean_forecast": 0.6533135657634537,
+      "n": 12,
+      "observed_rate": 0.5,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "CE",
+      "mean_forecast": 0.7301950428529805,
+      "n": 9,
+      "observed_rate": 0.5555555555555556,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.9,
+      "candidate": "CE",
+      "mean_forecast": 0.9029586840359494,
+      "n": 1,
+      "observed_rate": 1.0,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "CE",
+      "mean_forecast": 0.05770812900145019,
+      "n": 12,
+      "observed_rate": 0.08333333333333333,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "CE",
+      "mean_forecast": 0.16671565518048298,
+      "n": 79,
+      "observed_rate": 0.1518987341772152,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "CE",
+      "mean_forecast": 0.2348791795836108,
+      "n": 182,
+      "observed_rate": 0.17582417582417584,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "CE",
+      "mean_forecast": 0.32977128762988395,
+      "n": 3,
+      "observed_rate": 0.0,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "CE",
+      "mean_forecast": 0.49562060136306435,
+      "n": 1,
+      "observed_rate": 0.0,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "CE",
+      "mean_forecast": 0.08138172397293945,
+      "n": 7,
+      "observed_rate": 0.42857142857142855,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "CE",
+      "mean_forecast": 0.1430999295950737,
+      "n": 18,
+      "observed_rate": 0.2777777777777778,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "CE",
+      "mean_forecast": 0.23895214931988887,
+      "n": 35,
+      "observed_rate": 0.2857142857142857,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "CE",
+      "mean_forecast": 0.3504269092011775,
+      "n": 51,
+      "observed_rate": 0.3137254901960784,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "CE",
+      "mean_forecast": 0.45360518408817924,
+      "n": 48,
+      "observed_rate": 0.4791666666666667,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "CE",
+      "mean_forecast": 0.5448678818337022,
+      "n": 43,
+      "observed_rate": 0.6976744186046512,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "CE",
+      "mean_forecast": 0.6553904228782053,
+      "n": 36,
+      "observed_rate": 0.6944444444444444,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "CE",
+      "mean_forecast": 0.7467695364965683,
+      "n": 20,
+      "observed_rate": 0.7,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "CE",
+      "mean_forecast": 0.8467044537089745,
+      "n": 14,
+      "observed_rate": 0.7857142857142857,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.9,
+      "candidate": "CE",
+      "mean_forecast": 0.9652537162742727,
+      "n": 5,
+      "observed_rate": 1.0,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "CE3n",
+      "mean_forecast": 0.05282378773603714,
+      "n": 25,
+      "observed_rate": 0.04,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "CE3n",
+      "mean_forecast": 0.14850427068638714,
+      "n": 52,
+      "observed_rate": 0.21153846153846154,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "CE3n",
+      "mean_forecast": 0.2517463597856371,
+      "n": 64,
+      "observed_rate": 0.203125,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "CE3n",
+      "mean_forecast": 0.3510433742797948,
+      "n": 53,
+      "observed_rate": 0.3584905660377358,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "CE3n",
+      "mean_forecast": 0.4462441642800198,
+      "n": 42,
+      "observed_rate": 0.5238095238095238,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "CE3n",
+      "mean_forecast": 0.5398453683610712,
+      "n": 26,
+      "observed_rate": 0.5769230769230769,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "CE3n",
+      "mean_forecast": 0.6575729947802053,
+      "n": 9,
+      "observed_rate": 0.4444444444444444,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "CE3n",
+      "mean_forecast": 0.7365638939595572,
+      "n": 5,
+      "observed_rate": 0.8,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.9,
+      "candidate": "CE3n",
+      "mean_forecast": 0.9029586840359494,
+      "n": 1,
+      "observed_rate": 1.0,
+      "outcome": "away",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "CE3n",
+      "mean_forecast": 0.056066022130347545,
+      "n": 11,
+      "observed_rate": 0.09090909090909091,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "CE3n",
+      "mean_forecast": 0.16706303158770086,
+      "n": 67,
+      "observed_rate": 0.1044776119402985,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "CE3n",
+      "mean_forecast": 0.23389029531086683,
+      "n": 196,
+      "observed_rate": 0.18877551020408162,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "CE3n",
+      "mean_forecast": 0.3247863193426773,
+      "n": 2,
+      "observed_rate": 0.0,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "CE3n",
+      "mean_forecast": 0.49562060136306435,
+      "n": 1,
+      "observed_rate": 0.0,
+      "outcome": "draw",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.0,
+      "candidate": "CE3n",
+      "mean_forecast": 0.07855868742505602,
+      "n": 5,
+      "observed_rate": 0.4,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.1,
+      "candidate": "CE3n",
+      "mean_forecast": 0.1508452221286017,
+      "n": 13,
+      "observed_rate": 0.3076923076923077,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.2,
+      "candidate": "CE3n",
+      "mean_forecast": 0.24908293828374356,
+      "n": 37,
+      "observed_rate": 0.21621621621621623,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.3,
+      "candidate": "CE3n",
+      "mean_forecast": 0.3448998150261934,
+      "n": 47,
+      "observed_rate": 0.3404255319148936,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.4,
+      "candidate": "CE3n",
+      "mean_forecast": 0.44329110897830803,
+      "n": 51,
+      "observed_rate": 0.5098039215686274,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.5,
+      "candidate": "CE3n",
+      "mean_forecast": 0.5365588475593283,
+      "n": 48,
+      "observed_rate": 0.625,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.6,
+      "candidate": "CE3n",
+      "mean_forecast": 0.6553100847032206,
+      "n": 42,
+      "observed_rate": 0.6904761904761905,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.7,
+      "candidate": "CE3n",
+      "mean_forecast": 0.7425281983869957,
+      "n": 18,
+      "observed_rate": 0.7222222222222222,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.8,
+      "candidate": "CE3n",
+      "mean_forecast": 0.8456995458967241,
+      "n": 11,
+      "observed_rate": 0.8181818181818182,
+      "outcome": "home",
+      "phase": "holdout"
+    },
+    {
+      "bin_lower": 0.9,
+      "candidate": "CE3n",
+      "mean_forecast": 0.9652537162742727,
+      "n": 5,
+      "observed_rate": 1.0,
+      "outcome": "home",
+      "phase": "holdout"
+    }
+  ],
+  "candidates": {
+    "CE": "European baseline: the research model team_form_poisson_v1 exactly as live runs it for UCL and UEL today: Dixon-Coles goal rates and ten-match form from the competition's own European results before the fold origin (uses no odds and no domestic results)",
+    "CE2": "CE's home/away split rescaled by a slope fitted walk-forward on CE's own earlier European forecasts (european_candidates; per competition only when each competition has 1,000 earlier decided matches, otherwise pooled; neutral below 300)",
+    "CE2c": "Context: CE2 always fitted per competition",
+    "CE2p": "Context: CE2 always pooled over UCL and UEL",
+    "CE3": "CE's goal rates blended (domestic weight 0.85) with domestic research strength (league Dixon-Coles and last-ten form, Understat xG where it exists) put on the European scale by league-strength factors fitted walk-forward on earlier European results; CE exactly where a team has no domestic form",
+    "CE3n": "Context: CE3 with goals-only domestic form (no xG)",
+    "CE4": "CE3 followed by CE2's calibration, the slope refitted on CE3's own earlier forecasts"
+  },
+  "config": {
+    "backfill": "Older UCL (2015/16-2022/23) and UEL (2020/21-2021/22) results in .football_cache/europa/backfill, reconciled by european_backfill.py (OpenFootball and Fixture Download agree, or OpenFootball alone in the labelled single-source UCL seasons 2015/16-2016/17). Harness only: the live loaders are unchanged. Every backfilled match is before the first cached season, so no row on or after 21 Jan 2025 changes.",
+    "competitions": [
+      "UCL",
+      "UEL"
+    ],
+    "development_end": "2024-07-01",
+    "development_start": {
+      "UCL": "2017-09-04",
+      "UEL": "2021-10-25"
+    },
+    "domestic_form": {
+      "backfill_folder": "domestic_backfill",
+      "backfill_seasons": [
+        "1516",
+        "1617",
+        "1718",
+        "1819",
+        "1920",
+        "2021"
+      ],
+      "days": 365,
+      "min_matches": 5
+    },
+    "end_exclusive": "2026-11-09",
+    "holdout_choice": {
+      "below_minimum": "No untouched block reaches the domestic 300-match minimum under either reading. The European holdout has its own minimum of 250 fixtures and 6 weeks (european_holdout_review_gates in benchmark_promotion_rules.json), decided on 11 Nov 2026 before any European holdout scoring (the European ledger has no entry); the block itself is unchanged.",
+      "decided": "2026-11-11",
+      "decided_by": "Prompt 5 chose the block by the rule \"most recent block no earlier benchmark, audit or live report has scored\"; Paul approved it on 11 Nov 2026.",
+      "rule": "The most recent block no benchmark, written model audit or live report scored, counted as for the domestic holdout: automated in-run pipeline reports (decay tuning, goal-market validation) are not counted, as they also covered the domestic holdout window.",
+      "strict_alternative": "Counting the in-run reports too, only 64 UCL matches after the warm-up of the time (to 28 Jan 2025) are untouched (22 Jan - 15 Sep 2025): UCL decay tuning scored from 16 Sep 2025 and UCL goal-market validation from 1 Oct 2025 (cited in docs/audits/2026-10-24-per-market-approval.md)."
+    },
+    "holdout_competitions": [
+      "UCL"
+    ],
+    "holdout_end_exclusive": "2026-10-13",
+    "holdout_ledger": "evaluation/european_holdout_ledger.json",
+    "holdout_start": "2025-01-21",
+    "min_train": 250,
+    "periods": {
+      "development": "From the end of each competition's warm-up to 30 Jun 2024: UCL 2017/18-2023/24 (backfill to 2022/23, football-data.org 2023/24); UEL 2021/22 from 25 Oct 2021 (backfill) and 2022/23-2023/24 (snapshot). UEL from 22 Feb 2024 was already scored by the 22 Oct 2026 Europa audits.",
+      "holdout": "UCL only, 21 Jan 2025 - 12 Oct 2026 (unchanged: 288 matches, 29 weeks; the warm-up now ends in 2017, so none is in the warm-up). No benchmark, written model audit or live report scored these results. Locked: never scored or trained on by a locked run; scored only with a declaration, once per candidate and once per frozen setup, recorded in evaluation/european_holdout_ledger.json. Sample minimum: 250 fixtures and 6 weeks (benchmark_promotion_rules.json, european_holdout_review_gates, decided 11 Nov 2026 before any European holdout scoring).",
+      "retrospective": "UEL from 21 Jan 2025 (scored by the 22 Oct 2026 Europa audits and the pipeline's goal-market validation, live-graded from 22 Oct 2026) and UCL from 13 Oct 2026 (live-graded). Diagnostics only, never release evidence.",
+      "validation": "1 Jul 2024 - 20 Jan 2025 (unchanged): UEL, and UCL 2024/25 to 20 Jan. UEL 2024/25 was the Europa research audit's development period: already inspected.",
+      "warm_up": "Training only, never scored: each competition's results until its 14-day fold has at least 250 earlier matches of that competition (the pipeline's own UCL/UEL walk-forward warm-up). UCL: 2015/16-2016/17 (exactly 250, the two single-source seasons); development from the 4 Sep 2017 fold. UEL: 2020/21 and 2021/22 to 24 Oct 2021; development from the 25 Oct 2021 fold. Checked against the data by evaluation_harness.check_development_start."
+    },
+    "step_days": 14,
+    "test_start": "2015-06-29",
+    "version": "european-results-v2"
+  },
+  "config_sha256": "0f435377888d186c1652eeaf8c4274db746a96f0679ba7a99f1abcec72b5843d",
+  "coverage": {
+    "UCL:development:no forecast: Invalid Dixon-Coles low-score correction": 10,
+    "UCL:development:team without earlier UCL match": 37,
+    "UCL:holdout:CE3n:domestic_used": 178,
+    "UCL:holdout:CE3n:scored": 277,
+    "UCL:holdout:CE:scored": 277,
+    "UCL:holdout:team without earlier UCL match": 11,
+    "UCL:outside_holdout_run": 1031,
+    "UCL:validation:team without earlier UCL match": 7,
+    "UCL:warm_up": 250,
+    "UEL:development:team without earlier UEL match": 41,
+    "UEL:outside_holdout_run": 823,
+    "UEL:retrospective:team without earlier UEL match": 25,
+    "UEL:validation:team without earlier UEL match": 15,
+    "UEL:warm_up": 252
+  },
+  "declaration": {
+    "baseline": "CE",
+    "calibration_rule": {
+      "band_alpha": 0.05,
+      "band_max_deviation": 0.05,
+      "band_min_matches": 30,
+      "band_width": 0.1,
+      "decided": "2026-11-12",
+      "decided_note": "Decided on 12 Nov 2026, before any European holdout scoring (evaluation/european_holdout_ledger.json has no entry). Applies only to candidates not yet scored on a holdout; v2 stays for C6's record.",
+      "name": "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3",
+      "rule": "Relative slopes. Each of the candidate's home and away logistic calibration slopes (logit P(outcome) = a + b logit(p), fitted per outcome) passes if it is between 0.90 and 1.10 inclusive, OR its distance from 1.0 is smaller than the declared baseline's slope for the same outcome on the same fixtures (both slopes fitted on the fixtures both forecast). Bands exactly as v2: no outcome probability band (home, draw and away, tenths of probability, at least 30 matches) more than 5 percentage points from its observed rate AND statistically clear (|gap| / sqrt(p(1-p)/n) above the two-sided normal quantile for 0.05 divided by the number of bands checked; Bonferroni), p = the band's mean forecast.",
+      "slope_max": 1.1,
+      "slope_min": 0.9,
+      "slope_outcomes": [
+        "home",
+        "away"
+      ],
+      "slope_relative_to_baseline": true
+    },
+    "calibration_tolerance": "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3",
+    "candidate": "CE3n",
+    "declared_at": "2026-11-12T07:42:18Z",
+    "declared_by": "Paul (decision), written by Claude Code",
+    "draw_sensitive_lines": [
+      -0.5,
+      0.0,
+      0.5
+    ],
+    "holdout": "European holdout: UCL, 21 Jan 2025 - 12 Oct 2026 (288 fixtures, 29 weeks; 277 reachable by identity); evaluation_harness.py --mode european --declaration, recorded in evaluation/european_holdout_ledger.json",
+    "market_bar": null,
+    "market_reference": null,
+    "notes": "Scored once. No rerun, no change to the setup after it, and no other candidate scored on the European holdout. If it passes, next are the parity test and the live replay, including loading the backfilled European history in live; if not proven, production is unchanged and CE3n stays offline.",
+    "pass_rule": "Passes only if CE minus CE3n log loss on AH all lines is positive with the week-resampled 95% interval clear of zero, the sample minimum (250 fixtures, 6 weeks) is met, and CE3n's holdout forecasts pass calibration rule v3 against CE on the same fixtures (holdout_verdict.passes_holdout_gate).",
+    "primary_metric": "AH all",
+    "reported_not_gating": [
+      "AH draw-sensitive (lines -0.5, 0, +0.5)",
+      "1X2",
+      "Over 1.5",
+      "UCL league phase and UCL knockouts separately (context, CE minus CE3n with week-resampled 95% intervals from the run's own fixture_scores.csv)"
+    ],
+    "results_only_reason": "No historical European prices are cached (the only European odds are live Odds API snapshots from Oct-Nov 2026, which are not used), so the European holdout has no market reference, no cagey tier, no published-grid proxy and no market bar. CE3n is judged against CE on the result alone.",
+    "sample_minimum": {
+      "fixtures": 250,
+      "source": "benchmark_promotion_rules.json, european_holdout_review_gates (decided 11 Nov 2026)",
+      "weeks": 6
+    },
+    "setup": "Reviewed aliases on every European fixture (approved by Paul 12 Nov 2026), calibration rule v3 (decided 12 Nov 2026), both before any European holdout scoring. CE3n as built in PR #160 (domestic weight 0.85, goals-only domestic form, league factors with N(0, 0.3^2) prior); nothing tuned on the holdout.",
+    "sha256": "bca3ab5dfcda8cf3e93e1299348d9eab45d69b5c136b50bcc5b3c0cd4143a5f4"
+  },
+  "european_version": "european-results-v2",
+  "folds": [
+    {
+      "competition": "UCL",
+      "end_exclusive": "2017-09-18",
+      "origin": "2017-09-04",
+      "training_end": "2017-06-03T00:00:00",
+      "training_matches": 250
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2017-10-02",
+      "origin": "2017-09-18",
+      "training_end": "2017-09-13T18:45:00",
+      "training_matches": 266
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2017-10-30",
+      "origin": "2017-10-16",
+      "training_end": "2017-09-27T18:45:00",
+      "training_matches": 282
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2017-11-13",
+      "origin": "2017-10-30",
+      "training_end": "2017-10-18T18:45:00",
+      "training_matches": 298
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2017-11-27",
+      "origin": "2017-11-13",
+      "training_end": "2017-11-01T19:45:00",
+      "training_matches": 314
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2017-12-11",
+      "origin": "2017-11-27",
+      "training_end": "2017-11-22T19:45:00",
+      "training_matches": 330
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2018-02-19",
+      "origin": "2018-02-05",
+      "training_end": "2017-12-06T19:45:00",
+      "training_matches": 346
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2018-03-05",
+      "origin": "2018-02-19",
+      "training_end": "2018-02-14T19:45:00",
+      "training_matches": 350
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2018-03-19",
+      "origin": "2018-03-05",
+      "training_end": "2018-02-21T19:45:00",
+      "training_matches": 354
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2018-04-16",
+      "origin": "2018-04-02",
+      "training_end": "2018-03-14T19:45:00",
+      "training_matches": 362
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2018-04-30",
+      "origin": "2018-04-16",
+      "training_end": "2018-04-11T18:45:00",
+      "training_matches": 370
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2018-05-14",
+      "origin": "2018-04-30",
+      "training_end": "2018-04-25T18:45:00",
+      "training_matches": 372
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2018-05-28",
+      "origin": "2018-05-14",
+      "training_end": "2018-05-02T18:45:00",
+      "training_matches": 374
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2018-10-01",
+      "origin": "2018-09-17",
+      "training_end": "2018-05-26T18:45:00",
+      "training_matches": 375
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2018-10-15",
+      "origin": "2018-10-01",
+      "training_end": "2018-09-19T19:00:00",
+      "training_matches": 391
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2018-10-29",
+      "origin": "2018-10-15",
+      "training_end": "2018-10-03T19:00:00",
+      "training_matches": 407
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2018-11-12",
+      "origin": "2018-10-29",
+      "training_end": "2018-10-24T19:00:00",
+      "training_matches": 423
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2018-12-10",
+      "origin": "2018-11-26",
+      "training_end": "2018-11-07T20:00:00",
+      "training_matches": 439
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2018-12-24",
+      "origin": "2018-12-10",
+      "training_end": "2018-11-28T20:00:00",
+      "training_matches": 455
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2019-02-18",
+      "origin": "2019-02-04",
+      "training_end": "2018-12-12T20:00:00",
+      "training_matches": 471
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2019-03-04",
+      "origin": "2019-02-18",
+      "training_end": "2019-02-13T20:00:00",
+      "training_matches": 475
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2019-03-18",
+      "origin": "2019-03-04",
+      "training_end": "2019-02-20T20:00:00",
+      "training_matches": 479
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2019-04-15",
+      "origin": "2019-04-01",
+      "training_end": "2019-03-13T20:00:00",
+      "training_matches": 487
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2019-04-29",
+      "origin": "2019-04-15",
+      "training_end": "2019-04-10T19:00:00",
+      "training_matches": 491
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2019-05-13",
+      "origin": "2019-04-29",
+      "training_end": "2019-04-17T19:00:00",
+      "training_matches": 495
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2019-06-10",
+      "origin": "2019-05-27",
+      "training_end": "2019-05-08T19:00:00",
+      "training_matches": 499
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2019-09-30",
+      "origin": "2019-09-16",
+      "training_end": "2019-06-01T19:00:00",
+      "training_matches": 500
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2019-10-14",
+      "origin": "2019-09-30",
+      "training_end": "2019-09-18T19:00:00",
+      "training_matches": 516
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2019-10-28",
+      "origin": "2019-10-14",
+      "training_end": "2019-10-02T19:00:00",
+      "training_matches": 532
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2019-11-11",
+      "origin": "2019-10-28",
+      "training_end": "2019-10-23T19:00:00",
+      "training_matches": 548
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2019-12-09",
+      "origin": "2019-11-25",
+      "training_end": "2019-11-06T20:00:00",
+      "training_matches": 564
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2019-12-23",
+      "origin": "2019-12-09",
+      "training_end": "2019-11-27T20:00:00",
+      "training_matches": 580
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2020-03-02",
+      "origin": "2020-02-17",
+      "training_end": "2019-12-11T20:00:00",
+      "training_matches": 596
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2020-03-16",
+      "origin": "2020-03-02",
+      "training_end": "2020-02-26T20:00:00",
+      "training_matches": 604
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2020-08-17",
+      "origin": "2020-08-03",
+      "training_end": "2020-03-11T20:00:00",
+      "training_matches": 608
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2020-08-31",
+      "origin": "2020-08-17",
+      "training_end": "2020-08-15T19:00:00",
+      "training_matches": 616
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2020-10-26",
+      "origin": "2020-10-12",
+      "training_end": "2020-08-23T19:00:00",
+      "training_matches": 619
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2020-11-09",
+      "origin": "2020-10-26",
+      "training_end": "2020-10-21T19:00:00",
+      "training_matches": 635
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2020-12-07",
+      "origin": "2020-11-23",
+      "training_end": "2020-11-04T20:00:00",
+      "training_matches": 667
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2020-12-21",
+      "origin": "2020-12-07",
+      "training_end": "2020-12-02T20:00:00",
+      "training_matches": 699
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2021-03-01",
+      "origin": "2021-02-15",
+      "training_end": "2020-12-09T20:00:00",
+      "training_matches": 715
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2021-03-15",
+      "origin": "2021-03-01",
+      "training_end": "2021-02-24T20:00:00",
+      "training_matches": 723
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2021-03-29",
+      "origin": "2021-03-15",
+      "training_end": "2021-03-10T20:00:00",
+      "training_matches": 727
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2021-04-12",
+      "origin": "2021-03-29",
+      "training_end": "2021-03-17T20:00:00",
+      "training_matches": 731
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2021-04-26",
+      "origin": "2021-04-12",
+      "training_end": "2021-04-07T19:00:00",
+      "training_matches": 735
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2021-05-10",
+      "origin": "2021-04-26",
+      "training_end": "2021-04-14T19:00:00",
+      "training_matches": 739
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2021-06-07",
+      "origin": "2021-05-24",
+      "training_end": "2021-05-05T19:00:00",
+      "training_matches": 743
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2021-09-27",
+      "origin": "2021-09-13",
+      "training_end": "2021-05-29T19:00:00",
+      "training_matches": 744
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2021-10-11",
+      "origin": "2021-09-27",
+      "training_end": "2021-09-15T19:00:00",
+      "training_matches": 760
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2021-10-25",
+      "origin": "2021-10-11",
+      "training_end": "2021-09-29T19:00:00",
+      "training_matches": 776
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2021-11-08",
+      "origin": "2021-10-25",
+      "training_end": "2021-10-20T19:00:00",
+      "training_matches": 792
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2021-12-06",
+      "origin": "2021-11-22",
+      "training_end": "2021-11-03T20:00:00",
+      "training_matches": 808
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2021-12-20",
+      "origin": "2021-12-06",
+      "training_end": "2021-11-24T20:00:00",
+      "training_matches": 824
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2022-02-28",
+      "origin": "2022-02-14",
+      "training_end": "2021-12-09T18:00:00",
+      "training_matches": 840
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2022-03-14",
+      "origin": "2022-02-28",
+      "training_end": "2022-02-23T20:00:00",
+      "training_matches": 848
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2022-03-28",
+      "origin": "2022-03-14",
+      "training_end": "2022-03-09T20:00:00",
+      "training_matches": 852
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2022-04-11",
+      "origin": "2022-03-28",
+      "training_end": "2022-03-16T20:00:00",
+      "training_matches": 856
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2022-04-25",
+      "origin": "2022-04-11",
+      "training_end": "2022-04-06T19:00:00",
+      "training_matches": 860
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2022-05-09",
+      "origin": "2022-04-25",
+      "training_end": "2022-04-13T19:00:00",
+      "training_matches": 864
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2022-06-06",
+      "origin": "2022-05-23",
+      "training_end": "2022-05-04T19:00:00",
+      "training_matches": 868
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2022-09-12",
+      "origin": "2022-08-29",
+      "training_end": "2022-05-28T19:00:00",
+      "training_matches": 869
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2022-09-26",
+      "origin": "2022-09-12",
+      "training_end": "2022-09-07T19:00:00",
+      "training_matches": 885
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2022-10-10",
+      "origin": "2022-09-26",
+      "training_end": "2022-09-14T19:00:00",
+      "training_matches": 901
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2022-10-24",
+      "origin": "2022-10-10",
+      "training_end": "2022-10-05T19:00:00",
+      "training_matches": 917
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2022-11-07",
+      "origin": "2022-10-24",
+      "training_end": "2022-10-12T19:00:00",
+      "training_matches": 933
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2023-02-27",
+      "origin": "2023-02-13",
+      "training_end": "2022-11-02T20:00:00",
+      "training_matches": 965
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2023-03-13",
+      "origin": "2023-02-27",
+      "training_end": "2023-02-22T20:00:00",
+      "training_matches": 973
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2023-03-27",
+      "origin": "2023-03-13",
+      "training_end": "2023-03-08T20:10:00",
+      "training_matches": 977
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2023-04-24",
+      "origin": "2023-04-10",
+      "training_end": "2023-03-15T20:00:00",
+      "training_matches": 981
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2023-05-22",
+      "origin": "2023-05-08",
+      "training_end": "2023-04-19T19:00:00",
+      "training_matches": 989
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2023-06-19",
+      "origin": "2023-06-05",
+      "training_end": "2023-05-17T19:00:00",
+      "training_matches": 993
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2023-09-25",
+      "origin": "2023-09-11",
+      "training_end": "2023-06-10T19:00:00",
+      "training_matches": 994
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2023-10-09",
+      "origin": "2023-09-25",
+      "training_end": "2023-09-20T19:00:00",
+      "training_matches": 1010
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2023-11-06",
+      "origin": "2023-10-23",
+      "training_end": "2023-10-04T19:00:00",
+      "training_matches": 1026
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2023-11-20",
+      "origin": "2023-11-06",
+      "training_end": "2023-10-25T19:00:00",
+      "training_matches": 1042
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2023-12-04",
+      "origin": "2023-11-20",
+      "training_end": "2023-11-08T20:00:00",
+      "training_matches": 1058
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2023-12-18",
+      "origin": "2023-12-04",
+      "training_end": "2023-11-29T20:00:00",
+      "training_matches": 1074
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2024-02-26",
+      "origin": "2024-02-12",
+      "training_end": "2023-12-13T20:00:00",
+      "training_matches": 1090
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2024-03-11",
+      "origin": "2024-02-26",
+      "training_end": "2024-02-21T20:00:00",
+      "training_matches": 1098
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2024-03-25",
+      "origin": "2024-03-11",
+      "training_end": "2024-03-06T20:00:00",
+      "training_matches": 1102
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2024-04-22",
+      "origin": "2024-04-08",
+      "training_end": "2024-03-13T20:00:00",
+      "training_matches": 1106
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2024-05-06",
+      "origin": "2024-04-22",
+      "training_end": "2024-04-17T19:00:00",
+      "training_matches": 1114
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2024-05-20",
+      "origin": "2024-05-06",
+      "training_end": "2024-05-01T19:00:00",
+      "training_matches": 1116
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2024-06-03",
+      "origin": "2024-05-20",
+      "training_end": "2024-05-08T19:00:00",
+      "training_matches": 1118
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2024-09-23",
+      "origin": "2024-09-09",
+      "training_end": "2024-06-01T19:00:00",
+      "training_matches": 1119
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2024-10-07",
+      "origin": "2024-09-23",
+      "training_end": "2024-09-19T19:00:00",
+      "training_matches": 1137
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2024-11-04",
+      "origin": "2024-10-21",
+      "training_end": "2024-10-02T19:00:00",
+      "training_matches": 1155
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2024-11-18",
+      "origin": "2024-11-04",
+      "training_end": "2024-10-23T19:00:00",
+      "training_matches": 1173
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2024-12-02",
+      "origin": "2024-11-18",
+      "training_end": "2024-11-06T20:15:00",
+      "training_matches": 1191
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2024-12-16",
+      "origin": "2024-12-02",
+      "training_end": "2024-11-27T20:00:00",
+      "training_matches": 1209
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2025-01-27",
+      "origin": "2025-01-21",
+      "training_end": "2024-12-11T20:00:00",
+      "training_matches": 1227
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2025-02-10",
+      "origin": "2025-01-27",
+      "training_end": "2025-01-22T20:00:00",
+      "training_matches": 1245
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2025-02-24",
+      "origin": "2025-02-10",
+      "training_end": "2025-01-29T20:00:00",
+      "training_matches": 1263
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2025-03-10",
+      "origin": "2025-02-24",
+      "training_end": "2025-02-19T20:00:00",
+      "training_matches": 1279
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2025-03-24",
+      "origin": "2025-03-10",
+      "training_end": "2025-03-05T20:00:00",
+      "training_matches": 1287
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2025-04-21",
+      "origin": "2025-04-07",
+      "training_end": "2025-03-12T20:00:00",
+      "training_matches": 1295
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2025-05-05",
+      "origin": "2025-04-21",
+      "training_end": "2025-04-16T19:00:00",
+      "training_matches": 1303
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2025-05-19",
+      "origin": "2025-05-05",
+      "training_end": "2025-04-30T19:00:00",
+      "training_matches": 1305
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2025-06-02",
+      "origin": "2025-05-19",
+      "training_end": "2025-05-07T19:00:00",
+      "training_matches": 1307
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2025-09-22",
+      "origin": "2025-09-08",
+      "training_end": "2025-05-31T19:00:00",
+      "training_matches": 1308
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2025-10-06",
+      "origin": "2025-09-22",
+      "training_end": "2025-09-18T19:00:00",
+      "training_matches": 1326
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2025-11-03",
+      "origin": "2025-10-20",
+      "training_end": "2025-10-01T19:00:00",
+      "training_matches": 1344
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2025-11-17",
+      "origin": "2025-11-03",
+      "training_end": "2025-10-22T19:00:00",
+      "training_matches": 1362
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2025-12-01",
+      "origin": "2025-11-17",
+      "training_end": "2025-11-05T20:00:00",
+      "training_matches": 1380
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2025-12-15",
+      "origin": "2025-12-01",
+      "training_end": "2025-11-26T20:00:00",
+      "training_matches": 1398
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2026-01-26",
+      "origin": "2026-01-12",
+      "training_end": "2025-12-10T20:00:00",
+      "training_matches": 1416
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2026-02-09",
+      "origin": "2026-01-26",
+      "training_end": "2026-01-21T20:00:00",
+      "training_matches": 1434
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2026-02-23",
+      "origin": "2026-02-09",
+      "training_end": "2026-01-28T20:00:00",
+      "training_matches": 1452
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2026-03-09",
+      "origin": "2026-02-23",
+      "training_end": "2026-02-18T20:00:00",
+      "training_matches": 1460
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2026-03-23",
+      "origin": "2026-03-09",
+      "training_end": "2026-02-25T20:00:00",
+      "training_matches": 1468
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2026-04-20",
+      "origin": "2026-04-06",
+      "training_end": "2026-03-18T20:00:00",
+      "training_matches": 1484
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2026-05-04",
+      "origin": "2026-04-20",
+      "training_end": "2026-04-15T19:00:00",
+      "training_matches": 1492
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2026-05-18",
+      "origin": "2026-05-04",
+      "training_end": "2026-04-29T19:00:00",
+      "training_matches": 1494
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2026-06-01",
+      "origin": "2026-05-18",
+      "training_end": "2026-05-06T19:00:00",
+      "training_matches": 1496
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2026-09-21",
+      "origin": "2026-09-07",
+      "training_end": "2026-05-30T16:00:00",
+      "training_matches": 1497
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2026-10-19",
+      "origin": "2026-10-13",
+      "training_end": "2026-09-10T19:00:00",
+      "training_matches": 1515
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2026-11-02",
+      "origin": "2026-10-19",
+      "training_end": "2026-10-14T19:00:00",
+      "training_matches": 1533
+    },
+    {
+      "competition": "UCL",
+      "end_exclusive": "2026-11-09",
+      "origin": "2026-11-02",
+      "training_end": "2026-10-21T19:00:00",
+      "training_matches": 1551
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2021-11-08",
+      "origin": "2021-10-25",
+      "training_end": "2021-10-21T19:00:00",
+      "training_matches": 252
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2021-12-06",
+      "origin": "2021-11-22",
+      "training_end": "2021-11-04T20:00:00",
+      "training_matches": 268
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2021-12-20",
+      "origin": "2021-12-06",
+      "training_end": "2021-11-25T20:00:00",
+      "training_matches": 284
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2022-02-28",
+      "origin": "2022-02-14",
+      "training_end": "2021-12-09T20:00:00",
+      "training_matches": 300
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2022-03-14",
+      "origin": "2022-02-28",
+      "training_end": "2022-02-24T20:00:00",
+      "training_matches": 316
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2022-03-28",
+      "origin": "2022-03-14",
+      "training_end": "2022-03-10T20:00:00",
+      "training_matches": 323
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2022-04-11",
+      "origin": "2022-03-28",
+      "training_end": "2022-03-17T20:00:00",
+      "training_matches": 330
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2022-04-25",
+      "origin": "2022-04-11",
+      "training_end": "2022-04-07T19:00:00",
+      "training_matches": 334
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2022-05-09",
+      "origin": "2022-04-25",
+      "training_end": "2022-04-14T19:00:00",
+      "training_matches": 338
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2022-05-23",
+      "origin": "2022-05-09",
+      "training_end": "2022-05-05T19:00:00",
+      "training_matches": 342
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2022-09-12",
+      "origin": "2022-08-29",
+      "training_end": "2022-05-18T19:00:00",
+      "training_matches": 343
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2022-09-26",
+      "origin": "2022-09-12",
+      "training_end": "2022-09-08T00:00:00",
+      "training_matches": 359
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2022-10-10",
+      "origin": "2022-09-26",
+      "training_end": "2022-09-15T00:00:00",
+      "training_matches": 374
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2022-10-24",
+      "origin": "2022-10-10",
+      "training_end": "2022-10-06T00:00:00",
+      "training_matches": 390
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2022-11-07",
+      "origin": "2022-10-24",
+      "training_end": "2022-10-20T00:00:00",
+      "training_matches": 407
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2023-02-27",
+      "origin": "2023-02-13",
+      "training_end": "2022-11-03T00:00:00",
+      "training_matches": 439
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2023-03-13",
+      "origin": "2023-02-27",
+      "training_end": "2023-02-23T00:00:00",
+      "training_matches": 455
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2023-03-27",
+      "origin": "2023-03-13",
+      "training_end": "2023-03-09T00:00:00",
+      "training_matches": 463
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2023-04-24",
+      "origin": "2023-04-10",
+      "training_end": "2023-03-16T00:00:00",
+      "training_matches": 471
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2023-05-22",
+      "origin": "2023-05-08",
+      "training_end": "2023-04-20T00:00:00",
+      "training_matches": 479
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2023-06-05",
+      "origin": "2023-05-22",
+      "training_end": "2023-05-18T00:00:00",
+      "training_matches": 483
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2023-09-25",
+      "origin": "2023-09-11",
+      "training_end": "2023-05-31T00:00:00",
+      "training_matches": 484
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2023-10-09",
+      "origin": "2023-09-25",
+      "training_end": "2023-09-21T00:00:00",
+      "training_matches": 500
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2023-11-06",
+      "origin": "2023-10-23",
+      "training_end": "2023-10-05T00:00:00",
+      "training_matches": 516
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2023-11-20",
+      "origin": "2023-11-06",
+      "training_end": "2023-10-26T00:00:00",
+      "training_matches": 531
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2023-12-04",
+      "origin": "2023-11-20",
+      "training_end": "2023-11-09T00:00:00",
+      "training_matches": 547
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2023-12-18",
+      "origin": "2023-12-04",
+      "training_end": "2023-11-30T00:00:00",
+      "training_matches": 563
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2024-02-26",
+      "origin": "2024-02-12",
+      "training_end": "2023-12-14T00:00:00",
+      "training_matches": 580
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2024-03-11",
+      "origin": "2024-02-26",
+      "training_end": "2024-02-22T00:00:00",
+      "training_matches": 596
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2024-03-25",
+      "origin": "2024-03-11",
+      "training_end": "2024-03-07T00:00:00",
+      "training_matches": 604
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2024-04-22",
+      "origin": "2024-04-08",
+      "training_end": "2024-03-14T00:00:00",
+      "training_matches": 612
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2024-05-06",
+      "origin": "2024-04-22",
+      "training_end": "2024-04-18T00:00:00",
+      "training_matches": 620
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2024-05-20",
+      "origin": "2024-05-06",
+      "training_end": "2024-05-02T00:00:00",
+      "training_matches": 622
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2024-06-03",
+      "origin": "2024-05-20",
+      "training_end": "2024-05-09T00:00:00",
+      "training_matches": 624
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2024-10-07",
+      "origin": "2024-09-23",
+      "training_end": "2024-05-22T00:00:00",
+      "training_matches": 625
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2024-11-04",
+      "origin": "2024-10-21",
+      "training_end": "2024-10-03T00:00:00",
+      "training_matches": 661
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2024-11-18",
+      "origin": "2024-11-04",
+      "training_end": "2024-10-24T00:00:00",
+      "training_matches": 679
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2024-12-02",
+      "origin": "2024-11-18",
+      "training_end": "2024-11-07T00:00:00",
+      "training_matches": 697
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2024-12-16",
+      "origin": "2024-12-02",
+      "training_end": "2024-11-28T00:00:00",
+      "training_matches": 715
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2025-01-27",
+      "origin": "2025-01-21",
+      "training_end": "2024-12-12T00:00:00",
+      "training_matches": 733
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2025-02-10",
+      "origin": "2025-01-27",
+      "training_end": "2025-01-23T00:00:00",
+      "training_matches": 751
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2025-02-24",
+      "origin": "2025-02-10",
+      "training_end": "2025-01-30T00:00:00",
+      "training_matches": 769
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2025-03-10",
+      "origin": "2025-02-24",
+      "training_end": "2025-02-20T00:00:00",
+      "training_matches": 785
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2025-03-24",
+      "origin": "2025-03-10",
+      "training_end": "2025-03-06T00:00:00",
+      "training_matches": 793
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2025-04-21",
+      "origin": "2025-04-07",
+      "training_end": "2025-03-13T00:00:00",
+      "training_matches": 801
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2025-05-05",
+      "origin": "2025-04-21",
+      "training_end": "2025-04-17T00:00:00",
+      "training_matches": 809
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2025-05-19",
+      "origin": "2025-05-05",
+      "training_end": "2025-05-01T00:00:00",
+      "training_matches": 811
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2025-06-02",
+      "origin": "2025-05-19",
+      "training_end": "2025-05-08T00:00:00",
+      "training_matches": 813
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2025-10-06",
+      "origin": "2025-09-22",
+      "training_end": "2025-05-21T00:00:00",
+      "training_matches": 814
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2025-11-03",
+      "origin": "2025-10-20",
+      "training_end": "2025-10-02T00:00:00",
+      "training_matches": 850
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2025-11-17",
+      "origin": "2025-11-03",
+      "training_end": "2025-10-23T00:00:00",
+      "training_matches": 868
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2025-12-01",
+      "origin": "2025-11-17",
+      "training_end": "2025-11-06T00:00:00",
+      "training_matches": 886
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2025-12-15",
+      "origin": "2025-12-01",
+      "training_end": "2025-11-27T00:00:00",
+      "training_matches": 904
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2026-01-26",
+      "origin": "2026-01-12",
+      "training_end": "2025-12-11T00:00:00",
+      "training_matches": 922
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2026-02-09",
+      "origin": "2026-01-26",
+      "training_end": "2026-01-22T00:00:00",
+      "training_matches": 940
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2026-02-23",
+      "origin": "2026-02-09",
+      "training_end": "2026-01-29T00:00:00",
+      "training_matches": 958
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2026-03-09",
+      "origin": "2026-02-23",
+      "training_end": "2026-02-19T00:00:00",
+      "training_matches": 966
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2026-03-23",
+      "origin": "2026-03-09",
+      "training_end": "2026-02-26T00:00:00",
+      "training_matches": 974
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2026-04-20",
+      "origin": "2026-04-06",
+      "training_end": "2026-03-19T00:00:00",
+      "training_matches": 990
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2026-05-04",
+      "origin": "2026-04-20",
+      "training_end": "2026-04-16T00:00:00",
+      "training_matches": 998
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2026-05-18",
+      "origin": "2026-05-04",
+      "training_end": "2026-04-30T00:00:00",
+      "training_matches": 1000
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2026-06-01",
+      "origin": "2026-05-18",
+      "training_end": "2026-05-07T00:00:00",
+      "training_matches": 1002
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2026-09-21",
+      "origin": "2026-09-07",
+      "training_end": "2026-05-20T00:00:00",
+      "training_matches": 1003
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2026-10-19",
+      "origin": "2026-10-13",
+      "training_end": "2026-09-17T00:00:00",
+      "training_matches": 1021
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2026-11-02",
+      "origin": "2026-10-19",
+      "training_end": "2026-10-15T00:00:00",
+      "training_matches": 1039
+    },
+    {
+      "competition": "UEL",
+      "end_exclusive": "2026-11-09",
+      "origin": "2026-11-02",
+      "training_end": "2026-10-22T00:00:00",
+      "training_matches": 1057
+    },
+    {
+      "candidate": "CE2-CE4",
+      "walk_forward_fits": [
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 744,
+              "UEL": 325
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 744,
+                "slope": 0.8208789321685237,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 325,
+                "slope": 0.7893031401847687,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1069,
+              "slope": 0.8070577098696659,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 744,
+              "UEL": 325
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 744,
+                "slope": 1.0464186760360232,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 325,
+                "slope": 0.9850973680568748,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1069,
+              "slope": 1.0174917943670265,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 9,
+          "end_exclusive": "2025-01-27",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.13245890198908375,
+                "UEL": 0.029773987173878514
+              },
+              "h": {
+                "UCL": 0.24098610753502644,
+                "UEL": 0.41806773542308917
+              },
+              "matches": 800,
+              "s": {
+                "Bundesliga": 0.08749525592569189,
+                "EPL": 0.2500570834150771,
+                "Eredivisie": -0.19025997764560534,
+                "LaLiga": 0.10537216593068201,
+                "Ligue1": -0.02407548674452935,
+                "PrimeiraLiga": -0.14158355173380005,
+                "SerieA": 0.15359966813113046,
+                "SuperLig": -0.2406051572786462
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.1125911325335594,
+                "UEL": 0.022344890027286405
+              },
+              "h": {
+                "UCL": 0.24430088894205332,
+                "UEL": 0.41167866355611743
+              },
+              "matches": 800,
+              "s": {
+                "Bundesliga": 0.0813384644368694,
+                "EPL": 0.2583400742950458,
+                "Eredivisie": -0.19255322381803,
+                "LaLiga": 0.11419795950216154,
+                "Ligue1": -0.020244143944783,
+                "PrimeiraLiga": -0.1462276568667142,
+                "SerieA": 0.1536658810917472,
+                "SuperLig": -0.2485173546962969
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2025-01-21",
+          "scored_matches": 18
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 761,
+              "UEL": 341
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 761,
+                "slope": 0.8015460892429028,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 341,
+                "slope": 0.7525769748087013,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1102,
+              "slope": 0.7802324379013722,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 761,
+              "UEL": 341
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 761,
+                "slope": 1.0593773178744286,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 341,
+                "slope": 0.960002214533694,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1102,
+              "slope": 1.0122522776292353,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 9,
+          "end_exclusive": "2025-02-10",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.12726680060976228,
+                "UEL": 0.023487235505975132
+              },
+              "h": {
+                "UCL": 0.27474963413676523,
+                "UEL": 0.45019846773252487
+              },
+              "matches": 814,
+              "s": {
+                "Bundesliga": 0.06098068550867741,
+                "EPL": 0.22743006423789747,
+                "Eredivisie": -0.1531155109832017,
+                "LaLiga": 0.08630407647201778,
+                "Ligue1": -0.008765351559072933,
+                "PrimeiraLiga": -0.16429258972040953,
+                "SerieA": 0.1460642873665083,
+                "SuperLig": -0.194605661322417
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.1086039923803657,
+                "UEL": 0.01636502987422584
+              },
+              "h": {
+                "UCL": 0.2747823805822963,
+                "UEL": 0.44113059383013126
+              },
+              "matches": 814,
+              "s": {
+                "Bundesliga": 0.054856352196327236,
+                "EPL": 0.2367219480501868,
+                "Eredivisie": -0.1551015422144257,
+                "LaLiga": 0.09453780626923745,
+                "Ligue1": -0.00539214384522593,
+                "PrimeiraLiga": -0.16775185206339144,
+                "SerieA": 0.14550759583620887,
+                "SuperLig": -0.20337816422891725
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2025-01-27",
+          "scored_matches": 18
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 777,
+              "UEL": 355
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 777,
+                "slope": 0.8128194499833444,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 355,
+                "slope": 0.7577560779617988,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1132,
+              "slope": 0.7892099407588787,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 777,
+              "UEL": 355
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 777,
+                "slope": 1.0424879136280434,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 355,
+                "slope": 0.9816481337988624,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1132,
+              "slope": 1.014407576665612,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 12,
+          "end_exclusive": "2025-02-24",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.14856636608090948,
+                "UEL": -0.010379988239288903
+              },
+              "h": {
+                "UCL": 0.26168568249772056,
+                "UEL": 0.47734434134164655
+              },
+              "matches": 827,
+              "s": {
+                "Bundesliga": 0.048812708659317354,
+                "EPL": 0.22183790261550704,
+                "Eredivisie": -0.1715469829443795,
+                "LaLiga": 0.0894453789965622,
+                "Ligue1": 0.011857817129817382,
+                "PrimeiraLiga": -0.14272688192495192,
+                "SerieA": 0.14514632133183258,
+                "SuperLig": -0.20282626386370498
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.1284769375278885,
+                "UEL": -0.017902568345085565
+              },
+              "h": {
+                "UCL": 0.26442283388317384,
+                "UEL": 0.4684982059997857
+              },
+              "matches": 827,
+              "s": {
+                "Bundesliga": 0.04269975013310511,
+                "EPL": 0.23036946319406099,
+                "Eredivisie": -0.1727353746447661,
+                "LaLiga": 0.0970918224400116,
+                "Ligue1": 0.012943426696247953,
+                "PrimeiraLiga": -0.1444135010967122,
+                "SerieA": 0.1461617718183334,
+                "SuperLig": -0.21211735854028094
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2025-02-10",
+          "scored_matches": 16
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 789,
+              "UEL": 368
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 789,
+                "slope": 0.7951622574081211,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 368,
+                "slope": 0.7686388219405557,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1157,
+              "slope": 0.783913691279972,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 789,
+              "UEL": 368
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 789,
+                "slope": 0.9792828276577104,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 368,
+                "slope": 0.9862378032222674,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1157,
+              "slope": 0.9824134796114135,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 7,
+          "end_exclusive": "2025-03-10",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.14941445802907005,
+                "UEL": 0.01490704931128995
+              },
+              "h": {
+                "UCL": 0.26307052705792744,
+                "UEL": 0.4768971755815602
+              },
+              "matches": 843,
+              "s": {
+                "Bundesliga": 0.061074639645400365,
+                "EPL": 0.2115459555301373,
+                "Eredivisie": -0.1249447267821053,
+                "LaLiga": 0.10181872193729417,
+                "Ligue1": 0.012166357470514474,
+                "PrimeiraLiga": -0.16272317140061396,
+                "SerieA": 0.1329435704178983,
+                "SuperLig": -0.23188134681852546
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.13163796219886717,
+                "UEL": 0.007022355442592182
+              },
+              "h": {
+                "UCL": 0.2656318248217042,
+                "UEL": 0.4688146073399738
+              },
+              "matches": 843,
+              "s": {
+                "Bundesliga": 0.05431761896130448,
+                "EPL": 0.22062457012643766,
+                "Eredivisie": -0.12720458439157992,
+                "LaLiga": 0.10803598449902817,
+                "Ligue1": 0.010933650282955306,
+                "PrimeiraLiga": -0.16010667375391432,
+                "SerieA": 0.13488253565365765,
+                "SuperLig": -0.24148310137788923
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2025-02-24",
+          "scored_matches": 8
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 796,
+              "UEL": 375
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 796,
+                "slope": 0.8130967988675935,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 375,
+                "slope": 0.7760417397585337,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1171,
+              "slope": 0.7973629586098415,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 796,
+              "UEL": 375
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 796,
+                "slope": 1.0099426466141868,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 375,
+                "slope": 0.9772715961921343,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1171,
+              "slope": 0.995069112399928,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 7,
+          "end_exclusive": "2025-03-24",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.16011513148989107,
+                "UEL": 0.009320148680254173
+              },
+              "h": {
+                "UCL": 0.2414154946698904,
+                "UEL": 0.47795196357689734
+              },
+              "matches": 854,
+              "s": {
+                "Bundesliga": 0.07239461894191228,
+                "EPL": 0.23416213504746658,
+                "Eredivisie": -0.16963146292932307,
+                "LaLiga": 0.10586305835485085,
+                "Ligue1": 0.014434601179715983,
+                "PrimeiraLiga": -0.1592364896880371,
+                "SerieA": 0.14218287721337022,
+                "SuperLig": -0.24016933811995586
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.1423191639206877,
+                "UEL": 0.0008950477322451772
+              },
+              "h": {
+                "UCL": 0.2415671974583617,
+                "UEL": 0.4696808867613287
+              },
+              "matches": 854,
+              "s": {
+                "Bundesliga": 0.06493687933900665,
+                "EPL": 0.24393602754210156,
+                "Eredivisie": -0.17279523790863272,
+                "LaLiga": 0.11222872817371632,
+                "Ligue1": 0.014051837051749156,
+                "PrimeiraLiga": -0.15672386958145726,
+                "SerieA": 0.144198302664821,
+                "SuperLig": -0.2498326672813044
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2025-03-10",
+          "scored_matches": 8
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 803,
+              "UEL": 382
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 803,
+                "slope": 0.8149862368950265,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 382,
+                "slope": 0.8015133660183589,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1185,
+              "slope": 0.8092709651382587,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 803,
+              "UEL": 382
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 803,
+                "slope": 1.0097480228069815,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 382,
+                "slope": 0.9996416128738433,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1185,
+              "slope": 1.0051564204743009,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 8,
+          "end_exclusive": "2025-04-21",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.16609291612424923,
+                "UEL": 0.013149592810499898
+              },
+              "h": {
+                "UCL": 0.22324742806757245,
+                "UEL": 0.5203251587150284
+              },
+              "matches": 865,
+              "s": {
+                "Bundesliga": 0.08694329043343109,
+                "EPL": 0.2304235019484446,
+                "Eredivisie": -0.1797045515660222,
+                "LaLiga": 0.10776550492281312,
+                "Ligue1": 0.018869738600565397,
+                "PrimeiraLiga": -0.16320904741980324,
+                "SerieA": 0.1350091206957548,
+                "SuperLig": -0.23609755761518353
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.14665515716134583,
+                "UEL": 0.004047541287029783
+              },
+              "h": {
+                "UCL": 0.22470750191834352,
+                "UEL": 0.5127205651571062
+              },
+              "matches": 865,
+              "s": {
+                "Bundesliga": 0.07889350424617052,
+                "EPL": 0.2409610667081626,
+                "Eredivisie": -0.18250040916795474,
+                "LaLiga": 0.11360477429433227,
+                "Ligue1": 0.01902778410558336,
+                "PrimeiraLiga": -0.1612140606418033,
+                "SerieA": 0.1370948734420157,
+                "SuperLig": -0.24586753298650646
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2025-04-07",
+          "scored_matches": 8
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 810,
+              "UEL": 386
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 810,
+                "slope": 0.8271870588967211,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 386,
+                "slope": 0.8048084815705859,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1196,
+              "slope": 0.8176136084859661,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 810,
+              "UEL": 386
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 810,
+                "slope": 1.0159221105984875,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 386,
+                "slope": 1.0063531336840614,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1196,
+              "slope": 1.0115735695350079,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 2,
+          "end_exclusive": "2025-05-05",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.1634580094854844,
+                "UEL": 0.03048077884355028
+              },
+              "h": {
+                "UCL": 0.24757989732131205,
+                "UEL": 0.4893725988967151
+              },
+              "matches": 877,
+              "s": {
+                "Bundesliga": 0.08288187983879898,
+                "EPL": 0.23503778547487858,
+                "Eredivisie": -0.17720819039890753,
+                "LaLiga": 0.09797039428513778,
+                "Ligue1": 0.02209658878462385,
+                "PrimeiraLiga": -0.16270150351009363,
+                "SerieA": 0.13723859431581867,
+                "SuperLig": -0.23531554879025682
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.14321695378696112,
+                "UEL": 0.019155410051632803
+              },
+              "h": {
+                "UCL": 0.2489808705898981,
+                "UEL": 0.48191189340604046
+              },
+              "matches": 877,
+              "s": {
+                "Bundesliga": 0.07293004551033495,
+                "EPL": 0.24717692170208014,
+                "Eredivisie": -0.1798970220787109,
+                "LaLiga": 0.10405095044325896,
+                "Ligue1": 0.021823006279084553,
+                "PrimeiraLiga": -0.1607608402106835,
+                "SerieA": 0.13982788522028053,
+                "SuperLig": -0.24515094686564468
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2025-04-21",
+          "scored_matches": 2
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 811,
+              "UEL": 388
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 811,
+                "slope": 0.8154222129136565,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 388,
+                "slope": 0.8007024864623764,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1199,
+              "slope": 0.8091134636021157,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 811,
+              "UEL": 388
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 811,
+                "slope": 1.0023622922550839,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 388,
+                "slope": 1.001814387402747,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1199,
+              "slope": 1.0021127743996034,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 2,
+          "end_exclusive": "2025-05-19",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.17004884493712946,
+                "UEL": 0.05247894960473996
+              },
+              "h": {
+                "UCL": 0.23898510962842714,
+                "UEL": 0.45820966196896923
+              },
+              "matches": 880,
+              "s": {
+                "Bundesliga": 0.08191067297397267,
+                "EPL": 0.23972030098519836,
+                "Eredivisie": -0.17572439849270785,
+                "LaLiga": 0.08426982820854412,
+                "Ligue1": 0.028770364546898474,
+                "PrimeiraLiga": -0.16209646614587,
+                "SerieA": 0.13779218171550817,
+                "SuperLig": -0.2346424837915442
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.1499686309824704,
+                "UEL": 0.03920800982654322
+              },
+              "h": {
+                "UCL": 0.24049488248702977,
+                "UEL": 0.4527907647829131
+              },
+              "matches": 880,
+              "s": {
+                "Bundesliga": 0.07198027016554855,
+                "EPL": 0.25130551191823697,
+                "Eredivisie": -0.17853017448047875,
+                "LaLiga": 0.0911553498424836,
+                "Ligue1": 0.028190485616532146,
+                "PrimeiraLiga": -0.1601679931105471,
+                "SerieA": 0.14036340056938149,
+                "SuperLig": -0.24429685052115652
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2025-05-05",
+          "scored_matches": 2
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 812,
+              "UEL": 390
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 812,
+                "slope": 0.8136766688042073,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 390,
+                "slope": 0.8081427778432694,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1202,
+              "slope": 0.811304476202082,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 812,
+              "UEL": 390
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 812,
+                "slope": 0.9996727913404598,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 390,
+                "slope": 1.0096742570049455,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1202,
+              "slope": 1.0042249024562704,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 1,
+          "end_exclusive": "2025-06-02",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.17501372467687284,
+                "UEL": 0.05377542347580196
+              },
+              "h": {
+                "UCL": 0.2405072620583316,
+                "UEL": 0.47366899740345214
+              },
+              "matches": 883,
+              "s": {
+                "Bundesliga": 0.08194469015901962,
+                "EPL": 0.24244131781239056,
+                "Eredivisie": -0.17541860986683594,
+                "LaLiga": 0.07683422745550736,
+                "Ligue1": 0.03340350592109019,
+                "PrimeiraLiga": -0.16236630460360674,
+                "SerieA": 0.1352742115379779,
+                "SuperLig": -0.23211303841554295
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.1542820728508884,
+                "UEL": 0.0404506357866888
+              },
+              "h": {
+                "UCL": 0.24282812539868698,
+                "UEL": 0.4665900425479286
+              },
+              "matches": 883,
+              "s": {
+                "Bundesliga": 0.07200720729295866,
+                "EPL": 0.25318557499942035,
+                "Eredivisie": -0.1781763628238515,
+                "LaLiga": 0.08412623634917128,
+                "Ligue1": 0.03281426037067626,
+                "PrimeiraLiga": -0.16040754601772647,
+                "SerieA": 0.13837961997229423,
+                "SuperLig": -0.24192899014294256
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2025-05-19",
+          "scored_matches": 1
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 813,
+              "UEL": 391
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 813,
+                "slope": 0.818143276950646,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 391,
+                "slope": 0.8111451400531177,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1204,
+              "slope": 0.815142963803441,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 813,
+              "UEL": 391
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 813,
+                "slope": 1.0037128851460844,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 391,
+                "slope": 1.0167750873845665,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1204,
+              "slope": 1.0096624038483504,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 10,
+          "end_exclusive": "2025-09-22",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.16970768861282876,
+                "UEL": 0.044537422955448
+              },
+              "h": {
+                "UCL": 0.25741026464318273,
+                "UEL": 0.479643135990124
+              },
+              "matches": 885,
+              "s": {
+                "Bundesliga": 0.07991707100405268,
+                "EPL": 0.2405391157293703,
+                "Eredivisie": -0.17556393594301548,
+                "LaLiga": 0.07440263732679742,
+                "Ligue1": 0.05188113772456401,
+                "PrimeiraLiga": -0.1637197705421983,
+                "SerieA": 0.11636140706362265,
+                "SuperLig": -0.22381766236319342
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.14890320357152934,
+                "UEL": 0.03101993977520426
+              },
+              "h": {
+                "UCL": 0.2591828694509409,
+                "UEL": 0.47247049638826644
+              },
+              "matches": 885,
+              "s": {
+                "Bundesliga": 0.07009857297734194,
+                "EPL": 0.2512649670674534,
+                "Eredivisie": -0.17815138932549307,
+                "LaLiga": 0.08170709148843362,
+                "Ligue1": 0.05034842299503999,
+                "PrimeiraLiga": -0.1617820247783542,
+                "SerieA": 0.11993585963021555,
+                "SuperLig": -0.23342150005463705
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2025-09-08",
+          "scored_matches": 13
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 824,
+              "UEL": 391
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 824,
+                "slope": 0.8205685671725323,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 391,
+                "slope": 0.8111451400531317,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1215,
+              "slope": 0.8166111683549088,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 824,
+              "UEL": 391
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 824,
+                "slope": 1.0047574062746443,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 391,
+                "slope": 1.0167750873828854,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1215,
+              "slope": 1.0101207743033038,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 10,
+          "end_exclusive": "2025-10-06",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.17316083164247184,
+                "UEL": 0.042359403468093526
+              },
+              "h": {
+                "UCL": 0.27810815647183845,
+                "UEL": 0.4809150149400207
+              },
+              "matches": 896,
+              "s": {
+                "Bundesliga": 0.10785112913832405,
+                "EPL": 0.2506391468271105,
+                "Eredivisie": -0.18405551670610662,
+                "LaLiga": 0.07657226349880214,
+                "Ligue1": 0.07363773355509734,
+                "PrimeiraLiga": -0.1562455692013901,
+                "SerieA": 0.10880119387369834,
+                "SuperLig": -0.277200380985536
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.15278141593388805,
+                "UEL": 0.028548840412714858
+              },
+              "h": {
+                "UCL": 0.278020627240638,
+                "UEL": 0.47423605138248526
+              },
+              "matches": 896,
+              "s": {
+                "Bundesliga": 0.10011335557113177,
+                "EPL": 0.2601740817706446,
+                "Eredivisie": -0.18839313330468274,
+                "LaLiga": 0.08538790228936664,
+                "Ligue1": 0.07230125274134727,
+                "PrimeiraLiga": -0.1538409972517036,
+                "SerieA": 0.1133387388012046,
+                "SuperLig": -0.2890812006173085
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2025-09-22",
+          "scored_matches": 18
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 838,
+              "UEL": 409
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 838,
+                "slope": 0.8115956787834296,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 409,
+                "slope": 0.7813757965031879,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1247,
+              "slope": 0.7987430718145224,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 838,
+              "UEL": 409
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 838,
+                "slope": 0.9999592982972662,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 409,
+                "slope": 0.9500990653498455,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1247,
+              "slope": 0.9772937632969569,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 10,
+          "end_exclusive": "2025-11-03",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.16079648668288143,
+                "UEL": 0.045448310496237834
+              },
+              "h": {
+                "UCL": 0.3051510549025382,
+                "UEL": 0.4417113278821011
+              },
+              "matches": 916,
+              "s": {
+                "Bundesliga": 0.10066329965186654,
+                "EPL": 0.25401241143282594,
+                "Eredivisie": -0.21919190314826403,
+                "LaLiga": 0.07060493181561216,
+                "Ligue1": 0.09705275749506075,
+                "PrimeiraLiga": -0.15547018504330132,
+                "SerieA": 0.10213110179991643,
+                "SuperLig": -0.24980241400371597
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.14080061574353853,
+                "UEL": 0.02927462386315479
+              },
+              "h": {
+                "UCL": 0.30831222805375175,
+                "UEL": 0.4337271488599161
+              },
+              "matches": 916,
+              "s": {
+                "Bundesliga": 0.09370188779802034,
+                "EPL": 0.2641164703764935,
+                "Eredivisie": -0.22494850340666278,
+                "LaLiga": 0.08094116040799103,
+                "Ligue1": 0.09318330158369109,
+                "PrimeiraLiga": -0.15390256581254133,
+                "SerieA": 0.1077751048478508,
+                "SuperLig": -0.26086685579484253
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2025-10-20",
+          "scored_matches": 18
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 853,
+              "UEL": 425
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 853,
+                "slope": 0.8361111671178604,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 425,
+                "slope": 0.7384648808147458,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1278,
+              "slope": 0.7929082001186931,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 853,
+              "UEL": 425
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 853,
+                "slope": 1.0214069162976576,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 425,
+                "slope": 0.9054918946533029,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1278,
+              "slope": 0.9677947995515436,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 9,
+          "end_exclusive": "2025-11-17",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.1755365788303565,
+                "UEL": 0.0008248487656446284
+              },
+              "h": {
+                "UCL": 0.3096129840405434,
+                "UEL": 0.5007599023847509
+              },
+              "matches": 931,
+              "s": {
+                "Bundesliga": 0.06925893065031413,
+                "EPL": 0.28889358795328296,
+                "Eredivisie": -0.20088105175427723,
+                "LaLiga": 0.06065982082367263,
+                "Ligue1": 0.1117776002540886,
+                "PrimeiraLiga": -0.18257883690142693,
+                "SerieA": 0.08378439609987003,
+                "SuperLig": -0.23091444712552445
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.15506113170875932,
+                "UEL": -0.01479895064749941
+              },
+              "h": {
+                "UCL": 0.3127038248309223,
+                "UEL": 0.49138940542888426
+              },
+              "matches": 931,
+              "s": {
+                "Bundesliga": 0.06259581810690859,
+                "EPL": 0.2984700513848197,
+                "Eredivisie": -0.20787999473768165,
+                "LaLiga": 0.07078029206229873,
+                "Ligue1": 0.10740712296234405,
+                "PrimeiraLiga": -0.17900061179448623,
+                "SerieA": 0.08955282589591423,
+                "SuperLig": -0.24192550388011744
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2025-11-03",
+          "scored_matches": 18
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 866,
+              "UEL": 439
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 866,
+                "slope": 0.8131559683424734,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 439,
+                "slope": 0.7006193443703732,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1305,
+              "slope": 0.7630681479261201,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 866,
+              "UEL": 439
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 866,
+                "slope": 0.9925534045699872,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 439,
+                "slope": 0.8463310170431265,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1305,
+              "slope": 0.9242318136648984,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 10,
+          "end_exclusive": "2025-12-01",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.1679470464054025,
+                "UEL": -0.0026717246364632127
+              },
+              "h": {
+                "UCL": 0.29526665248371103,
+                "UEL": 0.5027251603373789
+              },
+              "matches": 944,
+              "s": {
+                "Bundesliga": 0.08850131444721962,
+                "EPL": 0.29801356164763393,
+                "Eredivisie": -0.22226835116329915,
+                "LaLiga": 0.060540094606798184,
+                "Ligue1": 0.08407755077743992,
+                "PrimeiraLiga": -0.19706009495531532,
+                "SerieA": 0.08130456167284197,
+                "SuperLig": -0.1931086370333193
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.14800045360722208,
+                "UEL": -0.017242722072356848
+              },
+              "h": {
+                "UCL": 0.2978522628630944,
+                "UEL": 0.493423337599819
+              },
+              "matches": 944,
+              "s": {
+                "Bundesliga": 0.08224713203835238,
+                "EPL": 0.30716044863016895,
+                "Eredivisie": -0.22967787022338745,
+                "LaLiga": 0.07077180668646532,
+                "Ligue1": 0.08017020039438344,
+                "PrimeiraLiga": -0.19408705878964316,
+                "SerieA": 0.08664608573106794,
+                "SuperLig": -0.20323074446740735
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2025-11-17",
+          "scored_matches": 18
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 882,
+              "UEL": 453
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 882,
+                "slope": 0.7959421150145163,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 453,
+                "slope": 0.7193666090452921,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1335,
+              "slope": 0.7616713017988863,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 882,
+              "UEL": 453
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 882,
+                "slope": 0.9568980911561932,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 453,
+                "slope": 0.8536335669708423,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1335,
+              "slope": 0.9084046415173608,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 10,
+          "end_exclusive": "2025-12-15",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.18787707320485908,
+                "UEL": 0.019629235591429327
+              },
+              "h": {
+                "UCL": 0.28232323724462405,
+                "UEL": 0.4818743498505393
+              },
+              "matches": 957,
+              "s": {
+                "Bundesliga": 0.10479998360607651,
+                "EPL": 0.27361415842917075,
+                "Eredivisie": -0.22244375322097715,
+                "LaLiga": 0.03941814707874291,
+                "Ligue1": 0.08033394117581089,
+                "PrimeiraLiga": -0.1721028495356328,
+                "SerieA": 0.09021567909075331,
+                "SuperLig": -0.19383530662394496
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.16779412082758546,
+                "UEL": 0.005846634704013208
+              },
+              "h": {
+                "UCL": 0.2849663590939138,
+                "UEL": 0.47225007442200995
+              },
+              "matches": 957,
+              "s": {
+                "Bundesliga": 0.09812908255672455,
+                "EPL": 0.28219046844524415,
+                "Eredivisie": -0.22844295235171264,
+                "LaLiga": 0.04988476054052859,
+                "Ligue1": 0.0765124648619899,
+                "PrimeiraLiga": -0.16927949873828352,
+                "SerieA": 0.09469623551048556,
+                "SuperLig": -0.20369056082497664
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2025-12-01",
+          "scored_matches": 18
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 897,
+              "UEL": 469
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 897,
+                "slope": 0.798295508911509,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 469,
+                "slope": 0.7290874033375582,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1366,
+              "slope": 0.7668824774005206,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 897,
+              "UEL": 469
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 897,
+                "slope": 0.9579980581335156,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 469,
+                "slope": 0.840971216056739,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1366,
+              "slope": 0.9020270712390299,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 10,
+          "end_exclusive": "2026-01-26",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.1752400517364512,
+                "UEL": 0.03250921993308685
+              },
+              "h": {
+                "UCL": 0.28918375962860554,
+                "UEL": 0.45034687892950187
+              },
+              "matches": 971,
+              "s": {
+                "Bundesliga": 0.1067760549009312,
+                "EPL": 0.27920517350378643,
+                "Eredivisie": -0.22540990974369898,
+                "LaLiga": 0.03804065503233411,
+                "Ligue1": 0.07071524645499057,
+                "PrimeiraLiga": -0.15512275805863265,
+                "SerieA": 0.08763919098998045,
+                "SuperLig": -0.20184365307969138
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.15520878121093015,
+                "UEL": 0.018767809024688224
+              },
+              "h": {
+                "UCL": 0.2912646478887902,
+                "UEL": 0.4415796799360173
+              },
+              "matches": 971,
+              "s": {
+                "Bundesliga": 0.10035838071162856,
+                "EPL": 0.28768450916726196,
+                "Eredivisie": -0.23256628365422438,
+                "LaLiga": 0.04860149979326519,
+                "Ligue1": 0.06812024237224928,
+                "PrimeiraLiga": -0.15264631372508997,
+                "SerieA": 0.09182829229546426,
+                "SuperLig": -0.21138032696055492
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2026-01-12",
+          "scored_matches": 18
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 913,
+              "UEL": 483
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 913,
+                "slope": 0.7891649596888235,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 483,
+                "slope": 0.7560090792173423,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1396,
+              "slope": 0.7745544913509192,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 913,
+              "UEL": 483
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 913,
+                "slope": 0.9341010956249631,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 483,
+                "slope": 0.8825730319751176,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1396,
+              "slope": 0.9103141392099887,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 10,
+          "end_exclusive": "2026-02-09",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.1798497846032943,
+                "UEL": 0.00575472204475141
+              },
+              "h": {
+                "UCL": 0.2870567621331481,
+                "UEL": 0.4738629315786269
+              },
+              "matches": 986,
+              "s": {
+                "Bundesliga": 0.10095006286003338,
+                "EPL": 0.3051732272099212,
+                "Eredivisie": -0.22298201654984195,
+                "LaLiga": 0.052373194495125036,
+                "Ligue1": 0.04878662427237299,
+                "PrimeiraLiga": -0.15389174905482725,
+                "SerieA": 0.08571849123687167,
+                "SuperLig": -0.21612783446965508
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.1596860574035166,
+                "UEL": -0.00891891671308953
+              },
+              "h": {
+                "UCL": 0.28928513127656247,
+                "UEL": 0.46855340641337134
+              },
+              "matches": 986,
+              "s": {
+                "Bundesliga": 0.09475184428057086,
+                "EPL": 0.3131766470000279,
+                "Eredivisie": -0.23029930271777332,
+                "LaLiga": 0.06384441563581474,
+                "Ligue1": 0.04564463627959643,
+                "PrimeiraLiga": -0.15104587066157985,
+                "SerieA": 0.09073608764388294,
+                "SuperLig": -0.22680845746054
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2026-01-26",
+          "scored_matches": 18
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 929,
+              "UEL": 497
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 929,
+                "slope": 0.7821163769464523,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 497,
+                "slope": 0.8234654307442059,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1426,
+              "slope": 0.8002414110556639,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 929,
+              "UEL": 497
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 929,
+                "slope": 0.931200289604453,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 497,
+                "slope": 0.9532701769942886,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1426,
+              "slope": 0.9413789931783313,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 4,
+          "end_exclusive": "2026-02-23",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.17821771995095945,
+                "UEL": -0.02353823784635317
+              },
+              "h": {
+                "UCL": 0.2857437223415079,
+                "UEL": 0.4896760405687115
+              },
+              "matches": 999,
+              "s": {
+                "Bundesliga": 0.09500498989957598,
+                "EPL": 0.31391106554191567,
+                "Eredivisie": -0.2245894636475605,
+                "LaLiga": 0.03770458970116926,
+                "Ligue1": 0.050903400887900185,
+                "PrimeiraLiga": -0.13974947307526955,
+                "SerieA": 0.08758729491237525,
+                "SuperLig": -0.2207724042201066
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.15903987222098645,
+                "UEL": -0.03752026617662905
+              },
+              "h": {
+                "UCL": 0.28799769748720067,
+                "UEL": 0.48411863232273283
+              },
+              "matches": 999,
+              "s": {
+                "Bundesliga": 0.08905447308779418,
+                "EPL": 0.32127725587641276,
+                "Eredivisie": -0.2315760888477228,
+                "LaLiga": 0.04875294723481988,
+                "Ligue1": 0.047796506694611655,
+                "PrimeiraLiga": -0.1366489317817277,
+                "SerieA": 0.09237551921637795,
+                "SuperLig": -0.23103168148056574
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2026-02-09",
+          "scored_matches": 8
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 936,
+              "UEL": 504
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 936,
+                "slope": 0.7952168218581221,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 504,
+                "slope": 0.8165172462656844,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1440,
+              "slope": 0.8045741076349026,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 936,
+              "UEL": 504
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 936,
+                "slope": 0.9386310727829283,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 504,
+                "slope": 0.9382956636442187,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1440,
+              "slope": 0.9384757345203628,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 4,
+          "end_exclusive": "2026-03-09",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.17736995881683687,
+                "UEL": -0.005036693917730348
+              },
+              "h": {
+                "UCL": 0.29592519929085115,
+                "UEL": 0.46135348083791544
+              },
+              "matches": 1004,
+              "s": {
+                "Bundesliga": 0.09965335615097597,
+                "EPL": 0.3224201299907596,
+                "Eredivisie": -0.22303945168911055,
+                "LaLiga": 0.04159476316360983,
+                "Ligue1": 0.05142476573663634,
+                "PrimeiraLiga": -0.1466473118547531,
+                "SerieA": 0.07093627259816283,
+                "SuperLig": -0.21634252409628105
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.1584692470434346,
+                "UEL": -0.018924352639409014
+              },
+              "h": {
+                "UCL": 0.2983425885231022,
+                "UEL": 0.4560671856873028
+              },
+              "matches": 1004,
+              "s": {
+                "Bundesliga": 0.09380958635529896,
+                "EPL": 0.32939618975900076,
+                "Eredivisie": -0.23005260197370345,
+                "LaLiga": 0.05237545196134582,
+                "Ligue1": 0.04820327491258523,
+                "PrimeiraLiga": -0.14366596761395248,
+                "SerieA": 0.07529949674592283,
+                "SuperLig": -0.22536543014649782
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2026-02-23",
+          "scored_matches": 8
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 942,
+              "UEL": 511
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 942,
+                "slope": 0.8066867480748828,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 511,
+                "slope": 0.7596448054567057,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1453,
+              "slope": 0.7853609487469652,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 942,
+              "UEL": 511
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 942,
+                "slope": 0.9535296379765976,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 511,
+                "slope": 0.872503148390595,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1453,
+              "slope": 0.9147344493041849,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 14,
+          "end_exclusive": "2026-03-23",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.17533303794629965,
+                "UEL": 0.007233205967394227
+              },
+              "h": {
+                "UCL": 0.30708537090656746,
+                "UEL": 0.44424625431243064
+              },
+              "matches": 1009,
+              "s": {
+                "Bundesliga": 0.09143359633801354,
+                "EPL": 0.31616196132352004,
+                "Eredivisie": -0.22181954662047554,
+                "LaLiga": 0.042249370754790475,
+                "Ligue1": 0.05064114360325541,
+                "PrimeiraLiga": -0.1453654722160998,
+                "SerieA": 0.08667845286553912,
+                "SuperLig": -0.21997950604854297
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.15691827547112425,
+                "UEL": -0.006375267216975467
+              },
+              "h": {
+                "UCL": 0.30923233202432276,
+                "UEL": 0.4387491596423828
+              },
+              "matches": 1009,
+              "s": {
+                "Bundesliga": 0.08547732332390057,
+                "EPL": 0.3230013761339069,
+                "Eredivisie": -0.22882432476754147,
+                "LaLiga": 0.05291229487903093,
+                "Ligue1": 0.047415200290194665,
+                "PrimeiraLiga": -0.14240108862496376,
+                "SerieA": 0.09081179951556818,
+                "SuperLig": -0.2283925807500963
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2026-03-09",
+          "scored_matches": 16
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 956,
+              "UEL": 524
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 956,
+                "slope": 0.834516994949353,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 524,
+                "slope": 0.7518997894031564,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1480,
+              "slope": 0.7969200802090864,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 956,
+              "UEL": 524
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 956,
+                "slope": 0.9536404695055587,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 524,
+                "slope": 0.8669363647875236,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1480,
+              "slope": 0.912371495147553,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 8,
+          "end_exclusive": "2026-04-20",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.1903285299509876,
+                "UEL": 0.032297684162723626
+              },
+              "h": {
+                "UCL": 0.32713358222038036,
+                "UEL": 0.40459363033137863
+              },
+              "matches": 1031,
+              "s": {
+                "Bundesliga": 0.10054266275032903,
+                "EPL": 0.2772211469003205,
+                "Eredivisie": -0.22166802502227032,
+                "LaLiga": 0.07730078975273803,
+                "Ligue1": 0.05675442401873147,
+                "PrimeiraLiga": -0.1288002800278284,
+                "SerieA": 0.06730179915216422,
+                "SuperLig": -0.22865251752418417
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.17307081902309931,
+                "UEL": 0.01962344863807313
+              },
+              "h": {
+                "UCL": 0.3292876219012097,
+                "UEL": 0.39976030804657237
+              },
+              "matches": 1031,
+              "s": {
+                "Bundesliga": 0.09522309456761668,
+                "EPL": 0.28361236519118055,
+                "Eredivisie": -0.22863906881094767,
+                "LaLiga": 0.08698341021462083,
+                "Ligue1": 0.05408747303425573,
+                "PrimeiraLiga": -0.12597087128177856,
+                "SerieA": 0.07089809484644541,
+                "SuperLig": -0.23619449776139212
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2026-04-06",
+          "scored_matches": 8
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 963,
+              "UEL": 530
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 963,
+                "slope": 0.8261268090560565,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 530,
+                "slope": 0.7447901277549238,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1493,
+              "slope": 0.7891743700742383,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 963,
+              "UEL": 530
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 963,
+                "slope": 0.9347264004500558,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 530,
+                "slope": 0.8573694679287137,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1493,
+              "slope": 0.8980411854113867,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 2,
+          "end_exclusive": "2026-05-04",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.19338719891439174,
+                "UEL": 0.06541219680510114
+              },
+              "h": {
+                "UCL": 0.30314398892527356,
+                "UEL": 0.3853405856913512
+              },
+              "matches": 1047,
+              "s": {
+                "Bundesliga": 0.11689048103681077,
+                "EPL": 0.2806834193467076,
+                "Eredivisie": -0.2216662823940203,
+                "LaLiga": 0.054817901105214804,
+                "Ligue1": 0.07138382901577954,
+                "PrimeiraLiga": -0.1244893150087214,
+                "SerieA": 0.04961834619647898,
+                "SuperLig": -0.22723837929825008
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.1769568967290839,
+                "UEL": 0.053638624740825175
+              },
+              "h": {
+                "UCL": 0.30512059971970573,
+                "UEL": 0.38078353764539435
+              },
+              "matches": 1047,
+              "s": {
+                "Bundesliga": 0.11237519811812478,
+                "EPL": 0.286654767572644,
+                "Eredivisie": -0.22852108476014618,
+                "LaLiga": 0.06395082036904165,
+                "Ligue1": 0.0685808135164282,
+                "PrimeiraLiga": -0.12148390640498868,
+                "SerieA": 0.053146445899948214,
+                "SuperLig": -0.23470305431105187
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2026-04-20",
+          "scored_matches": 2
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 964,
+              "UEL": 532
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 964,
+                "slope": 0.8289009656879227,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 532,
+                "slope": 0.7427100738111007,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1496,
+              "slope": 0.789691035589671,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 964,
+              "UEL": 532
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 964,
+                "slope": 0.935155366376302,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 532,
+                "slope": 0.866020549500546,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1496,
+              "slope": 0.9023917803074663,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 2,
+          "end_exclusive": "2026-05-18",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.19878110912863767,
+                "UEL": 0.055851247606544197
+              },
+              "h": {
+                "UCL": 0.30609238081326995,
+                "UEL": 0.39371089036682294
+              },
+              "matches": 1051,
+              "s": {
+                "Bundesliga": 0.11177526791673333,
+                "EPL": 0.2783850992497674,
+                "Eredivisie": -0.22153573783263658,
+                "LaLiga": 0.055856006217055734,
+                "Ligue1": 0.07467734246137117,
+                "PrimeiraLiga": -0.12148004984580213,
+                "SerieA": 0.049215126511214645,
+                "SuperLig": -0.22689305467770385
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.18259738986026366,
+                "UEL": 0.044348389329355774
+              },
+              "h": {
+                "UCL": 0.3079189132247465,
+                "UEL": 0.3891079614047915
+              },
+              "matches": 1051,
+              "s": {
+                "Bundesliga": 0.10726722082077247,
+                "EPL": 0.28436044127944005,
+                "Eredivisie": -0.22833385173575496,
+                "LaLiga": 0.06493526204595844,
+                "Ligue1": 0.07182433890551825,
+                "PrimeiraLiga": -0.11847785966912798,
+                "SerieA": 0.05276133601744297,
+                "SuperLig": -0.23433688766424945
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2026-05-04",
+          "scored_matches": 2
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 965,
+              "UEL": 534
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 965,
+                "slope": 0.8343290123463285,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 534,
+                "slope": 0.7544639088435728,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1499,
+              "slope": 0.7979968976796414,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 965,
+              "UEL": 534
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 965,
+                "slope": 0.9409790794639422,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 534,
+                "slope": 0.8739861996153901,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1499,
+              "slope": 0.9093333999926502,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 1,
+          "end_exclusive": "2026-06-01",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.19371174152686224,
+                "UEL": 0.044303037853959656
+              },
+              "h": {
+                "UCL": 0.3035129407917567,
+                "UEL": 0.43017929809268324
+              },
+              "matches": 1055,
+              "s": {
+                "Bundesliga": 0.11488382761203232,
+                "EPL": 0.27851905887393846,
+                "Eredivisie": -0.22129250104476259,
+                "LaLiga": 0.05709189014722911,
+                "Ligue1": 0.07792040703247782,
+                "PrimeiraLiga": -0.12939895570273766,
+                "SerieA": 0.049167057348997345,
+                "SuperLig": -0.226890784267175
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.17762803139454603,
+                "UEL": 0.03296801181987073
+              },
+              "h": {
+                "UCL": 0.3054569434842296,
+                "UEL": 0.42581001721550343
+              },
+              "matches": 1055,
+              "s": {
+                "Bundesliga": 0.11055564664737086,
+                "EPL": 0.2845646078206905,
+                "Eredivisie": -0.22801514460004876,
+                "LaLiga": 0.06612887132703868,
+                "Ligue1": 0.07498770509432455,
+                "PrimeiraLiga": -0.12667202720386037,
+                "SerieA": 0.052753268271096,
+                "SuperLig": -0.2343029273566119
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2026-05-18",
+          "scored_matches": 1
+        },
+        {
+          "CE2": {
+            "decided": {
+              "UCL": 965,
+              "UEL": 535
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 965,
+                "slope": 0.8343290123463494,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 535,
+                "slope": 0.7532670774072361,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1500,
+              "slope": 0.797438786982896,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "CE4": {
+            "decided": {
+              "UCL": 965,
+              "UEL": 535
+            },
+            "per_competition": {
+              "UCL": {
+                "matches": 965,
+                "slope": 0.9409790794640818,
+                "status": "fitted"
+              },
+              "UEL": {
+                "matches": 535,
+                "slope": 0.8743617732949381,
+                "status": "fitted"
+              }
+            },
+            "pooled": {
+              "matches": 1500,
+              "slope": 0.909513815811193,
+              "status": "fitted"
+            },
+            "rule": "pooled"
+          },
+          "domestic_used": 7,
+          "end_exclusive": "2026-09-21",
+          "factors": {
+            "goals": {
+              "c": {
+                "UCL": 0.1918077571620356,
+                "UEL": 0.058051747964509404
+              },
+              "h": {
+                "UCL": 0.30464747959798105,
+                "UEL": 0.40734630273654276
+              },
+              "matches": 1057,
+              "s": {
+                "Bundesliga": 0.10416067938964133,
+                "EPL": 0.2831517292510185,
+                "Eredivisie": -0.21877828755684559,
+                "LaLiga": 0.05638198978679417,
+                "Ligue1": 0.07747190093781275,
+                "PrimeiraLiga": -0.12938872739801507,
+                "SerieA": 0.047527225203025276,
+                "SuperLig": -0.22052650961343137
+              },
+              "status": "fitted"
+            },
+            "xg": {
+              "c": {
+                "UCL": 0.17578527097447633,
+                "UEL": 0.046763629192382
+              },
+              "h": {
+                "UCL": 0.30661831242062143,
+                "UEL": 0.40317549936420777
+              },
+              "matches": 1057,
+              "s": {
+                "Bundesliga": 0.0998328173894418,
+                "EPL": 0.2889967865291224,
+                "Eredivisie": -0.22541121544293086,
+                "LaLiga": 0.06531770296348355,
+                "Ligue1": 0.07456715196703964,
+                "PrimeiraLiga": -0.12667464932146036,
+                "SerieA": 0.05108323849100841,
+                "SuperLig": -0.22771183257570485
+              },
+              "status": "fitted"
+            }
+          },
+          "origin": "2026-09-07",
+          "scored_matches": 12
+        }
+      ]
+    }
+  ],
+  "holdout_verdict": {
+    "baseline": "CE",
+    "calibration": {
+      "band_z_threshold": 2.8375969129437872,
+      "bands_checked": 11,
+      "bands_pass": true,
+      "failing_bands": [],
+      "forecasts": 277,
+      "passes": true,
+      "relative_slopes": {
+        "baseline_on_common_fixtures": {
+          "away": 0.9336813301811772,
+          "home": 0.7897303766171039
+        },
+        "candidate_on_common_fixtures": {
+          "away": 0.9993726873955187,
+          "home": 0.9070355053350514
+        },
+        "closer_to_one_than_baseline": {
+          "away": true,
+          "home": true
+        },
+        "fixtures_compared": 277,
+        "in_band": {
+          "away": true,
+          "home": true
+        },
+        "slope_passes": {
+          "away": true,
+          "home": true
+        }
+      },
+      "rule": "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3",
+      "slopes": {
+        "away": 0.9993726873955187,
+        "home": 0.9070355053350514
+      },
+      "slopes_pass": true,
+      "worst_band": {
+        "band_lower": 0.5,
+        "mean_forecast": 0.5365588475593283,
+        "n": 48,
+        "observed_minus_forecast": 0.08844115244067174,
+        "observed_rate": 0.625,
+        "outcome": "home",
+        "z": 1.2287655694865536
+      }
+    },
+    "calibration_tolerance": {
+      "band_alpha": 0.05,
+      "band_max_deviation": 0.05,
+      "band_min_matches": 30,
+      "band_width": 0.1,
+      "decided": "2026-11-12",
+      "decided_note": "Decided on 12 Nov 2026, before any European holdout scoring (evaluation/european_holdout_ledger.json has no entry). Applies only to candidates not yet scored on a holdout; v2 stays for C6's record.",
+      "name": "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3",
+      "rule": "Relative slopes. Each of the candidate's home and away logistic calibration slopes (logit P(outcome) = a + b logit(p), fitted per outcome) passes if it is between 0.90 and 1.10 inclusive, OR its distance from 1.0 is smaller than the declared baseline's slope for the same outcome on the same fixtures (both slopes fitted on the fixtures both forecast). Bands exactly as v2: no outcome probability band (home, draw and away, tenths of probability, at least 30 matches) more than 5 percentage points from its observed rate AND statistically clear (|gap| / sqrt(p(1-p)/n) above the two-sided normal quantile for 0.05 divided by the number of bands checked; Bonferroni), p = the band's mean forecast.",
+      "slope_max": 1.1,
+      "slope_min": 0.9,
+      "slope_outcomes": [
+        "home",
+        "away"
+      ],
+      "slope_relative_to_baseline": true
+    },
+    "candidate": "CE3n",
+    "draw_sensitive": {
+      "clear_of_zero": false,
+      "fixtures": 277,
+      "interval_95": [
+        -0.011719366430318205,
+        0.0207557238884239
+      ],
+      "mean_gain": 0.004541041079288884,
+      "weeks": 29
+    },
+    "next_steps": "Passing the holdout is necessary, not sufficient: parity test and live replay follow, then a reviewed PR.",
+    "passes_holdout_gate": false,
+    "primary": {
+      "clear_of_zero": false,
+      "fixtures": 277,
+      "interval_95": [
+        -0.011475637842489212,
+        0.015768836518700348
+      ],
+      "mean_gain": 0.0026943647350000763,
+      "weeks": 29
+    },
+    "primary_metric": "AH all",
+    "sample_minimum": {
+      "fixtures": 250,
+      "weeks": 6
+    },
+    "sample_minimum_met": true,
+    "versus_market": null
+  },
+  "mode": "european_holdout",
+  "notes": [
+    "Results only: no historical European prices are cached, so there is no market reference (M), no cagey tier (D), no published-grid proxy (A) and no market bar. Log loss is against the result alone.",
+    "Calibration rules v2 (calibration_tolerance_check) and v3 (calibration_tolerance_rules, each candidate against CE) are reported for information; only a declared run applies one, as a gate.",
+    "CE is the research model as live runs it for UCL/UEL, without the ESPN form live adds (the harness has none) and with history to the fold origin.",
+    "Intervals resample whole calendar weeks.",
+    "Retrospective results were already scored elsewhere: diagnostics only, never release evidence."
+  ],
+  "periods": {
+    "holdout": {
+      "by_candidate": {
+        "CE": {
+          "by_competition": {
+            "UCL": {
+              "1X2": {
+                "fixtures": 277,
+                "interval_95": [
+                  0.8843874977339196,
+                  0.9884039629052783
+                ],
+                "mean_log_loss": 0.9326919414171101,
+                "weeks": 29
+              },
+              "AH all": {
+                "fixtures": 277,
+                "interval_95": [
+                  0.7283487798235015,
+                  0.7822569953516911
+                ],
+                "mean_log_loss": 0.7564233901303934,
+                "weeks": 29
+              },
+              "AH draw-sensitive": {
+                "fixtures": 277,
+                "interval_95": [
+                  0.6730047031075077,
+                  0.7420219712330548
+                ],
+                "mean_log_loss": 0.7076836602088159,
+                "weeks": 29
+              },
+              "Over 1.5": {
+                "fixtures": 277,
+                "interval_95": [
+                  0.391513784842111,
+                  0.5327698260355963
+                ],
+                "mean_log_loss": 0.4588591123774181,
+                "weeks": 29
+              }
+            }
+          },
+          "by_competition_and_stage": {
+            "UCL knockout": {
+              "1X2": {
+                "fixtures": 90,
+                "interval_95": [
+                  0.8981374217145276,
+                  1.099361367407097
+                ],
+                "mean_log_loss": 0.9931103062959029,
+                "weeks": 18
+              },
+              "AH all": {
+                "fixtures": 90,
+                "interval_95": [
+                  0.7326144778922927,
+                  0.8085200037642877
+                ],
+                "mean_log_loss": 0.7719456431849715,
+                "weeks": 18
+              },
+              "AH draw-sensitive": {
+                "fixtures": 90,
+                "interval_95": [
+                  0.6816597369567786,
+                  0.8016168776737379
+                ],
+                "mean_log_loss": 0.7402408200515926,
+                "weeks": 18
+              },
+              "Over 1.5": {
+                "fixtures": 90,
+                "interval_95": [
+                  0.3651606404689714,
+                  0.5636545462128066
+                ],
+                "mean_log_loss": 0.4618918494293393,
+                "weeks": 18
+              }
+            },
+            "UCL league phase": {
+              "1X2": {
+                "fixtures": 187,
+                "interval_95": [
+                  0.8463303035418471,
+                  0.9579846897678607
+                ],
+                "mean_log_loss": 0.9036135839888143,
+                "weeks": 11
+              },
+              "AH all": {
+                "fixtures": 187,
+                "interval_95": [
+                  0.7104606413477333,
+                  0.7813006758135171
+                ],
+                "mean_log_loss": 0.7489527870559973,
+                "weeks": 11
+              },
+              "AH draw-sensitive": {
+                "fixtures": 187,
+                "interval_95": [
+                  0.6487526613932181,
+                  0.72811830490174
+                ],
+                "mean_log_loss": 0.6920144388941106,
+                "weeks": 11
+              },
+              "Over 1.5": {
+                "fixtures": 187,
+                "interval_95": [
+                  0.37380700604834244,
+                  0.5656154214894956
+                ],
+                "mean_log_loss": 0.45739950630964854,
+                "weeks": 11
+              }
+            }
+          },
+          "by_stage": {
+            "knockout": {
+              "1X2": {
+                "fixtures": 90,
+                "interval_95": [
+                  0.8981374217145276,
+                  1.099361367407097
+                ],
+                "mean_log_loss": 0.9931103062959029,
+                "weeks": 18
+              },
+              "AH all": {
+                "fixtures": 90,
+                "interval_95": [
+                  0.7326144778922927,
+                  0.8085200037642877
+                ],
+                "mean_log_loss": 0.7719456431849715,
+                "weeks": 18
+              },
+              "AH draw-sensitive": {
+                "fixtures": 90,
+                "interval_95": [
+                  0.6816597369567786,
+                  0.8016168776737379
+                ],
+                "mean_log_loss": 0.7402408200515926,
+                "weeks": 18
+              },
+              "Over 1.5": {
+                "fixtures": 90,
+                "interval_95": [
+                  0.3651606404689714,
+                  0.5636545462128066
+                ],
+                "mean_log_loss": 0.4618918494293393,
+                "weeks": 18
+              }
+            },
+            "league phase": {
+              "1X2": {
+                "fixtures": 187,
+                "interval_95": [
+                  0.8463303035418471,
+                  0.9579846897678607
+                ],
+                "mean_log_loss": 0.9036135839888143,
+                "weeks": 11
+              },
+              "AH all": {
+                "fixtures": 187,
+                "interval_95": [
+                  0.7104606413477333,
+                  0.7813006758135171
+                ],
+                "mean_log_loss": 0.7489527870559973,
+                "weeks": 11
+              },
+              "AH draw-sensitive": {
+                "fixtures": 187,
+                "interval_95": [
+                  0.6487526613932181,
+                  0.72811830490174
+                ],
+                "mean_log_loss": 0.6920144388941106,
+                "weeks": 11
+              },
+              "Over 1.5": {
+                "fixtures": 187,
+                "interval_95": [
+                  0.37380700604834244,
+                  0.5656154214894956
+                ],
+                "mean_log_loss": 0.45739950630964854,
+                "weeks": 11
+              }
+            }
+          },
+          "calibration_tolerance_check": {
+            "UCL": {
+              "band_z_threshold": 2.8375969129437872,
+              "bands_checked": 11,
+              "bands_pass": true,
+              "failing_bands": [],
+              "forecasts": 277,
+              "passes": false,
+              "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+              "slopes": {
+                "away": 0.9336813301811772,
+                "home": 0.7897303766171039
+              },
+              "slopes_pass": false,
+              "worst_band": {
+                "band_lower": 0.5,
+                "mean_forecast": 0.5448678818337022,
+                "n": 43,
+                "observed_minus_forecast": 0.15280653677094902,
+                "observed_rate": 0.6976744186046512,
+                "outcome": "home",
+                "z": 2.012156770748354
+              }
+            },
+            "overall": {
+              "band_z_threshold": 2.8375969129437872,
+              "bands_checked": 11,
+              "bands_pass": true,
+              "failing_bands": [],
+              "forecasts": 277,
+              "passes": false,
+              "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+              "slopes": {
+                "away": 0.9336813301811772,
+                "home": 0.7897303766171039
+              },
+              "slopes_pass": false,
+              "worst_band": {
+                "band_lower": 0.5,
+                "mean_forecast": 0.5448678818337022,
+                "n": 43,
+                "observed_minus_forecast": 0.15280653677094902,
+                "observed_rate": 0.6976744186046512,
+                "outcome": "home",
+                "z": 2.012156770748354
+              }
+            }
+          },
+          "calibration_tolerance_rules": {
+            "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+              "UCL": {
+                "band_z_threshold": 2.8375969129437872,
+                "bands_checked": 11,
+                "bands_pass": true,
+                "failing_bands": [],
+                "forecasts": 277,
+                "passes": false,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.9336813301811772,
+                    "home": 0.7897303766171039
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.9336813301811772,
+                    "home": 0.7897303766171039
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": false,
+                    "home": false
+                  },
+                  "fixtures_compared": 277,
+                  "in_band": {
+                    "away": true,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": false
+                  }
+                },
+                "rule": "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3",
+                "slopes": {
+                  "away": 0.9336813301811772,
+                  "home": 0.7897303766171039
+                },
+                "slopes_pass": false,
+                "worst_band": {
+                  "band_lower": 0.5,
+                  "mean_forecast": 0.5448678818337022,
+                  "n": 43,
+                  "observed_minus_forecast": 0.15280653677094902,
+                  "observed_rate": 0.6976744186046512,
+                  "outcome": "home",
+                  "z": 2.012156770748354
+                }
+              },
+              "baseline": "CE",
+              "overall": {
+                "band_z_threshold": 2.8375969129437872,
+                "bands_checked": 11,
+                "bands_pass": true,
+                "failing_bands": [],
+                "forecasts": 277,
+                "passes": false,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.9336813301811772,
+                    "home": 0.7897303766171039
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.9336813301811772,
+                    "home": 0.7897303766171039
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": false,
+                    "home": false
+                  },
+                  "fixtures_compared": 277,
+                  "in_band": {
+                    "away": true,
+                    "home": false
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": false
+                  }
+                },
+                "rule": "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3",
+                "slopes": {
+                  "away": 0.9336813301811772,
+                  "home": 0.7897303766171039
+                },
+                "slopes_pass": false,
+                "worst_band": {
+                  "band_lower": 0.5,
+                  "mean_forecast": 0.5448678818337022,
+                  "n": 43,
+                  "observed_minus_forecast": 0.15280653677094902,
+                  "observed_rate": 0.6976744186046512,
+                  "outcome": "home",
+                  "z": 2.012156770748354
+                }
+              }
+            }
+          },
+          "overall": {
+            "1X2": {
+              "fixtures": 277,
+              "interval_95": [
+                0.8843874977339196,
+                0.9884039629052783
+              ],
+              "mean_log_loss": 0.9326919414171101,
+              "weeks": 29
+            },
+            "AH all": {
+              "fixtures": 277,
+              "interval_95": [
+                0.7283487798235015,
+                0.7822569953516911
+              ],
+              "mean_log_loss": 0.7564233901303934,
+              "weeks": 29
+            },
+            "AH draw-sensitive": {
+              "fixtures": 277,
+              "interval_95": [
+                0.6730047031075077,
+                0.7420219712330548
+              ],
+              "mean_log_loss": 0.7076836602088159,
+              "weeks": 29
+            },
+            "Over 1.5": {
+              "fixtures": 277,
+              "interval_95": [
+                0.391513784842111,
+                0.5327698260355963
+              ],
+              "mean_log_loss": 0.4588591123774181,
+              "weeks": 29
+            }
+          }
+        },
+        "CE3n": {
+          "by_competition": {
+            "UCL": {
+              "1X2": {
+                "fixtures": 277,
+                "interval_95": [
+                  0.8770718515889587,
+                  0.9843136166496956
+                ],
+                "mean_log_loss": 0.9264187990063009,
+                "weeks": 29
+              },
+              "AH all": {
+                "fixtures": 277,
+                "interval_95": [
+                  0.7208044618029962,
+                  0.78666029004728
+                ],
+                "mean_log_loss": 0.7537290253953933,
+                "weeks": 29
+              },
+              "AH draw-sensitive": {
+                "fixtures": 277,
+                "interval_95": [
+                  0.6669345797660352,
+                  0.7422571598457214
+                ],
+                "mean_log_loss": 0.703142619129527,
+                "weeks": 29
+              },
+              "Over 1.5": {
+                "fixtures": 277,
+                "interval_95": [
+                  0.378379306761664,
+                  0.512358344894535
+                ],
+                "mean_log_loss": 0.44258526579034396,
+                "weeks": 29
+              }
+            }
+          },
+          "by_competition_and_stage": {
+            "UCL knockout": {
+              "1X2": {
+                "fixtures": 90,
+                "interval_95": [
+                  0.9235830020874931,
+                  1.1215750344627466
+                ],
+                "mean_log_loss": 1.0127546535903187,
+                "weeks": 18
+              },
+              "AH all": {
+                "fixtures": 90,
+                "interval_95": [
+                  0.740223251745132,
+                  0.8329556534376658
+                ],
+                "mean_log_loss": 0.7873799824851537,
+                "weeks": 18
+              },
+              "AH draw-sensitive": {
+                "fixtures": 90,
+                "interval_95": [
+                  0.6993100611929022,
+                  0.8279568266863413
+                ],
+                "mean_log_loss": 0.7601113422854842,
+                "weeks": 18
+              },
+              "Over 1.5": {
+                "fixtures": 90,
+                "interval_95": [
+                  0.34364984299940465,
+                  0.5102802657044966
+                ],
+                "mean_log_loss": 0.4268975117282819,
+                "weeks": 18
+              }
+            },
+            "UCL league phase": {
+              "1X2": {
+                "fixtures": 187,
+                "interval_95": [
+                  0.8247343292559353,
+                  0.9382323221868955
+                ],
+                "mean_log_loss": 0.8848667834311048,
+                "weeks": 11
+              },
+              "AH all": {
+                "fixtures": 187,
+                "interval_95": [
+                  0.6930150801377707,
+                  0.7777814260055103
+                ],
+                "mean_log_loss": 0.7375333775981823,
+                "weeks": 11
+              },
+              "AH draw-sensitive": {
+                "fixtures": 187,
+                "interval_95": [
+                  0.6305564058415558,
+                  0.7141712071184706
+                ],
+                "mean_log_loss": 0.6757245170758579,
+                "weeks": 11
+              },
+              "Over 1.5": {
+                "fixtures": 187,
+                "interval_95": [
+                  0.3682270015317475,
+                  0.5528443196133538
+                ],
+                "mean_log_loss": 0.45013552175604227,
+                "weeks": 11
+              }
+            }
+          },
+          "by_stage": {
+            "knockout": {
+              "1X2": {
+                "fixtures": 90,
+                "interval_95": [
+                  0.9235830020874931,
+                  1.1215750344627466
+                ],
+                "mean_log_loss": 1.0127546535903187,
+                "weeks": 18
+              },
+              "AH all": {
+                "fixtures": 90,
+                "interval_95": [
+                  0.740223251745132,
+                  0.8329556534376658
+                ],
+                "mean_log_loss": 0.7873799824851537,
+                "weeks": 18
+              },
+              "AH draw-sensitive": {
+                "fixtures": 90,
+                "interval_95": [
+                  0.6993100611929022,
+                  0.8279568266863413
+                ],
+                "mean_log_loss": 0.7601113422854842,
+                "weeks": 18
+              },
+              "Over 1.5": {
+                "fixtures": 90,
+                "interval_95": [
+                  0.34364984299940465,
+                  0.5102802657044966
+                ],
+                "mean_log_loss": 0.4268975117282819,
+                "weeks": 18
+              }
+            },
+            "league phase": {
+              "1X2": {
+                "fixtures": 187,
+                "interval_95": [
+                  0.8247343292559353,
+                  0.9382323221868955
+                ],
+                "mean_log_loss": 0.8848667834311048,
+                "weeks": 11
+              },
+              "AH all": {
+                "fixtures": 187,
+                "interval_95": [
+                  0.6930150801377707,
+                  0.7777814260055103
+                ],
+                "mean_log_loss": 0.7375333775981823,
+                "weeks": 11
+              },
+              "AH draw-sensitive": {
+                "fixtures": 187,
+                "interval_95": [
+                  0.6305564058415558,
+                  0.7141712071184706
+                ],
+                "mean_log_loss": 0.6757245170758579,
+                "weeks": 11
+              },
+              "Over 1.5": {
+                "fixtures": 187,
+                "interval_95": [
+                  0.3682270015317475,
+                  0.5528443196133538
+                ],
+                "mean_log_loss": 0.45013552175604227,
+                "weeks": 11
+              }
+            }
+          },
+          "calibration_tolerance_check": {
+            "UCL": {
+              "band_z_threshold": 2.8375969129437872,
+              "bands_checked": 11,
+              "bands_pass": true,
+              "failing_bands": [],
+              "forecasts": 277,
+              "passes": true,
+              "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+              "slopes": {
+                "away": 0.9993726873955187,
+                "home": 0.9070355053350514
+              },
+              "slopes_pass": true,
+              "worst_band": {
+                "band_lower": 0.5,
+                "mean_forecast": 0.5365588475593283,
+                "n": 48,
+                "observed_minus_forecast": 0.08844115244067174,
+                "observed_rate": 0.625,
+                "outcome": "home",
+                "z": 1.2287655694865536
+              }
+            },
+            "overall": {
+              "band_z_threshold": 2.8375969129437872,
+              "bands_checked": 11,
+              "bands_pass": true,
+              "failing_bands": [],
+              "forecasts": 277,
+              "passes": true,
+              "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+              "slopes": {
+                "away": 0.9993726873955187,
+                "home": 0.9070355053350514
+              },
+              "slopes_pass": true,
+              "worst_band": {
+                "band_lower": 0.5,
+                "mean_forecast": 0.5365588475593283,
+                "n": 48,
+                "observed_minus_forecast": 0.08844115244067174,
+                "observed_rate": 0.625,
+                "outcome": "home",
+                "z": 1.2287655694865536
+              }
+            }
+          },
+          "calibration_tolerance_rules": {
+            "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3": {
+              "UCL": {
+                "band_z_threshold": 2.8375969129437872,
+                "bands_checked": 11,
+                "bands_pass": true,
+                "failing_bands": [],
+                "forecasts": 277,
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.9336813301811772,
+                    "home": 0.7897303766171039
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.9993726873955187,
+                    "home": 0.9070355053350514
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 277,
+                  "in_band": {
+                    "away": true,
+                    "home": true
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "rule": "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3",
+                "slopes": {
+                  "away": 0.9993726873955187,
+                  "home": 0.9070355053350514
+                },
+                "slopes_pass": true,
+                "worst_band": {
+                  "band_lower": 0.5,
+                  "mean_forecast": 0.5365588475593283,
+                  "n": 48,
+                  "observed_minus_forecast": 0.08844115244067174,
+                  "observed_rate": 0.625,
+                  "outcome": "home",
+                  "z": 1.2287655694865536
+                }
+              },
+              "baseline": "CE",
+              "overall": {
+                "band_z_threshold": 2.8375969129437872,
+                "bands_checked": 11,
+                "bands_pass": true,
+                "failing_bands": [],
+                "forecasts": 277,
+                "passes": true,
+                "relative_slopes": {
+                  "baseline_on_common_fixtures": {
+                    "away": 0.9336813301811772,
+                    "home": 0.7897303766171039
+                  },
+                  "candidate_on_common_fixtures": {
+                    "away": 0.9993726873955187,
+                    "home": 0.9070355053350514
+                  },
+                  "closer_to_one_than_baseline": {
+                    "away": true,
+                    "home": true
+                  },
+                  "fixtures_compared": 277,
+                  "in_band": {
+                    "away": true,
+                    "home": true
+                  },
+                  "slope_passes": {
+                    "away": true,
+                    "home": true
+                  }
+                },
+                "rule": "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3",
+                "slopes": {
+                  "away": 0.9993726873955187,
+                  "home": 0.9070355053350514
+                },
+                "slopes_pass": true,
+                "worst_band": {
+                  "band_lower": 0.5,
+                  "mean_forecast": 0.5365588475593283,
+                  "n": 48,
+                  "observed_minus_forecast": 0.08844115244067174,
+                  "observed_rate": 0.625,
+                  "outcome": "home",
+                  "z": 1.2287655694865536
+                }
+              }
+            }
+          },
+          "overall": {
+            "1X2": {
+              "fixtures": 277,
+              "interval_95": [
+                0.8770718515889587,
+                0.9843136166496956
+              ],
+              "mean_log_loss": 0.9264187990063009,
+              "weeks": 29
+            },
+            "AH all": {
+              "fixtures": 277,
+              "interval_95": [
+                0.7208044618029962,
+                0.78666029004728
+              ],
+              "mean_log_loss": 0.7537290253953933,
+              "weeks": 29
+            },
+            "AH draw-sensitive": {
+              "fixtures": 277,
+              "interval_95": [
+                0.6669345797660352,
+                0.7422571598457214
+              ],
+              "mean_log_loss": 0.703142619129527,
+              "weeks": 29
+            },
+            "Over 1.5": {
+              "fixtures": 277,
+              "interval_95": [
+                0.378379306761664,
+                0.512358344894535
+              ],
+              "mean_log_loss": 0.44258526579034396,
+              "weeks": 29
+            }
+          }
+        }
+      },
+      "by_competition": {
+        "UCL": {
+          "1X2": {
+            "fixtures": 277,
+            "interval_95": [
+              0.8843874977339196,
+              0.9884039629052783
+            ],
+            "mean_log_loss": 0.9326919414171101,
+            "weeks": 29
+          },
+          "AH all": {
+            "fixtures": 277,
+            "interval_95": [
+              0.7283487798235015,
+              0.7822569953516911
+            ],
+            "mean_log_loss": 0.7564233901303934,
+            "weeks": 29
+          },
+          "AH draw-sensitive": {
+            "fixtures": 277,
+            "interval_95": [
+              0.6730047031075077,
+              0.7420219712330548
+            ],
+            "mean_log_loss": 0.7076836602088159,
+            "weeks": 29
+          },
+          "Over 1.5": {
+            "fixtures": 277,
+            "interval_95": [
+              0.391513784842111,
+              0.5327698260355963
+            ],
+            "mean_log_loss": 0.4588591123774181,
+            "weeks": 29
+          }
+        }
+      },
+      "by_competition_and_stage": {
+        "UCL knockout": {
+          "1X2": {
+            "fixtures": 90,
+            "interval_95": [
+              0.8981374217145276,
+              1.099361367407097
+            ],
+            "mean_log_loss": 0.9931103062959029,
+            "weeks": 18
+          },
+          "AH all": {
+            "fixtures": 90,
+            "interval_95": [
+              0.7326144778922927,
+              0.8085200037642877
+            ],
+            "mean_log_loss": 0.7719456431849715,
+            "weeks": 18
+          },
+          "AH draw-sensitive": {
+            "fixtures": 90,
+            "interval_95": [
+              0.6816597369567786,
+              0.8016168776737379
+            ],
+            "mean_log_loss": 0.7402408200515926,
+            "weeks": 18
+          },
+          "Over 1.5": {
+            "fixtures": 90,
+            "interval_95": [
+              0.3651606404689714,
+              0.5636545462128066
+            ],
+            "mean_log_loss": 0.4618918494293393,
+            "weeks": 18
+          }
+        },
+        "UCL league phase": {
+          "1X2": {
+            "fixtures": 187,
+            "interval_95": [
+              0.8463303035418471,
+              0.9579846897678607
+            ],
+            "mean_log_loss": 0.9036135839888143,
+            "weeks": 11
+          },
+          "AH all": {
+            "fixtures": 187,
+            "interval_95": [
+              0.7104606413477333,
+              0.7813006758135171
+            ],
+            "mean_log_loss": 0.7489527870559973,
+            "weeks": 11
+          },
+          "AH draw-sensitive": {
+            "fixtures": 187,
+            "interval_95": [
+              0.6487526613932181,
+              0.72811830490174
+            ],
+            "mean_log_loss": 0.6920144388941106,
+            "weeks": 11
+          },
+          "Over 1.5": {
+            "fixtures": 187,
+            "interval_95": [
+              0.37380700604834244,
+              0.5656154214894956
+            ],
+            "mean_log_loss": 0.45739950630964854,
+            "weeks": 11
+          }
+        }
+      },
+      "by_stage": {
+        "knockout": {
+          "1X2": {
+            "fixtures": 90,
+            "interval_95": [
+              0.8981374217145276,
+              1.099361367407097
+            ],
+            "mean_log_loss": 0.9931103062959029,
+            "weeks": 18
+          },
+          "AH all": {
+            "fixtures": 90,
+            "interval_95": [
+              0.7326144778922927,
+              0.8085200037642877
+            ],
+            "mean_log_loss": 0.7719456431849715,
+            "weeks": 18
+          },
+          "AH draw-sensitive": {
+            "fixtures": 90,
+            "interval_95": [
+              0.6816597369567786,
+              0.8016168776737379
+            ],
+            "mean_log_loss": 0.7402408200515926,
+            "weeks": 18
+          },
+          "Over 1.5": {
+            "fixtures": 90,
+            "interval_95": [
+              0.3651606404689714,
+              0.5636545462128066
+            ],
+            "mean_log_loss": 0.4618918494293393,
+            "weeks": 18
+          }
+        },
+        "league phase": {
+          "1X2": {
+            "fixtures": 187,
+            "interval_95": [
+              0.8463303035418471,
+              0.9579846897678607
+            ],
+            "mean_log_loss": 0.9036135839888143,
+            "weeks": 11
+          },
+          "AH all": {
+            "fixtures": 187,
+            "interval_95": [
+              0.7104606413477333,
+              0.7813006758135171
+            ],
+            "mean_log_loss": 0.7489527870559973,
+            "weeks": 11
+          },
+          "AH draw-sensitive": {
+            "fixtures": 187,
+            "interval_95": [
+              0.6487526613932181,
+              0.72811830490174
+            ],
+            "mean_log_loss": 0.6920144388941106,
+            "weeks": 11
+          },
+          "Over 1.5": {
+            "fixtures": 187,
+            "interval_95": [
+              0.37380700604834244,
+              0.5656154214894956
+            ],
+            "mean_log_loss": 0.45739950630964854,
+            "weeks": 11
+          }
+        }
+      },
+      "calibration_tolerance_check": {
+        "UCL": {
+          "band_z_threshold": 2.8375969129437872,
+          "bands_checked": 11,
+          "bands_pass": true,
+          "failing_bands": [],
+          "forecasts": 277,
+          "passes": false,
+          "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+          "slopes": {
+            "away": 0.9336813301811772,
+            "home": 0.7897303766171039
+          },
+          "slopes_pass": false,
+          "worst_band": {
+            "band_lower": 0.5,
+            "mean_forecast": 0.5448678818337022,
+            "n": 43,
+            "observed_minus_forecast": 0.15280653677094902,
+            "observed_rate": 0.6976744186046512,
+            "outcome": "home",
+            "z": 2.012156770748354
+          }
+        },
+        "overall": {
+          "band_z_threshold": 2.8375969129437872,
+          "bands_checked": 11,
+          "bands_pass": true,
+          "failing_bands": [],
+          "forecasts": 277,
+          "passes": false,
+          "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+          "slopes": {
+            "away": 0.9336813301811772,
+            "home": 0.7897303766171039
+          },
+          "slopes_pass": false,
+          "worst_band": {
+            "band_lower": 0.5,
+            "mean_forecast": 0.5448678818337022,
+            "n": 43,
+            "observed_minus_forecast": 0.15280653677094902,
+            "observed_rate": 0.6976744186046512,
+            "outcome": "home",
+            "z": 2.012156770748354
+          }
+        }
+      },
+      "overall": {
+        "1X2": {
+          "fixtures": 277,
+          "interval_95": [
+            0.8843874977339196,
+            0.9884039629052783
+          ],
+          "mean_log_loss": 0.9326919414171101,
+          "weeks": 29
+        },
+        "AH all": {
+          "fixtures": 277,
+          "interval_95": [
+            0.7283487798235015,
+            0.7822569953516911
+          ],
+          "mean_log_loss": 0.7564233901303934,
+          "weeks": 29
+        },
+        "AH draw-sensitive": {
+          "fixtures": 277,
+          "interval_95": [
+            0.6730047031075077,
+            0.7420219712330548
+          ],
+          "mean_log_loss": 0.7076836602088159,
+          "weeks": 29
+        },
+        "Over 1.5": {
+          "fixtures": 277,
+          "interval_95": [
+            0.391513784842111,
+            0.5327698260355963
+          ],
+          "mean_log_loss": 0.4588591123774181,
+          "weeks": 29
+        }
+      }
+    }
+  },
+  "setup": {
+    "parts": {
+      "ah_close_backtest.py": "98f09dc60e7ba7e49a17256aa60deed8f8bc11ebaed7000476109be01e9d3a48",
+      "asian_handicap.py": "28b2a2374cd20985a8b29f280633f87bcd3678e846447db47c7e8d0c9b585f09",
+      "benchmark_promotion_rules.json": "e373a11ef0bb4cf727a9dcf3214a8fcb9316f7266e51aad8fc01af0a014dadfc",
+      "data/domestic_backfill/1516_D1.csv": "a9d8689660cf7fe0290ab3de3e00d6fc5ec5fcf90683ee5b84fc229c0923d168",
+      "data/domestic_backfill/1516_E0.csv": "bd3502a18c38a1597fd9af62e2366b4015006d3528dd4d18b311bd6237bbc085",
+      "data/domestic_backfill/1516_F1.csv": "a5470505e6691d94b044eeed59eb3f6447aa41c51dcafb4d0abd92ad1fa6be80",
+      "data/domestic_backfill/1516_I1.csv": "438649d651be61b4acfbe8feee90256cc5493df431e219ce411086dfad554a81",
+      "data/domestic_backfill/1516_N1.csv": "65080d88937ffdb37b8c8e8feaf0dc79de5b4e2d89eca81ae59d0530b3283012",
+      "data/domestic_backfill/1516_P1.csv": "e443b7a427edd2b49bef324e544ef7b0cf6661883e36420aba022a8ab72f1c8f",
+      "data/domestic_backfill/1516_SP1.csv": "f8e59217c158bd1bac302bcfc8555b88661dfe065571809bf51c1df69753d977",
+      "data/domestic_backfill/1516_T1.csv": "52f306e1c3c083384458f0e5989179ac020cd1f3d7d1ab5737e5e72f267c0d16",
+      "data/domestic_backfill/1617_D1.csv": "15b7a41eacde5fcd130d1cd0954c8fe8371fbbfc815c1ce2dd329cf3b27c2d5c",
+      "data/domestic_backfill/1617_E0.csv": "9625a7652b5f98fbd3e2e4d378c851fc246693f3343e34a72428d5b6e864d3e0",
+      "data/domestic_backfill/1617_F1.csv": "3039aecaf3de6e6ef95450b3349bf0337a118b6ed47fc234509953aaee23b4c5",
+      "data/domestic_backfill/1617_I1.csv": "39eb2bc1812897e01c280b711b3b8f5c15d3dee111aa09fbdf2e4abd7404bca3",
+      "data/domestic_backfill/1617_N1.csv": "2f1dcafe2be29a0119f9d509bd928eee09e8c3a049e86a176fcf85dc3554d04b",
+      "data/domestic_backfill/1617_P1.csv": "4baca33d99b5f0a93f7a014961b837b1e4e26b075908eb5b1a7747929361f967",
+      "data/domestic_backfill/1617_SP1.csv": "6f5794a69decfb863ecb6a0b865ffd3241eb5028035d9f19c48a299c5baa8f9a",
+      "data/domestic_backfill/1617_T1.csv": "8baa5615b24b8ead7e19af09187924864d3b35f5162641580e4693783f6467cd",
+      "data/domestic_backfill/1718_D1.csv": "033227408247769568111af49de2a50f6951c87e6d43f9e1a01e73d647bced3e",
+      "data/domestic_backfill/1718_E0.csv": "4f3389365ef3f7ac966764ed8ba67cf3b79f5aebed18dd224099c4b2c98bc67b",
+      "data/domestic_backfill/1718_F1.csv": "95997fd3c3e13be3101b216fe9b26a9ce6715ac6b76b115e44926c12b90977e6",
+      "data/domestic_backfill/1718_I1.csv": "664a8874d3a33923036120c4162e72f13887e0897b51effe27f89969c79c335d",
+      "data/domestic_backfill/1718_N1.csv": "2cb6dd2f12b3c4493fbeb73ca8c14a3be0c528e1e9d3fb774fd109ff1624613b",
+      "data/domestic_backfill/1718_P1.csv": "c485bfd69cd837e6b62769917d2ba22c410160da6fe0e087c8708dd7b8c6db73",
+      "data/domestic_backfill/1718_SP1.csv": "5786719e06d1a5387cb90fac71597c890f496df19e8e1aa868bbc852f7e730fd",
+      "data/domestic_backfill/1718_T1.csv": "46bd389c3d1f7359e5cf614c409f5aa716cb095ce708f7631f6720cbae1d27a8",
+      "data/domestic_backfill/1819_D1.csv": "f03ee41b741aca9c43cbafb800bbc6f01ca9d7ed19c1a9dd4c309389280cfe11",
+      "data/domestic_backfill/1819_E0.csv": "7c096b3c2ecd54c6993d22eeea73450c2bde11e3457238b226b8f43c62dfc35e",
+      "data/domestic_backfill/1819_F1.csv": "31559a4d8b52eff6f78e13a9b33d7b844e4f41d823dd1cf5c1aaa61c51eaaf9c",
+      "data/domestic_backfill/1819_I1.csv": "2baea8a1fb31096960b5f5797d31dbb6b454eb41b00845e6b0b79feb82a0e3d0",
+      "data/domestic_backfill/1819_N1.csv": "d47418082165dd89849d51dddf3a14e2c302f6de7a9322cf1bd9e678245f6482",
+      "data/domestic_backfill/1819_P1.csv": "e9caf283aa870e4e866b5716660fb86aa5c598cca2f2750ef3642e429a961db5",
+      "data/domestic_backfill/1819_SP1.csv": "9b8cece2c85e90e382b30dc4fc5046534f12c6d2b0efa74cd7d1d52e90a0c201",
+      "data/domestic_backfill/1819_T1.csv": "515ad5a5602dcc63ddb9062d49d30e1af6974f566676d360741f38e79f912ec2",
+      "data/domestic_backfill/1920_D1.csv": "0a032b1adc75f7fa018dcfeff7fcdcc0a89014e3fe69f44534f538b6f931aef5",
+      "data/domestic_backfill/1920_E0.csv": "100037618b94f94057400bb02bf6bac4ef74ddaa58cde4b38370839c39caee61",
+      "data/domestic_backfill/1920_F1.csv": "bda566f6aea24bc2f08cceac8f7d6c81d7f9c64cfda9fdae7eb9be2b84dddd2a",
+      "data/domestic_backfill/1920_I1.csv": "f33233e0c428ebe4f7cb854c4a504e0b59c4e009ee8b679269486e26afdc575b",
+      "data/domestic_backfill/1920_N1.csv": "84998d67f390ee86d2f2552fed19a0d5ebaba32000ff7c759b3bd00dfdd9f988",
+      "data/domestic_backfill/1920_P1.csv": "b65f3fa55dd1362af093ad5f823f6b0ec1925e796048688bcbdebc19fab8b240",
+      "data/domestic_backfill/1920_SP1.csv": "a05d5d60eee0b1414c56d6d6817f860cdc620e206234069a1886c98a8cb318da",
+      "data/domestic_backfill/1920_T1.csv": "2ae46dbc0c80a9a10c2ea6737c7bcbcf5849c394ba3912615c39466e5db7bf7a",
+      "data/domestic_backfill/2021_D1.csv": "48ec5d53d2452b6ebdbc07bd78a836d6a4686f99fc020439ee3292e685315e61",
+      "data/domestic_backfill/2021_E0.csv": "5afe63f69401457b8354eaacee24f9a3e520b3c3af6329564a9783e20d789c62",
+      "data/domestic_backfill/2021_F1.csv": "124560ab39a1c256eb6ee5ad2dd1eed250c9780d0cbb34525d9abee41fbf7f70",
+      "data/domestic_backfill/2021_I1.csv": "c09196fa18877547442807d375317299947abdd6d51a5e0df044cc6026e13f36",
+      "data/domestic_backfill/2021_N1.csv": "65d532e1ea878954043454422ba2c770d05909691b219f39fcc6e9c4c4037657",
+      "data/domestic_backfill/2021_P1.csv": "c6bb505a2a2a3f5a71f5d37cbe9f717fb683d706b66170b6b3bef7947a5252cb",
+      "data/domestic_backfill/2021_SP1.csv": "b4137db923101f464e8403c4973acbfaf7d71724ce93b4336fad580e894d9591",
+      "data/domestic_backfill/2021_T1.csv": "f50a1ca815964b11f818a3ca35035f57969e5b3b04e267ad508e8b9282920cfd",
+      "data/domestic_backfill/manifest.json": "9fa5055b29ff263d766724794b66323d5a3d957df912320957b778c0e30d7262",
+      "data/europa/backfill/evidence/domestic/fixture-bundesliga-2024.csv": "f888ff01287748a76157822c18ec49488469f4d4101b47dca6ba02f107b56092",
+      "data/europa/backfill/evidence/domestic/fixture-eredivisie-2024.csv": "2760effaae048342e4f4526325873fcfb7e3559070c2210a317b6322bc8c307d",
+      "data/europa/backfill/evidence/domestic/fixture-la-liga-2024.csv": "7e0642c01e08a983ac20afb44a3c1d55e8dfb11776f5c11a5c8fb81b9016f7f3",
+      "data/europa/backfill/evidence/domestic/fixture-serie-a-2024.csv": "a138551cfe7b576214b49ac0ec1e3f73cd4b927f884e1097f9c99bcb069de674",
+      "data/europa/backfill/evidence/domestic/fixture-super-lig-2024.csv": "db44bec6f68ef68cada8d60a22115978ff46c24fa308b221ce15767fbef3c1ba",
+      "data/europa/backfill/evidence/domestic/football-json-2023-de.1.json": "d104edde48a5e254545eac3d3ed379a09801e1ebcef5c6480e28bc36fcfa202d",
+      "data/europa/backfill/evidence/domestic/football-json-2023-es.1.json": "e4c1e1a958f224ba3c815c898982ab495b9577315cc58ee7a5e7b532960f738b",
+      "data/europa/backfill/evidence/domestic/football-json-2023-it.1.json": "47734fc8d2ec34c5529ca814c97d1c86ecddc4a2c8095506d9b12f29cb283308",
+      "data/europa/backfill/evidence/domestic/football-json-2023-nl.1.json": "7fca2acdd40027c59890e68cc5b8cba667eebed353c2e4870315ae02f3ef5380",
+      "data/europa/backfill/evidence/domestic/football-json-2024-de.1.json": "f473d6595e6c29ebedc08b09177aed6a6b2ff0fa8378b82f51dea469139f44c3",
+      "data/europa/backfill/evidence/domestic/football-json-2024-es.1.json": "da5bfa1b3634e1039d9e71aec50bdc847f8761189e3de235a4e730e0dc64ca38",
+      "data/europa/backfill/evidence/domestic/football-json-2024-it.1.json": "7d9bb936de3ccaeec54d57371512a58a5eeb21277e7d5f0882911a834d22b659",
+      "data/europa/backfill/evidence/domestic/football-json-2024-nl.1.json": "e6398379f3d68eb2863cc7dcac12c60219ab186614366bb86560039638b2f6c5",
+      "data/europa/backfill/evidence/fixture-cl-2023.csv": "a6101ed5173ec5621fe3ec265720c582d5d485a902df5cbe4c1006c76784957f",
+      "data/europa/backfill/evidence/fixture-cl-2024.csv": "760b9d25e1379134eec48a9c1ca1409afde0bc6231766d89e6d0a434f21ad882",
+      "data/europa/backfill/evidence/openfootball-cl-2023.txt": "5872bee720b32410f28c5272fb7fe7b07aa0f66bcb31ffe157893d75c14c47c5",
+      "data/europa/backfill/evidence/openfootball-cl-2024.txt": "c2692b22af02c5df4587b69c5f430aebf7d936845b5337aee462ce8e649eb1b5",
+      "data/europa/backfill/fixture-cl-2017.csv": "0edd1652149bc1fe1cb11b9ecbdf159aae87abe11e5dad2f24fb8783a3ec45ff",
+      "data/europa/backfill/fixture-cl-2018.csv": "03bfb6bdcd4061f101b6c98c6d83a98335ceec766147e3e21c8179094124b8d6",
+      "data/europa/backfill/fixture-cl-2019.csv": "2239f0252e94e75c343e9045a1a841142f1d01b983ed2da6fa0f57584626e7a1",
+      "data/europa/backfill/fixture-cl-2020.csv": "f05b211992ab229c8f209d5a79358e27ae50070b162ff646adc77a54b666bb60",
+      "data/europa/backfill/fixture-cl-2021.csv": "634fc6276c40e2c04df2e30d71b8cad86694671d4ea430bcbc7148f1220f50c0",
+      "data/europa/backfill/fixture-cl-2022.csv": "6ff10b44af33e3b5079291fe2a6a849457bae55ab439969888dd26f4e410d4b4",
+      "data/europa/backfill/fixture-el-2019.csv": "338ac40f5c9e3ead3ed3981b156e67130b9a8ed87dc73bf23679e6b14f1f8193",
+      "data/europa/backfill/fixture-el-2020.csv": "b852a5d862d6ac72755bf236336f6e01470706a6fdebd7020b3e6fbd0c4b9cba",
+      "data/europa/backfill/fixture-el-2021.csv": "8f52be87789b4a2f0c7729a2fe000859dd388bef01e4bc05f5fb8df3ae35f344",
+      "data/europa/backfill/manifest.json": "055911b77202c226979401113015486728426c081487aef11131a479ae1719e9",
+      "data/europa/backfill/openfootball-cl-2015.txt": "09b7c605a6c723ffd85b9cb8a36f6bcf427485b9b0427b49014da22d455a8d8c",
+      "data/europa/backfill/openfootball-cl-2016.txt": "fe604207c9e945d2a76ed9d660b5499c4680d8b474aeeb166d585f819c029a31",
+      "data/europa/backfill/openfootball-cl-2017.txt": "5f022938be481f3f9fa88fa7580033aab631a9dd321170d2e7b7ee558c92e468",
+      "data/europa/backfill/openfootball-cl-2018.txt": "7ae98396b779c3e97d049e77bbd0af6dabedcecdd73fa17d27a212aadd18c727",
+      "data/europa/backfill/openfootball-cl-2019.txt": "e0f6d8990b3110108193eecdcd698dfa48b6f324ffa7532cdc11aea19f7ee419",
+      "data/europa/backfill/openfootball-cl-2020.txt": "9d94e40aa2fe2e98cbe5eedcffb7b9223daaaf3acf682411f4965f92a65d666e",
+      "data/europa/backfill/openfootball-cl-2021.txt": "36241f4479aa9efda62c62318366bbf36f84cc8719f6387c5747cb5dea7ec519",
+      "data/europa/backfill/openfootball-cl-2022.txt": "bf9cd05939b055f12ee9b095bec1c20a0922277bef8940172218548de2e7b93a",
+      "data/europa/backfill/openfootball-el-2020.txt": "d494cc0c88c951d92b3839f2e425752a382f2779de251a0df115a1f19b308f21",
+      "data/europa/backfill/openfootball-el-2021.txt": "0bd953fd4927f096a8e4162c414b639801d4c5d33b49cba33ac54fcf565bf788",
+      "data/europa/training.json": "6ede5cd7f9bc4988aeb635d3c4b0979cef822125771cf7253afbc046f1b0e623",
+      "data/fdorg_history_UCL_2023.json": "f833e561c8951e8c425a7e40cbc4cd3d839d2452422a496283394872cacd236b",
+      "data/fdorg_history_UCL_2024.json": "2c0832c4a6146caa99c35fc6fec0a7f22cd5a911c8e08d7057a6b39ae1bee146",
+      "data/fdorg_history_UCL_2025.json": "24e1561bfda1807becd9f1f4e78885701cda186063569a21ccefa2463d2f48c5",
+      "data/fdorg_history_UCL_2026.json": "764c27bbd9ae208dfd2d748edd2b17259c3de1f3bf8e90ef31de8d09e2dd3310",
+      "docs/audits/europa-team-aliases.json": "ba1fc5d7d85e6fdd99e8bbd022ede60251b992b6a64c151826a6cfd36c2d67a2",
+      "docs/audits/european-backfill-aliases.json": "a7bf72aa2afd7ae72f8551ad8f6fc09f1aef9d19166175877b62dec9bb525bf1",
+      "docs/audits/european-domestic-aliases.json": "7b9deaae573cc2a3f5f6bc7541fb221de1f370d78ef20017de9f7bcb51a34874",
+      "docs/audits/european-reviewed-aliases.json": "c05251f7392b85ac5412cab96bb948875fdce2df4f83f74a13ed57ca2fb44afb",
+      "europa_training.py": "ecda24c7cffe10d683394b2d6c3db88e799ec97b44a33bed1b8118857eb6e673",
+      "european_backfill.py": "934d685617fbafd642ae64dbcd138f2724a49e0f0f3b1a7650f0736fd0c03d1e",
+      "european_candidates.py": "e1c29d0b66b14a5a60c94c9af38243ea3bf60531b1fe4457d3cdb7e3edf7d523",
+      "european_results.py": "8b221eaf157dbc036c4380f9d0984d012910b712260603f604b190aad7edf991",
+      "evaluation_harness.py": "b825a48cd242f614684a383474dc9eb021955f24fbe3b4062d62a700dcf22109",
+      "evaluation_harness_config.json": "ec12e0a3bdfcf0539d4820281f4a8764136eb439ffac6d9f95398e90f82f1176",
+      "football_value_pipeline_v2_standalone.py": "d45ff98660f3197ed9efff28c68b790a6512b8fa4f898b1ffb25bd592d8f14ec",
+      "historical_benchmark.py": "368b0f118a6069f362d719546a32438e465066630e5c3ef1ecdba85c42e87ed5",
+      "match_scores.py": "2bc93baaf264732ebdb42081a542596460602d2655b7b9e33763697c48afe18c",
+      "research_backtest.py": "4f76c7b5a32d8f45000be8493800904a5c666f2463a46834992b377992ed8dfc",
+      "research_sharpen.py": "94d74ee3aa63cd2db1a7a981b437f58a20727f8eed0f23e4cebaa1ef8a849788",
+      "score_probability.py": "89eaeedf0cde2c34b8f4c9347d42c66f834195e591595dd10fcde177ad358429",
+      "scripts/europa_research.py": "d3af5f299ac235272eff982dcd039b1be378fca6153088fc5eae40e6108bb42f",
+      "shot_features.py": "380564d5d1f2e982bb75402d835b8f5d2cd273d5db3f42b8ff540fee61213195",
+      "team_research.py": "408e277e0513c2029df37205f1cfcdfdf08829ff2ac8ee6dfe8327582aee56f5",
+      "ucl_training.py": "5b8ebb90be1f57455fa1d770cbbddaa62f576a96826c3705f610d5c0aa29a237",
+      "understat_history.py": "9a5f9603128b2efb0e0808c4194d5614c101fc6531acbfa90acf7fb504d9d0fe",
+      "understat_team_aliases.json": "6c9c533f2dba7c4c60a172137ee4af26ea46c0a492b0e8672f1ecab9ee03b387"
+    },
+    "sha256": "79513ee77a8c6b09877c78e1894f932b07ea478249659b5fcffb815f7ceacb08"
+  },
+  "source_commit": "b4a0bf0530d7413e5a4632b4877989117ed4bcce",
+  "version": "evaluation-harness-v2"
+}
