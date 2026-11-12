@@ -93,6 +93,73 @@
         "band_max_deviation": 0.05,
         "band_alpha": 0.05,
         "rule": "Relative slopes. Each of the candidate's home and away logistic calibration slopes (logit P(outcome) = a + b logit(p), fitted per outcome) passes if it is between 0.90 and 1.10 inclusive, OR its distance from 1.0 is smaller than the declared baseline's slope for the same outcome on the same fixtures (both slopes fitted on the fixtures both forecast). Bands exactly as v2: no outcome probability band (home, draw and away, tenths of probability, at least 30 matches) more than 5 percentage points from its observed rate AND statistically clear (|gap| / sqrt(p(1-p)/n) above the two-sided normal quantile for 0.05 divided by the number of bands checked; Bonferroni), p = the band's mean forecast."
+      },
+      "cagey-events-v1": {
+        "name": "cagey-events-v1",
+        "kind": "cagey_events",
+        "decided": "2026-11-12",
+        "decided_note": "Decided by Paul on 12 Nov 2026 (the event families, v3's logic, pass = both families); the line set, synthetic prices and side choice were settled with him on 13 Nov 2026. All before any scoring of D or M on the holdout (evaluation/holdout_ledger.json holds only C6). Applies only to the cagey tier (D) against the plain market fit (M).",
+        "event_selector": "D",
+        "price_basis": "M",
+        "families": [
+          "narrow",
+          "no_loss"
+        ],
+        "slope_min": 0.9,
+        "slope_max": 1.1,
+        "slope_relative_to_baseline": true,
+        "band_width": 0.1,
+        "band_min_matches": 30,
+        "band_max_deviation": 0.05,
+        "band_alpha": 0.05,
+        "lines": [
+          -3.0,
+          -2.75,
+          -2.5,
+          -2.25,
+          -2.0,
+          -1.75,
+          -1.5,
+          -1.25,
+          -1.0,
+          -0.75,
+          -0.5,
+          -0.25,
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.25,
+          1.5,
+          1.75,
+          2.0,
+          2.25,
+          2.5,
+          2.75,
+          3.0
+        ],
+        "lines_source": "asian_handicap.LINES: every quarter line from -3.00 to +3.00, the AH lines the live feed can quote. Rule no-loss-market-reference-v5 (production) bets any quoted AH line in its odds window; price_edge_cagey_shortlist.TIER_LINES (+1.00 to +2.25) belongs to the older v28 tier rule and is not used.",
+        "odds_window": {
+          "min_exclusive": 1.15,
+          "max_inclusive": 2.0,
+          "source": "no-loss-market-reference-v5 (cagey_tier_v3.annotate): offered odds in (1.15, 2.00]"
+        },
+        "synthetic_ah_margin": {
+          "pinnacle": {
+            "margin": 0.026955172735899154,
+            "matches": 9452,
+            "measured_on": "Pinnacle main-line AH overround (1/home + 1/away - 1), mean over every development and validation match with valid Pinnacle prices (1 Aug 2022 - 15 Jan 2026, 8 leagues), the period Pinnacle supplies the main line"
+          },
+          "bet365": {
+            "margin": 0.04152313182253212,
+            "matches": 1455,
+            "measured_on": "Bet365 main-line AH overround, mean over every retrospective match with valid Bet365 prices (16 Jan - 8 Nov 2026, holdout matches excluded before their prices are read), the period Bet365 supplies the main line"
+          },
+          "script": "scripts/cagey_events_margins.py"
+        },
+        "rule": "Two event families, each pooled across its lines; a candidate passes when both pass. (a) narrow: P(|margin| <= 1), one event per fixture. (b) no_loss: P(no loss) on the AH lines the cagey tier can bet. Every line in `lines`, both sides, is priced: the main line at the period bookmaker's real quote (Pinnacle to 15 Jan 2026, Bet365 after), every other line at M's fair odds divided by 1 + that bookmaker's average AH margin (synthetic_ah_margin). A line is bettable when its price is in the odds window. Only one side per fixture is bet: the side whose best bettable line has the higher expected return under D (cost 0; home on an exact tie). The chosen side's bettable lines reduce to one event per family floor(line) in quarter units, the event 'side margin >= -floor(line)' (lines k to k + 0.75 share it: -3 win by 3+, -2 win by 2+, -1 win by 1+, 0 win or draw, +1 lose by at most 1, +2 lose by at most 2, +3 lose by at most 3). D and M are scored on the same events. Per family, calibration rule v3's logic on the binary event: the candidate's logistic calibration slope (logit P(y) = a + b logit(p)) passes if it is between 0.90 and 1.10 inclusive OR its distance from 1.0 is smaller than M's slope on the same events; no failing band (tenths of probability, at least 30 events), a band failing only if more than 5 percentage points from its observed rate AND |gap| / sqrt(p(1-p)/n) is above the two-sided normal quantile for 0.05 divided by the number of the family's bands checked (Bonferroni). M checked against itself passes a slope only inside 0.90-1.10.",
+        "caveats": "Events of one fixture in family (b) are nested and come from one side, so they are not independent; the band test treats each event as one observation, as v3 does, which makes it somewhat stricter for D and M alike. Bookmaker AH margins differ by league (Bet365 2025/26 validation: Eredivisie and Super Lig about 5.4%, others about 4.1%); one average per bookmaker is used, as decided."
       }
     }
   },
