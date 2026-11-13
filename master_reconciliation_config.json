@@ -48,7 +48,7 @@
   },
   "groups": {
     "order": ["missing_evidence", "both_agree", "research_edge", "market_safe", "conflict", "neither"],
-    "missing_evidence": "either view can't score the offer: the research settlement probabilities are unavailable or invalid, or the research identity is missing or ambiguous (a team unknown to the research model); or the cagey settlement probabilities are unavailable or invalid, or their Pinnacle inputs are not synchronized with the offer. Recorded separately, never counted as disagreement.",
+    "missing_evidence": "either view can't score the offer: the research settlement probabilities are unavailable or invalid (a team or goal rates unknown to the research model); or the cagey settlement probabilities are unavailable or invalid, or their Pinnacle inputs are not synchronized with the offer. Recorded separately, never counted as disagreement. A missing ESPN fixture match ('free-source fixture identity missing or ambiguous') is not missing evidence: the research model still scores the offer from its goal rates and training-history form (corrected 13 Nov 2026 after the first integration replay, before any backtest; no result read).",
     "both_agree": "research edge AND market safe or fairly priced. Ranked first.",
     "research_edge": "research edge AND market below fair (and not safe). A separate section, never in the ranked list.",
     "market_safe": "no research edge AND market safe. Ranked after Both agree, disagreement shown.",

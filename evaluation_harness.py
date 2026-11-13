@@ -326,9 +326,15 @@ def training_rows(data, league, cfg, include_holdout):
     return data.loc[~locked]
 
 
-def evaluate_league(league, cache, cfg, include_holdout, keep=None):
+def evaluate_league(league, cache, cfg, include_holdout, keep=None, master_rows=None):
     """Locked runs skip every holdout match. A holdout run scores ONLY holdout matches,
-    and only the candidates in `keep` (declared candidate, baseline and M)."""
+    and only the candidates in `keep` (declared candidate, baseline and M).
+
+    `master_rows`, a list in locked runs only, receives each scored match's C, D and M margin distributions,
+    its period bookmaker's prices and its result, for the Phase 4 master backtest (--mode master); it changes
+    nothing else."""
+    if master_rows is not None and include_holdout:
+        raise ValueError('The master backtest never runs on the holdout')
     from football_value_pipeline_v2_standalone import DixonColesModel
     import narrow_margin as nm
     cagey_model = nm.production_model()
@@ -403,6 +409,8 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None):
             records.extend(rb.score_fixture(identity, matrices, row.FTHG, row.FTAG))
             outcome = 0 if row.FTHG > row.FTAG else 1 if row.FTHG == row.FTAG else 2
             quote = book_prices(row, extra['market_book']) if extra.get('market_book') else None
+            if master_rows is not None and quote is not None and {'C', 'D', 'M'} <= set(matrices):
+                master_rows.append(master_inputs(identity, matrices, quote, row))
             for cand, matrix in matrices.items():
                 h, a = np.indices(matrix.shape)
                 probs = [float(matrix[h > a].sum()), float(matrix[h == a].sum()), float(matrix[h < a].sum())]
@@ -2100,6 +2108,282 @@ def european_main(args, cfg, commit):
     return 0
 
 
+# ---------------------------------------------------------------------------
+# Phase 4: master shortlist reconciliation backtest (--mode master; locked, development to retrospective)
+# ---------------------------------------------------------------------------
+
+MASTER_PERIODS = ('development', 'validation', 'retrospective')
+MASTER_CANDIDATES = ('C', 'D', 'M')  # research model, cagey tier, uncorrected market fit (live master's reference)
+
+
+def master_inputs(identity, matrices, prices, row) -> dict:
+    """What the master backtest needs from one scored match: margin distributions, prices and result."""
+    import market_implied as mi
+    out = {**identity, 'home_team': row.HomeTeam, 'away_team': row.AwayTeam,
+           'margin': int(row.FTHG) - int(row.FTAG), 'hda': list(prices['hda']), 'ah': list(prices['ah'])}
+    for cand in MASTER_CANDIDATES:
+        margins, probs = mi.margin_distribution(matrices[cand])
+        out[cand] = [np.asarray(margins, int).tolist(), np.asarray(probs, float).tolist()]
+    return out
+
+
+def master_league(league, cache, cfg):
+    """One league's master inputs from a locked run (the holdout is skipped before it is read)."""
+    rows = []
+    evaluate_league(league, cache, cfg, False, keep=set(MASTER_CANDIDATES), master_rows=rows)
+    if any(r['phase'] == 'holdout' for r in rows):
+        raise ValueError('Locked holdout rows leaked into the master backtest')
+    return rows
+
+
+def master_offers(fixture, synthetic=None) -> list:
+    """The real quoted offers in the files (Home win, Away win, the main AH line both sides), at the period
+    bookmaker's price; in the Bet365 period a synthetic Pinnacle-like price (Bet365 margin-free plus Pinnacle's
+    average margin), as in the Phase 3 cagey check. Each carries Pinnacle's (or, on Bet365, the margin-free
+    reference's) win share for the disagreement flag."""
+    import market_implied as mi
+    h, d, a = mi.devig_three_way(*fixture['hda'])
+    line, ph, pa = fixture['ah']
+    q_home = (1 / ph) / (1 / ph + 1 / pa)
+    prices = [fixture['hda'][0], fixture['hda'][2], ph, pa]
+    if synthetic is not None:
+        prices = [1 / (h * (1 + synthetic['hda'])), 1 / (a * (1 + synthetic['hda'])),
+                  1 / (q_home * (1 + synthetic['ah'])), 1 / ((1 - q_home) * (1 + synthetic['ah']))]
+    binary = {('home', -.5): h, ('away', -.5): a, ('home', .5): h + d, ('away', .5): d + a}
+    return [{'group': 'match_winner', 'market': 'Home win', 'side': 'home', 'line': -.5, 'price': prices[0],
+             'pinnacle_win_share': h, 'binary': h},
+            {'group': 'match_winner', 'market': 'Away win', 'side': 'away', 'line': -.5, 'price': prices[1],
+             'pinnacle_win_share': a, 'binary': a},
+            {'group': 'asian_handicap', 'market': f'Asian Handicap Home {line:+.2f}', 'side': 'home', 'line': line,
+             'price': prices[2], 'pinnacle_win_share': q_home, 'binary': binary.get(('home', line))},
+            {'group': 'asian_handicap', 'market': f'Asian Handicap Away {-line:+.2f}', 'side': 'away',
+             'line': -line, 'price': prices[3], 'pinnacle_win_share': 1 - q_home, 'binary': binary.get(('away', -line))}]
+
+
+def _mass(distribution, side, line):
+    import narrow_margin as nm
+    margins, probs = distribution
+    out = nm.price_distribution(np.asarray(margins, float), np.asarray(probs, float), side, float(line))
+    return np.array([out['p_' + k] for k in ('win', 'half_win', 'push', 'half_loss', 'loss')])
+
+
+def master_fixture(fixture, rcfg, synthetic=None) -> dict:
+    """The four lists for one match on the same offers: value list (research C), cagey list (D), the live
+    master's union pool and its picks' inputs, and every pooled offer classified by the reconciliation."""
+    import master_reconciliation as mr
+    from ah_close_backtest import settle
+    lo, hi = rcfg['execution']['min_odds_exclusive'], rcfg['execution']['max_odds_inclusive']
+    offers = []
+    for o in master_offers(fixture, synthetic):
+        if not lo < o['price'] <= hi:
+            continue
+        research, cagey = _mass(fixture['C'], o['side'], o['line']), _mass(fixture['D'], o['side'], o['line'])
+        reference = (np.array([o['binary'], 0., 0., 0., 1 - o['binary']]) if o['binary'] is not None
+                     else _mass(fixture['M'], o['side'], o['line']))
+        won, lost = settle(fixture['margin'] if o['side'] == 'home' else -fixture['margin'], o['line'])
+        r, c, m = (mr.scored(x, o['price'], 0.) for x in (research, cagey, reference))
+        offers.append({**o, 'research': research, 'cagey': cagey, 'r': r, 'c': c, 'm': m,
+                       'return': float(won * (o['price'] - 1) - lost)})
+    value, cagey_list = {}, {}
+    for o in offers:
+        key = (-o['r']['profit'], -o['r']['expected_return'], -o['price'])
+        if o['group'] not in value or key < value[o['group']][0]:
+            value[o['group']] = (key, o)
+        # v5 price guard (cagey_market_basis.annotate): win bets and AH +/-0.5 against the independent margin-free
+        # 1X2 price, other AH lines against D's own fair odds.
+        guard = 1 / o['binary'] if o['binary'] is not None else o['c']['fair_odds']
+        if o['price'] > 1.15 * guard:
+            continue
+        key = (-o['c']['no_loss'], -o['c']['expected_return'], -o['price'])
+        if o['group'] not in cagey_list or key < cagey_list[o['group']][0]:
+            cagey_list[o['group']] = (key, o)
+    pooled = {id(o): o for _, o in [*value.values(), *cagey_list.values()]}
+    rows = []
+    for o in pooled.values():
+        row = {k: fixture[k] for k in ('phase', 'week', 'league', 'fixture_key', 'market_book', 'home_team',
+                                        'away_team')}
+        row.update(kickoff_utc=fixture['date'], market=o['market'], handicap_side=o['side'], handicap_line=o['line'],
+                   offered_decimal_odds=o['price'], group_market=o['group'], **{'return': o['return']},
+                   in_value_shortlist=any(v is o for _, v in value.values()),
+                   in_cagey_tier=any(v is o for _, v in cagey_list.values()),
+                   research_profit_probability=o['r']['profit'], cagey_profit_probability=o['c']['profit'],
+                   market_profit_probability=o['m']['profit'], market_expected_return=o['m']['expected_return'],
+                   market_no_loss_probability=o['m']['no_loss'], market_fair_odds=o['m']['fair_odds'],
+                   live_eligible=o['price'] <= 1.15 * o['m']['fair_odds'])
+        row.update(mr.classify(o['research'], o['cagey'], o['price'], 0., o['pinnacle_win_share'], european=False,
+                               config=rcfg))
+        row['reconciled_section'] = mr.section(row['reconciled_group'], False, True, rcfg)
+        rows.append(row)
+    return rows
+
+
+def master_select_week(rows, rcfg) -> list:
+    """Per gameweek: the live master (v9: union pool, market profit probability then market EV, no-loss,
+    odds; one per match; first 15) and the reconciliation (master_reconciliation.select, 15-match target)."""
+    import master_reconciliation as mr
+    target = int(rcfg['target_fixtures'])
+    for row in rows:
+        row['_match'] = row['fixture_key']
+    mr.select(rows, target)
+    live = sorted((r for r in rows if r['live_eligible']),
+                  key=lambda r: (-r['market_profit_probability'], -r['market_expected_return'],
+                                 -r['market_no_loss_probability'], -r['offered_decimal_odds'], r['kickoff_utc'],
+                                 r['league'], r['home_team'], r['away_team'], r['market']))
+    seen = []
+    for row in live:
+        if row['fixture_key'] not in seen:
+            seen.append(row['fixture_key'])
+            row['_live'] = len(seen) <= target and len(seen)
+    for row in rows:
+        row['live_master_rank'] = row.pop('_live', None) or None
+        row.pop('_match', None)
+    return rows
+
+
+def master_backtest(cache, cfg, workers=None, leagues=None):
+    """Locked: development, validation and retrospective only. Returns every pooled offer with both lists'
+    decisions and its flat-stake return at the (Pinnacle or synthetic Pinnacle-like) price."""
+    leagues = list(leagues or cfg['leagues'])
+    with ProcessPoolExecutor(max_workers=workers) as pool:
+        fixtures = [f for part in pool.map(master_league, leagues, [str(cache)] * len(leagues),
+                                           [cfg] * len(leagues)) for f in part]
+    frame, synthetic = master_frame(fixtures)
+    return frame, synthetic, len(fixtures)
+
+
+def master_frame(fixtures):
+    """Every pooled offer of every week, both lists' picks per gameweek. Each week is selected on its own
+    matches only; the synthetic Pinnacle-like margin for the Bet365 period comes from the Pinnacle period."""
+    import master_reconciliation as mr
+    rcfg = mr.load_config()
+    if any(f['phase'] not in MASTER_PERIODS for f in fixtures):
+        raise ValueError('The master backtest scored a period outside development, validation, retrospective')
+    pre = [f for f in fixtures if f['market_book'] == 'pinnacle']
+    synthetic = {'hda': float(np.mean([sum(1 / p for p in f['hda']) - 1 for f in pre])),
+                 'ah': float(np.mean([sum(1 / p for p in f['ah'][1:]) - 1 for f in pre]))} if pre else None
+    weeks = {}
+    for f in fixtures:
+        rows = master_fixture(f, rcfg, synthetic if f['market_book'] == 'bet365' else None)
+        weeks.setdefault((f['phase'], f['week']), []).extend(rows)
+    out = [r for key in sorted(weeks) for r in master_select_week(weeks[key], rcfg)]
+    return pd.DataFrame(out), synthetic
+
+
+def _week_ratio(frame, value='return', samples=2000, seed=136):
+    if frame.empty:
+        return None
+    weeks = frame.groupby('week')[value].agg(['sum', 'count'])
+    mean = float(weeks['sum'].sum() / weeks['count'].sum())
+    interval = None
+    if len(weeks) >= 2:
+        draws = np.random.default_rng(seed).integers(0, len(weeks), size=(samples, len(weeks)))
+        means = weeks['sum'].to_numpy()[draws].sum(1) / weeks['count'].to_numpy()[draws].sum(1)
+        interval = [float(v) for v in np.quantile(means, [.025, .975])]
+    return {'mean': mean, 'interval_95': interval, 'weeks': int(len(weeks))}
+
+
+def _paired_weeks(a, b, value, samples=2000, seed=136):
+    """mean(a) - mean(b), per bet, with the same whole weeks resampled for both."""
+    weeks = sorted(set(a.week) | set(b.week))
+    if not weeks:
+        return None
+    sa = a.groupby('week')[value].agg(['sum', 'count']).reindex(weeks, fill_value=0)
+    sb = b.groupby('week')[value].agg(['sum', 'count']).reindex(weeks, fill_value=0)
+    diff = float(sa['sum'].sum() / max(sa['count'].sum(), 1) - sb['sum'].sum() / max(sb['count'].sum(), 1))
+    draws = np.random.default_rng(seed).integers(0, len(weeks), size=(samples, len(weeks)))
+    with np.errstate(invalid='ignore', divide='ignore'):
+        values = (sa['sum'].to_numpy()[draws].sum(1) / sa['count'].to_numpy()[draws].sum(1)
+                  - sb['sum'].to_numpy()[draws].sum(1) / sb['count'].to_numpy()[draws].sum(1))
+    values = values[np.isfinite(values)]
+    return {'difference': diff, 'interval_95': [float(v) for v in np.quantile(values, [.025, .975])]
+            if len(values) else None, 'weeks': len(weeks)}
+
+
+def master_list_stats(frame) -> dict:
+    if frame.empty:
+        return {'picks': 0}
+    return {'picks': int(len(frame)), 'fixtures': int(frame.fixture_key.nunique()), 'weeks': int(frame.week.nunique()),
+            'mean_odds': float(frame.offered_decimal_odds.mean()), 'hit_rate': float((frame['return'] > 1e-12).mean()),
+            'no_loss_rate': float((frame['return'] >= -1e-12).mean()),
+            'flat_stake_return': _week_ratio(frame)}
+
+
+def _profit_log_loss(frame):
+    """Per-offer log loss of each view's probability of a positive return; cagey minus research
+    (positive = research closer)."""
+    y = (frame['return'] > 1e-12).astype(float)
+    eps = 1e-12
+    out = {}
+    for name, column in (('research', 'research_profit_probability'), ('cagey', 'cagey_profit_probability')):
+        p = frame[column].astype(float).clip(eps, 1 - eps)
+        out[name] = -(y * np.log(p) + (1 - y) * np.log(1 - p))
+    return frame.assign(_ll_gap=out['cagey'] - out['research'])
+
+
+def master_summary(frame, synthetic, fixtures, cfg) -> dict:
+    """Live master against the reconciled list per period, each group, and the Research-edge section."""
+    import master_reconciliation as mr
+    rcfg = mr.load_config()
+    periods = {}
+    for name in MASTER_PERIODS:
+        part = frame.loc[frame.phase == name]
+        if part.empty:
+            continue
+        live = part.loc[part.live_master_rank.notna()]
+        reconciled = part.loc[part.reconciled_decision.eq('SHORTLISTED')]
+        edge = part.loc[part.reconciled_decision.eq('RESEARCH_EDGE_SECTION')]
+        # How often each group wins: one offer per match and group (the reconciliation's own tie order).
+        ordered = part.assign(_key=[mr._tie_key(r) for r in part.to_dict('records')]).sort_values('_key')
+        per_group = ordered.drop_duplicates(['reconciled_group', 'fixture_key'])
+        groups = {}
+        for group in mr.GROUPS:
+            rows = per_group.loc[per_group.reconciled_group.eq(group)]
+            groups[group] = {**master_list_stats(rows), **({
+                'mean_research_win_share': float(rows.research_win_share.mean()),
+                'mean_cagey_no_loss': float(rows.cagey_no_loss_probability.mean()),
+                'disagreement_flagged': int(rows.disagreement.eq(True).sum())} if len(rows) else {})}
+        flagged = ordered.loc[ordered.disagreement.eq(True)].drop_duplicates('fixture_key')
+
+        def who_was_right(rows):
+            if rows.empty:
+                return {'offers': 0}
+            gaps = _profit_log_loss(rows)
+            return {'offers': int(len(rows)), 'observed_profit_rate': float((rows['return'] > 1e-12).mean()),
+                    'mean_research_profit_probability': float(rows.research_profit_probability.mean()),
+                    'mean_cagey_profit_probability': float(rows.cagey_profit_probability.mean()),
+                    'mean_research_expected_return': float(rows.research_expected_return.mean()),
+                    'mean_cagey_expected_return': float(rows.cagey_expected_return.mean()),
+                    'flat_stake_return': _week_ratio(rows),
+                    'profit_log_loss_cagey_minus_research': _week_ratio(gaps, '_ll_gap'),
+                    'reading': 'positive log-loss gap = research closer; return above 0 = research right on average, '
+                               'below 0 = market right'}
+        periods[name] = {
+            'fixtures': int(part.fixture_key.nunique()), 'weeks': int(part.week.nunique()),
+            'pooled_offers': int(len(part)), 'market_book': sorted(part.market_book.unique()),
+            'live_master': master_list_stats(live), 'reconciled': master_list_stats(reconciled),
+            'reconciled_by_group': {g: master_list_stats(reconciled.loc[reconciled.reconciled_section.eq(g)])
+                                    for g in mr.RANKED},
+            'reconciled_minus_live_return': _paired_weeks(reconciled, live, 'return'),
+            'overlap': {'live_picks': int(len(live)), 'reconciled_picks': int(len(reconciled)),
+                        'same_fixture': int(len(set(zip(live.week, live.fixture_key))
+                                                & set(zip(reconciled.week, reconciled.fixture_key)))),
+                        'same_offer': int((reconciled.live_master_rank.notna()).sum())},
+            'groups_one_offer_per_match': groups,
+            'research_edge_section': who_was_right(edge),
+            'disagreement_flagged_one_per_match': who_was_right(flagged)}
+    return {'version': VERSION, 'mode': 'master_reconciliation_backtest', 'rule': rcfg['version'],
+            'reconciliation_config_sha256': hashlib.sha256(json.dumps(rcfg, sort_keys=True).encode()).hexdigest(),
+            'config_sha256': hashlib.sha256(json.dumps(cfg, sort_keys=True).encode()).hexdigest(),
+            'fixtures': fixtures, 'synthetic_pinnacle_margin_bet365_period': synthetic,
+            'scope': 'Domestic leagues only (no European prices are cached). Offers: Home win, Away win and the main '
+                     'AH line, both sides, the only prices the files carry; odds (1.15, 2.00]; cost 0. Research = C, '
+                     'cagey = D, both on the same offer; live master reference = binary margin-free 1X2 for wins '
+                     'and AH +/-0.5, else M (uncorrected fit). Slate = calendar week, 15-match target. Locked: no '
+                     'holdout match is read. Development is the main evidence, validation secondary, retrospective '
+                     '(synthetic Pinnacle-like prices from Bet365) a diagnostic.',
+            'periods': periods}
+
+
 def git_commit():
     try:
         return subprocess.run(['git', 'rev-parse', 'HEAD'], capture_output=True, text=True, check=True).stdout.strip()
@@ -2109,7 +2393,7 @@ def git_commit():
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument('--mode', choices=('historical', 'live', 'parity', 'european'), default='historical')
+    parser.add_argument('--mode', choices=('historical', 'live', 'parity', 'european', 'master'), default='historical')
     parser.add_argument('--cache', type=Path, default=Path('.football_cache'))
     parser.add_argument('--root', type=Path, default=Path('football_output_v2'))
     parser.add_argument('--config', type=Path, default=CONFIG)
@@ -2146,6 +2430,14 @@ def main(argv=None):
         return 0
     if args.mode == 'european':
         return european_main(args, cfg, commit)
+    if args.mode == 'master':
+        if args.declaration:
+            raise ValueError('The master backtest is locked: it never scores the holdout')
+        frame, synthetic, fixtures = master_backtest(args.cache, cfg, args.workers, args.leagues)
+        summary = master_summary(frame, synthetic, fixtures, cfg)
+        hb.write_json(args.output / 'results.json', {**summary, 'source_commit': commit})
+        frame.to_csv(args.output / 'master_offers.csv', index=False)
+        return 0
     declaration = setup = keep = None
     if args.declaration:
         if args.leagues:

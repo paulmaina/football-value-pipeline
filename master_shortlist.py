@@ -328,9 +328,32 @@ def refresh(decisions: pd.DataFrame, out_dir, run_summary: Mapping, predictions:
     """
     from price_edge_cagey_shortlist import POLICY
     if run_summary.get('selection_policy_version') == POLICY:
-        return write(decisions, out_dir, run_summary, predictions)
+        frame = write(decisions, out_dir, run_summary, predictions)
+        shadow(decisions, out_dir, frame, run_summary.get('generated_at_utc'))
+        return frame
     from master_selection import AUDIT_FILE
     (Path(out_dir) / AUDIT_FILE).unlink(missing_ok=True)
     (Path(out_dir) / FILE).unlink(missing_ok=True)
     run_summary.pop('master_shortlist', None)
+    shadow(None, out_dir)
     return None
+
+
+def shadow(decisions, out_dir, live=None, generated_at_utc=None) -> None:
+    """Phase 4 reconciliation, in shadow: extra files beside FILE, written after it from the same decision rows.
+
+    It never changes FILE, the run summary or any decision, and a failure here only warns.
+    """
+    import warnings
+    import master_reconciliation
+    try:
+        if decisions is None:
+            master_reconciliation.remove_shadow(out_dir)
+        else:
+            master_reconciliation.write_shadow(decisions, out_dir, live, generated_at_utc)
+    except Exception as exc:  # shadow output must never break or alter the live run
+        warnings.warn(f'Master reconciliation shadow skipped ({type(exc).__name__}: {exc})')
+        try:
+            master_reconciliation.remove_shadow(out_dir)
+        except Exception:
+            pass
