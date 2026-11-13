@@ -340,7 +340,7 @@ def refresh(decisions: pd.DataFrame, out_dir, run_summary: Mapping, predictions:
 
 
 def shadow(decisions, out_dir, live=None, generated_at_utc=None) -> None:
-    """The new master (Phase 4, Paul's master rule), in shadow: master_shortlist_new.csv and its summary beside
+    """The new master (Phase 4, revised master rule), in shadow: master_shortlist_new.csv and its summary beside
     FILE, written after it from the same decision rows.
 
     It never changes FILE, the run summary or any decision, and a failure here only warns.

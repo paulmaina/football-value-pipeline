@@ -1,0 +1,1015 @@
+{
+  "rule": "master-new-evidence-rule-v2",
+  "source_commit": "968d05a45 (replayed code; 0d0c06b only changed the harness)",
+  "script": "scripts/master_reconciliation_replay.py",
+  "start": "2026-10-27",
+  "end_exclusive": "2026-11-09",
+  "note": "Integration check on the saved live runs; no result is read. Not evidence.",
+  "runs": [
+    {
+      "snapshot": "026e1ab4c40e3e64",
+      "generated_at_utc": "2026-10-27T09:50:40.995248+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "d414de1a572b09b2",
+      "generated_at_utc": "2026-10-27T11:35:10.735016+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "04e55dde9bbe885f",
+      "generated_at_utc": "2026-10-28T12:13:37.819395+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "fd052ff5e9f0163b",
+      "generated_at_utc": "2026-10-28T16:16:05.061508+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "c75d4ab52706e716",
+      "generated_at_utc": "2026-10-29T12:08:22.532184+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "02d8d3b21fd68fd9",
+      "generated_at_utc": "2026-10-30T07:29:50.498587+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "2f2bbe3e322ecab7",
+      "generated_at_utc": "2026-10-30T12:03:48.308948+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "f82ff3e276c6c573",
+      "generated_at_utc": "2026-10-31T12:03:11.165007+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "796c7451f4101f75",
+      "generated_at_utc": "2026-11-01T07:37:30.159727+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "dc55908798d79d00",
+      "generated_at_utc": "2026-11-01T09:36:12.166126+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "cbf58accd4fa0691",
+      "generated_at_utc": "2026-11-01T12:23:24.469126+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "765b01b571df2fd9",
+      "generated_at_utc": "2026-11-03T13:23:43.479885+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "4dfe537371e33ca4",
+      "generated_at_utc": "2026-11-03T13:58:02.173298+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "85c451a1e15281f6",
+      "generated_at_utc": "2026-11-04T09:31:03.622249+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "ddf20a3972dd45e3",
+      "generated_at_utc": "2026-11-04T10:20:33.895771+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "8a970f7baa207beb",
+      "generated_at_utc": "2026-11-04T19:40:50.340029+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "0af36ab1e9657f52",
+      "generated_at_utc": "2026-11-05T12:32:00.598966+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "a00d5e530cc2e80e",
+      "generated_at_utc": "2026-11-05T13:37:38.336530+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "92039638c61ad8bc",
+      "generated_at_utc": "2026-11-05T16:17:48.024788+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "7b8f8817eb577b04",
+      "generated_at_utc": "2026-11-05T16:27:43.343008+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "775022176692974f",
+      "generated_at_utc": "2026-11-05T16:50:22.659919+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "5d2089b153695efa",
+      "generated_at_utc": "2026-11-06T11:26:29.717902+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "440236589764dce4",
+      "generated_at_utc": "2026-11-06T12:17:20.125743+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "d46504cc4373448f",
+      "generated_at_utc": "2026-11-06T13:21:43.280136+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "b9d2d10f3419c606",
+      "generated_at_utc": "2026-11-06T13:40:19.404227+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "1dabcf85eb639cd0",
+      "generated_at_utc": "2026-11-07T11:48:25.259368+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "688a34b2f4bd83f2",
+      "generated_at_utc": "2026-11-07T13:54:13.645217+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "bdc58d9d3727286d",
+      "generated_at_utc": "2026-11-08T09:01:04.075316+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "d5829163b3fa9bf3",
+      "generated_at_utc": "2026-11-08T12:20:11.356382+00:00",
+      "status": "ok"
+    }
+  ],
+  "totals": {
+    "runs_with_shadow": 29,
+    "offers": 992,
+    "not_executable_offers": 0,
+    "offers_by_group": {
+      "included": 456,
+      "left_out": 536
+    },
+    "gap_checks": {
+      "agree": 405,
+      "research_too_optimistic": 292,
+      "research_more_pessimistic": 249,
+      "no_research_check": 0,
+      "one_view_missing": 46,
+      "no_view": 0
+    },
+    "left_out_by_reason": {
+      "risky": 17,
+      "in between (not safe)": 503,
+      "one view missing: no Pinnacle reference": 16,
+      "no view": 0
+    },
+    "labels_offers": {
+      "both agree": 78,
+      "research too optimistic": 292,
+      "research strongly disagrees": 1,
+      "one view missing": 46,
+      "no research check": 0,
+      "unvalidated view": 218
+    },
+    "labels_ranked": {
+      "both agree": 22,
+      "research too optimistic": 37,
+      "research strongly disagrees": 1,
+      "one view missing": 8,
+      "no research check": 0,
+      "unvalidated view": 51
+    },
+    "decisions": {
+      "SHORTLISTED": 194,
+      "BEYOND_TARGET": 70,
+      "NOT_SELECTED": 192,
+      "LEFT_OUT": 536,
+      "NOT_EXECUTABLE": 0
+    },
+    "overlap_with_live_master": {
+      "live_master_fixtures": 219,
+      "new_master_fixtures": 194,
+      "same_fixture": 146,
+      "same_offer": 59,
+      "live_only": 73,
+      "new_only": 48
+    },
+    "ranked_fixtures": 194,
+    "shortfall": 241,
+    "european_offers": 218,
+    "european_ranked": 51,
+    "inspection_flagged_offers": 1,
+    "for_inspection": [
+      {
+        "snapshot": "f82ff3e276c6c573",
+        "new_master_rank": 2.0,
+        "kickoff_utc": "2026-10-31T15:00:00+00:00",
+        "league": "Premier League",
+        "home_team": "Hull City",
+        "away_team": "Ipswich Town",
+        "market_to_bet": "Asian Handicap Away +1.00",
+        "offered_decimal_odds": 1.2,
+        "research_no_loss_probability": 0.6765544000734128,
+        "cagey_no_loss_probability": 0.8508467839151763,
+        "gap_points": -17.429238384176347,
+        "new_master_labels": "research strongly disagrees"
+      }
+    ],
+    "per_run": [
+      {
+        "snapshot": "026e1ab4c40e3e64",
+        "generated_at_utc": "2026-10-27T09:50:40.995248+00:00",
+        "offers": 8,
+        "ranked": 2,
+        "groups": {
+          "included": 3,
+          "left_out": 5
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 0,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 3,
+          "new_master_fixtures": 2,
+          "same_fixture": 2,
+          "same_offer": 1,
+          "live_only": 1,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "d414de1a572b09b2",
+        "generated_at_utc": "2026-10-27T11:35:10.735016+00:00",
+        "offers": 9,
+        "ranked": 1,
+        "groups": {
+          "included": 2,
+          "left_out": 7
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 0,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 3,
+          "new_master_fixtures": 1,
+          "same_fixture": 1,
+          "same_offer": 1,
+          "live_only": 2,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "04e55dde9bbe885f",
+        "generated_at_utc": "2026-10-28T12:13:37.819395+00:00",
+        "offers": 16,
+        "ranked": 4,
+        "groups": {
+          "included": 8,
+          "left_out": 8
+        },
+        "labels_ranked": {
+          "both agree": 1,
+          "research too optimistic": 1,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 5,
+          "new_master_fixtures": 4,
+          "same_fixture": 4,
+          "same_offer": 2,
+          "live_only": 1,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "fd052ff5e9f0163b",
+        "generated_at_utc": "2026-10-28T16:16:05.061508+00:00",
+        "offers": 16,
+        "ranked": 4,
+        "groups": {
+          "included": 7,
+          "left_out": 9
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 1,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 5,
+          "new_master_fixtures": 4,
+          "same_fixture": 4,
+          "same_offer": 3,
+          "live_only": 1,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "c75d4ab52706e716",
+        "generated_at_utc": "2026-10-29T12:08:22.532184+00:00",
+        "offers": 8,
+        "ranked": 2,
+        "groups": {
+          "included": 5,
+          "left_out": 3
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 1,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 2,
+          "new_master_fixtures": 2,
+          "same_fixture": 2,
+          "same_offer": 0,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "02d8d3b21fd68fd9",
+        "generated_at_utc": "2026-10-30T07:29:50.498587+00:00",
+        "offers": 24,
+        "ranked": 3,
+        "groups": {
+          "included": 3,
+          "left_out": 21
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 0,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 5,
+          "new_master_fixtures": 3,
+          "same_fixture": 3,
+          "same_offer": 3,
+          "live_only": 2,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "2f2bbe3e322ecab7",
+        "generated_at_utc": "2026-10-30T12:03:48.308948+00:00",
+        "offers": 25,
+        "ranked": 4,
+        "groups": {
+          "included": 5,
+          "left_out": 20
+        },
+        "labels_ranked": {
+          "both agree": 1,
+          "research too optimistic": 0,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 7,
+          "new_master_fixtures": 4,
+          "same_fixture": 4,
+          "same_offer": 2,
+          "live_only": 3,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "f82ff3e276c6c573",
+        "generated_at_utc": "2026-10-31T12:03:11.165007+00:00",
+        "offers": 96,
+        "ranked": 15,
+        "groups": {
+          "included": 45,
+          "left_out": 51
+        },
+        "labels_ranked": {
+          "both agree": 1,
+          "research too optimistic": 3,
+          "research strongly disagrees": 1,
+          "one view missing": 1,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 12,
+          "new_master_fixtures": 15,
+          "same_fixture": 6,
+          "same_offer": 1,
+          "live_only": 6,
+          "new_only": 9
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "796c7451f4101f75",
+        "generated_at_utc": "2026-11-01T07:37:30.159727+00:00",
+        "offers": 83,
+        "ranked": 15,
+        "groups": {
+          "included": 41,
+          "left_out": 42
+        },
+        "labels_ranked": {
+          "both agree": 2,
+          "research too optimistic": 1,
+          "research strongly disagrees": 0,
+          "one view missing": 1,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "new_master_fixtures": 15,
+          "same_fixture": 5,
+          "same_offer": 2,
+          "live_only": 10,
+          "new_only": 10
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "dc55908798d79d00",
+        "generated_at_utc": "2026-11-01T09:36:12.166126+00:00",
+        "offers": 13,
+        "ranked": 5,
+        "groups": {
+          "included": 6,
+          "left_out": 7
+        },
+        "labels_ranked": {
+          "both agree": 2,
+          "research too optimistic": 0,
+          "research strongly disagrees": 0,
+          "one view missing": 1,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "new_master_fixtures": 5,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "new_only": 5
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "cbf58accd4fa0691",
+        "generated_at_utc": "2026-11-01T12:23:24.469126+00:00",
+        "offers": 0,
+        "ranked": 0,
+        "groups": {
+          "included": 0,
+          "left_out": 0
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 0,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "new_master_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "765b01b571df2fd9",
+        "generated_at_utc": "2026-11-03T13:23:43.479885+00:00",
+        "offers": 27,
+        "ranked": 6,
+        "groups": {
+          "included": 11,
+          "left_out": 16
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 1,
+          "research strongly disagrees": 0,
+          "one view missing": 1,
+          "no research check": 0,
+          "unvalidated view": 6
+        },
+        "overlap": {
+          "live_master_fixtures": 9,
+          "new_master_fixtures": 6,
+          "same_fixture": 6,
+          "same_offer": 2,
+          "live_only": 3,
+          "new_only": 0
+        },
+        "european_offers": 27
+      },
+      {
+        "snapshot": "4dfe537371e33ca4",
+        "generated_at_utc": "2026-11-03T13:58:02.173298+00:00",
+        "offers": 26,
+        "ranked": 6,
+        "groups": {
+          "included": 10,
+          "left_out": 16
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 2,
+          "research strongly disagrees": 0,
+          "one view missing": 1,
+          "no research check": 0,
+          "unvalidated view": 6
+        },
+        "overlap": {
+          "live_master_fixtures": 9,
+          "new_master_fixtures": 6,
+          "same_fixture": 6,
+          "same_offer": 4,
+          "live_only": 3,
+          "new_only": 0
+        },
+        "european_offers": 26
+      },
+      {
+        "snapshot": "85c451a1e15281f6",
+        "generated_at_utc": "2026-11-04T09:31:03.622249+00:00",
+        "offers": 19,
+        "ranked": 2,
+        "groups": {
+          "included": 2,
+          "left_out": 17
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 0,
+          "research strongly disagrees": 0,
+          "one view missing": 2,
+          "no research check": 0,
+          "unvalidated view": 2
+        },
+        "overlap": {
+          "live_master_fixtures": 9,
+          "new_master_fixtures": 2,
+          "same_fixture": 2,
+          "same_offer": 2,
+          "live_only": 7,
+          "new_only": 0
+        },
+        "european_offers": 19
+      },
+      {
+        "snapshot": "ddf20a3972dd45e3",
+        "generated_at_utc": "2026-11-04T10:20:33.895771+00:00",
+        "offers": 31,
+        "ranked": 6,
+        "groups": {
+          "included": 11,
+          "left_out": 20
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 1,
+          "research strongly disagrees": 0,
+          "one view missing": 1,
+          "no research check": 0,
+          "unvalidated view": 6
+        },
+        "overlap": {
+          "live_master_fixtures": 10,
+          "new_master_fixtures": 6,
+          "same_fixture": 6,
+          "same_offer": 5,
+          "live_only": 4,
+          "new_only": 0
+        },
+        "european_offers": 31
+      },
+      {
+        "snapshot": "8a970f7baa207beb",
+        "generated_at_utc": "2026-11-04T19:40:50.340029+00:00",
+        "offers": 21,
+        "ranked": 5,
+        "groups": {
+          "included": 7,
+          "left_out": 14
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 1,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 5
+        },
+        "overlap": {
+          "live_master_fixtures": 7,
+          "new_master_fixtures": 5,
+          "same_fixture": 5,
+          "same_offer": 2,
+          "live_only": 2,
+          "new_only": 0
+        },
+        "european_offers": 21
+      },
+      {
+        "snapshot": "0af36ab1e9657f52",
+        "generated_at_utc": "2026-11-05T12:32:00.598966+00:00",
+        "offers": 0,
+        "ranked": 0,
+        "groups": {
+          "included": 0,
+          "left_out": 0
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 0,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "new_master_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "a00d5e530cc2e80e",
+        "generated_at_utc": "2026-11-05T13:37:38.336530+00:00",
+        "offers": 46,
+        "ranked": 13,
+        "groups": {
+          "included": 22,
+          "left_out": 24
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 6,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 13
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "new_master_fixtures": 13,
+          "same_fixture": 12,
+          "same_offer": 4,
+          "live_only": 3,
+          "new_only": 1
+        },
+        "european_offers": 46
+      },
+      {
+        "snapshot": "92039638c61ad8bc",
+        "generated_at_utc": "2026-11-05T16:17:48.024788+00:00",
+        "offers": 0,
+        "ranked": 0,
+        "groups": {
+          "included": 0,
+          "left_out": 0
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 0,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "new_master_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "7b8f8817eb577b04",
+        "generated_at_utc": "2026-11-05T16:27:43.343008+00:00",
+        "offers": 0,
+        "ranked": 0,
+        "groups": {
+          "included": 0,
+          "left_out": 0
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 0,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "new_master_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "775022176692974f",
+        "generated_at_utc": "2026-11-05T16:50:22.659919+00:00",
+        "offers": 48,
+        "ranked": 13,
+        "groups": {
+          "included": 25,
+          "left_out": 23
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 6,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 13
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "new_master_fixtures": 13,
+          "same_fixture": 11,
+          "same_offer": 2,
+          "live_only": 4,
+          "new_only": 2
+        },
+        "european_offers": 48
+      },
+      {
+        "snapshot": "5d2089b153695efa",
+        "generated_at_utc": "2026-11-06T11:26:29.717902+00:00",
+        "offers": 26,
+        "ranked": 9,
+        "groups": {
+          "included": 18,
+          "left_out": 8
+        },
+        "labels_ranked": {
+          "both agree": 1,
+          "research too optimistic": 2,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 9,
+          "new_master_fixtures": 9,
+          "same_fixture": 9,
+          "same_offer": 2,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "440236589764dce4",
+        "generated_at_utc": "2026-11-06T12:17:20.125743+00:00",
+        "offers": 20,
+        "ranked": 7,
+        "groups": {
+          "included": 13,
+          "left_out": 7
+        },
+        "labels_ranked": {
+          "both agree": 1,
+          "research too optimistic": 1,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 7,
+          "new_master_fixtures": 7,
+          "same_fixture": 7,
+          "same_offer": 2,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "d46504cc4373448f",
+        "generated_at_utc": "2026-11-06T13:21:43.280136+00:00",
+        "offers": 0,
+        "ranked": 0,
+        "groups": {
+          "included": 0,
+          "left_out": 0
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 0,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "new_master_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "b9d2d10f3419c606",
+        "generated_at_utc": "2026-11-06T13:40:19.404227+00:00",
+        "offers": 35,
+        "ranked": 12,
+        "groups": {
+          "included": 21,
+          "left_out": 14
+        },
+        "labels_ranked": {
+          "both agree": 2,
+          "research too optimistic": 2,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 12,
+          "new_master_fixtures": 12,
+          "same_fixture": 12,
+          "same_offer": 4,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "1dabcf85eb639cd0",
+        "generated_at_utc": "2026-11-07T11:48:25.259368+00:00",
+        "offers": 87,
+        "ranked": 15,
+        "groups": {
+          "included": 36,
+          "left_out": 51
+        },
+        "labels_ranked": {
+          "both agree": 3,
+          "research too optimistic": 2,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "new_master_fixtures": 15,
+          "same_fixture": 10,
+          "same_offer": 4,
+          "live_only": 5,
+          "new_only": 5
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "688a34b2f4bd83f2",
+        "generated_at_utc": "2026-11-07T13:54:13.645217+00:00",
+        "offers": 80,
+        "ranked": 15,
+        "groups": {
+          "included": 40,
+          "left_out": 40
+        },
+        "labels_ranked": {
+          "both agree": 2,
+          "research too optimistic": 2,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "new_master_fixtures": 15,
+          "same_fixture": 12,
+          "same_offer": 5,
+          "live_only": 3,
+          "new_only": 3
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "bdc58d9d3727286d",
+        "generated_at_utc": "2026-11-08T09:01:04.075316+00:00",
+        "offers": 119,
+        "ranked": 15,
+        "groups": {
+          "included": 62,
+          "left_out": 57
+        },
+        "labels_ranked": {
+          "both agree": 3,
+          "research too optimistic": 2,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "new_master_fixtures": 15,
+          "same_fixture": 9,
+          "same_offer": 2,
+          "live_only": 6,
+          "new_only": 6
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "d5829163b3fa9bf3",
+        "generated_at_utc": "2026-11-08T12:20:11.356382+00:00",
+        "offers": 109,
+        "ranked": 15,
+        "groups": {
+          "included": 53,
+          "left_out": 56
+        },
+        "labels_ranked": {
+          "both agree": 3,
+          "research too optimistic": 2,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "new_master_fixtures": 15,
+          "same_fixture": 8,
+          "same_offer": 4,
+          "live_only": 7,
+          "new_only": 7
+        },
+        "european_offers": 0
+      }
+    ]
+  }
+}
