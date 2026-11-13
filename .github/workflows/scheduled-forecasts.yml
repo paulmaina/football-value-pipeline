@@ -1,11 +1,9 @@
 name: Scheduled forecast collection
 
+# One forecast run a day. A push no longer triggers a full run: each run costs
+# up to ~300 Odds API credits, and push reruns doubled November's usage.
+# Use workflow_dispatch to rerun on purpose.
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/scheduled-forecasts.yml'
-      - 'publish_scheduled_forecasts.py'
   schedule:
     - cron: '45 5 * * *'
   workflow_dispatch:
