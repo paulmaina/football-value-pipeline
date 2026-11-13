@@ -8,5 +8,17 @@
     "holdout_fixtures": 640,
     "passes_holdout_gate": false,
     "scored_at_utc": "2026-11-11T12:51:39.160116+00:00"
+  },
+  {
+    "candidate": "D",
+    "baseline": "M",
+    "declaration_sha256": "d464bc071c6aedc558593dbb8f0a30279cfc945fd57a1b51ad2157ed07b5604b",
+    "setup_sha256": "d9f56e3a992d4246fb67a1cbe4176f2b4f83fb9fa195339f89e22d899a1ae54e",
+    "source_commit": "e30ffd157210dd52e36e2674df478725b7fc6be5",
+    "holdout_fixtures": 638,
+    "passes_holdout_gate": true,
+    "deciding_criterion": "calibration",
+    "calibration_tolerance": "cagey-events-v1",
+    "scored_at_utc": "2026-11-12T21:54:39.784180+00:00"
   }
 ]

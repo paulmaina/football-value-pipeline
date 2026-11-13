@@ -121,6 +121,8 @@ SETUP_FILES = ('evaluation_harness.py', 'research_backtest.py', 'historical_benc
                'research_low_score.py', 'understat_history.py', 'understat_team_aliases.json',
                'research_sharpen.py', 'research_low_score_sharpen.py')
 CALIBRATION_MIN_BIN = 30  # diagnostics' smallest reported band; the release rule's own minimum is in the config
+CAGEY_EVENT_CANDIDATES = ('D', 'M')  # calib rows carry their margin distribution for rule cagey-events-v1
+DECIDING_CRITERIA = ('log_loss_superiority', 'calibration')  # a declaration without one is log-loss superiority
 PROMOTION_RULES = Path(__file__).with_name('benchmark_promotion_rules.json')
 
 
@@ -400,11 +402,15 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None):
                                  'home_goals': row.FTHG, 'away_goals': row.FTAG, 'scored': True})
             records.extend(rb.score_fixture(identity, matrices, row.FTHG, row.FTAG))
             outcome = 0 if row.FTHG > row.FTAG else 1 if row.FTHG == row.FTAG else 2
+            quote = book_prices(row, extra['market_book']) if extra.get('market_book') else None
             for cand, matrix in matrices.items():
                 h, a = np.indices(matrix.shape)
                 probs = [float(matrix[h > a].sum()), float(matrix[h == a].sum()), float(matrix[h < a].sum())]
                 calib.append({'phase': identity['phase'], 'league': league, 'fixture_key': identity['fixture_key'],
-                              'candidate': cand, 'probs': probs, 'outcome': outcome})
+                              'candidate': cand, 'probs': probs, 'outcome': outcome,
+                              **({'cagey': cagey_inputs(matrix, quote, extra['market_book'], identity['week'],
+                                                        row.FTHG - row.FTAG)}
+                                 if cand in CAGEY_EVENT_CANDIDATES and quote is not None else {})})
             if 'overround' in extra:
                 overrounds.append(extra['overround'])
             for key, reason in gaps.items():
@@ -723,6 +729,11 @@ def calibration_rules(cfg) -> dict:
     return rules
 
 
+def is_1x2_rule(rule) -> bool:
+    """v1-v3 judge 1X2 forecasts (calibration_check); cagey-events-v1 judges the cagey tier's events."""
+    return rule.get('kind', '1x2') == '1x2'
+
+
 def _slopes(rows, named):
     names = ('home', 'draw', 'away')
     probs = np.array([r['probs'] for r in rows], dtype=float)
@@ -742,6 +753,8 @@ def calibration_check(rows, rule, baseline_rows=None) -> dict:
     [slope_min, slope_max] also passes when its distance from 1 is smaller than the baseline's slope for the
     same outcome, both fitted on the fixtures both forecast (`baseline_rows`: the declared baseline's rows,
     matched by fixture_key). Fails when there are no forecasts."""
+    if not is_1x2_rule(rule):
+        raise ValueError(f"Calibration rule {rule['name']!r} is not a 1X2 rule; use cagey_events_check")
     rows = list(rows)
     relative = bool(rule.get('slope_relative_to_baseline'))
     if relative and baseline_rows is None:
@@ -806,6 +819,173 @@ def calibration_checks(calib, rule) -> dict:
 
 
 # ---------------------------------------------------------------------------
+# Calibration of the cagey tier's events (rule cagey-events-v1, decided 12 Nov 2026)
+# ---------------------------------------------------------------------------
+
+def cagey_inputs(matrix, quote, book, week, margin) -> dict:
+    """What rule cagey-events-v1 needs from one D or M forecast: its goal-margin distribution, the period
+    bookmaker's real main AH quote (home line, home price, away price), the bookmaker and the result margin."""
+    import market_implied as mi
+    margins, probs = mi.margin_distribution(np.asarray(matrix, float))
+    return {'margins': [int(m) for m in margins], 'margin_probs': [float(p) for p in probs],
+            'main_ah': [float(v) for v in quote['ah']], 'book': book, 'week': week, 'margin': float(margin)}
+
+
+def no_loss_family(line) -> int:
+    """The no-loss event a line belongs to, floor(line) in quarter units: lines k .. k + 0.75 share the event
+    'side margin >= -k' (e.g. +1.00 to +1.75: lose by at most 1; -1.00 to -0.25: win by 1 or more)."""
+    return int(np.floor(round(float(line) * 4) / 4))
+
+
+def cagey_bettable(selector, price_basis, rule) -> dict:
+    """Bettable AH lines of one fixture under rule cagey-events-v1, by side: [(line, price, expected return
+    under the selector)], from the selector's (D) and price basis's (M) `cagey_inputs`.
+
+    Every line in rule['lines'], both sides, is priced: the main line at the bookmaker's real quote, every
+    other line synthetically, the price basis's fair odds (1 / effective probability) divided by 1 + the
+    bookmaker's average AH margin (rule['synthetic_ah_margin']). A line is bettable when its price is in
+    the odds window (min_exclusive, max_inclusive]. Expected return per unit stake, cost 0."""
+    from ah_close_backtest import expected_return, effective_probability, outcome_probabilities
+    margins = np.asarray(selector['margins'], int)
+    assert margins.tolist() == list(price_basis['margins']), 'D and M grids differ in size'
+    p_sel, p_base = np.asarray(selector['margin_probs'], float), np.asarray(price_basis['margin_probs'], float)
+    low, high = rule['odds_window']['min_exclusive'], rule['odds_window']['max_inclusive']
+    book_margin = rule['synthetic_ah_margin'][selector['book']]['margin']
+    main_line, main_home, main_away = selector['main_ah']
+    quoted = {('home', round(main_line * 4)): main_home, ('away', round(-main_line * 4)): main_away}
+    best = {}
+    for side in ('home', 'away'):
+        side_margins = margins if side == 'home' else -margins
+        for line in rule['lines']:
+            price = quoted.get((side, round(line * 4)))
+            if price is None:
+                fair = outcome_probabilities(side_margins, p_base, line)
+                q = effective_probability(fair)
+                if fair['p_win'] + fair['p_half_win'] + fair['p_loss'] + fair['p_half_loss'] <= 0 or q <= 0:
+                    continue  # never settles, or never wins: no price
+                price = 1 / (q * (1 + book_margin))
+            if not low < price <= high:
+                continue
+            ev = expected_return(outcome_probabilities(side_margins, p_sel, line), price)
+            best.setdefault(side, []).append((line, price, ev))
+    return best
+
+
+def cagey_fixture_events(selector, price_basis, rule) -> list[dict]:
+    """The events of one fixture under rule cagey-events-v1. Every candidate is scored on these same events.
+
+    narrow: P(|margin| <= 1).
+    no_loss: one side only, the side whose best bettable line (cagey_bettable) has the higher expected return
+    under the selector (home on an exact tie). That side's bettable lines give one event per family
+    (no_loss_family): 'side margin >= -k'."""
+    events = [{'family': 'narrow', 'side': None, 'k': None, 'y': int(abs(selector['margin']) <= 1)}]
+    best = cagey_bettable(selector, price_basis, rule)
+    if best:
+        side = max(best, key=lambda s: (max(ev for _, _, ev in best[s]), s == 'home'))
+        sign = 1 if side == 'home' else -1
+        for k in sorted({no_loss_family(line) for line, _, _ in best[side]}):
+            events.append({'family': 'no_loss', 'side': side, 'k': k, 'y': int(sign * selector['margin'] >= -k),
+                           'lines': [line for line, _, _ in best[side] if no_loss_family(line) == k]})
+    return events
+
+
+def cagey_event_probability(event, inputs) -> float:
+    margins, probs = np.asarray(inputs['margins'], int), np.asarray(inputs['margin_probs'], float)
+    if event['family'] == 'narrow':
+        return float(probs[np.abs(margins) <= 1].sum())
+    side_margins = margins if event['side'] == 'home' else -margins
+    return float(probs[side_margins >= -event['k']].sum())
+
+
+def cagey_events(calib, rule) -> pd.DataFrame:
+    """One row per fixture event (rule cagey-events-v1) with every candidate's probability (p_<candidate>),
+    for the fixtures where both the selector and the price basis forecast. Fixtures are matched by phase
+    and fixture_key."""
+    by_fixture = defaultdict(dict)
+    for r in calib:
+        if 'cagey' in r:
+            by_fixture[(r['phase'], r['fixture_key'])][r['candidate']] = r['cagey']
+    rows = []
+    for (name, key), forecasts in sorted(by_fixture.items()):
+        if rule['event_selector'] not in forecasts or rule['price_basis'] not in forecasts:
+            continue
+        if not np.isfinite(forecasts[rule['event_selector']]['margin']):
+            continue
+        for event in cagey_fixture_events(forecasts[rule['event_selector']], forecasts[rule['price_basis']], rule):
+            rows.append({'phase': name, 'fixture_key': key, 'week': forecasts[rule['event_selector']]['week'],
+                         **{k: v for k, v in event.items() if k != 'lines'},
+                         'lines': ' '.join(f'{v:+.2f}' for v in event.get('lines', [])),
+                         **{f'p_{c}': cagey_event_probability(event, f) for c, f in forecasts.items()}})
+    return pd.DataFrame(rows, columns=['phase', 'fixture_key', 'week', 'family', 'side', 'k', 'y', 'lines',
+                                       *[f'p_{c}' for c in CAGEY_EVENT_CANDIDATES]])
+
+
+def binary_bands(p, y, rule) -> list[dict]:
+    """Calibration bands of one binary event family, exactly as v2/v3 build them for a 1X2 outcome."""
+    p, y = np.asarray(p, float), np.asarray(y, float)
+    nbins = int(round(1 / rule['band_width']))
+    index = np.minimum(nbins - 1, (p * nbins).astype(int))
+    bands = []
+    for b in np.unique(index):
+        m = index == b
+        if m.sum() >= rule['band_min_matches']:
+            n, mean = int(m.sum()), float(p[m].mean())
+            deviation = float(y[m].mean() - mean)
+            se = float(np.sqrt(mean * (1 - mean) / n))
+            bands.append({'band_lower': b / nbins, 'n': n, 'mean_forecast': mean, 'observed_rate': float(y[m].mean()),
+                          'observed_minus_forecast': deviation, 'z': abs(deviation) / se if se > 0 else float('inf')})
+    return bands
+
+
+def cagey_events_check(events, rule, candidate, baseline) -> dict:
+    """Rule cagey-events-v1 for `candidate` against `baseline` on the same events (cagey_events). Per family,
+    calibration v3's logic on the binary event: the candidate's logistic calibration slope passes if it is
+    in [slope_min, slope_max] or strictly closer to 1 than the baseline's on the same events; bands of
+    band_width with at least band_min_matches events fail only when more than band_max_deviation from the
+    observed rate AND |gap| / sqrt(p(1-p)/n) is above the Bonferroni bar for the family's bands checked.
+    Pass means every family passes. A baseline checked against itself passes a slope only inside the band.
+    No events: fails."""
+    out = {'rule': rule['name'], 'candidate': candidate, 'baseline': baseline, 'families': {}}
+    for family in rule['families']:
+        part = events.loc[events.family == family] if len(events) else events
+        if part.empty:
+            out['families'][family] = {'events': 0, 'fixtures': 0, 'passes': False}
+            continue
+        p, y, base = part[f'p_{candidate}'].to_numpy(float), part.y.to_numpy(float), part[f'p_{baseline}'].to_numpy(float)
+        slope, base_slope = calibration_slope(p, y), calibration_slope(base, y)
+        in_band = bool(rule['slope_min'] <= slope <= rule['slope_max'])
+        closer = bool(abs(slope - 1) < abs(base_slope - 1))
+        bands = binary_bands(p, y, rule)
+        z_bar = band_z_threshold(rule['band_alpha'], len(bands))
+        failing = [b for b in bands if abs(b['observed_minus_forecast']) > rule['band_max_deviation'] and b['z'] > z_bar]
+        entry = {'events': int(len(part)), 'fixtures': int(part.fixture_key.nunique()),
+                 'weeks': int(part.week.nunique()), 'mean_forecast': float(p.mean()),
+                 'baseline_mean_forecast': float(base.mean()), 'observed_rate': float(y.mean()),
+                 'slope': slope, 'baseline_slope': base_slope, 'slope_in_band': in_band,
+                 'closer_to_one_than_baseline': closer, 'slope_passes': in_band or closer,
+                 'bands': bands, 'bands_checked': len(bands), 'band_z_threshold': z_bar,
+                 'failing_bands': failing, 'bands_pass': not failing,
+                 'passes': bool((in_band or closer) and not failing)}
+        if family == 'no_loss':
+            entry['events_by_family_k'] = {f'{int(k):+d}': int(v) for k, v in part.groupby('k').size().items()}
+            entry['events_by_side'] = {s: int(v) for s, v in part.groupby('side').size().items()}
+        out['families'][family] = entry
+    out['passes'] = bool(out['families'] and all(f['passes'] for f in out['families'].values()))
+    return out
+
+
+def cagey_events_checks(calib, rule) -> dict:
+    """Rule cagey-events-v1 per period: the selector (D) against the price basis (M), and M against itself."""
+    events = cagey_events(calib, rule)
+    output = {}
+    for name in sorted(events.phase.unique()) if len(events) else []:
+        part = events.loc[events.phase == name]
+        output[name] = {c: cagey_events_check(part, rule, c, rule['price_basis'])
+                        for c in (rule['event_selector'], rule['price_basis'])}
+    return output
+
+
+# ---------------------------------------------------------------------------
 # Holdout lock
 # ---------------------------------------------------------------------------
 
@@ -849,6 +1029,22 @@ def validate_declaration(path, cfg, setup, ledger=LEDGER, candidates=None):
                          f"or one in calibration_tolerance_rules ({', '.join(sorted(rules))}); "
                          'change the config in a reviewed PR first')
     rule = rules[data['calibration_tolerance']]
+    # Optional, for declarations from 12 Nov 2026: what decides the verdict. Without it (C6, CE3n) the
+    # verdict is log-loss superiority on the primary metric, read exactly as before.
+    criterion = data.get('deciding_criterion', 'log_loss_superiority')
+    if criterion not in DECIDING_CRITERIA:
+        raise ValueError('Deciding criterion must be one of ' + ', '.join(DECIDING_CRITERIA))
+    if not is_1x2_rule(rule) and (data['candidate'], data['baseline']) != (rule['event_selector'], rule['price_basis']):
+        raise ValueError(f"Calibration rule {rule['name']!r} judges {rule['event_selector']} against "
+                         f"{rule['price_basis']} only")
+    if criterion == 'calibration':
+        minimum = promotion_minimums('domestic' if registry is CANDIDATES else 'european')
+        declared = data.get('sample_minimum') or {}
+        if not isinstance(declared, dict) or {k: declared.get(k) for k in minimum} != minimum:
+            raise ValueError(f'A calibration-deciding declaration must state the sample minimum {minimum}')
+        reported = data.get('reported_not_deciding', [])
+        if not isinstance(reported, list) or not set(reported) <= set(GROUPS):
+            raise ValueError('reported_not_deciding must list metrics from ' + ', '.join(GROUPS))
     entries = json.loads(ledger.read_text(encoding='utf-8')) if ledger.exists() else []
     if any(e['candidate'] == data['candidate'] for e in entries):
         raise ValueError(f"Holdout already scored for candidate {data['candidate']!r}")
@@ -860,29 +1056,54 @@ def validate_declaration(path, cfg, setup, ledger=LEDGER, candidates=None):
 
 def holdout_verdict(records, calib, declaration, gap, minimum=None):
     """Apply the declaration: primary metric, draw-sensitive lines, the configured calibration
-    tolerance (calibration_check on the candidate's holdout forecasts) and the market bar.
-    `minimum` is the sample minimum (promotion_minimums(); the European holdout passes its own)."""
+    tolerance (calibration_check on the candidate's holdout forecasts, or cagey_events_check for rule
+    cagey-events-v1) and the market bar. `minimum` is the sample minimum (promotion_minimums(); the
+    European holdout passes its own).
+
+    Deciding criterion: without one (C6, CE3n) the candidate must beat the baseline on the primary metric
+    with the interval clear of zero, meet the sample minimum and pass calibration. With
+    'deciding_criterion': 'calibration' it must meet the sample minimum and pass calibration; log loss is
+    reported, not deciding."""
     scores = fixture_scores(records, declaration['draw_sensitive_lines'])
     hold = scores.loc[scores.phase == 'holdout']
     cand, base = declaration['candidate'], declaration['baseline']
+    rule = declaration['calibration_rule']
+    criterion = declaration.get('deciding_criterion', 'log_loss_superiority')
     primary = paired(hold.loc[hold.group == declaration['primary_metric']], base, cand)
     draw = paired(hold.loc[hold.group == 'AH draw-sensitive'], base, cand)
-    calibrated = calibration_check([r for r in calib if r['phase'] == 'holdout' and r['candidate'] == cand],
-                                   declaration['calibration_rule'],
-                                   [r for r in calib if r['phase'] == 'holdout' and r['candidate'] == base])
+    held = [r for r in calib if r['phase'] == 'holdout']
+    baseline_calibration = None
+    if is_1x2_rule(rule):
+        calibrated = calibration_check([r for r in held if r['candidate'] == cand], rule,
+                                       [r for r in held if r['candidate'] == base])
+    else:
+        events = cagey_events(held, rule)
+        calibrated = cagey_events_check(events, rule, cand, base)
+        baseline_calibration = cagey_events_check(events, rule, base, base)
     market = paired(hold.loc[hold.group == declaration['primary_metric']], 'M', cand) if cand != 'M' else None
     bar = max(0., gap.get(declaration['primary_metric'], {}).get('bet365_minus_pinnacle_log_loss', 0.))
     minimum = minimum or promotion_minimums()
     enough = bool(primary and primary['fixtures'] >= minimum['fixtures'] and primary['weeks'] >= minimum['weeks'])
-    passed = bool(enough and primary and primary['clear_of_zero'] and calibrated['passes'])
-    return {'candidate': cand, 'baseline': base, 'primary_metric': declaration['primary_metric'],
-            'primary': primary, 'draw_sensitive': draw,
-            'sample_minimum': minimum, 'sample_minimum_met': enough,
-            'calibration': calibrated, 'calibration_tolerance': declaration['calibration_rule'],
-            'versus_market': {**market, 'gap_bar': bar, 'beats_market_after_gap': market['mean_gain'] - bar > 0
-                              and market['interval_95'] is not None and market['interval_95'][0] > bar} if market else None,
-            'passes_holdout_gate': passed,
-            'next_steps': 'Passing the holdout is necessary, not sufficient: parity test and live replay follow, then a reviewed PR.'}
+    if criterion == 'calibration':
+        passed = bool(enough and calibrated['passes'])
+    else:
+        passed = bool(enough and primary and primary['clear_of_zero'] and calibrated['passes'])
+    verdict = {'candidate': cand, 'baseline': base, 'primary_metric': declaration['primary_metric'],
+               'primary': primary, 'draw_sensitive': draw,
+               'sample_minimum': minimum, 'sample_minimum_met': enough,
+               'calibration': calibrated, 'calibration_tolerance': declaration['calibration_rule'],
+               'versus_market': {**market, 'gap_bar': bar, 'beats_market_after_gap': market['mean_gain'] - bar > 0
+                                 and market['interval_95'] is not None and market['interval_95'][0] > bar} if market else None,
+               'passes_holdout_gate': passed,
+               'next_steps': 'Passing the holdout is necessary, not sufficient: parity test and live replay follow, then a reviewed PR.'}
+    if 'deciding_criterion' in declaration or baseline_calibration is not None:
+        verdict.update(deciding_criterion=criterion, baseline_calibration=baseline_calibration,
+                       reported_not_deciding=declaration.get('reported_not_deciding', []))
+        if criterion == 'calibration':
+            verdict['primary_metric_role'] = 'reported, not deciding'
+            verdict['next_steps'] = ('Calibration-deciding test: passing confirms the candidate against its baseline '
+                                     'on the declared rule; any production change still needs a reviewed PR.')
+    return verdict
 
 
 def record_holdout(declaration, setup, commit, fixtures, verdict, ledger=LEDGER):
@@ -891,6 +1112,9 @@ def record_holdout(declaration, setup, commit, fixtures, verdict, ledger=LEDGER)
                     'declaration_sha256': declaration['sha256'], 'setup_sha256': setup['sha256'],
                     'source_commit': commit, 'holdout_fixtures': fixtures,
                     'passes_holdout_gate': verdict['passes_holdout_gate'],
+                    **({'deciding_criterion': declaration['deciding_criterion'],
+                        'calibration_tolerance': declaration['calibration_rule']['name']}
+                       if 'deciding_criterion' in declaration else {}),
                     'scored_at_utc': datetime.now(timezone.utc).isoformat()})
     ledger.parent.mkdir(parents=True, exist_ok=True)
     ledger.write_text(json.dumps(entries, indent=2) + '\n', encoding='utf-8')
@@ -1740,7 +1964,7 @@ def european_summary(records, calib, coverage, cfg, metadata):
     stages = {r['fixture_key']: r['stage_group'] for r in records}
     scores['stage_group'] = scores.fixture_key.map(stages)
     rule = cfg['calibration_tolerance']
-    extra_rules = {n: r for n, r in calibration_rules(cfg).items() if n != rule['name']}
+    extra_rules = {n: r for n, r in calibration_rules(cfg).items() if n != rule['name'] and is_1x2_rule(r)}
     periods = {}
 
     def table(frame):
@@ -1936,6 +2160,9 @@ def main(argv=None):
     summary = summarize(records, overrounds, coverage, cfg, metadata)
     summary['calibration_1x2'] = calibration(calib)
     summary['calibration_tolerance_check'] = calibration_checks(calib, cfg['calibration_tolerance'])
+    cagey_rules = [r for r in calibration_rules(cfg).values() if r.get('kind') == 'cagey_events']
+    if cagey_rules:  # rule cagey-events-v1: D against M, and M against itself, per period
+        summary['cagey_events_check'] = {r['name']: cagey_events_checks(calib, r) for r in cagey_rules}
     import understat_history as uh
     summary['calibration_1x2_understat_leagues'] = calibration([r for r in calib if r.get('league') in uh.LEAGUES])
     if declaration is not None:
