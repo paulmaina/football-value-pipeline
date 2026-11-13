@@ -46,6 +46,8 @@ jobs:
       - name: Publish the refreshed shortlist
         run: |
           git add football_output_v2/raw football_output_v2/readable
+          # Odds API usage record of this check (key slots and counts only).
+          if [ -f football_output_v2/odds_api_usage/usage_log.jsonl ]; then git add football_output_v2/odds_api_usage/usage_log.jsonl; fi
           if git diff --cached --quiet; then echo 'No new price-check run.'; exit 0; fi
           bot="-c user.name=github-actions[bot] -c user.email=41898282+github-actions[bot]@users.noreply.github.com"
           git $bot commit -m 'Price check: refresh v27 shortlist'

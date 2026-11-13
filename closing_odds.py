@@ -154,21 +154,55 @@ def collection_targets(root, predictions, picks):
              else sources[key], selected.get(key, set())) for key in sorted(keys)]
 
 
-def required_quotes(source, selected, observations):
-    """Missing exact-market quotes remain retryable until the window closes."""
+def has_handicap(selected):
+    """A handicap selection makes fetch() request Pinnacle (and bet365) only, never 1xBet."""
+    return any(parse_handicap(str(m).removeprefix(BET365_TARGET)) for m in selected)
+
+
+def same_fixture_observations(source, observations):
     from performance_tracking import fixture_key, utc
+    return [obs for obs in observations
+            if fixture_key(obs['fixture']) == fixture_key(source)
+            and obs['fixture'].get('odds_event_id') == source.get('odds_event_id')
+            and utc(obs['fixture'].get('kickoff_utc')) == utc(source.get('kickoff_utc'))]
+
+
+# One retry per fixture covers a quote that was stale on the first request.
+# From 17 Oct to 8 Nov 2026, 34 fixtures were requested 2-12 times each and no
+# retry added a single quote: the missing ones were never offered (a Pinnacle
+# 1.5 line absent from alternate totals) or never requested (1xBet when the
+# request was Pinnacle-only), so further requests only spent credits.
+MAX_REQUESTS_PER_FIXTURE = 2
+
+
+def retries_exhausted(source, observations):
+    return len(same_fixture_observations(source, observations)) >= MAX_REQUESTS_PER_FIXTURE
+
+
+def required_quotes(source, selected, observations):
+    """Missing exact-market quotes stay retryable, up to the per-fixture cap, until the window closes.
+
+    Only bookmakers the request asks for are expected: fetch() asks for Pinnacle
+    alone when a handicap is selected, so 1xBet quotes cannot arrive then.
+    """
     bet365 = {m[len(BET365_TARGET):] for m in selected if str(m).startswith(BET365_TARGET)}
     selections = {key for key, label in LABELS.items() if label in selected}
     selections.update(market for market in selected if parse_handicap(market))
     if not selections and not bet365:selections = {'home', 'draw', 'away'}
-    expected = {(book, selection) for selection in selections for book in (('pinnacle',) if parse_handicap(selection) else ('1xbet','pinnacle'))}
+    books = ('pinnacle',) if has_handicap(selected) else ('1xbet','pinnacle')
+    expected = {(book, selection) for selection in selections for book in (('pinnacle',) if parse_handicap(selection) else books)}
     expected |= {(book, key) for key, label in LABELS.items() if label in bet365 for book in ('bet365', 'pinnacle')}
-    actual = {(q['bookmaker'], q['selection']) for obs in observations
-              if fixture_key(obs['fixture']) == fixture_key(source)
-              and obs['fixture'].get('odds_event_id') == source.get('odds_event_id')
-              and utc(obs['fixture'].get('kickoff_utc')) == utc(source.get('kickoff_utc'))
+    actual = {(q['bookmaker'], q['selection']) for obs in same_fixture_observations(source, observations)
               for q in obs['quotes']}
     return expected - actual
+
+
+def low_credits(root, api=None):
+    """Budget guard: below one forecast run of credits on all keys, collect picks only."""
+    from odds_api_usage import UsageLedger, seeded_ledger
+    usage = getattr(api, 'usage', None)
+    usage = usage if isinstance(usage, UsageLedger) else seeded_ledger(Path(root).parent)
+    return not usage.allows_optional()
 
 
 def collect_once(root,api,clock=None,limit=100,fetcher=None,reservation_id=None):
@@ -190,12 +224,15 @@ def collect_once(root,api,clock=None,limit=100,fetcher=None,reservation_id=None)
     picks=read_csv(raw/'conservative_bet_shortlist.csv')
     targets=collection_targets(root,predictions,picks)
     targets.sort(key=lambda item:(not bool(item[1]),str(item[0].get('kickoff_utc',''))))
-    count=0;written=0;errors=[];checks=[];eligible=0;complete=0
+    count=0;written=0;errors=[];checks=[];eligible=0;complete=0;capped=0;skipped_low=0
+    low=low_credits(root,api)
     for source,selected in targets:
         event=str(source.get('odds_event_id',''));kick=utc(source.get('kickoff_utc'))
         if not event or not kick or not 0<(kick-start).total_seconds()<=PRE_KICKOFF_WINDOW_SECONDS:continue
         eligible+=1
         if not required_quotes(source,selected,observations):complete+=1;continue
+        if retries_exhausted(source,observations):capped+=1;continue
+        if low and not selected:skipped_low+=1;continue  # Fixtures without a pick are optional.
         if count>=cap:continue
         markets={'h2h','totals'}
         labels={str(m).removeprefix(BET365_TARGET) for m in selected}
@@ -236,6 +273,8 @@ def collect_once(root,api,clock=None,limit=100,fetcher=None,reservation_id=None)
             'REQUEST_LIMIT_REACHED' if count>=cap and not count else 'CHECKED_ELIGIBLE_FIXTURES')
     status={'checked_at_utc':start.isoformat(),'requests':count,'written':written,'errors':errors,'request_limit':limit,'daily_requests':used if reservation is not None else used+count,'daily_request_cap':100,
             'eligible_fixtures':eligible,'already_complete_fixtures':complete,'reason':reason,'coverage_checks':checks}
+    if capped:status['retry_cap_reached_fixtures']=capped
+    if skipped_low:status['skipped_low_credit_fixtures']=skipped_low
     if reservation is not None:
         status.update(reservation_id=reservation_id,reservation_used=reservation['used'],
                       reservation_allowance=reservation['allowance'])
@@ -370,8 +409,10 @@ def pending_window(root, deadline, clock):
     observations, _ = load_observations(root,clock)
     from prediction_runs import resolve_raw
     raw = resolve_raw(root/'raw')
+    low = low_credits(root)
     return any((kick := utc(source.get('kickoff_utc'))) and clock < kick <= deadline
                and required_quotes(source,selected,observations)
+               and not retries_exhausted(source,observations) and not (low and not selected)
                for source,selected in collection_targets(root,
                    read_csv(raw/'all_leagues_predictions.csv'),
                    read_csv(raw/'conservative_bet_shortlist.csv')))
@@ -389,6 +430,8 @@ def main(argv=None):
     load_api_keys(args.api_key_source);key=next((os.getenv(k,'').strip() for k in TheOddsAPI.KEY_ENV_NAMES if os.getenv(k,'').strip()),'')
     if not key:parser.error('Configure an Odds API key using the selected credential source')
     api=TheOddsAPI(key,cache_dir=Path('.football_cache'),force_refresh=True,regions='eu');remaining=args.max_requests;deadline=time.monotonic()+args.hours*3600
+    from odds_api_usage import seeded_ledger
+    api.usage=seeded_ledger(args.root.parent)  # Start from the committed balances.
     lock=args.root/'closing_odds/collector.lock';lock.parent.mkdir(parents=True,exist_ok=True)
     if lock.exists() and time.time()-lock.stat().st_mtime>1200:lock.unlink()
     try:
@@ -416,7 +459,19 @@ def main(argv=None):
             time.sleep(30)
     finally:
         lock.unlink(missing_ok=True)
+        record_usage(args.root, api)
     return 0
+
+
+def record_usage(root, api):
+    """One usage record per collector session that called the API; published with the evidence."""
+    import odds_api_usage
+    if not isinstance(getattr(api, 'usage', None), odds_api_usage.UsageLedger) or not api.usage.calls:
+        return None
+    record = odds_api_usage.run_record('closing-odds', api.usage)
+    odds_api_usage.append_log(record, Path(root).parent)
+    odds_api_usage.write_step_summary(odds_api_usage.summary_markdown(record))
+    return record
 
 
 if __name__=='__main__':raise SystemExit(main())
