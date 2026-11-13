@@ -1,0 +1,1059 @@
+{
+  "note": "Integration check, not evidence: the 29 saved runs (27 Oct - 8 Nov 2026) rebuilt from their frozen predictions at each run clock under the current rules, then the new master; no result read.",
+  "start": "2026-10-27",
+  "end_exclusive": "2026-11-09",
+  "runs": [
+    {
+      "snapshot": "026e1ab4c40e3e64",
+      "generated_at_utc": "2026-10-27T09:50:40.995248+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "d414de1a572b09b2",
+      "generated_at_utc": "2026-10-27T11:35:10.735016+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "04e55dde9bbe885f",
+      "generated_at_utc": "2026-10-28T12:13:37.819395+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "fd052ff5e9f0163b",
+      "generated_at_utc": "2026-10-28T16:16:05.061508+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "c75d4ab52706e716",
+      "generated_at_utc": "2026-10-29T12:08:22.532184+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "02d8d3b21fd68fd9",
+      "generated_at_utc": "2026-10-30T07:29:50.498587+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "2f2bbe3e322ecab7",
+      "generated_at_utc": "2026-10-30T12:03:48.308948+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "f82ff3e276c6c573",
+      "generated_at_utc": "2026-10-31T12:03:11.165007+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "796c7451f4101f75",
+      "generated_at_utc": "2026-11-01T07:37:30.159727+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "dc55908798d79d00",
+      "generated_at_utc": "2026-11-01T09:36:12.166126+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "cbf58accd4fa0691",
+      "generated_at_utc": "2026-11-01T12:23:24.469126+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "765b01b571df2fd9",
+      "generated_at_utc": "2026-11-03T13:23:43.479885+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "4dfe537371e33ca4",
+      "generated_at_utc": "2026-11-03T13:58:02.173298+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "85c451a1e15281f6",
+      "generated_at_utc": "2026-11-04T09:31:03.622249+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "ddf20a3972dd45e3",
+      "generated_at_utc": "2026-11-04T10:20:33.895771+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "8a970f7baa207beb",
+      "generated_at_utc": "2026-11-04T19:40:50.340029+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "0af36ab1e9657f52",
+      "generated_at_utc": "2026-11-05T12:32:00.598966+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "a00d5e530cc2e80e",
+      "generated_at_utc": "2026-11-05T13:37:38.336530+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "92039638c61ad8bc",
+      "generated_at_utc": "2026-11-05T16:17:48.024788+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "7b8f8817eb577b04",
+      "generated_at_utc": "2026-11-05T16:27:43.343008+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "775022176692974f",
+      "generated_at_utc": "2026-11-05T16:50:22.659919+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "5d2089b153695efa",
+      "generated_at_utc": "2026-11-06T11:26:29.717902+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "440236589764dce4",
+      "generated_at_utc": "2026-11-06T12:17:20.125743+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "d46504cc4373448f",
+      "generated_at_utc": "2026-11-06T13:21:43.280136+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "b9d2d10f3419c606",
+      "generated_at_utc": "2026-11-06T13:40:19.404227+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "1dabcf85eb639cd0",
+      "generated_at_utc": "2026-11-07T11:48:25.259368+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "688a34b2f4bd83f2",
+      "generated_at_utc": "2026-11-07T13:54:13.645217+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "bdc58d9d3727286d",
+      "generated_at_utc": "2026-11-08T09:01:04.075316+00:00",
+      "status": "ok"
+    },
+    {
+      "snapshot": "d5829163b3fa9bf3",
+      "generated_at_utc": "2026-11-08T12:20:11.356382+00:00",
+      "status": "ok"
+    }
+  ],
+  "totals": {
+    "runs_with_shadow": 29,
+    "offers": 992,
+    "not_executable_offers": 0,
+    "offers_by_group": {
+      "both_agree": 78,
+      "market_safe": 163,
+      "left_out": 751
+    },
+    "gap_checks": {
+      "kept": 405,
+      "vetoed": 249,
+      "ignored": 292,
+      "one_view_missing_kept": 12,
+      "one_view_missing_apart": 18,
+      "one_view_missing_no_pinnacle": 16,
+      "no_view": 0
+    },
+    "left_out_by_reason": {
+      "ignored": 292,
+      "vetoed": 249,
+      "risky": 6,
+      "neither safe nor fair with a research edge": 170,
+      "one view missing: 4+ points from Pinnacle": 18,
+      "one view missing: no Pinnacle reference": 16,
+      "no view": 0
+    },
+    "one_view_missing": {
+      "offers": 46,
+      "research_missing": 0,
+      "cagey_missing": 46,
+      "kept_by_pinnacle_check": 12,
+      "left_out_4_points_from_pinnacle": 18,
+      "left_out_no_pinnacle_reference": 16,
+      "ranked": 2
+    },
+    "ranked_by_group": {
+      "both_agree": 48,
+      "market_safe": 77
+    },
+    "decisions": {
+      "SHORTLISTED": 125,
+      "BEYOND_TARGET": 8,
+      "NOT_SELECTED": 108,
+      "LEFT_OUT": 751,
+      "NOT_EXECUTABLE": 0
+    },
+    "overlap_with_live_master": {
+      "live_master_fixtures": 219,
+      "new_master_fixtures": 125,
+      "same_fixture": 81,
+      "same_offer": 32,
+      "live_only": 138,
+      "new_only": 44
+    },
+    "ranked_fixtures": 125,
+    "shortfall": 310,
+    "vetoed": 249,
+    "vetoed_cagey_picks": 240,
+    "ignored": 292,
+    "no_view": 0,
+    "european_offers": 218,
+    "european_ranked": 12,
+    "per_run": [
+      {
+        "snapshot": "026e1ab4c40e3e64",
+        "generated_at_utc": "2026-10-27T09:50:40.995248+00:00",
+        "offers": 8,
+        "ranked": 2,
+        "groups": {
+          "both_agree": 0,
+          "market_safe": 3,
+          "left_out": 5
+        },
+        "gap_checks": {
+          "kept": 5,
+          "vetoed": 1,
+          "ignored": 2,
+          "one_view_missing_kept": 0,
+          "one_view_missing_apart": 0,
+          "one_view_missing_no_pinnacle": 0,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 3,
+          "new_master_fixtures": 2,
+          "same_fixture": 2,
+          "same_offer": 1,
+          "live_only": 1,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "d414de1a572b09b2",
+        "generated_at_utc": "2026-10-27T11:35:10.735016+00:00",
+        "offers": 9,
+        "ranked": 1,
+        "groups": {
+          "both_agree": 0,
+          "market_safe": 2,
+          "left_out": 7
+        },
+        "gap_checks": {
+          "kept": 6,
+          "vetoed": 1,
+          "ignored": 2,
+          "one_view_missing_kept": 0,
+          "one_view_missing_apart": 0,
+          "one_view_missing_no_pinnacle": 0,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 3,
+          "new_master_fixtures": 1,
+          "same_fixture": 1,
+          "same_offer": 1,
+          "live_only": 2,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "04e55dde9bbe885f",
+        "generated_at_utc": "2026-10-28T12:13:37.819395+00:00",
+        "offers": 16,
+        "ranked": 2,
+        "groups": {
+          "both_agree": 3,
+          "market_safe": 2,
+          "left_out": 11
+        },
+        "gap_checks": {
+          "kept": 6,
+          "vetoed": 5,
+          "ignored": 5,
+          "one_view_missing_kept": 0,
+          "one_view_missing_apart": 0,
+          "one_view_missing_no_pinnacle": 0,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 5,
+          "new_master_fixtures": 2,
+          "same_fixture": 2,
+          "same_offer": 1,
+          "live_only": 3,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "fd052ff5e9f0163b",
+        "generated_at_utc": "2026-10-28T16:16:05.061508+00:00",
+        "offers": 16,
+        "ranked": 2,
+        "groups": {
+          "both_agree": 2,
+          "market_safe": 3,
+          "left_out": 11
+        },
+        "gap_checks": {
+          "kept": 6,
+          "vetoed": 5,
+          "ignored": 5,
+          "one_view_missing_kept": 0,
+          "one_view_missing_apart": 0,
+          "one_view_missing_no_pinnacle": 0,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 5,
+          "new_master_fixtures": 2,
+          "same_fixture": 2,
+          "same_offer": 1,
+          "live_only": 3,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "c75d4ab52706e716",
+        "generated_at_utc": "2026-10-29T12:08:22.532184+00:00",
+        "offers": 8,
+        "ranked": 1,
+        "groups": {
+          "both_agree": 0,
+          "market_safe": 3,
+          "left_out": 5
+        },
+        "gap_checks": {
+          "kept": 4,
+          "vetoed": 1,
+          "ignored": 3,
+          "one_view_missing_kept": 0,
+          "one_view_missing_apart": 0,
+          "one_view_missing_no_pinnacle": 0,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 2,
+          "new_master_fixtures": 1,
+          "same_fixture": 1,
+          "same_offer": 0,
+          "live_only": 1,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "02d8d3b21fd68fd9",
+        "generated_at_utc": "2026-10-30T07:29:50.498587+00:00",
+        "offers": 24,
+        "ranked": 3,
+        "groups": {
+          "both_agree": 0,
+          "market_safe": 3,
+          "left_out": 21
+        },
+        "gap_checks": {
+          "kept": 14,
+          "vetoed": 3,
+          "ignored": 7,
+          "one_view_missing_kept": 0,
+          "one_view_missing_apart": 0,
+          "one_view_missing_no_pinnacle": 0,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 5,
+          "new_master_fixtures": 3,
+          "same_fixture": 3,
+          "same_offer": 3,
+          "live_only": 2,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "2f2bbe3e322ecab7",
+        "generated_at_utc": "2026-10-30T12:03:48.308948+00:00",
+        "offers": 25,
+        "ranked": 3,
+        "groups": {
+          "both_agree": 2,
+          "market_safe": 3,
+          "left_out": 20
+        },
+        "gap_checks": {
+          "kept": 17,
+          "vetoed": 2,
+          "ignored": 6,
+          "one_view_missing_kept": 0,
+          "one_view_missing_apart": 0,
+          "one_view_missing_no_pinnacle": 0,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 7,
+          "new_master_fixtures": 3,
+          "same_fixture": 3,
+          "same_offer": 1,
+          "live_only": 4,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "f82ff3e276c6c573",
+        "generated_at_utc": "2026-10-31T12:03:11.165007+00:00",
+        "offers": 96,
+        "ranked": 15,
+        "groups": {
+          "both_agree": 8,
+          "market_safe": 21,
+          "left_out": 67
+        },
+        "gap_checks": {
+          "kept": 49,
+          "vetoed": 13,
+          "ignored": 28,
+          "one_view_missing_kept": 1,
+          "one_view_missing_apart": 2,
+          "one_view_missing_no_pinnacle": 3,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 12,
+          "new_master_fixtures": 15,
+          "same_fixture": 3,
+          "same_offer": 1,
+          "live_only": 9,
+          "new_only": 12
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "796c7451f4101f75",
+        "generated_at_utc": "2026-11-01T07:37:30.159727+00:00",
+        "offers": 83,
+        "ranked": 14,
+        "groups": {
+          "both_agree": 6,
+          "market_safe": 18,
+          "left_out": 59
+        },
+        "gap_checks": {
+          "kept": 39,
+          "vetoed": 21,
+          "ignored": 21,
+          "one_view_missing_kept": 2,
+          "one_view_missing_apart": 0,
+          "one_view_missing_no_pinnacle": 0,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "new_master_fixtures": 14,
+          "same_fixture": 6,
+          "same_offer": 2,
+          "live_only": 9,
+          "new_only": 8
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "dc55908798d79d00",
+        "generated_at_utc": "2026-11-01T09:36:12.166126+00:00",
+        "offers": 13,
+        "ranked": 4,
+        "groups": {
+          "both_agree": 3,
+          "market_safe": 2,
+          "left_out": 8
+        },
+        "gap_checks": {
+          "kept": 7,
+          "vetoed": 3,
+          "ignored": 1,
+          "one_view_missing_kept": 1,
+          "one_view_missing_apart": 0,
+          "one_view_missing_no_pinnacle": 1,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "new_master_fixtures": 4,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "new_only": 4
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "cbf58accd4fa0691",
+        "generated_at_utc": "2026-11-01T12:23:24.469126+00:00",
+        "offers": 0,
+        "ranked": 0,
+        "groups": {
+          "both_agree": 0,
+          "market_safe": 0,
+          "left_out": 0
+        },
+        "gap_checks": {
+          "kept": 0,
+          "vetoed": 0,
+          "ignored": 0,
+          "one_view_missing_kept": 0,
+          "one_view_missing_apart": 0,
+          "one_view_missing_no_pinnacle": 0,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "new_master_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "765b01b571df2fd9",
+        "generated_at_utc": "2026-11-03T13:23:43.479885+00:00",
+        "offers": 27,
+        "ranked": 3,
+        "groups": {
+          "both_agree": 0,
+          "market_safe": 6,
+          "left_out": 21
+        },
+        "gap_checks": {
+          "kept": 9,
+          "vetoed": 4,
+          "ignored": 10,
+          "one_view_missing_kept": 1,
+          "one_view_missing_apart": 1,
+          "one_view_missing_no_pinnacle": 2,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 9,
+          "new_master_fixtures": 3,
+          "same_fixture": 3,
+          "same_offer": 1,
+          "live_only": 6,
+          "new_only": 0
+        },
+        "european_offers": 27
+      },
+      {
+        "snapshot": "4dfe537371e33ca4",
+        "generated_at_utc": "2026-11-03T13:58:02.173298+00:00",
+        "offers": 26,
+        "ranked": 2,
+        "groups": {
+          "both_agree": 0,
+          "market_safe": 3,
+          "left_out": 23
+        },
+        "gap_checks": {
+          "kept": 6,
+          "vetoed": 4,
+          "ignored": 12,
+          "one_view_missing_kept": 1,
+          "one_view_missing_apart": 1,
+          "one_view_missing_no_pinnacle": 2,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 9,
+          "new_master_fixtures": 2,
+          "same_fixture": 2,
+          "same_offer": 2,
+          "live_only": 7,
+          "new_only": 0
+        },
+        "european_offers": 26
+      },
+      {
+        "snapshot": "85c451a1e15281f6",
+        "generated_at_utc": "2026-11-04T09:31:03.622249+00:00",
+        "offers": 19,
+        "ranked": 0,
+        "groups": {
+          "both_agree": 0,
+          "market_safe": 0,
+          "left_out": 19
+        },
+        "gap_checks": {
+          "kept": 0,
+          "vetoed": 1,
+          "ignored": 2,
+          "one_view_missing_kept": 4,
+          "one_view_missing_apart": 9,
+          "one_view_missing_no_pinnacle": 3,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 9,
+          "new_master_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 9,
+          "new_only": 0
+        },
+        "european_offers": 19
+      },
+      {
+        "snapshot": "ddf20a3972dd45e3",
+        "generated_at_utc": "2026-11-04T10:20:33.895771+00:00",
+        "offers": 31,
+        "ranked": 1,
+        "groups": {
+          "both_agree": 0,
+          "market_safe": 3,
+          "left_out": 28
+        },
+        "gap_checks": {
+          "kept": 7,
+          "vetoed": 8,
+          "ignored": 14,
+          "one_view_missing_kept": 0,
+          "one_view_missing_apart": 1,
+          "one_view_missing_no_pinnacle": 1,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 10,
+          "new_master_fixtures": 1,
+          "same_fixture": 1,
+          "same_offer": 1,
+          "live_only": 9,
+          "new_only": 0
+        },
+        "european_offers": 31
+      },
+      {
+        "snapshot": "8a970f7baa207beb",
+        "generated_at_utc": "2026-11-04T19:40:50.340029+00:00",
+        "offers": 21,
+        "ranked": 1,
+        "groups": {
+          "both_agree": 0,
+          "market_safe": 2,
+          "left_out": 19
+        },
+        "gap_checks": {
+          "kept": 7,
+          "vetoed": 5,
+          "ignored": 7,
+          "one_view_missing_kept": 0,
+          "one_view_missing_apart": 2,
+          "one_view_missing_no_pinnacle": 0,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 7,
+          "new_master_fixtures": 1,
+          "same_fixture": 1,
+          "same_offer": 1,
+          "live_only": 6,
+          "new_only": 0
+        },
+        "european_offers": 21
+      },
+      {
+        "snapshot": "0af36ab1e9657f52",
+        "generated_at_utc": "2026-11-05T12:32:00.598966+00:00",
+        "offers": 0,
+        "ranked": 0,
+        "groups": {
+          "both_agree": 0,
+          "market_safe": 0,
+          "left_out": 0
+        },
+        "gap_checks": {
+          "kept": 0,
+          "vetoed": 0,
+          "ignored": 0,
+          "one_view_missing_kept": 0,
+          "one_view_missing_apart": 0,
+          "one_view_missing_no_pinnacle": 0,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "new_master_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "a00d5e530cc2e80e",
+        "generated_at_utc": "2026-11-05T13:37:38.336530+00:00",
+        "offers": 46,
+        "ranked": 2,
+        "groups": {
+          "both_agree": 0,
+          "market_safe": 4,
+          "left_out": 42
+        },
+        "gap_checks": {
+          "kept": 16,
+          "vetoed": 12,
+          "ignored": 18,
+          "one_view_missing_kept": 0,
+          "one_view_missing_apart": 0,
+          "one_view_missing_no_pinnacle": 0,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "new_master_fixtures": 2,
+          "same_fixture": 2,
+          "same_offer": 0,
+          "live_only": 13,
+          "new_only": 0
+        },
+        "european_offers": 46
+      },
+      {
+        "snapshot": "92039638c61ad8bc",
+        "generated_at_utc": "2026-11-05T16:17:48.024788+00:00",
+        "offers": 0,
+        "ranked": 0,
+        "groups": {
+          "both_agree": 0,
+          "market_safe": 0,
+          "left_out": 0
+        },
+        "gap_checks": {
+          "kept": 0,
+          "vetoed": 0,
+          "ignored": 0,
+          "one_view_missing_kept": 0,
+          "one_view_missing_apart": 0,
+          "one_view_missing_no_pinnacle": 0,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "new_master_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "7b8f8817eb577b04",
+        "generated_at_utc": "2026-11-05T16:27:43.343008+00:00",
+        "offers": 0,
+        "ranked": 0,
+        "groups": {
+          "both_agree": 0,
+          "market_safe": 0,
+          "left_out": 0
+        },
+        "gap_checks": {
+          "kept": 0,
+          "vetoed": 0,
+          "ignored": 0,
+          "one_view_missing_kept": 0,
+          "one_view_missing_apart": 0,
+          "one_view_missing_no_pinnacle": 0,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "new_master_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "775022176692974f",
+        "generated_at_utc": "2026-11-05T16:50:22.659919+00:00",
+        "offers": 48,
+        "ranked": 3,
+        "groups": {
+          "both_agree": 0,
+          "market_safe": 7,
+          "left_out": 41
+        },
+        "gap_checks": {
+          "kept": 15,
+          "vetoed": 12,
+          "ignored": 21,
+          "one_view_missing_kept": 0,
+          "one_view_missing_apart": 0,
+          "one_view_missing_no_pinnacle": 0,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "new_master_fixtures": 3,
+          "same_fixture": 3,
+          "same_offer": 1,
+          "live_only": 12,
+          "new_only": 0
+        },
+        "european_offers": 48
+      },
+      {
+        "snapshot": "5d2089b153695efa",
+        "generated_at_utc": "2026-11-06T11:26:29.717902+00:00",
+        "offers": 26,
+        "ranked": 5,
+        "groups": {
+          "both_agree": 2,
+          "market_safe": 7,
+          "left_out": 17
+        },
+        "gap_checks": {
+          "kept": 11,
+          "vetoed": 9,
+          "ignored": 6,
+          "one_view_missing_kept": 0,
+          "one_view_missing_apart": 0,
+          "one_view_missing_no_pinnacle": 0,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 9,
+          "new_master_fixtures": 5,
+          "same_fixture": 5,
+          "same_offer": 1,
+          "live_only": 4,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "440236589764dce4",
+        "generated_at_utc": "2026-11-06T12:17:20.125743+00:00",
+        "offers": 20,
+        "ranked": 4,
+        "groups": {
+          "both_agree": 1,
+          "market_safe": 5,
+          "left_out": 14
+        },
+        "gap_checks": {
+          "kept": 8,
+          "vetoed": 8,
+          "ignored": 4,
+          "one_view_missing_kept": 0,
+          "one_view_missing_apart": 0,
+          "one_view_missing_no_pinnacle": 0,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 7,
+          "new_master_fixtures": 4,
+          "same_fixture": 4,
+          "same_offer": 2,
+          "live_only": 3,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "d46504cc4373448f",
+        "generated_at_utc": "2026-11-06T13:21:43.280136+00:00",
+        "offers": 0,
+        "ranked": 0,
+        "groups": {
+          "both_agree": 0,
+          "market_safe": 0,
+          "left_out": 0
+        },
+        "gap_checks": {
+          "kept": 0,
+          "vetoed": 0,
+          "ignored": 0,
+          "one_view_missing_kept": 0,
+          "one_view_missing_apart": 0,
+          "one_view_missing_no_pinnacle": 0,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "new_master_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "b9d2d10f3419c606",
+        "generated_at_utc": "2026-11-06T13:40:19.404227+00:00",
+        "offers": 35,
+        "ranked": 8,
+        "groups": {
+          "both_agree": 5,
+          "market_safe": 9,
+          "left_out": 21
+        },
+        "gap_checks": {
+          "kept": 19,
+          "vetoed": 10,
+          "ignored": 6,
+          "one_view_missing_kept": 0,
+          "one_view_missing_apart": 0,
+          "one_view_missing_no_pinnacle": 0,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 12,
+          "new_master_fixtures": 8,
+          "same_fixture": 8,
+          "same_offer": 1,
+          "live_only": 4,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "1dabcf85eb639cd0",
+        "generated_at_utc": "2026-11-07T11:48:25.259368+00:00",
+        "offers": 87,
+        "ranked": 11,
+        "groups": {
+          "both_agree": 10,
+          "market_safe": 11,
+          "left_out": 66
+        },
+        "gap_checks": {
+          "kept": 34,
+          "vetoed": 24,
+          "ignored": 25,
+          "one_view_missing_kept": 1,
+          "one_view_missing_apart": 1,
+          "one_view_missing_no_pinnacle": 2,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "new_master_fixtures": 11,
+          "same_fixture": 7,
+          "same_offer": 2,
+          "live_only": 8,
+          "new_only": 4
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "688a34b2f4bd83f2",
+        "generated_at_utc": "2026-11-07T13:54:13.645217+00:00",
+        "offers": 80,
+        "ranked": 8,
+        "groups": {
+          "both_agree": 5,
+          "market_safe": 9,
+          "left_out": 66
+        },
+        "gap_checks": {
+          "kept": 25,
+          "vetoed": 24,
+          "ignored": 27,
+          "one_view_missing_kept": 1,
+          "one_view_missing_apart": 1,
+          "one_view_missing_no_pinnacle": 2,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "new_master_fixtures": 8,
+          "same_fixture": 6,
+          "same_offer": 3,
+          "live_only": 9,
+          "new_only": 2
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "bdc58d9d3727286d",
+        "generated_at_utc": "2026-11-08T09:01:04.075316+00:00",
+        "offers": 119,
+        "ranked": 15,
+        "groups": {
+          "both_agree": 18,
+          "market_safe": 19,
+          "left_out": 82
+        },
+        "gap_checks": {
+          "kept": 51,
+          "vetoed": 38,
+          "ignored": 30,
+          "one_view_missing_kept": 0,
+          "one_view_missing_apart": 0,
+          "one_view_missing_no_pinnacle": 0,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "new_master_fixtures": 15,
+          "same_fixture": 6,
+          "same_offer": 2,
+          "live_only": 9,
+          "new_only": 9
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "d5829163b3fa9bf3",
+        "generated_at_utc": "2026-11-08T12:20:11.356382+00:00",
+        "offers": 109,
+        "ranked": 15,
+        "groups": {
+          "both_agree": 13,
+          "market_safe": 18,
+          "left_out": 78
+        },
+        "gap_checks": {
+          "kept": 44,
+          "vetoed": 35,
+          "ignored": 30,
+          "one_view_missing_kept": 0,
+          "one_view_missing_apart": 0,
+          "one_view_missing_no_pinnacle": 0,
+          "no_view": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "new_master_fixtures": 15,
+          "same_fixture": 10,
+          "same_offer": 4,
+          "live_only": 5,
+          "new_only": 5
+        },
+        "european_offers": 0
+      }
+    ]
+  }
+}
