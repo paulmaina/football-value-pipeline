@@ -949,7 +949,51 @@
       "standard_error": 0.08601958568374982
     }
   },
+  "master_comparison": {
+    "decided": "13 Nov 2026, before any live result of the new master",
+    "difference": null,
+    "interval_95": null,
+    "live_master": {
+      "average_price": 1.5708196721311476,
+      "flat_stake_return_per_bet": 0.009016393442622945,
+      "graded_matches": 61,
+      "hit_rate": 0.6721311475409836,
+      "weeks": 1
+    },
+    "new_master": {
+      "graded_matches": 0,
+      "weeks": 0
+    },
+    "new_master_offers": {
+      "fixtures": 0,
+      "ignored": 0,
+      "no_view": 0,
+      "offers": 0,
+      "one_view_missing": 0,
+      "one_view_missing_kept": 0,
+      "vetoed": 0
+    },
+    "rule": "After at least 150 graded matches over at least 3 calendar weeks (on each list), compare flat-stake return per bet at Pinnacle prices: new master minus live master, whole kickoff weeks resampled (the same weeks for both lists), 95% interval. Hit rate, average price, vetoed, ignored and missing-view counts are context only. The new master is better only if the interval is entirely above zero.",
+    "status": "WAITING",
+    "verdict": "not yet comparable"
+  },
   "master_picks": 61,
+  "new_master": {
+    "by_group": {},
+    "clv": {
+      "mean": null,
+      "n": 0,
+      "positive_share": null,
+      "standard_error": null
+    },
+    "profit": {
+      "mean": null,
+      "n": 0,
+      "positive_share": null,
+      "standard_error": null
+    }
+  },
+  "new_master_picks": 0,
   "note": "CLV = entry odds x Pinnacle near-kickoff fair win-share on the same AH line - 1 (proportional). Near-kickoff feed quotes, not verified official closes or executed bets. Tagged candidates are tracked for the narrow-margin hypothesis only; they never change a decision.",
   "policy": "48h-ah-price-edge-pinnacle-ref-v27",
   "profit": {
@@ -978,7 +1022,7 @@
     }
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-13T12:28:14.389675+00:00",
+  "reviewed_at_utc": "2026-11-13T14:13:04.266444+00:00",
   "stop_review": false,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "tagged_candidates": {
