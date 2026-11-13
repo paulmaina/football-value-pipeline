@@ -340,7 +340,8 @@ def refresh(decisions: pd.DataFrame, out_dir, run_summary: Mapping, predictions:
 
 
 def shadow(decisions, out_dir, live=None, generated_at_utc=None) -> None:
-    """Phase 4 reconciliation, in shadow: extra files beside FILE, written after it from the same decision rows.
+    """The new master (Phase 4, Paul's master rule), in shadow: master_shortlist_new.csv and its summary beside
+    FILE, written after it from the same decision rows.
 
     It never changes FILE, the run summary or any decision, and a failure here only warns.
     """
@@ -352,7 +353,7 @@ def shadow(decisions, out_dir, live=None, generated_at_utc=None) -> None:
         else:
             master_reconciliation.write_shadow(decisions, out_dir, live, generated_at_utc)
     except Exception as exc:  # shadow output must never break or alter the live run
-        warnings.warn(f'Master reconciliation shadow skipped ({type(exc).__name__}: {exc})')
+        warnings.warn(f'New master shadow skipped ({type(exc).__name__}: {exc})')
         try:
             master_reconciliation.remove_shadow(out_dir)
         except Exception:
