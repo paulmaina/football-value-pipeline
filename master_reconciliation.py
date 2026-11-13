@@ -1,13 +1,16 @@
-"""Master shortlist reconciliation, in shadow (Phase 4, rule master-reconciliation-shadow-v1).
+"""The new master shortlist, in shadow (Phase 4, Paul's master rule, rule master-new-paul-rule-v1).
 
-Sorts every candidate pick of a run by whether the research view (value shortlist) and the market view
-(cagey tier) agree, scoring both on the same Pinnacle offer, and writes master_shortlist_reconciled.csv
-beside the live master_shortlist.csv. Shadow only: the live master file, every probability, every pick and
-every stake are untouched; this module only reads the run's decision rows and the live master frame.
+Scores both views on every offer either list nominates, at its exact Pinnacle line and price: the research
+probability (p_r) and the cagey tier's corrected probability (p_c) that the bet does not lose. The gap
+g = p_r - p_c in percentage points ignores the research view (g >= +4, bet left out) or vetoes the bet
+(g <= -4, left out); the rest go to Both agree (research edge, cagey safe or fair) or Market-safe (cagey safe).
+Writes master_shortlist_new.csv beside the live master_shortlist.csv. Shadow only: the live master file,
+every probability, every pick and every stake are untouched; this module only reads the run's decision rows
+and the live master frame.
 
-Definitions and thresholds live in master_reconciliation_config.json (and docs/plan.md, Phase 4). The same
-`classify` and `select` serve the live shadow and the offline backtest (evaluation_harness.py --mode master),
-so the two can't drift apart.
+Definitions live in master_reconciliation_config.json (and docs/plan.md, Phase 4). The same `classify` and
+`select` serve the live shadow and the offline backtest (evaluation_harness.py --mode master), so the two
+can't drift apart.
 """
 from __future__ import annotations
 
@@ -15,40 +18,44 @@ import hashlib
 import json
 import math
 from pathlib import Path
-from typing import Dict, Iterable, List, Mapping, Optional, Sequence
+from typing import Dict, List, Mapping, Optional, Sequence
 
 import numpy as np
 import pandas as pd
 
 CONFIG = Path(__file__).with_name('master_reconciliation_config.json')
+VERSION = 'master-new-paul-rule-v1'
 KINDS = ('win', 'half_win', 'push', 'half_loss', 'loss')
-GROUPS = ('missing_evidence', 'both_agree', 'research_edge', 'market_safe', 'conflict', 'neither')
-EUROPEAN_SECTION = 'european_unvalidated'
-NOT_EXECUTABLE = 'not_executable'
-SECTIONS = (*GROUPS, EUROPEAN_SECTION, NOT_EXECUTABLE)
-# Which groups can supply a match's pick, best first. Missing, Conflict, Neither and the European section never do.
-PICK_PRIORITY = {'both_agree': 0, 'market_safe': 1, 'research_edge': 2}
+GROUPS = ('both_agree', 'market_safe', 'left_out')
 RANKED = ('both_agree', 'market_safe')
+PRIORITY = {'both_agree': 0, 'market_safe': 1}
+GAP_CHECKS = ('kept', 'vetoed', 'ignored', 'one_view_missing_kept', 'one_view_missing_apart',
+              'one_view_missing_no_pinnacle', 'no_view')
+LEFT_OUT_REASONS = ('ignored', 'vetoed', 'risky', 'neither safe nor fair with a research edge',
+                    'one view missing: 4+ points from Pinnacle', 'one view missing: no Pinnacle reference',
+                    'no view')
+DECISIONS = ('SHORTLISTED', 'BEYOND_TARGET', 'NOT_SELECTED', 'LEFT_OUT', 'NOT_EXECUTABLE')
 TOLERANCE = 1e-9
-DECISIONS = ('SHORTLISTED', 'BEYOND_TARGET', 'RESEARCH_EDGE_SECTION', 'NOT_SELECTED', 'LEFT_OUT',
-             'MISSING_EVIDENCE', 'EUROPEAN_UNVALIDATED', 'NOT_EXECUTABLE')
 IDENTITY_COLUMNS = ['kickoff_utc', 'league', 'home_team', 'away_team', 'fixture_id', 'market', 'market_to_bet',
                     'handicap_side', 'handicap_line', 'bookmaker', 'offered_decimal_odds', 'offered_last_update_utc',
-                    'source_market', 'in_value_shortlist', 'in_cagey_tier']
+                    'source_market', 'per_stake_cost', 'fair_odds', 'reference_type', 'evaluated_at_utc',
+                    'selection_policy_version', 'in_value_shortlist', 'in_cagey_tier']
 CLASSIFICATION_COLUMNS = [
-    'research_expected_return', 'research_profit_probability', 'research_no_loss_probability',
-    'research_win_share', 'research_view', 'cagey_no_loss_probability', 'cagey_expected_return',
-    'cagey_fair_odds', 'cagey_edge', 'market_safety', 'market_price', 'pinnacle_win_share',
-    'disagreement_gap', 'disagreement', 'unvalidated_view', 'missing_evidence_reason', 'reconciled_group']
-COLUMNS = ['reconciled_rank', 'reconciled_section', 'reconciled_section_rank', 'reconciled_decision',
-           'reconciled_reason', *IDENTITY_COLUMNS, *CLASSIFICATION_COLUMNS,
-           'in_live_master', 'live_master_rank', 'live_master_same_offer', 'reconciliation_version']
+    'research_no_loss_probability', 'cagey_no_loss_probability', 'gap_points', 'gap_check',
+    'pinnacle_no_loss_probability', 'pinnacle_fair_odds', 'pinnacle_gap_points',
+    'research_expected_return', 'research_edge', 'cagey_expected_return', 'cagey_fair_odds',
+    'market_basis', 'market_safety', 'market_price', 'ranking_no_loss_probability',
+    'one_view_missing', 'missing_view', 'missing_evidence_reason', 'unvalidated_view', 'new_master_group',
+    'left_out_reason']
+COLUMNS = ['new_master_rank', 'new_master_group', 'new_master_decision', 'new_master_reason', *IDENTITY_COLUMNS,
+           *[c for c in CLASSIFICATION_COLUMNS if c != 'new_master_group'],
+           'in_live_master', 'live_master_rank', 'live_master_same_offer', 'new_master_version']
 
 
 def load_config(path: Optional[Path] = None) -> Dict[str, object]:
     config = json.loads(Path(path or CONFIG).read_text(encoding='utf-8'))
-    if config.get('version') != 'master-reconciliation-shadow-v1':
-        raise ValueError('Unknown master reconciliation version')
+    if config.get('version') != VERSION:
+        raise ValueError('Unknown master rule version')
     return config
 
 
@@ -72,129 +79,145 @@ def settlement_mass(values: Sequence) -> Optional[np.ndarray]:
     return mass if win > 0 else None
 
 
+def no_loss(mass: np.ndarray) -> float:
+    """P(the bet does not lose): win, half win or push (for bets with no push, P(win))."""
+    return float(mass[0] + mass[1] + mass[2])
+
+
 def scored(mass: np.ndarray, price: float, cost: float) -> Dict[str, float]:
-    """Expected return after cost, profit and no-loss probabilities, win share and fair odds of one view."""
+    """Expected return after cost, profit and no-loss probabilities and fair odds of one view."""
     returns = np.array([price - 1, (price - 1) / 2, 0., -.5, -1.]) - cost
     win, loss = mass[0] + mass[1] / 2, mass[4] + mass[3] / 2
     return {'expected_return': float(mass @ returns), 'profit': float(mass[returns > 1e-12].sum()),
-            'no_loss': float(mass[returns >= -1e-12].sum()), 'win_share': float(win / (win + loss)),
-            'fair_odds': float(1 + loss / win)}
+            'no_loss': no_loss(mass), 'fair_odds': float(1 + loss / win)}
 
 
 def classify(research: Optional[np.ndarray], cagey: Optional[np.ndarray], price: float, cost: float,
-             pinnacle_win_share: Optional[float], *, european: bool, config: Mapping,
-             research_reason: Optional[str] = None, cagey_reason: Optional[str] = None) -> Dict[str, object]:
-    """Both views on one offer and its group, exactly as master_reconciliation_config.json defines them.
+             pinnacle_no_loss: Optional[float] = None, pinnacle_fair_odds: Optional[float] = None, *,
+             european: bool, config: Mapping, research_reason: Optional[str] = None,
+             cagey_reason: Optional[str] = None, veto: bool = True, ignore: bool = True) -> Dict[str, object]:
+    """Both views on one offer, its gap check and its group, exactly as master_reconciliation_config.json says.
 
     `research` / `cagey` are the views' settlement distributions on this exact line, or None when that view
-    can't score the offer (`*_reason` says why). A missing view makes the offer missing evidence; it is never
-    counted as disagreement.
+    can't score the offer (`*_reason` says why). `pinnacle_no_loss` / `pinnacle_fair_odds` are Pinnacle's
+    margin-free no-loss probability and fair odds for the same bet (the fallback when a view is missing).
+    `veto` / `ignore` switch the two halves of the 4-point check off; only the offline backtest does that, to
+    measure what the check does (the live shadow always applies both).
     """
-    view = config['market_view']
+    gap, view, edge_rule = config['gap'], config['market_view'], config['research_edge']
     out: Dict[str, object] = dict.fromkeys(CLASSIFICATION_COLUMNS)
-    out['unvalidated_view'] = bool(european)
-    reasons = []
-    if research is None:
-        reasons.append('research: ' + (research_reason or 'settlement probabilities unavailable'))
-    if cagey is None:
-        reasons.append('cagey: ' + (cagey_reason or 'settlement probabilities unavailable'))
-    if research is not None:
-        r = scored(research, price, cost)
-        edge = r['expected_return'] > config['research_edge']['min_expected_return_exclusive']
-        loss = r['expected_return'] < config['research_loss']['max_expected_return_exclusive']
-        out.update(research_expected_return=r['expected_return'], research_profit_probability=r['profit'],
-                   research_no_loss_probability=r['no_loss'], research_win_share=r['win_share'],
-                   research_view='edge' if edge else 'expects loss' if loss else 'no edge')
-        if pinnacle_win_share is not None:
-            gap = r['win_share'] - pinnacle_win_share
-            out.update(pinnacle_win_share=pinnacle_win_share, disagreement_gap=gap,
-                       disagreement=bool(abs(gap) + TOLERANCE >= config['disagreement']['min_abs_gap']))
-    if cagey is not None:
-        c = scored(cagey, price, cost)
-        safe = c['no_loss'] + TOLERANCE >= view['safe']['min_no_loss']
-        risky = c['no_loss'] < view['risky']['max_no_loss_exclusive']
-        fair = price * (1 + view['fair']['pinnacle_average_margin']) + TOLERANCE >= c['fair_odds']
+    out.update(unvalidated_view=bool(european), one_view_missing=False)
+    pin = _number(pinnacle_no_loss)
+    pin = pin if pin is not None and 0 <= pin <= 1 else None
+    pin_fair = _number(pinnacle_fair_odds)
+    pin_fair = pin_fair if pin_fair is not None and pin_fair > 1 else None
+    out.update(pinnacle_no_loss_probability=pin, pinnacle_fair_odds=pin_fair)
+    r = scored(research, price, cost) if research is not None else None
+    c = scored(cagey, price, cost) if cagey is not None else None
+    if r is not None:
+        out.update(research_no_loss_probability=r['no_loss'], research_expected_return=r['expected_return'],
+                   research_edge=bool(r['expected_return'] > edge_rule['min_expected_return_exclusive']))
+    if c is not None:
         out.update(cagey_no_loss_probability=c['no_loss'], cagey_expected_return=c['expected_return'],
-                   cagey_fair_odds=c['fair_odds'], cagey_edge=price / c['fair_odds'] - 1,
-                   market_safety='safe' if safe else 'risky' if risky else 'middle',
-                   market_price='fairly priced' if fair else 'below fair')
+                   cagey_fair_odds=c['fair_odds'])
+    reasons = []
+    if r is None:
+        reasons.append('research: ' + (research_reason or 'settlement probabilities unavailable'))
+    if c is None:
+        reasons.append('cagey: ' + (cagey_reason or 'settlement probabilities unavailable'))
     if reasons:
-        # Missing evidence is never disagreement: the flag stays blank whatever the remaining view says.
-        out.update(missing_evidence_reason='; '.join(reasons), reconciled_group='missing_evidence',
-                   disagreement=None, disagreement_gap=None)
+        out['missing_evidence_reason'] = '; '.join(reasons)
+
+    def left(check, reason):
+        out.update(gap_check=check, new_master_group='left_out', left_out_reason=reason)
         return out
-    edge, loss = out['research_view'] == 'edge', out['research_view'] == 'expects loss'
-    safe, risky, fair = out['market_safety'] == 'safe', out['market_safety'] == 'risky', \
-        out['market_price'] == 'fairly priced'
-    out['reconciled_group'] = ('both_agree' if edge and (safe or fair) else
-                               'research_edge' if edge else
-                               'market_safe' if safe else
-                               'conflict' if loss and risky else 'neither')
+
+    if r is None and c is None:
+        out['missing_view'] = 'both'
+        return left('no_view', 'no view')
+    # The market view: the cagey tier's figures, or Pinnacle's margin-free ones when the cagey score is missing.
+    basis, chance, fair_odds = ('cagey', c['no_loss'], c['fair_odds']) if c is not None else \
+        ('pinnacle', pin, pin_fair)
+    if chance is not None:
+        safe = chance + TOLERANCE >= view['safe']['min_no_loss']
+        risky = chance < view['risky']['max_no_loss_exclusive']
+        fair = fair_odds is not None and \
+            price * (1 + view['fair']['pinnacle_average_margin']) + TOLERANCE >= fair_odds
+        out.update(market_basis=basis, ranking_no_loss_probability=chance,
+                   market_safety='safe' if safe else 'risky' if risky else 'middle',
+                   market_price='fair' if fair else 'below fair')
+    if r is not None and c is not None:
+        g = 100 * (r['no_loss'] - c['no_loss'])
+        out['gap_points'] = g
+        if g + TOLERANCE >= gap['too_optimistic_min_points'] and ignore:
+            return left('ignored', 'ignored')
+        if g - TOLERANCE <= gap['too_pessimistic_max_points'] and veto:
+            return left('vetoed', 'vetoed')
+        out['gap_check'] = 'kept'
+    else:
+        existing = r if r is not None else c
+        out.update(one_view_missing=True, missing_view='cagey' if c is None else 'research')
+        if pin is None:
+            return left('one_view_missing_no_pinnacle', 'one view missing: no Pinnacle reference')
+        out['pinnacle_gap_points'] = 100 * (existing['no_loss'] - pin)
+        if abs(out['pinnacle_gap_points']) + TOLERANCE >= gap['too_optimistic_min_points']:
+            return left('one_view_missing_apart', 'one view missing: 4+ points from Pinnacle')
+        out['gap_check'] = 'one_view_missing_kept'
+    edge = bool(out['research_edge'])
+    # Both agree needs both views on a validated fixture: never with a missing cagey score, never in Europe.
+    can_agree = basis == 'cagey' and r is not None and not european
+    if risky:
+        return left(out['gap_check'], 'risky')
+    if edge and (safe or fair) and can_agree:
+        out['new_master_group'] = 'both_agree'
+    elif safe:
+        out['new_master_group'] = 'market_safe'
+    else:
+        return left(out['gap_check'], 'neither safe nor fair with a research edge')
     return out
 
 
-def section(group: str, european: bool, executable: bool, config: Mapping) -> str:
-    if not executable:
-        return NOT_EXECUTABLE
-    if european and group in config['european']['kept_out_of']:
-        return config['european']['kept_out_section']
-    return group
-
-
 def _tie_key(row: Mapping) -> tuple:
-    def neg(name):
-        value = _number(row.get(name))
-        return -value if value is not None else math.inf
-    return (neg('cagey_no_loss_probability'), neg('cagey_expected_return'), neg('research_expected_return'),
-            neg('offered_decimal_odds'), str(row.get('kickoff_utc') or ''), str(row.get('league') or ''),
+    chance = _number(row.get('ranking_no_loss_probability'))
+    odds = _number(row.get('offered_decimal_odds'))
+    # Rounded so that equal chances computed by different paths (e.g. AH +0.25 and 1X) tie and go to the odds.
+    return (PRIORITY.get(row.get('new_master_group'), 9), -round(chance, 9) if chance is not None else math.inf,
+            -odds if odds is not None else math.inf, str(row.get('kickoff_utc') or ''), str(row.get('league') or ''),
             str(row.get('home_team') or ''), str(row.get('away_team') or ''), str(row.get('market') or ''),
             str(row.get('handicap_side') or ''), _number(row.get('handicap_line')) or 0.)
 
 
-def select(rows: List[Dict[str, object]], target: int, match_key: str = '_match') -> List[Dict[str, object]]:
-    """One pick per match from its best group; the ranked list is the first `target` matches in Both agree,
-    then Market-safe; the Research-edge section is listed by research expected return. Mutates and returns
-    `rows`, adding reconciled_rank, reconciled_section_rank, reconciled_decision and reconciled_reason."""
+def select(rows: List[Dict[str, object]], target: int, match_key: str = '_match', prefix: str = 'new_master'
+           ) -> List[Dict[str, object]]:
+    """One pick per match from its best group, then by no-loss chance; the list is the first `target` matches,
+    Both agree first, then Market-safe. Rows with `<prefix>_executable` False are never picked. Mutates and
+    returns `rows`, adding <prefix>_rank, <prefix>_decision and <prefix>_reason (`<prefix>_group` is read)."""
+    group, rank, decision, reason = (f'{prefix}_{k}' for k in ('group', 'rank', 'decision', 'reason'))
     best: Dict[object, Dict[str, object]] = {}
     for row in rows:
-        priority = PICK_PRIORITY.get(row['reconciled_section'])
-        row.update(reconciled_rank=None, reconciled_section_rank=None)
-        if priority is None:
+        row[rank] = None
+        if row.get(f'{prefix}_executable', True) is False or row[group] not in PRIORITY:
             continue
         current = best.get(row[match_key])
-        if current is None or (priority, _tie_key(row)) < (PICK_PRIORITY[current['reconciled_section']],
-                                                           _tie_key(current)):
+        if current is None or _tie_key({**row, 'new_master_group': row[group]}) < \
+                _tie_key({**current, 'new_master_group': current[group]}):
             best[row[match_key]] = row
     chosen = {id(r) for r in best.values()}
-    ranked = sorted((r for r in best.values() if r['reconciled_section'] in RANKED),
-                    key=lambda r: (PICK_PRIORITY[r['reconciled_section']], _tie_key(r)))
+    ranked = sorted(best.values(), key=lambda r: _tie_key({**r, 'new_master_group': r[group]}))
     for position, row in enumerate(ranked, 1):
-        row['reconciled_section_rank'] = sum(1 for r in ranked[:position]
-                                             if r['reconciled_section'] == row['reconciled_section'])
         if position <= target:
-            row.update(reconciled_rank=position, reconciled_decision='SHORTLISTED', reconciled_reason='')
+            row.update({rank: position, decision: 'SHORTLISTED', reason: ''})
         else:
-            row.update(reconciled_decision='BEYOND_TARGET', reconciled_reason=f'beyond the {target}-match target')
-    edge = sorted((r for r in best.values() if r['reconciled_section'] == 'research_edge'),
-                  key=lambda r: (-(_number(r.get('research_expected_return')) or 0.), _tie_key(r)))
-    for position, row in enumerate(edge, 1):
-        row.update(reconciled_section_rank=position, reconciled_decision='RESEARCH_EDGE_SECTION',
-                   reconciled_reason='research edge, market below fair: separate section, not a ranked pick')
+            row.update({decision: 'BEYOND_TARGET', reason: f'beyond the {target}-match target'})
     for row in rows:
         if id(row) in chosen:
             continue
-        name = row['reconciled_section']
-        if name in PICK_PRIORITY:
-            row.update(reconciled_decision='NOT_SELECTED', reconciled_reason='another offer chosen for this match')
-        elif name == 'missing_evidence':
-            row.update(reconciled_decision='MISSING_EVIDENCE', reconciled_reason=row.get('missing_evidence_reason'))
-        elif name == EUROPEAN_SECTION:
-            row.update(reconciled_decision='EUROPEAN_UNVALIDATED',
-                       reconciled_reason='European fixture: unvalidated view, kept out of Both agree ranking')
-        elif name == NOT_EXECUTABLE:
-            row.update(reconciled_decision='NOT_EXECUTABLE')
+        if row.get(f'{prefix}_executable', True) is False:
+            row.update({decision: 'NOT_EXECUTABLE', reason: row.get(reason) or 'not executable'})
+        elif row[group] in PRIORITY:
+            row.update({decision: 'NOT_SELECTED', reason: 'another offer chosen for this match'})
         else:
-            row.update(reconciled_decision='LEFT_OUT', reconciled_reason=f'{name}: left out by rule')
+            row.update({decision: 'LEFT_OUT', reason: row.get('left_out_reason') or 'left out by rule'})
     return rows
 
 
@@ -202,12 +225,8 @@ def select(rows: List[Dict[str, object]], target: int, match_key: str = '_match'
 # Live shadow: a pure function of one run's decision rows (and, for overlap only, its live master list)
 # ---------------------------------------------------------------------------
 
-def _flag(value) -> bool:
-    return value is True or str(value).strip().lower() in ('true', '1')
-
-
 def pool(decisions: pd.DataFrame) -> List[Dict[str, object]]:
-    """Every offer either list shortlisted (the live master's starting union), in decision order."""
+    """Every offer either list nominated (shortlisted): the live master's starting union, in decision order."""
     if decisions is None or decisions.empty:
         return []
     records = decisions.astype(object).where(decisions.notna(), None).to_dict('records')
@@ -244,18 +263,18 @@ def cagey_view(row: Mapping):
     return mass, None
 
 
-def pinnacle_win_share(row: Mapping) -> Optional[float]:
-    """Pinnacle's margin-free win share for this offer: 1 / fair odds when the fair reference is Pinnacle's own
-    margin-free price (v27 reference types a and b); None otherwise (the flag is then unavailable)."""
+def pinnacle_reference(row: Mapping):
+    """Pinnacle's margin-free no-loss probability on this bet (pinnacle_no_loss_probability: the uncorrected
+    Pinnacle fit, on half lines the margin-free win share) and its margin-free fair odds where the fair reference
+    is Pinnacle's own price (reference types a and b); None where unavailable."""
+    chance = _number(row.get('pinnacle_no_loss_probability'))
     fair = _number(row.get('fair_odds'))
-    if row.get('reference_type') not in ('a', 'b') or fair is None or fair <= 1:
-        return None
-    return 1 / fair
+    return chance, (fair if row.get('reference_type') in ('a', 'b') and fair is not None and fair > 1 else None)
 
 
 def reconcile(decisions: pd.DataFrame, live_master: Optional[pd.DataFrame] = None,
               config: Optional[Mapping] = None) -> pd.DataFrame:
-    """The reconciled shadow list of one run: every pooled offer with both views, its group and decision.
+    """The new master of one run: every nominated offer with both views, its gap check, group and decision.
 
     Reads only the run's decision rows; `live_master` (the run's master_shortlist.csv frame) is used for the
     overlap columns only and never changes a group, a rank or a decision.
@@ -270,33 +289,28 @@ def reconcile(decisions: pd.DataFrame, live_master: Optional[pd.DataFrame] = Non
         research, research_reason = research_view(record)
         cagey, cagey_reason = cagey_view(record)
         blocked = executable(record, config)
-        is_european = record.get('league') in european
         if price is None or price <= 1:
             research = cagey = None
             research_reason = cagey_reason = 'no valid offered price'
         row = {k: record.get(k) for k in IDENTITY_COLUMNS}
         row.update(in_value_shortlist=record.get('decision') == 'SHORTLISTED',
                    in_cagey_tier=record.get('cagey_tier_decision') == 'SHORTLISTED')
-        row.update(classify(research, cagey, price or 0., cost, pinnacle_win_share(record), european=is_european,
-                            config=config, research_reason=research_reason, cagey_reason=cagey_reason))
-        row['reconciled_section'] = section(row['reconciled_group'], is_european, blocked is None, config)
-        row['_match'] = fixture_key(record)
+        row.update(classify(research, cagey, price or 0., cost, *pinnacle_reference(record),
+                            european=record.get('league') in european, config=config,
+                            research_reason=research_reason, cagey_reason=cagey_reason))
+        row.update(new_master_executable=blocked is None, _match=fixture_key(record))
         if blocked is not None:
-            row['reconciled_reason'] = blocked
+            row['new_master_reason'] = blocked
         rows.append(row)
     select(rows, int(config['target_fixtures']))
-    for row in rows:
-        if row['reconciled_decision'] == 'NOT_EXECUTABLE' and not row.get('reconciled_reason'):
-            row['reconciled_reason'] = 'not executable'
     frame = pd.DataFrame(rows, columns=[*COLUMNS, '_match'])
-    frame['reconciliation_version'] = config['version']
+    frame['new_master_version'] = config['version']
     frame = overlap(frame, live_master)
-    order = frame.assign(_rank=pd.to_numeric(frame.reconciled_rank, errors='coerce'),
-                         _sec=frame.reconciled_section.map({s: i for i, s in enumerate(
-                             ('both_agree', 'market_safe', 'research_edge', EUROPEAN_SECTION, 'missing_evidence',
-                              'conflict', 'neither', NOT_EXECUTABLE))}),
-                         _srank=pd.to_numeric(frame.reconciled_section_rank, errors='coerce'))
-    order = order.sort_values(['_rank', '_sec', '_srank', 'kickoff_utc', 'league', 'home_team', 'away_team',
+    order = frame.assign(_rank=pd.to_numeric(frame.new_master_rank, errors='coerce'),
+                         _dec=frame.new_master_decision.map({d: i for i, d in enumerate(DECISIONS)}),
+                         _grp=frame.new_master_group.map({g: i for i, g in enumerate(GROUPS)}),
+                         _nl=-pd.to_numeric(frame.ranking_no_loss_probability, errors='coerce'))
+    order = order.sort_values(['_rank', '_dec', '_grp', '_nl', 'kickoff_utc', 'league', 'home_team', 'away_team',
                                'market'], na_position='last', kind='stable')
     return order.reindex(columns=COLUMNS).reset_index(drop=True)
 
@@ -326,51 +340,67 @@ def overlap(frame: pd.DataFrame, live_master: Optional[pd.DataFrame]) -> pd.Data
 
 def summary(frame: pd.DataFrame, live_master: Optional[pd.DataFrame] = None, config: Optional[Mapping] = None,
             generated_at_utc: Optional[str] = None, top: int = 15) -> Dict[str, object]:
+    """Counts per group, vetoed, ignored and one-view-missing counts, and overlap with the live master.
+    Counts are over the executable (Pinnacle, native market, odds window) offers; others are counted apart."""
     from performance_tracking import fixture_key
     config = config or load_config()
-    ranked = frame.loc[frame.reconciled_decision.eq('SHORTLISTED')]
+    ranked = frame.loc[frame.new_master_decision.eq('SHORTLISTED')]
+    offers = frame.loc[~frame.new_master_decision.eq('NOT_EXECUTABLE')]
     keys = lambda f: {fixture_key(r) for r in f.astype(object).where(f.notna(), None).to_dict('records')}
     live = live_master if live_master is not None else pd.DataFrame()
     live_keys, ranked_keys = (keys(live) if len(live) else set()), keys(ranked) if len(ranked) else set()
-    counts = lambda column, names: {n: int(frame[column].eq(n).sum()) for n in names}
+    count = lambda f, column, names: {n: int(f[column].eq(n).sum()) for n in names}
+    missing = offers.loc[offers.one_view_missing.eq(True)]
     picks = [{k: (None if pd.isna(r[k]) else r[k]) for k in
-              ('reconciled_rank', 'reconciled_section', 'kickoff_utc', 'league', 'home_team', 'away_team',
-               'market_to_bet', 'offered_decimal_odds', 'research_expected_return', 'cagey_no_loss_probability',
-               'market_price', 'disagreement', 'unvalidated_view', 'in_live_master', 'live_master_same_offer')}
+              ('new_master_rank', 'new_master_group', 'kickoff_utc', 'league', 'home_team', 'away_team',
+               'market_to_bet', 'offered_decimal_odds', 'research_no_loss_probability', 'cagey_no_loss_probability',
+               'gap_points', 'research_expected_return', 'market_price', 'one_view_missing', 'unvalidated_view',
+               'in_live_master', 'live_master_same_offer')}
              for r in ranked.head(top).to_dict('records')]
-    pooled = frame.loc[~frame.reconciled_section.eq(NOT_EXECUTABLE)]
     return {
         'version': config['version'], 'status': config['status'], 'generated_at_utc': generated_at_utc,
         'config_sha256': hashlib.sha256(json.dumps(config, sort_keys=True).encode()).hexdigest(),
         'target_fixtures': int(config['target_fixtures']), 'ranked_fixtures': int(len(ranked)),
         'shortfall': max(0, int(config['target_fixtures']) - int(len(ranked))),
-        'pooled_offers': int(len(frame)), 'pooled_matches': int(frame[['league', 'home_team', 'away_team',
-                                                                      'kickoff_utc']].drop_duplicates().shape[0])
-        if len(frame) else 0,
-        'offers_by_group': counts('reconciled_group', GROUPS),
-        'offers_by_section': counts('reconciled_section', SECTIONS),
-        'decisions': counts('reconciled_decision', DECISIONS),
-        'ranked_by_group': {g: int(ranked.reconciled_section.eq(g).sum()) for g in RANKED},
-        'research_edge_section_matches': int(frame.reconciled_decision.eq('RESEARCH_EDGE_SECTION').sum()),
-        'disagreement_flags': int(pooled.disagreement.eq(True).sum()),
-        'disagreement_unavailable': int(pooled.disagreement.isna().sum()),
-        'european_rows': int(frame.unvalidated_view.eq(True).sum()),
-        'european_kept_out': int(frame.reconciled_section.eq(EUROPEAN_SECTION).sum()),
+        'nominated_offers': int(len(frame)), 'not_executable_offers': int(len(frame) - len(offers)),
+        'offers': int(len(offers)),
+        'matches': int(offers[['league', 'home_team', 'away_team', 'kickoff_utc']].drop_duplicates().shape[0])
+        if len(offers) else 0,
+        'offers_by_group': count(offers, 'new_master_group', GROUPS),
+        'gap_checks': count(offers, 'gap_check', GAP_CHECKS),
+        'vetoed': int(offers.gap_check.eq('vetoed').sum()),
+        'vetoed_cagey_picks': int((offers.gap_check.eq('vetoed') & offers.in_cagey_tier.eq(True)).sum()),
+        'ignored': int(offers.gap_check.eq('ignored').sum()),
+        'one_view_missing': {'offers': int(len(missing)),
+                             'research_missing': int(missing.missing_view.eq('research').sum()),
+                             'cagey_missing': int(missing.missing_view.eq('cagey').sum()),
+                             'kept_by_pinnacle_check': int(missing.gap_check.eq('one_view_missing_kept').sum()),
+                             'left_out_4_points_from_pinnacle': int(missing.gap_check.eq('one_view_missing_apart').sum()),
+                             'left_out_no_pinnacle_reference':
+                                 int(missing.gap_check.eq('one_view_missing_no_pinnacle').sum()),
+                             'ranked': int(ranked.one_view_missing.eq(True).sum())},
+        'no_view': int(offers.gap_check.eq('no_view').sum()),
+        'left_out_by_reason': count(offers, 'left_out_reason', LEFT_OUT_REASONS),
+        'decisions': count(frame, 'new_master_decision', DECISIONS),
+        'ranked_by_group': count(ranked, 'new_master_group', RANKED),
+        'european_offers': int(offers.unvalidated_view.eq(True).sum()),
+        'european_ranked': int(ranked.unvalidated_view.eq(True).sum()),
         'overlap_with_live_master': {
-            'live_master_fixtures': len(live_keys), 'reconciled_fixtures': len(ranked_keys),
+            'live_master_fixtures': len(live_keys), 'new_master_fixtures': len(ranked_keys),
             'same_fixture': len(live_keys & ranked_keys),
             'same_offer': int(ranked.live_master_same_offer.eq(True).sum()),
-            'live_only': len(live_keys - ranked_keys), 'reconciled_only': len(ranked_keys - live_keys)},
+            'live_only': len(live_keys - ranked_keys), 'new_only': len(ranked_keys - live_keys)},
         'top_picks': picks,
-        'note': 'Shadow only: master_shortlist.csv, every probability, pick and stake are unchanged. '
-                'Market-view thresholds and ranking are proposed, for Paul\'s approval.'}
+        'note': 'Shadow only: master_shortlist.csv, every probability, pick and stake are unchanged.'}
 
 
 def write_shadow(decisions: pd.DataFrame, out_dir, live_master: Optional[pd.DataFrame] = None,
                  generated_at_utc: Optional[str] = None) -> pd.DataFrame:
-    """Write the reconciled CSV and its summary beside master_shortlist.csv. Never touches the live files."""
+    """Write the new master CSV and its summary beside master_shortlist.csv. Never touches the live files."""
     config = load_config()
     frame = reconcile(decisions, live_master, config)
+    for name in SUPERSEDED_FILES:
+        (Path(out_dir) / name).unlink(missing_ok=True)
     frame.to_csv(Path(out_dir) / config['file'], index=False)
     (Path(out_dir) / config['summary_file']).write_text(
         json.dumps(summary(frame, live_master, config, generated_at_utc), indent=2, default=str) + '\n',
@@ -378,7 +408,11 @@ def write_shadow(decisions: pd.DataFrame, out_dir, live_master: Optional[pd.Data
     return frame
 
 
+# #170's shadow files: removed wherever a run writes or clears the new master (one shadow list only).
+SUPERSEDED_FILES = ('master_shortlist_reconciled.csv', 'master_shortlist_reconciled_summary.json')
+
+
 def remove_shadow(out_dir) -> None:
     config = load_config()
-    for name in (config['file'], config['summary_file']):
+    for name in (config['file'], config['summary_file'], *SUPERSEDED_FILES):
         (Path(out_dir) / name).unlink(missing_ok=True)
