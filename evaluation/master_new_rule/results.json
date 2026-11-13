@@ -1,0 +1,2548 @@
+{
+  "config_sha256": "97b8b162bfa0fb98f8ac27b7a227b6bb605f09337c2e0620f0849ce9e2d7ad05",
+  "fixtures": 9616,
+  "mode": "master_new_rule_backtest",
+  "periods": {
+    "development": {
+      "C6_vs_C": {
+        "gap_check_effect_C6_minus_C": {
+          "interval_95": [
+            -0.02980369565482232,
+            0.022107531501392844
+          ],
+          "interval_reading": "spans zero",
+          "value": -0.002889362250576108,
+          "weeks": 105
+        },
+        "new_master_return_C6_minus_C": {
+          "interval_95": [
+            -0.02926960065393389,
+            0.03017668796701887
+          ],
+          "interval_reading": "spans zero",
+          "value": -0.000603984384676598,
+          "weeks": 103
+        },
+        "reading": "veto/gap-check effect C6 minus C above zero = C6 makes the better veto; vetoed observed minus cagey, C6 minus C, below zero = C6's vetoed bets did worse against the cagey prediction than C's (a sharper veto)",
+        "veto_effect_C6_minus_C": {
+          "interval_95": [
+            -0.012503646460390185,
+            0.006579319477630848
+          ],
+          "interval_reading": "spans zero",
+          "value": -0.0032427133124680145,
+          "weeks": 103
+        },
+        "vetoed_observed_minus_cagey_C6_minus_C": {
+          "interval_95": [
+            -0.006665272374651001,
+            0.005049689380894809
+          ],
+          "interval_reading": "spans zero",
+          "value": -0.00098222368531721,
+          "weeks": 105
+        }
+      },
+      "fixtures": 6875,
+      "live_master": {
+        "fixtures": 1533,
+        "flat_stake_return": {
+          "interval_95": [
+            -0.02270173586264025,
+            0.03252970377604167
+          ],
+          "interval_reading": "spans zero",
+          "value": 0.005313111545988257,
+          "weeks": 106
+        },
+        "hit_rate": 0.731245923026745,
+        "mean_cagey_no_loss": 0.6928880774581784,
+        "mean_odds": 1.4023613829093282,
+        "no_loss_rate": 0.7325505544683627,
+        "picks": 1533,
+        "weeks": 106
+      },
+      "market_book": [
+        "pinnacle"
+      ],
+      "research_views": {
+        "C": {
+          "bets_by_gap_check": {
+            "ignored": {
+              "cagey_predicted_no_loss": 0.5488192944898351,
+              "cagey_tier_picks": 2451,
+              "fixtures": 2552,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.050792756905628296,
+                  0.013347927639618921
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.01925496688741722,
+                "weeks": 105
+              },
+              "hit_rate": 0.5062913907284768,
+              "mean_gap_points": 8.98136315089005,
+              "mean_odds": 1.8625794701986755,
+              "observed_minus_cagey": {
+                "interval_95": [
+                  -0.0192423018317468,
+                  0.016119265576334516
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.0017994269401662105,
+                "weeks": 105
+              },
+              "observed_minus_pinnacle": {
+                "interval_95": [
+                  -0.01690242658961923,
+                  0.018501222585961555
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.0008145486488293991,
+                "weeks": 105
+              },
+              "observed_minus_research": {
+                "interval_95": [
+                  -0.10917918485615422,
+                  -0.07376018721437694
+                ],
+                "interval_reading": "below zero",
+                "value": -0.0916130584490667,
+                "weeks": 105
+              },
+              "observed_no_loss_rate": 0.5470198675496689,
+              "offers": 3020,
+              "pinnacle_predicted_no_loss": 0.5462053189008395,
+              "research_predicted_no_loss": 0.6386329259987356,
+              "value_list_picks": 3020,
+              "weeks": 105
+            },
+            "kept": {
+              "cagey_predicted_no_loss": 0.5769429595087557,
+              "cagey_tier_picks": 4426,
+              "fixtures": 3060,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.04368297362168219,
+                  0.008119601731441483
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.01919027898866609,
+                "weeks": 105
+              },
+              "hit_rate": 0.5359633827375763,
+              "mean_gap_points": -0.031425534951513796,
+              "mean_odds": 1.7999869224062772,
+              "observed_minus_cagey": {
+                "interval_95": [
+                  -0.009819350502321982,
+                  0.020316569445631146
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.004574041363083788,
+                "weeks": 105
+              },
+              "observed_minus_pinnacle": {
+                "interval_95": [
+                  -0.010451754948226054,
+                  0.01971705287969083
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.003977407431968447,
+                "weeks": 105
+              },
+              "observed_minus_research": {
+                "interval_95": [
+                  -0.009532921746990513,
+                  0.020739462975796118
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.004888296712598927,
+                "weeks": 105
+              },
+              "observed_no_loss_rate": 0.5815170008718396,
+              "offers": 4588,
+              "pinnacle_predicted_no_loss": 0.5775395934398712,
+              "research_predicted_no_loss": 0.5766287041592407,
+              "value_list_picks": 4465,
+              "weeks": 105
+            },
+            "one_view_missing_apart": {
+              "offers": 0
+            },
+            "one_view_missing_kept": {
+              "offers": 0
+            },
+            "vetoed": {
+              "cagey_predicted_no_loss": 0.5928949651007832,
+              "cagey_tier_picks": 3725,
+              "fixtures": 3008,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.014662309478673452,
+                  0.04487585007259812
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.014786577181208052,
+                "weeks": 105
+              },
+              "hit_rate": 0.5897986577181208,
+              "mean_gap_points": -9.201006843707459,
+              "mean_odds": 1.7366604026845638,
+              "observed_minus_cagey": {
+                "interval_95": [
+                  0.01532859945849219,
+                  0.05099311407964543
+                ],
+                "interval_reading": "above zero",
+                "value": 0.03314530335559255,
+                "weeks": 105
+              },
+              "observed_minus_pinnacle": {
+                "interval_95": [
+                  0.011332914597867413,
+                  0.0470967007247711
+                ],
+                "interval_reading": "above zero",
+                "value": 0.029349247994768592,
+                "weeks": 105
+              },
+              "observed_minus_research": {
+                "interval_95": [
+                  0.10697136349447695,
+                  0.14328758780009432
+                ],
+                "interval_reading": "above zero",
+                "value": 0.12515537179266714,
+                "weeks": 105
+              },
+              "observed_no_loss_rate": 0.6260402684563758,
+              "offers": 3725,
+              "pinnacle_predicted_no_loss": 0.5966910204616073,
+              "research_predicted_no_loss": 0.5008848966637087,
+              "value_list_picks": 3117,
+              "weeks": 105
+            }
+          },
+          "gap_check_effect_return": {
+            "interval_95": [
+              -0.05074515263441575,
+              0.027060867023249457
+            ],
+            "interval_reading": "spans zero",
+            "value": -0.010680045138865227,
+            "weeks": 105
+          },
+          "gap_check_verdict": "no measurable difference",
+          "gap_checks": {
+            "ignored": 3020,
+            "kept": 4588,
+            "no_view": 0,
+            "one_view_missing_apart": 0,
+            "one_view_missing_kept": 0,
+            "one_view_missing_no_pinnacle": 0,
+            "vetoed": 3725
+          },
+          "ignore_effect_return": {
+            "interval_95": [
+              -0.05235535705929273,
+              0.026633619523029214
+            ],
+            "interval_reading": "spans zero",
+            "value": -0.012052914460677265,
+            "weeks": 104
+          },
+          "ignore_verdict": "no measurable difference",
+          "left_out_by_reason": {
+            "ignored": 3020,
+            "neither safe nor fair with a research edge": 2669,
+            "no view": 0,
+            "one view missing: 4+ points from Pinnacle": 0,
+            "one view missing: no Pinnacle reference": 0,
+            "risky": 752,
+            "vetoed": 3725
+          },
+          "new_master": {
+            "fixtures": 1097,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.07464513284555932,
+                0.01372953612766088
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.030241567912488616,
+              "weeks": 102
+            },
+            "hit_rate": 0.512306289881495,
+            "mean_cagey_no_loss": 0.6119382069352527,
+            "mean_odds": 1.852123974475843,
+            "no_loss_rate": 0.5970829535095715,
+            "picks": 1097,
+            "weeks": 102
+          },
+          "new_master_by_group": {
+            "both_agree": {
+              "fixtures": 1023,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.08156348841969817,
+                  0.014259544080415196
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.0326930596285435,
+                "weeks": 102
+              },
+              "hit_rate": 0.4897360703812317,
+              "mean_cagey_no_loss": 0.5997827866394809,
+              "mean_odds": 1.8978299120234605,
+              "no_loss_rate": 0.5806451612903226,
+              "picks": 1023,
+              "weeks": 102
+            },
+            "market_safe": {
+              "fixtures": 74,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.1008501712328767,
+                  0.10427677459526757
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.003648648648648628,
+                "weeks": 51
+              },
+              "hit_rate": 0.8243243243243243,
+              "mean_cagey_no_loss": 0.7799786794024758,
+              "mean_odds": 1.2202702702702704,
+              "no_loss_rate": 0.8243243243243243,
+              "picks": 74,
+              "weeks": 51
+            }
+          },
+          "new_master_one_view_missing": 0,
+          "new_minus_live_return": {
+            "interval_95": [
+              -0.08984130038343026,
+              0.015493712786737114
+            ],
+            "interval_reading": "spans zero",
+            "value": -0.035554679458476866,
+            "weeks": 106
+          },
+          "offers_by_group": {
+            "both_agree": 1044,
+            "left_out": 10166,
+            "market_safe": 123
+          },
+          "overlap_with_live": {
+            "live_picks": 1533,
+            "new_picks": 1097,
+            "same_fixture": 318
+          },
+          "pooled_offers": 11333,
+          "veto_effect_return": {
+            "interval_95": [
+              -0.015623074899544285,
+              0.007452842879040875
+            ],
+            "interval_reading": "spans zero",
+            "value": -0.004369332040252742,
+            "weeks": 103
+          },
+          "veto_verdict": "no measurable difference",
+          "vetoed_cagey_tier_picks": {
+            "cagey_predicted_no_loss": 0.5928949651007832,
+            "cagey_tier_picks": 3725,
+            "fixtures": 3008,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.014662309478673452,
+                0.04487585007259812
+              ],
+              "interval_reading": "spans zero",
+              "value": 0.014786577181208052,
+              "weeks": 105
+            },
+            "hit_rate": 0.5897986577181208,
+            "mean_gap_points": -9.201006843707459,
+            "mean_odds": 1.7366604026845638,
+            "observed_minus_cagey": {
+              "interval_95": [
+                0.01532859945849219,
+                0.05099311407964543
+              ],
+              "interval_reading": "above zero",
+              "value": 0.03314530335559255,
+              "weeks": 105
+            },
+            "observed_minus_pinnacle": {
+              "interval_95": [
+                0.011332914597867413,
+                0.0470967007247711
+              ],
+              "interval_reading": "above zero",
+              "value": 0.029349247994768592,
+              "weeks": 105
+            },
+            "observed_minus_research": {
+              "interval_95": [
+                0.10697136349447695,
+                0.14328758780009432
+              ],
+              "interval_reading": "above zero",
+              "value": 0.12515537179266714,
+              "weeks": 105
+            },
+            "observed_no_loss_rate": 0.6260402684563758,
+            "offers": 3725,
+            "pinnacle_predicted_no_loss": 0.5966910204616073,
+            "research_predicted_no_loss": 0.5008848966637087,
+            "value_list_picks": 3117,
+            "weeks": 105
+          },
+          "without_gap_check": {
+            "fixtures": 1471,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.05447921299728194,
+                0.016699647128396625
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.01956152277362339,
+              "weeks": 105
+            },
+            "hit_rate": 0.486743711760707,
+            "mean_cagey_no_loss": 0.6253242143334035,
+            "mean_odds": 1.8797280761386812,
+            "no_loss_rate": 0.6091094493541809,
+            "picks": 1471,
+            "weeks": 105
+          },
+          "without_ignore": {
+            "fixtures": 1463,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.05337448642912537,
+                0.01595292321553709
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.01818865345181135,
+              "weeks": 104
+            },
+            "hit_rate": 0.48667122351332875,
+            "mean_cagey_no_loss": 0.624321152513078,
+            "mean_odds": 1.8827751196172249,
+            "no_loss_rate": 0.6090225563909775,
+            "picks": 1463,
+            "weeks": 104
+          },
+          "without_veto": {
+            "fixtures": 1221,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.06625656910421682,
+                0.016873566710351687
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.025872235872235874,
+              "weeks": 103
+            },
+            "hit_rate": 0.5446355446355446,
+            "mean_cagey_no_loss": 0.6296813899382329,
+            "mean_odds": 1.788910728910729,
+            "no_loss_rate": 0.6216216216216216,
+            "picks": 1221,
+            "weeks": 103
+          }
+        },
+        "C6": {
+          "bets_by_gap_check": {
+            "ignored": {
+              "cagey_predicted_no_loss": 0.5520277136912451,
+              "cagey_tier_picks": 2770,
+              "fixtures": 2764,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.037136219280923456,
+                  0.01821592377835046
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.010281148268718558,
+                "weeks": 106
+              },
+              "hit_rate": 0.5161290322580645,
+              "mean_gap_points": 9.17937661795582,
+              "mean_odds": 1.8485202722699021,
+              "observed_minus_cagey": {
+                "interval_95": [
+                  -0.007765194913784207,
+                  0.024023248519446896
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.00819720492372974,
+                "weeks": 106
+              },
+              "observed_minus_pinnacle": {
+                "interval_95": [
+                  -0.007422628308442312,
+                  0.02441047468201295
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.008558084775228325,
+                "weeks": 106
+              },
+              "observed_minus_research": {
+                "interval_95": [
+                  -0.09955109015260101,
+                  -0.06764323638439801
+                ],
+                "interval_reading": "below zero",
+                "value": -0.08359656125582847,
+                "weeks": 106
+              },
+              "observed_no_loss_rate": 0.5602249186149748,
+              "offers": 3379,
+              "pinnacle_predicted_no_loss": 0.5516668338397465,
+              "research_predicted_no_loss": 0.6438214798708034,
+              "value_list_picks": 3379,
+              "weeks": 106
+            },
+            "kept": {
+              "cagey_predicted_no_loss": 0.5795401893931218,
+              "cagey_tier_picks": 4333,
+              "fixtures": 2935,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.051535322665880456,
+                  -0.0015205221243584127
+                ],
+                "interval_reading": "below zero",
+                "value": -0.026624833407374503,
+                "weeks": 104
+              },
+              "hit_rate": 0.5379831186139493,
+              "mean_gap_points": 0.0287248637550843,
+              "mean_odds": 1.7886805864060416,
+              "observed_minus_cagey": {
+                "interval_95": [
+                  -0.014487883993294148,
+                  0.015094368316026344
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.00042427084677158783,
+                "weeks": 104
+              },
+              "observed_minus_pinnacle": {
+                "interval_95": [
+                  -0.015316370634461975,
+                  0.014212595503316005
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.00046667720725337145,
+                "weeks": 104
+              },
+              "observed_minus_research": {
+                "interval_95": [
+                  -0.01482753888911796,
+                  0.015041447905511922
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.0001370222092207444,
+                "weeks": 104
+              },
+              "observed_no_loss_rate": 0.5799644602398933,
+              "offers": 4502,
+              "pinnacle_predicted_no_loss": 0.5804311374471468,
+              "research_predicted_no_loss": 0.5798274380306725,
+              "value_list_picks": 4365,
+              "weeks": 104
+            },
+            "one_view_missing_apart": {
+              "offers": 0
+            },
+            "one_view_missing_kept": {
+              "offers": 0
+            },
+            "vetoed": {
+              "cagey_predicted_no_loss": 0.5894430935220654,
+              "cagey_tier_picks": 3499,
+              "fixtures": 2888,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.011567624311818693,
+                  0.048346255604727745
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.018322377822234923,
+                "weeks": 105
+              },
+              "hit_rate": 0.5838811088882538,
+              "mean_gap_points": -9.370187235661442,
+              "mean_odds": 1.7562703629608458,
+              "observed_minus_cagey": {
+                "interval_95": [
+                  0.014359938728065812,
+                  0.05012005990195247
+                ],
+                "interval_reading": "above zero",
+                "value": 0.03216307967027534,
+                "weeks": 105
+              },
+              "observed_minus_pinnacle": {
+                "interval_95": [
+                  0.01234614747831872,
+                  0.04807757181190244
+                ],
+                "interval_reading": "above zero",
+                "value": 0.029984683315112295,
+                "weeks": 105
+              },
+              "observed_minus_research": {
+                "interval_95": [
+                  0.10768808265073122,
+                  0.14416570576249113
+                ],
+                "interval_reading": "above zero",
+                "value": 0.12586495202688974,
+                "weeks": 105
+              },
+              "observed_no_loss_rate": 0.6216061731923407,
+              "offers": 3499,
+              "pinnacle_predicted_no_loss": 0.5916214898772283,
+              "research_predicted_no_loss": 0.4957412211654509,
+              "value_list_picks": 2858,
+              "weeks": 105
+            }
+          },
+          "gap_check_effect_return": {
+            "interval_95": [
+              -0.05535940627843387,
+              0.026438722865537882
+            ],
+            "interval_reading": "spans zero",
+            "value": -0.013569407389441335,
+            "weeks": 105
+          },
+          "gap_check_verdict": "no measurable difference",
+          "gap_checks": {
+            "ignored": 3379,
+            "kept": 4502,
+            "no_view": 0,
+            "one_view_missing_apart": 0,
+            "one_view_missing_kept": 0,
+            "one_view_missing_no_pinnacle": 0,
+            "vetoed": 3499
+          },
+          "ignore_effect_return": {
+            "interval_95": [
+              -0.05400511640703698,
+              0.02778067847319389
+            ],
+            "interval_reading": "spans zero",
+            "value": -0.012324618872319618,
+            "weeks": 105
+          },
+          "ignore_verdict": "no measurable difference",
+          "left_out_by_reason": {
+            "ignored": 3379,
+            "neither safe nor fair with a research edge": 2695,
+            "no view": 0,
+            "one view missing: 4+ points from Pinnacle": 0,
+            "one view missing: no Pinnacle reference": 0,
+            "risky": 725,
+            "vetoed": 3499
+          },
+          "new_master": {
+            "fixtures": 1023,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.07550513459352462,
+                0.015612770320354267
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.030845552297165214,
+              "weeks": 103
+            },
+            "hit_rate": 0.5219941348973607,
+            "mean_cagey_no_loss": 0.6175603727630438,
+            "mean_odds": 1.8314956011730203,
+            "no_loss_rate": 0.5992179863147605,
+            "picks": 1023,
+            "weeks": 103
+          },
+          "new_master_by_group": {
+            "both_agree": {
+              "fixtures": 925,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.08446568805488294,
+                  0.011663900787338463
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.03561621621621621,
+                "weeks": 102
+              },
+              "hit_rate": 0.48864864864864865,
+              "mean_cagey_no_loss": 0.6000464432259925,
+              "mean_odds": 1.8967675675675675,
+              "no_loss_rate": 0.5740540540540541,
+              "picks": 925,
+              "weeks": 102
+            },
+            "market_safe": {
+              "fixtures": 98,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.08656347402597404,
+                  0.10255290146361569
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.014183673469387724,
+                "weeks": 65
+              },
+              "hit_rate": 0.8367346938775511,
+              "mean_cagey_no_loss": 0.7828704219648027,
+              "mean_odds": 1.2154081632653062,
+              "no_loss_rate": 0.8367346938775511,
+              "picks": 98,
+              "weeks": 65
+            }
+          },
+          "new_master_one_view_missing": 0,
+          "new_minus_live_return": {
+            "interval_95": [
+              -0.09232187727655251,
+              0.018423618192835837
+            ],
+            "interval_reading": "spans zero",
+            "value": -0.03615866384315345,
+            "weeks": 106
+          },
+          "offers_by_group": {
+            "both_agree": 938,
+            "left_out": 10298,
+            "market_safe": 144
+          },
+          "overlap_with_live": {
+            "live_picks": 1533,
+            "new_picks": 1023,
+            "same_fixture": 342
+          },
+          "pooled_offers": 11380,
+          "veto_effect_return": {
+            "interval_95": [
+              -0.017843587805142423,
+              0.0029650947728886556
+            ],
+            "interval_reading": "spans zero",
+            "value": -0.007612045352720757,
+            "weeks": 103
+          },
+          "veto_verdict": "no measurable difference",
+          "vetoed_cagey_tier_picks": {
+            "cagey_predicted_no_loss": 0.5894430935220654,
+            "cagey_tier_picks": 3499,
+            "fixtures": 2888,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.011567624311818693,
+                0.048346255604727745
+              ],
+              "interval_reading": "spans zero",
+              "value": 0.018322377822234923,
+              "weeks": 105
+            },
+            "hit_rate": 0.5838811088882538,
+            "mean_gap_points": -9.370187235661442,
+            "mean_odds": 1.7562703629608458,
+            "observed_minus_cagey": {
+              "interval_95": [
+                0.014359938728065812,
+                0.05012005990195247
+              ],
+              "interval_reading": "above zero",
+              "value": 0.03216307967027534,
+              "weeks": 105
+            },
+            "observed_minus_pinnacle": {
+              "interval_95": [
+                0.01234614747831872,
+                0.04807757181190244
+              ],
+              "interval_reading": "above zero",
+              "value": 0.029984683315112295,
+              "weeks": 105
+            },
+            "observed_minus_research": {
+              "interval_95": [
+                0.10768808265073122,
+                0.14416570576249113
+              ],
+              "interval_reading": "above zero",
+              "value": 0.12586495202688974,
+              "weeks": 105
+            },
+            "observed_no_loss_rate": 0.6216061731923407,
+            "offers": 3499,
+            "pinnacle_predicted_no_loss": 0.5916214898772283,
+            "research_predicted_no_loss": 0.4957412211654509,
+            "value_list_picks": 2858,
+            "weeks": 105
+          },
+          "without_gap_check": {
+            "fixtures": 1463,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.05270672090674797,
+                0.01772611026729722
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.017276144907723858,
+              "weeks": 105
+            },
+            "hit_rate": 0.49213943950786054,
+            "mean_cagey_no_loss": 0.6248559418094626,
+            "mean_odds": 1.8742447026657554,
+            "no_loss_rate": 0.6103896103896104,
+            "picks": 1463,
+            "weeks": 105
+          },
+          "without_ignore": {
+            "fixtures": 1457,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.05365857614414773,
+                0.016256399660036315
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.018520933424845575,
+              "weeks": 105
+            },
+            "hit_rate": 0.4900480439258751,
+            "mean_cagey_no_loss": 0.6240985657327817,
+            "mean_odds": 1.8767673301304049,
+            "no_loss_rate": 0.6087851750171586,
+            "picks": 1457,
+            "weeks": 105
+          },
+          "without_veto": {
+            "fixtures": 1152,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.061779839962079315,
+                0.01619143927624521
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.023233506944444458,
+              "weeks": 103
+            },
+            "hit_rate": 0.5581597222222222,
+            "mean_cagey_no_loss": 0.636027546511557,
+            "mean_odds": 1.7640104166666666,
+            "no_loss_rate": 0.6267361111111112,
+            "picks": 1152,
+            "weeks": 103
+          }
+        }
+      },
+      "weeks": 106
+    },
+    "retrospective": {
+      "C6_vs_C": {
+        "gap_check_effect_C6_minus_C": {
+          "interval_95": [
+            -0.028834893572245283,
+            0.07962478736397807
+          ],
+          "interval_reading": "spans zero",
+          "value": 0.025812480266367677,
+          "weeks": 29
+        },
+        "new_master_return_C6_minus_C": {
+          "interval_95": [
+            -0.040338616741524946,
+            0.09240843691179719
+          ],
+          "interval_reading": "spans zero",
+          "value": 0.02855204675850226,
+          "weeks": 29
+        },
+        "reading": "veto/gap-check effect C6 minus C above zero = C6 makes the better veto; vetoed observed minus cagey, C6 minus C, below zero = C6's vetoed bets did worse against the cagey prediction than C's (a sharper veto)",
+        "veto_effect_C6_minus_C": {
+          "interval_95": [
+            -0.007126714913063256,
+            0.021496276647247087
+          ],
+          "interval_reading": "spans zero",
+          "value": 0.006218259208608579,
+          "weeks": 29
+        },
+        "vetoed_observed_minus_cagey_C6_minus_C": {
+          "interval_95": [
+            -0.01754411834158308,
+            0.006933013151271989
+          ],
+          "interval_reading": "spans zero",
+          "value": -0.004999162604811964,
+          "weeks": 28
+        }
+      },
+      "fixtures": 1436,
+      "live_master": {
+        "fixtures": 423,
+        "flat_stake_return": {
+          "interval_95": [
+            -0.05952779987266895,
+            0.07789708481861492
+          ],
+          "interval_reading": "spans zero",
+          "value": 0.009202971482524582,
+          "weeks": 29
+        },
+        "hit_rate": 0.7044917257683215,
+        "mean_cagey_no_loss": 0.6644705723685069,
+        "mean_odds": 1.4961680014216956,
+        "no_loss_rate": 0.7044917257683215,
+        "picks": 423,
+        "weeks": 29
+      },
+      "market_book": [
+        "bet365"
+      ],
+      "research_views": {
+        "C": {
+          "bets_by_gap_check": {
+            "ignored": {
+              "cagey_predicted_no_loss": 0.5518597444891474,
+              "cagey_tier_picks": 480,
+              "fixtures": 540,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.11532246191467524,
+                  0.02393442506565628
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.04298617794935591,
+                "weeks": 28
+              },
+              "hit_rate": 0.48613376835236544,
+              "mean_gap_points": 9.124127045712667,
+              "mean_odds": 1.8785649440593561,
+              "observed_minus_cagey": {
+                "interval_95": [
+                  -0.04875511377889347,
+                  0.02723089602214056
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.008629728175933696,
+                "weeks": 28
+              },
+              "observed_minus_pinnacle": {
+                "interval_95": [
+                  -0.04524702705031131,
+                  0.03223366057285054
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.004432196706064349,
+                "weeks": 28
+              },
+              "observed_minus_research": {
+                "interval_95": [
+                  -0.13882911538264125,
+                  -0.06484999271696286
+                ],
+                "interval_reading": "below zero",
+                "value": -0.09987099863306037,
+                "weeks": 28
+              },
+              "observed_no_loss_rate": 0.5432300163132137,
+              "offers": 613,
+              "pinnacle_predicted_no_loss": 0.5476622130192781,
+              "research_predicted_no_loss": 0.6431010149462741,
+              "value_list_picks": 613,
+              "weeks": 28
+            },
+            "kept": {
+              "cagey_predicted_no_loss": 0.5735293538530061,
+              "cagey_tier_picks": 960,
+              "fixtures": 674,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.0738399637564524,
+                  0.027581326471114217
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.019902673990730174,
+                "weeks": 29
+              },
+              "hit_rate": 0.5316831683168317,
+              "mean_gap_points": -0.09526003288846571,
+              "mean_odds": 1.8123874014452843,
+              "observed_minus_cagey": {
+                "interval_95": [
+                  -0.021181177542396405,
+                  0.038029408534488905
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.010629061988578018,
+                "weeks": 29
+              },
+              "observed_minus_pinnacle": {
+                "interval_95": [
+                  -0.02054648590525048,
+                  0.037379279856151915
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.0106504672880645,
+                "weeks": 29
+              },
+              "observed_minus_research": {
+                "interval_95": [
+                  -0.0203512362487709,
+                  0.03932877742889113
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.011581662317462674,
+                "weeks": 29
+              },
+              "observed_no_loss_rate": 0.5841584158415841,
+              "offers": 1010,
+              "pinnacle_predicted_no_loss": 0.5735079485535196,
+              "research_predicted_no_loss": 0.5725767535241215,
+              "value_list_picks": 972,
+              "weeks": 29
+            },
+            "one_view_missing_apart": {
+              "offers": 0
+            },
+            "one_view_missing_kept": {
+              "offers": 0
+            },
+            "vetoed": {
+              "cagey_predicted_no_loss": 0.5910829968653365,
+              "cagey_tier_picks": 769,
+              "fixtures": 595,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.1238689665440679,
+                  -0.003694065255205646
+                ],
+                "interval_reading": "below zero",
+                "value": -0.062445618592293264,
+                "weeks": 28
+              },
+              "hit_rate": 0.5383615084525357,
+              "mean_gap_points": -10.017304228675535,
+              "mean_odds": 1.740854607742405,
+              "observed_minus_cagey": {
+                "interval_95": [
+                  -0.04989662003926589,
+                  0.027844191647076993
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.00980861455064204,
+                "weeks": 28
+              },
+              "observed_minus_pinnacle": {
+                "interval_95": [
+                  -0.052977631376611274,
+                  0.02509742670935532
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.012762512199605149,
+                "weeks": 28
+              },
+              "observed_minus_research": {
+                "interval_95": [
+                  0.052423912811330214,
+                  0.12642196993927562
+                ],
+                "interval_reading": "above zero",
+                "value": 0.09036442773611332,
+                "weeks": 28
+              },
+              "observed_no_loss_rate": 0.5812743823146944,
+              "offers": 769,
+              "pinnacle_predicted_no_loss": 0.5940368945142996,
+              "research_predicted_no_loss": 0.4909099545785811,
+              "value_list_picks": 624,
+              "weeks": 28
+            }
+          },
+          "gap_check_effect_return": {
+            "interval_95": [
+              -0.1371342868170448,
+              0.057967042226206515
+            ],
+            "interval_reading": "spans zero",
+            "value": -0.04205827553553371,
+            "weeks": 29
+          },
+          "gap_check_verdict": "no measurable difference",
+          "gap_checks": {
+            "ignored": 613,
+            "kept": 1010,
+            "no_view": 0,
+            "one_view_missing_apart": 0,
+            "one_view_missing_kept": 0,
+            "one_view_missing_no_pinnacle": 0,
+            "vetoed": 769
+          },
+          "ignore_effect_return": {
+            "interval_95": [
+              -0.13606137969202822,
+              0.05869965641441091
+            ],
+            "interval_reading": "spans zero",
+            "value": -0.0409994834443143,
+            "weeks": 29
+          },
+          "ignore_verdict": "no measurable difference",
+          "left_out_by_reason": {
+            "ignored": 613,
+            "neither safe nor fair with a research edge": 640,
+            "no view": 0,
+            "one view missing: 4+ points from Pinnacle": 0,
+            "one view missing: no Pinnacle reference": 0,
+            "risky": 149,
+            "vetoed": 769
+          },
+          "new_master": {
+            "fixtures": 220,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.21892825448105468,
+                -0.017892099065414672
+              ],
+              "interval_reading": "below zero",
+              "value": -0.11709241788563986,
+              "weeks": 28
+            },
+            "hit_rate": 0.4863636363636364,
+            "mean_cagey_no_loss": 0.6073841683541156,
+            "mean_odds": 1.8424549178271816,
+            "no_loss_rate": 0.5454545454545454,
+            "picks": 220,
+            "weeks": 28
+          },
+          "new_master_by_group": {
+            "both_agree": {
+              "fixtures": 205,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.24408973196849307,
+                  -0.02383458780344814
+                ],
+                "interval_reading": "below zero",
+                "value": -0.13167734723947658,
+                "weeks": 28
+              },
+              "hit_rate": 0.4585365853658537,
+              "mean_cagey_no_loss": 0.5953228780536749,
+              "mean_odds": 1.8859321843837296,
+              "no_loss_rate": 0.5219512195121951,
+              "picks": 205,
+              "weeks": 28
+            },
+            "market_safe": {
+              "fixtures": 15,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.14411862432591746,
+                  0.25501817158580453
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.08223494995012863,
+                "weeks": 12
+              },
+              "hit_rate": 0.8666666666666667,
+              "mean_cagey_no_loss": 0.7722218024601378,
+              "mean_odds": 1.2482656082210246,
+              "no_loss_rate": 0.8666666666666667,
+              "picks": 15,
+              "weeks": 12
+            }
+          },
+          "new_master_one_view_missing": 0,
+          "new_minus_live_return": {
+            "interval_95": [
+              -0.2572176603370024,
+              0.008841918061600595
+            ],
+            "interval_reading": "spans zero",
+            "value": -0.12629538936816445,
+            "weeks": 29
+          },
+          "offers_by_group": {
+            "both_agree": 206,
+            "left_out": 2171,
+            "market_safe": 15
+          },
+          "overlap_with_live": {
+            "live_picks": 423,
+            "new_picks": 220,
+            "same_fixture": 96
+          },
+          "pooled_offers": 2392,
+          "veto_effect_return": {
+            "interval_95": [
+              -0.04257386554461626,
+              0.0077043746136250734
+            ],
+            "interval_reading": "spans zero",
+            "value": -0.01663989932193155,
+            "weeks": 28
+          },
+          "veto_verdict": "no measurable difference",
+          "vetoed_cagey_tier_picks": {
+            "cagey_predicted_no_loss": 0.5910829968653365,
+            "cagey_tier_picks": 769,
+            "fixtures": 595,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.1238689665440679,
+                -0.003694065255205646
+              ],
+              "interval_reading": "below zero",
+              "value": -0.062445618592293264,
+              "weeks": 28
+            },
+            "hit_rate": 0.5383615084525357,
+            "mean_gap_points": -10.017304228675535,
+            "mean_odds": 1.740854607742405,
+            "observed_minus_cagey": {
+              "interval_95": [
+                -0.04989662003926589,
+                0.027844191647076993
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.00980861455064204,
+              "weeks": 28
+            },
+            "observed_minus_pinnacle": {
+              "interval_95": [
+                -0.052977631376611274,
+                0.02509742670935532
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.012762512199605149,
+              "weeks": 28
+            },
+            "observed_minus_research": {
+              "interval_95": [
+                0.052423912811330214,
+                0.12642196993927562
+              ],
+              "interval_reading": "above zero",
+              "value": 0.09036442773611332,
+              "weeks": 28
+            },
+            "observed_no_loss_rate": 0.5812743823146944,
+            "offers": 769,
+            "pinnacle_predicted_no_loss": 0.5940368945142996,
+            "research_predicted_no_loss": 0.4909099545785811,
+            "value_list_picks": 624,
+            "weeks": 28
+          },
+          "without_gap_check": {
+            "fixtures": 396,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.15822588300179524,
+                0.008569993623163215
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.07503414235010615,
+              "weeks": 29
+            },
+            "hit_rate": 0.48484848484848486,
+            "mean_cagey_no_loss": 0.6066947784183395,
+            "mean_odds": 1.8771257091956879,
+            "no_loss_rate": 0.5656565656565656,
+            "picks": 396,
+            "weeks": 29
+          },
+          "without_ignore": {
+            "fixtures": 394,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.16237373117970882,
+                0.008428465993485368
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.07609293444132556,
+              "weeks": 29
+            },
+            "hit_rate": 0.4847715736040609,
+            "mean_cagey_no_loss": 0.6053041256161406,
+            "mean_odds": 1.8803539355187644,
+            "no_loss_rate": 0.5634517766497462,
+            "picks": 394,
+            "weeks": 29
+          },
+          "without_veto": {
+            "fixtures": 259,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.18856610409210853,
+                -0.01630199023062592
+              ],
+              "interval_reading": "below zero",
+              "value": -0.1004525185637083,
+              "weeks": 28
+            },
+            "hit_rate": 0.5328185328185329,
+            "mean_cagey_no_loss": 0.6353211283869596,
+            "mean_odds": 1.7514006203894208,
+            "no_loss_rate": 0.5868725868725869,
+            "picks": 259,
+            "weeks": 28
+          }
+        },
+        "C6": {
+          "bets_by_gap_check": {
+            "ignored": {
+              "cagey_predicted_no_loss": 0.5551304389978011,
+              "cagey_tier_picks": 533,
+              "fixtures": 584,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.12290991543178129,
+                  0.016254692589981398
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.05128823071923308,
+                "weeks": 28
+              },
+              "hit_rate": 0.4838235294117647,
+              "mean_gap_points": 9.326937843411583,
+              "mean_odds": 1.867358166052724,
+              "observed_minus_cagey": {
+                "interval_95": [
+                  -0.04945277564717361,
+                  0.022840438517615448
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.011012791938977539,
+                "weeks": 28
+              },
+              "observed_minus_pinnacle": {
+                "interval_95": [
+                  -0.04747941117571341,
+                  0.02668917160359631
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.008146642367854307,
+                "weeks": 28
+              },
+              "observed_minus_research": {
+                "interval_95": [
+                  -0.14234766079427177,
+                  -0.07124508425553233
+                ],
+                "interval_reading": "below zero",
+                "value": -0.10428217037309337,
+                "weeks": 28
+              },
+              "observed_no_loss_rate": 0.5441176470588235,
+              "offers": 680,
+              "pinnacle_predicted_no_loss": 0.5522642894266778,
+              "research_predicted_no_loss": 0.648399817431917,
+              "value_list_picks": 680,
+              "weeks": 28
+            },
+            "kept": {
+              "cagey_predicted_no_loss": 0.5765842328486062,
+              "cagey_tier_picks": 936,
+              "fixtures": 647,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.06031121857109407,
+                  0.031061542228783195
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.0116660598838323,
+                "weeks": 29
+              },
+              "hit_rate": 0.5418367346938775,
+              "mean_gap_points": 0.0898517125587627,
+              "mean_odds": 1.802543509161511,
+              "observed_minus_cagey": {
+                "interval_95": [
+                  -0.012621424090225375,
+                  0.040993096640722176
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.015252501845271306,
+                "weeks": 29
+              },
+              "observed_minus_pinnacle": {
+                "interval_95": [
+                  -0.012049904021276666,
+                  0.04063507052978859
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.015254699391473373,
+                "weeks": 29
+              },
+              "observed_minus_research": {
+                "interval_95": [
+                  -0.013524023196164027,
+                  0.04045496529469077
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.01435398471968368,
+                "weeks": 29
+              },
+              "observed_no_loss_rate": 0.5918367346938775,
+              "offers": 980,
+              "pinnacle_predicted_no_loss": 0.5765820353024043,
+              "research_predicted_no_loss": 0.5774827499741939,
+              "value_list_picks": 937,
+              "weeks": 29
+            },
+            "one_view_missing_apart": {
+              "offers": 0
+            },
+            "one_view_missing_kept": {
+              "offers": 0
+            },
+            "vetoed": {
+              "cagey_predicted_no_loss": 0.5864293987770757,
+              "cagey_tier_picks": 740,
+              "fixtures": 580,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.13154524007046664,
+                  -0.012114188550617622
+                ],
+                "interval_reading": "below zero",
+                "value": -0.06992866930898618,
+                "weeks": 28
+              },
+              "hit_rate": 0.5283783783783784,
+              "mean_gap_points": -10.097194950837984,
+              "mean_odds": 1.7568099075835906,
+              "observed_minus_cagey": {
+                "interval_95": [
+                  -0.05410613700710661,
+                  0.024101746244923103
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.014807777155454005,
+                "weeks": 28
+              },
+              "observed_minus_pinnacle": {
+                "interval_95": [
+                  -0.05633653226906677,
+                  0.02143148835874556
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.01727455959667546,
+                "weeks": 28
+              },
+              "observed_minus_research": {
+                "interval_95": [
+                  0.04832078227673934,
+                  0.12279406434771518
+                ],
+                "interval_reading": "above zero",
+                "value": 0.08616417235292584,
+                "weeks": 28
+              },
+              "observed_no_loss_rate": 0.5716216216216217,
+              "offers": 740,
+              "pinnacle_predicted_no_loss": 0.588896181218297,
+              "research_predicted_no_loss": 0.4854574492686958,
+              "value_list_picks": 592,
+              "weeks": 28
+            }
+          },
+          "gap_check_effect_return": {
+            "interval_95": [
+              -0.10224226412163101,
+              0.07191380467748017
+            ],
+            "interval_reading": "spans zero",
+            "value": -0.01624579526916603,
+            "weeks": 29
+          },
+          "gap_check_verdict": "no measurable difference",
+          "gap_checks": {
+            "ignored": 680,
+            "kept": 980,
+            "no_view": 0,
+            "one_view_missing_apart": 0,
+            "one_view_missing_kept": 0,
+            "one_view_missing_no_pinnacle": 0,
+            "vetoed": 740
+          },
+          "ignore_effect_return": {
+            "interval_95": [
+              -0.09792831682328598,
+              0.07516341874680099
+            ],
+            "interval_reading": "spans zero",
+            "value": -0.012216098307801973,
+            "weeks": 29
+          },
+          "ignore_verdict": "no measurable difference",
+          "left_out_by_reason": {
+            "ignored": 680,
+            "neither safe nor fair with a research edge": 635,
+            "no view": 0,
+            "one view missing: 4+ points from Pinnacle": 0,
+            "one view missing: no Pinnacle reference": 0,
+            "risky": 141,
+            "vetoed": 740
+          },
+          "new_master": {
+            "fixtures": 202,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.20359049531059548,
+                0.024879296954931455
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.0885403711271376,
+              "weeks": 29
+            },
+            "hit_rate": 0.5148514851485149,
+            "mean_cagey_no_loss": 0.6153713315403236,
+            "mean_odds": 1.8175571420350285,
+            "no_loss_rate": 0.5643564356435643,
+            "picks": 202,
+            "weeks": 29
+          },
+          "new_master_by_group": {
+            "both_agree": {
+              "fixtures": 184,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.23643350238139813,
+                  0.02287571718768562
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.1059730901151145,
+                "weeks": 29
+              },
+              "hit_rate": 0.4782608695652174,
+              "mean_cagey_no_loss": 0.5984480995139886,
+              "mean_odds": 1.8754879060645724,
+              "no_loss_rate": 0.532608695652174,
+              "picks": 184,
+              "weeks": 29
+            },
+            "market_safe": {
+              "fixtures": 18,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.08917354603636499,
+                  0.23547397544425494
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.08966075630551547,
+                "weeks": 15
+              },
+              "hit_rate": 0.8888888888888888,
+              "mean_cagey_no_loss": 0.7883643700317485,
+              "mean_odds": 1.2253759986219155,
+              "no_loss_rate": 0.8888888888888888,
+              "picks": 18,
+              "weeks": 15
+            }
+          },
+          "new_master_one_view_missing": 0,
+          "new_minus_live_return": {
+            "interval_95": [
+              -0.24252709008434,
+              0.05122274210161438
+            ],
+            "interval_reading": "spans zero",
+            "value": -0.09774334260966218,
+            "weeks": 29
+          },
+          "offers_by_group": {
+            "both_agree": 186,
+            "left_out": 2196,
+            "market_safe": 18
+          },
+          "overlap_with_live": {
+            "live_picks": 423,
+            "new_picks": 202,
+            "same_fixture": 93
+          },
+          "pooled_offers": 2400,
+          "veto_effect_return": {
+            "interval_95": [
+              -0.03866487071066221,
+              0.017010421780978256
+            ],
+            "interval_reading": "spans zero",
+            "value": -0.010421640113322972,
+            "weeks": 29
+          },
+          "veto_verdict": "no measurable difference",
+          "vetoed_cagey_tier_picks": {
+            "cagey_predicted_no_loss": 0.5864293987770757,
+            "cagey_tier_picks": 740,
+            "fixtures": 580,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.13154524007046664,
+                -0.012114188550617622
+              ],
+              "interval_reading": "below zero",
+              "value": -0.06992866930898618,
+              "weeks": 28
+            },
+            "hit_rate": 0.5283783783783784,
+            "mean_gap_points": -10.097194950837984,
+            "mean_odds": 1.7568099075835906,
+            "observed_minus_cagey": {
+              "interval_95": [
+                -0.05410613700710661,
+                0.024101746244923103
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.014807777155454005,
+              "weeks": 28
+            },
+            "observed_minus_pinnacle": {
+              "interval_95": [
+                -0.05633653226906677,
+                0.02143148835874556
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.01727455959667546,
+              "weeks": 28
+            },
+            "observed_minus_research": {
+              "interval_95": [
+                0.04832078227673934,
+                0.12279406434771518
+              ],
+              "interval_reading": "above zero",
+              "value": 0.08616417235292584,
+              "weeks": 28
+            },
+            "observed_no_loss_rate": 0.5716216216216217,
+            "offers": 740,
+            "pinnacle_predicted_no_loss": 0.588896181218297,
+            "research_predicted_no_loss": 0.4854574492686958,
+            "value_list_picks": 592,
+            "weeks": 28
+          },
+          "without_gap_check": {
+            "fixtures": 392,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.1641871201091007,
+                0.018528568741941597
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.07229457585797157,
+              "weeks": 29
+            },
+            "hit_rate": 0.4923469387755102,
+            "mean_cagey_no_loss": 0.6098202142376171,
+            "mean_odds": 1.8628949780816524,
+            "no_loss_rate": 0.5688775510204082,
+            "picks": 392,
+            "weeks": 29
+          },
+          "without_ignore": {
+            "fixtures": 390,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.1694965924814019,
+                0.016255061490386212
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.07632427281933563,
+              "weeks": 29
+            },
+            "hit_rate": 0.4897435897435897,
+            "mean_cagey_no_loss": 0.6083980170961892,
+            "mean_odds": 1.8661612439835975,
+            "no_loss_rate": 0.5641025641025641,
+            "picks": 390,
+            "weeks": 29
+          },
+          "without_veto": {
+            "fixtures": 234,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.17576623244751124,
+                0.016984728534086703
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.07811873101381463,
+              "weeks": 29
+            },
+            "hit_rate": 0.5512820512820513,
+            "mean_cagey_no_loss": 0.6389018246392878,
+            "mean_odds": 1.7397059097303178,
+            "no_loss_rate": 0.5982905982905983,
+            "picks": 234,
+            "weeks": 29
+          }
+        }
+      },
+      "weeks": 29
+    },
+    "validation": {
+      "C6_vs_C": {
+        "gap_check_effect_C6_minus_C": {
+          "interval_95": [
+            -0.07330961479248678,
+            0.055549694025878026
+          ],
+          "interval_reading": "spans zero",
+          "value": -0.00211692814348681,
+          "weeks": 21
+        },
+        "new_master_return_C6_minus_C": {
+          "interval_95": [
+            -0.07775059048304897,
+            0.06522646087712776
+          ],
+          "interval_reading": "spans zero",
+          "value": 0.00025583791208796947,
+          "weeks": 21
+        },
+        "reading": "veto/gap-check effect C6 minus C above zero = C6 makes the better veto; vetoed observed minus cagey, C6 minus C, below zero = C6's vetoed bets did worse against the cagey prediction than C's (a sharper veto)",
+        "veto_effect_C6_minus_C": {
+          "interval_95": [
+            -0.013549447798962385,
+            0.012690624079744639
+          ],
+          "interval_reading": "spans zero",
+          "value": 0.0009893259611452876,
+          "weeks": 21
+        },
+        "vetoed_observed_minus_cagey_C6_minus_C": {
+          "interval_95": [
+            -0.023805968781310197,
+            0.011757675241275356
+          ],
+          "interval_reading": "spans zero",
+          "value": -0.005688668865882122,
+          "weeks": 21
+        }
+      },
+      "fixtures": 1305,
+      "live_master": {
+        "fixtures": 315,
+        "flat_stake_return": {
+          "interval_95": [
+            -0.012593560606060615,
+            0.12637064519365834
+          ],
+          "interval_reading": "spans zero",
+          "value": 0.05838095238095238,
+          "weeks": 22
+        },
+        "hit_rate": 0.7555555555555555,
+        "mean_cagey_no_loss": 0.6799591079025714,
+        "mean_odds": 1.4340317460317462,
+        "no_loss_rate": 0.7587301587301587,
+        "picks": 315,
+        "weeks": 22
+      },
+      "market_book": [
+        "pinnacle"
+      ],
+      "research_views": {
+        "C": {
+          "bets_by_gap_check": {
+            "ignored": {
+              "cagey_predicted_no_loss": 0.547713902914306,
+              "cagey_tier_picks": 450,
+              "fixtures": 494,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.10984070064577474,
+                  0.03939409831794333
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.03557793345008758,
+                "weeks": 22
+              },
+              "hit_rate": 0.4991243432574431,
+              "mean_gap_points": 8.36907990336486,
+              "mean_odds": 1.865446584938704,
+              "observed_minus_cagey": {
+                "interval_95": [
+                  -0.04556624612652829,
+                  0.037598204269428566
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.0030554090439032094,
+                "weeks": 22
+              },
+              "observed_minus_pinnacle": {
+                "interval_95": [
+                  -0.042615285140913,
+                  0.04090570305878143
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.0003013011076123377,
+                "weeks": 22
+              },
+              "observed_minus_research": {
+                "interval_95": [
+                  -0.12885190294112192,
+                  -0.046185078735594305
+                ],
+                "interval_reading": "below zero",
+                "value": -0.0867462080775518,
+                "weeks": 22
+              },
+              "observed_no_loss_rate": 0.5446584938704028,
+              "offers": 571,
+              "pinnacle_predicted_no_loss": 0.5443571927627905,
+              "research_predicted_no_loss": 0.6314047019479545,
+              "value_list_picks": 571,
+              "weeks": 22
+            },
+            "kept": {
+              "cagey_predicted_no_loss": 0.5818165370604748,
+              "cagey_tier_picks": 867,
+              "fixtures": 613,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.0838401489507724,
+                  0.017898460216838184
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.03256696428571429,
+                "weeks": 21
+              },
+              "hit_rate": 0.5245535714285714,
+              "mean_gap_points": -0.09880370347056468,
+              "mean_odds": 1.7995200892857142,
+              "observed_minus_cagey": {
+                "interval_95": [
+                  -0.024033798974528543,
+                  0.04105504080938587
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.008585248653810933,
+                "weeks": 21
+              },
+              "observed_minus_pinnacle": {
+                "interval_95": [
+                  -0.022779426176015256,
+                  0.0423493468364131
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.009631255556393187,
+                "weeks": 21
+              },
+              "observed_minus_research": {
+                "interval_95": [
+                  -0.022600773773888624,
+                  0.04203606842406763
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.009573285688516578,
+                "weeks": 21
+              },
+              "observed_no_loss_rate": 0.5904017857142857,
+              "offers": 896,
+              "pinnacle_predicted_no_loss": 0.5807705301578926,
+              "research_predicted_no_loss": 0.5808285000257692,
+              "value_list_picks": 878,
+              "weeks": 21
+            },
+            "one_view_missing_apart": {
+              "offers": 0
+            },
+            "one_view_missing_kept": {
+              "offers": 0
+            },
+            "vetoed": {
+              "cagey_predicted_no_loss": 0.589665882838528,
+              "cagey_tier_picks": 685,
+              "fixtures": 573,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.08663190760885853,
+                  0.04273423648295936
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.01897080291970803,
+                "weeks": 21
+              },
+              "hit_rate": 0.564963503649635,
+              "mean_gap_points": -8.336295487788934,
+              "mean_odds": 1.7435474452554744,
+              "observed_minus_cagey": {
+                "interval_95": [
+                  -0.02425836958411468,
+                  0.055301332939672064
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.017633387234464722,
+                "weeks": 21
+              },
+              "observed_minus_pinnacle": {
+                "interval_95": [
+                  -0.028454309809285275,
+                  0.051912043624029125
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.013782854523426582,
+                "weeks": 21
+              },
+              "observed_minus_research": {
+                "interval_95": [
+                  0.05914286295980084,
+                  0.1378634702919504
+                ],
+                "interval_reading": "above zero",
+                "value": 0.1009963421123541,
+                "weeks": 21
+              },
+              "observed_no_loss_rate": 0.6072992700729927,
+              "offers": 685,
+              "pinnacle_predicted_no_loss": 0.5935164155495661,
+              "research_predicted_no_loss": 0.5063029279606387,
+              "value_list_picks": 553,
+              "weeks": 21
+            }
+          },
+          "gap_check_effect_return": {
+            "interval_95": [
+              -0.09223022157851768,
+              0.10776281878898339
+            ],
+            "interval_reading": "spans zero",
+            "value": 0.0029201725181597915,
+            "weeks": 21
+          },
+          "gap_check_verdict": "no measurable difference",
+          "gap_checks": {
+            "ignored": 571,
+            "kept": 896,
+            "no_view": 0,
+            "one_view_missing_apart": 0,
+            "one_view_missing_kept": 0,
+            "one_view_missing_no_pinnacle": 0,
+            "vetoed": 685
+          },
+          "ignore_effect_return": {
+            "interval_95": [
+              -0.09601815242235233,
+              0.10990472891514479
+            ],
+            "interval_reading": "spans zero",
+            "value": 0.002242844911937353,
+            "weeks": 21
+          },
+          "ignore_verdict": "no measurable difference",
+          "left_out_by_reason": {
+            "ignored": 571,
+            "neither safe nor fair with a research edge": 534,
+            "no view": 0,
+            "one view missing: 4+ points from Pinnacle": 0,
+            "one view missing: no Pinnacle reference": 0,
+            "risky": 128,
+            "vetoed": 685
+          },
+          "new_master": {
+            "fixtures": 224,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.21371851380813955,
+                0.011015772532188743
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.10448660714285718,
+              "weeks": 21
+            },
+            "hit_rate": 0.4419642857142857,
+            "mean_cagey_no_loss": 0.6156676697593791,
+            "mean_odds": 1.8615625,
+            "no_loss_rate": 0.5669642857142857,
+            "picks": 224,
+            "weeks": 21
+          },
+          "new_master_by_group": {
+            "both_agree": {
+              "fixtures": 213,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.2264657142857143,
+                  0.0025420151446653772
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.11518779342723007,
+                "weeks": 21
+              },
+              "hit_rate": 0.41784037558685444,
+              "mean_cagey_no_loss": 0.6070344014303996,
+              "mean_odds": 1.8949295774647887,
+              "no_loss_rate": 0.5492957746478874,
+              "picks": 213,
+              "weeks": 21
+            },
+            "market_safe": {
+              "fixtures": 11,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.15300000000000002,
+                  0.22416666666666663
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.1027272727272727,
+                "weeks": 9
+              },
+              "hit_rate": 0.9090909090909091,
+              "mean_cagey_no_loss": 0.7828391383114373,
+              "mean_odds": 1.2154545454545453,
+              "no_loss_rate": 0.9090909090909091,
+              "picks": 11,
+              "weeks": 9
+            }
+          },
+          "new_master_one_view_missing": 0,
+          "new_minus_live_return": {
+            "interval_95": [
+              -0.3022422630847344,
+              -0.02243601479548715
+            ],
+            "interval_reading": "below zero",
+            "value": -0.16286755952380955,
+            "weeks": 22
+          },
+          "offers_by_group": {
+            "both_agree": 214,
+            "left_out": 1918,
+            "market_safe": 20
+          },
+          "overlap_with_live": {
+            "live_picks": 315,
+            "new_picks": 224,
+            "same_fixture": 79
+          },
+          "pooled_offers": 2152,
+          "veto_effect_return": {
+            "interval_95": [
+              -0.04147331308620409,
+              0.006548466800351779
+            ],
+            "interval_reading": "spans zero",
+            "value": -0.015073651677270136,
+            "weeks": 21
+          },
+          "veto_verdict": "no measurable difference",
+          "vetoed_cagey_tier_picks": {
+            "cagey_predicted_no_loss": 0.589665882838528,
+            "cagey_tier_picks": 685,
+            "fixtures": 573,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.08663190760885853,
+                0.04273423648295936
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.01897080291970803,
+              "weeks": 21
+            },
+            "hit_rate": 0.564963503649635,
+            "mean_gap_points": -8.336295487788934,
+            "mean_odds": 1.7435474452554744,
+            "observed_minus_cagey": {
+              "interval_95": [
+                -0.02425836958411468,
+                0.055301332939672064
+              ],
+              "interval_reading": "spans zero",
+              "value": 0.017633387234464722,
+              "weeks": 21
+            },
+            "observed_minus_pinnacle": {
+              "interval_95": [
+                -0.028454309809285275,
+                0.051912043624029125
+              ],
+              "interval_reading": "spans zero",
+              "value": 0.013782854523426582,
+              "weeks": 21
+            },
+            "observed_minus_research": {
+              "interval_95": [
+                0.05914286295980084,
+                0.1378634702919504
+              ],
+              "interval_reading": "above zero",
+              "value": 0.1009963421123541,
+              "weeks": 21
+            },
+            "observed_no_loss_rate": 0.6072992700729927,
+            "offers": 685,
+            "pinnacle_predicted_no_loss": 0.5935164155495661,
+            "research_predicted_no_loss": 0.5063029279606387,
+            "value_list_picks": 553,
+            "weeks": 21
+          },
+          "without_gap_check": {
+            "fixtures": 295,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.1920122762276228,
+                -0.027088753668118137
+              ],
+              "interval_reading": "below zero",
+              "value": -0.10740677966101697,
+              "weeks": 21
+            },
+            "hit_rate": 0.41694915254237286,
+            "mean_cagey_no_loss": 0.6279517272608681,
+            "mean_odds": 1.8699999999999999,
+            "no_loss_rate": 0.576271186440678,
+            "picks": 295,
+            "weeks": 21
+          },
+          "without_ignore": {
+            "fixtures": 292,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.19275614189499463,
+                -0.024961397976651884
+              ],
+              "interval_reading": "below zero",
+              "value": -0.10672945205479453,
+              "weeks": 21
+            },
+            "hit_rate": 0.4143835616438356,
+            "mean_cagey_no_loss": 0.6265997510842948,
+            "mean_odds": 1.8765068493150683,
+            "no_loss_rate": 0.5753424657534246,
+            "picks": 292,
+            "weeks": 21
+          },
+          "without_veto": {
+            "fixtures": 247,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.18570083140407956,
+                0.016571132138114123
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.08941295546558704,
+              "weeks": 21
+            },
+            "hit_rate": 0.4817813765182186,
+            "mean_cagey_no_loss": 0.6309516354015386,
+            "mean_odds": 1.8015384615384615,
+            "no_loss_rate": 0.5951417004048583,
+            "picks": 247,
+            "weeks": 21
+          }
+        },
+        "C6": {
+          "bets_by_gap_check": {
+            "ignored": {
+              "cagey_predicted_no_loss": 0.5504319767820797,
+              "cagey_tier_picks": 495,
+              "fixtures": 515,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.09363959722011815,
+                  0.04205016521039676
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.02835760517799353,
+                "weeks": 22
+              },
+              "hit_rate": 0.5097087378640777,
+              "mean_gap_points": 8.763664323444248,
+              "mean_odds": 1.8480744336569581,
+              "observed_minus_cagey": {
+                "interval_95": [
+                  -0.033958184612233,
+                  0.044699029631070294
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.0045842044476937915,
+                "weeks": 22
+              },
+              "observed_minus_pinnacle": {
+                "interval_95": [
+                  -0.033383915297510364,
+                  0.045299302049322726
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.005249534136960166,
+                "weeks": 22
+              },
+              "observed_minus_research": {
+                "interval_95": [
+                  -0.12156688223990239,
+                  -0.04266731342199877
+                ],
+                "interval_reading": "below zero",
+                "value": -0.08305243878674867,
+                "weeks": 22
+              },
+              "observed_no_loss_rate": 0.5550161812297735,
+              "offers": 618,
+              "pinnacle_predicted_no_loss": 0.5497666470928133,
+              "research_predicted_no_loss": 0.6380686200165222,
+              "value_list_picks": 618,
+              "weeks": 22
+            },
+            "kept": {
+              "cagey_predicted_no_loss": 0.5866512152149808,
+              "cagey_tier_picks": 880,
+              "fixtures": 605,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.07865450438116102,
+                  0.01578710755570083
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.03175438596491229,
+                "weeks": 21
+              },
+              "hit_rate": 0.5274122807017544,
+              "mean_gap_points": -0.018473896088005322,
+              "mean_odds": 1.7886842105263157,
+              "observed_minus_cagey": {
+                "interval_95": [
+                  -0.019630818053993915,
+                  0.03837629818154343
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.008743521627124587,
+                "weeks": 21
+              },
+              "observed_minus_pinnacle": {
+                "interval_95": [
+                  -0.019053255337843293,
+                  0.039747672072011485
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.009999754009415962,
+                "weeks": 21
+              },
+              "observed_minus_research": {
+                "interval_95": [
+                  -0.01894286545311909,
+                  0.03841274047391806
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.00892826058800464,
+                "weeks": 21
+              },
+              "observed_no_loss_rate": 0.5953947368421053,
+              "offers": 912,
+              "pinnacle_predicted_no_loss": 0.5853949828326893,
+              "research_predicted_no_loss": 0.5864664762541005,
+              "value_list_picks": 886,
+              "weeks": 21
+            },
+            "one_view_missing_apart": {
+              "offers": 0
+            },
+            "one_view_missing_kept": {
+              "offers": 0
+            },
+            "vetoed": {
+              "cagey_predicted_no_loss": 0.5829516133698543,
+              "cagey_tier_picks": 627,
+              "fixtures": 534,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.09077348856209151,
+                  0.04011875986616933
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.02345295055821371,
+                "weeks": 21
+              },
+              "hit_rate": 0.5566188197767146,
+              "mean_gap_points": -8.623491837277163,
+              "mean_odds": 1.7671132376395535,
+              "observed_minus_cagey": {
+                "interval_95": [
+                  -0.02899141735538391,
+                  0.04910672597605732
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.0119447183685826,
+                "weeks": 21
+              },
+              "observed_minus_pinnacle": {
+                "interval_95": [
+                  -0.03144603757263039,
+                  0.04710704375933588
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.009438683224692584,
+                "weeks": 21
+              },
+              "observed_minus_research": {
+                "interval_95": [
+                  0.05728704767360841,
+                  0.13369311424206715
+                ],
+                "interval_reading": "above zero",
+                "value": 0.09817963674135423,
+                "weeks": 21
+              },
+              "observed_no_loss_rate": 0.594896331738437,
+              "offers": 627,
+              "pinnacle_predicted_no_loss": 0.5854576485137444,
+              "research_predicted_no_loss": 0.49671669499708276,
+              "value_list_picks": 498,
+              "weeks": 21
+            }
+          },
+          "gap_check_effect_return": {
+            "interval_95": [
+              -0.09161205812389689,
+              0.09727909772347242
+            ],
+            "interval_reading": "spans zero",
+            "value": 0.0008032443746729817,
+            "weeks": 21
+          },
+          "gap_check_verdict": "no measurable difference",
+          "gap_checks": {
+            "ignored": 618,
+            "kept": 912,
+            "no_view": 0,
+            "one_view_missing_apart": 0,
+            "one_view_missing_kept": 0,
+            "one_view_missing_no_pinnacle": 0,
+            "vetoed": 627
+          },
+          "ignore_effect_return": {
+            "interval_95": [
+              -0.09435455162543256,
+              0.09810098479122412
+            ],
+            "interval_reading": "spans zero",
+            "value": -0.0010458377239198763,
+            "weeks": 21
+          },
+          "ignore_verdict": "no measurable difference",
+          "left_out_by_reason": {
+            "ignored": 618,
+            "neither safe nor fair with a research edge": 538,
+            "no view": 0,
+            "one view missing: 4+ points from Pinnacle": 0,
+            "one view missing: no Pinnacle reference": 0,
+            "risky": 127,
+            "vetoed": 627
+          },
+          "new_master": {
+            "fixtures": 221,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.21447040379497861,
+                0.010581403386560887
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.10423076923076921,
+              "weeks": 21
+            },
+            "hit_rate": 0.4343891402714932,
+            "mean_cagey_no_loss": 0.6260882257783423,
+            "mean_odds": 1.850995475113122,
+            "no_loss_rate": 0.583710407239819,
+            "picks": 221,
+            "weeks": 21
+          },
+          "new_master_by_group": {
+            "both_agree": {
+              "fixtures": 208,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.2255111111111111,
+                  0.002043049909665696
+                ],
+                "interval_reading": "spans zero",
+                "value": -0.11233173076923078,
+                "weeks": 21
+              },
+              "hit_rate": 0.40865384615384615,
+              "mean_cagey_no_loss": 0.6164446590923932,
+              "mean_odds": 1.8907211538461537,
+              "no_loss_rate": 0.5673076923076923,
+              "picks": 208,
+              "weeks": 21
+            },
+            "market_safe": {
+              "fixtures": 13,
+              "flat_stake_return": {
+                "interval_95": [
+                  -0.14928886554621854,
+                  0.22166666666666665
+                ],
+                "interval_reading": "spans zero",
+                "value": 0.025384615384615356,
+                "weeks": 10
+              },
+              "hit_rate": 0.8461538461538461,
+              "mean_cagey_no_loss": 0.7803852927535295,
+              "mean_odds": 1.2153846153846155,
+              "no_loss_rate": 0.8461538461538461,
+              "picks": 13,
+              "weeks": 10
+            }
+          },
+          "new_master_one_view_missing": 0,
+          "new_minus_live_return": {
+            "interval_95": [
+              -0.2953029613275979,
+              -0.027677977069711507
+            ],
+            "interval_reading": "below zero",
+            "value": -0.16261172161172163,
+            "weeks": 22
+          },
+          "offers_by_group": {
+            "both_agree": 218,
+            "left_out": 1910,
+            "market_safe": 29
+          },
+          "overlap_with_live": {
+            "live_picks": 315,
+            "new_picks": 221,
+            "same_fixture": 86
+          },
+          "pooled_offers": 2157,
+          "veto_effect_return": {
+            "interval_95": [
+              -0.037812952382969965,
+              0.005547634305264718
+            ],
+            "interval_reading": "spans zero",
+            "value": -0.014084325716124849,
+            "weeks": 21
+          },
+          "veto_verdict": "no measurable difference",
+          "vetoed_cagey_tier_picks": {
+            "cagey_predicted_no_loss": 0.5829516133698543,
+            "cagey_tier_picks": 627,
+            "fixtures": 534,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.09077348856209151,
+                0.04011875986616933
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.02345295055821371,
+              "weeks": 21
+            },
+            "hit_rate": 0.5566188197767146,
+            "mean_gap_points": -8.623491837277163,
+            "mean_odds": 1.7671132376395535,
+            "observed_minus_cagey": {
+              "interval_95": [
+                -0.02899141735538391,
+                0.04910672597605732
+              ],
+              "interval_reading": "spans zero",
+              "value": 0.0119447183685826,
+              "weeks": 21
+            },
+            "observed_minus_pinnacle": {
+              "interval_95": [
+                -0.03144603757263039,
+                0.04710704375933588
+              ],
+              "interval_reading": "spans zero",
+              "value": 0.009438683224692584,
+              "weeks": 21
+            },
+            "observed_minus_research": {
+              "interval_95": [
+                0.05728704767360841,
+                0.13369311424206715
+              ],
+              "interval_reading": "above zero",
+              "value": 0.09817963674135423,
+              "weeks": 21
+            },
+            "observed_no_loss_rate": 0.594896331738437,
+            "offers": 627,
+            "pinnacle_predicted_no_loss": 0.5854576485137444,
+            "research_predicted_no_loss": 0.49671669499708276,
+            "value_list_picks": 498,
+            "weeks": 21
+          },
+          "without_gap_check": {
+            "fixtures": 294,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.1956019997269997,
+                -0.017187629523354106
+              ],
+              "interval_reading": "below zero",
+              "value": -0.10503401360544219,
+              "weeks": 21
+            },
+            "hit_rate": 0.41836734693877553,
+            "mean_cagey_no_loss": 0.6283955811190776,
+            "mean_odds": 1.8673469387755102,
+            "no_loss_rate": 0.5782312925170068,
+            "picks": 294,
+            "weeks": 21
+          },
+          "without_ignore": {
+            "fixtures": 292,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.19586847028284998,
+                -0.012439366197183154
+              ],
+              "interval_reading": "below zero",
+              "value": -0.10318493150684933,
+              "weeks": 21
+            },
+            "hit_rate": 0.4178082191780822,
+            "mean_cagey_no_loss": 0.6275258431846065,
+            "mean_odds": 1.8716438356164382,
+            "no_loss_rate": 0.5787671232876712,
+            "picks": 292,
+            "weeks": 21
+          },
+          "without_veto": {
+            "fixtures": 239,
+            "flat_stake_return": {
+              "interval_95": [
+                -0.19240599440116846,
+                0.016372746120794753
+              ],
+              "interval_reading": "spans zero",
+              "value": -0.09014644351464436,
+              "weeks": 21
+            },
+            "hit_rate": 0.4686192468619247,
+            "mean_cagey_no_loss": 0.6375944220595088,
+            "mean_odds": 1.8033472803347281,
+            "no_loss_rate": 0.606694560669456,
+            "picks": 239,
+            "weeks": 21
+          }
+        }
+      },
+      "weeks": 22
+    }
+  },
+  "rule": "master-new-paul-rule-v1",
+  "rule_config_sha256": "f92dbfc72bbffd81f94612ad867db5308366a710382a8fe0d47902c304ecdf9f",
+  "scope": "Domestic leagues only (no European prices are cached). Offers: Home win, Away win and the main AH line, both sides, the only prices the files carry (no plus lines, alternate lines or double chance); odds (1.15, 2.00]; cost 0. Research view C or C6 (value list and p_r), cagey view D, Pinnacle margin-free reference = binary margin-free 1X2 for wins and AH +/-0.5, else M (the live master's reference and the missing-evidence fallback). The live master is always built on C's value list, as live. Slate = calendar week, 15-match target. Locked: no holdout match is read. Development is the main evidence, validation secondary, retrospective (synthetic Pinnacle-like prices from Bet365) a diagnostic. Bets by gap check = every pooled offer in that category (up to four per match), observed no-loss = return >= 0.",
+  "source_commit": "3384b56d9866f9309737def181e56e3abec29d9b",
+  "synthetic_pinnacle_margin_bet365_period": {
+    "ah": 0.027548517855280914,
+    "hda": 0.03673010708742928
+  },
+  "version": "evaluation-harness-v2"
+}
