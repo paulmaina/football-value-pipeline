@@ -1,6 +1,6 @@
 {
   "provider": "football-data.co.uk",
-  "checked_at_utc": "2026-11-12T18:36:03.733576+00:00",
+  "checked_at_utc": "2026-11-13T01:04:03.592453+00:00",
   "scope": "8 domestic leagues only (EPL, LaLiga, Bundesliga, SerieA, Ligue1, Eredivisie, PrimeiraLiga, SuperLig); UCL and UEL are not supplied by this provider.",
   "files": [
     {
@@ -1209,7 +1209,7 @@
       "year": 2026,
       "path": ".football_cache/2627_D1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2627/D1.csv",
-      "checked_at_utc": "2026-11-12T18:36:03.733576+00:00",
+      "checked_at_utc": "2026-11-13T01:04:03.592453+00:00",
       "sha256": "85b5ff5199866f452016473e927ff2431c05c7b2ae045b5edd3b7f5bb5847d2a",
       "completed_matches": 81,
       "latest_completed_date": "2026-11-08",
@@ -1230,7 +1230,7 @@
       "added_matches": 0,
       "corrected_scores": 0,
       "download_status": "unchanged",
-      "days_since_latest_match": 4,
+      "days_since_latest_match": 5,
       "note": "A successful download does not establish source completeness."
     },
     {
@@ -1239,7 +1239,7 @@
       "year": 2026,
       "path": ".football_cache/2627_E0.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2627/E0.csv",
-      "checked_at_utc": "2026-11-12T18:36:03.733576+00:00",
+      "checked_at_utc": "2026-11-13T01:04:03.592453+00:00",
       "sha256": "d598a5f681e1a9a4acf9dad9fb203b68da6f67e2d195678dbe99e95fbba14593",
       "completed_matches": 100,
       "latest_completed_date": "2026-11-08",
@@ -1260,7 +1260,7 @@
       "added_matches": 0,
       "corrected_scores": 0,
       "download_status": "unchanged",
-      "days_since_latest_match": 4,
+      "days_since_latest_match": 5,
       "note": "A successful download does not establish source completeness."
     },
     {
@@ -1269,7 +1269,7 @@
       "year": 2026,
       "path": ".football_cache/2627_F1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2627/F1.csv",
-      "checked_at_utc": "2026-11-12T18:36:03.733576+00:00",
+      "checked_at_utc": "2026-11-13T01:04:03.592453+00:00",
       "sha256": "351303e69ffd3e18a25ac6f06463929faa3db6b86abbf2564709f3c5a9f92f31",
       "completed_matches": 90,
       "latest_completed_date": "2026-11-08",
@@ -1290,7 +1290,7 @@
       "added_matches": 0,
       "corrected_scores": 0,
       "download_status": "unchanged",
-      "days_since_latest_match": 4,
+      "days_since_latest_match": 5,
       "note": "A successful download does not establish source completeness."
     },
     {
@@ -1299,7 +1299,7 @@
       "year": 2026,
       "path": ".football_cache/2627_I1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2627/I1.csv",
-      "checked_at_utc": "2026-11-12T18:36:03.733576+00:00",
+      "checked_at_utc": "2026-11-13T01:04:03.592453+00:00",
       "sha256": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0",
       "completed_matches": 110,
       "latest_completed_date": "2026-11-08",
@@ -1320,7 +1320,7 @@
       "added_matches": 0,
       "corrected_scores": 0,
       "download_status": "unchanged",
-      "days_since_latest_match": 4,
+      "days_since_latest_match": 5,
       "note": "A successful download does not establish source completeness."
     },
     {
@@ -1329,7 +1329,7 @@
       "year": 2026,
       "path": ".football_cache/2627_N1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2627/N1.csv",
-      "checked_at_utc": "2026-11-12T18:36:03.733576+00:00",
+      "checked_at_utc": "2026-11-13T01:04:03.592453+00:00",
       "sha256": "46d37b0084ce615220b3a4ba02b5190df724f3664f8f1fa4bf4869d14d2ed184",
       "completed_matches": 108,
       "latest_completed_date": "2026-11-08",
@@ -1350,7 +1350,7 @@
       "added_matches": 0,
       "corrected_scores": 0,
       "download_status": "unchanged",
-      "days_since_latest_match": 4,
+      "days_since_latest_match": 5,
       "note": "A successful download does not establish source completeness."
     },
     {
@@ -1359,7 +1359,7 @@
       "year": 2026,
       "path": ".football_cache/2627_P1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2627/P1.csv",
-      "checked_at_utc": "2026-11-12T18:36:03.733576+00:00",
+      "checked_at_utc": "2026-11-13T01:04:03.592453+00:00",
       "sha256": "e3a2fddeee1f705dbc66c872328ade03b7dc0a8c092b279ac601c62b7d1f13d0",
       "completed_matches": 98,
       "latest_completed_date": "2026-11-08",
@@ -1380,7 +1380,7 @@
       "added_matches": 0,
       "corrected_scores": 0,
       "download_status": "unchanged",
-      "days_since_latest_match": 4,
+      "days_since_latest_match": 5,
       "note": "A successful download does not establish source completeness."
     },
     {
@@ -1389,7 +1389,7 @@
       "year": 2026,
       "path": ".football_cache/2627_SP1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
-      "checked_at_utc": "2026-11-12T18:36:03.733576+00:00",
+      "checked_at_utc": "2026-11-13T01:04:03.592453+00:00",
       "sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828",
       "completed_matches": 119,
       "latest_completed_date": "2026-11-08",
@@ -1410,7 +1410,7 @@
       "added_matches": 0,
       "corrected_scores": 0,
       "download_status": "unchanged",
-      "days_since_latest_match": 4,
+      "days_since_latest_match": 5,
       "note": "A successful download does not establish source completeness."
     },
     {
@@ -1419,7 +1419,7 @@
       "year": 2026,
       "path": ".football_cache/2627_T1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2627/T1.csv",
-      "checked_at_utc": "2026-11-12T18:36:03.733576+00:00",
+      "checked_at_utc": "2026-11-13T01:04:03.592453+00:00",
       "sha256": "86af3b956c49ea86c5e1a58c8ac45237ba0b7bd52e46e5874e9697f09336bf08",
       "completed_matches": 99,
       "latest_completed_date": "2026-11-08",
@@ -1440,7 +1440,7 @@
       "added_matches": 0,
       "corrected_scores": 0,
       "download_status": "unchanged",
-      "days_since_latest_match": 4,
+      "days_since_latest_match": 5,
       "note": "A successful download does not establish source completeness."
     },
     {
