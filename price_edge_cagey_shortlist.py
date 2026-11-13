@@ -227,7 +227,15 @@ TIER_GUARDS = ('kickoff outside 20-minute to 48-hour window', 'kickoff outside 2
                'offered and Pinnacle quotes more than 10 minutes apart', 'offered price above 1.15 x fair odds',
                'offered odds above 3.00')
 TIER_FILE = 'cagey_tier_shortlist.csv'
-TIER_COLUMNS = ['cagey_tier_decision', 'cagey_tier_reasons', 'pinnacle_fair_odds', 'in_value_tier']
+# Reporting only. A cagey row shares its decision row with the value tier, which writes the research model's
+# figures into p_no_loss, predicted_probability and rank_probability (profit_shortlist.annotate). On the cagey
+# list those columns show the cagey tier's own no-loss probability, the figure it ranks by, and
+# probability_basis names its source. The research no-loss figure stays visible as research_p_no_loss.
+# Recorded in the run summary so replays of earlier runs reproduce their files (None = written before this).
+TIER_LABELS_VERSION = 'cagey-own-probabilities-v1'
+TIER_LABELS_VERSIONS = (None, TIER_LABELS_VERSION)
+TIER_OWN_PROBABILITY_COLUMNS = ('p_no_loss', 'predicted_probability', 'rank_probability')
+TIER_COLUMNS =['cagey_tier_decision', 'cagey_tier_reasons', 'pinnacle_fair_odds', 'in_value_tier']
 TIER_OUTPUT_COLUMNS = [*OUTPUT_COLUMNS[:-1], 'corrected_no_loss_probability', *SETTLEMENT_COLUMNS,
                        'corrected_fair_odds', 'uncorrected_matrix_fair_odds', 'corrected_expected_profit',
                        'pinnacle_fair_odds', 'in_value_tier']
@@ -801,8 +809,36 @@ def _apply_narrow_tier(decisions: pd.DataFrame, selected: pd.DataFrame, now: pd.
             'rule_version': TIER_RULE_NARROW}
 
 
-def cagey_tier_list(decisions: pd.DataFrame) -> pd.DataFrame:
-    """The cagey-tier shortlist (separate from the value tier), safest first."""
+def tier_no_loss_column(frame: pd.DataFrame) -> str:
+    """The cagey tier's own no-loss probability: the column `_tier_rank` ranks by."""
+    return 'cagey_no_loss_probability' if 'cagey_no_loss_probability' in frame else 'corrected_no_loss_probability'
+
+
+def label_tier_probabilities(picks: pd.DataFrame) -> pd.DataFrame:
+    """Cagey rows show the cagey tier's own probabilities in the shared probability columns (reporting only).
+
+    Reads only columns already on the rows and writes only the relabelled ones; every cagey decision, rank,
+    settlement probability and stake is computed before this and never reads these columns.
+    """
+    out = picks.copy()
+    research = out.get('profit_probability', pd.Series(index=out.index, dtype=float)).notna()
+    original = out.get('p_no_loss', pd.Series(index=out.index, dtype=float))
+    out['research_p_no_loss'] = pd.to_numeric(original.where(research), errors='coerce')
+    own = pd.to_numeric(out.get(tier_no_loss_column(out), pd.Series(index=out.index, dtype=float)), errors='coerce')
+    for column in TIER_OWN_PROBABILITY_COLUMNS:
+        out[column] = own
+    basis = out.get('cagey_probability_basis', pd.Series(index=out.index, dtype=object))
+    out['probability_basis'] = basis.astype(object).where(basis.notna(), 'corrected_matrix')
+    return out
+
+
+def cagey_tier_list(decisions: pd.DataFrame, labels: Optional[str] = TIER_LABELS_VERSION) -> pd.DataFrame:
+    """The cagey-tier shortlist (separate from the value tier), safest first.
+
+    `labels` is the run's recorded `cagey_tier_labels_version`; None reproduces files written before it.
+    """
+    if labels not in TIER_LABELS_VERSIONS:
+        raise ValueError('Unknown cagey-tier labels version')
     expanded = 'cagey_tier_rule' in decisions and (decisions.empty or decisions.cagey_tier_rule.isin(EXPANDED_RULES).any())
     recorded = decisions.cagey_tier_rule.dropna() if expanded else pd.Series(dtype=str)
     rule = (recorded.iloc[0] if len(recorded) else TIER_RULE_NO_GATE if 'narrow_support_version' in decisions else TIER_RULE_EXPANDED) if expanded else TIER_RULE_NARROW if 'price_flag' in decisions else TIER_RULE_VALUE
@@ -811,6 +847,8 @@ def cagey_tier_list(decisions: pd.DataFrame) -> pd.DataFrame:
     picks = _tier_rank(decisions.loc[decisions.cagey_tier_decision == 'SHORTLISTED'])
     columns = tier_output_columns(rule)
     result = picks.reindex(columns=list(dict.fromkeys([*columns, *picks.columns]))).reset_index(drop=True)
+    if labels is not None:
+        result = label_tier_probabilities(result)
     if expanded:
         from shortlist_schema import harmonize
         result = harmonize(result, 'cagey')
@@ -907,6 +945,8 @@ def _build_shortlist(predictions, as_of, market_reliability, execution_policy, s
                    correction_rule='Derived plus lines (>= +1.0) are priced from the cagey-corrected matrix (c-cagey, '
                                    '3% threshold); Pinnacle-quoted lines keep Pinnacle as the fair price; minus lines '
                                    'are never corrected.')
+    # Reporting only: how cagey_tier_list labels the shared probability columns, so replays reproduce the file.
+    summary['cagey_tier_labels_version'] = TIER_LABELS_VERSION
     if execution_version == EXECUTION_VERSION:
         summary['price_edge_execution_version'] = EXECUTION_VERSION
     if timing_rule(settings) != TIMING_RULE_SKEW:
