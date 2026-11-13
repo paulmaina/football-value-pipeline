@@ -1,0 +1,70 @@
+{
+  "version": "master-reconciliation-shadow-v1",
+  "status": "shadow only: never replaces master_shortlist.csv, never changes a probability, a pick or a stake. Thresholds marked proposed are for Paul's approval.",
+  "file": "master_shortlist_reconciled.csv",
+  "summary_file": "master_shortlist_reconciled_summary.json",
+  "pool": "Every offer either list shortlisted in the run (the value shortlist's and the cagey tier's SHORTLISTED rows, the same union the live master starts from). Both views are scored on every one of these offers at its exact Pinnacle line and price, whichever list picked it.",
+  "execution": {
+    "bookmaker": "Pinnacle",
+    "min_odds_exclusive": 1.15,
+    "max_odds_inclusive": 2.0,
+    "markets": "the live master's native Pinnacle markets (master_selection_pinnacle_markets.allowed): Asian Handicap from spreads/alternate_spreads, Home win, Away win, Double Chance 1X and X2"
+  },
+  "target_fixtures": 15,
+  "one_pick_per_match": true,
+  "research_edge": {
+    "rule": "research expected return after the per-stake cost, at the offered Pinnacle price, is above 0 (profit_shortlist.annotate's profit_expected_return)",
+    "min_expected_return_exclusive": 0.0
+  },
+  "research_loss": {
+    "rule": "research expected return after cost is below 0",
+    "max_expected_return_exclusive": 0.0
+  },
+  "disagreement": {
+    "rule": "flag only, never a reason to bet: |research win share - Pinnacle margin-free win share| >= 0.05. Win share = P(win) / (P(win) + P(loss)) with half results counted half and refunds left out, i.e. 1 / fair odds; for win and double-chance bets it is P(win). Pinnacle's is 1 / fair_odds where the fair reference is Pinnacle's own margin-free price (reference types a and b); otherwise the flag is unavailable (not missing evidence).",
+    "min_abs_gap": 0.05
+  },
+  "market_view": {
+    "status": "proposed, for Paul's approval",
+    "source": "the cagey tier's own figures on the same offer (cagey_market_basis.annotate, rule no-loss-market-reference-v5): cagey_no_loss_probability and cagey_fair_odds",
+    "safe": {
+      "rule": "cagey_no_loss_probability >= 0.75",
+      "min_no_loss": 0.75,
+      "why": "The cagey tier ranks by its no-loss probability and has no floor of its own under v5. 0.75 is the pipeline's existing no-loss floor for its safest rules (shortlist_quote_policy.json, min_adjusted_no_loss_probability). In the tier's odds window (1.15, 2.00] a fairly priced bet with no refund reaches it only at odds of about 1.33 or shorter, so 'safe' means the market expects the bet not to lose at least three times in four."
+    },
+    "risky": {
+      "rule": "cagey_no_loss_probability < 0.50",
+      "max_no_loss_exclusive": 0.5,
+      "why": "Below one half the market expects the bet to lose more often than not. 0.50 is also the no-loss probability of a fairly priced bet at the top of the tier's odds window (2.00)."
+    },
+    "fair": {
+      "rule": "offered odds x (1 + 0.026955) >= cagey_fair_odds: the Pinnacle price is no worse than the cagey fair price carrying Pinnacle's average margin (equivalently, edge against the cagey fair price >= -2.62%)",
+      "pinnacle_average_margin": 0.026955172735899154,
+      "why": "Every Pinnacle price carries a margin, so against a margin-free fair price almost every offer has a slightly negative expected return and the tier's own price_flag ('value' only when expected return >= 0) calls nearly everything 'below fair'. 'Fairly priced' therefore allows Pinnacle's normal margin: 2.70% is Pinnacle's average main-line Asian handicap margin over 9,452 development and validation matches, already frozen in evaluation_harness_config.json (cagey-events-v1, synthetic_ah_margin) by scripts/cagey_events_margins.py. Offers at or above the cagey fair price (the tier's own 'value' flag) are fairly priced too."
+    },
+    "below_fair": {
+      "rule": "not fair: the Pinnacle price is worse than the cagey fair price by more than Pinnacle's average margin"
+    }
+  },
+  "groups": {
+    "order": ["missing_evidence", "both_agree", "research_edge", "market_safe", "conflict", "neither"],
+    "missing_evidence": "either view can't score the offer: the research settlement probabilities are unavailable or invalid, or the research identity is missing or ambiguous (a team unknown to the research model); or the cagey settlement probabilities are unavailable or invalid, or their Pinnacle inputs are not synchronized with the offer. Recorded separately, never counted as disagreement.",
+    "both_agree": "research edge AND market safe or fairly priced. Ranked first.",
+    "research_edge": "research edge AND market below fair (and not safe). A separate section, never in the ranked list.",
+    "market_safe": "no research edge AND market safe. Ranked after Both agree, disagreement shown.",
+    "conflict": "research expects a loss AND market risky. Left out.",
+    "neither": "anything else (no research edge and the market neither safe nor, with a research loss, risky). Left out, recorded."
+  },
+  "ranking": {
+    "status": "proposed, for Paul's approval",
+    "rule": "One pick per match: each match keeps its offer from the best group (Both agree, then Market-safe, then Research edge), ties broken by the cagey no-loss probability, then the cagey expected return, then the research expected return, then odds (then kickoff, league, teams, market for determinism). The ranked list is the first 15 matches whose pick is Both agree, then Market-safe; the Research-edge section lists its matches by research expected return. Missing evidence, Conflict and Neither are recorded, never ranked."
+  },
+  "european": {
+    "leagues": ["UEFA Champions League", "UEFA Europa League"],
+    "label": "unvalidated view",
+    "why": "The research view is overconfident on European fixtures (Phase 2c/2e: CE slopes 0.62-0.83) and the cagey correction was trained on domestic leagues only and is unvalidated on Europe.",
+    "kept_out_of": ["both_agree"],
+    "kept_out_section": "european_unvalidated",
+    "note": "European rows that would be Both agree go to their own section and are never ranked; other European rows keep their group, marked 'unvalidated view'. Paul decides whether to keep more out."
+  }
+}
