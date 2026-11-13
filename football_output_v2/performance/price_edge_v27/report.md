@@ -9,7 +9,7 @@ value: 1120 captured recommendations; 1102 graded; 98 distinct fixtures.
 cagey: 892 captured recommendations; 875 graded; 81 distinct fixtures.
 Actual placed bets: NOT_RECORDED
 
-Reviewed 2026-11-13T15:39:15.427285+00:00. Frozen v27 picks: 311.
+Reviewed 2026-11-13T18:58:21.025818+00:00. Frozen v27 picks: 311.
 
 **Mean CLV vs Pinnacle close:** -2.36% ± 1.18% (n=49). **Flat-stake profit per bet:** +3.67% ± 7.46% (n=307).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -114,7 +114,7 @@ Frozen picks: 61; CLV +0.17% ± 4.50% (n=10); realised profit per bet +0.90% ± 
 | negative market EV nomination | -4.62% ± 2.61% (n=2) | +13.07% ± 11.15% (n=30) |
 | value | +3.28% ± 8.33% (n=4) | +6.67% ± 39.87% (n=12) |
 
-## New master (shadow, Paul's master rule) beside the live master
+## New master (shadow, revised master rule) beside the live master
 
 Frozen picks: 0; CLV n/a (0); realised profit per bet n/a (0). Live master: 61 frozen picks, realised profit per bet +0.90% ± 16.86% (n=61).
 
@@ -126,7 +126,7 @@ Comparison rule (decided 13 Nov 2026, before any live result of the new master):
 | live master | 61 | 1 | +0.90% | 67.2% | 1.57 |
 
 **Status:** waiting for at least 150 graded matches over at least 3 weeks on each list (not yet comparable).
-Context, new master offers (newest pre-kickoff generation per fixture): 0 offers on 0 fixtures; vetoed 0, ignored 0, one view missing 0 (kept by the Pinnacle check 0), no view 0.
+Context, new master offers (newest pre-kickoff generation per fixture): 0 offers on 0 fixtures; included (cagey safe) 0; labels: both agree 0, research too optimistic 0, research strongly disagrees 0, one view missing 0, no research check 0, unvalidated view 0; no view 0.
 
 ## Both tiers (value and cagey)
 
