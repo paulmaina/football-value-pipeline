@@ -1,70 +1,83 @@
 {
-  "version": "master-reconciliation-shadow-v1",
-  "status": "shadow only: never replaces master_shortlist.csv, never changes a probability, a pick or a stake. Thresholds marked proposed are for Paul's approval.",
-  "file": "master_shortlist_reconciled.csv",
-  "summary_file": "master_shortlist_reconciled_summary.json",
-  "pool": "Every offer either list shortlisted in the run (the value shortlist's and the cagey tier's SHORTLISTED rows, the same union the live master starts from). Both views are scored on every one of these offers at its exact Pinnacle line and price, whichever list picked it.",
+  "version": "master-new-paul-rule-v1",
+  "decided": "Paul's master rule, decided 13 Nov 2026 (market thresholds approved by Paul the same day). Written here and in docs/plan.md (Phase 4) before anything ran. Replaces rule master-reconciliation-shadow-v1 (PR #170) and its master_shortlist_reconciled.csv.",
+  "status": "shadow only: never replaces master_shortlist.csv, never changes a probability, a pick or a stake.",
+  "file": "master_shortlist_new.csv",
+  "summary_file": "master_shortlist_new_summary.json",
+  "lists": "Exactly two master lists: the live master (master_shortlist.csv, unchanged) and the new master (master_shortlist_new.csv, shadow).",
+  "pool": "Who nominates: both lists. Every offer the value shortlist or the cagey tier shortlisted in the run is a candidate (the same union the live master starts from). Both views are scored on every one of these offers at its exact Pinnacle line and price, whichever list nominated it.",
   "execution": {
     "bookmaker": "Pinnacle",
     "min_odds_exclusive": 1.15,
     "max_odds_inclusive": 2.0,
-    "markets": "the live master's native Pinnacle markets (master_selection_pinnacle_markets.allowed): Asian Handicap from spreads/alternate_spreads, Home win, Away win, Double Chance 1X and X2"
+    "markets": "the live master's native Pinnacle markets (master_selection_pinnacle_markets.allowed): Asian Handicap from spreads/alternate_spreads, Home win, Away win, Double Chance 1X and X2. Pinnacle prices only."
   },
   "target_fixtures": 15,
   "one_pick_per_match": true,
+  "probability": {
+    "rule": "Each view's probability that the bet does not lose on this exact offer: P(win) + P(half win) + P(push) from its settlement distribution (for bets with no push, P(win)). p_r = research (value shortlist's research_p_*), p_c = cagey tier's corrected probability (cagey_p_*), p_pin = Pinnacle's margin-free no-loss probability on the same bet (pinnacle_no_loss_probability: the uncorrected Pinnacle fit; on half lines the margin-free win share). Pinnacle's per-stake cost is 0 (shortlist_quote_policy.json), so p_c equals cagey_no_loss_probability."
+  },
+  "gap": {
+    "rule": "g = 100 x (p_r - p_c), in percentage points.",
+    "too_optimistic_min_points": 4.0,
+    "too_optimistic": "g >= +4.0: the research view is ignored for this bet and the bet is left out ('ignored').",
+    "too_pessimistic_max_points": -4.0,
+    "too_pessimistic": "g <= -4.0: the bet is left out, even if the cagey tier picked it ('vetoed').",
+    "kept": "|g| < 4.0: the bet goes on to the groups.",
+    "replaces": "For this list the plan's earlier 5-point disagreement flag (research win share against Pinnacle's margin-free price) is replaced by this 4-point gap against the cagey tier."
+  },
   "research_edge": {
-    "rule": "research expected return after the per-stake cost, at the offered Pinnacle price, is above 0 (profit_shortlist.annotate's profit_expected_return)",
+    "rule": "the research view sees an edge: its expected return after the per-stake cost, at the offered Pinnacle price, is above 0 (profit_shortlist.annotate's profit_expected_return).",
     "min_expected_return_exclusive": 0.0
   },
-  "research_loss": {
-    "rule": "research expected return after cost is below 0",
-    "max_expected_return_exclusive": 0.0
-  },
-  "disagreement": {
-    "rule": "flag only, never a reason to bet: |research win share - Pinnacle margin-free win share| >= 0.05. Win share = P(win) / (P(win) + P(loss)) with half results counted half and refunds left out, i.e. 1 / fair odds; for win and double-chance bets it is P(win). Pinnacle's is 1 / fair_odds where the fair reference is Pinnacle's own margin-free price (reference types a and b); otherwise the flag is unavailable (not missing evidence).",
-    "min_abs_gap": 0.05
-  },
   "market_view": {
-    "status": "proposed, for Paul's approval",
-    "source": "the cagey tier's own figures on the same offer (cagey_market_basis.annotate, rule no-loss-market-reference-v5): cagey_no_loss_probability and cagey_fair_odds",
+    "status": "approved by Paul on 13 Nov 2026",
+    "source": "the cagey tier's own figures on the same offer (cagey_market_basis.annotate, rule no-loss-market-reference-v5)",
     "safe": {
-      "rule": "cagey_no_loss_probability >= 0.75",
-      "min_no_loss": 0.75,
-      "why": "The cagey tier ranks by its no-loss probability and has no floor of its own under v5. 0.75 is the pipeline's existing no-loss floor for its safest rules (shortlist_quote_policy.json, min_adjusted_no_loss_probability). In the tier's odds window (1.15, 2.00] a fairly priced bet with no refund reaches it only at odds of about 1.33 or shorter, so 'safe' means the market expects the bet not to lose at least three times in four."
+      "rule": "cagey no-loss chance >= 0.75",
+      "min_no_loss": 0.75
     },
     "risky": {
-      "rule": "cagey_no_loss_probability < 0.50",
-      "max_no_loss_exclusive": 0.5,
-      "why": "Below one half the market expects the bet to lose more often than not. 0.50 is also the no-loss probability of a fairly priced bet at the top of the tier's odds window (2.00)."
+      "rule": "cagey no-loss chance below 0.50",
+      "max_no_loss_exclusive": 0.5
     },
     "fair": {
-      "rule": "offered odds x (1 + 0.026955) >= cagey_fair_odds: the Pinnacle price is no worse than the cagey fair price carrying Pinnacle's average margin (equivalently, edge against the cagey fair price >= -2.62%)",
-      "pinnacle_average_margin": 0.026955172735899154,
-      "why": "Every Pinnacle price carries a margin, so against a margin-free fair price almost every offer has a slightly negative expected return and the tier's own price_flag ('value' only when expected return >= 0) calls nearly everything 'below fair'. 'Fairly priced' therefore allows Pinnacle's normal margin: 2.70% is Pinnacle's average main-line Asian handicap margin over 9,452 development and validation matches, already frozen in evaluation_harness_config.json (cagey-events-v1, synthetic_ah_margin) by scripts/cagey_events_margins.py. Offers at or above the cagey fair price (the tier's own 'value' flag) are fairly priced too."
-    },
-    "below_fair": {
-      "rule": "not fair: the Pinnacle price is worse than the cagey fair price by more than Pinnacle's average margin"
+      "rule": "the Pinnacle price is within Pinnacle's average 2.70% margin of the cagey fair price: offered odds x (1 + 0.026955) >= cagey fair odds (cagey fair odds = 1 + P(loss) / P(win), half results counted half)",
+      "pinnacle_average_margin": 0.026955172735899154
     }
   },
   "groups": {
-    "order": ["missing_evidence", "both_agree", "research_edge", "market_safe", "conflict", "neither"],
-    "missing_evidence": "either view can't score the offer: the research settlement probabilities are unavailable or invalid (a team or goal rates unknown to the research model); or the cagey settlement probabilities are unavailable or invalid, or their Pinnacle inputs are not synchronized with the offer. Recorded separately, never counted as disagreement. A missing ESPN fixture match ('free-source fixture identity missing or ambiguous') is not missing evidence: the research model still scores the offer from its goal rates and training-history form (corrected 13 Nov 2026 after the first integration replay, before any backtest; no result read).",
-    "both_agree": "research edge AND market safe or fairly priced. Ranked first.",
-    "research_edge": "research edge AND market below fair (and not safe). A separate section, never in the ranked list.",
-    "market_safe": "no research edge AND market safe. Ranked after Both agree, disagreement shown.",
-    "conflict": "research expects a loss AND market risky. Left out.",
-    "neither": "anything else (no research edge and the market neither safe nor, with a research loss, risky). Left out, recorded."
+    "order": ["both_agree", "market_safe", "left_out"],
+    "both_agree": "Ranked first: |g| < 4.0, the research view sees an edge, and the cagey tier rates the bet safe or fair (and not risky).",
+    "market_safe": "Ranked second: |g| < 4.0, the cagey tier rates the bet safe, no research edge. A safe bet stays in even if the cagey tier rates its price below fair.",
+    "left_out": "Everything else: ignored (g >= +4.0), vetoed (g <= -4.0), risky (cagey no-loss below 0.50, whatever the research says), and bets that are neither safe nor (with a research edge) fair. No separate research-edge section."
   },
-  "ranking": {
-    "status": "proposed, for Paul's approval",
-    "rule": "One pick per match: each match keeps its offer from the best group (Both agree, then Market-safe, then Research edge), ties broken by the cagey no-loss probability, then the cagey expected return, then the research expected return, then odds (then kickoff, league, teams, market for determinism). The ranked list is the first 15 matches whose pick is Both agree, then Market-safe; the Research-edge section lists its matches by research expected return. Missing evidence, Conflict and Neither are recorded, never ranked."
+  "missing_evidence": {
+    "rule": "If one view can't score the offer, the view that exists is compared with Pinnacle's margin-free no-loss probability for the same bet (p_pin) and the same 4.0-point rule applies in both directions: 4.0 or more points apart, the bet is left out. If it passes, the bet stays in the group the rest of the rule gives it, flagged 'one view missing', and counted.",
+    "no_cagey_score": "The market view (safe, risky, fair) comes from Pinnacle's price: safe = p_pin >= 0.75, risky = p_pin < 0.50, fair = offered odds x 1.026955 >= Pinnacle's margin-free fair odds. Without a cagey score a bet can't be Both agree, so a value pick enters Market-safe only if Pinnacle rates it safe; one that is only fair by Pinnacle's price is left out.",
+    "no_research_score": "No research edge, so the bet can only be Market-safe (cagey safe), after its cagey probability passes the 4.0-point check against p_pin.",
+    "no_pinnacle_reference": "One view missing and no Pinnacle margin-free no-loss probability: the check can't be made, the bet is left out.",
+    "both_missing": "Neither view scores the offer: left out.",
+    "when_missing": "research: research settlement probabilities unavailable or invalid (team or goal rates unknown to the research model). cagey: cagey settlement probabilities unavailable or invalid, or its Pinnacle inputs not synchronized with the offer. A missing ESPN fixture match is not missing evidence: the research model still scores the offer."
   },
   "european": {
     "leagues": ["UEFA Champions League", "UEFA Europa League"],
     "label": "unvalidated view",
-    "why": "The research view is overconfident on European fixtures (Phase 2c/2e: CE slopes 0.62-0.83) and the cagey correction was trained on domestic leagues only and is unvalidated on Europe.",
-    "kept_out_of": ["both_agree"],
-    "kept_out_section": "european_unvalidated",
-    "note": "European rows that would be Both agree go to their own section and are never ranked; other European rows keep their group, marked 'unvalidated view'. Paul decides whether to keep more out."
+    "rule": "European fixtures are flagged 'unvalidated view' and can't be Both agree; they may enter Market-safe, flagged. The gap rule applies to them as to every offer."
+  },
+  "ranking": {
+    "rule": "One pick per match: each match keeps its offer from its best group (Both agree, then Market-safe), then the highest cagey no-loss chance (Pinnacle's no-loss chance where the cagey score is missing). The list is the first 15 matches, Both agree first, then Market-safe, each by that no-loss chance. Remaining ties (deterministic only): higher odds, then kickoff, league, home team, away team, market, side, line."
+  },
+  "live_comparison": {
+    "decided": "13 Nov 2026, before any live result of the new master",
+    "rule": "After at least 150 graded matches over at least 3 calendar weeks (on each list), compare flat-stake return per bet at Pinnacle prices: new master minus live master, whole kickoff weeks resampled (the same weeks for both lists), 95% interval. Hit rate, average price, vetoed, ignored and missing-view counts are context only. The new master is better only if the interval is entirely above zero.",
+    "min_graded_matches": 150,
+    "min_weeks": 3,
+    "bootstrap_samples": 2000,
+    "seed": 136,
+    "grading": "Same as the live master: archived pre-kickoff snapshots only (lead_checked), Pinnacle prices, the newest pre-kickoff generation's pick per fixture, one row per verified result."
+  },
+  "offline_check": {
+    "rule": "Locked backtest (evaluation_harness.py --mode master), development (main evidence) and validation, retrospective as a diagnostic, run twice: research view C, then C6 (C6 offline only; live uses C). Cagey view D; Pinnacle reference M (binary margin-free 1X2 for wins and AH +/-0.5). Vetoed, ignored and kept bets: observed no-loss (or win) rate against the cagey tier's predicted rate, and flat-stake return. The veto's effect: new master minus the same rule with the gap check switched off, paired by week. The new master against the live master logic. Whole weeks resampled, 95% intervals. Offers: wins and the main AH line only (no plus lines, alternate lines or double chance in the files)."
   }
 }
