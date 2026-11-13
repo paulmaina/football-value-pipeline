@@ -47,7 +47,7 @@ def means(scores, candidates=('CE',) + CANDIDATES):
 def calibration(forecasts, cfg, candidates=('CE',) + CANDIDATES, baseline='CE'):
     import evaluation_harness as eh
     rule = cfg['calibration_tolerance']
-    further = {n: r for n, r in eh.calibration_rules(cfg).items() if n != rule['name']}
+    further = {n: r for n, r in eh.calibration_rules(cfg).items() if n != rule['name'] and eh.is_1x2_rule(r)}
 
     def rows_of(cand):
         return [{'probs': [r.p_home, r.p_draw, r.p_away], 'outcome': int(r.outcome), 'fixture_key': r.fixture_key}

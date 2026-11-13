@@ -1,0 +1,19 @@
+{
+  "candidate": "D",
+  "baseline": "M",
+  "market_reference": "M",
+  "holdout": "Domestic holdout: Eredivisie, Primeira Liga and Super Lig, 16 Jan - 10 Oct 2026 (646 matches, 25 weeks), Bet365 pre-match prices with the margin removed; evaluation_harness.py --declaration, recorded in evaluation/holdout_ledger.json",
+  "deciding_criterion": "calibration",
+  "calibration_tolerance": "cagey-events-v1",
+  "primary_metric": "AH all",
+  "draw_sensitive_lines": [-0.5, 0.0, 0.5],
+  "reported_not_deciding": ["AH all", "AH draw-sensitive"],
+  "sample_minimum": {"fixtures": 300, "weeks": 6, "source": "benchmark_promotion_rules.json, promotion_review_gates (the domestic release gate)"},
+  "pass_rule": "D passes only if the sample minimum is met (300 fixtures and 6 weeks, counted on the holdout fixtures where D and M are both scored on AH lines) and D's holdout forecasts pass calibration rule cagey-events-v1 against M on the same events: both event families, (a) P(|margin| <= 1) and (b) P(no loss) on the AH lines the cagey tier can bet (-3.00 to +3.00, odds window (1.15, 2.00], one side per fixture by D's expected return, one event per floor(line) family), each with its slope in 0.90-1.10 or closer to 1 than M's, and no band of at least 30 events more than 5 points off AND Bonferroni-clear (holdout_verdict.passes_holdout_gate). M minus D log loss on AH all lines and on the draw-sensitive lines (-0.5, 0, +0.5), whole weeks resampled with 95% intervals, is reported as context and does not decide.",
+  "question": "Phase 3: is the cagey tier (D: the market fit plus the narrow-margin correction) a well-calibrated market view of the events it bets, at least as well calibrated as the plain market fit (M)? Not whether it beats M on log loss: on development, validation and the retrospective the AH all-lines difference is +0.0003 to +0.0004, far below the holdout's resolution.",
+  "outcome_rule": "Passed: Phase 3 is done and the cagey tier stays as it is. Failed: report which family failed and how; no logic changes; a fix would be a separate decision.",
+  "setup": "Calibration rule cagey-events-v1 decided by Paul on 12 Nov 2026; its line set, synthetic prices (M's fair odds plus the bookmaker's average AH margin, frozen in the config) and side choice settled with him on 13 Nov 2026. All before any scoring of D or M on the holdout (the ledger holds only C6). D and M as in production and PR #166 (correction model cagey-correction-through-2425-v1); nothing tuned on the holdout.",
+  "declared_by": "Paul (decision, 12 Nov 2026), written by Claude Code",
+  "declared_at": "2026-11-12T21:48:44Z",
+  "notes": "Scored once. No rerun, no change to the setup after it, and no other candidate scored on the holdout. Production code is unchanged either way."
+}
