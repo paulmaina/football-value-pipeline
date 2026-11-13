@@ -2114,16 +2114,15 @@ def european_main(args, cfg, commit):
 
 
 # ---------------------------------------------------------------------------
-# Phase 4: the new master (Paul's master rule) backtest (--mode master; locked, development to retrospective)
+# Phase 4: the new master (revised master rule) backtest (--mode master; locked, development to retrospective)
 # ---------------------------------------------------------------------------
 
 MASTER_PERIODS = ('development', 'validation', 'retrospective')
 MASTER_CANDIDATES = ('C', 'D', 'M')  # research model, cagey tier, uncorrected market fit (Pinnacle reference)
 MASTER_RESEARCH = ('C', 'C6')  # the research views the backtest runs with (C6 offline only; live uses C)
-# The same rule with halves of the 4-point check switched off: what the veto and the ignore rule do to the list.
-MASTER_VARIANTS = {'no_veto': {'veto': False}, 'no_ignore': {'ignore': False},
-                   'no_gap': {'veto': False, 'ignore': False}}
-MASTER_GAP_CATEGORIES = ('vetoed', 'ignored', 'kept', 'one_view_missing_kept', 'one_view_missing_apart')
+# Gap categories reported (context: since the revised rule, the gap never removes a bet).
+MASTER_GAP_CATEGORIES = ('agree', 'research_too_optimistic', 'research_more_pessimistic', 'no_research_check')
+MASTER_PREVIOUS = 'v1'  # column prefix of PR #171's rule (master_rule_v1, frozen), the offline comparison
 
 
 def master_inputs(identity, matrices, prices, row) -> dict:
@@ -2197,9 +2196,11 @@ def _mass(distribution, side, line):
 def master_fixture(fixture, rcfg, synthetic=None, research='C') -> list:
     """One match on the same offers: the value list (research view `research`), the cagey list (D), their union
     pool with the live master's inputs (reference: margin-free 1X2 for wins and AH +/-0.5, else M), and every
-    pooled offer classified by the new master's rule, with the veto and ignore halves switched off as well.
-    Pinnacle's margin-free reference for the missing-evidence check is the same M/1X2 reference."""
+    pooled offer classified by the new master's rule and, for comparison, by PR #171's rule (master_rule_v1).
+    Pinnacle's margin-free reference for the missing-evidence fallback is the same M/1X2 reference."""
     import master_reconciliation as mr
+    import master_rule_v1
+    previous = master_rule_v1.config(rcfg)
     from ah_close_backtest import settle
     lo, hi = rcfg['execution']['min_odds_exclusive'], rcfg['execution']['max_odds_inclusive']
     offers = []
@@ -2247,23 +2248,23 @@ def master_fixture(fixture, rcfg, synthetic=None, research='C') -> list:
                    live_eligible=o['price'] <= 1.15 * o['m']['fair_odds'])
         arguments = (o['research'], o['cagey'], o['price'], 0., o['m']['no_loss'], o['m']['fair_odds'])
         row.update(mr.classify(*arguments, european=False, config=rcfg))
-        for name, switches in MASTER_VARIANTS.items():
-            row[f'{name}_group'] = mr.classify(*arguments, european=False, config=rcfg, **switches)['new_master_group']
+        old = master_rule_v1.classify(*arguments, european=False, config=previous)
+        row.update({f'{MASTER_PREVIOUS}_group': old['new_master_group'], f'{MASTER_PREVIOUS}_gap_check': old['gap_check']})
         rows.append(row)
     return rows
 
 
 def master_select_week(rows, rcfg) -> list:
     """Per gameweek: the live master (v9: union pool, market profit probability then market EV, no-loss,
-    odds; one per match; first 15), the new master (master_reconciliation.select, 15-match target) and the same
-    selection for each variant with part of the 4-point check switched off."""
+    odds; one per match; first 15), the new master (master_reconciliation.select, 15-match target) and PR #171's
+    rule (master_rule_v1.select, the same target)."""
     import master_reconciliation as mr
+    import master_rule_v1
     target = int(rcfg['target_fixtures'])
     for row in rows:
         row['_match'] = row['fixture_key']
     mr.select(rows, target)
-    for name in MASTER_VARIANTS:
-        mr.select(rows, target, prefix=name)
+    master_rule_v1.select(rows, target, prefix=MASTER_PREVIOUS)
     live = sorted((r for r in rows if r['live_eligible']),
                   key=lambda r: (-r['market_profit_probability'], -r['market_expected_return'],
                                  -r['market_no_loss_probability'], -r['offered_decimal_odds'], r['kickoff_utc'],
@@ -2377,92 +2378,115 @@ def master_category_stats(rows) -> dict:
             'hit_rate': float((rows['return'] > 1e-12).mean()), 'flat_stake_return': _week_ratio(rows)}
 
 
-def _verdict(effect) -> str:
-    if not effect or effect['interval_reading'] is None:
+def _reading(difference, better='new better', worse='new worse') -> str:
+    if not difference or difference['interval_reading'] is None:
         return 'not measurable'
-    return {'above zero': 'helps', 'below zero': 'hurts', 'spans zero': 'no measurable difference'}[
-        effect['interval_reading']]
+    return {'above zero': better, 'below zero': worse, 'spans zero': 'no measurable difference'}[
+        difference['interval_reading']]
+
+
+def master_flag_stats(frame, weeks) -> dict:
+    """Bets the inspection flag fires on: how many (per week of the period), and their observed no-loss rate
+    against the cagey tier's (and the research view's) predicted rate, whole weeks resampled."""
+    stats = master_category_stats(frame)
+    stats.update(weeks_in_period=int(weeks), weeks_with_flag=int(frame.week.nunique()) if len(frame) else 0,
+                 per_week=float(len(frame) / weeks) if weeks else None)
+    return stats
 
 
 def master_summary(frames, synthetic, fixtures, cfg) -> dict:
-    """Per period: the live master (C's value list, as live), the new master with each research view, what the
-    veto and the ignore rule do to it, how vetoed, ignored and kept bets did against the cagey tier's prediction,
-    and C6 against C."""
+    """Per period: the live master (C's value list, as live), the new master with each research view, PR #171's
+    rule on the same offers, the gap categories against the cagey tier's prediction, the inspection flag, and C6
+    against C."""
     import master_reconciliation as mr
     rcfg = mr.load_config()
+    previous = f'{MASTER_PREVIOUS}_decision'
     periods = {}
     for period in MASTER_PERIODS:
         base = frames['C'].loc[frames['C'].phase == period]
         if base.empty:
             continue
+        weeks = int(base.week.nunique())
         live = base.loc[base.live_master_rank.notna()]
         lists, views = {}, {}
         for name, frame in frames.items():
             part = frame.loc[frame.phase == period]
             new = part.loc[part.new_master_decision.eq('SHORTLISTED')]
-            variants = {v: part.loc[part[f'{v}_decision'].eq('SHORTLISTED')] for v in MASTER_VARIANTS}
-            lists[name] = {'new': new, **variants, 'offers': part}
-            effects = {v: _difference(new, variants[v]) for v in MASTER_VARIANTS}
+            old = part.loc[part[previous].eq('SHORTLISTED')]
+            lists[name] = {'new': new, 'old': old, 'offers': part}
+            flag = lambda f: f.loc[f.inspection_flag.eq(True)]
+            versus_live, versus_old = _difference(new, live), _difference(new, old)
+            same = lambda a, b: int(len(set(zip(a.week, a.fixture_key)) & set(zip(b.week, b.fixture_key))))
             views[name] = {
                 'pooled_offers': int(len(part)),
-                'gap_checks': {k: int(part.gap_check.eq(k).sum()) for k in mr.GAP_CHECKS},
                 'offers_by_group': {g: int(part.new_master_group.eq(g).sum()) for g in mr.GROUPS},
+                'gap_checks': {k: int(part.gap_check.eq(k).sum()) for k in mr.GAP_CHECKS},
                 'left_out_by_reason': {k: int(part.left_out_reason.eq(k).sum()) for k in mr.LEFT_OUT_REASONS},
+                'labels_offers': {t: int(part[c].eq(True).sum()) for c, t in mr.LABELS},
                 'bets_by_gap_check': {k: master_category_stats(part.loc[part.gap_check.eq(k)])
                                       for k in MASTER_GAP_CATEGORIES},
-                'vetoed_cagey_tier_picks': master_category_stats(
-                    part.loc[part.gap_check.eq('vetoed') & part.in_cagey_tier]),
+                'included_offers': master_category_stats(part.loc[part.new_master_group.eq('included')]),
                 'new_master': master_list_stats(new),
-                'new_master_by_group': {g: master_list_stats(new.loc[new.new_master_group.eq(g)]) for g in mr.RANKED},
-                'new_master_one_view_missing': int(new.one_view_missing.eq(True).sum()),
-                'without_veto': master_list_stats(variants['no_veto']),
-                'without_ignore': master_list_stats(variants['no_ignore']),
-                'without_gap_check': master_list_stats(variants['no_gap']),
-                'new_minus_live_return': _difference(new, live),
-                'veto_effect_return': effects['no_veto'],
-                'ignore_effect_return': effects['no_ignore'],
-                'gap_check_effect_return': effects['no_gap'],
-                'veto_verdict': _verdict(effects['no_veto']),
-                'ignore_verdict': _verdict(effects['no_ignore']),
-                'gap_check_verdict': _verdict(effects['no_gap']),
-                'overlap_with_live': {'live_picks': int(len(live)), 'new_picks': int(len(new)),
-                                      'same_fixture': int(len(set(zip(live.week, live.fixture_key))
-                                                              & set(zip(new.week, new.fixture_key))))}}
+                'labels_on_list': {t: int(new[c].eq(True).sum()) for c, t in mr.LABELS},
+                'new_master_both_agree': master_list_stats(new.loc[new.both_agree.eq(True)]),
+                'new_master_without_both_agree': master_list_stats(new.loc[~new.both_agree.eq(True)]),
+                'previous_rule': master_list_stats(old),
+                'new_minus_live_return': versus_live,
+                'new_minus_live_reading': _reading(versus_live),
+                'new_minus_previous_rule_return': versus_old,
+                'new_minus_previous_rule_reading': _reading(versus_old),
+                'inspection_flag': {
+                    'offers': master_flag_stats(flag(part), weeks),
+                    'on_list': master_flag_stats(flag(new), weeks),
+                    'included_offers_not_flagged': master_category_stats(
+                        part.loc[part.new_master_group.eq('included') & ~part.inspection_flag.eq(True)]),
+                    'list_picks_not_flagged': master_category_stats(new.loc[~new.inspection_flag.eq(True)]),
+                    # Diagnostics, not part of the decided report: offline the cagey no-loss chance never reaches
+                    # the flag's 0.85 (wins and main AH lines only, odds above 1.15), so these show what the
+                    # flag's gap condition (g <= -8) has meant without the 0.85 condition.
+                    'diagnostic_gap_condition_any_cagey': master_category_stats(
+                        part.loc[pd.to_numeric(part.gap_points, errors='coerce') - 1e-9
+                                 <= rcfg['inspection_flag']['max_gap_points']]),
+                    'diagnostic_gap_condition_included': master_category_stats(
+                        part.loc[part.new_master_group.eq('included')
+                                 & (pd.to_numeric(part.gap_points, errors='coerce') - 1e-9
+                                    <= rcfg['inspection_flag']['max_gap_points'])]),
+                    'offers_reaching_cagey_0_85': int((pd.to_numeric(part.cagey_no_loss_probability, errors='coerce')
+                                                       + 1e-9 >= rcfg['inspection_flag']['min_cagey_no_loss']).sum()),
+                    'max_cagey_no_loss': float(pd.to_numeric(part.cagey_no_loss_probability, errors='coerce').max())},
+                'overlap': {'live_picks': int(len(live)), 'new_picks': int(len(new)), 'previous_rule_picks': int(len(old)),
+                            'same_fixture_as_live': same(new, live), 'same_fixture_as_previous_rule': same(new, old)}}
         compare = {}
         if {'C', 'C6'} <= set(lists):
             c, c6 = lists['C'], lists['C6']
-            vetoed = lambda f: f.assign(_vs_cagey=f.observed_no_loss - pd.to_numeric(
-                f.cagey_no_loss_probability, errors='coerce')).loc[f.gap_check.eq('vetoed')]
             compare = {
                 'new_master_return_C6_minus_C': _difference(c6['new'], c['new']),
-                'veto_effect_C6_minus_C': _resampled(
-                    {'a': c6['new'], 'b': c6['no_veto'], 'c': c['new'], 'd': c['no_veto']},
-                    lambda m: (m['a'] - m['b']) - (m['c'] - m['d'])),
-                'gap_check_effect_C6_minus_C': _resampled(
-                    {'a': c6['new'], 'b': c6['no_gap'], 'c': c['new'], 'd': c['no_gap']},
-                    lambda m: (m['a'] - m['b']) - (m['c'] - m['d'])),
-                'vetoed_observed_minus_cagey_C6_minus_C': _difference(vetoed(c6['offers']), vetoed(c['offers']),
-                                                                      '_vs_cagey'),
-                'reading': 'veto/gap-check effect C6 minus C above zero = C6 makes the better veto; vetoed observed '
-                           'minus cagey, C6 minus C, below zero = C6\'s vetoed bets did worse against the cagey '
-                           'prediction than C\'s (a sharper veto)'}
+                'same_new_master_picks': int(len(set(zip(c['new'].week, c['new'].fixture_key, c['new'].market))
+                                                 & set(zip(c6['new'].week, c6['new'].fixture_key, c6['new'].market)))),
+                'inspection_flag_offers': {'C': int(c['offers'].inspection_flag.eq(True).sum()),
+                                           'C6': int(c6['offers'].inspection_flag.eq(True).sum())},
+                'reading': 'Inclusion and ranking read the cagey tier only, so C and C6 differ only through the '
+                           'value list\'s nominations (the pool) and the labels and flags.'}
         periods[period] = {
-            'fixtures': int(base.fixture_key.nunique()), 'weeks': int(base.week.nunique()),
+            'fixtures': int(base.fixture_key.nunique()), 'weeks': weeks,
             'market_book': sorted(base.market_book.unique()), 'live_master': master_list_stats(live),
             'research_views': views, 'C6_vs_C': compare}
     return {'version': VERSION, 'mode': 'master_new_rule_backtest', 'rule': rcfg['version'],
+            'previous_rule': rcfg['previous_rule']['version'],
             'rule_config_sha256': hashlib.sha256(json.dumps(rcfg, sort_keys=True).encode()).hexdigest(),
             'config_sha256': hashlib.sha256(json.dumps(cfg, sort_keys=True).encode()).hexdigest(),
             'fixtures': fixtures, 'synthetic_pinnacle_margin_bet365_period': synthetic,
             'scope': 'Domestic leagues only (no European prices are cached). Offers: Home win, Away win and the main '
                      'AH line, both sides, the only prices the files carry (no plus lines, alternate lines or double '
-                     'chance); odds (1.15, 2.00]; cost 0. Research view C or C6 (value list and p_r), cagey view D, '
-                     'Pinnacle margin-free reference = binary margin-free 1X2 for wins and AH +/-0.5, else M (the '
-                     'live master\'s reference and the missing-evidence fallback). The live master is always built '
-                     'on C\'s value list, as live. Slate = calendar week, 15-match target. Locked: no holdout match is '
-                     'read. Development is the main evidence, validation secondary, retrospective (synthetic '
-                     'Pinnacle-like prices from Bet365) a diagnostic. Bets by gap check = every pooled offer in that '
-                     'category (up to four per match), observed no-loss = return >= 0.',
+                     'chance), so cagey-safe bets (no-loss >= 0.75) are rare and short-priced; odds (1.15, 2.00]; '
+                     'cost 0. Research view C or C6 (value list, p_r, labels and the flag), cagey view D, Pinnacle '
+                     'margin-free reference = binary margin-free 1X2 for wins and AH +/-0.5, else M (the live '
+                     'master\'s reference and the missing-evidence fallback). The live master is always built on C\'s '
+                     'value list, as live; the previous rule is PR #171\'s (master_rule_v1) on the same offers. Slate = '
+                     'calendar week, 15-match target. Locked: no holdout match is read. Development deciding, '
+                     'validation a check, retrospective (synthetic Pinnacle-like prices from Bet365) a diagnostic. '
+                     'Bets by gap check and flagged offers = every pooled offer in that category (up to four per '
+                     'match); observed no-loss = return >= 0.',
             'periods': periods}
 
 

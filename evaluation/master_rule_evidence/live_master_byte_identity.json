@@ -1,0 +1,16 @@
+{
+  "runs_main": 29,
+  "runs_branch": 29,
+  "same_runs": true,
+  "differences": [],
+  "compared_files": 87,
+  "runs_with_master": 29,
+  "byte_identical": true,
+  "main_commit": "f9af693e32a59881f68a1541efa13a06c8ec067a",
+  "branch_commit": "968d05a45 (replayed code; 0d0c06b only changed the harness)",
+  "files": [
+    "master_shortlist.csv",
+    "master_shortlist_audit.csv",
+    "master_summary.json"
+  ]
+}

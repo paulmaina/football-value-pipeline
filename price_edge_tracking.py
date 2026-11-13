@@ -172,17 +172,20 @@ def frozen_master_picks(root: Path, archive) -> List[dict]:
 
 def frozen_new_master_picks(root: Path, archive) -> List[dict]:
     """Latest-generation pre-kickoff archived new-master pick per fixture, exactly as the live master's: the
-    archived file lists every nominated offer, so only its ranked picks (SHORTLISTED) are picks."""
+    archived file lists every nominated offer, so only its ranked picks (SHORTLISTED) are picks. Only picks made
+    under the current rule's version count, so a rule change restarts the comparison."""
     import master_reconciliation as mr
     rows = archived_tier_rows(root, archive, mr.load_config()['file'])
-    return latest_per_fixture([r for r in rows if r.get('new_master_decision') == 'SHORTLISTED'])
+    return latest_per_fixture([r for r in rows if r.get('new_master_decision') == 'SHORTLISTED'
+                               and r.get('new_master_version') == mr.VERSION])
 
 
 def new_master_offer_counts(root: Path, archive) -> Dict[str, int]:
     """Context for the comparison: gap checks over every offer of each fixture's newest pre-kickoff generation."""
     from performance_tracking import fixture_key, utc
     import master_reconciliation as mr
-    rows = archived_tier_rows(root, archive, mr.load_config()['file'])
+    rows = [r for r in archived_tier_rows(root, archive, mr.load_config()['file'])
+            if r.get('new_master_version') == mr.VERSION]
     newest = {}
     for row in rows:
         key, stamp = fixture_key(row), utc(row['snapshot_generated_utc'])
@@ -196,10 +199,11 @@ def new_master_offer_counts(root: Path, archive) -> Dict[str, int]:
         if key not in seen and row.get('new_master_decision') != 'NOT_EXECUTABLE':
             seen.add(key)
             offers.append(row)
-    count = lambda check: sum(1 for r in offers if r.get('gap_check') == check)
-    return {'fixtures': len(newest), 'offers': len(offers), 'vetoed': count('vetoed'), 'ignored': count('ignored'),
-            'one_view_missing': sum(1 for r in offers if _flag(r.get('one_view_missing'))),
-            'one_view_missing_kept': count('one_view_missing_kept'), 'no_view': count('no_view')}
+    flagged = lambda column: sum(1 for r in offers if _flag(r.get(column)))
+    return {'fixtures': len(newest), 'offers': len(offers),
+            'included': sum(1 for r in offers if r.get('new_master_group') == 'included'),
+            **{column: flagged(column) for column, _ in mr.LABELS},
+            'no_view': sum(1 for r in offers if r.get('gap_check') == 'no_view')}
 
 
 def _list_context(frame: pd.DataFrame) -> dict:
@@ -909,10 +913,11 @@ def review(root: Path, archive, records: List[dict], clock, active_rule: Optiona
         'new_master_picks': int(len(new_master)),
         'new_master': {'clv': summarize(new_master['clv'] if len(new_master) else []),
                        'profit': summarize(new_master['unit_profit'] if len(new_master) else []),
-                       'by_group': {group: {'clv': summarize(g['clv']), 'profit': summarize(g['unit_profit'])}
-                                    for group, g in (new_master.groupby(new_master['new_master_group'].fillna('n/a'))
-                                                     if len(new_master) and 'new_master_group' in new_master
-                                                     else [])}},
+                       'by_labels': {labels: {'clv': summarize(g['clv']), 'profit': summarize(g['unit_profit'])}
+                                     for labels, g in (new_master.groupby(new_master['new_master_labels']
+                                                                          .fillna('no label'))
+                                                       if len(new_master) and 'new_master_labels' in new_master
+                                                       else [])}},
         'master_comparison': _master_comparison(root, archive, new_master, master),
         'cagey_tier_picks': int(len(tier)),
         'cagey_tier': {'clv': summarize(tier['clv'] if len(tier) else []),
@@ -960,7 +965,7 @@ def new_master_report(summary: dict) -> List[str]:
     if 'master_comparison' not in summary:
         return []
     m, c = summary['new_master'], summary['master_comparison']
-    lines = ["## New master (shadow, Paul's master rule) beside the live master", '',
+    lines = ["## New master (shadow, revised master rule) beside the live master", '',
              f"Frozen picks: {summary['new_master_picks']}; CLV {_fmt(m['clv'])}; realised profit per bet "
              f"{_fmt(m['profit'])}. Live master: {summary.get('master_picks', 0)} frozen picks, realised profit per "
              f"bet {_fmt(summary['master']['profit'])}.", '',
@@ -980,12 +985,13 @@ def new_master_report(summary: dict) -> List[str]:
     o = c.get('new_master_offers') or {}
     if o:
         lines.append(f"Context, new master offers (newest pre-kickoff generation per fixture): {o['offers']} offers "
-                     f"on {o['fixtures']} fixtures; vetoed {o['vetoed']}, ignored {o['ignored']}, one view missing "
-                     f"{o['one_view_missing']} (kept by the Pinnacle check {o['one_view_missing_kept']}), no view "
-                     f"{o['no_view']}.")
-    if m.get('by_group'):
-        lines += ['', '| group | mean CLV (n) | realised profit per bet (n) |', '|---|---|---|']
-        lines += [f"| {g} | {_fmt(v['clv'])} | {_fmt(v['profit'])} |" for g, v in m['by_group'].items()]
+                     f"on {o['fixtures']} fixtures; included (cagey safe) {o['included']}; labels: both agree "
+                     f"{o['both_agree']}, research too optimistic {o['research_too_optimistic']}, research strongly "
+                     f"disagrees {o['inspection_flag']}, one view missing {o['one_view_missing']}, no research check "
+                     f"{o['no_research_check']}, unvalidated view {o['unvalidated_view']}; no view {o['no_view']}.")
+    if m.get('by_labels'):
+        lines += ['', '| labels | mean CLV (n) | realised profit per bet (n) |', '|---|---|---|']
+        lines += [f"| {g} | {_fmt(v['clv'])} | {_fmt(v['profit'])} |" for g, v in m['by_labels'].items()]
     lines.append('')
     return lines
 
