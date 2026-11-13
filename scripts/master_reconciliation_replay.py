@@ -1,11 +1,11 @@
-"""Replay saved live forecasts through the live master and the Phase 4 reconciliation shadow.
+"""Replay saved live forecasts through the live master and the new master (Phase 4, Paul's master rule, shadow).
 
 For every archived run in football_output_v2/performance/snapshots generated in [--start, --end), rebuild the
 run's decision rows from its frozen predictions at the run's own clock with the current production rules
 (price_edge_cagey_shortlist.build_shortlist with cagey_correction_config.json, the quote policy and the current
 lookahead), then call master_shortlist.refresh, exactly as the pipeline does. Each run's outputs go to
 <output>/runs/<snapshot>/: master_shortlist.csv, master_shortlist_audit.csv, master_summary.json and, on a
-branch with the shadow, master_shortlist_reconciled.csv and its summary.
+branch with the shadow, master_shortlist_new.csv and its summary.
 
 Integration check, not evidence: no result is read. Run it on main and on the branch with the same arguments
 and compare the live master files byte for byte (--compare).
@@ -82,26 +82,28 @@ def replay(root: Path, output: Path, start: str, end: str) -> dict:
 
 
 def totals(output: Path, report: dict) -> dict:
-    """Groups and overlap summed over the replayed runs that wrote a shadow (integration check only)."""
-    out = {'runs_with_shadow': 0, 'offers_by_group': {}, 'ranked_by_group': {}, 'decisions': {},
-           'ranked_fixtures': 0, 'shortfall': 0, 'disagreement_flags': 0, 'european_rows': 0,
-           'european_kept_out': 0, 'research_edge_section_matches': 0, 'overlap_with_live_master': {}, 'per_run': []}
+    """New-master groups, gap checks and overlap summed over the replayed runs (integration check only)."""
+    out = {'runs_with_shadow': 0, 'offers': 0, 'not_executable_offers': 0, 'offers_by_group': {}, 'gap_checks': {},
+           'left_out_by_reason': {}, 'one_view_missing': {}, 'ranked_by_group': {}, 'decisions': {},
+           'overlap_with_live_master': {}, 'ranked_fixtures': 0, 'shortfall': 0, 'vetoed': 0, 'vetoed_cagey_picks': 0,
+           'ignored': 0, 'no_view': 0, 'european_offers': 0, 'european_ranked': 0, 'per_run': []}
     for entry in report['runs']:
-        path = output / 'runs' / entry['snapshot'] / 'master_shortlist_reconciled_summary.json'
+        path = output / 'runs' / entry['snapshot'] / 'master_shortlist_new_summary.json'
         if not path.exists():
             continue
         s = json.loads(path.read_text(encoding='utf-8'))
         out['runs_with_shadow'] += 1
-        for key in ('offers_by_group', 'ranked_by_group', 'decisions', 'overlap_with_live_master'):
+        for key in ('offers_by_group', 'gap_checks', 'left_out_by_reason', 'one_view_missing', 'ranked_by_group',
+                    'decisions', 'overlap_with_live_master'):
             for name, value in s[key].items():
                 out[key][name] = out[key].get(name, 0) + value
-        for key in ('ranked_fixtures', 'shortfall', 'disagreement_flags', 'european_rows', 'european_kept_out',
-                    'research_edge_section_matches'):
+        for key in ('offers', 'not_executable_offers', 'ranked_fixtures', 'shortfall', 'vetoed', 'vetoed_cagey_picks',
+                    'ignored', 'no_view', 'european_offers', 'european_ranked'):
             out[key] += s[key]
         out['per_run'].append({'snapshot': entry['snapshot'], 'generated_at_utc': entry['generated_at_utc'],
-                               'pooled_offers': s['pooled_offers'], 'ranked': s['ranked_fixtures'],
-                               'groups': s['offers_by_group'], 'overlap': s['overlap_with_live_master'],
-                               'european_rows': s['european_rows']})
+                               'offers': s['offers'], 'ranked': s['ranked_fixtures'], 'groups': s['offers_by_group'],
+                               'gap_checks': s['gap_checks'], 'overlap': s['overlap_with_live_master'],
+                               'european_offers': s['european_offers']})
     return out
 
 
