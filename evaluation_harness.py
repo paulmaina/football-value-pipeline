@@ -2440,7 +2440,20 @@ def master_summary(frames, synthetic, fixtures, cfg) -> dict:
                     'on_list': master_flag_stats(flag(new), weeks),
                     'included_offers_not_flagged': master_category_stats(
                         part.loc[part.new_master_group.eq('included') & ~part.inspection_flag.eq(True)]),
-                    'list_picks_not_flagged': master_category_stats(new.loc[~new.inspection_flag.eq(True)])},
+                    'list_picks_not_flagged': master_category_stats(new.loc[~new.inspection_flag.eq(True)]),
+                    # Diagnostics, not part of the decided report: offline the cagey no-loss chance never reaches
+                    # the flag's 0.85 (wins and main AH lines only, odds above 1.15), so these show what the
+                    # flag's gap condition (g <= -8) has meant without the 0.85 condition.
+                    'diagnostic_gap_condition_any_cagey': master_category_stats(
+                        part.loc[pd.to_numeric(part.gap_points, errors='coerce') - 1e-9
+                                 <= rcfg['inspection_flag']['max_gap_points']]),
+                    'diagnostic_gap_condition_included': master_category_stats(
+                        part.loc[part.new_master_group.eq('included')
+                                 & (pd.to_numeric(part.gap_points, errors='coerce') - 1e-9
+                                    <= rcfg['inspection_flag']['max_gap_points'])]),
+                    'offers_reaching_cagey_0_85': int((pd.to_numeric(part.cagey_no_loss_probability, errors='coerce')
+                                                       + 1e-9 >= rcfg['inspection_flag']['min_cagey_no_loss']).sum()),
+                    'max_cagey_no_loss': float(pd.to_numeric(part.cagey_no_loss_probability, errors='coerce').max())},
                 'overlap': {'live_picks': int(len(live)), 'new_picks': int(len(new)), 'previous_rule_picks': int(len(old)),
                             'same_fixture_as_live': same(new, live), 'same_fixture_as_previous_rule': same(new, old)}}
         compare = {}
