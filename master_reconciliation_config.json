@@ -66,7 +66,7 @@
     "rule": "European fixtures are flagged 'unvalidated view' and can't be Both agree; they may enter Market-safe, flagged. The gap rule applies to them as to every offer."
   },
   "ranking": {
-    "rule": "One pick per match: each match keeps its offer from its best group (Both agree, then Market-safe), then the highest cagey no-loss chance (Pinnacle's no-loss chance where the cagey score is missing). The list is the first 15 matches, Both agree first, then Market-safe, each by that no-loss chance. Remaining ties (deterministic only): higher odds, then kickoff, league, home team, away team, market, side, line."
+    "rule": "One pick per match: each match keeps its offer from its best group (Both agree, then Market-safe), then the highest cagey no-loss chance (Pinnacle's no-loss chance where the cagey score is missing). The list is the first 15 matches, Both agree first, then Market-safe, each by that no-loss chance (compared to 9 decimals, so equal chances computed by different paths tie). Remaining ties (deterministic only): higher odds, then kickoff, league, home team, away team, market, side, line."
   },
   "live_comparison": {
     "decided": "13 Nov 2026, before any live result of the new master",
