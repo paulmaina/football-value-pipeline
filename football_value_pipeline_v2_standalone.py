@@ -351,6 +351,13 @@ class CachedHttpClient:
                 headers=dict(headers or {}),
                 timeout=self.timeout,
             )
+            # Odds clients read numeric usage headers here, on success and error.
+            hook = getattr(self, '_response_hook', None)
+            if hook is not None:
+                try:
+                    hook(url, r)
+                except Exception:
+                    pass  # Usage recording never affects a download.
             r.raise_for_status()
             content = r.content
             if len(content) < 2:
@@ -669,6 +676,11 @@ class TheOddsAPI:
         self.force_refresh = force_refresh
         self.regions = regions
         self.credit_exhaustion = None
+        # Per-call credit headers by key slot (never key values or URLs).
+        from odds_api_usage import UsageLedger
+        self.usage = UsageLedger()
+        self._active_slot = None
+        self.http._response_hook = self._record_usage
 
         # The generic historical-data client retries 429 automatically.
         # Do not do that for this Odds API instance: quota/rate-limit
@@ -687,6 +699,10 @@ class TheOddsAPI:
             THE_ODDS_API_BASE + "/",
             HTTPAdapter(max_retries=retry),
         )
+
+    def _record_usage(self, url: str, response) -> None:
+        if self._active_slot is not None:
+            self.usage.record(self._active_slot, url, response.status_code, response.headers)
 
     def _configured_keys(self) -> List[Tuple[str, str]]:
         """Read secrets at REQUEST time; don't freeze fallback env at startup."""
@@ -759,6 +775,7 @@ class TheOddsAPI:
         from odds_provider_health import OddsProviderError, http_details
         failures = []
         for name, key in keys:
+            self._active_slot = name
             try:
                 return self.http.get_json(
                     url,
@@ -799,6 +816,7 @@ class TheOddsAPI:
             ) else "RATE_LIMITED", failures
         )
         if error.category == "CREDITS_EXHAUSTED":
+            self.usage.exhausted = True
             blocked_day = datetime.now(timezone.utc).date()
             self.credit_exhaustion = {'state': error.category,
                 'attempts': failures, 'blocked_utc_day': blocked_day.isoformat()}
@@ -3469,6 +3487,13 @@ class FootballValuePipelineV2(FootballValuePipeline):
                     self.extra_event_odds_requests >= self.max_extra_event_odds_requests):
                 coverage_row["status"] = "NOT_REQUESTED_RANKING_OR_BUDGET"
                 continue
+            # Budget guard: extra coverage is optional. When the credits left on
+            # all keys fall below one forecast run, keep them for the main requests.
+            from odds_api_usage import EXTRA_EVENT_CREDITS, UsageLedger
+            usage = getattr(self.odds_api, 'usage', None)
+            if isinstance(usage, UsageLedger) and not usage.allows_optional(EXTRA_EVENT_CREDITS):
+                coverage_row["status"] = "NOT_REQUESTED_LOW_CREDITS"
+                continue
             event_id = row["odds_event_id"]
             self.extra_event_odds_requests += 1
             self.extra_event_odds_by_league[league.key] = (
@@ -4023,6 +4048,9 @@ def build_parser() -> argparse.ArgumentParser:
                    help="Maximum additional event calls in ranked coverage mode (default: 24).")
     p.add_argument("--additional-odds-coverage", choices=["all", "ranked"], default="all",
                    help="all: request every linked fixture in the shortlist window (more API credits); ranked: capped legacy mode")
+    p.add_argument("--run-outcome-out", type=Path, default=None,
+                   help=("Write this run's outcome (forecasts produced, no fixtures, or Odds API credits "
+                         "exhausted) and its Odds API credit usage to this JSON file."))
     p.add_argument("--seasons-back", type=int, choices=range(1, 11), default=None,
                    help="Explicit shared history override; otherwise domestic uses six seasons and UCL four; UEL always uses all verified cached history.")
     p.add_argument("--domestic-seasons-back", type=int, choices=range(1, 11), default=None,
@@ -4238,6 +4266,12 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     )
     pipe.half_life_tuning = bool(args.tune_half_life)
     pipe.legacy_comparison = legacy_comparison
+    if pipe.odds_api is not None and args.run_outcome_out is not None:
+        # Recorded runs start from the committed balances, so the budget guard
+        # knows the credits left on every key before the first call.
+        from odds_api_usage import seeded_ledger
+        pipe.odds_api.usage = seeded_ledger(Path(__file__).resolve().parent)
+    _RUN_STATE['odds_api'] = pipe.odds_api
     if args.auto_market_weight:
         pipe.model_version = CUSTOM_MODEL_VERSION + "-auto-market-weight"
 
@@ -4611,6 +4645,42 @@ def goal_market_validation_enabled(args) -> bool:
                                   or requires_goal_market_validation(PRODUCTION_POLICY))
 
 
+# The Odds API client of the latest generation, for its run outcome and usage.
+_RUN_STATE: Dict[str, object] = {}
+EXIT_CREDITS_EXHAUSTED = 3
+
+
+def run_outcome(staging: Path, lookahead_days: int, client=None) -> Dict[str, object]:
+    """Forecasts produced, no fixtures in the window, or Odds API credits exhausted.
+
+    No fixtures is not an error, even when the keys are also out of credits: no
+    forecast needed odds. Credits are exhausted, as a failure, when every key
+    returned OUT_OF_USAGE_CREDITS and no forecast row received Odds API prices.
+    """
+    import odds_api_usage as usage_module
+    from performance_tracking import read_csv
+    path = Path(staging) / 'all_leagues_predictions.csv'
+    rows = read_csv(path) if path.exists() else []
+    priced = sum(row.get('odds_source') == 'The Odds API' for row in rows)
+    usage = getattr(client, 'usage', None)
+    usage = usage if isinstance(usage, usage_module.UsageLedger) else None
+    exhausted = usage is not None and usage.exhausted
+    notes = []
+    if not rows:
+        status, message = usage_module.NO_FIXTURES, usage_module.no_fixtures_message(lookahead_days)
+        if exhausted:
+            notes.append('Odds API credits are also exhausted on all keys; add credits before the next fixtures.')
+    elif exhausted and not priced:
+        status, message = usage_module.CREDITS_EXHAUSTED, usage_module.EXHAUSTED_MESSAGE
+    else:
+        status, message = usage_module.FORECASTS_PRODUCED, f'{len(rows)} forecasts produced; {priced} with Odds API prices'
+        if exhausted:
+            notes.append('Odds API credits ran out on all keys during this run; some fixtures have no Odds API prices.')
+    return {'status': status, 'message': message, 'notes': notes, 'forecast_rows': len(rows),
+            'odds_api_priced_rows': priced, 'lookahead_days': lookahead_days,
+            'odds_api': usage.summary() if usage is not None else None}
+
+
 def main(argv: Optional[Sequence[str]] = None) -> int:
     arguments = list(sys.argv[1:] if argv is None else argv)
     args = build_parser().parse_args(arguments)
@@ -4618,15 +4688,32 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         return _generate_main(arguments)
     from prediction_runs import stage_run, publish_run
     from workflow_checks import raw_check
+    import odds_api_usage as usage_module
     raw = Path(args.out_dir)
-    # Unused validation caches are not carried into new bundles.
-    with stage_run(raw, validation_cache=goal_market_validation_enabled(args)) as staging:
-        # Last argparse occurrence wins, including --out-dir=... syntax.
-        result = _generate_main([*arguments, '--out-dir', str(staging)])
-        if result:
-            return result
-        raw_check(staging.parent)
-        bundle = publish_run(staging, raw)
+    _RUN_STATE.clear()
+    outcome = None
+    try:
+        # Unused validation caches are not carried into new bundles.
+        with stage_run(raw, validation_cache=goal_market_validation_enabled(args)) as staging:
+            # Last argparse occurrence wins, including --out-dir=... syntax.
+            result = _generate_main([*arguments, '--out-dir', str(staging)])
+            if result:
+                return result
+            outcome = run_outcome(staging, args.lookahead_days, _RUN_STATE.get('odds_api'))
+            if outcome['status'] != usage_module.FORECASTS_PRODUCED:
+                # Nothing to publish: the current run bundle stays as it was.
+                print(outcome['message'], file=sys.stderr)
+                return EXIT_CREDITS_EXHAUSTED if outcome['status'] == usage_module.CREDITS_EXHAUSTED else 0
+            raw_check(staging.parent)
+            bundle = publish_run(staging, raw)
+    finally:
+        if args.run_outcome_out is not None:
+            if outcome is None:
+                usage = getattr(_RUN_STATE.get('odds_api'), 'usage', None)
+                usage = usage if isinstance(usage, usage_module.UsageLedger) else None
+                outcome = {'status': 'FAILED', 'message': 'Forecast generation failed; see the log',
+                           'notes': [], 'odds_api': usage.summary() if usage is not None else None}
+            usage_module.write_json(args.run_outcome_out, outcome)
     print(f"Complete prediction run saved: {bundle}; publish raw/ before kickoff for forward capture.", file=sys.stderr)
     return 0
 

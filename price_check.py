@@ -105,6 +105,13 @@ def check(root: Path, api, clock: Optional[datetime] = None) -> Dict[str, object
     leagues = leagues_in_window(current, clock)
     if not leagues:
         return {'status': 'NO_FIXTURES_IN_WINDOW', 'requests': 0, 'credits': 0}
+    # Budget guard: a price check is optional. Below one forecast run of credits
+    # on all keys, skip it so the next scheduled forecast can still run.
+    from odds_api_usage import UsageLedger
+    usage = getattr(api, 'usage', None)
+    if isinstance(usage, UsageLedger) and not usage.allows_optional(len(leagues) * len(MAIN_MARKETS)):
+        return {'status': 'SKIPPED_LOW_CREDITS', 'requests': 0, 'credits': 0,
+                'remaining_total': usage.remaining_total(), 'leagues': leagues}
     with stage_run(root / 'raw', seed=True) as staging:
         path = staging / 'all_leagues_predictions.csv'
         predictions = pd.read_csv(path, low_memory=False)
@@ -191,9 +198,18 @@ def main(argv=None) -> int:
     # Odds responses go to a throwaway cache: the tracked .football_cache must
     # stay untouched so the workflow can rebase and publish cleanly.
     import tempfile
+    import odds_api_usage
     with tempfile.TemporaryDirectory(prefix='price-check-cache-') as cache:
         api = TheOddsAPI(key, cache_dir=cache)
-        print(json.dumps(check(args.root, api), indent=2))
+        api.usage = odds_api_usage.seeded_ledger(args.root.parent)
+        result = check(args.root, api)
+        print(json.dumps(result, indent=2))
+    message = ('Odds API credits low on all keys; price check skipped to keep the core forecast'
+               if result['status'] == 'SKIPPED_LOW_CREDITS' else '')
+    record = odds_api_usage.run_record('price-checks', api.usage, outcome=result['status'], message=message)
+    odds_api_usage.write_step_summary(odds_api_usage.summary_markdown(record))
+    if api.usage.calls:
+        odds_api_usage.append_log(record, args.root.parent)
     return 0
 
 
