@@ -1,4 +1,4 @@
-"""Replay saved live forecasts through the live master and the new master (Phase 4, Paul's master rule, shadow).
+"""Replay saved live forecasts through the live master and the new master (Phase 4, revised master rule, shadow).
 
 For every archived run in football_output_v2/performance/snapshots generated in [--start, --end), rebuild the
 run's decision rows from its frozen predictions at the run's own clock with the current production rules
@@ -82,27 +82,29 @@ def replay(root: Path, output: Path, start: str, end: str) -> dict:
 
 
 def totals(output: Path, report: dict) -> dict:
-    """New-master groups, gap checks and overlap summed over the replayed runs (integration check only)."""
+    """New-master inclusion, labels, flags and overlap summed over the replayed runs (integration check only)."""
     out = {'runs_with_shadow': 0, 'offers': 0, 'not_executable_offers': 0, 'offers_by_group': {}, 'gap_checks': {},
-           'left_out_by_reason': {}, 'one_view_missing': {}, 'ranked_by_group': {}, 'decisions': {},
-           'overlap_with_live_master': {}, 'ranked_fixtures': 0, 'shortfall': 0, 'vetoed': 0, 'vetoed_cagey_picks': 0,
-           'ignored': 0, 'no_view': 0, 'european_offers': 0, 'european_ranked': 0, 'per_run': []}
+           'left_out_by_reason': {}, 'labels_offers': {}, 'labels_ranked': {}, 'decisions': {},
+           'overlap_with_live_master': {}, 'ranked_fixtures': 0, 'shortfall': 0, 'european_offers': 0,
+           'european_ranked': 0, 'inspection_flagged_offers': 0, 'for_inspection': [], 'per_run': []}
     for entry in report['runs']:
         path = output / 'runs' / entry['snapshot'] / 'master_shortlist_new_summary.json'
         if not path.exists():
             continue
         s = json.loads(path.read_text(encoding='utf-8'))
         out['runs_with_shadow'] += 1
-        for key in ('offers_by_group', 'gap_checks', 'left_out_by_reason', 'one_view_missing', 'ranked_by_group',
+        for key in ('offers_by_group', 'gap_checks', 'left_out_by_reason', 'labels_offers', 'labels_ranked',
                     'decisions', 'overlap_with_live_master'):
             for name, value in s[key].items():
                 out[key][name] = out[key].get(name, 0) + value
-        for key in ('offers', 'not_executable_offers', 'ranked_fixtures', 'shortfall', 'vetoed', 'vetoed_cagey_picks',
-                    'ignored', 'no_view', 'european_offers', 'european_ranked'):
+        for key in ('offers', 'not_executable_offers', 'ranked_fixtures', 'shortfall', 'european_offers',
+                    'european_ranked'):
             out[key] += s[key]
+        out['inspection_flagged_offers'] += s['for_inspection']['flagged_offers']
+        out['for_inspection'] += [{'snapshot': entry['snapshot'], **pick} for pick in s['for_inspection']['picks']]
         out['per_run'].append({'snapshot': entry['snapshot'], 'generated_at_utc': entry['generated_at_utc'],
                                'offers': s['offers'], 'ranked': s['ranked_fixtures'], 'groups': s['offers_by_group'],
-                               'gap_checks': s['gap_checks'], 'overlap': s['overlap_with_live_master'],
+                               'labels_ranked': s['labels_ranked'], 'overlap': s['overlap_with_live_master'],
                                'european_offers': s['european_offers']})
     return out
 
