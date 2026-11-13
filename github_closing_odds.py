@@ -135,6 +135,21 @@ def commit_push(work, paths, message, remote, branch):
     return git(work,'push',remote,f'HEAD:refs/heads/{branch}',check=False).returncode==0
 
 
+def merge_usage_log(source, work):
+    """Append the session's new Odds API usage records to main's log; returns paths to commit."""
+    from odds_api_usage import LOG
+    new, old = source/LOG, work/LOG
+    if not new.exists():
+        return []
+    present = set(old.read_text(encoding='utf-8').splitlines()) if old.exists() else set()
+    lines = [line for line in new.read_text(encoding='utf-8').splitlines() if line and line not in present]
+    if lines:
+        old.parent.mkdir(parents=True, exist_ok=True)
+        with old.open('a', encoding='utf-8', newline='\n') as handle:
+            handle.write('\n'.join(lines)+'\n')
+    return [LOG]
+
+
 def publish_results(repo, source, reservation_id, temp, remote, branch, attempts):
     from closing_odds import load_observations, review
     from performance_tracking import snapshots
@@ -159,7 +174,8 @@ def publish_results(repo, source, reservation_id, temp, remote, branch, attempts
             if health and (not previous_health or health['checked_at_utc'] >= previous_health['checked_at_utc']):
                 write(work/DATA/'provider_status.json', health)
             review(work/ROOT,snapshots(work/ROOT),datetime.now(timezone.utc))
-            if commit_push(work,[DATA,ROOT/'performance/closing_odds'],
+            usage = merge_usage_log(source, work)
+            if commit_push(work,[DATA,ROOT/'performance/closing_odds',*usage],
                            'Publish pre-kickoff closing quote evidence',remote,branch):
                 return
         finally:
