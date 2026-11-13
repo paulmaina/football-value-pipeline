@@ -1,0 +1,1208 @@
+{
+  "root": "(branch worktree)",
+  "start": "2026-10-27",
+  "end_exclusive": "2026-11-09",
+  "runs": [
+    {
+      "snapshot": "026e1ab4c40e3e64",
+      "generated_at_utc": "2026-10-27T09:50:40.995248+00:00",
+      "recorded_policy": "48h-zero-tolerance-ev05-no-loss75-corners-v26",
+      "recorded_master_version": null,
+      "status": "ok",
+      "decisions": 230,
+      "value_shortlisted": 7,
+      "cagey_shortlisted": 7,
+      "files": {
+        "master_shortlist.csv": "021ca31d5f571107a9f0cb1fc3e9a99e96c98c1ddd56cc26387e228cfc93bda6",
+        "master_shortlist_audit.csv": "945cfb1b81e5228244c4d8e8b48002ebc8d06357daf6fc6f59fe49898f33bf60",
+        "master_shortlist_reconciled.csv": "172afe50404588faddf09fec4e79e73051a59829c25975d6bacea64da4c8dc40",
+        "master_shortlist_reconciled_summary.json": "b51a73d9779b26e8c88716cdfe28d8155e7a39138430dc56befa0818b143adf0",
+        "master_summary.json": "b310b73f85c09914885f307b67163e53e4ec33945d6828b71881164d94ec1b66"
+      }
+    },
+    {
+      "snapshot": "d414de1a572b09b2",
+      "generated_at_utc": "2026-10-27T11:35:10.735016+00:00",
+      "recorded_policy": "48h-zero-tolerance-ev05-no-loss75-corners-v26",
+      "recorded_master_version": null,
+      "status": "ok",
+      "decisions": 221,
+      "value_shortlisted": 7,
+      "cagey_shortlisted": 7,
+      "files": {
+        "master_shortlist.csv": "000b533f66096f6dd2a514941c9a0b99760348bb69731ba467dde02ffb2f7e0d",
+        "master_shortlist_audit.csv": "761d1b1827ee2544f0ce20f2d735a126d0a40363a4ff14dd89968ccee7089756",
+        "master_shortlist_reconciled.csv": "86bfde5170dd1c258663835b3ea3441f630c697a65c98eef315bb762c97782fd",
+        "master_shortlist_reconciled_summary.json": "06db606ed0750005b3920704939d19f75b2f04e7231c1ebfbca4a8644bab9d09",
+        "master_summary.json": "b310b73f85c09914885f307b67163e53e4ec33945d6828b71881164d94ec1b66"
+      }
+    },
+    {
+      "snapshot": "04e55dde9bbe885f",
+      "generated_at_utc": "2026-10-28T12:13:37.819395+00:00",
+      "recorded_policy": "48h-zero-tolerance-ev05-no-loss75-corners-v26",
+      "recorded_master_version": null,
+      "status": "ok",
+      "decisions": 257,
+      "value_shortlisted": 13,
+      "cagey_shortlisted": 13,
+      "files": {
+        "master_shortlist.csv": "e7ef280b511cd2af0ea55e8a2b726cd3ef9d4f876d0570477ae4815ae5569d2b",
+        "master_shortlist_audit.csv": "8d7966582abe16341eb438ab9a809223fc5064f2ebc7fef6612b3d1b358bac0e",
+        "master_shortlist_reconciled.csv": "6c452e548fb62a276fa7559d10bcf9240204bf3dcadc584b65ba2cd05d73eedf",
+        "master_shortlist_reconciled_summary.json": "820595850bbb8a2be585ed0cbbb2cf7cc0a09b496fce62ab13ff4182bbbc2bfb",
+        "master_summary.json": "6e6c37cb35ffba15e81269b1cf758418419253d3b38ff8e4d79c9be1ec8f4efb"
+      }
+    },
+    {
+      "snapshot": "fd052ff5e9f0163b",
+      "generated_at_utc": "2026-10-28T16:16:05.061508+00:00",
+      "recorded_policy": "48h-zero-tolerance-ev05-no-loss75-corners-v26",
+      "recorded_master_version": null,
+      "status": "ok",
+      "decisions": 431,
+      "value_shortlisted": 13,
+      "cagey_shortlisted": 13,
+      "files": {
+        "master_shortlist.csv": "71b0085bb8c14981202855e33bce99f8cce924d074350d50dcb9e4767e9bda73",
+        "master_shortlist_audit.csv": "68f1064f24a2d0823281272e8c502b49ceec818c41d0dd3d1931372b1e55337b",
+        "master_shortlist_reconciled.csv": "88581b20603685005fb48d545e091304305f911030ab6b45a1fe33fc8619dc58",
+        "master_shortlist_reconciled_summary.json": "2ef0e0d46546825b92a908cbf99cf9f8eb85315f66fa88a03887c83bfeab7b16",
+        "master_summary.json": "6e6c37cb35ffba15e81269b1cf758418419253d3b38ff8e4d79c9be1ec8f4efb"
+      }
+    },
+    {
+      "snapshot": "c75d4ab52706e716",
+      "generated_at_utc": "2026-10-29T12:08:22.532184+00:00",
+      "recorded_policy": "48h-zero-tolerance-ev05-no-loss75-corners-v26",
+      "recorded_master_version": null,
+      "status": "ok",
+      "decisions": 543,
+      "value_shortlisted": 5,
+      "cagey_shortlisted": 5,
+      "files": {
+        "master_shortlist.csv": "c84b8b7bc69c019dada81a67db4e1bc1e3089a18db16a849e8235d0e77211e4c",
+        "master_shortlist_audit.csv": "3cfe6700fec1bec674f815cee8a8cf1c108e1497ab007594d8647857438debca",
+        "master_shortlist_reconciled.csv": "d39d7ceffffab70523757727ab6c493e6ea7e07eb0bebea76baa2b8c9559c992",
+        "master_shortlist_reconciled_summary.json": "8e3db6ca36e15a4ed3bbd9e50ff8f0620de10c3aae419717c1c6f7e54cbeb5f9",
+        "master_summary.json": "3e4aefd4b6d4ad122f43c44592a3f43835d420d19f2a274ca2481ea1aae11aa9"
+      }
+    },
+    {
+      "snapshot": "02d8d3b21fd68fd9",
+      "generated_at_utc": "2026-10-30T07:29:50.498587+00:00",
+      "recorded_policy": "48h-zero-tolerance-ev05-no-loss75-corners-v26",
+      "recorded_master_version": null,
+      "status": "ok",
+      "decisions": 1238,
+      "value_shortlisted": 14,
+      "cagey_shortlisted": 14,
+      "files": {
+        "master_shortlist.csv": "32a4e579bca8224f5bdcfcec5e149bb4a507a1cba1a84a07a4ca3a9de982cf6e",
+        "master_shortlist_audit.csv": "6b632340df3216e6200965a7ee05de7f204a4d3b84b5309c45fcfbcbc73dcfb6",
+        "master_shortlist_reconciled.csv": "a2e1ee8bb7789ee77de63c57106d2908ea92b487fa0e965e972eb37683e51070",
+        "master_shortlist_reconciled_summary.json": "25d95e975e3c9a223f02b226a06dc7fd8db118211dfba47881419f386af1cf73",
+        "master_summary.json": "6e6c37cb35ffba15e81269b1cf758418419253d3b38ff8e4d79c9be1ec8f4efb"
+      }
+    },
+    {
+      "snapshot": "2f2bbe3e322ecab7",
+      "generated_at_utc": "2026-10-30T12:03:48.308948+00:00",
+      "recorded_policy": "48h-zero-tolerance-ev05-no-loss75-corners-v26",
+      "recorded_master_version": null,
+      "status": "ok",
+      "decisions": 1282,
+      "value_shortlisted": 15,
+      "cagey_shortlisted": 15,
+      "files": {
+        "master_shortlist.csv": "7419444a980882605026585d3d131f9a7ef109a4a4829ac378ec524c2ae0951a",
+        "master_shortlist_audit.csv": "516459563e15599d0b35e342af658f8fa3e576b589ee322be65338c4cacc636f",
+        "master_shortlist_reconciled.csv": "7d9a666768df57c78429e53875712c3b7456608e86fbfa93c2910a16209c6919",
+        "master_shortlist_reconciled_summary.json": "8b7aedd82d1ec30b265841a909d2f436be2b4df3dd97112957b2b5f2cbb6bfc1",
+        "master_summary.json": "ae7302b0276a763a341c431c2c7f19034c502fc7dddf35daeaefc6be5db07666"
+      }
+    },
+    {
+      "snapshot": "f82ff3e276c6c573",
+      "generated_at_utc": "2026-10-31T12:03:11.165007+00:00",
+      "recorded_policy": "48h-zero-tolerance-ev05-no-loss75-corners-v26",
+      "recorded_master_version": null,
+      "status": "ok",
+      "decisions": 1628,
+      "value_shortlisted": 68,
+      "cagey_shortlisted": 62,
+      "files": {
+        "master_shortlist.csv": "5413ce8e65d21a9ec86813461208c11168796fd6dbe70d7e97cd85f84229f3cd",
+        "master_shortlist_audit.csv": "396c162fa3066a61becfd663d39ce6b35233228f0124eb55264c2730d0ae0aea",
+        "master_shortlist_reconciled.csv": "a0e8ec2ac2a5fba27dfdedc0c6d775038d82e7ffdee216f5ce2347da1ba5fcd6",
+        "master_shortlist_reconciled_summary.json": "931c8b57773cc6baa1149380d73f181be44c0826aab70d02d320db698e05edec",
+        "master_summary.json": "af423c2b0aa9990c7bb95d5610745323aa7d4a10c9360337fde5f8a852e5d21b"
+      }
+    },
+    {
+      "snapshot": "796c7451f4101f75",
+      "generated_at_utc": "2026-11-01T07:37:30.159727+00:00",
+      "recorded_policy": "48h-zero-tolerance-ev05-no-loss75-corners-v26",
+      "recorded_master_version": null,
+      "status": "ok",
+      "decisions": 1004,
+      "value_shortlisted": 56,
+      "cagey_shortlisted": 54,
+      "files": {
+        "master_shortlist.csv": "16069cf85e6f7556acb8bb10b1799c032f7e5654aae82a327bd3f178957cdab6",
+        "master_shortlist_audit.csv": "98532f3a713d2c959ce88ff0af8a4539321437c16ffb81d9b34998dea239e598",
+        "master_shortlist_reconciled.csv": "9fdc981e9f4373e3266ef10967f57c75e0efebb6b4f433b72ad91c74796b2b27",
+        "master_shortlist_reconciled_summary.json": "c479ef0e7c38967579bfebde18fa7ec81d4ba6c5f1072446dc2cfe551eb53e45",
+        "master_summary.json": "e55b41592d411c58d0fa31a33b36e441aed93d41a90194f85a49a6a92f94b31d"
+      }
+    },
+    {
+      "snapshot": "dc55908798d79d00",
+      "generated_at_utc": "2026-11-01T09:36:12.166126+00:00",
+      "recorded_policy": "48h-zero-tolerance-ev05-no-loss75-corners-v26",
+      "recorded_master_version": null,
+      "status": "ok",
+      "decisions": 216,
+      "value_shortlisted": 10,
+      "cagey_shortlisted": 8,
+      "files": {
+        "master_shortlist.csv": "39fb8250cf3efb52426b3fb8ea5b513c2399f841d8dc46cc114014a8b6e04a64",
+        "master_shortlist_audit.csv": "1080dde83b5b51c5c38d8221e91ffe23095b8fcfef561ae056a38005d5f261e8",
+        "master_shortlist_reconciled.csv": "f2282f5c604200c6dc8c5519b1a72a8d9a049e00c852e30254fdae8087318fe5",
+        "master_shortlist_reconciled_summary.json": "767d8caf86e8733e0ea930a60c3362610f68734ffd689f4c8e67395b96f86f6a",
+        "master_summary.json": "09e63a8823dda777b89f44b74025dc1ee3fb24eeb0d859acb82f9be915fb0399"
+      }
+    },
+    {
+      "snapshot": "cbf58accd4fa0691",
+      "generated_at_utc": "2026-11-01T12:23:24.469126+00:00",
+      "recorded_policy": "48h-zero-tolerance-ev05-no-loss75-corners-v26",
+      "recorded_master_version": null,
+      "status": "ok",
+      "decisions": 0,
+      "value_shortlisted": 0,
+      "cagey_shortlisted": 0,
+      "files": {
+        "master_shortlist.csv": "39fb8250cf3efb52426b3fb8ea5b513c2399f841d8dc46cc114014a8b6e04a64",
+        "master_shortlist_audit.csv": "39fb8250cf3efb52426b3fb8ea5b513c2399f841d8dc46cc114014a8b6e04a64",
+        "master_shortlist_reconciled.csv": "8a96fd14311cdcde1ae8cfb72a29a93b3be36375922f28bb0eb0a0cba35d2442",
+        "master_shortlist_reconciled_summary.json": "eb2881f39461b4673a58849f7128ea51a5588590e1718088b8a0370bfc5c4927",
+        "master_summary.json": "09e63a8823dda777b89f44b74025dc1ee3fb24eeb0d859acb82f9be915fb0399"
+      }
+    },
+    {
+      "snapshot": "765b01b571df2fd9",
+      "generated_at_utc": "2026-11-03T13:23:43.479885+00:00",
+      "recorded_policy": "48h-ah-price-edge-cagey-v28",
+      "recorded_master_version": null,
+      "status": "ok",
+      "decisions": 609,
+      "value_shortlisted": 21,
+      "cagey_shortlisted": 17,
+      "files": {
+        "master_shortlist.csv": "171247e1b9a5d7bcafbd3a3ac261cc04b9f4fcbac059b41869d8339f0f02acd9",
+        "master_shortlist_audit.csv": "08e97276f84e3da00bfc91e3b841ae35284bdd824bcde87f995a92d2ac9da560",
+        "master_shortlist_reconciled.csv": "5ea2068230906a190d5e1f9217641eb171f1216d83cdf2706b636a3c03e5622b",
+        "master_shortlist_reconciled_summary.json": "cefd23482a3b91334b1a0c3577678eaa48878014feda2f87f87f4187556f8787",
+        "master_summary.json": "c09edacc2dba3a340e39575dc12fb1f35c8f9881cf5785d5943e1d91dc8d46fb"
+      }
+    },
+    {
+      "snapshot": "4dfe537371e33ca4",
+      "generated_at_utc": "2026-11-03T13:58:02.173298+00:00",
+      "recorded_policy": "48h-ah-price-edge-cagey-v28",
+      "recorded_master_version": null,
+      "status": "ok",
+      "decisions": 609,
+      "value_shortlisted": 21,
+      "cagey_shortlisted": 17,
+      "files": {
+        "master_shortlist.csv": "9d578c962a6dc2dee02c9cbc556c30ec210a7fb46d6eedc2b3d214ba9b3bb85f",
+        "master_shortlist_audit.csv": "5b6586fa6b136a5e92b6b75d837d395c3acebc840e315130d1ddde2366a84bc5",
+        "master_shortlist_reconciled.csv": "de7308f6e83685e2220c54cc815b004f1134fbc047f0366c318cbdfbf1010b88",
+        "master_shortlist_reconciled_summary.json": "c904ae29f6afd75d0bd672476741efb34ef5b55e9098f769ceb857e51970a06a",
+        "master_summary.json": "c09edacc2dba3a340e39575dc12fb1f35c8f9881cf5785d5943e1d91dc8d46fb"
+      }
+    },
+    {
+      "snapshot": "85c451a1e15281f6",
+      "generated_at_utc": "2026-11-04T09:31:03.622249+00:00",
+      "recorded_policy": "48h-ah-price-edge-cagey-v28",
+      "recorded_master_version": null,
+      "status": "ok",
+      "decisions": 138,
+      "value_shortlisted": 18,
+      "cagey_shortlisted": 2,
+      "files": {
+        "master_shortlist.csv": "6a6bc6524ed6c295452077ebed859c6128315b8cba74e583b58efc77d1eb4946",
+        "master_shortlist_audit.csv": "2243b9dfbf711c318c188443996217c7cbcd2a55eebf87d8244ef37fe916a6e1",
+        "master_shortlist_reconciled.csv": "02c2de218b8025b3edabbc275092ddf9607c27bfaf9d485a8b2844fa5cbd7113",
+        "master_shortlist_reconciled_summary.json": "02859274e5d20dd4ba983fc6a619614a380981ad6ac1620cb47a9d8c8ffbbc77",
+        "master_summary.json": "c09edacc2dba3a340e39575dc12fb1f35c8f9881cf5785d5943e1d91dc8d46fb"
+      }
+    },
+    {
+      "snapshot": "ddf20a3972dd45e3",
+      "generated_at_utc": "2026-11-04T10:20:33.895771+00:00",
+      "recorded_policy": "48h-ah-price-edge-cagey-v28",
+      "recorded_master_version": null,
+      "status": "ok",
+      "decisions": 782,
+      "value_shortlisted": 25,
+      "cagey_shortlisted": 23,
+      "files": {
+        "master_shortlist.csv": "1becadfe081a15bcea1af97187fe2916adc8af5856e3a0d73b4c907bb5418ee1",
+        "master_shortlist_audit.csv": "227273c552b15f929a426d5f58314f8bf1a295017ba6b86928541a12f03819fe",
+        "master_shortlist_reconciled.csv": "128dffface17f31ba28b30a5d5175d3deb4c08dac15d9ac57ddf17762a51775e",
+        "master_shortlist_reconciled_summary.json": "2574248ccb889cb693323ad40b35304744e3767c5c457872d408a292aef7275c",
+        "master_summary.json": "e7931c277bd630628be93c9d4fe5a4163f7a37fa2d03992a186d8d15c3470035"
+      }
+    },
+    {
+      "snapshot": "8a970f7baa207beb",
+      "generated_at_utc": "2026-11-04T19:40:50.340029+00:00",
+      "recorded_policy": "48h-ah-price-edge-cagey-v28",
+      "recorded_master_version": "master-10-v2",
+      "status": "ok",
+      "decisions": 861,
+      "value_shortlisted": 8,
+      "cagey_shortlisted": 18,
+      "files": {
+        "master_shortlist.csv": "1b428523bf963f2fd4dec887216a4b5f74d23b7f38210e88f03e0ac8ea82e796",
+        "master_shortlist_audit.csv": "5cfdc44fc4cac7026c9298bf0fc01cfbd8f6a3021c27f853ea3fc96bd3a1f0df",
+        "master_shortlist_reconciled.csv": "f7cdf6c956a2430c7e6b46b448052a9c064c851edfda86b3cd03b62f2e84906a",
+        "master_shortlist_reconciled_summary.json": "13c664a3d4c1bfd90a2ba94c3a7be3affa218821ee75fedbb6f89cd40c8b17dc",
+        "master_summary.json": "ae7302b0276a763a341c431c2c7f19034c502fc7dddf35daeaefc6be5db07666"
+      }
+    },
+    {
+      "snapshot": "0af36ab1e9657f52",
+      "generated_at_utc": "2026-11-05T12:32:00.598966+00:00",
+      "recorded_policy": "48h-ah-price-edge-cagey-v28",
+      "recorded_master_version": "master-10-v2",
+      "status": "ok",
+      "decisions": 521,
+      "value_shortlisted": 0,
+      "cagey_shortlisted": 0,
+      "files": {
+        "master_shortlist.csv": "39fb8250cf3efb52426b3fb8ea5b513c2399f841d8dc46cc114014a8b6e04a64",
+        "master_shortlist_audit.csv": "39fb8250cf3efb52426b3fb8ea5b513c2399f841d8dc46cc114014a8b6e04a64",
+        "master_shortlist_reconciled.csv": "8a96fd14311cdcde1ae8cfb72a29a93b3be36375922f28bb0eb0a0cba35d2442",
+        "master_shortlist_reconciled_summary.json": "66deebb4198827989c09d1b32c4c0c821d9c06f04f18472f7de48afd5565e25c",
+        "master_summary.json": "09e63a8823dda777b89f44b74025dc1ee3fb24eeb0d859acb82f9be915fb0399"
+      }
+    },
+    {
+      "snapshot": "a00d5e530cc2e80e",
+      "generated_at_utc": "2026-11-05T13:37:38.336530+00:00",
+      "recorded_policy": "48h-ah-price-edge-cagey-v28",
+      "recorded_master_version": "master-10-v2",
+      "status": "ok",
+      "decisions": 1070,
+      "value_shortlisted": 16,
+      "cagey_shortlisted": 39,
+      "files": {
+        "master_shortlist.csv": "39c6b637329f11e4ad4e078a66dabc38be518bf27685bc4b3fe333fda22f3cb3",
+        "master_shortlist_audit.csv": "108986314ead63bd8226f2836179825b8c1f1e8cfd4018cdb4cf36a7d88a658b",
+        "master_shortlist_reconciled.csv": "4362c25c6fc3b587abec0bc817ed65f6c7b99af2e663beb2753956354b4c2f8f",
+        "master_shortlist_reconciled_summary.json": "b3db9b44ea7a87c1c72ef0b7bb2053b7462d59fc2e8121bd0e5ae846dad01d08",
+        "master_summary.json": "1d81112f862b2d22d384b79c41797fb34d9939839566b298b419a8052577fbd1"
+      }
+    },
+    {
+      "snapshot": "92039638c61ad8bc",
+      "generated_at_utc": "2026-11-05T16:17:48.024788+00:00",
+      "recorded_policy": "48h-ah-price-edge-cagey-v28",
+      "recorded_master_version": "master-10-v2",
+      "status": "ok",
+      "decisions": 0,
+      "value_shortlisted": 0,
+      "cagey_shortlisted": 0,
+      "files": {
+        "master_shortlist.csv": "39fb8250cf3efb52426b3fb8ea5b513c2399f841d8dc46cc114014a8b6e04a64",
+        "master_shortlist_audit.csv": "39fb8250cf3efb52426b3fb8ea5b513c2399f841d8dc46cc114014a8b6e04a64",
+        "master_shortlist_reconciled.csv": "8a96fd14311cdcde1ae8cfb72a29a93b3be36375922f28bb0eb0a0cba35d2442",
+        "master_shortlist_reconciled_summary.json": "0d89f3e2e8587336c01ff904e485585c8fce81c2fd6d7272f2801d9f0cf5e1c8",
+        "master_summary.json": "09e63a8823dda777b89f44b74025dc1ee3fb24eeb0d859acb82f9be915fb0399"
+      }
+    },
+    {
+      "snapshot": "7b8f8817eb577b04",
+      "generated_at_utc": "2026-11-05T16:27:43.343008+00:00",
+      "recorded_policy": "48h-ah-price-edge-cagey-v28",
+      "recorded_master_version": "master-10-v2",
+      "status": "ok",
+      "decisions": 0,
+      "value_shortlisted": 0,
+      "cagey_shortlisted": 0,
+      "files": {
+        "master_shortlist.csv": "39fb8250cf3efb52426b3fb8ea5b513c2399f841d8dc46cc114014a8b6e04a64",
+        "master_shortlist_audit.csv": "39fb8250cf3efb52426b3fb8ea5b513c2399f841d8dc46cc114014a8b6e04a64",
+        "master_shortlist_reconciled.csv": "8a96fd14311cdcde1ae8cfb72a29a93b3be36375922f28bb0eb0a0cba35d2442",
+        "master_shortlist_reconciled_summary.json": "3d16d672f207c408f7ae20704f927ed7136ba4eaf84f83af3c76298e48aed899",
+        "master_summary.json": "09e63a8823dda777b89f44b74025dc1ee3fb24eeb0d859acb82f9be915fb0399"
+      }
+    },
+    {
+      "snapshot": "775022176692974f",
+      "generated_at_utc": "2026-11-05T16:50:22.659919+00:00",
+      "recorded_policy": "48h-ah-price-edge-cagey-v28",
+      "recorded_master_version": "master-10-v2",
+      "status": "ok",
+      "decisions": 1467,
+      "value_shortlisted": 16,
+      "cagey_shortlisted": 40,
+      "files": {
+        "master_shortlist.csv": "ae4e9bbd05909d0af37e374c90c846df6ddb65a23d543143bbe4bbf17c3c020f",
+        "master_shortlist_audit.csv": "a007367a0d5836749f798e1e1b4c4b90265b8aa75f02d57b0b3cc6ebf533614b",
+        "master_shortlist_reconciled.csv": "efa9b73fc0f973f73bae2297ec8169531794daef6970c38fa4a77401a2976187",
+        "master_shortlist_reconciled_summary.json": "bd23091d4af65d34900716cc7d546325df42211fcac607e6372241ec8abb363e",
+        "master_summary.json": "e6b6607ae633dbd522c28100726063c20f55efc429b14f1e11000160dd0bdb58"
+      }
+    },
+    {
+      "snapshot": "5d2089b153695efa",
+      "generated_at_utc": "2026-11-06T11:26:29.717902+00:00",
+      "recorded_policy": "48h-ah-price-edge-cagey-v28",
+      "recorded_master_version": "master-10-v2",
+      "status": "ok",
+      "decisions": 1347,
+      "value_shortlisted": 17,
+      "cagey_shortlisted": 17,
+      "files": {
+        "master_shortlist.csv": "fefa0d13a3866260eac759545b8e947045e404acd3f23ea661ec5d6532cb12e6",
+        "master_shortlist_audit.csv": "066172179ba9abb439404ff4ddbcfdbca810c84aa22a644318506b0768a3053e",
+        "master_shortlist_reconciled.csv": "7ea5e726a1cc4ad9a6efaf2ae525411169b660e09c9d9e7c4277c774bb2bbee4",
+        "master_shortlist_reconciled_summary.json": "cf2e8cda5156d1f9838d2b9dd72d7298e6aef1f74af5347e372ba349841feb61",
+        "master_summary.json": "783ec8295d2914d97bd19e6ec11eb33bd477880b5598c9e1e166fe637dc4d919"
+      }
+    },
+    {
+      "snapshot": "440236589764dce4",
+      "generated_at_utc": "2026-11-06T12:17:20.125743+00:00",
+      "recorded_policy": "48h-ah-price-edge-cagey-v28",
+      "recorded_master_version": "master-10-v2",
+      "status": "ok",
+      "decisions": 1194,
+      "value_shortlisted": 14,
+      "cagey_shortlisted": 14,
+      "files": {
+        "master_shortlist.csv": "01902fd7ac364d7270b341ff284d26f884b4096b350dc458c85abed001026647",
+        "master_shortlist_audit.csv": "5ea2af0ff7378d0f9c6e6090a9fe7428a683f90a51d7f463dddb6c2f3057ba8f",
+        "master_shortlist_reconciled.csv": "41c12847ab72ada09e7c9dd187419da2c36a2568f8de2cc4ea44630458218414",
+        "master_shortlist_reconciled_summary.json": "21051e25eab70841e8e7d49fec05a7b62f9020470aeb3a83dd5a8df7ebe2a796",
+        "master_summary.json": "1f9b601e8b3e0930fe42e48543e698b1f7e3c809af0b0e2a5164ae0130a955e8"
+      }
+    },
+    {
+      "snapshot": "d46504cc4373448f",
+      "generated_at_utc": "2026-11-06T13:21:43.280136+00:00",
+      "recorded_policy": "48h-ah-price-edge-cagey-v28",
+      "recorded_master_version": "master-10-v2",
+      "status": "ok",
+      "decisions": 0,
+      "value_shortlisted": 0,
+      "cagey_shortlisted": 0,
+      "files": {
+        "master_shortlist.csv": "39fb8250cf3efb52426b3fb8ea5b513c2399f841d8dc46cc114014a8b6e04a64",
+        "master_shortlist_audit.csv": "39fb8250cf3efb52426b3fb8ea5b513c2399f841d8dc46cc114014a8b6e04a64",
+        "master_shortlist_reconciled.csv": "8a96fd14311cdcde1ae8cfb72a29a93b3be36375922f28bb0eb0a0cba35d2442",
+        "master_shortlist_reconciled_summary.json": "9335fafc496ac88112cb188fe12eaf53eac53a974fde38317ee93e858fd31f88",
+        "master_summary.json": "09e63a8823dda777b89f44b74025dc1ee3fb24eeb0d859acb82f9be915fb0399"
+      }
+    },
+    {
+      "snapshot": "b9d2d10f3419c606",
+      "generated_at_utc": "2026-11-06T13:40:19.404227+00:00",
+      "recorded_policy": "48h-ah-price-edge-cagey-v28",
+      "recorded_master_version": "master-10-v2",
+      "status": "ok",
+      "decisions": 1413,
+      "value_shortlisted": 22,
+      "cagey_shortlisted": 22,
+      "files": {
+        "master_shortlist.csv": "88e3687d5ef06ad4b649cd9263ec8d31de7551704a6a06b0e4a2f161fe2cd1f6",
+        "master_shortlist_audit.csv": "3a40c65201d5de17cbe02c2a3a2fad42af5392510ebb41eb28a5921a7e39bd93",
+        "master_shortlist_reconciled.csv": "16a88531811b611242eac22a663e5757ee618b3226e7b0326df6143b17fe4228",
+        "master_shortlist_reconciled_summary.json": "7e5d94613161feb4bbaa1b327fa47d388748024c6723c721cb090bf968728a47",
+        "master_summary.json": "fab9f7c4f686a19cd7b1908e67f8b932d2ba0aa51adbbf7f2a8ddd1824213ddc"
+      }
+    },
+    {
+      "snapshot": "1dabcf85eb639cd0",
+      "generated_at_utc": "2026-11-07T11:48:25.259368+00:00",
+      "recorded_policy": "48h-ah-price-edge-cagey-v28",
+      "recorded_master_version": "master-profit-market-v5",
+      "status": "ok",
+      "decisions": 1705,
+      "value_shortlisted": 60,
+      "cagey_shortlisted": 56,
+      "files": {
+        "master_shortlist.csv": "550cee41d46cb450fe25b2934b4add570e66e5cd87b1309d6dbdc9e27f53761b",
+        "master_shortlist_audit.csv": "ddf30f003c63ea30eac6a8581ffc24bfa3239af0be3879ec7c032dddc42852d0",
+        "master_shortlist_reconciled.csv": "5365ac205463757354d4e447760f03ed1596e4c7d7ab1249c33fbdd9b879c924",
+        "master_shortlist_reconciled_summary.json": "fce27ef3ad29a293694191785434c1d450f1cf4ce725c9ed2087234a21368ef9",
+        "master_summary.json": "1d81112f862b2d22d384b79c41797fb34d9939839566b298b419a8052577fbd1"
+      }
+    },
+    {
+      "snapshot": "688a34b2f4bd83f2",
+      "generated_at_utc": "2026-11-07T13:54:13.645217+00:00",
+      "recorded_policy": "48h-ah-price-edge-cagey-v28",
+      "recorded_master_version": "master-profit-no-dc-v6",
+      "status": "ok",
+      "decisions": 1566,
+      "value_shortlisted": 56,
+      "cagey_shortlisted": 52,
+      "files": {
+        "master_shortlist.csv": "86face28c14d702a5ca7d1a96c7e217ce5253f7c414ac834458837dfa744532b",
+        "master_shortlist_audit.csv": "93c38e2954510736e5a2bb2ae66c78f4b72180ed49f6ba8e8c1d86c44afad0d7",
+        "master_shortlist_reconciled.csv": "31ca36a421a0e1fb1ed59b43708c363aa42bce13270c53838964ee71b081c948",
+        "master_shortlist_reconciled_summary.json": "46ad71b7b7eab5aa67561b9ea41d3f6d131f7abb92f11b9b61062370ba774aaf",
+        "master_summary.json": "1d81112f862b2d22d384b79c41797fb34d9939839566b298b419a8052577fbd1"
+      }
+    },
+    {
+      "snapshot": "bdc58d9d3727286d",
+      "generated_at_utc": "2026-11-08T09:01:04.075316+00:00",
+      "recorded_policy": "48h-ah-price-edge-cagey-v28",
+      "recorded_master_version": "master-profit-15-context-v8",
+      "status": "ok",
+      "decisions": 997,
+      "value_shortlisted": 83,
+      "cagey_shortlisted": 83,
+      "files": {
+        "master_shortlist.csv": "ec9d62132bc9ef7aab6f826b7b03a53b6b3228e0a9431eff09b1fcb045e3b6d8",
+        "master_shortlist_audit.csv": "b1fa1362ae1a025102cd8a7852c4a60f807ef9273a2e2e6eeab3b16bf7d5433d",
+        "master_shortlist_reconciled.csv": "708a6c15b5357c442a7a06eb4f4659d3b604fa4d46febc9b39e327bbae1f28ab",
+        "master_shortlist_reconciled_summary.json": "966a335b6ac2621248d0065273d73b85662e10931f2e310b20e28aca775ba87b",
+        "master_summary.json": "1d81112f862b2d22d384b79c41797fb34d9939839566b298b419a8052577fbd1"
+      }
+    },
+    {
+      "snapshot": "d5829163b3fa9bf3",
+      "generated_at_utc": "2026-11-08T12:20:11.356382+00:00",
+      "recorded_policy": "48h-ah-price-edge-cagey-v28",
+      "recorded_master_version": "master-profit-15-context-v8",
+      "status": "ok",
+      "decisions": 920,
+      "value_shortlisted": 78,
+      "cagey_shortlisted": 78,
+      "files": {
+        "master_shortlist.csv": "f77f77267dba14140a9358d1dc997519bc7a51545565606b6ccc6d0970fb985a",
+        "master_shortlist_audit.csv": "f874d6d36489454157d03286b8db6d9209be9a18a32a579f4ec542d7949b243b",
+        "master_shortlist_reconciled.csv": "24c1c3a5bcf54bc37d2ea1ee32c25403b646f24f840b28867ab3690027f6f93f",
+        "master_shortlist_reconciled_summary.json": "e21ca4d7aa9df33980846017e821f850732c7306b9574233e5e8b96309fbe542",
+        "master_summary.json": "1d81112f862b2d22d384b79c41797fb34d9939839566b298b419a8052577fbd1"
+      }
+    }
+  ],
+  "shadow_totals": {
+    "runs_with_shadow": 29,
+    "offers_by_group": {
+      "missing_evidence": 46,
+      "both_agree": 253,
+      "research_edge": 148,
+      "market_safe": 280,
+      "conflict": 11,
+      "neither": 254
+    },
+    "ranked_by_group": {
+      "both_agree": 108,
+      "market_safe": 63
+    },
+    "decisions": {
+      "SHORTLISTED": 171,
+      "BEYOND_TARGET": 76,
+      "RESEARCH_EDGE_SECTION": 49,
+      "NOT_SELECTED": 340,
+      "LEFT_OUT": 265,
+      "MISSING_EVIDENCE": 46,
+      "EUROPEAN_UNVALIDATED": 45,
+      "NOT_EXECUTABLE": 0
+    },
+    "ranked_fixtures": 171,
+    "shortfall": 264,
+    "disagreement_flags": 516,
+    "european_rows": 218,
+    "european_kept_out": 45,
+    "research_edge_section_matches": 49,
+    "overlap_with_live_master": {
+      "live_master_fixtures": 219,
+      "reconciled_fixtures": 171,
+      "same_fixture": 112,
+      "same_offer": 32,
+      "live_only": 107,
+      "reconciled_only": 59
+    },
+    "per_run": [
+      {
+        "snapshot": "026e1ab4c40e3e64",
+        "generated_at_utc": "2026-10-27T09:50:40.995248+00:00",
+        "pooled_offers": 8,
+        "ranked": 3,
+        "groups": {
+          "missing_evidence": 0,
+          "both_agree": 2,
+          "research_edge": 0,
+          "market_safe": 3,
+          "conflict": 0,
+          "neither": 3
+        },
+        "overlap": {
+          "live_master_fixtures": 3,
+          "reconciled_fixtures": 3,
+          "same_fixture": 3,
+          "same_offer": 2,
+          "live_only": 0,
+          "reconciled_only": 0
+        },
+        "european_rows": 0
+      },
+      {
+        "snapshot": "d414de1a572b09b2",
+        "generated_at_utc": "2026-10-27T11:35:10.735016+00:00",
+        "pooled_offers": 9,
+        "ranked": 2,
+        "groups": {
+          "missing_evidence": 0,
+          "both_agree": 2,
+          "research_edge": 0,
+          "market_safe": 2,
+          "conflict": 0,
+          "neither": 5
+        },
+        "overlap": {
+          "live_master_fixtures": 3,
+          "reconciled_fixtures": 2,
+          "same_fixture": 2,
+          "same_offer": 0,
+          "live_only": 1,
+          "reconciled_only": 0
+        },
+        "european_rows": 0
+      },
+      {
+        "snapshot": "04e55dde9bbe885f",
+        "generated_at_utc": "2026-10-28T12:13:37.819395+00:00",
+        "pooled_offers": 16,
+        "ranked": 4,
+        "groups": {
+          "missing_evidence": 0,
+          "both_agree": 5,
+          "research_edge": 3,
+          "market_safe": 5,
+          "conflict": 0,
+          "neither": 3
+        },
+        "overlap": {
+          "live_master_fixtures": 5,
+          "reconciled_fixtures": 4,
+          "same_fixture": 4,
+          "same_offer": 1,
+          "live_only": 1,
+          "reconciled_only": 0
+        },
+        "european_rows": 0
+      },
+      {
+        "snapshot": "fd052ff5e9f0163b",
+        "generated_at_utc": "2026-10-28T16:16:05.061508+00:00",
+        "pooled_offers": 16,
+        "ranked": 4,
+        "groups": {
+          "missing_evidence": 0,
+          "both_agree": 4,
+          "research_edge": 3,
+          "market_safe": 5,
+          "conflict": 0,
+          "neither": 4
+        },
+        "overlap": {
+          "live_master_fixtures": 5,
+          "reconciled_fixtures": 4,
+          "same_fixture": 4,
+          "same_offer": 3,
+          "live_only": 1,
+          "reconciled_only": 0
+        },
+        "european_rows": 0
+      },
+      {
+        "snapshot": "c75d4ab52706e716",
+        "generated_at_utc": "2026-10-29T12:08:22.532184+00:00",
+        "pooled_offers": 8,
+        "ranked": 2,
+        "groups": {
+          "missing_evidence": 0,
+          "both_agree": 2,
+          "research_edge": 1,
+          "market_safe": 3,
+          "conflict": 0,
+          "neither": 2
+        },
+        "overlap": {
+          "live_master_fixtures": 2,
+          "reconciled_fixtures": 2,
+          "same_fixture": 2,
+          "same_offer": 0,
+          "live_only": 0,
+          "reconciled_only": 0
+        },
+        "european_rows": 0
+      },
+      {
+        "snapshot": "02d8d3b21fd68fd9",
+        "generated_at_utc": "2026-10-30T07:29:50.498587+00:00",
+        "pooled_offers": 24,
+        "ranked": 3,
+        "groups": {
+          "missing_evidence": 0,
+          "both_agree": 3,
+          "research_edge": 7,
+          "market_safe": 3,
+          "conflict": 0,
+          "neither": 11
+        },
+        "overlap": {
+          "live_master_fixtures": 5,
+          "reconciled_fixtures": 3,
+          "same_fixture": 3,
+          "same_offer": 1,
+          "live_only": 2,
+          "reconciled_only": 0
+        },
+        "european_rows": 0
+      },
+      {
+        "snapshot": "2f2bbe3e322ecab7",
+        "generated_at_utc": "2026-10-30T12:03:48.308948+00:00",
+        "pooled_offers": 25,
+        "ranked": 4,
+        "groups": {
+          "missing_evidence": 0,
+          "both_agree": 2,
+          "research_edge": 8,
+          "market_safe": 4,
+          "conflict": 0,
+          "neither": 11
+        },
+        "overlap": {
+          "live_master_fixtures": 7,
+          "reconciled_fixtures": 4,
+          "same_fixture": 4,
+          "same_offer": 2,
+          "live_only": 3,
+          "reconciled_only": 0
+        },
+        "european_rows": 0
+      },
+      {
+        "snapshot": "f82ff3e276c6c573",
+        "generated_at_utc": "2026-10-31T12:03:11.165007+00:00",
+        "pooled_offers": 96,
+        "ranked": 15,
+        "groups": {
+          "missing_evidence": 6,
+          "both_agree": 22,
+          "research_edge": 15,
+          "market_safe": 29,
+          "conflict": 0,
+          "neither": 24
+        },
+        "overlap": {
+          "live_master_fixtures": 12,
+          "reconciled_fixtures": 15,
+          "same_fixture": 6,
+          "same_offer": 1,
+          "live_only": 6,
+          "reconciled_only": 9
+        },
+        "european_rows": 0
+      },
+      {
+        "snapshot": "796c7451f4101f75",
+        "generated_at_utc": "2026-11-01T07:37:30.159727+00:00",
+        "pooled_offers": 83,
+        "ranked": 15,
+        "groups": {
+          "missing_evidence": 2,
+          "both_agree": 16,
+          "research_edge": 13,
+          "market_safe": 28,
+          "conflict": 0,
+          "neither": 24
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "reconciled_fixtures": 15,
+          "same_fixture": 7,
+          "same_offer": 1,
+          "live_only": 8,
+          "reconciled_only": 8
+        },
+        "european_rows": 0
+      },
+      {
+        "snapshot": "dc55908798d79d00",
+        "generated_at_utc": "2026-11-01T09:36:12.166126+00:00",
+        "pooled_offers": 13,
+        "ranked": 4,
+        "groups": {
+          "missing_evidence": 2,
+          "both_agree": 4,
+          "research_edge": 1,
+          "market_safe": 3,
+          "conflict": 0,
+          "neither": 3
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "reconciled_fixtures": 4,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "reconciled_only": 4
+        },
+        "european_rows": 0
+      },
+      {
+        "snapshot": "cbf58accd4fa0691",
+        "generated_at_utc": "2026-11-01T12:23:24.469126+00:00",
+        "pooled_offers": 0,
+        "ranked": 0,
+        "groups": {
+          "missing_evidence": 0,
+          "both_agree": 0,
+          "research_edge": 0,
+          "market_safe": 0,
+          "conflict": 0,
+          "neither": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "reconciled_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "reconciled_only": 0
+        },
+        "european_rows": 0
+      },
+      {
+        "snapshot": "765b01b571df2fd9",
+        "generated_at_utc": "2026-11-03T13:23:43.479885+00:00",
+        "pooled_offers": 27,
+        "ranked": 3,
+        "groups": {
+          "missing_evidence": 4,
+          "both_agree": 6,
+          "research_edge": 7,
+          "market_safe": 5,
+          "conflict": 0,
+          "neither": 5
+        },
+        "overlap": {
+          "live_master_fixtures": 9,
+          "reconciled_fixtures": 3,
+          "same_fixture": 3,
+          "same_offer": 1,
+          "live_only": 6,
+          "reconciled_only": 0
+        },
+        "european_rows": 27
+      },
+      {
+        "snapshot": "4dfe537371e33ca4",
+        "generated_at_utc": "2026-11-03T13:58:02.173298+00:00",
+        "pooled_offers": 26,
+        "ranked": 3,
+        "groups": {
+          "missing_evidence": 4,
+          "both_agree": 6,
+          "research_edge": 7,
+          "market_safe": 4,
+          "conflict": 0,
+          "neither": 5
+        },
+        "overlap": {
+          "live_master_fixtures": 9,
+          "reconciled_fixtures": 3,
+          "same_fixture": 3,
+          "same_offer": 2,
+          "live_only": 6,
+          "reconciled_only": 0
+        },
+        "european_rows": 26
+      },
+      {
+        "snapshot": "85c451a1e15281f6",
+        "generated_at_utc": "2026-11-04T09:31:03.622249+00:00",
+        "pooled_offers": 19,
+        "ranked": 0,
+        "groups": {
+          "missing_evidence": 16,
+          "both_agree": 0,
+          "research_edge": 2,
+          "market_safe": 0,
+          "conflict": 0,
+          "neither": 1
+        },
+        "overlap": {
+          "live_master_fixtures": 9,
+          "reconciled_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 9,
+          "reconciled_only": 0
+        },
+        "european_rows": 19
+      },
+      {
+        "snapshot": "ddf20a3972dd45e3",
+        "generated_at_utc": "2026-11-04T10:20:33.895771+00:00",
+        "pooled_offers": 31,
+        "ranked": 4,
+        "groups": {
+          "missing_evidence": 2,
+          "both_agree": 3,
+          "research_edge": 11,
+          "market_safe": 7,
+          "conflict": 0,
+          "neither": 8
+        },
+        "overlap": {
+          "live_master_fixtures": 10,
+          "reconciled_fixtures": 4,
+          "same_fixture": 4,
+          "same_offer": 1,
+          "live_only": 6,
+          "reconciled_only": 0
+        },
+        "european_rows": 31
+      },
+      {
+        "snapshot": "8a970f7baa207beb",
+        "generated_at_utc": "2026-11-04T19:40:50.340029+00:00",
+        "pooled_offers": 21,
+        "ranked": 4,
+        "groups": {
+          "missing_evidence": 2,
+          "both_agree": 1,
+          "research_edge": 7,
+          "market_safe": 6,
+          "conflict": 0,
+          "neither": 5
+        },
+        "overlap": {
+          "live_master_fixtures": 7,
+          "reconciled_fixtures": 4,
+          "same_fixture": 4,
+          "same_offer": 1,
+          "live_only": 3,
+          "reconciled_only": 0
+        },
+        "european_rows": 21
+      },
+      {
+        "snapshot": "0af36ab1e9657f52",
+        "generated_at_utc": "2026-11-05T12:32:00.598966+00:00",
+        "pooled_offers": 0,
+        "ranked": 0,
+        "groups": {
+          "missing_evidence": 0,
+          "both_agree": 0,
+          "research_edge": 0,
+          "market_safe": 0,
+          "conflict": 0,
+          "neither": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "reconciled_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "reconciled_only": 0
+        },
+        "european_rows": 0
+      },
+      {
+        "snapshot": "a00d5e530cc2e80e",
+        "generated_at_utc": "2026-11-05T13:37:38.336530+00:00",
+        "pooled_offers": 46,
+        "ranked": 7,
+        "groups": {
+          "missing_evidence": 0,
+          "both_agree": 14,
+          "research_edge": 7,
+          "market_safe": 10,
+          "conflict": 0,
+          "neither": 15
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "reconciled_fixtures": 7,
+          "same_fixture": 7,
+          "same_offer": 5,
+          "live_only": 8,
+          "reconciled_only": 0
+        },
+        "european_rows": 46
+      },
+      {
+        "snapshot": "92039638c61ad8bc",
+        "generated_at_utc": "2026-11-05T16:17:48.024788+00:00",
+        "pooled_offers": 0,
+        "ranked": 0,
+        "groups": {
+          "missing_evidence": 0,
+          "both_agree": 0,
+          "research_edge": 0,
+          "market_safe": 0,
+          "conflict": 0,
+          "neither": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "reconciled_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "reconciled_only": 0
+        },
+        "european_rows": 0
+      },
+      {
+        "snapshot": "7b8f8817eb577b04",
+        "generated_at_utc": "2026-11-05T16:27:43.343008+00:00",
+        "pooled_offers": 0,
+        "ranked": 0,
+        "groups": {
+          "missing_evidence": 0,
+          "both_agree": 0,
+          "research_edge": 0,
+          "market_safe": 0,
+          "conflict": 0,
+          "neither": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "reconciled_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "reconciled_only": 0
+        },
+        "european_rows": 0
+      },
+      {
+        "snapshot": "775022176692974f",
+        "generated_at_utc": "2026-11-05T16:50:22.659919+00:00",
+        "pooled_offers": 48,
+        "ranked": 6,
+        "groups": {
+          "missing_evidence": 0,
+          "both_agree": 15,
+          "research_edge": 8,
+          "market_safe": 11,
+          "conflict": 0,
+          "neither": 14
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "reconciled_fixtures": 6,
+          "same_fixture": 5,
+          "same_offer": 3,
+          "live_only": 10,
+          "reconciled_only": 1
+        },
+        "european_rows": 48
+      },
+      {
+        "snapshot": "5d2089b153695efa",
+        "generated_at_utc": "2026-11-06T11:26:29.717902+00:00",
+        "pooled_offers": 26,
+        "ranked": 9,
+        "groups": {
+          "missing_evidence": 0,
+          "both_agree": 8,
+          "research_edge": 0,
+          "market_safe": 12,
+          "conflict": 2,
+          "neither": 4
+        },
+        "overlap": {
+          "live_master_fixtures": 9,
+          "reconciled_fixtures": 9,
+          "same_fixture": 9,
+          "same_offer": 1,
+          "live_only": 0,
+          "reconciled_only": 0
+        },
+        "european_rows": 0
+      },
+      {
+        "snapshot": "440236589764dce4",
+        "generated_at_utc": "2026-11-06T12:17:20.125743+00:00",
+        "pooled_offers": 20,
+        "ranked": 7,
+        "groups": {
+          "missing_evidence": 0,
+          "both_agree": 5,
+          "research_edge": 0,
+          "market_safe": 10,
+          "conflict": 1,
+          "neither": 4
+        },
+        "overlap": {
+          "live_master_fixtures": 7,
+          "reconciled_fixtures": 7,
+          "same_fixture": 7,
+          "same_offer": 2,
+          "live_only": 0,
+          "reconciled_only": 0
+        },
+        "european_rows": 0
+      },
+      {
+        "snapshot": "d46504cc4373448f",
+        "generated_at_utc": "2026-11-06T13:21:43.280136+00:00",
+        "pooled_offers": 0,
+        "ranked": 0,
+        "groups": {
+          "missing_evidence": 0,
+          "both_agree": 0,
+          "research_edge": 0,
+          "market_safe": 0,
+          "conflict": 0,
+          "neither": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "reconciled_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "reconciled_only": 0
+        },
+        "european_rows": 0
+      },
+      {
+        "snapshot": "b9d2d10f3419c606",
+        "generated_at_utc": "2026-11-06T13:40:19.404227+00:00",
+        "pooled_offers": 35,
+        "ranked": 12,
+        "groups": {
+          "missing_evidence": 0,
+          "both_agree": 11,
+          "research_edge": 0,
+          "market_safe": 14,
+          "conflict": 1,
+          "neither": 9
+        },
+        "overlap": {
+          "live_master_fixtures": 12,
+          "reconciled_fixtures": 12,
+          "same_fixture": 12,
+          "same_offer": 2,
+          "live_only": 0,
+          "reconciled_only": 0
+        },
+        "european_rows": 0
+      },
+      {
+        "snapshot": "1dabcf85eb639cd0",
+        "generated_at_utc": "2026-11-07T11:48:25.259368+00:00",
+        "pooled_offers": 87,
+        "ranked": 15,
+        "groups": {
+          "missing_evidence": 4,
+          "both_agree": 28,
+          "research_edge": 9,
+          "market_safe": 21,
+          "conflict": 2,
+          "neither": 23
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "reconciled_fixtures": 15,
+          "same_fixture": 6,
+          "same_offer": 0,
+          "live_only": 9,
+          "reconciled_only": 9
+        },
+        "european_rows": 0
+      },
+      {
+        "snapshot": "688a34b2f4bd83f2",
+        "generated_at_utc": "2026-11-07T13:54:13.645217+00:00",
+        "pooled_offers": 80,
+        "ranked": 15,
+        "groups": {
+          "missing_evidence": 4,
+          "both_agree": 26,
+          "research_edge": 10,
+          "market_safe": 22,
+          "conflict": 2,
+          "neither": 16
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "reconciled_fixtures": 15,
+          "same_fixture": 7,
+          "same_offer": 1,
+          "live_only": 8,
+          "reconciled_only": 8
+        },
+        "european_rows": 0
+      },
+      {
+        "snapshot": "bdc58d9d3727286d",
+        "generated_at_utc": "2026-11-08T09:01:04.075316+00:00",
+        "pooled_offers": 119,
+        "ranked": 15,
+        "groups": {
+          "missing_evidence": 0,
+          "both_agree": 38,
+          "research_edge": 12,
+          "market_safe": 38,
+          "conflict": 1,
+          "neither": 30
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "reconciled_fixtures": 15,
+          "same_fixture": 4,
+          "same_offer": 0,
+          "live_only": 11,
+          "reconciled_only": 11
+        },
+        "european_rows": 0
+      },
+      {
+        "snapshot": "d5829163b3fa9bf3",
+        "generated_at_utc": "2026-11-08T12:20:11.356382+00:00",
+        "pooled_offers": 109,
+        "ranked": 15,
+        "groups": {
+          "missing_evidence": 0,
+          "both_agree": 30,
+          "research_edge": 17,
+          "market_safe": 35,
+          "conflict": 2,
+          "neither": 25
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "reconciled_fixtures": 15,
+          "same_fixture": 6,
+          "same_offer": 2,
+          "live_only": 9,
+          "reconciled_only": 9
+        },
+        "european_rows": 0
+      }
+    ]
+  }
+}
