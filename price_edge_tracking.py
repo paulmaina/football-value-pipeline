@@ -194,8 +194,6 @@ def new_master_offer_counts(root: Path, archive) -> Dict[str, int]:
     for row in rows:  # a re-upload of the same generation is counted once
         if utc(row['snapshot_generated_utc']) != newest[fixture_key(row)]:
             continue
-        if row.get('new_master_source') not in (None, '', mr.SOURCES[0]):
-            continue  # fill-pool candidates are not nominated offers (the picks' tiers count them)
         key = (fixture_key(row), row.get('market'), row.get('handicap_side'), row.get('handicap_line'),
                row.get('offered_decimal_odds'))
         if key not in seen and row.get('new_master_decision') != 'NOT_EXECUTABLE':

@@ -87,8 +87,9 @@ def replay(root: Path, output: Path, start: str, end: str) -> dict:
 
 
 def run_fixtures(decisions) -> dict:
-    """The run's matches, and those with an executable offer (the fill rule's reach), where the replayed code has
-    the fill rule; {} otherwise (e.g. replaying main before it)."""
+    """The run's matches, and those with an executable offer, where the replayed code has the fill rule; {} otherwise
+    (e.g. replaying main before it). Under rule v4 the new master draws only on the nominations, whose coverage is in
+    the shadow summary (nominated_fixtures, fixtures_with_market_view)."""
     try:
         import master_reconciliation as mr
         from performance_tracking import fixture_key
@@ -106,7 +107,8 @@ def totals(output: Path, report: dict) -> dict:
     out = {'runs_with_shadow': 0, 'offers': 0, 'not_executable_offers': 0, 'offers_by_group': {}, 'gap_checks': {},
            'left_out_by_reason': {}, 'labels_offers': {}, 'labels_ranked': {}, 'decisions': {},
            'overlap_with_live_master': {}, 'ranked_fixtures': 0, 'shortfall': 0, 'european_offers': 0,
-           'european_ranked': 0, 'inspection_flagged_offers': 0, 'for_inspection': [], 'per_run': []}
+           'european_ranked': 0, 'inspection_flagged_offers': 0, 'for_inspection': [], 'per_run': [],
+           'list_size': {}}
     for entry in report['runs']:
         path = output / 'runs' / entry['snapshot'] / 'master_shortlist_new_summary.json'
         if not path.exists():
@@ -127,10 +129,28 @@ def totals(output: Path, report: dict) -> dict:
         out['per_run'].append({'snapshot': entry['snapshot'], 'generated_at_utc': entry['generated_at_utc'],
                                'fixtures': entry.get('fixtures'),
                                'fixtures_with_executable_offer': entry.get('fixtures_with_executable_offer'),
+                               'target': s['target_fixtures'], 'nominated_fixtures': s.get('nominated_fixtures'),
+                               'fixtures_with_market_view': s.get('fixtures_with_market_view'),
+                               'fixtures_without_market_view': s.get('fixtures_without_market_view'),
+                               'short_reason': s.get('short_reason'),
                                'offers': s['offers'], 'ranked': s['ranked_fixtures'],
                                'picks_by_tier': s.get('picks_by_tier'), 'groups': s['offers_by_group'],
                                'labels_ranked': s['labels_ranked'], 'overlap': s['overlap_with_live_master'],
                                'european_offers': s['european_offers']})
+    runs_ = out['per_run']
+    target = max((r['target'] for r in runs_), default=15)
+    nominated = [r['nominated_fixtures'] for r in runs_ if r['nominated_fixtures'] is not None]
+    out['list_size'] = {
+        'runs': len(runs_), 'target': target,
+        'runs_listing_target': sum(r['ranked'] >= target for r in runs_),
+        'runs_short': sum(r['ranked'] < target for r in runs_),
+        'runs_nominations_cover_fewer_than_target': sum(n < target for n in nominated),
+        'runs_with_market_view_fewer_than_target': sum((r['fixtures_with_market_view'] or 0) < target for r in runs_),
+        'runs_with_matches_without_market_view': sum(bool(r['fixtures_without_market_view']) for r in runs_),
+        'runs_without_nominations': sum(n == 0 for n in nominated),
+        'ranked_per_run': [r['ranked'] for r in runs_],
+        'every_run_lists_min_target_and_viewed': all(
+            r['ranked'] == min(target, r['fixtures_with_market_view'] or 0) for r in runs_)}
     return out
 
 
