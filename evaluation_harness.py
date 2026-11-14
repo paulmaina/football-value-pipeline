@@ -256,10 +256,11 @@ def c6_matrix(goal_rates, fit):
 
 
 def c6_harness_fits(path=None) -> dict:
-    """The harness's C6 fits by fold origin, from the fit file scripts/build_research_c6_fits.py writes with
-    c6_walk_forward (the C6 candidate's own fit)."""
+    """The harness's C6 fits by fold origin, from the locked, holdout-free fit file scripts/build_research_c6_fits.py
+    --basis harness writes with c6_walk_forward (the C6 candidate's own fit). Live v5's fits (c6.FITS) also use the
+    holdout period's results and differ by design."""
     import research_low_score_sharpen as c6
-    return {w['origin']: w for w in c6.load_fits(path or c6.FITS)['windows']}
+    return {w['origin']: w for w in c6.load_fits(path or c6.HARNESS_FITS)['windows']}
 
 
 def published_proxy(matrix, info, prices, model, cfg):
@@ -545,8 +546,8 @@ def c6_walk_forward(research, cfg, end, every_window=False):
     `origin`, `stop`, `low_score` (research_low_score.fit on C's forecasts before the origin), `slope`
     (research_sharpen.fit on C2's forecasts of the decided matches before the origin) and `scored`
     (indices of the scored rows inside it). The candidate fits only windows holding research rows (low
-    score) or scored rows (slope); `every_window` fits every window, for the live fit file
-    (research_low_score_sharpen.FITS). A fit reads only rows played before its origin, so the fit at an
+    score) or scored rows (slope); `every_window` fits every window, for the fit files
+    (scripts/build_research_c6_fits.py). A fit reads only rows played before its origin, so the fit at an
     origin is the same whatever `end` is and whether or not the window holds a match.
     """
     import research_low_score as rls
@@ -1538,8 +1539,15 @@ def _parity_summary(frame) -> dict:
             'forecasts_with_v5': int(col('c6_same_inputs_max_abs_diff').notna().sum()),
             'same_inputs': {**stats('c6_same_inputs_max_abs_diff', frame),
                             'identical_within_1e-12': bool((col('c6_same_inputs_max_abs_diff').dropna() <= 1e-12).all())},
+            'same_inputs_harness_fit': {
+                **stats('c6_same_inputs_harness_fit_max_abs_diff', compared),
+                'identical_within_1e-12': bool((col('c6_same_inputs_harness_fit_max_abs_diff').dropna() <= 1e-12).all())},
             'harness_vs_live_1x2_max_abs': stats('harness_vs_live_c6_1x2_max_abs', compared),
+            'input_gap_same_fit_1x2_max_abs': stats('harness_vs_live_c6_same_fit_1x2_max_abs', compared),
+            'fit_effect_1x2_max_abs': stats('c6_fit_effect_1x2_max_abs', compared),
             'fit_max_abs_diff': stats('c6_fit_max_abs_diff', compared),
+            'live_minus_harness_fit': {k: stats(f'c6_{k}_live_minus_harness_fit', compared)
+                                       for k in ('rho', 'delta', 'slope')},
             'matches_fit_origin_differs': int(col('c6_fit_origin_differs', bool).fillna(False).astype(bool).sum()),
             'matches_harness_fit_missing': int(col('c6_harness_fit_missing', bool).fillna(False).astype(bool).sum())},
         'harness_vs_live': {
@@ -1575,10 +1583,15 @@ def research_parity(root, cache, cfg):
                        with its inputs compared field by field against the live row.
       c6               research v5 (C6), on every domestic forecast: live v5 (the frozen numbers of a
                        v5 forecast; otherwise v5 recomputed from the frozen inputs, its fit taken from
-                       the fit file for the research day) against the harness's C6 code
+                       the live fit file for the research day) against the harness's C6 code
                        (c6_matrix) fed live's goal rates and fit (same inputs: must be identical), and
                        against the harness's own C6 for that match (its goal rates, and its walk-forward
-                       fit for the fold holding the kickoff: the input gap). UCL/UEL stay v4.
+                       fit for the fold holding the kickoff). Two fits: the live fit uses every result
+                       before its origin, holdout period included; the harness's fit is holdout-free
+                       (the tested fit). They differ by design since 14 Nov 2026, so the gap is split
+                       into the input gap (both on the harness's fit), the fit effect (live's goal
+                       rates under the live fit against the harness's fit) and the total. The same-
+                       inputs check also runs on the harness's fit. UCL/UEL stay v4.
     """
     import copy
     import performance_tracking as pt
@@ -1682,10 +1695,22 @@ def research_parity(root, cache, cfg):
                           c6_harness_fit_missing=fit_h is None)
             if fit_h is not None:
                 harness_c6 = json.loads(margin_json(c6_matrix(context_h['goal_rates'], fit_h)))
+                # Live's goal rates on the harness's (tested) fit, live code and harness code.
+                live_on_h = prepare(row, stamp, copy.deepcopy(evidence), version=LIVE_VERSION, c6_fit=fit_h)
+                live_on_h_harness = json.loads(margin_json(c6_matrix(live_v5['goal_rates'], fit_h)))
+                live_hda = _hda(live_v5['margin_distribution'])
                 record.update(c6_fit_max_abs_diff=max(abs(float(live_fit[k]) - float(fit_h[k]))
                                                       for k in ('rho', 'delta', 'slope')),
+                              **{f'c6_{k}_live_minus_harness_fit': float(live_fit[k]) - float(fit_h[k])
+                                 for k in ('rho', 'delta', 'slope')},
+                              c6_same_inputs_harness_fit_max_abs_diff=_max_gap(
+                                  live_on_h.get('margin_distribution') or {}, live_on_h_harness),
+                              c6_fit_effect_1x2_max_abs=max(abs(a - b) for a, b in zip(
+                                  live_hda, _hda(live_on_h_harness))),
+                              harness_vs_live_c6_same_fit_1x2_max_abs=max(abs(a - b) for a, b in zip(
+                                  _hda(live_on_h_harness), _hda(harness_c6))),
                               harness_vs_live_c6_1x2_max_abs=max(abs(a - b) for a, b in zip(
-                                  _hda(live_v5['margin_distribution']), _hda(harness_c6))),
+                                  live_hda, _hda(harness_c6))),
                               harness_c6_p_home=_hda(harness_c6)[0])
         live_history = decode(row.get('research_history_json'))
         fd_history = form_history(train, teams[0], teams[1], utc(origin))
@@ -1712,9 +1737,12 @@ def research_parity(root, cache, cfg):
                'note': ('same_inputs shows the shared research step is identical given the same inputs. Harness '
                         'and live inputs do not match yet (ESPN form, goal rates): see the measured gap. Harness '
                         'fits for the holdout leagues exclude their 16 Jan - 10 Oct 2026 results. c6: live research '
-                        'v5 through the harness C6 code on the same goal rates and fit (same_inputs), and against '
-                        'the harness C6 (its goal rates and the walk-forward fit of the fold holding the kickoff); '
-                        'live uses the fit window opening on or before the research day.')}
+                        'v5 through the harness C6 code on the same goal rates and fit (same_inputs, also on the '
+                        "harness's fit), and against the harness C6 (its goal rates and the walk-forward fit of the "
+                        'fold holding the kickoff); live uses the fit window opening on or before the research day. '
+                        "The live fit includes the holdout period's results and the harness's fit does not, by "
+                        'design (Paul, 14 Nov 2026): input_gap_same_fit puts both on the harness fit, fit_effect is '
+                        "live's goal rates under the live fit minus under the harness fit.")}
     return summary, frame
 
 

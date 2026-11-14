@@ -2,21 +2,54 @@
   "by_group": {
     "holdout_leagues": {
       "c6": {
+        "fit_effect_1x2_max_abs": {
+          "matches": 29,
+          "max": 0.004617441447088533,
+          "mean": 0.0036834848787960783
+        },
         "fit_max_abs_diff": {
           "matches": 29,
-          "max": 0.0,
-          "mean": 0.0
+          "max": 0.02490168302756216,
+          "mean": 0.024901683027562158
         },
         "forecasts_frozen_v5": 0,
         "forecasts_with_v5": 29,
         "harness_vs_live_1x2_max_abs": {
           "matches": 29,
+          "max": 0.21779917603552945,
+          "mean": 0.06979629035639953
+        },
+        "input_gap_same_fit_1x2_max_abs": {
+          "matches": 29,
           "max": 0.21717515628952655,
           "mean": 0.07003965897827617
+        },
+        "live_minus_harness_fit": {
+          "delta": {
+            "matches": 29,
+            "max": 0.02490168302756216,
+            "mean": 0.024901683027562158
+          },
+          "rho": {
+            "matches": 29,
+            "max": 0.006045425252591361,
+            "mean": 0.00604542525259136
+          },
+          "slope": {
+            "matches": 29,
+            "max": -0.00980567130389498,
+            "mean": -0.00980567130389498
+          }
         },
         "matches_fit_origin_differs": 0,
         "matches_harness_fit_missing": 0,
         "same_inputs": {
+          "identical_within_1e-12": true,
+          "matches": 29,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "same_inputs_harness_fit": {
           "identical_within_1e-12": true,
           "matches": 29,
           "max": 0.0,
@@ -76,6 +109,11 @@
     },
     "no_football_data": {
       "c6": {
+        "fit_effect_1x2_max_abs": {
+          "matches": 0,
+          "max": null,
+          "mean": null
+        },
         "fit_max_abs_diff": {
           "matches": 0,
           "max": null,
@@ -88,9 +126,37 @@
           "max": null,
           "mean": null
         },
+        "input_gap_same_fit_1x2_max_abs": {
+          "matches": 0,
+          "max": null,
+          "mean": null
+        },
+        "live_minus_harness_fit": {
+          "delta": {
+            "matches": 0,
+            "max": null,
+            "mean": null
+          },
+          "rho": {
+            "matches": 0,
+            "max": null,
+            "mean": null
+          },
+          "slope": {
+            "matches": 0,
+            "max": null,
+            "mean": null
+          }
+        },
         "matches_fit_origin_differs": 0,
         "matches_harness_fit_missing": 0,
         "same_inputs": {
+          "identical_within_1e-12": true,
+          "matches": 0,
+          "max": null,
+          "mean": null
+        },
+        "same_inputs_harness_fit": {
           "identical_within_1e-12": true,
           "matches": 0,
           "max": null,
@@ -148,21 +214,54 @@
     },
     "other_domestic": {
       "c6": {
+        "fit_effect_1x2_max_abs": {
+          "matches": 50,
+          "max": 0.004696748613745472,
+          "mean": 0.0036621361487353035
+        },
         "fit_max_abs_diff": {
           "matches": 50,
-          "max": 0.0,
-          "mean": 0.0
+          "max": 0.02490168302756216,
+          "mean": 0.024901683027562158
         },
         "forecasts_frozen_v5": 0,
         "forecasts_with_v5": 50,
         "harness_vs_live_1x2_max_abs": {
           "matches": 50,
+          "max": 0.12512398269393044,
+          "mean": 0.03346253085836538
+        },
+        "input_gap_same_fit_1x2_max_abs": {
+          "matches": 50,
           "max": 0.12289206158997978,
           "mean": 0.03332043947255888
+        },
+        "live_minus_harness_fit": {
+          "delta": {
+            "matches": 50,
+            "max": 0.02490168302756216,
+            "mean": 0.024901683027562158
+          },
+          "rho": {
+            "matches": 50,
+            "max": 0.006045425252591361,
+            "mean": 0.006045425252591362
+          },
+          "slope": {
+            "matches": 50,
+            "max": -0.00980567130389498,
+            "mean": -0.00980567130389498
+          }
         },
         "matches_fit_origin_differs": 0,
         "matches_harness_fit_missing": 0,
         "same_inputs": {
+          "identical_within_1e-12": true,
+          "matches": 50,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "same_inputs_harness_fit": {
           "identical_within_1e-12": true,
           "matches": 50,
           "max": 0.0,
@@ -223,21 +322,54 @@
     }
   },
   "c6": {
+    "fit_effect_1x2_max_abs": {
+      "matches": 79,
+      "max": 0.004696748613745472,
+      "mean": 0.003669973024327233
+    },
     "fit_max_abs_diff": {
       "matches": 79,
-      "max": 0.0,
-      "mean": 0.0
+      "max": 0.02490168302756216,
+      "mean": 0.024901683027562155
     },
     "forecasts_frozen_v5": 0,
     "forecasts_with_v5": 79,
     "harness_vs_live_1x2_max_abs": {
       "matches": 79,
+      "max": 0.21779917603552945,
+      "mean": 0.04680024004118804
+    },
+    "input_gap_same_fit_1x2_max_abs": {
+      "matches": 79,
       "max": 0.21717515628952655,
       "mean": 0.046799646632885473
+    },
+    "live_minus_harness_fit": {
+      "delta": {
+        "matches": 79,
+        "max": 0.02490168302756216,
+        "mean": 0.024901683027562155
+      },
+      "rho": {
+        "matches": 79,
+        "max": 0.006045425252591361,
+        "mean": 0.006045425252591363
+      },
+      "slope": {
+        "matches": 79,
+        "max": -0.00980567130389498,
+        "mean": -0.00980567130389498
+      }
     },
     "matches_fit_origin_differs": 0,
     "matches_harness_fit_missing": 0,
     "same_inputs": {
+      "identical_within_1e-12": true,
+      "matches": 79,
+      "max": 0.0,
+      "mean": 0.0
+    },
+    "same_inputs_harness_fit": {
       "identical_within_1e-12": true,
       "matches": 79,
       "max": 0.0,
@@ -296,7 +428,7 @@
   "matches_using_off_league_rows": 56,
   "matches_with_double_counted_rows": 46,
   "mode": "research_parity",
-  "note": "same_inputs shows the shared research step is identical given the same inputs. Harness and live inputs do not match yet (ESPN form, goal rates): see the measured gap. Harness fits for the holdout leagues exclude their 16 Jan - 10 Oct 2026 results. c6: live research v5 through the harness C6 code on the same goal rates and fit (same_inputs), and against the harness C6 (its goal rates and the walk-forward fit of the fold holding the kickoff); live uses the fit window opening on or before the research day.",
+  "note": "same_inputs shows the shared research step is identical given the same inputs. Harness and live inputs do not match yet (ESPN form, goal rates): see the measured gap. Harness fits for the holdout leagues exclude their 16 Jan - 10 Oct 2026 results. c6: live research v5 through the harness C6 code on the same goal rates and fit (same_inputs, also on the harness's fit), and against the harness C6 (its goal rates and the walk-forward fit of the fold holding the kickoff); live uses the fit window opening on or before the research day. The live fit includes the holdout period's results and the harness's fit does not, by design (Paul, 14 Nov 2026): input_gap_same_fit puts both on the harness fit, fit_effect is live's goal rates under the live fit minus under the harness fit.",
   "research_versions": {
     "team-form-research-v1": 108
   },
@@ -306,6 +438,6 @@
     "max": 5.551115123125783e-17,
     "mean": 5.871181363735451e-18
   },
-  "source_commit": "ebba9d8e117bfb64d0ec9af1b48c7c8df949c90c",
+  "source_commit": "6c2d0ce5baf3edba1ae0aa0b193a7a2ad6a325cd",
   "version": "evaluation-harness-v2"
 }
