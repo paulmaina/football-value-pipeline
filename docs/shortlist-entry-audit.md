@@ -165,11 +165,10 @@ selection (`master_reconciliation.reconcile` and `summary`):
 It does this for today's nominations, for each proposed change alone and for all of them together, under today's
 master window (1.15 to 2.00) and under one moved to 1.10 to 2.20.
 
-**PROVISIONAL**, pending the rebase on PR #173. These figures come from a scratch merge with #173's quote-timing
-commit (69c3b23, not yet pushed); the run's forecasts and generation clock are passed so the master can time its
-references, as the live shadow does. The reviewer found 342 nominated, 299 eligible and 7 runs reaching 15. This
-run gives 342, 300 and 7; the one-fixture difference in "eligible" is not explained here. The table will be
-replaced by the run on main after #173 merges.
+**Final** (run on main after PR #173 merged, with its quote-timing checks; `reproduction.json`, `master_totals`).
+The run's forecasts and generation clock are passed so the master can time its references, as the live shadow
+does. The reviewer found 342 nominated, 299 eligible and 7 runs reaching 15. This run gives 342, 300 and 7; the
+one-fixture difference in "eligible" is not explained here.
 
 | Nominations | Master window | Fixture-runs nominated / eligible / ranked | Runs reaching 15 |
 | --- | --- | --- | --- |
@@ -315,7 +314,7 @@ the new master.
 the saved runs, and two of them (P1, P2) cost a pick or two under today's master. Both lists already nominate
 every priced match in the window. What limits the master is how many fixtures fall in the 24-hour window, and
 what the master itself can execute and include (its odds window, native markets, timing checks and the 0.75 safe
-threshold). Those are outside this audit; the figures above are provisional until the rebase on PR #173.
+threshold). Those are outside this audit.
 
 ## 6. The saved run with 40 fixtures and no nomination
 
