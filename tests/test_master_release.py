@@ -479,6 +479,25 @@ class InspectionTest(unittest.TestCase):
         frame.at[index, 'inspection_driver'] = 'tampered'
         self.assertFalse(ms.matches_new(mg.read_csv(frame.to_csv(index=False).encode()), expected))
 
+    def test_the_market_view_uses_the_runs_cagey_model(self):
+        import master_inspection
+        import narrow_margin as nm
+        predictions, decisions, summary = snapshot_inputs()
+        summary['cagey_model_version'] = 'recorded-version'
+        seen = []
+        real = master_inspection.annotate
+
+        def spy(frame, preds, clock, config, model_version=None):
+            seen.append(model_version)
+            return real(frame, preds, clock, config, model_version)
+        with mock.patch.object(master_inspection, 'annotate', side_effect=spy), \
+                mock.patch.object(nm, 'load', return_value=nm.production_model()) as load, \
+                mock.patch.object(mr, 'load_config', return_value=flag_config()), warnings.catch_warnings():
+            warnings.simplefilter('ignore')
+            ms.refresh(decisions, Path(tempfile.mkdtemp()), summary, predictions)
+        self.assertEqual(seen, ['recorded-version'])
+        load.assert_called_with('recorded-version')
+
     def test_the_historical_record_is_the_committed_evidence(self):
         import master_inspection
         import importlib.util
