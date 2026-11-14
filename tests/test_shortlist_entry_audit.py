@@ -66,6 +66,18 @@ class SavedRunReproductionTest(unittest.TestCase):
                 self.assertFalse(tighter['cagey']['same'])
                 self.assertLess(tighter['value']['harness'], tighter['value']['live'])
 
+    def test_renominating_under_todays_rules_reproduces_the_live_nominations(self):
+        """The master-coverage scenarios start from renominate(); under today's rules it changes nothing."""
+        for name, decisions in self.decisions.items():
+            again = reproduction.renominate(decisions, sea.TODAY, sea.TODAY)
+            with self.subTest(run=name):
+                for column in ('decision', 'cagey_tier_decision'):
+                    self.assertEqual(set(again.index[again[column].eq('SHORTLISTED')]),
+                                     set(decisions.index[decisions[column].eq('SHORTLISTED')]))
+                looser = reproduction.renominate(decisions, sea.with_rules(min_odds=1.10), sea.TODAY)
+                self.assertGreaterEqual(int(looser.decision.eq('SHORTLISTED').sum()),
+                                        int(decisions.decision.eq('SHORTLISTED').sum()))
+
     def test_unexpressed_live_reasons_block_and_expressed_ones_do_not(self):
         for name, decisions in self.decisions.items():
             fixtures = sea.decision_offers(decisions)
@@ -78,6 +90,55 @@ class SavedRunReproductionTest(unittest.TestCase):
                         self.assertTrue(offer['blocked_value'])
                     if reasons and all(r in sea.VALUE_EXPRESSED for r in reasons):
                         self.assertFalse(offer['blocked_value'])
+
+
+class RankComparisonTest(unittest.TestCase):
+    """Review finding 1: rank rules compare the chosen pick with its runner-up in the same contested fixture and
+    market group, paired, so an uncontested group can't flip the sign."""
+
+    @staticmethod
+    def frame(weeks=4):
+        import pandas as pd
+        rows = []
+        for w in range(weeks):
+            week = f'2023-W{w + 10:02d}'
+            # Contested group: the first-ranked pick is 10 points worse than its runner-up.
+            for rank, quality in ((1, 0.0), (2, 0.10)):
+                rows.append({'fixture_key': f'A{w}', 'group': 'asian_handicap', 'rank': rank, 'quality': quality})
+            # Uncontested group with a very good pick: must not enter the comparison.
+            rows.append({'fixture_key': f'B{w}', 'group': 'match_winner', 'rank': 1, 'quality': 0.5})
+            for row in rows[-3:]:
+                row.update(phase='development', week=week, date=f'2023-03-{w + 1:02d}', kind='synthetic',
+                           price=1.5, market_to_bet=f"{row['group']}-{row['rank']}", observed_no_loss=1.0,
+                           cagey_no_loss=1.0 - row['quality'], quality_win=row['quality'], **{'return': None},
+                           _offer={})
+        return pd.DataFrame(rows)
+
+    def test_paired_difference_shows_the_first_pick_worse(self):
+        import evaluation_harness as eh
+        paired = eh.lists_paired_ranks(self.frame(), 'second')
+        self.assertEqual(len(paired), 4)  # one row per contested group; the uncontested groups are left out
+        self.assertTrue((paired.diff_quality.round(12) == -0.10).all())
+        stats = eh.lists_paired_stats(paired)
+        self.assertAlmostEqual(stats['pass_minus_fail']['value'], -0.10)
+        self.assertTrue(sea.clearly(stats['pass_minus_fail'], 'below'))
+
+    def test_rule_period_and_verdict_use_the_pairing(self):
+        import evaluation_harness as eh
+        frame = self.frame()
+        # The old unpaired comparison (every first pick against contested runners-up) would call it better.
+        unpaired = frame.loc[frame['rank'].eq(1), 'quality'].mean() - frame.loc[frame['rank'].eq(2), 'quality'].mean()
+        self.assertGreater(unpaired, 0)
+        test = next(t for t in sea.RULE_TESTS if t['name'] == 'order_within_group')
+        period = eh.lists_rule_period(test, 'value', lambda rules: frame, 'development', 4)
+        self.assertAlmostEqual(period['pass_minus_fail']['value'], -0.10)
+        self.assertEqual(period['contested_groups'], 4)
+        self.assertEqual(period['pass']['bets'], 4)  # contested first picks only
+        self.assertEqual(sea.verdict(period, period)['verdict'], 'no evidence')
+        # The same holds for the picks-per-group rule (first pick against every lower-ranked bet in its group).
+        test = next(t for t in sea.RULE_TESTS if t['name'] == 'picks_per_match')
+        period = eh.lists_rule_period(test, 'value', lambda rules: frame, 'development', 4)
+        self.assertAlmostEqual(period['pass_minus_fail']['value'], -0.10)
 
 
 if __name__ == '__main__':

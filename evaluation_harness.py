@@ -2748,11 +2748,12 @@ def lists_margins(fixtures):
 
 def lists_offers(fixture, research='C', synthetic=None, ah_margin=None):
     """Every offer of one match in the audit's pool (docs/plan.md, fixed 14 Nov 2026), with both lists' scores and
-    its settlement. `kind`: 'real' (home/away win, main AH line), 'derived' (double chance 1X/X2/12 and draw no
-    bet from the margin-free 1X2 plus that match's 1X2 overround) or 'synthetic' (alternate AH lines main -1 to +1
-    and Over 1.5: no historical price; accuracy only). In the Bet365 period every price is Pinnacle-like: Bet365's
-    margin-free probability plus Pinnacle's average margin (`synthetic`). Nothing in the selection reads the
-    settlement fields (`observed_no_loss`, `return`)."""
+    its settlement. `kind`: 'real' (home/away win, main AH line at Pinnacle's own price, Pinnacle period),
+    'reconstructed' (the same offers in the Bet365 period: Bet365's margin-free probability plus Pinnacle's average
+    margin, `synthetic`; never counted as a real price), 'derived' (double chance 1X/X2/12 and draw no bet from the
+    margin-free 1X2 plus that match's 1X2 overround, or Pinnacle's average one in the Bet365 period) or 'synthetic'
+    (alternate AH lines main -1 to +1 and Over 1.5: no historical price; accuracy only). Nothing in the selection
+    reads the settlement fields (`observed_no_loss`, `return`)."""
     import market_implied as mi
     import shortlist_entry_audit as sea
     from asian_handicap import label
@@ -2793,14 +2794,17 @@ def lists_offers(fixture, research='C', synthetic=None, ah_margin=None):
                 'research_mass': mass(research_p), 'cagey_mass': mass(cagey_p),
                 'return': float(price - 1) if happened else -1.}
 
+    # Bet365 period: wins and the main AH line are Bet365 prices moved to a Pinnacle-like margin, not real Pinnacle
+    # prices, so they are 'reconstructed' and kept out of every real-price return.
+    quoted = 'real' if synthetic is None else 'reconstructed'
     research_margins = (None if research_grid is None else
                         (np.asarray(research_grid[0], float), np.asarray(research_grid[1], float)))
     p12 = lambda grid: float(grid[1][grid[0] != 0].sum())
     offers = [
-        binary('Home win', h, None, None, margin > 0, win_prices[0], 'real', 'home', -.5),
-        binary('Away win', a, None, None, margin < 0, win_prices[1], 'real', 'away', -.5),
-        handicap('home', line, ah_prices[0], 'real'),
-        handicap('away', -line, ah_prices[1], 'real'),
+        binary('Home win', h, None, None, margin > 0, win_prices[0], quoted, 'home', -.5),
+        binary('Away win', a, None, None, margin < 0, win_prices[1], quoted, 'away', -.5),
+        handicap('home', line, ah_prices[0], quoted),
+        handicap('away', -line, ah_prices[1], quoted),
         binary('Double Chance 1X', h + d, None, None, margin >= 0, 1 / ((h + d) * (1 + hda_margin)), 'derived', 'home', .5),
         binary('Double Chance X2', d + a, None, None, margin <= 0, 1 / ((d + a) * (1 + hda_margin)), 'derived', 'away', .5),
         binary('Double Chance 12', h + a, None if research_margins is None else p12(research_margins),
@@ -2866,13 +2870,19 @@ def lists_pick_rows(fixtures_offers, select, rules):
     return pd.DataFrame(rows)
 
 
+def _returns(frame, kinds):
+    part = frame.loc[frame.kind.isin(kinds)]
+    return part.assign(**{'return': part['return'].astype(float)}) if len(part) else part
+
+
 def lists_set_stats(frame, weeks) -> dict:
-    """Quality (observed no-loss minus the cagey tier's predicted), its win version, flat-stake return (real prices;
-    real plus derived) and coverage of one set of bets."""
+    """Quality (observed no-loss minus the cagey tier's predicted), its win version, flat-stake return (real
+    Pinnacle prices; real plus derived; reconstructed Bet365-period prices apart) and coverage of one set of bets."""
     if frame.empty:
         return {'bets': 0, 'matches': 0, 'bets_per_week': 0.0, 'matches_per_week': 0.0}
-    real = frame.loc[frame.kind.eq('real')]
-    priced = frame.loc[frame.kind.isin(['real', 'derived'])]
+    real = _returns(frame, ['real'])
+    priced = _returns(frame, ['real', 'derived'])
+    rebuilt = _returns(frame, ['reconstructed'])
     matches = int(frame[['week', 'fixture_key']].drop_duplicates().shape[0])
     return {'bets': int(len(frame)), 'matches': matches, 'weeks_with_bets': int(frame.week.nunique()),
             'bets_per_week': float(len(frame) / weeks), 'matches_per_week': float(matches / weeks),
@@ -2881,21 +2891,68 @@ def lists_set_stats(frame, weeks) -> dict:
             'mean_odds': float(frame.price.mean()), 'observed_no_loss': float(frame.observed_no_loss.mean()),
             'cagey_predicted_no_loss': float(frame.cagey_no_loss.mean()),
             'quality': _week_ratio(frame, 'quality'), 'quality_win': _week_ratio(frame, 'quality_win'),
-            'return_real_prices': _week_ratio(real.assign(**{'return': real['return'].astype(float)})) if len(real) else None,
-            'return_real_and_derived_prices': (_week_ratio(priced.assign(**{'return': priced['return'].astype(float)}))
-                                               if len(priced) else None),
-            'real_price_bets': int(len(real)), 'derived_price_bets': int(len(priced) - len(real))}
+            'return_real_prices': _week_ratio(real) if len(real) else None,
+            'return_real_and_derived_prices': _week_ratio(priced) if len(priced) else None,
+            'return_reconstructed_prices': _week_ratio(rebuilt) if len(rebuilt) else None,
+            'real_price_bets': int(len(real)), 'derived_price_bets': int(len(priced) - len(real)),
+            'reconstructed_price_bets': int(len(rebuilt))}
 
 
-def lists_difference(a, b, value='quality'):
+def lists_difference(a, b, value='quality', kind='real'):
+    """mean(a) - mean(b), same weeks resampled; for return, only bets priced as `kind` ('real' or 'reconstructed')."""
     if a.empty or b.empty:
         return None
     if value == 'return':
-        a, b = (f.loc[f.kind.eq('real')].assign(**{'return': f.loc[f.kind.eq('real'), 'return'].astype(float)})
-                for f in (a, b))
+        a, b = _returns(a, [kind]), _returns(b, [kind])
         if a.empty or b.empty:
             return None
     return _difference(a, b, value)
+
+
+# Rank rules: the chosen pick against its runner-up in the same fixture and market group (contested groups only),
+# paired per group, whole weeks resampled. 'second' = the next eligible bet; 'rest' = every lower-ranked eligible bet.
+RANK_TESTS = {'order_within_group': 'second', 'picks_per_match': 'rest'}
+
+
+def lists_paired_ranks(frame, runner_up='second') -> pd.DataFrame:
+    """One row per contested (week, fixture, market group): the first-ranked pick's quality minus its runner-up's
+    (rank 2, or the mean of ranks 2+), the same for the win version, and for return where every bet compared has a
+    price of the same kind (real or reconstructed). Uncontested groups (one eligible bet) are left out."""
+    columns = ['week', 'fixture_key', 'group', 'diff_quality', 'diff_quality_win', 'diff_return', 'return_kind']
+    if frame.empty:
+        return pd.DataFrame(columns=columns)
+    keys = ['week', 'fixture_key', 'group']
+    first = frame.loc[frame['rank'].eq(1)].set_index(keys)
+    rest = frame.loc[frame['rank'].eq(2) if runner_up == 'second' else frame['rank'].ge(2)].copy()
+    if first.empty or rest.empty:
+        return pd.DataFrame(columns=columns)
+    rest['_ret'] = pd.to_numeric(rest['return'], errors='coerce')
+    agg = rest.groupby(keys).agg(q=('quality', 'mean'), qw=('quality_win', 'mean'), ret=('_ret', 'mean'),
+                                 kinds=('kind', lambda k: '|'.join(sorted(set(k)))),
+                                 priced=('_ret', lambda r: bool(r.notna().all())))
+    joined = first.join(agg, how='inner')
+    first_ret = pd.to_numeric(joined['return'], errors='coerce')
+    same = (joined.priced & first_ret.notna() & joined.kinds.eq(joined.kind)
+            & joined.kind.isin(['real', 'reconstructed']))
+    out = pd.DataFrame({'diff_quality': joined.quality - joined.q, 'diff_quality_win': joined.quality_win - joined.qw,
+                        'diff_return': (first_ret - joined.ret).where(same), 'return_kind': joined.kind.where(same)})
+    return out.reset_index()[columns]
+
+
+def lists_paired_stats(paired) -> dict:
+    """Pass minus fail for a rank rule: mean paired difference per contested group, whole weeks resampled."""
+    if paired.empty:
+        return {'pass_minus_fail': None, 'contested_groups': 0}
+    out = {'pass_minus_fail': _week_ratio(paired.assign(diff_quality=paired.diff_quality.astype(float)), 'diff_quality'),
+           'pass_minus_fail_win': _week_ratio(paired.assign(diff_quality_win=paired.diff_quality_win.astype(float)),
+                                              'diff_quality_win'),
+           'contested_groups': int(len(paired))}
+    for kind in ('real', 'reconstructed'):
+        part = paired.loc[paired.return_kind.eq(kind)]
+        out[f'pass_minus_fail_return_{kind}_prices'] = (
+            _week_ratio(part.assign(diff_return=part.diff_return.astype(float)), 'diff_return') if len(part) else None)
+        out[f'paired_{kind}_price_groups'] = int(len(part))
+    return out
 
 
 def lists_rule_period(test, name, picks, period, weeks):
@@ -2905,14 +2962,24 @@ def lists_rule_period(test, name, picks, period, weeks):
     base = part(test['removed']) if test['removed'] is not None else today
     if base.empty:
         return None
-    passed = base.loc[[test['passes'](o, k) for o, k in zip(base._offer, base['rank'])]]
-    if test['name'] == 'order_within_group':
-        failed = base.loc[base['rank'].eq(2)]
+    if test['name'] in RANK_TESTS:
+        runner_up = RANK_TESTS[test['name']]
+        paired = lists_paired_ranks(base, runner_up)
+        contested = set(zip(paired.week, paired.fixture_key, paired.group))
+        inside = pd.Series([k in contested for k in zip(base.week, base.fixture_key, base.group)], index=base.index)
+        passed = base.loc[inside & base['rank'].eq(1)]
+        failed = base.loc[inside & (base['rank'].eq(2) if runner_up == 'second' else base['rank'].ge(2))]
+        out = {'today': lists_set_stats(today, weeks), 'pass': lists_set_stats(passed, weeks),
+               'fail': lists_set_stats(failed, weeks), 'comparison': f'paired within contested groups ({runner_up})',
+               **lists_paired_stats(paired)}
     else:
+        passed = base.loc[[test['passes'](o, k) for o, k in zip(base._offer, base['rank'])]]
         failed = base.drop(passed.index)
-    out = {'today': lists_set_stats(today, weeks), 'pass': lists_set_stats(passed, weeks),
-           'fail': lists_set_stats(failed, weeks), 'pass_minus_fail': lists_difference(passed, failed),
-           'pass_minus_fail_return_real_prices': lists_difference(passed, failed, 'return')}
+        out = {'today': lists_set_stats(today, weeks), 'pass': lists_set_stats(passed, weeks),
+               'fail': lists_set_stats(failed, weeks), 'pass_minus_fail': lists_difference(passed, failed),
+               'pass_minus_fail_return_real_prices': lists_difference(passed, failed, 'return'),
+               'pass_minus_fail_return_reconstructed_prices': lists_difference(passed, failed, 'return',
+                                                                               'reconstructed')}
     for step in ('looser', 'tighter'):
         if test[step] is None:
             continue
@@ -2920,6 +2987,8 @@ def lists_rule_period(test, name, picks, period, weeks):
         out[step] = lists_set_stats(other, weeks)
         out[f'{step}_minus_today'] = lists_difference(other, today)
         out[f'{step}_minus_today_return_real_prices'] = lists_difference(other, today, 'return')
+        out[f'{step}_minus_today_return_reconstructed_prices'] = lists_difference(other, today, 'return',
+                                                                                  'reconstructed')
         if step == 'looser':
             out['looser_adds_coverage'] = bool(len(other) > len(today) or out['looser']['matches'] > out['today']['matches'])
         # Context, not deciding: the bets the step adds (looser) or removes (tighter) relative to today.
@@ -3036,6 +3105,9 @@ def lists_summary(fixtures, cfg) -> tuple:
         out['proposed_minus_today'] = {k: lists_difference(n, t) for k, n, t in zip(('value', 'cagey', 'both_lists'), new, today)}
         out['proposed_minus_today_return_real_prices'] = {
             k: lists_difference(n, t, 'return') for k, n, t in zip(('value', 'cagey', 'both_lists'), new, today)}
+        out['proposed_minus_today_return_reconstructed_prices'] = {
+            k: lists_difference(n, t, 'return', 'reconstructed')
+            for k, n, t in zip(('value', 'cagey', 'both_lists'), new, today)}
         value_today, cagey_today = today[0], today[1]
         same = (set(zip(value_today.fixture_key, value_today.market_to_bet, value_today.price))
                 & set(zip(cagey_today.fixture_key, cagey_today.market_to_bet, cagey_today.price))) if len(value_today) else set()
@@ -3052,9 +3124,12 @@ def lists_summary(fixtures, cfg) -> tuple:
                'scope': 'Domestic leagues only (no European prices). Offers: home/away win and the main AH line at real '
                         'prices; double chance 1X/X2/12 and draw no bet at derived prices (margin-free 1X2 plus that '
                         "match's 1X2 overround); alternate AH lines (main -1.00 to +1.00) and Over 1.5 at synthetic prices "
-                        '(no historical price; accuracy only, never return). Bet365 period: Pinnacle-like prices from '
-                        "Bet365's margin-free probabilities plus Pinnacle's average margin. Quality = observed no-loss "
-                        "minus the cagey tier's predicted no-loss (Over 1.5: M's), per bet, whole weeks resampled. "
+                        '(no historical price; accuracy only, never return). Bet365 period: home/away win and the main '
+                        "AH line are 'reconstructed' (Bet365's margin-free probabilities plus Pinnacle's average "
+                        'margin), never counted as real prices; their return is reported apart. Rank rules (order '
+                        'within a group, picks per group) pair the chosen pick with its runner-up in the same contested '
+                        "fixture and group. Quality = observed no-loss minus the cagey tier's predicted no-loss "
+                        "(Over 1.5: M's), per bet, whole weeks resampled. "
                         'Locked: no holdout match is read.',
                'rule_tests': tests, 'proposed_changes': changes, 'combined': combined}
     return summary, today_picks.drop(columns='_offer')
