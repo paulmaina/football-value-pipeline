@@ -1,4 +1,5 @@
-"""The new master, in shadow (master_reconciliation.py, revised master rule, rule master-new-evidence-rule-v2).
+"""The new master, in shadow (master_reconciliation.py; #172's rule master-new-evidence-rule-v2 is step 1 of the
+fill rule master-new-fill-rule-v3, whose own tests are in tests/test_master_fill.py).
 
 Every rule exactly as written: inclusion only when the cagey tier rates the bet safe (the 0.75 boundary), no veto,
 "research too optimistic" at g >= +4, ranking by the cagey no-loss chance only, "both agree" as a label, the
@@ -119,9 +120,10 @@ GRID = [None, *np.linspace(.42, .92, 11), .75, .85, .7499999, .8499999]
 
 class DefinitionsTest(unittest.TestCase):
     def test_config_holds_the_written_rule(self):
-        self.assertEqual(CONFIG['version'], 'master-new-evidence-rule-v2')
-        self.assertIn('Decided by Paul, 13 Nov 2026, replacing the 4-point rule', CONFIG['decided'])
+        self.assertEqual(CONFIG['version'], 'master-new-fill-rule-v3')
+        self.assertIn('Fill rule (A): decided by Paul, 13 Nov 2026', CONFIG['decided'])
         self.assertIn('PR #171', CONFIG['decided'])
+        self.assertEqual(CONFIG['safe_only_rule']['version'], 'master-new-evidence-rule-v2')
         self.assertEqual(CONFIG['file'], 'master_shortlist_new.csv')
         self.assertEqual(CONFIG['target_fixtures'], 15)
         self.assertTrue(CONFIG['one_pick_per_match'])
@@ -669,7 +671,7 @@ class LiveGradingTest(unittest.TestCase):
         self.assertEqual((comparison['status'], comparison['new_master']['graded_matches']), ('WAITING', 1))
         self.assertEqual((comparison['new_master_offers']['offers'], comparison['new_master_offers']['included']),
                          (2, 1))
-        self.assertIn('New master (shadow, revised master rule)', report)
+        self.assertIn('New master (shadow, fill rule)', report)
         self.assertIn('waiting for at least 150 graded matches', report)
         self.assertIn('research strongly disagrees 0', report)
 
@@ -703,7 +705,7 @@ class BacktestTest(unittest.TestCase):
 
     def test_picks_never_read_the_result(self):
         import evaluation_harness as eh
-        drop = ['return', 'observed_no_loss']
+        drop = ['return', 'observed_no_loss', 'observed_profit']
         for research in eh.MASTER_RESEARCH:
             rows = [pd.DataFrame(eh.master_select_week(eh.master_fixture(self.fixture(margin=m, cagey_shift=2.0),
                                                                          CONFIG, research=research), CONFIG))
@@ -719,7 +721,11 @@ class BacktestTest(unittest.TestCase):
             rows = eh.master_fixture(self.fixture(cagey_shift=cagey_shift), CONFIG, research=research)
             self.assertTrue(rows)
             for row in rows:
-                self.assertTrue(row['in_value_shortlist'] or row['in_cagey_tier'])
+                # the fill pool: every in-window offer; nominated = either list's pick (step 1's pool)
+                self.assertEqual(row['nominated'], row['in_value_shortlist'] or row['in_cagey_tier'])
+                if not row['nominated']:
+                    self.assertIsNone(row['v1_group'])  # #171's rule only ever saw nominated offers
+                    continue
                 args = (row['research_no_loss_probability'], row['cagey_no_loss_probability'],
                         row['research_expected_return'], row['offered_decimal_odds'], row['cagey_fair_odds'],
                         row['market_no_loss_probability'], row['market_fair_odds'], False)
@@ -767,20 +773,26 @@ class BacktestTest(unittest.TestCase):
         period = summary['periods']['development']
         self.assertEqual(set(period['research_views']), {'C', 'C6'})
         for name, view in period['research_views'].items():
-            self.assertEqual(set(view['bets_by_gap_check']), set(eh.MASTER_GAP_CATEGORIES))
+            self.assertEqual(set(view['bets_by_gap_check_nominated']), set(eh.MASTER_GAP_CATEGORIES))
             new = frames[name].loc[frames[name].new_master_decision.eq('SHORTLISTED')]
-            self.assertEqual(view['new_master']['picks'], len(new))
-            self.assertEqual(view['previous_rule']['picks'], int(frames[name].v1_decision.eq('SHORTLISTED').sum()))
-            for key in ('new_minus_live_return', 'new_minus_previous_rule_return'):
-                self.assertIn('interval_95', view[key])
+            nominated = frames[name].loc[frames[name].nominated]
+            self.assertEqual(view['final_new_master']['picks'], len(new))
+            self.assertEqual(view['lists']['previous_rule_171']['picks'],
+                             int(frames[name].v1_decision.eq('SHORTLISTED').sum()))
+            for key in ('final_minus_live_master', 'final_minus_safe_only_172', 'final_minus_previous_rule_171',
+                        'fill_effect_fill_current_minus_safe_only',
+                        'sharpening_effect_fill_sharpened_minus_fill_current'):
+                self.assertIn('interval_95', view['differences'][key])
+            self.assertEqual(sum(t['picks'] for t in view['by_tier']['final'].values()), len(new))
+            self.assertEqual(view['final_new_master']['picks_per_week'], len(new) / 3)
             flag = view['inspection_flag']
-            self.assertEqual(flag['offers']['offers'], int(frames[name].inspection_flag.eq(True).sum()))
+            self.assertEqual(flag['offers']['offers'], int(nominated.inspection_flag.eq(True).sum()))
             self.assertEqual(flag['on_list']['offers'], int(new.inspection_flag.eq(True).sum()))
             if flag['offers']['offers']:
                 self.assertIsNotNone(flag['offers']['observed_minus_cagey'])
                 self.assertEqual(flag['offers']['weeks_in_period'], 3)
         self.assertGreater(sum(v['inspection_flag']['offers']['offers'] for v in period['research_views'].values()), 0)
-        self.assertIn('new_master_return_C6_minus_C', period['C6_vs_C'])
+        self.assertIn('final_return_C6_minus_C', period['C6_vs_C'])
         self.assertEqual(period['live_master']['picks'], int(frames['C'].live_master_rank.notna().sum()))
 
     def test_the_backtest_is_locked(self):

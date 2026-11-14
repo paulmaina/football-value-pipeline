@@ -4,8 +4,9 @@ For every archived run in football_output_v2/performance/snapshots generated in 
 run's decision rows from its frozen predictions at the run's own clock with the current production rules
 (price_edge_cagey_shortlist.build_shortlist with cagey_correction_config.json, the quote policy and the current
 lookahead), then call master_shortlist.refresh, exactly as the pipeline does. Each run's outputs go to
-<output>/runs/<snapshot>/: master_shortlist.csv, master_shortlist_audit.csv, master_summary.json and, on a
-branch with the shadow, master_shortlist_new.csv and its summary.
+<output>/runs/<snapshot>/: master_shortlist.csv, master_shortlist_audit.csv, master_summary.json, decisions.csv
+(the run's decision rows after the refresh: every live probability and both lists' picks, the cagey tier's
+included) and, on a branch with the shadow, master_shortlist_new.csv and its summary.
 
 Integration check, not evidence: no result is read. Run it on main and on the branch with the same arguments
 and compare the live master files byte for byte (--compare).
@@ -27,7 +28,9 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 SNAPSHOTS = Path('football_output_v2') / 'performance' / 'snapshots'
-LIVE_FILES = ('master_shortlist.csv', 'master_shortlist_audit.csv', 'master_summary.json')
+# decisions.csv: the run's decision rows after the master refresh, i.e. every live probability and both lists' picks
+# (value shortlist and cagey tier), so the comparison also shows the cagey tier untouched.
+LIVE_FILES = ('master_shortlist.csv', 'master_shortlist_audit.csv', 'master_summary.json', 'decisions.csv')
 
 
 def runs(root: Path, start: str, end: str):
@@ -64,6 +67,8 @@ def replay(root: Path, output: Path, start: str, end: str) -> dict:
                                                             execution_policy=load_policy(), model=nm.production_model())
                 summary.setdefault('quote_execution_policy', load_policy())
                 master_shortlist.refresh(decisions, target, summary, predictions)
+            decisions.to_csv(target / 'decisions.csv', index=False)
+            entry.update(run_fixtures(decisions))
             (target / 'master_summary.json').write_text(
                 json.dumps(summary.get('master_shortlist'), indent=2, sort_keys=True, default=str) + '\n',
                 encoding='utf-8')
@@ -79,6 +84,21 @@ def replay(root: Path, output: Path, start: str, end: str) -> dict:
     report['shadow_totals'] = totals(output, report)
     (output / 'replay.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
     return report
+
+
+def run_fixtures(decisions) -> dict:
+    """The run's matches, and those with an executable offer (the fill rule's reach), where the replayed code has
+    the fill rule; {} otherwise (e.g. replaying main before it)."""
+    try:
+        import master_reconciliation as mr
+        from performance_tracking import fixture_key
+        config = mr.load_config()
+        records = mr._records(decisions)
+        return {'fixtures': len({fixture_key(r) for r in records}),
+                'fixtures_with_executable_offer': len({fixture_key(r) for r in records
+                                                       if mr.executable(r, config) is None})}
+    except Exception:  # noqa: BLE001  (older code: no fill rule)
+        return {}
 
 
 def totals(output: Path, report: dict) -> dict:
@@ -102,8 +122,13 @@ def totals(output: Path, report: dict) -> dict:
             out[key] += s[key]
         out['inspection_flagged_offers'] += s['for_inspection']['flagged_offers']
         out['for_inspection'] += [{'snapshot': entry['snapshot'], **pick} for pick in s['for_inspection']['picks']]
+        for name, value in (s.get('picks_by_tier') or {}).items():
+            out.setdefault('picks_by_tier', {})[name] = out.get('picks_by_tier', {}).get(name, 0) + value
         out['per_run'].append({'snapshot': entry['snapshot'], 'generated_at_utc': entry['generated_at_utc'],
-                               'offers': s['offers'], 'ranked': s['ranked_fixtures'], 'groups': s['offers_by_group'],
+                               'fixtures': entry.get('fixtures'),
+                               'fixtures_with_executable_offer': entry.get('fixtures_with_executable_offer'),
+                               'offers': s['offers'], 'ranked': s['ranked_fixtures'],
+                               'picks_by_tier': s.get('picks_by_tier'), 'groups': s['offers_by_group'],
                                'labels_ranked': s['labels_ranked'], 'overlap': s['overlap_with_live_master'],
                                'european_offers': s['european_offers']})
     return out
