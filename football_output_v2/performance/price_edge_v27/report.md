@@ -9,7 +9,7 @@ value: 1120 captured recommendations; 1102 graded; 98 distinct fixtures.
 cagey: 892 captured recommendations; 875 graded; 81 distinct fixtures.
 Actual placed bets: NOT_RECORDED
 
-Reviewed 2026-11-14T11:40:08.309326+00:00. Frozen v27 picks: 311.
+Reviewed 2026-11-14T14:28:58.714815+00:00. Frozen v27 picks: 311.
 
 **Mean CLV vs Pinnacle close:** -2.36% ± 1.18% (n=49). **Flat-stake profit per bet:** +3.67% ± 7.46% (n=307).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -114,7 +114,7 @@ Frozen picks: 61; CLV +0.17% ± 4.50% (n=10); realised profit per bet +0.90% ± 
 | negative market EV nomination | -4.62% ± 2.61% (n=2) | +13.07% ± 11.15% (n=30) |
 | value | +3.28% ± 8.33% (n=4) | +6.67% ± 39.87% (n=12) |
 
-## New master (shadow, revised master rule) beside the live master
+## New master (shadow, fill rule) beside the live master
 
 Frozen picks: 0; CLV n/a (0); realised profit per bet n/a (0). Live master: 61 frozen picks, realised profit per bet +0.90% ± 16.86% (n=61).
 

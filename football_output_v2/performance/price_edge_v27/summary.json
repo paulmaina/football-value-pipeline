@@ -974,6 +974,7 @@
       "offers": 0,
       "one_view_missing": 0,
       "research_too_optimistic": 0,
+      "risky_fill": 0,
       "unvalidated_view": 0
     },
     "rule": "After at least 150 graded matches over at least 3 calendar weeks (on each list), compare flat-stake return per bet at Pinnacle prices: new master minus live master, whole kickoff weeks resampled (the same weeks for both lists), 95% interval. Hit rate, average price, vetoed, ignored and missing-view counts are context only. The new master is better only if the interval is entirely above zero.",
@@ -983,6 +984,7 @@
   "master_picks": 61,
   "new_master": {
     "by_labels": {},
+    "by_tier": {},
     "clv": {
       "mean": null,
       "n": 0,
@@ -1025,7 +1027,7 @@
     }
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-14T11:40:08.309326+00:00",
+  "reviewed_at_utc": "2026-11-14T14:28:58.714815+00:00",
   "stop_review": false,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "tagged_candidates": {
