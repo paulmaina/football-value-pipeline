@@ -277,17 +277,59 @@ def raw_check(root, *, raw_dir=None):
                 return master_expected
 
             live_info = summary.get('master_shortlist')
-            if live_info is not None and live_info.get('version') == master_shortlist.VERSION_NEW_LIVE:
+            # A release incident (master_shortlist.RELEASE_STATUS_KEY) must replay too: a run that says a master
+            # failed is accepted only if that master fails again on the frozen inputs.
+            release = summary.get(master_shortlist.RELEASE_STATUS_KEY)
+            incident = (release or {}).get('status')
+            require(release is None or incident in (master_shortlist.NEW_MASTER_FAILED,
+                                                    master_shortlist.BASELINE_MISSING),
+                    'Unknown master release status')
+
+            def replays(build):
+                try:
+                    build()
+                except Exception:
+                    return False
+                return True
+
+            def replay_old(version):
+                return master_shortlist._old_master(decisions, summary, pd.read_csv(
+                    raw/'all_leagues_predictions.csv', low_memory=False), version)
+
+            def replay_new(old_frame):
+                return master_shortlist.new_live(decisions, old_frame, summary.get('generated_at_utc'), pd.read_csv(
+                    raw/'all_leagues_predictions.csv', low_memory=False))
+
+            if incident == master_shortlist.NEW_MASTER_FAILED:
+                # The old master was published as the live list for this run, exactly as live "old" writes it.
+                require(live_info is not None and live_info.get('version') in master_shortlist.VERSIONS,
+                        'A run whose new master failed must publish the old master')
+                require(master_shortlist.OLD_SUMMARY_KEY not in summary
+                        and not any((raw/name).exists() for name in master_shortlist.RELEASE_FILES),
+                        'Unexpected release files in a run whose new master failed')
+                old_expected = check_old_master(live_info, master_path, None, 'master shortlist', 'master')
+                require(not replays(lambda: replay_new(old_expected)),
+                        'The run summary says the new master failed, but it replays without error')
+            elif live_info is not None and live_info.get('version') == master_shortlist.VERSION_NEW_LIVE:
                 require(master_path.exists(), 'Missing current master shortlist')
                 old_info = summary.get(master_shortlist.OLD_SUMMARY_KEY)
                 old_expected = None
                 if old_info is not None:
+                    require(release is None, 'A release incident is recorded beside a complete old master shadow')
                     old_expected = check_old_master(old_info, raw/master_shortlist.OLD_FILE,
                                                     master_shortlist.OLD_AUDIT_FILE, 'old master shortlist (shadow)',
                                                     'old master (shadow)')
-                new_expected, new_summary_expected = master_shortlist.new_live(
-                    decisions, old_expected, summary.get('generated_at_utc'),
-                    pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False))
+                else:
+                    # No old master (shadow): only when it failed in this run and fails again on replay.
+                    require(incident == master_shortlist.BASELINE_MISSING,
+                            'Missing current old master shortlist (shadow) summary')
+                    require(not (raw/master_shortlist.OLD_FILE).exists()
+                            and not (raw/master_shortlist.OLD_AUDIT_FILE).exists(),
+                            'Old master (shadow) files without its summary')
+                    version = release.get('old_master_version') or master_shortlist.configured_version()
+                    require(not replays(lambda: replay_old(version)),
+                            'The run summary says the old master (shadow) failed, but it replays without error')
+                new_expected, new_summary_expected = replay_new(old_expected)
                 try:
                     new_actual = pd.read_csv(master_path, low_memory=False)
                 except pd.errors.EmptyDataError:
@@ -297,6 +339,7 @@ def raw_check(root, *, raw_dir=None):
                 require(equivalent(live_info, new_summary_expected),
                         'Current master shortlist summary differs from replay')
             elif live_info is not None:
+                require(release is None, 'A release incident is recorded for a run without the released master')
                 check_old_master(live_info, master_path, None, 'master shortlist', 'master')
             # Correction monitoring is evidence only, but its rows must be this run's own. The run's
             # immutable summary says whether it was generated with monitoring; earlier v28 runs were not.
@@ -713,12 +756,17 @@ def report_check(root):
                 warnings.append(f'{name}: latest snapshot {state}; experimental evidence was not accepted')
     # The master release's rollback rule (price_edge_tracking.master_rollback): reported first in the run summary.
     rollback_path=performance/'price_edge_v27'/'summary.json'
-    rollback=(read_json(rollback_path).get('master_rollback') if rollback_path.exists() else None) or {}
+    tracking=read_json(rollback_path) if rollback_path.exists() else {}
+    rollback=tracking.get('master_rollback') or {}
+    incidents=tracking.get('master_release_incidents') or {}
+    # Release incidents (new master failed -> old master published; old master shadow failed -> comparison baseline
+    # missing), with their run counts, right after the rollback trigger; never an ordinary wait for data.
+    for message in reversed(incidents.get('messages', [])): warnings.insert(0, message)
     if rollback.get('triggered'): warnings.insert(0, rollback['message'])
     return {'status':'VERIFIED_WITH_WARNINGS' if warnings else 'VERIFIED','pipeline_health':health_data,'reviewed_at_utc':metrics['reviewed_at_utc'],
         'snapshots':len(audit['snapshots']),'shortlist':metrics['shortlist'],'policy_groups':metrics['groups']['policy'],
         'provider_errors':metrics.get('provider_errors',{}),'training_end_dates':training,'experiments':experiments,'warnings':warnings,
-        'master_rollback':rollback}
+        'master_rollback':rollback,'master_release_incidents':incidents}
 
 
 def registry_check(repo):
@@ -783,6 +831,9 @@ def emit(data,output=None,summary=False):
             rollback=data.get('master_rollback') or {}
             if rollback.get('triggered'):  # the release's rollback rule, first in the run summary; never acted on
                 handle.write(f"> **{rollback['status']}** (master shortlist): {rollback['message']}\n\n")
+            for message in (data.get('master_release_incidents') or {}).get('messages', []):
+                head, _, rest = message.partition(' in ')
+                handle.write(f"> **{head}** (master shortlist) in {rest}\n\n")
             handle.write('## Forward review integrity\n\n')
             handle.write(f'Status: **{data.get("status","VERIFIED")}**; snapshots: {data.get("snapshots",0)}.\n\n')
             if 'shortlist' in data:

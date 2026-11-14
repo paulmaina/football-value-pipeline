@@ -666,7 +666,15 @@ class LiveGradingTest(unittest.TestCase):
                     mock.patch('performance_tracking.fixture_match', return_value=(final, 'VERIFIED_FINISHED')):
                 summary = tracking.review(root, archive, [], self.KICK + pd.Timedelta(hours=5))
             report = (root / tracking.OUTPUT_DIR / 'report.md').read_text(encoding='utf-8')
-            graded = pd.read_csv(root / tracking.OUTPUT_DIR / 'master_shortlist_new_picks.csv')
+            # since the release: the new master's graded picks are master_shortlist_picks.csv and the old master
+            # logic's master_shortlist_old_picks.csv (the shadow-period name is gone); pre-release shadow rows are
+            # read under the live file's overlap names
+            graded = pd.read_csv(root / tracking.OUTPUT_DIR / 'master_shortlist_picks.csv')
+            graded_old = pd.read_csv(root / tracking.OUTPUT_DIR / 'master_shortlist_old_picks.csv')
+            self.assertFalse((root / tracking.OUTPUT_DIR / 'master_shortlist_new_picks.csv').exists())
+        self.assertIn('new_master_decision', graded.columns)
+        self.assertNotIn('new_master_decision', graded_old.columns)
+        self.assertNotIn('in_live_master', graded.columns)
         self.assertEqual((summary['new_master_picks'], summary['master_picks']), (1, 1))
         self.assertAlmostEqual(summary['new_master']['profit']['mean'], 0.40)  # away +1.00 wins 0-1 at 1.40
         self.assertAlmostEqual(summary['master']['profit']['mean'], -1.0)     # home +0.50 loses
