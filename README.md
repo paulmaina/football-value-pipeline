@@ -144,6 +144,45 @@ New value, cagey-tier and master shortlists use kickoffs from 20 minutes to
 See the [value rule](docs/team_research_profit.md), [cagey-tier rule](docs/cagey-market-basis-v5.md)
 and [master rule](docs/master-market-selection.md).
 
+**Master shortlist release (14 Nov 2026).** The live `master_shortlist.csv` is
+written by the new master rule (`master_reconciliation.py`, rule
+`master-new-fill-rule-v4`: safe picks, then fill to 15 matches, only from the
+value and cagey nominations, Pinnacle prices and quote-timing checks). Its rows
+carry `new_master_version` = `master-new-fill-rule-v4-live-v10`, and the file
+lists every nominated offer; the picks are the rows with `new_master_decision`
+= `SHORTLISTED`. Its summary is `master_shortlist_summary.json` (also the
+run summary's `master_shortlist`). The old master logic keeps running in
+shadow as `master_shortlist_old.csv` (with `master_shortlist_old_audit.csv`
+and the run summary's `master_shortlist_old`). Paul released it on 14 Nov 2026 as a
+deliberate exception, without waiting for the live comparison verdict. The
+weekly report (`performance/price_edge_v27/report.md`) grades both lists. It
+puts **ROLLBACK TRIGGERED** at the top, and in the run summary, if new minus
+old flat-stake return per bet has its 95% interval entirely below zero after at
+least 150 graded matches over at least 3 weeks. Nothing switches
+automatically. To roll back, set `"live": "old"` in
+`master_shortlist_config.json`: every master file is then written exactly as
+before the release (old master in `master_shortlist.csv`, new master in shadow
+as `master_shortlist_new.csv`). Staking, the recommendation history and the
+performance workbook never read a master list.
+
+In the live file, `in_old_master`, `old_master_rank` and
+`old_master_same_offer` (and the summary's `overlap_with_old_master`) compare
+each offer with the old master. If the new master fails during a run, that
+run publishes the old master as `master_shortlist.csv` (exactly as with
+`"live": "old"`) and its run summary says **NEW MASTER FAILED - OLD MASTER
+PUBLISHED** with the error. If the old master (shadow) fails, the new master
+stays live and the run is recorded as having no comparison baseline. The weekly
+report and the reports check count both kinds of run ("comparison baseline
+missing" is never shown as an ordinary wait for data). Graded picks:
+`performance/price_edge_v27/master_shortlist_picks.csv` is the new master and
+`master_shortlist_old_picks.csv` the old master logic, both across the
+release. Each pick flagged "research strongly disagrees" shows, in its row
+(`inspection_*` columns) and in the "For inspection" section, what the
+disagreement is about: both views' expected goals, home/draw/away chances and
+likely scores, both no-loss chances, the main driver with its form and
+history, warnings and the historical record of comparable bets
+(`master_inspection.py`; reporting only, it never changes a pick).
+
 The archived v22 shortlist was capped at twelve distinct matches within 48 hours.
 Policy v22 allows Home win, Away win, Over 1.5, Double Chance 1X/X2/12 and
 full-time Asian goal handicaps from Pinnacle/bet365, with 1xBet as an exact-market fallback. Every

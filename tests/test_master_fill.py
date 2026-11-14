@@ -19,6 +19,7 @@ import pandas as pd
 
 import cagey_sharpen as cs
 import master_reconciliation as mr
+from master_switch import switched
 import narrow_margin as nm
 
 REPO = Path(__file__).resolve().parents[1]
@@ -698,6 +699,7 @@ class TimingTest(unittest.TestCase):
         self.assertTrue(frame.timing_check.eq(mr.TIMING_REASONS[2]).all())
         self.assertIsNone(self.pick(frame))
 
+    @switched('old')  # pre-release behaviour: the rollback state (master_shortlist_config.json live "old")
     def test_the_live_files_are_untouched_by_the_check(self):
         import tempfile
         import master_shortlist

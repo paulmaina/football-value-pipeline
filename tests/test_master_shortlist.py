@@ -9,6 +9,7 @@ from pathlib import Path
 import pandas as pd
 
 import master_shortlist as ms
+from master_switch import OldMasterLive
 import price_edge_cagey_shortlist as v28
 from test_price_edge_shortlist import NOW, POLICY
 from test_value_per_market import fixture, h2h_1xbet, over_1xbet, price_at
@@ -249,7 +250,7 @@ class ReplayComparisonTests(OfflineQuotePolicyTestCase):
         self.assertTrue(ms.matches(pd.DataFrame(columns=ms.COLUMNS), ms.build(pd.DataFrame())))
 
 
-class RefreshTests(OfflineQuotePolicyTestCase):
+class RefreshTests(OldMasterLive, OfflineQuotePolicyTestCase):  # pre-release behaviour (live "old")
     def test_refresh_rebuilds_the_master_list_and_replaces_a_seeded_copy(self):
         from refresh_conservative_shortlist import _refresh
         from shortlist_window import scope

@@ -218,6 +218,12 @@ def capture(commit_sha: str, *, root: Path = ROOT,
     except Exception as exc:
         warnings.warn(f"new master (shadow) capture skipped ({type(exc).__name__})")
     try:
+        from price_edge_tracking import capture_old_master_file
+        old_master = capture_old_master_file(raw, summary.get("generated_at_utc"))
+        if old_master is not None: files[old_master.name] = old_master
+    except Exception as exc:
+        warnings.warn(f"old master (shadow) capture skipped ({type(exc).__name__})")
+    try:
         from price_edge_tracking import capture_monitoring_file, MONITOR_FILE
         monitoring = capture_monitoring_file(raw, summary.get("generated_at_utc"))
         if monitoring is not None: files[MONITOR_FILE] = monitoring
@@ -284,7 +290,8 @@ def load_snapshot(directory: Path) -> tuple[dict, list[dict], list[dict]] | None
         'totals_anchor_experiment.json', 'model_reliability_experiment.json',
         'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'pipeline_health.json',
         'bet365_vs_pinnacle.csv', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv',
-        'cagey_correction_monitoring.csv', 'master_shortlist.csv', 'master_shortlist_new.csv'}
+        'cagey_correction_monitoring.csv', 'master_shortlist.csv', 'master_shortlist_new.csv',
+        'master_shortlist_old.csv'}
     digests = meta.get('sha256')
     if not isinstance(digests, dict) or not required.issubset(digests) or set(digests)-required-optional:
         warnings.warn(f'Missing required or invalid snapshot manifest ignored: {directory}')
@@ -1171,7 +1178,13 @@ def review(*, root: Path = ROOT, token: str = "",
         warnings.warn(f'Closing quote review failed ({type(exc).__name__}); production report complete')
     try:
         from price_edge_tracking import review as review_price_edge
-        review_price_edge(root, archived, records, clock)
+        price_edge = review_price_edge(root, archived, records, clock)
+        rollback = (price_edge or {}).get('master_rollback') or {}
+        if rollback.get('triggered'):  # the release's rollback rule: reported, never acted on automatically
+            print(rollback['message'])
+            print(rollback['message'], file=sys.stderr)
+        for message in ((price_edge or {}).get('master_release_incidents') or {}).get('messages', []):
+            print(message)  # new master failed (old master published) / comparison baseline missing, with counts
     except Exception as exc:
         warnings.warn(f'v27 price-edge review failed ({type(exc).__name__}); production report complete')
     try:

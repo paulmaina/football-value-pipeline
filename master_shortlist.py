@@ -1,6 +1,13 @@
 """Master shortlist and immutable legacy replay.
 
-Live research runs use master-profit-15-pinnacle-markets-v9. The source
+Release (decided by Paul on 14 Nov 2026, a deliberate exception: released without waiting for the live comparison
+verdict; docs/plan.md, Phase 5): the new master rule (master_reconciliation, rule master-new-fill-rule-v4 with the
+fill and quote timing checks) writes the live master_shortlist.csv, recorded as VERSION_NEW_LIVE. The old master
+logic below keeps running in shadow as master_shortlist_old.csv (with master_shortlist_old_audit.csv).
+master_shortlist_config.json `live` is the single switch: "old" restores the pre-release live output byte for byte
+(old master in master_shortlist.csv, new master in shadow as master_shortlist_new.csv).
+
+The old master uses master-profit-15-pinnacle-markets-v9. The source
 shortlist union supplies native Pinnacle Asian Handicap, win and 1X/X2
 offers for fifteen distinct fixtures, ranked by market profit probability.
 The master keeps the original offered price and shows frozen context for review.
@@ -75,6 +82,49 @@ COLUMNS = COLUMNS_V2  # legacy schema; columns(version) supplies each recorded v
 
 
 CONFIG = Path(__file__).with_name('master_shortlist_config.json')
+# Release of the new master (decided by Paul, 14 Nov 2026). The live file's rows carry this version in
+# new_master_version; the rule itself is master_reconciliation.VERSION (master-new-fill-rule-v4), unchanged.
+VERSION_NEW_LIVE = 'master-new-fill-rule-v4-live-v10'
+LIVE_NEW, LIVE_OLD = 'new', 'old'
+OLD_FILE = 'master_shortlist_old.csv'
+OLD_AUDIT_FILE = 'master_shortlist_old_audit.csv'
+SUMMARY_FILE = 'master_shortlist_summary.json'
+OLD_SUMMARY_KEY = 'master_shortlist_old'
+RELEASE_FILES = (OLD_FILE, OLD_AUDIT_FILE, SUMMARY_FILE)
+# A run's release incidents (run summary key `master_release`, absent when both masters ran): the new master failed
+# and the old master was published as the live list for that run, or the old master (shadow) failed and the run has
+# no comparison baseline. Reported by the run's readable report, the weekly report and the reports check.
+RELEASE_STATUS_KEY = 'master_release'
+NEW_MASTER_FAILED = 'NEW MASTER FAILED - OLD MASTER PUBLISHED'
+BASELINE_MISSING = 'COMPARISON BASELINE MISSING'
+LIVE_STATUS = ('live master: released by Paul on 14 Nov 2026 as a deliberate exception, without waiting for the live '
+               'comparison verdict; graded beside the old master with the rollback rule in master_shortlist_config.json')
+LIVE_NOTE = ('Live: master_shortlist.csv is this list. The old master runs in shadow as master_shortlist_old.csv; the '
+             'columns in_old_master, old_master_rank and old_master_same_offer and overlap_with_old_master compare '
+             'with it.')
+# The live file names its overlap columns after the old master it compares with; in shadow (live "old") the new
+# master keeps the shadow-period names (in_live_master, ...), so the pre-release output is restored byte for byte.
+LIVE_RENAMES = {'in_live_master': 'in_old_master', 'live_master_rank': 'old_master_rank',
+                'live_master_same_offer': 'old_master_same_offer'}
+SUMMARY_RENAMES = {'overlap_with_live_master': 'overlap_with_old_master', 'live_master_fixtures': 'old_master_fixtures',
+                   'live_only': 'old_only', **LIVE_RENAMES}
+
+
+def live_columns() -> List[str]:
+    """The live (released) new master file's columns: the rule's, with the overlap columns renamed, then the
+    inspection details of flagged picks (master_inspection.COLUMNS; empty on every other row)."""
+    import master_reconciliation as mr
+    import master_inspection
+    return [LIVE_RENAMES.get(c, c) for c in mr.COLUMNS] + list(master_inspection.COLUMNS)
+
+
+def _renamed(value):
+    """A shadow-period summary in the live names (keys only; values unchanged)."""
+    if isinstance(value, dict):
+        return {SUMMARY_RENAMES.get(k, k): _renamed(v) for k, v in value.items()}
+    if isinstance(value, list):
+        return [_renamed(v) for v in value]
+    return value
 
 
 def selection_module(version):
@@ -96,12 +146,38 @@ def selection_module(version):
     raise ValueError(f'No market selector for {version!r}')
 
 
-def configured_version():
-    """Live generation is explicit; archived replay never reads this config."""
+def load_config() -> Dict[str, object]:
     config = json.loads(CONFIG.read_text(encoding='utf-8'))
-    if not isinstance(config, dict) or config.get('version') not in VERSIONS:
+    if not isinstance(config, dict):
+        raise ValueError('Unknown master shortlist config')
+    return config
+
+
+def configured_version():
+    """The old master's selector (live before the release, shadow since). Archived replay never reads this config."""
+    config = load_config()
+    if config.get('version') not in VERSIONS:
         raise ValueError('Unknown configured master shortlist version')
     return config['version']
+
+
+def configured_live() -> str:
+    """The single release switch: "new" (the new master writes master_shortlist.csv, the old one runs in shadow) or
+    "old" (the pre-release behaviour, byte for byte)."""
+    live = load_config().get('live')
+    if live not in (LIVE_NEW, LIVE_OLD):
+        raise ValueError('master_shortlist_config.json: live must be "new" or "old"')
+    return live
+
+
+def is_new_schema(row: Mapping) -> bool:
+    """A row of the new master's file (every nominated offer), as opposed to an old-master pick row."""
+    return 'new_master_decision' in row
+
+
+def is_pick(row: Mapping) -> bool:
+    """A master pick: every row of an old-master file; in a new-master file only the ranked picks (SHORTLISTED)."""
+    return not is_new_schema(row) or row.get('new_master_decision') == 'SHORTLISTED'
 
 
 def columns(version: str = VERSION) -> List[str]:
@@ -294,12 +370,8 @@ def matches(frame: pd.DataFrame, expected: pd.DataFrame, version: str = None) ->
     return True
 
 
-def write(decisions: pd.DataFrame, out_dir, run_summary: Mapping,
-          predictions: Optional[pd.DataFrame] = None, *, version: Optional[str] = None) -> pd.DataFrame:
-    """Write FILE and record the master summary in the run summary (mutates `run_summary`)."""
-    if version is None:
-        version = configured_version()
-    columns(version)  # reject unknown versions before writing any output
+def _old_master(decisions: pd.DataFrame, run_summary: Mapping, predictions: Optional[pd.DataFrame], version: str):
+    """The old master logic of one run: (list, selection audit or None, selector module or None)."""
     if version in MARKET_VERSIONS:
         from master_selection import require_generation_clock
         module = selection_module(version)
@@ -309,10 +381,36 @@ def write(decisions: pd.DataFrame, out_dir, run_summary: Mapping,
         with shortlist_window.scope(lookahead), policy_scope(run_summary.get('quote_execution_policy') or load_policy()):
             audit = module.evaluate(decisions, predictions, clock)
             frame = module.select(audit)
+        return frame, audit, module
+    return build(decisions, predictions, version), None, None
+
+
+def matches_new(frame: pd.DataFrame, expected: pd.DataFrame) -> bool:
+    """The written live new-master file carries exactly the replayed one (every nominated offer, every column of
+    live_columns()), with the same tolerances as matches()."""
+    wanted = live_columns()
+    if list(frame.columns) != wanted:
+        return False
+    left, right = _as_csv(frame), _as_csv(expected.reindex(columns=wanted))
+    if len(left) != len(right):
+        return False
+    return all(_same(got, want) for column in wanted
+               for got, want in zip(left[column].astype(object), right[column].astype(object)))
+
+
+def write(decisions: pd.DataFrame, out_dir, run_summary: Mapping,
+          predictions: Optional[pd.DataFrame] = None, *, version: Optional[str] = None) -> pd.DataFrame:
+    """Write FILE with the old master logic and record its summary in the run summary (mutates `run_summary`).
+
+    The live path while master_shortlist_config.json says live "old" (the pre-release behaviour)."""
+    if version is None:
+        version = configured_version()
+    columns(version)  # reject unknown versions before writing any output
+    frame, audit, module = _old_master(decisions, run_summary, predictions, version)
+    if audit is not None:
         audit.to_csv(Path(out_dir)/module.AUDIT_FILE, index=False)
     else:
         from master_selection import AUDIT_FILE
-        frame = build(decisions, predictions, version)
         (Path(out_dir)/AUDIT_FILE).unlink(missing_ok=True)
     frame.to_csv(Path(out_dir) / FILE, index=False)
     with shortlist_window.scope(run_summary.get('shortlist_lookahead_hours', shortlist_window.LEGACY_HOURS)):
@@ -320,28 +418,136 @@ def write(decisions: pd.DataFrame, out_dir, run_summary: Mapping,
     return frame
 
 
-def refresh(decisions: pd.DataFrame, out_dir, run_summary: Mapping, predictions: Optional[pd.DataFrame] = None):
-    """Write the master list for a v28 run; otherwise remove any copy seeded from an earlier run.
+def write_old_shadow(decisions: pd.DataFrame, out_dir, run_summary: Mapping,
+                     predictions: Optional[pd.DataFrame] = None) -> Optional[pd.DataFrame]:
+    """The old master in shadow (live "new"): OLD_FILE and OLD_AUDIT_FILE, byte for byte what write() puts in FILE
+    and its audit, and its summary in run_summary[OLD_SUMMARY_KEY]. A failure only warns and removes them."""
+    import warnings
+    out = Path(out_dir)
+    version = None
+    try:
+        version = configured_version()
+        frame, audit, _ = _old_master(decisions, run_summary, predictions, version)
+        if audit is not None:
+            audit.to_csv(out / OLD_AUDIT_FILE, index=False)
+        else:
+            (out / OLD_AUDIT_FILE).unlink(missing_ok=True)
+        frame.to_csv(out / OLD_FILE, index=False)
+        with shortlist_window.scope(run_summary.get('shortlist_lookahead_hours', shortlist_window.LEGACY_HOURS)):
+            run_summary[OLD_SUMMARY_KEY] = summary(frame, version)
+        return frame
+    except Exception as exc:  # the shadow must never break or alter the live run
+        warnings.warn(f'{BASELINE_MISSING}: old master shadow failed ({error_text(exc)})')
+        for name in (OLD_FILE, OLD_AUDIT_FILE):
+            (out / name).unlink(missing_ok=True)
+        run_summary.pop(OLD_SUMMARY_KEY, None)
+        run_summary[RELEASE_STATUS_KEY] = {
+            'status': BASELINE_MISSING, 'error': error_text(exc), 'old_master_version': version,
+            'note': 'The old master (shadow) failed in this run: the new master is live as usual, its overlap columns '
+                    'have nothing to compare with, and this run has no comparison baseline for the rollback rule.'}
+        return None
 
-    Used by both the full forecast and the stored-forecast refresh so neither can
-    publish a master list that is missing or belongs to a previous run.
+
+def new_live(decisions: pd.DataFrame, old_master: Optional[pd.DataFrame], generated_at_utc=None,
+             predictions: Optional[pd.DataFrame] = None, cagey_model_version: Optional[str] = None):
+    """The live master under the release: (frame, summary). Exactly the new master's shadow output (the rule's
+    reconcile and summary on the same inputs) with VERSION_NEW_LIVE in place of the rule version and the live status
+    and note; the overlap columns compare with the old master and are named after it (LIVE_RENAMES). Each pick the
+    research view strongly disputes gets its inspection details (master_inspection: reporting only) in its row and in
+    the summary's "For inspection" section; no pick, rank or decision depends on them."""
+    import master_reconciliation as mr
+    import master_inspection
+    config = mr.load_config()
+    frame = mr.reconcile(decisions, old_master, config, predictions, generated_at_utc, version=VERSION_NEW_LIVE)
+    frame = mr.stable_order(frame)  # platform-independent row order (ties in theory no longer follow float noise)
+    info = _renamed(mr.summary(frame, old_master, config, generated_at_utc))
+    clock = mr.run_clock(mr._records(decisions), generated_at_utc)
+    frame, details = master_inspection.annotate(frame, predictions, clock, config, cagey_model_version)
+    by_rank = {frame.at[i, 'new_master_rank']: d for i, d in details.items()}
+    for pick in info['for_inspection']['picks']:
+        pick['detail'] = by_rank.get(pick['new_master_rank'])
+    info.update(version=VERSION_NEW_LIVE, status=LIVE_STATUS, note=LIVE_NOTE)
+    return frame.rename(columns=LIVE_RENAMES), json.loads(json.dumps(info, default=str))
+
+
+def release(decisions: pd.DataFrame, out_dir, run_summary: Mapping,
+            predictions: Optional[pd.DataFrame] = None) -> pd.DataFrame:
+    """Live "new": the old master in shadow first (OLD_FILE), then the new master as the live FILE, its summary in
+    SUMMARY_FILE and run_summary['master_shortlist']. Shadow-period files are removed."""
+    import master_reconciliation as mr
+    from master_selection import AUDIT_FILE
+    out = Path(out_dir)
+    config = mr.load_config()
+    for name in (AUDIT_FILE, config['file'], config['summary_file'], *mr.SUPERSEDED_FILES):
+        (out / name).unlink(missing_ok=True)
+    run_summary.pop(RELEASE_STATUS_KEY, None)
+    old = write_old_shadow(decisions, out, run_summary, predictions)
+    generated = run_summary.get('generated_at_utc')
+    try:
+        frame, info = new_live(decisions, old, generated, predictions, run_summary.get('cagey_model_version'))
+    except Exception as exc:
+        if old is None:  # nothing to publish: both masters failed
+            raise
+        return _publish_old_after_new_failure(decisions, out, run_summary, predictions, exc)
+    frame.to_csv(out / FILE, index=False)
+    (out / SUMMARY_FILE).write_text(json.dumps(info, indent=2, default=str) + '\n', encoding='utf-8')
+    run_summary['master_shortlist'] = info
+    return frame
+
+
+def error_text(exc: BaseException) -> str:
+    return f'{type(exc).__name__}: {exc}'
+
+
+def _publish_old_after_new_failure(decisions: pd.DataFrame, out: Path, run_summary: Mapping,
+                                   predictions: Optional[pd.DataFrame], exc: BaseException) -> pd.DataFrame:
+    """The new master failed: publish the old master as the live FILE for this run, exactly as live "old" writes it
+    (FILE, its audit, run_summary['master_shortlist']), with no shadow or release file, and record the failure."""
+    import warnings
+    warnings.warn(f'{NEW_MASTER_FAILED} ({error_text(exc)})')
+    for name in RELEASE_FILES:
+        (out / name).unlink(missing_ok=True)
+    run_summary.pop(OLD_SUMMARY_KEY, None)
+    frame = write(decisions, out, run_summary, predictions)
+    run_summary[RELEASE_STATUS_KEY] = {
+        'status': NEW_MASTER_FAILED, 'error': error_text(exc),
+        'note': 'The new master failed in this run, so master_shortlist.csv is the old master for this run (as with '
+                'live "old"); the switch is unchanged and the next run tries the new master again.'}
+    return frame
+
+
+def refresh(decisions: pd.DataFrame, out_dir, run_summary: Mapping, predictions: Optional[pd.DataFrame] = None):
+    """Write the master lists for a v28 run; otherwise remove any copy seeded from an earlier run.
+
+    Live "new" (the release): the new master in FILE, the old master in shadow (OLD_FILE). Live "old": exactly the
+    pre-release behaviour (old master in FILE, new master in shadow). Used by both the full forecast and the
+    stored-forecast refresh so neither can publish a master list that is missing or belongs to a previous run.
     """
     from price_edge_cagey_shortlist import POLICY
     if run_summary.get('selection_policy_version') == POLICY:
+        if configured_live() == LIVE_NEW:
+            return release(decisions, out_dir, run_summary, predictions)
+        for name in RELEASE_FILES:
+            (Path(out_dir) / name).unlink(missing_ok=True)
+        run_summary.pop(RELEASE_STATUS_KEY, None)
         frame = write(decisions, out_dir, run_summary, predictions)
         shadow(decisions, out_dir, frame, run_summary.get('generated_at_utc'), predictions)
         return frame
     from master_selection import AUDIT_FILE
     (Path(out_dir) / AUDIT_FILE).unlink(missing_ok=True)
     (Path(out_dir) / FILE).unlink(missing_ok=True)
+    for name in RELEASE_FILES:
+        (Path(out_dir) / name).unlink(missing_ok=True)
     run_summary.pop('master_shortlist', None)
+    run_summary.pop(OLD_SUMMARY_KEY, None)
+    run_summary.pop(RELEASE_STATUS_KEY, None)
     shadow(None, out_dir)
     return None
 
 
 def shadow(decisions, out_dir, live=None, generated_at_utc=None, predictions=None) -> None:
-    """The new master (Phase 4, revised master rule), in shadow: master_shortlist_new.csv and its summary beside
-    FILE, written after it from the same decision rows.
+    """Live "old" only: the new master (Phase 4, fill rule), in shadow: master_shortlist_new.csv and its summary
+    beside FILE, written after it from the same decision rows.
 
     It never changes FILE, the run summary or any decision, and a failure here only warns.
     """

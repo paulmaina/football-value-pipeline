@@ -1,0 +1,31 @@
+{
+  "automatic_staking": false,
+  "below_threshold_bets": 1,
+  "context_influence": "Local training and researched form/xG inform source forecasts/nominations; master probabilities/ranking remain Pinnacle-referenced. Weather, team news, rest/travel, H2H, tactics and motivation are review context, with no unvalidated numerical adjustment.",
+  "context_missing_policy": "Remain eligible with explicit warnings; no missing-evidence ranking bonus",
+  "context_review_version": "master-context-review-v1",
+  "context_status_counts": {
+    "PARTIAL": 1
+  },
+  "eligible_markets": [
+    "Asian Handicap",
+    "Home win",
+    "Away win",
+    "Double Chance 1X",
+    "Double Chance X2"
+  ],
+  "max_quote_age_minutes": 15,
+  "min_edge_for_value": null,
+  "min_net_expected_return": null,
+  "n_bets": 1,
+  "negative_ev_bets": 1,
+  "probability_basis": "Independent margin-free Pinnacle binary reference or uncorrected fit B; valid research/corrected distributions are diagnostics only; no blend or missing-evidence ranking bonus",
+  "rule": "Union of value and cagey SHORTLISTED offers only; odds (1.15,2.00]; kickoff 20 minutes\u201348 hours; fresh synchronized market references; no EV or probability eligibility floor; nominate fifteen when fifteen executable distinct fixtures exist, otherwise explicit shortfall; one market per match; market profit probability then market net EV then no-loss probability then odds; negative EV flagged; no automatic stakes; fifteen-match target, one selection per fixture; frozen training/research/weather review accompanies every pick; native Pinnacle Asian Handicap, home or away win, and Double Chance 1X or X2",
+  "shortfall": 14,
+  "size": 15,
+  "target_size": 15,
+  "validation_status": "UNVALIDATED_SELECTION_RULE",
+  "value_bets": 0,
+  "value_label_threshold": 0.02,
+  "version": "master-profit-15-pinnacle-markets-v9"
+}
