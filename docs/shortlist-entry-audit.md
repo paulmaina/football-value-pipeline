@@ -165,24 +165,28 @@ selection (`master_reconciliation.reconcile` and `summary`):
 It does this for today's nominations, for each proposed change alone and for all of them together, under today's
 master window (1.15 to 2.00) and under one moved to 1.10 to 2.20.
 
-**PROVISIONAL**, pending the rebase on PR #173: these figures are from #173's head 4b49178, which does not yet
-have its quote-timing checks. With them, the reviewer found 342 nominated, 299 eligible and 7 runs reaching 15.
-The table will be replaced by the run on main after #173 merges.
+**PROVISIONAL**, pending the rebase on PR #173. These figures come from a scratch merge with #173's quote-timing
+commit (69c3b23, not yet pushed); the run's forecasts and generation clock are passed so the master can time its
+references, as the live shadow does. The reviewer found 342 nominated, 299 eligible and 7 runs reaching 15. This
+run gives 342, 300 and 7; the one-fixture difference in "eligible" is not explained here. The table will be
+replaced by the run on main after #173 merges.
 
 | Nominations | Master window | Fixture-runs nominated / eligible / ranked | Runs reaching 15 |
 | --- | --- | --- | --- |
-| Today | today (1.15–2.00) | 342 / 341 / 231 | 8 |
-| P1 odds floor 1.10 | today | 342 / 340 / 230 | 8 |
-| P1 odds floor 1.10 | moved (1.10–2.20) | 342 / 342 / 231 | 8 |
-| P2 double chance 12 | today or moved | 342 / 339 / 229 | 8 |
-| P3 cagey ceiling 2.20 | today or moved | 342 / 341 / 231 | 8 |
-| All three | today | 342 / 338 / 228 | 8 |
-| All three | moved | 342 / 340 / 229 | 8 |
+| Today | today (1.15–2.00) | 342 / 300 / 220 | 7 |
+| P1 odds floor 1.10 | today | 342 / 299 / 219 | 7 |
+| P1 odds floor 1.10 | moved (1.10–2.20) | 342 / 300 / 220 | 7 |
+| P2 double chance 12 | today or moved | 342 / 298 / 218 | 7 |
+| P3 cagey ceiling 2.20 | today or moved | 342 / 300 / 220 | 7 |
+| All three | today | 342 / 297 / 217 | 7 |
+| All three | moved | 342 / 298 / 218 | 7 |
 
+- **42 nominated fixture-runs lose every offer to the master's quote-timing checks**, the same in every scenario:
+  the largest gap between nominated and eligible.
 - **The 1.10 floor can't add master picks while the master's own floor is 1.15.** It does slightly worse: where
   the safest offer in a group is priced 1.10–1.15, the list nominates that offer instead of one the master can
   execute (one fixture-run fewer eligible, one fewer ranked). Only if the master's floor moved to 1.10 as well
-  would those nominations count, and even then the ranked total is unchanged (231).
+  would those nominations count, and even then the totals only return to today's (300 eligible, 220 ranked).
 - **Double chance 12 is not a native master market**, so the master never takes it. Where it replaces a 1X/X2
   nomination in the double-chance group, the master loses that fixture (two fixture-runs).
 - **The cagey 2.20 ceiling changes nothing** for the master: those bets are never its pick.
