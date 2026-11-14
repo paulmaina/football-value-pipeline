@@ -2450,7 +2450,8 @@ def master_backtest(cache, cfg, workers=None, leagues=None):
     frames, synthetic = {}, None
     for name in MASTER_RESEARCH:
         frames[name], synthetic = master_frame(fixtures, name, final)
-    return frames, synthetic, len(fixtures), {'check': check, 'fits': fits, 'events': events, 'final': final}
+    return frames, synthetic, len(fixtures), {'check': check, 'fits': fits, 'events': events, 'final': final,
+                                              'evaluated': master_evaluated(fixtures)}
 
 
 def master_frame(fixtures, research='C', final='fill_current'):
@@ -2469,15 +2470,13 @@ def master_frame(fixtures, research='C', final='fill_current'):
                               f.get('sharpen_slopes'), final)
         weeks.setdefault((f['phase'], f['week']), []).extend(rows)
     out = [r for key in sorted(weeks) for r in master_select_week(weeks[key], rcfg, final)]
-    frame = pd.DataFrame(out)
-    # Every evaluated fixture, nominated or not: the week index of the period (weeks with no nomination count).
-    frame.attrs['evaluated'] = master_evaluated(fixtures)
-    return frame, synthetic
+    return pd.DataFrame(out), synthetic
 
 
 def master_evaluated(fixtures) -> pd.DataFrame:
-    """(phase, week, fixture_key) of every evaluated fixture."""
-    return pd.DataFrame([{'phase': f['phase'], 'week': f['week'], 'fixture_key': f['fixture_key']} for f in fixtures],
+    """(phase, week, fixture_key) of every evaluated fixture, nominated or not: the week index of a period (a week
+    with fixtures but no nomination counts as zero nominations and zero picks)."""
+    return pd.DataFrame([(f['phase'], f['week'], f['fixture_key']) for f in fixtures],
                         columns=['phase', 'week', 'fixture_key'])
 
 
@@ -2611,7 +2610,7 @@ def master_list_size(part, chosen, target, evaluated=None) -> dict:
                             for w in index if picks[w] < target]}
 
 
-def master_summary(frames, synthetic, fixtures, cfg, sharpening=None) -> dict:
+def master_summary(frames, synthetic, fixtures, cfg, sharpening=None, evaluated=None) -> dict:
     """Per period: the final new master (fill rule, the probabilities the pass rule chose) against the live master
     (C's value list, as live), PR #172's safe-only rule and with vs without sharpening; results by tier; #172's
     labels, gap categories and inspection flag on the nominated offers; PR #171's rule for continuity; C6 against
@@ -2623,7 +2622,8 @@ def master_summary(frames, synthetic, fixtures, cfg, sharpening=None) -> dict:
     previous = f'{MASTER_PREVIOUS}_decision'
     shortlisted = lambda f, column: f.loc[f[column].eq('SHORTLISTED')]
     periods = {}
-    evaluated_all = frames['C'].attrs.get('evaluated') if 'C' in frames else None
+    # Every evaluated fixture (master_evaluated), else the rows of C's frame.
+    evaluated_all = evaluated if evaluated is not None else sharpening.get('evaluated')
     for period in MASTER_PERIODS:
         base = frames['C'].loc[frames['C'].phase == period]
         evaluated = (evaluated_all.loc[evaluated_all.phase == period] if evaluated_all is not None

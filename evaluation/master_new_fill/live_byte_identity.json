@@ -1,6 +1,6 @@
 {
   "main": "32497b262 (origin/main, PR #172 merged; origin/main has since moved to 1e2422094, a data-status file only)",
-  "branch": "0e5ca0813 (rule v4)",
+  "branch": "69c3b23 (timing check)",
   "files_per_run": [
     "master_shortlist.csv",
     "master_shortlist_audit.csv",
