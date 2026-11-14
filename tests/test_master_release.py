@@ -10,6 +10,7 @@ every reader of the live master reads the new one.
 from __future__ import annotations
 
 import contextlib
+import gzip
 import hashlib
 import io
 import json
@@ -80,29 +81,35 @@ def shadow_summary(info):
     return info
 
 
+def frozen_run_inputs(case: str, predictions: pd.DataFrame):
+    """(predictions, decisions, run summary) of one case, with main's decision rows and run summary frozen as files
+    (tests/fixtures/master_release_pre_release/<case>/run_inputs_*; the saved run's rows trimmed to the fixtures with
+    a nomination, which are the only ones the masters read).
+
+    Frozen rather than rebuilt with price_edge_cagey_shortlist.build_shortlist on each machine: the value and cagey
+    tiers pick each market group's winner among AH lines whose no-loss chances are equal in theory and differ in the
+    last bit (e.g. 0.7685317609807548 against ...547), so different CPUs' BLAS kernels can nominate a different line
+    and the master's pool changes (Windows CI, run 43637776507: 45 audit rows instead of 46). On main these frozen
+    inputs give exactly main's output (the golden files), byte for byte."""
+    directory = mg.ROOT / mg.CASES[case]
+    decisions = mg.read_csv(gzip.decompress((directory / 'run_inputs_decisions.csv.gz').read_bytes()))
+    summary = json.loads((directory / 'run_inputs_summary.json').read_text(encoding='utf-8'))
+    return predictions.copy(), decisions, summary
+
+
 def frozen_inputs():
-    predictions, decisions, summary = production_run()
-    return predictions, decisions, summary
+    from test_master_reconciliation import FROZEN
+    return frozen_run_inputs('frozen_forecast', pd.DataFrame([FROZEN['row']]))
 
 
-_SNAPSHOT_INPUTS = {}
+_SNAPSHOT_PREDICTIONS = {}
 
 
 def snapshot_inputs():
-    """A saved live run (5 Nov 2026 13:37 UTC) rebuilt as scripts/master_reconciliation_replay.py does."""
-    if 'value' not in _SNAPSHOT_INPUTS:
-        import narrow_margin as nm
-        generated = json.loads((SNAPSHOT / 'selection_summary.json').read_text(encoding='utf-8'))['generated_at_utc']
-        predictions = pd.read_csv(SNAPSHOT / 'predictions.csv', low_memory=False)
-        with warnings.catch_warnings():
-            warnings.simplefilter('ignore')
-            policy = quote_policy.load_policy(PRODUCTION_POLICY)
-            _, decisions, summary = v28.build_shortlist(predictions, pd.Timestamp(generated),
-                                                        execution_policy=policy, model=nm.production_model())
-        summary.setdefault('quote_execution_policy', policy)
-        _SNAPSHOT_INPUTS['value'] = (predictions, decisions, summary)
-    predictions, decisions, summary = _SNAPSHOT_INPUTS['value']
-    return predictions, decisions.copy(), json.loads(json.dumps(summary, default=str))
+    """A saved live run (5 Nov 2026 13:37 UTC): its archived forecasts and main's frozen decision rows."""
+    if 'value' not in _SNAPSHOT_PREDICTIONS:
+        _SNAPSHOT_PREDICTIONS['value'] = pd.read_csv(SNAPSHOT / 'predictions.csv', low_memory=False)
+    return frozen_run_inputs('snapshot_a00d5e530cc2e80e', _SNAPSHOT_PREDICTIONS['value'])
 
 
 def refresh(inputs, live=None, out=None):
