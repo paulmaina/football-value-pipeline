@@ -1,6 +1,6 @@
 {
-  "version": "master-new-fill-rule-v3",
-  "decided": "Fill rule (A): decided by Paul, 13 Nov 2026. Sharpened cagey probabilities (B), method and pass rule: decided by Paul, 13-14 Nov 2026. Both written here and in docs/plan.md (Phase 4) before anything ran or was computed. They extend master-new-evidence-rule-v2 (PR #172, decided by Paul on 13 Nov 2026 on the backtest evidence of PR #171), whose inclusion, labels and flags are kept for step 1.",
+  "version": "master-new-fill-rule-v4",
+  "decided": "Fill rule (A): decided by Paul, 13 Nov 2026; pools narrowed to the two lists' nominations in every step (rule v4): decided by Paul, 14 Nov 2026, before any live grading of the new master. Sharpened cagey probabilities (B), method and pass rule: decided by Paul, 13-14 Nov 2026; failed its pass rule on 14 Nov 2026 and stays off (decided by Paul, 14 Nov 2026). All written here and in docs/plan.md (Phase 4) before anything ran or was computed. They extend master-new-evidence-rule-v2 (PR #172, decided by Paul on 13 Nov 2026 on the backtest evidence of PR #171), whose inclusion, labels and flags are kept for step 1.",
   "status": "shadow only: never replaces master_shortlist.csv, never changes a probability, a pick or a stake.",
   "file": "master_shortlist_new.csv",
   "summary_file": "master_shortlist_new_summary.json",
@@ -14,11 +14,14 @@
   },
   "target_fixtures": 15,
   "fill": {
-    "decided": "decided by Paul, 13 Nov 2026",
-    "rule": "Fill the 15-match target whenever there are enough matches. Step 1, safe picks: exactly PR #172's rule (master-new-evidence-rule-v2) on the nominated pool: offers with market no-loss chance >= 0.75 (cagey, or Pinnacle's margin-free where the cagey score is missing), one per match, ranked by that no-loss chance. Step 2, fill: if fewer than 15 matches have a safe pick, the remaining slots go, one per match not already picked, to each match's best remaining executable Pinnacle offer that is not risky (market no-loss chance >= 0.50), ranked by the market chance of profit. Step 3, risky fill: only if steps 1-2 still leave fewer than 15 matches, each remaining match's best executable offer by the same chance of profit, labelled 'risky fill'. Stop at 15 matches or when no match remains; never two picks per match.",
+    "decided": "decided by Paul, 13 Nov 2026; pools (every step uses only the nominations) decided by Paul, 14 Nov 2026",
+    "rule": "Fill the 15-match target whenever there are enough matches. Step 1, safe picks: exactly PR #172's rule (master-new-evidence-rule-v2) on the nominated pool: offers with market no-loss chance >= 0.75 (cagey, or Pinnacle's margin-free where the cagey score is missing), one per match, ranked by that no-loss chance. Step 2, fill: if fewer than 15 matches have a safe pick, the remaining slots go, one per match not already picked, to each match's best remaining nominated executable Pinnacle offer that is not risky (market no-loss chance >= 0.50), ranked by the market chance of profit. Step 3, risky fill: only if steps 1-2 still leave fewer than 15 matches, each remaining match's best nominated executable offer by the same chance of profit, labelled 'risky fill'. Stop at 15 matches or when no match remains; never two picks per match.",
     "pools": {
-      "step_1": "the nominated pool, as PR #172: every offer the value shortlist or the cagey tier shortlisted in the run.",
-      "steps_2_3": "every executable offer (Pinnacle, odds in (1.15, 2.00], the live master's native markets) of each of the run's matches in its decision rows, nominated or not. A match that remains is a match with at least one executable offer with a market view (cagey, or the Pinnacle stand-in) and no pick yet. Reason: nominations often cover only a few of the run's matches (live runs 27 Oct - 8 Nov: e.g. 10 of 35), so the target could not be filled from them."
+      "decided": "decided by Paul, 14 Nov 2026, before any live grading of the new master (replaces rule v3's pools, where steps 2-3 drew on every executable offer).",
+      "all_steps": "the nominated pool only, in every step (safe picks, fill and risky fill): the offers the value shortlist or the cagey tier shortlisted in the run (PR #172's pool). No step uses an offer that neither list nominated.",
+      "remaining_match": "a match with at least one nominated executable offer with a market view (cagey, or the Pinnacle stand-in) and no pick yet.",
+      "short_list": "If the nominations cover fewer than 15 matches (with a market view), the list is shorter than 15. Each run's summary records it: nominated_fixtures, ranked_fixtures, shortfall and short_reason ('nominations cover fewer than 15 matches').",
+      "no_market_view": "A match whose nominated offers have neither a cagey score nor a Pinnacle reference has no market view and stays out (decided by Paul, 14 Nov 2026); the summary counts such matches (fixtures_without_market_view)."
     },
     "step_2_min_no_loss": 0.5,
     "best_offer_of_a_match": "the offer with the highest chance of profit among its eligible offers (step 2: market no-loss >= 0.50; step 3: any offer with a market view and a chance of profit); ties by higher odds, then market, side, line.",
@@ -78,7 +81,8 @@
     },
     "bootstrap_samples": 2000,
     "seed": 136,
-    "report": "Slopes, log loss and reliability bands (tenths of probability, at least 30 events, as cagey-events-v1) before and after, on development, validation and the retrospective (diagnostic); the fitted slopes per fold."
+    "report": "Slopes, log loss and reliability bands (tenths of probability, at least 30 events, as cagey-events-v1) before and after, on development, validation and the retrospective (diagnostic); the fitted slopes per fold.",
+    "decision_after_result": "Decided by Paul, 14 Nov 2026: the sharpening stays off (use_sharpened false). It failed its pre-set pass rule and won't be retried without a new decision and a new pass rule written before anything is computed."
   },
   "one_pick_per_match": true,
   "probability": {
@@ -155,7 +159,7 @@
     "bootstrap_samples": 2000,
     "seed": 136,
     "grading": "Same as the live master: archived pre-kickoff snapshots only (lead_checked), Pinnacle prices, the newest pre-kickoff generation's pick per fixture, one row per verified result.",
-    "restart": "No live result of the new master exists (no master_shortlist_new.csv has been archived; forecasting stopped on 8 Nov 2026), so nothing restarts. The comparison counts only picks made under this rule's version (master-new-fill-rule-v3).",
+    "restart": "No live result of the new master exists (no master_shortlist_new.csv has been archived; forecasting stopped on 8 Nov 2026), so nothing restarts. The comparison counts only picks made under this rule's version (master-new-fill-rule-v4); rule v3 (14 Nov 2026, fill from every executable offer) never produced a live pick.",
     "by_tier": "Results are also reported by tier (safe, fill, risky fill) as context; they never decide."
   },
   "safe_only_rule": {
@@ -173,6 +177,6 @@
   },
   "offline_check": {
     "rule": "Locked backtest (evaluation_harness.py --mode master), main lines only: development deciding, validation as a check, retrospective as a diagnostic; research model C (C6 alongside, labels only); cagey view D; Pinnacle reference M (binary margin-free 1X2 for wins and AH +/-0.5). The final new master (fill rule, with the probabilities the pass rule chose) against the live master logic, against PR #172's safe-only rule, and with vs without sharpening (both with the fill), so each change's effect is visible: flat-stake return per bet with week-resampled 95% intervals, picks per week, and results by tier (safe, fill, risky fill). The sharpening check (pass rule) on its events, per period. PR #171's rule stays reported for continuity.",
-    "pool_limitation": "Offers: Home win, Away win and the main AH line only (no plus lines, alternate lines or double chance in the files). Step 1 draws from the value and cagey lists' nominations among these, steps 2-3 from all of them; so offline the safe tier is short-priced favourites and the fill is mostly near-even bets, unlike live, where plus lines dominate."
+    "pool_limitation": "Offers: Home win, Away win and the main AH line only (no plus lines, alternate lines or double chance in the files). Every step draws only from the value and cagey lists' nominations among these (rule v4); so offline the safe tier is short-priced favourites and the fill mostly near-even bets, unlike live, where plus lines dominate. Where the nominations cover fewer than 15 matches in a week, the list is shorter; the report gives picks per week and how often a week falls short."
   }
 }
