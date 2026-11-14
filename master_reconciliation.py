@@ -540,6 +540,25 @@ def reconcile(decisions: pd.DataFrame, live_master: Optional[pd.DataFrame] = Non
     return order.reindex(columns=COLUMNS).reset_index(drop=True)
 
 
+def stable_order(frame: pd.DataFrame) -> pd.DataFrame:
+    """reconcile's row order with the ranking no-loss chance rounded to 9 decimals (as select's tie keys), then the
+    full offer identity: rows whose chances are equal in theory (e.g. Home win and AH Home -1.00) keep one order on
+    every platform instead of one decided by floating-point noise. Ranks, tiers and decisions are unchanged; only the
+    order of the file's rows can differ from reconcile's. Used for the live master (master_shortlist.new_live)."""
+    if frame.empty:
+        return frame.reset_index(drop=True)
+    order = frame.assign(_rank=pd.to_numeric(frame.new_master_rank, errors='coerce'),
+                         _dec=frame.new_master_decision.map({d: i for i, d in enumerate(DECISIONS)}),
+                         _grp=frame.new_master_group.map({g: i for i, g in enumerate(GROUPS)}),
+                         _nl=-pd.to_numeric(frame.ranking_no_loss_probability, errors='coerce').round(9),
+                         _line=pd.to_numeric(frame.handicap_line, errors='coerce'),
+                         _odds=pd.to_numeric(frame.offered_decimal_odds, errors='coerce'))
+    keys = ['_rank', '_dec', '_grp', '_nl', 'kickoff_utc', 'league', 'home_team', 'away_team', 'market',
+            'handicap_side', '_line', '_odds', 'bookmaker', 'offered_last_update_utc']
+    order = order.sort_values(keys, na_position='last', kind='stable')
+    return order.drop(columns=['_rank', '_dec', '_grp', '_nl', '_line', '_odds']).reset_index(drop=True)
+
+
 def _offer_key(row: Mapping) -> tuple:
     line = _number(row.get('handicap_line'))
     return (str(row.get('market') or ''), str(row.get('handicap_side') or ''),

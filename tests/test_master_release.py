@@ -26,30 +26,50 @@ import pandas as pd
 import master_reconciliation as mr
 import master_shortlist as ms
 import price_edge_cagey_shortlist as v28
+import quote_policy
+import master_golden as mg
 from master_switch import switched
 from test_master_reconciliation import production_run
 
 REPO = Path(__file__).resolve().parents[1]
-GOLDEN = json.loads((Path(__file__).with_name('fixtures') / 'master_release_pre_release.json')
-                    .read_text(encoding='utf-8'))
+GOLDEN = mg.INDEX
 SNAPSHOT = REPO / 'football_output_v2' / 'performance' / 'snapshots' / 'a00d5e530cc2e80e'
 RELEASE_FILES = ['master_shortlist.csv', 'master_shortlist_old.csv', 'master_shortlist_old_audit.csv',
                  'master_shortlist_summary.json']
 
 
+# The production quote policy, pinned for every test here: the golden digests and the saved runs' replay
+# (scripts/master_reconciliation_replay.py) use it, while run_offline_tests.py patches quote_policy.CONFIG to the
+# offline policy (no bookmaker allowlist), which changes the value and cagey nominations of a saved run.
+PRODUCTION_POLICY = REPO / 'shortlist_quote_policy.json'
+_POLICY_PATCH = mock.patch.object(quote_policy, 'CONFIG', PRODUCTION_POLICY)
+
+
+def setUpModule():
+    _POLICY_PATCH.start()
+
+
+def tearDownModule():
+    _POLICY_PATCH.stop()
+
+
 def sha(data) -> str:
-    return hashlib.sha256(data if isinstance(data, bytes) else Path(data).read_bytes()).hexdigest()
+    """sha256 with CRLF normalised to LF: pandas writes os.linesep, so a CSV's raw bytes differ between Windows and
+    Linux while its content is the same (no field holds a line break)."""
+    raw = data if isinstance(data, bytes) else Path(data).read_bytes()
+    return hashlib.sha256(raw.replace(b'\r\n', b'\n')).hexdigest()
 
 
-def summary_digest(info: dict) -> str:
-    return sha(json.dumps(info, indent=2, sort_keys=True, default=str).encode())
+def as_shadow(live: pd.DataFrame) -> pd.DataFrame:
+    """The live file in the shadow file's terms (the rule version in place of the live version)."""
+    out = live.copy()
+    out['new_master_version'] = out['new_master_version'].replace(ms.VERSION_NEW_LIVE, mr.VERSION)
+    return out
 
 
-def without_version_status_note(path: Path) -> str:
-    info = json.loads(path.read_text(encoding='utf-8'))
-    for key in ('version', 'status', 'note'):
-        info.pop(key)
-    return sha(json.dumps(info, indent=2, default=str).encode())
+def shadow_summary(info: dict) -> dict:
+    """The live summary in the shadow summary's terms."""
+    return dict(info)
 
 
 def frozen_inputs():
@@ -64,14 +84,14 @@ def snapshot_inputs():
     """A saved live run (5 Nov 2026 13:37 UTC) rebuilt as scripts/master_reconciliation_replay.py does."""
     if 'value' not in _SNAPSHOT_INPUTS:
         import narrow_margin as nm
-        from quote_policy import load_policy
         generated = json.loads((SNAPSHOT / 'selection_summary.json').read_text(encoding='utf-8'))['generated_at_utc']
         predictions = pd.read_csv(SNAPSHOT / 'predictions.csv', low_memory=False)
         with warnings.catch_warnings():
             warnings.simplefilter('ignore')
+            policy = quote_policy.load_policy(PRODUCTION_POLICY)
             _, decisions, summary = v28.build_shortlist(predictions, pd.Timestamp(generated),
-                                                        execution_policy=load_policy(), model=nm.production_model())
-        summary.setdefault('quote_execution_policy', load_policy())
+                                                        execution_policy=policy, model=nm.production_model())
+        summary.setdefault('quote_execution_policy', policy)
         _SNAPSHOT_INPUTS['value'] = (predictions, decisions, summary)
     predictions, decisions, summary = _SNAPSHOT_INPUTS['value']
     return predictions, decisions.copy(), json.loads(json.dumps(summary, default=str))
@@ -103,26 +123,41 @@ class SwitchTest(unittest.TestCase):
                 with mock.patch.object(ms, 'CONFIG', path), self.assertRaises(ValueError):
                     ms.configured_live()
 
-    def assert_pre_release(self, golden, out, summary):
+    def assert_pre_release(self, case, out, summary):
+        """Main's pre-release output (tests/fixtures/master_release_pre_release), compared as master_golden says."""
+        golden = GOLDEN[case]
         self.assertEqual(sorted(p.name for p in out.iterdir()), golden['files'])
         for name in golden['files']:
-            self.assertEqual(sha(out / name), golden[name], name)
-        self.assertEqual(summary_digest(summary['master_shortlist']), golden['run_summary_master_shortlist'])
+            if name.endswith('.csv'):
+                problems = mg.frame_differences(mg.read_csv(out / name), mg.read_csv(mg.path(case, name)),
+                                                keyed=name in mg.NEW_FILES, label=name)
+            else:
+                problems = mg.json_differences(json.loads((out / name).read_text(encoding='utf-8')),
+                                               mg.golden_json(case, name), name)
+            self.assertEqual(problems, [], name)
+        self.assertEqual(mg.json_differences(json.loads(json.dumps(summary['master_shortlist'], default=str)),
+                                             mg.golden_json(case, 'run_summary_master_shortlist.json')), [])
         self.assertNotIn(ms.OLD_SUMMARY_KEY, summary)
 
-    def test_old_restores_the_pre_release_output_byte_for_byte_on_the_frozen_forecast(self):
-        out, summary = refresh(frozen_inputs(), 'old')
-        self.assert_pre_release(GOLDEN['frozen_forecast'], out, summary)
+    def test_the_golden_files_are_mains_output(self):
+        """The committed copies are byte for byte (LF) the digests recorded from main ebba9d8."""
+        for case in mg.CASES:
+            for name in GOLDEN[case]['files']:
+                self.assertEqual(sha(mg.path(case, name)), GOLDEN[case][name], (case, name))
 
-    def test_old_restores_the_pre_release_output_byte_for_byte_on_a_saved_run(self):
+    def test_old_restores_the_pre_release_output_on_the_frozen_forecast(self):
+        out, summary = refresh(frozen_inputs(), 'old')
+        self.assert_pre_release('frozen_forecast', out, summary)
+
+    def test_old_restores_the_pre_release_output_on_a_saved_run(self):
         out, summary = refresh(snapshot_inputs(), 'old')
-        self.assert_pre_release(GOLDEN['snapshot_a00d5e530cc2e80e'], out, summary)
+        self.assert_pre_release('snapshot_a00d5e530cc2e80e', out, summary)
 
     def test_switching_back_and_forth_leaves_only_the_chosen_modes_files(self):
         out = Path(tempfile.mkdtemp())
         refresh(frozen_inputs(), 'new', out)
         _, summary = refresh(frozen_inputs(), 'old', out)
-        self.assert_pre_release(GOLDEN['frozen_forecast'], out, summary)
+        self.assert_pre_release('frozen_forecast', out, summary)
         refresh(frozen_inputs(), 'new', out)
         self.assertEqual(sorted(p.name for p in out.iterdir()), sorted(RELEASE_FILES))
 
@@ -131,17 +166,22 @@ class RoleSwapTest(unittest.TestCase):
     """live "new": master_shortlist.csv is main's master_shortlist_new.csv and master_shortlist_old.csv is main's
     master_shortlist.csv, byte for byte apart from file names and the version field."""
 
-    def assert_swapped(self, golden, out, summary):
+    def assert_swapped(self, case, out, summary):
         self.assertEqual(sorted(p.name for p in out.iterdir()), sorted(RELEASE_FILES))
-        live = (out / ms.FILE).read_bytes()
-        self.assertEqual(sha(live.replace(ms.VERSION_NEW_LIVE.encode(), mr.VERSION.encode())),
-                         golden['master_shortlist_new.csv'])
-        self.assertEqual(sha(out / ms.OLD_FILE), golden['master_shortlist.csv'])
-        self.assertEqual(sha(out / ms.OLD_AUDIT_FILE), golden['master_shortlist_audit.csv'])
-        self.assertEqual(summary_digest(summary[ms.OLD_SUMMARY_KEY]), golden['run_summary_master_shortlist'])
-        self.assertEqual(without_version_status_note(out / ms.SUMMARY_FILE),
-                         golden['new_summary_without_version_status_note'])
+        old = lambda name: mg.read_csv(mg.path(case, name))
+        self.assertEqual(mg.frame_differences(mg.read_csv(out / ms.OLD_FILE), old('master_shortlist.csv')), [])
+        self.assertEqual(mg.frame_differences(mg.read_csv(out / ms.OLD_AUDIT_FILE), old('master_shortlist_audit.csv')),
+                         [])
+        self.assertEqual(mg.json_differences(json.loads(json.dumps(summary[ms.OLD_SUMMARY_KEY], default=str)),
+                                             mg.golden_json(case, 'run_summary_master_shortlist.json')), [])
+        live = mg.read_csv(out / ms.FILE)
+        self.assertEqual(mg.frame_differences(as_shadow(live), old('master_shortlist_new.csv'), keyed=True), [])
         written = json.loads((out / ms.SUMMARY_FILE).read_text(encoding='utf-8'))
+        strip = lambda info: {k: v for k, v in info.items() if k not in ('version', 'status', 'note')}
+        self.assertEqual(mg.json_differences(strip(shadow_summary(written)),
+                                             strip(mg.golden_json(case, 'master_shortlist_new_summary.json'))), [])
+        # the live file's own order is the platform-independent one
+        pd.testing.assert_frame_equal(live, mg.read_csv(mr.stable_order(live).to_csv(index=False).encode()))
         self.assertEqual(summary['master_shortlist'], written)
         self.assertEqual((written['version'], written['status'], written['note']),
                          (ms.VERSION_NEW_LIVE, ms.LIVE_STATUS, ms.LIVE_NOTE))
@@ -152,14 +192,32 @@ class RoleSwapTest(unittest.TestCase):
 
     def test_frozen_forecast(self):
         out, summary = refresh(frozen_inputs())  # the committed config
-        frame = self.assert_swapped(GOLDEN['frozen_forecast'], out, summary)
+        frame = self.assert_swapped('frozen_forecast', out, summary)
         self.assertEqual(int(frame.new_master_decision.eq('SHORTLISTED').sum()), summary['master_shortlist']
                          ['ranked_fixtures'])
 
     def test_saved_run(self):
         out, summary = refresh(snapshot_inputs())
-        frame = self.assert_swapped(GOLDEN['snapshot_a00d5e530cc2e80e'], out, summary)
+        frame = self.assert_swapped('snapshot_a00d5e530cc2e80e', out, summary)
         self.assertEqual(int(frame.new_master_decision.eq('SHORTLISTED').sum()), 15)
+
+    def test_same_machine_role_separation_byte_for_byte(self):
+        """On one machine: live "new" writes the old master's shadow files byte for byte as live "old" writes the live
+        ones, and the live file is exactly the old mode's shadow new master (stable order, live version)."""
+        for inputs in (frozen_inputs, snapshot_inputs):
+            old_out, old_summary = refresh(inputs(), 'old')
+            new_out, new_summary = refresh(inputs())
+            self.assertEqual((new_out / ms.OLD_FILE).read_bytes(), (old_out / ms.FILE).read_bytes())
+            self.assertEqual((new_out / ms.OLD_AUDIT_FILE).read_bytes(),
+                             (old_out / 'master_shortlist_audit.csv').read_bytes())
+            self.assertEqual(new_summary[ms.OLD_SUMMARY_KEY], old_summary['master_shortlist'])
+            shadow = mg.read_csv(old_out / 'master_shortlist_new.csv')
+            live = mg.read_csv(new_out / ms.FILE)
+            expected = mg.read_csv(mr.stable_order(shadow).to_csv(index=False).encode())
+            pd.testing.assert_frame_equal(as_shadow(live), expected, check_exact=True)
+            shadow_info = json.loads((old_out / 'master_shortlist_new_summary.json').read_text(encoding='utf-8'))
+            strip = lambda info: {k: v for k, v in info.items() if k not in ('version', 'status', 'note')}
+            self.assertEqual(strip(shadow_summary(new_summary['master_shortlist'])), strip(shadow_info))
 
     def test_the_version_is_bumped_and_distinct(self):
         self.assertNotIn(ms.VERSION_NEW_LIVE, ms.VERSIONS)
