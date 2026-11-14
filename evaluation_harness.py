@@ -2198,9 +2198,9 @@ MASTER_SELECTION_FIELDS = ('rank', 'tier', 'step', 'decision', 'reason')
 
 
 def master_fixture(fixture, rcfg, synthetic=None, research='C', slopes=None, final='fill_current') -> list:
-    """One match on the same offers: the value list (research view `research`), the cagey list (D), their union
-    (the nominated pool, which the live master and step 1 draw from) and every other in-window offer (the fill pool,
-    steps 2-3), each classified by the new master's rule with the current and with the sharpened cagey probabilities
+    """One match on the same offers: the value list (research view `research`), the cagey list (D) and their union
+    (the nominated pool, which the live master and every step of the new master draw from; rule v4), each nominated
+    offer classified by the new master's rule with the current and with the sharpened cagey probabilities
     (`slopes`: this fixture's fold slopes, cagey_sharpen.KEYS) and, for comparison, by PR #171's rule
     (master_rule_v1, nominated offers only). The row's main classification columns are the `final` variant's.
     Pinnacle's margin-free reference for the missing-evidence fallback is the same M/1X2 reference."""
@@ -2242,6 +2242,8 @@ def master_fixture(fixture, rcfg, synthetic=None, research='C', slopes=None, fin
     pooled = {id(o) for _, o in [*value.values(), *cagey_list.values()]}
     rows = []
     for o in offers:
+        if id(o) not in pooled:  # rule v4: no step draws on an offer neither list nominated
+            continue
         row = {k: fixture[k] for k in ('phase', 'week', 'league', 'fixture_key', 'market_book', 'home_team',
                                         'away_team')}
         row.update(kickoff_utc=fixture['date'], market=o['market'], handicap_side=o['side'], handicap_line=o['line'],
@@ -2265,12 +2267,9 @@ def master_fixture(fixture, rcfg, synthetic=None, research='C', slopes=None, fin
         variants['safe_only'] = variants['fill_current']
         row.update(variants[final])
         row['_variants'] = variants
-        if row['nominated']:
-            old = master_rule_v1.classify(*arguments, european=False, config=previous)
-            row.update({f'{MASTER_PREVIOUS}_group': old['new_master_group'],
-                        f'{MASTER_PREVIOUS}_gap_check': old['gap_check']})
-        else:
-            row.update({f'{MASTER_PREVIOUS}_group': None, f'{MASTER_PREVIOUS}_gap_check': None})
+        old = master_rule_v1.classify(*arguments, european=False, config=previous)
+        row.update({f'{MASTER_PREVIOUS}_group': old['new_master_group'],
+                    f'{MASTER_PREVIOUS}_gap_check': old['gap_check']})
         rows.append(row)
     return rows
 
@@ -2574,6 +2573,25 @@ def master_tier_stats(frame, variant) -> dict:
     return out
 
 
+def master_list_size(part, chosen, target) -> dict:
+    """Per week of a period: how many matches the nominations cover (any nominated offer; with a market view, i.e.
+    a no-loss chance and a chance of profit), and how many picks a list made; how often the nominations cover fewer
+    than `target` matches (rule v4: the list is then shorter)."""
+    viewed = part.loc[pd.to_numeric(part.ranking_no_loss_probability, errors='coerce').notna()
+                      & pd.to_numeric(part.ranking_profit_probability, errors='coerce').notna()]
+    covered = part.groupby('week').fixture_key.nunique()
+    with_view = viewed.groupby('week').fixture_key.nunique().reindex(covered.index, fill_value=0)
+    picks = chosen.groupby('week').size().reindex(covered.index, fill_value=0)
+    describe = lambda s: {'min': int(s.min()), 'median': float(s.median()), 'max': int(s.max())} if len(s) else None
+    return {'weeks': int(len(covered)), 'nominated_fixtures_per_week': describe(covered),
+            'nominated_fixtures_with_market_view_per_week': describe(with_view),
+            'weeks_nominations_cover_fewer_than_target': int((covered < target).sum()),
+            'weeks_with_view_fewer_than_target': int((with_view < target).sum()),
+            'weeks_list_short': int((picks < target).sum()), 'picks_per_week': describe(picks),
+            'short_weeks': [{'week': str(w), 'nominated_fixtures': int(covered[w]), 'with_market_view': int(with_view[w]),
+                             'picks': int(picks[w])} for w in covered.index if picks[w] < target]}
+
+
 def master_summary(frames, synthetic, fixtures, cfg, sharpening=None) -> dict:
     """Per period: the final new master (fill rule, the probabilities the pass rule chose) against the live master
     (C's value list, as live), PR #172's safe-only rule and with vs without sharpening; results by tier; #172's
@@ -2621,7 +2639,8 @@ def master_summary(frames, synthetic, fixtures, cfg, sharpening=None) -> dict:
                             'fill_current': master_tier_stats(part, 'fill_current'),
                             'fill_sharpened': master_tier_stats(part, 'fill_sharpened')},
                 'labels_on_list': {t: int(new[c].eq(True).sum()) for c, t in mr.LABELS},
-                'nominated_offers': int(len(nominated)), 'fill_pool_offers': int(len(part) - len(nominated)),
+                'nominated_offers': int(len(nominated)),
+                'list_size': master_list_size(nominated, new, int(rcfg['target_fixtures'])),
                 'offers_by_group_nominated': {g: int(nominated.new_master_group.eq(g).sum()) for g in mr.GROUPS},
                 'gap_checks_nominated': {k: int(nominated.gap_check.eq(k).sum()) for k in mr.GAP_CHECKS},
                 'bets_by_gap_check_nominated': {k: master_category_stats(nominated.loc[nominated.gap_check.eq(k)])
@@ -2662,9 +2681,9 @@ def master_summary(frames, synthetic, fixtures, cfg, sharpening=None) -> dict:
             'sharpening_fits': sharpening.get('fits'),
             'scope': 'Domestic leagues only (no European prices are cached). Offers: Home win, Away win and the main '
                      'AH line, both sides, the only prices the files carry (no plus lines, alternate lines or double '
-                     'chance); odds (1.15, 2.00]; cost 0. Step 1 and the live master draw from the nominated pool (the '
-                     'value list\'s and the cagey list\'s picks among these offers), steps 2-3 from every in-window '
-                     'offer. Research view C or C6 (value list, p_r, labels and the flag), cagey view D (current, or '
+                     'chance); odds (1.15, 2.00]; cost 0. The live master and every step of the new master (rule v4) draw '
+                     'from the nominated pool only (the picks of the value list and the cagey list among these '
+                     'offers). Research view C or C6 (value list, p_r, labels and the flag), cagey view D (current, or '
                      'sharpened walk-forward), Pinnacle margin-free reference = binary margin-free 1X2 for wins and AH '
                      '+/-0.5, else M. The live master is always built on C\'s value list, as live; the safe-only rule '
                      'is PR #172\'s (step 1 alone, current probabilities); PR #171\'s rule (master_rule_v1) for '

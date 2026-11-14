@@ -1,5 +1,5 @@
 """The new master, in shadow (master_reconciliation.py; #172's rule master-new-evidence-rule-v2 is step 1 of the
-fill rule master-new-fill-rule-v3, whose own tests are in tests/test_master_fill.py).
+fill rule master-new-fill-rule-v4, whose own tests are in tests/test_master_fill.py).
 
 Every rule exactly as written: inclusion only when the cagey tier rates the bet safe (the 0.75 boundary), no veto,
 "research too optimistic" at g >= +4, ranking by the cagey no-loss chance only, "both agree" as a label, the
@@ -120,7 +120,7 @@ GRID = [None, *np.linspace(.42, .92, 11), .75, .85, .7499999, .8499999]
 
 class DefinitionsTest(unittest.TestCase):
     def test_config_holds_the_written_rule(self):
-        self.assertEqual(CONFIG['version'], 'master-new-fill-rule-v3')
+        self.assertEqual(CONFIG['version'], 'master-new-fill-rule-v4')
         self.assertIn('Fill rule (A): decided by Paul, 13 Nov 2026', CONFIG['decided'])
         self.assertIn('PR #171', CONFIG['decided'])
         self.assertEqual(CONFIG['safe_only_rule']['version'], 'master-new-evidence-rule-v2')
@@ -721,11 +721,9 @@ class BacktestTest(unittest.TestCase):
             rows = eh.master_fixture(self.fixture(cagey_shift=cagey_shift), CONFIG, research=research)
             self.assertTrue(rows)
             for row in rows:
-                # the fill pool: every in-window offer; nominated = either list's pick (step 1's pool)
-                self.assertEqual(row['nominated'], row['in_value_shortlist'] or row['in_cagey_tier'])
-                if not row['nominated']:
-                    self.assertIsNone(row['v1_group'])  # #171's rule only ever saw nominated offers
-                    continue
+                # rule v4: only nominated offers (either list's pick), the pool of every step
+                self.assertTrue(row['nominated'])
+                self.assertTrue(row['in_value_shortlist'] or row['in_cagey_tier'])
                 args = (row['research_no_loss_probability'], row['cagey_no_loss_probability'],
                         row['research_expected_return'], row['offered_decimal_odds'], row['cagey_fair_odds'],
                         row['market_no_loss_probability'], row['market_fair_odds'], False)

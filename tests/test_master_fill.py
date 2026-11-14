@@ -1,7 +1,8 @@
-"""The new master's fill rule (master-new-fill-rule-v3) and the sharpened cagey probabilities (cagey_sharpen.py).
+"""The new master's fill rule (master-new-fill-rule-v4) and the sharpened cagey probabilities (cagey_sharpen.py).
 
-The fill order exactly as written (step 1 safe picks as #172 on the nominated pool; step 2 not-risky fill by chance
-of profit; step 3 risky fill only when still short; never two picks per match; stop at the target); the chance of
+The fill order exactly as written (every step on the nominated pool only, rule v4: step 1 safe picks as #172; step 2
+not-risky fill by chance of profit; step 3 risky fill only when still short; never two picks per match; stop at the
+target, or shorter when the nominations cover fewer matches); the chance of
 profit per line type (quarter lines, pushes) and its Pinnacle stand-in; the sharpening walk-forward (a later result
 never changes an earlier forecast) and neutral before 1,000 fixtures; the pass rule and its fallback; the research
 view never reaches the sharpening; the live master and the cagey tier's outputs untouched.
@@ -85,7 +86,8 @@ def independent_fill(rows, target):
     picks = [(r['_match'], r['market'], 'safe') for r in step1][:target]
     if len(picks) < target:
         done = {r['_match'] for r in step1}
-        viewed = [r for r in ok if r['_match'] not in done and r['ranking_no_loss_probability'] is not None
+        viewed = [r for r in ok if r['_match'] not in done and r['new_master_nominated']
+                  and r['ranking_no_loss_probability'] is not None
                   and r['ranking_profit_probability'] is not None]
         step2 = best([r for r in viewed if r['ranking_no_loss_probability'] >= 0.5 - TOL], k2)
         picks += [(r['_match'], r['market'], 'fill') for r in step2][:target - len(picks)]
@@ -104,7 +106,14 @@ def listed(rows):
 class ConfigTest(unittest.TestCase):
     def test_the_rule_is_written_before_it_ran(self):
         fill = CONFIG['fill']
-        self.assertEqual(fill['decided'], 'decided by Paul, 13 Nov 2026')
+        self.assertEqual(fill['decided'], 'decided by Paul, 13 Nov 2026; pools (every step uses only the '
+                                          'nominations) decided by Paul, 14 Nov 2026')
+        self.assertEqual(CONFIG['version'], mr.VERSION)
+        self.assertEqual(mr.VERSION, 'master-new-fill-rule-v4')
+        self.assertIn('decided by Paul, 14 Nov 2026, before any live grading', fill['pools']['decided'])
+        self.assertIn('No step uses an offer that neither list nominated', fill['pools']['all_steps'])
+        self.assertIn('stays out', fill['pools']['no_market_view'])
+        self.assertIn('shorter than 15', fill['pools']['short_list'])
         self.assertEqual(fill['step_2_min_no_loss'], 0.5)
         self.assertEqual(set(fill['tiers']), set(mr.TIERS))
         self.assertIn('never two picks per match', fill['rule'])
@@ -119,6 +128,9 @@ class ConfigTest(unittest.TestCase):
                          (1000, [0.5, 2.5], 480.0))
         self.assertEqual(set(sharp['pass_rule']), {'development', 'validation', 'passes', 'if_passes', 'if_fails'})
         self.assertIn('decided by Paul, 13-14 Nov 2026', sharp['decided'])
+        self.assertFalse(sharp['use_sharpened'])  # failed its pre-set rule; stays off (Paul, 14 Nov 2026)
+        self.assertTrue(sharp['status'].startswith('failed'))
+        self.assertIn("won't be retried without a new decision", sharp['decision_after_result'])
         # use_sharpened can only be true once the pass rule has passed
         self.assertEqual(sharp['use_sharpened'], sharp['status'].startswith('passed'))
         self.assertIn('nothing restarts', CONFIG['live_comparison']['restart'])
@@ -202,13 +214,16 @@ class FillOrderTest(unittest.TestCase):
         return [
             # step 1: safe nominated offers (ranked by no-loss; one per match)
             row('S1', .80, .80, 1.25), row('S1', .78, .78, 1.30), row('S2', .90, .62, 1.17), row('S3', .76, .76, 1.40),
-            # step 2: not risky (>= 0.50), by chance of profit; F1's safe offer is not nominated: a fill
-            row('F1', .82, .82, 1.21, nominated=False), row('F2', .70, .70, 1.45), row('F2', .66, .40, 1.50),
+            # step 2: not risky (>= 0.50), by chance of profit
+            row('F2', .70, .70, 1.45), row('F2', .66, .40, 1.50),
             row('F3', .60, .35, 1.60), row('F3', .48, .48, 1.95),  # the not-risky whole line beats a risky one
-            row('F4', .55, .55, 1.70, nominated=False), row('F5', .55, .55, 1.75, nominated=False),  # tie -> odds
+            row('F4', .55, .55, 1.70), row('F5', .55, .55, 1.75),  # tie -> higher odds
+            row('F5', .99, .99, 1.80, nominated=False),  # not nominated: never used, even for a match on the list
             # step 3: only risky offers
-            row('R1', .45, .45, 1.90, nominated=False), row('R2', .40, .30, 1.99), row('R2', .38, .38, 1.98),
-            # never picked: no market view, not executable
+            row('R1', .45, .45, 1.90), row('R2', .40, .30, 1.99), row('R2', .38, .38, 1.98),
+            # never picked: not nominated (in any step, however safe), no market view, not executable
+            row('U1', .82, .82, 1.21, nominated=False), row('U2', .60, .60, 1.50, nominated=False),
+            row('U3', .45, .45, 1.90, nominated=False),
             row('N1', None, None, 1.50), row('X1', .95, .95, 1.10, executable=False)]
 
     def test_the_fill_order_exactly_as_written(self):
@@ -216,7 +231,7 @@ class FillOrderTest(unittest.TestCase):
         mr.select(rows, 15)
         self.assertEqual(listed(rows), [
             ('S2', 'S2-1.17', 'safe'), ('S1', 'S1-1.25', 'safe'), ('S3', 'S3-1.4', 'safe'),
-            ('F1', 'F1-1.21', 'fill'), ('F2', 'F2-1.45', 'fill'), ('F5', 'F5-1.75', 'fill'), ('F4', 'F4-1.7', 'fill'),
+            ('F2', 'F2-1.45', 'fill'), ('F5', 'F5-1.75', 'fill'), ('F4', 'F4-1.7', 'fill'),
             ('F3', 'F3-1.6', 'fill'), ('R1', 'R1-1.9', 'risky fill'), ('R2', 'R2-1.98', 'risky fill')])
         self.assertEqual(listed(rows), independent_fill(self.scenario(), 15))
         by_market = {r['market']: r for r in rows}
@@ -225,6 +240,10 @@ class FillOrderTest(unittest.TestCase):
         self.assertFalse(any(r['risky_fill'] for r in rows if r['new_master_tier'] in ('safe', 'fill')))
         self.assertEqual(by_market['X1-1.1']['new_master_decision'], 'NOT_EXECUTABLE')
         self.assertIsNone(by_market['N1-1.5']['new_master_rank'])
+        for market in ('U1-1.21', 'U2-1.5', 'U3-1.9', 'F5-1.8'):  # rule v4: no step uses a non-nominated offer
+            self.assertEqual((by_market[market]['new_master_decision'], by_market[market]['new_master_reason'],
+                              by_market[market]['new_master_step'], by_market[market]['new_master_rank']),
+                             ('NOT_SELECTED', 'not nominated by either list', None, None))
         ranked = [r for r in rows if r['new_master_decision'] == 'SHORTLISTED']
         self.assertEqual(len({r['_match'] for r in ranked}), len(ranked))  # never two picks per match
 
@@ -234,17 +253,25 @@ class FillOrderTest(unittest.TestCase):
         self.assertEqual([t for _, _, t in listed(rows)], ['safe'] * 3 + ['fill'] * 2)
         self.assertFalse(any(r['risky_fill'] for r in rows))
         beyond = {r['_match']: r['new_master_step'] for r in rows if r['new_master_decision'] == 'BEYOND_TARGET'}
-        self.assertEqual(beyond, {'F5': 2, 'F4': 2, 'F3': 2, 'R1': 3, 'R2': 3})
+        self.assertEqual(beyond, {'F4': 2, 'F3': 2, 'R1': 3, 'R2': 3})
         rows = self.scenario()
         mr.select(rows, 2)
         self.assertEqual(listed(rows), [('S2', 'S2-1.17', 'safe'), ('S1', 'S1-1.25', 'safe')])
         self.assertEqual({r['_match'] for r in rows if r['new_master_decision'] == 'BEYOND_TARGET'},
-                         {'S3', 'F1', 'F2', 'F3', 'F4', 'F5', 'R1', 'R2'})
+                         {'S3', 'F2', 'F3', 'F4', 'F5', 'R1', 'R2'})
 
     def test_stop_when_no_match_remains(self):
         rows = self.scenario()
         mr.select(rows, 40)
-        self.assertEqual(len(listed(rows)), 10)  # every match with a market view, once
+        self.assertEqual(len(listed(rows)), 9)  # every nominated match with a market view, once
+
+    def test_the_list_is_shorter_when_the_nominations_cover_fewer_matches(self):
+        # 6 nominated matches and 30 matches nobody nominated (all safe): the list stops at 6
+        rows = [row(f'N{i}', .6, .6, 1.5) for i in range(6)] + [row(f'U{i}', .9, .9, 1.2, nominated=False)
+                                                                for i in range(30)]
+        mr.select(rows, 15)
+        self.assertEqual(sorted(m for m, _, _ in listed(rows)), [f'N{i}' for i in range(6)])
+        self.assertEqual({t for _, _, t in listed(rows)}, {'fill'})
 
     def test_without_fill_it_is_172s_selection_verbatim(self):
         rng = np.random.default_rng(11)
@@ -496,9 +523,12 @@ class LiveFillTest(unittest.TestCase):
             copy = decisions.copy()
             copy['home_team'] = copy['home_team'] + f' {i}'
             copy['away_team'] = copy['away_team'] + f' {i}'
-            if i >= 4:  # matches neither list nominated: only the fill can reach them
-                copy['decision'] = 'REJECTED'
+            if i >= 4:  # matches whose only nomination is the value list's Home win (no-loss 0.52): fills
+                home = copy.market_to_bet.eq('Home win')
+                copy['decision'] = np.where(home, 'SHORTLISTED', 'REJECTED')
                 copy['cagey_tier_decision'] = 'NOT_SELECTED'
+            if i >= 18:  # matches neither list nominated: never listed (rule v4)
+                copy['decision'] = 'REJECTED'
             copies.append(copy)
         cls.decisions = pd.concat(copies, ignore_index=True)
         cls.before = cls.decisions.to_csv(index=False)
@@ -518,17 +548,37 @@ class LiveFillTest(unittest.TestCase):
         self.assertTrue(fills.ranking_profit_probability.is_monotonic_decreasing)
         np.testing.assert_allclose(fills.ranking_profit_probability, fills.cagey_profit_probability, atol=1e-12)
 
-    def test_the_file_lists_nominated_offers_and_each_matchs_candidate(self):
-        nominated = self.frame.new_master_source.eq('nominated')
-        self.assertEqual(int(nominated.sum()), int((self.decisions.decision.eq('SHORTLISTED')
-                                                    | self.decisions.cagey_tier_decision.eq('SHORTLISTED')).sum()))
-        pool = self.frame.loc[~nominated]
-        self.assertTrue(pool.new_master_step.isin([2, 3]).all())
-        self.assertEqual(pool[['home_team', 'away_team']].drop_duplicates().shape[0], len(pool))
+    def test_the_file_lists_only_nominated_offers(self):
+        self.assertEqual(len(self.frame), int((self.decisions.decision.eq('SHORTLISTED')
+                                               | self.decisions.cagey_tier_decision.eq('SHORTLISTED')).sum()))
+        self.assertTrue((self.frame.in_value_shortlist | self.frame.in_cagey_tier).all())
+        self.assertFalse(self.frame.home_team.str.endswith((' 18', ' 19')).any())
         summary = mr.summary(self.frame)
-        self.assertEqual((summary['ranked_fixtures'], summary['shortfall']), (15, 0))
+        self.assertEqual((summary['ranked_fixtures'], summary['shortfall'], summary['short_reason']), (15, 0, None))
+        self.assertEqual((summary['nominated_fixtures'], summary['fixtures_with_market_view'],
+                          summary['fixtures_without_market_view']), (18, 18, 0))
+        self.assertEqual(summary['picks_by_tier'], {'safe': 4, 'fill': 11, 'risky fill': 0})
         self.assertEqual(sum(summary['picks_by_tier'].values()), 15)
         self.assertIn('current cagey probabilities', summary['probabilities'])
+
+    def test_a_short_list_is_recorded(self):
+        keep = self.decisions.home_team.str.extract(r' (\d+)$')[0].astype(int) < 6
+        frame = mr.reconcile(self.decisions.loc[keep])
+        summary = mr.summary(frame)
+        self.assertEqual((summary['ranked_fixtures'], summary['shortfall'], summary['nominated_fixtures']), (6, 9, 6))
+        self.assertEqual(summary['short_reason'], 'nominations cover fewer than 15 matches')
+
+    def test_a_match_without_a_market_view_stays_out(self):
+        blind = self.decisions.copy()
+        gone = blind.home_team.str.endswith(' 5')
+        for column in [c for c in blind if c.startswith(('cagey_p_', 'uncorrected_p_'))] + [
+                'pinnacle_no_loss_probability']:
+            blind.loc[gone, column] = np.nan
+        frame = mr.reconcile(blind)
+        summary = mr.summary(frame)
+        ranked = frame.loc[frame.new_master_decision.eq('SHORTLISTED')]
+        self.assertFalse(ranked.home_team.str.endswith(' 5').any())
+        self.assertEqual((summary['ranked_fixtures'], summary['fixtures_without_market_view']), (15, 1))
 
     def test_decision_rows_and_the_cagey_tier_are_untouched(self):
         self.assertEqual(self.decisions.to_csv(index=False), self.before)
