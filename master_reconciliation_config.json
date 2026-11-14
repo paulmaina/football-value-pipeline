@@ -47,7 +47,7 @@
   "cagey_sharpening": {
     "decided": "decided by Paul, 13-14 Nov 2026; method and pass rule written here and in docs/plan.md before anything was computed",
     "version": "cagey-sharpen-walk-forward-v1",
-    "status": "pending: not yet computed",
+    "status": "failed: pass rule computed once, 14 Nov 2026, locked backtest at 76a155f (evaluation/master_new_fill/results.json). Development: the sharpened slopes are further from 1.0 than the current ones (no-loss 1.125 vs 1.075; profit 1.128 vs 1.069), log loss not worse (no-loss -0.00005, -0.00059 to +0.00049). Validation: slopes not closer (no-loss 0.995 vs 0.996; profit 1.009 vs 1.001) and no-loss log loss worse (-0.00007, -0.00016 to -0.0000002, entirely below zero). The new master keeps the current cagey probabilities.",
     "use_sharpened": false,
     "method": "A walk-forward recalibration of the cagey tier's probabilities, research_sharpen.py's approach: p' = sigmoid(s * logit(p)), one slope s per quantity and line type, no intercept, fitted by recency-weighted maximum likelihood (logistic log loss), bounded. Refitted every 14 days (the harness fold origins) only on the cagey tier's own earlier forecasts and their results: matches played before the origin (date < origin), never the research model, never a price or result after kickoff, never a holdout match (locked). The cagey tier's own outputs stay unchanged; the sharpened values are new columns used only by the new master.",
     "quantities": [
