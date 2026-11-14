@@ -1,0 +1,4688 @@
+{
+  "start": "2026-10-27",
+  "end_exclusive": "2026-11-09",
+  "runs": [
+    {
+      "snapshot": "026e1ab4c40e3e64",
+      "generated_at_utc": "2026-10-27T09:50:40.995248+00:00",
+      "decision_rows": 230,
+      "coverage": {
+        "fixtures_in_window_priced": 3,
+        "fixtures_value": 3,
+        "fixtures_cagey": 3,
+        "fixtures_either": 3
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 3,
+          "eligible_fixtures": 3,
+          "nominated_executable_fixtures": 3,
+          "ranked_fixtures": 3,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 3,
+          "eligible_fixtures": 3,
+          "nominated_executable_fixtures": 3,
+          "ranked_fixtures": 3,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 3,
+          "eligible_fixtures": 3,
+          "nominated_executable_fixtures": 3,
+          "ranked_fixtures": 3,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 3,
+          "eligible_fixtures": 3,
+          "nominated_executable_fixtures": 3,
+          "ranked_fixtures": 3,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 3,
+          "eligible_fixtures": 3,
+          "nominated_executable_fixtures": 3,
+          "ranked_fixtures": 3,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 3,
+          "eligible_fixtures": 3,
+          "nominated_executable_fixtures": 3,
+          "ranked_fixtures": 3,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 3,
+          "eligible_fixtures": 3,
+          "nominated_executable_fixtures": 3,
+          "ranked_fixtures": 3,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 3,
+          "eligible_fixtures": 3,
+          "nominated_executable_fixtures": 3,
+          "ranked_fixtures": 3,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 3,
+          "eligible_fixtures": 3,
+          "nominated_executable_fixtures": 3,
+          "ranked_fixtures": 3,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 3,
+          "eligible_fixtures": 3,
+          "nominated_executable_fixtures": 3,
+          "ranked_fixtures": 3,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 7,
+        "harness": 7,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 7,
+        "harness": 7,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "d414de1a572b09b2",
+      "generated_at_utc": "2026-10-27T11:35:10.735016+00:00",
+      "decision_rows": 221,
+      "coverage": {
+        "fixtures_in_window_priced": 3,
+        "fixtures_value": 3,
+        "fixtures_cagey": 3,
+        "fixtures_either": 3
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 3,
+          "eligible_fixtures": 3,
+          "nominated_executable_fixtures": 3,
+          "ranked_fixtures": 3,
+          "picks_by_tier": {
+            "safe": 1,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 3,
+          "eligible_fixtures": 3,
+          "nominated_executable_fixtures": 3,
+          "ranked_fixtures": 3,
+          "picks_by_tier": {
+            "safe": 1,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 3,
+          "eligible_fixtures": 3,
+          "nominated_executable_fixtures": 3,
+          "ranked_fixtures": 3,
+          "picks_by_tier": {
+            "safe": 1,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 3,
+          "eligible_fixtures": 3,
+          "nominated_executable_fixtures": 3,
+          "ranked_fixtures": 3,
+          "picks_by_tier": {
+            "safe": 1,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 3,
+          "eligible_fixtures": 3,
+          "nominated_executable_fixtures": 3,
+          "ranked_fixtures": 3,
+          "picks_by_tier": {
+            "safe": 1,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 3,
+          "eligible_fixtures": 3,
+          "nominated_executable_fixtures": 3,
+          "ranked_fixtures": 3,
+          "picks_by_tier": {
+            "safe": 1,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 3,
+          "eligible_fixtures": 3,
+          "nominated_executable_fixtures": 3,
+          "ranked_fixtures": 3,
+          "picks_by_tier": {
+            "safe": 1,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 3,
+          "eligible_fixtures": 3,
+          "nominated_executable_fixtures": 3,
+          "ranked_fixtures": 3,
+          "picks_by_tier": {
+            "safe": 1,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 3,
+          "eligible_fixtures": 3,
+          "nominated_executable_fixtures": 3,
+          "ranked_fixtures": 3,
+          "picks_by_tier": {
+            "safe": 1,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 3,
+          "eligible_fixtures": 3,
+          "nominated_executable_fixtures": 3,
+          "ranked_fixtures": 3,
+          "picks_by_tier": {
+            "safe": 1,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 7,
+        "harness": 7,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 7,
+        "harness": 7,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "04e55dde9bbe885f",
+      "generated_at_utc": "2026-10-28T12:13:37.819395+00:00",
+      "decision_rows": 257,
+      "coverage": {
+        "fixtures_in_window_priced": 5,
+        "fixtures_value": 5,
+        "fixtures_cagey": 5,
+        "fixtures_either": 5
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 5,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 5,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 13,
+        "harness": 13,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 13,
+        "harness": 13,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "fd052ff5e9f0163b",
+      "generated_at_utc": "2026-10-28T16:16:05.061508+00:00",
+      "decision_rows": 431,
+      "coverage": {
+        "fixtures_in_window_priced": 5,
+        "fixtures_value": 5,
+        "fixtures_cagey": 5,
+        "fixtures_either": 5
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 5,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 5,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 13,
+        "harness": 13,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 13,
+        "harness": 13,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "c75d4ab52706e716",
+      "generated_at_utc": "2026-10-29T12:08:22.532184+00:00",
+      "decision_rows": 543,
+      "coverage": {
+        "fixtures_in_window_priced": 2,
+        "fixtures_value": 2,
+        "fixtures_cagey": 2,
+        "fixtures_either": 2
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 2,
+          "eligible_fixtures": 2,
+          "nominated_executable_fixtures": 2,
+          "ranked_fixtures": 2,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 2,
+          "eligible_fixtures": 2,
+          "nominated_executable_fixtures": 2,
+          "ranked_fixtures": 2,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 2,
+          "eligible_fixtures": 2,
+          "nominated_executable_fixtures": 2,
+          "ranked_fixtures": 2,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 2,
+          "eligible_fixtures": 2,
+          "nominated_executable_fixtures": 2,
+          "ranked_fixtures": 2,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 2,
+          "eligible_fixtures": 2,
+          "nominated_executable_fixtures": 2,
+          "ranked_fixtures": 2,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 2,
+          "eligible_fixtures": 2,
+          "nominated_executable_fixtures": 2,
+          "ranked_fixtures": 2,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 2,
+          "eligible_fixtures": 2,
+          "nominated_executable_fixtures": 2,
+          "ranked_fixtures": 2,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 2,
+          "eligible_fixtures": 2,
+          "nominated_executable_fixtures": 2,
+          "ranked_fixtures": 2,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 2,
+          "eligible_fixtures": 2,
+          "nominated_executable_fixtures": 2,
+          "ranked_fixtures": 2,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 2,
+          "eligible_fixtures": 2,
+          "nominated_executable_fixtures": 2,
+          "ranked_fixtures": 2,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 5,
+        "harness": 5,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 5,
+        "harness": 5,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "02d8d3b21fd68fd9",
+      "generated_at_utc": "2026-10-30T07:29:50.498587+00:00",
+      "decision_rows": 1238,
+      "coverage": {
+        "fixtures_in_window_priced": 7,
+        "fixtures_value": 7,
+        "fixtures_cagey": 7,
+        "fixtures_either": 7
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 7,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 3,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 2,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 7,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 3,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 2,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 7,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 3,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 2,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 7,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 3,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 2,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 7,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 3,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 2,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 7,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 3,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 2,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 7,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 3,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 2,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 7,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 3,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 2,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 7,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 3,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 2,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 7,
+          "eligible_fixtures": 5,
+          "nominated_executable_fixtures": 5,
+          "ranked_fixtures": 5,
+          "picks_by_tier": {
+            "safe": 3,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 2,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 14,
+        "harness": 14,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 14,
+        "harness": 14,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "2f2bbe3e322ecab7",
+      "generated_at_utc": "2026-10-30T12:03:48.308948+00:00",
+      "decision_rows": 1282,
+      "coverage": {
+        "fixtures_in_window_priced": 8,
+        "fixtures_value": 8,
+        "fixtures_cagey": 8,
+        "fixtures_either": 8
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 8,
+          "eligible_fixtures": 7,
+          "nominated_executable_fixtures": 7,
+          "ranked_fixtures": 7,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 1,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 8,
+          "eligible_fixtures": 7,
+          "nominated_executable_fixtures": 7,
+          "ranked_fixtures": 7,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 1,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 8,
+          "eligible_fixtures": 7,
+          "nominated_executable_fixtures": 7,
+          "ranked_fixtures": 7,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 1,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 8,
+          "eligible_fixtures": 7,
+          "nominated_executable_fixtures": 7,
+          "ranked_fixtures": 7,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 1,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 8,
+          "eligible_fixtures": 7,
+          "nominated_executable_fixtures": 7,
+          "ranked_fixtures": 7,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 1,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 8,
+          "eligible_fixtures": 7,
+          "nominated_executable_fixtures": 7,
+          "ranked_fixtures": 7,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 1,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 8,
+          "eligible_fixtures": 7,
+          "nominated_executable_fixtures": 7,
+          "ranked_fixtures": 7,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 1,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 8,
+          "eligible_fixtures": 7,
+          "nominated_executable_fixtures": 7,
+          "ranked_fixtures": 7,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 1,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 8,
+          "eligible_fixtures": 7,
+          "nominated_executable_fixtures": 7,
+          "ranked_fixtures": 7,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 1,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 8,
+          "eligible_fixtures": 7,
+          "nominated_executable_fixtures": 7,
+          "ranked_fixtures": 7,
+          "picks_by_tier": {
+            "safe": 4,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 1,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 15,
+        "harness": 15,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 15,
+        "harness": 15,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "f82ff3e276c6c573",
+      "generated_at_utc": "2026-10-31T12:03:11.165007+00:00",
+      "decision_rows": 1628,
+      "coverage": {
+        "fixtures_in_window_priced": 34,
+        "fixtures_value": 34,
+        "fixtures_cagey": 31,
+        "fixtures_either": 34
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 34,
+          "eligible_fixtures": 12,
+          "nominated_executable_fixtures": 12,
+          "ranked_fixtures": 12,
+          "picks_by_tier": {
+            "safe": 9,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 22,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 34,
+          "eligible_fixtures": 12,
+          "nominated_executable_fixtures": 12,
+          "ranked_fixtures": 12,
+          "picks_by_tier": {
+            "safe": 9,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 22,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 34,
+          "eligible_fixtures": 12,
+          "nominated_executable_fixtures": 12,
+          "ranked_fixtures": 12,
+          "picks_by_tier": {
+            "safe": 9,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 22,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 34,
+          "eligible_fixtures": 12,
+          "nominated_executable_fixtures": 12,
+          "ranked_fixtures": 12,
+          "picks_by_tier": {
+            "safe": 9,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 22,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 34,
+          "eligible_fixtures": 12,
+          "nominated_executable_fixtures": 12,
+          "ranked_fixtures": 12,
+          "picks_by_tier": {
+            "safe": 9,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 22,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 34,
+          "eligible_fixtures": 12,
+          "nominated_executable_fixtures": 12,
+          "ranked_fixtures": 12,
+          "picks_by_tier": {
+            "safe": 9,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 22,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 34,
+          "eligible_fixtures": 12,
+          "nominated_executable_fixtures": 12,
+          "ranked_fixtures": 12,
+          "picks_by_tier": {
+            "safe": 9,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 22,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 34,
+          "eligible_fixtures": 12,
+          "nominated_executable_fixtures": 12,
+          "ranked_fixtures": 12,
+          "picks_by_tier": {
+            "safe": 9,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 22,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 34,
+          "eligible_fixtures": 12,
+          "nominated_executable_fixtures": 12,
+          "ranked_fixtures": 12,
+          "picks_by_tier": {
+            "safe": 9,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 22,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 34,
+          "eligible_fixtures": 12,
+          "nominated_executable_fixtures": 12,
+          "ranked_fixtures": 12,
+          "picks_by_tier": {
+            "safe": 9,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 22,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 68,
+        "harness": 68,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 62,
+        "harness": 62,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "796c7451f4101f75",
+      "generated_at_utc": "2026-11-01T07:37:30.159727+00:00",
+      "decision_rows": 1004,
+      "coverage": {
+        "fixtures_in_window_priced": 28,
+        "fixtures_value": 28,
+        "fixtures_cagey": 27,
+        "fixtures_either": 28
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 28,
+          "eligible_fixtures": 16,
+          "nominated_executable_fixtures": 16,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 14,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 12,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 28,
+          "eligible_fixtures": 16,
+          "nominated_executable_fixtures": 16,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 14,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 12,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 28,
+          "eligible_fixtures": 16,
+          "nominated_executable_fixtures": 16,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 14,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 12,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 28,
+          "eligible_fixtures": 16,
+          "nominated_executable_fixtures": 16,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 14,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 12,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 28,
+          "eligible_fixtures": 16,
+          "nominated_executable_fixtures": 16,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 14,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 12,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 28,
+          "eligible_fixtures": 16,
+          "nominated_executable_fixtures": 16,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 14,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 12,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 28,
+          "eligible_fixtures": 16,
+          "nominated_executable_fixtures": 16,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 14,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 12,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 28,
+          "eligible_fixtures": 16,
+          "nominated_executable_fixtures": 16,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 14,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 12,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 28,
+          "eligible_fixtures": 16,
+          "nominated_executable_fixtures": 16,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 14,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 12,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 28,
+          "eligible_fixtures": 16,
+          "nominated_executable_fixtures": 16,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 14,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 12,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 56,
+        "harness": 56,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 54,
+        "harness": 54,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "dc55908798d79d00",
+      "generated_at_utc": "2026-11-01T09:36:12.166126+00:00",
+      "decision_rows": 216,
+      "coverage": {
+        "fixtures_in_window_priced": 5,
+        "fixtures_value": 5,
+        "fixtures_cagey": 4,
+        "fixtures_either": 5
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 5,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 5,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 5,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 5,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 5,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 5,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 5,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 5,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 5,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 5,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 5,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 10,
+        "harness": 10,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 8,
+        "harness": 8,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "cbf58accd4fa0691",
+      "generated_at_utc": "2026-11-01T12:23:24.469126+00:00",
+      "decision_rows": 0,
+      "coverage": {
+        "fixtures_in_window_priced": 0,
+        "fixtures_value": 0,
+        "fixtures_cagey": 0,
+        "fixtures_either": 0
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 0,
+        "harness": 0,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 0,
+        "harness": 0,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "765b01b571df2fd9",
+      "generated_at_utc": "2026-11-03T13:23:43.479885+00:00",
+      "decision_rows": 609,
+      "coverage": {
+        "fixtures_in_window_priced": 9,
+        "fixtures_value": 9,
+        "fixtures_cagey": 7,
+        "fixtures_either": 9
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 7,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 8,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 8,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 8,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 8,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 8,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 8,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 8,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 8,
+          "picks_by_tier": {
+            "safe": 7,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 21,
+        "harness": 21,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 17,
+        "harness": 17,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "4dfe537371e33ca4",
+      "generated_at_utc": "2026-11-03T13:58:02.173298+00:00",
+      "decision_rows": 609,
+      "coverage": {
+        "fixtures_in_window_priced": 9,
+        "fixtures_value": 9,
+        "fixtures_cagey": 7,
+        "fixtures_either": 9
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 7,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 8,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 8,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 8,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 8,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 8,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 8,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 8,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 8,
+          "picks_by_tier": {
+            "safe": 7,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 21,
+        "harness": 21,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 17,
+        "harness": 17,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "85c451a1e15281f6",
+      "generated_at_utc": "2026-11-04T09:31:03.622249+00:00",
+      "decision_rows": 138,
+      "coverage": {
+        "fixtures_in_window_priced": 9,
+        "fixtures_value": 9,
+        "fixtures_cagey": 1,
+        "fixtures_either": 9
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 7,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 7,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 7,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 3,
+            "fill": 6,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 7,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 7,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 7,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 7,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 2,
+            "fill": 7,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 3,
+            "fill": 6,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 18,
+        "harness": 18,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 2,
+        "harness": 2,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "ddf20a3972dd45e3",
+      "generated_at_utc": "2026-11-04T10:20:33.895771+00:00",
+      "decision_rows": 782,
+      "coverage": {
+        "fixtures_in_window_priced": 10,
+        "fixtures_value": 10,
+        "fixtures_cagey": 9,
+        "fixtures_either": 10
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 10,
+          "eligible_fixtures": 10,
+          "nominated_executable_fixtures": 10,
+          "ranked_fixtures": 10,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 4,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 10,
+          "eligible_fixtures": 10,
+          "nominated_executable_fixtures": 10,
+          "ranked_fixtures": 10,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 4,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 10,
+          "eligible_fixtures": 10,
+          "nominated_executable_fixtures": 10,
+          "ranked_fixtures": 10,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 4,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 10,
+          "eligible_fixtures": 10,
+          "nominated_executable_fixtures": 10,
+          "ranked_fixtures": 10,
+          "picks_by_tier": {
+            "safe": 8,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 10,
+          "eligible_fixtures": 10,
+          "nominated_executable_fixtures": 10,
+          "ranked_fixtures": 10,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 4,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 10,
+          "eligible_fixtures": 10,
+          "nominated_executable_fixtures": 10,
+          "ranked_fixtures": 10,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 4,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 10,
+          "eligible_fixtures": 10,
+          "nominated_executable_fixtures": 10,
+          "ranked_fixtures": 10,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 4,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 10,
+          "eligible_fixtures": 10,
+          "nominated_executable_fixtures": 10,
+          "ranked_fixtures": 10,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 4,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 10,
+          "eligible_fixtures": 10,
+          "nominated_executable_fixtures": 10,
+          "ranked_fixtures": 10,
+          "picks_by_tier": {
+            "safe": 6,
+            "fill": 4,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 10,
+          "eligible_fixtures": 10,
+          "nominated_executable_fixtures": 10,
+          "ranked_fixtures": 10,
+          "picks_by_tier": {
+            "safe": 8,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 25,
+        "harness": 25,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 23,
+        "harness": 23,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "8a970f7baa207beb",
+      "generated_at_utc": "2026-11-04T19:40:50.340029+00:00",
+      "decision_rows": 861,
+      "coverage": {
+        "fixtures_in_window_priced": 8,
+        "fixtures_value": 3,
+        "fixtures_cagey": 7,
+        "fixtures_either": 8
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 8,
+          "eligible_fixtures": 8,
+          "nominated_executable_fixtures": 8,
+          "ranked_fixtures": 8,
+          "picks_by_tier": {
+            "safe": 5,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 8,
+          "eligible_fixtures": 8,
+          "nominated_executable_fixtures": 8,
+          "ranked_fixtures": 8,
+          "picks_by_tier": {
+            "safe": 5,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 8,
+          "eligible_fixtures": 8,
+          "nominated_executable_fixtures": 8,
+          "ranked_fixtures": 8,
+          "picks_by_tier": {
+            "safe": 5,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 8,
+          "eligible_fixtures": 8,
+          "nominated_executable_fixtures": 8,
+          "ranked_fixtures": 8,
+          "picks_by_tier": {
+            "safe": 5,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 8,
+          "eligible_fixtures": 8,
+          "nominated_executable_fixtures": 8,
+          "ranked_fixtures": 8,
+          "picks_by_tier": {
+            "safe": 5,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 8,
+          "eligible_fixtures": 8,
+          "nominated_executable_fixtures": 8,
+          "ranked_fixtures": 8,
+          "picks_by_tier": {
+            "safe": 5,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 8,
+          "eligible_fixtures": 8,
+          "nominated_executable_fixtures": 8,
+          "ranked_fixtures": 8,
+          "picks_by_tier": {
+            "safe": 5,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 8,
+          "eligible_fixtures": 8,
+          "nominated_executable_fixtures": 8,
+          "ranked_fixtures": 8,
+          "picks_by_tier": {
+            "safe": 5,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 8,
+          "eligible_fixtures": 8,
+          "nominated_executable_fixtures": 8,
+          "ranked_fixtures": 8,
+          "picks_by_tier": {
+            "safe": 5,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 8,
+          "eligible_fixtures": 8,
+          "nominated_executable_fixtures": 8,
+          "ranked_fixtures": 8,
+          "picks_by_tier": {
+            "safe": 5,
+            "fill": 3,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 8,
+        "harness": 8,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 18,
+        "harness": 18,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "0af36ab1e9657f52",
+      "generated_at_utc": "2026-11-05T12:32:00.598966+00:00",
+      "decision_rows": 521,
+      "coverage": {
+        "fixtures_in_window_priced": 0,
+        "fixtures_value": 0,
+        "fixtures_cagey": 0,
+        "fixtures_either": 0
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 0,
+        "harness": 0,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 0,
+        "harness": 0,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "a00d5e530cc2e80e",
+      "generated_at_utc": "2026-11-05T13:37:38.336530+00:00",
+      "decision_rows": 1070,
+      "coverage": {
+        "fixtures_in_window_priced": 17,
+        "fixtures_value": 7,
+        "fixtures_cagey": 17,
+        "fixtures_either": 17
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 17,
+          "eligible_fixtures": 17,
+          "nominated_executable_fixtures": 17,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 13,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 17,
+          "eligible_fixtures": 17,
+          "nominated_executable_fixtures": 17,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 13,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 17,
+          "eligible_fixtures": 17,
+          "nominated_executable_fixtures": 17,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 13,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 17,
+          "eligible_fixtures": 17,
+          "nominated_executable_fixtures": 17,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 14,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 17,
+          "eligible_fixtures": 17,
+          "nominated_executable_fixtures": 17,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 13,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 17,
+          "eligible_fixtures": 17,
+          "nominated_executable_fixtures": 17,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 13,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 17,
+          "eligible_fixtures": 17,
+          "nominated_executable_fixtures": 17,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 13,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 17,
+          "eligible_fixtures": 17,
+          "nominated_executable_fixtures": 17,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 13,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 17,
+          "eligible_fixtures": 17,
+          "nominated_executable_fixtures": 17,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 13,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 17,
+          "eligible_fixtures": 17,
+          "nominated_executable_fixtures": 17,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 14,
+            "fill": 1,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 16,
+        "harness": 16,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 39,
+        "harness": 39,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "92039638c61ad8bc",
+      "generated_at_utc": "2026-11-05T16:17:48.024788+00:00",
+      "decision_rows": 0,
+      "coverage": {
+        "fixtures_in_window_priced": 0,
+        "fixtures_value": 0,
+        "fixtures_cagey": 0,
+        "fixtures_either": 0
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 0,
+        "harness": 0,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 0,
+        "harness": 0,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "7b8f8817eb577b04",
+      "generated_at_utc": "2026-11-05T16:27:43.343008+00:00",
+      "decision_rows": 0,
+      "coverage": {
+        "fixtures_in_window_priced": 0,
+        "fixtures_value": 0,
+        "fixtures_cagey": 0,
+        "fixtures_either": 0
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 0,
+        "harness": 0,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 0,
+        "harness": 0,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "775022176692974f",
+      "generated_at_utc": "2026-11-05T16:50:22.659919+00:00",
+      "decision_rows": 1467,
+      "coverage": {
+        "fixtures_in_window_priced": 17,
+        "fixtures_value": 7,
+        "fixtures_cagey": 17,
+        "fixtures_either": 17
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 17,
+          "eligible_fixtures": 17,
+          "nominated_executable_fixtures": 17,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 13,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 17,
+          "eligible_fixtures": 17,
+          "nominated_executable_fixtures": 17,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 13,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 17,
+          "eligible_fixtures": 17,
+          "nominated_executable_fixtures": 17,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 13,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 17,
+          "eligible_fixtures": 17,
+          "nominated_executable_fixtures": 17,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 17,
+          "eligible_fixtures": 17,
+          "nominated_executable_fixtures": 17,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 13,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 17,
+          "eligible_fixtures": 17,
+          "nominated_executable_fixtures": 17,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 13,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 17,
+          "eligible_fixtures": 17,
+          "nominated_executable_fixtures": 17,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 13,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 17,
+          "eligible_fixtures": 17,
+          "nominated_executable_fixtures": 17,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 13,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 17,
+          "eligible_fixtures": 17,
+          "nominated_executable_fixtures": 17,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 13,
+            "fill": 2,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 17,
+          "eligible_fixtures": 17,
+          "nominated_executable_fixtures": 17,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 16,
+        "harness": 16,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 40,
+        "harness": 40,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "5d2089b153695efa",
+      "generated_at_utc": "2026-11-06T11:26:29.717902+00:00",
+      "decision_rows": 1347,
+      "coverage": {
+        "fixtures_in_window_priced": 9,
+        "fixtures_value": 9,
+        "fixtures_cagey": 9,
+        "fixtures_either": 9
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 9,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 9,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 9,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 9,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 9,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 9,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 9,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 9,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 9,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 9,
+          "eligible_fixtures": 9,
+          "nominated_executable_fixtures": 9,
+          "ranked_fixtures": 9,
+          "picks_by_tier": {
+            "safe": 9,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 17,
+        "harness": 17,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 17,
+        "harness": 17,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "440236589764dce4",
+      "generated_at_utc": "2026-11-06T12:17:20.125743+00:00",
+      "decision_rows": 1194,
+      "coverage": {
+        "fixtures_in_window_priced": 7,
+        "fixtures_value": 7,
+        "fixtures_cagey": 7,
+        "fixtures_either": 7
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 7,
+          "eligible_fixtures": 7,
+          "nominated_executable_fixtures": 7,
+          "ranked_fixtures": 7,
+          "picks_by_tier": {
+            "safe": 7,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 7,
+          "eligible_fixtures": 7,
+          "nominated_executable_fixtures": 7,
+          "ranked_fixtures": 7,
+          "picks_by_tier": {
+            "safe": 7,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 7,
+          "eligible_fixtures": 7,
+          "nominated_executable_fixtures": 7,
+          "ranked_fixtures": 7,
+          "picks_by_tier": {
+            "safe": 7,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 7,
+          "eligible_fixtures": 7,
+          "nominated_executable_fixtures": 7,
+          "ranked_fixtures": 7,
+          "picks_by_tier": {
+            "safe": 7,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 7,
+          "eligible_fixtures": 7,
+          "nominated_executable_fixtures": 7,
+          "ranked_fixtures": 7,
+          "picks_by_tier": {
+            "safe": 7,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 7,
+          "eligible_fixtures": 7,
+          "nominated_executable_fixtures": 7,
+          "ranked_fixtures": 7,
+          "picks_by_tier": {
+            "safe": 7,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 7,
+          "eligible_fixtures": 7,
+          "nominated_executable_fixtures": 7,
+          "ranked_fixtures": 7,
+          "picks_by_tier": {
+            "safe": 7,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 7,
+          "eligible_fixtures": 7,
+          "nominated_executable_fixtures": 7,
+          "ranked_fixtures": 7,
+          "picks_by_tier": {
+            "safe": 7,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 7,
+          "eligible_fixtures": 7,
+          "nominated_executable_fixtures": 7,
+          "ranked_fixtures": 7,
+          "picks_by_tier": {
+            "safe": 7,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 7,
+          "eligible_fixtures": 7,
+          "nominated_executable_fixtures": 7,
+          "ranked_fixtures": 7,
+          "picks_by_tier": {
+            "safe": 7,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 14,
+        "harness": 14,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 14,
+        "harness": 14,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "d46504cc4373448f",
+      "generated_at_utc": "2026-11-06T13:21:43.280136+00:00",
+      "decision_rows": 0,
+      "coverage": {
+        "fixtures_in_window_priced": 0,
+        "fixtures_value": 0,
+        "fixtures_cagey": 0,
+        "fixtures_either": 0
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 0,
+          "eligible_fixtures": 0,
+          "nominated_executable_fixtures": 0,
+          "ranked_fixtures": 0,
+          "picks_by_tier": {
+            "safe": 0,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 0,
+        "harness": 0,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 0,
+        "harness": 0,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "b9d2d10f3419c606",
+      "generated_at_utc": "2026-11-06T13:40:19.404227+00:00",
+      "decision_rows": 1413,
+      "coverage": {
+        "fixtures_in_window_priced": 12,
+        "fixtures_value": 12,
+        "fixtures_cagey": 12,
+        "fixtures_either": 12
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 12,
+          "eligible_fixtures": 12,
+          "nominated_executable_fixtures": 12,
+          "ranked_fixtures": 12,
+          "picks_by_tier": {
+            "safe": 12,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 12,
+          "eligible_fixtures": 12,
+          "nominated_executable_fixtures": 12,
+          "ranked_fixtures": 12,
+          "picks_by_tier": {
+            "safe": 12,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 12,
+          "eligible_fixtures": 11,
+          "nominated_executable_fixtures": 11,
+          "ranked_fixtures": 11,
+          "picks_by_tier": {
+            "safe": 11,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 12,
+          "eligible_fixtures": 12,
+          "nominated_executable_fixtures": 12,
+          "ranked_fixtures": 12,
+          "picks_by_tier": {
+            "safe": 12,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 12,
+          "eligible_fixtures": 12,
+          "nominated_executable_fixtures": 12,
+          "ranked_fixtures": 12,
+          "picks_by_tier": {
+            "safe": 12,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 12,
+          "eligible_fixtures": 12,
+          "nominated_executable_fixtures": 12,
+          "ranked_fixtures": 12,
+          "picks_by_tier": {
+            "safe": 12,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 12,
+          "eligible_fixtures": 12,
+          "nominated_executable_fixtures": 12,
+          "ranked_fixtures": 12,
+          "picks_by_tier": {
+            "safe": 12,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 12,
+          "eligible_fixtures": 12,
+          "nominated_executable_fixtures": 12,
+          "ranked_fixtures": 12,
+          "picks_by_tier": {
+            "safe": 12,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 12,
+          "eligible_fixtures": 11,
+          "nominated_executable_fixtures": 11,
+          "ranked_fixtures": 11,
+          "picks_by_tier": {
+            "safe": 11,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 12,
+          "eligible_fixtures": 12,
+          "nominated_executable_fixtures": 12,
+          "ranked_fixtures": 12,
+          "picks_by_tier": {
+            "safe": 12,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 22,
+        "harness": 22,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 22,
+        "harness": 22,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "1dabcf85eb639cd0",
+      "generated_at_utc": "2026-11-07T11:48:25.259368+00:00",
+      "decision_rows": 1705,
+      "coverage": {
+        "fixtures_in_window_priced": 31,
+        "fixtures_value": 31,
+        "fixtures_cagey": 29,
+        "fixtures_either": 31
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 31,
+          "eligible_fixtures": 31,
+          "nominated_executable_fixtures": 31,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 31,
+          "eligible_fixtures": 31,
+          "nominated_executable_fixtures": 31,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 31,
+          "eligible_fixtures": 31,
+          "nominated_executable_fixtures": 31,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 31,
+          "eligible_fixtures": 31,
+          "nominated_executable_fixtures": 31,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 31,
+          "eligible_fixtures": 31,
+          "nominated_executable_fixtures": 31,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 31,
+          "eligible_fixtures": 31,
+          "nominated_executable_fixtures": 31,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 31,
+          "eligible_fixtures": 31,
+          "nominated_executable_fixtures": 31,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 31,
+          "eligible_fixtures": 31,
+          "nominated_executable_fixtures": 31,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 31,
+          "eligible_fixtures": 31,
+          "nominated_executable_fixtures": 31,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 31,
+          "eligible_fixtures": 31,
+          "nominated_executable_fixtures": 31,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 60,
+        "harness": 60,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 56,
+        "harness": 56,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "688a34b2f4bd83f2",
+      "generated_at_utc": "2026-11-07T13:54:13.645217+00:00",
+      "decision_rows": 1566,
+      "coverage": {
+        "fixtures_in_window_priced": 29,
+        "fixtures_value": 29,
+        "fixtures_cagey": 27,
+        "fixtures_either": 29
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 29,
+          "eligible_fixtures": 29,
+          "nominated_executable_fixtures": 29,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 29,
+          "eligible_fixtures": 29,
+          "nominated_executable_fixtures": 29,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 29,
+          "eligible_fixtures": 29,
+          "nominated_executable_fixtures": 29,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 29,
+          "eligible_fixtures": 29,
+          "nominated_executable_fixtures": 29,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 29,
+          "eligible_fixtures": 29,
+          "nominated_executable_fixtures": 29,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 29,
+          "eligible_fixtures": 29,
+          "nominated_executable_fixtures": 29,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 29,
+          "eligible_fixtures": 29,
+          "nominated_executable_fixtures": 29,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 29,
+          "eligible_fixtures": 29,
+          "nominated_executable_fixtures": 29,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 29,
+          "eligible_fixtures": 29,
+          "nominated_executable_fixtures": 29,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 29,
+          "eligible_fixtures": 29,
+          "nominated_executable_fixtures": 29,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 56,
+        "harness": 56,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 52,
+        "harness": 52,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "bdc58d9d3727286d",
+      "generated_at_utc": "2026-11-08T09:01:04.075316+00:00",
+      "decision_rows": 997,
+      "coverage": {
+        "fixtures_in_window_priced": 39,
+        "fixtures_value": 39,
+        "fixtures_cagey": 39,
+        "fixtures_either": 39
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 39,
+          "eligible_fixtures": 39,
+          "nominated_executable_fixtures": 39,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 39,
+          "eligible_fixtures": 39,
+          "nominated_executable_fixtures": 39,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 39,
+          "eligible_fixtures": 39,
+          "nominated_executable_fixtures": 39,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 39,
+          "eligible_fixtures": 39,
+          "nominated_executable_fixtures": 39,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 39,
+          "eligible_fixtures": 39,
+          "nominated_executable_fixtures": 39,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 39,
+          "eligible_fixtures": 39,
+          "nominated_executable_fixtures": 39,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 39,
+          "eligible_fixtures": 39,
+          "nominated_executable_fixtures": 39,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 39,
+          "eligible_fixtures": 39,
+          "nominated_executable_fixtures": 39,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 39,
+          "eligible_fixtures": 39,
+          "nominated_executable_fixtures": 39,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 39,
+          "eligible_fixtures": 39,
+          "nominated_executable_fixtures": 39,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 83,
+        "harness": 83,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 83,
+        "harness": 83,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    },
+    {
+      "snapshot": "d5829163b3fa9bf3",
+      "generated_at_utc": "2026-11-08T12:20:11.356382+00:00",
+      "decision_rows": 920,
+      "coverage": {
+        "fixtures_in_window_priced": 36,
+        "fixtures_value": 36,
+        "fixtures_cagey": 36,
+        "fixtures_either": 36
+      },
+      "master": {
+        "today|master_today": {
+          "nominated_fixtures": 36,
+          "eligible_fixtures": 36,
+          "nominated_executable_fixtures": 36,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "today|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 36,
+          "eligible_fixtures": 36,
+          "nominated_executable_fixtures": 36,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_today": {
+          "nominated_fixtures": 36,
+          "eligible_fixtures": 36,
+          "nominated_executable_fixtures": 36,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P1_floor_1_10|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 36,
+          "eligible_fixtures": 36,
+          "nominated_executable_fixtures": 36,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_today": {
+          "nominated_fixtures": 36,
+          "eligible_fixtures": 36,
+          "nominated_executable_fixtures": 36,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P2_double_chance_12|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 36,
+          "eligible_fixtures": 36,
+          "nominated_executable_fixtures": 36,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_today": {
+          "nominated_fixtures": 36,
+          "eligible_fixtures": 36,
+          "nominated_executable_fixtures": 36,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 36,
+          "eligible_fixtures": 36,
+          "nominated_executable_fixtures": 36,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_today": {
+          "nominated_fixtures": 36,
+          "eligible_fixtures": 36,
+          "nominated_executable_fixtures": 36,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        },
+        "all_proposed|master_odds_1_10_to_2_20": {
+          "nominated_fixtures": 36,
+          "eligible_fixtures": 36,
+          "nominated_executable_fixtures": 36,
+          "ranked_fixtures": 15,
+          "picks_by_tier": {
+            "safe": 15,
+            "fill": 0,
+            "risky fill": 0
+          },
+          "fixtures_losing_every_offer_to_timing": 0,
+          "master_times_quotes": true
+        }
+      },
+      "value": {
+        "live": 78,
+        "harness": 78,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      },
+      "cagey": {
+        "live": 78,
+        "harness": 78,
+        "same": true,
+        "only_live": [],
+        "only_harness": []
+      }
+    }
+  ],
+  "expressed_value_reasons": [
+    "offered odds must be greater than 1.15",
+    "offered odds above 2.00",
+    "market excluded by shortlist configuration",
+    "team goal-rate distribution unavailable at evaluation",
+    "higher profit-probability pick chosen in this market group"
+  ],
+  "expressed_cagey_reasons": [
+    "cagey offered odds outside (1.15, 2.00]",
+    "market excluded by shortlist configuration",
+    "offered price above 1.15 x independent Pinnacle fair odds",
+    "offered price above 1.15 x corrected fair odds",
+    "corrected market settlement unavailable",
+    "uncorrected Pinnacle grid unavailable for Over 1.5",
+    "market outside cagey rule"
+  ],
+  "all_identical": true,
+  "picks": {
+    "value": {
+      "live": 663,
+      "harness": 663
+    },
+    "cagey": {
+      "live": 676,
+      "harness": 676
+    }
+  },
+  "live_rejection_reasons": {
+    "value": {
+      "kickoff outside 20-minute to 24-hour window": 13390,
+      "offered odds above 2.00": 8269,
+      "no offered quote at an allowed bookmaker": 4494,
+      "offered quote stale or unavailable": 4494,
+      "higher profit-probability pick chosen in this market group": 2642,
+      "market excluded by shortlist configuration": 1200,
+      "Europa team has fewer than six verified prior appearances": 1159,
+      "offered odds must be greater than 1.15": 321
+    },
+    "cagey": {
+      "kickoff outside 20-minute to 24-hour window": 13390,
+      "cagey offered odds outside (1.15, 2.00]": 13084,
+      "bookmaker unavailable": 4494,
+      "offered quote stale or not observed before evaluation and kickoff": 4494,
+      "corrected Pinnacle distribution unavailable": 3779,
+      "corrected distribution inputs unavailable, stale, future or more than 10 minutes apart": 3026,
+      "market excluded by shortlist configuration": 2400,
+      "uncorrected Pinnacle grid unavailable for Over 1.5": 1
+    }
+  },
+  "coverage_totals": {
+    "fixtures_in_window_priced": 342,
+    "fixtures_value": 317,
+    "fixtures_cagey": 319,
+    "fixtures_either": 342
+  },
+  "runs_with_15_fixtures_covered": 8,
+  "runs_with_15_fixtures_in_window": 8,
+  "master_totals": {
+    "today|master_today": {
+      "nominated_fixture_runs": 342,
+      "eligible_fixture_runs": 300,
+      "ranked_fixture_runs": 220,
+      "runs_reaching_15": 7,
+      "fixture_runs_losing_every_offer_to_timing": 42
+    },
+    "today|master_odds_1_10_to_2_20": {
+      "nominated_fixture_runs": 342,
+      "eligible_fixture_runs": 300,
+      "ranked_fixture_runs": 220,
+      "runs_reaching_15": 7,
+      "fixture_runs_losing_every_offer_to_timing": 42
+    },
+    "P1_floor_1_10|master_today": {
+      "nominated_fixture_runs": 342,
+      "eligible_fixture_runs": 299,
+      "ranked_fixture_runs": 219,
+      "runs_reaching_15": 7,
+      "fixture_runs_losing_every_offer_to_timing": 42
+    },
+    "P1_floor_1_10|master_odds_1_10_to_2_20": {
+      "nominated_fixture_runs": 342,
+      "eligible_fixture_runs": 300,
+      "ranked_fixture_runs": 220,
+      "runs_reaching_15": 7,
+      "fixture_runs_losing_every_offer_to_timing": 42
+    },
+    "P2_double_chance_12|master_today": {
+      "nominated_fixture_runs": 342,
+      "eligible_fixture_runs": 298,
+      "ranked_fixture_runs": 218,
+      "runs_reaching_15": 7,
+      "fixture_runs_losing_every_offer_to_timing": 42
+    },
+    "P2_double_chance_12|master_odds_1_10_to_2_20": {
+      "nominated_fixture_runs": 342,
+      "eligible_fixture_runs": 298,
+      "ranked_fixture_runs": 218,
+      "runs_reaching_15": 7,
+      "fixture_runs_losing_every_offer_to_timing": 42
+    },
+    "P3_cagey_ceiling_2_20|master_today": {
+      "nominated_fixture_runs": 342,
+      "eligible_fixture_runs": 300,
+      "ranked_fixture_runs": 220,
+      "runs_reaching_15": 7,
+      "fixture_runs_losing_every_offer_to_timing": 42
+    },
+    "P3_cagey_ceiling_2_20|master_odds_1_10_to_2_20": {
+      "nominated_fixture_runs": 342,
+      "eligible_fixture_runs": 300,
+      "ranked_fixture_runs": 220,
+      "runs_reaching_15": 7,
+      "fixture_runs_losing_every_offer_to_timing": 42
+    },
+    "all_proposed|master_today": {
+      "nominated_fixture_runs": 342,
+      "eligible_fixture_runs": 297,
+      "ranked_fixture_runs": 217,
+      "runs_reaching_15": 7,
+      "fixture_runs_losing_every_offer_to_timing": 42
+    },
+    "all_proposed|master_odds_1_10_to_2_20": {
+      "nominated_fixture_runs": 342,
+      "eligible_fixture_runs": 298,
+      "ranked_fixture_runs": 218,
+      "runs_reaching_15": 7,
+      "fixture_runs_losing_every_offer_to_timing": 42
+    }
+  }
+}
