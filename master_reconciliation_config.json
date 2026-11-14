@@ -12,6 +12,17 @@
     "max_odds_inclusive": 2.0,
     "markets": "the live master's native Pinnacle markets (master_selection_pinnacle_markets.allowed): Asian Handicap from spreads/alternate_spreads, Home win, Away win, Double Chance 1X and X2. Pinnacle prices only."
   },
+  "timing": {
+    "added": "14 Nov 2026, review of PR #173 (commit 4b49178), before any live grading of the new master; rule version unchanged (no new-master pick has been archived).",
+    "rule": "Exactly the live master's timing checks (master_selection.evaluate and _reference, same functions and constants), applied before any tier is assigned to (a) the offer and (b) the reference that supplies the row's ranking probabilities: the row's evaluation clock equals the run's single generation clock; the offer's quote (offered_last_update_utc) and every stamp of the reference are 0 to 15 minutes old at that clock (master_selection._fresh, MAX_AGE_MINUTES = 15), so no input may be timestamped after evaluation; the reference's inputs and the offer are at most 10 minutes apart (600 seconds, as master_selection._reference).",
+    "reference_stamps": {
+      "cagey": "the corrected distribution's inputs, read from the run's forecast as the cagey tier reads them (price_edge_cagey_shortlist.corrected_context on price_edge_shortlist.market_fit with the observed-by-cutoff rule): fit B's Pinnacle 1X2, O/U 2.5 and main AH line; fit A's 1X2 and O/U 2.5 when fit B is unusable.",
+      "pinnacle_stand_in": "the live master's reference (master_selection._reference): the Pinnacle 1X2 quote for wins and double chance (O/U 1.5 for Over 1.5), fit B's inputs for other AH lines; plus fit B's inputs where the chance of profit comes from the uncorrected fit."
+    },
+    "fails": "The offer is ineligible (NOT_EXECUTABLE, reason 'timing: ...' and column timing_check); it is never replaced by the other view's probabilities. The summary counts ineligible offers by reason (timing_check).",
+    "forecast": "The reference's stamps come from the run's own forecast (predictions), matched by fixture identity as the live master does; a missing or ambiguous forecast makes every row with a market view ineligible ('unique same-generation fixture forecast unavailable').",
+    "offline": "The offline backtest has no quote timestamps (closing prices from the files), so the check applies to live runs only."
+  },
   "target_fixtures": 15,
   "fill": {
     "decided": "decided by Paul, 13 Nov 2026; pools (every step uses only the nominations) decided by Paul, 14 Nov 2026",

@@ -18,6 +18,13 @@ fewer than 15 matches the list is shorter (recorded in the summary). Every pick 
 fill). The cagey probabilities used are the current ones: the sharpening (cagey_sharpen.py) failed its pass rule and
 stays off (config cagey_sharpening.use_sharpened).
 
+Quote timing (config `timing`): before any tier is assigned, the offer and the reference that supplies its ranking
+probabilities (the cagey tier's corrected distribution, or the Pinnacle stand-in) must pass exactly the live master's
+timing checks (master_selection: the run's single generation clock, `_fresh` with MAX_AGE_MINUTES = 15, which also
+rejects any stamp after evaluation, and the 10-minute input synchronisation). The reference's stamps come from the
+run's own forecast, as the live master reads them. An offer or reference that fails is ineligible (NOT_EXECUTABLE),
+with its reason in `timing_check`, counted in the summary.
+
 Writes master_shortlist_new.csv beside the live master_shortlist.csv. Shadow only: the live master file, every
 probability, every pick and every stake are untouched; this module only reads the run's decision rows and the
 live master frame.
@@ -36,6 +43,8 @@ from typing import Dict, List, Mapping, Optional, Sequence
 
 import numpy as np
 import pandas as pd
+
+from master_selection import MAX_AGE_MINUTES
 
 CONFIG = Path(__file__).with_name('master_reconciliation_config.json')
 VERSION = 'master-new-fill-rule-v4'
@@ -67,8 +76,15 @@ CLASSIFICATION_COLUMNS = [
     'new_master_labels',
     *[column for column, _ in LABELS], 'missing_view', 'missing_evidence_reason', 'new_master_group',
     'left_out_reason']
+# Quote timing reasons (the live master's wording, master_selection.evaluate / _reference, where it has one).
+TIMING_REASONS = ('missing, mixed or outdated evaluation generation',
+                  'offered quote missing, future or older than fifteen minutes',
+                  'unique same-generation fixture forecast unavailable',
+                  'reference inputs missing, future or older than fifteen minutes',
+                  'reference inputs and offer more than 10 minutes apart')
+SYNC_SECONDS = 600  # master_selection._reference: Pinnacle inputs and the offer at most 10 minutes apart
 COLUMNS = ['new_master_rank', 'new_master_tier', 'new_master_step', 'new_master_group', 'new_master_decision',
-           'new_master_reason', *IDENTITY_COLUMNS,
+           'new_master_reason', 'timing_check', *IDENTITY_COLUMNS,
            *[c for c in CLASSIFICATION_COLUMNS if c != 'new_master_group'],
            'in_live_master', 'live_master_rank', 'live_master_same_offer', 'new_master_version']
 
@@ -334,6 +350,81 @@ def pool(decisions: pd.DataFrame) -> List[Dict[str, object]]:
     return [r for r in _records(decisions) if nominated(r)]
 
 
+def forecasts(predictions: Optional[pd.DataFrame]) -> Dict[object, Optional[Mapping]]:
+    """The run's forecasts by fixture identity, as the live master reads them (master_selection.evaluate): an
+    ambiguous fixture maps to None (fails closed)."""
+    from master_selection import identity
+    out: Dict[object, Optional[Mapping]] = {}
+    if predictions is not None and len(predictions):
+        for r in predictions.astype(object).where(predictions.notna(), None).to_dict('records'):
+            key = identity(r)
+            out[key] = r if key not in out else None
+    return out
+
+
+def run_clock(records: Sequence[Mapping], generated_at_utc=None):
+    """The run's generation clock, as the live master takes it: the given clock, else the decision rows' single
+    evaluation clock; None when it is missing or mixed."""
+    from quote_freshness import quote_utc
+    if generated_at_utc is not None:
+        return quote_utc(generated_at_utc)
+    clocks = {quote_utc(r.get('evaluated_at_utc')) for r in records}
+    return next(iter(clocks)) if len(clocks) == 1 else None
+
+
+def reference_stamps(row: Mapping, forecast: Mapping, clock, source: str, fits: Dict) -> List[object]:
+    """The quote stamps behind the probabilities a row is ranked by, from the run's forecast, read exactly as the
+    live master and the cagey tier read them (price_edge_shortlist.pinnacle_quotes, market_fit with the
+    observed-by-cutoff rule).
+
+    Cagey: the corrected distribution's inputs (price_edge_cagey_shortlist.corrected_context: fit B's 1X2, O/U 2.5 and
+    main AH line; fit A's 1X2 and O/U 2.5 when fit B is unusable). Pinnacle stand-in: the live master's reference
+    (master_selection._reference: the Pinnacle 1X2 quote for wins and double chance, fit B's inputs for other AH
+    lines), plus fit B's inputs where its chance of profit comes from the uncorrected fit."""
+    from cagey_market_basis import binary_market
+    from master_selection import identity
+    from price_edge_shortlist import market_fit, pinnacle_quotes
+    pin = pinnacle_quotes(forecast)
+    key = identity(row)
+    if key not in fits:
+        fits[key] = market_fit(pin, clock, cutoff=True)
+    fit, info = fits[key]
+    inputs = info.get('input_stamps') or {}
+    if source.startswith('cagey'):
+        return [stamp for name, stamp in inputs.items() if fit.usable or name != 'ah_main']
+    binary = binary_market(row)
+    if binary is None:
+        return list(inputs.values())
+    record = pin.get('ou15' if binary == 'Over 1.5' else 'h2h')
+    stamps = [record[-1] if record else None]
+    if settlement_mass([row.get('uncorrected_p_' + k) for k in KINDS]) is not None:
+        stamps += list(inputs.values())
+    return stamps
+
+
+def timing(row: Mapping, clock, forecast: Optional[Mapping], source: Optional[str], fits: Dict) -> Optional[str]:
+    """None when the offer and the reference supplying its ranking probabilities pass the live master's timing
+    checks, else the reason (TIMING_REASONS). `source` is the row's probability_source (None: no market view, so
+    no reference to check)."""
+    from master_selection import _fresh
+    from quote_freshness import quote_utc
+    if clock is None or quote_utc(row.get('evaluated_at_utc')) != clock:
+        return TIMING_REASONS[0]
+    if not _fresh(row.get('offered_last_update_utc'), clock):
+        return TIMING_REASONS[1]
+    if source is None:
+        return None
+    if forecast is None:
+        return TIMING_REASONS[2]
+    stamps = reference_stamps(row, forecast, clock, source, fits)
+    if not stamps or not all(_fresh(stamp, clock) for stamp in stamps):
+        return TIMING_REASONS[3]
+    times = [quote_utc(stamp) for stamp in stamps] + [quote_utc(row.get('offered_last_update_utc'))]
+    if (max(times) - min(times)).total_seconds() > SYNC_SECONDS:
+        return TIMING_REASONS[4]
+    return None
+
+
 def executable(row: Mapping, config: Mapping) -> Optional[str]:
     """None when the offer meets the live master's execution rule, else the reason."""
     from master_selection_pinnacle_markets import allowed
@@ -387,18 +478,26 @@ def pinnacle_profit(row: Mapping, line_kind: Optional[str]) -> Optional[float]:
 
 
 def reconcile(decisions: pd.DataFrame, live_master: Optional[pd.DataFrame] = None,
-              config: Optional[Mapping] = None) -> pd.DataFrame:
-    """The new master of one run: every nominated offer with both views, its gap check, group, tier and decision.
+              config: Optional[Mapping] = None, predictions: Optional[pd.DataFrame] = None,
+              generated_at_utc=None) -> pd.DataFrame:
+    """The new master of one run: every nominated offer with both views, its timing check, gap check, group, tier
+    and decision.
 
-    Reads only the run's decision rows; `live_master` (the run's master_shortlist.csv frame) is used for the
-    overlap columns only and never changes a group, a rank or a decision.
+    Reads the run's decision rows and, for the quote timing of each row's reference, the run's forecasts
+    (`predictions`; without them no reference can be timed, so no row with a market view is eligible) at the run's
+    generation clock (`generated_at_utc`, else the rows' single evaluation clock). `live_master` (the run's
+    master_shortlist.csv frame) is used for the overlap columns only and never changes a group, a rank or a decision.
     """
+    from master_selection import identity
     from cagey_sharpen import offer_line_type
     from performance_tracking import fixture_key
     config = config or load_config()
     european = set(config['european']['leagues'])
+    records = pool(decisions)
+    clock = run_clock(_records(decisions), generated_at_utc)
+    by_fixture, fits = forecasts(predictions), {}
     rows = []
-    for record in pool(decisions):
+    for record in records:
         price = _number(record.get('offered_decimal_odds'))
         cost = _number(record.get('per_stake_cost')) or 0.
         research, research_reason = research_view(record)
@@ -415,6 +514,10 @@ def reconcile(decisions: pd.DataFrame, live_master: Optional[pd.DataFrame] = Non
                             european=record.get('league') in european, config=config,
                             research_reason=research_reason, cagey_reason=cagey_reason,
                             pinnacle_profit=pinnacle_profit(record, kind), line_kind=kind))
+        late = timing(record, clock, by_fixture.get(identity(record)), row.get('probability_source'), fits)
+        row['timing_check'] = late or 'ok'
+        if blocked is None and late is not None:
+            blocked = f'timing: {late}'
         row.update(new_master_executable=blocked is None, _match=fixture_key(record))
         if blocked is not None:
             row['new_master_reason'] = blocked
@@ -477,6 +580,9 @@ def summary(frame: pd.DataFrame, live_master: Optional[pd.DataFrame] = None, con
     executable_keys = keys(listed) if len(listed) else set()
     viewed_keys = keys(viewed) if len(viewed) else set()
     target = int(config['target_fixtures'])
+    timed = frame['timing_check'].fillna('ok') if 'timing_check' in frame else pd.Series('ok', index=frame.index)
+    blocked_by_timing = frame.loc[timed.ne('ok')]
+    timed_out_keys = (keys(blocked_by_timing) if len(blocked_by_timing) else set()) - executable_keys
     live = live_master if live_master is not None else pd.DataFrame()
     live_keys, ranked_keys = (keys(live) if len(live) else set()), keys(ranked) if len(ranked) else set()
     count = lambda f, column, names: {n: int(f[column].eq(n).sum()) for n in names}
@@ -502,7 +608,14 @@ def summary(frame: pd.DataFrame, live_master: Optional[pd.DataFrame] = None, con
         'short_reason': (None if len(ranked) >= target else
                          f'nominations cover fewer than {target} matches' if len(nominated_keys) < target else
                          f'nominations cover {len(nominated_keys)} matches but only {len(viewed_keys)} with an '
-                         f'executable offer that has a market view'),
+                         f'eligible offer (execution and timing checks) that has a market view'),
+        'timing_check': {
+            'rule': f"the live master's: one generation clock; offer and ranking reference quoted 0-"
+                    f"{MAX_AGE_MINUTES} minutes before evaluation (none after it); reference inputs and offer at most "
+                    f"{SYNC_SECONDS // 60} minutes apart",
+            'ineligible_offers': int(timed.ne('ok').sum()),
+            'by_reason': {reason: int(timed.eq(reason).sum()) for reason in TIMING_REASONS},
+            'fixtures_losing_every_eligible_offer': len(timed_out_keys)},
         'picks_by_tier': count(ranked, 'new_master_tier', TIERS),
         'fill_candidates': {f'step_{n}': int(listed.new_master_step.eq(n).sum()) for n in (1, 2, 3)},
         'probabilities': ('sharpened cagey probabilities' if sharpening['use_sharpened']
@@ -539,10 +652,10 @@ def summary(frame: pd.DataFrame, live_master: Optional[pd.DataFrame] = None, con
 
 
 def write_shadow(decisions: pd.DataFrame, out_dir, live_master: Optional[pd.DataFrame] = None,
-                 generated_at_utc: Optional[str] = None) -> pd.DataFrame:
+                 generated_at_utc: Optional[str] = None, predictions: Optional[pd.DataFrame] = None) -> pd.DataFrame:
     """Write the new master CSV and its summary beside master_shortlist.csv. Never touches the live files."""
     config = load_config()
-    frame = reconcile(decisions, live_master, config)
+    frame = reconcile(decisions, live_master, config, predictions, generated_at_utc)
     for name in SUPERSEDED_FILES:
         (Path(out_dir) / name).unlink(missing_ok=True)
     frame.to_csv(Path(out_dir) / config['file'], index=False)

@@ -124,6 +124,11 @@ def totals(output: Path, report: dict) -> dict:
             out[key] += s[key]
         out['inspection_flagged_offers'] += s['for_inspection']['flagged_offers']
         out['for_inspection'] += [{'snapshot': entry['snapshot'], **pick} for pick in s['for_inspection']['picks']]
+        timed = s.get('timing_check') or {}
+        out.setdefault('timing_ineligible_offers', 0)
+        out['timing_ineligible_offers'] += timed.get('ineligible_offers', 0)
+        for name, value in (timed.get('by_reason') or {}).items():
+            out.setdefault('timing_by_reason', {})[name] = out.get('timing_by_reason', {}).get(name, 0) + value
         for name, value in (s.get('picks_by_tier') or {}).items():
             out.setdefault('picks_by_tier', {})[name] = out.get('picks_by_tier', {}).get(name, 0) + value
         out['per_run'].append({'snapshot': entry['snapshot'], 'generated_at_utc': entry['generated_at_utc'],
@@ -133,6 +138,8 @@ def totals(output: Path, report: dict) -> dict:
                                'fixtures_with_market_view': s.get('fixtures_with_market_view'),
                                'fixtures_without_market_view': s.get('fixtures_without_market_view'),
                                'short_reason': s.get('short_reason'),
+                               'timing_ineligible_offers': timed.get('ineligible_offers'),
+                               'timing_by_reason': {k: v for k, v in (timed.get('by_reason') or {}).items() if v},
                                'offers': s['offers'], 'ranked': s['ranked_fixtures'],
                                'picks_by_tier': s.get('picks_by_tier'), 'groups': s['offers_by_group'],
                                'labels_ranked': s['labels_ranked'], 'overlap': s['overlap_with_live_master'],

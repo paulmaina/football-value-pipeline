@@ -2469,7 +2469,16 @@ def master_frame(fixtures, research='C', final='fill_current'):
                               f.get('sharpen_slopes'), final)
         weeks.setdefault((f['phase'], f['week']), []).extend(rows)
     out = [r for key in sorted(weeks) for r in master_select_week(weeks[key], rcfg, final)]
-    return pd.DataFrame(out), synthetic
+    frame = pd.DataFrame(out)
+    # Every evaluated fixture, nominated or not: the week index of the period (weeks with no nomination count).
+    frame.attrs['evaluated'] = master_evaluated(fixtures)
+    return frame, synthetic
+
+
+def master_evaluated(fixtures) -> pd.DataFrame:
+    """(phase, week, fixture_key) of every evaluated fixture."""
+    return pd.DataFrame([{'phase': f['phase'], 'week': f['week'], 'fixture_key': f['fixture_key']} for f in fixtures],
+                        columns=['phase', 'week', 'fixture_key'])
 
 
 def _resampled(parts, combine, value='return', samples=2000, seed=136):
@@ -2573,23 +2582,33 @@ def master_tier_stats(frame, variant) -> dict:
     return out
 
 
-def master_list_size(part, chosen, target) -> dict:
-    """Per week of a period: how many matches the nominations cover (any nominated offer; with a market view, i.e.
-    a no-loss chance and a chance of profit), and how many picks a list made; how often the nominations cover fewer
-    than `target` matches (rule v4: the list is then shorter)."""
+def master_list_size(part, chosen, target, evaluated=None) -> dict:
+    """Per week of a period: how many matches were evaluated, how many the nominations cover (any nominated offer;
+    with a market view, i.e. a no-loss chance and a chance of profit), and how many picks a list made; how often the
+    nominations cover fewer than `target` matches (rule v4: the list is then shorter). The week index is every week
+    with an evaluated fixture (`evaluated`: phase/week/fixture_key rows of the period), so a week with fixtures but no
+    nomination counts as 0 nominated matches and 0 picks."""
     viewed = part.loc[pd.to_numeric(part.ranking_no_loss_probability, errors='coerce').notna()
                       & pd.to_numeric(part.ranking_profit_probability, errors='coerce').notna()]
-    covered = part.groupby('week').fixture_key.nunique()
-    with_view = viewed.groupby('week').fixture_key.nunique().reindex(covered.index, fill_value=0)
-    picks = chosen.groupby('week').size().reindex(covered.index, fill_value=0)
+    source = evaluated if evaluated is not None and len(evaluated) else part
+    fixtures = source.groupby('week').fixture_key.nunique()
+    index = fixtures.index.union(part.week.unique()).union(chosen.week.unique()) if len(part) else fixtures.index
+    fixtures = fixtures.reindex(index, fill_value=0)
+    covered = part.groupby('week').fixture_key.nunique().reindex(index, fill_value=0)
+    with_view = viewed.groupby('week').fixture_key.nunique().reindex(index, fill_value=0)
+    picks = chosen.groupby('week').size().reindex(index, fill_value=0)
     describe = lambda s: {'min': int(s.min()), 'median': float(s.median()), 'max': int(s.max())} if len(s) else None
-    return {'weeks': int(len(covered)), 'nominated_fixtures_per_week': describe(covered),
+    return {'weeks': int(len(covered)), 'evaluated_fixtures_per_week': describe(fixtures),
+            'weeks_without_nomination': int((covered == 0).sum()),
+            'picks_per_week_mean': float(picks.sum() / len(index)) if len(index) else None,
+            'nominated_fixtures_per_week': describe(covered),
             'nominated_fixtures_with_market_view_per_week': describe(with_view),
             'weeks_nominations_cover_fewer_than_target': int((covered < target).sum()),
             'weeks_with_view_fewer_than_target': int((with_view < target).sum()),
             'weeks_list_short': int((picks < target).sum()), 'picks_per_week': describe(picks),
-            'short_weeks': [{'week': str(w), 'nominated_fixtures': int(covered[w]), 'with_market_view': int(with_view[w]),
-                             'picks': int(picks[w])} for w in covered.index if picks[w] < target]}
+            'short_weeks': [{'week': str(w), 'evaluated_fixtures': int(fixtures[w]), 'nominated_fixtures': int(covered[w]),
+                             'with_market_view': int(with_view[w]), 'picks': int(picks[w])}
+                            for w in index if picks[w] < target]}
 
 
 def master_summary(frames, synthetic, fixtures, cfg, sharpening=None) -> dict:
@@ -2604,11 +2623,15 @@ def master_summary(frames, synthetic, fixtures, cfg, sharpening=None) -> dict:
     previous = f'{MASTER_PREVIOUS}_decision'
     shortlisted = lambda f, column: f.loc[f[column].eq('SHORTLISTED')]
     periods = {}
+    evaluated_all = frames['C'].attrs.get('evaluated') if 'C' in frames else None
     for period in MASTER_PERIODS:
         base = frames['C'].loc[frames['C'].phase == period]
-        if base.empty:
+        evaluated = (evaluated_all.loc[evaluated_all.phase == period] if evaluated_all is not None
+                     and len(evaluated_all) else base[['phase', 'week', 'fixture_key']])
+        if evaluated.empty and base.empty:
             continue
-        weeks = int(base.week.nunique())
+        # Weeks: every week with an evaluated fixture of the period, nominated or not.
+        weeks = int(pd.Index(evaluated.week.unique()).union(base.week.unique()).size)
         live = base.loc[base.live_master_rank.notna()]
         stats = lambda f: {**master_list_stats(f), 'picks_per_week': float(len(f) / weeks) if weeks else None}
         lists, views = {}, {}
@@ -2640,7 +2663,7 @@ def master_summary(frames, synthetic, fixtures, cfg, sharpening=None) -> dict:
                             'fill_sharpened': master_tier_stats(part, 'fill_sharpened')},
                 'labels_on_list': {t: int(new[c].eq(True).sum()) for c, t in mr.LABELS},
                 'nominated_offers': int(len(nominated)),
-                'list_size': master_list_size(nominated, new, int(rcfg['target_fixtures'])),
+                'list_size': master_list_size(nominated, new, int(rcfg['target_fixtures']), evaluated),
                 'offers_by_group_nominated': {g: int(nominated.new_master_group.eq(g).sum()) for g in mr.GROUPS},
                 'gap_checks_nominated': {k: int(nominated.gap_check.eq(k).sum()) for k in mr.GAP_CHECKS},
                 'bets_by_gap_check_nominated': {k: master_category_stats(nominated.loc[nominated.gap_check.eq(k)])
@@ -2666,7 +2689,8 @@ def master_summary(frames, synthetic, fixtures, cfg, sharpening=None) -> dict:
                 'reading': 'Inclusion, fill and ranking read the market view only, so C and C6 differ only through the '
                            'value list\'s nominations (step 1\'s pool) and the labels and flags.'}
         periods[period] = {
-            'fixtures': int(base.fixture_key.nunique()), 'weeks': weeks,
+            'fixtures': int(evaluated.fixture_key.nunique()), 'nominated_fixtures': int(base.fixture_key.nunique()),
+            'weeks': weeks,
             'market_book': sorted(base.market_book.unique()), 'live_master': stats(live),
             'research_views': views, 'C6_vs_C': compare}
     check = sharpening.get('check')
