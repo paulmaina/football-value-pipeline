@@ -1,0 +1,1587 @@
+{
+  "rule": "master-new-fill-rule-v4",
+  "probabilities": "current cagey (sharpening failed its pass rule; stays off, Paul 14 Nov 2026)",
+  "script": "scripts/master_reconciliation_replay.py",
+  "start": "2026-10-27",
+  "end_exclusive": "2026-11-09",
+  "note": "Integration check on the saved live runs; no result is read. Not evidence.",
+  "runs": [
+    {
+      "snapshot": "026e1ab4c40e3e64",
+      "generated_at_utc": "2026-10-27T09:50:40.995248+00:00",
+      "status": "ok",
+      "fixtures": 10,
+      "fixtures_with_executable_offer": 10
+    },
+    {
+      "snapshot": "d414de1a572b09b2",
+      "generated_at_utc": "2026-10-27T11:35:10.735016+00:00",
+      "status": "ok",
+      "fixtures": 10,
+      "fixtures_with_executable_offer": 10
+    },
+    {
+      "snapshot": "04e55dde9bbe885f",
+      "generated_at_utc": "2026-10-28T12:13:37.819395+00:00",
+      "status": "ok",
+      "fixtures": 15,
+      "fixtures_with_executable_offer": 15
+    },
+    {
+      "snapshot": "fd052ff5e9f0163b",
+      "generated_at_utc": "2026-10-28T16:16:05.061508+00:00",
+      "status": "ok",
+      "fixtures": 33,
+      "fixtures_with_executable_offer": 33
+    },
+    {
+      "snapshot": "c75d4ab52706e716",
+      "generated_at_utc": "2026-10-29T12:08:22.532184+00:00",
+      "status": "ok",
+      "fixtures": 45,
+      "fixtures_with_executable_offer": 44
+    },
+    {
+      "snapshot": "02d8d3b21fd68fd9",
+      "generated_at_utc": "2026-10-30T07:29:50.498587+00:00",
+      "status": "ok",
+      "fixtures": 67,
+      "fixtures_with_executable_offer": 67
+    },
+    {
+      "snapshot": "2f2bbe3e322ecab7",
+      "generated_at_utc": "2026-10-30T12:03:48.308948+00:00",
+      "status": "ok",
+      "fixtures": 67,
+      "fixtures_with_executable_offer": 67
+    },
+    {
+      "snapshot": "f82ff3e276c6c573",
+      "generated_at_utc": "2026-10-31T12:03:11.165007+00:00",
+      "status": "ok",
+      "fixtures": 67,
+      "fixtures_with_executable_offer": 67
+    },
+    {
+      "snapshot": "796c7451f4101f75",
+      "generated_at_utc": "2026-11-01T07:37:30.159727+00:00",
+      "status": "ok",
+      "fixtures": 45,
+      "fixtures_with_executable_offer": 45
+    },
+    {
+      "snapshot": "dc55908798d79d00",
+      "generated_at_utc": "2026-11-01T09:36:12.166126+00:00",
+      "status": "ok",
+      "fixtures": 7,
+      "fixtures_with_executable_offer": 7
+    },
+    {
+      "snapshot": "cbf58accd4fa0691",
+      "generated_at_utc": "2026-11-01T12:23:24.469126+00:00",
+      "status": "ok",
+      "fixtures": 0,
+      "fixtures_with_executable_offer": 0
+    },
+    {
+      "snapshot": "765b01b571df2fd9",
+      "generated_at_utc": "2026-11-03T13:23:43.479885+00:00",
+      "status": "ok",
+      "fixtures": 36,
+      "fixtures_with_executable_offer": 36
+    },
+    {
+      "snapshot": "4dfe537371e33ca4",
+      "generated_at_utc": "2026-11-03T13:58:02.173298+00:00",
+      "status": "ok",
+      "fixtures": 36,
+      "fixtures_with_executable_offer": 36
+    },
+    {
+      "snapshot": "85c451a1e15281f6",
+      "generated_at_utc": "2026-11-04T09:31:03.622249+00:00",
+      "status": "ok",
+      "fixtures": 14,
+      "fixtures_with_executable_offer": 14
+    },
+    {
+      "snapshot": "ddf20a3972dd45e3",
+      "generated_at_utc": "2026-11-04T10:20:33.895771+00:00",
+      "status": "ok",
+      "fixtures": 35,
+      "fixtures_with_executable_offer": 35
+    },
+    {
+      "snapshot": "8a970f7baa207beb",
+      "generated_at_utc": "2026-11-04T19:40:50.340029+00:00",
+      "status": "ok",
+      "fixtures": 56,
+      "fixtures_with_executable_offer": 56
+    },
+    {
+      "snapshot": "0af36ab1e9657f52",
+      "generated_at_utc": "2026-11-05T12:32:00.598966+00:00",
+      "status": "ok",
+      "fixtures": 40,
+      "fixtures_with_executable_offer": 40
+    },
+    {
+      "snapshot": "a00d5e530cc2e80e",
+      "generated_at_utc": "2026-11-05T13:37:38.336530+00:00",
+      "status": "ok",
+      "fixtures": 60,
+      "fixtures_with_executable_offer": 60
+    },
+    {
+      "snapshot": "92039638c61ad8bc",
+      "generated_at_utc": "2026-11-05T16:17:48.024788+00:00",
+      "status": "ok",
+      "fixtures": 0,
+      "fixtures_with_executable_offer": 0
+    },
+    {
+      "snapshot": "7b8f8817eb577b04",
+      "generated_at_utc": "2026-11-05T16:27:43.343008+00:00",
+      "status": "ok",
+      "fixtures": 0,
+      "fixtures_with_executable_offer": 0
+    },
+    {
+      "snapshot": "775022176692974f",
+      "generated_at_utc": "2026-11-05T16:50:22.659919+00:00",
+      "status": "ok",
+      "fixtures": 80,
+      "fixtures_with_executable_offer": 80
+    },
+    {
+      "snapshot": "5d2089b153695efa",
+      "generated_at_utc": "2026-11-06T11:26:29.717902+00:00",
+      "status": "ok",
+      "fixtures": 75,
+      "fixtures_with_executable_offer": 75
+    },
+    {
+      "snapshot": "440236589764dce4",
+      "generated_at_utc": "2026-11-06T12:17:20.125743+00:00",
+      "status": "ok",
+      "fixtures": 66,
+      "fixtures_with_executable_offer": 66
+    },
+    {
+      "snapshot": "d46504cc4373448f",
+      "generated_at_utc": "2026-11-06T13:21:43.280136+00:00",
+      "status": "ok",
+      "fixtures": 0,
+      "fixtures_with_executable_offer": 0
+    },
+    {
+      "snapshot": "b9d2d10f3419c606",
+      "generated_at_utc": "2026-11-06T13:40:19.404227+00:00",
+      "status": "ok",
+      "fixtures": 75,
+      "fixtures_with_executable_offer": 75
+    },
+    {
+      "snapshot": "1dabcf85eb639cd0",
+      "generated_at_utc": "2026-11-07T11:48:25.259368+00:00",
+      "status": "ok",
+      "fixtures": 66,
+      "fixtures_with_executable_offer": 66
+    },
+    {
+      "snapshot": "688a34b2f4bd83f2",
+      "generated_at_utc": "2026-11-07T13:54:13.645217+00:00",
+      "status": "ok",
+      "fixtures": 63,
+      "fixtures_with_executable_offer": 63
+    },
+    {
+      "snapshot": "bdc58d9d3727286d",
+      "generated_at_utc": "2026-11-08T09:01:04.075316+00:00",
+      "status": "ok",
+      "fixtures": 39,
+      "fixtures_with_executable_offer": 39
+    },
+    {
+      "snapshot": "d5829163b3fa9bf3",
+      "generated_at_utc": "2026-11-08T12:20:11.356382+00:00",
+      "status": "ok",
+      "fixtures": 36,
+      "fixtures_with_executable_offer": 36
+    }
+  ],
+  "totals": {
+    "runs_with_shadow": 29,
+    "offers": 863,
+    "not_executable_offers": 129,
+    "offers_by_group": {
+      "included": 402,
+      "left_out": 461
+    },
+    "gap_checks": {
+      "agree": 332,
+      "research_too_optimistic": 268,
+      "research_more_pessimistic": 229,
+      "no_research_check": 0,
+      "one_view_missing": 34,
+      "no_view": 0
+    },
+    "left_out_by_reason": {
+      "risky": 17,
+      "in between (not safe)": 432,
+      "one view missing: no Pinnacle reference": 12,
+      "no view": 0
+    },
+    "labels_offers": {
+      "both agree": 62,
+      "research too optimistic": 268,
+      "research strongly disagrees": 0,
+      "one view missing": 34,
+      "no research check": 0,
+      "unvalidated view": 216,
+      "risky fill": 0
+    },
+    "labels_ranked": {
+      "both agree": 17,
+      "research too optimistic": 54,
+      "research strongly disagrees": 0,
+      "one view missing": 14,
+      "no research check": 0,
+      "unvalidated view": 75,
+      "risky fill": 0
+    },
+    "decisions": {
+      "SHORTLISTED": 220,
+      "BEYOND_TARGET": 80,
+      "NOT_SELECTED": 171,
+      "LEFT_OUT": 392,
+      "NOT_EXECUTABLE": 129
+    },
+    "overlap_with_live_master": {
+      "live_master_fixtures": 219,
+      "new_master_fixtures": 220,
+      "same_fixture": 194,
+      "same_offer": 93,
+      "live_only": 25,
+      "new_only": 26
+    },
+    "ranked_fixtures": 220,
+    "shortfall": 215,
+    "european_offers": 216,
+    "european_ranked": 75,
+    "inspection_flagged_offers": 0,
+    "for_inspection": [],
+    "per_run": [
+      {
+        "snapshot": "026e1ab4c40e3e64",
+        "generated_at_utc": "2026-10-27T09:50:40.995248+00:00",
+        "fixtures": 10,
+        "fixtures_with_executable_offer": 10,
+        "target": 15,
+        "nominated_fixtures": 3,
+        "fixtures_with_market_view": 3,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover fewer than 15 matches",
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 8,
+        "ranked": 3,
+        "picks_by_tier": {
+          "safe": 2,
+          "fill": 1,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 3,
+          "left_out": 5
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 1,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 3,
+          "new_master_fixtures": 3,
+          "same_fixture": 3,
+          "same_offer": 1,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "d414de1a572b09b2",
+        "generated_at_utc": "2026-10-27T11:35:10.735016+00:00",
+        "fixtures": 10,
+        "fixtures_with_executable_offer": 10,
+        "target": 15,
+        "nominated_fixtures": 3,
+        "fixtures_with_market_view": 3,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover fewer than 15 matches",
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 9,
+        "ranked": 3,
+        "picks_by_tier": {
+          "safe": 1,
+          "fill": 2,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 2,
+          "left_out": 7
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 1,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 3,
+          "new_master_fixtures": 3,
+          "same_fixture": 3,
+          "same_offer": 2,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "04e55dde9bbe885f",
+        "generated_at_utc": "2026-10-28T12:13:37.819395+00:00",
+        "fixtures": 15,
+        "fixtures_with_executable_offer": 15,
+        "target": 15,
+        "nominated_fixtures": 5,
+        "fixtures_with_market_view": 5,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover fewer than 15 matches",
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 16,
+        "ranked": 5,
+        "picks_by_tier": {
+          "safe": 4,
+          "fill": 1,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 8,
+          "left_out": 8
+        },
+        "labels_ranked": {
+          "both agree": 1,
+          "research too optimistic": 2,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 5,
+          "new_master_fixtures": 5,
+          "same_fixture": 5,
+          "same_offer": 3,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "fd052ff5e9f0163b",
+        "generated_at_utc": "2026-10-28T16:16:05.061508+00:00",
+        "fixtures": 33,
+        "fixtures_with_executable_offer": 33,
+        "target": 15,
+        "nominated_fixtures": 5,
+        "fixtures_with_market_view": 5,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover fewer than 15 matches",
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 16,
+        "ranked": 5,
+        "picks_by_tier": {
+          "safe": 4,
+          "fill": 1,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 7,
+          "left_out": 9
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 2,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 5,
+          "new_master_fixtures": 5,
+          "same_fixture": 5,
+          "same_offer": 4,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "c75d4ab52706e716",
+        "generated_at_utc": "2026-10-29T12:08:22.532184+00:00",
+        "fixtures": 45,
+        "fixtures_with_executable_offer": 44,
+        "target": 15,
+        "nominated_fixtures": 2,
+        "fixtures_with_market_view": 2,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover fewer than 15 matches",
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 8,
+        "ranked": 2,
+        "picks_by_tier": {
+          "safe": 2,
+          "fill": 0,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 5,
+          "left_out": 3
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 1,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 2,
+          "new_master_fixtures": 2,
+          "same_fixture": 2,
+          "same_offer": 0,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "02d8d3b21fd68fd9",
+        "generated_at_utc": "2026-10-30T07:29:50.498587+00:00",
+        "fixtures": 67,
+        "fixtures_with_executable_offer": 67,
+        "target": 15,
+        "nominated_fixtures": 7,
+        "fixtures_with_market_view": 5,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover fewer than 15 matches",
+        "timing_ineligible_offers": 7,
+        "timing_by_reason": {
+          "offered quote missing, future or older than fifteen minutes": 7
+        },
+        "offers": 17,
+        "ranked": 5,
+        "picks_by_tier": {
+          "safe": 3,
+          "fill": 2,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 3,
+          "left_out": 14
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 0,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 5,
+          "new_master_fixtures": 5,
+          "same_fixture": 5,
+          "same_offer": 4,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "2f2bbe3e322ecab7",
+        "generated_at_utc": "2026-10-30T12:03:48.308948+00:00",
+        "fixtures": 67,
+        "fixtures_with_executable_offer": 67,
+        "target": 15,
+        "nominated_fixtures": 8,
+        "fixtures_with_market_view": 7,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover fewer than 15 matches",
+        "timing_ineligible_offers": 3,
+        "timing_by_reason": {
+          "offered quote missing, future or older than fifteen minutes": 3
+        },
+        "offers": 22,
+        "ranked": 7,
+        "picks_by_tier": {
+          "safe": 4,
+          "fill": 3,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 5,
+          "left_out": 17
+        },
+        "labels_ranked": {
+          "both agree": 1,
+          "research too optimistic": 1,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 7,
+          "new_master_fixtures": 7,
+          "same_fixture": 7,
+          "same_offer": 4,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "f82ff3e276c6c573",
+        "generated_at_utc": "2026-10-31T12:03:11.165007+00:00",
+        "fixtures": 67,
+        "fixtures_with_executable_offer": 67,
+        "target": 15,
+        "nominated_fixtures": 34,
+        "fixtures_with_market_view": 12,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover 34 matches but only 12 with an eligible offer (execution and timing checks) that has a market view",
+        "timing_ineligible_offers": 66,
+        "timing_by_reason": {
+          "offered quote missing, future or older than fifteen minutes": 66
+        },
+        "offers": 30,
+        "ranked": 12,
+        "picks_by_tier": {
+          "safe": 9,
+          "fill": 3,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 14,
+          "left_out": 16
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 6,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 12,
+          "new_master_fixtures": 12,
+          "same_fixture": 12,
+          "same_offer": 5,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "796c7451f4101f75",
+        "generated_at_utc": "2026-11-01T07:37:30.159727+00:00",
+        "fixtures": 45,
+        "fixtures_with_executable_offer": 45,
+        "target": 15,
+        "nominated_fixtures": 28,
+        "fixtures_with_market_view": 16,
+        "fixtures_without_market_view": 0,
+        "short_reason": null,
+        "timing_ineligible_offers": 38,
+        "timing_by_reason": {
+          "offered quote missing, future or older than fifteen minutes": 38
+        },
+        "offers": 45,
+        "ranked": 15,
+        "picks_by_tier": {
+          "safe": 14,
+          "fill": 1,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 24,
+          "left_out": 21
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 3,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "new_master_fixtures": 15,
+          "same_fixture": 14,
+          "same_offer": 3,
+          "live_only": 1,
+          "new_only": 1
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "dc55908798d79d00",
+        "generated_at_utc": "2026-11-01T09:36:12.166126+00:00",
+        "fixtures": 7,
+        "fixtures_with_executable_offer": 7,
+        "target": 15,
+        "nominated_fixtures": 5,
+        "fixtures_with_market_view": 0,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover fewer than 15 matches",
+        "timing_ineligible_offers": 13,
+        "timing_by_reason": {
+          "offered quote missing, future or older than fifteen minutes": 13
+        },
+        "offers": 0,
+        "ranked": 0,
+        "picks_by_tier": {
+          "safe": 0,
+          "fill": 0,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 0,
+          "left_out": 0
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 0,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "new_master_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "cbf58accd4fa0691",
+        "generated_at_utc": "2026-11-01T12:23:24.469126+00:00",
+        "fixtures": 0,
+        "fixtures_with_executable_offer": 0,
+        "target": 15,
+        "nominated_fixtures": 0,
+        "fixtures_with_market_view": 0,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover fewer than 15 matches",
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 0,
+        "ranked": 0,
+        "picks_by_tier": {
+          "safe": 0,
+          "fill": 0,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 0,
+          "left_out": 0
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 0,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "new_master_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "765b01b571df2fd9",
+        "generated_at_utc": "2026-11-03T13:23:43.479885+00:00",
+        "fixtures": 36,
+        "fixtures_with_executable_offer": 36,
+        "target": 15,
+        "nominated_fixtures": 9,
+        "fixtures_with_market_view": 9,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover fewer than 15 matches",
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 27,
+        "ranked": 9,
+        "picks_by_tier": {
+          "safe": 6,
+          "fill": 3,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 11,
+          "left_out": 16
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 2,
+          "research strongly disagrees": 0,
+          "one view missing": 2,
+          "no research check": 0,
+          "unvalidated view": 9,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 9,
+          "new_master_fixtures": 9,
+          "same_fixture": 9,
+          "same_offer": 5,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 27
+      },
+      {
+        "snapshot": "4dfe537371e33ca4",
+        "generated_at_utc": "2026-11-03T13:58:02.173298+00:00",
+        "fixtures": 36,
+        "fixtures_with_executable_offer": 36,
+        "target": 15,
+        "nominated_fixtures": 9,
+        "fixtures_with_market_view": 9,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover fewer than 15 matches",
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 26,
+        "ranked": 9,
+        "picks_by_tier": {
+          "safe": 6,
+          "fill": 3,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 10,
+          "left_out": 16
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 3,
+          "research strongly disagrees": 0,
+          "one view missing": 2,
+          "no research check": 0,
+          "unvalidated view": 9,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 9,
+          "new_master_fixtures": 9,
+          "same_fixture": 9,
+          "same_offer": 7,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 26
+      },
+      {
+        "snapshot": "85c451a1e15281f6",
+        "generated_at_utc": "2026-11-04T09:31:03.622249+00:00",
+        "fixtures": 14,
+        "fixtures_with_executable_offer": 14,
+        "target": 15,
+        "nominated_fixtures": 9,
+        "fixtures_with_market_view": 9,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover fewer than 15 matches",
+        "timing_ineligible_offers": 2,
+        "timing_by_reason": {
+          "reference inputs missing, future or older than fifteen minutes": 2
+        },
+        "offers": 17,
+        "ranked": 9,
+        "picks_by_tier": {
+          "safe": 2,
+          "fill": 7,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 2,
+          "left_out": 15
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 1,
+          "research strongly disagrees": 0,
+          "one view missing": 8,
+          "no research check": 0,
+          "unvalidated view": 9,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 9,
+          "new_master_fixtures": 9,
+          "same_fixture": 9,
+          "same_offer": 9,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 17
+      },
+      {
+        "snapshot": "ddf20a3972dd45e3",
+        "generated_at_utc": "2026-11-04T10:20:33.895771+00:00",
+        "fixtures": 35,
+        "fixtures_with_executable_offer": 35,
+        "target": 15,
+        "nominated_fixtures": 10,
+        "fixtures_with_market_view": 10,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover fewer than 15 matches",
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 31,
+        "ranked": 10,
+        "picks_by_tier": {
+          "safe": 6,
+          "fill": 4,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 11,
+          "left_out": 20
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 4,
+          "research strongly disagrees": 0,
+          "one view missing": 1,
+          "no research check": 0,
+          "unvalidated view": 10,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 10,
+          "new_master_fixtures": 10,
+          "same_fixture": 10,
+          "same_offer": 9,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 31
+      },
+      {
+        "snapshot": "8a970f7baa207beb",
+        "generated_at_utc": "2026-11-04T19:40:50.340029+00:00",
+        "fixtures": 56,
+        "fixtures_with_executable_offer": 56,
+        "target": 15,
+        "nominated_fixtures": 8,
+        "fixtures_with_market_view": 8,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover fewer than 15 matches",
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 21,
+        "ranked": 8,
+        "picks_by_tier": {
+          "safe": 5,
+          "fill": 3,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 7,
+          "left_out": 14
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 2,
+          "research strongly disagrees": 0,
+          "one view missing": 1,
+          "no research check": 0,
+          "unvalidated view": 8,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 7,
+          "new_master_fixtures": 8,
+          "same_fixture": 7,
+          "same_offer": 4,
+          "live_only": 0,
+          "new_only": 1
+        },
+        "european_offers": 21
+      },
+      {
+        "snapshot": "0af36ab1e9657f52",
+        "generated_at_utc": "2026-11-05T12:32:00.598966+00:00",
+        "fixtures": 40,
+        "fixtures_with_executable_offer": 40,
+        "target": 15,
+        "nominated_fixtures": 0,
+        "fixtures_with_market_view": 0,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover fewer than 15 matches",
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 0,
+        "ranked": 0,
+        "picks_by_tier": {
+          "safe": 0,
+          "fill": 0,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 0,
+          "left_out": 0
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 0,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "new_master_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "a00d5e530cc2e80e",
+        "generated_at_utc": "2026-11-05T13:37:38.336530+00:00",
+        "fixtures": 60,
+        "fixtures_with_executable_offer": 60,
+        "target": 15,
+        "nominated_fixtures": 17,
+        "fixtures_with_market_view": 17,
+        "fixtures_without_market_view": 0,
+        "short_reason": null,
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 46,
+        "ranked": 15,
+        "picks_by_tier": {
+          "safe": 13,
+          "fill": 2,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 22,
+          "left_out": 24
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 6,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 15,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "new_master_fixtures": 15,
+          "same_fixture": 14,
+          "same_offer": 6,
+          "live_only": 1,
+          "new_only": 1
+        },
+        "european_offers": 46
+      },
+      {
+        "snapshot": "92039638c61ad8bc",
+        "generated_at_utc": "2026-11-05T16:17:48.024788+00:00",
+        "fixtures": 0,
+        "fixtures_with_executable_offer": 0,
+        "target": 15,
+        "nominated_fixtures": 0,
+        "fixtures_with_market_view": 0,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover fewer than 15 matches",
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 0,
+        "ranked": 0,
+        "picks_by_tier": {
+          "safe": 0,
+          "fill": 0,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 0,
+          "left_out": 0
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 0,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "new_master_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "7b8f8817eb577b04",
+        "generated_at_utc": "2026-11-05T16:27:43.343008+00:00",
+        "fixtures": 0,
+        "fixtures_with_executable_offer": 0,
+        "target": 15,
+        "nominated_fixtures": 0,
+        "fixtures_with_market_view": 0,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover fewer than 15 matches",
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 0,
+        "ranked": 0,
+        "picks_by_tier": {
+          "safe": 0,
+          "fill": 0,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 0,
+          "left_out": 0
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 0,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "new_master_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "775022176692974f",
+        "generated_at_utc": "2026-11-05T16:50:22.659919+00:00",
+        "fixtures": 80,
+        "fixtures_with_executable_offer": 80,
+        "target": 15,
+        "nominated_fixtures": 17,
+        "fixtures_with_market_view": 17,
+        "fixtures_without_market_view": 0,
+        "short_reason": null,
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 48,
+        "ranked": 15,
+        "picks_by_tier": {
+          "safe": 13,
+          "fill": 2,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 25,
+          "left_out": 23
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 6,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 15,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "new_master_fixtures": 15,
+          "same_fixture": 13,
+          "same_offer": 4,
+          "live_only": 2,
+          "new_only": 2
+        },
+        "european_offers": 48
+      },
+      {
+        "snapshot": "5d2089b153695efa",
+        "generated_at_utc": "2026-11-06T11:26:29.717902+00:00",
+        "fixtures": 75,
+        "fixtures_with_executable_offer": 75,
+        "target": 15,
+        "nominated_fixtures": 9,
+        "fixtures_with_market_view": 9,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover fewer than 15 matches",
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 26,
+        "ranked": 9,
+        "picks_by_tier": {
+          "safe": 9,
+          "fill": 0,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 18,
+          "left_out": 8
+        },
+        "labels_ranked": {
+          "both agree": 1,
+          "research too optimistic": 2,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 9,
+          "new_master_fixtures": 9,
+          "same_fixture": 9,
+          "same_offer": 2,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "440236589764dce4",
+        "generated_at_utc": "2026-11-06T12:17:20.125743+00:00",
+        "fixtures": 66,
+        "fixtures_with_executable_offer": 66,
+        "target": 15,
+        "nominated_fixtures": 7,
+        "fixtures_with_market_view": 7,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover fewer than 15 matches",
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 20,
+        "ranked": 7,
+        "picks_by_tier": {
+          "safe": 7,
+          "fill": 0,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 13,
+          "left_out": 7
+        },
+        "labels_ranked": {
+          "both agree": 1,
+          "research too optimistic": 1,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 7,
+          "new_master_fixtures": 7,
+          "same_fixture": 7,
+          "same_offer": 2,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "d46504cc4373448f",
+        "generated_at_utc": "2026-11-06T13:21:43.280136+00:00",
+        "fixtures": 0,
+        "fixtures_with_executable_offer": 0,
+        "target": 15,
+        "nominated_fixtures": 0,
+        "fixtures_with_market_view": 0,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover fewer than 15 matches",
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 0,
+        "ranked": 0,
+        "picks_by_tier": {
+          "safe": 0,
+          "fill": 0,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 0,
+          "left_out": 0
+        },
+        "labels_ranked": {
+          "both agree": 0,
+          "research too optimistic": 0,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 0,
+          "new_master_fixtures": 0,
+          "same_fixture": 0,
+          "same_offer": 0,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "b9d2d10f3419c606",
+        "generated_at_utc": "2026-11-06T13:40:19.404227+00:00",
+        "fixtures": 75,
+        "fixtures_with_executable_offer": 75,
+        "target": 15,
+        "nominated_fixtures": 12,
+        "fixtures_with_market_view": 12,
+        "fixtures_without_market_view": 0,
+        "short_reason": "nominations cover fewer than 15 matches",
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 35,
+        "ranked": 12,
+        "picks_by_tier": {
+          "safe": 12,
+          "fill": 0,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 21,
+          "left_out": 14
+        },
+        "labels_ranked": {
+          "both agree": 2,
+          "research too optimistic": 2,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 12,
+          "new_master_fixtures": 12,
+          "same_fixture": 12,
+          "same_offer": 4,
+          "live_only": 0,
+          "new_only": 0
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "1dabcf85eb639cd0",
+        "generated_at_utc": "2026-11-07T11:48:25.259368+00:00",
+        "fixtures": 66,
+        "fixtures_with_executable_offer": 66,
+        "target": 15,
+        "nominated_fixtures": 31,
+        "fixtures_with_market_view": 31,
+        "fixtures_without_market_view": 0,
+        "short_reason": null,
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 87,
+        "ranked": 15,
+        "picks_by_tier": {
+          "safe": 15,
+          "fill": 0,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 36,
+          "left_out": 51
+        },
+        "labels_ranked": {
+          "both agree": 3,
+          "research too optimistic": 2,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "new_master_fixtures": 15,
+          "same_fixture": 10,
+          "same_offer": 4,
+          "live_only": 5,
+          "new_only": 5
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "688a34b2f4bd83f2",
+        "generated_at_utc": "2026-11-07T13:54:13.645217+00:00",
+        "fixtures": 63,
+        "fixtures_with_executable_offer": 63,
+        "target": 15,
+        "nominated_fixtures": 29,
+        "fixtures_with_market_view": 29,
+        "fixtures_without_market_view": 0,
+        "short_reason": null,
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 80,
+        "ranked": 15,
+        "picks_by_tier": {
+          "safe": 15,
+          "fill": 0,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 40,
+          "left_out": 40
+        },
+        "labels_ranked": {
+          "both agree": 2,
+          "research too optimistic": 2,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "new_master_fixtures": 15,
+          "same_fixture": 12,
+          "same_offer": 5,
+          "live_only": 3,
+          "new_only": 3
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "bdc58d9d3727286d",
+        "generated_at_utc": "2026-11-08T09:01:04.075316+00:00",
+        "fixtures": 39,
+        "fixtures_with_executable_offer": 39,
+        "target": 15,
+        "nominated_fixtures": 39,
+        "fixtures_with_market_view": 39,
+        "fixtures_without_market_view": 0,
+        "short_reason": null,
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 119,
+        "ranked": 15,
+        "picks_by_tier": {
+          "safe": 15,
+          "fill": 0,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 62,
+          "left_out": 57
+        },
+        "labels_ranked": {
+          "both agree": 3,
+          "research too optimistic": 2,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "new_master_fixtures": 15,
+          "same_fixture": 9,
+          "same_offer": 2,
+          "live_only": 6,
+          "new_only": 6
+        },
+        "european_offers": 0
+      },
+      {
+        "snapshot": "d5829163b3fa9bf3",
+        "generated_at_utc": "2026-11-08T12:20:11.356382+00:00",
+        "fixtures": 36,
+        "fixtures_with_executable_offer": 36,
+        "target": 15,
+        "nominated_fixtures": 36,
+        "fixtures_with_market_view": 36,
+        "fixtures_without_market_view": 0,
+        "short_reason": null,
+        "timing_ineligible_offers": 0,
+        "timing_by_reason": {},
+        "offers": 109,
+        "ranked": 15,
+        "picks_by_tier": {
+          "safe": 15,
+          "fill": 0,
+          "risky fill": 0
+        },
+        "groups": {
+          "included": 53,
+          "left_out": 56
+        },
+        "labels_ranked": {
+          "both agree": 3,
+          "research too optimistic": 2,
+          "research strongly disagrees": 0,
+          "one view missing": 0,
+          "no research check": 0,
+          "unvalidated view": 0,
+          "risky fill": 0
+        },
+        "overlap": {
+          "live_master_fixtures": 15,
+          "new_master_fixtures": 15,
+          "same_fixture": 8,
+          "same_offer": 4,
+          "live_only": 7,
+          "new_only": 7
+        },
+        "european_offers": 0
+      }
+    ],
+    "list_size": {
+      "runs": 29,
+      "target": 15,
+      "runs_listing_target": 7,
+      "runs_short": 22,
+      "runs_nominations_cover_fewer_than_target": 21,
+      "runs_with_market_view_fewer_than_target": 22,
+      "runs_with_matches_without_market_view": 0,
+      "runs_without_nominations": 5,
+      "ranked_per_run": [
+        3,
+        3,
+        5,
+        5,
+        2,
+        5,
+        7,
+        12,
+        15,
+        0,
+        0,
+        9,
+        9,
+        9,
+        10,
+        8,
+        0,
+        15,
+        0,
+        0,
+        15,
+        9,
+        7,
+        0,
+        12,
+        15,
+        15,
+        15,
+        15
+      ],
+      "every_run_lists_min_target_and_viewed": true
+    },
+    "timing_ineligible_offers": 129,
+    "timing_by_reason": {
+      "missing, mixed or outdated evaluation generation": 0,
+      "offered quote missing, future or older than fifteen minutes": 127,
+      "unique same-generation fixture forecast unavailable": 0,
+      "reference inputs missing, future or older than fifteen minutes": 2,
+      "reference inputs and offer more than 10 minutes apart": 0
+    },
+    "picks_by_tier": {
+      "safe": 182,
+      "fill": 38,
+      "risky fill": 0
+    }
+  },
+  "timing_check_effect": {
+    "note": "Replay before the timing check (4b49178) against after (69c3b23 + harness fix), same 29 runs.",
+    "picks_before": 231,
+    "picks_after": 220,
+    "removed_picks": 26,
+    "removed_reason": "offered quote older than fifteen minutes (all 26); every other nominated offer of those matches was also stale, so no same-match replacement",
+    "added_picks": 15,
+    "added_tiers": {
+      "safe": 11,
+      "fill": 4
+    },
+    "runs_changed": {
+      "2026-10-30T07:29": "7 -> 5",
+      "2026-10-30T12:03": "8 -> 7",
+      "2026-10-31T12:03": "15 -> 12 (9 removed, 6 added)",
+      "2026-11-01T07:37": "15 -> 15 (9 removed, 9 added)",
+      "2026-11-01T09:36": "5 -> 0"
+    },
+    "ineligible_offers": 129,
+    "by_reason": {
+      "offered quote older than fifteen minutes": 127,
+      "reference inputs future or stale": 2
+    },
+    "reference_failures": "AEK Athens v Real Madrid and Slavia Praha v Arsenal (4 Nov 09:31), Away -1.50, Pinnacle stand-in; neither was a pick before"
+  }
+}

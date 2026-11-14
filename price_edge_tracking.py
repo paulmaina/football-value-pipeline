@@ -917,7 +917,11 @@ def review(root: Path, archive, records: List[dict], clock, active_rule: Optiona
                                      for labels, g in (new_master.groupby(new_master['new_master_labels']
                                                                           .fillna('no label'))
                                                        if len(new_master) and 'new_master_labels' in new_master
-                                                       else [])}},
+                                                       else [])},
+                       # Context only (the comparison rule never reads it): results by fill-rule tier.
+                       'by_tier': {tier: {'clv': summarize(g['clv']), 'profit': summarize(g['unit_profit'])}
+                                   for tier, g in (new_master.groupby(new_master['new_master_tier'].fillna('n/a'))
+                                                   if len(new_master) and 'new_master_tier' in new_master else [])}},
         'master_comparison': _master_comparison(root, archive, new_master, master),
         'cagey_tier_picks': int(len(tier)),
         'cagey_tier': {'clv': summarize(tier['clv'] if len(tier) else []),
@@ -965,7 +969,7 @@ def new_master_report(summary: dict) -> List[str]:
     if 'master_comparison' not in summary:
         return []
     m, c = summary['new_master'], summary['master_comparison']
-    lines = ["## New master (shadow, revised master rule) beside the live master", '',
+    lines = ["## New master (shadow, fill rule) beside the live master", '',
              f"Frozen picks: {summary['new_master_picks']}; CLV {_fmt(m['clv'])}; realised profit per bet "
              f"{_fmt(m['profit'])}. Live master: {summary.get('master_picks', 0)} frozen picks, realised profit per "
              f"bet {_fmt(summary['master']['profit'])}.", '',
@@ -989,6 +993,10 @@ def new_master_report(summary: dict) -> List[str]:
                      f"{o['both_agree']}, research too optimistic {o['research_too_optimistic']}, research strongly "
                      f"disagrees {o['inspection_flag']}, one view missing {o['one_view_missing']}, no research check "
                      f"{o['no_research_check']}, unvalidated view {o['unvalidated_view']}; no view {o['no_view']}.")
+    if m.get('by_tier'):
+        lines += ['', 'By tier (context only; the comparison rule never reads it):', '',
+                  '| tier | mean CLV (n) | realised profit per bet (n) |', '|---|---|---|']
+        lines += [f"| {g} | {_fmt(v['clv'])} | {_fmt(v['profit'])} |" for g, v in m['by_tier'].items()]
     if m.get('by_labels'):
         lines += ['', '| labels | mean CLV (n) | realised profit per bet (n) |', '|---|---|---|']
         lines += [f"| {g} | {_fmt(v['clv'])} | {_fmt(v['profit'])} |" for g, v in m['by_labels'].items()]
