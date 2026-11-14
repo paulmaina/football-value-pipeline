@@ -605,7 +605,6 @@
               "weeks": 106
             }
           },
-          "fill_pool_offers": 1866,
           "final_new_master": {
             "fixtures": 1533,
             "flat_stake_return": {
@@ -657,6 +656,71 @@
             "research too optimistic": 164,
             "risky fill": 3,
             "unvalidated view": 0
+          },
+          "list_size": {
+            "nominated_fixtures_per_week": {
+              "max": 98,
+              "median": 71.5,
+              "min": 1
+            },
+            "nominated_fixtures_with_market_view_per_week": {
+              "max": 98,
+              "median": 71.5,
+              "min": 1
+            },
+            "picks_per_week": {
+              "max": 15,
+              "median": 15.0,
+              "min": 1
+            },
+            "short_weeks": [
+              {
+                "nominated_fixtures": 10,
+                "picks": 10,
+                "week": "2022-W43",
+                "with_market_view": 10
+              },
+              {
+                "nominated_fixtures": 10,
+                "picks": 10,
+                "week": "2022-W44",
+                "with_market_view": 10
+              },
+              {
+                "nominated_fixtures": 9,
+                "picks": 9,
+                "week": "2022-W51",
+                "with_market_view": 9
+              },
+              {
+                "nominated_fixtures": 7,
+                "picks": 7,
+                "week": "2023-W23",
+                "with_market_view": 7
+              },
+              {
+                "nominated_fixtures": 1,
+                "picks": 1,
+                "week": "2023-W36",
+                "with_market_view": 1
+              },
+              {
+                "nominated_fixtures": 1,
+                "picks": 1,
+                "week": "2024-W22",
+                "with_market_view": 1
+              },
+              {
+                "nominated_fixtures": 10,
+                "picks": 10,
+                "week": "2025-W22",
+                "with_market_view": 10
+              }
+            ],
+            "weeks": 106,
+            "weeks_list_short": 7,
+            "weeks_nominations_cover_fewer_than_target": 7,
+            "weeks_with_view_fewer_than_target": 7
           },
           "lists": {
             "fill_current": {
@@ -1318,7 +1382,6 @@
               "weeks": 106
             }
           },
-          "fill_pool_offers": 1819,
           "final_new_master": {
             "fixtures": 1533,
             "flat_stake_return": {
@@ -1370,6 +1433,71 @@
             "research too optimistic": 228,
             "risky fill": 3,
             "unvalidated view": 0
+          },
+          "list_size": {
+            "nominated_fixtures_per_week": {
+              "max": 98,
+              "median": 71.5,
+              "min": 1
+            },
+            "nominated_fixtures_with_market_view_per_week": {
+              "max": 98,
+              "median": 71.5,
+              "min": 1
+            },
+            "picks_per_week": {
+              "max": 15,
+              "median": 15.0,
+              "min": 1
+            },
+            "short_weeks": [
+              {
+                "nominated_fixtures": 10,
+                "picks": 10,
+                "week": "2022-W43",
+                "with_market_view": 10
+              },
+              {
+                "nominated_fixtures": 10,
+                "picks": 10,
+                "week": "2022-W44",
+                "with_market_view": 10
+              },
+              {
+                "nominated_fixtures": 9,
+                "picks": 9,
+                "week": "2022-W51",
+                "with_market_view": 9
+              },
+              {
+                "nominated_fixtures": 7,
+                "picks": 7,
+                "week": "2023-W23",
+                "with_market_view": 7
+              },
+              {
+                "nominated_fixtures": 1,
+                "picks": 1,
+                "week": "2023-W36",
+                "with_market_view": 1
+              },
+              {
+                "nominated_fixtures": 1,
+                "picks": 1,
+                "week": "2024-W22",
+                "with_market_view": 1
+              },
+              {
+                "nominated_fixtures": 10,
+                "picks": 10,
+                "week": "2025-W22",
+                "with_market_view": 10
+              }
+            ],
+            "weeks": 106,
+            "weeks_list_short": 7,
+            "weeks_nominations_cover_fewer_than_target": 7,
+            "weeks_with_view_fewer_than_target": 7
           },
           "lists": {
             "fill_current": {
@@ -2045,7 +2173,6 @@
               "weeks": 29
             }
           },
-          "fill_pool_offers": 437,
           "final_new_master": {
             "fixtures": 423,
             "flat_stake_return": {
@@ -2097,6 +2224,35 @@
             "research too optimistic": 43,
             "risky fill": 1,
             "unvalidated view": 0
+          },
+          "list_size": {
+            "nominated_fixtures_per_week": {
+              "max": 82,
+              "median": 49.0,
+              "min": 3
+            },
+            "nominated_fixtures_with_market_view_per_week": {
+              "max": 82,
+              "median": 49.0,
+              "min": 3
+            },
+            "picks_per_week": {
+              "max": 15,
+              "median": 15.0,
+              "min": 3
+            },
+            "short_weeks": [
+              {
+                "nominated_fixtures": 3,
+                "picks": 3,
+                "week": "2026-W33",
+                "with_market_view": 3
+              }
+            ],
+            "weeks": 29,
+            "weeks_list_short": 1,
+            "weeks_nominations_cover_fewer_than_target": 1,
+            "weeks_with_view_fewer_than_target": 1
           },
           "lists": {
             "fill_current": {
@@ -2731,7 +2887,6 @@
               "weeks": 29
             }
           },
-          "fill_pool_offers": 429,
           "final_new_master": {
             "fixtures": 423,
             "flat_stake_return": {
@@ -2783,6 +2938,35 @@
             "research too optimistic": 61,
             "risky fill": 1,
             "unvalidated view": 0
+          },
+          "list_size": {
+            "nominated_fixtures_per_week": {
+              "max": 82,
+              "median": 49.0,
+              "min": 3
+            },
+            "nominated_fixtures_with_market_view_per_week": {
+              "max": 82,
+              "median": 49.0,
+              "min": 3
+            },
+            "picks_per_week": {
+              "max": 15,
+              "median": 15.0,
+              "min": 3
+            },
+            "short_weeks": [
+              {
+                "nominated_fixtures": 3,
+                "picks": 3,
+                "week": "2026-W33",
+                "with_market_view": 3
+              }
+            ],
+            "weeks": 29,
+            "weeks_list_short": 1,
+            "weeks_nominations_cover_fewer_than_target": 1,
+            "weeks_with_view_fewer_than_target": 1
           },
           "lists": {
             "fill_current": {
@@ -3458,7 +3642,6 @@
               "weeks": 22
             }
           },
-          "fill_pool_offers": 381,
           "final_new_master": {
             "fixtures": 315,
             "flat_stake_return": {
@@ -3510,6 +3693,41 @@
             "research too optimistic": 37,
             "risky fill": 1,
             "unvalidated view": 0
+          },
+          "list_size": {
+            "nominated_fixtures_per_week": {
+              "max": 85,
+              "median": 61.5,
+              "min": 1
+            },
+            "nominated_fixtures_with_market_view_per_week": {
+              "max": 85,
+              "median": 61.5,
+              "min": 1
+            },
+            "picks_per_week": {
+              "max": 15,
+              "median": 15.0,
+              "min": 1
+            },
+            "short_weeks": [
+              {
+                "nominated_fixtures": 1,
+                "picks": 1,
+                "week": "2025-W36",
+                "with_market_view": 1
+              },
+              {
+                "nominated_fixtures": 14,
+                "picks": 14,
+                "week": "2026-W03",
+                "with_market_view": 14
+              }
+            ],
+            "weeks": 22,
+            "weeks_list_short": 2,
+            "weeks_nominations_cover_fewer_than_target": 2,
+            "weeks_with_view_fewer_than_target": 2
           },
           "lists": {
             "fill_current": {
@@ -4144,7 +4362,6 @@
               "weeks": 22
             }
           },
-          "fill_pool_offers": 376,
           "final_new_master": {
             "fixtures": 315,
             "flat_stake_return": {
@@ -4196,6 +4413,41 @@
             "research too optimistic": 52,
             "risky fill": 1,
             "unvalidated view": 0
+          },
+          "list_size": {
+            "nominated_fixtures_per_week": {
+              "max": 85,
+              "median": 61.5,
+              "min": 1
+            },
+            "nominated_fixtures_with_market_view_per_week": {
+              "max": 85,
+              "median": 61.5,
+              "min": 1
+            },
+            "picks_per_week": {
+              "max": 15,
+              "median": 15.0,
+              "min": 1
+            },
+            "short_weeks": [
+              {
+                "nominated_fixtures": 1,
+                "picks": 1,
+                "week": "2025-W36",
+                "with_market_view": 1
+              },
+              {
+                "nominated_fixtures": 14,
+                "picks": 14,
+                "week": "2026-W03",
+                "with_market_view": 14
+              }
+            ],
+            "weeks": 22,
+            "weeks_list_short": 2,
+            "weeks_nominations_cover_fewer_than_target": 2,
+            "weeks_with_view_fewer_than_target": 2
           },
           "lists": {
             "fill_current": {
@@ -4300,10 +4552,10 @@
     }
   },
   "previous_rule": "master-new-paul-rule-v1",
-  "rule": "master-new-fill-rule-v3",
-  "rule_config_sha256": "8b484b95bb606c06a7521788d83cbd3b14b6ddc573cb37b01b284c1677d5dc6a",
+  "rule": "master-new-fill-rule-v4",
+  "rule_config_sha256": "5dd6ce1232ebb3020b5aef4927b9142f1d4a9963b53dee051e855da3310a53cf",
   "safe_only_rule": "master-new-evidence-rule-v2",
-  "scope": "Domestic leagues only (no European prices are cached). Offers: Home win, Away win and the main AH line, both sides, the only prices the files carry (no plus lines, alternate lines or double chance); odds (1.15, 2.00]; cost 0. Step 1 and the live master draw from the nominated pool (the value list's and the cagey list's picks among these offers), steps 2-3 from every in-window offer. Research view C or C6 (value list, p_r, labels and the flag), cagey view D (current, or sharpened walk-forward), Pinnacle margin-free reference = binary margin-free 1X2 for wins and AH +/-0.5, else M. The live master is always built on C's value list, as live; the safe-only rule is PR #172's (step 1 alone, current probabilities); PR #171's rule (master_rule_v1) for continuity. Slate = calendar week, 15-match target. Locked: no holdout match is read. Development deciding, validation a check, retrospective (synthetic Pinnacle-like prices from Bet365) a diagnostic. Observed no-loss = return >= 0; observed profit = return > 0.",
+  "scope": "Domestic leagues only (no European prices are cached). Offers: Home win, Away win and the main AH line, both sides, the only prices the files carry (no plus lines, alternate lines or double chance); odds (1.15, 2.00]; cost 0. The live master and every step of the new master (rule v4) draw from the nominated pool only (the picks of the value list and the cagey list among these offers). Research view C or C6 (value list, p_r, labels and the flag), cagey view D (current, or sharpened walk-forward), Pinnacle margin-free reference = binary margin-free 1X2 for wins and AH +/-0.5, else M. The live master is always built on C's value list, as live; the safe-only rule is PR #172's (step 1 alone, current probabilities); PR #171's rule (master_rule_v1) for continuity. Slate = calendar week, 15-match target. Locked: no holdout match is read. Development deciding, validation a check, retrospective (synthetic Pinnacle-like prices from Bet365) a diagnostic. Observed no-loss = return >= 0; observed profit = return > 0.",
   "sharpening_check": {
     "periods": {
       "development": {
@@ -12008,7 +12260,7 @@
       }
     }
   },
-  "source_commit": "76a155f16d469ec8aeafefc51a2f5ffd3c209807",
+  "source_commit": "0e5ca0813bb8e312fa2bdd5a741885a40cc363b2",
   "synthetic_pinnacle_margin_bet365_period": {
     "ah": 0.027548517855280914,
     "hda": 0.03673010708742928
