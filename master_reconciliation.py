@@ -1,4 +1,4 @@
-"""The new master shortlist, in shadow (Phase 4, revised master rule, rule master-new-evidence-rule-v2).
+"""The new master shortlist, in shadow (Phase 4, fill rule, rule master-new-fill-rule-v3).
 
 Scores both views on every offer either list nominates, at its exact Pinnacle line and price: the research
 probability (p_r) and the cagey tier's corrected probability (p_c) that the bet does not lose; g = p_r - p_c in
@@ -8,6 +8,13 @@ view never removes or reorders a bet: it only labels rows ("both agree", "resear
 the ones it strongly disputes ("research strongly disagrees", g <= -8 with cagey >= 0.85) for inspection.
 Decided by Paul on 13 Nov 2026, replacing the 4-point rule (master-new-paul-rule-v1, frozen in master_rule_v1.py
 for the offline comparison) on the backtest evidence of PR #171.
+
+Fill rule (decided by Paul, 13 Nov 2026; rule master-new-fill-rule-v3): those safe picks are step 1. If fewer than 15
+matches have one, step 2 fills the remaining slots, one per match, with each match's best executable Pinnacle offer
+that is not risky (market no-loss >= 0.50), ranked by the market chance of profit (P(win) + P(half win)); only if
+still short, step 3 adds each remaining match's best offer by the same chance, labelled "risky fill". Every pick
+carries its tier (safe, fill, risky fill). The cagey probabilities used for the thresholds, the ranking and the chance
+of profit are the current ones or, only if the pass rule in the config passed, the sharpened ones (cagey_sharpen.py).
 
 Writes master_shortlist_new.csv beside the live master_shortlist.csv. Shadow only: the live master file, every
 probability, every pick and every stake are untouched; this module only reads the run's decision rows and the
@@ -29,7 +36,7 @@ import numpy as np
 import pandas as pd
 
 CONFIG = Path(__file__).with_name('master_reconciliation_config.json')
-VERSION = 'master-new-evidence-rule-v2'
+VERSION = 'master-new-fill-rule-v3'
 KINDS = ('win', 'half_win', 'push', 'half_loss', 'loss')
 GROUPS = ('included', 'left_out')
 RANKED = ('included',)
@@ -39,7 +46,10 @@ LEFT_OUT_REASONS = ('risky', 'in between (not safe)', 'one view missing: no Pinn
 # Row labels, in the order they are written to `new_master_labels` (column name, label text).
 LABELS = (('both_agree', 'both agree'), ('research_too_optimistic', 'research too optimistic'),
           ('inspection_flag', 'research strongly disagrees'), ('one_view_missing', 'one view missing'),
-          ('no_research_check', 'no research check'), ('unvalidated_view', 'unvalidated view'))
+          ('no_research_check', 'no research check'), ('unvalidated_view', 'unvalidated view'),
+          ('risky_fill', 'risky fill'))
+TIERS = ('safe', 'fill', 'risky fill')  # the picks of step 1, step 2 and step 3
+SOURCES = ('nominated', 'fill pool')
 DECISIONS = ('SHORTLISTED', 'BEYOND_TARGET', 'NOT_SELECTED', 'LEFT_OUT', 'NOT_EXECUTABLE')
 TOLERANCE = 1e-9
 IDENTITY_COLUMNS = ['kickoff_utc', 'league', 'home_team', 'away_team', 'fixture_id', 'market', 'market_to_bet',
@@ -50,10 +60,14 @@ CLASSIFICATION_COLUMNS = [
     'research_no_loss_probability', 'cagey_no_loss_probability', 'gap_points', 'gap_check',
     'pinnacle_no_loss_probability', 'pinnacle_fair_odds',
     'research_expected_return', 'research_edge', 'cagey_expected_return', 'cagey_fair_odds',
-    'market_basis', 'market_safety', 'market_price', 'ranking_no_loss_probability', 'new_master_labels',
+    'line_type', 'cagey_profit_probability', 'cagey_sharpened_no_loss_probability',
+    'cagey_sharpened_profit_probability', 'pinnacle_profit_probability', 'probability_source',
+    'market_basis', 'market_safety', 'market_price', 'ranking_no_loss_probability', 'ranking_profit_probability',
+    'new_master_labels',
     *[column for column, _ in LABELS], 'missing_view', 'missing_evidence_reason', 'new_master_group',
     'left_out_reason']
-COLUMNS = ['new_master_rank', 'new_master_group', 'new_master_decision', 'new_master_reason', *IDENTITY_COLUMNS,
+COLUMNS = ['new_master_rank', 'new_master_tier', 'new_master_step', 'new_master_group', 'new_master_decision',
+           'new_master_reason', 'new_master_source', *IDENTITY_COLUMNS,
            *[c for c in CLASSIFICATION_COLUMNS if c != 'new_master_group'],
            'in_live_master', 'live_master_rank', 'live_master_same_offer', 'new_master_version']
 
@@ -98,35 +112,60 @@ def scored(mass: np.ndarray, price: float, cost: float) -> Dict[str, float]:
             'no_loss': no_loss(mass), 'fair_odds': float(1 + loss / win)}
 
 
+def _probability(value) -> Optional[float]:
+    n = _number(value)
+    return n if n is not None and 0 <= n <= 1 else None
+
+
+def profit_chance(mass: np.ndarray) -> float:
+    """Chance of profit: P(the bet returns more than the stake) = P(win) + P(half win) on this exact line. A push
+    returns the stake, a half win stake + (odds - 1) / 2, a half loss half the stake (config chance_of_profit)."""
+    return float(mass[0] + mass[1])
+
+
 def classify(research: Optional[np.ndarray], cagey: Optional[np.ndarray], price: float, cost: float,
              pinnacle_no_loss: Optional[float] = None, pinnacle_fair_odds: Optional[float] = None, *,
              european: bool, config: Mapping, research_reason: Optional[str] = None,
-             cagey_reason: Optional[str] = None) -> Dict[str, object]:
-    """Both views on one offer, its inclusion and its labels, exactly as master_reconciliation_config.json says.
+             cagey_reason: Optional[str] = None, pinnacle_profit: Optional[float] = None,
+             cagey_sharpened: Optional[Sequence[float]] = None, use_sharpened: Optional[bool] = None,
+             line_kind: Optional[str] = None) -> Dict[str, object]:
+    """Both views on one offer, its step-1 inclusion, its market view for the fill and its labels, exactly as
+    master_reconciliation_config.json says.
 
     `research` / `cagey` are the views' settlement distributions on this exact line, or None when that view
-    can't score the offer (`*_reason` says why). `pinnacle_no_loss` / `pinnacle_fair_odds` are Pinnacle's
-    margin-free no-loss probability and fair odds for the same bet (the market view when the cagey score is
-    missing). Inclusion reads the market view only (safe); the research view only labels and flags.
+    can't score the offer (`*_reason` says why). `pinnacle_no_loss` / `pinnacle_fair_odds` / `pinnacle_profit` are
+    Pinnacle's margin-free no-loss probability, fair odds and chance of profit for the same bet (the market view
+    when the cagey score is missing; never sharpened). `cagey_sharpened` is the sharpened cagey (no-loss, chance of
+    profit), used for the thresholds, the ranking and the chance of profit only when `use_sharpened` (default: the
+    config's cagey_sharpening.use_sharpened). Labels and flags always read the current cagey probabilities, as in
+    #172. Inclusion and fill read the market view only; the research view only labels and flags.
     """
     gap, view, edge_rule = config['gap'], config['market_view'], config['research_edge']
     flag, include = config['inspection_flag'], config['inclusion']
+    if use_sharpened is None:
+        use_sharpened = bool(config['cagey_sharpening']['use_sharpened'])
     out: Dict[str, object] = dict.fromkeys(CLASSIFICATION_COLUMNS)
     out.update({column: False for column, _ in LABELS})
     out['unvalidated_view'] = bool(european)
-    pin = _number(pinnacle_no_loss)
-    pin = pin if pin is not None and 0 <= pin <= 1 else None
+    out['line_type'] = line_kind
+    pin, pin_profit = _probability(pinnacle_no_loss), _probability(pinnacle_profit)
     pin_fair = _number(pinnacle_fair_odds)
     pin_fair = pin_fair if pin_fair is not None and pin_fair > 1 else None
-    out.update(pinnacle_no_loss_probability=pin, pinnacle_fair_odds=pin_fair)
+    out.update(pinnacle_no_loss_probability=pin, pinnacle_fair_odds=pin_fair, pinnacle_profit_probability=pin_profit)
     r = scored(research, price, cost) if research is not None else None
     c = scored(cagey, price, cost) if cagey is not None else None
+    sharp = None
+    if c is not None and cagey_sharpened is not None:
+        sharp = tuple(_probability(v) for v in cagey_sharpened)
+        sharp = sharp if len(sharp) == 2 and None not in sharp else None
     if r is not None:
         out.update(research_no_loss_probability=r['no_loss'], research_expected_return=r['expected_return'],
                    research_edge=bool(r['expected_return'] > edge_rule['min_expected_return_exclusive']))
     if c is not None:
         out.update(cagey_no_loss_probability=c['no_loss'], cagey_expected_return=c['expected_return'],
-                   cagey_fair_odds=c['fair_odds'])
+                   cagey_fair_odds=c['fair_odds'], cagey_profit_probability=profit_chance(cagey))
+    if sharp is not None:
+        out.update(cagey_sharpened_no_loss_probability=sharp[0], cagey_sharpened_profit_probability=sharp[1])
     reasons = []
     if r is None:
         reasons.append('research: ' + (research_reason or 'settlement probabilities unavailable'))
@@ -143,18 +182,27 @@ def classify(research: Optional[np.ndarray], cagey: Optional[np.ndarray], price:
     if r is None and c is None:
         out.update(missing_view='both', gap_check='no_view')
         return finish('left_out', 'no view')
-    # The market view: the cagey tier's figures, or Pinnacle's margin-free ones when the cagey score is missing.
-    basis, chance, fair_odds = ('cagey', c['no_loss'], c['fair_odds']) if c is not None else \
-        ('pinnacle', pin, pin_fair)
+    # The market view: the cagey tier's figures (sharpened only if the pass rule passed), or Pinnacle's margin-free
+    # ones when the cagey score is missing (never sharpened).
+    if c is not None and use_sharpened and sharp is not None:
+        basis, source, (chance, chance_profit) = 'cagey', 'cagey sharpened', sharp
+    elif c is not None:
+        basis, source, chance, chance_profit = 'cagey', 'cagey', c['no_loss'], profit_chance(cagey)
+    else:
+        basis, source, chance, chance_profit = 'pinnacle', 'pinnacle stand-in', pin, pin_profit
+    fair_odds = c['fair_odds'] if c is not None else pin_fair
     safe = risky = fair = False
     if chance is not None:
         safe = chance + TOLERANCE >= include['min_cagey_no_loss']
         risky = chance < view['risky']['max_no_loss_exclusive']
         fair = fair_odds is not None and \
             price * (1 + view['fair']['pinnacle_average_margin']) + TOLERANCE >= fair_odds
-        out.update(market_basis=basis, ranking_no_loss_probability=chance,
+        out.update(market_basis=basis, probability_source=source, ranking_no_loss_probability=chance,
+                   ranking_profit_probability=chance_profit,
                    market_safety='safe' if safe else 'risky' if risky else 'middle',
                    market_price='fair' if fair else 'below fair')
+    # Labels read the current cagey no-loss chance exactly as #172 (the same as `safe` unless sharpened is used).
+    label_safe = c is not None and c['no_loss'] + TOLERANCE >= include['min_cagey_no_loss']
     if r is not None and c is not None:
         g = 100 * (r['no_loss'] - c['no_loss'])
         out['gap_points'] = g
@@ -162,7 +210,7 @@ def classify(research: Optional[np.ndarray], cagey: Optional[np.ndarray], price:
         out['gap_check'] = ('research_too_optimistic' if optimistic else 'research_more_pessimistic'
                             if g - TOLERANCE <= gap['report_more_pessimistic_max_points'] else 'agree')
         out['research_too_optimistic'] = optimistic
-        out['both_agree'] = bool(out['gap_check'] == 'agree' and out['research_edge'] and (safe or fair)
+        out['both_agree'] = bool(out['gap_check'] == 'agree' and out['research_edge'] and (label_safe or fair)
                                  and not european)
         out['inspection_flag'] = bool(g - TOLERANCE <= flag['max_gap_points']
                                       and c['no_loss'] + TOLERANCE >= flag['min_cagey_no_loss'])
@@ -187,32 +235,76 @@ def _tie_key(row: Mapping) -> tuple:
             _number(row.get('handicap_line')) or 0.)
 
 
-def select(rows: List[Dict[str, object]], target: int, match_key: str = '_match', prefix: str = 'new_master'
-           ) -> List[Dict[str, object]]:
-    """One pick per match, its included offer with the highest no-loss chance; the list is the first `target`
-    matches by that chance alone (labels and flags are never read). Rows with `<prefix>_executable` False are
-    never picked. Mutates and returns `rows`, adding <prefix>_rank, <prefix>_decision and <prefix>_reason
-    (`<prefix>_group` is read)."""
-    group, rank, decision, reason = (f'{prefix}_{k}' for k in ('group', 'rank', 'decision', 'reason'))
+def _fill_key(row: Mapping) -> tuple:
+    """Steps 2-3: chance of profit (9 decimals), then higher odds, kickoff, league, teams, market, side, line."""
+    chance = _number(row.get('ranking_profit_probability'))
+    return (-round(chance, 9) if chance is not None else math.inf, *_tie_key(row)[1:])
+
+
+def _best_per_match(rows, match_key, key, eligible) -> Dict[object, Dict[str, object]]:
     best: Dict[object, Dict[str, object]] = {}
     for row in rows:
-        row[rank] = None
-        if row.get(f'{prefix}_executable', True) is False or row[group] not in RANKED:
+        if not eligible(row):
             continue
         current = best.get(row[match_key])
-        if current is None or _tie_key(row) < _tie_key(current):
+        if current is None or key(row) < key(current):
             best[row[match_key]] = row
-    chosen = {id(r) for r in best.values()}
-    for position, row in enumerate(sorted(best.values(), key=_tie_key), 1):
-        if position <= target:
-            row.update({rank: position, decision: 'SHORTLISTED', reason: ''})
-        else:
-            row.update({decision: 'BEYOND_TARGET', reason: f'beyond the {target}-match target'})
+    return best
+
+
+def select(rows: List[Dict[str, object]], target: int, match_key: str = '_match', prefix: str = 'new_master',
+           fill: bool = True, fill_min_no_loss: float = 0.5) -> List[Dict[str, object]]:
+    """The fill rule (config `fill`), one pick per match, at most `target` matches; labels and flags never read.
+
+    Step 1 (#172): among nominated rows (`<prefix>_nominated`, default True) in group 'included' (safe), each match's
+    offer with the highest no-loss chance; ranked by that chance alone. Only if fewer than `target` matches got one
+    (and `fill`): step 2, among every executable row of the matches without a step-1 pick, each match's not-risky
+    offer (ranking no-loss >= `fill_min_no_loss`) with the highest chance of profit, ranked by that chance; then,
+    only if still short, step 3, each remaining match's offer with the highest chance of profit (risky fill). Rows
+    with `<prefix>_executable` False are never picked. With `fill` False this is exactly #172's selection.
+
+    Mutates and returns `rows`, adding <prefix>_rank, _tier, _step (the step a row is its match's candidate in),
+    _decision and _reason; step-3 picks get risky_fill True and the 'risky fill' label."""
+    group, rank, decision, reason, tier, step = (f'{prefix}_{k}' for k in
+                                                 ('group', 'rank', 'decision', 'reason', 'tier', 'step'))
+    executable = lambda r: r.get(f'{prefix}_executable', True) is not False
+    nominated = lambda r: r.get(f'{prefix}_nominated', True) is not False
+    for row in rows:
+        row.update({rank: None, tier: None, step: None})
+    first = _best_per_match(rows, match_key, _tie_key, lambda r: executable(r) and nominated(r) and r[group] in RANKED)
+    steps = [(1, sorted(first.values(), key=_tie_key))]
+    if fill:
+        taken = set(first)
+        has_view = lambda r: (executable(r) and r[match_key] not in taken
+                              and _number(r.get('ranking_no_loss_probability')) is not None
+                              and _number(r.get('ranking_profit_probability')) is not None)
+        second = _best_per_match(rows, match_key, _fill_key, lambda r: has_view(r) and _number(
+            r.get('ranking_no_loss_probability')) + TOLERANCE >= fill_min_no_loss)
+        taken |= set(second)
+        third = _best_per_match(rows, match_key, _fill_key, has_view)
+        steps += [(2, sorted(second.values(), key=_fill_key)), (3, sorted(third.values(), key=_fill_key))]
+    names = {1: 'safe', 2: 'fill', 3: 'risky fill'}
+    chosen, position = set(), 0
+    for number, candidates in steps:  # a later step runs only if the earlier ones left the list short
+        for row in candidates:
+            chosen.add(id(row))
+            row[step] = number
+            if position < target:
+                position += 1
+                row.update({rank: position, tier: names[number], decision: 'SHORTLISTED', reason: ''})
+                if number == 3:
+                    row['risky_fill'] = True
+                    row['new_master_labels'] = '; '.join(t for t in (row.get('new_master_labels'), 'risky fill') if t)
+            else:
+                row.update({decision: 'BEYOND_TARGET', reason: f'beyond the {target}-match target' if number == 1
+                            else f'step {number} candidate ({names[number]}) beyond the {target}-match target'})
     for row in rows:
         if id(row) in chosen:
             continue
-        if row.get(f'{prefix}_executable', True) is False:
+        if not executable(row):
             row.update({decision: 'NOT_EXECUTABLE', reason: row.get(reason) or 'not executable'})
+        elif not nominated(row):  # fill pool only: not its match's step 2-3 candidate
+            row.update({decision: 'NOT_SELECTED', reason: "not its match's best fill offer"})
         elif row[group] in RANKED:
             row.update({decision: 'NOT_SELECTED', reason: 'another offer chosen for this match'})
         else:
@@ -224,12 +316,27 @@ def select(rows: List[Dict[str, object]], target: int, match_key: str = '_match'
 # Live shadow: a pure function of one run's decision rows (and, for overlap only, its live master list)
 # ---------------------------------------------------------------------------
 
-def pool(decisions: pd.DataFrame) -> List[Dict[str, object]]:
-    """Every offer either list nominated (shortlisted): the live master's starting union, in decision order."""
+def _records(decisions: pd.DataFrame) -> List[Dict[str, object]]:
     if decisions is None or decisions.empty:
         return []
-    records = decisions.astype(object).where(decisions.notna(), None).to_dict('records')
-    return [r for r in records if r.get('decision') == 'SHORTLISTED' or r.get('cagey_tier_decision') == 'SHORTLISTED']
+    return decisions.astype(object).where(decisions.notna(), None).to_dict('records')
+
+
+def nominated(record: Mapping) -> bool:
+    return record.get('decision') == 'SHORTLISTED' or record.get('cagey_tier_decision') == 'SHORTLISTED'
+
+
+def pool(decisions: pd.DataFrame) -> List[Dict[str, object]]:
+    """Every offer either list nominated (shortlisted): the live master's starting union, in decision order (the
+    step 1 pool)."""
+    return [r for r in _records(decisions) if nominated(r)]
+
+
+def fill_pool(decisions: pd.DataFrame, config: Mapping) -> List[Dict[str, object]]:
+    """Step 1's pool plus every other executable offer of the run's matches (the step 2-3 pool), in decision
+    order; each record carries `_nominated`."""
+    return [{**r, '_nominated': nominated(r)} for r in _records(decisions)
+            if nominated(r) or executable(r, config) is None]
 
 
 def executable(row: Mapping, config: Mapping) -> Optional[str]:
@@ -271,18 +378,33 @@ def pinnacle_reference(row: Mapping):
     return chance, (fair if row.get('reference_type') in ('a', 'b') and fair is not None and fair > 1 else None)
 
 
+def pinnacle_profit(row: Mapping, line_kind: Optional[str]) -> Optional[float]:
+    """Pinnacle's margin-free chance of profit on this bet (config chance_of_profit.pinnacle_stand_in): P(win) +
+    P(half win) of the uncorrected Pinnacle fit (uncorrected_p_*, the fit behind pinnacle_no_loss_probability); where
+    that settlement is unavailable, pinnacle_no_loss_probability on lines that can't push (half and quarter lines,
+    wins, double chance); None on a whole line without it."""
+    mass = settlement_mass([row.get('uncorrected_p_' + k) for k in KINDS])
+    if mass is not None:
+        return profit_chance(mass)
+    if line_kind in ('half', 'quarter'):
+        return _probability(row.get('pinnacle_no_loss_probability'))
+    return None
+
+
 def reconcile(decisions: pd.DataFrame, live_master: Optional[pd.DataFrame] = None,
               config: Optional[Mapping] = None) -> pd.DataFrame:
-    """The new master of one run: every nominated offer with both views, its gap check, group and decision.
+    """The new master of one run: every nominated offer, and each other match's fill candidate, with both views,
+    its gap check, group, tier and decision.
 
     Reads only the run's decision rows; `live_master` (the run's master_shortlist.csv frame) is used for the
     overlap columns only and never changes a group, a rank or a decision.
     """
+    from cagey_sharpen import offer_line_type
     from performance_tracking import fixture_key
     config = config or load_config()
     european = set(config['european']['leagues'])
     rows = []
-    for record in pool(decisions):
+    for record in fill_pool(decisions, config):
         price = _number(record.get('offered_decimal_odds'))
         cost = _number(record.get('per_stake_cost')) or 0.
         research, research_reason = research_view(record)
@@ -291,17 +413,22 @@ def reconcile(decisions: pd.DataFrame, live_master: Optional[pd.DataFrame] = Non
         if price is None or price <= 1:
             research = cagey = None
             research_reason = cagey_reason = 'no valid offered price'
+        kind = offer_line_type(record.get('market'), record.get('handicap_line'))
         row = {k: record.get(k) for k in IDENTITY_COLUMNS}
         row.update(in_value_shortlist=record.get('decision') == 'SHORTLISTED',
                    in_cagey_tier=record.get('cagey_tier_decision') == 'SHORTLISTED')
         row.update(classify(research, cagey, price or 0., cost, *pinnacle_reference(record),
                             european=record.get('league') in european, config=config,
-                            research_reason=research_reason, cagey_reason=cagey_reason))
-        row.update(new_master_executable=blocked is None, _match=fixture_key(record))
+                            research_reason=research_reason, cagey_reason=cagey_reason,
+                            pinnacle_profit=pinnacle_profit(record, kind), line_kind=kind))
+        row.update(new_master_executable=blocked is None, new_master_nominated=record['_nominated'],
+                   new_master_source=SOURCES[0] if record['_nominated'] else SOURCES[1], _match=fixture_key(record))
         if blocked is not None:
             row['new_master_reason'] = blocked
         rows.append(row)
-    select(rows, int(config['target_fixtures']))
+    select(rows, int(config['target_fixtures']), fill_min_no_loss=float(config['fill']['step_2_min_no_loss']))
+    # The file lists every nominated offer (as #172) and, from the rest of the fill pool, each match's candidate.
+    rows = [r for r in rows if r['new_master_nominated'] or r['new_master_step'] is not None]
     frame = pd.DataFrame(rows, columns=[*COLUMNS, '_match'])
     frame['new_master_version'] = config['version']
     frame = overlap(frame, live_master)
@@ -350,26 +477,37 @@ def summary(frame: pd.DataFrame, live_master: Optional[pd.DataFrame] = None, con
     from performance_tracking import fixture_key
     config = config or load_config()
     ranked = frame.loc[frame.new_master_decision.eq('SHORTLISTED')]
-    offers = frame.loc[~frame.new_master_decision.eq('NOT_EXECUTABLE')]
+    listed = frame.loc[~frame.new_master_decision.eq('NOT_EXECUTABLE')]
+    offers = listed.loc[listed.new_master_source.eq(SOURCES[0])]  # nominated, executable (as #172)
     keys = lambda f: {fixture_key(r) for r in f.astype(object).where(f.notna(), None).to_dict('records')}
     live = live_master if live_master is not None else pd.DataFrame()
     live_keys, ranked_keys = (keys(live) if len(live) else set()), keys(ranked) if len(ranked) else set()
     count = lambda f, column, names: {n: int(f[column].eq(n).sum()) for n in names}
     labels = lambda f: {text: int(f[column].eq(True).sum()) for column, text in LABELS}
     clean = lambda r, fields: {k: (None if pd.isna(r[k]) else r[k]) for k in fields}
-    picks = [clean(r, ('new_master_rank', 'kickoff_utc', 'league', 'home_team', 'away_team', 'market_to_bet',
-                       'offered_decimal_odds', 'cagey_no_loss_probability', 'ranking_no_loss_probability',
+    picks = [clean(r, ('new_master_rank', 'new_master_tier', 'kickoff_utc', 'league', 'home_team', 'away_team',
+                       'market_to_bet', 'offered_decimal_odds', 'cagey_no_loss_probability',
+                       'ranking_no_loss_probability', 'ranking_profit_probability', 'probability_source',
                        'research_no_loss_probability', 'gap_points', 'research_expected_return', 'market_price',
                        'new_master_labels', 'in_live_master', 'live_master_same_offer'))
              for r in ranked.head(top).to_dict('records')]
     flag = config['inspection_flag']
+    sharpening = config['cagey_sharpening']
     return {
         'version': config['version'], 'status': config['status'], 'generated_at_utc': generated_at_utc,
         'config_sha256': hashlib.sha256(json.dumps(config, sort_keys=True).encode()).hexdigest(),
         'target_fixtures': int(config['target_fixtures']), 'ranked_fixtures': int(len(ranked)),
         'shortfall': max(0, int(config['target_fixtures']) - int(len(ranked))),
-        'nominated_offers': int(len(frame)), 'not_executable_offers': int(len(frame) - len(offers)),
-        'offers': int(len(offers)),
+        'picks_by_tier': count(ranked, 'new_master_tier', TIERS),
+        'fill_candidates': {f'step_{n}': int(listed.new_master_step.eq(n).sum()) for n in (1, 2, 3)},
+        'probabilities': ('sharpened cagey probabilities' if sharpening['use_sharpened']
+                          else 'current cagey probabilities') + f" ({sharpening['version']}: {sharpening['status']})",
+        'nominated_offers': int(frame.new_master_source.eq(SOURCES[0]).sum()),
+        'not_executable_offers': int(len(frame) - len(listed)), 'offers': int(len(offers)),
+        'fill_pool_candidate_offers': int(listed.new_master_source.eq(SOURCES[1]).sum()),
+        'matches_with_a_pick_or_candidate': int(listed.loc[listed.new_master_step.notna(),
+                                                           ['league', 'home_team', 'away_team', 'kickoff_utc']]
+                                                .drop_duplicates().shape[0]),
         'matches': int(offers[['league', 'home_team', 'away_team', 'kickoff_utc']].drop_duplicates().shape[0])
         if len(offers) else 0,
         'offers_by_group': count(offers, 'new_master_group', GROUPS),
