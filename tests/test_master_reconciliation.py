@@ -328,7 +328,7 @@ class LiveShadowTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.predictions, cls.decisions, cls.summary = production_run()
-        cls.frame = mr.reconcile(cls.decisions)
+        cls.frame = mr.reconcile(cls.decisions, predictions=cls.predictions)
 
     def nominated(self):
         d = self.decisions
@@ -384,7 +384,7 @@ class LiveShadowTest(unittest.TestCase):
     def test_a_pessimistic_research_view_never_removes_a_cagey_pick(self):
         broken = self.decisions.copy()
         broken.loc[self.index(broken), [f'research_p_{k}' for k in mr.KINDS]] = [0.40, 0., 0., 0., 0.60]
-        frame = mr.reconcile(broken)
+        frame = mr.reconcile(broken, predictions=self.predictions)
         row = self.row(frame)
         self.assertEqual((row.gap_check, row.new_master_group, row.in_cagey_tier, row.inspection_flag),
                          ('research_more_pessimistic', 'included', True, False))  # cagey 0.764 < 0.85: no flag
@@ -397,7 +397,7 @@ class LiveShadowTest(unittest.TestCase):
             index = self.index(changed)
             changed.loc[index, [f'cagey_p_{k}' for k in mr.KINDS]] = [0.90, 0., 0., 0., 0.10]
             changed.loc[index, [f'research_p_{k}' for k in mr.KINDS]] = [research, 0., 0., 0., 1 - research]
-            return mr.reconcile(changed)
+            return mr.reconcile(changed, predictions=self.predictions)
         flagged, quiet = run(0.80), run(0.89)
         row = self.row(flagged)
         self.assertEqual((bool(row.inspection_flag), row.new_master_rank, row.new_master_decision),
@@ -420,7 +420,7 @@ class LiveShadowTest(unittest.TestCase):
     def test_missing_research_is_kept_with_no_research_check(self):
         broken = self.decisions.copy()
         broken.loc[self.index(broken), [f'research_p_{k}' for k in mr.KINDS]] = np.nan
-        frame = mr.reconcile(broken)
+        frame = mr.reconcile(broken, predictions=self.predictions)
         row = self.row(frame)
         self.assertEqual((row.gap_check, row.missing_view, row.new_master_group, row.new_master_labels),
                          ('no_research_check', 'research', 'included', 'no research check'))
@@ -429,7 +429,7 @@ class LiveShadowTest(unittest.TestCase):
     def test_missing_cagey_falls_back_to_pinnacle(self):
         unsynced = self.decisions.copy()
         unsynced.loc[self.index(unsynced), 'cagey_input_timing_status'] = 'UNAVAILABLE_OR_UNSYNCHRONIZED'
-        frame = mr.reconcile(unsynced)
+        frame = mr.reconcile(unsynced, predictions=self.predictions)
         row = self.row(frame)
         self.assertEqual((row.missing_view, row.market_basis, row.new_master_labels, row.new_master_group),
                          ('cagey', 'pinnacle', 'one view missing', 'included'))  # Pinnacle 0.763 >= 0.75
@@ -439,11 +439,12 @@ class LiveShadowTest(unittest.TestCase):
     def test_a_missing_espn_match_is_not_missing_evidence(self):
         flagged = self.decisions.copy()
         flagged['research_warnings'] = 'free-source fixture identity missing or ambiguous'
-        frame = mr.reconcile(flagged)
+        frame = mr.reconcile(flagged, predictions=self.predictions)
         self.assertFalse(frame.one_view_missing.any() or frame.no_research_check.any())
 
     def test_european_rows_are_flagged_and_never_both_agree(self):
-        europe = mr.reconcile(self.decisions.assign(league='UEFA Champions League'))
+        europe = mr.reconcile(self.decisions.assign(league='UEFA Champions League'),
+                              predictions=self.predictions.assign(league='UEFA Champions League'))
         self.assertTrue(europe.unvalidated_view.all())
         self.assertFalse(europe.both_agree.any())
         self.assertTrue(europe.new_master_labels.str.contains('unvalidated view').all())
@@ -454,9 +455,9 @@ class LiveShadowTest(unittest.TestCase):
         self.assertFalse(self.frame.unvalidated_view.any())
 
     def test_the_new_master_is_a_pure_function_of_the_run(self):
-        again = mr.reconcile(self.decisions.copy())
+        again = mr.reconcile(self.decisions.copy(), predictions=self.predictions)
         self.assertEqual(again.to_csv(index=False), self.frame.to_csv(index=False))
-        shuffled = mr.reconcile(self.decisions.sample(frac=1, random_state=3))
+        shuffled = mr.reconcile(self.decisions.sample(frac=1, random_state=3), predictions=self.predictions)
         ranked = lambda f: f.loc[f.new_master_rank.notna()].to_csv(index=False)
         self.assertEqual(ranked(shuffled), ranked(self.frame))
 
@@ -508,8 +509,8 @@ class LiveMasterUnchangedTest(unittest.TestCase):
     def test_overlap_reads_the_live_list_without_changing_the_new_master(self):
         out, _ = self.run_refresh(True)
         new = pd.read_csv(out / CONFIG['file'])
-        _, decisions, _ = production_run()
-        alone = mr.reconcile(decisions)
+        predictions, decisions, _ = production_run()
+        alone = mr.reconcile(decisions, predictions=predictions)
         drop = ['in_live_master', 'live_master_rank', 'live_master_same_offer']
         pd.testing.assert_frame_equal(new.drop(columns=drop),
                                       pd.read_csv(io.StringIO(alone.to_csv(index=False))).drop(columns=drop))

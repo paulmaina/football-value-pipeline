@@ -517,12 +517,14 @@ class LiveFillTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         from tests.test_master_reconciliation import production_run
-        _, decisions, _ = production_run()
-        copies = []
+        predictions, decisions, _ = production_run()
+        copies, forecasts = [], []
         for i in range(20):
             copy = decisions.copy()
             copy['home_team'] = copy['home_team'] + f' {i}'
             copy['away_team'] = copy['away_team'] + f' {i}'
+            forecasts.append(predictions.assign(home_team=predictions.home_team + f' {i}',
+                                                away_team=predictions.away_team + f' {i}'))
             if i >= 4:  # matches whose only nomination is the value list's Home win (no-loss 0.52): fills
                 home = copy.market_to_bet.eq('Home win')
                 copy['decision'] = np.where(home, 'SHORTLISTED', 'REJECTED')
@@ -531,8 +533,9 @@ class LiveFillTest(unittest.TestCase):
                 copy['decision'] = 'REJECTED'
             copies.append(copy)
         cls.decisions = pd.concat(copies, ignore_index=True)
+        cls.predictions = pd.concat(forecasts, ignore_index=True)
         cls.before = cls.decisions.to_csv(index=False)
-        cls.frame = mr.reconcile(cls.decisions)
+        cls.frame = mr.reconcile(cls.decisions, predictions=cls.predictions)
 
     def test_the_target_is_filled_one_pick_per_match(self):
         ranked = self.frame.loc[self.frame.new_master_decision.eq('SHORTLISTED')]
@@ -558,12 +561,14 @@ class LiveFillTest(unittest.TestCase):
         self.assertEqual((summary['nominated_fixtures'], summary['fixtures_with_market_view'],
                           summary['fixtures_without_market_view']), (18, 18, 0))
         self.assertEqual(summary['picks_by_tier'], {'safe': 4, 'fill': 11, 'risky fill': 0})
+        self.assertTrue(self.frame.timing_check.eq('ok').all())
+        self.assertEqual(summary['timing_check']['ineligible_offers'], 0)
         self.assertEqual(sum(summary['picks_by_tier'].values()), 15)
         self.assertIn('current cagey probabilities', summary['probabilities'])
 
     def test_a_short_list_is_recorded(self):
         keep = self.decisions.home_team.str.extract(r' (\d+)$')[0].astype(int) < 6
-        frame = mr.reconcile(self.decisions.loc[keep])
+        frame = mr.reconcile(self.decisions.loc[keep], predictions=self.predictions)
         summary = mr.summary(frame)
         self.assertEqual((summary['ranked_fixtures'], summary['shortfall'], summary['nominated_fixtures']), (6, 9, 6))
         self.assertEqual(summary['short_reason'], 'nominations cover fewer than 15 matches')
@@ -574,7 +579,7 @@ class LiveFillTest(unittest.TestCase):
         for column in [c for c in blind if c.startswith(('cagey_p_', 'uncorrected_p_'))] + [
                 'pinnacle_no_loss_probability']:
             blind.loc[gone, column] = np.nan
-        frame = mr.reconcile(blind)
+        frame = mr.reconcile(blind, predictions=self.predictions)
         summary = mr.summary(frame)
         ranked = frame.loc[frame.new_master_decision.eq('SHORTLISTED')]
         self.assertFalse(ranked.home_team.str.endswith(' 5').any())
@@ -587,7 +592,153 @@ class LiveFillTest(unittest.TestCase):
         changed = self.decisions.copy()
         changed[[f'research_p_{k}' for k in mr.KINDS]] = [0.2, 0., 0., 0., 0.8]
         ranks = lambda f: f[['home_team', 'market', 'new_master_rank', 'new_master_tier']].to_csv(index=False)
-        self.assertEqual(ranks(mr.reconcile(changed)), ranks(self.frame))
+        self.assertEqual(ranks(mr.reconcile(changed, predictions=self.predictions)), ranks(self.frame))
+
+
+
+class TimingTest(unittest.TestCase):
+    """Quote timing (config `timing`): the live master's checks on the offer and on the reference that supplies the
+    ranking probabilities, before any tier is assigned (review of 4b49178)."""
+
+    @classmethod
+    def setUpClass(cls):
+        from tests.test_master_reconciliation import production_run
+        cls.predictions, cls.decisions, _ = production_run()
+        cls.clock = pd.Timestamp(cls.decisions.evaluated_at_utc.iloc[0])
+
+    def stamp(self, minutes):
+        return (self.clock - pd.Timedelta(minutes=minutes)).strftime('%Y-%m-%dT%H:%M:%SZ')
+
+    def pick(self, frame):
+        ranked = frame.loc[frame.new_master_decision.eq('SHORTLISTED')]
+        return None if ranked.empty else ranked.iloc[0]
+
+    def test_the_live_masters_function_and_constants(self):
+        import master_selection as ms
+        self.assertEqual(ms.MAX_AGE_MINUTES, 15)
+        self.assertEqual(mr.SYNC_SECONDS, 600)
+        self.assertIn('15 minutes', CONFIG['timing']['rule'])
+        self.assertIn('after evaluation', CONFIG['timing']['rule'])
+        clock = self.clock.floor('s')  # whole seconds, so the 15-minute boundary is exact
+        at = lambda minutes: (clock - pd.Timedelta(minutes=minutes)).strftime('%Y-%m-%dT%H:%M:%SZ')
+        row = {'evaluated_at_utc': clock.isoformat()}
+        for minutes, fresh in ((0, True), (15, True), (15 + 1 / 60, False), (-1 / 60, False)):  # -: after evaluation
+            out = mr.timing({**row, 'offered_last_update_utc': at(minutes)}, clock, None, None, {})
+            self.assertEqual(out is None, fresh, minutes)
+            self.assertEqual(out is None, ms._fresh(at(minutes), clock))
+        self.assertEqual(mr.timing({**row, 'offered_last_update_utc': at(1)},
+                                   clock + pd.Timedelta(seconds=1), None, None, {}), mr.TIMING_REASONS[0])
+
+    def test_an_offer_quote_older_than_the_limit_is_excluded(self):
+        before = mr.reconcile(self.decisions, predictions=self.predictions)
+        picked = self.pick(before)
+        self.assertEqual((picked.market_to_bet, picked.new_master_tier), ('Asian Handicap Home +0.25', 'safe'))
+        old = self.decisions.copy()
+        target = old.market_to_bet.eq('Asian Handicap Home +0.25')
+        old.loc[target, 'offered_last_update_utc'] = self.stamp(16)
+        frame = mr.reconcile(old, predictions=self.predictions)
+        row = frame.loc[frame.market_to_bet.eq('Asian Handicap Home +0.25')].iloc[0]
+        self.assertEqual((row.new_master_decision, row.timing_check, row.new_master_reason),
+                         ('NOT_EXECUTABLE', mr.TIMING_REASONS[1], 'timing: ' + mr.TIMING_REASONS[1]))
+        self.assertTrue(pd.isna(row.new_master_tier))
+        replacement = self.pick(frame)  # the match's next eligible nominated offer takes its place
+        self.assertNotEqual(replacement.market_to_bet, 'Asian Handicap Home +0.25')
+        self.assertEqual(replacement.timing_check, 'ok')
+        timing = mr.summary(frame)['timing_check']
+        self.assertEqual((timing['ineligible_offers'], timing['by_reason'][mr.TIMING_REASONS[1]]), (1, 1))
+
+    def dc_fill(self, h2h_after_evaluation):
+        """The match nominated only through Double Chance 1X, with no cagey score: a Pinnacle stand-in fill
+        (margin-free no-loss 0.70); the forecast's Pinnacle 1X2 quote optionally stamped after evaluation."""
+        decisions = self.decisions.copy()
+        dc = decisions.market_to_bet.eq('Double Chance 1X')
+        decisions['decision'] = np.where(dc, 'SHORTLISTED', 'REJECTED')
+        decisions['cagey_tier_decision'] = 'NOT_SELECTED'
+        for k in mr.KINDS:
+            decisions.loc[dc, 'cagey_p_' + k] = np.nan
+        decisions.loc[dc, ['pinnacle_no_loss_probability', 'uncorrected_p_win', 'uncorrected_p_loss']] = [.70, .70, .30]
+        decisions.loc[dc, ['uncorrected_p_half_win', 'uncorrected_p_push', 'uncorrected_p_half_loss']] = 0.
+        predictions = self.predictions.copy()
+        if h2h_after_evaluation:
+            quotes = json.loads(predictions.at[0, 'price_edge_quotes'])
+            for quote in quotes:
+                if quote.get('bookmaker') == 'Pinnacle' and quote.get('market') == 'h2h':
+                    quote['last_update_utc'] = self.stamp(-1)
+            predictions.at[0, 'price_edge_quotes'] = json.dumps(quotes)
+        return mr.reconcile(decisions, predictions=predictions)
+
+    def test_a_pinnacle_reference_stamped_after_evaluation_is_excluded(self):
+        clean = self.pick(self.dc_fill(False))
+        self.assertEqual((clean.market_to_bet, clean.probability_source, clean.new_master_tier, clean.timing_check),
+                         ('Double Chance 1X', 'pinnacle stand-in', 'fill', 'ok'))
+        frame = self.dc_fill(True)
+        row = frame.loc[frame.market_to_bet.eq('Double Chance 1X')].iloc[0]
+        self.assertEqual((row.new_master_decision, row.timing_check), ('NOT_EXECUTABLE', mr.TIMING_REASONS[3]))
+        self.assertIsNone(self.pick(frame))  # nothing else nominated for the match: no pick
+        summary = mr.summary(frame)
+        self.assertEqual(summary['timing_check']['by_reason'][mr.TIMING_REASONS[3]], 1)
+        self.assertEqual(summary['timing_check']['fixtures_losing_every_eligible_offer'], 1)
+
+    def test_a_cagey_reference_input_after_evaluation_is_excluded_not_replaced(self):
+        predictions = self.predictions.copy()
+        quotes = json.loads(predictions.at[0, 'price_edge_quotes'])
+        for quote in quotes:
+            if quote.get('bookmaker') == 'Pinnacle' and quote.get('market') == 'totals':
+                quote['last_update_utc'] = self.stamp(-1)  # O/U 2.5: an input of every cagey distribution
+        predictions.at[0, 'price_edge_quotes'] = json.dumps(quotes)
+        frame = mr.reconcile(self.decisions, predictions=predictions)
+        cagey = frame.probability_source.eq('cagey')
+        self.assertTrue(cagey.any())
+        self.assertTrue(frame.loc[cagey, 'timing_check'].eq(mr.TIMING_REASONS[3]).all())
+        self.assertTrue(frame.loc[cagey, 'new_master_decision'].eq('NOT_EXECUTABLE').all())
+        self.assertIsNone(self.pick(frame))  # never re-ranked on the Pinnacle stand-in instead
+
+    def test_without_the_runs_forecast_no_reference_can_be_timed(self):
+        frame = mr.reconcile(self.decisions)
+        self.assertTrue(frame.timing_check.eq(mr.TIMING_REASONS[2]).all())
+        self.assertIsNone(self.pick(frame))
+
+    def test_the_live_files_are_untouched_by_the_check(self):
+        import tempfile
+        import master_shortlist
+        from tests.test_master_reconciliation import production_run
+        from unittest import mock
+        for late in (False, True):
+            files = []
+            for with_shadow in (True, False):
+                predictions, decisions, summary = production_run()
+                if late:  # every offer 16 minutes old: the shadow excludes them all
+                    decisions['offered_last_update_utc'] = self.stamp(16)
+                with tempfile.TemporaryDirectory() as out:
+                    if with_shadow:
+                        master_shortlist.refresh(decisions, out, summary, predictions)
+                        shadow = pd.read_csv(Path(out) / CONFIG['file'])
+                        self.assertEqual(bool(shadow.timing_check.ne('ok').all()), late)
+                    else:
+                        with mock.patch.object(master_shortlist, 'shadow'):
+                            master_shortlist.refresh(decisions, out, summary, predictions)
+                    files.append(((Path(out) / 'master_shortlist.csv').read_bytes(),
+                                  (Path(out) / 'master_shortlist_audit.csv').read_bytes(),
+                                  decisions.to_csv(index=False), json.dumps(summary, sort_keys=True, default=str)))
+            self.assertEqual(files[0], files[1], late)
+
+
+class WeeklyListSizeTest(unittest.TestCase):
+    def test_weeks_without_nominations_count(self):
+        import evaluation_harness as eh
+        evaluated = pd.DataFrame({'phase': 'development', 'week': ['2024-W01', '2024-W01', '2024-W02'],
+                                  'fixture_key': ['a', 'b', 'c']})
+        nominated = pd.DataFrame({'week': ['2024-W01'], 'fixture_key': ['a'], 'ranking_no_loss_probability': [.8],
+                                  'ranking_profit_probability': [.8]})
+        out = eh.master_list_size(nominated, nominated, 15, evaluated)
+        self.assertEqual(out['weeks'], 2)
+        self.assertEqual(out['picks_per_week_mean'], 0.5)  # two weeks, one pick in total
+        self.assertEqual(out['picks_per_week'], {'min': 0, 'median': 0.5, 'max': 1})
+        self.assertEqual((out['weeks_without_nomination'], out['weeks_nominations_cover_fewer_than_target'],
+                          out['weeks_list_short']), (1, 2, 2))
+        self.assertEqual([w['week'] for w in out['short_weeks']], ['2024-W01', '2024-W02'])
+        self.assertEqual(out['short_weeks'][1], {'week': '2024-W02', 'evaluated_fixtures': 1, 'nominated_fixtures': 0,
+                                                 'with_market_view': 0, 'picks': 0})
 
 
 if __name__ == '__main__':
