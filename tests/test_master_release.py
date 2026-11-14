@@ -338,6 +338,159 @@ class FailureTest(unittest.TestCase):
         self.assertIn('**COMPARISON BASELINE MISSING** in this run (RuntimeError: boom)', text)
 
 
+def flag_config(min_cagey=0.70, max_gap=-8.0):
+    """The rule's config with the inspection flag's thresholds moved, so the test runs have flagged picks (the
+    committed thresholds flag none of them). The flag never changes a pick, so the lists stay the same."""
+    config = json.loads(json.dumps(mr.load_config()))
+    config['inspection_flag'].update(min_cagey_no_loss=min_cagey, max_gap_points=max_gap)
+    return config
+
+
+def live_with(inputs, config):
+    predictions, decisions, summary = inputs()
+    with mock.patch.object(mr, 'load_config', return_value=config):
+        return ms.new_live(decisions, None, summary['generated_at_utc'], predictions)
+
+
+class InspectionTest(unittest.TestCase):
+    """Each "research strongly disagrees" pick says what the disagreement is about, in its row and in the "For
+    inspection" section; nothing else changes."""
+
+    def test_no_pick_rank_tier_or_decision_changes(self):
+        import master_inspection
+        config = flag_config()
+        flagged, _ = live_with(snapshot_inputs, config)
+        self.assertGreater(int(flagged.inspection_summary.notna().sum()), 0)
+        blank = lambda frame, *args, **kwargs: (frame.assign(**dict.fromkeys(master_inspection.COLUMNS)), {})
+        with mock.patch.object(master_inspection, 'annotate', side_effect=blank):
+            plain, _ = live_with(snapshot_inputs, config)
+        rule = [c for c in flagged.columns if c not in master_inspection.COLUMNS]
+        pd.testing.assert_frame_equal(flagged[rule], plain[rule])
+        # and the committed thresholds give the same picks, ranks, tiers and decisions
+        committed, _ = live_with(snapshot_inputs, mr.load_config())
+        keys = ['home_team', 'market', 'new_master_rank', 'new_master_tier', 'new_master_decision']
+        pd.testing.assert_frame_equal(flagged[keys], committed[keys])
+
+    def test_details_on_flagged_picks_only(self):
+        frame, info = live_with(snapshot_inputs, flag_config())
+        has = frame.inspection_summary.notna()
+        flagged = frame.new_master_decision.eq('SHORTLISTED') & frame.inspection_flag.astype(object).eq(True)
+        self.assertEqual(list(has), list(flagged))
+        picks = info['for_inspection']['picks']
+        self.assertEqual([p['new_master_rank'] for p in picks], list(frame.loc[flagged, 'new_master_rank']))
+        self.assertTrue(all(p['detail'] for p in picks))
+
+    def test_what_a_domestic_flagged_pick_shows(self):
+        import price_edge_shortlist as v27
+        frame, info = live_with(frozen_inputs, flag_config(min_cagey=0.0, max_gap=100.0))
+        row = frame.loc[frame.inspection_summary.notna()].iloc[0]
+        detail = info['for_inspection']['picks'][0]['detail']
+        research, market, driver = detail['research'], detail['market'], detail['driver']
+        # both views: expected goals per team, home/draw/away, likely scorelines
+        for view in (research, market):
+            self.assertEqual(set(view['expected_goals']), {'home', 'away'})
+            self.assertAlmostEqual(sum(view['home_draw_away'].values()), 1.0, places=9)
+            self.assertEqual(len(view['likely_scores']), 3)
+            chances = [s['p'] for s in view['likely_scores']]
+            self.assertEqual(chances, sorted(chances, reverse=True))
+        # the market view is Pinnacle's fit at the run clock; the research view is the frozen research rates
+        predictions, _, summary = frozen_inputs()
+        forecast = predictions.astype(object).where(predictions.notna(), None).to_dict('records')[0]
+        fit, _ = v27.market_fit(v27.pinnacle_quotes(forecast), pd.Timestamp(summary['generated_at_utc']), cutoff=True)
+        self.assertAlmostEqual(market['expected_goals']['home'], fit.lam_home)
+        rates = json.loads(forecast['team_research_json'])['goal_rates']
+        self.assertEqual([research['expected_goals']['home'], research['expected_goals']['away']], rates)
+        # no-loss chances and the gap are the row's own
+        self.assertEqual(detail['no_loss'], {'research': row.research_no_loss_probability,
+                                             'cagey': row.cagey_no_loss_probability, 'gap_points': row.gap_points})
+        # the main driver: the team whose expected goals differ most, with its form and history
+        diffs = {s: research['expected_goals'][s] - market['expected_goals'][s] for s in ('home', 'away')}
+        self.assertEqual(driver['side'], max(diffs, key=lambda s: abs(diffs[s])))
+        self.assertEqual((driver['wins'], driver['draws'], driver['losses']),
+                         tuple(driver['results'].count(x) for x in 'WDL'))
+        self.assertEqual(driver['form_matches'], len(driver['results']))
+        self.assertIsInstance(driver['xg_used'], bool)
+        self.assertIn(f"W{driver['wins']}-D{driver['draws']}-L{driver['losses']}", row.inspection_driver)
+        self.assertIn('xG used:', row.inspection_driver)
+        self.assertIn('model history:', row.inspection_driver)
+        # a one-sentence summary and the historical record
+        self.assertTrue(row.inspection_summary.startswith('The research view expects'))
+        self.assertEqual(row.inspection_summary.count('. '), 0)
+        self.assertIn('avoided defeat 90% of the time; cagey predicted 78%', row.inspection_history)
+        self.assertEqual(row.inspection_warnings, 'none')
+
+    def test_warnings_for_a_european_pick_with_thin_history(self):
+        frame, _ = live_with(snapshot_inputs, flag_config())
+        row = frame.loc[frame.home_team.eq('PFC Levski Sofia')].iloc[0]
+        self.assertIn('European match: both views are unvalidated for European fixtures', row.inspection_warnings)
+        self.assertIn("thin history: PFC Levski Sofia has 3 matches in the model's training data (few matches in "
+                      'this competition)', row.inspection_warnings)
+        self.assertIn('thin form: PFC Levski Sofia has 0 recent matches (of 10)', row.inspection_warnings)
+
+    def test_form_from_another_competition_is_named(self):
+        import master_inspection
+        context = {'form': {'home': {'all': {'matches': 10}}, 'away': {'all': {'matches': 10}}}}
+        forecast = {'home_team': 'Home FC', 'away_team': 'Away FC', 'home_training_matches': 300,
+                    'away_training_matches': 300}
+        with mock.patch.object(master_inspection, 'form_competitions',
+                               side_effect=lambda f, c, side: ['eng.1'] * 7 + ['uefa.europa', 'eng.league_cup', None]
+                               if side == 'home' else ['eng.1'] * 10):
+            out = master_inspection.warnings_for(forecast, context, 'Premier League', False)
+        self.assertEqual(out, ["form from another competition: 2 of Home FC's last 10 matches "
+                               "(eng.league_cup, uefa.europa)"])
+
+    def test_a_detail_that_cannot_be_built_says_so_and_changes_nothing(self):
+        import master_inspection
+        config = flag_config()
+        with mock.patch.object(master_inspection, 'market_view', side_effect=RuntimeError('no fit')):
+            frame, info = live_with(snapshot_inputs, config)
+        committed, _ = live_with(snapshot_inputs, config)
+        rows = frame.loc[frame.inspection_summary.notna()]
+        self.assertTrue(rows.inspection_summary.eq('details unavailable: RuntimeError: no fit').all())
+        self.assertTrue(rows.inspection_no_loss.notna().all())
+        keys = ['home_team', 'market', 'new_master_rank', 'new_master_decision']
+        pd.testing.assert_frame_equal(frame[keys], committed[keys])
+
+    def test_the_readable_report_has_a_for_inspection_section(self):
+        from format_football_output import MASTER_READABLE, master_section
+        predictions, decisions, summary = snapshot_inputs()
+        out = Path(tempfile.mkdtemp())
+        with mock.patch.object(mr, 'load_config', return_value=flag_config()), warnings.catch_warnings():
+            warnings.simplefilter('ignore')
+            ms.refresh(decisions, out, summary, predictions)
+        readable_dir = Path(tempfile.mkdtemp())
+        text = '\n'.join(master_section(summary, out, readable_dir))
+        readable = pd.read_csv(readable_dir / MASTER_READABLE)
+        self.assertIn('### For inspection (research strongly disagrees)', text)
+        self.assertIn('**5. PFC Levski Sofia v Jagiellonia', text)
+        self.assertIn('- Research take: The research view expects more goals from PFC Levski Sofia', text)
+        self.assertIn('- Historical record: When research disagreed this strongly', text)
+        self.assertEqual(int(readable['Inspection: research take'].notna().sum()), 4)
+        # the committed thresholds: the section says no pick carries the flag
+        _, plain = refresh(snapshot_inputs())
+        self.assertIn('No pick carries the flag this run.',
+                      '\n'.join(master_section(plain, refresh(snapshot_inputs())[0], Path(tempfile.mkdtemp()))))
+
+    def test_the_replay_binds_the_inspection_columns(self):
+        frame, _ = live_with(snapshot_inputs, flag_config())
+        expected = frame.copy()
+        self.assertTrue(ms.matches_new(mg.read_csv(frame.to_csv(index=False).encode()), expected))
+        index = frame.index[frame.inspection_summary.notna()][0]
+        frame.at[index, 'inspection_driver'] = 'tampered'
+        self.assertFalse(ms.matches_new(mg.read_csv(frame.to_csv(index=False).encode()), expected))
+
+    def test_the_historical_record_is_the_committed_evidence(self):
+        import master_inspection
+        import importlib.util
+        spec = importlib.util.spec_from_file_location('inspection_history', REPO / 'scripts' / 'inspection_history.py')
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        self.assertEqual(json.loads(json.dumps(module.build())), master_inspection.history_record())
+        record = master_inspection.history_record()
+        self.assertEqual(record['flag']['bets'], 0)
+        self.assertEqual(record['phases'], ['development', 'validation', 'retrospective'])
+
+
 KICK = pd.Timestamp('2026-11-21T15:00:00Z')
 
 

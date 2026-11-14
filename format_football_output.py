@@ -1775,6 +1775,8 @@ def new_master_section(info: dict, path: Path, summary: dict, output_dir: Path) 
         "Offered quote (UTC)": picks.offered_last_update_utc.map(text),
         "On value shortlist": picks.in_value_shortlist.map(yes), "On cagey tier": picks.in_cagey_tier.map(yes),
         "In old master (shadow)": picks.in_old_master.map(yes),
+        # "research strongly disagrees" picks only (master_inspection): what the disagreement is about
+        **{label: (picks[column].map(text) if column in picks else '') for column, label in INSPECTION_LABELS},
     })
     readable.to_csv(output_dir / MASTER_READABLE, index=False, encoding="utf-8-sig")
     tiers = info.get('picks_by_tier') or {}
@@ -1795,7 +1797,35 @@ def new_master_section(info: dict, path: Path, summary: dict, output_dir: Path) 
             f"{tiers.get('fill', 0)}, risky fill {tiers.get('risky fill', 0)}).{short} "
             f"Old master (shadow): {old.get('n_bets', 'no')} picks.", "",
             markdown_table(list(readable.columns), readable.astype(str).values.tolist())
-            if not readable.empty else "No nominated offer passed the master's execution and timing checks this run."]
+            if not readable.empty else "No nominated offer passed the master's execution and timing checks this run.",
+            *inspection_lines(picks, info)]
+
+
+INSPECTION_LABELS = (('inspection_summary', 'Inspection: research take'),
+                     ('inspection_expected_goals', 'Inspection: expected goals'),
+                     ('inspection_home_draw_away', 'Inspection: home / draw / away'),
+                     ('inspection_likely_scores', 'Inspection: likely scores'),
+                     ('inspection_no_loss', 'Inspection: no-loss chances'),
+                     ('inspection_driver', 'Inspection: main driver'),
+                     ('inspection_warnings', 'Inspection: warnings'),
+                     ('inspection_history', 'Inspection: historical record'))
+
+
+def inspection_lines(picks: pd.DataFrame, info: dict) -> list:
+    """The "For inspection" section: each pick the research view strongly disputes, with what the dispute is about
+    (the row's inspection columns). The flag never removes or reorders a bet."""
+    flagged = picks.loc[picks.inspection_flag.astype(str).eq('True')] if 'inspection_flag' in picks else picks.iloc[:0]
+    rule = (info.get('for_inspection') or {}).get('rule', '')
+    lines = ["", "### For inspection (research strongly disagrees)", "", rule[:1].upper() + rule[1:] + '.' if rule
+             else '']
+    if flagged.empty:
+        return [*lines, "", "No pick carries the flag this run."]
+    for _, row in flagged.iterrows():
+        lines += ["", f"**{row.new_master_rank:.0f}. {row.home_team} v {row.away_team}, {row.market_to_bet} at "
+                      f"{float(row.offered_decimal_odds):.2f}**", ""]
+        lines += [f"- {label.split(': ', 1)[1].capitalize()}: {row[column]}" for column, label in INSPECTION_LABELS
+                  if column in row and not pd.isna(row[column])]
+    return lines
 
 
 def process_conservative_shortlist(
