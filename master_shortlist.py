@@ -111,9 +111,11 @@ SUMMARY_RENAMES = {'overlap_with_live_master': 'overlap_with_old_master', 'live_
 
 
 def live_columns() -> List[str]:
-    """The live (released) new master file's columns: the rule's, with the overlap columns renamed."""
+    """The live (released) new master file's columns: the rule's, with the overlap columns renamed, then the
+    inspection details of flagged picks (master_inspection.COLUMNS; empty on every other row)."""
     import master_reconciliation as mr
-    return [LIVE_RENAMES.get(c, c) for c in mr.COLUMNS]
+    import master_inspection
+    return [LIVE_RENAMES.get(c, c) for c in mr.COLUMNS] + list(master_inspection.COLUMNS)
 
 
 def _renamed(value):
@@ -450,12 +452,20 @@ def new_live(decisions: pd.DataFrame, old_master: Optional[pd.DataFrame], genera
              predictions: Optional[pd.DataFrame] = None):
     """The live master under the release: (frame, summary). Exactly the new master's shadow output (the rule's
     reconcile and summary on the same inputs) with VERSION_NEW_LIVE in place of the rule version and the live status
-    and note; the overlap columns compare with the old master and are named after it (LIVE_RENAMES)."""
+    and note; the overlap columns compare with the old master and are named after it (LIVE_RENAMES). Each pick the
+    research view strongly disputes gets its inspection details (master_inspection: reporting only) in its row and in
+    the summary's "For inspection" section; no pick, rank or decision depends on them."""
     import master_reconciliation as mr
+    import master_inspection
     config = mr.load_config()
     frame = mr.reconcile(decisions, old_master, config, predictions, generated_at_utc, version=VERSION_NEW_LIVE)
     frame = mr.stable_order(frame)  # platform-independent row order (ties in theory no longer follow float noise)
     info = _renamed(mr.summary(frame, old_master, config, generated_at_utc))
+    clock = mr.run_clock(mr._records(decisions), generated_at_utc)
+    frame, details = master_inspection.annotate(frame, predictions, clock, config)
+    by_rank = {frame.at[i, 'new_master_rank']: d for i, d in details.items()}
+    for pick in info['for_inspection']['picks']:
+        pick['detail'] = by_rank.get(pick['new_master_rank'])
     info.update(version=VERSION_NEW_LIVE, status=LIVE_STATUS, note=LIVE_NOTE)
     return frame.rename(columns=LIVE_RENAMES), json.loads(json.dumps(info, default=str))
 
