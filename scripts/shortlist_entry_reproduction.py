@@ -38,6 +38,10 @@ def runs(start='2026-10-27', end='2026-11-09'):
     return sorted(out)
 
 
+def predictions_of(directory):
+    return pd.read_csv(directory / 'predictions.csv', low_memory=False)
+
+
 def rebuild(directory, generated):
     import narrow_margin as nm
     import price_edge_cagey_shortlist as v28
@@ -105,13 +109,18 @@ def renominate(decisions, value_rules, cagey_rules):
     return out
 
 
-def master_coverage(decisions):
+def master_coverage(decisions, predictions=None, generated_at_utc=None):
     """Nominations run through the new master's eligibility and selection (master_reconciliation.reconcile and
-    summary: Pinnacle, native markets, the master's odds window, its market-view and timing checks, the fill
-    rule), for today's nominations and each proposed change, under today's master window and a moved one."""
+    summary: Pinnacle, native markets, the master's odds window, its market-view and quote-timing checks, the fill
+    rule), for today's nominations and each proposed change, under today's master window and a moved one. The
+    run's forecasts and generation clock are passed where the master times its references (as the live shadow
+    does in master_shortlist.refresh)."""
     import copy
+    import inspect
     import master_reconciliation as mr
     base = mr.load_config()
+    accepts = inspect.signature(mr.reconcile).parameters
+    timing = {k: v for k, v in (('predictions', predictions), ('generated_at_utc', generated_at_utc)) if k in accepts}
     out = {}
     for label, (value_rules, cagey_rules) in proposals().items():
         nominations = renominate(decisions, value_rules, cagey_rules)
@@ -119,14 +128,17 @@ def master_coverage(decisions):
             config = copy.deepcopy(base)
             if limits is not None:
                 config['execution']['min_odds_exclusive'], config['execution']['max_odds_inclusive'] = limits
-            frame = mr.reconcile(nominations, config=config)
+            frame = mr.reconcile(nominations, config=config, **timing)
             summary = mr.summary(frame, config=config)
             out[f'{label}|{window}'] = {
                 'nominated_fixtures': summary['nominated_fixtures'],
                 'eligible_fixtures': summary['fixtures_with_market_view'],
                 'nominated_executable_fixtures': summary['nominated_executable_fixtures'],
                 'ranked_fixtures': summary['ranked_fixtures'],
-                'picks_by_tier': summary['picks_by_tier']}
+                'picks_by_tier': summary['picks_by_tier'],
+                'fixtures_losing_every_offer_to_timing': (summary.get('timing_check') or {}).get(
+                    'fixtures_losing_every_eligible_offer'),
+                'master_times_quotes': 'predictions' in timing}
     return out
 
 
@@ -148,7 +160,8 @@ def main(argv=None):
             totals[name].update(counter)
         report['runs'].append({'snapshot': directory.name, 'generated_at_utc': generated,
                                'decision_rows': int(len(decisions)), 'coverage': coverage(decisions),
-                               'master': master_coverage(decisions), **result})
+                               'master': master_coverage(decisions, predictions_of(directory), generated),
+                               **result})
         print(directory.name, generated, {k: (v['live'], v['harness'], v['same']) for k, v in result.items()})
     report['all_identical'] = all(r[k]['same'] for r in report['runs'] for k in ('value', 'cagey'))
     report['picks'] = {k: {'live': sum(r[k]['live'] for r in report['runs']),
@@ -165,7 +178,9 @@ def main(argv=None):
         name: {'nominated_fixture_runs': sum(r['master'][name]['nominated_fixtures'] for r in report['runs']),
                'eligible_fixture_runs': sum(r['master'][name]['eligible_fixtures'] for r in report['runs']),
                'ranked_fixture_runs': sum(r['master'][name]['ranked_fixtures'] for r in report['runs']),
-               'runs_reaching_15': sum(r['master'][name]['ranked_fixtures'] >= 15 for r in report['runs'])}
+               'runs_reaching_15': sum(r['master'][name]['ranked_fixtures'] >= 15 for r in report['runs']),
+               'fixture_runs_losing_every_offer_to_timing': sum(
+                   r['master'][name]['fixtures_losing_every_offer_to_timing'] or 0 for r in report['runs'])}
         for name in scenarios}
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / 'reproduction.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
