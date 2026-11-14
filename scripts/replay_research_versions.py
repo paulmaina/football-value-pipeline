@@ -64,7 +64,7 @@ def replay(root: Path):
                 cutoff, evidence = tr.utc(meta['generated_at_utc']), {'errors': ['research not collected for this forecast']}
                 frozen_version = tr.LEGACY_VERSION
             before = tr.prepare(row, cutoff, copy.deepcopy(evidence), version=frozen_version)
-            after = tr.prepare(row, cutoff, copy.deepcopy(evidence))
+            after = tr.prepare(row, cutoff, copy.deepcopy(evidence), version=tr.V4_VERSION)
             if research and hda(research):
                 # "before" must be the forecast as it was frozen, or the comparison means nothing.
                 frozen, again = research['margin_distribution'], before.get('margin_distribution') or {}
@@ -96,7 +96,7 @@ def replay(root: Path):
                 'snapshot_generated_utc': meta.get('generated_at_utc'), 'league': row.get('league'),
                 'home_team': row.get('home_team'), 'away_team': row.get('away_team'),
                 'kickoff_utc': str(row.get('kickoff_utc')), 'research_observed_utc': cutoff.isoformat(),
-                'frozen_version': frozen_version, 'current_version': tr.VERSION,
+                'frozen_version': frozen_version, 'current_version': tr.V4_VERSION,
                 'repeated_rows_home': removed['home'], 'repeated_rows_away': removed['away'],
                 'goal_rate_home_before': before['goal_rates'][0], 'goal_rate_home_after': after['goal_rates'][0],
                 'goal_rate_away_before': before['goal_rates'][1], 'goal_rate_away_after': after['goal_rates'][1]}
@@ -168,7 +168,7 @@ def main(argv=None):
         warnings.simplefilter('ignore')
         counts, frame, fixtures, worst = replay(args.root)
     import team_research as tr
-    summary = {'current_version': tr.VERSION, 'frozen_probabilities_max_abs_diff': worst,
+    summary = {'current_version': tr.V4_VERSION, 'frozen_probabilities_max_abs_diff': worst,
                **summarize(counts, frame, fixtures)}
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / 'summary.json').write_text(json.dumps(summary, indent=2, sort_keys=True) + '\n', encoding='utf-8')

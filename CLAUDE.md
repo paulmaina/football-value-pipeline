@@ -27,7 +27,8 @@ python performance_tracking.py review --api-key-source environment && python wor
 ## Map
 
 - `football_value_pipeline_v2_standalone.py`: forecasting pipeline (Dixon-Coles, market blend, published grid).
-- `team_research.py`, `profit_shortlist.py`: the independent research model and the value shortlist.
+- `team_research.py`, `profit_shortlist.py`: the independent research model and the value shortlist. Research v5 (14 Nov 2026) prices domestic leagues with C6 (`research_low_score_sharpen.py`, fits in `research_c6_fits.json`, rebuilt by `scripts/build_research_c6_fits.py`) and keeps v4 in shadow; UCL/UEL stay v4.
+- `research_monitoring.py`: v5's rollback trigger and holdout-league home-favourite check in the weekly report.
 - `price_edge_cagey_shortlist.py`, `narrow_margin.py`, `cagey_market_basis.py`: the cagey tier (market view).
 - `master_shortlist.py`, `master_selection*.py`: the master shortlist.
 - `performance_tracking.py`, `workflow_checks.py`: grading, reports and their validation.
