@@ -423,6 +423,7 @@ def new_live(decisions: pd.DataFrame, old_master: Optional[pd.DataFrame], genera
     import master_reconciliation as mr
     config = mr.load_config()
     frame = mr.reconcile(decisions, old_master, config, predictions, generated_at_utc, version=VERSION_NEW_LIVE)
+    frame = mr.stable_order(frame)  # platform-independent row order (ties in theory no longer follow float noise)
     info = mr.summary(frame, old_master, config, generated_at_utc)
     info.update(version=VERSION_NEW_LIVE, status=LIVE_STATUS, note=LIVE_NOTE)
     return frame, json.loads(json.dumps(info, default=str))

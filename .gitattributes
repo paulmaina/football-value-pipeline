@@ -16,3 +16,5 @@ football_output_v2/performance/result_sources/** -text
 # European backfill and domestic-form backfill: manifest.json binds each raw file by its exact bytes (SHA-256).
 .football_cache/europa/backfill/** -text
 .football_cache/domestic_backfill/** -text
+# Golden copies of main's master outputs (tests/test_master_release.py): LF on every platform.
+tests/fixtures/master_release_pre_release/** text eol=lf
