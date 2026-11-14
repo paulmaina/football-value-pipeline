@@ -38,6 +38,7 @@ LINE_KEYS = ('line', 'point', 'handicap')
 RESEARCH_OUTPUTS = ('team_research_json', 'research_p_home', 'research_p_draw', 'research_p_away',
                     'research_p_over_1_5', 'research_probability_basis')
 PROBABILITIES = ('research_p_home', 'research_p_draw', 'research_p_away', 'research_p_over_1_5')
+SHADOW = tuple(tr.SHADOW_PREFIX + k for k in ('home', 'draw', 'away', 'over_1_5'))
 
 
 def is_odds_field(key: str) -> bool:
@@ -95,8 +96,10 @@ def replay(row, evidence, cutoff, version=tr.VERSION):
 
 def research_view(row):
     context = json.loads(row['team_research_json'])
-    return ({k: row[k] for k in PROBABILITIES},
-            {k: context[k] for k in ('goal_rates', 'base_rates', 'margin_distribution', 'p_over_1_5', 'form')})
+    # v5 forecasts also carry the C6 fit and v4's shadow probabilities; both must ignore odds too.
+    return ({k: row.get(k) for k in (*PROBABILITIES, *SHADOW)},
+            {k: context.get(k) for k in ('version', 'goal_rates', 'base_rates', 'margin_distribution', 'p_over_1_5',
+                                         'form', 'c6_fit', 'shadow_v4')})
 
 
 class InputSchemaTest(unittest.TestCase):
@@ -105,7 +108,7 @@ class InputSchemaTest(unittest.TestCase):
             self.assertFalse(is_odds_field(key), key)
         # An offer contributes what the bet is, never its price.
         self.assertEqual(ps.OFFER_TERMS, ('market', 'handicap_side', 'handicap_line'))
-        self.assertEqual(set(tr.INPUT_SCHEMA), {'home_team', 'away_team', 'kickoff_utc', 'lambda_home',
+        self.assertEqual(set(tr.INPUT_SCHEMA), {'league', 'home_team', 'away_team', 'kickoff_utc', 'lambda_home',
                                                  'lambda_away', 'research_history_json'})
 
     def test_prepare_reads_only_schema_fields(self):
@@ -160,6 +163,13 @@ class FrozenRowOddsPerturbationTest(unittest.TestCase):
         self.assertFalse(set(changed) & set(tr.INPUT_SCHEMA))
         base, moved = replay(row, evidence, cutoff), replay(perturbed, evidence, cutoff)
         self.assertEqual(research_view(base), research_view(moved))
+        # The live rule is research v5 (C6) for this Premier League forecast: covered, with its fit and shadow.
+        context = json.loads(base['team_research_json'])
+        self.assertEqual(context['version'], tr.VERSION)
+        self.assertIn(tr.VERSION, tr.C6_VERSIONS)
+        self.assertNotEqual(context['c6_fit']['slope'], 1.)
+        self.assertNotEqual(context['margin_distribution'], context['shadow_v4']['margin_distribution'])
+        self.assertIsNotNone(base[tr.SHADOW_PREFIX + 'home'])
 
         # The selection layer still prices the identical research against the (changed) offer.
         now = cutoff + pd.Timedelta(minutes=1)
@@ -178,6 +188,7 @@ class FrozenRowOddsPerturbationTest(unittest.TestCase):
         a, _ = rb.archived_candidates(base, cutoff)
         b, _ = rb.archived_candidates(moved, cutoff)
         np.testing.assert_array_equal(a['C'], b['C'])
+        self.assertEqual(json.loads(base['team_research_json'])['version'], tr.VERSION)  # C is C6 here
 
 
 def toy_model():
@@ -256,6 +267,7 @@ class LivePipelineOddsPerturbationTest(unittest.TestCase):
             enriched = [tr.enrich(pd.DataFrame([o]), tmp, fetch=False, clock=lambda: cutoff.to_pydatetime()).iloc[0]
                         for o in outputs]
         self.assertEqual(research_view(enriched[0]), research_view(enriched[1]))
+        self.assertEqual(json.loads(enriched[0]['team_research_json'])['version'], tr.VERSION)  # v5 (C6)
 
 
 _FOLD = {}
@@ -308,16 +320,28 @@ class HarnessLiveParityTest(unittest.TestCase):
             with tempfile.TemporaryDirectory() as tmp:
                 live = tr.enrich(pd.DataFrame([pred]), tmp, fetch=False, clock=lambda: cutoff.to_pydatetime()).iloc[0]
             context = json.loads(live['team_research_json'])
-            self.assertEqual(context['margin_distribution'], json.loads(__import__('asian_handicap').margins(harness)))
-            h, a = np.indices(harness.shape)
+            margins = __import__('asian_handicap').margins
+            # Live research v5 is C6: the harness's C6 code (c6_matrix) on the harness goal rates and the fit live
+            # used gives the identical grid. The fit is the harness's own walk-forward fit for this fold.
+            self.assertEqual(context['version'], tr.VERSION)
+            fit = context['c6_fit']
+            self.assertEqual(fit['origin'], self.origin.date().isoformat())
+            harness_fit = eh.c6_harness_fits()[fit['origin']]
+            self.assertEqual([fit[k] for k in ('rho', 'delta', 'slope')], [harness_fit[k] for k in ('rho', 'delta', 'slope')])
+            c6 = eh.c6_matrix(json.loads(json.dumps(context['goal_rates'])), harness_fit)
+            self.assertEqual(context['margin_distribution'], json.loads(margins(c6)))
+            # Its shadow is v4, which is the harness's C.
+            self.assertEqual(context['shadow_v4']['margin_distribution'], json.loads(margins(harness)))
+            h, a = np.indices(c6.shape)
             self.assertEqual(live['research_p_home'], sum(context['margin_distribution'][str(d)]
-                                                          for d in range(1, harness.shape[0])))
-            self.assertAlmostEqual(live['research_p_home'], float(harness[h > a].sum()), places=14)
-            self.assertAlmostEqual(live['research_p_draw'], float(harness[h == a].sum()), places=14)
+                                                          for d in range(1, c6.shape[0])))
+            self.assertAlmostEqual(live['research_p_home'], float(c6[h > a].sum()), places=14)
+            self.assertAlmostEqual(live['research_p_draw'], float(c6[h == a].sum()), places=14)
+            self.assertAlmostEqual(live[tr.SHADOW_PREFIX + 'home'], float(harness[h > a].sum()), places=14)
             # The live replay (evaluation_harness --mode live) rebuilds the same grid from the frozen row.
             replayed, gaps = rb.archived_candidates(live.to_dict(), cutoff + pd.Timedelta(minutes=1))
             self.assertNotIn('C', gaps)
-            np.testing.assert_array_equal(replayed['C'], harness)
+            np.testing.assert_array_equal(replayed['C'], c6)
 
     def test_harness_inputs_follow_the_schema(self):
         match = self.test.iloc[0]

@@ -131,7 +131,7 @@ class PrepareTest(unittest.TestCase):
 
     def test_v4_moves_this_forecast_and_records_what_it_left_out(self):
         before = tr.prepare(row(), CUTOFF, evidence(), version=tr.V3_VERSION)
-        after = tr.prepare(row(), CUTOFF, evidence())
+        after = tr.prepare(row(), CUTOFF, evidence(), version=tr.V4_VERSION)
         self.assertEqual(after['version'], 'team-form-research-v4')
         self.assertNotEqual(after['goal_rates'], before['goal_rates'])
         self.assertGreater(max(abs(a - b) for a, b in zip(hda(after), hda(before))), .001)
@@ -141,7 +141,7 @@ class PrepareTest(unittest.TestCase):
 
     def test_v4_without_competition_labels_is_v3(self):
         # A frozen v1-v3 forecast has no labels: v4 on its own inputs changes nothing.
-        new = tr.prepare(row(), CUTOFF, evidence(False))
+        new = tr.prepare(row(), CUTOFF, evidence(False), version=tr.V4_VERSION)
         old = tr.prepare(row(), CUTOFF, evidence(False), version=tr.V3_VERSION)
         self.assertEqual({k: v for k, v in new.items() if k != 'version'}, {k: v for k, v in old.items() if k != 'version'})
 

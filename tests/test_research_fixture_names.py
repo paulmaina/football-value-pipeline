@@ -181,7 +181,7 @@ class PrepareTest(unittest.TestCase):
     def test_v3_without_frozen_names_is_v2(self):
         # Every forecast frozen before v3 has no 'teams': v3 changes nothing for it on its own inputs.
         row = forecast_row(names=False)
-        new, old = tr.prepare(row, CUTOFF), tr.prepare(row, CUTOFF, version=tr.V2_VERSION)
+        new, old = tr.prepare(row, CUTOFF, version=tr.V4_VERSION), tr.prepare(row, CUTOFF, version=tr.V2_VERSION)
         self.assertEqual({k: v for k, v in new.items() if k != 'version'}, {k: v for k, v in old.items() if k != 'version'})
 
     def test_espn_copies_still_count_once(self):
