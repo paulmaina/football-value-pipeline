@@ -22,11 +22,15 @@ market fits or the published grid.
 
 Live since research v5 (team-form-research-v5, domestic leagues only), released by Paul's
 decision of 14 Nov 2026 without holdout proof (docs/plan.md, Decisions). Live reads its fits
-from FITS, a file written by scripts/build_research_c6_fits.py from the harness's own
-walk-forward fit (evaluation_harness.c6_walk_forward), one entry per 14-day fold window. A
-forecast uses the window with the latest origin on or before its research observation day,
-so every result in that fit was played before the forecast was made, and the chosen fit is
-frozen in the forecast (team_research_json['c6_fit']) so it replays exactly.
+from FITS, written by scripts/build_research_c6_fits.py with the harness's own walk-forward
+fit (evaluation_harness.c6_walk_forward), one entry per 14-day fold window, on every result
+known before each origin, including the holdout leagues' 16 Jan - 10 Oct 2026 matches (Paul,
+14 Nov 2026). The harness's own, holdout-free fits (the tested fit) stay in HARNESS_FITS,
+locked; the live fit differs from it by design. A forecast uses the window with the latest
+origin on or before its research observation day, so every result in that fit was played
+before the forecast was made, and the chosen fit is frozen in the forecast
+(team_research_json['c6_fit']) so it replays exactly. A scheduled job refreshes FITS every
+second Monday (.github/workflows/research-c6-fits.yml).
 """
 from __future__ import annotations
 
@@ -40,8 +44,10 @@ import research_low_score as rls
 import research_sharpen as rs
 
 VERSION = 'research-low-score-then-sharpen-walk-forward-v1'
-FITS = Path(__file__).with_name('research_c6_fits.json')
-FITS_VERSION = 'research-c6-fits-v1'
+FITS = Path(__file__).with_name('research_c6_live_fits.json')  # live: every known result
+FITS_VERSION = 'research-c6-live-fits-v1'
+HARNESS_FITS = Path(__file__).with_name('research_c6_fits.json')  # the harness's locked, holdout-free fits
+HARNESS_FITS_VERSION = 'research-c6-fits-v1'
 FIT_FIELDS = ('rho', 'delta', 'slope')
 
 
@@ -67,7 +73,7 @@ def grid(goal_rates, low_score_params, sharpen_params):
 @lru_cache(maxsize=4)
 def _load(path: str, mtime: float) -> dict:
     data = json.loads(Path(path).read_text(encoding='utf-8'))
-    if data.get('version') != FITS_VERSION or data.get('candidate_version') != VERSION:
+    if data.get('version') not in (FITS_VERSION, HARNESS_FITS_VERSION) or data.get('candidate_version') != VERSION:
         raise ValueError(f'unsupported C6 fit file {path}')
     return data
 

@@ -23,8 +23,10 @@ VERSION = 'team-form-research-v5'
 # v5 keeps v4's goal rates and form rules and changes only the score grid, for
 # domestic leagues: candidate C6 (research_low_score_sharpen), C2's draw and
 # low-score correction and then C5's walk-forward home/away sharpening, with the
-# harness's walk-forward fits (research_low_score_sharpen.FITS) frozen in each
-# forecast as 'c6_fit'. Released by Paul's decision of 14 Nov 2026 without
+# harness's walk-forward fit refitted on every result known before each fold
+# origin, holdout period included (research_low_score_sharpen.FITS, refreshed
+# every second Monday; it differs from the harness's tested, holdout-free fit by
+# design), frozen in each forecast as 'c6_fit'. Released by Paul's decision of 14 Nov 2026 without
 # holdout proof (docs/plan.md, Decisions). UCL and UEL forecasts stay v4 (a
 # separate release handles Europe), and every v5 forecast also carries v4's
 # probabilities on the same inputs ('shadow_v4') for the rollback comparison.
@@ -690,8 +692,8 @@ def c6_matrix(rates, cutoff, fit, context, warnings):
         return None
     context['c6_fit'] = dict(fit)
     if fit.get('stale'):
-        warnings.append(f"C6 fit file is behind: using the window from {fit['origin']}, "
-                        f"the harness window for this day starts {fit['expected_origin']}")
+        warnings.append(f"C6 fit is stale (fortnightly refresh missed): using the window from {fit['origin']}, "
+                        f"the window for this day opened {fit['expected_origin']}")
     try:
         return c6.live_grid(rates, fit)
     except (ValueError, TypeError, KeyError) as exc:

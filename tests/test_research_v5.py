@@ -52,20 +52,54 @@ def synthetic_research(n=2600, seed=7):
              'scored': bool(d >= pd.Timestamp(CFG['test_start']))} for i, d in enumerate(dates)]
 
 
+def canonical_windows(data):
+    import hashlib
+    return hashlib.sha256(json.dumps(data['windows'], sort_keys=True).encode()).hexdigest()
+
+
+# The harness's locked C6 fits (PR #155's locked development run, reproduced exactly): never rebuilt by the
+# scheduled refresh, and unchanged by the live fit's inclusion of the holdout period (Paul, 14 Nov 2026).
+HARNESS_FITS_SHA256 = '39af87a7d9b37f2e84a629beff10a044e8d1d9171152f1b7679134203c5f50ae'
+
+
 class FitFileTest(unittest.TestCase):
-    def test_fit_file_is_the_harness_walk_forward_fit(self):
-        data = c6.load_fits()
-        self.assertEqual((data['version'], data['candidate_version']), (c6.FITS_VERSION, c6.VERSION))
-        self.assertEqual(data['fold_rule'], {'test_start': CFG['test_start'], 'step_days': CFG['step_days'],
-                                             'fixed_bounds': sorted({CFG['development_end'], CFG['holdout_start'],
-                                                                     CFG['holdout_end_exclusive']})})
-        origins = [w['origin'] for w in data['windows']]
-        bounds = [o.date().isoformat() for o, _ in eh.fold_windows(CFG, pd.Timestamp(CFG['end_exclusive']))]
-        self.assertEqual(origins, bounds[:len(origins)])  # every harness window, in order, none skipped
-        fitted = [w for w in data['windows'] if w['slope_status'] == 'fitted']
-        self.assertTrue(fitted)
-        self.assertTrue(all(1.0 < w['slope'] < 1.3 for w in fitted))
-        self.assertEqual(data['built_with']['leagues'], CFG['leagues'])
+    def test_fit_files_are_the_harness_walk_forward_fit(self):
+        for path, version in ((c6.FITS, c6.FITS_VERSION), (c6.HARNESS_FITS, c6.HARNESS_FITS_VERSION)):
+            data = c6.load_fits(path)
+            self.assertEqual((data['version'], data['candidate_version']), (version, c6.VERSION))
+            self.assertEqual(data['fold_rule'], {'test_start': CFG['test_start'], 'step_days': CFG['step_days'],
+                                                 'fixed_bounds': sorted({CFG['development_end'], CFG['holdout_start'],
+                                                                         CFG['holdout_end_exclusive']})})
+            origins = [w['origin'] for w in data['windows']]
+            bounds = [o.date().isoformat() for o, _ in eh.fold_windows(CFG, pd.Timestamp('2030-01-01'))]
+            self.assertEqual(origins, bounds[:len(origins)])  # every harness window, in order, none skipped
+            fitted = [w for w in data['windows'] if w['slope_status'] == 'fitted']
+            self.assertTrue(fitted)
+            self.assertTrue(all(1.0 < w['slope'] < 1.3 for w in fitted))
+            self.assertEqual(data['built_with']['leagues'], CFG['leagues'])
+
+    def test_harness_fits_stay_locked(self):
+        data = c6.load_fits(c6.HARNESS_FITS)
+        self.assertEqual(canonical_windows(data), HARNESS_FITS_SHA256)
+        self.assertEqual(data['built_with']['harness_end_exclusive'], CFG['end_exclusive'])
+        self.assertEqual(eh.c6_harness_fits(), {w['origin']: w for w in data['windows']})
+
+    def test_live_fit_adds_the_holdout_period_by_design(self):
+        live, harness = c6.load_fits(), c6.load_fits(c6.HARNESS_FITS)
+        self.assertEqual(live['basis'], 'live')
+        self.assertGreater(live['built_with']['holdout_period_rows'], 0)
+        self.assertGreaterEqual(live['windows'][-1]['origin'], harness['windows'][-1]['origin'])
+        tested = {w['origin']: w for w in harness['windows']}
+        start = CFG['holdout_start']
+        differs = 0
+        for w in live['windows']:
+            if w['origin'] not in tested:
+                continue
+            same = [w[k] for k in c6.FIT_FIELDS] == [tested[w['origin']][k] for k in c6.FIT_FIELDS]
+            if w['origin'] <= start:  # nothing from the holdout period precedes it: the fits are identical
+                self.assertTrue(same, w['origin'])
+            differs += not same
+        self.assertGreater(differs, 0)  # later windows learn from the holdout period's results
 
     def test_every_window_fits_equal_the_candidate_fits(self):
         research = synthetic_research()
@@ -111,7 +145,7 @@ class FitFileTest(unittest.TestCase):
         self.assertGreater(pd.Timestamp(late['expected_origin']), last)
         row, evidence, _, _ = frozen()
         context = tr.prepare(row, (last + pd.Timedelta(days=30)).tz_localize('UTC'), copy.deepcopy(evidence))
-        self.assertTrue(any('C6 fit file is behind' in w for w in context['warnings']))
+        self.assertTrue(any('C6 fit is stale' in w for w in context['warnings']))
 
     def test_expected_origin_matches_the_harness_fold_windows(self):
         rule = c6.load_fits()['fold_rule']
@@ -135,11 +169,15 @@ class LiveV5Test(unittest.TestCase):
         self.assertEqual(v5['margin_distribution'], json.loads(margins(grid)))
         self.assertNotIn('c6_fit', v4)
         self.assertNotIn('shadow_v4', v4)
-        # C6 holds C2's draw and sharpens the split: the favourite gets more likely.
+        # C6 holds C2's draw and sharpens C2's home/away split (slope > 1): the favourite's share of the
+        # decided outcomes grows against C2's.
         p5, p4 = rm_hda(v5), rm_hda(v4)
         self.assertNotAlmostEqual(p5[1], p4[1], places=6)
-        fav = int(np.argmax([p4[0], p4[2]])) * 2
-        self.assertGreater(p5[fav], p4[fav] - (p4[1] - p5[1]))
+        p2 = c6.c2_one_x_two(v5['goal_rates'], {k: v5['c6_fit'][k] for k in ('rho', 'delta')})
+        self.assertAlmostEqual(p5[1], float(p2[1]), places=12)
+        self.assertGreater(v5['c6_fit']['slope'], 1.)
+        fav = int(np.argmax([p2[0], p2[2]])) * 2
+        self.assertGreater(p5[fav] / (p5[0] + p5[2]), float(p2[fav] / (p2[0] + p2[2])))
 
     def test_european_competitions_stay_v4(self):
         row, evidence, cutoff, _ = frozen()
@@ -322,6 +360,124 @@ class MonitoringTest(unittest.TestCase):
         self.assertIn('## Research v5 (C6) rollback check', readme)
         self.assertIn('## Home favourites in Eredivisie, Primeira Liga and Süper Lig', weekly)
         self.assertEqual(saved['rollback']['triggered'], True)
+
+
+def build_script():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('build_research_c6_fits', REPO / 'scripts' / 'build_research_c6_fits.py')
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def live_file(origins, slope=1.15):
+    return {'version': c6.FITS_VERSION, 'candidate_version': c6.VERSION, 'basis': 'live',
+            'fold_rule': {'test_start': CFG['test_start'], 'step_days': CFG['step_days'], 'fixed_bounds': []},
+            'built_with': {'last_result_date': '2026-11-15', 'results_known_through_utc': '2026-11-16T16:20:00Z',
+                           'research_rows': 10},
+            'windows': [{'origin': o, 'end_exclusive': o, 'rho': -.02, 'delta': .03, 'slope': slope,
+                         'low_score_status': 'fitted', 'low_score_matches': 9000, 'slope_status': 'fitted',
+                         'slope_matches': 7000} for o in origins]}
+
+
+class ScheduledRefreshTest(unittest.TestCase):
+    """The fortnightly live-fit refresh: builds only on fold origins, publishes only a complete file, and a failure
+    leaves the committed fit in place (live forecasts then warn that it is stale)."""
+
+    def setUp(self):
+        self.b = build_script()
+
+    def test_validate_accepts_a_complete_file_and_reports_the_change(self):
+        report = self.b.validate(live_file(['2026-11-02', '2026-11-16']), live_file(['2026-11-02']), '2026-11-16')
+        self.assertEqual((report['new_windows'], report['earlier_windows_changed']), (1, 0))
+
+    def test_validate_refuses_incomplete_or_invalid_files(self):
+        b = self.b
+        with self.assertRaisesRegex(ValueError, 'not all|not the training|checked 12 hours'):
+            b.validate(live_file(['2026-11-02']), None, '2026-11-16')  # weekend results not in the cache yet
+        with self.assertRaisesRegex(ValueError, 'drops earlier windows'):
+            b.validate(live_file(['2026-11-16']), live_file(['2026-11-02']))
+        bad = live_file(['2026-11-02'], slope=float('nan'))
+        with self.assertRaisesRegex(ValueError, 'non-finite'):
+            b.validate(bad)
+        harness = {**live_file(['2026-11-02']), 'version': c6.HARNESS_FITS_VERSION}
+        with self.assertRaisesRegex(ValueError, 'not a live'):
+            b.validate(harness)
+
+    def test_a_window_is_published_only_once_the_cache_was_checked_after_it(self):
+        windows = [{'origin': pd.Timestamp('2026-11-16'), 'stop': pd.Timestamp('2026-11-30'),
+                    'low_score': {'rho': 0., 'delta': 0., 'status': 'fitted', 'matches': 1},
+                    'slope': {'slope': 1., 'status': 'fitted', 'matches': 1}}]
+        rule = lambda known: (lambda origin: origin + self.b.SETTLE <= known)
+        self.assertEqual(self.b.windows_out(windows, rule(pd.Timestamp('2026-11-16 08:00'))), [])
+        self.assertEqual(len(self.b.windows_out(windows, rule(pd.Timestamp('2026-11-16 16:20')))), 1)
+
+    def test_results_known_through_is_the_oldest_current_season_check(self):
+        import historical_benchmark as hb
+        cfg = {**CFG, 'seasons': ['2627']}
+        files = [{'path': f'.football_cache/2627_{hb.CODES[league]}.csv',
+                  'checked_at_utc': f'2026-11-16T{10 + i:02d}:00:00+00:00'} for i, league in enumerate(CFG['leagues'])]
+        # An old Windows-style entry for the same file doesn't hide its latest check.
+        files.append({'path': f'.football_cache\\2627_{hb.CODES[CFG["leagues"][0]]}.csv',
+                      'checked_at_utc': '2026-10-13T09:50:00+00:00'})
+        with tempfile.TemporaryDirectory() as tmp:
+            status = Path(tmp) / 'status.json'
+            status.write_text(json.dumps({'files': files}), encoding='utf-8')
+            self.assertEqual(self.b.results_known_through(cfg, status), pd.Timestamp('2026-11-16 10:00'))
+
+    def test_scheduled_run_builds_only_on_a_fold_origin(self):
+        import os
+        env = {k: v for k, v in os.environ.items() if k != 'GITHUB_STEP_SUMMARY'}
+        with patch.object(self.b, 'build', side_effect=AssertionError('built on a non-fit day')), \
+                patch.dict(os.environ, env, clear=True):
+            self.assertEqual(self.b.main(['--scheduled', '--today', '2026-11-09']), 0)
+        self.assertEqual(c6.expected_origin(pd.Timestamp('2026-11-16'), self.b.fold_rule(CFG)),
+                         pd.Timestamp('2026-11-16'))  # the next Monday after 2 Nov is a fold origin
+
+    def test_harness_fits_cannot_be_refreshed_by_the_schedule(self):
+        with self.assertRaises(SystemExit):
+            self.b.main(['--basis', 'harness', '--publish'])
+
+    def test_publish_commits_a_valid_file_and_a_failure_leaves_the_previous_fit(self):
+        import subprocess
+        b = self.b
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            remote, repo, other = root / 'remote.git', root / 'repo', root / 'other'
+            subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+            subprocess.run(['git', 'clone', str(remote), str(repo)], check=True, capture_output=True)
+            for k, v in (('user.name', 'Test'), ('user.email', 'test@example.test')):
+                b.git(repo, 'config', k, v)
+            b.git(repo, 'checkout', '-b', 'main')
+            target = repo / 'research_c6_live_fits.json'
+            target.write_text(json.dumps(live_file(['2026-11-02'])), encoding='utf-8')
+            b.git(repo, 'add', '.'), b.git(repo, 'commit', '-m', 'Initial'), b.git(repo, 'push', 'origin', 'main')
+            built = root / 'built.json'
+            built.write_text(json.dumps(live_file(['2026-11-02', '2026-11-16'])), encoding='utf-8')
+            self.assertTrue(b.publish(repo, built, target, '2026-11-16'))
+            subprocess.run(['git', 'clone', '--branch', 'main', str(remote), str(other)], check=True, capture_output=True)
+            published = json.loads((other / 'research_c6_live_fits.json').read_text(encoding='utf-8'))
+            self.assertEqual([w['origin'] for w in published['windows']], ['2026-11-02', '2026-11-16'])
+            self.assertIn('[skip ci]', b.git(other, 'log', '-1', '--format=%s').stdout)
+            # A build that lacks the window for the day, or drops earlier windows, is refused: main keeps its fit.
+            head = b.git(other, 'rev-parse', 'HEAD').stdout
+            for origins, day in ((['2026-11-02', '2026-11-16'], '2026-11-30'), (['2026-11-30'], '2026-11-30')):
+                built.write_text(json.dumps(live_file(origins)), encoding='utf-8')
+                with self.assertRaises(ValueError):
+                    b.publish(repo, built, target, day)
+            b.git(other, 'pull', '--ff-only')
+            self.assertEqual(b.git(other, 'rev-parse', 'HEAD').stdout, head)
+
+
+class WorkflowTest(unittest.TestCase):
+    def test_refresh_workflow_runs_every_monday_and_builds_fortnightly(self):
+        import yaml
+        text = (REPO / '.github' / 'workflows' / 'research-c6-fits.yml').read_text(encoding='utf-8')
+        flow = yaml.load(text, Loader=yaml.BaseLoader)
+        self.assertEqual([s['cron'] for s in flow['on']['schedule']], ['5 17 * * 1'])
+        self.assertEqual(flow['permissions']['contents'], 'write')
+        self.assertIn('scripts/build_research_c6_fits.py $scheduled --publish', text)
+        self.assertNotIn('--basis harness', text)
 
 
 if __name__ == '__main__':

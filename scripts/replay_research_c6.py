@@ -10,13 +10,17 @@ For every saved run generated in [--start, --end):
   before  research v4, the live rule until now, on the forecast's frozen inputs brought up to the current rule as
           the v4 replay did (scripts/replay_research_friendlies.py: renamed domestic sides' history rebuilt, ESPN
           rows labelled with their competition).
-  after   the live rule after this change on the same inputs: v5 (C6, fit from research_c6_fits.json for the
-          research day) for domestic leagues, v4 for UCL/UEL. v5's shadow must equal `before`.
+  after   the live rule after this change on the same inputs: v5 (C6, the live fit for the research day,
+          research_c6_live_fits.json: every result before the window, holdout period included) for domestic
+          leagues, v4 for UCL/UEL. v5's shadow must equal `before`.
+  harness_fit  v5 on the harness's tested, holdout-free fit for the same window (research_c6_fits.json), the
+          fit live used until Paul's decision of 14 Nov 2026 that the live fit includes the holdout period.
 
-Then each run's decision rows are rebuilt twice from its frozen predictions at the run's own clock, once with
-`before` and once with `after` research, exactly as scripts/master_reconciliation_replay.py does
-(price_edge_cagey_shortlist.build_shortlist, master_shortlist.refresh), and the value shortlist and the new
-master's picks and labels are compared. Holdout leagues are reported apart.
+Then each run's decision rows are rebuilt from its frozen predictions at the run's own clock with each side's
+research, exactly as scripts/master_reconciliation_replay.py does (price_edge_cagey_shortlist.build_shortlist,
+master_shortlist.refresh), and the value shortlist and the new master's picks and labels are compared:
+v4 -> v5 (live fit), v4 -> v5 (harness fit), and v5 harness fit -> v5 live fit (the fit effect). Holdout
+leagues are reported apart.
 
     python scripts/replay_research_c6.py --output evaluation/research_c6_replay
 """
@@ -40,6 +44,11 @@ TOLERANCE = 1e-12
 RECOMPUTED = ('version', 'form', 'goal_rates', 'base_rates', 'margin_distribution', 'p_over_1_5', 'c6_fit',
               'shadow_v4', 'form_friendlies_excluded')
 PICK_KEY = ['league', 'home_team', 'away_team', 'kickoff_utc', 'market']
+FIT_KEYS = ('origin', 'rho', 'delta', 'slope')
+SIDES = ('before', 'after', 'harness_fit')
+# (from, to) comparisons of the rebuilt lists.
+PAIRS = {'v4_to_v5': ('before', 'after'), 'v4_to_v5_harness_fit': ('before', 'harness_fit'),
+         'fit_effect': ('harness_fit', 'after')}
 
 
 def load_script(name):
@@ -73,6 +82,7 @@ def recompute(root, start, end, labels, histories):
     """Per forecast: frozen check, v4 (before) and live (after). Returns (records, contexts, counts, worst)."""
     import evaluation_harness as eh
     import performance_tracking as pt
+    import research_low_score_sharpen as c6
     import team_research as tr
     friendlies = load_script('replay_research_friendlies')
     names = load_script('replay_research_history_names')
@@ -117,13 +127,21 @@ def recompute(root, start, end, labels, histories):
             view, _ = friendlies.labelled_evidence(evidence, labels, tr.LEAGUES.get(league, ''), parity, tr)
             before = tr.prepare(current, cutoff, copy.deepcopy(view), version=tr.V4_VERSION)
             after = tr.prepare(current, cutoff, copy.deepcopy(view))
+            harness_fit = after
             if after['version'] in tr.C6_VERSIONS:
                 shadow_gap = max(abs(a - b) for a, b in zip(hda(after['shadow_v4']), hda(before)))
                 counts['shadow_not_v4'] += shadow_gap > TOLERANCE
                 counts['c6_fit_origin:' + after['c6_fit']['origin']] += 1
                 counts['c6_fit_stale'] += bool(after['c6_fit']['stale'])
-            b, a = hda(before), hda(after)
-            contexts[(meta['git_commit_sha'], index)] = (merged(research, before), merged(research, after))
+                counts['c6_fits_version:' + after['c6_fit']['fits_version']] += 1
+                fit_h = c6.fit_for(cutoff, c6.HARNESS_FITS)
+                counts['c6_harness_fit_origin:' + fit_h['origin']] += 1
+                harness_fit = tr.prepare(current, cutoff, copy.deepcopy(view), c6_fit=fit_h)
+                if harness_fit['goal_rates'] != after['goal_rates']:
+                    raise AssertionError('the fit changed the goal rates')
+            b, a, h = hda(before), hda(after), hda(harness_fit)
+            contexts[(meta['git_commit_sha'], index)] = (merged(research, before), merged(research, after),
+                                                         merged(research, harness_fit))
             records.append({
                 'snapshot': meta['git_commit_sha'], 'snapshot_generated_utc': generated,
                 'league': league, 'group': friendlies.group_of(league), 'home_team': row.get('home_team'),
@@ -131,11 +149,19 @@ def recompute(root, start, end, labels, histories):
                 'research_observed_utc': cutoff.isoformat(), 'frozen_version': frozen_version,
                 'frozen_reproduced_max_abs_diff': diff, 'after_version': after['version'],
                 'c6_fit_origin': (after.get('c6_fit') or {}).get('origin'),
+                **{f'c6_live_{k}': (after.get('c6_fit') or {}).get(k) for k in FIT_KEYS},
+                **{f'c6_harness_{k}': (harness_fit.get('c6_fit') or {}).get(k) for k in FIT_KEYS},
                 **{f'p_{o}_before': v for o, v in zip(OUTCOMES, b)},
                 **{f'p_{o}_after': v for o, v in zip(OUTCOMES, a)},
+                **{f'p_{o}_harness_fit': v for o, v in zip(OUTCOMES, h)},
                 'p_over_1_5_before': before.get('p_over_1_5'), 'p_over_1_5_after': after.get('p_over_1_5'),
+                'p_over_1_5_harness_fit': harness_fit.get('p_over_1_5'),
                 'move_1x2': max(abs(x - y) for x, y in zip(b, a)),
+                'move_1x2_harness_fit': max(abs(x - y) for x, y in zip(b, h)),
+                'fit_effect_1x2': max(abs(x - y) for x, y in zip(h, a)),
                 'move_over_1_5': abs(before['p_over_1_5'] - after['p_over_1_5']),
+                'move_over_1_5_harness_fit': abs(before['p_over_1_5'] - harness_fit['p_over_1_5']),
+                'fit_effect_over_1_5': abs(harness_fit['p_over_1_5'] - after['p_over_1_5']),
                 'goal_rates_identical': before['goal_rates'] == after['goal_rates']})
     frame = pd.DataFrame(records)
     if len(frame):
@@ -143,6 +169,8 @@ def recompute(root, start, end, labels, histories):
         frame['latest_forecast_of_fixture'] = frame['research_observed_utc'].eq(
             frame.groupby(key)['research_observed_utc'].transform('max'))
         frame['changed'] = frame['move_1x2'] > TOLERANCE
+        frame['changed_harness_fit'] = frame['move_1x2_harness_fit'] > TOLERANCE
+        frame['changed_fit_effect'] = frame['fit_effect_1x2'] > TOLERANCE
     return frame, contexts, counts, worst
 
 
@@ -168,12 +196,12 @@ def compare_lists(root, start, end, contexts):
     import performance_tracking as pt
     import team_research as tr
     master_replay = load_script('master_reconciliation_replay')
-    runs, picks = [], []
+    runs, picks = {name: [] for name in PAIRS}, []
     for generated, directory, _ in master_replay.runs(root, start, end):
         meta, _, _ = pt.load_snapshot(directory)
         predictions = pd.read_csv(directory / 'predictions.csv', low_memory=False)
         lists = {}
-        for side, which in (('before', 0), ('after', 1)):
+        for which, side in enumerate(SIDES):
             frame = predictions.copy()
             for column in ('research_version', *(tr.SHADOW_PREFIX + k for k in (*OUTCOMES, 'over_1_5'))):
                 frame[column] = None
@@ -193,8 +221,9 @@ def compare_lists(root, start, end, contexts):
                         frame.at[index, column] = value
                 frame.at[index, 'research_version'] = context['version']
             lists[side] = run_lists(directory, generated, frame)
-        runs.append(run_difference(directory.name, generated, lists))
-        for side in ('before', 'after'):
+        for name, (b, a) in PAIRS.items():
+            runs[name].append(run_difference(directory.name, generated, lists[b], lists[a]))
+        for side in SIDES:
             value = lists[side][0]
             for _, r in value.iterrows():
                 picks.append({'snapshot': directory.name, 'side': side, **{k: r.get(k) for k in PICK_KEY},
@@ -209,8 +238,8 @@ def _keys(frame, columns=PICK_KEY):
     return {tuple(str(r[c]) for c in columns) for _, r in frame[columns].iterrows()}
 
 
-def run_difference(name, generated, lists) -> dict:
-    (vb, nb), (va, na) = lists['before'], lists['after']
+def run_difference(name, generated, before, after) -> dict:
+    (vb, nb), (va, na) = before, after
     out = {'snapshot': name, 'generated_at_utc': generated,
            'value_picks_before': len(vb), 'value_picks_after': len(va),
            'value_picks_added': len(_keys(va) - _keys(vb)), 'value_picks_removed': len(_keys(vb) - _keys(va))}
@@ -241,23 +270,43 @@ def run_difference(name, generated, lists) -> dict:
     return out
 
 
-def movement(rows) -> dict:
-    changed = rows.loc[rows['changed']] if len(rows) else rows
+def movement(rows, before='before', after='after', move='move_1x2', over='move_over_1_5', flag='changed') -> dict:
+    changed = rows.loc[rows[flag]] if len(rows) else rows
     out = {'fixtures': int(len(rows)), 'changed': int(len(changed))}
     if len(changed):
-        move = changed['move_1x2'] * 100
-        largest = changed.loc[changed['move_1x2'].idxmax()]
+        largest = changed.loc[changed[move].idxmax()]
+        move = changed[move] * 100
         out.update({
             'move_1x2_points': {'mean': float(move.mean()), 'median': float(move.median()),
                                 'p90': float(move.quantile(.9)), 'max': float(move.max()),
                                 'two_points_or_more': int((move >= 2).sum())},
             'largest': f"{largest['home_team']} v {largest['away_team']} ({largest['league']})",
-            'move_over_1_5_points': {'mean': float(changed['move_over_1_5'].mean() * 100),
-                                     'max': float(changed['move_over_1_5'].max() * 100)},
-            'mean_direction_points': {o: float((changed[f'p_{o}_after'] - changed[f'p_{o}_before']).mean() * 100)
+            'move_over_1_5_points': {'mean': float(changed[over].mean() * 100),
+                                     'max': float(changed[over].max() * 100)},
+            'mean_direction_points': {o: float((changed[f'p_{o}_{after}'] - changed[f'p_{o}_{before}']).mean() * 100)
                                       for o in OUTCOMES},
-            'home_favourite_more_likely': int(((changed['p_home_before'] > changed['p_away_before'])
-                                               & (changed['p_home_after'] > changed['p_home_before'])).sum())})
+            'home_favourite_more_likely': int(((changed[f'p_home_{before}'] > changed[f'p_away_{before}'])
+                                               & (changed[f'p_home_{after}'] > changed[f'p_home_{before}'])).sum())})
+    return out
+
+
+MOVES = {'v4_to_v5': {},
+         'v4_to_v5_harness_fit': {'after': 'harness_fit', 'move': 'move_1x2_harness_fit',
+                                  'over': 'move_over_1_5_harness_fit', 'flag': 'changed_harness_fit'},
+         'fit_effect': {'before': 'harness_fit', 'move': 'fit_effect_1x2', 'over': 'fit_effect_over_1_5',
+                        'flag': 'changed_fit_effect'}}
+
+
+def fit_comparison(frame) -> dict:
+    """The live and harness fits the domestic forecasts used, by window: how including the holdout period
+    changes C6's parameters."""
+    rows = frame.loc[frame['c6_live_origin'].notna()]
+    out = {}
+    for origin, group in rows.groupby('c6_live_origin'):
+        first = group.iloc[0]
+        out[str(origin)] = {'forecasts': int(len(group)), 'harness_origin': first['c6_harness_origin'],
+                            **{f'{k}_{side}': float(first[f'c6_{side}_{k}']) for k in FIT_KEYS[1:]
+                               for side in ('live', 'harness')}}
     return out
 
 
@@ -286,30 +335,38 @@ def main(argv=None):
         'all_forecasts': {'forecasts': int(len(frame)), 'changed': int(frame['changed'].sum()),
                           'european_changed': int(frame.loc[frame['group'].eq('europa'), 'changed'].sum()),
                           'goal_rates_identical': bool(frame['goal_rates_identical'].all())},
-        'latest_forecast_per_fixture': {'all': movement(latest),
-                                        **{g: movement(latest.loc[latest['group'].eq(g)])
-                                           for g in ('five_leagues', 'holdout_leagues', 'europa')}},
+        'all_forecasts_harness_fit': {'changed_vs_v4': int(frame['changed_harness_fit'].sum()),
+                                      'fit_effect_changed': int(frame['changed_fit_effect'].sum())},
+        'fits_used': fit_comparison(frame),
+        'latest_forecast_per_fixture': {name: {'all': movement(latest, **kw),
+                                               **{g: movement(latest.loc[latest['group'].eq(g)], **kw)
+                                                  for g in ('five_leagues', 'holdout_leagues', 'europa')}}
+                                        for name, kw in MOVES.items()},
         'note': ('Probabilities only: no result is read. Moves are the largest of the three 1X2 probabilities, '
-                 'in points. Holdout leagues (Eredivisie, Primeira Liga, Super Lig) reported apart.')}
+                 'in points. v4_to_v5: v4 to v5 on the live fit (holdout period included); v4_to_v5_harness_fit: '
+                 "v4 to v5 on the harness's tested, holdout-free fit; fit_effect: v5 harness fit to v5 live fit. "
+                 'Holdout leagues (Eredivisie, Primeira Liga, Super Lig) reported apart.')}
     args.output.mkdir(parents=True, exist_ok=True)
     frame.to_csv(args.output / 'forecasts.csv', index=False, lineterminator='\n', float_format='%.6f')
     if not args.skip_lists:
         runs, picks = compare_lists(args.root.parent, args.start, args.end, contexts)
-        totals = Counter()
-        kinds = Counter()
-        for r in runs:
-            for k, v in r.items():
-                if isinstance(v, int) and not isinstance(v, bool):
-                    totals[k] += v
-            kinds.update(r.get('new_master_label_change_kinds', {}))
-        summary['lists'] = {'runs': len(runs), 'totals': dict(sorted(totals.items())),
-                            'new_master_label_change_kinds': dict(kinds.most_common()), 'per_run': runs}
+        summary['lists'] = {}
+        for name, per_run in runs.items():
+            totals, kinds = Counter(), Counter()
+            for r in per_run:
+                for k, v in r.items():
+                    if isinstance(v, int) and not isinstance(v, bool):
+                        totals[k] += v
+                kinds.update(r.get('new_master_label_change_kinds', {}))
+            summary['lists'][name] = {'from_to': PAIRS[name], 'runs': len(per_run),
+                                      'totals': dict(sorted(totals.items())),
+                                      'new_master_label_change_kinds': dict(kinds.most_common()), 'per_run': per_run}
         picks.to_csv(args.output / 'value_picks.csv', index=False, lineterminator='\n', float_format='%.6f')
     (args.output / 'summary.json').write_text(json.dumps(summary, indent=2, sort_keys=True, default=str) + '\n',
                                               encoding='utf-8')
     print(json.dumps({k: v for k, v in summary.items() if k != 'lists'}, indent=1, default=str))
     if 'lists' in summary:
-        print(json.dumps(summary['lists']['totals'], indent=1))
+        print(json.dumps({name: v['totals'] for name, v in summary['lists'].items()}, indent=1))
     return 0
 
 

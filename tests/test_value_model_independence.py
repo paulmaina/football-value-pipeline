@@ -322,7 +322,8 @@ class HarnessLiveParityTest(unittest.TestCase):
             context = json.loads(live['team_research_json'])
             margins = __import__('asian_handicap').margins
             # Live research v5 is C6: the harness's C6 code (c6_matrix) on the harness goal rates and the fit live
-            # used gives the identical grid. The fit is the harness's own walk-forward fit for this fold.
+            # used gives the identical grid. The fit is the harness's own walk-forward fit for this fold: the live
+            # fit adds the holdout period's results (Paul, 14 Nov 2026), and nothing from it precedes this fold.
             self.assertEqual(context['version'], tr.VERSION)
             fit = context['c6_fit']
             self.assertEqual(fit['origin'], self.origin.date().isoformat())
