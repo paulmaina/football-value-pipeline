@@ -2128,10 +2128,19 @@ MASTER_PREVIOUS = 'v1'  # column prefix of PR #171's rule (master_rule_v1, froze
 def master_inputs(identity, matrices, prices, row) -> dict:
     """What the master backtest needs from one scored match: margin distributions, prices and result."""
     out = {**identity, 'home_team': row.HomeTeam, 'away_team': row.AwayTeam,
-           'margin': int(row.FTHG) - int(row.FTAG), 'hda': list(prices['hda']), 'ah': list(prices['ah'])}
+           'margin': int(row.FTHG) - int(row.FTAG), 'hda': list(prices['hda']), 'ah': list(prices['ah']),
+           # Used by the shortlist entry audit (--mode lists) only; the master backtest never reads them.
+           'ou': list(prices['ou']), 'total_goals': int(row.FTHG) + int(row.FTAG),
+           'over15': {cand: _over_1_5(matrices[cand]) for cand in MASTER_CANDIDATES}}
     for cand in MASTER_CANDIDATES:
         out[cand] = _margins(matrices[cand])
     return out
+
+
+def _over_1_5(matrix):
+    grid = np.asarray(matrix, float)
+    h, a = np.indices(grid.shape)
+    return float(grid[h + a >= 2].sum())
 
 
 def _margins(matrix):
@@ -2159,6 +2168,8 @@ def master_attach_c6(fixtures, research, cfg):
     for f in fixtures:
         grid = grids.get(f['fixture_key'])
         f['C6'] = _margins(grid) if grid is not None else None
+        if 'over15' in f:
+            f['over15']['C6'] = _over_1_5(grid) if grid is not None else None
     return fixtures
 
 
@@ -2717,6 +2728,338 @@ def master_summary(frames, synthetic, fixtures, cfg, sharpening=None, evaluated=
             'periods': periods}
 
 
+# ---------------------------------------------------------------------------
+# Shortlist entry audit (--mode lists): the value list's and the cagey tier's entry rules, one at a time
+# ---------------------------------------------------------------------------
+
+LISTS_RESEARCH = ('C', 'C6')  # the value list judged with C (live); C6 for information only
+LISTS_TARGET = 15
+
+
+def lists_margins(fixtures):
+    """Margins for the Bet365-period synthetic Pinnacle-like prices: Pinnacle's average 1X2, main-AH and O/U 2.5
+    overround over the Pinnacle-period fixtures (as the master backtest)."""
+    pre = [f for f in fixtures if f['market_book'] == 'pinnacle']
+    if not pre:
+        return None
+    return {key: float(np.mean([sum(1 / p for p in (f[key][1:] if key == 'ah' else f[key])) - 1 for f in pre]))
+            for key in ('hda', 'ah', 'ou')}
+
+
+def lists_offers(fixture, research='C', synthetic=None, ah_margin=None):
+    """Every offer of one match in the audit's pool (docs/plan.md, fixed 14 Nov 2026), with both lists' scores and
+    its settlement. `kind`: 'real' (home/away win, main AH line), 'derived' (double chance 1X/X2/12 and draw no
+    bet from the margin-free 1X2 plus that match's 1X2 overround) or 'synthetic' (alternate AH lines main -1 to +1
+    and Over 1.5: no historical price; accuracy only). In the Bet365 period every price is Pinnacle-like: Bet365's
+    margin-free probability plus Pinnacle's average margin (`synthetic`). Nothing in the selection reads the
+    settlement fields (`observed_no_loss`, `return`)."""
+    import market_implied as mi
+    import shortlist_entry_audit as sea
+    from asian_handicap import label
+    from ah_close_backtest import settle
+    if ah_margin is None:
+        import master_reconciliation as mr
+        ah_margin = float(mr.load_config()['market_view']['fair']['pinnacle_average_margin'])
+    h, d, a = mi.devig_three_way(*fixture['hda'])
+    line, ph, pa = fixture['ah']
+    q_home = (1 / ph) / (1 / ph + 1 / pa)
+    hda_margin = synthetic['hda'] if synthetic else sum(1 / p for p in fixture['hda']) - 1
+    ou_margin = synthetic['ou'] if synthetic else sum(1 / p for p in fixture['ou']) - 1
+    win_prices = list(fixture['hda'][::2]) if synthetic is None else [1 / (h * (1 + synthetic['hda'])),
+                                                                     1 / (a * (1 + synthetic['hda']))]
+    ah_prices = [ph, pa] if synthetic is None else [1 / (q_home * (1 + synthetic['ah'])),
+                                                   1 / ((1 - q_home) * (1 + synthetic['ah']))]
+    one_x_two = {('home', -.5): h, ('away', -.5): a, ('home', .5): h + d, ('away', .5): d + a}
+    research_grid, cagey_grid, market_grid = fixture.get(research), fixture['D'], fixture['M']
+    margin, goals = fixture['margin'], fixture['total_goals']
+    margins_d, probs_d = (np.asarray(x, float) for x in cagey_grid)
+    p_narrow = float(probs_d[np.abs(margins_d) <= 1].sum())
+
+    def handicap(side, point, price, kind, alternate=False, market=None, market_to_bet=None):
+        side_margin = margin if side == 'home' else -margin
+        won, lost = settle(side_margin, point)
+        binary = one_x_two.get((side, point))
+        return {'market': market or label(side, point), 'market_to_bet': market_to_bet or market or label(side, point),
+                'handicap_side': side, 'handicap_line': float(point), 'price': float(price), 'kind': kind,
+                'alternate': alternate, 'binary_fair': 1 / binary if binary else None,
+                'research_mass': _mass(research_grid, side, point) if research_grid is not None else None,
+                'cagey_mass': _mass(cagey_grid, side, point),
+                'return': float(won * (price - 1) - lost)}
+
+    def binary(market, p_market, research_p, cagey_p, happened, price, kind, side=None, point=None):
+        mass = lambda p: None if p is None else np.array([p, 0., 0., 0., 1 - p])
+        return {'market': market, 'market_to_bet': market, 'handicap_side': side, 'handicap_line': point,
+                'price': float(price), 'kind': kind, 'alternate': False, 'binary_fair': 1 / p_market,
+                'research_mass': mass(research_p), 'cagey_mass': mass(cagey_p),
+                'return': float(price - 1) if happened else -1.}
+
+    research_margins = (None if research_grid is None else
+                        (np.asarray(research_grid[0], float), np.asarray(research_grid[1], float)))
+    p12 = lambda grid: float(grid[1][grid[0] != 0].sum())
+    offers = [
+        binary('Home win', h, None, None, margin > 0, win_prices[0], 'real', 'home', -.5),
+        binary('Away win', a, None, None, margin < 0, win_prices[1], 'real', 'away', -.5),
+        handicap('home', line, ah_prices[0], 'real'),
+        handicap('away', -line, ah_prices[1], 'real'),
+        binary('Double Chance 1X', h + d, None, None, margin >= 0, 1 / ((h + d) * (1 + hda_margin)), 'derived', 'home', .5),
+        binary('Double Chance X2', d + a, None, None, margin <= 0, 1 / ((d + a) * (1 + hda_margin)), 'derived', 'away', .5),
+        binary('Double Chance 12', h + a, None if research_margins is None else p12(research_margins),
+               p12((margins_d, probs_d)), margin != 0, 1 / ((h + a) * (1 + hda_margin)), 'derived'),
+        handicap('home', 0., (h + a) / (h * (1 + hda_margin)), 'derived', market='Asian Handicap Home +0.00',
+                 market_to_bet='Draw No Bet Home'),
+        handicap('away', 0., (h + a) / (a * (1 + hda_margin)), 'derived', market='Asian Handicap Away +0.00',
+                 market_to_bet='Draw No Bet Away'),
+    ]
+    # Win and double chance settle exactly like AH -0.5 / +0.5: both views' settlement from their own grids.
+    for offer in offers[:2] + offers[4:6]:
+        point = offer['handicap_line']
+        offer['research_mass'] = _mass(research_grid, offer['handicap_side'], point) if research_grid is not None else None
+        offer['cagey_mass'] = _mass(cagey_grid, offer['handicap_side'], point)
+    p_over_market = fixture['over15']['M']
+    over_research = (fixture.get('over15') or {}).get(research)
+    # Over 1.5: the cagey tier's v5 basis is the uncorrected market grid (M), not D.
+    offers.append(binary('Over 1.5', p_over_market, over_research, p_over_market, goals >= 2,
+                         1 / (p_over_market * (1 + ou_margin)), 'synthetic'))
+    for step in range(-4, 5):
+        point = line + step / 4
+        if step == 0:
+            continue
+        for side, side_line in (('home', point), ('away', -point)):
+            fair = _mass(market_grid, side, side_line)
+            win, loss = fair[0] + fair[1] / 2, fair[4] + fair[3] / 2
+            if win <= 0:
+                continue
+            price = (1 + loss / win) / (1 + ah_margin)
+            if price > 1:
+                offers.append(handicap(side, side_line, price, 'synthetic', alternate=True))
+    for offer in offers:
+        price = offer['price']
+        offer['r'] = sea.scored(offer['research_mass'], price) if offer['research_mass'] is not None else None
+        offer['c'] = sea.scored(offer['cagey_mass'], price)
+        offer['observed_no_loss'] = float(offer['return'] >= -1e-12)
+        offer['observed_win'] = float(offer['return'] > 1e-12)
+        offer['p_narrow'] = p_narrow
+        offer['group'] = sea.market_group(offer)
+        if offer['kind'] == 'synthetic':
+            offer['return'] = None  # no historical price: judged on accuracy only, never on return
+    return offers
+
+
+def lists_pick_rows(fixtures_offers, select, rules):
+    """Every pick of one list under `rules`, one row per pick with its quality fields."""
+    rows = []
+    for fixture, offers in fixtures_offers:
+        for offer, rank in select(offers, rules):
+            rows.append({'phase': fixture['phase'], 'week': fixture['week'], 'date': fixture['date'],
+                         'league': fixture['league'], 'fixture_key': fixture['fixture_key'], 'market': offer['market'],
+                         'market_to_bet': offer['market_to_bet'], 'group': offer['group'], 'kind': offer['kind'],
+                         'alternate': offer['alternate'], 'rank': rank, 'price': offer['price'],
+                         'observed_no_loss': offer['observed_no_loss'], 'observed_win': offer['observed_win'],
+                         'cagey_no_loss': offer['c']['no_loss'], 'cagey_profit': offer['c']['profit'],
+                         'cagey_ev': offer['c']['ev'],
+                         'research_no_loss': offer['r']['no_loss'] if offer['r'] else None,
+                         'research_profit': offer['r']['profit'] if offer['r'] else None,
+                         'research_ev': offer['r']['ev'] if offer['r'] else None,
+                         'quality': offer['observed_no_loss'] - offer['c']['no_loss'],
+                         'quality_win': offer['observed_win'] - offer['c']['profit'],
+                         'return': offer['return'], '_offer': offer})
+    return pd.DataFrame(rows)
+
+
+def lists_set_stats(frame, weeks) -> dict:
+    """Quality (observed no-loss minus the cagey tier's predicted), its win version, flat-stake return (real prices;
+    real plus derived) and coverage of one set of bets."""
+    if frame.empty:
+        return {'bets': 0, 'matches': 0, 'bets_per_week': 0.0, 'matches_per_week': 0.0}
+    real = frame.loc[frame.kind.eq('real')]
+    priced = frame.loc[frame.kind.isin(['real', 'derived'])]
+    matches = int(frame[['week', 'fixture_key']].drop_duplicates().shape[0])
+    return {'bets': int(len(frame)), 'matches': matches, 'weeks_with_bets': int(frame.week.nunique()),
+            'bets_per_week': float(len(frame) / weeks), 'matches_per_week': float(matches / weeks),
+            'by_kind': {k: int(v) for k, v in frame.kind.value_counts().items()},
+            'by_group': {k: int(v) for k, v in frame.group.value_counts().items()},
+            'mean_odds': float(frame.price.mean()), 'observed_no_loss': float(frame.observed_no_loss.mean()),
+            'cagey_predicted_no_loss': float(frame.cagey_no_loss.mean()),
+            'quality': _week_ratio(frame, 'quality'), 'quality_win': _week_ratio(frame, 'quality_win'),
+            'return_real_prices': _week_ratio(real.assign(**{'return': real['return'].astype(float)})) if len(real) else None,
+            'return_real_and_derived_prices': (_week_ratio(priced.assign(**{'return': priced['return'].astype(float)}))
+                                               if len(priced) else None),
+            'real_price_bets': int(len(real)), 'derived_price_bets': int(len(priced) - len(real))}
+
+
+def lists_difference(a, b, value='quality'):
+    if a.empty or b.empty:
+        return None
+    if value == 'return':
+        a, b = (f.loc[f.kind.eq('real')].assign(**{'return': f.loc[f.kind.eq('real'), 'return'].astype(float)})
+                for f in (a, b))
+        if a.empty or b.empty:
+            return None
+    return _difference(a, b, value)
+
+
+def lists_rule_period(test, name, picks, period, weeks):
+    """One rule, one list, one period: pass vs fail, looser and tighter against today."""
+    part = lambda rules: picks(rules).pipe(lambda f: f.loc[f.phase.eq(period)] if len(f) else f)
+    today = part(sea_today())
+    base = part(test['removed']) if test['removed'] is not None else today
+    if base.empty:
+        return None
+    passed = base.loc[[test['passes'](o, k) for o, k in zip(base._offer, base['rank'])]]
+    if test['name'] == 'order_within_group':
+        failed = base.loc[base['rank'].eq(2)]
+    else:
+        failed = base.drop(passed.index)
+    out = {'today': lists_set_stats(today, weeks), 'pass': lists_set_stats(passed, weeks),
+           'fail': lists_set_stats(failed, weeks), 'pass_minus_fail': lists_difference(passed, failed),
+           'pass_minus_fail_return_real_prices': lists_difference(passed, failed, 'return')}
+    for step in ('looser', 'tighter'):
+        if test[step] is None:
+            continue
+        other = part(test[step])
+        out[step] = lists_set_stats(other, weeks)
+        out[f'{step}_minus_today'] = lists_difference(other, today)
+        out[f'{step}_minus_today_return_real_prices'] = lists_difference(other, today, 'return')
+        if step == 'looser':
+            out['looser_adds_coverage'] = bool(len(other) > len(today) or out['looser']['matches'] > out['today']['matches'])
+        # Context, not deciding: the bets the step adds (looser) or removes (tighter) relative to today.
+        key = lambda f: list(zip(f.fixture_key, f.market_to_bet, f.price)) if len(f) else []
+        if step == 'looser':
+            kept = set(key(today))
+            moved = other.loc[[k not in kept for k in key(other)]] if len(other) else other
+        else:
+            kept = set(key(other))
+            moved = today.loc[[k not in kept for k in key(today)]] if len(today) else today
+        out[f'{step}_{"added" if step == "looser" else "removed"}_bets'] = lists_set_stats(moved, weeks)
+    if test['name'] == 'order_within_group':
+        alternative = part(sea_rules(ev_first=True))
+        out['ev_first_order'] = lists_set_stats(alternative, weeks)
+        out['ev_first_minus_today'] = lists_difference(alternative, today)
+    return out
+
+
+def sea_today():
+    import shortlist_entry_audit as sea
+    return sea.TODAY
+
+
+def sea_rules(**changes):
+    import shortlist_entry_audit as sea
+    return sea.with_rules(**changes)
+
+
+def lists_runs(frame, pool_counts, period) -> dict:
+    """Runs (kickoff days) whose picks cover at least 15 matches; also over days with at least 15 priced matches."""
+    days = {d: n for (p, d), n in pool_counts.items() if p == period}
+    covered = (frame.loc[frame.phase.eq(period)].groupby('date').fixture_key.nunique()
+               if len(frame) else pd.Series(dtype=int))
+    big = [d for d, n in days.items() if n >= LISTS_TARGET]
+    hit = lambda ds: int(sum(int(covered.get(d, 0)) >= LISTS_TARGET for d in ds))
+    return {'days': len(days), 'days_covering_15': hit(days), 'share_covering_15': hit(days) / len(days) if days else None,
+            'days_with_15_priced_matches': len(big), 'covering_15_on_those_days': hit(big),
+            'share_on_those_days': hit(big) / len(big) if big else None,
+            'mean_matches_per_day': float(np.mean([int(covered.get(d, 0)) for d in days])) if days else None}
+
+
+def lists_backtest(cache, cfg, workers=None, leagues=None):
+    """Locked (development, validation, retrospective; the holdout is skipped before it is read): the master
+    backtest's per-match inputs, with C6 attached."""
+    leagues = list(leagues or cfg['leagues'])
+    with ProcessPoolExecutor(max_workers=workers) as pool:
+        parts = list(pool.map(master_league, leagues, [str(cache)] * len(leagues), [cfg] * len(leagues)))
+    fixtures = [f for rows, _ in parts for f in rows]
+    master_attach_c6(fixtures, [r for _, research in parts for r in research], cfg)
+    if any(f['phase'] not in MASTER_PERIODS for f in fixtures):
+        raise ValueError('The shortlist entry audit scored a period outside development, validation, retrospective')
+    return fixtures
+
+
+def lists_summary(fixtures, cfg) -> tuple:
+    """Every rule test for both lists, the verdicts, and the combined effect of the proposed changes."""
+    import shortlist_entry_audit as sea
+    import master_reconciliation as mr
+    synthetic = lists_margins(fixtures)
+    ah_margin = float(mr.load_config()['market_view']['fair']['pinnacle_average_margin'])
+    offers = {name: [(f, lists_offers(f, name, synthetic if f['market_book'] == 'bet365' else None, ah_margin))
+                     for f in fixtures] for name in LISTS_RESEARCH}
+    cache = {}
+
+    def picks(list_name, research):
+        select = sea.value_select if list_name == 'value' else sea.cagey_select
+        pool = offers[research if list_name == 'value' else 'C']
+
+        def get(rules):
+            key = (list_name, research if list_name == 'value' else 'D', rules)
+            if key not in cache:
+                cache[key] = lists_pick_rows(pool, select, rules)
+            return cache[key]
+        return get
+
+    weeks = {p: len({f['week'] for f in fixtures if f['phase'] == p}) for p in MASTER_PERIODS}
+    pool_counts = Counter((f['phase'], f['date']) for f in fixtures)
+    views = {'value': ('C', 'C6'), 'cagey': ('D',)}
+    tests = {}
+    for test in sea.RULE_TESTS:
+        tests[test['name']] = {'today': test['today'], 'lists': {}}
+        for list_name in test['lists']:
+            for view in views[list_name]:
+                getter = picks(list_name, view if list_name == 'value' else 'C')
+                per = {p: lists_rule_period(test, list_name, getter, p, weeks[p]) for p in MASTER_PERIODS}
+                entry = {'periods': per}
+                if view != 'C6':
+                    entry.update(sea.verdict(per.get('development'), per.get('validation')))
+                tests[test['name']]['lists'][f'{list_name}:{view}'] = entry
+    # Combined effect: every loosen/tighten verdict applied together, per list.
+    changes = {'value': [], 'cagey': []}
+    for test in sea.RULE_TESTS:
+        for list_name in test['lists']:
+            entry = tests[test['name']]['lists'][f"{list_name}:{'C' if list_name == 'value' else 'D'}"]
+            step = {'loosen': 'looser', 'tighten': 'tighter'}.get(entry['verdict'])
+            if step:
+                changes[list_name].append({'rule': test['name'], 'step': step, 'change': test['changes'][step]})
+    proposed = {k: sea.combined_rules([c['change'] for c in v]) for k, v in changes.items()}
+    combined = {}
+    for period in MASTER_PERIODS:
+        out = {}
+        for label, rules in (('today', {'value': sea.TODAY, 'cagey': sea.TODAY}), ('proposed', proposed),
+                             ('today_main_line_only', {'value': sea.with_rules(main_line_only=True),
+                                                       'cagey': sea.with_rules(main_line_only=True)})):
+            value = picks('value', 'C')(rules['value'])
+            cagey = picks('cagey', 'C')(rules['cagey'])
+            value, cagey = (f.loc[f.phase.eq(period)] if len(f) else f for f in (value, cagey))
+            union = pd.concat([value, cagey]).drop_duplicates(['fixture_key', 'market_to_bet', 'price']) if len(value) or len(cagey) else value
+            out[label] = {'value': lists_set_stats(value, weeks[period]), 'cagey': lists_set_stats(cagey, weeks[period]),
+                          'both_lists': lists_set_stats(union, weeks[period]),
+                          'runs': lists_runs(union, pool_counts, period)}
+            out[label]['_frames'] = (value, cagey, union)
+        today, new = out['today']['_frames'], out['proposed']['_frames']
+        out['proposed_minus_today'] = {k: lists_difference(n, t) for k, n, t in zip(('value', 'cagey', 'both_lists'), new, today)}
+        out['proposed_minus_today_return_real_prices'] = {
+            k: lists_difference(n, t, 'return') for k, n, t in zip(('value', 'cagey', 'both_lists'), new, today)}
+        value_today, cagey_today = today[0], today[1]
+        same = (set(zip(value_today.fixture_key, value_today.market_to_bet, value_today.price))
+                & set(zip(cagey_today.fixture_key, cagey_today.market_to_bet, cagey_today.price))) if len(value_today) else set()
+        out['today_same_offer_on_both_lists'] = {'bets': len(same), 'share_of_value_list': len(same) / len(value_today)
+                                                 if len(value_today) else None}
+        for label in ('today', 'proposed', 'today_main_line_only'):
+            out[label].pop('_frames')
+        combined[period] = out
+    today_picks = pd.concat([picks('value', v)(sea.TODAY).assign(list='value', view=v) for v in LISTS_RESEARCH]
+                            + [picks('cagey', 'C')(sea.TODAY).assign(list='cagey', view='D')], ignore_index=True)
+    summary = {'version': VERSION, 'mode': 'shortlist_entry_audit',
+               'config_sha256': hashlib.sha256(json.dumps(cfg, sort_keys=True).encode()).hexdigest(),
+               'fixtures': len(fixtures), 'weeks': weeks, 'synthetic_pinnacle_margins_bet365_period': synthetic,
+               'scope': 'Domestic leagues only (no European prices). Offers: home/away win and the main AH line at real '
+                        'prices; double chance 1X/X2/12 and draw no bet at derived prices (margin-free 1X2 plus that '
+                        "match's 1X2 overround); alternate AH lines (main -1.00 to +1.00) and Over 1.5 at synthetic prices "
+                        '(no historical price; accuracy only, never return). Bet365 period: Pinnacle-like prices from '
+                        "Bet365's margin-free probabilities plus Pinnacle's average margin. Quality = observed no-loss "
+                        "minus the cagey tier's predicted no-loss (Over 1.5: M's), per bet, whole weeks resampled. "
+                        'Locked: no holdout match is read.',
+               'rule_tests': tests, 'proposed_changes': changes, 'combined': combined}
+    return summary, today_picks.drop(columns='_offer')
+
+
 def git_commit():
     try:
         return subprocess.run(['git', 'rev-parse', 'HEAD'], capture_output=True, text=True, check=True).stdout.strip()
@@ -2726,7 +3069,7 @@ def git_commit():
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument('--mode', choices=('historical', 'live', 'parity', 'european', 'master'), default='historical')
+    parser.add_argument('--mode', choices=('historical', 'live', 'parity', 'european', 'master', 'lists'), default='historical')
     parser.add_argument('--cache', type=Path, default=Path('.football_cache'))
     parser.add_argument('--root', type=Path, default=Path('football_output_v2'))
     parser.add_argument('--config', type=Path, default=CONFIG)
@@ -2772,6 +3115,14 @@ def main(argv=None):
         pd.concat([f.assign(research_view=name) for name, f in frames.items()], ignore_index=True).to_csv(
             args.output / 'master_offers.csv', index=False)
         sharpening['events'].to_csv(args.output / 'sharpening_events.csv', index=False)
+        return 0
+    if args.mode == 'lists':
+        if args.declaration:
+            raise ValueError('The shortlist entry audit is locked: it never scores the holdout')
+        fixtures = lists_backtest(args.cache, cfg, args.workers, args.leagues)
+        summary, picks = lists_summary(fixtures, cfg)
+        hb.write_json(args.output / 'results.json', {**summary, 'source_commit': commit})
+        picks.to_csv(args.output / 'today_picks.csv', index=False)
         return 0
     declaration = setup = keep = None
     if args.declaration:
