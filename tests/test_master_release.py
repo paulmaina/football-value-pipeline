@@ -60,16 +60,24 @@ def sha(data) -> str:
     return hashlib.sha256(raw.replace(b'\r\n', b'\n')).hexdigest()
 
 
+SHADOW_NAMES = {live: shadow for shadow, live in ms.SUMMARY_RENAMES.items()}
+
+
 def as_shadow(live: pd.DataFrame) -> pd.DataFrame:
-    """The live file in the shadow file's terms (the rule version in place of the live version)."""
-    out = live.copy()
+    """The live file in the shadow file's terms: the shadow-period overlap names (in_live_master, ...), the rule version
+    in place of the live version, and only the rule's columns."""
+    out = live.rename(columns=SHADOW_NAMES)
     out['new_master_version'] = out['new_master_version'].replace(ms.VERSION_NEW_LIVE, mr.VERSION)
-    return out
+    return out[list(mr.COLUMNS)]
 
 
-def shadow_summary(info: dict) -> dict:
-    """The live summary in the shadow summary's terms."""
-    return dict(info)
+def shadow_summary(info):
+    """The live summary in the shadow summary's terms (the shadow-period key names)."""
+    if isinstance(info, dict):
+        return {SHADOW_NAMES.get(k, k): shadow_summary(v) for k, v in info.items()}
+    if isinstance(info, list):
+        return [shadow_summary(v) for v in info]
+    return info
 
 
 def frozen_inputs():
@@ -186,7 +194,7 @@ class RoleSwapTest(unittest.TestCase):
         self.assertEqual((written['version'], written['status'], written['note']),
                          (ms.VERSION_NEW_LIVE, ms.LIVE_STATUS, ms.LIVE_NOTE))
         frame = pd.read_csv(out / ms.FILE)
-        self.assertEqual(list(frame.columns), mr.COLUMNS)
+        self.assertEqual(list(frame.columns), ms.live_columns())
         self.assertEqual(set(frame.new_master_version), {ms.VERSION_NEW_LIVE} if len(frame) else set())
         return frame
 
@@ -219,28 +227,34 @@ class RoleSwapTest(unittest.TestCase):
             strip = lambda info: {k: v for k, v in info.items() if k not in ('version', 'status', 'note')}
             self.assertEqual(strip(shadow_summary(new_summary['master_shortlist'])), strip(shadow_info))
 
+    def test_the_live_file_names_its_overlap_columns_after_the_old_master(self):
+        out, summary = refresh(snapshot_inputs())
+        live = pd.read_csv(out / ms.FILE)
+        for shadow_name, live_name in (('in_live_master', 'in_old_master'), ('live_master_rank', 'old_master_rank'),
+                                       ('live_master_same_offer', 'old_master_same_offer')):
+            self.assertIn(live_name, live.columns)
+            self.assertNotIn(shadow_name, live.columns)
+        info = summary['master_shortlist']
+        self.assertIn('overlap_with_old_master', info)
+        self.assertNotIn('overlap_with_live_master', info)
+        self.assertEqual(set(info['overlap_with_old_master']),
+                         {'old_master_fixtures', 'new_master_fixtures', 'same_fixture', 'same_offer', 'old_only',
+                          'new_only'})
+        self.assertTrue({'in_old_master', 'old_master_same_offer'} <= set(info['top_picks'][0]))
+        # the old master's picks are the old shadow file's: the overlap columns point at them
+        old = pd.read_csv(out / ms.OLD_FILE)
+        picks = live.loc[live.new_master_decision.eq('SHORTLISTED')]
+        self.assertEqual(int(picks.in_old_master.sum()), info['overlap_with_old_master']['same_fixture'])
+        self.assertTrue(set(picks.loc[picks.in_old_master, 'old_master_rank'].astype(int)) <= set(old.master_rank))
+        # live "old" keeps the shadow-period names in master_shortlist_new.csv (pre-release bytes)
+        shadow_out, _ = refresh(snapshot_inputs(), 'old')
+        self.assertIn('in_live_master', pd.read_csv(shadow_out / 'master_shortlist_new.csv').columns)
+
     def test_the_version_is_bumped_and_distinct(self):
         self.assertNotIn(ms.VERSION_NEW_LIVE, ms.VERSIONS)
         self.assertNotEqual(ms.VERSION_NEW_LIVE, mr.VERSION)
         self.assertTrue(ms.VERSION_NEW_LIVE.startswith(mr.VERSION))
         self.assertTrue(ms.VERSION_NEW_LIVE.endswith('-v10'))  # after master-profit-15-pinnacle-markets-v9
-
-    def test_an_old_shadow_failure_only_warns(self):
-        predictions, decisions, summary = frozen_inputs()
-        out = Path(tempfile.mkdtemp())
-        with mock.patch.object(ms, '_old_master', side_effect=RuntimeError('boom')):
-            with self.assertWarns(UserWarning):
-                ms.refresh(decisions, out, summary, predictions)
-        self.assertEqual(sorted(p.name for p in out.iterdir()), [ms.FILE, ms.SUMMARY_FILE])
-        self.assertNotIn(ms.OLD_SUMMARY_KEY, summary)
-        frame = pd.read_csv(out / ms.FILE)
-        self.assertFalse(frame.in_live_master.any())  # no old master to compare with
-        self.assertEqual(summary['master_shortlist']['version'], ms.VERSION_NEW_LIVE)
-
-    def test_a_new_master_failure_is_never_hidden(self):
-        predictions, decisions, summary = frozen_inputs()
-        with mock.patch.object(mr, 'reconcile', side_effect=RuntimeError('boom')), self.assertRaises(RuntimeError):
-            ms.refresh(decisions, Path(tempfile.mkdtemp()), summary, predictions)
 
     def test_other_policies_remove_every_master_file(self):
         out = Path(tempfile.mkdtemp())
@@ -256,6 +270,72 @@ class RoleSwapTest(unittest.TestCase):
         before = decisions.to_csv(index=False)
         refresh((predictions, decisions, summary))
         self.assertEqual(decisions.to_csv(index=False), before)
+
+
+class FailureTest(unittest.TestCase):
+    """A new-master failure publishes the old master for that run (NEW MASTER FAILED - OLD MASTER PUBLISHED); an
+    old-master (shadow) failure keeps the new master and records that the run has no comparison baseline."""
+
+    def test_a_new_master_failure_publishes_the_old_master_for_that_run(self):
+        for inputs in (frozen_inputs, snapshot_inputs):
+            old_out, old_summary = refresh(inputs(), 'old')
+            predictions, decisions, summary = inputs()
+            out = Path(tempfile.mkdtemp())
+            (out / ms.SUMMARY_FILE).write_text('stale', encoding='utf-8')
+            with mock.patch.object(mr, 'reconcile', side_effect=RuntimeError('boom')), \
+                    self.assertWarnsRegex(UserWarning, 'NEW MASTER FAILED - OLD MASTER PUBLISHED'):
+                frame = ms.refresh(decisions, out, summary, predictions)
+            # exactly what live "old" publishes, without the shadow new master
+            self.assertEqual(sorted(p.name for p in out.iterdir()), [ms.FILE, 'master_shortlist_audit.csv'])
+            self.assertEqual((out / ms.FILE).read_bytes(), (old_out / ms.FILE).read_bytes())
+            self.assertEqual((out / 'master_shortlist_audit.csv').read_bytes(),
+                             (old_out / 'master_shortlist_audit.csv').read_bytes())
+            self.assertEqual(summary['master_shortlist'], old_summary['master_shortlist'])
+            self.assertNotIn(ms.OLD_SUMMARY_KEY, summary)
+            self.assertEqual(summary[ms.RELEASE_STATUS_KEY]['status'], 'NEW MASTER FAILED - OLD MASTER PUBLISHED')
+            self.assertEqual(summary[ms.RELEASE_STATUS_KEY]['error'], 'RuntimeError: boom')
+            self.assertEqual(len(frame), old_summary['master_shortlist']['n_bets'])
+            self.assertEqual(ms.configured_live(), ms.LIVE_NEW)  # the switch is untouched
+
+    def test_the_runs_report_says_so(self):
+        from format_football_output import master_section
+        predictions, decisions, summary = frozen_inputs()
+        out = Path(tempfile.mkdtemp())
+        with mock.patch.object(mr, 'reconcile', side_effect=ValueError('bad rows')), warnings.catch_warnings():
+            warnings.simplefilter('ignore')
+            ms.refresh(decisions, out, summary, predictions)
+        text = '\n'.join(master_section(summary, out, Path(tempfile.mkdtemp())))
+        self.assertIn('**NEW MASTER FAILED - OLD MASTER PUBLISHED** in this run (ValueError: bad rows)', text)
+        self.assertLess(text.index('## '), text.index('NEW MASTER FAILED'))
+
+    def test_both_masters_failing_fails_the_run(self):
+        predictions, decisions, summary = frozen_inputs()
+        with mock.patch.object(mr, 'reconcile', side_effect=RuntimeError('new')), \
+                mock.patch.object(ms, '_old_master', side_effect=RuntimeError('old')), warnings.catch_warnings(), \
+                self.assertRaisesRegex(RuntimeError, 'new'):
+            warnings.simplefilter('ignore')
+            ms.refresh(decisions, Path(tempfile.mkdtemp()), summary, predictions)
+
+    def test_an_old_shadow_failure_keeps_the_new_master_and_records_the_missing_baseline(self):
+        from format_football_output import master_section
+        predictions, decisions, summary = frozen_inputs()
+        normal, normal_summary = refresh(frozen_inputs())
+        out = Path(tempfile.mkdtemp())
+        with mock.patch.object(ms, '_old_master', side_effect=RuntimeError('boom')), \
+                self.assertWarnsRegex(UserWarning, 'COMPARISON BASELINE MISSING'):
+            ms.refresh(decisions, out, summary, predictions)
+        self.assertEqual(sorted(p.name for p in out.iterdir()), [ms.FILE, ms.SUMMARY_FILE])
+        self.assertNotIn(ms.OLD_SUMMARY_KEY, summary)
+        self.assertEqual(summary[ms.RELEASE_STATUS_KEY]['status'], 'COMPARISON BASELINE MISSING')
+        self.assertEqual(summary[ms.RELEASE_STATUS_KEY]['old_master_version'], ms.VERSION_PINNACLE_MARKETS)
+        expected, info = ms.new_live(decisions, None, summary['generated_at_utc'], predictions)
+        self.assertTrue(ms.matches_new(pd.read_csv(out / ms.FILE), expected))
+        self.assertEqual(summary['master_shortlist'], info)
+        # the picks are the normal run's: only the comparison with the old master is missing
+        picks = lambda f: f.loc[f.new_master_decision.eq('SHORTLISTED'), ['home_team', 'market', 'new_master_rank']]
+        pd.testing.assert_frame_equal(picks(pd.read_csv(out / ms.FILE)), picks(pd.read_csv(normal / ms.FILE)))
+        text = '\n'.join(master_section(summary, out, Path(tempfile.mkdtemp())))
+        self.assertIn('**COMPARISON BASELINE MISSING** in this run (RuntimeError: boom)', text)
 
 
 KICK = pd.Timestamp('2026-11-21T15:00:00Z')
@@ -291,7 +371,10 @@ def archive(root, snapshots):
         directory = root / 'performance' / 'snapshots' / sha_[:16]
         directory.mkdir(parents=True)
         for name, rows in files.items():
-            pd.DataFrame(rows).to_csv(directory / name, index=False)
+            if name.endswith('.json'):  # the archived run summary (selection_summary.json)
+                (directory / name).write_text(json.dumps(rows), encoding='utf-8')
+            else:
+                pd.DataFrame(rows).to_csv(directory / name, index=False)
         out.append(({'git_commit_sha': sha_, 'captured_at_utc': captured.isoformat(),
                      'generated_at_utc': generated.isoformat(), 'selection_policy_version': v28.POLICY,
                      'sha256': {name: '0' * 64 for name in files}}, [], []))
@@ -403,6 +486,93 @@ class RollbackTest(unittest.TestCase):
         self.assertNotIn('> **ROLLBACK TRIGGERED**', report)
         self.assertLess(report.index('## Master shortlist: new master'), report.index('## Old master (shadow'))
         self.assertIn('**Rollback status: WAITING.**', report)
+
+    def test_a_missing_baseline_is_never_an_ordinary_wait(self):
+        import price_edge_tracking as tracking
+        out = tracking.master_rollback(frame([-1.] * 20), frame([0.4] * 20), 'new', baseline_missing_runs=2)
+        self.assertEqual((out['status'], out['triggered']), ('COMPARISON BASELINE MISSING', False))
+        self.assertTrue(out['message'].startswith('Comparison baseline missing in 2 runs (the old master shadow '
+                                                  'failed); not triggered: waiting'))
+        rng = np.random.default_rng(3)
+        old = frame(list(rng.choice([0.4, -1.], 200, p=[.75, .25])))
+        worse = frame(list(rng.choice([0.4, -1.], 200, p=[.45, .55])))
+        triggered = tracking.master_rollback(worse, old, 'new', baseline_missing_runs=1)
+        self.assertEqual(triggered['status'], tracking.ROLLBACK_TRIGGERED)
+        self.assertIn('Comparison baseline missing in 1 run (the old master shadow failed).', triggered['message'])
+        self.assertEqual(tracking.master_rollback(frame([-1.] * 20), frame([0.4] * 20), 'new')['status'], 'WAITING')
+
+    def test_the_weekly_report_counts_release_incidents_and_grades_across_them(self):
+        """Three runs: a normal one, one whose new master failed (the old master was published live) and one whose
+        old master shadow failed. The report and the reports check name both incidents with their counts, the
+        rollback status says the baseline is missing, and each list is graded from the right file."""
+        import price_edge_tracking as tracking
+        import workflow_checks
+        final = {'home_goals': 0, 'away_goals': 1}
+        run_info = lambda **extra: {'selection_policy_version': v28.POLICY,
+                                    'master_shortlist': {'version': ms.VERSION_NEW_LIVE}, **extra}
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            gens = [KICK - pd.Timedelta(hours=h) for h in (22, 21, 20)]
+            arch = archive(root, [
+                ('a' * 40, gens[0], gens[0], {
+                    ms.FILE: [new_row('Normal FC', generated=gens[0].isoformat())],
+                    ms.OLD_FILE: [old_row('Normal FC', generated=gens[0].isoformat())],
+                    'selection_summary.json': run_info(**{ms.OLD_SUMMARY_KEY: {}})}),
+                ('b' * 40, gens[1], gens[1], {
+                    ms.FILE: [old_row('Fallback FC', generated=gens[1].isoformat())],
+                    'selection_summary.json': {
+                        'selection_policy_version': v28.POLICY,
+                        'master_shortlist': {'version': ms.VERSION_PINNACLE_MARKETS},
+                        ms.RELEASE_STATUS_KEY: {'status': ms.NEW_MASTER_FAILED, 'error': 'RuntimeError: boom'}}}),
+                ('c' * 40, gens[2], gens[2], {
+                    ms.FILE: [new_row('Baseline FC', generated=gens[2].isoformat())],
+                    'selection_summary.json': run_info(**{ms.RELEASE_STATUS_KEY: {
+                        'status': ms.BASELINE_MISSING, 'error': 'KeyError: x'}})})])
+            with mock.patch('closing_odds.load_observations', return_value=([], [])), \
+                    mock.patch('performance_tracking.fixture_match', return_value=(final, 'VERIFIED_FINISHED')):
+                summary = tracking.review(root, arch, [], KICK + pd.Timedelta(hours=5))
+            report = (root / tracking.OUTPUT_DIR / 'report.md').read_text(encoding='utf-8')
+            incidents = summary['master_release_incidents']
+            self.assertEqual((incidents['new_master_failed']['runs'], incidents['baseline_missing']['runs']), (1, 1))
+            self.assertEqual(incidents['new_master_failed']['details'][0]['error'], 'RuntimeError: boom')
+            self.assertEqual(summary['master_rollback']['status'], 'COMPARISON BASELINE MISSING')
+            self.assertNotIn('**Rollback status: WAITING.**', report)
+            self.assertIn('**Rollback status: COMPARISON BASELINE MISSING.** Comparison baseline missing in 1 run',
+                          report)
+            top = report.split('## ')[0]
+            self.assertIn('> **NEW MASTER FAILED - OLD MASTER PUBLISHED** (master shortlist) in 1 run', top)
+            self.assertIn('> **Comparison baseline missing** (master shortlist) in 1 run', top)
+            # grading across the incidents: the fallback run's live file is graded as the old master
+            self.assertEqual(sorted(r['home_team'] for r in tracking.frozen_new_master_picks(root, arch)),
+                             ['Baseline FC', 'Normal FC'])
+            self.assertEqual(sorted(r['home_team'] for r in tracking.frozen_old_master_picks(root, arch)),
+                             ['Fallback FC', 'Normal FC'])
+            # the reports check and its run summary carry both, never as an ordinary wait
+            path = root / tracking.OUTPUT_DIR / 'summary.json'
+            stored = json.loads(path.read_text(encoding='utf-8'))
+            self.assertEqual(stored['master_release_incidents']['messages'], incidents['messages'])
+            step = Path(tmp) / 'step.md'
+            with mock.patch.dict(os.environ, {'GITHUB_STEP_SUMMARY': str(step)}), \
+                    contextlib.redirect_stdout(io.StringIO()):
+                workflow_checks.emit({'status': 'VERIFIED_WITH_WARNINGS', 'warnings': incidents['messages'],
+                                      'master_release_incidents': incidents}, summary=True)
+            text = step.read_text(encoding='utf-8')
+        self.assertTrue(text.startswith('> **NEW MASTER FAILED - OLD MASTER PUBLISHED** (master shortlist) in 1 run'))
+        self.assertIn('> **Comparison baseline missing** (master shortlist) in 1 run', text)
+        source = (REPO / 'workflow_checks.py').read_text(encoding='utf-8')
+        self.assertIn("for message in reversed(incidents.get('messages', [])): warnings.insert(0, message)", source)
+
+    def test_an_unrecorded_missing_shadow_still_counts(self):
+        import price_edge_tracking as tracking
+        generated = KICK - pd.Timedelta(hours=20)
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            arch = archive(root, [('d' * 40, generated, generated, {
+                ms.FILE: [new_row('Home FC')], 'selection_summary.json': {
+                    'master_shortlist': {'version': ms.VERSION_NEW_LIVE}}})])
+            incidents = tracking.master_release_incidents(root, arch)
+        self.assertEqual(incidents['baseline_missing']['runs'], 1)
+        self.assertEqual(incidents['baseline_missing']['details'][0]['error'], 'not recorded')
 
     def test_the_run_summary_carries_it_first(self):
         import workflow_checks
@@ -611,6 +781,62 @@ class RawCheckTest(unittest.TestCase):
                 check()
         finally:
             case.tearDown()
+
+    def _pipeline_run(self, tmp, patches):
+        """The test_master_shortlist pipeline run written to tmp/raw under `patches`; returns (raw, check)."""
+        from unittest.mock import patch
+        from test_master_shortlist import run as run_v28, PipelineTests
+        from workflow_checks import raw_check
+        case = PipelineTests('test_raw_check_binds_the_master_shortlist_to_the_replay')
+        case.setUp()
+        self.addCleanup(case.tearDown)
+        monitoring = []
+        selected, decisions, summary = run_v28(*case.predictions.to_dict('records'), monitor=monitoring)
+        raw = Path(tmp) / 'raw'
+        raw.mkdir()
+        case.predictions.to_csv(raw / 'all_leagues_predictions.csv', index=False)
+        selected.to_csv(raw / 'conservative_bet_shortlist.csv', index=False)
+        v28.cagey_tier_list(decisions).to_csv(raw / v28.TIER_FILE, index=False)
+        v28.record_monitoring(summary, monitoring, raw)
+        with contextlib.ExitStack() as stack, warnings.catch_warnings():
+            warnings.simplefilter('ignore')
+            for target, name in patches:
+                stack.enter_context(patch.object(target, name, side_effect=RuntimeError('boom')))
+            ms.refresh(decisions, raw, summary, case.predictions)
+        (raw / 'conservative_bet_summary.json').write_text(json.dumps(summary, default=str), encoding='utf-8')
+        settings = {'cagey_correction_enabled': False, 'cagey_tier_enabled': False, 'model_version': None}
+
+        def check(*during):
+            with patch.object(v28, 'load_settings', return_value=settings), contextlib.ExitStack() as stack:
+                for target, name in during:
+                    stack.enter_context(patch.object(target, name, side_effect=RuntimeError('boom')))
+                raw_check(Path(tmp), raw_dir=raw)
+        return raw, summary, check
+
+    def test_raw_check_accepts_a_new_master_failure_only_when_it_replays(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            raw, summary, check = self._pipeline_run(tmp, [(mr, 'reconcile')])
+            self.assertEqual(summary[ms.RELEASE_STATUS_KEY]['status'], ms.NEW_MASTER_FAILED)
+            check((mr, 'reconcile'))  # the failure replays: accepted, and the old master is checked as the live list
+            with self.assertRaisesRegex(Exception, 'says the new master failed, but it replays without error'):
+                check()
+            (raw / ms.SUMMARY_FILE).write_text('{}', encoding='utf-8')
+            with self.assertRaisesRegex(Exception, 'Unexpected release files'):
+                check((mr, 'reconcile'))
+
+    def test_raw_check_accepts_a_missing_baseline_only_when_it_replays(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            raw, summary, check = self._pipeline_run(tmp, [(ms, '_old_master')])
+            self.assertEqual(summary[ms.RELEASE_STATUS_KEY]['status'], ms.BASELINE_MISSING)
+            check((ms, '_old_master'))
+            with self.assertRaisesRegex(Exception, r'says the old master \(shadow\) failed, but it replays'):
+                check()
+            path = raw / 'conservative_bet_summary.json'
+            info = json.loads(path.read_text(encoding='utf-8'))
+            info.pop(ms.RELEASE_STATUS_KEY)
+            path.write_text(json.dumps(info), encoding='utf-8')
+            with self.assertRaisesRegex(Exception, r'Missing current old master shortlist \(shadow\) summary'):
+                check((ms, '_old_master'))
 
 
 if __name__ == '__main__':

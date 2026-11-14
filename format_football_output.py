@@ -1628,7 +1628,20 @@ MASTER_READABLE = "master_shortlist_readable.csv"
 
 
 def master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -> list:
-    """master_shortlist_readable.csv and its report section, when the run recorded a master shortlist."""
+    """master_shortlist_readable.csv and its report section, when the run recorded a master shortlist, with the run's
+    release incident (new master failed and old master published, or comparison baseline missing) under its heading."""
+    import master_shortlist
+    lines = _master_section(summary, input_dir, output_dir)
+    incident = summary.get(master_shortlist.RELEASE_STATUS_KEY) or {}
+    if not incident.get('status'):
+        return lines
+    banner = ['', f"**{incident['status']}** in this run ({incident.get('error') or 'error not recorded'}). "
+                  f"{incident.get('note') or ''}".rstrip()]
+    heading = next((i for i, line in enumerate(lines) if line.startswith('## ')), None)
+    return banner if heading is None else [*lines[:heading + 1], *banner, *lines[heading + 1:]]
+
+
+def _master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -> list:
     import master_shortlist
     info = summary.get('master_shortlist')
     path = Path(input_dir) / master_shortlist.FILE if input_dir is not None else None
@@ -1761,7 +1774,7 @@ def new_master_section(info: dict, path: Path, summary: dict, output_dir: Path) 
         "Labels": picks.new_master_labels.map(text),
         "Offered quote (UTC)": picks.offered_last_update_utc.map(text),
         "On value shortlist": picks.in_value_shortlist.map(yes), "On cagey tier": picks.in_cagey_tier.map(yes),
-        "In old master (shadow)": picks.in_live_master.map(yes),
+        "In old master (shadow)": picks.in_old_master.map(yes),
     })
     readable.to_csv(output_dir / MASTER_READABLE, index=False, encoding="utf-8-sig")
     tiers = info.get('picks_by_tier') or {}

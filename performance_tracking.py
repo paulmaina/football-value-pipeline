@@ -1183,6 +1183,8 @@ def review(*, root: Path = ROOT, token: str = "",
         if rollback.get('triggered'):  # the release's rollback rule: reported, never acted on automatically
             print(rollback['message'])
             print(rollback['message'], file=sys.stderr)
+        for message in ((price_edge or {}).get('master_release_incidents') or {}).get('messages', []):
+            print(message)  # new master failed (old master published) / comparison baseline missing, with counts
     except Exception as exc:
         warnings.warn(f'v27 price-edge review failed ({type(exc).__name__}); production report complete')
     try:

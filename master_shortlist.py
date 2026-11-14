@@ -91,11 +91,38 @@ OLD_AUDIT_FILE = 'master_shortlist_old_audit.csv'
 SUMMARY_FILE = 'master_shortlist_summary.json'
 OLD_SUMMARY_KEY = 'master_shortlist_old'
 RELEASE_FILES = (OLD_FILE, OLD_AUDIT_FILE, SUMMARY_FILE)
+# A run's release incidents (run summary key `master_release`, absent when both masters ran): the new master failed
+# and the old master was published as the live list for that run, or the old master (shadow) failed and the run has
+# no comparison baseline. Reported by the run's readable report, the weekly report and the reports check.
+RELEASE_STATUS_KEY = 'master_release'
+NEW_MASTER_FAILED = 'NEW MASTER FAILED - OLD MASTER PUBLISHED'
+BASELINE_MISSING = 'COMPARISON BASELINE MISSING'
 LIVE_STATUS = ('live master: released by Paul on 14 Nov 2026 as a deliberate exception, without waiting for the live '
                'comparison verdict; graded beside the old master with the rollback rule in master_shortlist_config.json')
 LIVE_NOTE = ('Live: master_shortlist.csv is this list. The old master runs in shadow as master_shortlist_old.csv; the '
-             'columns in_live_master, live_master_rank and live_master_same_offer and overlap_with_live_master compare '
-             'with that old master (names kept from the shadow period).')
+             'columns in_old_master, old_master_rank and old_master_same_offer and overlap_with_old_master compare '
+             'with it.')
+# The live file names its overlap columns after the old master it compares with; in shadow (live "old") the new
+# master keeps the shadow-period names (in_live_master, ...), so the pre-release output is restored byte for byte.
+LIVE_RENAMES = {'in_live_master': 'in_old_master', 'live_master_rank': 'old_master_rank',
+                'live_master_same_offer': 'old_master_same_offer'}
+SUMMARY_RENAMES = {'overlap_with_live_master': 'overlap_with_old_master', 'live_master_fixtures': 'old_master_fixtures',
+                   'live_only': 'old_only', **LIVE_RENAMES}
+
+
+def live_columns() -> List[str]:
+    """The live (released) new master file's columns: the rule's, with the overlap columns renamed."""
+    import master_reconciliation as mr
+    return [LIVE_RENAMES.get(c, c) for c in mr.COLUMNS]
+
+
+def _renamed(value):
+    """A shadow-period summary in the live names (keys only; values unchanged)."""
+    if isinstance(value, dict):
+        return {SUMMARY_RENAMES.get(k, k): _renamed(v) for k, v in value.items()}
+    if isinstance(value, list):
+        return [_renamed(v) for v in value]
+    return value
 
 
 def selection_module(version):
@@ -357,10 +384,9 @@ def _old_master(decisions: pd.DataFrame, run_summary: Mapping, predictions: Opti
 
 
 def matches_new(frame: pd.DataFrame, expected: pd.DataFrame) -> bool:
-    """The written new-master file carries exactly the replayed one (every nominated offer, every column), with the
-    same tolerances as matches()."""
-    import master_reconciliation as mr
-    wanted = list(mr.COLUMNS)
+    """The written live new-master file carries exactly the replayed one (every nominated offer, every column of
+    live_columns()), with the same tolerances as matches()."""
+    wanted = live_columns()
     if list(frame.columns) != wanted:
         return False
     left, right = _as_csv(frame), _as_csv(expected.reindex(columns=wanted))
@@ -396,6 +422,7 @@ def write_old_shadow(decisions: pd.DataFrame, out_dir, run_summary: Mapping,
     and its audit, and its summary in run_summary[OLD_SUMMARY_KEY]. A failure only warns and removes them."""
     import warnings
     out = Path(out_dir)
+    version = None
     try:
         version = configured_version()
         frame, audit, _ = _old_master(decisions, run_summary, predictions, version)
@@ -408,10 +435,14 @@ def write_old_shadow(decisions: pd.DataFrame, out_dir, run_summary: Mapping,
             run_summary[OLD_SUMMARY_KEY] = summary(frame, version)
         return frame
     except Exception as exc:  # the shadow must never break or alter the live run
-        warnings.warn(f'Old master shadow skipped ({type(exc).__name__}: {exc})')
+        warnings.warn(f'{BASELINE_MISSING}: old master shadow failed ({error_text(exc)})')
         for name in (OLD_FILE, OLD_AUDIT_FILE):
             (out / name).unlink(missing_ok=True)
         run_summary.pop(OLD_SUMMARY_KEY, None)
+        run_summary[RELEASE_STATUS_KEY] = {
+            'status': BASELINE_MISSING, 'error': error_text(exc), 'old_master_version': version,
+            'note': 'The old master (shadow) failed in this run: the new master is live as usual, its overlap columns '
+                    'have nothing to compare with, and this run has no comparison baseline for the rollback rule.'}
         return None
 
 
@@ -419,14 +450,14 @@ def new_live(decisions: pd.DataFrame, old_master: Optional[pd.DataFrame], genera
              predictions: Optional[pd.DataFrame] = None):
     """The live master under the release: (frame, summary). Exactly the new master's shadow output (the rule's
     reconcile and summary on the same inputs) with VERSION_NEW_LIVE in place of the rule version and the live status
-    and note; the overlap columns compare with the old master."""
+    and note; the overlap columns compare with the old master and are named after it (LIVE_RENAMES)."""
     import master_reconciliation as mr
     config = mr.load_config()
     frame = mr.reconcile(decisions, old_master, config, predictions, generated_at_utc, version=VERSION_NEW_LIVE)
     frame = mr.stable_order(frame)  # platform-independent row order (ties in theory no longer follow float noise)
-    info = mr.summary(frame, old_master, config, generated_at_utc)
+    info = _renamed(mr.summary(frame, old_master, config, generated_at_utc))
     info.update(version=VERSION_NEW_LIVE, status=LIVE_STATUS, note=LIVE_NOTE)
-    return frame, json.loads(json.dumps(info, default=str))
+    return frame.rename(columns=LIVE_RENAMES), json.loads(json.dumps(info, default=str))
 
 
 def release(decisions: pd.DataFrame, out_dir, run_summary: Mapping,
@@ -439,12 +470,39 @@ def release(decisions: pd.DataFrame, out_dir, run_summary: Mapping,
     config = mr.load_config()
     for name in (AUDIT_FILE, config['file'], config['summary_file'], *mr.SUPERSEDED_FILES):
         (out / name).unlink(missing_ok=True)
+    run_summary.pop(RELEASE_STATUS_KEY, None)
     old = write_old_shadow(decisions, out, run_summary, predictions)
     generated = run_summary.get('generated_at_utc')
-    frame, info = new_live(decisions, old, generated, predictions)
+    try:
+        frame, info = new_live(decisions, old, generated, predictions)
+    except Exception as exc:
+        if old is None:  # nothing to publish: both masters failed
+            raise
+        return _publish_old_after_new_failure(decisions, out, run_summary, predictions, exc)
     frame.to_csv(out / FILE, index=False)
     (out / SUMMARY_FILE).write_text(json.dumps(info, indent=2, default=str) + '\n', encoding='utf-8')
     run_summary['master_shortlist'] = info
+    return frame
+
+
+def error_text(exc: BaseException) -> str:
+    return f'{type(exc).__name__}: {exc}'
+
+
+def _publish_old_after_new_failure(decisions: pd.DataFrame, out: Path, run_summary: Mapping,
+                                   predictions: Optional[pd.DataFrame], exc: BaseException) -> pd.DataFrame:
+    """The new master failed: publish the old master as the live FILE for this run, exactly as live "old" writes it
+    (FILE, its audit, run_summary['master_shortlist']), with no shadow or release file, and record the failure."""
+    import warnings
+    warnings.warn(f'{NEW_MASTER_FAILED} ({error_text(exc)})')
+    for name in RELEASE_FILES:
+        (out / name).unlink(missing_ok=True)
+    run_summary.pop(OLD_SUMMARY_KEY, None)
+    frame = write(decisions, out, run_summary, predictions)
+    run_summary[RELEASE_STATUS_KEY] = {
+        'status': NEW_MASTER_FAILED, 'error': error_text(exc),
+        'note': 'The new master failed in this run, so master_shortlist.csv is the old master for this run (as with '
+                'live "old"); the switch is unchanged and the next run tries the new master again.'}
     return frame
 
 
@@ -461,6 +519,7 @@ def refresh(decisions: pd.DataFrame, out_dir, run_summary: Mapping, predictions:
             return release(decisions, out_dir, run_summary, predictions)
         for name in RELEASE_FILES:
             (Path(out_dir) / name).unlink(missing_ok=True)
+        run_summary.pop(RELEASE_STATUS_KEY, None)
         frame = write(decisions, out_dir, run_summary, predictions)
         shadow(decisions, out_dir, frame, run_summary.get('generated_at_utc'), predictions)
         return frame
@@ -471,6 +530,7 @@ def refresh(decisions: pd.DataFrame, out_dir, run_summary: Mapping, predictions:
         (Path(out_dir) / name).unlink(missing_ok=True)
     run_summary.pop('master_shortlist', None)
     run_summary.pop(OLD_SUMMARY_KEY, None)
+    run_summary.pop(RELEASE_STATUS_KEY, None)
     shadow(None, out_dir)
     return None
 
