@@ -6,7 +6,8 @@ Historical mode replays the football-data.co.uk files for the 8 domestic
 leagues. The models are refit every 14 days on earlier matches only, and every
 candidate is scored on the same matches:
 
-  C  independent research model (team_form_poisson_v1, value shortlist; uses no odds)
+  C  independent research model (team_form_poisson_v1, research v4's grid; uses no odds). Live research
+     v5 (14 Nov 2026) prices domestic leagues with C6 below and keeps C (v4) in shadow
   C2 candidate: C's goal rates with a draw and low-score correction (research_low_score.py;
      uses no odds), fitted walk-forward on C's own forecasts of matches played before the
      fold origin, pooled across leagues (low_score_candidate)
@@ -22,7 +23,8 @@ candidate is scored on the same matches:
      uses no odds). C2's (rho, delta) are fitted as for C2; the slope is fitted walk-forward
      on C2's own forecasts of decided matches played before the fold origin, pooled across
      leagues; C2's draw is held and C6 equals C2 until enough matches exist
-     (low_score_sharpen_candidate)
+     (low_score_sharpen_candidate). Live as research v5 for domestic leagues, released without
+     holdout proof by Paul's decision of 14 Nov 2026; its fits come from c6_walk_forward
   M  market reference: margin-free fit to Pinnacle, or to Bet365 on the holdout
   D  cagey tier: M corrected toward narrow margins (production correction)
   A  published-grid production proxy (benchmark only; mixes model and market)
@@ -215,7 +217,7 @@ def research_inputs(row, train, origin, info):
     fold origin. The goal rates are the fold's Dixon-Coles fit without BBS statistics.
     """
     from team_research import INPUT_SCHEMA, form_history, utc
-    inputs = {'home_team': row.HomeTeam, 'away_team': row.AwayTeam, 'kickoff_utc': None,
+    inputs = {'league': None, 'home_team': row.HomeTeam, 'away_team': row.AwayTeam, 'kickoff_utc': None,
               'lambda_home': info['lambda_home'], 'lambda_away': info['lambda_away'],
               'research_history_json': json.dumps(form_history(train, row.HomeTeam, row.AwayTeam, utc(origin)))}
     assert set(inputs) == set(INPUT_SCHEMA)
@@ -223,10 +225,13 @@ def research_inputs(row, train, origin, info):
 
 
 def research_context(row, train, origin, model):
-    """The research model's context for one match (goal rates from team history only, never odds)."""
-    from team_research import prepare, utc
+    """The research model's context for one match (goal rates from team history only, never odds).
+
+    Research v4's rule: C is the independent Poisson grid on these goal rates. Live research v5 keeps
+    the same goal rates and prices them on C6's grid (the C6 candidate here)."""
+    from team_research import V4_VERSION, prepare, utc
     matrix, info = model.score_matrix(row.HomeTeam, row.AwayTeam)
-    return prepare(research_inputs(row, train, origin, info), utc(origin)), matrix, info
+    return prepare(research_inputs(row, train, origin, info), utc(origin), version=V4_VERSION), matrix, info
 
 
 def research_matrix(row, train, origin, model):
@@ -240,6 +245,21 @@ def low_score_matrix(goal_rates, params):
     """C2: C's goal rates on the draw and low-score corrected grid (research_low_score)."""
     import research_low_score as rls
     return rb.matrix_value(rls.adjusted_grid(goal_rates, params))
+
+
+def c6_matrix(goal_rates, fit):
+    """C6's grid for these goal rates under one window's fit, as the harness scores it (low_score_sharpen_candidate):
+    research_backtest.matrix_value of research_low_score_sharpen.grid. Live research v5 prices the same way."""
+    import research_low_score_sharpen as c6
+    return rb.matrix_value(c6.grid(goal_rates, {'rho': float(fit['rho']), 'delta': float(fit['delta'])},
+                                   {'slope': float(fit['slope'])}))
+
+
+def c6_harness_fits(path=None) -> dict:
+    """The harness's C6 fits by fold origin, from the fit file scripts/build_research_c6_fits.py writes with
+    c6_walk_forward (the C6 candidate's own fit)."""
+    import research_low_score_sharpen as c6
+    return {w['origin']: w for w in c6.load_fits(path or c6.FITS)['windows']}
 
 
 def published_proxy(matrix, info, prices, model, cfg):
@@ -518,6 +538,55 @@ def sharpen_candidate(research, cfg, end, keep=None):
     return records, calib, coverage, fits
 
 
+def c6_walk_forward(research, cfg, end, every_window=False):
+    """C6's walk-forward fits: one (rho, delta) and one slope per fold window, as the C6 candidate uses them.
+
+    Returns (research sorted by date, each row's (rho, delta), windows). Each window is a dict with its
+    `origin`, `stop`, `low_score` (research_low_score.fit on C's forecasts before the origin), `slope`
+    (research_sharpen.fit on C2's forecasts of the decided matches before the origin) and `scored`
+    (indices of the scored rows inside it). The candidate fits only windows holding research rows (low
+    score) or scored rows (slope); `every_window` fits every window, for the live fit file
+    (research_low_score_sharpen.FITS). A fit reads only rows played before its origin, so the fit at an
+    origin is the same whatever `end` is and whether or not the window holds a match.
+    """
+    import research_low_score as rls
+    import research_low_score_sharpen as c6
+    research = sorted(research, key=lambda r: r['date'])
+    dates = pd.DatetimeIndex([r['date'] for r in research])
+    rates = np.array([r['goal_rates'] for r in research], dtype=float).reshape(-1, 2)
+    goals = np.array([(r['home_goals'], r['away_goals']) for r in research], dtype=float).reshape(-1, 2)
+    outcomes = np.where(goals[:, 0] > goals[:, 1], 0, np.where(goals[:, 0] == goals[:, 1], 1, 2))
+    half_life = cfg['production_v2']['half_life_days']
+    low = [None] * len(research)
+    c2_probs = np.full((len(research), 3), np.nan)  # NaN: C2 made no forecast (invalid grid); left out of the fit
+    windows = []
+    for origin, stop in fold_windows(cfg, end):
+        inside = np.flatnonzero((dates >= origin) & (dates < stop))
+        window = {'origin': origin, 'stop': stop, 'low_score': None, 'slope': None,
+                  'scored': [i for i in inside if research[i]['scored']]}
+        windows.append(window)
+        if not len(inside) and not every_window:
+            continue
+        past = np.asarray(dates < origin)
+        params = rls.fit(rates[past], goals[past, 0], goals[past, 1],
+                         (origin - dates[past]).total_seconds().to_numpy() / 86400, half_life)
+        window['low_score'] = params
+        for i in inside:
+            low[i] = params
+            try:
+                c2_probs[i] = c6.c2_one_x_two(rates[i], params)
+            except ValueError:
+                pass
+    for window in windows:
+        if not window['scored'] and not every_window:
+            continue
+        origin = window['origin']
+        past = np.asarray(dates < origin) & np.isfinite(c2_probs).all(axis=1)
+        window['slope'] = c6.fit_slope(c2_probs[past], outcomes[past],
+                                       (origin - dates[past]).total_seconds().to_numpy() / 86400, half_life)
+    return research, low, windows
+
+
 def low_score_sharpen_candidate(research, cfg, end, keep=None, matrices=None):
     """C6 for every scored match: C2's grid moved onto its sharpened 1X2, walk-forward.
 
@@ -533,42 +602,19 @@ def low_score_sharpen_candidate(research, cfg, end, keep=None, matrices=None):
     `matrices`, a dict, receives each scored match's C6 grid by fixture key (the master backtest's C6 research
     view); it changes nothing else.
     """
-    import research_low_score as rls
     import research_low_score_sharpen as c6
     records, calib, coverage, fits = [], [], Counter(), []
     if (keep is not None and 'C6' not in keep) or not research:
         return records, calib, coverage, fits
-    research = sorted(research, key=lambda r: r['date'])
-    dates = pd.DatetimeIndex([r['date'] for r in research])
-    rates = np.array([r['goal_rates'] for r in research], dtype=float)
-    goals = np.array([(r['home_goals'], r['away_goals']) for r in research], dtype=float)
-    outcomes = np.where(goals[:, 0] > goals[:, 1], 0, np.where(goals[:, 0] == goals[:, 1], 1, 2))
-    half_life = cfg['production_v2']['half_life_days']
-    windows = fold_windows(cfg, end)
-    low = [None] * len(research)
-    c2_probs = np.full((len(research), 3), np.nan)  # NaN: C2 made no forecast (invalid grid); left out of the fit
-    for origin, stop in windows:
-        inside = np.flatnonzero((dates >= origin) & (dates < stop))
-        if not len(inside):
-            continue
-        past = np.asarray(dates < origin)
-        params = rls.fit(rates[past], goals[past, 0], goals[past, 1],
-                         (origin - dates[past]).total_seconds().to_numpy() / 86400, half_life)
-        for i in inside:
-            low[i] = params
-            try:
-                c2_probs[i] = c6.c2_one_x_two(rates[i], params)
-            except ValueError:
-                pass
-    for origin, stop in windows:
-        inside = [i for i in np.flatnonzero((dates >= origin) & (dates < stop)) if research[i]['scored']]
+    research, low, windows = c6_walk_forward(research, cfg, end)
+    outcomes = np.array([0 if r['home_goals'] > r['away_goals'] else 1 if r['home_goals'] == r['away_goals'] else 2
+                         for r in research])
+    for window in windows:
+        inside = window['scored']
         if not inside:
             continue
-        past = np.asarray(dates < origin) & np.isfinite(c2_probs).all(axis=1)
-        params = c6.fit_slope(c2_probs[past], outcomes[past], (origin - dates[past]).total_seconds().to_numpy() / 86400,
-                              half_life)
-        low_score = low[inside[0]]
-        fits.append({'origin': origin.date().isoformat(), 'end_exclusive': stop.date().isoformat(),
+        params, low_score = window['slope'], window['low_score']
+        fits.append({'origin': window['origin'].date().isoformat(), 'end_exclusive': window['stop'].date().isoformat(),
                      'scored_matches': len(inside), **params,
                      'low_score': {k: low_score.get(k) for k in ('rho', 'delta', 'status')}})
         for i in inside:
@@ -1487,6 +1533,15 @@ def _parity_summary(frame) -> dict:
         'live_goal_rate_features': {str(k): int(v) for k, v in
                                     col('live_goal_rate_features', object).dropna().value_counts().items()},
         'live_bbs_applied': int(col('live_bbs_applied', bool).fillna(False).astype(bool).sum()),
+        'c6': {
+            'forecasts_frozen_v5': int(col('research_version', object).isin(C6_PARITY_VERSIONS).sum()),
+            'forecasts_with_v5': int(col('c6_same_inputs_max_abs_diff').notna().sum()),
+            'same_inputs': {**stats('c6_same_inputs_max_abs_diff', frame),
+                            'identical_within_1e-12': bool((col('c6_same_inputs_max_abs_diff').dropna() <= 1e-12).all())},
+            'harness_vs_live_1x2_max_abs': stats('harness_vs_live_c6_1x2_max_abs', compared),
+            'fit_max_abs_diff': stats('c6_fit_max_abs_diff', compared),
+            'matches_fit_origin_differs': int(col('c6_fit_origin_differs', bool).fillna(False).astype(bool).sum()),
+            'matches_harness_fit_missing': int(col('c6_harness_fit_missing', bool).fillna(False).astype(bool).sum())},
         'harness_vs_live': {
             '1x2_max_abs': stats('harness_vs_live_1x2_max_abs', compared),
             'lambda_max_abs': stats('lambda_max_abs_diff', compared),
@@ -1496,6 +1551,9 @@ def _parity_summary(frame) -> dict:
             'matches_history_differs': int((positive('history_rows_only_live', compared)
                                             | positive('history_rows_only_harness', compared)).sum())},
     }
+
+
+C6_PARITY_VERSIONS = ('team-form-research-v5',)  # = team_research.C6_VERSIONS (asserted in research_parity)
 
 
 def research_parity(root, cache, cfg):
@@ -1515,12 +1573,20 @@ def research_parity(root, cache, cfg):
       harness          C exactly as the historical harness computes it for that match
                        (fold refit on football-data, no BBS, history to the fold origin),
                        with its inputs compared field by field against the live row.
+      c6               research v5 (C6), on every domestic forecast: live v5 (the frozen numbers of a
+                       v5 forecast; otherwise v5 recomputed from the frozen inputs, its fit taken from
+                       the fit file for the research day) against the harness's C6 code
+                       (c6_matrix) fed live's goal rates and fit (same inputs: must be identical), and
+                       against the harness's own C6 for that match (its goal rates, and its walk-forward
+                       fit for the fold holding the kickoff: the input gap). UCL/UEL stay v4.
     """
     import copy
     import performance_tracking as pt
     from asian_handicap import margins as margin_json
     from football_value_pipeline_v2_standalone import DixonColesModel
-    from team_research import LEGACY_VERSION, decode, form_history, name, prepare, research_inputs, utc
+    from team_research import (C6_VERSIONS, LEGACY_VERSION, V4_VERSION, VERSION as LIVE_VERSION, decode,
+                               form_history, name, prepare, research_grid, research_inputs, research_version, utc)
+    assert tuple(C6_VERSIONS) == C6_PARITY_VERSIONS
     latest = {}
     for meta, rows, _ in pt.snapshots(root):
         for row in rows:
@@ -1533,7 +1599,7 @@ def research_parity(root, cache, cfg):
                 latest[key] = (stamp, row, research)
     profile = cfg['production_v2']
     load_cfg = {**cfg, 'test_end_exclusive': cfg['end_exclusive']}
-    histories, models, matches, coverage = {}, {}, [], Counter()
+    histories, models, matches, coverage, c6_fits = {}, {}, [], Counter(), {}
     for key, (stamp, row, research) in sorted(latest.items()):
         inputs = research_inputs(row)
         evidence = copy.deepcopy(research.get('evidence', {}))
@@ -1541,8 +1607,16 @@ def research_parity(root, cache, cfg):
             evidence.pop(k, None)
         live = research['margin_distribution']
         version = research.get('version', LEGACY_VERSION)
-        same = prepare(row, stamp, copy.deepcopy(evidence), version=version)
-        bare = prepare(row, stamp)
+        frozen_fit = research.get('c6_fit')
+        same = prepare(row, stamp, copy.deepcopy(evidence), version=version, c6_fit=frozen_fit)
+        # Live without pre-kickoff evidence, under the frozen version for v5 forecasts (v4 before them, as until v5).
+        bare = (prepare(row, stamp, version=version, c6_fit=frozen_fit) if version in C6_VERSIONS
+                else prepare(row, stamp, version=V4_VERSION))
+        # Live v5: the frozen v5 forecast itself, or v5 recomputed from the frozen inputs of an older one.
+        live_v5 = None
+        if research_version(key[0], LIVE_VERSION) in C6_VERSIONS:
+            live_v5 = research if version in C6_VERSIONS else prepare(row, stamp, copy.deepcopy(evidence),
+                                                                     version=LIVE_VERSION)
         league = LIVE_LEAGUES.get(key[0])
         group = ('no_football_data' if league is None else
                  'holdout_leagues' if league in cfg['holdout_leagues'] else 'other_domestic')
@@ -1555,6 +1629,11 @@ def research_parity(root, cache, cfg):
                   'live_goal_rate_features': row.get('goal_rate_features_used'),
                   'live_bbs_applied': str(row.get('bbs_statistics_applied')).lower() == 'true',
                   'harness_compared': False}
+        if live_v5 is not None and live_v5.get('margin_distribution') and live_v5.get('c6_fit'):
+            through_harness = json.loads(margin_json(c6_matrix(live_v5['goal_rates'], live_v5['c6_fit'])))
+            record.update(c6_live_origin=live_v5['c6_fit']['origin'], c6_live_fit_stale=live_v5['c6_fit']['stale'],
+                          c6_same_inputs_max_abs_diff=_max_gap(live_v5['margin_distribution'], through_harness),
+                          live_c6_p_home=_hda(live_v5['margin_distribution'])[0])
         if league is None:
             coverage['no_football_data_file:' + key[0]] += 1
             matches.append(record)
@@ -1592,8 +1671,22 @@ def research_parity(root, cache, cfg):
             matches.append(record)
             continue
         fd_row = pd.Series({'HomeTeam': teams[0], 'AwayTeam': teams[1]})
-        matrix, _, info = research_matrix(fd_row, train, origin, model)
+        context_h, _, info = research_context(fd_row, train, origin, model)
+        matrix = rb.matrix_value(research_grid(context_h['goal_rates']))  # = research_matrix
         harness = json.loads(margin_json(matrix))
+        if 'c6_same_inputs_max_abs_diff' in record:
+            fit_h = c6_fits.setdefault('windows', c6_harness_fits()).get(origin.date().isoformat())
+            live_fit = live_v5['c6_fit']
+            record.update(c6_harness_origin=origin.date().isoformat(),
+                          c6_fit_origin_differs=live_fit['origin'] != origin.date().isoformat(),
+                          c6_harness_fit_missing=fit_h is None)
+            if fit_h is not None:
+                harness_c6 = json.loads(margin_json(c6_matrix(context_h['goal_rates'], fit_h)))
+                record.update(c6_fit_max_abs_diff=max(abs(float(live_fit[k]) - float(fit_h[k]))
+                                                      for k in ('rho', 'delta', 'slope')),
+                              harness_vs_live_c6_1x2_max_abs=max(abs(a - b) for a, b in zip(
+                                  _hda(live_v5['margin_distribution']), _hda(harness_c6))),
+                              harness_c6_p_home=_hda(harness_c6)[0])
         live_history = decode(row.get('research_history_json'))
         fd_history = form_history(train, teams[0], teams[1], utc(origin))
         record.update(
@@ -1618,7 +1711,10 @@ def research_parity(root, cache, cfg):
                'by_group': {g: _parity_summary(frame.loc[groups.eq(g)]) for g in LEAGUE_GROUPS},
                'note': ('same_inputs shows the shared research step is identical given the same inputs. Harness '
                         'and live inputs do not match yet (ESPN form, goal rates): see the measured gap. Harness '
-                        'fits for the holdout leagues exclude their 16 Jan - 10 Oct 2026 results.')}
+                        'fits for the holdout leagues exclude their 16 Jan - 10 Oct 2026 results. c6: live research '
+                        'v5 through the harness C6 code on the same goal rates and fit (same_inputs), and against '
+                        'the harness C6 (its goal rates and the walk-forward fit of the fold holding the kickoff); '
+                        'live uses the fit window opening on or before the research day.')}
     return summary, frame
 
 
@@ -2119,7 +2215,7 @@ def european_main(args, cfg, commit):
 
 MASTER_PERIODS = ('development', 'validation', 'retrospective')
 MASTER_CANDIDATES = ('C', 'D', 'M')  # research model, cagey tier, uncorrected market fit (Pinnacle reference)
-MASTER_RESEARCH = ('C', 'C6')  # the research views the backtest runs with (C6 offline only; live uses C)
+MASTER_RESEARCH = ('C', 'C6')  # the research views the backtest runs with (C was live until research v5, C6 since)
 # Gap categories reported (context: since the revised rule, the gap never removes a bet).
 MASTER_GAP_CATEGORIES = ('agree', 'research_too_optimistic', 'research_more_pessimistic', 'no_research_check')
 MASTER_PREVIOUS = 'v1'  # column prefix of PR #171's rule (master_rule_v1, frozen), the offline comparison
@@ -2732,7 +2828,7 @@ def master_summary(frames, synthetic, fixtures, cfg, sharpening=None, evaluated=
 # Shortlist entry audit (--mode lists): the value list's and the cagey tier's entry rules, one at a time
 # ---------------------------------------------------------------------------
 
-LISTS_RESEARCH = ('C', 'C6')  # the value list judged with C (live); C6 for information only
+LISTS_RESEARCH = ('C', 'C6')  # the value list judged with C (live when audited, #174); C6 for information only
 LISTS_TARGET = 15
 
 
