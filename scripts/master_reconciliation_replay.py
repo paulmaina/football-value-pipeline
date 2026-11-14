@@ -30,7 +30,11 @@ ROOT = Path(__file__).resolve().parents[1]
 SNAPSHOTS = Path('football_output_v2') / 'performance' / 'snapshots'
 # decisions.csv: the run's decision rows after the master refresh, i.e. every live probability and both lists' picks
 # (value shortlist and cagey tier), so the comparison also shows the cagey tier untouched.
-LIVE_FILES = ('master_shortlist.csv', 'master_shortlist_audit.csv', 'master_summary.json', 'decisions.csv')
+LIVE_FILES = ('master_shortlist.csv', 'master_shortlist_audit.csv', 'master_summary.json', 'decisions.csv',
+              # the shadow new master, and (absent before the release) the release's files: under live "old" the
+              # branch must write exactly main's files and nothing else
+              'master_shortlist_new.csv', 'master_shortlist_new_summary.json', 'master_shortlist_old.csv',
+              'master_shortlist_old_audit.csv', 'master_shortlist_summary.json', 'master_old_summary.json')
 
 
 def runs(root: Path, start: str, end: str):
@@ -72,6 +76,10 @@ def replay(root: Path, output: Path, start: str, end: str) -> dict:
             (target / 'master_summary.json').write_text(
                 json.dumps(summary.get('master_shortlist'), indent=2, sort_keys=True, default=str) + '\n',
                 encoding='utf-8')
+            if summary.get('master_shortlist_old') is not None:  # since the release: the old master, in shadow
+                (target / 'master_old_summary.json').write_text(
+                    json.dumps(summary['master_shortlist_old'], indent=2, sort_keys=True, default=str) + '\n',
+                    encoding='utf-8')
             entry.update(status='ok', decisions=int(len(decisions)),
                          value_shortlisted=int(decisions.decision.eq('SHORTLISTED').sum()),
                          cagey_shortlisted=int(decisions.get('cagey_tier_decision', pd.Series(dtype=object))
@@ -184,6 +192,78 @@ def compare(main: Path, branch: Path) -> dict:
     return result
 
 
+# The release (14 Nov 2026): branch file under live "new" -> the main (pre-release) file it must equal byte for byte,
+# apart from the file name and the version field (new_master_version in the CSV; version, status and note in the new
+# master's summary, which said "shadow only" before).
+RELEASE_PAIRS = (('master_shortlist.csv', 'master_shortlist_new.csv'),
+                 ('master_shortlist_summary.json', 'master_shortlist_new_summary.json'),
+                 ('master_shortlist_old.csv', 'master_shortlist.csv'),
+                 ('master_shortlist_old_audit.csv', 'master_shortlist_audit.csv'),
+                 ('master_old_summary.json', 'master_summary.json'),
+                 ('decisions.csv', 'decisions.csv'))
+
+
+def _normalised(path: Path, live_version: str, rule_version: str) -> bytes:
+    data = path.read_bytes()
+    if path.name == 'master_shortlist.csv':
+        return data.replace(live_version.encode(), rule_version.encode())
+    if path.name in ('master_shortlist_summary.json', 'master_shortlist_new_summary.json'):
+        info = json.loads(data)
+        for key in ('version', 'status', 'note'):
+            info.pop(key)
+        return json.dumps(info, indent=2, default=str).encode()
+    return data
+
+
+def release_compare(main: Path, branch: Path) -> dict:
+    """Main's replay (pre-release) against the branch's under live "new", file by file through RELEASE_PAIRS; also
+    checks the run summary's live master is the new master's summary file, and the CSV differs from main's shadow file
+    only in new_master_version."""
+    sys.path.insert(0, str(ROOT))
+    import master_reconciliation as mr
+    import master_shortlist
+    left = json.loads((main / 'replay.json').read_text(encoding='utf-8'))
+    right = json.loads((branch / 'replay.json').read_text(encoding='utf-8'))
+    a, b = {r['snapshot']: r for r in left['runs']}, {r['snapshot']: r for r in right['runs']}
+    result = {'runs_main': len(a), 'runs_branch': len(b), 'same_runs': sorted(a) == sorted(b), 'pairs': RELEASE_PAIRS,
+              'compared_files': 0, 'differences': [], 'runs_ok': 0}
+    for name in sorted(set(a) & set(b)):
+        if not (a[name].get('status') == b[name].get('status') == 'ok'):
+            result['differences'].append({'snapshot': name, 'status': [a[name].get('status'), b[name].get('status')]})
+            continue
+        result['runs_ok'] += 1
+        for mine, theirs in RELEASE_PAIRS:
+            ours, base = branch / 'runs' / name / mine, main / 'runs' / name / theirs
+            result['compared_files'] += 1
+            if not (ours.exists() and base.exists()) or (
+                    _normalised(ours, master_shortlist.VERSION_NEW_LIVE, mr.VERSION)
+                    != _normalised(base, master_shortlist.VERSION_NEW_LIVE, mr.VERSION)):
+                result['differences'].append({'snapshot': name, 'file': [mine, theirs]})
+        live = json.loads((branch / 'runs' / name / 'master_summary.json').read_text(encoding='utf-8'))
+        written = json.loads((branch / 'runs' / name / 'master_shortlist_summary.json').read_text(encoding='utf-8'))
+        if live != written or live.get('version') != master_shortlist.VERSION_NEW_LIVE:
+            result['differences'].append({'snapshot': name, 'file': 'run summary master_shortlist'})
+        new = pd.read_csv(branch / 'runs' / name / 'master_shortlist.csv', dtype=str, keep_default_na=False)
+        shadow = pd.read_csv(main / 'runs' / name / 'master_shortlist_new.csv', dtype=str, keep_default_na=False)
+        changed = [c for c in new.columns if list(new.columns) != list(shadow.columns) or not new[c].equals(shadow[c])]
+        if changed != (['new_master_version'] if len(new) else []):
+            result['differences'].append({'snapshot': name, 'columns_changed': changed})
+        if set(new.get('new_master_version', [])) - {master_shortlist.VERSION_NEW_LIVE}:
+            result['differences'].append({'snapshot': name, 'file': 'version field'})
+    result['byte_identical_apart_from_names_and_version'] = result['same_runs'] and not result['differences']
+    return result
+
+
+def _switched_config(live: str, directory: Path) -> Path:
+    """A copy of master_shortlist_config.json with only the `live` switch changed."""
+    import master_shortlist
+    config = json.loads(master_shortlist.CONFIG.read_text(encoding='utf-8'))
+    config['live'] = live
+    path = directory / 'master_shortlist_config.json'
+    path.write_text(json.dumps(config, indent=2) + '\n', encoding='utf-8')
+    return path
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument('--root', type=Path, default=ROOT, help='repository whose code and snapshots are replayed')
@@ -191,12 +271,25 @@ def main(argv=None):
     parser.add_argument('--start', default='2026-10-27')
     parser.add_argument('--end', default='2026-11-09', help='exclusive')
     parser.add_argument('--compare', nargs=2, type=Path, metavar=('MAIN', 'BRANCH'))
+    parser.add_argument('--release-compare', nargs=2, type=Path, metavar=('MAIN', 'BRANCH'),
+                        help='main (pre-release) against the branch replayed with live "new"')
+    parser.add_argument('--live', choices=('new', 'old'),
+                        help='replay with master_shortlist_config.json\'s live switch set to this (a copy of the '
+                             'config with only that field changed); default: the config as committed')
     args = parser.parse_args(argv)
     if args.compare:
         result = compare(*args.compare)
         print(json.dumps(result, indent=2))
         return 0 if result['byte_identical'] else 1
+    if args.release_compare:
+        result = release_compare(*args.release_compare)
+        print(json.dumps(result, indent=2))
+        return 0 if result['byte_identical_apart_from_names_and_version'] else 1
     args.output.mkdir(parents=True, exist_ok=True)
+    if args.live:
+        sys.path.insert(0, str(args.root.resolve()))
+        import master_shortlist
+        master_shortlist.CONFIG = _switched_config(args.live, args.output)
     report = replay(args.root.resolve(), args.output, args.start, args.end)
     print(json.dumps({r['snapshot']: r['status'] for r in report['runs']}, indent=2))
     return 0

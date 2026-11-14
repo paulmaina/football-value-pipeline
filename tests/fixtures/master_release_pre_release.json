@@ -1,0 +1,23 @@
+{
+  "source": "origin/main at ebba9d8 (14 Nov 2026, after PR #173 and #174 merged), before the master release: sha256 of the master outputs written by master_shortlist.refresh. run_summary_master_shortlist is json.dumps(run_summary['master_shortlist'], indent=2, sort_keys=True, default=str); new_summary_without_version_status_note is json.dumps of master_shortlist_new_summary.json without its version, status and note (indent=2, default=str).",
+  "frozen_forecast": {
+    "inputs": "tests/fixtures/frozen_forecast_row.json through tests/test_master_reconciliation.production_run",
+    "master_shortlist.csv": "36aadcd59ba5ec80aeaa9c8af6f41b4a2f9d490387d9eca2861e3f000abbb4d9",
+    "master_shortlist_audit.csv": "8bb169f9032d993fdfca9e81132f2b917133734a41a3a5e80f8f748c2c56256d",
+    "master_shortlist_new.csv": "9cb9a5cd98a967347ff8cf670871930c0907c8dba8245c64c45b95c7e8fa1ef2",
+    "master_shortlist_new_summary.json": "179a4611ba3178cba944314038daba7ff64789079536e203b00d7e9366111077",
+    "new_summary_without_version_status_note": "95a2ec78fdfa74164c7c5003b5f7161c7eac2e4b375fc244d3359c963a7523b0",
+    "run_summary_master_shortlist": "35bba25a2c29c59749bb8d347f76808617bad9dd6776045e438d7a9f660d02ef",
+    "files": ["master_shortlist.csv", "master_shortlist_audit.csv", "master_shortlist_new.csv", "master_shortlist_new_summary.json"]
+  },
+  "snapshot_a00d5e530cc2e80e": {
+    "inputs": "football_output_v2/performance/snapshots/a00d5e530cc2e80e (5 Nov 2026 13:37 UTC; new master 15 picks, safe 13, fill 2) rebuilt as scripts/master_reconciliation_replay.py does",
+    "master_shortlist.csv": "39c6b637329f11e4ad4e078a66dabc38be518bf27685bc4b3fe333fda22f3cb3",
+    "master_shortlist_audit.csv": "108986314ead63bd8226f2836179825b8c1f1e8cfd4018cdb4cf36a7d88a658b",
+    "master_shortlist_new.csv": "d7c6b48573a00985ba59ec745cff457369b0595c5c4554be3a742ec84139e97e",
+    "master_shortlist_new_summary.json": "3e96c79b1e6a3ada9c4f1b664270d7762dcf545cef975b4165edb175915a9d2a",
+    "new_summary_without_version_status_note": "90c45bee5a40d7285b67563f77f6181416ccc2ebdd81a15b563380739cac5d59",
+    "run_summary_master_shortlist": "8f4ecfb40bcbb9d1c43f8564be93bbeb4fe3a268cee9cdfc7ca898be2c84ba34",
+    "files": ["master_shortlist.csv", "master_shortlist_audit.csv", "master_shortlist_new.csv", "master_shortlist_new_summary.json"]
+  }
+}

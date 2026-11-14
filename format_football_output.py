@@ -1634,6 +1634,8 @@ def master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -
     path = Path(input_dir) / master_shortlist.FILE if input_dir is not None else None
     if info is None or path is None or not path.exists():
         return []
+    if info.get('version') == master_shortlist.VERSION_NEW_LIVE:
+        return new_master_section(info, path, summary, output_dir)
     try:
         raw = pd.read_csv(path, low_memory=False)
     except pd.errors.EmptyDataError:
@@ -1728,6 +1730,59 @@ def master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -
             f"{info.get('below_threshold_bets')} below value threshold. Information for your own decision, not a recommendation to bet.",
             "", markdown_table(list(readable.columns), readable.astype(str).values.tolist())
             if not readable.empty else "No bet passed the data checks this run."]
+
+
+def new_master_section(info: dict, path: Path, summary: dict, output_dir: Path) -> list:
+    """The live master since the release of 14 Nov 2026 (rule master-new-fill-rule-v4): its ranked picks only
+    (the raw file lists every nominated offer), readable CSV (the workbook's master tab) and report section."""
+    import master_reconciliation as mr
+    try:
+        raw = pd.read_csv(path, low_memory=False)
+    except pd.errors.EmptyDataError:
+        raw = pd.DataFrame(columns=mr.COLUMNS)
+    picks = raw.loc[raw.new_master_decision.eq('SHORTLISTED')].copy()
+    picks = picks.assign(_rank=pd.to_numeric(picks.new_master_rank, errors='coerce')).sort_values('_rank', kind='stable')
+    yes = lambda v: 'yes' if str(v) == 'True' else 'no'
+    text = lambda v: '' if pd.isna(v) else v
+    readable = pd.DataFrame({
+        "Rank": picks.new_master_rank, "Tier (safe / fill / risky fill)": picks.new_master_tier.map(text),
+        "Kickoff (UTC)": picks.kickoff_utc, "League": picks.league, "Home": picks.home_team, "Away": picks.away_team,
+        "Market to bet": picks.market_to_bet, "Bookmaker": picks.bookmaker,
+        "Price": picks.offered_decimal_odds.map(decimal),
+        "Ranking no-loss probability": picks.ranking_no_loss_probability.map(pct),
+        "Ranking profit probability": picks.ranking_profit_probability.map(pct),
+        "Probability source": picks.probability_source.map(text),
+        "Cagey no-loss probability": picks.cagey_no_loss_probability.map(pct),
+        "Pinnacle no-loss probability": picks.pinnacle_no_loss_probability.map(pct),
+        "Research no-loss probability": picks.research_no_loss_probability.map(pct),
+        "Research gap (points)": picks.gap_points.map(lambda v: '' if pd.isna(v) else f"{float(v):+.1f}"),
+        "Research expected return": picks.research_expected_return.map(signed_pct),
+        "Market price (fair / below fair)": picks.market_price.map(text),
+        "Labels": picks.new_master_labels.map(text),
+        "Offered quote (UTC)": picks.offered_last_update_utc.map(text),
+        "On value shortlist": picks.in_value_shortlist.map(yes), "On cagey tier": picks.in_cagey_tier.map(yes),
+        "In old master (shadow)": picks.in_live_master.map(yes),
+    })
+    readable.to_csv(output_dir / MASTER_READABLE, index=False, encoding="utf-8-sig")
+    tiers = info.get('picks_by_tier') or {}
+    old = summary.get('master_shortlist_old') or {}
+    target = info.get('target_fixtures', 15)
+    short = f" Short of the {target}-match target: {info['short_reason']}." if info.get('short_reason') else ''
+    return ["", f"## Master shortlist (new master rule, live since 14 Nov 2026; target {target} matches)", "",
+            "One bet per match, only from the value shortlist's and the cagey tier's nominations, Pinnacle prices only "
+            "(odds above 1.15 up to 2.00; native AH, home or away win, double chance 1X or X2), quotes at most 15 "
+            "minutes old. Step 1 (safe): market no-loss chance at least 75% (cagey tier, or Pinnacle's margin-free "
+            "chance where the cagey score is missing), ranked by that chance. Step 2 (fill): if fewer than 15 matches "
+            "are safe, each remaining match's best offer with no-loss chance at least 50%, ranked by chance of "
+            "profit. Step 3 (risky fill, labelled): only if still short. The research view only labels and flags; it "
+            "never removes or reorders a bet. Released by Paul on 14 Nov 2026 without waiting for the live comparison "
+            "verdict; the old master runs in shadow (master_shortlist_old.csv) and is graded beside it, with a "
+            "rollback rule in the weekly report. Information for your own decision, not a recommendation to bet. "
+            f"This run: {info.get('ranked_fixtures', len(readable))} matches (safe {tiers.get('safe', 0)}, fill "
+            f"{tiers.get('fill', 0)}, risky fill {tiers.get('risky fill', 0)}).{short} "
+            f"Old master (shadow): {old.get('n_bets', 'no')} picks.", "",
+            markdown_table(list(readable.columns), readable.astype(str).values.tolist())
+            if not readable.empty else "No nominated offer passed the master's execution and timing checks this run."]
 
 
 def process_conservative_shortlist(

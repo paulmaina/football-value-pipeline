@@ -1,6 +1,13 @@
 # Master shortlist: fifteen profit-first Pinnacle nominations
 
-The live rule writes master_shortlist.csv, its readable counterpart and
+> **Since 14 Nov 2026 this is the old master, running in shadow.** Paul released
+> the new master rule (`master_reconciliation.py`, `master-new-fill-rule-v4`) as
+> the live `master_shortlist.csv` (docs/plan.md, Phase 5, and README). The rule
+> below now writes `master_shortlist_old.csv` and `master_shortlist_old_audit.csv`.
+> Setting `"live": "old"` in master_shortlist_config.json makes it live again,
+> exactly as described here.
+
+Before the release, the live rule wrote master_shortlist.csv, its readable counterpart and
 master_shortlist_audit.csv. Nominate fifteen when the two source shortlists contain
 fifteen executable distinct fixtures kicking off 20 minutes to 24 hours after
 the run. One market per exact fixture. If fewer pass,

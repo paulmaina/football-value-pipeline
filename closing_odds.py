@@ -143,10 +143,14 @@ def collection_targets(root, predictions, picks):
     from price_edge_cagey_shortlist import TIER_FILE
     for pick in archived_tier_rows(root, archive) + read_csv(resolve_raw(root/'raw')/TIER_FILE):
         selected.setdefault(fixture_key(pick), set()).add(pick.get('market'))
-    # Master-shortlist picks (graded too): a below-threshold fill may be a line no other list holds.
-    from master_shortlist import FILE as MASTER_FILE
-    for pick in archived_tier_rows(root, archive, MASTER_FILE) + read_csv(resolve_raw(root/'raw')/MASTER_FILE):
-        selected.setdefault(fixture_key(pick), set()).add(pick.get('market'))
+    # Master-shortlist picks (graded too): a below-threshold fill may be a line no other list holds. Both masters:
+    # the live one (since 14 Nov 2026 the new master, whose file lists every nominated offer: only its ranked picks
+    # count) and the old master in shadow (master_shortlist_old.csv), graded beside it.
+    from master_shortlist import FILE as MASTER_FILE, OLD_FILE as OLD_MASTER_FILE, is_pick
+    for name in (MASTER_FILE, OLD_MASTER_FILE):
+        for pick in archived_tier_rows(root, archive, name) + read_csv(resolve_raw(root/'raw')/name):
+            if is_pick(pick):
+                selected.setdefault(fixture_key(pick), set()).add(pick.get('market'))
     # Archived predictions outside the frozen shortlist do not expand collection.
     current = {fixture_key(row) for row in predictions}
     keys = current | (set(selected) & set(sources))

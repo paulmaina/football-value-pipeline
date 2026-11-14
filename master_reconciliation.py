@@ -25,7 +25,10 @@ rejects any stamp after evaluation, and the 10-minute input synchronisation). Th
 run's own forecast, as the live master reads them. An offer or reference that fails is ineligible (NOT_EXECUTABLE),
 with its reason in `timing_check`, counted in the summary.
 
-Writes master_shortlist_new.csv beside the live master_shortlist.csv. Shadow only: the live master file, every
+Since the release (decided by Paul, 14 Nov 2026) this rule is the live master: master_shortlist.release writes its
+output as master_shortlist.csv (version master_shortlist.VERSION_NEW_LIVE) and the old master runs in shadow. With
+master_shortlist_config.json live "old" (the pre-release state) it writes master_shortlist_new.csv beside the live
+master_shortlist.csv, shadow only: the live master file, every
 probability, every pick and every stake are untouched; this module only reads the run's decision rows and the
 live master frame.
 
@@ -479,7 +482,7 @@ def pinnacle_profit(row: Mapping, line_kind: Optional[str]) -> Optional[float]:
 
 def reconcile(decisions: pd.DataFrame, live_master: Optional[pd.DataFrame] = None,
               config: Optional[Mapping] = None, predictions: Optional[pd.DataFrame] = None,
-              generated_at_utc=None) -> pd.DataFrame:
+              generated_at_utc=None, version: Optional[str] = None) -> pd.DataFrame:
     """The new master of one run: every nominated offer with both views, its timing check, gap check, group, tier
     and decision.
 
@@ -487,6 +490,8 @@ def reconcile(decisions: pd.DataFrame, live_master: Optional[pd.DataFrame] = Non
     (`predictions`; without them no reference can be timed, so no row with a market view is eligible) at the run's
     generation clock (`generated_at_utc`, else the rows' single evaluation clock). `live_master` (the run's
     master_shortlist.csv frame) is used for the overlap columns only and never changes a group, a rank or a decision.
+    `version` (default: the rule's) is what each row records in new_master_version; since the release the live
+    master_shortlist.csv records master_shortlist.VERSION_NEW_LIVE, with the old master as `live_master`.
     """
     from master_selection import identity
     from cagey_sharpen import offer_line_type
@@ -524,7 +529,7 @@ def reconcile(decisions: pd.DataFrame, live_master: Optional[pd.DataFrame] = Non
         rows.append(row)
     select(rows, int(config['target_fixtures']), fill_min_no_loss=float(config['fill']['step_2_min_no_loss']))
     frame = pd.DataFrame(rows, columns=[*COLUMNS, '_match'])
-    frame['new_master_version'] = config['version']
+    frame['new_master_version'] = version or config['version']
     frame = overlap(frame, live_master)
     order = frame.assign(_rank=pd.to_numeric(frame.new_master_rank, errors='coerce'),
                          _dec=frame.new_master_decision.map({d: i for i, d in enumerate(DECISIONS)}),

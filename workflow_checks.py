@@ -24,7 +24,7 @@ FORECAST_PATHS = (
     'football_output_v2/raw/conservative_bet_summary.json',
 )
 # Every sidecar an archived snapshot may hold, including retired experiments.
-SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json', 'totals_anchor_experiment.json', 'model_reliability_experiment.json', 'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv', 'cagey_correction_monitoring.csv', 'master_shortlist.csv', 'master_shortlist_audit.csv', 'master_shortlist_new.csv')
+SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json', 'totals_anchor_experiment.json', 'model_reliability_experiment.json', 'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv', 'cagey_correction_monitoring.csv', 'master_shortlist.csv', 'master_shortlist_audit.csv', 'master_shortlist_new.csv', 'master_shortlist_old.csv')
 # Experiment sidecars still generated, captured and reviewed (none since the trials were archived).
 LIVE_SIDECARS = ()
 CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output.py',
@@ -239,11 +239,14 @@ def raw_check(root, *, raw_dir=None):
                             )
                         raise ValueError(f'Current cagey-tier shortlist differs from deterministic replay ({detail})')
             # Master shortlist: recorded runs must carry exactly the list the replayed decisions give.
+            # Since the release (14 Nov 2026) master_shortlist.csv is the new master (VERSION_NEW_LIVE) and the old
+            # master is checked the same way in its shadow files (master_shortlist_old.csv and its audit).
             import master_shortlist
             master_path = raw/master_shortlist.FILE
-            if summary.get('master_shortlist') is not None:
-                require(master_path.exists(), 'Missing current master shortlist')
-                master_version = summary['master_shortlist'].get('version')
+
+            def check_old_master(info, list_path, audit_name, label, audit_label):
+                require(list_path.exists(), f'Missing current {label}')
+                master_version = info.get('version')
                 require(master_version in master_shortlist.VERSIONS, 'Unknown master shortlist version')
                 if master_version in master_shortlist.MARKET_VERSIONS:
                     from master_selection import require_generation_clock
@@ -254,23 +257,47 @@ def raw_check(root, *, raw_dir=None):
                         execution_policy=summary.get('quote_execution_policy', {}))
                     master_summary_expected = master_shortlist.summary(master_expected, master_version)
                 try:
-                    master_actual = pd.read_csv(master_path, low_memory=False)
+                    master_actual = pd.read_csv(list_path, low_memory=False)
                 except pd.errors.EmptyDataError:
                     master_actual = pd.DataFrame(columns=master_shortlist.columns(master_version))
                 require(master_shortlist.matches(master_actual, master_expected, master_version),
-                        'Current master shortlist differs from deterministic replay')
-                require(equivalent(summary['master_shortlist'], master_summary_expected),
-                        'Current master shortlist summary differs from replay')
+                        f'Current {label} differs from deterministic replay')
+                require(equivalent(info, master_summary_expected),
+                        f'Current {label} summary differs from replay')
                 if master_version in master_shortlist.MARKET_VERSIONS:
                     module = master_shortlist.selection_module(master_version)
-                    audit_path = raw/module.AUDIT_FILE
-                    require(audit_path.exists(), 'Missing current master selection audit')
+                    audit_path = raw/(audit_name or module.AUDIT_FILE)
+                    require(audit_path.exists(), f'Missing current {audit_label} selection audit')
                     from quote_policy import policy_scope
                     with shortlist_window.scope(summary['shortlist_lookahead_hours']), policy_scope(summary.get('quote_execution_policy')):
                         audit_expected = module.evaluate(decisions, pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False))
                     audit_actual = pd.read_csv(audit_path, low_memory=False)
                     require(master_shortlist.matches(audit_actual, audit_expected, master_version),
-                            'Current master selection audit differs from deterministic replay')
+                            f'Current {audit_label} selection audit differs from deterministic replay')
+                return master_expected
+
+            live_info = summary.get('master_shortlist')
+            if live_info is not None and live_info.get('version') == master_shortlist.VERSION_NEW_LIVE:
+                require(master_path.exists(), 'Missing current master shortlist')
+                old_info = summary.get(master_shortlist.OLD_SUMMARY_KEY)
+                old_expected = None
+                if old_info is not None:
+                    old_expected = check_old_master(old_info, raw/master_shortlist.OLD_FILE,
+                                                    master_shortlist.OLD_AUDIT_FILE, 'old master shortlist (shadow)',
+                                                    'old master (shadow)')
+                new_expected, new_summary_expected = master_shortlist.new_live(
+                    decisions, old_expected, summary.get('generated_at_utc'),
+                    pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False))
+                try:
+                    new_actual = pd.read_csv(master_path, low_memory=False)
+                except pd.errors.EmptyDataError:
+                    new_actual = pd.DataFrame(columns=list(new_expected.columns))
+                require(master_shortlist.matches_new(new_actual, new_expected),
+                        'Current master shortlist differs from deterministic replay')
+                require(equivalent(live_info, new_summary_expected),
+                        'Current master shortlist summary differs from replay')
+            elif live_info is not None:
+                check_old_master(live_info, master_path, None, 'master shortlist', 'master')
             # Correction monitoring is evidence only, but its rows must be this run's own. The run's
             # immutable summary says whether it was generated with monitoring; earlier v28 runs were not.
             monitor_path = raw/price_edge_cagey_shortlist.MONITOR_FILE
@@ -684,9 +711,14 @@ def report_check(root):
         for name, state in capture_history[-1].get('experiments', {}).items():
             if state in ('PRESENT_BUT_REJECTED', 'MISSING_OR_TAMPERED'):
                 warnings.append(f'{name}: latest snapshot {state}; experimental evidence was not accepted')
+    # The master release's rollback rule (price_edge_tracking.master_rollback): reported first in the run summary.
+    rollback_path=performance/'price_edge_v27'/'summary.json'
+    rollback=(read_json(rollback_path).get('master_rollback') if rollback_path.exists() else None) or {}
+    if rollback.get('triggered'): warnings.insert(0, rollback['message'])
     return {'status':'VERIFIED_WITH_WARNINGS' if warnings else 'VERIFIED','pipeline_health':health_data,'reviewed_at_utc':metrics['reviewed_at_utc'],
         'snapshots':len(audit['snapshots']),'shortlist':metrics['shortlist'],'policy_groups':metrics['groups']['policy'],
-        'provider_errors':metrics.get('provider_errors',{}),'training_end_dates':training,'experiments':experiments,'warnings':warnings}
+        'provider_errors':metrics.get('provider_errors',{}),'training_end_dates':training,'experiments':experiments,'warnings':warnings,
+        'master_rollback':rollback}
 
 
 def registry_check(repo):
@@ -748,6 +780,9 @@ def emit(data,output=None,summary=False):
     print(content)
     if summary and (destination:=os.getenv('GITHUB_STEP_SUMMARY')):
         with open(destination,'a',encoding='utf-8') as handle:
+            rollback=data.get('master_rollback') or {}
+            if rollback.get('triggered'):  # the release's rollback rule, first in the run summary; never acted on
+                handle.write(f"> **{rollback['status']}** (master shortlist): {rollback['message']}\n\n")
             handle.write('## Forward review integrity\n\n')
             handle.write(f'Status: **{data.get("status","VERIFIED")}**; snapshots: {data.get("snapshots",0)}.\n\n')
             if 'shortlist' in data:
