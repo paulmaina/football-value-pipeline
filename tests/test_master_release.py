@@ -834,6 +834,23 @@ class ReadersTest(unittest.TestCase):
         self.assertEqual(markets['Left FC'], set())  # a nominated offer the master did not pick
         self.assertEqual(markets['Old FC'], {'Asian Handicap Away +1.00'})
 
+    def test_closing_odds_collect_a_fallback_runs_live_old_master(self):
+        """A run whose new master failed publishes the old master as master_shortlist.csv: its picks are collected."""
+        import closing_odds
+        import price_edge_tracking
+        predictions = [{'league': 'Premier League', 'home_team': 'Fallback FC', 'away_team': 'Away FC',
+                        'kickoff_utc': KICK.isoformat()}]
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            raw = root / 'raw'
+            raw.mkdir()
+            pd.DataFrame([old_row('Fallback FC')]).to_csv(raw / ms.FILE, index=False)
+            with mock.patch('performance_tracking.snapshots', return_value=[]), \
+                    mock.patch.object(price_edge_tracking, 'archived_tier_rows', return_value=[]):
+                targets = closing_odds.collection_targets(root, predictions, [])
+        self.assertEqual({source['home_team']: selected for source, selected in targets},
+                         {'Fallback FC': {'Asian Handicap Away +1.00'}})
+
     def test_readable_output_and_workbook_show_the_new_masters_picks(self):
         from format_football_output import (MASTER_READABLE, master_section, read_shortlist_tabs,
                                             write_predictions_workbook)
