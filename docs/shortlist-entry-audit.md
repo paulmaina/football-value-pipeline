@@ -257,3 +257,58 @@ the new master.
 Both lists already put forward every priced match in the window, offline and live. More matches would need
 either more fixtures in the window (a longer lookahead, more leagues, UCL/UEL) or a change to the master's own
 inclusion rule (cagey no-loss ≥ 0.75). Both are outside this audit.
+
+## 6. The saved run with 40 fixtures and no nomination
+
+PR #173's live replay lists one run with 40 fixtures where neither list nominated anything. It is snapshot
+`0af36ab1e9657f52`, generated 5 Nov 2026 at 12:32 UTC. The replay rebuilds every run under today's rules, as
+this audit's reproduction does.
+
+**Verdict: a rule doing its job (the 24-hour kickoff window), plus missing UEL data from a bug PR #128 has
+already fixed. No new bug; no fix proposed.**
+
+### Why each list nominated nothing
+
+- **Same reason for both lists.** Every one of the run's 521 offers fails the kickoff window ("kickoff outside
+  20-minute to 24-hour window", on both the value and the cagey decision). The 40 fixtures kick off between 28.5
+  and 71 hours after the run; the earliest is Friday 6 Nov, 17:00 UTC. With nothing inside the window, neither
+  list can nominate.
+- **The window is the only thing blocking.** I rebuilt the run under today's rules with only the lookahead
+  changed to 48 hours. Each list then nominates 18 bets on 10 fixtures, which are exactly the 10 fixtures
+  kicking off within 48 hours.
+- **The replay applies today's rules, not the rules the run used.** The run was generated for a 48-hour
+  window, under value rule `team-research-profit-v1`, cagey rule `narrow-63-flagged-v2` and 1xBet allowed.
+  It recorded 38 value picks and 6 cagey picks. The 24-hour default came later (commit 9708f3b, 9 Nov). Under
+  today's rules, a run at that hour would have nominated nothing. The next run, at 13:37 UTC, nominated 17
+  fixtures, all of them that evening's UEL matches.
+
+### Missing data in the same run
+
+- **The run had no UEL fixtures, though UEL played that evening** (17 matches at 17:45 and 20:00 UTC, inside a
+  24-hour window). The run's summary records why: `league_availability.excluded_leagues.UEL.status =
+  TRAINING_UNVERIFIED`, "Current Europa sources disagree or coverage is incomplete; prior snapshot retained".
+- This is the failure PR #128 fixed: a failed Europa reconciliation disabled the competition even though a
+  verified cached snapshot existed. The run was made at commit 3b8b708 (12:32 UTC). PR #128's commit b9dfaede6
+  is later (13:34 UTC) and is not an ancestor of that commit.
+- After the fix, the 13:37 and 16:50 runs had all 17 UEL fixtures. The cagey tier nominated all 17; the value
+  list nominated 7 (the rest were blocked by the Europa six-appearance rule, see section 4).
+- Had UEL been present, the cagey tier would very likely have nominated these matches. This run's emptiness
+  under today's rules is partly due to that fixed bug.
+
+### PR #173's other four empty runs had fixtures but no prices
+
+PR #173 counts these as runs "with no fixtures". They had fixtures, including some inside the window, but no
+prices at all. Missing data, not a rule:
+
+| Run | Fixtures | In 24-hour window | Prices captured |
+| --- | ---: | ---: | --- |
+| 1 Nov, 12:23 UTC | 34 | 12 | none |
+| 5 Nov, 16:17 UTC | 32 | 17 | none |
+| 5 Nov, 16:27 UTC | 32 | 17 | none |
+| 6 Nov, 13:21 UTC | 16 | 8 | none |
+
+- In each, `asian_handicap_offers` and `price_edge_quotes` are empty for every fixture, and the quote audit
+  records no bookmaker. So there are no decision rows and nothing to nominate.
+- In every case a later run had prices and nominated normally: 3 Nov 13:23 (after the 1 Nov run), 5 Nov 16:50
+  and 6 Nov 13:40.
+- Why no prices were captured isn't recorded in the snapshots, and I didn't investigate it further.
