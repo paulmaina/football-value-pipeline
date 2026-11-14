@@ -298,7 +298,7 @@ def raw_check(root, *, raw_dir=None):
 
             def replay_new(old_frame):
                 return master_shortlist.new_live(decisions, old_frame, summary.get('generated_at_utc'), pd.read_csv(
-                    raw/'all_leagues_predictions.csv', low_memory=False))
+                    raw/'all_leagues_predictions.csv', low_memory=False), summary.get('cagey_model_version'))
 
             if incident == master_shortlist.NEW_MASTER_FAILED:
                 # The old master was published as the live list for this run, exactly as live "old" writes it.
