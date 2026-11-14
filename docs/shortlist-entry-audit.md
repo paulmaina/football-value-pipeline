@@ -78,6 +78,17 @@ adds are shown separately as context.
 **Reading "keep" on a rule that is absent today** (alternate lines allowed). The split is today's list divided by
 the tighter criterion, so "keep" means no change.
 
+**Rank rules are compared in pairs** (review finding 1, corrected 14 Nov 2026). "Order within a group" and "one
+pick per market group" compare each chosen pick with its runner-up in the same fixture and market group:
+- for the order, the next eligible bet;
+- for picks per group, the mean of every lower-ranked eligible bet.
+
+Only contested groups (two or more eligible bets) enter. The paired difference is averaged per group, and whole
+weeks are resampled. The first version compared every first-ranked pick, including uncontested ones, with
+runners-up from contested groups only. That could make a worse choice look better: a test now pins the
+reviewer's case, where a first pick 10 points worse than its runner-up shows as worse even with an uncontested
+group added.
+
 ## 3. Reproduction and pricing limits
 
 **Reproduction (proved first).** I rebuilt the 29 saved live runs (27 Oct – 8 Nov 2026) under today's
@@ -113,7 +124,8 @@ that many groups contain competing offers, and that a changed rule changes the p
 
 | Offers | Price used | Judged on |
 | --- | --- | --- |
-| Home/away win, main AH line | Real: Pinnacle to 15 Jan 2026; after that Bet365 margin-free plus Pinnacle's average margin | Quality and return |
+| Home/away win, main AH line, to 15 Jan 2026 | **Real**: Pinnacle's own prices | Quality and return |
+| Home/away win, main AH line, from 16 Jan 2026 (retrospective) | **Reconstructed**: Bet365 margin-free plus Pinnacle's average margin; never counted as a real price (review finding 3) | Quality; return reported apart as "reconstructed" |
 | Double chance 1X/X2/12, draw no bet | **Derived**: margin-free 1X2 plus that match's 1X2 overround | Quality; return labelled "derived" |
 | Alternate AH lines (main −1.00 to +1.00), Over 1.5 | None historically. M's fair odds / (1 + 2.70%) is used for the odds window and ties only | Accuracy only, never return |
 
@@ -131,25 +143,51 @@ the cagey tier.
   better than the cagey tier predicted.
 - Return at real prices: −0.3% (−3.1% to +2.2%).
 
-### Coverage is not limited by the entry rules
+### Nominations vs the master's 15-match target
 
-**Offline:** every priced match already gets picks from both lists (64.9 matches a week on development, which is
-every scored fixture). Every kickoff day with 15 or more priced matches is already covered: 186 of 186 on
-development, 36 of 36 on validation. No entry change can add matches. A rule change can only add bets on matches
-already covered, or change which bet a match gets.
+**Nominations.** Offline, every priced match gets picks from both lists (64.9 matches a week on development), and
+every kickoff day with 15 or more priced matches has 15 nominated matches (186 of 186 development, 36 of 36
+validation). Live (29 runs), the two lists together nominated 342 of 342 priced fixture-runs in their windows:
 
-**Live (29 runs):** the two lists together covered 342 of 342 priced fixtures in their windows. The 8 runs that
-reached 15 covered matches are exactly the 8 runs with 15 or more priced fixtures.
-
-Each list alone misses some matches, and the other list covers them:
-
-- The value list's 25 misses (three runs on 4–5 Nov, for example 7 of 17 covered on 5 Nov) are UEL matches blocked by the Europa
-  six-appearance rule (1,159 live rows). Nothing offline can test that rule.
+- The value list's 25 misses (three runs on 4–5 Nov, for example 7 of 17 covered on 5 Nov) are UEL matches blocked
+  by the Europa six-appearance rule (1,159 live rows). Nothing offline can test that rule.
 - The cagey tier's misses (for example 8 of 9 on 4 Nov, 09:31) come from its missing corrected Pinnacle
   distribution.
 
-**So the 15-match shortfall comes from fixture supply in the 24-hour window and from the master's own inclusion
-rule (cagey no-loss ≥ 0.75), not from the lists' entry rules.**
+**A nomination is not a master pick** (review finding 2, corrected 14 Nov 2026; the first version drew
+conclusions about the 15-match target from nominations alone). `scripts/shortlist_entry_reproduction.py`
+(`master_coverage`) now runs each saved run's nominations through the new master's own eligibility and
+selection (`master_reconciliation.reconcile` and `summary`):
+- Pinnacle and native markets only, and the master's odds window;
+- its market-view and quote-timing checks;
+- its fill rule.
+
+It does this for today's nominations, for each proposed change alone and for all of them together, under today's
+master window (1.15 to 2.00) and under one moved to 1.10 to 2.20.
+
+**PROVISIONAL**, pending the rebase on PR #173: these figures are from #173's head 4b49178, which does not yet
+have its quote-timing checks. With them, the reviewer found 342 nominated, 299 eligible and 7 runs reaching 15.
+The table will be replaced by the run on main after #173 merges.
+
+| Nominations | Master window | Fixture-runs nominated / eligible / ranked | Runs reaching 15 |
+| --- | --- | --- | --- |
+| Today | today (1.15–2.00) | 342 / 341 / 231 | 8 |
+| P1 odds floor 1.10 | today | 342 / 340 / 230 | 8 |
+| P1 odds floor 1.10 | moved (1.10–2.20) | 342 / 342 / 231 | 8 |
+| P2 double chance 12 | today or moved | 342 / 339 / 229 | 8 |
+| P3 cagey ceiling 2.20 | today or moved | 342 / 341 / 231 | 8 |
+| All three | today | 342 / 338 / 228 | 8 |
+| All three | moved | 342 / 340 / 229 | 8 |
+
+- **The 1.10 floor can't add master picks while the master's own floor is 1.15.** It does slightly worse: where
+  the safest offer in a group is priced 1.10–1.15, the list nominates that offer instead of one the master can
+  execute (one fixture-run fewer eligible, one fewer ranked). Only if the master's floor moved to 1.10 as well
+  would those nominations count, and even then the ranked total is unchanged (231).
+- **Double chance 12 is not a native master market**, so the master never takes it. Where it replaces a 1X/X2
+  nomination in the double-chance group, the master loses that fixture (two fixture-runs).
+- **The cagey 2.20 ceiling changes nothing** for the master: those bets are never its pick.
+- **No proposal adds a run reaching 15.** The 15-match shortfall comes from how many fixtures fall in the 24-hour
+  window and from what the master can execute and include, not from the lists' entry rules.
 
 ### Value list (research model C)
 
@@ -163,8 +201,8 @@ rule (cagey no-loss ≥ 0.75), not from the lists' entry rules.**
 | DC 1X/X2 allowed | 10,602 / 5,135 | −0.2 (−1.4 to +0.9) | −2.3 (−4.6 to −0.2) | — | — | −0.1 (−0.4 to +0.3) | −0.8 (−1.5 to −0.1) | no evidence |
 | Alternate AH lines allowed | 8,862 / 6,875 | +2.1 (+0.7 to +3.4) | +3.9 (+1.3 to +6.6) | — | — | −0.0 (−0.5 to +0.6) | +0.3 (−0.8 to +1.3) | keep (no change) |
 | Home/away win allowed | 12,010 / 3,727 | −2.5 (−4.1 to −0.7) | −2.5 (−6.7 to +1.7) | — | — | −0.6 (−1.0 to −0.2) | −0.6 (−1.6 to +0.4) | no evidence |
-| One pick per market group | 15,737 / 61,217 | +0.9 (+0.2 to +1.6) | −0.2 (−1.6 to +1.5) | −0.7 (−1.0 to −0.3); +10,517, −0.3 (−1.1 to +0.5) | −0.1 (−1.0 to +0.8) | −0.8 (−1.5 to −0.1) | −1.3 (−2.8 to +0.2) | no evidence (validation disagrees) |
-| Order within a group | 15,737 / 10,517 | +1.7 (+0.7 to +2.6) | +0.1 (−2.0 to +2.4) | — | — | — | — | **keep** |
+| One pick per market group (paired, 10,517 contested groups) | 10,517 / 61,217 | +0.4 (−0.7 to +1.4) | −1.1 (−3.5 to +1.3) | −0.7 (−1.0 to −0.3); +10,517, −0.3 (−1.1 to +0.5) | −0.1 (−1.0 to +0.8) | −0.8 (−1.5 to −0.1) | −1.3 (−2.8 to +0.2) | no evidence |
+| Order within a group (paired, 10,517 contested groups) | 10,517 / 10,517 | +0.7 (−0.1 to +1.5) | −1.0 (−2.9 to +1.1) | — | — | — | — | no evidence (was "keep" before the pairing fix) |
 | No research EV floor | 6,960 / 8,777 | −2.3 (−4.0 to −0.6) | −4.7 (−7.8 to −1.4) | — | — | −1.8 (−2.8 to −0.8) | −2.1 (−4.0 to −0.2) | no evidence (a floor is clearly worse) |
 
 ### Cagey tier (D)
@@ -179,23 +217,38 @@ rule (cagey no-loss ≥ 0.75), not from the lists' entry rules.**
 | DC 1X/X2 allowed | 10,602 / 5,135 | −0.7 (−2.0 to +0.6) | −1.9 (−4.2 to +0.4) | — | — | −0.2 (−0.6 to +0.2) | −0.6 (−1.4 to +0.1) | no evidence |
 | Alternate AH lines allowed | 8,862 / 6,875 | +1.9 (+0.8 to +3.1) | +3.0 (+0.3 to +5.6) | — | — | −0.3 (−0.8 to +0.3) | +0.2 (−0.7 to +1.1) | keep (no change) |
 | Home/away win allowed | 12,010 / 3,727 | −1.8 (−3.2 to −0.1) | −1.9 (−5.9 to +2.0) | — | — | −0.4 (−0.7 to −0.0) | −0.4 (−1.4 to +0.5) | no evidence |
-| One pick per market group | 15,737 / 61,217 | +1.6 (+0.7 to +2.4) | +0.4 (−1.1 to +2.0) | −0.8 (−1.2 to −0.3); +10,517, +0.1 (−0.8 to +1.0) | −0.6 (−1.3 to +0.1) | −1.1 (−1.7 to −0.4) | −1.6 (−3.0 to −0.1) | **keep** |
-| Order within a group | 15,737 / 10,517 | +1.9 (+0.8 to +2.9) | +1.5 (−0.3 to +3.3) | — | — | — | — | **keep** |
+| One pick per market group (paired, 10,517 contested groups) | 10,517 / 61,217 | +1.7 (+0.6 to +2.8) | −0.2 (−1.9 to +1.4) | −0.8 (−1.2 to −0.3); +10,517, +0.1 (−0.8 to +1.0) | −0.6 (−1.3 to +0.1) | −1.1 (−1.7 to −0.4) | −1.6 (−3.0 to −0.1) | no evidence (validation disagrees; was "keep" before the pairing fix) |
+| Order within a group (paired, 10,517 contested groups) | 10,517 / 10,517 | +1.2 (+0.1 to +2.3) | +0.6 (−0.8 to +1.9) | — | — | — | — | **keep** |
 | No no-loss floor (tighter ≥ 0.75) | 8,741 / 6,996 | −1.0 (−2.3 to +0.4) | −0.0 (−3.7 to +3.5) | — | — | −0.5 (−1.0 to +0.2) | −0.0 (−1.6 to +1.5) | no evidence |
 | No EV floor (tighter EV ≥ 0) | 1,944 / 13,793 | −2.4 (−4.2 to −0.4) | −5.8 (−9.8 to −2.0) | — | — | −2.2 (−3.7 to −0.6) | −3.7 (−7.3 to −0.4) | no evidence (a floor is clearly worse) |
 | No P(narrow) gate (tighter ≥ 0.67) | 5,566 / 10,171 | −1.3 (−2.8 to +0.1) | −1.3 (−5.1 to +2.3) | — | — | −0.8 (−1.8 to +0.1) | −0.8 (−3.2 to +1.4) | no evidence |
 | Price guard 1.15× | 15,737 / 0 | — | — | +0.0; +0 | +0.0 | +0.0 | +0.0 | no evidence (never fires offline, or in the 29 live runs) |
 
 Retrospective (diagnostic) and the C6 view are in `results.json` (`rule_tests`, keys `value:C6` and the
-`retrospective` period). C6 points the same way as C on every rule.
+`retrospective` period). C6 points the same way as C on every rule. In the retrospective, wins and main AH lines
+are reconstructed prices, so its real-price returns are empty; their return is under `*_reconstructed_prices`
+(for example, both lists today −0.9%, −7.3% to +4.8%, on 773 bets).
 
 ### What the evidence says, beyond the verdicts
 
-- **The value list hardly depends on its research model.** Inside the odds window, the highest P(positive
-  return) in each group is nearly always the same safest offer, whichever model ranks it. That explains why
-  value-list picks coincide with cagey picks on 55% of bets (development 8,588 of 15,737), and why C6 picks
-  almost exactly what C picks.
-- **Floors on expected return make things worse, on both lists.** Bets with research EV ≥ 0 did 2.3 points
+- **The research model decides the AH line, not the win or double-chance pick** (corrected 14 Nov 2026; the
+  first version said the value list barely depends on its research model, which was not measured and is wrong
+  for AH). Same pick, development (validation in brackets):
+
+  | Group | C vs C6 | Value list (C) vs cagey tier |
+  | --- | --- | --- |
+  | Match winner | 100% (100%) | 100% (100%) |
+  | Double chance | 100% (100%) | 85.8% (86.4%) |
+  | Asian handicap | 82.6% (79.5%) | 6.6% (7.6%) |
+  | All groups | 92.4% (91.1%) | 54.6% (55.1%) |
+
+  - In the win and double-chance groups the pick is the favourite (or its double chance) whichever model ranks
+    it.
+  - In the AH group the value list and the cagey tier almost never pick the same line. That is partly the model
+    and partly the ranking objective: the value list ranks by chance of a positive return (a push doesn't
+    count), the cagey tier by chance of no loss (a push does).
+- **Floors on expected return make things worse, on both lists** (rechecked after the review fixes: unchanged,
+  since neither fix touches this comparison). Bets with research EV ≥ 0 did 2.3 points
   worse than the cagey tier predicted, relative to the rest (validation −4.7). Bets with cagey EV ≥ 0 did 2.4
   points worse (validation −5.8). This matches the master evidence that research "edges" are mostly error. Do
   not add EV floors.
@@ -231,9 +284,10 @@ double chance 12 allowed.
 
 - Proposed minus today, quality, development: value −0.1 (−0.7 to +0.4), cagey −0.1 (−0.6 to +0.4), both
   +0.0 (−0.4 to +0.4). Validation: −0.6, +0.2, −0.2, none clear.
-- **Matches per week are unchanged** (64.9 development, 59.3 validation). **Runs covering 15 matches are
-  unchanged:** 186 of 537 kickoff days on development (35%) and 36 of 100 on validation; every day with 15 priced
-  matches is covered, today and proposed.
+- **Nominated matches per week are unchanged** (64.9 development, 59.3 validation), and so are kickoff days with
+  15 nominated matches: 186 of 537 on development (35%) and 36 of 100 on validation. These are nominations, not
+  master picks. The offline backtest has no master executability or timing checks; what reaches the master is in
+  "Nominations vs the master's 15-match target" above.
 - The extra bets are 10% more per week on the value list and 16% on the cagey tier (17% for both together), on matches already covered, with no measurable change in
   quality. The real-plus-derived return falls by about 1–2 points, mostly from double chance 12 at derived prices.
 - Main-line-only sensitivity (today's rules, no alternate lines): same matches and quality (development value
@@ -246,17 +300,18 @@ the new master.
 
 | # | List | Proposal | Evidence | Caveats | Recommendation |
 | --- | --- | --- | --- | --- | --- |
-| P1 | Both | Lower the odds floor from 1.15 to 1.10 | Bets at or below 1.15 beat the cagey tier's prediction more than passing bets did: pass − fail −1.5 / −0.9 on development, −3.2 / −2.8 on validation (clear for value both periods, cagey validation). Added bets +2.5 (+0.3 to +4.5), validation +4.0. No measurable harm to list quality. | Mostly double chance at derived prices. Return about zero (−1.3% development, +0.8% validation). No new matches, only about 7 more bets a week. Most useful to the new master, whose safe threshold (no-loss ≥ 0.75) these bets meet. | Worth a fixed test |
-| P2 | Both | Allow double chance 12 | "Loosen" on both lists. Adds 27–42 bets a week at unchanged quality. | Derived prices only. Loses about the margin (−3% to −6%). No new matches. DC 12 is not one of the live master's native Pinnacle markets. | Low value; only if Pinnacle's real DC 12 prices are checked first |
+| P1 | Both | Lower the odds floor from 1.15 to 1.10 | Bets at or below 1.15 beat the cagey tier's prediction more than passing bets did: pass − fail −1.5 / −0.9 on development, −3.2 / −2.8 on validation (clear for value both periods, cagey validation). Added bets +2.5 (+0.3 to +4.5), validation +4.0. No measurable harm to list quality. | Mostly double chance at derived prices. Return about zero (−1.3% development, +0.8% validation). No new matches, about 7 more bets a week. **It can't add a master pick while the master's floor is 1.15, and on the saved runs it costs one** (it nominates offers the master can't execute). It only makes sense together with moving the master's floor to 1.10, a separate decision. | A fixed test only if the master's floor would move too; otherwise do not adopt |
+| P2 | Both | Allow double chance 12 | "Loosen" on both lists. Adds 27–42 bets a week at unchanged quality. | Derived prices only. Loses about the margin (−3% to −6%). No new matches. DC 12 is not a native master market, so the master never takes it, and where it displaces a 1X/X2 nomination the master loses that fixture (two fixture-runs on the saved runs). | Do not adopt |
 | P3 | Cagey | Raise the odds ceiling from 2.00 to 2.20 | "Loosen" on development. Added bets +2.8 (−0.4 to +5.8). | On validation the ceiling's failing bets are clearly worse (+3.2, +0.7 to +5.7) and the added bets did worse than predicted (−1.7; return −9.1%). On the value list the same ceiling is a clear "keep". Such bets are never safe enough for the new master (predicted no-loss about 0.45). | Do not adopt |
-| — | Both | Keep: highest odds 2.00 on the value list, Over 1.5 excluded, one pick per market group (cagey), order within groups | Pass clearly better than fail on development, validation the same way | — | Keep |
+| — | Both | Keep: highest odds 2.00 (value list), Over 1.5 excluded (both), order within a group (cagey tier) | Pass clearly better than fail on development, validation the same way | One pick per market group (cagey) and order within a group (value) were "keep" before the pairing fix; now no evidence | Keep |
 | — | Both | Do not add EV floors (research or cagey) | Passing bets clearly worse in both periods, on both lists | — | Keep as is |
 | — | Both | Price guard, draw no bet, P(narrow) gate, no-loss floor, DC 1X/X2, wins, alternate lines | No evidence for a change | The price guard never fired, offline or live | Keep as is |
 
-**The main finding for the 15-match goal:** the entry rules don't limit how many matches the master can fill.
-Both lists already put forward every priced match in the window, offline and live. More matches would need
-either more fixtures in the window (a longer lookahead, more leagues, UCL/UEL) or a change to the master's own
-inclusion rule (cagey no-loss ≥ 0.75). Both are outside this audit.
+**The main finding for the 15-match goal:** no proposed entry change adds a master pick or a run reaching 15 on
+the saved runs, and two of them (P1, P2) cost a pick or two under today's master. Both lists already nominate
+every priced match in the window. What limits the master is how many fixtures fall in the 24-hour window, and
+what the master itself can execute and include (its odds window, native markets, timing checks and the 0.75 safe
+threshold). Those are outside this audit; the figures above are provisional until the rebase on PR #173.
 
 ## 6. The saved run with 40 fixtures and no nomination
 
