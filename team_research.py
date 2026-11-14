@@ -19,14 +19,28 @@ import numpy as np
 import pandas as pd
 import requests
 
-VERSION = 'team-form-research-v4'
+VERSION = 'team-form-research-v5'
+# v5 keeps v4's goal rates and form rules and changes only the score grid, for
+# domestic leagues: candidate C6 (research_low_score_sharpen), C2's draw and
+# low-score correction and then C5's walk-forward home/away sharpening, with the
+# harness's walk-forward fits (research_low_score_sharpen.FITS) frozen in each
+# forecast as 'c6_fit'. Released by Paul's decision of 14 Nov 2026 without
+# holdout proof (docs/plan.md, Decisions). UCL and UEL forecasts stay v4 (a
+# separate release handles Europe), and every v5 forecast also carries v4's
+# probabilities on the same inputs ('shadow_v4') for the rollback comparison.
+# v4 records the ESPN competition of each result and leaves friendlies out of
+# the form (is_friendly) on an independent Poisson grid; it is the live rule for
+# UCL and UEL and the shadow for domestic forecasts.
+V4_VERSION = 'team-form-research-v4'
+PREVIOUS_VERSION = V4_VERSION
+# Versions whose domestic score grid is C6 rather than independent Poisson.
+C6_VERSIONS = (VERSION,)
+# Competitions that keep v4 under v5 (the C6 fits are domestic only).
+EUROPEAN_COMPETITIONS = frozenset({'UEFA Champions League', 'UEFA Europa League'})
 # v3 kept every completed ESPN game in the last-ten form, club friendlies
 # included (most of them international-break friendlies, which aren't
-# competitive evidence). v4 records the ESPN competition of each result and
-# leaves friendlies out of the form (is_friendly); league, cup and European
-# games are unchanged. Kept only so forecasts frozen under v3 replay exactly.
+# competitive evidence). Kept only so forecasts frozen under v3 replay exactly.
 V3_VERSION = 'team-form-research-v3'
-PREVIOUS_VERSION = V3_VERSION
 # v2 looked a side's training history up by its fixture name, so a side the
 # fixture and the history name differently ("Hull City" / "Hull") got no
 # training-history form at all. v3 resolves each side to its training name
@@ -85,6 +99,7 @@ TTL_HOURS = 3
 SCHEMA_VERSION = 'value-model-inputs-v1'
 INPUT_SCHEMA = {
     # Identity and timing.
+    'league': 'competition identity: picks the score grid (C6 for domestic leagues from v5, v4 for UCL/UEL)',
     'home_team': 'team identity',
     'away_team': 'team identity',
     'kickoff_utc': 'kickoff time, for rest and travel context only',
@@ -538,17 +553,36 @@ def collect_fixture(row, client):
     return evidence
 
 
-def prepare(row, cutoff, evidence=None, version=VERSION):
+def research_version(league, version=None):
+    """The research version a forecast of this competition is made (or replayed) under.
+
+    No version: the live rule, v5, except for UCL and UEL, which stay v4. A v5 replay of a
+    UCL/UEL row is v4 too, so a version stamp always names the grid the forecast used.
+    """
+    version = VERSION if version is None else version
+    if version in C6_VERSIONS and str(league) in EUROPEAN_COMPETITIONS:
+        return V4_VERSION
+    return version
+
+
+def prepare(row, cutoff, evidence=None, version=None, c6_fit=None):
     """One replayable context and goal model. Prior shrinks ten-game form to the fitted team rates.
 
     `version` is for replaying a frozen forecast under the rules it was made with (see form_rows):
-    v3 reads each side's training-history name from research_history_json['teams'].
+    v3 reads each side's training-history name from research_history_json['teams']. Without one the
+    live rule applies (research_version: v5, UCL/UEL v4).
+
+    v5 prices the goal rates on C6's grid (research_low_score_sharpen) with `c6_fit`, the fit frozen
+    in the forecast (team_research_json['c6_fit']); without it, the fit file's window for the cutoff
+    day (research_low_score_sharpen.fit_for). It also records v4's probabilities on the same goal
+    rates as 'shadow_v4'. The goal rates and form are v4's in both.
 
     Enforces the value model input schema: the row is projected onto
     INPUT_SCHEMA and the numbers read only research_evidence(evidence), so no
     odds field can reach the research probabilities.
     """
     row = research_inputs(row)
+    version = research_version(row.get('league'), version)
     evidence = evidence or {}
     cached = decode(row.get('research_history_json'))
     valid_sources = observed_by(evidence, cutoff)
@@ -622,12 +656,47 @@ def prepare(row, cutoff, evidence=None, version=VERSION):
         context['form_friendlies_excluded'] = friendlies
     if all(r is not None and r > 0 for r in rates):
         matrix = research_grid(rates)
-        from asian_handicap import margins
-        context.update(margin_distribution=json.loads(margins(matrix)),
-                       p_over_1_5=float(matrix[np.add.outer(np.arange(len(matrix)), np.arange(len(matrix))) > 1.5].sum()))
+        if version in C6_VERSIONS:
+            context['shadow_v4'] = {'version': V4_VERSION, 'grid': 'independent Poisson (C)', **grid_outputs(matrix)}
+            matrix = c6_matrix(rates, cutoff, c6_fit, context, warnings)
+        if matrix is not None:
+            context.update(grid_outputs(matrix))
     else:
         warnings.append('team goal-rate model unavailable')
     return context
+
+
+def grid_outputs(matrix):
+    """The research outputs of a score grid: goal-margin distribution and P(Over 1.5)."""
+    from asian_handicap import margins
+    return {'margin_distribution': json.loads(margins(matrix)),
+            'p_over_1_5': float(matrix[np.add.outer(np.arange(len(matrix)), np.arange(len(matrix))) > 1.5].sum())}
+
+
+def c6_matrix(rates, cutoff, fit, context, warnings):
+    """v5's grid: C6 on these goal rates under the frozen fit (or the fit file's window for the cutoff).
+
+    Records the fit in context['c6_fit']. No fit, or an invalid grid, leaves the forecast without research
+    probabilities (warned), never silently on another grid."""
+    import research_low_score_sharpen as c6
+    if fit is None:
+        try:
+            fit = c6.fit_for(cutoff)
+        except (OSError, ValueError, KeyError) as exc:
+            warnings.append(f'C6 fit file unavailable ({type(exc).__name__}); no research probabilities')
+            return None
+    if fit is None:
+        warnings.append('no C6 fit window on or before the research cutoff; no research probabilities')
+        return None
+    context['c6_fit'] = dict(fit)
+    if fit.get('stale'):
+        warnings.append(f"C6 fit file is behind: using the window from {fit['origin']}, "
+                        f"the harness window for this day starts {fit['expected_origin']}")
+    try:
+        return c6.live_grid(rates, fit)
+    except (ValueError, TypeError, KeyError) as exc:
+        warnings.append(f'C6 grid invalid ({exc}); no research probabilities')
+        return None
 
 
 def research_grid(goal_rates):
@@ -636,6 +705,19 @@ def research_grid(goal_rates):
     # Independent Poisson: do not transfer a fitted DC rho after changing rates.
     matrix, _ = score_grid(*goal_rates, 0.)
     return matrix
+
+
+SHADOW_PREFIX = 'research_v4_p_'  # v4's probabilities beside a v5 forecast (shadow, for the rollback check)
+
+
+def outcome_columns(outputs, prefix):
+    """Home/draw/away and Over 1.5 columns from a context's (or its shadow's) margin distribution."""
+    values = outputs.get('margin_distribution', {})
+    out = {}
+    for key, predicate in [('home', lambda d: d > 0), ('draw', lambda d: d == 0), ('away', lambda d: d < 0)]:
+        out[prefix + key] = sum(p for d, p in values.items() if predicate(int(d))) if values else None
+    out[prefix + 'over_1_5'] = outputs.get('p_over_1_5')
+    return out
 
 
 def enrich(predictions, cache, fetch=False, client=None, clock=None):
@@ -664,10 +746,10 @@ def enrich(predictions, cache, fetch=False, client=None, clock=None):
         context['evidence']['quality_review'] = quality
         context['evidence_quality_version'] = quality['version']
         context['warnings'] = list(dict.fromkeys([*context['warnings'], *quality['warnings']]))
-        values = context.get('margin_distribution', {})
-        for key, predicate in [('home', lambda d: d > 0), ('draw', lambda d: d == 0), ('away', lambda d: d < 0)]:
-            row['research_p_' + key] = sum(p for d, p in values.items() if predicate(int(d))) if values else None
-        row['research_p_over_1_5'] = context.get('p_over_1_5')
+        row.update(outcome_columns(context, 'research_p_'))
+        if 'shadow_v4' in context:  # rollback comparison: v4 on the same inputs, never read by the shortlists
+            row.update(outcome_columns(context['shadow_v4'], SHADOW_PREFIX))
+        row['research_version'] = context['version']
         row['research_probability_basis'] = 'team_form_poisson_v1'
         row['team_research_json'] = json.dumps(context, sort_keys=True, allow_nan=False)
         rows.append(row)

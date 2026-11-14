@@ -135,7 +135,7 @@ def replay(root, labels, histories):
             view, labelled = labelled_evidence(evidence, labels, tr.LEAGUES.get(league, ''), parity, tr)
             counts.update({'espn_' + k: v for k, v in labelled.items()})
             before = tr.prepare(current, cutoff, copy.deepcopy(view), version=tr.V3_VERSION)
-            after = tr.prepare(current, cutoff, copy.deepcopy(view))
+            after = tr.prepare(current, cutoff, copy.deepcopy(view), version=tr.V4_VERSION)
             inputs = tr.research_inputs(current)
             used = {s: eh._used_rows(inputs, view, cutoff, s, tr.V3_VERSION) for s in SIDES}
             friendly_used = {s: sum(tr.is_friendly(r.get('competition')) for r in used[s]) for s in SIDES}
@@ -224,7 +224,7 @@ def main(argv=None):
         frame, counts, worst = replay(args.root, labels, histories)
     latest = frame.loc[frame['latest_forecast_of_fixture']]
     summary = {
-        'before_version': tr.V3_VERSION, 'after_version': tr.VERSION, 'counts': dict(sorted(counts.items())),
+        'before_version': tr.V3_VERSION, 'after_version': tr.V4_VERSION, 'counts': dict(sorted(counts.items())),
         'frozen_probabilities_max_abs_diff': worst, 'history_errors': histories.errors,
         'before_matches_parity_report': check_before_against_parity(frame),
         'all_forecasts': {'forecasts': int(len(frame)), 'changed': int(frame['changed'].sum())},

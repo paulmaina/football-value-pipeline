@@ -960,7 +960,7 @@ def report_table(groups: dict[str, dict]) -> str:
 
 def report(root: Path, selections: list[dict], all_predictions: list[dict],
            failures: dict, reviewed_at: str | None = None, *,
-           selection_history: list[dict] | None = None) -> dict:
+           selection_history: list[dict] | None = None, research_check: dict | None = None) -> dict:
     output = root / "performance"
     output.mkdir(parents=True, exist_ok=True)
     write_csv(output / "shortlist_grades.csv", selections, SHORTLIST_COLUMNS)
@@ -1034,8 +1034,14 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
         },
     }
     write_json(output / "metrics.json", result)
+    # Research v5 monitoring (research_monitoring): the rollback trigger's banner opens the report when it fires.
+    from research_monitoring import TRIGGERED, markdown as research_markdown
+    research_lines = research_markdown(research_check)
+    banner = research_lines[:2] if research_lines and TRIGGERED in research_lines[0] else []
+    if research_check:
+        write_json(output / "research_v5_monitoring.json", research_check)
 
-    intro = [
+    intro = [*banner,
         "# Forward-only football performance dashboard",
         "",
         "Only immutable **Git-archived before-kickoff predictions** are scored.",
@@ -1051,6 +1057,7 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
         "history rows are correlated records and are excluded from main win-rate/ROI totals.",
         "Whole-fixture model metrics and research experiments retain their unique-fixture cohorts.",
         "",
+        *research_lines[len(banner):],
         "## Cumulative shortlist — latest prediction per match",
         "",
         report_table({"All selections": result["shortlist"]}),
@@ -1094,7 +1101,7 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
     weeks_dir.mkdir(parents=True, exist_ok=True)
     for week in weeks:
         subset = [r for r in selections if r["week"] == week]
-        lines = [
+        lines = [*(banner if week == weeks[-1] else []),
             f"# {week} forward performance",
             "",
             "Predictions frozen in Git before kickoff; 90-minute final results.",
@@ -1117,6 +1124,8 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
                 f"| {r.get('snapshot_generated_utc') or 'legacy'} | {r['snapshot_commit'][:12]} | {r['final_score'] or '—'} | {r['status']} |"
             )
         lines += ["", "Pending/unverified fixtures are excluded from win-rate and ROI denominators.", ""]
+        if week == weeks[-1]:  # the cumulative research v5 checks, with the latest gameweek
+            lines += research_lines[len(banner):]
         (weeks_dir / f"{week}.md").write_text("\n".join(lines), encoding="utf-8")
     from performance_excel import write_workbook
     write_workbook(root, selections, all_predictions, result)
@@ -1157,7 +1166,15 @@ def review(*, root: Path = ROOT, token: str = "",
         match, state = verified_for(row)
         predictions_graded.append(score_prediction(row, match, state))
     mark_duplicate_results(predictions, predictions_graded, records)
-    result = report(root, selections_graded, predictions_graded, errors, reviewed_at=iso(clock), selection_history=history_graded)
+    try:
+        from research_monitoring import review as review_research
+        import pandas as pd
+        research_check = review_research(root, archived, records, pd.Timestamp(clock))
+    except Exception as exc:
+        warnings.warn(f'Research v5 monitoring failed ({type(exc).__name__}: {exc}); production report complete')
+        research_check = None
+    result = report(root, selections_graded, predictions_graded, errors, reviewed_at=iso(clock),
+                    selection_history=history_graded, research_check=research_check)
     try:
         from bbs_statistics_model import forward_assessment
         write_json(root/'performance/bbs_statistics_forward.json',
