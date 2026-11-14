@@ -42,6 +42,7 @@
       "market_book": [
         "pinnacle"
       ],
+      "nominated_fixtures": 6875,
       "research_views": {
         "C": {
           "bets_by_gap_check_nominated": {
@@ -658,6 +659,11 @@
             "unvalidated view": 0
           },
           "list_size": {
+            "evaluated_fixtures_per_week": {
+              "max": 98,
+              "median": 71.5,
+              "min": 1
+            },
             "nominated_fixtures_per_week": {
               "max": 98,
               "median": 71.5,
@@ -673,44 +679,52 @@
               "median": 15.0,
               "min": 1
             },
+            "picks_per_week_mean": 14.462264150943396,
             "short_weeks": [
               {
+                "evaluated_fixtures": 10,
                 "nominated_fixtures": 10,
                 "picks": 10,
                 "week": "2022-W43",
                 "with_market_view": 10
               },
               {
+                "evaluated_fixtures": 10,
                 "nominated_fixtures": 10,
                 "picks": 10,
                 "week": "2022-W44",
                 "with_market_view": 10
               },
               {
+                "evaluated_fixtures": 9,
                 "nominated_fixtures": 9,
                 "picks": 9,
                 "week": "2022-W51",
                 "with_market_view": 9
               },
               {
+                "evaluated_fixtures": 7,
                 "nominated_fixtures": 7,
                 "picks": 7,
                 "week": "2023-W23",
                 "with_market_view": 7
               },
               {
+                "evaluated_fixtures": 1,
                 "nominated_fixtures": 1,
                 "picks": 1,
                 "week": "2023-W36",
                 "with_market_view": 1
               },
               {
+                "evaluated_fixtures": 1,
                 "nominated_fixtures": 1,
                 "picks": 1,
                 "week": "2024-W22",
                 "with_market_view": 1
               },
               {
+                "evaluated_fixtures": 10,
                 "nominated_fixtures": 10,
                 "picks": 10,
                 "week": "2025-W22",
@@ -720,7 +734,8 @@
             "weeks": 106,
             "weeks_list_short": 7,
             "weeks_nominations_cover_fewer_than_target": 7,
-            "weeks_with_view_fewer_than_target": 7
+            "weeks_with_view_fewer_than_target": 7,
+            "weeks_without_nomination": 0
           },
           "lists": {
             "fill_current": {
@@ -1435,6 +1450,11 @@
             "unvalidated view": 0
           },
           "list_size": {
+            "evaluated_fixtures_per_week": {
+              "max": 98,
+              "median": 71.5,
+              "min": 1
+            },
             "nominated_fixtures_per_week": {
               "max": 98,
               "median": 71.5,
@@ -1450,44 +1470,52 @@
               "median": 15.0,
               "min": 1
             },
+            "picks_per_week_mean": 14.462264150943396,
             "short_weeks": [
               {
+                "evaluated_fixtures": 10,
                 "nominated_fixtures": 10,
                 "picks": 10,
                 "week": "2022-W43",
                 "with_market_view": 10
               },
               {
+                "evaluated_fixtures": 10,
                 "nominated_fixtures": 10,
                 "picks": 10,
                 "week": "2022-W44",
                 "with_market_view": 10
               },
               {
+                "evaluated_fixtures": 9,
                 "nominated_fixtures": 9,
                 "picks": 9,
                 "week": "2022-W51",
                 "with_market_view": 9
               },
               {
+                "evaluated_fixtures": 7,
                 "nominated_fixtures": 7,
                 "picks": 7,
                 "week": "2023-W23",
                 "with_market_view": 7
               },
               {
+                "evaluated_fixtures": 1,
                 "nominated_fixtures": 1,
                 "picks": 1,
                 "week": "2023-W36",
                 "with_market_view": 1
               },
               {
+                "evaluated_fixtures": 1,
                 "nominated_fixtures": 1,
                 "picks": 1,
                 "week": "2024-W22",
                 "with_market_view": 1
               },
               {
+                "evaluated_fixtures": 10,
                 "nominated_fixtures": 10,
                 "picks": 10,
                 "week": "2025-W22",
@@ -1497,7 +1525,8 @@
             "weeks": 106,
             "weeks_list_short": 7,
             "weeks_nominations_cover_fewer_than_target": 7,
-            "weeks_with_view_fewer_than_target": 7
+            "weeks_with_view_fewer_than_target": 7,
+            "weeks_without_nomination": 0
           },
           "lists": {
             "fill_current": {
@@ -1637,6 +1666,7 @@
       "market_book": [
         "bet365"
       ],
+      "nominated_fixtures": 1436,
       "research_views": {
         "C": {
           "bets_by_gap_check_nominated": {
@@ -2226,6 +2256,11 @@
             "unvalidated view": 0
           },
           "list_size": {
+            "evaluated_fixtures_per_week": {
+              "max": 82,
+              "median": 49.0,
+              "min": 3
+            },
             "nominated_fixtures_per_week": {
               "max": 82,
               "median": 49.0,
@@ -2241,8 +2276,10 @@
               "median": 15.0,
               "min": 3
             },
+            "picks_per_week_mean": 14.586206896551724,
             "short_weeks": [
               {
+                "evaluated_fixtures": 3,
                 "nominated_fixtures": 3,
                 "picks": 3,
                 "week": "2026-W33",
@@ -2252,7 +2289,8 @@
             "weeks": 29,
             "weeks_list_short": 1,
             "weeks_nominations_cover_fewer_than_target": 1,
-            "weeks_with_view_fewer_than_target": 1
+            "weeks_with_view_fewer_than_target": 1,
+            "weeks_without_nomination": 0
           },
           "lists": {
             "fill_current": {
@@ -2940,6 +2978,11 @@
             "unvalidated view": 0
           },
           "list_size": {
+            "evaluated_fixtures_per_week": {
+              "max": 82,
+              "median": 49.0,
+              "min": 3
+            },
             "nominated_fixtures_per_week": {
               "max": 82,
               "median": 49.0,
@@ -2955,8 +2998,10 @@
               "median": 15.0,
               "min": 3
             },
+            "picks_per_week_mean": 14.586206896551724,
             "short_weeks": [
               {
+                "evaluated_fixtures": 3,
                 "nominated_fixtures": 3,
                 "picks": 3,
                 "week": "2026-W33",
@@ -2966,7 +3011,8 @@
             "weeks": 29,
             "weeks_list_short": 1,
             "weeks_nominations_cover_fewer_than_target": 1,
-            "weeks_with_view_fewer_than_target": 1
+            "weeks_with_view_fewer_than_target": 1,
+            "weeks_without_nomination": 0
           },
           "lists": {
             "fill_current": {
@@ -3106,6 +3152,7 @@
       "market_book": [
         "pinnacle"
       ],
+      "nominated_fixtures": 1305,
       "research_views": {
         "C": {
           "bets_by_gap_check_nominated": {
@@ -3695,6 +3742,11 @@
             "unvalidated view": 0
           },
           "list_size": {
+            "evaluated_fixtures_per_week": {
+              "max": 85,
+              "median": 61.5,
+              "min": 1
+            },
             "nominated_fixtures_per_week": {
               "max": 85,
               "median": 61.5,
@@ -3710,14 +3762,17 @@
               "median": 15.0,
               "min": 1
             },
+            "picks_per_week_mean": 14.318181818181818,
             "short_weeks": [
               {
+                "evaluated_fixtures": 1,
                 "nominated_fixtures": 1,
                 "picks": 1,
                 "week": "2025-W36",
                 "with_market_view": 1
               },
               {
+                "evaluated_fixtures": 14,
                 "nominated_fixtures": 14,
                 "picks": 14,
                 "week": "2026-W03",
@@ -3727,7 +3782,8 @@
             "weeks": 22,
             "weeks_list_short": 2,
             "weeks_nominations_cover_fewer_than_target": 2,
-            "weeks_with_view_fewer_than_target": 2
+            "weeks_with_view_fewer_than_target": 2,
+            "weeks_without_nomination": 0
           },
           "lists": {
             "fill_current": {
@@ -4415,6 +4471,11 @@
             "unvalidated view": 0
           },
           "list_size": {
+            "evaluated_fixtures_per_week": {
+              "max": 85,
+              "median": 61.5,
+              "min": 1
+            },
             "nominated_fixtures_per_week": {
               "max": 85,
               "median": 61.5,
@@ -4430,14 +4491,17 @@
               "median": 15.0,
               "min": 1
             },
+            "picks_per_week_mean": 14.318181818181818,
             "short_weeks": [
               {
+                "evaluated_fixtures": 1,
                 "nominated_fixtures": 1,
                 "picks": 1,
                 "week": "2025-W36",
                 "with_market_view": 1
               },
               {
+                "evaluated_fixtures": 14,
                 "nominated_fixtures": 14,
                 "picks": 14,
                 "week": "2026-W03",
@@ -4447,7 +4511,8 @@
             "weeks": 22,
             "weeks_list_short": 2,
             "weeks_nominations_cover_fewer_than_target": 2,
-            "weeks_with_view_fewer_than_target": 2
+            "weeks_with_view_fewer_than_target": 2,
+            "weeks_without_nomination": 0
           },
           "lists": {
             "fill_current": {
@@ -4553,7 +4618,7 @@
   },
   "previous_rule": "master-new-paul-rule-v1",
   "rule": "master-new-fill-rule-v4",
-  "rule_config_sha256": "5dd6ce1232ebb3020b5aef4927b9142f1d4a9963b53dee051e855da3310a53cf",
+  "rule_config_sha256": "2bb4675405bdc2164b2f37894463dacc32643c7fc0f85c51f5fb319912ee4162",
   "safe_only_rule": "master-new-evidence-rule-v2",
   "scope": "Domestic leagues only (no European prices are cached). Offers: Home win, Away win and the main AH line, both sides, the only prices the files carry (no plus lines, alternate lines or double chance); odds (1.15, 2.00]; cost 0. The live master and every step of the new master (rule v4) draw from the nominated pool only (the picks of the value list and the cagey list among these offers). Research view C or C6 (value list, p_r, labels and the flag), cagey view D (current, or sharpened walk-forward), Pinnacle margin-free reference = binary margin-free 1X2 for wins and AH +/-0.5, else M. The live master is always built on C's value list, as live; the safe-only rule is PR #172's (step 1 alone, current probabilities); PR #171's rule (master_rule_v1) for continuity. Slate = calendar week, 15-match target. Locked: no holdout match is read. Development deciding, validation a check, retrospective (synthetic Pinnacle-like prices from Bet365) a diagnostic. Observed no-loss = return >= 0; observed profit = return > 0.",
   "sharpening_check": {
@@ -12260,7 +12325,7 @@
       }
     }
   },
-  "source_commit": "0e5ca0813bb8e312fa2bdd5a741885a40cc363b2",
+  "source_commit": "69c3b23ff2d32483684b96837f8d7562d9e4ec7e",
   "synthetic_pinnacle_margin_bet365_period": {
     "ah": 0.027548517855280914,
     "hda": 0.03673010708742928
