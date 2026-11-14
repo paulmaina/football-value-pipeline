@@ -17,7 +17,11 @@ import pandas as pd
 
 import historical_benchmark as hb
 from score_probability import valid_matrix, score_grid
-from team_research import VERSION as RESEARCH_VERSION, decode, form_history, prepare, utc
+from team_research import (C6_VERSIONS, V4_VERSION, VERSION as RESEARCH_VERSION, decode, form_history, prepare,
+                           utc)
+# Frozen research versions the live replay rebuilds: v4 on its independent grid, v5 on C6's grid under the
+# fit frozen in the forecast. Older versions stay unavailable (gaps), as before v5.
+REPLAYED_VERSIONS = (V4_VERSION, RESEARCH_VERSION)
 
 VERSION = 'research-comparison-v1'
 CANDIDATES = {'A': 'published-grid-v1', 'B': 'pinnacle-uncorrected-fit-B-v1',
@@ -49,12 +53,16 @@ def archived_candidates(row, cutoff):
     evidence = decode(row.get('team_research_json'))
     stamp = utc(evidence.get('observed_at_utc'))
     try:
-        if evidence.get('version') != RESEARCH_VERSION:
+        if evidence.get('version') not in REPLAYED_VERSIONS:
             raise ValueError('unsupported frozen research version')
         if pd.isna(stamp) or stamp > utc(cutoff):
             raise ValueError('research not observed by cutoff')
         rates = evidence['goal_rates']
-        matrices['C'], _ = score_grid(float(rates[0]), float(rates[1]), 0.)
+        if evidence['version'] in C6_VERSIONS:
+            from research_low_score_sharpen import live_grid
+            matrices['C'] = live_grid([float(rates[0]), float(rates[1])], evidence['c6_fit'])
+        else:
+            matrices['C'], _ = score_grid(float(rates[0]), float(rates[1]), 0.)
     except (ValueError, TypeError, KeyError, IndexError) as exc:
         gaps['C'] = 'frozen research unavailable: ' + str(exc)
     return matrices, gaps
@@ -93,7 +101,7 @@ def historical_candidates(row, train, origin, model, cfg):
     frozen = {'home_team': row.HomeTeam, 'away_team': row.AwayTeam,
               'lambda_home': info['lambda_home'], 'lambda_away': info['lambda_away'],
               'research_history_json': json.dumps(form_history(train, row.HomeTeam, row.AwayTeam, utc(origin)))}
-    context = prepare(frozen, utc(origin))
+    context = prepare(frozen, utc(origin), version=V4_VERSION)  # C: research v4's independent grid
     research, _ = score_grid(*context['goal_rates'], 0.)
     matrices = {'A': matrix_value(matrix), 'C': research}
     # Proportional de-vig here matches market_implied, independently of A's

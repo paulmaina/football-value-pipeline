@@ -1,0 +1,1327 @@
+snapshot,side,league,home_team,away_team,kickoff_utc,market,research_p_win,profit_expected_return
+026e1ab4c40e3e64,before,Serie A,Sassuolo,Lazio,2026-10-27T17:30:00+00:00,Asian Handicap Away +0.25,0.491101,0.021896
+026e1ab4c40e3e64,before,Serie A,Sassuolo,Lazio,2026-10-27T17:30:00+00:00,Double Chance X2,0.754164,0.010580
+026e1ab4c40e3e64,before,Serie A,AS Roma,Cagliari,2026-10-27T19:45:00+00:00,Asian Handicap Away +2.25,0.576024,0.067910
+026e1ab4c40e3e64,before,Serie A,AS Roma,Cagliari,2026-10-27T19:45:00+00:00,Home win,0.684741,-0.089294
+026e1ab4c40e3e64,before,Serie A,Torino,Como,2026-10-27T19:45:00+00:00,Asian Handicap Away +0.25,0.536666,-0.020088
+026e1ab4c40e3e64,before,Serie A,Torino,Como,2026-10-27T19:45:00+00:00,Away win,0.536666,-0.044734
+026e1ab4c40e3e64,before,Serie A,Torino,Como,2026-10-27T19:45:00+00:00,Double Chance X2,0.805438,-0.017366
+026e1ab4c40e3e64,after,Serie A,Sassuolo,Lazio,2026-10-27T17:30:00+00:00,Asian Handicap Away +0.25,0.491101,0.021896
+026e1ab4c40e3e64,after,Serie A,Sassuolo,Lazio,2026-10-27T17:30:00+00:00,Double Chance X2,0.754164,0.010580
+026e1ab4c40e3e64,after,Serie A,AS Roma,Cagliari,2026-10-27T19:45:00+00:00,Asian Handicap Away +2.25,0.576024,0.067910
+026e1ab4c40e3e64,after,Serie A,AS Roma,Cagliari,2026-10-27T19:45:00+00:00,Home win,0.684741,-0.089294
+026e1ab4c40e3e64,after,Serie A,Torino,Como,2026-10-27T19:45:00+00:00,Asian Handicap Away +0.25,0.536666,-0.020088
+026e1ab4c40e3e64,after,Serie A,Torino,Como,2026-10-27T19:45:00+00:00,Away win,0.536666,-0.044734
+026e1ab4c40e3e64,after,Serie A,Torino,Como,2026-10-27T19:45:00+00:00,Double Chance X2,0.805438,-0.017366
+d414de1a572b09b2,before,Serie A,Sassuolo,Lazio,2026-10-27T17:30:00+00:00,Asian Handicap Away +0.25,0.491072,0.015634
+d414de1a572b09b2,before,Serie A,Sassuolo,Lazio,2026-10-27T17:30:00+00:00,Double Chance X2,0.754139,0.003005
+d414de1a572b09b2,before,Serie A,AS Roma,Cagliari,2026-10-27T19:45:00+00:00,Asian Handicap Away +2.25,0.576008,0.074714
+d414de1a572b09b2,before,Serie A,AS Roma,Cagliari,2026-10-27T19:45:00+00:00,Home win,0.684755,-0.089275
+d414de1a572b09b2,before,Serie A,Torino,Como,2026-10-27T19:45:00+00:00,Asian Handicap Away +0.25,0.536655,-0.020101
+d414de1a572b09b2,before,Serie A,Torino,Como,2026-10-27T19:45:00+00:00,Away win,0.536655,-0.044754
+d414de1a572b09b2,before,Serie A,Torino,Como,2026-10-27T19:45:00+00:00,Double Chance X2,0.805428,-0.017377
+d414de1a572b09b2,after,Serie A,Sassuolo,Lazio,2026-10-27T17:30:00+00:00,Asian Handicap Away +0.25,0.491072,0.015634
+d414de1a572b09b2,after,Serie A,Sassuolo,Lazio,2026-10-27T17:30:00+00:00,Double Chance X2,0.754139,0.003005
+d414de1a572b09b2,after,Serie A,AS Roma,Cagliari,2026-10-27T19:45:00+00:00,Asian Handicap Away +2.25,0.576008,0.074714
+d414de1a572b09b2,after,Serie A,AS Roma,Cagliari,2026-10-27T19:45:00+00:00,Home win,0.684755,-0.089275
+d414de1a572b09b2,after,Serie A,Torino,Como,2026-10-27T19:45:00+00:00,Asian Handicap Away +0.25,0.536655,-0.020101
+d414de1a572b09b2,after,Serie A,Torino,Como,2026-10-27T19:45:00+00:00,Away win,0.536655,-0.044754
+d414de1a572b09b2,after,Serie A,Torino,Como,2026-10-27T19:45:00+00:00,Double Chance X2,0.805428,-0.017377
+04e55dde9bbe885f,before,Serie A,AC Milan,Bologna,2026-10-28T17:30:00+00:00,Asian Handicap Home +0.25,0.504087,-0.079000
+04e55dde9bbe885f,before,Serie A,AC Milan,Bologna,2026-10-28T17:30:00+00:00,Home win,0.504087,-0.127929
+04e55dde9bbe885f,before,Serie A,AC Milan,Bologna,2026-10-28T17:30:00+00:00,Double Chance 1X,0.774018,-0.078919
+04e55dde9bbe885f,before,Serie A,Parma,Udinese,2026-10-28T17:30:00+00:00,Asian Handicap Away +0.25,0.382457,0.042389
+04e55dde9bbe885f,before,Serie A,Parma,Udinese,2026-10-28T17:30:00+00:00,Double Chance X2,0.692898,0.025490
+04e55dde9bbe885f,before,Serie A,Venezia,Inter Milan,2026-10-28T17:30:00+00:00,Asian Handicap Away -0.75,0.608463,0.136791
+04e55dde9bbe885f,before,Serie A,Venezia,Inter Milan,2026-10-28T17:30:00+00:00,Away win,0.816234,0.126403
+04e55dde9bbe885f,before,Serie A,Genoa,Juventus,2026-10-28T19:45:00+00:00,Asian Handicap Away +0.25,0.536330,-0.019667
+04e55dde9bbe885f,before,Serie A,Genoa,Juventus,2026-10-28T19:45:00+00:00,Away win,0.536330,-0.039969
+04e55dde9bbe885f,before,Serie A,Genoa,Juventus,2026-10-28T19:45:00+00:00,Double Chance X2,0.823906,-0.019552
+04e55dde9bbe885f,before,Serie A,Monza,Napoli,2026-10-28T19:45:00+00:00,Asian Handicap Away +0.25,0.652936,0.095414
+04e55dde9bbe885f,before,Serie A,Monza,Napoli,2026-10-28T19:45:00+00:00,Away win,0.652936,0.168756
+04e55dde9bbe885f,before,Serie A,Monza,Napoli,2026-10-28T19:45:00+00:00,Double Chance X2,0.874007,0.083769
+04e55dde9bbe885f,after,Serie A,AC Milan,Bologna,2026-10-28T17:30:00+00:00,Asian Handicap Home +0.25,0.504087,-0.079000
+04e55dde9bbe885f,after,Serie A,AC Milan,Bologna,2026-10-28T17:30:00+00:00,Home win,0.504087,-0.127929
+04e55dde9bbe885f,after,Serie A,AC Milan,Bologna,2026-10-28T17:30:00+00:00,Double Chance 1X,0.774018,-0.078919
+04e55dde9bbe885f,after,Serie A,Parma,Udinese,2026-10-28T17:30:00+00:00,Asian Handicap Away +0.25,0.382457,0.042389
+04e55dde9bbe885f,after,Serie A,Parma,Udinese,2026-10-28T17:30:00+00:00,Double Chance X2,0.692898,0.025490
+04e55dde9bbe885f,after,Serie A,Venezia,Inter Milan,2026-10-28T17:30:00+00:00,Asian Handicap Away -0.75,0.608463,0.136791
+04e55dde9bbe885f,after,Serie A,Venezia,Inter Milan,2026-10-28T17:30:00+00:00,Away win,0.816234,0.126403
+04e55dde9bbe885f,after,Serie A,Genoa,Juventus,2026-10-28T19:45:00+00:00,Asian Handicap Away +0.25,0.536330,-0.019667
+04e55dde9bbe885f,after,Serie A,Genoa,Juventus,2026-10-28T19:45:00+00:00,Away win,0.536330,-0.039969
+04e55dde9bbe885f,after,Serie A,Genoa,Juventus,2026-10-28T19:45:00+00:00,Double Chance X2,0.823906,-0.019552
+04e55dde9bbe885f,after,Serie A,Monza,Napoli,2026-10-28T19:45:00+00:00,Asian Handicap Away +0.25,0.652936,0.095414
+04e55dde9bbe885f,after,Serie A,Monza,Napoli,2026-10-28T19:45:00+00:00,Away win,0.652936,0.168756
+04e55dde9bbe885f,after,Serie A,Monza,Napoli,2026-10-28T19:45:00+00:00,Double Chance X2,0.874007,0.083769
+fd052ff5e9f0163b,before,Serie A,AC Milan,Bologna,2026-10-28T17:30:00+00:00,Asian Handicap Home +0.25,0.504087,-0.079000
+fd052ff5e9f0163b,before,Serie A,AC Milan,Bologna,2026-10-28T17:30:00+00:00,Home win,0.504087,-0.122888
+fd052ff5e9f0163b,before,Serie A,AC Milan,Bologna,2026-10-28T17:30:00+00:00,Double Chance 1X,0.774017,-0.078919
+fd052ff5e9f0163b,before,Serie A,Parma,Udinese,2026-10-28T17:30:00+00:00,Asian Handicap Away +0.25,0.382457,0.042389
+fd052ff5e9f0163b,before,Serie A,Parma,Udinese,2026-10-28T17:30:00+00:00,Double Chance X2,0.692898,0.025490
+fd052ff5e9f0163b,before,Serie A,Venezia,Inter Milan,2026-10-28T17:30:00+00:00,Asian Handicap Away -0.75,0.608463,0.129667
+fd052ff5e9f0163b,before,Serie A,Venezia,Inter Milan,2026-10-28T17:30:00+00:00,Away win,0.816234,0.126403
+fd052ff5e9f0163b,before,Serie A,Genoa,Juventus,2026-10-28T19:45:00+00:00,Asian Handicap Away +0.25,0.536330,-0.006065
+fd052ff5e9f0163b,before,Serie A,Genoa,Juventus,2026-10-28T19:45:00+00:00,Away win,0.536330,-0.013153
+fd052ff5e9f0163b,before,Serie A,Genoa,Juventus,2026-10-28T19:45:00+00:00,Double Chance X2,0.823906,-0.011313
+fd052ff5e9f0163b,before,Serie A,Monza,Napoli,2026-10-28T19:45:00+00:00,Asian Handicap Away +0.25,0.652936,0.080145
+fd052ff5e9f0163b,before,Serie A,Monza,Napoli,2026-10-28T19:45:00+00:00,Away win,0.652936,0.142639
+fd052ff5e9f0163b,before,Serie A,Monza,Napoli,2026-10-28T19:45:00+00:00,Double Chance X2,0.874007,0.066289
+fd052ff5e9f0163b,after,Serie A,AC Milan,Bologna,2026-10-28T17:30:00+00:00,Asian Handicap Home +0.25,0.504087,-0.079000
+fd052ff5e9f0163b,after,Serie A,AC Milan,Bologna,2026-10-28T17:30:00+00:00,Home win,0.504087,-0.122888
+fd052ff5e9f0163b,after,Serie A,AC Milan,Bologna,2026-10-28T17:30:00+00:00,Double Chance 1X,0.774017,-0.078919
+fd052ff5e9f0163b,after,Serie A,Parma,Udinese,2026-10-28T17:30:00+00:00,Asian Handicap Away +0.25,0.382457,0.042389
+fd052ff5e9f0163b,after,Serie A,Parma,Udinese,2026-10-28T17:30:00+00:00,Double Chance X2,0.692898,0.025490
+fd052ff5e9f0163b,after,Serie A,Venezia,Inter Milan,2026-10-28T17:30:00+00:00,Asian Handicap Away -0.75,0.608463,0.129667
+fd052ff5e9f0163b,after,Serie A,Venezia,Inter Milan,2026-10-28T17:30:00+00:00,Away win,0.816234,0.126403
+fd052ff5e9f0163b,after,Serie A,Genoa,Juventus,2026-10-28T19:45:00+00:00,Asian Handicap Away +0.25,0.536330,-0.006065
+fd052ff5e9f0163b,after,Serie A,Genoa,Juventus,2026-10-28T19:45:00+00:00,Away win,0.536330,-0.013153
+fd052ff5e9f0163b,after,Serie A,Genoa,Juventus,2026-10-28T19:45:00+00:00,Double Chance X2,0.823906,-0.011313
+fd052ff5e9f0163b,after,Serie A,Monza,Napoli,2026-10-28T19:45:00+00:00,Asian Handicap Away +0.25,0.652936,0.080145
+fd052ff5e9f0163b,after,Serie A,Monza,Napoli,2026-10-28T19:45:00+00:00,Away win,0.652936,0.142639
+fd052ff5e9f0163b,after,Serie A,Monza,Napoli,2026-10-28T19:45:00+00:00,Double Chance X2,0.874007,0.066289
+c75d4ab52706e716,before,Serie A,Frosinone,Lecce,2026-10-29T17:30:00+00:00,Asian Handicap Home +0.25,0.581266,0.026887
+c75d4ab52706e716,before,Serie A,Frosinone,Lecce,2026-10-29T17:30:00+00:00,Home win,0.581266,0.023028
+c75d4ab52706e716,before,Serie A,Frosinone,Lecce,2026-10-29T17:30:00+00:00,Double Chance 1X,0.823235,0.004346
+c75d4ab52706e716,before,Serie A,Fiorentina,Atalanta BC,2026-10-29T19:45:00+00:00,Asian Handicap Away +1.25,0.726286,0.118945
+c75d4ab52706e716,before,Serie A,Fiorentina,Atalanta BC,2026-10-29T19:45:00+00:00,Double Chance X2,0.726286,0.191109
+c75d4ab52706e716,after,Serie A,Frosinone,Lecce,2026-10-29T17:30:00+00:00,Asian Handicap Home +0.25,0.581266,0.026887
+c75d4ab52706e716,after,Serie A,Frosinone,Lecce,2026-10-29T17:30:00+00:00,Home win,0.581266,0.023028
+c75d4ab52706e716,after,Serie A,Frosinone,Lecce,2026-10-29T17:30:00+00:00,Double Chance 1X,0.823235,0.004346
+c75d4ab52706e716,after,Serie A,Fiorentina,Atalanta BC,2026-10-29T19:45:00+00:00,Asian Handicap Away +1.25,0.726286,0.118945
+c75d4ab52706e716,after,Serie A,Fiorentina,Atalanta BC,2026-10-29T19:45:00+00:00,Double Chance X2,0.726286,0.191109
+02d8d3b21fd68fd9,before,La Liga,Villarreal,Espanyol,2026-10-30T20:00:00+00:00,Asian Handicap Away +2.25,0.573035,0.003866
+02d8d3b21fd68fd9,before,La Liga,Villarreal,Espanyol,2026-10-30T20:00:00+00:00,Home win,0.667100,-0.066059
+02d8d3b21fd68fd9,before,Bundesliga,Elversberg,FSV Mainz 05,2026-10-30T19:30:00+00:00,Asian Handicap Home +1.25,0.655348,0.086505
+02d8d3b21fd68fd9,before,Bundesliga,Elversberg,FSV Mainz 05,2026-10-30T19:30:00+00:00,Double Chance 1X,0.655348,0.166519
+02d8d3b21fd68fd9,before,Ligue 1,Le Havre,Paris Saint Germain,2026-10-30T18:00:00+00:00,Asian Handicap Home +2.25,0.518543,0.053811
+02d8d3b21fd68fd9,before,Ligue 1,Le Havre,Paris Saint Germain,2026-10-30T18:00:00+00:00,Away win,0.721145,-0.069724
+02d8d3b21fd68fd9,before,Ligue 1,Nice,Rennes,2026-10-30T18:00:00+00:00,Asian Handicap Away +0.25,0.384681,0.010922
+02d8d3b21fd68fd9,before,Ligue 1,Nice,Rennes,2026-10-30T18:00:00+00:00,Double Chance X2,0.645284,-0.006262
+02d8d3b21fd68fd9,before,Ligue 1,Lille,RC Lens,2026-10-30T20:05:00+00:00,Asian Handicap Home +0.25,0.406301,0.098332
+02d8d3b21fd68fd9,before,Ligue 1,Lille,RC Lens,2026-10-30T20:05:00+00:00,Double Chance 1X,0.700047,0.078072
+02d8d3b21fd68fd9,before,Primeira Liga,Casa Pia,Sporting Lisbon,2026-10-30T20:15:00+00:00,Asian Handicap Away -0.75,0.521857,-0.021362
+02d8d3b21fd68fd9,before,Primeira Liga,Casa Pia,Sporting Lisbon,2026-10-30T20:15:00+00:00,Away win,0.755160,-0.018292
+02d8d3b21fd68fd9,before,Super Lig,Torku Konyaspor,Galatasaray,2026-10-30T17:00:00+00:00,Asian Handicap Home +1.25,0.423727,0.083385
+02d8d3b21fd68fd9,before,Super Lig,Torku Konyaspor,Galatasaray,2026-10-30T17:00:00+00:00,Away win,0.576273,-0.106777
+02d8d3b21fd68fd9,after,La Liga,Villarreal,Espanyol,2026-10-30T20:00:00+00:00,Asian Handicap Away +2.25,0.573035,0.003866
+02d8d3b21fd68fd9,after,La Liga,Villarreal,Espanyol,2026-10-30T20:00:00+00:00,Home win,0.667100,-0.066059
+02d8d3b21fd68fd9,after,Bundesliga,Elversberg,FSV Mainz 05,2026-10-30T19:30:00+00:00,Asian Handicap Home +1.25,0.655348,0.086505
+02d8d3b21fd68fd9,after,Bundesliga,Elversberg,FSV Mainz 05,2026-10-30T19:30:00+00:00,Double Chance 1X,0.655348,0.166519
+02d8d3b21fd68fd9,after,Ligue 1,Le Havre,Paris Saint Germain,2026-10-30T18:00:00+00:00,Asian Handicap Home +2.25,0.518543,0.053811
+02d8d3b21fd68fd9,after,Ligue 1,Le Havre,Paris Saint Germain,2026-10-30T18:00:00+00:00,Away win,0.721145,-0.069724
+02d8d3b21fd68fd9,after,Ligue 1,Nice,Rennes,2026-10-30T18:00:00+00:00,Asian Handicap Away +0.25,0.384681,0.010922
+02d8d3b21fd68fd9,after,Ligue 1,Nice,Rennes,2026-10-30T18:00:00+00:00,Double Chance X2,0.645284,-0.006262
+02d8d3b21fd68fd9,after,Ligue 1,Lille,RC Lens,2026-10-30T20:05:00+00:00,Asian Handicap Home +0.25,0.406301,0.098332
+02d8d3b21fd68fd9,after,Ligue 1,Lille,RC Lens,2026-10-30T20:05:00+00:00,Double Chance 1X,0.700047,0.078072
+02d8d3b21fd68fd9,after,Primeira Liga,Casa Pia,Sporting Lisbon,2026-10-30T20:15:00+00:00,Asian Handicap Away -0.75,0.521857,-0.021362
+02d8d3b21fd68fd9,after,Primeira Liga,Casa Pia,Sporting Lisbon,2026-10-30T20:15:00+00:00,Away win,0.755160,-0.018292
+02d8d3b21fd68fd9,after,Super Lig,Torku Konyaspor,Galatasaray,2026-10-30T17:00:00+00:00,Asian Handicap Home +1.25,0.423727,0.083385
+02d8d3b21fd68fd9,after,Super Lig,Torku Konyaspor,Galatasaray,2026-10-30T17:00:00+00:00,Away win,0.576273,-0.106777
+2f2bbe3e322ecab7,before,La Liga,Villarreal,Espanyol,2026-10-30T20:00:00+00:00,Asian Handicap Away +2.25,0.573047,0.030838
+2f2bbe3e322ecab7,before,La Liga,Villarreal,Espanyol,2026-10-30T20:00:00+00:00,Home win,0.667093,-0.052729
+2f2bbe3e322ecab7,before,Bundesliga,Elversberg,FSV Mainz 05,2026-10-30T19:30:00+00:00,Asian Handicap Home +1.25,0.655399,0.101378
+2f2bbe3e322ecab7,before,Bundesliga,Elversberg,FSV Mainz 05,2026-10-30T19:30:00+00:00,Double Chance 1X,0.655399,0.199379
+2f2bbe3e322ecab7,before,Ligue 1,Le Havre,Paris Saint Germain,2026-10-30T18:00:00+00:00,Asian Handicap Home +2.25,0.518538,0.022482
+2f2bbe3e322ecab7,before,Ligue 1,Le Havre,Paris Saint Germain,2026-10-30T18:00:00+00:00,Away win,0.721147,-0.033662
+2f2bbe3e322ecab7,before,Ligue 1,Nice,Rennes,2026-10-30T18:00:00+00:00,Asian Handicap Away +0.25,0.384693,0.005796
+2f2bbe3e322ecab7,before,Ligue 1,Nice,Rennes,2026-10-30T18:00:00+00:00,Double Chance X2,0.645299,-0.012693
+2f2bbe3e322ecab7,before,Ligue 1,Lille,RC Lens,2026-10-30T20:05:00+00:00,Asian Handicap Home +0.25,0.406279,0.065111
+2f2bbe3e322ecab7,before,Ligue 1,Lille,RC Lens,2026-10-30T20:05:00+00:00,Double Chance 1X,0.700029,0.043043
+2f2bbe3e322ecab7,before,Primeira Liga,Casa Pia,Sporting Lisbon,2026-10-30T20:15:00+00:00,Asian Handicap Away -0.75,0.521864,-0.040508
+2f2bbe3e322ecab7,before,Primeira Liga,Casa Pia,Sporting Lisbon,2026-10-30T20:15:00+00:00,Away win,0.755167,-0.033387
+2f2bbe3e322ecab7,before,Super Lig,Torku Konyaspor,Galatasaray,2026-10-30T17:00:00+00:00,Asian Handicap Away +0.25,0.576289,-0.009277
+2f2bbe3e322ecab7,before,Super Lig,Torku Konyaspor,Galatasaray,2026-10-30T17:00:00+00:00,Away win,0.576289,-0.049123
+2f2bbe3e322ecab7,before,Super Lig,Erzurum BB,Çorum FK,2026-10-31T10:30:00+00:00,Asian Handicap Away +0.25,0.413032,0.040530
+2f2bbe3e322ecab7,after,La Liga,Villarreal,Espanyol,2026-10-30T20:00:00+00:00,Asian Handicap Away +2.25,0.573047,0.030838
+2f2bbe3e322ecab7,after,La Liga,Villarreal,Espanyol,2026-10-30T20:00:00+00:00,Home win,0.667093,-0.052729
+2f2bbe3e322ecab7,after,Bundesliga,Elversberg,FSV Mainz 05,2026-10-30T19:30:00+00:00,Asian Handicap Home +1.25,0.655399,0.101378
+2f2bbe3e322ecab7,after,Bundesliga,Elversberg,FSV Mainz 05,2026-10-30T19:30:00+00:00,Double Chance 1X,0.655399,0.199379
+2f2bbe3e322ecab7,after,Ligue 1,Le Havre,Paris Saint Germain,2026-10-30T18:00:00+00:00,Asian Handicap Home +2.25,0.518538,0.022482
+2f2bbe3e322ecab7,after,Ligue 1,Le Havre,Paris Saint Germain,2026-10-30T18:00:00+00:00,Away win,0.721147,-0.033662
+2f2bbe3e322ecab7,after,Ligue 1,Nice,Rennes,2026-10-30T18:00:00+00:00,Asian Handicap Away +0.25,0.384693,0.005796
+2f2bbe3e322ecab7,after,Ligue 1,Nice,Rennes,2026-10-30T18:00:00+00:00,Double Chance X2,0.645299,-0.012693
+2f2bbe3e322ecab7,after,Ligue 1,Lille,RC Lens,2026-10-30T20:05:00+00:00,Asian Handicap Home +0.25,0.406279,0.065111
+2f2bbe3e322ecab7,after,Ligue 1,Lille,RC Lens,2026-10-30T20:05:00+00:00,Double Chance 1X,0.700029,0.043043
+2f2bbe3e322ecab7,after,Primeira Liga,Casa Pia,Sporting Lisbon,2026-10-30T20:15:00+00:00,Asian Handicap Away -0.75,0.521864,-0.040508
+2f2bbe3e322ecab7,after,Primeira Liga,Casa Pia,Sporting Lisbon,2026-10-30T20:15:00+00:00,Away win,0.755167,-0.033387
+2f2bbe3e322ecab7,after,Super Lig,Torku Konyaspor,Galatasaray,2026-10-30T17:00:00+00:00,Asian Handicap Away +0.25,0.576289,-0.009277
+2f2bbe3e322ecab7,after,Super Lig,Torku Konyaspor,Galatasaray,2026-10-30T17:00:00+00:00,Away win,0.576289,-0.049123
+2f2bbe3e322ecab7,after,Super Lig,Erzurum BB,Çorum FK,2026-10-31T10:30:00+00:00,Asian Handicap Away +0.25,0.413032,0.040530
+f82ff3e276c6c573,before,Premier League,Chelsea,Manchester United,2026-10-31T12:30:00+00:00,Asian Handicap Away +1.25,0.536676,-0.042243
+f82ff3e276c6c573,before,Premier League,Chelsea,Manchester United,2026-10-31T12:30:00+00:00,Double Chance 1X,0.711957,-0.031738
+f82ff3e276c6c573,before,Premier League,Bournemouth,Leeds United,2026-10-31T15:00:00+00:00,Asian Handicap Away +1.25,0.516072,-0.053341
+f82ff3e276c6c573,before,Premier League,Bournemouth,Leeds United,2026-10-31T15:00:00+00:00,Double Chance 1X,0.743227,-0.033805
+f82ff3e276c6c573,before,Premier League,Brentford,Nottingham Forest,2026-10-31T15:00:00+00:00,Asian Handicap Away +1.25,0.535505,-0.030873
+f82ff3e276c6c573,before,Premier League,Brentford,Nottingham Forest,2026-10-31T15:00:00+00:00,Double Chance 1X,0.728943,-0.001348
+f82ff3e276c6c573,before,Premier League,Coventry City,Sunderland,2026-10-31T15:00:00+00:00,Asian Handicap Home +1.25,0.615615,0.011119
+f82ff3e276c6c573,before,Premier League,Coventry City,Sunderland,2026-10-31T15:00:00+00:00,Double Chance X2,0.691913,-0.031321
+f82ff3e276c6c573,before,Premier League,Hull City,Ipswich Town,2026-10-31T15:00:00+00:00,Asian Handicap Home +0.25,0.585997,0.360528
+f82ff3e276c6c573,before,Premier League,Hull City,Ipswich Town,2026-10-31T15:00:00+00:00,Double Chance 1X,0.834824,0.285629
+f82ff3e276c6c573,before,Premier League,Manchester City,Brighton and Hove Albion,2026-10-31T15:00:00+00:00,Asian Handicap Home +0.25,0.610242,0.037312
+f82ff3e276c6c573,before,Premier League,Manchester City,Brighton and Hove Albion,2026-10-31T15:00:00+00:00,Home win,0.610242,0.061822
+f82ff3e276c6c573,before,Premier League,Manchester City,Brighton and Hove Albion,2026-10-31T15:00:00+00:00,Double Chance 1X,0.834981,0.035376
+f82ff3e276c6c573,before,Premier League,Tottenham Hotspur,Crystal Palace,2026-10-31T17:30:00+00:00,Asian Handicap Away +1.25,0.526817,0.124254
+f82ff3e276c6c573,before,Premier League,Tottenham Hotspur,Crystal Palace,2026-10-31T17:30:00+00:00,Home win,0.473183,-0.200321
+f82ff3e276c6c573,before,Premier League,Tottenham Hotspur,Crystal Palace,2026-10-31T17:30:00+00:00,Double Chance 1X,0.733739,-0.119513
+f82ff3e276c6c573,before,Premier League,Aston Villa,Fulham,2026-10-31T20:00:00+00:00,Asian Handicap Away +1.25,0.527020,-0.043566
+f82ff3e276c6c573,before,Premier League,Aston Villa,Fulham,2026-10-31T20:00:00+00:00,Double Chance 1X,0.739625,0.005890
+f82ff3e276c6c573,before,La Liga,Levante,Atlético Madrid,2026-10-31T13:00:00+00:00,Asian Handicap Home +1.25,0.463274,0.161849
+f82ff3e276c6c573,before,La Liga,Levante,Atlético Madrid,2026-10-31T13:00:00+00:00,Away win,0.536726,-0.178810
+f82ff3e276c6c573,before,La Liga,Levante,Atlético Madrid,2026-10-31T13:00:00+00:00,Double Chance X2,0.776486,-0.099276
+f82ff3e276c6c573,before,La Liga,Rayo Vallecano,Celta Vigo,2026-10-31T15:15:00+00:00,Asian Handicap Home +0.25,0.369474,-0.036737
+f82ff3e276c6c573,before,La Liga,Rayo Vallecano,Celta Vigo,2026-10-31T15:15:00+00:00,Double Chance 1X,0.671727,-0.046148
+f82ff3e276c6c573,before,La Liga,Real Betis,Málaga,2026-10-31T17:30:00+00:00,Asian Handicap Home -0.50,0.781172,0.023336
+f82ff3e276c6c573,before,La Liga,Real Betis,Málaga,2026-10-31T17:30:00+00:00,Home win,0.781172,0.031147
+f82ff3e276c6c573,before,La Liga,Barcelona,Alavés,2026-10-31T20:00:00+00:00,Asian Handicap Home -1.75,0.421373,-0.165209
+f82ff3e276c6c573,before,Bundesliga,Augsburg,SC Freiburg,2026-10-31T14:30:00+00:00,Asian Handicap Home +1.25,0.646870,0.033551
+f82ff3e276c6c573,before,Bundesliga,Augsburg,SC Freiburg,2026-10-31T14:30:00+00:00,Double Chance 1X,0.646870,0.047929
+f82ff3e276c6c573,before,Bundesliga,Bayer Leverkusen,VfB Stuttgart,2026-10-31T14:30:00+00:00,Asian Handicap Home +0.25,0.551630,-0.048371
+f82ff3e276c6c573,before,Bundesliga,Bayer Leverkusen,VfB Stuttgart,2026-10-31T14:30:00+00:00,Home win,0.551630,-0.073262
+f82ff3e276c6c573,before,Bundesliga,Bayer Leverkusen,VfB Stuttgart,2026-10-31T14:30:00+00:00,Double Chance 1X,0.772827,-0.049422
+f82ff3e276c6c573,before,Bundesliga,Borussia Monchengladbach,SC Paderborn,2026-10-31T14:30:00+00:00,Asian Handicap Home +0.25,0.484713,0.078381
+f82ff3e276c6c573,before,Bundesliga,Borussia Monchengladbach,SC Paderborn,2026-10-31T14:30:00+00:00,Double Chance 1X,0.765762,0.064409
+f82ff3e276c6c573,before,Bundesliga,FC Schalke 04,RB Leipzig,2026-10-31T14:30:00+00:00,Asian Handicap Away +0.50,0.823324,0.037388
+f82ff3e276c6c573,before,Bundesliga,FC Schalke 04,RB Leipzig,2026-10-31T14:30:00+00:00,Away win,0.558473,0.044345
+f82ff3e276c6c573,before,Bundesliga,FC Schalke 04,RB Leipzig,2026-10-31T14:30:00+00:00,Double Chance X2,0.823324,0.037388
+f82ff3e276c6c573,before,Bundesliga,Werder Bremen,TSG Hoffenheim,2026-10-31T14:30:00+00:00,Asian Handicap Home +0.25,0.409542,0.003846
+f82ff3e276c6c573,before,Bundesliga,Werder Bremen,TSG Hoffenheim,2026-10-31T14:30:00+00:00,Double Chance 1X,0.649176,-0.013253
+f82ff3e276c6c573,before,Bundesliga,Bayern Munich,Borussia Dortmund,2026-10-31T17:30:00+00:00,Asian Handicap Away +2.25,0.544998,0.073320
+f82ff3e276c6c573,before,Bundesliga,Bayern Munich,Borussia Dortmund,2026-10-31T17:30:00+00:00,Home win,0.672797,-0.105180
+f82ff3e276c6c573,before,Serie A,Bologna,Monza,2026-10-31T14:00:00+00:00,Asian Handicap Home +0.25,0.627006,0.028759
+f82ff3e276c6c573,before,Serie A,Bologna,Monza,2026-10-31T14:00:00+00:00,Home win,0.627006,0.078450
+f82ff3e276c6c573,before,Serie A,Bologna,Monza,2026-10-31T14:00:00+00:00,Double Chance 1X,0.851356,0.021627
+f82ff3e276c6c573,before,Serie A,Udinese,AS Roma,2026-10-31T17:00:00+00:00,Asian Handicap Home +1.50,0.665321,0.037901
+f82ff3e276c6c573,before,Serie A,Udinese,AS Roma,2026-10-31T17:00:00+00:00,Away win,0.592525,-0.046035
+f82ff3e276c6c573,before,Serie A,Udinese,AS Roma,2026-10-31T17:00:00+00:00,Double Chance X2,0.843016,-0.005241
+f82ff3e276c6c573,before,Serie A,AC Milan,Inter Milan,2026-10-31T19:45:00+00:00,Asian Handicap Away +0.25,0.510717,0.003558
+f82ff3e276c6c573,before,Serie A,AC Milan,Inter Milan,2026-10-31T19:45:00+00:00,Double Chance X2,0.756459,-0.001474
+f82ff3e276c6c573,before,Serie A,Como,Venezia,2026-11-01T11:30:00+00:00,Asian Handicap Home -0.50,0.749439,-0.033223
+f82ff3e276c6c573,before,Serie A,Como,Venezia,2026-11-01T11:30:00+00:00,Home win,0.749439,-0.025729
+f82ff3e276c6c573,before,Ligue 1,Troyes,Le Mans FC,2026-10-31T19:45:00+00:00,Asian Handicap Away +1.25,0.755066,0.129948
+f82ff3e276c6c573,before,Ligue 1,Troyes,Le Mans FC,2026-10-31T19:45:00+00:00,Double Chance X2,0.755066,0.283612
+f82ff3e276c6c573,before,Eredivisie,Feyenoord,Fortuna Sittard,2026-10-31T15:30:00+00:00,Asian Handicap Away +2.25,0.421822,0.147748
+f82ff3e276c6c573,before,Eredivisie,Feyenoord,Fortuna Sittard,2026-10-31T15:30:00+00:00,Home win,0.787232,-0.086811
+f82ff3e276c6c573,before,Eredivisie,Heerenveen,NEC Nijmegen,2026-10-31T17:45:00+00:00,Asian Handicap Away +1.25,0.625337,0.071300
+f82ff3e276c6c573,before,Eredivisie,PSV Eindhoven,Willem II,2026-10-31T17:45:00+00:00,Asian Handicap Home -2.75,0.530173,0.171186
+f82ff3e276c6c573,before,Eredivisie,Ajax,AZ Alkmaar,2026-10-31T20:00:00+00:00,Asian Handicap Home +0.25,0.526988,-0.025580
+f82ff3e276c6c573,before,Eredivisie,Ajax,AZ Alkmaar,2026-10-31T20:00:00+00:00,Home win,0.526988,-0.061961
+f82ff3e276c6c573,before,Eredivisie,SC Cambuur,Go Ahead Eagles,2026-10-31T20:00:00+00:00,Asian Handicap Away +0.25,0.443554,0.046551
+f82ff3e276c6c573,before,Eredivisie,FC Zwolle,ADO Den Haag,2026-11-01T11:15:00+00:00,Asian Handicap Away +1.25,0.554947,-0.053769
+f82ff3e276c6c573,before,Primeira Liga,Moreirense FC,CF Estrela,2026-10-31T15:30:00+00:00,Asian Handicap Home +1.25,0.736225,0.078516
+f82ff3e276c6c573,before,Primeira Liga,FC Porto,Estoril,2026-10-31T20:30:00+00:00,Asian Handicap Away +2.25,0.477446,0.137775
+f82ff3e276c6c573,before,Primeira Liga,FC Porto,Estoril,2026-10-31T20:30:00+00:00,Home win,0.758346,-0.112735
+f82ff3e276c6c573,before,Super Lig,Kocaelispor,Çaykur Rizespor,2026-10-31T13:00:00+00:00,Asian Handicap Home +1.25,0.741779,0.110012
+f82ff3e276c6c573,before,Super Lig,Fenerbahce,Goztepe,2026-10-31T16:00:00+00:00,Asian Handicap Away +2.25,0.524527,-0.058292
+f82ff3e276c6c573,before,Super Lig,Fenerbahce,Goztepe,2026-10-31T16:00:00+00:00,Home win,0.700334,-0.019532
+f82ff3e276c6c573,before,Super Lig,Amed SK,Eyüpspor,2026-11-01T10:30:00+00:00,Asian Handicap Home -0.75,0.597228,0.011412
+f82ff3e276c6c573,before,Super Lig,Amed SK,Eyüpspor,2026-11-01T10:30:00+00:00,Home win,0.801590,0.010003
+f82ff3e276c6c573,after,Premier League,Chelsea,Manchester United,2026-10-31T12:30:00+00:00,Asian Handicap Away +1.25,0.536676,-0.042243
+f82ff3e276c6c573,after,Premier League,Chelsea,Manchester United,2026-10-31T12:30:00+00:00,Double Chance 1X,0.711957,-0.031738
+f82ff3e276c6c573,after,Premier League,Bournemouth,Leeds United,2026-10-31T15:00:00+00:00,Asian Handicap Away +1.25,0.516072,-0.053341
+f82ff3e276c6c573,after,Premier League,Bournemouth,Leeds United,2026-10-31T15:00:00+00:00,Double Chance 1X,0.743227,-0.033805
+f82ff3e276c6c573,after,Premier League,Brentford,Nottingham Forest,2026-10-31T15:00:00+00:00,Asian Handicap Away +1.25,0.535505,-0.030873
+f82ff3e276c6c573,after,Premier League,Brentford,Nottingham Forest,2026-10-31T15:00:00+00:00,Double Chance 1X,0.728943,-0.001348
+f82ff3e276c6c573,after,Premier League,Coventry City,Sunderland,2026-10-31T15:00:00+00:00,Asian Handicap Home +1.25,0.615615,0.011119
+f82ff3e276c6c573,after,Premier League,Coventry City,Sunderland,2026-10-31T15:00:00+00:00,Double Chance X2,0.691913,-0.031321
+f82ff3e276c6c573,after,Premier League,Hull City,Ipswich Town,2026-10-31T15:00:00+00:00,Asian Handicap Home +0.25,0.585997,0.360528
+f82ff3e276c6c573,after,Premier League,Hull City,Ipswich Town,2026-10-31T15:00:00+00:00,Double Chance 1X,0.834824,0.285629
+f82ff3e276c6c573,after,Premier League,Manchester City,Brighton and Hove Albion,2026-10-31T15:00:00+00:00,Asian Handicap Home +0.25,0.610242,0.037312
+f82ff3e276c6c573,after,Premier League,Manchester City,Brighton and Hove Albion,2026-10-31T15:00:00+00:00,Home win,0.610242,0.061822
+f82ff3e276c6c573,after,Premier League,Manchester City,Brighton and Hove Albion,2026-10-31T15:00:00+00:00,Double Chance 1X,0.834981,0.035376
+f82ff3e276c6c573,after,Premier League,Tottenham Hotspur,Crystal Palace,2026-10-31T17:30:00+00:00,Asian Handicap Away +1.25,0.526817,0.124254
+f82ff3e276c6c573,after,Premier League,Tottenham Hotspur,Crystal Palace,2026-10-31T17:30:00+00:00,Home win,0.473183,-0.200321
+f82ff3e276c6c573,after,Premier League,Tottenham Hotspur,Crystal Palace,2026-10-31T17:30:00+00:00,Double Chance 1X,0.733739,-0.119513
+f82ff3e276c6c573,after,Premier League,Aston Villa,Fulham,2026-10-31T20:00:00+00:00,Asian Handicap Away +1.25,0.527020,-0.043566
+f82ff3e276c6c573,after,Premier League,Aston Villa,Fulham,2026-10-31T20:00:00+00:00,Double Chance 1X,0.739625,0.005890
+f82ff3e276c6c573,after,La Liga,Levante,Atlético Madrid,2026-10-31T13:00:00+00:00,Asian Handicap Home +1.25,0.463274,0.161849
+f82ff3e276c6c573,after,La Liga,Levante,Atlético Madrid,2026-10-31T13:00:00+00:00,Away win,0.536726,-0.178810
+f82ff3e276c6c573,after,La Liga,Levante,Atlético Madrid,2026-10-31T13:00:00+00:00,Double Chance X2,0.776486,-0.099276
+f82ff3e276c6c573,after,La Liga,Rayo Vallecano,Celta Vigo,2026-10-31T15:15:00+00:00,Asian Handicap Home +0.25,0.369474,-0.036737
+f82ff3e276c6c573,after,La Liga,Rayo Vallecano,Celta Vigo,2026-10-31T15:15:00+00:00,Double Chance 1X,0.671727,-0.046148
+f82ff3e276c6c573,after,La Liga,Real Betis,Málaga,2026-10-31T17:30:00+00:00,Asian Handicap Home -0.50,0.781172,0.023336
+f82ff3e276c6c573,after,La Liga,Real Betis,Málaga,2026-10-31T17:30:00+00:00,Home win,0.781172,0.031147
+f82ff3e276c6c573,after,La Liga,Barcelona,Alavés,2026-10-31T20:00:00+00:00,Asian Handicap Home -1.75,0.421373,-0.165209
+f82ff3e276c6c573,after,Bundesliga,Augsburg,SC Freiburg,2026-10-31T14:30:00+00:00,Asian Handicap Home +1.25,0.646870,0.033551
+f82ff3e276c6c573,after,Bundesliga,Augsburg,SC Freiburg,2026-10-31T14:30:00+00:00,Double Chance 1X,0.646870,0.047929
+f82ff3e276c6c573,after,Bundesliga,Bayer Leverkusen,VfB Stuttgart,2026-10-31T14:30:00+00:00,Asian Handicap Home +0.25,0.551630,-0.048371
+f82ff3e276c6c573,after,Bundesliga,Bayer Leverkusen,VfB Stuttgart,2026-10-31T14:30:00+00:00,Home win,0.551630,-0.073262
+f82ff3e276c6c573,after,Bundesliga,Bayer Leverkusen,VfB Stuttgart,2026-10-31T14:30:00+00:00,Double Chance 1X,0.772827,-0.049422
+f82ff3e276c6c573,after,Bundesliga,Borussia Monchengladbach,SC Paderborn,2026-10-31T14:30:00+00:00,Asian Handicap Home +0.25,0.484713,0.078381
+f82ff3e276c6c573,after,Bundesliga,Borussia Monchengladbach,SC Paderborn,2026-10-31T14:30:00+00:00,Double Chance 1X,0.765762,0.064409
+f82ff3e276c6c573,after,Bundesliga,FC Schalke 04,RB Leipzig,2026-10-31T14:30:00+00:00,Asian Handicap Away +0.50,0.823324,0.037388
+f82ff3e276c6c573,after,Bundesliga,FC Schalke 04,RB Leipzig,2026-10-31T14:30:00+00:00,Away win,0.558473,0.044345
+f82ff3e276c6c573,after,Bundesliga,FC Schalke 04,RB Leipzig,2026-10-31T14:30:00+00:00,Double Chance X2,0.823324,0.037388
+f82ff3e276c6c573,after,Bundesliga,Werder Bremen,TSG Hoffenheim,2026-10-31T14:30:00+00:00,Asian Handicap Home +0.25,0.409542,0.003846
+f82ff3e276c6c573,after,Bundesliga,Werder Bremen,TSG Hoffenheim,2026-10-31T14:30:00+00:00,Double Chance 1X,0.649176,-0.013253
+f82ff3e276c6c573,after,Bundesliga,Bayern Munich,Borussia Dortmund,2026-10-31T17:30:00+00:00,Asian Handicap Away +2.25,0.544998,0.073320
+f82ff3e276c6c573,after,Bundesliga,Bayern Munich,Borussia Dortmund,2026-10-31T17:30:00+00:00,Home win,0.672797,-0.105180
+f82ff3e276c6c573,after,Serie A,Bologna,Monza,2026-10-31T14:00:00+00:00,Asian Handicap Home +0.25,0.627006,0.028759
+f82ff3e276c6c573,after,Serie A,Bologna,Monza,2026-10-31T14:00:00+00:00,Home win,0.627006,0.078450
+f82ff3e276c6c573,after,Serie A,Bologna,Monza,2026-10-31T14:00:00+00:00,Double Chance 1X,0.851356,0.021627
+f82ff3e276c6c573,after,Serie A,Udinese,AS Roma,2026-10-31T17:00:00+00:00,Asian Handicap Home +1.50,0.665321,0.037901
+f82ff3e276c6c573,after,Serie A,Udinese,AS Roma,2026-10-31T17:00:00+00:00,Away win,0.592525,-0.046035
+f82ff3e276c6c573,after,Serie A,Udinese,AS Roma,2026-10-31T17:00:00+00:00,Double Chance X2,0.843016,-0.005241
+f82ff3e276c6c573,after,Serie A,AC Milan,Inter Milan,2026-10-31T19:45:00+00:00,Asian Handicap Away +0.25,0.510717,0.003558
+f82ff3e276c6c573,after,Serie A,AC Milan,Inter Milan,2026-10-31T19:45:00+00:00,Double Chance X2,0.756459,-0.001474
+f82ff3e276c6c573,after,Serie A,Como,Venezia,2026-11-01T11:30:00+00:00,Asian Handicap Home -0.50,0.749439,-0.033223
+f82ff3e276c6c573,after,Serie A,Como,Venezia,2026-11-01T11:30:00+00:00,Home win,0.749439,-0.025729
+f82ff3e276c6c573,after,Ligue 1,Troyes,Le Mans FC,2026-10-31T19:45:00+00:00,Asian Handicap Away +1.25,0.755066,0.129948
+f82ff3e276c6c573,after,Ligue 1,Troyes,Le Mans FC,2026-10-31T19:45:00+00:00,Double Chance X2,0.755066,0.283612
+f82ff3e276c6c573,after,Eredivisie,Feyenoord,Fortuna Sittard,2026-10-31T15:30:00+00:00,Asian Handicap Away +2.25,0.421822,0.147748
+f82ff3e276c6c573,after,Eredivisie,Feyenoord,Fortuna Sittard,2026-10-31T15:30:00+00:00,Home win,0.787232,-0.086811
+f82ff3e276c6c573,after,Eredivisie,Heerenveen,NEC Nijmegen,2026-10-31T17:45:00+00:00,Asian Handicap Away +1.25,0.625337,0.071300
+f82ff3e276c6c573,after,Eredivisie,PSV Eindhoven,Willem II,2026-10-31T17:45:00+00:00,Asian Handicap Home -2.75,0.530173,0.171186
+f82ff3e276c6c573,after,Eredivisie,Ajax,AZ Alkmaar,2026-10-31T20:00:00+00:00,Asian Handicap Home +0.25,0.526988,-0.025580
+f82ff3e276c6c573,after,Eredivisie,Ajax,AZ Alkmaar,2026-10-31T20:00:00+00:00,Home win,0.526988,-0.061961
+f82ff3e276c6c573,after,Eredivisie,SC Cambuur,Go Ahead Eagles,2026-10-31T20:00:00+00:00,Asian Handicap Away +0.25,0.443554,0.046551
+f82ff3e276c6c573,after,Eredivisie,FC Zwolle,ADO Den Haag,2026-11-01T11:15:00+00:00,Asian Handicap Away +1.25,0.554947,-0.053769
+f82ff3e276c6c573,after,Primeira Liga,Moreirense FC,CF Estrela,2026-10-31T15:30:00+00:00,Asian Handicap Home +1.25,0.736225,0.078516
+f82ff3e276c6c573,after,Primeira Liga,FC Porto,Estoril,2026-10-31T20:30:00+00:00,Asian Handicap Away +2.25,0.477446,0.137775
+f82ff3e276c6c573,after,Primeira Liga,FC Porto,Estoril,2026-10-31T20:30:00+00:00,Home win,0.758346,-0.112735
+f82ff3e276c6c573,after,Super Lig,Kocaelispor,Çaykur Rizespor,2026-10-31T13:00:00+00:00,Asian Handicap Home +1.25,0.741779,0.110012
+f82ff3e276c6c573,after,Super Lig,Fenerbahce,Goztepe,2026-10-31T16:00:00+00:00,Asian Handicap Away +2.25,0.524527,-0.058292
+f82ff3e276c6c573,after,Super Lig,Fenerbahce,Goztepe,2026-10-31T16:00:00+00:00,Home win,0.700334,-0.019532
+f82ff3e276c6c573,after,Super Lig,Amed SK,Eyüpspor,2026-11-01T10:30:00+00:00,Asian Handicap Home -0.75,0.597228,0.011412
+f82ff3e276c6c573,after,Super Lig,Amed SK,Eyüpspor,2026-11-01T10:30:00+00:00,Home win,0.801590,0.010003
+796c7451f4101f75,before,Premier League,Liverpool,Arsenal,2026-11-01T16:30:00+00:00,Asian Handicap Away +0.25,0.427648,0.025663
+796c7451f4101f75,before,Premier League,Liverpool,Arsenal,2026-11-01T16:30:00+00:00,Double Chance X2,0.703333,0.005767
+796c7451f4101f75,before,La Liga,Getafe,Sevilla,2026-11-01T13:00:00+00:00,Asian Handicap Home +1.25,0.698460,0.052213
+796c7451f4101f75,before,La Liga,Getafe,Sevilla,2026-11-01T13:00:00+00:00,Double Chance 1X,0.698460,0.124520
+796c7451f4101f75,before,La Liga,Real Racing Club de Santander,Real Madrid,2026-11-01T15:15:00+00:00,Asian Handicap Away -1.75,0.454895,0.017732
+796c7451f4101f75,before,La Liga,Real Racing Club de Santander,Real Madrid,2026-11-01T15:15:00+00:00,Away win,0.817751,-0.010521
+796c7451f4101f75,before,La Liga,Elche CF,Valencia,2026-11-01T17:30:00+00:00,Asian Handicap Away +1.25,0.524121,-0.091115
+796c7451f4101f75,before,La Liga,Elche CF,Valencia,2026-11-01T17:30:00+00:00,Double Chance 1X,0.751037,0.043941
+796c7451f4101f75,before,La Liga,Athletic Bilbao,Real Sociedad,2026-11-01T20:00:00+00:00,Asian Handicap Home +0.25,0.497115,0.020804
+796c7451f4101f75,before,La Liga,Athletic Bilbao,Real Sociedad,2026-11-01T20:00:00+00:00,Double Chance 1X,0.767818,0.005841
+796c7451f4101f75,before,Bundesliga,Union Berlin,1. FC Köln,2026-11-01T14:30:00+00:00,Asian Handicap Home +0.50,0.704590,0.092115
+796c7451f4101f75,before,Bundesliga,Union Berlin,1. FC Köln,2026-11-01T14:30:00+00:00,Double Chance 1X,0.704590,0.085069
+796c7451f4101f75,before,Bundesliga,Eintracht Frankfurt,Hamburger SV,2026-11-01T16:30:00+00:00,Asian Handicap Away +1.25,0.415126,0.053861
+796c7451f4101f75,before,Bundesliga,Eintracht Frankfurt,Hamburger SV,2026-11-01T16:30:00+00:00,Home win,0.584874,-0.087597
+796c7451f4101f75,before,Bundesliga,Eintracht Frankfurt,Hamburger SV,2026-11-01T16:30:00+00:00,Double Chance 1X,0.812845,-0.040843
+796c7451f4101f75,before,Serie A,Como,Venezia,2026-11-01T11:30:00+00:00,Asian Handicap Home -0.50,0.748782,-0.026583
+796c7451f4101f75,before,Serie A,Como,Venezia,2026-11-01T11:30:00+00:00,Home win,0.748782,-0.019095
+796c7451f4101f75,before,Serie A,Frosinone,Torino,2026-11-01T14:00:00+00:00,Asian Handicap Home +0.25,0.514050,0.016248
+796c7451f4101f75,before,Serie A,Frosinone,Torino,2026-11-01T14:00:00+00:00,Double Chance 1X,0.745454,0.006363
+796c7451f4101f75,before,Serie A,Lazio,Cagliari,2026-11-01T14:00:00+00:00,Asian Handicap Away +2.25,0.655489,0.023027
+796c7451f4101f75,before,Serie A,Lazio,Cagliari,2026-11-01T14:00:00+00:00,Home win,0.604125,-0.111936
+796c7451f4101f75,before,Serie A,Lecce,Genoa,2026-11-01T17:00:00+00:00,Asian Handicap Home +1.25,0.592919,-0.017547
+796c7451f4101f75,before,Serie A,Lecce,Genoa,2026-11-01T17:00:00+00:00,Double Chance X2,0.735575,0.022449
+796c7451f4101f75,before,Serie A,Juventus,Napoli,2026-11-01T19:45:00+00:00,Asian Handicap Away +1.25,0.643258,0.062622
+796c7451f4101f75,before,Serie A,Juventus,Napoli,2026-11-01T19:45:00+00:00,Double Chance 1X,0.663686,-0.110661
+796c7451f4101f75,before,Ligue 1,Strasbourg,Auxerre,2026-11-01T14:00:00+00:00,Asian Handicap Home +0.25,0.549691,0.008791
+796c7451f4101f75,before,Ligue 1,Strasbourg,Auxerre,2026-11-01T14:00:00+00:00,Home win,0.549691,0.011432
+796c7451f4101f75,before,Ligue 1,Strasbourg,Auxerre,2026-11-01T14:00:00+00:00,Double Chance 1X,0.793828,0.000223
+796c7451f4101f75,before,Ligue 1,Lyon,Angers,2026-11-01T16:15:00+00:00,Asian Handicap Away +2.25,0.558076,-0.022380
+796c7451f4101f75,before,Ligue 1,Lyon,Angers,2026-11-01T16:15:00+00:00,Home win,0.695447,-0.005511
+796c7451f4101f75,before,Ligue 1,Paris FC,AS Monaco,2026-11-01T16:15:00+00:00,Asian Handicap Home +1.00,0.634764,-0.048714
+796c7451f4101f75,before,Ligue 1,Paris FC,AS Monaco,2026-11-01T16:15:00+00:00,Double Chance 1X,0.634764,-0.066897
+796c7451f4101f75,before,Ligue 1,Marseille,Toulouse,2026-11-01T19:45:00+00:00,Asian Handicap Home +0.50,0.805830,0.063696
+796c7451f4101f75,before,Ligue 1,Marseille,Toulouse,2026-11-01T19:45:00+00:00,Home win,0.573781,0.113134
+796c7451f4101f75,before,Ligue 1,Marseille,Toulouse,2026-11-01T19:45:00+00:00,Double Chance 1X,0.805830,0.063696
+796c7451f4101f75,before,Eredivisie,FC Zwolle,ADO Den Haag,2026-11-01T11:15:00+00:00,Asian Handicap Away +1.25,0.555022,-0.047091
+796c7451f4101f75,before,Eredivisie,Excelsior,FC Twente Enschede,2026-11-01T13:30:00+00:00,Asian Handicap Home +2.25,0.679222,0.073513
+796c7451f4101f75,before,Eredivisie,Excelsior,FC Twente Enschede,2026-11-01T13:30:00+00:00,Away win,0.560772,-0.153234
+796c7451f4101f75,before,Eredivisie,SC Telstar,FC Utrecht,2026-11-01T13:30:00+00:00,Asian Handicap Home +1.25,0.594015,0.017483
+796c7451f4101f75,before,Eredivisie,Groningen,Sparta Rotterdam,2026-11-01T15:45:00+00:00,Asian Handicap Home +0.25,0.486984,-0.065997
+796c7451f4101f75,before,Eredivisie,Groningen,Sparta Rotterdam,2026-11-01T15:45:00+00:00,Home win,0.486984,-0.128299
+796c7451f4101f75,before,Primeira Liga,Arouca,Nacional,2026-11-01T15:30:00+00:00,Asian Handicap Home +0.25,0.493784,-0.074161
+796c7451f4101f75,before,Primeira Liga,Arouca,Nacional,2026-11-01T15:30:00+00:00,Home win,0.493784,-0.130940
+796c7451f4101f75,before,Primeira Liga,Académico de Viseu,Rio Ave FC,2026-11-01T18:00:00+00:00,Asian Handicap Home +0.25,0.708959,0.150545
+796c7451f4101f75,before,Primeira Liga,Académico de Viseu,Rio Ave FC,2026-11-01T18:00:00+00:00,Home win,0.708959,0.347022
+796c7451f4101f75,before,Primeira Liga,CS Maritimo,Santa Clara,2026-11-01T18:00:00+00:00,Asian Handicap Home +1.25,0.550109,-0.056794
+796c7451f4101f75,before,Primeira Liga,Braga,Famalicão,2026-11-01T20:30:00+00:00,Asian Handicap Home +0.25,0.515399,-0.081585
+796c7451f4101f75,before,Primeira Liga,Braga,Famalicão,2026-11-01T20:30:00+00:00,Home win,0.515399,-0.134130
+796c7451f4101f75,before,Super Lig,Amed SK,Eyüpspor,2026-11-01T10:30:00+00:00,Asian Handicap Home -0.75,0.571607,-0.012765
+796c7451f4101f75,before,Super Lig,Amed SK,Eyüpspor,2026-11-01T10:30:00+00:00,Home win,0.783908,-0.012276
+796c7451f4101f75,before,Super Lig,Basaksehir,Samsunspor,2026-11-01T13:00:00+00:00,Asian Handicap Home +0.25,0.549194,0.008614
+796c7451f4101f75,before,Super Lig,Basaksehir,Samsunspor,2026-11-01T13:00:00+00:00,Home win,0.549194,0.005025
+796c7451f4101f75,before,Super Lig,Trabzonspor,Gazişehir Gaziantep,2026-11-01T13:00:00+00:00,Asian Handicap Away +2.25,0.556642,0.128189
+796c7451f4101f75,before,Super Lig,Trabzonspor,Gazişehir Gaziantep,2026-11-01T13:00:00+00:00,Home win,0.678554,-0.145022
+796c7451f4101f75,before,Super Lig,Kasimpasa SK,Besiktas JK,2026-11-01T16:00:00+00:00,Asian Handicap Home +1.25,0.558257,0.218896
+796c7451f4101f75,before,Super Lig,Kasimpasa SK,Besiktas JK,2026-11-01T16:00:00+00:00,Away win,0.441743,-0.302047
+796c7451f4101f75,after,Premier League,Liverpool,Arsenal,2026-11-01T16:30:00+00:00,Asian Handicap Away +0.25,0.427648,0.025663
+796c7451f4101f75,after,Premier League,Liverpool,Arsenal,2026-11-01T16:30:00+00:00,Double Chance X2,0.703333,0.005767
+796c7451f4101f75,after,La Liga,Getafe,Sevilla,2026-11-01T13:00:00+00:00,Asian Handicap Home +1.25,0.698460,0.052213
+796c7451f4101f75,after,La Liga,Getafe,Sevilla,2026-11-01T13:00:00+00:00,Double Chance 1X,0.698460,0.124520
+796c7451f4101f75,after,La Liga,Real Racing Club de Santander,Real Madrid,2026-11-01T15:15:00+00:00,Asian Handicap Away -1.75,0.454895,0.017732
+796c7451f4101f75,after,La Liga,Real Racing Club de Santander,Real Madrid,2026-11-01T15:15:00+00:00,Away win,0.817751,-0.010521
+796c7451f4101f75,after,La Liga,Elche CF,Valencia,2026-11-01T17:30:00+00:00,Asian Handicap Away +1.25,0.524121,-0.091115
+796c7451f4101f75,after,La Liga,Elche CF,Valencia,2026-11-01T17:30:00+00:00,Double Chance 1X,0.751037,0.043941
+796c7451f4101f75,after,La Liga,Athletic Bilbao,Real Sociedad,2026-11-01T20:00:00+00:00,Asian Handicap Home +0.25,0.497115,0.020804
+796c7451f4101f75,after,La Liga,Athletic Bilbao,Real Sociedad,2026-11-01T20:00:00+00:00,Double Chance 1X,0.767818,0.005841
+796c7451f4101f75,after,Bundesliga,Union Berlin,1. FC Köln,2026-11-01T14:30:00+00:00,Asian Handicap Home +0.50,0.704590,0.092115
+796c7451f4101f75,after,Bundesliga,Union Berlin,1. FC Köln,2026-11-01T14:30:00+00:00,Double Chance 1X,0.704590,0.085069
+796c7451f4101f75,after,Bundesliga,Eintracht Frankfurt,Hamburger SV,2026-11-01T16:30:00+00:00,Asian Handicap Away +1.25,0.415126,0.053861
+796c7451f4101f75,after,Bundesliga,Eintracht Frankfurt,Hamburger SV,2026-11-01T16:30:00+00:00,Home win,0.584874,-0.087597
+796c7451f4101f75,after,Bundesliga,Eintracht Frankfurt,Hamburger SV,2026-11-01T16:30:00+00:00,Double Chance 1X,0.812845,-0.040843
+796c7451f4101f75,after,Serie A,Como,Venezia,2026-11-01T11:30:00+00:00,Asian Handicap Home -0.50,0.748782,-0.026583
+796c7451f4101f75,after,Serie A,Como,Venezia,2026-11-01T11:30:00+00:00,Home win,0.748782,-0.019095
+796c7451f4101f75,after,Serie A,Frosinone,Torino,2026-11-01T14:00:00+00:00,Asian Handicap Home +0.25,0.514050,0.016248
+796c7451f4101f75,after,Serie A,Frosinone,Torino,2026-11-01T14:00:00+00:00,Double Chance 1X,0.745454,0.006363
+796c7451f4101f75,after,Serie A,Lazio,Cagliari,2026-11-01T14:00:00+00:00,Asian Handicap Away +2.25,0.655489,0.023027
+796c7451f4101f75,after,Serie A,Lazio,Cagliari,2026-11-01T14:00:00+00:00,Home win,0.604125,-0.111936
+796c7451f4101f75,after,Serie A,Lecce,Genoa,2026-11-01T17:00:00+00:00,Asian Handicap Home +1.25,0.592919,-0.017547
+796c7451f4101f75,after,Serie A,Lecce,Genoa,2026-11-01T17:00:00+00:00,Double Chance X2,0.735575,0.022449
+796c7451f4101f75,after,Serie A,Juventus,Napoli,2026-11-01T19:45:00+00:00,Asian Handicap Away +1.25,0.643258,0.062622
+796c7451f4101f75,after,Serie A,Juventus,Napoli,2026-11-01T19:45:00+00:00,Double Chance 1X,0.663686,-0.110661
+796c7451f4101f75,after,Ligue 1,Strasbourg,Auxerre,2026-11-01T14:00:00+00:00,Asian Handicap Home +0.25,0.549691,0.008791
+796c7451f4101f75,after,Ligue 1,Strasbourg,Auxerre,2026-11-01T14:00:00+00:00,Home win,0.549691,0.011432
+796c7451f4101f75,after,Ligue 1,Strasbourg,Auxerre,2026-11-01T14:00:00+00:00,Double Chance 1X,0.793828,0.000223
+796c7451f4101f75,after,Ligue 1,Lyon,Angers,2026-11-01T16:15:00+00:00,Asian Handicap Away +2.25,0.558076,-0.022380
+796c7451f4101f75,after,Ligue 1,Lyon,Angers,2026-11-01T16:15:00+00:00,Home win,0.695447,-0.005511
+796c7451f4101f75,after,Ligue 1,Paris FC,AS Monaco,2026-11-01T16:15:00+00:00,Asian Handicap Home +1.00,0.634764,-0.048714
+796c7451f4101f75,after,Ligue 1,Paris FC,AS Monaco,2026-11-01T16:15:00+00:00,Double Chance 1X,0.634764,-0.066897
+796c7451f4101f75,after,Ligue 1,Marseille,Toulouse,2026-11-01T19:45:00+00:00,Asian Handicap Home +0.50,0.805830,0.063696
+796c7451f4101f75,after,Ligue 1,Marseille,Toulouse,2026-11-01T19:45:00+00:00,Home win,0.573781,0.113134
+796c7451f4101f75,after,Ligue 1,Marseille,Toulouse,2026-11-01T19:45:00+00:00,Double Chance 1X,0.805830,0.063696
+796c7451f4101f75,after,Eredivisie,FC Zwolle,ADO Den Haag,2026-11-01T11:15:00+00:00,Asian Handicap Away +1.25,0.555022,-0.047091
+796c7451f4101f75,after,Eredivisie,Excelsior,FC Twente Enschede,2026-11-01T13:30:00+00:00,Asian Handicap Home +2.25,0.679222,0.073513
+796c7451f4101f75,after,Eredivisie,Excelsior,FC Twente Enschede,2026-11-01T13:30:00+00:00,Away win,0.560772,-0.153234
+796c7451f4101f75,after,Eredivisie,SC Telstar,FC Utrecht,2026-11-01T13:30:00+00:00,Asian Handicap Home +1.25,0.594015,0.017483
+796c7451f4101f75,after,Eredivisie,Groningen,Sparta Rotterdam,2026-11-01T15:45:00+00:00,Asian Handicap Home +0.25,0.486984,-0.065997
+796c7451f4101f75,after,Eredivisie,Groningen,Sparta Rotterdam,2026-11-01T15:45:00+00:00,Home win,0.486984,-0.128299
+796c7451f4101f75,after,Primeira Liga,Arouca,Nacional,2026-11-01T15:30:00+00:00,Asian Handicap Home +0.25,0.493784,-0.074161
+796c7451f4101f75,after,Primeira Liga,Arouca,Nacional,2026-11-01T15:30:00+00:00,Home win,0.493784,-0.130940
+796c7451f4101f75,after,Primeira Liga,Académico de Viseu,Rio Ave FC,2026-11-01T18:00:00+00:00,Asian Handicap Home +0.25,0.708959,0.150545
+796c7451f4101f75,after,Primeira Liga,Académico de Viseu,Rio Ave FC,2026-11-01T18:00:00+00:00,Home win,0.708959,0.347022
+796c7451f4101f75,after,Primeira Liga,CS Maritimo,Santa Clara,2026-11-01T18:00:00+00:00,Asian Handicap Home +1.25,0.550109,-0.056794
+796c7451f4101f75,after,Primeira Liga,Braga,Famalicão,2026-11-01T20:30:00+00:00,Asian Handicap Home +0.25,0.515399,-0.081585
+796c7451f4101f75,after,Primeira Liga,Braga,Famalicão,2026-11-01T20:30:00+00:00,Home win,0.515399,-0.134130
+796c7451f4101f75,after,Super Lig,Amed SK,Eyüpspor,2026-11-01T10:30:00+00:00,Asian Handicap Home -0.75,0.571607,-0.012765
+796c7451f4101f75,after,Super Lig,Amed SK,Eyüpspor,2026-11-01T10:30:00+00:00,Home win,0.783908,-0.012276
+796c7451f4101f75,after,Super Lig,Basaksehir,Samsunspor,2026-11-01T13:00:00+00:00,Asian Handicap Home +0.25,0.549194,0.008614
+796c7451f4101f75,after,Super Lig,Basaksehir,Samsunspor,2026-11-01T13:00:00+00:00,Home win,0.549194,0.005025
+796c7451f4101f75,after,Super Lig,Trabzonspor,Gazişehir Gaziantep,2026-11-01T13:00:00+00:00,Asian Handicap Away +2.25,0.556642,0.128189
+796c7451f4101f75,after,Super Lig,Trabzonspor,Gazişehir Gaziantep,2026-11-01T13:00:00+00:00,Home win,0.678554,-0.145022
+796c7451f4101f75,after,Super Lig,Kasimpasa SK,Besiktas JK,2026-11-01T16:00:00+00:00,Asian Handicap Home +1.25,0.558257,0.218896
+796c7451f4101f75,after,Super Lig,Kasimpasa SK,Besiktas JK,2026-11-01T16:00:00+00:00,Away win,0.441743,-0.302047
+dc55908798d79d00,before,Premier League,Liverpool,Arsenal,2026-11-01T16:30:00+00:00,Asian Handicap Away +0.25,0.427647,0.042641
+dc55908798d79d00,before,Premier League,Liverpool,Arsenal,2026-11-01T16:30:00+00:00,Double Chance X2,0.703344,0.019849
+dc55908798d79d00,before,La Liga,Getafe,Sevilla,2026-11-01T13:00:00+00:00,Asian Handicap Home +1.25,0.698481,0.060184
+dc55908798d79d00,before,La Liga,Getafe,Sevilla,2026-11-01T13:00:00+00:00,Double Chance 1X,0.698481,0.124555
+dc55908798d79d00,before,La Liga,Real Racing Club de Santander,Real Madrid,2026-11-01T15:15:00+00:00,Asian Handicap Away -1.50,0.648167,0.030586
+dc55908798d79d00,before,La Liga,Real Racing Club de Santander,Real Madrid,2026-11-01T15:15:00+00:00,Away win,0.817725,-0.002376
+dc55908798d79d00,before,La Liga,Elche CF,Valencia,2026-11-01T17:30:00+00:00,Asian Handicap Away +1.25,0.524098,-0.078284
+dc55908798d79d00,before,La Liga,Elche CF,Valencia,2026-11-01T17:30:00+00:00,Double Chance 1X,0.751058,0.043971
+dc55908798d79d00,before,La Liga,Athletic Bilbao,Real Sociedad,2026-11-01T20:00:00+00:00,Asian Handicap Home +0.25,0.497104,0.020790
+dc55908798d79d00,before,La Liga,Athletic Bilbao,Real Sociedad,2026-11-01T20:00:00+00:00,Double Chance 1X,0.767808,0.013506
+dc55908798d79d00,after,Premier League,Liverpool,Arsenal,2026-11-01T16:30:00+00:00,Asian Handicap Away +0.25,0.427647,0.042641
+dc55908798d79d00,after,Premier League,Liverpool,Arsenal,2026-11-01T16:30:00+00:00,Double Chance X2,0.703344,0.019849
+dc55908798d79d00,after,La Liga,Getafe,Sevilla,2026-11-01T13:00:00+00:00,Asian Handicap Home +1.25,0.698481,0.060184
+dc55908798d79d00,after,La Liga,Getafe,Sevilla,2026-11-01T13:00:00+00:00,Double Chance 1X,0.698481,0.124555
+dc55908798d79d00,after,La Liga,Real Racing Club de Santander,Real Madrid,2026-11-01T15:15:00+00:00,Asian Handicap Away -1.50,0.648167,0.030586
+dc55908798d79d00,after,La Liga,Real Racing Club de Santander,Real Madrid,2026-11-01T15:15:00+00:00,Away win,0.817725,-0.002376
+dc55908798d79d00,after,La Liga,Elche CF,Valencia,2026-11-01T17:30:00+00:00,Asian Handicap Away +1.25,0.524098,-0.078284
+dc55908798d79d00,after,La Liga,Elche CF,Valencia,2026-11-01T17:30:00+00:00,Double Chance 1X,0.751058,0.043971
+dc55908798d79d00,after,La Liga,Athletic Bilbao,Real Sociedad,2026-11-01T20:00:00+00:00,Asian Handicap Home +0.25,0.497104,0.020790
+dc55908798d79d00,after,La Liga,Athletic Bilbao,Real Sociedad,2026-11-01T20:00:00+00:00,Double Chance 1X,0.767808,0.013506
+765b01b571df2fd9,before,UEFA Champions League,Galatasaray,VfB Stuttgart,2026-11-03T17:45:00+00:00,Asian Handicap Away +1.25,0.573111,0.051743
+765b01b571df2fd9,before,UEFA Champions League,Galatasaray,VfB Stuttgart,2026-11-03T17:45:00+00:00,Double Chance 1X,0.664880,-0.075816
+765b01b571df2fd9,before,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,2026-11-03T17:45:00+00:00,Asian Handicap Home +1.25,0.563737,0.038239
+765b01b571df2fd9,before,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,2026-11-03T17:45:00+00:00,Double Chance X2,0.705061,-0.055219
+765b01b571df2fd9,before,UEFA Champions League,Atlético Madrid,Bayern Munich,2026-11-03T20:00:00+00:00,Asian Handicap Home +1.25,0.569634,-0.055980
+765b01b571df2fd9,before,UEFA Champions League,Atlético Madrid,Bayern Munich,2026-11-03T20:00:00+00:00,Double Chance X2,0.639911,-0.059331
+765b01b571df2fd9,before,UEFA Champions League,Barcelona,Aston Villa,2026-11-03T20:00:00+00:00,Asian Handicap Away +2.25,0.788022,0.455871
+765b01b571df2fd9,before,UEFA Champions League,Barcelona,Aston Villa,2026-11-03T20:00:00+00:00,Home win,0.394770,-0.494694
+765b01b571df2fd9,before,UEFA Champions League,Bodø/Glimt,Lille,2026-11-03T20:00:00+00:00,Asian Handicap Home +0.25,0.590821,-0.059909
+765b01b571df2fd9,before,UEFA Champions League,Bodø/Glimt,Lille,2026-11-03T20:00:00+00:00,Double Chance 1X,0.763968,-0.067959
+765b01b571df2fd9,before,UEFA Champions League,Bodø/Glimt,Lille,2026-11-03T20:00:00+00:00,Home win,0.590821,0.004396
+765b01b571df2fd9,before,UEFA Champions League,Feyenoord,Inter Milan,2026-11-03T20:00:00+00:00,Asian Handicap Home +1.25,0.576544,0.086915
+765b01b571df2fd9,before,UEFA Champions League,Feyenoord,Inter Milan,2026-11-03T20:00:00+00:00,Double Chance X2,0.666896,-0.133035
+765b01b571df2fd9,before,UEFA Champions League,Feyenoord,Inter Milan,2026-11-03T20:00:00+00:00,Away win,0.423456,-0.182731
+765b01b571df2fd9,before,UEFA Champions League,LASK,ŠK Slovan Bratislava,2026-11-03T20:00:00+00:00,Asian Handicap Home -0.50,0.937490,0.274987
+765b01b571df2fd9,before,UEFA Champions League,LASK,ŠK Slovan Bratislava,2026-11-03T20:00:00+00:00,Home win,0.937490,0.284362
+765b01b571df2fd9,before,UEFA Champions League,Manchester United,AS Roma,2026-11-03T20:00:00+00:00,Asian Handicap Home +0.50,0.788635,0.119862
+765b01b571df2fd9,before,UEFA Champions League,Manchester United,AS Roma,2026-11-03T20:00:00+00:00,Double Chance 1X,0.788635,0.127748
+765b01b571df2fd9,before,UEFA Champions League,Villarreal,Paris Saint Germain,2026-11-03T20:00:00+00:00,Asian Handicap Away +0.25,0.856561,0.212840
+765b01b571df2fd9,before,UEFA Champions League,Villarreal,Paris Saint Germain,2026-11-03T20:00:00+00:00,Away win,0.856561,0.507547
+765b01b571df2fd9,before,UEFA Champions League,Villarreal,Paris Saint Germain,2026-11-03T20:00:00+00:00,Double Chance X2,0.942918,0.188077
+765b01b571df2fd9,after,UEFA Champions League,Galatasaray,VfB Stuttgart,2026-11-03T17:45:00+00:00,Asian Handicap Away +1.25,0.573111,0.051743
+765b01b571df2fd9,after,UEFA Champions League,Galatasaray,VfB Stuttgart,2026-11-03T17:45:00+00:00,Double Chance 1X,0.664880,-0.075816
+765b01b571df2fd9,after,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,2026-11-03T17:45:00+00:00,Asian Handicap Home +1.25,0.563737,0.038239
+765b01b571df2fd9,after,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,2026-11-03T17:45:00+00:00,Double Chance X2,0.705061,-0.055219
+765b01b571df2fd9,after,UEFA Champions League,Atlético Madrid,Bayern Munich,2026-11-03T20:00:00+00:00,Asian Handicap Home +1.25,0.569634,-0.055980
+765b01b571df2fd9,after,UEFA Champions League,Atlético Madrid,Bayern Munich,2026-11-03T20:00:00+00:00,Double Chance X2,0.639911,-0.059331
+765b01b571df2fd9,after,UEFA Champions League,Barcelona,Aston Villa,2026-11-03T20:00:00+00:00,Asian Handicap Away +2.25,0.788022,0.455871
+765b01b571df2fd9,after,UEFA Champions League,Barcelona,Aston Villa,2026-11-03T20:00:00+00:00,Home win,0.394770,-0.494694
+765b01b571df2fd9,after,UEFA Champions League,Bodø/Glimt,Lille,2026-11-03T20:00:00+00:00,Asian Handicap Home +0.25,0.590821,-0.059909
+765b01b571df2fd9,after,UEFA Champions League,Bodø/Glimt,Lille,2026-11-03T20:00:00+00:00,Double Chance 1X,0.763968,-0.067959
+765b01b571df2fd9,after,UEFA Champions League,Bodø/Glimt,Lille,2026-11-03T20:00:00+00:00,Home win,0.590821,0.004396
+765b01b571df2fd9,after,UEFA Champions League,Feyenoord,Inter Milan,2026-11-03T20:00:00+00:00,Asian Handicap Home +1.25,0.576544,0.086915
+765b01b571df2fd9,after,UEFA Champions League,Feyenoord,Inter Milan,2026-11-03T20:00:00+00:00,Double Chance X2,0.666896,-0.133035
+765b01b571df2fd9,after,UEFA Champions League,Feyenoord,Inter Milan,2026-11-03T20:00:00+00:00,Away win,0.423456,-0.182731
+765b01b571df2fd9,after,UEFA Champions League,LASK,ŠK Slovan Bratislava,2026-11-03T20:00:00+00:00,Asian Handicap Home -0.50,0.937490,0.274987
+765b01b571df2fd9,after,UEFA Champions League,LASK,ŠK Slovan Bratislava,2026-11-03T20:00:00+00:00,Home win,0.937490,0.284362
+765b01b571df2fd9,after,UEFA Champions League,Manchester United,AS Roma,2026-11-03T20:00:00+00:00,Asian Handicap Home +0.50,0.788635,0.119862
+765b01b571df2fd9,after,UEFA Champions League,Manchester United,AS Roma,2026-11-03T20:00:00+00:00,Double Chance 1X,0.788635,0.127748
+765b01b571df2fd9,after,UEFA Champions League,Villarreal,Paris Saint Germain,2026-11-03T20:00:00+00:00,Asian Handicap Away +0.25,0.856561,0.212840
+765b01b571df2fd9,after,UEFA Champions League,Villarreal,Paris Saint Germain,2026-11-03T20:00:00+00:00,Away win,0.856561,0.507547
+765b01b571df2fd9,after,UEFA Champions League,Villarreal,Paris Saint Germain,2026-11-03T20:00:00+00:00,Double Chance X2,0.942918,0.188077
+4dfe537371e33ca4,before,UEFA Champions League,Galatasaray,VfB Stuttgart,2026-11-03T17:45:00+00:00,Asian Handicap Away +1.25,0.573066,0.051699
+4dfe537371e33ca4,before,UEFA Champions League,Galatasaray,VfB Stuttgart,2026-11-03T17:45:00+00:00,Double Chance 1X,0.664929,-0.075749
+4dfe537371e33ca4,before,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,2026-11-03T17:45:00+00:00,Asian Handicap Home +1.25,0.563816,0.038326
+4dfe537371e33ca4,before,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,2026-11-03T17:45:00+00:00,Double Chance X2,0.704997,-0.062354
+4dfe537371e33ca4,before,UEFA Champions League,Atlético Madrid,Bayern Munich,2026-11-03T20:00:00+00:00,Asian Handicap Home +1.25,0.569780,-0.055835
+4dfe537371e33ca4,before,UEFA Champions League,Atlético Madrid,Bayern Munich,2026-11-03T20:00:00+00:00,Double Chance X2,0.639762,-0.059550
+4dfe537371e33ca4,before,UEFA Champions League,Barcelona,Aston Villa,2026-11-03T20:00:00+00:00,Asian Handicap Away +2.25,0.787958,0.455805
+4dfe537371e33ca4,before,UEFA Champions League,Barcelona,Aston Villa,2026-11-03T20:00:00+00:00,Home win,0.394864,-0.494574
+4dfe537371e33ca4,before,UEFA Champions League,Bodø/Glimt,Lille,2026-11-03T20:00:00+00:00,Asian Handicap Home +0.25,0.590845,-0.059885
+4dfe537371e33ca4,before,UEFA Champions League,Bodø/Glimt,Lille,2026-11-03T20:00:00+00:00,Double Chance 1X,0.763987,-0.067936
+4dfe537371e33ca4,before,UEFA Champions League,Bodø/Glimt,Lille,2026-11-03T20:00:00+00:00,Home win,0.590845,0.004436
+4dfe537371e33ca4,before,UEFA Champions League,Feyenoord,Inter Milan,2026-11-03T20:00:00+00:00,Asian Handicap Home +1.25,0.576624,0.087008
+4dfe537371e33ca4,before,UEFA Champions League,Feyenoord,Inter Milan,2026-11-03T20:00:00+00:00,Double Chance X2,0.666827,-0.133125
+4dfe537371e33ca4,before,UEFA Champions League,Feyenoord,Inter Milan,2026-11-03T20:00:00+00:00,Away win,0.423376,-0.182884
+4dfe537371e33ca4,before,UEFA Champions League,LASK,ŠK Slovan Bratislava,2026-11-03T20:00:00+00:00,Asian Handicap Home -0.75,0.860271,0.305953
+4dfe537371e33ca4,before,UEFA Champions League,LASK,ŠK Slovan Bratislava,2026-11-03T20:00:00+00:00,Home win,0.937425,0.274898
+4dfe537371e33ca4,before,UEFA Champions League,Manchester United,AS Roma,2026-11-03T20:00:00+00:00,Asian Handicap Home +0.25,0.603716,0.143715
+4dfe537371e33ca4,before,UEFA Champions League,Manchester United,AS Roma,2026-11-03T20:00:00+00:00,Double Chance 1X,0.788660,0.119897
+4dfe537371e33ca4,before,UEFA Champions League,Villarreal,Paris Saint Germain,2026-11-03T20:00:00+00:00,Asian Handicap Away +0.25,0.856633,0.194889
+4dfe537371e33ca4,before,UEFA Champions League,Villarreal,Paris Saint Germain,2026-11-03T20:00:00+00:00,Double Chance X2,0.942948,0.169255
+4dfe537371e33ca4,before,UEFA Champions League,Villarreal,Paris Saint Germain,2026-11-03T20:00:00+00:00,Away win,0.856633,0.473409
+4dfe537371e33ca4,after,UEFA Champions League,Galatasaray,VfB Stuttgart,2026-11-03T17:45:00+00:00,Asian Handicap Away +1.25,0.573066,0.051699
+4dfe537371e33ca4,after,UEFA Champions League,Galatasaray,VfB Stuttgart,2026-11-03T17:45:00+00:00,Double Chance 1X,0.664929,-0.075749
+4dfe537371e33ca4,after,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,2026-11-03T17:45:00+00:00,Asian Handicap Home +1.25,0.563816,0.038326
+4dfe537371e33ca4,after,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,2026-11-03T17:45:00+00:00,Double Chance X2,0.704997,-0.062354
+4dfe537371e33ca4,after,UEFA Champions League,Atlético Madrid,Bayern Munich,2026-11-03T20:00:00+00:00,Asian Handicap Home +1.25,0.569780,-0.055835
+4dfe537371e33ca4,after,UEFA Champions League,Atlético Madrid,Bayern Munich,2026-11-03T20:00:00+00:00,Double Chance X2,0.639762,-0.059550
+4dfe537371e33ca4,after,UEFA Champions League,Barcelona,Aston Villa,2026-11-03T20:00:00+00:00,Asian Handicap Away +2.25,0.787958,0.455805
+4dfe537371e33ca4,after,UEFA Champions League,Barcelona,Aston Villa,2026-11-03T20:00:00+00:00,Home win,0.394864,-0.494574
+4dfe537371e33ca4,after,UEFA Champions League,Bodø/Glimt,Lille,2026-11-03T20:00:00+00:00,Asian Handicap Home +0.25,0.590845,-0.059885
+4dfe537371e33ca4,after,UEFA Champions League,Bodø/Glimt,Lille,2026-11-03T20:00:00+00:00,Double Chance 1X,0.763987,-0.067936
+4dfe537371e33ca4,after,UEFA Champions League,Bodø/Glimt,Lille,2026-11-03T20:00:00+00:00,Home win,0.590845,0.004436
+4dfe537371e33ca4,after,UEFA Champions League,Feyenoord,Inter Milan,2026-11-03T20:00:00+00:00,Asian Handicap Home +1.25,0.576624,0.087008
+4dfe537371e33ca4,after,UEFA Champions League,Feyenoord,Inter Milan,2026-11-03T20:00:00+00:00,Double Chance X2,0.666827,-0.133125
+4dfe537371e33ca4,after,UEFA Champions League,Feyenoord,Inter Milan,2026-11-03T20:00:00+00:00,Away win,0.423376,-0.182884
+4dfe537371e33ca4,after,UEFA Champions League,LASK,ŠK Slovan Bratislava,2026-11-03T20:00:00+00:00,Asian Handicap Home -0.75,0.860271,0.305953
+4dfe537371e33ca4,after,UEFA Champions League,LASK,ŠK Slovan Bratislava,2026-11-03T20:00:00+00:00,Home win,0.937425,0.274898
+4dfe537371e33ca4,after,UEFA Champions League,Manchester United,AS Roma,2026-11-03T20:00:00+00:00,Asian Handicap Home +0.25,0.603716,0.143715
+4dfe537371e33ca4,after,UEFA Champions League,Manchester United,AS Roma,2026-11-03T20:00:00+00:00,Double Chance 1X,0.788660,0.119897
+4dfe537371e33ca4,after,UEFA Champions League,Villarreal,Paris Saint Germain,2026-11-03T20:00:00+00:00,Asian Handicap Away +0.25,0.856633,0.194889
+4dfe537371e33ca4,after,UEFA Champions League,Villarreal,Paris Saint Germain,2026-11-03T20:00:00+00:00,Double Chance X2,0.942948,0.169255
+4dfe537371e33ca4,after,UEFA Champions League,Villarreal,Paris Saint Germain,2026-11-03T20:00:00+00:00,Away win,0.856633,0.473409
+85c451a1e15281f6,before,UEFA Champions League,AEK Athens,Real Madrid,2026-11-04T17:45:00+00:00,Asian Handicap Away -1.50,0.679584,0.094130
+85c451a1e15281f6,before,UEFA Champions League,AEK Athens,Real Madrid,2026-11-04T17:45:00+00:00,Away win,0.843006,0.036897
+85c451a1e15281f6,before,UEFA Champions League,Fenerbahce,Liverpool,2026-11-04T17:45:00+00:00,Asian Handicap Away -0.75,0.781579,0.351585
+85c451a1e15281f6,before,UEFA Champions League,Fenerbahce,Liverpool,2026-11-04T17:45:00+00:00,Away win,0.911408,0.312427
+85c451a1e15281f6,before,UEFA Champions League,Borussia Dortmund,Real Betis,2026-11-04T20:00:00+00:00,Asian Handicap Home -0.75,0.313505,-0.109240
+85c451a1e15281f6,before,UEFA Champions League,Borussia Dortmund,Real Betis,2026-11-04T20:00:00+00:00,Home win,0.522790,-0.111257
+85c451a1e15281f6,before,UEFA Champions League,PSV Eindhoven,Club Brugge,2026-11-04T20:00:00+00:00,Asian Handicap Home -0.50,0.506601,-0.027327
+85c451a1e15281f6,before,UEFA Champions League,PSV Eindhoven,Club Brugge,2026-11-04T20:00:00+00:00,Home win,0.506601,-0.032393
+85c451a1e15281f6,before,UEFA Champions League,Porto,Napoli,2026-11-04T20:00:00+00:00,Asian Handicap Home -0.50,0.529254,-0.010295
+85c451a1e15281f6,before,UEFA Champions League,Porto,Napoli,2026-11-04T20:00:00+00:00,Home win,0.529254,-0.010295
+85c451a1e15281f6,before,UEFA Champions League,RB Leipzig,Manchester City,2026-11-04T20:00:00+00:00,Asian Handicap Away -1.00,0.271717,-0.264186
+85c451a1e15281f6,before,UEFA Champions League,RB Leipzig,Manchester City,2026-11-04T20:00:00+00:00,Away win,0.496703,-0.220176
+85c451a1e15281f6,before,UEFA Champions League,RC Lens,Como,2026-11-04T20:00:00+00:00,Asian Handicap Away -0.50,0.726211,0.416111
+85c451a1e15281f6,before,UEFA Champions League,RC Lens,Como,2026-11-04T20:00:00+00:00,Away win,0.726211,0.416111
+85c451a1e15281f6,before,UEFA Champions League,Slavia Praha,Arsenal,2026-11-04T20:00:00+00:00,Asian Handicap Away -1.50,0.748052,0.361455
+85c451a1e15281f6,before,UEFA Champions League,Slavia Praha,Arsenal,2026-11-04T20:00:00+00:00,Away win,0.907706,0.152787
+85c451a1e15281f6,before,UEFA Champions League,Viking FK,Sabah FK,2026-11-04T20:00:00+00:00,Asian Handicap Home -1.25,0.707991,0.355702
+85c451a1e15281f6,before,UEFA Champions League,Viking FK,Sabah FK,2026-11-04T20:00:00+00:00,Home win,0.856467,0.207619
+85c451a1e15281f6,after,UEFA Champions League,AEK Athens,Real Madrid,2026-11-04T17:45:00+00:00,Asian Handicap Away -1.50,0.679584,0.094130
+85c451a1e15281f6,after,UEFA Champions League,AEK Athens,Real Madrid,2026-11-04T17:45:00+00:00,Away win,0.843006,0.036897
+85c451a1e15281f6,after,UEFA Champions League,Fenerbahce,Liverpool,2026-11-04T17:45:00+00:00,Asian Handicap Away -0.75,0.781579,0.351585
+85c451a1e15281f6,after,UEFA Champions League,Fenerbahce,Liverpool,2026-11-04T17:45:00+00:00,Away win,0.911408,0.312427
+85c451a1e15281f6,after,UEFA Champions League,Borussia Dortmund,Real Betis,2026-11-04T20:00:00+00:00,Asian Handicap Home -0.75,0.313505,-0.109240
+85c451a1e15281f6,after,UEFA Champions League,Borussia Dortmund,Real Betis,2026-11-04T20:00:00+00:00,Home win,0.522790,-0.111257
+85c451a1e15281f6,after,UEFA Champions League,PSV Eindhoven,Club Brugge,2026-11-04T20:00:00+00:00,Asian Handicap Home -0.50,0.506601,-0.027327
+85c451a1e15281f6,after,UEFA Champions League,PSV Eindhoven,Club Brugge,2026-11-04T20:00:00+00:00,Home win,0.506601,-0.032393
+85c451a1e15281f6,after,UEFA Champions League,Porto,Napoli,2026-11-04T20:00:00+00:00,Asian Handicap Home -0.50,0.529254,-0.010295
+85c451a1e15281f6,after,UEFA Champions League,Porto,Napoli,2026-11-04T20:00:00+00:00,Home win,0.529254,-0.010295
+85c451a1e15281f6,after,UEFA Champions League,RB Leipzig,Manchester City,2026-11-04T20:00:00+00:00,Asian Handicap Away -1.00,0.271717,-0.264186
+85c451a1e15281f6,after,UEFA Champions League,RB Leipzig,Manchester City,2026-11-04T20:00:00+00:00,Away win,0.496703,-0.220176
+85c451a1e15281f6,after,UEFA Champions League,RC Lens,Como,2026-11-04T20:00:00+00:00,Asian Handicap Away -0.50,0.726211,0.416111
+85c451a1e15281f6,after,UEFA Champions League,RC Lens,Como,2026-11-04T20:00:00+00:00,Away win,0.726211,0.416111
+85c451a1e15281f6,after,UEFA Champions League,Slavia Praha,Arsenal,2026-11-04T20:00:00+00:00,Asian Handicap Away -1.50,0.748052,0.361455
+85c451a1e15281f6,after,UEFA Champions League,Slavia Praha,Arsenal,2026-11-04T20:00:00+00:00,Away win,0.907706,0.152787
+85c451a1e15281f6,after,UEFA Champions League,Viking FK,Sabah FK,2026-11-04T20:00:00+00:00,Asian Handicap Home -1.25,0.707991,0.355702
+85c451a1e15281f6,after,UEFA Champions League,Viking FK,Sabah FK,2026-11-04T20:00:00+00:00,Home win,0.856467,0.207619
+ddf20a3972dd45e3,before,UEFA Champions League,AEK Athens,Real Madrid,2026-11-04T17:45:00+00:00,Asian Handicap Away -1.75,0.482265,0.132665
+ddf20a3972dd45e3,before,UEFA Champions League,AEK Athens,Real Madrid,2026-11-04T17:45:00+00:00,Away win,0.842993,0.036881
+ddf20a3972dd45e3,before,UEFA Champions League,Fenerbahce,Liverpool,2026-11-04T17:45:00+00:00,Asian Handicap Away -0.75,0.781609,0.351613
+ddf20a3972dd45e3,before,UEFA Champions League,Fenerbahce,Liverpool,2026-11-04T17:45:00+00:00,Away win,0.911424,0.312451
+ddf20a3972dd45e3,before,UEFA Champions League,Borussia Dortmund,Real Betis,2026-11-04T20:00:00+00:00,Asian Handicap Home +0.25,0.522855,-0.106896
+ddf20a3972dd45e3,before,UEFA Champions League,Borussia Dortmund,Real Betis,2026-11-04T20:00:00+00:00,Home win,0.522855,-0.111147
+ddf20a3972dd45e3,before,UEFA Champions League,Borussia Dortmund,Real Betis,2026-11-04T20:00:00+00:00,Double Chance 1X,0.730206,-0.109148
+ddf20a3972dd45e3,before,UEFA Champions League,PSV Eindhoven,Club Brugge,2026-11-04T20:00:00+00:00,Asian Handicap Home +0.25,0.506587,-0.066866
+ddf20a3972dd45e3,before,UEFA Champions League,PSV Eindhoven,Club Brugge,2026-11-04T20:00:00+00:00,Home win,0.506587,-0.032419
+ddf20a3972dd45e3,before,UEFA Champions League,PSV Eindhoven,Club Brugge,2026-11-04T20:00:00+00:00,Double Chance 1X,0.698200,-0.071394
+ddf20a3972dd45e3,before,UEFA Champions League,Porto,Napoli,2026-11-04T20:00:00+00:00,Asian Handicap Home +0.25,0.529212,-0.022894
+ddf20a3972dd45e3,before,UEFA Champions League,Porto,Napoli,2026-11-04T20:00:00+00:00,Home win,0.529212,-0.010373
+ddf20a3972dd45e3,before,UEFA Champions League,Porto,Napoli,2026-11-04T20:00:00+00:00,Double Chance 1X,0.774960,-0.023551
+ddf20a3972dd45e3,before,UEFA Champions League,RB Leipzig,Manchester City,2026-11-04T20:00:00+00:00,Asian Handicap Home +1.50,0.728320,0.187162
+ddf20a3972dd45e3,before,UEFA Champions League,RB Leipzig,Manchester City,2026-11-04T20:00:00+00:00,Away win,0.496666,-0.220235
+ddf20a3972dd45e3,before,UEFA Champions League,RB Leipzig,Manchester City,2026-11-04T20:00:00+00:00,Double Chance X2,0.730546,-0.130650
+ddf20a3972dd45e3,before,UEFA Champions League,RC Lens,Como,2026-11-04T20:00:00+00:00,Asian Handicap Away +0.25,0.726362,0.162320
+ddf20a3972dd45e3,before,UEFA Champions League,RC Lens,Como,2026-11-04T20:00:00+00:00,Away win,0.726362,0.423670
+ddf20a3972dd45e3,before,UEFA Champions League,RC Lens,Como,2026-11-04T20:00:00+00:00,Double Chance X2,0.867463,0.127701
+ddf20a3972dd45e3,before,UEFA Champions League,Slavia Praha,Arsenal,2026-11-04T20:00:00+00:00,Asian Handicap Away -0.75,0.748030,0.139493
+ddf20a3972dd45e3,before,UEFA Champions League,Slavia Praha,Arsenal,2026-11-04T20:00:00+00:00,Away win,0.907692,0.134615
+ddf20a3972dd45e3,before,UEFA Champions League,Viking FK,Sabah FK,2026-11-04T20:00:00+00:00,Asian Handicap Home -0.75,0.707979,0.224104
+ddf20a3972dd45e3,before,UEFA Champions League,Viking FK,Sabah FK,2026-11-04T20:00:00+00:00,Home win,0.856460,0.207609
+ddf20a3972dd45e3,before,UEFA Europa League,Rennes,Olympiakos Piraeus,2026-11-04T15:30:00+00:00,Asian Handicap Home +0.50,0.818652,0.129740
+ddf20a3972dd45e3,before,UEFA Europa League,Rennes,Olympiakos Piraeus,2026-11-04T15:30:00+00:00,Double Chance 1X,0.818652,0.129740
+ddf20a3972dd45e3,after,UEFA Champions League,AEK Athens,Real Madrid,2026-11-04T17:45:00+00:00,Asian Handicap Away -1.75,0.482265,0.132665
+ddf20a3972dd45e3,after,UEFA Champions League,AEK Athens,Real Madrid,2026-11-04T17:45:00+00:00,Away win,0.842993,0.036881
+ddf20a3972dd45e3,after,UEFA Champions League,Fenerbahce,Liverpool,2026-11-04T17:45:00+00:00,Asian Handicap Away -0.75,0.781609,0.351613
+ddf20a3972dd45e3,after,UEFA Champions League,Fenerbahce,Liverpool,2026-11-04T17:45:00+00:00,Away win,0.911424,0.312451
+ddf20a3972dd45e3,after,UEFA Champions League,Borussia Dortmund,Real Betis,2026-11-04T20:00:00+00:00,Asian Handicap Home +0.25,0.522855,-0.106896
+ddf20a3972dd45e3,after,UEFA Champions League,Borussia Dortmund,Real Betis,2026-11-04T20:00:00+00:00,Home win,0.522855,-0.111147
+ddf20a3972dd45e3,after,UEFA Champions League,Borussia Dortmund,Real Betis,2026-11-04T20:00:00+00:00,Double Chance 1X,0.730206,-0.109148
+ddf20a3972dd45e3,after,UEFA Champions League,PSV Eindhoven,Club Brugge,2026-11-04T20:00:00+00:00,Asian Handicap Home +0.25,0.506587,-0.066866
+ddf20a3972dd45e3,after,UEFA Champions League,PSV Eindhoven,Club Brugge,2026-11-04T20:00:00+00:00,Home win,0.506587,-0.032419
+ddf20a3972dd45e3,after,UEFA Champions League,PSV Eindhoven,Club Brugge,2026-11-04T20:00:00+00:00,Double Chance 1X,0.698200,-0.071394
+ddf20a3972dd45e3,after,UEFA Champions League,Porto,Napoli,2026-11-04T20:00:00+00:00,Asian Handicap Home +0.25,0.529212,-0.022894
+ddf20a3972dd45e3,after,UEFA Champions League,Porto,Napoli,2026-11-04T20:00:00+00:00,Home win,0.529212,-0.010373
+ddf20a3972dd45e3,after,UEFA Champions League,Porto,Napoli,2026-11-04T20:00:00+00:00,Double Chance 1X,0.774960,-0.023551
+ddf20a3972dd45e3,after,UEFA Champions League,RB Leipzig,Manchester City,2026-11-04T20:00:00+00:00,Asian Handicap Home +1.50,0.728320,0.187162
+ddf20a3972dd45e3,after,UEFA Champions League,RB Leipzig,Manchester City,2026-11-04T20:00:00+00:00,Away win,0.496666,-0.220235
+ddf20a3972dd45e3,after,UEFA Champions League,RB Leipzig,Manchester City,2026-11-04T20:00:00+00:00,Double Chance X2,0.730546,-0.130650
+ddf20a3972dd45e3,after,UEFA Champions League,RC Lens,Como,2026-11-04T20:00:00+00:00,Asian Handicap Away +0.25,0.726362,0.162320
+ddf20a3972dd45e3,after,UEFA Champions League,RC Lens,Como,2026-11-04T20:00:00+00:00,Away win,0.726362,0.423670
+ddf20a3972dd45e3,after,UEFA Champions League,RC Lens,Como,2026-11-04T20:00:00+00:00,Double Chance X2,0.867463,0.127701
+ddf20a3972dd45e3,after,UEFA Champions League,Slavia Praha,Arsenal,2026-11-04T20:00:00+00:00,Asian Handicap Away -0.75,0.748030,0.139493
+ddf20a3972dd45e3,after,UEFA Champions League,Slavia Praha,Arsenal,2026-11-04T20:00:00+00:00,Away win,0.907692,0.134615
+ddf20a3972dd45e3,after,UEFA Champions League,Viking FK,Sabah FK,2026-11-04T20:00:00+00:00,Asian Handicap Home -0.75,0.707979,0.224104
+ddf20a3972dd45e3,after,UEFA Champions League,Viking FK,Sabah FK,2026-11-04T20:00:00+00:00,Home win,0.856460,0.207609
+ddf20a3972dd45e3,after,UEFA Europa League,Rennes,Olympiakos Piraeus,2026-11-04T15:30:00+00:00,Asian Handicap Home +0.50,0.818652,0.129740
+ddf20a3972dd45e3,after,UEFA Europa League,Rennes,Olympiakos Piraeus,2026-11-04T15:30:00+00:00,Double Chance 1X,0.818652,0.129740
+8a970f7baa207beb,before,UEFA Europa League,AC Milan,Ferencváros TC,2026-11-05T17:45:00+00:00,Asian Handicap Home -0.50,0.764902,0.009670
+8a970f7baa207beb,before,UEFA Europa League,AC Milan,Ferencváros TC,2026-11-05T17:45:00+00:00,Home win,0.764902,0.024968
+8a970f7baa207beb,before,UEFA Europa League,Anderlecht,Salzburg,2026-11-05T17:45:00+00:00,Asian Handicap Home +0.50,0.743552,-0.025947
+8a970f7baa207beb,before,UEFA Europa League,Anderlecht,Salzburg,2026-11-05T17:45:00+00:00,Double Chance 1X,0.743552,-0.025947
+8a970f7baa207beb,before,UEFA Europa League,Anderlecht,Salzburg,2026-11-05T17:45:00+00:00,Home win,0.515846,0.026533
+8a970f7baa207beb,before,UEFA Europa League,Real Sociedad,Lyon,2026-11-05T17:45:00+00:00,Asian Handicap Home +0.25,0.560064,-0.034479
+8a970f7baa207beb,before,UEFA Europa League,Real Sociedad,Lyon,2026-11-05T17:45:00+00:00,Double Chance 1X,0.778168,-0.042853
+8a970f7baa207beb,before,UEFA Europa League,Real Sociedad,Lyon,2026-11-05T17:45:00+00:00,Home win,0.560064,-0.036689
+8a970f7baa207beb,after,UEFA Europa League,AC Milan,Ferencváros TC,2026-11-05T17:45:00+00:00,Asian Handicap Home -0.50,0.764902,0.009670
+8a970f7baa207beb,after,UEFA Europa League,AC Milan,Ferencváros TC,2026-11-05T17:45:00+00:00,Home win,0.764902,0.024968
+8a970f7baa207beb,after,UEFA Europa League,Anderlecht,Salzburg,2026-11-05T17:45:00+00:00,Asian Handicap Home +0.50,0.743552,-0.025947
+8a970f7baa207beb,after,UEFA Europa League,Anderlecht,Salzburg,2026-11-05T17:45:00+00:00,Double Chance 1X,0.743552,-0.025947
+8a970f7baa207beb,after,UEFA Europa League,Anderlecht,Salzburg,2026-11-05T17:45:00+00:00,Home win,0.515846,0.026533
+8a970f7baa207beb,after,UEFA Europa League,Real Sociedad,Lyon,2026-11-05T17:45:00+00:00,Asian Handicap Home +0.25,0.560064,-0.034479
+8a970f7baa207beb,after,UEFA Europa League,Real Sociedad,Lyon,2026-11-05T17:45:00+00:00,Double Chance 1X,0.778168,-0.042853
+8a970f7baa207beb,after,UEFA Europa League,Real Sociedad,Lyon,2026-11-05T17:45:00+00:00,Home win,0.560064,-0.036689
+a00d5e530cc2e80e,before,UEFA Europa League,AC Milan,Ferencváros TC,2026-11-05T17:45:00+00:00,Asian Handicap Home -0.50,0.768532,-0.008594
+a00d5e530cc2e80e,before,UEFA Europa League,AC Milan,Ferencváros TC,2026-11-05T17:45:00+00:00,Home win,0.768532,0.006777
+a00d5e530cc2e80e,before,UEFA Europa League,Anderlecht,Salzburg,2026-11-05T17:45:00+00:00,Asian Handicap Away +1.25,0.518760,-0.028374
+a00d5e530cc2e80e,before,UEFA Europa League,Anderlecht,Salzburg,2026-11-05T17:45:00+00:00,Double Chance 1X,0.708047,-0.051217
+a00d5e530cc2e80e,before,UEFA Europa League,Real Sociedad,Lyon,2026-11-05T17:45:00+00:00,Asian Handicap Away +1.25,0.460943,0.087353
+a00d5e530cc2e80e,before,UEFA Europa League,Real Sociedad,Lyon,2026-11-05T17:45:00+00:00,Double Chance 1X,0.763097,-0.084284
+a00d5e530cc2e80e,before,UEFA Europa League,Real Sociedad,Lyon,2026-11-05T17:45:00+00:00,Home win,0.539057,-0.137509
+a00d5e530cc2e80e,before,UEFA Europa League,AZ Alkmaar,Juventus,2026-11-05T20:00:00+00:00,Asian Handicap Away +0.25,0.589497,0.040303
+a00d5e530cc2e80e,before,UEFA Europa League,AZ Alkmaar,Juventus,2026-11-05T20:00:00+00:00,Double Chance X2,0.815503,0.027534
+a00d5e530cc2e80e,before,UEFA Europa League,AZ Alkmaar,Juventus,2026-11-05T20:00:00+00:00,Away win,0.589497,0.114149
+a00d5e530cc2e80e,before,UEFA Europa League,Bayer Leverkusen,Marseille,2026-11-05T20:00:00+00:00,Asian Handicap Home -0.75,0.519649,-0.053918
+a00d5e530cc2e80e,before,UEFA Europa League,Bayer Leverkusen,Marseille,2026-11-05T20:00:00+00:00,Home win,0.733113,-0.046953
+a00d5e530cc2e80e,before,UEFA Europa League,Celta Vigo,Union Saint-Gilloise,2026-11-05T20:00:00+00:00,Asian Handicap Away +1.25,0.706630,0.064340
+a00d5e530cc2e80e,before,UEFA Europa League,Celta Vigo,Union Saint-Gilloise,2026-11-05T20:00:00+00:00,Double Chance X2,0.706630,0.137674
+a00d5e530cc2e80e,before,UEFA Europa League,Celtic,Besiktas JK,2026-11-05T20:00:00+00:00,Asian Handicap Home +1.25,0.516255,-0.108833
+a00d5e530cc2e80e,before,UEFA Europa League,Celtic,Besiktas JK,2026-11-05T20:00:00+00:00,Double Chance X2,0.675769,-0.033650
+a00d5e530cc2e80e,after,UEFA Europa League,AC Milan,Ferencváros TC,2026-11-05T17:45:00+00:00,Asian Handicap Home -0.50,0.768532,-0.008594
+a00d5e530cc2e80e,after,UEFA Europa League,AC Milan,Ferencváros TC,2026-11-05T17:45:00+00:00,Home win,0.768532,0.006777
+a00d5e530cc2e80e,after,UEFA Europa League,Anderlecht,Salzburg,2026-11-05T17:45:00+00:00,Asian Handicap Away +1.25,0.518760,-0.028374
+a00d5e530cc2e80e,after,UEFA Europa League,Anderlecht,Salzburg,2026-11-05T17:45:00+00:00,Double Chance 1X,0.708047,-0.051217
+a00d5e530cc2e80e,after,UEFA Europa League,Real Sociedad,Lyon,2026-11-05T17:45:00+00:00,Asian Handicap Away +1.25,0.460943,0.087353
+a00d5e530cc2e80e,after,UEFA Europa League,Real Sociedad,Lyon,2026-11-05T17:45:00+00:00,Double Chance 1X,0.763097,-0.084284
+a00d5e530cc2e80e,after,UEFA Europa League,Real Sociedad,Lyon,2026-11-05T17:45:00+00:00,Home win,0.539057,-0.137509
+a00d5e530cc2e80e,after,UEFA Europa League,AZ Alkmaar,Juventus,2026-11-05T20:00:00+00:00,Asian Handicap Away +0.25,0.589497,0.040303
+a00d5e530cc2e80e,after,UEFA Europa League,AZ Alkmaar,Juventus,2026-11-05T20:00:00+00:00,Double Chance X2,0.815503,0.027534
+a00d5e530cc2e80e,after,UEFA Europa League,AZ Alkmaar,Juventus,2026-11-05T20:00:00+00:00,Away win,0.589497,0.114149
+a00d5e530cc2e80e,after,UEFA Europa League,Bayer Leverkusen,Marseille,2026-11-05T20:00:00+00:00,Asian Handicap Home -0.75,0.519649,-0.053918
+a00d5e530cc2e80e,after,UEFA Europa League,Bayer Leverkusen,Marseille,2026-11-05T20:00:00+00:00,Home win,0.733113,-0.046953
+a00d5e530cc2e80e,after,UEFA Europa League,Celta Vigo,Union Saint-Gilloise,2026-11-05T20:00:00+00:00,Asian Handicap Away +1.25,0.706630,0.064340
+a00d5e530cc2e80e,after,UEFA Europa League,Celta Vigo,Union Saint-Gilloise,2026-11-05T20:00:00+00:00,Double Chance X2,0.706630,0.137674
+a00d5e530cc2e80e,after,UEFA Europa League,Celtic,Besiktas JK,2026-11-05T20:00:00+00:00,Asian Handicap Home +1.25,0.516255,-0.108833
+a00d5e530cc2e80e,after,UEFA Europa League,Celtic,Besiktas JK,2026-11-05T20:00:00+00:00,Double Chance X2,0.675769,-0.033650
+775022176692974f,before,UEFA Europa League,AC Milan,Ferencváros TC,2026-11-05T17:45:00+00:00,Asian Handicap Home -0.75,0.576452,0.064347
+775022176692974f,before,UEFA Europa League,AC Milan,Ferencváros TC,2026-11-05T17:45:00+00:00,Home win,0.768465,0.060482
+775022176692974f,before,UEFA Europa League,Anderlecht,Salzburg,2026-11-05T17:45:00+00:00,Asian Handicap Away +1.25,0.518762,-0.040895
+775022176692974f,before,UEFA Europa League,Anderlecht,Salzburg,2026-11-05T17:45:00+00:00,Double Chance 1X,0.708047,-0.022895
+775022176692974f,before,UEFA Europa League,Real Sociedad,Lyon,2026-11-05T17:45:00+00:00,Asian Handicap Home +0.25,0.539019,-0.061146
+775022176692974f,before,UEFA Europa League,Real Sociedad,Lyon,2026-11-05T17:45:00+00:00,Home win,0.539019,-0.132180
+775022176692974f,before,UEFA Europa League,Real Sociedad,Lyon,2026-11-05T17:45:00+00:00,Double Chance 1X,0.763072,-0.053791
+775022176692974f,before,UEFA Europa League,AZ Alkmaar,Juventus,2026-11-05T20:00:00+00:00,Asian Handicap Away +0.25,0.589546,0.054407
+775022176692974f,before,UEFA Europa League,AZ Alkmaar,Juventus,2026-11-05T20:00:00+00:00,Away win,0.589546,0.137824
+775022176692974f,before,UEFA Europa League,AZ Alkmaar,Juventus,2026-11-05T20:00:00+00:00,Double Chance X2,0.815542,0.035739
+775022176692974f,before,UEFA Europa League,Bayer Leverkusen,Marseille,2026-11-05T20:00:00+00:00,Asian Handicap Home -0.75,0.519583,-0.060253
+775022176692974f,before,UEFA Europa League,Bayer Leverkusen,Marseille,2026-11-05T20:00:00+00:00,Home win,0.733061,-0.047021
+775022176692974f,before,UEFA Europa League,Celta Vigo,Union Saint-Gilloise,2026-11-05T20:00:00+00:00,Asian Handicap Away +1.25,0.706602,0.064317
+775022176692974f,before,UEFA Europa League,Celta Vigo,Union Saint-Gilloise,2026-11-05T20:00:00+00:00,Double Chance X2,0.706602,0.137630
+775022176692974f,before,UEFA Europa League,Celtic,Besiktas JK,2026-11-05T20:00:00+00:00,Asian Handicap Home +1.25,0.516037,-0.103005
+775022176692974f,before,UEFA Europa League,Celtic,Besiktas JK,2026-11-05T20:00:00+00:00,Double Chance X2,0.675957,-0.040141
+775022176692974f,after,UEFA Europa League,AC Milan,Ferencváros TC,2026-11-05T17:45:00+00:00,Asian Handicap Home -0.75,0.576452,0.064347
+775022176692974f,after,UEFA Europa League,AC Milan,Ferencváros TC,2026-11-05T17:45:00+00:00,Home win,0.768465,0.060482
+775022176692974f,after,UEFA Europa League,Anderlecht,Salzburg,2026-11-05T17:45:00+00:00,Asian Handicap Away +1.25,0.518762,-0.040895
+775022176692974f,after,UEFA Europa League,Anderlecht,Salzburg,2026-11-05T17:45:00+00:00,Double Chance 1X,0.708047,-0.022895
+775022176692974f,after,UEFA Europa League,Real Sociedad,Lyon,2026-11-05T17:45:00+00:00,Asian Handicap Home +0.25,0.539019,-0.061146
+775022176692974f,after,UEFA Europa League,Real Sociedad,Lyon,2026-11-05T17:45:00+00:00,Home win,0.539019,-0.132180
+775022176692974f,after,UEFA Europa League,Real Sociedad,Lyon,2026-11-05T17:45:00+00:00,Double Chance 1X,0.763072,-0.053791
+775022176692974f,after,UEFA Europa League,AZ Alkmaar,Juventus,2026-11-05T20:00:00+00:00,Asian Handicap Away +0.25,0.589546,0.054407
+775022176692974f,after,UEFA Europa League,AZ Alkmaar,Juventus,2026-11-05T20:00:00+00:00,Away win,0.589546,0.137824
+775022176692974f,after,UEFA Europa League,AZ Alkmaar,Juventus,2026-11-05T20:00:00+00:00,Double Chance X2,0.815542,0.035739
+775022176692974f,after,UEFA Europa League,Bayer Leverkusen,Marseille,2026-11-05T20:00:00+00:00,Asian Handicap Home -0.75,0.519583,-0.060253
+775022176692974f,after,UEFA Europa League,Bayer Leverkusen,Marseille,2026-11-05T20:00:00+00:00,Home win,0.733061,-0.047021
+775022176692974f,after,UEFA Europa League,Celta Vigo,Union Saint-Gilloise,2026-11-05T20:00:00+00:00,Asian Handicap Away +1.25,0.706602,0.064317
+775022176692974f,after,UEFA Europa League,Celta Vigo,Union Saint-Gilloise,2026-11-05T20:00:00+00:00,Double Chance X2,0.706602,0.137630
+775022176692974f,after,UEFA Europa League,Celtic,Besiktas JK,2026-11-05T20:00:00+00:00,Asian Handicap Home +1.25,0.516037,-0.103005
+775022176692974f,after,UEFA Europa League,Celtic,Besiktas JK,2026-11-05T20:00:00+00:00,Double Chance X2,0.675957,-0.040141
+5d2089b153695efa,before,Premier League,Everton,Coventry City,2026-11-06T20:00:00+00:00,Asian Handicap Away +1.25,0.518870,0.120172
+5d2089b153695efa,before,Premier League,Everton,Coventry City,2026-11-06T20:00:00+00:00,Home win,0.481130,-0.177268
+5d2089b153695efa,before,Premier League,Everton,Coventry City,2026-11-06T20:00:00+00:00,Double Chance 1X,0.745933,-0.097421
+5d2089b153695efa,before,La Liga,Sevilla,Alavés,2026-11-06T20:00:00+00:00,Asian Handicap Home +0.25,0.504651,-0.079082
+5d2089b153695efa,before,La Liga,Sevilla,Alavés,2026-11-06T20:00:00+00:00,Home win,0.504651,-0.046209
+5d2089b153695efa,before,La Liga,Sevilla,Alavés,2026-11-06T20:00:00+00:00,Double Chance 1X,0.751357,-0.083345
+5d2089b153695efa,before,Bundesliga,Hamburger SV,Borussia Monchengladbach,2026-11-06T19:30:00+00:00,Asian Handicap Away +1.25,0.569245,-0.046570
+5d2089b153695efa,before,Bundesliga,Hamburger SV,Borussia Monchengladbach,2026-11-06T19:30:00+00:00,Double Chance 1X,0.668865,-0.056901
+5d2089b153695efa,before,Serie A,Venezia,Udinese,2026-11-06T19:45:00+00:00,Asian Handicap Away +1.25,0.718370,0.102002
+5d2089b153695efa,before,Serie A,Venezia,Udinese,2026-11-06T19:45:00+00:00,Double Chance X2,0.718370,0.185311
+5d2089b153695efa,before,Ligue 1,Toulouse,Strasbourg,2026-11-06T19:45:00+00:00,Asian Handicap Away +1.25,0.580857,-0.002751
+5d2089b153695efa,before,Ligue 1,Toulouse,Strasbourg,2026-11-06T19:45:00+00:00,Double Chance 1X,0.664826,-0.082541
+5d2089b153695efa,before,Eredivisie,Willem II,FC Zwolle,2026-11-06T19:00:00+00:00,Asian Handicap Home +1.25,0.564539,-0.009004
+5d2089b153695efa,before,Primeira Liga,Famalicão,Arouca,2026-11-06T20:45:00+00:00,Asian Handicap Away +1.25,0.597572,-0.002181
+5d2089b153695efa,before,Super Lig,Gazişehir Gaziantep,Kasimpasa SK,2026-11-06T17:00:00+00:00,Asian Handicap Away +1.00,0.639212,-0.012618
+5d2089b153695efa,before,Super Lig,Eyüpspor,Kocaelispor,2026-11-07T10:30:00+00:00,Asian Handicap Home +1.50,0.859079,0.082440
+5d2089b153695efa,before,Super Lig,Eyüpspor,Kocaelispor,2026-11-07T10:30:00+00:00,Away win,0.364194,-0.278896
+5d2089b153695efa,after,Premier League,Everton,Coventry City,2026-11-06T20:00:00+00:00,Asian Handicap Home +0.25,0.489641,-0.081844
+5d2089b153695efa,after,Premier League,Everton,Coventry City,2026-11-06T20:00:00+00:00,Home win,0.489641,-0.162713
+5d2089b153695efa,after,Premier League,Everton,Coventry City,2026-11-06T20:00:00+00:00,Double Chance 1X,0.767321,-0.071542
+5d2089b153695efa,after,La Liga,Sevilla,Alavés,2026-11-06T20:00:00+00:00,Asian Handicap Home +0.25,0.515160,-0.051887
+5d2089b153695efa,after,La Liga,Sevilla,Alavés,2026-11-06T20:00:00+00:00,Home win,0.515160,-0.026347
+5d2089b153695efa,after,La Liga,Sevilla,Alavés,2026-11-06T20:00:00+00:00,Double Chance 1X,0.774068,-0.055638
+5d2089b153695efa,after,Bundesliga,Hamburger SV,Borussia Monchengladbach,2026-11-06T19:30:00+00:00,Asian Handicap Away +1.25,0.567937,-0.049097
+5d2089b153695efa,after,Bundesliga,Hamburger SV,Borussia Monchengladbach,2026-11-06T19:30:00+00:00,Double Chance 1X,0.681796,-0.038667
+5d2089b153695efa,after,Serie A,Venezia,Udinese,2026-11-06T19:45:00+00:00,Asian Handicap Away +1.25,0.736614,0.110957
+5d2089b153695efa,after,Serie A,Venezia,Udinese,2026-11-06T19:45:00+00:00,Double Chance X2,0.736614,0.215413
+5d2089b153695efa,after,Ligue 1,Toulouse,Strasbourg,2026-11-06T19:45:00+00:00,Asian Handicap Away +1.25,0.580867,-0.004394
+5d2089b153695efa,after,Ligue 1,Toulouse,Strasbourg,2026-11-06T19:45:00+00:00,Double Chance 1X,0.676863,-0.065929
+5d2089b153695efa,after,Eredivisie,Willem II,FC Zwolle,2026-11-06T19:00:00+00:00,Asian Handicap Home +1.25,0.562174,-0.012452
+5d2089b153695efa,after,Primeira Liga,Famalicão,Arouca,2026-11-06T20:45:00+00:00,Asian Handicap Away +1.25,0.598438,-0.003283
+5d2089b153695efa,after,Super Lig,Gazişehir Gaziantep,Kasimpasa SK,2026-11-06T17:00:00+00:00,Asian Handicap Away +0.25,0.372267,-0.006695
+5d2089b153695efa,after,Super Lig,Eyüpspor,Kocaelispor,2026-11-07T10:30:00+00:00,Asian Handicap Home +1.25,0.640100,0.099362
+5d2089b153695efa,after,Super Lig,Eyüpspor,Kocaelispor,2026-11-07T10:30:00+00:00,Away win,0.359900,-0.287397
+440236589764dce4,before,Premier League,Everton,Coventry City,2026-11-06T20:00:00+00:00,Asian Handicap Away +1.25,0.518882,0.120185
+440236589764dce4,before,Premier League,Everton,Coventry City,2026-11-06T20:00:00+00:00,Home win,0.481118,-0.177289
+440236589764dce4,before,Premier League,Everton,Coventry City,2026-11-06T20:00:00+00:00,Double Chance 1X,0.745920,-0.097437
+440236589764dce4,before,La Liga,Sevilla,Alavés,2026-11-06T20:00:00+00:00,Asian Handicap Home +0.50,0.751357,-0.083345
+440236589764dce4,before,La Liga,Sevilla,Alavés,2026-11-06T20:00:00+00:00,Home win,0.504653,-0.046206
+440236589764dce4,before,La Liga,Sevilla,Alavés,2026-11-06T20:00:00+00:00,Double Chance 1X,0.751357,-0.083345
+440236589764dce4,before,Bundesliga,Hamburger SV,Borussia Monchengladbach,2026-11-06T19:30:00+00:00,Asian Handicap Away +1.25,0.569213,-0.039873
+440236589764dce4,before,Bundesliga,Hamburger SV,Borussia Monchengladbach,2026-11-06T19:30:00+00:00,Double Chance 1X,0.668882,-0.056876
+440236589764dce4,before,Serie A,Venezia,Udinese,2026-11-06T19:45:00+00:00,Asian Handicap Away +1.25,0.718370,0.102002
+440236589764dce4,before,Serie A,Venezia,Udinese,2026-11-06T19:45:00+00:00,Double Chance X2,0.718370,0.185311
+440236589764dce4,before,Ligue 1,Toulouse,Strasbourg,2026-11-06T19:45:00+00:00,Asian Handicap Away +1.25,0.580862,-0.002746
+440236589764dce4,before,Ligue 1,Toulouse,Strasbourg,2026-11-06T19:45:00+00:00,Double Chance 1X,0.664821,-0.082547
+440236589764dce4,before,Eredivisie,Willem II,FC Zwolle,2026-11-06T19:00:00+00:00,Asian Handicap Home +1.25,0.564638,-0.008904
+440236589764dce4,before,Primeira Liga,Famalicão,Arouca,2026-11-06T20:45:00+00:00,Asian Handicap Away +1.25,0.597570,-0.002183
+440236589764dce4,after,Premier League,Everton,Coventry City,2026-11-06T20:00:00+00:00,Asian Handicap Home +0.25,0.489628,-0.081861
+440236589764dce4,after,Premier League,Everton,Coventry City,2026-11-06T20:00:00+00:00,Home win,0.489628,-0.162736
+440236589764dce4,after,Premier League,Everton,Coventry City,2026-11-06T20:00:00+00:00,Double Chance 1X,0.767306,-0.071559
+440236589764dce4,after,La Liga,Sevilla,Alavés,2026-11-06T20:00:00+00:00,Asian Handicap Home +0.50,0.774068,-0.055637
+440236589764dce4,after,La Liga,Sevilla,Alavés,2026-11-06T20:00:00+00:00,Home win,0.515162,-0.026345
+440236589764dce4,after,La Liga,Sevilla,Alavés,2026-11-06T20:00:00+00:00,Double Chance 1X,0.774068,-0.055637
+440236589764dce4,after,Bundesliga,Hamburger SV,Borussia Monchengladbach,2026-11-06T19:30:00+00:00,Asian Handicap Away +1.25,0.567902,-0.042420
+440236589764dce4,after,Bundesliga,Hamburger SV,Borussia Monchengladbach,2026-11-06T19:30:00+00:00,Double Chance 1X,0.681817,-0.038638
+440236589764dce4,after,Serie A,Venezia,Udinese,2026-11-06T19:45:00+00:00,Asian Handicap Away +1.25,0.736614,0.110957
+440236589764dce4,after,Serie A,Venezia,Udinese,2026-11-06T19:45:00+00:00,Double Chance X2,0.736614,0.215413
+440236589764dce4,after,Ligue 1,Toulouse,Strasbourg,2026-11-06T19:45:00+00:00,Asian Handicap Away +1.25,0.580872,-0.004389
+440236589764dce4,after,Ligue 1,Toulouse,Strasbourg,2026-11-06T19:45:00+00:00,Double Chance 1X,0.676858,-0.065936
+440236589764dce4,after,Eredivisie,Willem II,FC Zwolle,2026-11-06T19:00:00+00:00,Asian Handicap Home +1.25,0.562286,-0.012342
+440236589764dce4,after,Primeira Liga,Famalicão,Arouca,2026-11-06T20:45:00+00:00,Asian Handicap Away +1.25,0.598437,-0.003285
+b9d2d10f3419c606,before,Premier League,Everton,Coventry City,2026-11-06T20:00:00+00:00,Asian Handicap Away +1.25,0.518867,0.132979
+b9d2d10f3419c606,before,Premier League,Everton,Coventry City,2026-11-06T20:00:00+00:00,Home win,0.481133,-0.191696
+b9d2d10f3419c606,before,Premier League,Everton,Coventry City,2026-11-06T20:00:00+00:00,Double Chance 1X,0.745943,-0.112327
+b9d2d10f3419c606,before,Premier League,Leeds United,Tottenham Hotspur,2026-11-07T12:30:00+00:00,Asian Handicap Home +0.25,0.403765,0.050818
+b9d2d10f3419c606,before,Premier League,Leeds United,Tottenham Hotspur,2026-11-07T12:30:00+00:00,Double Chance 1X,0.665781,0.025303
+b9d2d10f3419c606,before,La Liga,Sevilla,Alavés,2026-11-06T20:00:00+00:00,Asian Handicap Home +0.50,0.751353,-0.083349
+b9d2d10f3419c606,before,La Liga,Sevilla,Alavés,2026-11-06T20:00:00+00:00,Home win,0.504645,-0.056313
+b9d2d10f3419c606,before,La Liga,Sevilla,Alavés,2026-11-06T20:00:00+00:00,Double Chance 1X,0.751353,-0.083349
+b9d2d10f3419c606,before,La Liga,Málaga,Real Racing Club de Santander,2026-11-07T13:00:00+00:00,Asian Handicap Away +1.25,0.541754,-0.096479
+b9d2d10f3419c606,before,La Liga,Málaga,Real Racing Club de Santander,2026-11-07T13:00:00+00:00,Double Chance 1X,0.682841,-0.009881
+b9d2d10f3419c606,before,Bundesliga,Hamburger SV,Borussia Monchengladbach,2026-11-06T19:30:00+00:00,Asian Handicap Away +1.25,0.569188,-0.039897
+b9d2d10f3419c606,before,Bundesliga,Hamburger SV,Borussia Monchengladbach,2026-11-06T19:30:00+00:00,Double Chance 1X,0.668909,-0.056838
+b9d2d10f3419c606,before,Serie A,Venezia,Udinese,2026-11-06T19:45:00+00:00,Asian Handicap Away +1.25,0.718370,0.102002
+b9d2d10f3419c606,before,Serie A,Venezia,Udinese,2026-11-06T19:45:00+00:00,Double Chance X2,0.718370,0.178127
+b9d2d10f3419c606,before,Ligue 1,Toulouse,Strasbourg,2026-11-06T19:45:00+00:00,Asian Handicap Away +1.25,0.580865,-0.002743
+b9d2d10f3419c606,before,Ligue 1,Toulouse,Strasbourg,2026-11-06T19:45:00+00:00,Double Chance 1X,0.664819,-0.075901
+b9d2d10f3419c606,before,Eredivisie,Willem II,FC Zwolle,2026-11-06T19:00:00+00:00,Asian Handicap Home +1.25,0.564605,-0.002196
+b9d2d10f3419c606,before,Primeira Liga,Famalicão,Arouca,2026-11-06T20:45:00+00:00,Asian Handicap Home +0.75,0.679282,-0.033739
+b9d2d10f3419c606,before,Super Lig,Gazişehir Gaziantep,Kasimpasa SK,2026-11-06T17:00:00+00:00,Asian Handicap Away +1.00,0.639207,0.000163
+b9d2d10f3419c606,before,Super Lig,Eyüpspor,Kocaelispor,2026-11-07T10:30:00+00:00,Asian Handicap Home +1.50,0.859087,0.082450
+b9d2d10f3419c606,before,Super Lig,Eyüpspor,Kocaelispor,2026-11-07T10:30:00+00:00,Away win,0.364173,-0.278938
+b9d2d10f3419c606,before,Super Lig,Samsunspor,Torku Konyaspor,2026-11-07T13:00:00+00:00,Asian Handicap Away +1.25,0.614869,-0.001467
+b9d2d10f3419c606,after,Premier League,Everton,Coventry City,2026-11-06T20:00:00+00:00,Asian Handicap Home +0.25,0.489645,-0.088116
+b9d2d10f3419c606,after,Premier League,Everton,Coventry City,2026-11-06T20:00:00+00:00,Home win,0.489645,-0.177396
+b9d2d10f3419c606,after,Premier League,Everton,Coventry City,2026-11-06T20:00:00+00:00,Double Chance 1X,0.767332,-0.086875
+b9d2d10f3419c606,after,Premier League,Leeds United,Tottenham Hotspur,2026-11-07T12:30:00+00:00,Asian Handicap Home +0.50,0.677164,0.049604
+b9d2d10f3419c606,after,Premier League,Leeds United,Tottenham Hotspur,2026-11-07T12:30:00+00:00,Double Chance 1X,0.677164,0.042833
+b9d2d10f3419c606,after,La Liga,Sevilla,Alavés,2026-11-06T20:00:00+00:00,Asian Handicap Home +0.25,0.515153,-0.058338
+b9d2d10f3419c606,after,La Liga,Sevilla,Alavés,2026-11-06T20:00:00+00:00,Home win,0.515153,-0.036663
+b9d2d10f3419c606,after,La Liga,Sevilla,Alavés,2026-11-06T20:00:00+00:00,Double Chance 1X,0.774064,-0.055642
+b9d2d10f3419c606,after,La Liga,Málaga,Real Racing Club de Santander,2026-11-07T13:00:00+00:00,Asian Handicap Away +1.25,0.537172,-0.101355
+b9d2d10f3419c606,after,La Liga,Málaga,Real Racing Club de Santander,2026-11-07T13:00:00+00:00,Double Chance 1X,0.698210,0.012404
+b9d2d10f3419c606,after,Bundesliga,Hamburger SV,Borussia Monchengladbach,2026-11-06T19:30:00+00:00,Asian Handicap Away +1.25,0.567872,-0.042446
+b9d2d10f3419c606,after,Bundesliga,Hamburger SV,Borussia Monchengladbach,2026-11-06T19:30:00+00:00,Double Chance 1X,0.681847,-0.038595
+b9d2d10f3419c606,after,Serie A,Venezia,Udinese,2026-11-06T19:45:00+00:00,Asian Handicap Away +1.25,0.736614,0.110957
+b9d2d10f3419c606,after,Serie A,Venezia,Udinese,2026-11-06T19:45:00+00:00,Double Chance X2,0.736614,0.208046
+b9d2d10f3419c606,after,Ligue 1,Toulouse,Strasbourg,2026-11-06T19:45:00+00:00,Asian Handicap Away +1.25,0.580876,-0.004385
+b9d2d10f3419c606,after,Ligue 1,Toulouse,Strasbourg,2026-11-06T19:45:00+00:00,Double Chance 1X,0.676856,-0.059170
+b9d2d10f3419c606,after,Eredivisie,Willem II,FC Zwolle,2026-11-06T19:00:00+00:00,Asian Handicap Home +1.25,0.562248,-0.005663
+b9d2d10f3419c606,after,Primeira Liga,Famalicão,Arouca,2026-11-06T20:45:00+00:00,Asian Handicap Home +0.25,0.401572,-0.007587
+b9d2d10f3419c606,after,Super Lig,Gazişehir Gaziantep,Kasimpasa SK,2026-11-06T17:00:00+00:00,Asian Handicap Away +0.25,0.372257,0.008579
+b9d2d10f3419c606,after,Super Lig,Eyüpspor,Kocaelispor,2026-11-07T10:30:00+00:00,Asian Handicap Home +1.25,0.640124,0.099377
+b9d2d10f3419c606,after,Super Lig,Eyüpspor,Kocaelispor,2026-11-07T10:30:00+00:00,Away win,0.359876,-0.287446
+b9d2d10f3419c606,after,Super Lig,Samsunspor,Torku Konyaspor,2026-11-07T13:00:00+00:00,Asian Handicap Away +1.25,0.618815,-0.000586
+1dabcf85eb639cd0,before,Premier League,Leeds United,Tottenham Hotspur,2026-11-07T12:30:00+00:00,Asian Handicap Home +0.25,0.404269,0.046462
+1dabcf85eb639cd0,before,Premier League,Leeds United,Tottenham Hotspur,2026-11-07T12:30:00+00:00,Double Chance 1X,0.666381,0.019563
+1dabcf85eb639cd0,before,Premier League,Arsenal,Hull City,2026-11-07T15:00:00+00:00,Asian Handicap Away +2.25,0.628560,0.466402
+1dabcf85eb639cd0,before,Premier League,Fulham,Newcastle United,2026-11-07T15:00:00+00:00,Asian Handicap Away +1.25,0.613066,0.083581
+1dabcf85eb639cd0,before,Premier League,Fulham,Newcastle United,2026-11-07T15:00:00+00:00,Double Chance 1X,0.641006,-0.160282
+1dabcf85eb639cd0,before,Premier League,Nottingham Forest,Manchester City,2026-11-07T17:30:00+00:00,Asian Handicap Away +0.25,0.590068,0.014371
+1dabcf85eb639cd0,before,Premier League,Nottingham Forest,Manchester City,2026-11-07T17:30:00+00:00,Away win,0.590068,0.050321
+1dabcf85eb639cd0,before,Premier League,Nottingham Forest,Manchester City,2026-11-07T17:30:00+00:00,Double Chance X2,0.823534,0.012947
+1dabcf85eb639cd0,before,La Liga,Málaga,Real Racing Club de Santander,2026-11-07T13:00:00+00:00,Asian Handicap Away +1.25,0.541653,-0.090259
+1dabcf85eb639cd0,before,La Liga,Málaga,Real Racing Club de Santander,2026-11-07T13:00:00+00:00,Double Chance 1X,0.682782,-0.016794
+1dabcf85eb639cd0,before,La Liga,Espanyol,Deportivo La Coruña,2026-11-07T15:15:00+00:00,Asian Handicap Away +1.25,0.633460,0.002712
+1dabcf85eb639cd0,before,La Liga,Espanyol,Deportivo La Coruña,2026-11-07T15:15:00+00:00,Double Chance 1X,0.636551,-0.102463
+1dabcf85eb639cd0,before,La Liga,CA Osasuna,Athletic Bilbao,2026-11-07T17:30:00+00:00,Asian Handicap Home +1.50,0.868484,0.111660
+1dabcf85eb639cd0,before,La Liga,CA Osasuna,Athletic Bilbao,2026-11-07T17:30:00+00:00,Double Chance 1X,0.663885,0.214910
+1dabcf85eb639cd0,before,La Liga,Valencia,Real Madrid,2026-11-07T20:00:00+00:00,Asian Handicap Home +2.25,0.618193,0.172098
+1dabcf85eb639cd0,before,La Liga,Valencia,Real Madrid,2026-11-07T20:00:00+00:00,Away win,0.622515,-0.215631
+1dabcf85eb639cd0,before,Bundesliga,Borussia Dortmund,Elversberg,2026-11-07T14:30:00+00:00,Asian Handicap Away +2.25,0.538849,0.028003
+1dabcf85eb639cd0,before,Bundesliga,Borussia Dortmund,Elversberg,2026-11-07T14:30:00+00:00,Home win,0.670848,-0.114481
+1dabcf85eb639cd0,before,Bundesliga,FSV Mainz 05,Bayern Munich,2026-11-07T14:30:00+00:00,Asian Handicap Home +2.25,0.547801,0.144317
+1dabcf85eb639cd0,before,Bundesliga,FSV Mainz 05,Bayern Munich,2026-11-07T14:30:00+00:00,Away win,0.665020,-0.148774
+1dabcf85eb639cd0,before,Bundesliga,RB Leipzig,Augsburg,2026-11-07T14:30:00+00:00,Asian Handicap Away +2.25,0.586176,0.045622
+1dabcf85eb639cd0,before,Bundesliga,RB Leipzig,Augsburg,2026-11-07T14:30:00+00:00,Home win,0.625764,-0.098900
+1dabcf85eb639cd0,before,Bundesliga,SC Paderborn,Eintracht Frankfurt,2026-11-07T14:30:00+00:00,Asian Handicap Away +0.25,0.416913,0.046260
+1dabcf85eb639cd0,before,Bundesliga,SC Paderborn,Eintracht Frankfurt,2026-11-07T14:30:00+00:00,Double Chance X2,0.691551,0.037327
+1dabcf85eb639cd0,before,Bundesliga,VfB Stuttgart,Werder Bremen,2026-11-07T17:30:00+00:00,Asian Handicap Home +0.50,0.761072,-0.002996
+1dabcf85eb639cd0,before,Bundesliga,VfB Stuttgart,Werder Bremen,2026-11-07T17:30:00+00:00,Double Chance 1X,0.761072,-0.002996
+1dabcf85eb639cd0,before,Bundesliga,VfB Stuttgart,Werder Bremen,2026-11-07T17:30:00+00:00,Home win,0.553332,0.056864
+1dabcf85eb639cd0,before,Serie A,Cagliari,Frosinone,2026-11-07T14:00:00+00:00,Asian Handicap Home +1.25,0.517289,-0.067526
+1dabcf85eb639cd0,before,Serie A,Cagliari,Frosinone,2026-11-07T14:00:00+00:00,Double Chance X2,0.709396,-0.006845
+1dabcf85eb639cd0,before,Serie A,Torino,Lecce,2026-11-07T14:00:00+00:00,Asian Handicap Away +1.25,0.538710,0.081841
+1dabcf85eb639cd0,before,Serie A,Torino,Lecce,2026-11-07T14:00:00+00:00,Home win,0.461290,-0.155839
+1dabcf85eb639cd0,before,Serie A,Torino,Lecce,2026-11-07T14:00:00+00:00,Double Chance 1X,0.724064,-0.109401
+1dabcf85eb639cd0,before,Serie A,Parma,Bologna,2026-11-07T17:00:00+00:00,Asian Handicap Away +0.25,0.501720,-0.078618
+1dabcf85eb639cd0,before,Serie A,Parma,Bologna,2026-11-07T17:00:00+00:00,Away win,0.501720,-0.121990
+1dabcf85eb639cd0,before,Serie A,Parma,Bologna,2026-11-07T17:00:00+00:00,Double Chance X2,0.774605,-0.078220
+1dabcf85eb639cd0,before,Serie A,AS Roma,Sassuolo,2026-11-07T19:45:00+00:00,Asian Handicap Away +2.25,0.525382,0.012361
+1dabcf85eb639cd0,before,Serie A,AS Roma,Sassuolo,2026-11-07T19:45:00+00:00,Home win,0.691772,-0.073026
+1dabcf85eb639cd0,before,Serie A,Napoli,Lazio,2026-11-08T11:30:00+00:00,Asian Handicap Away +1.25,0.603954,0.005422
+1dabcf85eb639cd0,before,Serie A,Napoli,Lazio,2026-11-08T11:30:00+00:00,Double Chance 1X,0.642050,-0.088289
+1dabcf85eb639cd0,before,Ligue 1,Auxerre,Paris FC,2026-11-07T18:00:00+00:00,Asian Handicap Home +1.50,0.812473,0.178085
+1dabcf85eb639cd0,before,Ligue 1,Auxerre,Paris FC,2026-11-07T18:00:00+00:00,Away win,0.402186,-0.304217
+1dabcf85eb639cd0,before,Ligue 1,Auxerre,Paris FC,2026-11-07T18:00:00+00:00,Double Chance X2,0.663685,-0.190304
+1dabcf85eb639cd0,before,Ligue 1,Paris Saint Germain,Troyes,2026-11-07T20:05:00+00:00,Asian Handicap Home -1.75,0.464811,0.026631
+1dabcf85eb639cd0,before,Ligue 1,Paris Saint Germain,Troyes,2026-11-07T20:05:00+00:00,Home win,0.855052,0.000410
+1dabcf85eb639cd0,before,Eredivisie,Fortuna Sittard,SC Telstar,2026-11-07T15:30:00+00:00,Asian Handicap Away +1.25,0.604259,0.044888
+1dabcf85eb639cd0,before,Eredivisie,ADO Den Haag,Sparta Rotterdam,2026-11-07T17:45:00+00:00,Asian Handicap Away +0.50,0.642475,0.015110
+1dabcf85eb639cd0,before,Eredivisie,Excelsior,Go Ahead Eagles,2026-11-07T20:00:00+00:00,Asian Handicap Away +0.25,0.511956,0.077109
+1dabcf85eb639cd0,before,Eredivisie,Heerenveen,Feyenoord,2026-11-08T11:15:00+00:00,Asian Handicap Away +0.25,0.508071,-0.088596
+1dabcf85eb639cd0,before,Eredivisie,Heerenveen,Feyenoord,2026-11-08T11:15:00+00:00,Away win,0.508071,-0.126117
+1dabcf85eb639cd0,before,Primeira Liga,Nacional,Académico de Viseu,2026-11-07T15:30:00+00:00,Asian Handicap Away +0.25,0.538743,0.110732
+1dabcf85eb639cd0,before,Primeira Liga,Alverca,Casa Pia,2026-11-07T18:00:00+00:00,Asian Handicap Away +1.25,0.595369,0.139838
+1dabcf85eb639cd0,before,Primeira Liga,Alverca,Casa Pia,2026-11-07T18:00:00+00:00,Home win,0.404631,-0.263572
+1dabcf85eb639cd0,before,Primeira Liga,Sporting Lisbon,Moreirense FC,2026-11-07T20:30:00+00:00,Asian Handicap Away +2.25,0.515570,0.301397
+1dabcf85eb639cd0,before,Super Lig,Samsunspor,Torku Konyaspor,2026-11-07T13:00:00+00:00,Asian Handicap Away +1.25,0.614867,0.020137
+1dabcf85eb639cd0,before,Super Lig,Galatasaray,Amed SK,2026-11-07T16:00:00+00:00,Asian Handicap Away +2.25,0.683667,0.116046
+1dabcf85eb639cd0,before,Super Lig,Galatasaray,Amed SK,2026-11-07T16:00:00+00:00,Home win,0.527224,-0.251341
+1dabcf85eb639cd0,before,Super Lig,Goztepe,Basaksehir,2026-11-07T16:00:00+00:00,Asian Handicap Away +1.25,0.534778,0.004429
+1dabcf85eb639cd0,before,Super Lig,Goztepe,Basaksehir,2026-11-07T16:00:00+00:00,Home win,0.465222,-0.078860
+1dabcf85eb639cd0,before,Super Lig,Çaykur Rizespor,Erzurum BB,2026-11-08T10:30:00+00:00,Asian Handicap Away +1.25,0.592445,0.078689
+1dabcf85eb639cd0,before,Super Lig,Çaykur Rizespor,Erzurum BB,2026-11-08T10:30:00+00:00,Home win,0.407555,-0.205267
+1dabcf85eb639cd0,after,Premier League,Leeds United,Tottenham Hotspur,2026-11-07T12:30:00+00:00,Asian Handicap Home +0.25,0.402910,0.061511
+1dabcf85eb639cd0,after,Premier League,Leeds United,Tottenham Hotspur,2026-11-07T12:30:00+00:00,Double Chance 1X,0.677844,0.037101
+1dabcf85eb639cd0,after,Premier League,Arsenal,Hull City,2026-11-07T15:00:00+00:00,Asian Handicap Away +2.25,0.617800,0.454710
+1dabcf85eb639cd0,after,Premier League,Fulham,Newcastle United,2026-11-07T15:00:00+00:00,Asian Handicap Away +1.50,0.819277,0.073253
+1dabcf85eb639cd0,after,Premier League,Fulham,Newcastle United,2026-11-07T15:00:00+00:00,Double Chance 1X,0.649253,-0.149479
+1dabcf85eb639cd0,after,Premier League,Nottingham Forest,Manchester City,2026-11-07T17:30:00+00:00,Asian Handicap Away +0.25,0.606351,0.048247
+1dabcf85eb639cd0,after,Premier League,Nottingham Forest,Manchester City,2026-11-07T17:30:00+00:00,Away win,0.606351,0.079304
+1dabcf85eb639cd0,after,Premier League,Nottingham Forest,Manchester City,2026-11-07T17:30:00+00:00,Double Chance X2,0.851445,0.047277
+1dabcf85eb639cd0,after,La Liga,Málaga,Real Racing Club de Santander,2026-11-07T13:00:00+00:00,Asian Handicap Away +1.25,0.537062,-0.095184
+1dabcf85eb639cd0,after,La Liga,Málaga,Real Racing Club de Santander,2026-11-07T13:00:00+00:00,Double Chance 1X,0.698149,0.005335
+1dabcf85eb639cd0,after,La Liga,Espanyol,Deportivo La Coruña,2026-11-07T15:15:00+00:00,Asian Handicap Away +1.25,0.639799,0.004936
+1dabcf85eb639cd0,after,La Liga,Espanyol,Deportivo La Coruña,2026-11-07T15:15:00+00:00,Double Chance 1X,0.643335,-0.092898
+1dabcf85eb639cd0,after,La Liga,CA Osasuna,Athletic Bilbao,2026-11-07T17:30:00+00:00,Asian Handicap Home +1.25,0.673413,0.125744
+1dabcf85eb639cd0,after,La Liga,CA Osasuna,Athletic Bilbao,2026-11-07T17:30:00+00:00,Double Chance 1X,0.673413,0.232345
+1dabcf85eb639cd0,after,La Liga,Valencia,Real Madrid,2026-11-07T20:00:00+00:00,Asian Handicap Home +2.25,0.605573,0.160929
+1dabcf85eb639cd0,after,La Liga,Valencia,Real Madrid,2026-11-07T20:00:00+00:00,Away win,0.640548,-0.192909
+1dabcf85eb639cd0,after,Bundesliga,Borussia Dortmund,Elversberg,2026-11-07T14:30:00+00:00,Asian Handicap Away +2.25,0.523346,0.013144
+1dabcf85eb639cd0,after,Bundesliga,Borussia Dortmund,Elversberg,2026-11-07T14:30:00+00:00,Home win,0.691613,-0.087070
+1dabcf85eb639cd0,after,Bundesliga,FSV Mainz 05,Bayern Munich,2026-11-07T14:30:00+00:00,Asian Handicap Home +2.25,0.532587,0.127976
+1dabcf85eb639cd0,after,Bundesliga,FSV Mainz 05,Bayern Munich,2026-11-07T14:30:00+00:00,Away win,0.685526,-0.122526
+1dabcf85eb639cd0,after,Bundesliga,RB Leipzig,Augsburg,2026-11-07T14:30:00+00:00,Asian Handicap Away +2.25,0.572001,0.033141
+1dabcf85eb639cd0,after,Bundesliga,RB Leipzig,Augsburg,2026-11-07T14:30:00+00:00,Home win,0.645297,-0.070772
+1dabcf85eb639cd0,after,Bundesliga,SC Paderborn,Eintracht Frankfurt,2026-11-07T14:30:00+00:00,Asian Handicap Away +0.50,0.705816,0.065782
+1dabcf85eb639cd0,after,Bundesliga,SC Paderborn,Eintracht Frankfurt,2026-11-07T14:30:00+00:00,Double Chance X2,0.705816,0.058724
+1dabcf85eb639cd0,after,Bundesliga,VfB Stuttgart,Werder Bremen,2026-11-07T17:30:00+00:00,Asian Handicap Home +0.25,0.568083,0.036369
+1dabcf85eb639cd0,after,Bundesliga,VfB Stuttgart,Werder Bremen,2026-11-07T17:30:00+00:00,Double Chance 1X,0.785885,0.029510
+1dabcf85eb639cd0,after,Bundesliga,VfB Stuttgart,Werder Bremen,2026-11-07T17:30:00+00:00,Home win,0.568083,0.085039
+1dabcf85eb639cd0,after,Serie A,Cagliari,Frosinone,2026-11-07T14:00:00+00:00,Asian Handicap Away +0.25,0.490416,0.032763
+1dabcf85eb639cd0,after,Serie A,Cagliari,Frosinone,2026-11-07T14:00:00+00:00,Double Chance X2,0.728128,0.019379
+1dabcf85eb639cd0,after,Serie A,Torino,Lecce,2026-11-07T14:00:00+00:00,Asian Handicap Away +1.25,0.532527,0.074709
+1dabcf85eb639cd0,after,Serie A,Torino,Lecce,2026-11-07T14:00:00+00:00,Home win,0.467473,-0.144524
+1dabcf85eb639cd0,after,Serie A,Torino,Lecce,2026-11-07T14:00:00+00:00,Double Chance 1X,0.743083,-0.086008
+1dabcf85eb639cd0,after,Serie A,Parma,Bologna,2026-11-07T17:00:00+00:00,Asian Handicap Away +0.25,0.512477,-0.050887
+1dabcf85eb639cd0,after,Serie A,Parma,Bologna,2026-11-07T17:00:00+00:00,Away win,0.512477,-0.103165
+1dabcf85eb639cd0,after,Serie A,Parma,Bologna,2026-11-07T17:00:00+00:00,Double Chance X2,0.798366,-0.049945
+1dabcf85eb639cd0,after,Serie A,AS Roma,Sassuolo,2026-11-07T19:45:00+00:00,Asian Handicap Away +2.25,0.510226,-0.001933
+1dabcf85eb639cd0,after,Serie A,AS Roma,Sassuolo,2026-11-07T19:45:00+00:00,Home win,0.711929,-0.046015
+1dabcf85eb639cd0,after,Serie A,Napoli,Lazio,2026-11-08T11:30:00+00:00,Asian Handicap Away +1.25,0.607225,0.006109
+1dabcf85eb639cd0,after,Serie A,Napoli,Lazio,2026-11-08T11:30:00+00:00,Double Chance 1X,0.650827,-0.075826
+1dabcf85eb639cd0,after,Ligue 1,Auxerre,Paris FC,2026-11-07T18:00:00+00:00,Asian Handicap Home +1.25,0.599496,0.206966
+1dabcf85eb639cd0,after,Ligue 1,Auxerre,Paris FC,2026-11-07T18:00:00+00:00,Away win,0.400504,-0.307128
+1dabcf85eb639cd0,after,Ligue 1,Auxerre,Paris FC,2026-11-07T18:00:00+00:00,Double Chance X2,0.674799,-0.176745
+1dabcf85eb639cd0,after,Ligue 1,Paris Saint Germain,Troyes,2026-11-07T20:05:00+00:00,Asian Handicap Home -1.75,0.471680,0.041802
+1dabcf85eb639cd0,after,Ligue 1,Paris Saint Germain,Troyes,2026-11-07T20:05:00+00:00,Home win,0.866485,0.013788
+1dabcf85eb639cd0,after,Eredivisie,Fortuna Sittard,SC Telstar,2026-11-07T15:30:00+00:00,Asian Handicap Away +1.25,0.607320,0.045447
+1dabcf85eb639cd0,after,Eredivisie,ADO Den Haag,Sparta Rotterdam,2026-11-07T17:45:00+00:00,Asian Handicap Away +0.25,0.404645,0.047911
+1dabcf85eb639cd0,after,Eredivisie,Excelsior,Go Ahead Eagles,2026-11-07T20:00:00+00:00,Asian Handicap Away +0.25,0.522726,0.106348
+1dabcf85eb639cd0,after,Eredivisie,Heerenveen,Feyenoord,2026-11-08T11:15:00+00:00,Asian Handicap Away +0.25,0.518592,-0.062514
+1dabcf85eb639cd0,after,Eredivisie,Heerenveen,Feyenoord,2026-11-08T11:15:00+00:00,Away win,0.518592,-0.108023
+1dabcf85eb639cd0,after,Primeira Liga,Nacional,Académico de Viseu,2026-11-07T15:30:00+00:00,Asian Handicap Away +0.25,0.552189,0.145972
+1dabcf85eb639cd0,after,Primeira Liga,Alverca,Casa Pia,2026-11-07T18:00:00+00:00,Asian Handicap Away +1.25,0.595076,0.137865
+1dabcf85eb639cd0,after,Primeira Liga,Alverca,Casa Pia,2026-11-07T18:00:00+00:00,Home win,0.404924,-0.263038
+1dabcf85eb639cd0,after,Primeira Liga,Sporting Lisbon,Moreirense FC,2026-11-07T20:30:00+00:00,Asian Handicap Away +2.25,0.500813,0.281944
+1dabcf85eb639cd0,after,Super Lig,Samsunspor,Torku Konyaspor,2026-11-07T13:00:00+00:00,Asian Handicap Away +1.25,0.618813,0.021083
+1dabcf85eb639cd0,after,Super Lig,Galatasaray,Amed SK,2026-11-07T16:00:00+00:00,Asian Handicap Away +2.25,0.674919,0.109301
+1dabcf85eb639cd0,after,Super Lig,Galatasaray,Amed SK,2026-11-07T16:00:00+00:00,Home win,0.539622,-0.233737
+1dabcf85eb639cd0,after,Super Lig,Goztepe,Basaksehir,2026-11-07T16:00:00+00:00,Asian Handicap Away +1.25,0.528723,-0.002272
+1dabcf85eb639cd0,after,Super Lig,Goztepe,Basaksehir,2026-11-07T16:00:00+00:00,Home win,0.471277,-0.066872
+1dabcf85eb639cd0,after,Super Lig,Çaykur Rizespor,Erzurum BB,2026-11-08T10:30:00+00:00,Asian Handicap Away +1.25,0.593109,0.077428
+1dabcf85eb639cd0,after,Super Lig,Çaykur Rizespor,Erzurum BB,2026-11-08T10:30:00+00:00,Home win,0.406891,-0.206563
+688a34b2f4bd83f2,before,Premier League,Arsenal,Hull City,2026-11-07T15:00:00+00:00,Asian Handicap Away +2.25,0.628527,0.451756
+688a34b2f4bd83f2,before,Premier League,Arsenal,Hull City,2026-11-07T15:00:00+00:00,Home win,0.646777,-0.249739
+688a34b2f4bd83f2,before,Premier League,Fulham,Newcastle United,2026-11-07T15:00:00+00:00,Asian Handicap Away +1.25,0.613069,0.076426
+688a34b2f4bd83f2,before,Premier League,Fulham,Newcastle United,2026-11-07T15:00:00+00:00,Double Chance 1X,0.641002,-0.147467
+688a34b2f4bd83f2,before,Premier League,Nottingham Forest,Manchester City,2026-11-07T17:30:00+00:00,Asian Handicap Away +0.25,0.590042,0.007284
+688a34b2f4bd83f2,before,Premier League,Nottingham Forest,Manchester City,2026-11-07T17:30:00+00:00,Away win,0.590042,0.026673
+688a34b2f4bd83f2,before,Premier League,Nottingham Forest,Manchester City,2026-11-07T17:30:00+00:00,Double Chance X2,0.823521,0.004696
+688a34b2f4bd83f2,before,La Liga,Espanyol,Deportivo La Coruña,2026-11-07T15:15:00+00:00,Asian Handicap Away +1.25,0.633518,0.002758
+688a34b2f4bd83f2,before,La Liga,Espanyol,Deportivo La Coruña,2026-11-07T15:15:00+00:00,Double Chance 1X,0.636489,-0.096186
+688a34b2f4bd83f2,before,La Liga,CA Osasuna,Athletic Bilbao,2026-11-07T17:30:00+00:00,Asian Handicap Home +1.25,0.663895,0.121332
+688a34b2f4bd83f2,before,La Liga,CA Osasuna,Athletic Bilbao,2026-11-07T17:30:00+00:00,Double Chance 1X,0.663895,0.214928
+688a34b2f4bd83f2,before,La Liga,Valencia,Real Madrid,2026-11-07T20:00:00+00:00,Asian Handicap Home +2.25,0.618203,0.172111
+688a34b2f4bd83f2,before,La Liga,Valencia,Real Madrid,2026-11-07T20:00:00+00:00,Away win,0.622506,-0.215642
+688a34b2f4bd83f2,before,La Liga,Elche CF,Real Betis,2026-11-08T13:00:00+00:00,Asian Handicap Home +1.25,0.589696,0.044509
+688a34b2f4bd83f2,before,La Liga,Elche CF,Real Betis,2026-11-08T13:00:00+00:00,Double Chance X2,0.671912,-0.099638
+688a34b2f4bd83f2,before,Bundesliga,Borussia Dortmund,Elversberg,2026-11-07T14:30:00+00:00,Asian Handicap Away +2.25,0.538809,0.034290
+688a34b2f4bd83f2,before,Bundesliga,Borussia Dortmund,Elversberg,2026-11-07T14:30:00+00:00,Home win,0.670879,-0.121148
+688a34b2f4bd83f2,before,Bundesliga,FSV Mainz 05,Bayern Munich,2026-11-07T14:30:00+00:00,Asian Handicap Home +2.25,0.547773,0.157143
+688a34b2f4bd83f2,before,Bundesliga,FSV Mainz 05,Bayern Munich,2026-11-07T14:30:00+00:00,Away win,0.665044,-0.155394
+688a34b2f4bd83f2,before,Bundesliga,RB Leipzig,Augsburg,2026-11-07T14:30:00+00:00,Asian Handicap Away +2.25,0.586188,0.045636
+688a34b2f4bd83f2,before,Bundesliga,RB Leipzig,Augsburg,2026-11-07T14:30:00+00:00,Home win,0.625751,-0.092661
+688a34b2f4bd83f2,before,Bundesliga,SC Paderborn,Eintracht Frankfurt,2026-11-07T14:30:00+00:00,Asian Handicap Home +1.25,0.583125,0.004979
+688a34b2f4bd83f2,before,Bundesliga,SC Paderborn,Eintracht Frankfurt,2026-11-07T14:30:00+00:00,Double Chance X2,0.691500,0.009590
+688a34b2f4bd83f2,before,Bundesliga,VfB Stuttgart,Werder Bremen,2026-11-07T17:30:00+00:00,Asian Handicap Home +0.25,0.553307,0.010781
+688a34b2f4bd83f2,before,Bundesliga,VfB Stuttgart,Werder Bremen,2026-11-07T17:30:00+00:00,Home win,0.553307,0.067882
+688a34b2f4bd83f2,before,Bundesliga,VfB Stuttgart,Werder Bremen,2026-11-07T17:30:00+00:00,Double Chance 1X,0.761052,0.004589
+688a34b2f4bd83f2,before,Serie A,Parma,Bologna,2026-11-07T17:00:00+00:00,Asian Handicap Away +0.25,0.501720,-0.084999
+688a34b2f4bd83f2,before,Serie A,Parma,Bologna,2026-11-07T17:00:00+00:00,Away win,0.501720,-0.121990
+688a34b2f4bd83f2,before,Serie A,Parma,Bologna,2026-11-07T17:00:00+00:00,Double Chance X2,0.774605,-0.085966
+688a34b2f4bd83f2,before,Serie A,AS Roma,Sassuolo,2026-11-07T19:45:00+00:00,Asian Handicap Away +2.25,0.525382,0.018612
+688a34b2f4bd83f2,before,Serie A,AS Roma,Sassuolo,2026-11-07T19:45:00+00:00,Home win,0.691772,-0.073026
+688a34b2f4bd83f2,before,Serie A,Napoli,Lazio,2026-11-08T11:30:00+00:00,Asian Handicap Away +1.25,0.603954,0.005422
+688a34b2f4bd83f2,before,Serie A,Napoli,Lazio,2026-11-08T11:30:00+00:00,Double Chance 1X,0.642050,-0.088289
+688a34b2f4bd83f2,before,Ligue 1,Auxerre,Paris FC,2026-11-07T18:00:00+00:00,Asian Handicap Home +1.25,0.597839,0.207392
+688a34b2f4bd83f2,before,Ligue 1,Auxerre,Paris FC,2026-11-07T18:00:00+00:00,Away win,0.402161,-0.304261
+688a34b2f4bd83f2,before,Ligue 1,Auxerre,Paris FC,2026-11-07T18:00:00+00:00,Double Chance X2,0.663675,-0.190317
+688a34b2f4bd83f2,before,Ligue 1,Paris Saint Germain,Troyes,2026-11-07T20:05:00+00:00,Asian Handicap Home -1.75,0.464761,0.072268
+688a34b2f4bd83f2,before,Ligue 1,Paris Saint Germain,Troyes,2026-11-07T20:05:00+00:00,Home win,0.855023,0.008927
+688a34b2f4bd83f2,before,Eredivisie,Fortuna Sittard,SC Telstar,2026-11-07T15:30:00+00:00,Asian Handicap Away +1.25,0.604223,0.044852
+688a34b2f4bd83f2,before,Eredivisie,ADO Den Haag,Sparta Rotterdam,2026-11-07T17:45:00+00:00,Asian Handicap Away +0.25,0.406799,0.020204
+688a34b2f4bd83f2,before,Eredivisie,Excelsior,Go Ahead Eagles,2026-11-07T20:00:00+00:00,Asian Handicap Away +0.25,0.511957,0.077115
+688a34b2f4bd83f2,before,Eredivisie,Heerenveen,Feyenoord,2026-11-08T11:15:00+00:00,Asian Handicap Away +0.25,0.508067,-0.088597
+688a34b2f4bd83f2,before,Eredivisie,Heerenveen,Feyenoord,2026-11-08T11:15:00+00:00,Away win,0.508067,-0.126126
+688a34b2f4bd83f2,before,Eredivisie,FC Twente Enschede,Ajax,2026-11-08T13:30:00+00:00,Asian Handicap Away +1.25,0.644679,0.048912
+688a34b2f4bd83f2,before,Primeira Liga,Nacional,Académico de Viseu,2026-11-07T15:30:00+00:00,Asian Handicap Away +0.25,0.538719,0.130579
+688a34b2f4bd83f2,before,Primeira Liga,Alverca,Casa Pia,2026-11-07T18:00:00+00:00,Asian Handicap Away +1.25,0.595386,0.132743
+688a34b2f4bd83f2,before,Primeira Liga,Alverca,Casa Pia,2026-11-07T18:00:00+00:00,Home win,0.404614,-0.259557
+688a34b2f4bd83f2,before,Primeira Liga,Sporting Lisbon,Moreirense FC,2026-11-07T20:30:00+00:00,Asian Handicap Away +2.25,0.515594,0.313802
+688a34b2f4bd83f2,before,Super Lig,Galatasaray,Amed SK,2026-11-07T16:00:00+00:00,Asian Handicap Away +2.25,0.683691,0.108442
+688a34b2f4bd83f2,before,Super Lig,Galatasaray,Amed SK,2026-11-07T16:00:00+00:00,Home win,0.527194,-0.246113
+688a34b2f4bd83f2,before,Super Lig,Goztepe,Basaksehir,2026-11-07T16:00:00+00:00,Asian Handicap Away +1.25,0.534764,0.004413
+688a34b2f4bd83f2,before,Super Lig,Goztepe,Basaksehir,2026-11-07T16:00:00+00:00,Home win,0.465236,-0.078833
+688a34b2f4bd83f2,before,Super Lig,Çaykur Rizespor,Erzurum BB,2026-11-08T10:30:00+00:00,Asian Handicap Away +1.25,0.592459,0.078701
+688a34b2f4bd83f2,before,Super Lig,Çaykur Rizespor,Erzurum BB,2026-11-08T10:30:00+00:00,Home win,0.407541,-0.205294
+688a34b2f4bd83f2,before,Super Lig,Çorum FK,Fenerbahce,2026-11-08T13:00:00+00:00,Asian Handicap Home +1.50,0.747314,0.068659
+688a34b2f4bd83f2,before,Super Lig,Çorum FK,Fenerbahce,2026-11-08T13:00:00+00:00,Away win,0.450728,-0.224748
+688a34b2f4bd83f2,after,Premier League,Arsenal,Hull City,2026-11-07T15:00:00+00:00,Asian Handicap Away +2.25,0.617767,0.440220
+688a34b2f4bd83f2,after,Premier League,Arsenal,Hull City,2026-11-07T15:00:00+00:00,Home win,0.662919,-0.231013
+688a34b2f4bd83f2,after,Premier League,Fulham,Newcastle United,2026-11-07T15:00:00+00:00,Asian Handicap Away +1.25,0.617284,0.077861
+688a34b2f4bd83f2,after,Premier League,Fulham,Newcastle United,2026-11-07T15:00:00+00:00,Double Chance 1X,0.649249,-0.136499
+688a34b2f4bd83f2,after,Premier League,Nottingham Forest,Manchester City,2026-11-07T17:30:00+00:00,Asian Handicap Away +0.25,0.606323,0.040939
+688a34b2f4bd83f2,after,Premier League,Nottingham Forest,Manchester City,2026-11-07T17:30:00+00:00,Away win,0.606323,0.055003
+688a34b2f4bd83f2,after,Premier League,Nottingham Forest,Manchester City,2026-11-07T17:30:00+00:00,Double Chance X2,0.851431,0.038746
+688a34b2f4bd83f2,after,La Liga,Espanyol,Deportivo La Coruña,2026-11-07T15:15:00+00:00,Asian Handicap Away +1.25,0.639865,0.004987
+688a34b2f4bd83f2,after,La Liga,Espanyol,Deportivo La Coruña,2026-11-07T15:15:00+00:00,Double Chance 1X,0.643264,-0.086565
+688a34b2f4bd83f2,after,La Liga,CA Osasuna,Athletic Bilbao,2026-11-07T17:30:00+00:00,Asian Handicap Home +1.25,0.673424,0.125752
+688a34b2f4bd83f2,after,La Liga,CA Osasuna,Athletic Bilbao,2026-11-07T17:30:00+00:00,Double Chance 1X,0.673424,0.232365
+688a34b2f4bd83f2,after,La Liga,Valencia,Real Madrid,2026-11-07T20:00:00+00:00,Asian Handicap Home +2.50,0.802006,0.138849
+688a34b2f4bd83f2,after,La Liga,Valencia,Real Madrid,2026-11-07T20:00:00+00:00,Away win,0.640540,-0.192920
+688a34b2f4bd83f2,after,La Liga,Elche CF,Real Betis,2026-11-08T13:00:00+00:00,Asian Handicap Home +1.25,0.590235,0.043174
+688a34b2f4bd83f2,after,La Liga,Elche CF,Real Betis,2026-11-08T13:00:00+00:00,Double Chance X2,0.684175,-0.083206
+688a34b2f4bd83f2,after,Bundesliga,Borussia Dortmund,Elversberg,2026-11-07T14:30:00+00:00,Asian Handicap Away +2.25,0.523305,0.019307
+688a34b2f4bd83f2,after,Bundesliga,Borussia Dortmund,Elversberg,2026-11-07T14:30:00+00:00,Home win,0.691645,-0.093944
+688a34b2f4bd83f2,after,Bundesliga,FSV Mainz 05,Bayern Munich,2026-11-07T14:30:00+00:00,Asian Handicap Home +2.25,0.532558,0.140562
+688a34b2f4bd83f2,after,Bundesliga,FSV Mainz 05,Bayern Munich,2026-11-07T14:30:00+00:00,Away win,0.685551,-0.129351
+688a34b2f4bd83f2,after,Bundesliga,RB Leipzig,Augsburg,2026-11-07T14:30:00+00:00,Asian Handicap Away +2.25,0.572014,0.033156
+688a34b2f4bd83f2,after,Bundesliga,RB Leipzig,Augsburg,2026-11-07T14:30:00+00:00,Home win,0.645284,-0.064338
+688a34b2f4bd83f2,after,Bundesliga,SC Paderborn,Eintracht Frankfurt,2026-11-07T14:30:00+00:00,Asian Handicap Home +1.25,0.582123,0.002618
+688a34b2f4bd83f2,after,Bundesliga,SC Paderborn,Eintracht Frankfurt,2026-11-07T14:30:00+00:00,Double Chance X2,0.705758,0.030407
+688a34b2f4bd83f2,after,Bundesliga,VfB Stuttgart,Werder Bremen,2026-11-07T17:30:00+00:00,Asian Handicap Home +0.25,0.568056,0.043109
+688a34b2f4bd83f2,after,Bundesliga,VfB Stuttgart,Werder Bremen,2026-11-07T17:30:00+00:00,Home win,0.568056,0.096348
+688a34b2f4bd83f2,after,Bundesliga,VfB Stuttgart,Werder Bremen,2026-11-07T17:30:00+00:00,Double Chance 1X,0.785864,0.037341
+688a34b2f4bd83f2,after,Serie A,Parma,Bologna,2026-11-07T17:00:00+00:00,Asian Handicap Away +0.25,0.512477,-0.057442
+688a34b2f4bd83f2,after,Serie A,Parma,Bologna,2026-11-07T17:00:00+00:00,Away win,0.512477,-0.103165
+688a34b2f4bd83f2,after,Serie A,Parma,Bologna,2026-11-07T17:00:00+00:00,Double Chance X2,0.798366,-0.057929
+688a34b2f4bd83f2,after,Serie A,AS Roma,Sassuolo,2026-11-07T19:45:00+00:00,Asian Handicap Away +2.25,0.510226,0.004198
+688a34b2f4bd83f2,after,Serie A,AS Roma,Sassuolo,2026-11-07T19:45:00+00:00,Home win,0.711929,-0.046015
+688a34b2f4bd83f2,after,Serie A,Napoli,Lazio,2026-11-08T11:30:00+00:00,Asian Handicap Away +1.25,0.607225,0.006109
+688a34b2f4bd83f2,after,Serie A,Napoli,Lazio,2026-11-08T11:30:00+00:00,Double Chance 1X,0.650827,-0.075826
+688a34b2f4bd83f2,after,Ligue 1,Auxerre,Paris FC,2026-11-07T18:00:00+00:00,Asian Handicap Home +1.50,0.811829,0.177152
+688a34b2f4bd83f2,after,Ligue 1,Auxerre,Paris FC,2026-11-07T18:00:00+00:00,Away win,0.400476,-0.307176
+688a34b2f4bd83f2,after,Ligue 1,Auxerre,Paris FC,2026-11-07T18:00:00+00:00,Double Chance X2,0.674786,-0.176761
+688a34b2f4bd83f2,after,Ligue 1,Paris Saint Germain,Troyes,2026-11-07T20:05:00+00:00,Asian Handicap Home -1.50,0.688033,0.066452
+688a34b2f4bd83f2,after,Ligue 1,Paris Saint Germain,Troyes,2026-11-07T20:05:00+00:00,Home win,0.866459,0.022422
+688a34b2f4bd83f2,after,Eredivisie,Fortuna Sittard,SC Telstar,2026-11-07T15:30:00+00:00,Asian Handicap Away +1.25,0.607279,0.045408
+688a34b2f4bd83f2,after,Eredivisie,ADO Den Haag,Sparta Rotterdam,2026-11-07T17:45:00+00:00,Asian Handicap Away +0.25,0.404645,0.032055
+688a34b2f4bd83f2,after,Eredivisie,Excelsior,Go Ahead Eagles,2026-11-07T20:00:00+00:00,Asian Handicap Away +0.25,0.522728,0.106354
+688a34b2f4bd83f2,after,Eredivisie,Heerenveen,Feyenoord,2026-11-08T11:15:00+00:00,Asian Handicap Away +0.25,0.518586,-0.062515
+688a34b2f4bd83f2,after,Eredivisie,Heerenveen,Feyenoord,2026-11-08T11:15:00+00:00,Away win,0.518586,-0.108032
+688a34b2f4bd83f2,after,Eredivisie,FC Twente Enschede,Ajax,2026-11-08T13:30:00+00:00,Asian Handicap Away +1.25,0.654466,0.054444
+688a34b2f4bd83f2,after,Primeira Liga,Nacional,Académico de Viseu,2026-11-07T15:30:00+00:00,Asian Handicap Away +0.25,0.552164,0.166403
+688a34b2f4bd83f2,after,Primeira Liga,Alverca,Casa Pia,2026-11-07T18:00:00+00:00,Asian Handicap Away +1.25,0.595096,0.130781
+688a34b2f4bd83f2,after,Primeira Liga,Alverca,Casa Pia,2026-11-07T18:00:00+00:00,Home win,0.404904,-0.259025
+688a34b2f4bd83f2,after,Primeira Liga,Sporting Lisbon,Moreirense FC,2026-11-07T20:30:00+00:00,Asian Handicap Away +2.25,0.500838,0.294116
+688a34b2f4bd83f2,after,Super Lig,Galatasaray,Amed SK,2026-11-07T16:00:00+00:00,Asian Handicap Away +2.25,0.674946,0.101764
+688a34b2f4bd83f2,after,Super Lig,Galatasaray,Amed SK,2026-11-07T16:00:00+00:00,Home win,0.539588,-0.228390
+688a34b2f4bd83f2,after,Super Lig,Goztepe,Basaksehir,2026-11-07T16:00:00+00:00,Asian Handicap Away +1.25,0.528708,-0.002289
+688a34b2f4bd83f2,after,Super Lig,Goztepe,Basaksehir,2026-11-07T16:00:00+00:00,Home win,0.471292,-0.066842
+688a34b2f4bd83f2,after,Super Lig,Çaykur Rizespor,Erzurum BB,2026-11-08T10:30:00+00:00,Asian Handicap Away +1.50,0.810712,0.062033
+688a34b2f4bd83f2,after,Super Lig,Çaykur Rizespor,Erzurum BB,2026-11-08T10:30:00+00:00,Home win,0.406875,-0.206594
+688a34b2f4bd83f2,after,Super Lig,Çorum FK,Fenerbahce,2026-11-08T13:00:00+00:00,Asian Handicap Home +1.25,0.545928,0.086107
+688a34b2f4bd83f2,after,Super Lig,Çorum FK,Fenerbahce,2026-11-08T13:00:00+00:00,Away win,0.454072,-0.218996
+bdc58d9d3727286d,before,Premier League,Brighton and Hove Albion,Brentford,2026-11-08T14:00:00+00:00,Asian Handicap Home +0.25,0.586973,0.045352
+bdc58d9d3727286d,before,Premier League,Brighton and Hove Albion,Brentford,2026-11-08T14:00:00+00:00,Home win,0.586973,0.132859
+bdc58d9d3727286d,before,Premier League,Brighton and Hove Albion,Brentford,2026-11-08T14:00:00+00:00,Double Chance 1X,0.796354,0.027296
+bdc58d9d3727286d,before,Premier League,Crystal Palace,Liverpool,2026-11-08T14:00:00+00:00,Asian Handicap Home +1.25,0.525551,0.186433
+bdc58d9d3727286d,before,Premier League,Crystal Palace,Liverpool,2026-11-08T14:00:00+00:00,Away win,0.474449,-0.236138
+bdc58d9d3727286d,before,Premier League,Crystal Palace,Liverpool,2026-11-08T14:00:00+00:00,Double Chance X2,0.706418,-0.159363
+bdc58d9d3727286d,before,Premier League,Ipswich Town,Bournemouth,2026-11-08T14:00:00+00:00,Asian Handicap Away +0.25,0.502108,-0.075503
+bdc58d9d3727286d,before,Premier League,Ipswich Town,Bournemouth,2026-11-08T14:00:00+00:00,Away win,0.502108,-0.035952
+bdc58d9d3727286d,before,Premier League,Ipswich Town,Bournemouth,2026-11-08T14:00:00+00:00,Double Chance X2,0.722446,-0.082494
+bdc58d9d3727286d,before,Premier League,Sunderland,Chelsea,2026-11-08T14:00:00+00:00,Asian Handicap Home +1.25,0.574335,0.023512
+bdc58d9d3727286d,before,Premier League,Sunderland,Chelsea,2026-11-08T14:00:00+00:00,Double Chance X2,0.688134,-0.084782
+bdc58d9d3727286d,before,Premier League,Manchester United,Aston Villa,2026-11-08T16:30:00+00:00,Asian Handicap Away +1.25,0.572815,0.005203
+bdc58d9d3727286d,before,Premier League,Manchester United,Aston Villa,2026-11-08T16:30:00+00:00,Double Chance 1X,0.666655,-0.066683
+bdc58d9d3727286d,before,La Liga,Elche CF,Real Betis,2026-11-08T13:00:00+00:00,Asian Handicap Home +1.50,0.806429,0.072551
+bdc58d9d3727286d,before,La Liga,Elche CF,Real Betis,2026-11-08T13:00:00+00:00,Away win,0.410887,-0.198770
+bdc58d9d3727286d,before,La Liga,Elche CF,Real Betis,2026-11-08T13:00:00+00:00,Double Chance X2,0.672081,-0.133016
+bdc58d9d3727286d,before,La Liga,Real Sociedad,Rayo Vallecano,2026-11-08T15:15:00+00:00,Asian Handicap Home +0.25,0.504579,-0.067525
+bdc58d9d3727286d,before,La Liga,Real Sociedad,Rayo Vallecano,2026-11-08T15:15:00+00:00,Home win,0.504579,-0.086712
+bdc58d9d3727286d,before,La Liga,Real Sociedad,Rayo Vallecano,2026-11-08T15:15:00+00:00,Double Chance 1X,0.745033,-0.068708
+bdc58d9d3727286d,before,La Liga,Celta Vigo,Levante,2026-11-08T17:30:00+00:00,Asian Handicap Home +0.25,0.525814,-0.059787
+bdc58d9d3727286d,before,La Liga,Celta Vigo,Levante,2026-11-08T17:30:00+00:00,Double Chance 1X,0.765839,-0.065676
+bdc58d9d3727286d,before,La Liga,Celta Vigo,Levante,2026-11-08T17:30:00+00:00,Home win,0.525814,-0.037761
+bdc58d9d3727286d,before,La Liga,Villarreal,Getafe,2026-11-08T17:30:00+00:00,Asian Handicap Away +2.25,0.714903,0.076100
+bdc58d9d3727286d,before,La Liga,Villarreal,Getafe,2026-11-08T17:30:00+00:00,Home win,0.528587,-0.201834
+bdc58d9d3727286d,before,La Liga,Atlético Madrid,Barcelona,2026-11-08T20:00:00+00:00,Asian Handicap Home +1.25,0.573410,0.039611
+bdc58d9d3727286d,before,La Liga,Atlético Madrid,Barcelona,2026-11-08T20:00:00+00:00,Double Chance X2,0.649528,-0.097156
+bdc58d9d3727286d,before,Bundesliga,1. FC Köln,Bayer Leverkusen,2026-11-08T14:30:00+00:00,Asian Handicap Home +1.50,0.747017,0.060764
+bdc58d9d3727286d,before,Bundesliga,1. FC Köln,Bayer Leverkusen,2026-11-08T14:30:00+00:00,Away win,0.461503,-0.164680
+bdc58d9d3727286d,before,Bundesliga,1. FC Köln,Bayer Leverkusen,2026-11-08T14:30:00+00:00,Double Chance X2,0.687052,-0.141185
+bdc58d9d3727286d,before,Bundesliga,SC Freiburg,Union Berlin,2026-11-08T16:30:00+00:00,Asian Handicap Away +1.25,0.390746,0.041013
+bdc58d9d3727286d,before,Bundesliga,SC Freiburg,Union Berlin,2026-11-08T16:30:00+00:00,Home win,0.609254,-0.092212
+bdc58d9d3727286d,before,Bundesliga,TSG Hoffenheim,FC Schalke 04,2026-11-08T18:30:00+00:00,Asian Handicap Away +1.50,0.635751,0.004486
+bdc58d9d3727286d,before,Bundesliga,TSG Hoffenheim,FC Schalke 04,2026-11-08T18:30:00+00:00,Home win,0.615637,-0.027294
+bdc58d9d3727286d,before,Bundesliga,TSG Hoffenheim,FC Schalke 04,2026-11-08T18:30:00+00:00,Double Chance 1X,0.836092,-0.021773
+bdc58d9d3727286d,before,Serie A,Napoli,Lazio,2026-11-08T11:30:00+00:00,Asian Handicap Away +1.25,0.603402,0.004824
+bdc58d9d3727286d,before,Serie A,Napoli,Lazio,2026-11-08T11:30:00+00:00,Double Chance 1X,0.642482,-0.087675
+bdc58d9d3727286d,before,Serie A,Genoa,AC Milan,2026-11-08T14:00:00+00:00,Asian Handicap Home +1.25,0.525582,-0.015266
+bdc58d9d3727286d,before,Serie A,Genoa,AC Milan,2026-11-08T14:00:00+00:00,Double Chance X2,0.738039,-0.077451
+bdc58d9d3727286d,before,Serie A,Monza,Atalanta BC,2026-11-08T14:00:00+00:00,Asian Handicap Away +0.25,0.515897,-0.006722
+bdc58d9d3727286d,before,Serie A,Monza,Atalanta BC,2026-11-08T14:00:00+00:00,Double Chance X2,0.731355,-0.019984
+bdc58d9d3727286d,before,Serie A,Inter Milan,Como,2026-11-08T17:00:00+00:00,Asian Handicap Away +1.25,0.577035,0.036193
+bdc58d9d3727286d,before,Serie A,Inter Milan,Como,2026-11-08T17:00:00+00:00,Double Chance 1X,0.645179,-0.135460
+bdc58d9d3727286d,before,Serie A,Fiorentina,Juventus,2026-11-08T19:45:00+00:00,Asian Handicap Home +1.25,0.535217,-0.036800
+bdc58d9d3727286d,before,Serie A,Fiorentina,Juventus,2026-11-08T19:45:00+00:00,Double Chance X2,0.722426,-0.024725
+bdc58d9d3727286d,before,Ligue 1,Rennes,Lille,2026-11-08T14:00:00+00:00,Asian Handicap Away +1.25,0.536067,-0.068036
+bdc58d9d3727286d,before,Ligue 1,Rennes,Lille,2026-11-08T14:00:00+00:00,Double Chance 1X,0.713854,0.013672
+bdc58d9d3727286d,before,Ligue 1,Angers,Nice,2026-11-08T16:15:00+00:00,Asian Handicap Home +1.50,0.798053,0.029488
+bdc58d9d3727286d,before,Ligue 1,Angers,Nice,2026-11-08T16:15:00+00:00,Double Chance X2,0.705431,-0.075886
+bdc58d9d3727286d,before,Ligue 1,Brest,Lyon,2026-11-08T16:15:00+00:00,Asian Handicap Home +0.25,0.395591,0.016446
+bdc58d9d3727286d,before,Ligue 1,Brest,Lyon,2026-11-08T16:15:00+00:00,Double Chance 1X,0.642671,-0.010286
+bdc58d9d3727286d,before,Ligue 1,Le Havre,Lorient,2026-11-08T16:15:00+00:00,Asian Handicap Home +1.25,0.565086,-0.050160
+bdc58d9d3727286d,before,Ligue 1,Le Havre,Lorient,2026-11-08T16:15:00+00:00,Double Chance X2,0.712312,-0.002763
+bdc58d9d3727286d,before,Ligue 1,Le Mans FC,AS Monaco,2026-11-08T16:15:00+00:00,Asian Handicap Away +0.25,0.524875,-0.112525
+bdc58d9d3727286d,before,Ligue 1,Le Mans FC,AS Monaco,2026-11-08T16:15:00+00:00,Away win,0.524875,-0.107713
+bdc58d9d3727286d,before,Ligue 1,Le Mans FC,AS Monaco,2026-11-08T16:15:00+00:00,Double Chance X2,0.741806,-0.117250
+bdc58d9d3727286d,before,Ligue 1,RC Lens,Marseille,2026-11-08T19:45:00+00:00,Asian Handicap Away +1.25,0.559682,-0.051078
+bdc58d9d3727286d,before,Ligue 1,RC Lens,Marseille,2026-11-08T19:45:00+00:00,Double Chance 1X,0.675615,-0.033871
+bdc58d9d3727286d,before,Eredivisie,Heerenveen,Feyenoord,2026-11-08T11:15:00+00:00,Asian Handicap Away +0.25,0.508108,-0.094750
+bdc58d9d3727286d,before,Eredivisie,Heerenveen,Feyenoord,2026-11-08T11:15:00+00:00,Away win,0.508108,-0.126055
+bdc58d9d3727286d,before,Eredivisie,FC Twente Enschede,Ajax,2026-11-08T13:30:00+00:00,Asian Handicap Away +1.25,0.644689,0.144648
+bdc58d9d3727286d,before,Eredivisie,FC Twente Enschede,Ajax,2026-11-08T13:30:00+00:00,Home win,0.355311,-0.314250
+bdc58d9d3727286d,before,Eredivisie,AZ Alkmaar,Groningen,2026-11-08T15:45:00+00:00,Asian Handicap Away +2.25,0.720503,0.119557
+bdc58d9d3727286d,before,Eredivisie,AZ Alkmaar,Groningen,2026-11-08T15:45:00+00:00,Home win,0.500769,-0.243839
+bdc58d9d3727286d,before,Eredivisie,SC Cambuur,PSV Eindhoven,2026-11-08T15:45:00+00:00,Asian Handicap Home +2.25,0.544468,0.008626
+bdc58d9d3727286d,before,Eredivisie,SC Cambuur,PSV Eindhoven,2026-11-08T15:45:00+00:00,Away win,0.650368,-0.095989
+bdc58d9d3727286d,before,Eredivisie,FC Utrecht,NEC Nijmegen,2026-11-08T19:00:00+00:00,Asian Handicap Away +1.25,0.567404,-0.033095
+bdc58d9d3727286d,before,Primeira Liga,Estoril,CS Maritimo,2026-11-08T15:30:00+00:00,Asian Handicap Home +0.50,0.761463,0.012746
+bdc58d9d3727286d,before,Primeira Liga,Nacional,Académico de Viseu,2026-11-08T15:30:00+00:00,Asian Handicap Away +0.25,0.538868,0.144002
+bdc58d9d3727286d,before,Primeira Liga,Santa Clara,Gil Vicente,2026-11-08T15:30:00+00:00,Asian Handicap Away +1.25,0.599898,0.002364
+bdc58d9d3727286d,before,Primeira Liga,Vitória SC,FC Porto,2026-11-08T18:00:00+00:00,Asian Handicap Home +1.25,0.481480,0.144431
+bdc58d9d3727286d,before,Primeira Liga,Vitória SC,FC Porto,2026-11-08T18:00:00+00:00,Away win,0.518520,-0.196295
+bdc58d9d3727286d,before,Primeira Liga,CF Estrela,Benfica,2026-11-08T20:30:00+00:00,Asian Handicap Home +2.25,0.482726,0.086463
+bdc58d9d3727286d,before,Primeira Liga,CF Estrela,Benfica,2026-11-08T20:30:00+00:00,Away win,0.740593,-0.096476
+bdc58d9d3727286d,before,Primeira Liga,Rio Ave FC,Braga,2026-11-08T20:30:00+00:00,Asian Handicap Home +1.50,0.676610,0.069044
+bdc58d9d3727286d,before,Primeira Liga,Rio Ave FC,Braga,2026-11-08T20:30:00+00:00,Away win,0.562592,-0.139234
+bdc58d9d3727286d,before,Super Lig,Çaykur Rizespor,Erzurum BB,2026-11-08T10:30:00+00:00,Asian Handicap Away +1.50,0.811912,0.112320
+bdc58d9d3727286d,before,Super Lig,Çaykur Rizespor,Erzurum BB,2026-11-08T10:30:00+00:00,Home win,0.407507,-0.246113
+bdc58d9d3727286d,before,Super Lig,Çorum FK,Fenerbahce,2026-11-08T13:00:00+00:00,Asian Handicap Home +1.50,0.784110,0.129118
+bdc58d9d3727286d,before,Super Lig,Çorum FK,Fenerbahce,2026-11-08T13:00:00+00:00,Away win,0.399828,-0.312296
+bdc58d9d3727286d,before,Super Lig,Alanyaspor,Trabzonspor,2026-11-08T15:30:00+00:00,Asian Handicap Home +1.25,0.506090,0.110735
+bdc58d9d3727286d,before,Super Lig,Alanyaspor,Trabzonspor,2026-11-08T15:30:00+00:00,Away win,0.493910,-0.194927
+bdc58d9d3727286d,before,Super Lig,Besiktas JK,Genclerbirligi SK,2026-11-08T18:00:00+00:00,Asian Handicap Away +2.25,0.529753,0.230674
+bdc58d9d3727286d,before,Super Lig,Besiktas JK,Genclerbirligi SK,2026-11-08T18:00:00+00:00,Home win,0.714260,-0.142888
+bdc58d9d3727286d,after,Premier League,Brighton and Hove Albion,Brentford,2026-11-08T14:00:00+00:00,Asian Handicap Home +0.25,0.603878,0.080659
+bdc58d9d3727286d,after,Premier League,Brighton and Hove Albion,Brentford,2026-11-08T14:00:00+00:00,Home win,0.603878,0.165484
+bdc58d9d3727286d,after,Premier League,Brighton and Hove Albion,Brentford,2026-11-08T14:00:00+00:00,Double Chance 1X,0.823696,0.062567
+bdc58d9d3727286d,after,Premier League,Crystal Palace,Liverpool,2026-11-08T14:00:00+00:00,Asian Handicap Home +1.25,0.518726,0.177077
+bdc58d9d3727286d,after,Premier League,Crystal Palace,Liverpool,2026-11-08T14:00:00+00:00,Away win,0.481274,-0.225148
+bdc58d9d3727286d,after,Premier League,Crystal Palace,Liverpool,2026-11-08T14:00:00+00:00,Double Chance X2,0.724590,-0.137738
+bdc58d9d3727286d,after,Premier League,Ipswich Town,Bournemouth,2026-11-08T14:00:00+00:00,Asian Handicap Away +0.25,0.511943,-0.049993
+bdc58d9d3727286d,after,Premier League,Ipswich Town,Bournemouth,2026-11-08T14:00:00+00:00,Away win,0.511943,-0.017070
+bdc58d9d3727286d,after,Premier League,Ipswich Town,Bournemouth,2026-11-08T14:00:00+00:00,Double Chance X2,0.742949,-0.056454
+bdc58d9d3727286d,after,Premier League,Sunderland,Chelsea,2026-11-08T14:00:00+00:00,Asian Handicap Home +1.25,0.572725,0.020601
+bdc58d9d3727286d,after,Premier League,Sunderland,Chelsea,2026-11-08T14:00:00+00:00,Double Chance X2,0.702580,-0.065568
+bdc58d9d3727286d,after,Premier League,Manchester United,Aston Villa,2026-11-08T16:30:00+00:00,Asian Handicap Away +1.25,0.571950,0.002897
+bdc58d9d3727286d,after,Premier League,Manchester United,Aston Villa,2026-11-08T16:30:00+00:00,Double Chance 1X,0.679221,-0.049091
+bdc58d9d3727286d,after,La Liga,Elche CF,Real Betis,2026-11-08T13:00:00+00:00,Asian Handicap Home +1.25,0.589589,0.084136
+bdc58d9d3727286d,after,La Liga,Elche CF,Real Betis,2026-11-08T13:00:00+00:00,Away win,0.410411,-0.199699
+bdc58d9d3727286d,after,La Liga,Elche CF,Real Betis,2026-11-08T13:00:00+00:00,Double Chance X2,0.684389,-0.117139
+bdc58d9d3727286d,after,La Liga,Real Sociedad,Rayo Vallecano,2026-11-08T15:15:00+00:00,Asian Handicap Home +0.25,0.514973,-0.040315
+bdc58d9d3727286d,after,La Liga,Real Sociedad,Rayo Vallecano,2026-11-08T15:15:00+00:00,Home win,0.514973,-0.067900
+bdc58d9d3727286d,after,La Liga,Real Sociedad,Rayo Vallecano,2026-11-08T15:15:00+00:00,Double Chance 1X,0.767339,-0.040827
+bdc58d9d3727286d,after,La Liga,Celta Vigo,Levante,2026-11-08T17:30:00+00:00,Asian Handicap Home +0.25,0.538204,-0.030520
+bdc58d9d3727286d,after,La Liga,Celta Vigo,Levante,2026-11-08T17:30:00+00:00,Double Chance 1X,0.790152,-0.036014
+bdc58d9d3727286d,after,La Liga,Celta Vigo,Levante,2026-11-08T17:30:00+00:00,Home win,0.538204,-0.015087
+bdc58d9d3727286d,after,La Liga,Villarreal,Getafe,2026-11-08T17:30:00+00:00,Asian Handicap Away +2.25,0.706465,0.070952
+bdc58d9d3727286d,after,La Liga,Villarreal,Getafe,2026-11-08T17:30:00+00:00,Home win,0.541240,-0.182727
+bdc58d9d3727286d,after,La Liga,Atlético Madrid,Barcelona,2026-11-08T20:00:00+00:00,Asian Handicap Home +1.50,0.769399,0.030994
+bdc58d9d3727286d,after,La Liga,Atlético Madrid,Barcelona,2026-11-08T20:00:00+00:00,Double Chance X2,0.660317,-0.082159
+bdc58d9d3727286d,after,Bundesliga,1. FC Köln,Bayer Leverkusen,2026-11-08T14:30:00+00:00,Asian Handicap Home +1.25,0.533465,0.068363
+bdc58d9d3727286d,after,Bundesliga,1. FC Köln,Bayer Leverkusen,2026-11-08T14:30:00+00:00,Away win,0.466535,-0.155572
+bdc58d9d3727286d,after,Bundesliga,1. FC Köln,Bayer Leverkusen,2026-11-08T14:30:00+00:00,Double Chance X2,0.702951,-0.121311
+bdc58d9d3727286d,after,Bundesliga,SC Freiburg,Union Berlin,2026-11-08T16:30:00+00:00,Asian Handicap Home +0.00,0.627272,-0.046380
+bdc58d9d3727286d,after,Bundesliga,SC Freiburg,Union Berlin,2026-11-08T16:30:00+00:00,Home win,0.627272,-0.065365
+bdc58d9d3727286d,after,Bundesliga,TSG Hoffenheim,FC Schalke 04,2026-11-08T18:30:00+00:00,Asian Handicap Home +0.00,0.632958,0.016432
+bdc58d9d3727286d,after,Bundesliga,TSG Hoffenheim,FC Schalke 04,2026-11-08T18:30:00+00:00,Home win,0.632958,0.000074
+bdc58d9d3727286d,after,Bundesliga,TSG Hoffenheim,FC Schalke 04,2026-11-08T18:30:00+00:00,Double Chance 1X,0.864522,0.011491
+bdc58d9d3727286d,after,Serie A,Napoli,Lazio,2026-11-08T11:30:00+00:00,Asian Handicap Away +1.25,0.606599,0.005460
+bdc58d9d3727286d,after,Serie A,Napoli,Lazio,2026-11-08T11:30:00+00:00,Double Chance 1X,0.651327,-0.075116
+bdc58d9d3727286d,after,Serie A,Genoa,AC Milan,2026-11-08T14:00:00+00:00,Asian Handicap Home +1.50,0.759880,-0.019755
+bdc58d9d3727286d,after,Serie A,Genoa,AC Milan,2026-11-08T14:00:00+00:00,Double Chance X2,0.758626,-0.051718
+bdc58d9d3727286d,after,Serie A,Monza,Atalanta BC,2026-11-08T14:00:00+00:00,Asian Handicap Away +0.25,0.527167,0.021849
+bdc58d9d3727286d,after,Serie A,Monza,Atalanta BC,2026-11-08T14:00:00+00:00,Double Chance X2,0.753011,0.009035
+bdc58d9d3727286d,after,Serie A,Inter Milan,Como,2026-11-08T17:00:00+00:00,Asian Handicap Away +1.25,0.577359,0.034974
+bdc58d9d3727286d,after,Serie A,Inter Milan,Como,2026-11-08T17:00:00+00:00,Double Chance 1X,0.655370,-0.121804
+bdc58d9d3727286d,after,Serie A,Fiorentina,Juventus,2026-11-08T19:45:00+00:00,Asian Handicap Home +1.25,0.528798,-0.043248
+bdc58d9d3727286d,after,Serie A,Fiorentina,Juventus,2026-11-08T19:45:00+00:00,Double Chance X2,0.741490,0.001011
+bdc58d9d3727286d,after,Ligue 1,Rennes,Lille,2026-11-08T14:00:00+00:00,Asian Handicap Away +1.25,0.530011,-0.074060
+bdc58d9d3727286d,after,Ligue 1,Rennes,Lille,2026-11-08T14:00:00+00:00,Double Chance 1X,0.732224,0.039757
+bdc58d9d3727286d,after,Ligue 1,Angers,Nice,2026-11-08T16:15:00+00:00,Asian Handicap Home +1.25,0.563883,0.026141
+bdc58d9d3727286d,after,Ligue 1,Angers,Nice,2026-11-08T16:15:00+00:00,Double Chance X2,0.721650,-0.054639
+bdc58d9d3727286d,after,Ligue 1,Brest,Lyon,2026-11-08T16:15:00+00:00,Asian Handicap Home +0.25,0.392301,0.027252
+bdc58d9d3727286d,after,Ligue 1,Brest,Lyon,2026-11-08T16:15:00+00:00,Double Chance 1X,0.651488,0.003292
+bdc58d9d3727286d,after,Ligue 1,Le Havre,Lorient,2026-11-08T16:15:00+00:00,Asian Handicap Home +1.25,0.561567,-0.054031
+bdc58d9d3727286d,after,Ligue 1,Le Havre,Lorient,2026-11-08T16:15:00+00:00,Double Chance X2,0.729141,0.020798
+bdc58d9d3727286d,after,Ligue 1,Le Mans FC,AS Monaco,2026-11-08T16:15:00+00:00,Asian Handicap Away +0.25,0.537056,-0.085777
+bdc58d9d3727286d,after,Ligue 1,Le Mans FC,AS Monaco,2026-11-08T16:15:00+00:00,Away win,0.537056,-0.087004
+bdc58d9d3727286d,after,Ligue 1,Le Mans FC,AS Monaco,2026-11-08T16:15:00+00:00,Double Chance X2,0.764539,-0.090198
+bdc58d9d3727286d,after,Ligue 1,RC Lens,Marseille,2026-11-08T19:45:00+00:00,Asian Handicap Away +1.25,0.557167,-0.054513
+bdc58d9d3727286d,after,Ligue 1,RC Lens,Marseille,2026-11-08T19:45:00+00:00,Double Chance 1X,0.689596,-0.013878
+bdc58d9d3727286d,after,Eredivisie,Heerenveen,Feyenoord,2026-11-08T11:15:00+00:00,Asian Handicap Away +0.25,0.518632,-0.068823
+bdc58d9d3727286d,after,Eredivisie,Heerenveen,Feyenoord,2026-11-08T11:15:00+00:00,Away win,0.518632,-0.107954
+bdc58d9d3727286d,after,Eredivisie,FC Twente Enschede,Ajax,2026-11-08T13:30:00+00:00,Asian Handicap Away +1.25,0.654478,0.151046
+bdc58d9d3727286d,after,Eredivisie,FC Twente Enschede,Ajax,2026-11-08T13:30:00+00:00,Home win,0.345522,-0.333143
+bdc58d9d3727286d,after,Eredivisie,AZ Alkmaar,Groningen,2026-11-08T15:45:00+00:00,Asian Handicap Away +2.25,0.713558,0.114825
+bdc58d9d3727286d,after,Eredivisie,AZ Alkmaar,Groningen,2026-11-08T15:45:00+00:00,Home win,0.510560,-0.229054
+bdc58d9d3727286d,after,Eredivisie,SC Cambuur,PSV Eindhoven,2026-11-08T15:45:00+00:00,Asian Handicap Home +2.25,0.528586,-0.006763
+bdc58d9d3727286d,after,Eredivisie,SC Cambuur,PSV Eindhoven,2026-11-08T15:45:00+00:00,Away win,0.671660,-0.066393
+bdc58d9d3727286d,after,Eredivisie,FC Utrecht,NEC Nijmegen,2026-11-08T19:00:00+00:00,Asian Handicap Away +1.25,0.566330,-0.035395
+bdc58d9d3727286d,after,Primeira Liga,Estoril,CS Maritimo,2026-11-08T15:30:00+00:00,Asian Handicap Home +0.25,0.543527,0.064832
+bdc58d9d3727286d,after,Primeira Liga,Nacional,Académico de Viseu,2026-11-08T15:30:00+00:00,Asian Handicap Away +0.25,0.552323,0.180231
+bdc58d9d3727286d,after,Primeira Liga,Santa Clara,Gil Vicente,2026-11-08T15:30:00+00:00,Asian Handicap Away +1.25,0.599279,0.000479
+bdc58d9d3727286d,after,Primeira Liga,Vitória SC,FC Porto,2026-11-08T18:00:00+00:00,Asian Handicap Home +1.25,0.469534,0.129930
+bdc58d9d3727286d,after,Primeira Liga,Vitória SC,FC Porto,2026-11-08T18:00:00+00:00,Away win,0.530466,-0.177777
+bdc58d9d3727286d,after,Primeira Liga,CF Estrela,Benfica,2026-11-08T20:30:00+00:00,Asian Handicap Home +2.50,0.689011,0.061076
+bdc58d9d3727286d,after,Primeira Liga,CF Estrela,Benfica,2026-11-08T20:30:00+00:00,Away win,0.758478,-0.074656
+bdc58d9d3727286d,after,Primeira Liga,Rio Ave FC,Braga,2026-11-08T20:30:00+00:00,Asian Handicap Home +1.50,0.666302,0.052758
+bdc58d9d3727286d,after,Primeira Liga,Rio Ave FC,Braga,2026-11-08T20:30:00+00:00,Away win,0.577760,-0.116028
+bdc58d9d3727286d,after,Super Lig,Çaykur Rizespor,Erzurum BB,2026-11-08T10:30:00+00:00,Asian Handicap Away +1.25,0.593164,0.119609
+bdc58d9d3727286d,after,Super Lig,Çaykur Rizespor,Erzurum BB,2026-11-08T10:30:00+00:00,Home win,0.406836,-0.247353
+bdc58d9d3727286d,after,Super Lig,Çorum FK,Fenerbahce,2026-11-08T13:00:00+00:00,Asian Handicap Home +1.25,0.604115,0.167193
+bdc58d9d3727286d,after,Super Lig,Çorum FK,Fenerbahce,2026-11-08T13:00:00+00:00,Away win,0.395885,-0.319078
+bdc58d9d3727286d,after,Super Lig,Alanyaspor,Trabzonspor,2026-11-08T15:30:00+00:00,Asian Handicap Home +1.25,0.496886,0.099429
+bdc58d9d3727286d,after,Super Lig,Alanyaspor,Trabzonspor,2026-11-08T15:30:00+00:00,Away win,0.503114,-0.179925
+bdc58d9d3727286d,after,Super Lig,Besiktas JK,Genclerbirligi SK,2026-11-08T18:00:00+00:00,Asian Handicap Away +2.25,0.516964,0.216278
+bdc58d9d3727286d,after,Super Lig,Besiktas JK,Genclerbirligi SK,2026-11-08T18:00:00+00:00,Home win,0.731481,-0.122222
+d5829163b3fa9bf3,before,Premier League,Brighton and Hove Albion,Brentford,2026-11-08T14:00:00+00:00,Asian Handicap Home +0.50,0.796357,0.011374
+d5829163b3fa9bf3,before,Premier League,Brighton and Hove Albion,Brentford,2026-11-08T14:00:00+00:00,Home win,0.586980,0.103522
+d5829163b3fa9bf3,before,Premier League,Brighton and Hove Albion,Brentford,2026-11-08T14:00:00+00:00,Double Chance 1X,0.796357,0.011374
+d5829163b3fa9bf3,before,Premier League,Crystal Palace,Liverpool,2026-11-08T14:00:00+00:00,Asian Handicap Home +1.25,0.525549,0.186432
+d5829163b3fa9bf3,before,Premier League,Crystal Palace,Liverpool,2026-11-08T14:00:00+00:00,Double Chance X2,0.706422,-0.173486
+d5829163b3fa9bf3,before,Premier League,Crystal Palace,Liverpool,2026-11-08T14:00:00+00:00,Away win,0.474451,-0.245623
+d5829163b3fa9bf3,before,Premier League,Ipswich Town,Bournemouth,2026-11-08T14:00:00+00:00,Asian Handicap Away +0.25,0.502084,-0.063284
+d5829163b3fa9bf3,before,Premier League,Ipswich Town,Bournemouth,2026-11-08T14:00:00+00:00,Away win,0.502084,-0.010894
+d5829163b3fa9bf3,before,Premier League,Ipswich Town,Bournemouth,2026-11-08T14:00:00+00:00,Double Chance X2,0.722427,-0.068069
+d5829163b3fa9bf3,before,Premier League,Sunderland,Chelsea,2026-11-08T14:00:00+00:00,Asian Handicap Home +1.25,0.574319,0.071502
+d5829163b3fa9bf3,before,Premier League,Sunderland,Chelsea,2026-11-08T14:00:00+00:00,Away win,0.425681,-0.174178
+d5829163b3fa9bf3,before,Premier League,Sunderland,Chelsea,2026-11-08T14:00:00+00:00,Double Chance X2,0.688155,-0.119162
+d5829163b3fa9bf3,before,Premier League,Manchester United,Aston Villa,2026-11-08T16:30:00+00:00,Asian Handicap Away +1.25,0.572813,0.011973
+d5829163b3fa9bf3,before,Premier League,Manchester United,Aston Villa,2026-11-08T16:30:00+00:00,Double Chance 1X,0.666657,-0.073346
+d5829163b3fa9bf3,before,La Liga,Elche CF,Real Betis,2026-11-08T13:00:00+00:00,Asian Handicap Home +1.25,0.589116,0.134388
+d5829163b3fa9bf3,before,La Liga,Elche CF,Real Betis,2026-11-08T13:00:00+00:00,Away win,0.410884,-0.231647
+d5829163b3fa9bf3,before,La Liga,Elche CF,Real Betis,2026-11-08T13:00:00+00:00,Double Chance X2,0.672082,-0.146456
+d5829163b3fa9bf3,before,La Liga,Real Sociedad,Rayo Vallecano,2026-11-08T15:15:00+00:00,Asian Handicap Home +0.25,0.504574,-0.067530
+d5829163b3fa9bf3,before,La Liga,Real Sociedad,Rayo Vallecano,2026-11-08T15:15:00+00:00,Home win,0.504574,-0.086721
+d5829163b3fa9bf3,before,La Liga,Real Sociedad,Rayo Vallecano,2026-11-08T15:15:00+00:00,Double Chance 1X,0.745030,-0.068713
+d5829163b3fa9bf3,before,La Liga,Celta Vigo,Levante,2026-11-08T17:30:00+00:00,Asian Handicap Home +0.25,0.525759,-0.053379
+d5829163b3fa9bf3,before,La Liga,Celta Vigo,Levante,2026-11-08T17:30:00+00:00,Home win,0.525759,-0.037861
+d5829163b3fa9bf3,before,La Liga,Celta Vigo,Levante,2026-11-08T17:30:00+00:00,Double Chance 1X,0.765802,-0.058063
+d5829163b3fa9bf3,before,La Liga,Villarreal,Getafe,2026-11-08T17:30:00+00:00,Asian Handicap Away +1.25,0.471486,0.153951
+d5829163b3fa9bf3,before,La Liga,Villarreal,Getafe,2026-11-08T17:30:00+00:00,Home win,0.528514,-0.186088
+d5829163b3fa9bf3,before,La Liga,Atlético Madrid,Barcelona,2026-11-08T20:00:00+00:00,Asian Handicap Home +1.50,0.770719,0.040471
+d5829163b3fa9bf3,before,La Liga,Atlético Madrid,Barcelona,2026-11-08T20:00:00+00:00,Double Chance X2,0.649601,-0.097055
+d5829163b3fa9bf3,before,Bundesliga,1. FC Köln,Bayer Leverkusen,2026-11-08T14:30:00+00:00,Asian Handicap Home +1.25,0.538466,0.081207
+d5829163b3fa9bf3,before,Bundesliga,1. FC Köln,Bayer Leverkusen,2026-11-08T14:30:00+00:00,Double Chance X2,0.687077,-0.148025
+d5829163b3fa9bf3,before,Bundesliga,1. FC Köln,Bayer Leverkusen,2026-11-08T14:30:00+00:00,Away win,0.461534,-0.164623
+d5829163b3fa9bf3,before,Bundesliga,SC Freiburg,Union Berlin,2026-11-08T16:30:00+00:00,Asian Handicap Away +2.25,0.621108,0.019021
+d5829163b3fa9bf3,before,Bundesliga,SC Freiburg,Union Berlin,2026-11-08T16:30:00+00:00,Home win,0.609242,-0.116599
+d5829163b3fa9bf3,before,Bundesliga,TSG Hoffenheim,FC Schalke 04,2026-11-08T18:30:00+00:00,Asian Handicap Away +1.50,0.635730,0.004454
+d5829163b3fa9bf3,before,Bundesliga,TSG Hoffenheim,FC Schalke 04,2026-11-08T18:30:00+00:00,Home win,0.615668,-0.014932
+d5829163b3fa9bf3,before,Bundesliga,TSG Hoffenheim,FC Schalke 04,2026-11-08T18:30:00+00:00,Double Chance 1X,0.836121,-0.013377
+d5829163b3fa9bf3,before,Serie A,Genoa,AC Milan,2026-11-08T14:00:00+00:00,Asian Handicap Home +1.50,0.765286,-0.020433
+d5829163b3fa9bf3,before,Serie A,Genoa,AC Milan,2026-11-08T14:00:00+00:00,Double Chance X2,0.738039,-0.062691
+d5829163b3fa9bf3,before,Serie A,Monza,Atalanta BC,2026-11-08T14:00:00+00:00,Asian Handicap Away +0.25,0.515897,-0.012959
+d5829163b3fa9bf3,before,Serie A,Monza,Atalanta BC,2026-11-08T14:00:00+00:00,Double Chance X2,0.731354,-0.027299
+d5829163b3fa9bf3,before,Serie A,Inter Milan,Como,2026-11-08T17:00:00+00:00,Asian Handicap Away +1.25,0.577034,0.036192
+d5829163b3fa9bf3,before,Serie A,Inter Milan,Como,2026-11-08T17:00:00+00:00,Double Chance 1X,0.645179,-0.129008
+d5829163b3fa9bf3,before,Serie A,Fiorentina,Juventus,2026-11-08T19:45:00+00:00,Asian Handicap Home +1.25,0.535217,-0.043315
+d5829163b3fa9bf3,before,Serie A,Fiorentina,Juventus,2026-11-08T19:45:00+00:00,Double Chance X2,0.722426,-0.024725
+d5829163b3fa9bf3,before,Ligue 1,Rennes,Lille,2026-11-08T14:00:00+00:00,Asian Handicap Away +1.25,0.536069,-0.068028
+d5829163b3fa9bf3,before,Ligue 1,Rennes,Lille,2026-11-08T14:00:00+00:00,Double Chance 1X,0.713857,0.027954
+d5829163b3fa9bf3,before,Ligue 1,Angers,Nice,2026-11-08T16:15:00+00:00,Asian Handicap Home +1.25,0.566910,0.036903
+d5829163b3fa9bf3,before,Ligue 1,Angers,Nice,2026-11-08T16:15:00+00:00,Double Chance X2,0.705444,-0.068814
+d5829163b3fa9bf3,before,Ligue 1,Brest,Lyon,2026-11-08T16:15:00+00:00,Asian Handicap Home +0.50,0.642687,0.015446
+d5829163b3fa9bf3,before,Ligue 1,Brest,Lyon,2026-11-08T16:15:00+00:00,Double Chance 1X,0.642687,0.009019
+d5829163b3fa9bf3,before,Ligue 1,Le Havre,Lorient,2026-11-08T16:15:00+00:00,Asian Handicap Home +1.25,0.565077,-0.050165
+d5829163b3fa9bf3,before,Ligue 1,Le Havre,Lorient,2026-11-08T16:15:00+00:00,Double Chance X2,0.712323,0.011499
+d5829163b3fa9bf3,before,Ligue 1,Le Mans FC,AS Monaco,2026-11-08T16:15:00+00:00,Asian Handicap Away +0.25,0.524841,-0.125227
+d5829163b3fa9bf3,before,Ligue 1,Le Mans FC,AS Monaco,2026-11-08T16:15:00+00:00,Away win,0.524841,-0.139261
+d5829163b3fa9bf3,before,Ligue 1,Le Mans FC,AS Monaco,2026-11-08T16:15:00+00:00,Double Chance X2,0.741778,-0.124702
+d5829163b3fa9bf3,before,Ligue 1,RC Lens,Marseille,2026-11-08T19:45:00+00:00,Asian Handicap Away +1.25,0.559680,-0.037786
+d5829163b3fa9bf3,before,Ligue 1,RC Lens,Marseille,2026-11-08T19:45:00+00:00,Double Chance 1X,0.675618,-0.054134
+d5829163b3fa9bf3,before,Eredivisie,FC Twente Enschede,Ajax,2026-11-08T13:30:00+00:00,Asian Handicap Away +1.25,0.644690,0.144647
+d5829163b3fa9bf3,before,Eredivisie,FC Twente Enschede,Ajax,2026-11-08T13:30:00+00:00,Home win,0.355310,-0.310699
+d5829163b3fa9bf3,before,Eredivisie,AZ Alkmaar,Groningen,2026-11-08T15:45:00+00:00,Asian Handicap Away +2.25,0.720473,0.127495
+d5829163b3fa9bf3,before,Eredivisie,AZ Alkmaar,Groningen,2026-11-08T15:45:00+00:00,Home win,0.500801,-0.248798
+d5829163b3fa9bf3,before,Eredivisie,SC Cambuur,PSV Eindhoven,2026-11-08T15:45:00+00:00,Asian Handicap Home +2.25,0.544475,0.033990
+d5829163b3fa9bf3,before,Eredivisie,SC Cambuur,PSV Eindhoven,2026-11-08T15:45:00+00:00,Away win,0.650359,-0.115511
+d5829163b3fa9bf3,before,Eredivisie,FC Utrecht,NEC Nijmegen,2026-11-08T19:00:00+00:00,Asian Handicap Home +0.25,0.432633,0.015496
+d5829163b3fa9bf3,before,Primeira Liga,Estoril,CS Maritimo,2026-11-08T15:30:00+00:00,Asian Handicap Home +0.25,0.530710,0.032780
+d5829163b3fa9bf3,before,Primeira Liga,Nacional,Académico de Viseu,2026-11-08T15:30:00+00:00,Asian Handicap Away +0.25,0.538833,0.163836
+d5829163b3fa9bf3,before,Primeira Liga,Santa Clara,Gil Vicente,2026-11-08T15:30:00+00:00,Asian Handicap Away +1.25,0.599907,-0.004813
+d5829163b3fa9bf3,before,Primeira Liga,Vitória SC,FC Porto,2026-11-08T18:00:00+00:00,Asian Handicap Home +1.25,0.481486,0.150497
+d5829163b3fa9bf3,before,Primeira Liga,Vitória SC,FC Porto,2026-11-08T18:00:00+00:00,Away win,0.518514,-0.201489
+d5829163b3fa9bf3,before,Primeira Liga,CF Estrela,Benfica,2026-11-08T20:30:00+00:00,Asian Handicap Home +2.50,0.697113,0.073554
+d5829163b3fa9bf3,before,Primeira Liga,CF Estrela,Benfica,2026-11-08T20:30:00+00:00,Away win,0.740597,-0.103878
+d5829163b3fa9bf3,before,Primeira Liga,Rio Ave FC,Braga,2026-11-08T20:30:00+00:00,Asian Handicap Home +1.50,0.676600,0.096091
+d5829163b3fa9bf3,before,Primeira Liga,Rio Ave FC,Braga,2026-11-08T20:30:00+00:00,Away win,0.562605,-0.156092
+d5829163b3fa9bf3,before,Super Lig,Çorum FK,Fenerbahce,2026-11-08T13:00:00+00:00,Asian Handicap Home +1.50,0.784110,0.082072
+d5829163b3fa9bf3,before,Super Lig,Çorum FK,Fenerbahce,2026-11-08T13:00:00+00:00,Away win,0.399831,-0.260313
+d5829163b3fa9bf3,before,Super Lig,Alanyaspor,Trabzonspor,2026-11-08T15:30:00+00:00,Asian Handicap Home +1.25,0.506126,0.123174
+d5829163b3fa9bf3,before,Super Lig,Alanyaspor,Trabzonspor,2026-11-08T15:30:00+00:00,Away win,0.493874,-0.199924
+d5829163b3fa9bf3,before,Super Lig,Besiktas JK,Genclerbirligi SK,2026-11-08T18:00:00+00:00,Asian Handicap Away +2.25,0.529712,0.230613
+d5829163b3fa9bf3,before,Super Lig,Besiktas JK,Genclerbirligi SK,2026-11-08T18:00:00+00:00,Home win,0.714296,-0.149988
+d5829163b3fa9bf3,after,Premier League,Brighton and Hove Albion,Brentford,2026-11-08T14:00:00+00:00,Asian Handicap Home +0.25,0.603885,0.059251
+d5829163b3fa9bf3,after,Premier League,Brighton and Hove Albion,Brentford,2026-11-08T14:00:00+00:00,Home win,0.603885,0.135303
+d5829163b3fa9bf3,after,Premier League,Brighton and Hove Albion,Brentford,2026-11-08T14:00:00+00:00,Double Chance 1X,0.823699,0.046098
+d5829163b3fa9bf3,after,Premier League,Crystal Palace,Liverpool,2026-11-08T14:00:00+00:00,Asian Handicap Home +1.25,0.518723,0.177075
+d5829163b3fa9bf3,after,Premier League,Crystal Palace,Liverpool,2026-11-08T14:00:00+00:00,Double Chance X2,0.724595,-0.152224
+d5829163b3fa9bf3,after,Premier League,Crystal Palace,Liverpool,2026-11-08T14:00:00+00:00,Away win,0.481277,-0.234769
+d5829163b3fa9bf3,after,Premier League,Ipswich Town,Bournemouth,2026-11-08T14:00:00+00:00,Asian Handicap Away +0.25,0.511916,-0.037474
+d5829163b3fa9bf3,after,Premier League,Ipswich Town,Bournemouth,2026-11-08T14:00:00+00:00,Away win,0.511916,0.008475
+d5829163b3fa9bf3,after,Premier League,Ipswich Town,Bournemouth,2026-11-08T14:00:00+00:00,Double Chance X2,0.742928,-0.041623
+d5829163b3fa9bf3,after,Premier League,Sunderland,Chelsea,2026-11-08T14:00:00+00:00,Asian Handicap Home +1.25,0.572706,0.068453
+d5829163b3fa9bf3,after,Premier League,Sunderland,Chelsea,2026-11-08T14:00:00+00:00,Away win,0.427294,-0.171050
+d5829163b3fa9bf3,after,Premier League,Sunderland,Chelsea,2026-11-08T14:00:00+00:00,Double Chance X2,0.702604,-0.100667
+d5829163b3fa9bf3,after,Premier League,Manchester United,Aston Villa,2026-11-08T16:30:00+00:00,Asian Handicap Away +1.25,0.571947,0.009654
+d5829163b3fa9bf3,after,Premier League,Manchester United,Aston Villa,2026-11-08T16:30:00+00:00,Double Chance 1X,0.679224,-0.055879
+d5829163b3fa9bf3,after,La Liga,Elche CF,Real Betis,2026-11-08T13:00:00+00:00,Asian Handicap Home +1.50,0.805187,0.119209
+d5829163b3fa9bf3,after,La Liga,Elche CF,Real Betis,2026-11-08T13:00:00+00:00,Away win,0.410407,-0.232539
+d5829163b3fa9bf3,after,La Liga,Elche CF,Real Betis,2026-11-08T13:00:00+00:00,Double Chance X2,0.684389,-0.130825
+d5829163b3fa9bf3,after,La Liga,Real Sociedad,Rayo Vallecano,2026-11-08T15:15:00+00:00,Asian Handicap Home +0.25,0.514967,-0.040320
+d5829163b3fa9bf3,after,La Liga,Real Sociedad,Rayo Vallecano,2026-11-08T15:15:00+00:00,Home win,0.514967,-0.067910
+d5829163b3fa9bf3,after,La Liga,Real Sociedad,Rayo Vallecano,2026-11-08T15:15:00+00:00,Double Chance 1X,0.767334,-0.040832
+d5829163b3fa9bf3,after,La Liga,Celta Vigo,Levante,2026-11-08T17:30:00+00:00,Asian Handicap Home +0.25,0.538144,-0.023933
+d5829163b3fa9bf3,after,La Liga,Celta Vigo,Levante,2026-11-08T17:30:00+00:00,Home win,0.538144,-0.015196
+d5829163b3fa9bf3,after,La Liga,Celta Vigo,Levante,2026-11-08T17:30:00+00:00,Double Chance 1X,0.790111,-0.028163
+d5829163b3fa9bf3,after,La Liga,Villarreal,Getafe,2026-11-08T17:30:00+00:00,Asian Handicap Away +1.25,0.458838,0.137715
+d5829163b3fa9bf3,after,La Liga,Villarreal,Getafe,2026-11-08T17:30:00+00:00,Home win,0.541162,-0.166611
+d5829163b3fa9bf3,after,La Liga,Atlético Madrid,Barcelona,2026-11-08T20:00:00+00:00,Asian Handicap Home +1.50,0.769338,0.038606
+d5829163b3fa9bf3,after,La Liga,Atlético Madrid,Barcelona,2026-11-08T20:00:00+00:00,Double Chance X2,0.660400,-0.082044
+d5829163b3fa9bf3,after,Bundesliga,1. FC Köln,Bayer Leverkusen,2026-11-08T14:30:00+00:00,Asian Handicap Home +1.50,0.742861,0.054863
+d5829163b3fa9bf3,after,Bundesliga,1. FC Köln,Bayer Leverkusen,2026-11-08T14:30:00+00:00,Double Chance X2,0.702980,-0.128305
+d5829163b3fa9bf3,after,Bundesliga,1. FC Köln,Bayer Leverkusen,2026-11-08T14:30:00+00:00,Away win,0.466570,-0.155508
+d5829163b3fa9bf3,after,Bundesliga,SC Freiburg,Union Berlin,2026-11-08T16:30:00+00:00,Asian Handicap Away +2.25,0.608408,0.009603
+d5829163b3fa9bf3,after,Bundesliga,SC Freiburg,Union Berlin,2026-11-08T16:30:00+00:00,Home win,0.627260,-0.090473
+d5829163b3fa9bf3,after,Bundesliga,TSG Hoffenheim,FC Schalke 04,2026-11-08T18:30:00+00:00,Asian Handicap Home -0.25,0.632989,0.008296
+d5829163b3fa9bf3,after,Bundesliga,TSG Hoffenheim,FC Schalke 04,2026-11-08T18:30:00+00:00,Home win,0.632989,0.012783
+d5829163b3fa9bf3,after,Bundesliga,TSG Hoffenheim,FC Schalke 04,2026-11-08T18:30:00+00:00,Double Chance 1X,0.864552,0.020172
+d5829163b3fa9bf3,after,Serie A,Genoa,AC Milan,2026-11-08T14:00:00+00:00,Asian Handicap Home +1.50,0.759880,-0.027354
+d5829163b3fa9bf3,after,Serie A,Genoa,AC Milan,2026-11-08T14:00:00+00:00,Double Chance X2,0.758626,-0.036545
+d5829163b3fa9bf3,after,Serie A,Monza,Atalanta BC,2026-11-08T14:00:00+00:00,Asian Handicap Away +0.25,0.527167,0.015447
+d5829163b3fa9bf3,after,Serie A,Monza,Atalanta BC,2026-11-08T14:00:00+00:00,Double Chance X2,0.753011,0.001504
+d5829163b3fa9bf3,after,Serie A,Inter Milan,Como,2026-11-08T17:00:00+00:00,Asian Handicap Away +1.25,0.577358,0.034974
+d5829163b3fa9bf3,after,Serie A,Inter Milan,Como,2026-11-08T17:00:00+00:00,Double Chance 1X,0.655371,-0.115249
+d5829163b3fa9bf3,after,Serie A,Fiorentina,Juventus,2026-11-08T19:45:00+00:00,Asian Handicap Home +1.25,0.528798,-0.049707
+d5829163b3fa9bf3,after,Serie A,Fiorentina,Juventus,2026-11-08T19:45:00+00:00,Double Chance X2,0.741489,0.001011
+d5829163b3fa9bf3,after,Ligue 1,Rennes,Lille,2026-11-08T14:00:00+00:00,Asian Handicap Away +1.25,0.530014,-0.074053
+d5829163b3fa9bf3,after,Ligue 1,Rennes,Lille,2026-11-08T14:00:00+00:00,Double Chance 1X,0.732227,0.054407
+d5829163b3fa9bf3,after,Ligue 1,Angers,Nice,2026-11-08T16:15:00+00:00,Asian Handicap Home +1.50,0.795095,0.033623
+d5829163b3fa9bf3,after,Ligue 1,Angers,Nice,2026-11-08T16:15:00+00:00,Double Chance X2,0.721665,-0.047402
+d5829163b3fa9bf3,after,Ligue 1,Brest,Lyon,2026-11-08T16:15:00+00:00,Asian Handicap Home +0.25,0.392323,0.048162
+d5829163b3fa9bf3,after,Ligue 1,Brest,Lyon,2026-11-08T16:15:00+00:00,Double Chance 1X,0.651507,0.022865
+d5829163b3fa9bf3,after,Ligue 1,Le Havre,Lorient,2026-11-08T16:15:00+00:00,Asian Handicap Home +1.25,0.561557,-0.054037
+d5829163b3fa9bf3,after,Ligue 1,Le Havre,Lorient,2026-11-08T16:15:00+00:00,Double Chance X2,0.729154,0.035399
+d5829163b3fa9bf3,after,Ligue 1,Le Mans FC,AS Monaco,2026-11-08T16:15:00+00:00,Asian Handicap Away +0.25,0.537019,-0.098832
+d5829163b3fa9bf3,after,Ligue 1,Le Mans FC,AS Monaco,2026-11-08T16:15:00+00:00,Away win,0.537019,-0.119288
+d5829163b3fa9bf3,after,Ligue 1,Le Mans FC,AS Monaco,2026-11-08T16:15:00+00:00,Double Chance X2,0.764508,-0.097881
+d5829163b3fa9bf3,after,Ligue 1,RC Lens,Marseille,2026-11-08T19:45:00+00:00,Asian Handicap Away +1.25,0.557165,-0.041275
+d5829163b3fa9bf3,after,Ligue 1,RC Lens,Marseille,2026-11-08T19:45:00+00:00,Double Chance 1X,0.689600,-0.034560
+d5829163b3fa9bf3,after,Eredivisie,FC Twente Enschede,Ajax,2026-11-08T13:30:00+00:00,Asian Handicap Away +1.25,0.654480,0.151046
+d5829163b3fa9bf3,after,Eredivisie,FC Twente Enschede,Ajax,2026-11-08T13:30:00+00:00,Home win,0.345520,-0.329691
+d5829163b3fa9bf3,after,Eredivisie,AZ Alkmaar,Groningen,2026-11-08T15:45:00+00:00,Asian Handicap Away +2.25,0.713527,0.122711
+d5829163b3fa9bf3,after,Eredivisie,AZ Alkmaar,Groningen,2026-11-08T15:45:00+00:00,Home win,0.510596,-0.234105
+d5829163b3fa9bf3,after,Eredivisie,SC Cambuur,PSV Eindhoven,2026-11-08T15:45:00+00:00,Asian Handicap Home +2.50,0.713723,0.013487
+d5829163b3fa9bf3,after,Eredivisie,SC Cambuur,PSV Eindhoven,2026-11-08T15:45:00+00:00,Away win,0.671651,-0.086554
+d5829163b3fa9bf3,after,Eredivisie,FC Utrecht,NEC Nijmegen,2026-11-08T19:00:00+00:00,Asian Handicap Home +0.50,0.667901,0.015209
+d5829163b3fa9bf3,after,Primeira Liga,Estoril,CS Maritimo,2026-11-08T15:30:00+00:00,Asian Handicap Home +0.25,0.543475,0.064777
+d5829163b3fa9bf3,after,Primeira Liga,Nacional,Académico de Viseu,2026-11-08T15:30:00+00:00,Asian Handicap Away +0.50,0.811866,0.169087
+d5829163b3fa9bf3,after,Primeira Liga,Santa Clara,Gil Vicente,2026-11-08T15:30:00+00:00,Asian Handicap Away +1.25,0.599289,-0.006687
+d5829163b3fa9bf3,after,Primeira Liga,Vitória SC,FC Porto,2026-11-08T18:00:00+00:00,Asian Handicap Home +1.25,0.469540,0.135898
+d5829163b3fa9bf3,after,Primeira Liga,Vitória SC,FC Porto,2026-11-08T18:00:00+00:00,Away win,0.530460,-0.183092
+d5829163b3fa9bf3,after,Primeira Liga,CF Estrela,Benfica,2026-11-08T20:30:00+00:00,Asian Handicap Home +2.25,0.468881,0.071112
+d5829163b3fa9bf3,after,Primeira Liga,CF Estrela,Benfica,2026-11-08T20:30:00+00:00,Away win,0.758482,-0.082237
+d5829163b3fa9bf3,after,Primeira Liga,Rio Ave FC,Braga,2026-11-08T20:30:00+00:00,Asian Handicap Home +1.25,0.422226,0.096256
+d5829163b3fa9bf3,after,Primeira Liga,Rio Ave FC,Braga,2026-11-08T20:30:00+00:00,Away win,0.577774,-0.133339
+d5829163b3fa9bf3,after,Super Lig,Çorum FK,Fenerbahce,2026-11-08T13:00:00+00:00,Asian Handicap Home +1.25,0.604112,0.104675
+d5829163b3fa9bf3,after,Super Lig,Çorum FK,Fenerbahce,2026-11-08T13:00:00+00:00,Away win,0.395888,-0.267606
+d5829163b3fa9bf3,after,Super Lig,Alanyaspor,Trabzonspor,2026-11-08T15:30:00+00:00,Asian Handicap Home +1.25,0.496926,0.111714
+d5829163b3fa9bf3,after,Super Lig,Alanyaspor,Trabzonspor,2026-11-08T15:30:00+00:00,Away win,0.503074,-0.185020
+d5829163b3fa9bf3,after,Super Lig,Besiktas JK,Genclerbirligi SK,2026-11-08T18:00:00+00:00,Asian Handicap Away +2.25,0.516924,0.216217
+d5829163b3fa9bf3,after,Super Lig,Besiktas JK,Genclerbirligi SK,2026-11-08T18:00:00+00:00,Home win,0.731516,-0.129496

@@ -1,0 +1,311 @@
+{
+  "by_group": {
+    "holdout_leagues": {
+      "c6": {
+        "fit_max_abs_diff": {
+          "matches": 29,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "forecasts_frozen_v5": 0,
+        "forecasts_with_v5": 29,
+        "harness_vs_live_1x2_max_abs": {
+          "matches": 29,
+          "max": 0.21717515628952655,
+          "mean": 0.07003965897827617
+        },
+        "matches_fit_origin_differs": 0,
+        "matches_harness_fit_missing": 0,
+        "same_inputs": {
+          "identical_within_1e-12": true,
+          "matches": 29,
+          "max": 0.0,
+          "mean": 0.0
+        }
+      },
+      "evidence_effect_1x2": {
+        "matches": 29,
+        "matches_changed": 17,
+        "max": 0.12646969262046703,
+        "mean": 0.02750022865190512
+      },
+      "evidence_rows_used": {
+        "double_counted": 42,
+        "holdout_period_unchecked": 75,
+        "league": 23,
+        "off_league_before_season": 0,
+        "off_league_in_season": 68
+      },
+      "forecasts": 29,
+      "harness_vs_live": {
+        "1x2_max_abs": {
+          "matches": 29,
+          "max": 0.1926060883601109,
+          "mean": 0.06117270090316766
+        },
+        "history_days_stale": {
+          "matches": 29,
+          "max": 6.0,
+          "mean": 5.344827586206897
+        },
+        "lambda_max_abs": {
+          "matches": 29,
+          "max": 1.1252673073827197,
+          "mean": 0.2781875134667823
+        },
+        "matches_history_differs": 29,
+        "training_end": [
+          "2026-11-01"
+        ]
+      },
+      "live_bbs_applied": 0,
+      "live_goal_rate_features": {
+        "none": 29
+      },
+      "matches_using_off_league_rows": 17,
+      "matches_with_double_counted_rows": 16,
+      "research_versions": {
+        "team-form-research-v1": 29
+      },
+      "same_inputs": {
+        "identical_within_1e-12": true,
+        "matches": 29,
+        "max": 5.551115123125783e-17,
+        "mean": 5.772559884509504e-18
+      }
+    },
+    "no_football_data": {
+      "c6": {
+        "fit_max_abs_diff": {
+          "matches": 0,
+          "max": null,
+          "mean": null
+        },
+        "forecasts_frozen_v5": 0,
+        "forecasts_with_v5": 0,
+        "harness_vs_live_1x2_max_abs": {
+          "matches": 0,
+          "max": null,
+          "mean": null
+        },
+        "matches_fit_origin_differs": 0,
+        "matches_harness_fit_missing": 0,
+        "same_inputs": {
+          "identical_within_1e-12": true,
+          "matches": 0,
+          "max": null,
+          "mean": null
+        }
+      },
+      "evidence_effect_1x2": {
+        "matches": 29,
+        "matches_changed": 15,
+        "max": 0.1293815963737841,
+        "mean": 0.026331070260096772
+      },
+      "evidence_rows_used": {
+        "double_counted": 0,
+        "holdout_period_unchecked": 0,
+        "league": 0,
+        "off_league_before_season": 0,
+        "off_league_in_season": 0
+      },
+      "forecasts": 29,
+      "harness_vs_live": {
+        "1x2_max_abs": {
+          "matches": 0,
+          "max": null,
+          "mean": null
+        },
+        "history_days_stale": {
+          "matches": 0,
+          "max": null,
+          "mean": null
+        },
+        "lambda_max_abs": {
+          "matches": 0,
+          "max": null,
+          "mean": null
+        },
+        "matches_history_differs": 0,
+        "training_end": []
+      },
+      "live_bbs_applied": 0,
+      "live_goal_rate_features": {
+        "none": 29
+      },
+      "matches_using_off_league_rows": 0,
+      "matches_with_double_counted_rows": 0,
+      "research_versions": {
+        "team-form-research-v1": 29
+      },
+      "same_inputs": {
+        "identical_within_1e-12": true,
+        "matches": 29,
+        "max": 5.551115123125783e-17,
+        "mean": 7.029849999723242e-18
+      }
+    },
+    "other_domestic": {
+      "c6": {
+        "fit_max_abs_diff": {
+          "matches": 50,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "forecasts_frozen_v5": 0,
+        "forecasts_with_v5": 50,
+        "harness_vs_live_1x2_max_abs": {
+          "matches": 50,
+          "max": 0.12289206158997978,
+          "mean": 0.03332043947255888
+        },
+        "matches_fit_origin_differs": 0,
+        "matches_harness_fit_missing": 0,
+        "same_inputs": {
+          "identical_within_1e-12": true,
+          "matches": 50,
+          "max": 0.0,
+          "mean": 0.0
+        }
+      },
+      "evidence_effect_1x2": {
+        "matches": 50,
+        "matches_changed": 40,
+        "max": 0.10899835174968436,
+        "mean": 0.020159818082339534
+      },
+      "evidence_rows_used": {
+        "double_counted": 66,
+        "holdout_period_unchecked": 0,
+        "league": 73,
+        "off_league_before_season": 0,
+        "off_league_in_season": 269
+      },
+      "forecasts": 50,
+      "harness_vs_live": {
+        "1x2_max_abs": {
+          "matches": 50,
+          "max": 0.10971630015790507,
+          "mean": 0.03051791482305595
+        },
+        "history_days_stale": {
+          "matches": 50,
+          "max": 6.0,
+          "mean": 5.34
+        },
+        "lambda_max_abs": {
+          "matches": 50,
+          "max": 0.0965215740774441,
+          "mean": 0.017276652157280775
+        },
+        "matches_history_differs": 27,
+        "training_end": [
+          "2026-11-01"
+        ]
+      },
+      "live_bbs_applied": 0,
+      "live_goal_rate_features": {
+        "none": 45,
+        "shot_features": 5
+      },
+      "matches_using_off_league_rows": 39,
+      "matches_with_double_counted_rows": 30,
+      "research_versions": {
+        "team-form-research-v1": 50
+      },
+      "same_inputs": {
+        "identical_within_1e-12": true,
+        "matches": 50,
+        "max": 5.551115123125783e-17,
+        "mean": 5.2563540128135826e-18
+      }
+    }
+  },
+  "c6": {
+    "fit_max_abs_diff": {
+      "matches": 79,
+      "max": 0.0,
+      "mean": 0.0
+    },
+    "forecasts_frozen_v5": 0,
+    "forecasts_with_v5": 79,
+    "harness_vs_live_1x2_max_abs": {
+      "matches": 79,
+      "max": 0.21717515628952655,
+      "mean": 0.046799646632885473
+    },
+    "matches_fit_origin_differs": 0,
+    "matches_harness_fit_missing": 0,
+    "same_inputs": {
+      "identical_within_1e-12": true,
+      "matches": 79,
+      "max": 0.0,
+      "mean": 0.0
+    }
+  },
+  "coverage": {
+    "harness_compared": 79,
+    "no_football_data_file:UEFA Europa League": 29
+  },
+  "evidence_effect_1x2": {
+    "matches": 108,
+    "matches_changed": 72,
+    "max": 0.1293815963737841,
+    "mean": 0.023787949745972512
+  },
+  "evidence_rows_used": {
+    "double_counted": 108,
+    "holdout_period_unchecked": 75,
+    "league": 96,
+    "off_league_before_season": 0,
+    "off_league_in_season": 337
+  },
+  "forecasts": 108,
+  "harness_vs_live": {
+    "1x2_max_abs": {
+      "matches": 79,
+      "max": 0.1926060883601109,
+      "mean": 0.0417709375613248
+    },
+    "history_days_stale": {
+      "matches": 79,
+      "max": 6.0,
+      "mean": 5.341772151898734
+    },
+    "lambda_max_abs": {
+      "matches": 79,
+      "max": 1.1252673073827197,
+      "mean": 0.11305405694178128
+    },
+    "matches_history_differs": 56,
+    "training_end": [
+      "2026-11-01"
+    ]
+  },
+  "holdout_leagues": [
+    "Eredivisie",
+    "PrimeiraLiga",
+    "SuperLig"
+  ],
+  "live_bbs_applied": 0,
+  "live_goal_rate_features": {
+    "none": 103,
+    "shot_features": 5
+  },
+  "matches_using_off_league_rows": 56,
+  "matches_with_double_counted_rows": 46,
+  "mode": "research_parity",
+  "note": "same_inputs shows the shared research step is identical given the same inputs. Harness and live inputs do not match yet (ESPN form, goal rates): see the measured gap. Harness fits for the holdout leagues exclude their 16 Jan - 10 Oct 2026 results. c6: live research v5 through the harness C6 code on the same goal rates and fit (same_inputs), and against the harness C6 (its goal rates and the walk-forward fit of the fold holding the kickoff); live uses the fit window opening on or before the research day.",
+  "research_versions": {
+    "team-form-research-v1": 108
+  },
+  "same_inputs": {
+    "identical_within_1e-12": true,
+    "matches": 108,
+    "max": 5.551115123125783e-17,
+    "mean": 5.871181363735451e-18
+  },
+  "source_commit": "ebba9d8e117bfb64d0ec9af1b48c7c8df949c90c",
+  "version": "evaluation-harness-v2"
+}
