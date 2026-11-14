@@ -1,0 +1,17 @@
+{
+  "main": "32497b262 (origin/main, PR #172 merged; origin/main has since moved to 1e2422094, a data-status file only)",
+  "branch": "69c3b23 (timing check)",
+  "files_per_run": [
+    "master_shortlist.csv",
+    "master_shortlist_audit.csv",
+    "master_summary.json",
+    "decisions.csv (every live probability, value and cagey picks)"
+  ],
+  "runs_main": 29,
+  "runs_branch": 29,
+  "same_runs": true,
+  "differences": [],
+  "compared_files": 116,
+  "runs_with_master": 29,
+  "byte_identical": true
+}

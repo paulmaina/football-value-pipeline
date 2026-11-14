@@ -1,6 +1,6 @@
 {
-  "version": "master-new-evidence-rule-v2",
-  "decided": "Decided by Paul, 13 Nov 2026, replacing the 4-point rule (master-new-paul-rule-v1) on the backtest evidence of PR #171: on development, vetoed bets (research 4+ points more pessimistic than the cagey tier) won more often than the cagey tier predicted (+3.3 points, clear of zero); ignored bets (research 4+ points more optimistic) won about as the cagey tier predicted; research 'edges' were mostly research error; C6 was no better than C. Written here and in docs/plan.md (Phase 4) before anything ran.",
+  "version": "master-new-fill-rule-v4",
+  "decided": "Fill rule (A): decided by Paul, 13 Nov 2026; pools narrowed to the two lists' nominations in every step (rule v4): decided by Paul, 14 Nov 2026, before any live grading of the new master. Sharpened cagey probabilities (B), method and pass rule: decided by Paul, 13-14 Nov 2026; failed its pass rule on 14 Nov 2026 and stays off (decided by Paul, 14 Nov 2026). All written here and in docs/plan.md (Phase 4) before anything ran or was computed. They extend master-new-evidence-rule-v2 (PR #172, decided by Paul on 13 Nov 2026 on the backtest evidence of PR #171), whose inclusion, labels and flags are kept for step 1.",
   "status": "shadow only: never replaces master_shortlist.csv, never changes a probability, a pick or a stake.",
   "file": "master_shortlist_new.csv",
   "summary_file": "master_shortlist_new_summary.json",
@@ -12,7 +12,89 @@
     "max_odds_inclusive": 2.0,
     "markets": "the live master's native Pinnacle markets (master_selection_pinnacle_markets.allowed): Asian Handicap from spreads/alternate_spreads, Home win, Away win, Double Chance 1X and X2. Pinnacle prices only."
   },
+  "timing": {
+    "added": "14 Nov 2026, review of PR #173 (commit 4b49178), before any live grading of the new master; rule version unchanged (no new-master pick has been archived).",
+    "rule": "Exactly the live master's timing checks (master_selection.evaluate and _reference, same functions and constants), applied before any tier is assigned to (a) the offer and (b) the reference that supplies the row's ranking probabilities: the row's evaluation clock equals the run's single generation clock; the offer's quote (offered_last_update_utc) and every stamp of the reference are 0 to 15 minutes old at that clock (master_selection._fresh, MAX_AGE_MINUTES = 15), so no input may be timestamped after evaluation; the reference's inputs and the offer are at most 10 minutes apart (600 seconds, as master_selection._reference).",
+    "reference_stamps": {
+      "cagey": "the corrected distribution's inputs, read from the run's forecast as the cagey tier reads them (price_edge_cagey_shortlist.corrected_context on price_edge_shortlist.market_fit with the observed-by-cutoff rule): fit B's Pinnacle 1X2, O/U 2.5 and main AH line; fit A's 1X2 and O/U 2.5 when fit B is unusable.",
+      "pinnacle_stand_in": "the live master's reference (master_selection._reference): the Pinnacle 1X2 quote for wins and double chance (O/U 1.5 for Over 1.5), fit B's inputs for other AH lines; plus fit B's inputs where the chance of profit comes from the uncorrected fit."
+    },
+    "fails": "The offer is ineligible (NOT_EXECUTABLE, reason 'timing: ...' and column timing_check); it is never replaced by the other view's probabilities. The summary counts ineligible offers by reason (timing_check).",
+    "forecast": "The reference's stamps come from the run's own forecast (predictions), matched by fixture identity as the live master does; a missing or ambiguous forecast makes every row with a market view ineligible ('unique same-generation fixture forecast unavailable').",
+    "offline": "The offline backtest has no quote timestamps (closing prices from the files), so the check applies to live runs only."
+  },
   "target_fixtures": 15,
+  "fill": {
+    "decided": "decided by Paul, 13 Nov 2026; pools (every step uses only the nominations) decided by Paul, 14 Nov 2026",
+    "rule": "Fill the 15-match target whenever there are enough matches. Step 1, safe picks: exactly PR #172's rule (master-new-evidence-rule-v2) on the nominated pool: offers with market no-loss chance >= 0.75 (cagey, or Pinnacle's margin-free where the cagey score is missing), one per match, ranked by that no-loss chance. Step 2, fill: if fewer than 15 matches have a safe pick, the remaining slots go, one per match not already picked, to each match's best remaining nominated executable Pinnacle offer that is not risky (market no-loss chance >= 0.50), ranked by the market chance of profit. Step 3, risky fill: only if steps 1-2 still leave fewer than 15 matches, each remaining match's best nominated executable offer by the same chance of profit, labelled 'risky fill'. Stop at 15 matches or when no match remains; never two picks per match.",
+    "pools": {
+      "decided": "decided by Paul, 14 Nov 2026, before any live grading of the new master (replaces rule v3's pools, where steps 2-3 drew on every executable offer).",
+      "all_steps": "the nominated pool only, in every step (safe picks, fill and risky fill): the offers the value shortlist or the cagey tier shortlisted in the run (PR #172's pool). No step uses an offer that neither list nominated.",
+      "remaining_match": "a match with at least one nominated executable offer with a market view (cagey, or the Pinnacle stand-in) and no pick yet.",
+      "short_list": "If the nominations cover fewer than 15 matches (with a market view), the list is shorter than 15. Each run's summary records it: nominated_fixtures, ranked_fixtures, shortfall and short_reason ('nominations cover fewer than 15 matches').",
+      "no_market_view": "A match whose nominated offers have neither a cagey score nor a Pinnacle reference has no market view and stays out (decided by Paul, 14 Nov 2026); the summary counts such matches (fixtures_without_market_view)."
+    },
+    "step_2_min_no_loss": 0.5,
+    "best_offer_of_a_match": "the offer with the highest chance of profit among its eligible offers (step 2: market no-loss >= 0.50; step 3: any offer with a market view and a chance of profit); ties by higher odds, then market, side, line.",
+    "ranking": "Steps 2 and 3 each rank their matches' best offers by chance of profit, compared to 9 decimals; ties by higher odds, then kickoff, league, home team, away team, market, side, line. The list is ordered: step 1 picks first (by no-loss, as #172), then step 2, then step 3.",
+    "tiers": {
+      "safe": "a step 1 pick",
+      "fill": "a step 2 pick",
+      "risky fill": "a step 3 pick (also labelled 'risky fill')"
+    },
+    "labels": "Every pick carries its tier (new_master_tier) and keeps every PR #172 label and flag (both agree, research too optimistic, research strongly disagrees, one view missing, no research check, unvalidated view), computed exactly as in #172 on the current cagey probabilities. The research view has no say in inclusion or ranking.",
+    "missing_cagey_score": "Pinnacle's margin-free probabilities stand in for the cagey tier's no-loss chance and chance of profit, flagged 'one view missing'. They are never sharpened.",
+    "unchanged": "Pinnacle prices only, no veto, the market thresholds (safe 0.75, risky below 0.50, fair within 2.70%), one pick per match, the live comparison rule."
+  },
+  "chance_of_profit": {
+    "rule": "P(the bet returns more than the stake) at the offered Pinnacle price (cost 0), from the view's settlement distribution on the exact line: P(win) + P(half win). A push returns exactly the stake (not a profit); a half win returns stake + (odds - 1) / 2, more than the stake; a half loss returns half the stake (a loss).",
+    "by_line_type": {
+      "home_win_away_win": "P(win): the side wins; no push. Line type half (Home win = home -0.5).",
+      "double_chance": "P(win): one of the two covered results; no push. Line type half (1X = home +0.5, X2 = away +0.5).",
+      "asian_half_lines": "+/-0.5, +/-1.5, ...: P(win); no push. Chance of profit = no-loss chance.",
+      "asian_whole_lines": "0, +/-1, +/-2, ...: P(win) only; a push (adjusted margin exactly 0) returns the stake and is not a profit. Chance of profit = no-loss chance - P(push).",
+      "asian_quarter_lines": "+/-0.25, +/-0.75, ...: half the stake on each neighbouring line (e.g. +0.25 = 0 and +0.5). P(win) + P(half win); a half win is a profit, a half loss a loss. Chance of profit = no-loss chance (no push on quarter lines)."
+    },
+    "cagey": "cagey_p_win + cagey_p_half_win (equal to cagey_p_profit at cost 0).",
+    "pinnacle_stand_in": "uncorrected_p_win + uncorrected_p_half_win (Pinnacle's margin-free fit, the same fit behind pinnacle_no_loss_probability); where that settlement is unavailable, on lines that can't push (wins, double chance, half and quarter lines) pinnacle_no_loss_probability; on a whole AH line without it there is no chance of profit and the offer can't be a fill pick. Offline: the harness's Pinnacle reference (margin-free 1X2 for wins and AH +/-0.5, else M)."
+  },
+  "cagey_sharpening": {
+    "decided": "decided by Paul, 13-14 Nov 2026; method and pass rule written here and in docs/plan.md before anything was computed",
+    "version": "cagey-sharpen-walk-forward-v1",
+    "status": "failed: pass rule computed once, 14 Nov 2026, locked backtest at 76a155f (evaluation/master_new_fill/results.json). Development: the sharpened slopes are further from 1.0 than the current ones (no-loss 1.125 vs 1.075; profit 1.128 vs 1.069), log loss not worse (no-loss -0.00005, -0.00059 to +0.00049). Validation: slopes not closer (no-loss 0.995 vs 0.996; profit 1.009 vs 1.001) and no-loss log loss worse (-0.00007, -0.00016 to -0.0000002, entirely below zero). The new master keeps the current cagey probabilities.",
+    "use_sharpened": false,
+    "method": "A walk-forward recalibration of the cagey tier's probabilities, research_sharpen.py's approach: p' = sigmoid(s * logit(p)), one slope s per quantity and line type, no intercept, fitted by recency-weighted maximum likelihood (logistic log loss), bounded. Refitted every 14 days (the harness fold origins) only on the cagey tier's own earlier forecasts and their results: matches played before the origin (date < origin), never the research model, never a price or result after kickoff, never a holdout match (locked). The cagey tier's own outputs stay unchanged; the sharpened values are new columns used only by the new master.",
+    "quantities": [
+      "no_loss",
+      "profit"
+    ],
+    "line_types": {
+      "half": "Home win, Away win, double chance and AH +/-0.5, +/-1.5, ...",
+      "quarter": "AH +/-0.25, +/-0.75, ...",
+      "whole": "AH 0, +/-1, +/-2, ..."
+    },
+    "slopes": "Six slopes, (no_loss, profit) x (half, quarter, whole), each fitted on its own events. On half and quarter lines the no-loss and profit events are the same event, so those pairs of fits coincide; only whole lines have distinct no-loss (win or push) and profit (win) slopes. On whole lines the sharpened chance of profit is capped at the sharpened no-loss chance.",
+    "slope_bounds": [
+      0.5,
+      2.5
+    ],
+    "half_life_days": 480.0,
+    "min_fixtures": 1000,
+    "neutral": "s = 1 (sharpened = current) for a slope until at least 1,000 earlier fixtures have contributed events to it, or when the optimiser fails.",
+    "events": "The cagey tier's bettable lines under rule cagey-events-v1 (settled with Paul 12-13 Nov 2026): the 25 lines -3.00 to +3.00, priced at the period bookmaker's real main AH quote or synthetically (M's fair odds / (1 + the bookmaker's average AH margin)), odds in (1.15, 2.00], one side per fixture (the side whose best bettable line has the higher expected return under D). Every bettable line of that side gives one no-loss event and one profit event of its line type, with D's (the cagey tier's) probability and the observed outcome. The fits and the pass rule use the same events.",
+    "applied_to": "Offline: every offer of the master backtest (Home win, Away win, the main AH line both sides), with the slopes of its fold. Live (only if the pass rule passes): every cagey-scored offer of the run, with the latest fit whose origin is on or before the run date, from the fit table the locked backtest writes (refreshed every 14 days from newly cached results, holdout locked); with no fit table the current probabilities are used.",
+    "pass_rule": {
+      "development": "For both quantities (no-loss and chance of profit, each pooled over its line types' events): the sharpened probabilities' logistic calibration slope (logit P(y) = a + b logit(p), evaluation_harness.calibration_slope) is strictly closer to 1.0 than the current cagey tier's on the same events, AND log loss is no worse: the 95% interval of (current minus sharpened) mean log loss per event, whole weeks resampled (2,000 samples, seed 136), is not entirely below zero.",
+      "validation": "Shows the same direction: for both quantities the sharpened slope is strictly closer to 1.0 than the current one, and the log-loss interval (current minus sharpened) is not entirely below zero.",
+      "passes": "Only if development and validation both hold. The retrospective is a diagnostic and never decides.",
+      "if_passes": "The new master uses the sharpened cagey probabilities for the safe / fill / risky thresholds, the ranking and the chance of profit (the Pinnacle stand-in is never sharpened). Labels and flags stay computed on the current cagey probabilities, as in #172.",
+      "if_fails": "The new master keeps the current cagey probabilities, and docs/plan.md records why."
+    },
+    "bootstrap_samples": 2000,
+    "seed": 136,
+    "report": "Slopes, log loss and reliability bands (tenths of probability, at least 30 events, as cagey-events-v1) before and after, on development, validation and the retrospective (diagnostic); the fitted slopes per fold.",
+    "decision_after_result": "Decided by Paul, 14 Nov 2026: the sharpening stays off (use_sharpened false). It failed its pre-set pass rule and won't be retried without a new decision and a new pass rule written before anything is computed."
+  },
   "one_pick_per_match": true,
   "probability": {
     "rule": "Each view's probability that the bet does not lose on this exact offer: P(win) + P(half win) + P(push) from its settlement distribution (for bets with no push, P(win)). p_r = research (value shortlist's research_p_*), p_c = cagey tier's corrected probability (cagey_p_*), p_pin = Pinnacle's margin-free no-loss probability on the same bet (pinnacle_no_loss_probability: the uncorrected Pinnacle fit; on half lines the margin-free win share). Pinnacle's per-stake cost is 0 (shortlist_quote_policy.json), so p_c equals cagey_no_loss_probability."
@@ -88,7 +170,12 @@
     "bootstrap_samples": 2000,
     "seed": 136,
     "grading": "Same as the live master: archived pre-kickoff snapshots only (lead_checked), Pinnacle prices, the newest pre-kickoff generation's pick per fixture, one row per verified result.",
-    "restart": "No live result of the new master exists (no master_shortlist_new.csv has been archived; forecasting stopped on 8 Nov 2026), so nothing restarts: the comparison counts only picks made under this rule's version."
+    "restart": "No live result of the new master exists (no master_shortlist_new.csv has been archived; forecasting stopped on 8 Nov 2026), so nothing restarts. The comparison counts only picks made under this rule's version (master-new-fill-rule-v4); rule v3 (14 Nov 2026, fill from every executable offer) never produced a live pick.",
+    "by_tier": "Results are also reported by tier (safe, fill, risky fill) as context; they never decide."
+  },
+  "safe_only_rule": {
+    "version": "master-new-evidence-rule-v2",
+    "status": "superseded 14 Nov 2026 by the fill rule; kept as the offline comparison \"safe only\" (PR #172): step 1 alone, current cagey probabilities, no fill."
   },
   "previous_rule": {
     "version": "master-new-paul-rule-v1",
@@ -100,7 +187,7 @@
     "rule": "g >= +4 ignored and g <= -4 vetoed (both left out); Both agree (|g| < 4, research edge, cagey safe or fair) ranked first, Market-safe (|g| < 4, cagey safe) second; one view missing checked against Pinnacle with the same 4-point rule."
   },
   "offline_check": {
-    "rule": "Locked backtest (evaluation_harness.py --mode master): development deciding, validation as a check, retrospective as a diagnostic; research model C, with C6 alongside (C6 offline only; live uses C); cagey view D; Pinnacle reference M (binary margin-free 1X2 for wins and AH +/-0.5). The new master against the live master logic and against the previous rule (master-new-paul-rule-v1): flat-stake return per bet, whole weeks resampled, 95% intervals. Inspection flag: offers and list picks it fires on per period, their observed no-loss rate against the cagey tier's predicted rate, with intervals.",
-    "pool_limitation": "Offers: Home win, Away win and the main AH line only (no plus lines, alternate lines or double chance in the files), so cagey-safe bets are rare offline."
+    "rule": "Locked backtest (evaluation_harness.py --mode master), main lines only: development deciding, validation as a check, retrospective as a diagnostic; research model C (C6 alongside, labels only); cagey view D; Pinnacle reference M (binary margin-free 1X2 for wins and AH +/-0.5). The final new master (fill rule, with the probabilities the pass rule chose) against the live master logic, against PR #172's safe-only rule, and with vs without sharpening (both with the fill), so each change's effect is visible: flat-stake return per bet with week-resampled 95% intervals, picks per week, and results by tier (safe, fill, risky fill). The sharpening check (pass rule) on its events, per period. PR #171's rule stays reported for continuity.",
+    "pool_limitation": "Offers: Home win, Away win and the main AH line only (no plus lines, alternate lines or double chance in the files). Every step draws only from the value and cagey lists' nominations among these (rule v4); so offline the safe tier is short-priced favourites and the fill mostly near-even bets, unlike live, where plus lines dominate. Where the nominations cover fewer than 15 matches in a week, the list is shorter; the report gives picks per week and how often a week falls short."
   }
 }

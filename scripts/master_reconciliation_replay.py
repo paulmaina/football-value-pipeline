@@ -4,8 +4,9 @@ For every archived run in football_output_v2/performance/snapshots generated in 
 run's decision rows from its frozen predictions at the run's own clock with the current production rules
 (price_edge_cagey_shortlist.build_shortlist with cagey_correction_config.json, the quote policy and the current
 lookahead), then call master_shortlist.refresh, exactly as the pipeline does. Each run's outputs go to
-<output>/runs/<snapshot>/: master_shortlist.csv, master_shortlist_audit.csv, master_summary.json and, on a
-branch with the shadow, master_shortlist_new.csv and its summary.
+<output>/runs/<snapshot>/: master_shortlist.csv, master_shortlist_audit.csv, master_summary.json, decisions.csv
+(the run's decision rows after the refresh: every live probability and both lists' picks, the cagey tier's
+included) and, on a branch with the shadow, master_shortlist_new.csv and its summary.
 
 Integration check, not evidence: no result is read. Run it on main and on the branch with the same arguments
 and compare the live master files byte for byte (--compare).
@@ -27,7 +28,9 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 SNAPSHOTS = Path('football_output_v2') / 'performance' / 'snapshots'
-LIVE_FILES = ('master_shortlist.csv', 'master_shortlist_audit.csv', 'master_summary.json')
+# decisions.csv: the run's decision rows after the master refresh, i.e. every live probability and both lists' picks
+# (value shortlist and cagey tier), so the comparison also shows the cagey tier untouched.
+LIVE_FILES = ('master_shortlist.csv', 'master_shortlist_audit.csv', 'master_summary.json', 'decisions.csv')
 
 
 def runs(root: Path, start: str, end: str):
@@ -64,6 +67,8 @@ def replay(root: Path, output: Path, start: str, end: str) -> dict:
                                                             execution_policy=load_policy(), model=nm.production_model())
                 summary.setdefault('quote_execution_policy', load_policy())
                 master_shortlist.refresh(decisions, target, summary, predictions)
+            decisions.to_csv(target / 'decisions.csv', index=False)
+            entry.update(run_fixtures(decisions))
             (target / 'master_summary.json').write_text(
                 json.dumps(summary.get('master_shortlist'), indent=2, sort_keys=True, default=str) + '\n',
                 encoding='utf-8')
@@ -81,12 +86,29 @@ def replay(root: Path, output: Path, start: str, end: str) -> dict:
     return report
 
 
+def run_fixtures(decisions) -> dict:
+    """The run's matches, and those with an executable offer, where the replayed code has the fill rule; {} otherwise
+    (e.g. replaying main before it). Under rule v4 the new master draws only on the nominations, whose coverage is in
+    the shadow summary (nominated_fixtures, fixtures_with_market_view)."""
+    try:
+        import master_reconciliation as mr
+        from performance_tracking import fixture_key
+        config = mr.load_config()
+        records = mr._records(decisions)
+        return {'fixtures': len({fixture_key(r) for r in records}),
+                'fixtures_with_executable_offer': len({fixture_key(r) for r in records
+                                                       if mr.executable(r, config) is None})}
+    except Exception:  # noqa: BLE001  (older code: no fill rule)
+        return {}
+
+
 def totals(output: Path, report: dict) -> dict:
     """New-master inclusion, labels, flags and overlap summed over the replayed runs (integration check only)."""
     out = {'runs_with_shadow': 0, 'offers': 0, 'not_executable_offers': 0, 'offers_by_group': {}, 'gap_checks': {},
            'left_out_by_reason': {}, 'labels_offers': {}, 'labels_ranked': {}, 'decisions': {},
            'overlap_with_live_master': {}, 'ranked_fixtures': 0, 'shortfall': 0, 'european_offers': 0,
-           'european_ranked': 0, 'inspection_flagged_offers': 0, 'for_inspection': [], 'per_run': []}
+           'european_ranked': 0, 'inspection_flagged_offers': 0, 'for_inspection': [], 'per_run': [],
+           'list_size': {}}
     for entry in report['runs']:
         path = output / 'runs' / entry['snapshot'] / 'master_shortlist_new_summary.json'
         if not path.exists():
@@ -102,10 +124,40 @@ def totals(output: Path, report: dict) -> dict:
             out[key] += s[key]
         out['inspection_flagged_offers'] += s['for_inspection']['flagged_offers']
         out['for_inspection'] += [{'snapshot': entry['snapshot'], **pick} for pick in s['for_inspection']['picks']]
+        timed = s.get('timing_check') or {}
+        out.setdefault('timing_ineligible_offers', 0)
+        out['timing_ineligible_offers'] += timed.get('ineligible_offers', 0)
+        for name, value in (timed.get('by_reason') or {}).items():
+            out.setdefault('timing_by_reason', {})[name] = out.get('timing_by_reason', {}).get(name, 0) + value
+        for name, value in (s.get('picks_by_tier') or {}).items():
+            out.setdefault('picks_by_tier', {})[name] = out.get('picks_by_tier', {}).get(name, 0) + value
         out['per_run'].append({'snapshot': entry['snapshot'], 'generated_at_utc': entry['generated_at_utc'],
-                               'offers': s['offers'], 'ranked': s['ranked_fixtures'], 'groups': s['offers_by_group'],
+                               'fixtures': entry.get('fixtures'),
+                               'fixtures_with_executable_offer': entry.get('fixtures_with_executable_offer'),
+                               'target': s['target_fixtures'], 'nominated_fixtures': s.get('nominated_fixtures'),
+                               'fixtures_with_market_view': s.get('fixtures_with_market_view'),
+                               'fixtures_without_market_view': s.get('fixtures_without_market_view'),
+                               'short_reason': s.get('short_reason'),
+                               'timing_ineligible_offers': timed.get('ineligible_offers'),
+                               'timing_by_reason': {k: v for k, v in (timed.get('by_reason') or {}).items() if v},
+                               'offers': s['offers'], 'ranked': s['ranked_fixtures'],
+                               'picks_by_tier': s.get('picks_by_tier'), 'groups': s['offers_by_group'],
                                'labels_ranked': s['labels_ranked'], 'overlap': s['overlap_with_live_master'],
                                'european_offers': s['european_offers']})
+    runs_ = out['per_run']
+    target = max((r['target'] for r in runs_), default=15)
+    nominated = [r['nominated_fixtures'] for r in runs_ if r['nominated_fixtures'] is not None]
+    out['list_size'] = {
+        'runs': len(runs_), 'target': target,
+        'runs_listing_target': sum(r['ranked'] >= target for r in runs_),
+        'runs_short': sum(r['ranked'] < target for r in runs_),
+        'runs_nominations_cover_fewer_than_target': sum(n < target for n in nominated),
+        'runs_with_market_view_fewer_than_target': sum((r['fixtures_with_market_view'] or 0) < target for r in runs_),
+        'runs_with_matches_without_market_view': sum(bool(r['fixtures_without_market_view']) for r in runs_),
+        'runs_without_nominations': sum(n == 0 for n in nominated),
+        'ranked_per_run': [r['ranked'] for r in runs_],
+        'every_run_lists_min_target_and_viewed': all(
+            r['ranked'] == min(target, r['fixtures_with_market_view'] or 0) for r in runs_)}
     return out
 
 

@@ -2193,11 +2193,18 @@ def _mass(distribution, side, line):
     return np.array([out['p_' + k] for k in ('win', 'half_win', 'push', 'half_loss', 'loss')])
 
 
-def master_fixture(fixture, rcfg, synthetic=None, research='C') -> list:
-    """One match on the same offers: the value list (research view `research`), the cagey list (D), their union
-    pool with the live master's inputs (reference: margin-free 1X2 for wins and AH +/-0.5, else M), and every
-    pooled offer classified by the new master's rule and, for comparison, by PR #171's rule (master_rule_v1).
+MASTER_VARIANTS = (('fill_current', True), ('fill_sharpened', True), ('safe_only', False))  # (name, fill)
+MASTER_SELECTION_FIELDS = ('rank', 'tier', 'step', 'decision', 'reason')
+
+
+def master_fixture(fixture, rcfg, synthetic=None, research='C', slopes=None, final='fill_current') -> list:
+    """One match on the same offers: the value list (research view `research`), the cagey list (D) and their union
+    (the nominated pool, which the live master and every step of the new master draw from; rule v4), each nominated
+    offer classified by the new master's rule with the current and with the sharpened cagey probabilities
+    (`slopes`: this fixture's fold slopes, cagey_sharpen.KEYS) and, for comparison, by PR #171's rule
+    (master_rule_v1, nominated offers only). The row's main classification columns are the `final` variant's.
     Pinnacle's margin-free reference for the missing-evidence fallback is the same M/1X2 reference."""
+    import cagey_sharpen as cs
     import master_reconciliation as mr
     import master_rule_v1
     previous = master_rule_v1.config(rcfg)
@@ -2215,7 +2222,8 @@ def master_fixture(fixture, rcfg, synthetic=None, research='C') -> list:
         won, lost = settle(fixture['margin'] if o['side'] == 'home' else -fixture['margin'], o['line'])
         r = mr.scored(research_mass, o['price'], 0.) if research_mass is not None else None
         c, m = (mr.scored(x, o['price'], 0.) for x in (cagey, reference))
-        offers.append({**o, 'research': research_mass, 'cagey': cagey, 'r': r, 'c': c, 'm': m,
+        offers.append({**o, 'research': research_mass, 'cagey': cagey, 'reference': reference, 'r': r, 'c': c, 'm': m,
+                       'kind': cs.offer_line_type(o['market'], o['line']),
                        'return': float(won * (o['price'] - 1) - lost)})
     value, cagey_list = {}, {}
     for o in offers:
@@ -2231,14 +2239,17 @@ def master_fixture(fixture, rcfg, synthetic=None, research='C') -> list:
         key = (-o['c']['no_loss'], -o['c']['expected_return'], -o['price'])
         if o['group'] not in cagey_list or key < cagey_list[o['group']][0]:
             cagey_list[o['group']] = (key, o)
-    pooled = {id(o): o for _, o in [*value.values(), *cagey_list.values()]}
+    pooled = {id(o) for _, o in [*value.values(), *cagey_list.values()]}
     rows = []
-    for o in pooled.values():
+    for o in offers:
+        if id(o) not in pooled:  # rule v4: no step draws on an offer neither list nominated
+            continue
         row = {k: fixture[k] for k in ('phase', 'week', 'league', 'fixture_key', 'market_book', 'home_team',
                                         'away_team')}
         row.update(kickoff_utc=fixture['date'], market=o['market'], handicap_side=o['side'], handicap_line=o['line'],
                    offered_decimal_odds=o['price'], group_market=o['group'], **{'return': o['return']},
-                   observed_no_loss=float(o['return'] >= -1e-12),
+                   observed_no_loss=float(o['return'] >= -1e-12), observed_profit=float(o['return'] > 1e-12),
+                   nominated=id(o) in pooled,
                    in_value_shortlist=any(v is o for _, v in value.values()),
                    in_cagey_tier=any(v is o for _, v in cagey_list.values()),
                    research_profit_probability=o['r']['profit'] if o['r'] else None,
@@ -2246,26 +2257,57 @@ def master_fixture(fixture, rcfg, synthetic=None, research='C') -> list:
                    market_profit_probability=o['m']['profit'], market_expected_return=o['m']['expected_return'],
                    market_no_loss_probability=o['m']['no_loss'], market_fair_odds=o['m']['fair_odds'],
                    live_eligible=o['price'] <= 1.15 * o['m']['fair_odds'])
+        sharp = (cs.sharpen(cs.no_loss(o['cagey']), cs.profit(o['cagey']), o['kind'], slopes)
+                 if slopes is not None and o['kind'] is not None else None)
         arguments = (o['research'], o['cagey'], o['price'], 0., o['m']['no_loss'], o['m']['fair_odds'])
-        row.update(mr.classify(*arguments, european=False, config=rcfg))
+        common = dict(european=False, config=rcfg, pinnacle_profit=mr.profit_chance(o['reference']),
+                      cagey_sharpened=sharp, line_kind=o['kind'])
+        variants = {'fill_current': mr.classify(*arguments, use_sharpened=False, **common),
+                    'fill_sharpened': mr.classify(*arguments, use_sharpened=True, **common)}
+        variants['safe_only'] = variants['fill_current']
+        row.update(variants[final])
+        row['_variants'] = variants
         old = master_rule_v1.classify(*arguments, european=False, config=previous)
-        row.update({f'{MASTER_PREVIOUS}_group': old['new_master_group'], f'{MASTER_PREVIOUS}_gap_check': old['gap_check']})
+        row.update({f'{MASTER_PREVIOUS}_group': old['new_master_group'],
+                    f'{MASTER_PREVIOUS}_gap_check': old['gap_check']})
         rows.append(row)
     return rows
 
 
-def master_select_week(rows, rcfg) -> list:
-    """Per gameweek: the live master (v9: union pool, market profit probability then market EV, no-loss,
-    odds; one per match; first 15), the new master (master_reconciliation.select, 15-match target) and PR #171's
-    rule (master_rule_v1.select, the same target)."""
+def master_select_week(rows, rcfg, final='fill_current') -> list:
+    """Per gameweek: the live master (v9: nominated pool, market profit probability then market EV, no-loss,
+    odds; one per match; first 15), the new master under each variant (master_reconciliation.select: the fill rule
+    with current or sharpened cagey probabilities, and #172's safe-only rule), and PR #171's rule
+    (master_rule_v1.select on the nominated pool). The `final` variant's selection is the new master
+    (new_master_*); every variant's is kept as <variant>_rank/_tier/_step/_decision/_reason/_no_loss/_profit."""
     import master_reconciliation as mr
     import master_rule_v1
     target = int(rcfg['target_fixtures'])
+    floor = float(rcfg['fill']['step_2_min_no_loss'])
+    keys = ('offered_decimal_odds', 'kickoff_utc', 'league', 'home_team', 'away_team', 'market', 'handicap_side',
+            'handicap_line')
+    for name, fill in MASTER_VARIANTS:
+        temp = [{**row['_variants'][name], '_match': row['fixture_key'], 'new_master_nominated': row['nominated'],
+                 **{k: row[k] for k in keys}} for row in rows]
+        mr.select(temp, target, fill=fill, fill_min_no_loss=floor)
+        for row, t in zip(rows, temp):
+            for k in MASTER_SELECTION_FIELDS:
+                row[f'{name}_{k}'] = t[f'new_master_{k}']
+            row.update({f'{name}_no_loss': t['ranking_no_loss_probability'],
+                        f'{name}_profit': t['ranking_profit_probability'], f'{name}_labels': t['new_master_labels']})
+            if name == final:
+                row.update({f'new_master_{k}': t[f'new_master_{k}'] for k in MASTER_SELECTION_FIELDS})
+                row.update(new_master_labels=t['new_master_labels'], risky_fill=t['risky_fill'])
+    nominated = [{f'{MASTER_PREVIOUS}_group': r[f'{MASTER_PREVIOUS}_group'], '_match': r['fixture_key'],
+                  'ranking_no_loss_probability': r['_variants']['fill_current']['ranking_no_loss_probability'],
+                  **{k: r[k] for k in keys}, '_row': r} for r in rows if r['nominated']]
+    master_rule_v1.select(nominated, target, prefix=MASTER_PREVIOUS)
     for row in rows:
-        row['_match'] = row['fixture_key']
-    mr.select(rows, target)
-    master_rule_v1.select(rows, target, prefix=MASTER_PREVIOUS)
-    live = sorted((r for r in rows if r['live_eligible']),
+        row.update({f'{MASTER_PREVIOUS}_rank': None, f'{MASTER_PREVIOUS}_decision': None})
+    for t in nominated:
+        t['_row'].update({f'{MASTER_PREVIOUS}_rank': t[f'{MASTER_PREVIOUS}_rank'],
+                          f'{MASTER_PREVIOUS}_decision': t[f'{MASTER_PREVIOUS}_decision']})
+    live = sorted((r for r in rows if r['nominated'] and r['live_eligible']),
                   key=lambda r: (-r['market_profit_probability'], -r['market_expected_return'],
                                  -r['market_no_loss_probability'], -r['offered_decimal_odds'], r['kickoff_utc'],
                                  r['league'], r['home_team'], r['away_team'], r['market']))
@@ -2276,27 +2318,145 @@ def master_select_week(rows, rcfg) -> list:
             row['_live'] = len(seen) <= target and len(seen)
     for row in rows:
         row['live_master_rank'] = row.pop('_live', None) or None
-        row.pop('_match', None)
+        row.pop('_variants', None)
     return rows
 
 
+def master_sharpen_events(fixtures, rule) -> pd.DataFrame:
+    """The sharpening's events (config cagey_sharpening.events): per fixture, the cagey tier's bettable lines under
+    rule cagey-events-v1 (cagey_fixture_events: one side by D's expected return, lines in the odds window at real
+    or synthetic prices), each giving a no-loss and a profit event of its line type with D's probability and the
+    observed outcome. Reads D, M, the main AH quote and the result margin only (never the research model)."""
+    import cagey_sharpen as cs
+    from ah_close_backtest import settle
+    rows = []
+    for f in fixtures:
+        selector, basis = ({'margins': f[c][0], 'margin_probs': f[c][1], 'main_ah': list(f['ah']),
+                            'book': f['market_book'], 'margin': float(f['margin'])} for c in ('D', 'M'))
+        for event in cagey_fixture_events(selector, basis, rule):
+            if event['family'] != 'no_loss':
+                continue
+            side_margin = f['margin'] if event['side'] == 'home' else -f['margin']
+            for line in event['lines']:
+                mass = _mass(f['D'], event['side'], line)
+                won, lost = settle(side_margin, line)
+                base = {'date': pd.Timestamp(f['date']), 'phase': f['phase'], 'week': f['week'],
+                        'fixture_key': f['fixture_key'], 'side': event['side'], 'line': float(line),
+                        'line_type': cs.line_type(line)}
+                rows.append({**base, 'quantity': 'no_loss', 'p': cs.no_loss(mass), 'y': int(float(lost) == 0)})
+                rows.append({**base, 'quantity': 'profit', 'p': cs.profit(mass), 'y': int(float(won) > 0)})
+    return pd.DataFrame(rows, columns=['date', 'phase', 'week', 'fixture_key', 'side', 'line', 'line_type',
+                                       'quantity', 'p', 'y'])
+
+
+def master_sharpen(fixtures, cfg, rcfg):
+    """The walk-forward sharpening (cagey_sharpen.walk_forward on master_sharpen_events), refitted at every harness
+    fold origin on matches played before it: each fixture's fold slopes (fixture['sharpen_slopes']), every event's
+    sharpened probability, and the fits per fold."""
+    import cagey_sharpen as cs
+    scfg = rcfg['cagey_sharpening']
+    rule = calibration_rules(cfg)['cagey-events-v1']
+    events = master_sharpen_events(fixtures, rule)
+    windows = fold_windows(cfg, pd.Timestamp(cfg['end_exclusive']))
+    fits = cs.walk_forward(events, [o for o, _ in windows], scfg)
+    origins = list(fits)
+    stamps = pd.DatetimeIndex([pd.Timestamp(o) for o in origins])
+
+    def folds(dates):  # the latest origin on or before each date (cagey_sharpen.fold_for, vectorised)
+        index = stamps.searchsorted(pd.DatetimeIndex(pd.to_datetime(list(dates))), side='right') - 1
+        return [origins[i] if i >= 0 else None for i in index]
+    for f, key in zip(fixtures, folds([f['date'] for f in fixtures])):
+        f['sharpen_fold'] = key
+        f['sharpen_slopes'] = cs.slopes(fits[key]) if key is not None else None
+    if len(events):
+        events['fold'] = folds(events.date)
+        table = {k: cs.slopes(v) for k, v in fits.items()}
+        events['slope'] = [table[k][f'{q}:{t}'] if k is not None else 1.
+                           for k, q, t in zip(events.fold, events.quantity, events.line_type)]
+        p, s = events.p.to_numpy(float), events.slope.to_numpy(float)
+        events['p_sharpened'] = np.where(s == 1., p, 1 / (1 + np.exp(-s * cs.logit(p))))
+        # On whole lines the sharpened chance of profit is capped at the sharpened no-loss chance (cs.sharpen).
+        whole = events.line_type.eq('whole')
+        cap = events.loc[whole & events.quantity.eq('no_loss')].set_index(['fixture_key', 'line']).p_sharpened
+        profit = events.loc[whole & events.quantity.eq('profit')]
+        if len(profit):
+            limit = cap.reindex(pd.MultiIndex.from_arrays([profit.fixture_key, profit.line])).to_numpy()
+            events.loc[profit.index, 'p_sharpened'] = np.minimum(profit.p_sharpened.to_numpy(), limit)
+    return events, fits
+
+
+def _log_loss(p, y):
+    p = np.clip(np.asarray(p, float), 1e-12, 1 - 1e-12)
+    y = np.asarray(y, float)
+    return -(y * np.log(p) + (1 - y) * np.log(1 - p))
+
+
+def master_sharpen_check(events, cfg, rcfg) -> dict:
+    """The sharpening pass rule's inputs and verdict (cagey_sharpening.pass_rule) per period: per quantity, the
+    current and sharpened calibration slopes, mean log loss and (current minus sharpened) with whole weeks resampled,
+    and reliability bands before and after; per line type as context."""
+    import cagey_sharpen as cs
+    scfg = rcfg['cagey_sharpening']
+    rule = calibration_rules(cfg)['cagey-events-v1']
+
+    def stats(part):
+        if part.empty:
+            return {'events': 0}
+        y = part.y.to_numpy(float)
+        frame = part.assign(_diff=_log_loss(part.p, y) - _log_loss(part.p_sharpened, y))
+        bands = {}
+        for name, column in (('current', 'p'), ('sharpened', 'p_sharpened')):
+            found = binary_bands(part[column], y, rule)
+            bar = band_z_threshold(rule['band_alpha'], len(found))
+            bands[name] = {'bands': found, 'band_z_threshold': bar,
+                           'failing_bands': [b for b in found if abs(b['observed_minus_forecast'])
+                                             > rule['band_max_deviation'] and b['z'] > bar]}
+        return {'events': int(len(part)), 'fixtures': int(part.fixture_key.nunique()), 'weeks': int(part.week.nunique()),
+                'observed_rate': float(y.mean()), 'mean_current': float(part.p.mean()),
+                'mean_sharpened': float(part.p_sharpened.mean()),
+                'slope_current': calibration_slope(part.p, y), 'slope_sharpened': calibration_slope(part.p_sharpened, y),
+                'log_loss_current': float(_log_loss(part.p, y).mean()),
+                'log_loss_sharpened': float(_log_loss(part.p_sharpened, y).mean()),
+                'log_loss_current_minus_sharpened': _resampled({'a': frame}, lambda m: m['a'], '_diff',
+                                                               scfg['bootstrap_samples'], scfg['seed']),
+                'reliability': bands,
+                'mean_slope_applied': float(part.slope.mean())}
+    periods = {}
+    for period in MASTER_PERIODS:
+        part = events.loc[events.phase == period] if len(events) else events
+        if part.empty:
+            continue
+        periods[period] = {q: stats(part.loc[part.quantity == q]) for q in cs.QUANTITIES}
+        periods[period]['by_line_type'] = {f'{q}:{t}': stats(part.loc[(part.quantity == q) & (part.line_type == t)])
+                                           for q in cs.QUANTITIES for t in cs.LINE_TYPES}
+        periods[period]['events_with_neutral_slope'] = int(part.slope.eq(1.).sum())
+    return {'version': scfg['version'], 'periods': periods, 'verdict': cs.verdict(periods)}
+
+
 def master_backtest(cache, cfg, workers=None, leagues=None):
-    """Locked: development, validation and retrospective only. Returns, per research view (C, C6), every pooled
-    offer with both lists' decisions and its flat-stake return at the (Pinnacle or synthetic Pinnacle-like) price."""
+    """Locked: development, validation and retrospective only. The sharpening is fitted walk-forward and checked by
+    the pass rule first; then, per research view (C, C6), every offer with both lists' decisions and its flat-stake
+    return at the (Pinnacle or synthetic Pinnacle-like) price, the final variant chosen by the pass rule."""
+    import master_reconciliation as mr
     leagues = list(leagues or cfg['leagues'])
     with ProcessPoolExecutor(max_workers=workers) as pool:
         parts = list(pool.map(master_league, leagues, [str(cache)] * len(leagues), [cfg] * len(leagues)))
     fixtures = [f for rows, _ in parts for f in rows]
     master_attach_c6(fixtures, [r for _, research in parts for r in research], cfg)
+    rcfg = mr.load_config()
+    events, fits = master_sharpen(fixtures, cfg, rcfg)
+    check = master_sharpen_check(events, cfg, rcfg)
+    final = 'fill_sharpened' if check['verdict']['passes'] else 'fill_current'
     frames, synthetic = {}, None
     for name in MASTER_RESEARCH:
-        frames[name], synthetic = master_frame(fixtures, name)
-    return frames, synthetic, len(fixtures)
+        frames[name], synthetic = master_frame(fixtures, name, final)
+    return frames, synthetic, len(fixtures), {'check': check, 'fits': fits, 'events': events, 'final': final,
+                                              'evaluated': master_evaluated(fixtures)}
 
 
-def master_frame(fixtures, research='C'):
-    """Every pooled offer of every week, both lists' picks per gameweek. Each week is selected on its own
-    matches only; the synthetic Pinnacle-like margin for the Bet365 period comes from the Pinnacle period."""
+def master_frame(fixtures, research='C', final='fill_current'):
+    """Every offer of every week, both lists' picks per gameweek under every variant. Each week is selected on its
+    own matches only; the synthetic Pinnacle-like margin for the Bet365 period comes from the Pinnacle period."""
     import master_reconciliation as mr
     rcfg = mr.load_config()
     if any(f['phase'] not in MASTER_PERIODS for f in fixtures):
@@ -2306,10 +2466,18 @@ def master_frame(fixtures, research='C'):
                  'ah': float(np.mean([sum(1 / p for p in f['ah'][1:]) - 1 for f in pre]))} if pre else None
     weeks = {}
     for f in fixtures:
-        rows = master_fixture(f, rcfg, synthetic if f['market_book'] == 'bet365' else None, research)
+        rows = master_fixture(f, rcfg, synthetic if f['market_book'] == 'bet365' else None, research,
+                              f.get('sharpen_slopes'), final)
         weeks.setdefault((f['phase'], f['week']), []).extend(rows)
-    out = [r for key in sorted(weeks) for r in master_select_week(weeks[key], rcfg)]
+    out = [r for key in sorted(weeks) for r in master_select_week(weeks[key], rcfg, final)]
     return pd.DataFrame(out), synthetic
+
+
+def master_evaluated(fixtures) -> pd.DataFrame:
+    """(phase, week, fixture_key) of every evaluated fixture, nominated or not: the week index of a period (a week
+    with fixtures but no nomination counts as zero nominations and zero picks)."""
+    return pd.DataFrame([(f['phase'], f['week'], f['fixture_key']) for f in fixtures],
+                        columns=['phase', 'week', 'fixture_key'])
 
 
 def _resampled(parts, combine, value='return', samples=2000, seed=136):
@@ -2394,99 +2562,158 @@ def master_flag_stats(frame, weeks) -> dict:
     return stats
 
 
-def master_summary(frames, synthetic, fixtures, cfg) -> dict:
-    """Per period: the live master (C's value list, as live), the new master with each research view, PR #171's
-    rule on the same offers, the gap categories against the cagey tier's prediction, the inspection flag, and C6
-    against C."""
+def master_tier_stats(frame, variant) -> dict:
+    """One variant's list by tier (safe, fill, risky fill): picks, odds, return, and the observed no-loss and profit
+    rates against the probabilities that variant ranked with."""
+    import master_reconciliation as mr
+    out = {}
+    for tier in mr.TIERS:
+        part = frame.loc[frame[f'{variant}_tier'].eq(tier)]
+        if part.empty:
+            out[tier] = {'picks': 0}
+            continue
+        nl, pr = (pd.to_numeric(part[f'{variant}_{k}'], errors='coerce') for k in ('no_loss', 'profit'))
+        gaps = part.assign(_nl=part.observed_no_loss - nl, _pr=part.observed_profit - pr)
+        out[tier] = {**master_list_stats(part), 'predicted_no_loss': float(nl.mean()),
+                     'observed_profit_rate': float(part.observed_profit.mean()), 'predicted_profit': float(pr.mean()),
+                     'observed_minus_predicted_no_loss': _week_ratio(gaps, '_nl'),
+                     'observed_minus_predicted_profit': _week_ratio(gaps, '_pr')}
+    return out
+
+
+def master_list_size(part, chosen, target, evaluated=None) -> dict:
+    """Per week of a period: how many matches were evaluated, how many the nominations cover (any nominated offer;
+    with a market view, i.e. a no-loss chance and a chance of profit), and how many picks a list made; how often the
+    nominations cover fewer than `target` matches (rule v4: the list is then shorter). The week index is every week
+    with an evaluated fixture (`evaluated`: phase/week/fixture_key rows of the period), so a week with fixtures but no
+    nomination counts as 0 nominated matches and 0 picks."""
+    viewed = part.loc[pd.to_numeric(part.ranking_no_loss_probability, errors='coerce').notna()
+                      & pd.to_numeric(part.ranking_profit_probability, errors='coerce').notna()]
+    source = evaluated if evaluated is not None and len(evaluated) else part
+    fixtures = source.groupby('week').fixture_key.nunique()
+    index = fixtures.index.union(part.week.unique()).union(chosen.week.unique()) if len(part) else fixtures.index
+    fixtures = fixtures.reindex(index, fill_value=0)
+    covered = part.groupby('week').fixture_key.nunique().reindex(index, fill_value=0)
+    with_view = viewed.groupby('week').fixture_key.nunique().reindex(index, fill_value=0)
+    picks = chosen.groupby('week').size().reindex(index, fill_value=0)
+    describe = lambda s: {'min': int(s.min()), 'median': float(s.median()), 'max': int(s.max())} if len(s) else None
+    return {'weeks': int(len(covered)), 'evaluated_fixtures_per_week': describe(fixtures),
+            'weeks_without_nomination': int((covered == 0).sum()),
+            'picks_per_week_mean': float(picks.sum() / len(index)) if len(index) else None,
+            'nominated_fixtures_per_week': describe(covered),
+            'nominated_fixtures_with_market_view_per_week': describe(with_view),
+            'weeks_nominations_cover_fewer_than_target': int((covered < target).sum()),
+            'weeks_with_view_fewer_than_target': int((with_view < target).sum()),
+            'weeks_list_short': int((picks < target).sum()), 'picks_per_week': describe(picks),
+            'short_weeks': [{'week': str(w), 'evaluated_fixtures': int(fixtures[w]), 'nominated_fixtures': int(covered[w]),
+                             'with_market_view': int(with_view[w]), 'picks': int(picks[w])}
+                            for w in index if picks[w] < target]}
+
+
+def master_summary(frames, synthetic, fixtures, cfg, sharpening=None, evaluated=None) -> dict:
+    """Per period: the final new master (fill rule, the probabilities the pass rule chose) against the live master
+    (C's value list, as live), PR #172's safe-only rule and with vs without sharpening; results by tier; #172's
+    labels, gap categories and inspection flag on the nominated offers; PR #171's rule for continuity; C6 against
+    C. `sharpening` is master_backtest's sharpening output (check, fits, final)."""
     import master_reconciliation as mr
     rcfg = mr.load_config()
+    sharpening = sharpening or {}
+    final = sharpening.get('final', 'fill_current')
     previous = f'{MASTER_PREVIOUS}_decision'
+    shortlisted = lambda f, column: f.loc[f[column].eq('SHORTLISTED')]
     periods = {}
+    # Every evaluated fixture (master_evaluated), else the rows of C's frame.
+    evaluated_all = evaluated if evaluated is not None else sharpening.get('evaluated')
     for period in MASTER_PERIODS:
         base = frames['C'].loc[frames['C'].phase == period]
-        if base.empty:
+        evaluated = (evaluated_all.loc[evaluated_all.phase == period] if evaluated_all is not None
+                     and len(evaluated_all) else base[['phase', 'week', 'fixture_key']])
+        if evaluated.empty and base.empty:
             continue
-        weeks = int(base.week.nunique())
+        # Weeks: every week with an evaluated fixture of the period, nominated or not.
+        weeks = int(pd.Index(evaluated.week.unique()).union(base.week.unique()).size)
         live = base.loc[base.live_master_rank.notna()]
+        stats = lambda f: {**master_list_stats(f), 'picks_per_week': float(len(f) / weeks) if weeks else None}
         lists, views = {}, {}
         for name, frame in frames.items():
             part = frame.loc[frame.phase == period]
-            new = part.loc[part.new_master_decision.eq('SHORTLISTED')]
-            old = part.loc[part[previous].eq('SHORTLISTED')]
-            lists[name] = {'new': new, 'old': old, 'offers': part}
+            nominated = part.loc[part.nominated.eq(True)]
+            new = shortlisted(part, 'new_master_decision')
+            chosen = {v: shortlisted(part, f'{v}_decision') for v, _ in MASTER_VARIANTS}
+            old = shortlisted(part, previous)
+            lists[name] = {'new': new, 'offers': nominated}
             flag = lambda f: f.loc[f.inspection_flag.eq(True)]
-            versus_live, versus_old = _difference(new, live), _difference(new, old)
             same = lambda a, b: int(len(set(zip(a.week, a.fixture_key)) & set(zip(b.week, b.fixture_key))))
+            differences = {
+                'final_minus_live_master': _difference(new, live),
+                'final_minus_safe_only_172': _difference(new, chosen['safe_only']),
+                'fill_effect_fill_current_minus_safe_only': _difference(chosen['fill_current'], chosen['safe_only']),
+                'sharpening_effect_fill_sharpened_minus_fill_current': _difference(chosen['fill_sharpened'],
+                                                                                   chosen['fill_current']),
+                'final_minus_previous_rule_171': _difference(new, old)}
             views[name] = {
-                'pooled_offers': int(len(part)),
-                'offers_by_group': {g: int(part.new_master_group.eq(g).sum()) for g in mr.GROUPS},
-                'gap_checks': {k: int(part.gap_check.eq(k).sum()) for k in mr.GAP_CHECKS},
-                'left_out_by_reason': {k: int(part.left_out_reason.eq(k).sum()) for k in mr.LEFT_OUT_REASONS},
-                'labels_offers': {t: int(part[c].eq(True).sum()) for c, t in mr.LABELS},
-                'bets_by_gap_check': {k: master_category_stats(part.loc[part.gap_check.eq(k)])
-                                      for k in MASTER_GAP_CATEGORIES},
-                'included_offers': master_category_stats(part.loc[part.new_master_group.eq('included')]),
-                'new_master': master_list_stats(new),
+                'final_new_master': stats(new),
+                'lists': {'fill_current': stats(chosen['fill_current']),
+                          'fill_sharpened': stats(chosen['fill_sharpened']),
+                          'safe_only_172': stats(chosen['safe_only']), 'previous_rule_171': stats(old)},
+                'differences': differences,
+                'readings': {k: _reading(v) for k, v in differences.items()},
+                'by_tier': {'final': master_tier_stats(part, final),
+                            'fill_current': master_tier_stats(part, 'fill_current'),
+                            'fill_sharpened': master_tier_stats(part, 'fill_sharpened')},
                 'labels_on_list': {t: int(new[c].eq(True).sum()) for c, t in mr.LABELS},
-                'new_master_both_agree': master_list_stats(new.loc[new.both_agree.eq(True)]),
-                'new_master_without_both_agree': master_list_stats(new.loc[~new.both_agree.eq(True)]),
-                'previous_rule': master_list_stats(old),
-                'new_minus_live_return': versus_live,
-                'new_minus_live_reading': _reading(versus_live),
-                'new_minus_previous_rule_return': versus_old,
-                'new_minus_previous_rule_reading': _reading(versus_old),
+                'nominated_offers': int(len(nominated)),
+                'list_size': master_list_size(nominated, new, int(rcfg['target_fixtures']), evaluated),
+                'offers_by_group_nominated': {g: int(nominated.new_master_group.eq(g).sum()) for g in mr.GROUPS},
+                'gap_checks_nominated': {k: int(nominated.gap_check.eq(k).sum()) for k in mr.GAP_CHECKS},
+                'bets_by_gap_check_nominated': {k: master_category_stats(nominated.loc[nominated.gap_check.eq(k)])
+                                                for k in MASTER_GAP_CATEGORIES},
                 'inspection_flag': {
-                    'offers': master_flag_stats(flag(part), weeks),
-                    'on_list': master_flag_stats(flag(new), weeks),
-                    'included_offers_not_flagged': master_category_stats(
-                        part.loc[part.new_master_group.eq('included') & ~part.inspection_flag.eq(True)]),
-                    'list_picks_not_flagged': master_category_stats(new.loc[~new.inspection_flag.eq(True)]),
-                    # Diagnostics, not part of the decided report: offline the cagey no-loss chance never reaches
-                    # the flag's 0.85 (wins and main AH lines only, odds above 1.15), so these show what the
-                    # flag's gap condition (g <= -8) has meant without the 0.85 condition.
-                    'diagnostic_gap_condition_any_cagey': master_category_stats(
-                        part.loc[pd.to_numeric(part.gap_points, errors='coerce') - 1e-9
-                                 <= rcfg['inspection_flag']['max_gap_points']]),
-                    'diagnostic_gap_condition_included': master_category_stats(
-                        part.loc[part.new_master_group.eq('included')
-                                 & (pd.to_numeric(part.gap_points, errors='coerce') - 1e-9
-                                    <= rcfg['inspection_flag']['max_gap_points'])]),
-                    'offers_reaching_cagey_0_85': int((pd.to_numeric(part.cagey_no_loss_probability, errors='coerce')
-                                                       + 1e-9 >= rcfg['inspection_flag']['min_cagey_no_loss']).sum()),
+                    'offers': master_flag_stats(flag(nominated), weeks), 'on_list': master_flag_stats(flag(new), weeks),
+                    'offers_reaching_cagey_0_85': int((pd.to_numeric(nominated.cagey_no_loss_probability,
+                                                                     errors='coerce') + 1e-9
+                                                       >= rcfg['inspection_flag']['min_cagey_no_loss']).sum()),
                     'max_cagey_no_loss': float(pd.to_numeric(part.cagey_no_loss_probability, errors='coerce').max())},
-                'overlap': {'live_picks': int(len(live)), 'new_picks': int(len(new)), 'previous_rule_picks': int(len(old)),
-                            'same_fixture_as_live': same(new, live), 'same_fixture_as_previous_rule': same(new, old)}}
+                'overlap': {'live_picks': int(len(live)), 'final_picks': int(len(new)),
+                            'same_fixture_as_live': same(new, live),
+                            'same_offer_as_live': int(len(set(zip(new.week, new.fixture_key, new.market))
+                                                          & set(zip(live.week, live.fixture_key, live.market)))),
+                            'same_fixture_as_safe_only': same(new, chosen['safe_only'])}}
         compare = {}
         if {'C', 'C6'} <= set(lists):
             c, c6 = lists['C'], lists['C6']
             compare = {
-                'new_master_return_C6_minus_C': _difference(c6['new'], c['new']),
-                'same_new_master_picks': int(len(set(zip(c['new'].week, c['new'].fixture_key, c['new'].market))
-                                                 & set(zip(c6['new'].week, c6['new'].fixture_key, c6['new'].market)))),
-                'inspection_flag_offers': {'C': int(c['offers'].inspection_flag.eq(True).sum()),
-                                           'C6': int(c6['offers'].inspection_flag.eq(True).sum())},
-                'reading': 'Inclusion and ranking read the cagey tier only, so C and C6 differ only through the '
-                           'value list\'s nominations (the pool) and the labels and flags.'}
+                'final_return_C6_minus_C': _difference(c6['new'], c['new']),
+                'same_final_picks': int(len(set(zip(c['new'].week, c['new'].fixture_key, c['new'].market))
+                                            & set(zip(c6['new'].week, c6['new'].fixture_key, c6['new'].market)))),
+                'reading': 'Inclusion, fill and ranking read the market view only, so C and C6 differ only through the '
+                           'value list\'s nominations (step 1\'s pool) and the labels and flags.'}
         periods[period] = {
-            'fixtures': int(base.fixture_key.nunique()), 'weeks': weeks,
-            'market_book': sorted(base.market_book.unique()), 'live_master': master_list_stats(live),
+            'fixtures': int(evaluated.fixture_key.nunique()), 'nominated_fixtures': int(base.fixture_key.nunique()),
+            'weeks': weeks,
+            'market_book': sorted(base.market_book.unique()), 'live_master': stats(live),
             'research_views': views, 'C6_vs_C': compare}
-    return {'version': VERSION, 'mode': 'master_new_rule_backtest', 'rule': rcfg['version'],
-            'previous_rule': rcfg['previous_rule']['version'],
+    check = sharpening.get('check')
+    return {'version': VERSION, 'mode': 'master_new_fill_backtest', 'rule': rcfg['version'],
+            'safe_only_rule': rcfg['safe_only_rule']['version'], 'previous_rule': rcfg['previous_rule']['version'],
             'rule_config_sha256': hashlib.sha256(json.dumps(rcfg, sort_keys=True).encode()).hexdigest(),
             'config_sha256': hashlib.sha256(json.dumps(cfg, sort_keys=True).encode()).hexdigest(),
             'fixtures': fixtures, 'synthetic_pinnacle_margin_bet365_period': synthetic,
+            'sharpening_check': check,
+            'final_variant': final,
+            'final_uses': (check or {}).get('verdict', {}).get('uses'),
+            'sharpening_fits': sharpening.get('fits'),
             'scope': 'Domestic leagues only (no European prices are cached). Offers: Home win, Away win and the main '
                      'AH line, both sides, the only prices the files carry (no plus lines, alternate lines or double '
-                     'chance), so cagey-safe bets (no-loss >= 0.75) are rare and short-priced; odds (1.15, 2.00]; '
-                     'cost 0. Research view C or C6 (value list, p_r, labels and the flag), cagey view D, Pinnacle '
-                     'margin-free reference = binary margin-free 1X2 for wins and AH +/-0.5, else M (the live '
-                     'master\'s reference and the missing-evidence fallback). The live master is always built on C\'s '
-                     'value list, as live; the previous rule is PR #171\'s (master_rule_v1) on the same offers. Slate = '
-                     'calendar week, 15-match target. Locked: no holdout match is read. Development deciding, '
-                     'validation a check, retrospective (synthetic Pinnacle-like prices from Bet365) a diagnostic. '
-                     'Bets by gap check and flagged offers = every pooled offer in that category (up to four per '
-                     'match); observed no-loss = return >= 0.',
+                     'chance); odds (1.15, 2.00]; cost 0. The live master and every step of the new master (rule v4) draw '
+                     'from the nominated pool only (the picks of the value list and the cagey list among these '
+                     'offers). Research view C or C6 (value list, p_r, labels and the flag), cagey view D (current, or '
+                     'sharpened walk-forward), Pinnacle margin-free reference = binary margin-free 1X2 for wins and AH '
+                     '+/-0.5, else M. The live master is always built on C\'s value list, as live; the safe-only rule '
+                     'is PR #172\'s (step 1 alone, current probabilities); PR #171\'s rule (master_rule_v1) for '
+                     'continuity. Slate = calendar week, 15-match target. Locked: no holdout match is read. '
+                     'Development deciding, validation a check, retrospective (synthetic Pinnacle-like prices from '
+                     'Bet365) a diagnostic. Observed no-loss = return >= 0; observed profit = return > 0.',
             'periods': periods}
 
 
@@ -2539,11 +2766,12 @@ def main(argv=None):
     if args.mode == 'master':
         if args.declaration:
             raise ValueError('The master backtest is locked: it never scores the holdout')
-        frames, synthetic, fixtures = master_backtest(args.cache, cfg, args.workers, args.leagues)
-        summary = master_summary(frames, synthetic, fixtures, cfg)
+        frames, synthetic, fixtures, sharpening = master_backtest(args.cache, cfg, args.workers, args.leagues)
+        summary = master_summary(frames, synthetic, fixtures, cfg, sharpening)
         hb.write_json(args.output / 'results.json', {**summary, 'source_commit': commit})
         pd.concat([f.assign(research_view=name) for name, f in frames.items()], ignore_index=True).to_csv(
             args.output / 'master_offers.csv', index=False)
+        sharpening['events'].to_csv(args.output / 'sharpening_events.csv', index=False)
         return 0
     declaration = setup = keep = None
     if args.declaration:
