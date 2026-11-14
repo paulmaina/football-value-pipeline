@@ -26,6 +26,7 @@ import master_rule_v1
 import master_shortlist
 import narrow_margin as nm
 import price_edge_cagey_shortlist as v28
+from master_switch import OldMasterLive
 
 REPO = Path(__file__).resolve().parents[1]
 FROZEN = json.loads((Path(__file__).with_name('fixtures') / 'frozen_forecast_row.json').read_text(encoding='utf-8'))
@@ -471,8 +472,9 @@ class LiveShadowTest(unittest.TestCase):
             self.assertIn(column, self.frame.columns)
 
 
-class LiveMasterUnchangedTest(unittest.TestCase):
-    """master_shortlist.csv, its audit and the run summary are byte-identical with the new master on."""
+class LiveMasterUnchangedTest(OldMasterLive, unittest.TestCase):
+    """Under live "old" (the pre-release behaviour, the rollback state): master_shortlist.csv, its audit and the run
+    summary are byte-identical with the new master on in shadow."""
 
     def run_refresh(self, shadow=True, out=None):
         predictions, decisions, summary = production_run()
@@ -647,8 +649,10 @@ class LiveGradingTest(unittest.TestCase):
         import price_edge_tracking as tracking
         from master_shortlist import FILE as MASTER_FILE
         generated = self.KICK - pd.Timedelta(hours=20)
-        live_pick = {**self.offer(market='Asian Handicap Home +0.50', handicap_side='home', handicap_line=0.5,
-                                  price=1.6), 'master_rank': 1}
+        # A pre-release live (old) master pick: old-master schema, no new_master_* columns.
+        live_pick = {**{k: v for k, v in self.offer(market='Asian Handicap Home +0.50', handicap_side='home',
+                                                      handicap_line=0.5, price=1.6).items()
+                        if not k.startswith('new_master')}, 'master_rank': 1}
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             archive = self.archive(root, [('d' * 40, generated, generated,
@@ -672,7 +676,7 @@ class LiveGradingTest(unittest.TestCase):
         self.assertEqual((comparison['status'], comparison['new_master']['graded_matches']), ('WAITING', 1))
         self.assertEqual((comparison['new_master_offers']['offers'], comparison['new_master_offers']['included']),
                          (2, 1))
-        self.assertIn('New master (shadow, fill rule)', report)
+        self.assertIn('Master shortlist: new master (live since 14 Nov 2026) beside the old master (shadow)', report)
         self.assertIn('waiting for at least 150 graded matches', report)
         self.assertIn('research strongly disagrees 0', report)
 
@@ -683,7 +687,7 @@ class LiveGradingTest(unittest.TestCase):
         self.assertIn(CONFIG['file'], prediction_runs.SIDECARS)
         self.assertIn(CONFIG['file'], workflow_checks.SIDECARS)
         source = (REPO / 'performance_tracking.py').read_text(encoding='utf-8')
-        self.assertIn("'master_shortlist_new.csv'}", source)
+        self.assertIn("'master_shortlist_new.csv',", source)
         self.assertIn('capture_new_master_file', source)
 
 
