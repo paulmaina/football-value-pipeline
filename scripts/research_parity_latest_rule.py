@@ -217,12 +217,12 @@ def run(root, cache, cfg, labels):
         slug = tr.LEAGUES.get(league)
         labelled = {s: [(r, classify(r, labels, slug, tr)[0]) for r in (evidence.get('recent') or {}).get(s, [])]
                     for s in SIDES}
-        contexts = {name: tr.prepare(current, stamp, without(evidence, drop, labelled)) for name, drop in SCENARIOS.items()}
+        contexts = {name: tr.prepare(current, stamp, without(evidence, drop, labelled), version=tr.V4_VERSION) for name, drop in SCENARIOS.items()}
         frozen = eh._hda(research['margin_distribution'])
         record = {'league': league, 'group': group, 'home_team': row.get('home_team'), 'away_team': row.get('away_team'),
                   'kickoff_utc': str(row.get('kickoff_utc')), 'snapshot_generated_utc': meta.get('generated_at_utc'),
                   'research_observed_utc': stamp.isoformat(), 'frozen_version': research.get('version'),
-                  'current_version': tr.VERSION, 'evidence_used': bool(view),
+                  'current_version': tr.V4_VERSION, 'evidence_used': bool(view),
                   'renamed_sides': sum(c.get('renamed', False) for c in checks.values()),
                   **{f'p_{o}_frozen': p for o, p in zip(OUTCOMES, frozen)},
                   **{f'p_{o}_{name}': p for name, c in contexts.items() for o, p in zip(OUTCOMES, hda(c))},
@@ -259,7 +259,7 @@ def run(root, cache, cfg, labels):
         h = eh._hda(json.loads(margin_json(matrix)))
         # Live form without non-league games, on the harness's goal rates: what history alone leaves.
         on_harness_rates = tr.prepare({**current, 'lambda_home': info['lambda_home'], 'lambda_away': info['lambda_away']},
-                                      stamp, without(evidence, SCENARIOS['league_only'], labelled))
+                                      stamp, without(evidence, SCENARIOS['league_only'], labelled), version=tr.V4_VERSION)
         record.update({'harness_compared': True, 'harness_origin': origin.date().isoformat(),
                        **{f'p_{o}_harness': p for o, p in zip(OUTCOMES, h)},
                        'gap_frozen': gap(h, frozen),
@@ -345,7 +345,7 @@ def main(argv=None):
             fetch_labels(needed, labels_path)
         labels = json.loads(labels_path.read_text(encoding='utf-8')) if labels_path.exists() else {}
         frame, coverage = run(args.root, args.cache, cfg, labels)
-    summary = {'current_research_version': tr.VERSION, 'coverage': coverage,
+    summary = {'current_research_version': tr.V4_VERSION, 'coverage': coverage,
                'current_rule_check': check_against_replay(frame),
                'groups': {g: summarize_group(frame.loc[frame['group'].eq(g)])
                           for g in ('five_leagues', 'holdout_leagues', 'europa')},

@@ -1,0 +1,57 @@
+name: Refresh live C6 research fits
+
+on:
+  schedule:
+    # Mondays 17:05 UTC, after the 16:17 training refresh. The script builds only on fold origins
+    # (every second Monday); on the other Mondays it records "not a fit day" and stops.
+    - cron: '5 17 * * 1'
+  workflow_dispatch:
+    inputs:
+      any_day:
+        description: Rebuild the current window even if today is not a fold origin (e.g. after a missed refresh)
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: research-c6-fits
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.14'
+          cache: pip
+          cache-dependency-path: football_value_requirements.txt
+      - run: python -m pip install -r football_value_requirements.txt
+      # Builds research_c6_live_fits.json from every result known before each fold origin, validates it
+      # (training cache checked 12 hours after the origin, every earlier window kept, today's window present)
+      # and commits it on latest main. Any failure leaves the committed fit in place; live forecasts then
+      # carry the "stale fit" warning until a refresh succeeds. The harness's locked fits are never touched.
+      - name: Build, validate and publish the live fits
+        env:
+          SCHEDULED: ${{ github.event_name == 'schedule' || inputs.any_day == false }}
+        run: |
+          scheduled=
+          if [ "$SCHEDULED" = "true" ]; then scheduled=--scheduled; fi
+          python scripts/build_research_c6_fits.py $scheduled --publish
+      - name: Report a failed refresh
+        if: failure()
+        run: |
+          {
+            echo '### Live C6 research fits NOT refreshed'
+            echo
+            echo 'The previous fit stays in place. Live research v5 forecasts warn that the fit is stale until a'
+            echo 'refresh succeeds: rerun this workflow (workflow_dispatch) once the training cache has the results.'
+          } >> "$GITHUB_STEP_SUMMARY"
