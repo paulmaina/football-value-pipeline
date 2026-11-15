@@ -254,9 +254,11 @@ def git(repo, *args, check=True):
                           stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 
-def publish(repo, built: Path, target: Path, origin: str, attempts=3):
+def publish(repo, built: Path, target: Path, origin: str, attempts=3, activity=None):
     """Commit the validated file on latest main as the training refresh does (no rebase or force-push).
-    Returns whether a commit was pushed."""
+    Returns whether a commit was pushed. `activity(previous file or None)` gives the model activity line committed
+    with the fit (model_activity.py)."""
+    import model_activity
     import research_low_score_sharpen as c6
     repo = Path(repo).resolve()
     relative = Path(target).resolve().relative_to(repo)
@@ -269,13 +271,17 @@ def publish(repo, built: Path, target: Path, origin: str, attempts=3):
             git(repo, 'worktree', 'add', '--detach', str(work), base)
             try:
                 current = work / relative
-                validate(new, json.loads(current.read_text(encoding='utf-8')) if current.exists() else None, origin)
+                before = json.loads(current.read_text(encoding='utf-8')) if current.exists() else None
+                validate(new, before, origin)
                 shutil.copyfile(built, current)
                 c6.load_fits(current)  # loads under the live rule
                 git(work, 'add', '--', relative.as_posix())
                 if git(work, 'diff', '--cached', '--quiet', check=False).returncode == 0:
                     print('Live C6 fits unchanged on main.')
                     return False
+                if activity is not None:
+                    model_activity.append(work / model_activity.LOG, [activity(before)])
+                    git(work, 'add', '--', model_activity.LOG.as_posix())
                 git(work, '-c', 'user.name=github-actions[bot]', '-c',
                     'user.email=41898282+github-actions[bot]@users.noreply.github.com',
                     'commit', '-m', f'Refresh live C6 research fits to the {origin} window [skip ci]')
@@ -318,6 +324,7 @@ def write_summary(lines):
 
 def main(argv=None):
     import evaluation_harness as eh
+    import model_activity as ma
     import research_low_score_sharpen as c6
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument('--basis', choices=('live', 'harness'), default='live')
@@ -348,8 +355,27 @@ def main(argv=None):
     origin = c6.expected_origin(today, fold_rule(cfg))
     if args.scheduled and origin != today:
         upcoming = origin + pd.Timedelta(days=int(cfg['step_days']))
-        write_summary([f'Not a C6 fit day: the current window opened {origin.date()}; next refresh {upcoming.date()}.'])
+        text = f'Not a C6 fit day: the current window opened {origin.date()}; next refresh {upcoming.date()}.'
+        write_summary([text])
+        if args.publish:  # the scheduled workflow: every run is logged (model_activity.py)
+            ma.record_refit(REPO, ma.refit_event('C6', ma.NOT_FIT_DAY, origin=origin.date().isoformat(), reason=text),
+                            f'Log the C6 refit check of {today.date()} (not a fit day) [skip ci]')
         return 0
+    try:
+        return _refresh(args, cfg, origin)
+    except Exception as exc:
+        if args.publish:
+            outcome, reason = ma.classify_failure(exc)
+            ma.record_refit(REPO, ma.refit_event('C6', outcome, origin=origin.date().isoformat(), reason=reason,
+                                                 previous=ma.committed(c6.FITS)),
+                            f'Log the C6 refit of the {origin.date()} window ({outcome.lower()}) [skip ci]')
+        raise
+
+
+def _refresh(args, cfg, origin):
+    """Build, validate and write or publish the live fit for the window opening at `origin`."""
+    import model_activity as ma
+    import research_low_score_sharpen as c6
     cfg['end_exclusive'] = args.end or (origin + pd.Timedelta(days=int(cfg['step_days']))).date().isoformat()
     cfg['seasons'] = live_seasons(args.cache, cfg)
     known = (pd.Timestamp(args.known_through).tz_localize(None) if args.known_through
@@ -367,7 +393,15 @@ def main(argv=None):
         with tempfile.TemporaryDirectory(prefix='c6-fits-') as temporary:
             built = Path(temporary) / c6.FITS.name
             built.write_text(json.dumps(data, indent=1) + '\n', encoding='utf-8')
-            changed = publish(REPO, built, c6.FITS, origin.date().isoformat())
+            changed = publish(REPO, built, c6.FITS, origin.date().isoformat(),
+                              activity=lambda before: ma.refit_event('C6', ma.PUBLISHED, origin=origin.date().isoformat(),
+                                                                     previous=before, new=data,
+                                                                     built=data['built_with']))
+        if not changed:
+            ma.record_refit(REPO, ma.refit_event('C6', ma.SKIPPED, origin=origin.date().isoformat(),
+                                                 reason='unchanged on main (this window is already published)',
+                                                 previous=data, new=data),
+                            f'Log the C6 refit of the {origin.date()} window (unchanged) [skip ci]')
         write_summary(summary_lines(report, data, origin.date()) +
                       [f"- {'Committed to main' if changed else 'Unchanged on main; nothing committed'}"])
     else:
