@@ -10,6 +10,7 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+from collections import Counter
 from pathlib import Path
 import tempfile
 import unittest
@@ -360,6 +361,185 @@ class MonitoringTest(unittest.TestCase):
             self.assertTrue(text.startswith('> **' + rm.TRIGGERED + '**: research v6'))
             self.assertIn('| CE3n | 0.95 | 1.00 |', text)
         self.assertEqual(readme.count(rm.TRIGGERED + '**'), 1)
+
+
+def switch_config(directory, domestic='v5', european='v6'):
+    path = Path(directory) / 'research_config.json'
+    data = json.loads((REPO / 'research_config.json').read_text(encoding='utf-8'))
+    data['live'] = {'domestic': domestic, 'european': european}
+    path.write_text(json.dumps(data), encoding='utf-8')
+    return path
+
+
+def domestic_frozen():
+    row = copy.deepcopy(FIXTURE['row'])
+    research = json.loads(row['team_research_json'])
+    evidence = research['evidence']
+    for key in eh.DERIVED_EVIDENCE:
+        evidence.pop(key, None)
+    return row, evidence, tr.utc(research['observed_at_utc'])
+
+
+class LiveSwitchTest(unittest.TestCase):
+    """Rolling back is a config switch (research_config.json), never reverting a release: new forecasts use v4,
+    archived v5 and v6 forecasts still reproduce exactly."""
+
+    def test_committed_switch_is_v5_domestic_and_v6_european(self):
+        self.assertEqual(tr.configured_live(), {'domestic': tr.VERSION, 'european': tr.CE3N_VERSION})
+        self.assertIn(tr.VERSION, rb.REPLAYED_VERSIONS)
+        self.assertIn(tr.CE3N_VERSION, rb.REPLAYED_VERSIONS)
+
+    def test_v6_rollback_switch_keeps_archived_v6_forecasts_reproducible(self):
+        home, away = clubs()
+        row, evidence = european_row(home, away)
+        frozen = tr.prepare(row, CUTOFF, copy.deepcopy(evidence))  # made under the committed switch: v6
+        self.assertEqual(frozen['version'], tr.CE3N_VERSION)
+        archived = {**row, 'team_research_json': json.dumps(frozen)}
+        with tempfile.TemporaryDirectory() as tmp, patch.object(tr, 'RESEARCH_CONFIG', switch_config(tmp, european='v4')):
+            self.assertEqual(tr.configured_live()['european'], tr.V4_VERSION)
+            new = tr.prepare(row, CUTOFF, copy.deepcopy(evidence))
+            self.assertEqual(new['version'], tr.V4_VERSION)  # new forecasts use v4
+            self.assertNotIn('ce3n_fit', new)
+            self.assertEqual(new['margin_distribution'], frozen['shadow_v4']['margin_distribution'])  # = CE
+            # The archived v6 forecast replays exactly: under its version and frozen fit, in the live replay's
+            # candidate C, and in the monitoring's grids.
+            again = tr.prepare(row, CUTOFF, copy.deepcopy(evidence), version=frozen['version'], ce3n_fit=frozen['ce3n_fit'])
+            self.assertEqual(again['margin_distribution'], frozen['margin_distribution'])
+            matrices, gaps = rb.archived_candidates(archived, CUTOFF + pd.Timedelta(minutes=1))
+            self.assertNotIn('C', gaps)
+            self.assertEqual(json.loads(margins(matrices['C'])), frozen['margin_distribution'])
+            g6, _ = rm.ce3n_grids(frozen)
+            self.assertEqual(json.loads(margins(g6)), frozen['margin_distribution'])
+            # Domestic stays v5 under this switch.
+            row_d, evidence_d, cutoff_d = domestic_frozen()
+            self.assertEqual(tr.prepare(row_d, cutoff_d, copy.deepcopy(evidence_d))['version'], tr.VERSION)
+
+    def test_v5_rollback_switch_keeps_archived_v5_forecasts_reproducible(self):
+        row, evidence, cutoff = domestic_frozen()
+        frozen = tr.prepare(row, cutoff, copy.deepcopy(evidence))  # v5 under the committed switch
+        self.assertEqual(frozen['version'], tr.VERSION)
+        archived = {**row, 'team_research_json': json.dumps(frozen)}
+        with tempfile.TemporaryDirectory() as tmp, patch.object(tr, 'RESEARCH_CONFIG', switch_config(tmp, domestic='v4')):
+            new = tr.prepare(row, cutoff, copy.deepcopy(evidence))
+            self.assertEqual(new['version'], tr.V4_VERSION)
+            self.assertNotIn('c6_fit', new)
+            self.assertEqual(new['margin_distribution'], frozen['shadow_v4']['margin_distribution'])  # = v4
+            again = tr.prepare(row, cutoff, copy.deepcopy(evidence), version=frozen['version'], c6_fit=frozen['c6_fit'])
+            self.assertEqual(again['margin_distribution'], frozen['margin_distribution'])
+            matrices, gaps = rb.archived_candidates(archived, cutoff + pd.Timedelta(minutes=1))
+            self.assertNotIn('C', gaps)
+            for k, v in frozen['margin_distribution'].items():
+                self.assertAlmostEqual(json.loads(margins(matrices['C']))[k], v, places=15)
+            g5, _ = rm.version_grids(frozen)
+            self.assertEqual(json.loads(margins(g5)), frozen['margin_distribution'])
+            # UCL/UEL stay v6 under this switch.
+            home, away = clubs()
+            europe, evidence_e = european_row(home, away)
+            self.assertEqual(tr.prepare(europe, CUTOFF, copy.deepcopy(evidence_e))['version'], tr.CE3N_VERSION)
+
+    def test_an_invalid_switch_is_refused(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = switch_config(tmp, european='v5')
+            with patch.object(tr, 'RESEARCH_CONFIG', path), self.assertRaises(ValueError):
+                tr.configured_live()
+
+    def test_banners_name_the_switch(self):
+        fired = {'triggered': True, 'matches': 160, 'weeks': 4}
+        lines = rm.banner({'rollback': fired, 'ce3n': fired})
+        self.assertIn('research_config.json live.domestic to "v4"', lines[0])
+        self.assertIn('research_config.json live.european to "v4"', lines[2])
+        self.assertNotIn('revert', ' '.join(lines).lower())
+
+
+class PerCompetitionTest(unittest.TestCase):
+    def check(self, results):
+        """results: {'pooled'|'UCL'|'UEL': _trigger result}."""
+        out = [{'league': rm.CE3N_COMPETITIONS['UCL']}, {'league': rm.CE3N_COMPETITIONS['UEL']}]
+
+        def trigger(rows, *args):
+            leagues = {r['league'] for r in rows}
+            key = 'pooled' if len(leagues) > 1 else next(c for c, l in rm.CE3N_COMPETITIONS.items() if l in leagues)
+            return results[key]
+        with patch.object(rm, '_scored', return_value=(out, {}, Counter())), patch.object(rm, '_trigger', side_effect=trigger):
+            return rm.ce3n_rollback_check([], [], REPO)
+
+    def result(self, matches, interval, eligible=False, triggered=False):
+        return {'matches': matches, 'weeks': 4, 'eligible': eligible, 'triggered': triggered,
+                'difference': None if interval is None else sum(interval) / 2, 'interval_95': interval, 'log_loss': {}}
+
+    def test_competition_warning_before_the_pooled_trigger_is_eligible(self):
+        out = self.check({'pooled': self.result(90, [-.01, .02]), 'UCL': self.result(50, [.005, .03]),
+                          'UEL': self.result(40, [-.02, .01])})
+        self.assertTrue(out['by_competition']['UCL']['warning'])
+        self.assertFalse(out['by_competition']['UEL']['warning'])
+        self.assertFalse(out['triggered'])
+        check = {'rollback': {'triggered': False}, 'ce3n': out}
+        lines = rm.banner(check)
+        self.assertIn(rm.CE3N_WARNING + ' (UCL)', lines[0])
+        self.assertNotIn(rm.TRIGGERED, ' '.join(lines))
+        favourites = {'all': {'fixtures': 0, 'picks': 0, 'graded': 0, 'v5_predicted_home_win': None,
+                              'v4_predicted_home_win': None, 'actual_home_win': None}, 'by_league': {}, 'fixtures': []}
+        quiet_v5 = {'rule': 'r', 'matches': 0, 'weeks': 0, 'eligible': False, 'triggered': False,
+                    'v5_minus_v4_log_loss': None, 'interval_95': None, 'log_loss': {}, 'coverage': {}}
+        text = '\n'.join(rm.markdown({'rollback': quiet_v5, 'home_favourites': favourites, 'ce3n': out}))
+        self.assertIn('| UCL | 50 | 4 |', text)
+        self.assertIn('| UEL | 40 | 4 |', text)
+
+    def test_no_competition_warning_once_the_pooled_trigger_is_eligible(self):
+        out = self.check({'pooled': self.result(160, [-.01, .02], eligible=True), 'UCL': self.result(90, [.005, .03]),
+                          'UEL': self.result(70, [-.02, .01])})
+        self.assertFalse(out['by_competition']['UCL']['warning'])
+        self.assertEqual(rm.banner({'rollback': {'triggered': False}, 'ce3n': out}), [])
+
+
+class UclLiveCheckTest(unittest.TestCase):
+    def ucl_row(self):
+        home, away = clubs()
+        row, evidence = european_row(home, away)
+        context = tr.prepare(row, CUTOFF, copy.deepcopy(evidence))
+        return {**row, 'team_research_json': json.dumps(context)}, context
+
+    def master(self, row, flagged=True):
+        return pd.DataFrame([{'league': UCL, 'home_team': row['home_team'], 'away_team': row['away_team'],
+                              'unvalidated_view': flagged}])
+
+    def test_a_clean_ucl_run_passes(self):
+        import research_live_check as lc
+        row, context = self.ucl_row()
+        domestic = copy.deepcopy(FIXTURE['row'])
+        result = lc.check_run([row, domestic], self.master(row))
+        self.assertEqual(result['status'], 'passed', result['problems'])
+        self.assertEqual(result['ucl_fixtures'], 1)
+        self.assertTrue(all(result['checks'].values()))
+        self.assertEqual(result['domestic_used'], 1)
+
+    def test_failures_are_reported(self):
+        import research_live_check as lc
+        row, context = self.ucl_row()
+        self.assertEqual(lc.check_run([row], self.master(row, flagged=False))['status'], 'failed')
+        bad = copy.deepcopy(context)
+        bad['shadow_v4']['margin_distribution'] = bad['margin_distribution']
+        result = lc.check_run([{**row, 'team_research_json': json.dumps(bad)}], self.master(row))
+        self.assertEqual(result['status'], 'failed')
+        self.assertFalse(result['checks']['ce_shadow'])
+        stale = copy.deepcopy(context)
+        stale['ce3n_fit']['stale'] = True
+        self.assertFalse(lc.check_run([{**row, 'team_research_json': json.dumps(stale)}], None)['checks']['fit_window'])
+        self.assertEqual(lc.check_run([copy.deepcopy(FIXTURE['row'])])['status'], 'no UCL fixtures')
+
+    def test_weekly_report_shows_the_check_until_a_run_passes(self):
+        row, context = self.ucl_row()
+        meta = lambda t: {'generated_at_utc': t, 'git_commit_sha': 'none-' + t[:10]}
+        old_ucl = {**row, 'team_research_json': json.dumps({**context, 'version': tr.LEGACY_VERSION})}
+        pending = rm.ucl_live_check(REPO, [(meta('2026-11-04T10:00:00Z'), [old_ucl], [])])
+        self.assertTrue(pending['status'].startswith('pending'))  # a pre-release run is never checked
+        self.assertIn('until a run passes', '\n'.join(rm.ucl_check_markdown(pending)))
+        done = rm.ucl_live_check(REPO, [(meta('2026-11-04T10:00:00Z'), [old_ucl], []),
+                                        (meta('2026-11-24T10:00:00Z'), [row], []),
+                                        (meta('2026-11-25T10:00:00Z'), [row], [])])
+        self.assertEqual(done['status'], 'passed')
+        self.assertEqual(len(done['runs']), 1)  # stops at the first passing run
+        self.assertEqual(len(rm.ucl_check_markdown(done)), 2)  # one line once passed
 
 
 def build_script():

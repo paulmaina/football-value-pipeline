@@ -20,7 +20,57 @@
     "tested_fit_origin:2026-11-02": 218,
     "with_research": 689
   },
-  "european_legacy_without_research": {
+  "espn_form_check": {
+    "espn_rows_per_fixture": 16.11764705882353,
+    "fixtures": 34,
+    "no_espn": {
+      "domestic_used_fixtures": 8,
+      "v4_move_points": {
+        "max": 12.93815963737841,
+        "mean": 2.2953256029012308
+      },
+      "v6_move_points": {
+        "max": 12.93815963737841,
+        "mean": 1.7718964166194735
+      },
+      "v6_move_points_domestic_used": {
+        "max": 2.8172601207773984,
+        "mean": 0.651297431959353
+      },
+      "v6_vs_v4_points": {
+        "max": 26.17062104416865,
+        "mean": 2.8873979050969227
+      },
+      "v6_vs_v4_points_domestic_used": {
+        "max": 26.17062104416865,
+        "mean": 12.27144109666192
+      }
+    },
+    "no_form": {
+      "domestic_used_fixtures": 8,
+      "v4_move_points": {
+        "max": 12.93815963737841,
+        "mean": 4.221108996128535
+      },
+      "v6_move_points": {
+        "max": 12.93815963737841,
+        "mean": 3.2602039606049416
+      },
+      "v6_move_points_domestic_used": {
+        "max": 2.8172601207773984,
+        "mean": 1.0016804661322065
+      },
+      "v6_vs_v4_points": {
+        "max": 26.17062104416865,
+        "mean": 3.5615526719105923
+      },
+      "v6_vs_v4_points_domestic_used": {
+        "max": 26.17062104416865,
+        "mean": 15.136598855620017
+      }
+    }
+  },
+  "european_legacy_reconstructions": {
     "fit_effect": {
       "changed": 22,
       "fixtures": 37,
@@ -38,6 +88,7 @@
         "two_points_or_more": 16
       }
     },
+    "label": "Reconstructions, not forecasts: European rows saved without research (27 Oct - 4 Nov), repriced at replay with the live rule on their frozen goal rates and no form. None was made under v6; grading and every report use the published snapshots, so no graded pick or past result changes.",
     "v4_to_v6": {
       "changed": 22,
       "fixtures": 37,
@@ -4161,7 +4212,7 @@
       }
     }
   },
-  "note": "Probabilities only: no result is read. Moves are the largest of the three 1X2 probabilities, in points, latest forecast per fixture. v4_to_v6: CE (v4) to CE3n on the live fit (holdout periods included); v4_to_v6_tested_fit: on the harness's tested, holdout-free fit; fit_effect: tested fit to live fit. Legacy: forecasts saved without research, priced by the value shortlist with the live rule on their frozen goal rates and no form.",
+  "note": "Probabilities only: no result is read. Moves are the largest of the three 1X2 probabilities, in points, latest forecast per fixture. v4_to_v6: CE (v4) to CE3n on the live fit (holdout periods included); v4_to_v6_tested_fit: on the harness's tested, holdout-free fit; fit_effect: tested fit to live fit. Legacy reconstructions: forecasts saved without research, repriced at replay by the value shortlist's live rule on their frozen goal rates and no form; never forecasts made under v6. espn_form_check: v6 and v4 without ESPN rows (training-history form only) and without any form.",
   "window": [
     "2026-10-27",
     "2026-11-09"
