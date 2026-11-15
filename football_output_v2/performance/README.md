@@ -280,7 +280,7 @@ A missing, ambiguous or unverified result is **never called a win**.
 | PrimeiraLiga | 2026-11-02 | 1620 | 13 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | SerieA | 2026-11-07 | 2005 | 8 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | SuperLig | 2026-11-02 | 1840 | 13 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| UCL | 2026-11-04 | 575 | 11 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
+| UCL | 2026-11-04 | 575 | 11 | REFRESH_OVERDUE |
 | UEL | 2026-11-05 | 732 | 10 | VERIFIED_WITHIN_24_HOURS |
 
 Latest shortlist audit: {"selected_quotes": 85, "exchange_quotes": 0, "missing_quote_age": 85, "quote_age_over_24h": 0, "costs_recorded": 85, "bookmakers": {"Pinnacle": 47, "1xBet": 38}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 85, "upcoming_kickoff_count": 0, "unknown_kickoff_count": 0}.
