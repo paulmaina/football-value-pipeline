@@ -1,0 +1,145 @@
+{
+  "all": {
+    "ce_goal_rate_gap_live": {
+      "matches": 29,
+      "max": 0.48597381328241074,
+      "mean": 0.16397428067706227
+    },
+    "ce_goal_rate_gap_tested": {
+      "matches": 29,
+      "max": 0.48597381328241074,
+      "mean": 0.16397428067706227
+    },
+    "domestic_used_live": 6,
+    "fit_effect_1x2_max_abs": {
+      "matches": 29,
+      "max": 0.07937577787631778,
+      "mean": 0.009515633812209082
+    },
+    "fixtures": 29,
+    "input_gap_live_fit_1x2_max_abs": {
+      "matches": 29,
+      "max": 0.11572505990722104,
+      "mean": 0.03540787775736269
+    },
+    "input_gap_tested_fit_1x2_max_abs": {
+      "matches": 29,
+      "max": 0.11572505990722104,
+      "mean": 0.03534331140855757
+    },
+    "live_vs_ce_1x2_max_abs": {
+      "matches": 29,
+      "max": 0.20448336031099523,
+      "mean": 0.02372354863204852
+    },
+    "total_gap_1x2_max_abs": {
+      "matches": 29,
+      "max": 0.11572505990722104,
+      "mean": 0.044195125846995344
+    }
+  },
+  "by_competition": {
+    "UCL": {
+      "ce_goal_rate_gap_live": {
+        "matches": 0,
+        "max": null,
+        "mean": null
+      },
+      "ce_goal_rate_gap_tested": {
+        "matches": 0,
+        "max": null,
+        "mean": null
+      },
+      "domestic_used_live": 0,
+      "fit_effect_1x2_max_abs": {
+        "matches": 0,
+        "max": null,
+        "mean": null
+      },
+      "fixtures": 0,
+      "input_gap_live_fit_1x2_max_abs": {
+        "matches": 0,
+        "max": null,
+        "mean": null
+      },
+      "input_gap_tested_fit_1x2_max_abs": {
+        "matches": 0,
+        "max": null,
+        "mean": null
+      },
+      "live_vs_ce_1x2_max_abs": {
+        "matches": 0,
+        "max": null,
+        "mean": null
+      },
+      "total_gap_1x2_max_abs": {
+        "matches": 0,
+        "max": null,
+        "mean": null
+      }
+    },
+    "UEL": {
+      "ce_goal_rate_gap_live": {
+        "matches": 29,
+        "max": 0.48597381328241074,
+        "mean": 0.16397428067706227
+      },
+      "ce_goal_rate_gap_tested": {
+        "matches": 29,
+        "max": 0.48597381328241074,
+        "mean": 0.16397428067706227
+      },
+      "domestic_used_live": 6,
+      "fit_effect_1x2_max_abs": {
+        "matches": 29,
+        "max": 0.07937577787631778,
+        "mean": 0.009515633812209082
+      },
+      "fixtures": 29,
+      "input_gap_live_fit_1x2_max_abs": {
+        "matches": 29,
+        "max": 0.11572505990722104,
+        "mean": 0.03540787775736269
+      },
+      "input_gap_tested_fit_1x2_max_abs": {
+        "matches": 29,
+        "max": 0.11572505990722104,
+        "mean": 0.03534331140855757
+      },
+      "live_vs_ce_1x2_max_abs": {
+        "matches": 29,
+        "max": 0.20448336031099523,
+        "mean": 0.02372354863204852
+      },
+      "total_gap_1x2_max_abs": {
+        "matches": 29,
+        "max": 0.11572505990722104,
+        "mean": 0.044195125846995344
+      }
+    }
+  },
+  "coverage": {
+    "compared": 29
+  },
+  "forecasts": 29,
+  "matches_fit_origin_differs": 0,
+  "mode": "research_ce3n_parity",
+  "note": "same_inputs: live research v6 through the harness CE3n code on the same CE goal rates and fit (also on the tested fit). Harness CE3n: its own CE goal rates (backfilled European history, no ESPN) under the fit window of the fold holding the kickoff; tested basis leaves the European holdout out of training and uses the tested fit, live basis trains on every earlier result and uses the live fit. Probabilities only, no result scored.",
+  "research_versions": {
+    "team-form-research-v1": 29
+  },
+  "same_inputs": {
+    "identical_within_1e-12": true,
+    "matches": 29,
+    "max": 0.0,
+    "mean": 0.0
+  },
+  "same_inputs_tested_fit": {
+    "identical_within_1e-12": true,
+    "matches": 29,
+    "max": 0.0,
+    "mean": 0.0
+  },
+  "source_commit": "84172898af9814932a8d2bcd9985afaf55408dba",
+  "version": "evaluation-harness-v2"
+}
