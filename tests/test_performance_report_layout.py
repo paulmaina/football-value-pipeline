@@ -1,16 +1,18 @@
-"""football_performance_report.xlsx: sheets, the fresh start of master tracking, headline figures, CE3n monitoring
-and the reports check, on a synthetic post-release run (tests/excel_fixtures.py)."""
+"""football_performance_report.xlsx: sheets, the fresh start of master tracking, headline figures, release statuses
+from the live switches (master, research v5, research v6 / CE3n) and the reports check, on a synthetic post-release
+run (tests/excel_fixtures.py)."""
 from pathlib import Path
 import json
 import tempfile
 import unittest
+from unittest import mock
 import warnings
 from zipfile import ZipFile
 
 from offline_test_case import OfflineQuotePolicyTestCase
 import excel_book as xb
 import performance_report_layout as layout
-from excel_fixtures import START, post_release_root
+from excel_fixtures import LATER, START, archive_research_run, post_release_root, snapshot
 
 try:
     import openpyxl
@@ -21,8 +23,26 @@ SHEETS = ['Dashboard', 'Picks & Results', 'Weekly Trends', 'Breakdowns', 'Calibr
           'Guide']
 PICKS = ['Kickoff (EAT)', 'Match', 'List', 'League', 'Bet', 'Price', 'Tier', 'Predicted no-loss', 'Chance of profit',
          'Labels and flags', 'Score', 'Result', 'Return (units)', 'CLV', 'Also on the other list']
-CE3N = {'matches': 40, 'weeks': 2, 'ce3n_minus_ce_log_loss': 0.0012, 'interval_95': [-0.001, 0.003],
-        'eligible': False, 'triggered': False, 'rule': 'After at least 150 UCL/UEL matches, roll back CE3n if ...'}
+SLOPES = lambda n, home=None: {'graded_matches': n, 'domestic_used': 0, 'note': 'reported, not a trigger',
+                                'slopes': {'CE3n': {'home': home, 'away': None}, 'CE': {'home': None, 'away': None}}}
+# research_monitoring.ce3n_rollback_check's shape (PR #178)
+CE3N = {'matches': 40, 'weeks': 2, 'eligible': False, 'triggered': False, 'ce3n_minus_ce_log_loss': 0.0012,
+        'interval_95': [-0.001, 0.003], 'log_loss': {'CE': 0.6901, 'CE3n': 0.6913}, 'calibration': SLOPES(40, 0.93),
+        'by_competition': {
+            'UCL': {'matches': 24, 'weeks': 2, 'ce3n_minus_ce_log_loss': 0.0031, 'interval_95': [0.0004, 0.0060],
+                    'warning': True, 'calibration': SLOPES(24, 0.88)},
+            'UEL': {'matches': 16, 'weeks': 2, 'ce3n_minus_ce_log_loss': -0.0016, 'interval_95': [-0.004, 0.001],
+                    'warning': False, 'calibration': SLOPES(16)}},
+        'coverage': {'matches_scored': 40}, 'rule': 'After at least 150 graded European matches across at least 3 '
+                                                    'weeks, roll back research v6 ...'}
+# What the review writes today (merged #178, no graded European match yet)
+CE3N_EMPTY = {**CE3N, 'matches': 0, 'weeks': 0, 'ce3n_minus_ce_log_loss': None, 'interval_95': None, 'log_loss': {},
+              'calibration': SLOPES(0), 'coverage': {},
+              'by_competition': {c: {'matches': 0, 'weeks': 0, 'ce3n_minus_ce_log_loss': None, 'interval_95': None,
+                                     'warning': False, 'calibration': SLOPES(0)} for c in ('UCL', 'UEL')}}
+CE3N_SECTION = 'CE3n vs CE (research v6, UCL/UEL): rollback trigger'
+V5_SECTION = 'Research v5 (C6) vs v4: rollback trigger (domestic leagues)'
+MASTER_SECTION = 'New master vs old master: rollback rule'
 
 
 def table(book, sheet, header_row=4):
@@ -55,14 +75,27 @@ def sections(book, sheet):
 class ReportCase(OfflineQuotePolicyTestCase):
     ce3n = None
     released = True
-    ce3n_file = None
+    switches = {'master': 'new', 'domestic': 'v5', 'european': 'v6'}
+
+    def arrange(self):
+        """Extra archived runs or files before the workbook is written."""
 
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
-        self.root = post_release_root(Path(self.tmp.name), ce3n=self.ce3n, released=self.released)
-        if self.ce3n_file is not None:
-            (self.root / 'performance' / layout.CE3N_FILE).write_text(json.dumps(self.ce3n_file), encoding='utf-8')
+        self.root = post_release_root(Path(self.tmp.name) / 'out', ce3n=self.ce3n, released=self.released)
+        configs = Path(self.tmp.name) / 'configs'
+        configs.mkdir()
+        master, research = configs / 'master_shortlist_config.json', configs / 'research_config.json'
+        if self.switches is not None:
+            master.write_text(json.dumps({'live': self.switches['master']}), encoding='utf-8')
+            research.write_text(json.dumps({'live': {k: self.switches[k] for k in ('domestic', 'european')}}),
+                                encoding='utf-8')
+        for name, path in (('MASTER_CONFIG', master), ('RESEARCH_CONFIG', research)):
+            patcher = mock.patch.object(layout, name, path)
+            patcher.start()
+            self.addCleanup(patcher.stop)
+        self.arrange()
         metrics = json.loads((self.root / 'performance' / 'metrics.json').read_text(encoding='utf-8'))
         self.path = layout.write(self.root, self.root / 'readable' / layout.REPORT_NAME, metrics)
         self.book = xb.read_workbook(self.path)
@@ -180,41 +213,186 @@ class LayoutTests(ReportCase):
         warnings_ = sections(self.book, 'Dashboard')['Warnings']
         self.assertEqual(warnings_.get('Last report validation'), 'UEL: example warning')
 
-    def test_model_monitoring_without_ce3n_says_not_released_yet(self):
+    def test_statuses_come_from_the_live_switches(self):
         monitoring = sections(self.book, 'Model Monitoring')
-        self.assertEqual(monitoring['CE3n vs CE (UCL/UEL): rollback trigger']['Status'], 'not released yet')
-        self.assertEqual(self.named('ce3n_status'), 'not released yet')
-        checks = sections(self.book, 'Dashboard')['Rollback status']
-        self.assertEqual(checks['CE3n vs CE (UCL/UEL)'], 'not released yet')
-        research = monitoring['Research v5 (C6) vs v4: rollback trigger']
-        self.assertEqual(research['Status'], 'Not yet eligible (needs 150 matches and 3 weeks)')
-        self.assertAlmostEqual(research['v5 − v4 research log loss (AH all lines)'], -0.0021)
-        master = monitoring['New master vs old master: rollback rule']
-        self.assertEqual(master['Status'], 'Waiting: 150 graded matches over 3 weeks on each list')
+        master = monitoring[MASTER_SECTION]
+        self.assertEqual(master['Status'], 'Live (new master) - Waiting: 150 graded matches over 3 weeks on each list')
+        self.assertEqual(master['Release switch'], 'master_shortlist_config.json live = "new"')
+        self.assertEqual(master['Live list'], 'New master (live)')
         self.assertEqual(master['Old master graded matches / weeks'], '64 / 3')
+        research = monitoring[V5_SECTION]
+        self.assertEqual(research['Status'], 'Live (research v5) - not yet eligible (12 of 150 graded matches, '
+                                             '2 of 3 weeks)')
+        self.assertEqual(research['Release switch'], 'research_config.json live.domestic = "v5"')
+        self.assertAlmostEqual(research['v5 − v4 research log loss (AH all lines)'], -0.0021)
+        self.assertEqual(self.named('research_v5_status'), research['Status'])
+        self.assertEqual(self.named('master_rollback_status'), master['Status'])
+        self.assertNotIn('not released yet', json.dumps(self.book['cells']))
+
+    def test_v6_live_without_its_monitoring_entry_says_why(self):
+        status = ('Live (research v6) - monitoring data not available yet (performance/research_v5_monitoring.json '
+                  'has no "ce3n" entry yet)')
+        ce3n = sections(self.book, 'Model Monitoring')[CE3N_SECTION]
+        self.assertEqual(ce3n['Status'], status)
+        self.assertEqual(ce3n['Release switch'], 'research_config.json live.european = "v6"')
+        self.assertEqual(self.named('ce3n_status'), status)
+        self.assertEqual(sections(self.book, 'Dashboard')['Rollback status']['CE3n vs CE (research v6, UCL/UEL)'],
+                         status)
+
+
+class CE3nNoGradedMatchesTests(ReportCase):
+    ce3n = CE3N_EMPTY
+
+    def test_v6_live_with_no_graded_european_match_yet(self):
+        status = ('Live (research v6) - monitoring data not available yet (no graded European (UCL/UEL) matches '
+                  'under research v6 yet)')
+        ce3n = sections(self.book, 'Model Monitoring')[CE3N_SECTION]
+        self.assertEqual(ce3n['Status'], status)
+        self.assertEqual(ce3n['Graded matches / weeks (UCL and UEL pooled)'], '0 / 0')
+        self.assertEqual(ce3n['CE3n − CE research log loss (AH all lines)'], 'not computed yet')
+        self.assertEqual(ce3n['UCL'], '0 graded matches over 0 weeks; CE3n − CE not computed yet; 95% interval '
+                                      'not computed yet; calibration CE: not computed yet; CE3n: not computed yet '
+                                      '(0 graded matches; reported, not a trigger)')
+        self.assertEqual(ce3n['UCL live check'], 'not recorded')
 
 
 class CE3nTests(ReportCase):
     ce3n = CE3N
 
     def test_ce3n_section_fills_in_from_its_figures(self):
-        ce3n = sections(self.book, 'Model Monitoring')['CE3n vs CE (UCL/UEL): rollback trigger']
-        self.assertEqual(ce3n['Status'], 'Not yet eligible (needs its sample)')
-        self.assertEqual(ce3n['Graded matches / weeks'], '40 / 2')
-        self.assertAlmostEqual(ce3n['ce3n − ce log loss'], 0.0012)
+        ce3n = sections(self.book, 'Model Monitoring')[CE3N_SECTION]
+        self.assertEqual(ce3n['Status'], 'Live (research v6) - not yet eligible (40 of 150 graded matches, 2 of 3 weeks)')
+        self.assertEqual(ce3n['Graded matches / weeks (UCL and UEL pooled)'], '40 / 2')
+        self.assertAlmostEqual(ce3n['CE3n − CE research log loss (AH all lines)'], 0.0012)
         self.assertEqual(ce3n['95% interval (weeks resampled)'], '-0.00100 to +0.00300')
+        self.assertEqual(ce3n['Mean log loss'], 'CE 0.69010, CE3n 0.69130')
+        self.assertTrue(ce3n['Calibration slopes (1 = calibrated)'].startswith('CE: not computed yet; CE3n: home 0.93'))
+        self.assertIn('WARNING: interval entirely above zero before the pooled trigger is eligible', ce3n['UCL'])
+        self.assertTrue(ce3n['UEL'].startswith('16 graded matches over 2 weeks; CE3n − CE -0.00160'))
         self.assertEqual(ce3n['Rule'], CE3N['rule'])
-        self.assertNotIn('not released yet', json.dumps(self.book['cells']['Model Monitoring']))
+        self.assertIn('40 graded matches over 2 weeks; CE3n − CE log loss +0.00120',
+                      json.dumps(self.book['cells']['Dashboard'], ensure_ascii=False))
 
 
-class CE3nFileTests(ReportCase):
-    ce3n_file = {'version': 'ce3n-monitoring-v1', 'rollback': dict(CE3N, triggered=True, eligible=True,
-                                                                   matches=160, weeks=4)}
+class CE3nTriggeredTests(ReportCase):
+    ce3n = dict(CE3N, triggered=True, eligible=True, matches=160, weeks=4)
 
-    def test_ce3n_from_its_own_file_and_a_trigger_shows_on_the_dashboard(self):
-        self.assertEqual(self.named('ce3n_status'), 'ROLLBACK TRIGGERED')
-        self.assertEqual(sections(self.book, 'Dashboard')['Rollback status']['CE3n vs CE (UCL/UEL)'],
-                         'ROLLBACK TRIGGERED')
+    def test_a_trigger_shows_on_the_dashboard(self):
+        self.assertEqual(self.named('ce3n_status'), 'Live (research v6) - ROLLBACK TRIGGERED')
+        self.assertEqual(sections(self.book, 'Dashboard')['Rollback status']['CE3n vs CE (research v6, UCL/UEL)'],
+                         'Live (research v6) - ROLLBACK TRIGGERED')
+
+
+class CE3nEligibleTests(ReportCase):
+    ce3n = dict(CE3N, eligible=True, matches=160, weeks=4)
+
+    def test_eligible_and_not_triggered(self):
+        self.assertEqual(self.named('ce3n_status'), 'Live (research v6) - not triggered')
+
+
+class MonitoringFileMissingTests(ReportCase):
+    def arrange(self):
+        (self.root / 'performance' / 'research_v5_monitoring.json').unlink()
+
+    def test_both_research_releases_say_the_review_has_not_written_it(self):
+        why = 'monitoring data not available yet (the review has not written performance/research_v5_monitoring.json yet)'
+        self.assertEqual(self.named('ce3n_status'), f'Live (research v6) - {why}')
+        self.assertEqual(self.named('research_v5_status'), f'Live (research v5) - {why}')
+
+
+V6_RUN, V4_RUN = '2026-11-18T09:00:00+00:00', '2026-11-25T09:00:00+00:00'
+
+
+class V6RolledBackTests(ReportCase):
+    ce3n = CE3N
+    switches = {'master': 'new', 'domestic': 'v5', 'european': 'v4'}
+
+    def arrange(self):
+        archive_research_run(self.root, 'r1', V6_RUN, european='team-form-research-v6', domestic='team-form-research-v5')
+        archive_research_run(self.root, 'r2', V4_RUN, european='team-form-research-v4', domestic='team-form-research-v5')
+
+    def test_rolled_back_to_ce_on_the_first_run_after_the_switch(self):
+        status = 'Rolled back to CE (research v4) on Wed 25 Nov 2026 12:00 EAT (first forecast run after the switch)'
+        self.assertEqual(self.named('ce3n_status'), status)
+        ce3n = sections(self.book, 'Model Monitoring')[CE3N_SECTION]
+        self.assertEqual(ce3n['Release switch'], 'research_config.json live.european = "v4"')
+        self.assertEqual(ce3n['Graded matches / weeks (UCL and UEL pooled)'], '40 / 2')  # figures still shown
+        self.assertTrue(self.named('research_v5_status').startswith('Live (research v5)'))
+
+
+class V6RolledBackNoRunSinceTests(ReportCase):
+    switches = {'master': 'new', 'domestic': 'v5', 'european': 'v4'}
+
+    def arrange(self):
+        archive_research_run(self.root, 'r1', V6_RUN, european='team-form-research-v6', domestic='team-form-research-v5')
+
+    def test_date_not_known_without_a_run_since(self):
+        self.assertEqual(self.named('ce3n_status'), 'Rolled back to CE (research v4) (date not known: no archived '
+                                                    'forecast run since the switch)')
+
+
+class V5RolledBackTests(ReportCase):
+    switches = {'master': 'new', 'domestic': 'v4', 'european': 'v6'}
+
+    def arrange(self):
+        archive_research_run(self.root, 'r1', V6_RUN, european='team-form-research-v6', domestic='team-form-research-v5')
+        # a run with no domestic forecast doesn't count as the switch
+        archive_research_run(self.root, 'r2', LATER, european='team-form-research-v6', domestic=None)
+        archive_research_run(self.root, 'r3', V4_RUN, european='team-form-research-v6', domestic='team-form-research-v4')
+
+    def test_rolled_back_to_v4_on_the_first_domestic_run_after_the_switch(self):
+        self.assertEqual(self.named('research_v5_status'), 'Rolled back to research v4 on Wed 25 Nov 2026 12:00 EAT '
+                                                           '(first forecast run after the switch)')
+        self.assertTrue(self.named('ce3n_status').startswith('Live (research v6) - monitoring data not available yet'))
+
+
+class MasterRolledBackTests(ReportCase):
+    switches = {'master': 'old', 'domestic': 'v5', 'european': 'v6'}
+
+    def arrange(self):
+        snapshot(self.root, 'dddddddddddddddd', V4_RUN, 'master-profit-15-pinnacle-markets-v9')
+
+    def test_rolled_back_to_the_old_master_and_relabelled(self):
+        master = sections(self.book, 'Model Monitoring')[MASTER_SECTION]
+        self.assertEqual(master['Status'], 'Rolled back to the old master on Wed 25 Nov 2026 12:00 EAT (first forecast '
+                                           'run after the switch)')
+        self.assertEqual(master['Live list'], 'Old master (live) (the last review ran with the new master live; the '
+                                              'next review re-runs the rollback check)')
+        self.assertEqual(layout.list_names(self.root), {'new': 'New master (shadow)', 'old': 'Old master (live)'})
+        self.assertIn('Old master (live)', self.book['cells']['Dashboard'].values())
+        self.assertEqual(self.named('master_rollback_status'), master['Status'])
+
+
+class SwitchUnreadableTests(ReportCase):
+    switches = None
+
+    def test_unreadable_switches_say_so(self):
+        self.assertEqual(self.named('ce3n_status'), 'Release status unknown: research_config.json live.european could '
+                                                    'not be read (FileNotFoundError)')
+        self.assertTrue(self.named('master_rollback_status').startswith('Release status unknown: '
+                                                                        'master_shortlist_config.json live'))
+        self.assertEqual(layout.list_names(self.root)['new'], 'New master (live)')  # the review's record
+
+
+class InvalidSwitchTests(ReportCase):
+    switches = {'master': 'new', 'domestic': 'v5', 'european': 'v7'}
+
+    def test_an_unknown_value_is_named(self):
+        self.assertEqual(self.named('ce3n_status'), 'Release status unknown: research_config.json live.european is '
+                                                    '\'v7\', expected "v6" or "v4"')
+
+
+class RealConfigTests(unittest.TestCase):
+    def test_the_repository_switches_are_read(self):
+        """The workbook reads the same switches as the pipeline (master_shortlist.configured_live,
+        team_research.configured_live)."""
+        import master_shortlist
+        import team_research
+        self.assertEqual(layout.switch('master')[0], master_shortlist.configured_live())
+        live = team_research.configured_live()
+        expect = {team_research.VERSION: 'v5', team_research.CE3N_VERSION: 'v6', team_research.V4_VERSION: 'v4'}
+        self.assertEqual(layout.switch('v5')[0], expect[live['domestic']])
+        self.assertEqual(layout.switch('v6')[0], expect[live['european']])
 
 
 class NotStartedTests(ReportCase):

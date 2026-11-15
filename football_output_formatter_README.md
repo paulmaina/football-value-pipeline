@@ -65,8 +65,12 @@ went live (14 Nov 2026); earlier graded data stays in the repository but is not
 shown. The Dashboard puts the live and old master side by side, the rollback checks
 and data health (last forecast run, Odds API credits, warnings, training freshness).
 Model Monitoring shows the new master's rollback rule, research v5 vs v4, CE3n vs
-CE ("not released yet" until its release writes figures) and the home-favourite
-check.
+CE (research v6, UCL/UEL, by competition) and the home-favourite check. Each
+release's status comes from its live switch when the workbook is built
+(`master_shortlist_config.json` live, `research_config.json` live.domestic and
+live.european): "Live (...)" with the rollback check's state, or "monitoring data
+not available yet" with the reason, or "Rolled back to ..." with the date of the
+first forecast run after the switch.
 
 The layout refreshes with the existing formatter and forward-review workflow.
 No new command, API request or dependency is required. Close the workbook in

@@ -410,7 +410,8 @@ class Sheet:
 
     # conditional formatting
     def highlight(self, ref: str, look: str, rule: str, value: Any = None) -> None:
-        """rule: 'contains' / 'equals' / 'begins' text, 'positive', 'negative', 'below' value, 'above' value."""
+        """rule: 'contains' (any case) / 'contains_case' / 'equals' / 'begins' text, 'positive', 'negative', 'below'
+        value, 'above' value."""
         top_left = ref.split(':')[0]
         dxf = self.book.styles.dxf(look)
         if rule in ('positive', 'negative', 'below', 'above'):
@@ -422,6 +423,7 @@ class Sheet:
         else:
             literal = '"' + str(value).replace('"', '""') + '"'
             formula = {'contains': f'ISNUMBER(SEARCH({literal},{top_left}))',
+                       'contains_case': f'ISNUMBER(FIND({literal},{top_left}))',
                        'equals': f'{top_left}={literal}',
                        'begins': f'LEFT({top_left},{len(str(value))})={literal}'}[rule]
             xml = f'<cfRule type="expression" dxfId="{dxf}" priority="{{p}}"><formula>{_xml(formula)}</formula></cfRule>'
