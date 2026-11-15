@@ -32,5 +32,6 @@ python performance_tracking.py review --api-key-source environment && python wor
 - `price_edge_cagey_shortlist.py`, `narrow_margin.py`, `cagey_market_basis.py`: the cagey tier (market view).
 - `master_shortlist.py`, `master_selection*.py`: the master shortlist.
 - `performance_tracking.py`, `workflow_checks.py`: grading, reports and their validation.
+- `model_activity.py`: the append-only model activity log (`football_output_v2/model_activity/activity_log.jsonl`): releases, C6/CE3n refits, stale-fit warnings, rollback checks, switch changes and master fallbacks, written by the refit workflow, forecast runs and the review; shown in the performance workbook's Model Activity tab. Never edit or remove a line; `python model_activity.py backfill` is idempotent.
 - `evaluation_harness.py`, `research_backtest.py`, `historical_benchmark.py`: offline evaluation; `european_results.py`: cached UCL/UEL results for the harness.
 - `.football_cache/`: historical football-data.co.uk files (Pinnacle prices end 15 Jan 2026; Bet365 continues).

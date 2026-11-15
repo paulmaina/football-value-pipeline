@@ -19,3 +19,5 @@ football_output_v2/performance/result_sources/** -text
 # Golden copies of main's master outputs (tests/test_master_release.py): LF on every platform.
 tests/fixtures/master_release_pre_release/** text eol=lf
 tests/fixtures/master_release_pre_release/**/*.gz -text
+# The model activity log is append-only: one LF-terminated JSON line per event on every platform.
+football_output_v2/model_activity/** text eol=lf
