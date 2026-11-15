@@ -24,8 +24,9 @@ already in the file is not written again (so a retried workflow attempt or a rer
 
 Writers (each wrapped so that it can never break, delay or alter a forecast, a refit or a review):
 
-  refit workflow     scripts/build_research_c6_fits.py and build_research_ce3n_fits.py with --publish: every run,
-                     published (in the same commit as the fit), not a fit day, skipped or failed (own commit).
+  refit workflow     scripts/build_research_c6_fits.py and build_research_ce3n_fits.py with --publish, on fit days
+                     only: published (in the same commit as the fit), skipped with its reason or failed with its
+                     reason (own commit). A Monday that is not a fit day logs and commits nothing.
   forecast run       publish_scheduled_forecasts.py after the pipeline: stale-fit warning started or ended, a change
                      in any switch of master_shortlist_config.json or research_config.json against the last logged
                      state, new master failed (old published), comparison baseline missing, and the UCL live check
@@ -58,7 +59,7 @@ RELEASE, REFIT, STALE, ROLLBACK, SWITCH = 'Release', 'Refit', 'Stale-fit warning
 MASTER_FALLBACK, BASELINE_MISSING, UCL_CHECK = 'Master fallback', 'Comparison baseline missing', 'UCL live check'
 EVENTS = (RELEASE, REFIT, STALE, ROLLBACK, SWITCH, MASTER_FALLBACK, BASELINE_MISSING, UCL_CHECK)
 
-PUBLISHED, NOT_FIT_DAY, SKIPPED, FAILED = 'PUBLISHED', 'NOT A FIT DAY', 'SKIPPED', 'FAILED'
+PUBLISHED, SKIPPED, FAILED = 'PUBLISHED', 'SKIPPED', 'FAILED'
 STALE_STARTED, STALE_ENDED = 'STALE FIT WARNING STARTED', 'STALE FIT WARNING ENDED'
 TRIGGERED, COMPETITION_WARNING = 'ROLLBACK TRIGGERED', 'CE3n COMPETITION WARNING'
 FITS = {'C6': 'C6 live fit (research v5, domestic)', 'CE3n': 'CE3n live fit (research v6, UCL/UEL)'}
@@ -264,7 +265,7 @@ def refit_event(fit: str, outcome: str, *, origin: Optional[str] = None, reason:
                 previous: Optional[Mapping] = None, new: Optional[Mapping] = None, built: Optional[Mapping] = None,
                 when: Any = None, source: str = SOURCE_REFIT, backfilled: bool = False,
                 ident: Optional[str] = None) -> dict:
-    """One refit run of the C6 or CE3n live fit: PUBLISHED, NOT A FIT DAY, SKIPPED or FAILED, with the fit window,
+    """One refit of the C6 or CE3n live fit on a fit day: PUBLISHED, SKIPPED or FAILED, with the fit window,
     the latest window's parameters before and after, and the matches used."""
     before, after = fit_parameters(fit, previous), fit_parameters(fit, new)
     window = (f'{after["origin"]} to {after["end_exclusive"]}' if after else
@@ -276,9 +277,6 @@ def refit_event(fit: str, outcome: str, *, origin: Optional[str] = None, reason:
             details += (f' Results to {built.get("last_result_date")}; data checked through '
                         f'{built.get("results_known_through_utc")}.')
         shown = PUBLISHED
-    elif outcome == NOT_FIT_DAY:
-        details = reason or f'Not a fit day: the current window opened {origin}.'
-        shown = NOT_FIT_DAY
     elif outcome == SKIPPED:
         details = (f'Skipped the {window} refit: {reason}. The committed fit stays in place.'
                    + (' Live forecasts warn that their fit is stale until a refresh succeeds.'
@@ -321,7 +319,7 @@ def committed(path: Path | str) -> Optional[dict]:
 
 
 def record_refit(repo: Path | str, item: Mapping, message: str) -> None:
-    """Commit a refit line on its own (not a fit day, skipped or failed). Never raises: the workflow's own result
+    """Commit a refit line on its own (skipped or failed). Never raises: the workflow's own result
     stands."""
     try:
         commit_events(repo, [item], message)
@@ -535,6 +533,21 @@ def _interval(interval: Any, pct: bool = False) -> str:
     return f'{a:+.1%} to {b:+.1%}' if pct else f'{a:+.5f} to {b:+.5f}'
 
 
+def minimum_progress(matches: Any, need_matches: int, weeks: Any, need_weeks: int) -> str:
+    """Progress towards a rollback rule's two minimums, e.g. '40 of 150 graded matches · weeks met (4)'."""
+    matches, weeks = int(matches or 0), int(weeks or 0)
+    shown = (f'graded matches met ({matches})' if matches >= need_matches else f'{matches} of {need_matches} graded matches')
+    return shown + ' · ' + (f'weeks met ({weeks})' if weeks >= need_weeks else f'{weeks} of {need_weeks} weeks')
+
+
+def master_progress(rollback: Mapping) -> str:
+    """Both master lists' progress towards the release rollback rule's minimums."""
+    need_m, need_w = int(rollback.get('min_graded_matches', 150)), int(rollback.get('min_weeks', 3))
+    return '; '.join(f'{name} {minimum_progress(part.get("graded_matches"), need_m, part.get("weeks"), need_w)}'
+                     for name, part in (('new master', rollback.get('new_master') or {}),
+                                        ('old master', rollback.get('old_master') or {})))
+
+
 def _research_state(figures: Mapping, minimum: tuple) -> tuple:
     """(status shown, state compared) of a research rollback check."""
     if figures.get('triggered'):
@@ -543,8 +556,8 @@ def _research_state(figures: Mapping, minimum: tuple) -> tuple:
         return 'not triggered', 'not triggered'
     if not figures.get('matches'):
         return 'no graded matches yet', 'no graded matches yet'
-    return (f'not yet eligible ({figures.get("matches")} of {minimum[0]} graded matches, {figures.get("weeks")} of '
-            f'{minimum[1]} weeks)', 'not yet eligible')
+    return (f'not yet eligible ({minimum_progress(figures.get("matches"), minimum[0], figures.get("weeks"), minimum[1])})',
+            'not yet eligible')
 
 
 def rollback_checks(research: Optional[Mapping], price_edge: Optional[Mapping]) -> List[dict]:
@@ -555,8 +568,7 @@ def rollback_checks(research: Optional[Mapping], price_edge: Optional[Mapping]) 
         status = str(rollback.get('status') or 'not recorded')
         nm, om = rollback.get('new_master') or {}, rollback.get('old_master') or {}
         shown = (TRIGGERED if rollback.get('triggered') else 'not triggered' if status == 'NOT TRIGGERED'
-                 else f'not yet eligible (waiting for {rollback.get("min_graded_matches", 150)} graded matches over '
-                      f'{rollback.get("min_weeks", 3)} weeks on each list)' if status == 'WAITING' else status)
+                 else f'not yet eligible ({master_progress(rollback)})' if status == 'WAITING' else status)
         diff = rollback.get('difference')
         out.append({'key': 'rollback:master', 'model': 'new master vs old master', 'status': shown, 'state': status,
                     'details': (f'New master {nm.get("graded_matches", 0)} graded matches over {nm.get("weeks", 0)} '
