@@ -1,3 +1,14 @@
 {
-  "version": "master-profit-15-pinnacle-markets-v9"
+  "version": "master-profit-15-pinnacle-markets-v9",
+  "live": "new",
+  "release": {
+    "decided": "Paul, 14 Nov 2026: a deliberate exception to the release gate, released without waiting for the live shadow comparison verdict (docs/plan.md, Decisions: Master shortlist release).",
+    "switch": "live: \"new\" = the new master rule (master_reconciliation, master-new-fill-rule-v4 with the fill and quote timing checks) writes master_shortlist.csv (version master-new-fill-rule-v4-live-v10) and the old master (version above) runs in shadow as master_shortlist_old.csv; \"old\" = the pre-release output byte for byte (old master in master_shortlist.csv, new master in shadow as master_shortlist_new.csv).",
+    "rollback": {
+      "rule": "After at least 150 graded matches over at least 3 calendar weeks on each list, compare flat-stake return per bet at Pinnacle prices, new master minus old master, whole kickoff weeks resampled (the same weeks for both), 95% interval. If the interval is entirely below zero, the weekly report says ROLLBACK TRIGGERED at the top and in the run summary. Nothing switches automatically: Paul decides, and rolling back is setting live to \"old\".",
+      "min_graded_matches": 150,
+      "min_weeks": 3,
+      "interval": "the same 95% interval the live comparison computes (master_reconciliation_config.json, live_comparison: whole kickoff weeks resampled, its bootstrap samples and seed), so the report shows one interval"
+    }
+  }
 }

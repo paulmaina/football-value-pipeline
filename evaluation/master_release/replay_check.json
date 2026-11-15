@@ -1,0 +1,60 @@
+{
+  "note": "Replay of every saved run (27 Oct - 8 Nov 2026) with scripts/master_reconciliation_replay.py on one machine: main ebba9d8 (pre-release) against this branch. live \"new\": the released files against main in shadow-period terms (--release-compare: the live master_shortlist.csv mapped back to the shadow names, the rule columns and version, main's shadow file in the stable row order; the old master files byte for byte). live \"old\": every file byte for byte (--compare). Determinism: two replays of the branch under live \"new\", every file byte for byte.",
+  "release_compare_live_new": {
+    "runs_main": 29,
+    "runs_branch": 29,
+    "same_runs": true,
+    "pairs": [
+      [
+        "master_shortlist.csv",
+        "master_shortlist_new.csv"
+      ],
+      [
+        "master_shortlist_summary.json",
+        "master_shortlist_new_summary.json"
+      ],
+      [
+        "master_shortlist_old.csv",
+        "master_shortlist.csv"
+      ],
+      [
+        "master_shortlist_old_audit.csv",
+        "master_shortlist_audit.csv"
+      ],
+      [
+        "master_old_summary.json",
+        "master_summary.json"
+      ],
+      [
+        "decisions.csv",
+        "decisions.csv"
+      ]
+    ],
+    "compared_files": 174,
+    "differences": [],
+    "runs_ok": 29,
+    "runs_reordered_by_stable_order": [
+      "02d8d3b21fd68fd9",
+      "4dfe537371e33ca4",
+      "765b01b571df2fd9",
+      "a00d5e530cc2e80e",
+      "bdc58d9d3727286d"
+    ],
+    "inspection_detail_rows": 0,
+    "flagged_picks": 0,
+    "identical_in_shadow_terms": true
+  },
+  "compare_live_old": {
+    "runs_main": 29,
+    "runs_branch": 29,
+    "same_runs": true,
+    "differences": [],
+    "compared_files": 174,
+    "runs_with_master": 29,
+    "byte_identical": true
+  },
+  "determinism_live_new": {
+    "files": 203,
+    "byte_identical": true
+  }
+}

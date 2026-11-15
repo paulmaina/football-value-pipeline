@@ -1628,12 +1628,27 @@ MASTER_READABLE = "master_shortlist_readable.csv"
 
 
 def master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -> list:
-    """master_shortlist_readable.csv and its report section, when the run recorded a master shortlist."""
+    """master_shortlist_readable.csv and its report section, when the run recorded a master shortlist, with the run's
+    release incident (new master failed and old master published, or comparison baseline missing) under its heading."""
+    import master_shortlist
+    lines = _master_section(summary, input_dir, output_dir)
+    incident = summary.get(master_shortlist.RELEASE_STATUS_KEY) or {}
+    if not incident.get('status'):
+        return lines
+    banner = ['', f"**{incident['status']}** in this run ({incident.get('error') or 'error not recorded'}). "
+                  f"{incident.get('note') or ''}".rstrip()]
+    heading = next((i for i, line in enumerate(lines) if line.startswith('## ')), None)
+    return banner if heading is None else [*lines[:heading + 1], *banner, *lines[heading + 1:]]
+
+
+def _master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -> list:
     import master_shortlist
     info = summary.get('master_shortlist')
     path = Path(input_dir) / master_shortlist.FILE if input_dir is not None else None
     if info is None or path is None or not path.exists():
         return []
+    if info.get('version') == master_shortlist.VERSION_NEW_LIVE:
+        return new_master_section(info, path, summary, output_dir)
     try:
         raw = pd.read_csv(path, low_memory=False)
     except pd.errors.EmptyDataError:
@@ -1728,6 +1743,89 @@ def master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -
             f"{info.get('below_threshold_bets')} below value threshold. Information for your own decision, not a recommendation to bet.",
             "", markdown_table(list(readable.columns), readable.astype(str).values.tolist())
             if not readable.empty else "No bet passed the data checks this run."]
+
+
+def new_master_section(info: dict, path: Path, summary: dict, output_dir: Path) -> list:
+    """The live master since the release of 14 Nov 2026 (rule master-new-fill-rule-v4): its ranked picks only
+    (the raw file lists every nominated offer), readable CSV (the workbook's master tab) and report section."""
+    import master_reconciliation as mr
+    try:
+        raw = pd.read_csv(path, low_memory=False)
+    except pd.errors.EmptyDataError:
+        raw = pd.DataFrame(columns=mr.COLUMNS)
+    picks = raw.loc[raw.new_master_decision.eq('SHORTLISTED')].copy()
+    picks = picks.assign(_rank=pd.to_numeric(picks.new_master_rank, errors='coerce')).sort_values('_rank', kind='stable')
+    yes = lambda v: 'yes' if str(v) == 'True' else 'no'
+    text = lambda v: '' if pd.isna(v) else v
+    readable = pd.DataFrame({
+        "Rank": picks.new_master_rank, "Tier (safe / fill / risky fill)": picks.new_master_tier.map(text),
+        "Kickoff (UTC)": picks.kickoff_utc, "League": picks.league, "Home": picks.home_team, "Away": picks.away_team,
+        "Market to bet": picks.market_to_bet, "Bookmaker": picks.bookmaker,
+        "Price": picks.offered_decimal_odds.map(decimal),
+        "Ranking no-loss probability": picks.ranking_no_loss_probability.map(pct),
+        "Ranking profit probability": picks.ranking_profit_probability.map(pct),
+        "Probability source": picks.probability_source.map(text),
+        "Cagey no-loss probability": picks.cagey_no_loss_probability.map(pct),
+        "Pinnacle no-loss probability": picks.pinnacle_no_loss_probability.map(pct),
+        "Research no-loss probability": picks.research_no_loss_probability.map(pct),
+        "Research gap (points)": picks.gap_points.map(lambda v: '' if pd.isna(v) else f"{float(v):+.1f}"),
+        "Research expected return": picks.research_expected_return.map(signed_pct),
+        "Market price (fair / below fair)": picks.market_price.map(text),
+        "Labels": picks.new_master_labels.map(text),
+        "Offered quote (UTC)": picks.offered_last_update_utc.map(text),
+        "On value shortlist": picks.in_value_shortlist.map(yes), "On cagey tier": picks.in_cagey_tier.map(yes),
+        "In old master (shadow)": picks.in_old_master.map(yes),
+        # "research strongly disagrees" picks only (master_inspection): what the disagreement is about
+        **{label: (picks[column].map(text) if column in picks else '') for column, label in INSPECTION_LABELS},
+    })
+    readable.to_csv(output_dir / MASTER_READABLE, index=False, encoding="utf-8-sig")
+    tiers = info.get('picks_by_tier') or {}
+    old = summary.get('master_shortlist_old') or {}
+    target = info.get('target_fixtures', 15)
+    short = f" Short of the {target}-match target: {info['short_reason']}." if info.get('short_reason') else ''
+    return ["", f"## Master shortlist (new master rule, live since 14 Nov 2026; target {target} matches)", "",
+            "One bet per match, only from the value shortlist's and the cagey tier's nominations, Pinnacle prices only "
+            "(odds above 1.15 up to 2.00; native AH, home or away win, double chance 1X or X2), quotes at most 15 "
+            "minutes old. Step 1 (safe): market no-loss chance at least 75% (cagey tier, or Pinnacle's margin-free "
+            "chance where the cagey score is missing), ranked by that chance. Step 2 (fill): if fewer than 15 matches "
+            "are safe, each remaining match's best offer with no-loss chance at least 50%, ranked by chance of "
+            "profit. Step 3 (risky fill, labelled): only if still short. The research view only labels and flags; it "
+            "never removes or reorders a bet. Released by Paul on 14 Nov 2026 without waiting for the live comparison "
+            "verdict; the old master runs in shadow (master_shortlist_old.csv) and is graded beside it, with a "
+            "rollback rule in the weekly report. Information for your own decision, not a recommendation to bet. "
+            f"This run: {info.get('ranked_fixtures', len(readable))} matches (safe {tiers.get('safe', 0)}, fill "
+            f"{tiers.get('fill', 0)}, risky fill {tiers.get('risky fill', 0)}).{short} "
+            f"Old master (shadow): {old.get('n_bets', 'no')} picks.", "",
+            markdown_table(list(readable.columns), readable.astype(str).values.tolist())
+            if not readable.empty else "No nominated offer passed the master's execution and timing checks this run.",
+            *inspection_lines(picks, info)]
+
+
+INSPECTION_LABELS = (('inspection_summary', 'Inspection: research take'),
+                     ('inspection_expected_goals', 'Inspection: expected goals'),
+                     ('inspection_home_draw_away', 'Inspection: home / draw / away'),
+                     ('inspection_likely_scores', 'Inspection: likely scores'),
+                     ('inspection_no_loss', 'Inspection: no-loss chances'),
+                     ('inspection_driver', 'Inspection: main driver'),
+                     ('inspection_warnings', 'Inspection: warnings'),
+                     ('inspection_history', 'Inspection: historical record'))
+
+
+def inspection_lines(picks: pd.DataFrame, info: dict) -> list:
+    """The "For inspection" section: each pick the research view strongly disputes, with what the dispute is about
+    (the row's inspection columns). The flag never removes or reorders a bet."""
+    flagged = picks.loc[picks.inspection_flag.astype(str).eq('True')] if 'inspection_flag' in picks else picks.iloc[:0]
+    rule = (info.get('for_inspection') or {}).get('rule', '')
+    lines = ["", "### For inspection (research strongly disagrees)", "", rule[:1].upper() + rule[1:] + '.' if rule
+             else '']
+    if flagged.empty:
+        return [*lines, "", "No pick carries the flag this run."]
+    for _, row in flagged.iterrows():
+        lines += ["", f"**{row.new_master_rank:.0f}. {row.home_team} v {row.away_team}, {row.market_to_bet} at "
+                      f"{float(row.offered_decimal_odds):.2f}**", ""]
+        lines += [f"- {label.split(': ', 1)[1].capitalize()}: {row[column]}" for column, label in INSPECTION_LABELS
+                  if column in row and not pd.isna(row[column])]
+    return lines
 
 
 def process_conservative_shortlist(
