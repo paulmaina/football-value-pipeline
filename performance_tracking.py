@@ -1041,10 +1041,10 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
         },
     }
     write_json(output / "metrics.json", result)
-    # Research v5 monitoring (research_monitoring): the rollback trigger's banner opens the report when it fires.
-    from research_monitoring import TRIGGERED, markdown as research_markdown
+    # Research v5/v6 monitoring (research_monitoring): the rollback triggers' banners open the report when they fire.
+    from research_monitoring import banner as research_banner, markdown as research_markdown
     research_lines = research_markdown(research_check)
-    banner = research_lines[:2] if research_lines and TRIGGERED in research_lines[0] else []
+    banner = research_banner(research_check)
     if research_check:
         write_json(output / "research_v5_monitoring.json", research_check)
 
@@ -1178,7 +1178,7 @@ def review(*, root: Path = ROOT, token: str = "",
         import pandas as pd
         research_check = review_research(root, archived, records, pd.Timestamp(clock))
     except Exception as exc:
-        warnings.warn(f'Research v5 monitoring failed ({type(exc).__name__}: {exc}); production report complete')
+        warnings.warn(f'Research v5/v6 monitoring failed ({type(exc).__name__}: {exc}); production report complete')
         research_check = None
     result = report(root, selections_graded, predictions_graded, errors, reviewed_at=iso(clock),
                     selection_history=history_graded, research_check=research_check)
