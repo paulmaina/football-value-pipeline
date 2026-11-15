@@ -88,7 +88,7 @@ baseline capture remains available.
 
 Normal forward review grades against verified final results, then updates
 `performance/shortlist_weight_experiment/report.md`, its JSON summary and CSV
-ledgers. The Excel Experiments sheet shows the five weightings, win rate and
+ledgers. The Excel Experiments sheet showed (until the Nov 2026 workbook redesign) the five weightings, win rate and
 Wilson interval, simulated net ROI/profit, drawdown, paired profit uncertainty,
 Brier/log loss, calibration gap and selected adaptive weight ranges. Legacy v1
 fixed-weight results remain separately labelled.

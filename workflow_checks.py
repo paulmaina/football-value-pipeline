@@ -42,6 +42,7 @@ COVERAGE_FLOORS = {'asian_handicap.py':85, 'api_football_data.py':85, 'api_footb
     'market_led_experiment.py':90, 'match_scores.py':90, 'performance_tracking.py':85, 'turkey_results.py':90,
     'performance_excel.py':85, 'publish_performance.py':75, 'workflow_checks.py':80,
     'dc_decay_validation.py':85, 'market_blend_validation.py':90, 'refresh_training_data.py':70, 'format_football_output.py':60, 'ucl_training.py':90, 'quote_policy.py':95, 'pipeline_health.py':90, 'refresh_ucl_training.py':75, 'league_registry.py':90, 'recency_experiment.py':85, 'filter_sensitivity_experiment.py':85, 'historical_benchmark.py':85, 'benchmark_forward_experiment.py':85, 'experiment_review_queue.py':85, 'publish_scheduled_forecasts.py':80, 'odds_api_usage.py':90, 'totals_anchor_experiment.py':90, 'closing_odds.py':90, 'model_reliability_experiment.py':90, 'model_comparison.py':90,
+    'excel_book.py':90, 'predictions_workbook.py':90, 'performance_report_layout.py':90,
     'shortlist_replay.py':95, 'market_implied.py':95, 'market_implied_calibration.py':85, 'price_edge_shortlist.py':90, 'price_edge_tracking.py':90, 'price_check.py':90, 'narrow_margin.py':90, 'cagey_correction_report.py':90, 'price_edge_cagey_shortlist.py':95, 'staking.py':95, 'elo_ratings.py':95, 'match_simulation.py':95, 'pipeline_service.py':90, 'clv_report.py':90}
 
 
@@ -486,6 +487,43 @@ def expected_stats(rows):
         flat_stake_roi=sum(profit)/len(profit) if profit else None)
 
 
+REPORT_SHEETS = ('Dashboard', 'Picks & Results', 'Weekly Trends', 'Breakdowns', 'Calibration', 'CLV',
+                 'Model Monitoring', 'Guide')
+GRADED_MASTER_FILES = (('new', 'master_shortlist_picks.csv'), ('old', 'master_shortlist_old_picks.csv'))
+
+
+def report_workbook_check(root, workbook):
+    """The performance workbook's sheets and its Dashboard headline, recounted here from the graded master files
+    since the master tracking start: the first archived run whose summary records the released new master."""
+    from excel_book import named_value, parse_utc, read_workbook
+    from master_shortlist import VERSION_NEW_LIVE
+    from performance_tracking import number, read_csv
+    book = read_workbook(workbook)
+    require(tuple(book['sheets']) == REPORT_SHEETS, 'Workbook sheets differ from the report layout')
+    starts = [parse_utc(read_json(path).get('generated_at_utc'))
+              for path in sorted((root/'performance'/'snapshots').glob('*/selection_summary.json'))
+              if not path.parent.name.startswith('.capture-')
+              and (read_json(path).get('master_shortlist') or {}).get('version') == VERSION_NEW_LIVE]
+    start = min([s for s in starts if s is not None], default=None)
+    shown = str(named_value(book, 'master_tracking_start') or '')
+    require(('not started' in shown) if start is None else ('started afresh' in shown), 'Workbook tracking start differs')
+    settled = ('WON', 'HALF_WON', 'REFUNDED', 'HALF_LOST', 'LOST')
+    for which, name in GRADED_MASTER_FILES:
+        path = root/'performance'/'price_edge_v27'/name
+        rows = read_csv(path) if path.exists() and path.stat().st_size else []
+        rows = [r for r in rows if start is not None and parse_utc(r.get('snapshot_generated_utc')) is not None
+                and parse_utc(r.get('snapshot_generated_utc')) >= start]
+        graded = [number(r.get('unit_profit')) for r in rows
+                  if r.get('result_status') in settled and number(r.get('unit_profit')) is not None]
+        close(named_value(book, f'{which}_master_picks'), len(rows), f'Workbook {which} master picks')
+        close(named_value(book, f'{which}_master_graded'), len(graded), f'Workbook {which} master graded')
+        shown_return = named_value(book, f'{which}_master_return')
+        if graded:
+            close(shown_return, sum(graded), f'Workbook {which} master return')
+        else:
+            require(isinstance(shown_return, str), f'Workbook {which} master return must be unavailable')
+
+
 def report_check(root):
     from performance_tracking import read_csv,utc,frozen_rows,snapshots,result_for_market,number,graded_match,tracking_key,pick_key
     from performance_tracking import verified_result_source
@@ -692,19 +730,8 @@ def report_check(root):
         require('xl/workbook.xml' in z.namelist(),'Missing native workbook')
         for name in z.namelist():
             if name.endswith('.xml'):ET.fromstring(z.read(name))
-        require(len([n for n in z.namelist() if '/charts/chart' in n and n.endswith('.xml')])>=3,'Missing native report charts')
-        ns='{http://schemas.openxmlformats.org/spreadsheetml/2006/main}'
-        sheet=ET.fromstring(z.read('xl/worksheets/sheet1.xml'))
-        for address,field in [('B7','total'),('B8','graded'),('B9','wins'),('B11','pending'),
-                              ('B12','win_rate'),('B13','flat_stake_roi'),('B14','profit_per_unit_staked'),('B15','brier')]:
-            cell=sheet.find(f'.//{ns}c[@r="{address}"]');require(cell is not None,'Missing workbook metric cell')
-            value=cell.find(ns+'v')
-            if value is None:value=cell.find(ns+'is/'+ns+'t')
-            require(value is not None,'Missing workbook metric value')
-            expected=metrics['shortlist'][field]
-            if expected is None and field=='profit_per_unit_staked':close(value.text,0,'Workbook empty cumulative P&L')
-            elif expected is None:require(value.text=='n.a.',f'Workbook {field} must be unavailable')
-            else:close(value.text,expected,'Workbook '+field)
+        require(len([n for n in z.namelist() if '/charts/chart' in n and n.endswith('.xml')])>=2,'Missing native report charts')
+    report_workbook_check(root, workbook)
     require((performance/'README.md').is_file(),'Missing readable performance report')
     warnings=audit['warnings']
     if metrics.get('provider_errors'):warnings.append('Result provider has errors; cached verified results used where available')
@@ -728,9 +755,9 @@ def report_check(root):
         latest=history.get('days',{}).get(health_time.date().isoformat(),{})
         for field,value in metrics['shortlist'].items():close(latest.get('shortlist_performance',{}).get(field),value,'Daily health performance '+field)
         require(len(health_data.get('snapshot_capture_history',[]))==len(audit['snapshots']),'Health snapshot coverage mismatch')
-        with ZipFile(workbook) as z:
-            wb=ET.fromstring(z.read('xl/workbook.xml'))
-            require(any(s.get('name')=='Pipeline Health' for s in wb.find(ns+'sheets')),'Missing native Pipeline Health worksheet')
+        from excel_book import read_workbook
+        dashboard=' '.join(str(v) for v in read_workbook(workbook)['cells']['Dashboard'].values())
+        require('Data health' in dashboard and 'Last forecast generated' in dashboard,'Missing data health on the workbook Dashboard')
     for league, info in health_data.get('training',{}).items():
         state=info.get('current_source_health',{}).get('status')
         if state and state not in ('CURRENT_WITHIN_PROVIDER_SCHEDULE', 'VERIFIED_WITHIN_24_HOURS'): warnings.append(league+' training/source health: '+state)
