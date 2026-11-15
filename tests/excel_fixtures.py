@@ -68,6 +68,15 @@ def snapshot(root: Path, name: str, generated: str, version: str) -> None:
           {'generated_at_utc': generated, 'master_shortlist': {'version': version}})
 
 
+def archive_research_run(root: Path, name: str, generated: str, european: str | None, domestic: str | None) -> None:
+    """An archived run whose forecasts carry these research versions (None: no forecast in that scope)."""
+    folder = Path(root) / 'performance' / 'snapshots' / name
+    _json(folder / 'metadata.json', {'generated_at_utc': generated, 'git_commit_sha': name})
+    rows = [[league, json.dumps({'version': version})] for league, version in
+            (('UEFA Champions League', european), ('Premier League', domestic)) if version]
+    _write_csv(folder / 'predictions.csv', ['league', 'team_research_json'], rows)
+
+
 def post_release_root(root: Path, ce3n: dict | None = None, released: bool = True) -> Path:
     """A synthetic output root after the new master's release (released=False: no post-release run yet)."""
     import master_shortlist as ms

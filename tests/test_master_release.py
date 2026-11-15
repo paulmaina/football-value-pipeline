@@ -899,16 +899,25 @@ class ReadersTest(unittest.TestCase):
 
     def test_the_performance_workbook_reads_only_the_graded_master_files_and_labels_the_live_list(self):
         """Since the Excel redesign the performance workbook shows both masters (display only): it reads the weekly
-        report's graded files and which list is live from the review's summary, so a rollback relabels it."""
+        report's graded files, and which list is live from the release switch (master_shortlist_config.json), so
+        a rollback relabels it at once; the review's record only when the switch can't be read."""
         import performance_report_layout as layout
         self.assertEqual({k: v.as_posix() for k, v in layout.GRADED.items()},
                          {'new': 'price_edge_v27/master_shortlist_picks.csv',
                           'old': 'price_edge_v27/master_shortlist_old_picks.csv'})
+        self.assertEqual(layout.config_path('master'), ms.CONFIG)
+        with switched('old'):
+            self.assertEqual(layout.live_list(Path('.')), 'old')
         with tempfile.TemporaryDirectory() as tmp:
             summary = Path(tmp) / 'performance' / 'price_edge_v27' / 'summary.json'
             summary.parent.mkdir(parents=True)
-            summary.write_text(json.dumps({'live_master_list': 'old'}), encoding='utf-8')
-            self.assertEqual(layout.list_names(Path(tmp)), {'new': 'New master (shadow)', 'old': 'Old master (live)'})
+            summary.write_text(json.dumps({'live_master_list': 'new'}), encoding='utf-8')
+            config = Path(tmp) / 'master_shortlist_config.json'
+            config.write_text(json.dumps({'live': 'old'}), encoding='utf-8')
+            with mock.patch.object(layout, 'MASTER_CONFIG', config):
+                self.assertEqual(layout.list_names(Path(tmp)), {'new': 'New master (shadow)', 'old': 'Old master (live)'})
+            with mock.patch.object(layout, 'MASTER_CONFIG', Path(tmp) / 'missing.json'):
+                self.assertEqual(layout.list_names(Path(tmp)), {'new': 'New master (live)', 'old': 'Old master (shadow)'})
 
     def test_readme_describes_the_release(self):
         readme = (REPO / 'README.md').read_text(encoding='utf-8')

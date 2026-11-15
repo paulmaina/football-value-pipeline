@@ -15,11 +15,17 @@ changed. Sources:
   performance/pipeline_health.json, workflow_health.json      data health and the last validation's warnings
   odds_api_usage/usage_log.jsonl                              Odds API credits and the last forecast run
 
-CE3n (UCL/UEL) monitoring comes from a release that is not merged yet. Its section shows "not released yet" until
-figures exist, then fills in on its own. Accepted locations, first found wins: the "ce3n" entry of
-research_v5_monitoring.json, or performance/research_ce3n_monitoring.json. Either can be a rollback-shaped dict
-(rule, matches, weeks, a "*_minus_*" log-loss difference, interval_95, eligible, triggered) or hold one under
-"rollback".
+Release status. Each monitored release's status starts from its live switch, read when the workbook is built, so no
+section can show an outdated release status:
+
+  master_shortlist_config.json  live           "new": Live (new master)    "old": Rolled back to the old master
+  research_config.json          live.domestic  "v5":  Live (research v5)   "v4":  Rolled back to research v4
+  research_config.json          live.european  "v6":  Live (research v6)   "v4":  Rolled back to CE (research v4)
+
+While a release is live its status adds the rollback check's state, or "monitoring data not available yet" with the
+reason (the review has not written the figures, or no graded matches yet). After a rollback the date is the first
+archived forecast run made without the release, when one exists. CE3n's figures are research_monitoring's "ce3n"
+entry of research_v5_monitoring.json (PR #178).
 """
 from __future__ import annotations
 
@@ -39,8 +45,11 @@ RELEASED = '14 Nov 2026'  # the new master's release (docs/plan.md, Decisions: M
 TRACKING = Path('price_edge_v27')
 GRADED = {'new': TRACKING / 'master_shortlist_picks.csv', 'old': TRACKING / 'master_shortlist_old_picks.csv'}
 PICKS_CSV = ('performance/price_edge_v27/master_shortlist_picks.csv (new) and master_shortlist_old_picks.csv (old)')
-CE3N_FILE = 'research_ce3n_monitoring.json'
-NOT_RELEASED = 'not released yet'
+# The release switches; None reads the pipeline's own (master_shortlist.CONFIG, team_research.RESEARCH_CONFIG).
+MASTER_CONFIG: Optional[Path] = None
+RESEARCH_CONFIG: Optional[Path] = None
+MONITORING = 'research_v5_monitoring.json'
+NOT_AVAILABLE = 'monitoring data not available yet'
 SETTLED = {'WON': 'Won', 'HALF_WON': 'Half won', 'REFUNDED': 'Refund', 'HALF_LOST': 'Half lost', 'LOST': 'Lost'}
 BANDS = ((0.0, 0.5), (0.5, 0.6), (0.6, 0.7), (0.7, 0.75), (0.75, 0.8), (0.8, 0.85), (0.85, 0.9), (0.9, 1.000001))
 TIERS = ('safe', 'fill', 'risky fill')
@@ -86,15 +95,13 @@ def tracking_start(root: Path) -> Optional[datetime]:
 
 
 def live_list(root: Path) -> str:
-    """'new' or 'old': which master is live, as the review recorded it (rollback is setting it to "old")."""
+    """'new' or 'old': which master is live now, from master_shortlist_config.json's switch (rolling back is setting
+    it to "old"); the review's record only when the switch can't be read."""
+    value, _ = switch('master')
+    if value is not None:
+        return value
     recorded = load(root, TRACKING / 'summary.json').get('live_master_list')
-    if recorded in ('new', 'old'):
-        return recorded
-    try:
-        from master_shortlist import configured_live
-        return configured_live()
-    except Exception:  # noqa: BLE001  (display only)
-        return 'new'
+    return recorded if recorded in ('new', 'old') else 'new'
 
 
 def list_names(root: Path) -> Dict[str, str]:
@@ -190,27 +197,153 @@ def outcome(record: dict) -> str:
     return 'Not graded yet'
 
 
-def ce3n_figures(root: Path) -> Optional[dict]:
-    """CE3n's rollback-shaped figures once its release writes them; None until then."""
-    for candidate in (load(root, 'research_v5_monitoring.json').get('ce3n'), load(root, CE3N_FILE) or None):
-        if isinstance(candidate, dict) and candidate:
-            inner = candidate.get('rollback')
-            return inner if isinstance(inner, dict) else candidate
+# --- release status ----------------------------------------------------------------------------------------------
+
+# Each monitored release: its switch (config attribute, key path), the released and rolled-back values and texts;
+# for research, the scope (European or domestic), its entry in research_v5_monitoring.json and its minimum sample.
+RELEASES = {
+    'master': {'config': 'MASTER_CONFIG', 'path': ('live',), 'released': 'new', 'rolled': 'old',
+               'live': 'Live (new master)', 'back': 'Rolled back to the old master'},
+    'v5': {'config': 'RESEARCH_CONFIG', 'path': ('live', 'domestic'), 'released': 'v5', 'rolled': 'v4',
+           'live': 'Live (research v5)', 'back': 'Rolled back to research v4', 'european': False,
+           'figures': 'rollback', 'matches': 'domestic', 'minimum': ('MIN_MATCHES', 'MIN_WEEKS')},
+    'v6': {'config': 'RESEARCH_CONFIG', 'path': ('live', 'european'), 'released': 'v6', 'rolled': 'v4',
+           'live': 'Live (research v6)', 'back': 'Rolled back to CE (research v4)', 'european': True,
+           'figures': 'ce3n', 'matches': 'European (UCL/UEL)', 'minimum': ('CE3N_MIN_MATCHES', 'CE3N_MIN_WEEKS')},
+}
+
+
+def config_path(key: str) -> Path:
+    """The release's switch file: the same one the pipeline reads, unless overridden here."""
+    name = RELEASES[key]['config']
+    if globals()[name] is not None:
+        return Path(globals()[name])
+    if name == 'MASTER_CONFIG':
+        import master_shortlist
+        return Path(master_shortlist.CONFIG)
+    import team_research
+    return Path(team_research.RESEARCH_CONFIG)
+
+
+def switch(key: str) -> Tuple[Optional[str], str]:
+    """(the switch's value, '') or (None, why it can't be read)."""
+    spec = RELEASES[key]
+    path = config_path(key)
+    where = f"{path.name} {'.'.join(spec['path'])}"
+    try:
+        value: Any = json.loads(path.read_text(encoding='utf-8'))
+        for part in spec['path']:
+            value = value[part]
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        return None, f'{where} could not be read ({type(exc).__name__})'
+    if value not in (spec['released'], spec['rolled']):
+        return None, f'{where} is {value!r}, expected "{spec["released"]}" or "{spec["rolled"]}"'
+    return value, ''
+
+
+def load_json(path: Path) -> dict:
+    try:
+        data = json.loads(Path(path).read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def archived_runs(root: Path, name: str) -> List[Tuple[datetime, Path]]:
+    """(generation time, folder) of every archived run holding `name`, oldest first."""
+    base = Path(root) / 'performance' / 'snapshots'
+    out = []
+    for path in sorted(base.glob(f'*/{name}')) if base.exists() else []:
+        if path.parent.name.startswith('.capture-'):
+            continue
+        meta = 'selection_summary.json' if name == 'selection_summary.json' else 'metadata.json'
+        stamp = xb.parse_utc(load_json(path.parent / meta).get('generated_at_utc'))
+        if stamp is not None:
+            out.append((stamp, path.parent))
+    return sorted(out)
+
+
+def research_versions(folder: Path, european: bool) -> set:
+    """The research versions of a run's forecasts in one scope (UCL/UEL or domestic)."""
+    from team_research import EUROPEAN_COMPETITIONS, decode
+    versions = set()
+    for row in read_rows(folder / 'predictions.csv'):
+        if (str(row.get('league')) in EUROPEAN_COMPETITIONS) == european:
+            version = decode(row.get('team_research_json')).get('version')
+            if version:
+                versions.add(version)
+    return versions
+
+
+def rollback_date(root: Path, key: str) -> Optional[datetime]:
+    """When a release was rolled back: the first archived run after the release's last run that was made without it,
+    or None when no run has been made since (or the release never ran)."""
+    after = None
+    if key == 'master':
+        from master_shortlist import VERSION_NEW_LIVE
+        for stamp, folder in reversed(archived_runs(root, 'selection_summary.json')):
+            version = (load_json(folder / 'selection_summary.json').get('master_shortlist') or {}).get('version')
+            if version == VERSION_NEW_LIVE:
+                return after
+            after = stamp if version else after
+        return None
+    from team_research import CE3N_VERSIONS, C6_VERSIONS
+    released = set(CE3N_VERSIONS if RELEASES[key]['european'] else C6_VERSIONS)
+    for stamp, folder in reversed(archived_runs(root, 'predictions.csv')):
+        versions = research_versions(folder, RELEASES[key]['european'])
+        if versions & released:
+            return after
+        after = stamp if versions else after
     return None
 
 
-def difference_key(figures: dict) -> Optional[str]:
-    return next((k for k in sorted(figures) if '_minus_' in k and not isinstance(figures[k], (dict, list))), None)
+def research_minimum(key: str) -> Tuple[int, int]:
+    import research_monitoring as rm
+    matches, weeks = RELEASES[key]['minimum']
+    return int(getattr(rm, matches)), int(getattr(rm, weeks))
 
 
-def rollback_status(figures: Optional[dict], minimum: str) -> str:
-    if not figures:
-        return NOT_RELEASED
+def research_figures(root: Path, key: str) -> Tuple[Optional[dict], str]:
+    """(the release's monitoring figures, '') or (None, why there are none)."""
+    if not (Path(root) / 'performance' / MONITORING).exists():
+        return None, f'the review has not written performance/{MONITORING} yet'
+    figures = load(root, MONITORING).get(RELEASES[key]['figures'])
+    if not isinstance(figures, dict) or not figures:
+        return None, f'performance/{MONITORING} has no "{RELEASES[key]["figures"]}" entry yet'
+    return figures, ''
+
+
+def release_status(root: Path, key: str, state: Optional[str] = None, missing: str = '') -> str:
+    """The release's status from its live switch: rolled back (with the date when known), or live with the rollback
+    check's state (`state` for the master), or live with why monitoring data is not available yet."""
+    spec = RELEASES[key]
+    value, problem = switch(key)
+    if value is None:
+        return f'Release status unknown: {problem}'
+    if value == spec['rolled']:
+        date = rollback_date(root, key)
+        return spec['back'] + (f' on {xb.eat_text(date)} (first forecast run after the switch)' if date else
+                               ' (date not known: no archived forecast run since the switch)')
+    if key == 'master':
+        return f"{spec['live']} - {state}" if state else f"{spec['live']} - {NOT_AVAILABLE} ({missing})"
+    figures, why = research_figures(root, key)
+    if figures is None:
+        return f"{spec['live']} - {NOT_AVAILABLE} ({why})"
+    matches, weeks = int(figures.get('matches') or 0), int(figures.get('weeks') or 0)
+    if not matches:
+        return f"{spec['live']} - {NOT_AVAILABLE} (no graded {spec['matches']} matches under research {key} yet)"
     if figures.get('triggered'):
-        return 'ROLLBACK TRIGGERED'
+        return f"{spec['live']} - ROLLBACK TRIGGERED"
     if figures.get('eligible'):
-        return 'Not triggered'
-    return f'Not yet eligible (needs {minimum})'
+        return f"{spec['live']} - not triggered"
+    need_matches, need_weeks = research_minimum(key)
+    return (f"{spec['live']} - not yet eligible ({matches} of {need_matches} graded matches, "
+            f"{weeks} of {need_weeks} weeks)")
+
+
+def master_status(root: Path, rollback: dict) -> str:
+    return release_status(root, 'master', master_rollback_status(rollback) if rollback else None,
+                          'the review has not recorded the rollback check yet')
 
 
 def health_data(root: Path, health: Optional[dict]) -> dict:
@@ -242,13 +375,12 @@ def interval_text(interval: Any, kind: str = 'pct') -> str:
 
 
 def status_rules(sheet: xb.Sheet, ref: str) -> None:
-    sheet.highlight(ref, 'bad', 'contains', 'TRIGGERED')
-    sheet.highlight(ref, 'bad', 'contains', 'FAILED')
-    sheet.highlight(ref, 'bad', 'contains', 'MISSING')
-    sheet.highlight(ref, 'good', 'begins', 'Not triggered')
-    sheet.highlight(ref, 'warn', 'begins', 'Not yet eligible')
-    sheet.highlight(ref, 'warn', 'begins', 'Waiting')
-    sheet.highlight(ref, 'info', 'equals', NOT_RELEASED)
+    for text in ('ROLLBACK TRIGGERED', 'FAILED', 'MISSING', 'Release status unknown'):
+        sheet.highlight(ref, 'bad', 'contains_case', text)
+    sheet.highlight(ref, 'warn', 'begins', 'Rolled back')
+    sheet.highlight(ref, 'good', 'contains', 'not triggered')
+    for text in ('not yet eligible', 'Waiting', NOT_AVAILABLE):
+        sheet.highlight(ref, 'warn', 'contains', text)
 
 
 def result_rules(sheet: xb.Sheet, table: xb.Table, result: str = 'Result', money: Iterable[str] = ()) -> None:
@@ -428,41 +560,49 @@ def master_rollback_status(rollback: dict) -> str:
         return (f"Waiting: {rollback.get('min_graded_matches', 150)} graded matches over "
                 f"{rollback.get('min_weeks', 3)} weeks on each list")
     if status == 'NOT TRIGGERED':
-        return 'Not triggered'
+        return 'not triggered'
     return status or 'not recorded'
+
+
+def switch_text(key: str) -> str:
+    spec = RELEASES[key]
+    value, problem = switch(key)
+    return problem if value is None else f"{config_path(key).name} {'.'.join(spec['path'])} = \"{value}\""
+
+
+def log_figures(figures: Optional[dict], key: str, label: str) -> str:
+    """'N graded matches over W weeks; <difference>; 95% interval ...' for a research rollback check."""
+    if not figures:
+        return 'no figures'
+    diff = figures.get(key)
+    return (f"{figures.get('matches', 0)} graded matches over {figures.get('weeks', 0)} weeks; "
+            f"{label} log loss "
+            f"{'not computed yet' if xb.number(diff) is None else f'{float(diff):+.5f}'}; 95% interval "
+            f"{interval_text(figures.get('interval_95'), 'log')}.")
 
 
 def monitoring_checks(ctx: Context) -> List[List[str]]:
     rollback = ctx.tracking.get('master_rollback') or {}
     incidents = ctx.tracking.get('master_release_incidents') or {}
-    research = ctx.research.get('rollback') or {}
     favourites = (ctx.research.get('home_favourites') or {}).get('all') or {}
-    ce3n = ce3n_figures(ctx.root)
-    state = master_rollback_status(rollback)
+    v5, why_v5 = research_figures(ctx.root, 'v5')
+    ce3n, why_ce3n = research_figures(ctx.root, 'v6')
     failed = (incidents.get('new_master_failed') or {}).get('runs', 0)
     missing = (incidents.get('baseline_missing') or {}).get('runs', 0)
-    diff = research.get('v5_minus_v4_log_loss')
-    ce_key = difference_key(ce3n) if ce3n else None
     return [
-        ['New master vs old master (flat return per bet)', state,
+        ['New master vs old master (flat return per bet)', master_status(ctx.root, rollback),
          rollback.get('message') or 'The review has not recorded the rollback check yet.'],
         ['Release incidents', 'none' if not (failed or missing) else
          f'NEW MASTER FAILED in {failed} runs; BASELINE MISSING in {missing} runs',
          '; '.join(incidents.get('messages') or []) or 'No run published the old master in place of the new one, '
                                                        'and every run kept its old-master shadow.'],
-        ['Research v5 vs v4 (AH log loss)', rollback_status(research, '150 matches and 3 weeks') if research
-         else 'not recorded (no review yet)',
-         f"{research.get('matches', 0)} graded matches over {research.get('weeks', 0)} weeks; v5 − v4 log loss "
-         f"{'not computed yet' if diff is None else f'{diff:+.5f}'}; 95% interval "
-         f"{interval_text(research.get('interval_95'), 'log')}."],
+        ['Research v5 vs v4 (AH log loss, domestic)', release_status(ctx.root, 'v5'),
+         log_figures(v5, 'v5_minus_v4_log_loss', 'v5 − v4') if v5 else why_v5],
         ['Home favourites (Eredivisie, Primeira Liga, Süper Lig)',
          f"{favourites.get('graded', 0)} graded of {favourites.get('picks', 0)} picks",
          'Value picks backing a v5 home favourite in the three holdout leagues; see Model Monitoring.'],
-        ['CE3n vs CE (UCL/UEL)', rollback_status(ce3n, 'its sample') if ce3n else NOT_RELEASED,
-         'Fills in automatically once the CE3n release writes its monitoring figures.' if not ce3n else
-         f"{ce3n.get('matches', 0)} graded matches over {ce3n.get('weeks', 0)} weeks; difference "
-         f"{'not computed yet' if not ce_key or ce3n.get(ce_key) is None else f'{float(ce3n[ce_key]):+.5f}'}; "
-         f"95% interval {interval_text(ce3n.get('interval_95'), 'log')}."],
+        ['CE3n vs CE (research v6, UCL/UEL)', release_status(ctx.root, 'v6'),
+         log_figures(ce3n, 'ce3n_minus_ce_log_loss', 'CE3n − CE') if ce3n else why_ce3n],
     ]
 
 
@@ -714,6 +854,38 @@ def reading_rules(sheet: xb.Sheet, table: xb.Table) -> None:
     money_rules(sheet, table, ['Mean CLV'])
 
 
+def coverage_text(figures: dict) -> str:
+    return '; '.join(f'{k}: {v}' for k, v in sorted((figures.get('coverage') or {}).items())) or 'no graded matches yet'
+
+
+def slopes_text(calibration: Optional[dict]) -> str:
+    calibration = calibration or {}
+    parts = []
+    for name, slopes in sorted((calibration.get('slopes') or {}).items()):
+        shown = [f"{side} {float(slopes[side]):.2f}" for side in ('home', 'away') if xb.number(slopes.get(side)) is not None]
+        parts.append(f"{name}: {', '.join(shown) if shown else 'not computed yet'}")
+    graded = calibration.get('graded_matches', 0)
+    return (f"{'; '.join(parts) or 'not computed yet'} ({graded} graded matches; reported, not a trigger)")
+
+
+def competition_text(part: dict) -> str:
+    diff = part.get('ce3n_minus_ce_log_loss')
+    return (f"{part.get('matches', 0)} graded matches over {part.get('weeks', 0)} weeks; CE3n − CE "
+            f"{'not computed yet' if xb.number(diff) is None else f'{float(diff):+.5f}'}; 95% interval "
+            f"{interval_text(part.get('interval_95'), 'log')}; calibration {slopes_text(part.get('calibration'))}"
+            + ('. WARNING: interval entirely above zero before the pooled trigger is eligible' if part.get('warning')
+               else ''))
+
+
+def ucl_check_text(check: Optional[dict]) -> str:
+    if not check:
+        return 'not recorded'
+    passed = check.get('passed_on') or {}
+    if check.get('status') == 'passed' and passed:
+        return f"passed on the run of {xb.eat_text(passed.get('generated_at_utc'))} ({passed.get('ucl_fixtures')} UCL fixtures)"
+    return str(check.get('status') or 'not recorded')
+
+
 def monitoring(book: xb.Book, ctx: Context) -> None:
     s = book.sheet('Model Monitoring', xb.NAVY)
     s.title('Model monitoring: the new master\'s rollback rule, research v5 vs v4, CE3n vs CE, home favourites',
@@ -725,8 +897,12 @@ def monitoring(book: xb.Book, ctx: Context) -> None:
     checks = monitoring_checks(ctx)
     s.section(row, 'New master vs old master: rollback rule', 4)
     nm, om = rollback.get('new_master') or {}, rollback.get('old_master') or {}
+    live, recorded = live_list(ctx.root), rollback.get('live_master_list') or ctx.tracking.get('live_master_list')
     rows = [['Status', checks[0][1]],
-            ['Live list', ctx.names.get(rollback.get('live_master_list') or live_list(ctx.root), 'not recorded')],
+            ['Release switch', switch_text('master')],
+            ['Live list', ctx.names[live] + ('' if recorded in (None, live) else
+                                             f' (the last review ran with the {recorded} master live; the next '
+                                             'review re-runs the rollback check)')],
             ['New master graded matches / weeks', f"{nm.get('graded_matches', 0)} / {nm.get('weeks', 0)}"],
             ['Old master graded matches / weeks', f"{om.get('graded_matches', 0)} / {om.get('weeks', 0)}"],
             ['Minimum on each list', f"{rollback.get('min_graded_matches', 150)} matches over "
@@ -743,38 +919,49 @@ def monitoring(book: xb.Book, ctx: Context) -> None:
                              'released rule); the other sheets start at the first run after the release.', 4)
     row = table.bottom + 3
 
-    research = ctx.research.get('rollback') or {}
-    s.section(row, 'Research v5 (C6) vs v4: rollback trigger', 4)
-    diff = research.get('v5_minus_v4_log_loss')
-    rows = [['Status', checks[2][1]],
-            ['Graded matches / weeks', f"{research.get('matches', 0)} / {research.get('weeks', 0)}"],
-            ['v5 − v4 research log loss (AH all lines)', value_or(xb.number(diff), 'not computed yet', 'signed_decimal')],
-            ['95% interval (weeks resampled)', interval_text(research.get('interval_95'), 'log')],
-            ['Coverage', '; '.join(f'{k}: {v}' for k, v in sorted((research.get('coverage') or {}).items()))
-             or 'no graded matches yet'],
-            ['Rule', research.get('rule') or 'not recorded (no review yet)']]
+    s.section(row, 'Research v5 (C6) vs v4: rollback trigger (domestic leagues)', 4)
+    research, why = research_figures(ctx.root, 'v5')
+    rows = [['Status', checks[2][1]], ['Release switch', switch_text('v5')]]
+    if research is None:
+        rows.append(['Why no figures', why])
+    else:
+        diff = research.get('v5_minus_v4_log_loss')
+        rows += [['Graded matches / weeks', f"{research.get('matches', 0)} / {research.get('weeks', 0)}"],
+                 ['v5 − v4 research log loss (AH all lines)',
+                  value_or(xb.number(diff), 'not computed yet', 'signed_decimal')],
+                 ['95% interval (weeks resampled)', interval_text(research.get('interval_95'), 'log')],
+                 ['Coverage', coverage_text(research)],
+                 ['Rule', research.get('rule') or 'not recorded']]
     table = s.table(row + 1, ['Item', 'Value'], rows, ['text', 'wrap'], widths={'Item': 38, 'Value': 100},
                     bold_first=True)
     status_rules(s, f'{xb.address(table.top + 1, table.left + 1)}:{xb.address(table.top + 1, table.left + 1)}')
+    book.define('research_v5_status', s, table.top + 1, table.left + 1)
     row = table.bottom + 2
 
-    s.section(row, 'CE3n vs CE (UCL/UEL): rollback trigger', 4)
-    ce3n = ce3n_figures(ctx.root)
+    s.section(row, 'CE3n vs CE (research v6, UCL/UEL): rollback trigger', 4)
+    ce3n, why = research_figures(ctx.root, 'v6')
+    rows = [['Status', checks[4][1]], ['Release switch', switch_text('v6')]]
     if ce3n is None:
-        rows = [['Status', NOT_RELEASED],
-                ['When it fills in', 'Automatically, once the CE3n release (a separate PR) writes its monitoring '
-                                     'figures: research_v5_monitoring.json "ce3n", or performance/' + CE3N_FILE + '.']]
+        rows.append(['Why no figures', why])
     else:
-        key = difference_key(ce3n)
-        rows = [['Status', rollback_status(ce3n, 'its sample')],
-                ['Graded matches / weeks', f"{ce3n.get('matches', 0)} / {ce3n.get('weeks', 0)}"],
-                [(key or 'difference').replace('_', ' ').replace(' minus ', ' − '),
-                 value_or(xb.number(ce3n.get(key)) if key else None, 'not computed yet', 'signed_decimal')],
-                ['95% interval (weeks resampled)', interval_text(ce3n.get('interval_95'), 'log')],
-                ['Rule', ce3n.get('rule') or 'not recorded']]
+        diff = ce3n.get('ce3n_minus_ce_log_loss')
+        means = ce3n.get('log_loss') or {}
+        rows += [['Graded matches / weeks (UCL and UEL pooled)', f"{ce3n.get('matches', 0)} / {ce3n.get('weeks', 0)}"],
+                 ['CE3n − CE research log loss (AH all lines)',
+                  value_or(xb.number(diff), 'not computed yet', 'signed_decimal')],
+                 ['95% interval (weeks resampled)', interval_text(ce3n.get('interval_95'), 'log')],
+                 ['Mean log loss', ', '.join(f'{k} {float(v):.5f}' for k, v in sorted(means.items())
+                                             if xb.number(v) is not None) or 'not computed yet'],
+                 ['Calibration slopes (1 = calibrated)', slopes_text(ce3n.get('calibration'))]]
+        for code, part in sorted((ce3n.get('by_competition') or {}).items()):
+            rows.append([code, competition_text(part)])
+        rows += [['UCL live check', ucl_check_text(ctx.research.get('ucl_live_check'))],
+                 ['Coverage', coverage_text(ce3n)],
+                 ['Rule', ce3n.get('rule') or 'not recorded']]
     table = s.table(row + 1, ['Item', 'Value'], rows, ['text', 'wrap'], widths={'Item': 38, 'Value': 100},
                     bold_first=True)
     status_rules(s, f'{xb.address(table.top + 1, table.left + 1)}:{xb.address(table.top + 1, table.left + 1)}')
+    s.highlight(table.column_range('Value'), 'warn', 'contains_case', 'WARNING')
     book.define('ce3n_status', s, table.top + 1, table.left + 1)
     row = table.bottom + 2
 
@@ -815,7 +1002,8 @@ def guide(book: xb.Book, ctx: Context) -> None:
         ['Calibration gap', 'Actual no-loss rate minus mean predicted no-loss, in percentage points.'],
         ['Rollback rule', 'After 150 graded matches over 3 weeks on each list, new − old return per bet; triggered if the 95% interval is below zero.'],
         ['Research v5 rollback', 'Triggered if v5 − v4 research log loss on AH lines has a 95% interval above zero after 150 matches and 3 weeks.'],
-        ['CE3n vs CE', 'The UCL/UEL research candidate\'s monitoring; "not released yet" until its release writes figures.'],
+        ['Release status', 'Read from each release\'s live switch when the workbook is built (master_shortlist_config.json live; research_config.json live.domestic and live.european): Live, or Rolled back with the date of the first run after the switch.'],
+        ['CE3n vs CE', 'Research v6 (UCL/UEL) monitoring: CE3n − CE research log loss on AH lines; rollback if its 95% interval is above zero after 150 European matches over 3 weeks.'],
         ['Small sample', f'Fewer than {SMALL} graded picks (or fixtures): read rates with care.'],
         ['not graded yet / not recorded', 'The input is missing or the match is not settled; never a zero.'],
     ]
