@@ -29,6 +29,32 @@ C6 was too confident on these leagues' home sides in the holdout (home slope 0.7
 |---|---|---|---|---|---|---|
 | All three | 0 | 0 | 0 | — | — | — |
 
+## Research v6 (CE3n, UCL/UEL) rollback check
+
+Released on 14 Nov 2026 without holdout proof (Paul's exception; not proven on the European holdout). European rows stay flagged "unvalidated view". After at least 150 graded European matches across at least 3 weeks, roll back research v6 (CE3n, UCL/UEL) if CE3n's research log loss on AH all lines minus CE's, on the same frozen inputs, matches and offers, has a week-resampled 95% interval entirely above zero (pooled over UCL and UEL). Rolling back is setting research_config.json live.european to "v4". Per competition: reported, and a warning (not a rollback) when one competition's interval is entirely above zero before the pooled trigger is eligible.
+
+| Graded European matches | Weeks | CE3n − CE log loss (AH all) | 95% interval | Status |
+|---|---|---|---|---|
+| 0 | 0 | — | — | not yet eligible (needs 150 matches and 3 weeks) |
+
+Calibration on 0 graded European matches (0 with domestic form for both teams); logistic slopes, 1 = calibrated, below 1 too sharp. Reported, not a trigger.
+
+| | Home slope | Away slope |
+|---|---|---|
+| CE3n | — | — |
+| CE | — | — |
+
+By competition (reported; a competition whose interval is entirely above zero before the pooled trigger is eligible gets a warning, not a rollback):
+
+| Competition | Graded matches | Weeks | CE3n − CE log loss (AH all) | 95% interval | CE3n home / away slope | CE home / away slope | Warning |
+|---|---|---|---|---|---|---|---|
+| UCL | 0 | 0 | — | — | — / — | — / — | no |
+| UEL | 0 | 0 | — | — | — / — | — / — | no |
+
+### UCL live check of research v6 (until a run passes)
+
+Competition, reviewed team mapping, fit window, CE shadow, frozen replay and "unvalidated view" on the first runs with UCL fixtures (research_live_check). Status: **pending: no UCL forecast under research v6 yet**.
+
 ## Cumulative shortlist — latest prediction per match
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
@@ -263,7 +289,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 
 No forward model trials are generated or captured. The benchmark-forward and totals-anchor trials are archived (archive/); their frozen reports stay readable.
 
-Dependency versions at review: {"python": "3.14.10", "numpy": "2.5.4", "pandas": "3.1.1", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.14.10", "numpy": "2.5.4", "pandas": "3.1.1", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.3", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Closing odds: [report](closing_odds/report.md). Latest-selection comparison aligned with headline ROI, with a separate first-entry reference; official close and accepted execution are unverified.
 

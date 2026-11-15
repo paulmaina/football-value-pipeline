@@ -1,4 +1,76 @@
 {
+  "ce3n": {
+    "by_competition": {
+      "UCL": {
+        "calibration": {
+          "domestic_used": 0,
+          "graded_matches": 0,
+          "note": "Logistic calibration slopes (1 = calibrated, below 1 too sharp); reported, not a trigger.",
+          "slopes": {
+            "CE": {
+              "away": null,
+              "home": null
+            },
+            "CE3n": {
+              "away": null,
+              "home": null
+            }
+          }
+        },
+        "ce3n_minus_ce_log_loss": null,
+        "interval_95": null,
+        "matches": 0,
+        "warning": false,
+        "weeks": 0
+      },
+      "UEL": {
+        "calibration": {
+          "domestic_used": 0,
+          "graded_matches": 0,
+          "note": "Logistic calibration slopes (1 = calibrated, below 1 too sharp); reported, not a trigger.",
+          "slopes": {
+            "CE": {
+              "away": null,
+              "home": null
+            },
+            "CE3n": {
+              "away": null,
+              "home": null
+            }
+          }
+        },
+        "ce3n_minus_ce_log_loss": null,
+        "interval_95": null,
+        "matches": 0,
+        "warning": false,
+        "weeks": 0
+      }
+    },
+    "calibration": {
+      "domestic_used": 0,
+      "graded_matches": 0,
+      "note": "Logistic calibration slopes (1 = calibrated, below 1 too sharp); reported, not a trigger.",
+      "slopes": {
+        "CE": {
+          "away": null,
+          "home": null
+        },
+        "CE3n": {
+          "away": null,
+          "home": null
+        }
+      }
+    },
+    "ce3n_minus_ce_log_loss": null,
+    "coverage": {},
+    "eligible": false,
+    "interval_95": null,
+    "log_loss": {},
+    "matches": 0,
+    "rule": "After at least 150 graded European matches across at least 3 weeks, roll back research v6 (CE3n, UCL/UEL) if CE3n's research log loss on AH all lines minus CE's, on the same frozen inputs, matches and offers, has a week-resampled 95% interval entirely above zero (pooled over UCL and UEL). Rolling back is setting research_config.json live.european to \"v4\". Per competition: reported, and a warning (not a rollback) when one competition's interval is entirely above zero before the pooled trigger is eligible.",
+    "triggered": false,
+    "weeks": 0
+  },
   "home_favourites": {
     "all": {
       "actual_home_win": null,
@@ -27,5 +99,11 @@
     "v5_minus_v4_log_loss": null,
     "weeks": 0
   },
-  "version": "research-v5-monitoring-v1"
+  "ucl_live_check": {
+    "passed_on": null,
+    "runs": [],
+    "status": "pending: no UCL forecast under research v6 yet",
+    "version": "ce3n-ucl-live-check-v1"
+  },
+  "version": "research-v5-v6-monitoring-v1"
 }
