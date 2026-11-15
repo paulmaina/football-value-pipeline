@@ -121,6 +121,37 @@ class ScheduledPublisherTests(OfflineQuotePolicyTestCase):
             self.assertEqual(git(source,'rev-parse','HEAD').stdout,old)
 
 
+class ActivityOnlyTests(OfflineQuotePolicyTestCase):
+    def test_an_activity_event_with_unchanged_forecasts_and_training_reaches_main(self):
+        import model_activity
+        with tempfile.TemporaryDirectory() as tmp:
+            source,_=repo(tmp)
+            raw=source/'football_output_v2/raw';raw.mkdir(parents=True);(raw/'forecast.csv').write_text('same')
+            (source/'master_shortlist_config.json').write_text(json.dumps({'version':'v9','live':'new'}))
+            (source/'research_config.json').write_text(json.dumps({'version':'s1','live':{'domestic':'v5','european':'v6'}}))
+            # The last logged state still says domestic v4: this run must log the switch change.
+            model_activity.append(source/model_activity.LOG,[model_activity.switch_event({}, {
+                'master_live':'new','research_domestic':'v4','research_european':'v6','master_config_version':'v9',
+                'research_config_version':'s1'},when='2026-11-15T12:00:00Z',source='backfill')])
+            git(source,'add','.');git(source,'commit','-m','state');git(source,'push','origin','main')
+            before=(source/model_activity.LOG).read_bytes();calls=[]
+            def runner(cmd,cwd,check):
+                calls.append(cmd[1:3])
+                if cmd[1]=='football_value_pipeline_v2_standalone.py':
+                    (Path(cwd)/'football_output_v2/raw/forecast.csv').write_text('same')  # unchanged forecasts
+            publish(source,runner=runner)
+            git(source,'fetch','origin','main')
+            self.assertEqual(git(source,'log','-1','--format=%s','FETCH_HEAD').stdout.strip(),
+                             'Record model activity (forecasts unchanged) [skip ci]')
+            self.assertEqual(git(source,'show','--name-only','--format=','FETCH_HEAD').stdout.split(),
+                             [model_activity.LOG.as_posix()])
+            published=subprocess.run(['git','-C',str(source),'show',f'FETCH_HEAD:{model_activity.LOG.as_posix()}'],check=True,capture_output=True).stdout
+            self.assertTrue(published.startswith(before))
+            item=json.loads(published.decode().splitlines()[-1])
+            self.assertEqual(item['outcome'],'SWITCH CHANGED: domestic v4 → v5')
+            self.assertNotIn(['performance_tracking.py','capture'],calls)  # nothing to capture
+
+
 class DocumentedCommandTests(OfflineQuotePolicyTestCase):
     def test_every_documented_prediction_command_parses(self):
         """Documented commands must not use retired flags; ARCHIVED docs are exempt."""
