@@ -39,6 +39,9 @@ jobs:
       # (training cache checked 12 hours after the origin, every earlier window kept, today's window present)
       # and commits it on latest main. Any failure leaves the committed fit in place; live forecasts then
       # carry the "stale fit" warning until a refresh succeeds. The harness's locked fits are never touched.
+      # Each fit-day run appends one line to football_output_v2/model_activity/activity_log.jsonl (model_activity.py):
+      # published (in the fit's commit), skipped or failed with the reason (in a commit of its own). Other Mondays
+      # log and commit nothing.
       - name: Build, validate and publish the live fits
         id: c6
         env:

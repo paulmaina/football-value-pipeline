@@ -8,6 +8,7 @@ import sys
 import tempfile
 
 import league_registry
+import model_activity
 import odds_api_usage
 from prediction_runs import prune_captured_runs
 from publish_performance import git
@@ -70,6 +71,16 @@ def commit_usage_only(work,records,message):
     return git(work,'push','origin','HEAD:main',check=False).returncode==0
 
 
+def commit_activity_only(work):
+    """Commit and push just the model activity log when it is the run's only change. None: nothing to commit;
+    otherwise whether the push landed."""
+    if not (work/model_activity.LOG).exists():return None
+    git(work,'add','--',model_activity.LOG.as_posix())
+    if git(work,'diff','--cached','--quiet',check=False).returncode==0:return None
+    git(work,*BOT,'commit','-m','Record model activity (forecasts unchanged) [skip ci]')
+    return git(work,'push','origin','HEAD:main',check=False).returncode==0
+
+
 def publish(repo,attempts=3,runner=None):
     runner=runner or subprocess.run;repo=repo.resolve()
     # Every attempt spends credits, so every attempt's usage is logged once a push lands.
@@ -106,6 +117,8 @@ def publish(repo,attempts=3,runner=None):
                 runner([sys.executable,'format_football_output.py'],cwd=work,check=True)
                 # Narrow-margin report: read-only over raw/, written to readable/ (committed with the review).
                 runner([sys.executable,'narrow_margin_report.py'],cwd=work,check=True)
+                # Model activity (reporting only; never fails the run): stale fits, switch changes, master fallback, UCL check.
+                model_activity.record_forecast(work,work/'football_output_v2/raw')
                 git(work,'add','football_output_v2/raw')
                 # Preserve the exact validated source revision used by this
                 # forecast, including downloads newer than the refresh job.
@@ -114,7 +127,11 @@ def publish(repo,attempts=3,runner=None):
                 training = training_files(work)
                 if training:
                     git(work,'add','--',*[str(p.relative_to(work)) for p in training])
-                if git(work,'diff','--cached','--quiet',check=False).returncode==0:return outcome
+                if git(work,'diff','--cached','--quiet',check=False).returncode==0:
+                    # Forecasts unchanged: an activity-only change (switch, stale fit, ...) is still published alone.
+                    pushed=commit_activity_only(work)
+                    if pushed is not False:return outcome
+                    print('Main advanced; record model activity on latest main.',flush=True);continue
                 git(work,*BOT,'commit','-m','Generate automated pre-match forecasts')
                 # Capture forecast commit before review output is committed. Token pushes do not trigger other workflows.
                 sha=git(work,'rev-parse','HEAD').stdout.strip()
@@ -125,6 +142,7 @@ def publish(repo,attempts=3,runner=None):
                 runner([sys.executable,'workflow_checks.py','reports','--output',
                     'football_output_v2/performance/workflow_health.json'],cwd=work,check=True)
                 git(work,'add','football_output_v2/performance','football_output_v2/readable')
+                if (work/model_activity.LOG).exists():git(work,'add','--',model_activity.LOG.as_posix())
                 if records:git(work,'add','--',append_records(work,records))
                 if pruned:
                     git(work,'add','--all','--',*[f'football_output_v2/raw/prediction_runs/{run}' for run in pruned])

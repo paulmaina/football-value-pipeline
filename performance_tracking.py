@@ -1204,6 +1204,10 @@ def review(*, root: Path = ROOT, token: str = "",
             print(message)  # new master failed (old master published) / comparison baseline missing, with counts
     except Exception as exc:
         warnings.warn(f'v27 price-edge review failed ({type(exc).__name__}); production report complete')
+        price_edge = None
+    # Model activity log: this week's rollback-check lines (reporting only; model_activity never raises).
+    from model_activity import record_review
+    record_review(root, research_check, price_edge, clock)
     try:
         from clv_report import build_report as build_clv_report
         build_clv_report(root, clock=clock)

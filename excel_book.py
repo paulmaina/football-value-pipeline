@@ -51,6 +51,7 @@ KINDS = {
     'decimal': ('0.000', 'right', False),
     'signed_decimal': ('+0.00000;-0.00000;0.00000', 'right', False),
     'datetime': ('ddd dd mmm hh:mm', 'left', False),
+    'datetime_year': ('ddd dd mmm yyyy hh:mm', 'left', False),
     'date': ('ddd dd mmm yyyy', 'left', False),
 }
 # Non-table cell styles: (font id, fill id, wrap, alignment).
