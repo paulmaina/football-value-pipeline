@@ -50,7 +50,9 @@ CE4
     CE3 followed by CE2's calibration, the slope refitted on CE3's own earlier forecasts (same rule, minimums
     and bounds as CE2).
 
-Not used by the live pipeline.
+CE3n is live for UCL and UEL as research v6 (research_ce3n, Paul's exception of 14 Nov 2026): live reuses this
+module's blend (domestic_rates, blended_rates), strengths (league_strengths) and factors (fit_factors), with fits
+built by scripts/build_research_ce3n_fits.py. The harness's own runs are unchanged.
 """
 from __future__ import annotations
 
@@ -157,11 +159,14 @@ def team_strength(model, frame, team, origin, opponents):
     return out
 
 
-def league_frame(cache, league, cfg):
+def league_frame(cache, league, cfg, include_holdout=False):
     """One league's results for European domestic form: the older domestic files (2015/16-2020/21) and the
-    cached seasons, without the domestic holdout (always: even a European declared run never reads a domestic
-    holdout result), with Understat xG for the five Understat leagues. Results, shots and xG only: no price
-    column is kept, so no odds can reach a strength."""
+    cached seasons, without the domestic holdout (always in the harness: even a European declared run never
+    reads a domestic holdout result), with Understat xG for the five Understat leagues. Results, shots and xG
+    only: no price column is kept, so no odds can reach a strength.
+
+    include_holdout=True is for live research v6's fit only (scripts/build_research_ce3n_fits.py, live basis:
+    every result known before the fit date, Paul's decision of 14 Nov 2026); the harness never passes it."""
     from pathlib import Path
     import european_results as er
     import evaluation_harness as eh
@@ -175,7 +180,7 @@ def league_frame(cache, league, cfg):
     if not old.empty and old.Date.max() >= data.Date.min():
         raise ValueError(f'{league} domestic backfill overlaps the cached seasons')
     data = pd.concat([old.reindex(columns=keep), data.reindex(columns=keep)], ignore_index=True)
-    data = eh.training_rows(data, league, cfg, False).reset_index(drop=True)
+    data = eh.training_rows(data, league, cfg, include_holdout).reset_index(drop=True)
     data, _ = uh.with_xg(data, cache, league)
     return data.sort_values(['Date', 'HomeTeam', 'AwayTeam'], kind='stable').reset_index(drop=True)
 
@@ -212,8 +217,9 @@ def league_strengths(league, frame, requests, cfg):
 
 
 def _league_job(args):
-    league, cache, cfg, requests = args
-    return league_strengths(league, league_frame(cache, league, cfg), requests, cfg)
+    league, cache, cfg, requests, *rest = args
+    include_holdout = bool(rest[0]) if rest else False
+    return league_strengths(league, league_frame(cache, league, cfg, include_holdout), requests, cfg)
 
 
 def domestic_strengths(cache, cfg, fixtures, workers=None):

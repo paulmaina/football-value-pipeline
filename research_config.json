@@ -1,0 +1,9 @@
+{
+  "version": "research-live-switch-v1",
+  "live": {
+    "domestic": "v5",
+    "european": "v6"
+  },
+  "switch": "The research version new forecasts use, per scope. domestic: \"v5\" (C6, team-form-research-v5) or \"v4\" (team-form-research-v4); european (UCL and UEL): \"v6\" (CE3n, team-form-research-v6) or \"v4\". Read by team_research.research_version when no version is given (live forecasts and profit_shortlist's fallback for forecasts saved without research). Archived forecasts replay under the version frozen in them, whatever this says: every implementation, version constant and research_backtest.REPLAYED_VERSIONS entry stays.",
+  "rollback": "Rolling back a research release is setting its scope to \"v4\" here (Paul decides; nothing switches automatically): research v5 when research_monitoring's v5 trigger fires (ROLLBACK TRIGGERED), research v6 when its CE3n trigger fires. No PR is reverted, so archived v5 and v6 forecasts still reproduce exactly and keep being graded from their published snapshots."
+}

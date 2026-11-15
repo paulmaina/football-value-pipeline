@@ -13,6 +13,7 @@ on:
       - '.env.example'
       - 'shortlist_quote_policy.json'
       - 'master_shortlist_config.json'
+      - 'research_config.json'
       - 'bbs_team_aliases.json'
   pull_request:
     branches: [main]

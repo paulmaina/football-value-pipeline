@@ -1746,6 +1746,175 @@ def research_parity(root, cache, cfg):
     return summary, frame
 
 
+def ce3n_harness_matrix(ce_rates, fit):
+    """CE3n's grid as the harness computes it (european_candidates.build then european_candidate_records) for CE's
+    goal rates under one window's factors and the two teams' strengths: the harness code path, for parity."""
+    import european_candidates as ec
+    from team_research import research_grid
+    rates = [float(v) for v in ce_rates]
+    if (fit['factors'].get('status') == 'fitted' and (fit.get('home') or {}).get('strength') is not None
+            and (fit.get('away') or {}).get('strength') is not None):
+        pair = {side: ({fit['kind']: tuple(fit[side]['strength'])}, fit[side]['league']) for side in ('home', 'away')}
+        rates = ec.blended_rates(rates, ec.domestic_rates(pair, fit['factors'], fit['competition'], fit['kind']),
+                                 fit['weight'])
+    return rb.matrix_value(research_grid(rates))
+
+
+def research_ce3n_parity(root, cache, cfg):
+    """Release parity for research v6 (CE3n, UCL/UEL) on the latest live forecast of every European fixture with
+    research. Probabilities only: no result is scored.
+
+      same_inputs        live v6 (the frozen v6 numbers, or v6 recomputed from the frozen inputs of an older
+                         forecast, its fit from the live fit file for the research day) against the harness's
+                         CE3n code (ce3n_harness_matrix) fed live's CE goal rates and the same fit: must be
+                         identical. Also on the tested fit (research_ce3n_fits.json).
+      harness            CE3n exactly as the harness computes it for that match: CE's goal rates from the fold's
+                         Dixon-Coles fit on the backfilled and cached European results before the fold origin and
+                         the competition's own ten-match form (european_matrices), blended under the fit window of
+                         the fold holding the kickoff. Two bases: tested (European holdout results left out of the
+                         training, as in a locked run, on the tested fit) and live (every European result before
+                         the origin, on the live fit; nothing scored).
+    The gap is split into the input gap (harness against live, same fit; mostly CE's goal rates: live trains UCL from
+    2023/24 and UEL from 2022/23 and adds ESPN form), the fit effect (live's goal rates under the live fit against
+    the tested fit) and the total (live against the harness on the tested basis)."""
+    import copy
+    import performance_tracking as pt
+    import research_ce3n as ce3n
+    import european_results as er
+    from asian_handicap import margins as margin_json
+    from football_value_pipeline_v2_standalone import DixonColesModel
+    from team_research import CE3N_VERSION, CE3N_VERSIONS, EUROPEAN_COMPETITIONS, LEGACY_VERSION, decode, name, prepare, utc
+    latest = {}
+    for meta, rows, _ in pt.snapshots(root):
+        for row in rows:
+            if str(row.get('league')) not in EUROPEAN_COMPETITIONS:
+                continue
+            research = decode(row.get('team_research_json'))
+            stamp = utc(research.get('observed_at_utc'))
+            if not research.get('margin_distribution') or pd.isna(stamp):
+                continue
+            key = (str(row.get('league')), name(row.get('home_team')), name(row.get('away_team')), str(row.get('kickoff_utc')))
+            if key not in latest or stamp > latest[key][0]:
+                latest[key] = (stamp, row, research)
+    e = cfg['european']
+    end = pd.Timestamp(e['end_exclusive'])
+    profile = cfg['production_v2']
+    data, models, out, coverage = {}, {}, [], Counter()
+
+    def gap(a, b):
+        return max(abs(x - y) for x, y in zip(_hda(a), _hda(b)))
+
+    for key, (stamp, row, research) in sorted(latest.items()):
+        evidence = copy.deepcopy(research.get('evidence', {}))
+        for k in DERIVED_EVIDENCE:
+            evidence.pop(k, None)
+        version = research.get('version', LEGACY_VERSION)
+        live = research if version in CE3N_VERSIONS else prepare(row, stamp, copy.deepcopy(evidence), version=CE3N_VERSION)
+        competition = ce3n.COMPETITIONS[key[0]]
+        record = {'league': key[0], 'competition': competition, 'home_team': row.get('home_team'),
+                  'away_team': row.get('away_team'), 'kickoff_utc': key[3], 'research_observed_utc': stamp.isoformat(),
+                  'research_version': version, 'harness_compared': False}
+        fit = live.get('ce3n_fit')
+        if not live.get('margin_distribution') or not fit:
+            coverage['no_live_v6:' + '; '.join(w for w in live.get('warnings', []) if 'CE3n' in w)[:80]] += 1
+            out.append(record)
+            continue
+        ce_rates = live['ce3n']['ce_goal_rates']
+        teams = {side: (row.get(side + '_team'), fit[side]['european_name']) for side in ('home', 'away')}
+        fit_t = ce3n.fit_for(stamp, key[0], *teams.values(), path=ce3n.HARNESS_FITS)
+        live_t = prepare(row, stamp, copy.deepcopy(evidence), version=CE3N_VERSION, ce3n_fit=fit_t)
+        record.update(
+            live_origin=fit['origin'], live_fit_stale=fit['stale'], domestic_used_live=live['ce3n']['domestic_used'],
+            home_league=fit['home']['league'], away_league=fit['away']['league'],
+            home_european_name=fit['home']['european_name'], away_european_name=fit['away']['european_name'],
+            same_inputs_max_abs_diff=_max_gap(live['margin_distribution'],
+                                              json.loads(margin_json(ce3n_harness_matrix(ce_rates, fit)))),
+            same_inputs_tested_fit_max_abs_diff=_max_gap(live_t['margin_distribution'],
+                                                         json.loads(margin_json(ce3n_harness_matrix(ce_rates, fit_t)))),
+            fit_effect_1x2_max_abs=gap(live['margin_distribution'], live_t['margin_distribution']),
+            live_ce3n_p_home=_hda(live['margin_distribution'])[0],
+            live_ce_p_home=_hda(live['shadow_v4']['margin_distribution'])[0],
+            live_vs_ce_1x2_max_abs=gap(live['margin_distribution'], live['shadow_v4']['margin_distribution']))
+        names = [fit['home']['european_name'], fit['away']['european_name']]
+        kickoff = utc(row['kickoff_utc']).tz_convert(None)
+        bounds = {b for w in fold_windows(e, kickoff.normalize() + pd.Timedelta(days=1)) for b in w}
+        origin = max(b for b in bounds if b <= kickoff)
+        if competition not in data:
+            data[competition] = er.load_with_backfill(cache, competition, end)
+        harness = {}
+        for basis, include in (('tested', False), ('live', True)):
+            history = european_training_rows(data[competition], competition, cfg, include)
+            if (competition, origin, basis) not in models:
+                train = history.loc[history.Date < origin]
+                models[(competition, origin, basis)] = (train, DixonColesModel(
+                    half_life_days=profile['half_life_days'], l2=cfg['baseline_l2'], max_goals=cfg['max_goals'],
+                    shot_features=profile['shot_features'], bbs_statistics=False).fit(train.copy(), as_of=origin))
+            train, model = models[(competition, origin, basis)]
+            if not all(isinstance(t, str) and t in model.teams for t in names):
+                coverage[f'harness_team_unresolved:{basis}'] += 1
+                continue
+            _, info = european_matrices(pd.Series({'HomeTeam': names[0], 'AwayTeam': names[1]}), train, origin, model)
+            path = ce3n.HARNESS_FITS if basis == 'tested' else ce3n.FITS
+            fit_h = ce3n.fit_for(pd.Timestamp(origin, tz='UTC'), key[0], *teams.values(), path=path)
+            harness[basis] = (info['research_goal_rates'], fit_h,
+                              json.loads(margin_json(ce3n_harness_matrix(info['research_goal_rates'], fit_h))))
+            record.update({f'harness_{basis}_origin': fit_h['origin'],
+                           f'harness_{basis}_training_matches': int(len(train)),
+                           f'harness_{basis}_ce_rate_max_abs_diff': max(abs(a - b) for a, b in zip(
+                               info['research_goal_rates'], ce_rates)),
+                           f'harness_{basis}_domestic_used': ce3n.domestic_used(fit_h),
+                           f'harness_{basis}_ce3n_p_home': _hda(harness[basis][2])[0]})
+        if 'tested' in harness:
+            _, fit_h, grid_h = harness['tested']
+            record.update(harness_compared=True, fit_origin_differs=fit_t['origin'] != fit_h['origin'],
+                          input_gap_tested_fit_1x2_max_abs=gap(live_t['margin_distribution'], grid_h),
+                          total_gap_1x2_max_abs=gap(live['margin_distribution'], grid_h))
+        if 'live' in harness:
+            record.update(input_gap_live_fit_1x2_max_abs=gap(live['margin_distribution'], harness['live'][2]))
+        coverage['compared'] += bool(harness)
+        out.append(record)
+    frame = pd.DataFrame(out)
+
+    def stats(column, rows=frame):
+        values = rows[column].dropna() if column in rows else pd.Series(dtype=float)
+        return {'matches': int(len(values)), 'mean': float(values.mean()) if len(values) else None,
+                'max': float(values.max()) if len(values) else None}
+
+    def identical(column):
+        values = frame[column].dropna() if column in frame else pd.Series(dtype=float)
+        return bool(len(values) and (values <= 1e-12).all())
+
+    def section(rows):
+        return {'fixtures': int(len(rows)),
+                'domestic_used_live': int(rows['domestic_used_live'].fillna(False).astype(bool).sum())
+                if 'domestic_used_live' in rows else 0,
+                'live_vs_ce_1x2_max_abs': stats('live_vs_ce_1x2_max_abs', rows),
+                'input_gap_tested_fit_1x2_max_abs': stats('input_gap_tested_fit_1x2_max_abs', rows),
+                'input_gap_live_fit_1x2_max_abs': stats('input_gap_live_fit_1x2_max_abs', rows),
+                'fit_effect_1x2_max_abs': stats('fit_effect_1x2_max_abs', rows),
+                'total_gap_1x2_max_abs': stats('total_gap_1x2_max_abs', rows),
+                'ce_goal_rate_gap_tested': stats('harness_tested_ce_rate_max_abs_diff', rows),
+                'ce_goal_rate_gap_live': stats('harness_live_ce_rate_max_abs_diff', rows)}
+    summary = {
+        'forecasts': int(len(frame)),
+        'research_versions': ({str(k): int(v) for k, v in frame['research_version'].value_counts().items()}
+                              if len(frame) else {}),
+        'same_inputs': {**stats('same_inputs_max_abs_diff'), 'identical_within_1e-12': identical('same_inputs_max_abs_diff')},
+        'same_inputs_tested_fit': {**stats('same_inputs_tested_fit_max_abs_diff'),
+                                   'identical_within_1e-12': identical('same_inputs_tested_fit_max_abs_diff')},
+        'matches_fit_origin_differs': int(frame['fit_origin_differs'].fillna(False).astype(bool).sum())
+        if 'fit_origin_differs' in frame else 0,
+        'all': section(frame),
+        'by_competition': {c: section(frame.loc[frame['competition'].eq(c)]) for c in ('UCL', 'UEL')} if len(frame) else {},
+        'coverage': dict(coverage),
+        'note': ('same_inputs: live research v6 through the harness CE3n code on the same CE goal rates and fit (also '
+                 "on the tested fit). Harness CE3n: its own CE goal rates (backfilled European history, no ESPN) under "
+                 'the fit window of the fold holding the kickoff; tested basis leaves the European holdout out of '
+                 'training and uses the tested fit, live basis trains on every earlier result and uses the live fit. '
+                 'Probabilities only, no result scored.')}
+    return summary, frame
+
+
 # ---------------------------------------------------------------------------
 # European results (UCL, UEL): results-only test matches
 # ---------------------------------------------------------------------------
@@ -1981,7 +2150,7 @@ def european(cache, cfg, *, include_holdout=False, keep=None, competitions=None,
         records += r; calib += k; coverage.update(c)
         folds.append({'candidate': 'CE2-CE4', 'walk_forward_fits': fits})
         if extras is not None:
-            extras.update(strengths=found, fits=fits)
+            extras.update(strengths=found, fits=fits, factor_rows=factor_rows)
     if not include_holdout and any(r['phase'] == 'holdout' for r in records):
         raise ValueError('Locked European holdout rows leaked into an unlocked run')
     if include_holdout and any(r['phase'] != 'holdout' for r in records):
@@ -3302,6 +3471,11 @@ def main(argv=None):
         hb.write_json(args.output / 'results.json', {'version': VERSION, 'mode': 'research_parity',
                                                      'source_commit': commit, **summary})
         frame.to_csv(args.output / 'parity_matches.csv', index=False)
+        # Research v6 (CE3n, UCL/UEL): its own files, so the C/C6 parity outputs above are unchanged.
+        summary, frame = research_ce3n_parity(args.root, args.cache, cfg)
+        hb.write_json(args.output / 'ce3n_parity.json', {'version': VERSION, 'mode': 'research_ce3n_parity',
+                                                         'source_commit': commit, **summary})
+        frame.to_csv(args.output / 'ce3n_parity_matches.csv', index=False)
         return 0
     if args.mode == 'european':
         return european_main(args, cfg, commit)

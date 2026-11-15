@@ -96,10 +96,11 @@ def replay(row, evidence, cutoff, version=tr.VERSION):
 
 def research_view(row):
     context = json.loads(row['team_research_json'])
-    # v5 forecasts also carry the C6 fit and v4's shadow probabilities; both must ignore odds too.
+    # v5 forecasts also carry the C6 fit and v4's shadow probabilities, v6 (UCL/UEL) the CE3n fit, the domestic
+    # goal rates and CE in the same shadow; all must ignore odds too.
     return ({k: row.get(k) for k in (*PROBABILITIES, *SHADOW)},
             {k: context.get(k) for k in ('version', 'goal_rates', 'base_rates', 'margin_distribution', 'p_over_1_5',
-                                         'form', 'c6_fit', 'shadow_v4')})
+                                         'form', 'c6_fit', 'shadow_v4', 'ce3n_fit', 'ce3n')})
 
 
 class InputSchemaTest(unittest.TestCase):
@@ -180,6 +181,27 @@ class FrozenRowOddsPerturbationTest(unittest.TestCase):
         for kind in ('win', 'half_win', 'push', 'half_loss', 'loss'):
             self.assertEqual(a['research_p_' + kind], b['research_p_' + kind])
         self.assertNotEqual(a['profit_expected_return'], b['profit_expected_return'])
+
+    def test_european_v6_ce3n_ignores_every_odds_field(self):
+        # The same frozen forecast as a Champions League match between two clubs with domestic form: research v6
+        # (CE3n) blends CE's goal rates with both domestic strengths; changing every odds field moves nothing.
+        row, evidence, cutoff, _ = frozen_row()
+        history = json.loads(row['research_history_json'])
+        history['teams'] = {'home': 'FC Barcelona', 'away': 'FC Bayern München'}
+        row = {**row, 'league': 'UEFA Champions League', 'home_team': 'Barcelona', 'away_team': 'Bayern Munich',
+               'research_history_json': json.dumps(history)}
+        perturbed = {k: (shake(v) if is_odds_field(k) else v) for k, v in row.items()}
+        self.assertGreater(sum(perturbed[k] != row[k] for k in row), 100)
+        base, moved = replay(row, evidence, cutoff, version=None), replay(perturbed, evidence, cutoff, version=None)
+        self.assertEqual(research_view(base), research_view(moved))
+        context = json.loads(base['team_research_json'])
+        self.assertEqual(context['version'], tr.CE3N_VERSION)
+        self.assertTrue(context['ce3n']['domestic_used'])
+        self.assertNotEqual(context['goal_rates'], context['shadow_v4']['goal_rates'])
+        self.assertIsNotNone(base[tr.SHADOW_PREFIX + 'home'])
+        a, _ = rb.archived_candidates(base, cutoff)
+        b, _ = rb.archived_candidates({k: (shake(v) if is_odds_field(k) else v) for k, v in base.items()}, cutoff)
+        np.testing.assert_array_equal(a['C'], b['C'])
 
     def test_frozen_live_replay_candidate_ignores_odds(self):
         row, evidence, cutoff, _ = frozen_row()
