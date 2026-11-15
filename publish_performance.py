@@ -12,7 +12,8 @@ import tempfile
 from pathlib import Path
 
 SNAPSHOTS = Path("football_output_v2/performance/snapshots")
-OUTPUTS = ("football_output_v2/performance", "football_output_v2/readable/football_performance_report.xlsx")
+OUTPUTS = ("football_output_v2/performance", "football_output_v2/readable/football_performance_report.xlsx",
+           "football_output_v2/model_activity")
 
 
 def git(repo: Path, *args: str, check: bool = True) -> subprocess.CompletedProcess:
@@ -78,9 +79,13 @@ def publish(repo: Path, *, remote: str = "origin", branch: str = "main",
                 if git(work, "diff", "--cached", "--quiet", check=False).returncode == 0:
                     print("Performance outputs already current.")
                     return
+                staged = git(work, "diff", "--cached", "--name-only").stdout.split()
+                message = ("Record model activity (performance reports unchanged) [skip ci]"
+                           if staged and all(s.startswith(OUTPUTS[2] + "/") for s in staged)
+                           else "Update forward-only gameweek performance reports [skip ci]")
                 git(work, "-c", "user.name=github-actions[bot]", "-c",
                     "user.email=41898282+github-actions[bot]@users.noreply.github.com",
-                    "commit", "-m", "Update forward-only gameweek performance reports [skip ci]")
+                    "commit", "-m", message)
                 result = git(work, "push", remote, f"HEAD:refs/heads/{branch}", check=False)
                 if result.returncode == 0:
                     print(result.stdout + result.stderr)

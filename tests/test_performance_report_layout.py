@@ -20,7 +20,7 @@ except ImportError:  # pragma: no cover - CI installs the dev requirements
     openpyxl = None
 
 SHEETS = ['Dashboard', 'Picks & Results', 'Weekly Trends', 'Breakdowns', 'Calibration', 'CLV', 'Model Monitoring',
-          'Guide']
+          'Model Activity', 'Guide']
 PICKS = ['Kickoff (EAT)', 'Match', 'List', 'League', 'Bet', 'Price', 'Tier', 'Predicted no-loss', 'Chance of profit',
          'Labels and flags', 'Score', 'Result', 'Return (units)', 'CLV', 'Also on the other list']
 SLOPES = lambda n, home=None: {'graded_matches': n, 'domestic_used': 0, 'note': 'reported, not a trigger',
@@ -119,7 +119,7 @@ class LayoutTests(ReportCase):
         self.assertNotIn('Old FC v Before United', [r['Match'] for r in rows])
         self.assertEqual(len(rows), 6 + 3)
         for sheet in SHEETS[:-1]:
-            if sheet != 'Model Monitoring':
+            if sheet not in ('Model Monitoring', 'Model Activity'):
                 self.assertIn('Master tracking from Mon 16 Nov 2026 12:00 EAT', self.book['cells'][sheet]['A2'], sheet)
 
     def test_headline_figures_side_by_side(self):
@@ -216,12 +216,12 @@ class LayoutTests(ReportCase):
     def test_statuses_come_from_the_live_switches(self):
         monitoring = sections(self.book, 'Model Monitoring')
         master = monitoring[MASTER_SECTION]
-        self.assertEqual(master['Status'], 'Live (new master) - Waiting: 150 graded matches over 3 weeks on each list')
+        self.assertEqual(master['Status'], 'Live (new master) - Waiting: new master 6 of 150 graded matches · 2 of 3 weeks; old master 64 of 150 graded matches · weeks met (3)')
         self.assertEqual(master['Release switch'], 'master_shortlist_config.json live = "new"')
         self.assertEqual(master['Live list'], 'New master (live)')
         self.assertEqual(master['Old master graded matches / weeks'], '64 / 3')
         research = monitoring[V5_SECTION]
-        self.assertEqual(research['Status'], 'Live (research v5) - not yet eligible (12 of 150 graded matches, '
+        self.assertEqual(research['Status'], 'Live (research v5) - not yet eligible (12 of 150 graded matches · '
                                              '2 of 3 weeks)')
         self.assertEqual(research['Release switch'], 'research_config.json live.domestic = "v5"')
         self.assertAlmostEqual(research['v5 − v4 research log loss (AH all lines)'], -0.0021)
@@ -261,7 +261,7 @@ class CE3nTests(ReportCase):
 
     def test_ce3n_section_fills_in_from_its_figures(self):
         ce3n = sections(self.book, 'Model Monitoring')[CE3N_SECTION]
-        self.assertEqual(ce3n['Status'], 'Live (research v6) - not yet eligible (40 of 150 graded matches, 2 of 3 weeks)')
+        self.assertEqual(ce3n['Status'], 'Live (research v6) - not yet eligible (40 of 150 graded matches · 2 of 3 weeks)')
         self.assertEqual(ce3n['Graded matches / weeks (UCL and UEL pooled)'], '40 / 2')
         self.assertAlmostEqual(ce3n['CE3n − CE research log loss (AH all lines)'], 0.0012)
         self.assertEqual(ce3n['95% interval (weeks resampled)'], '-0.00100 to +0.00300')
