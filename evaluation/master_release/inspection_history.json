@@ -1,0 +1,49 @@
+{
+  "source": "evaluation/master_new_fill/backtest_picks.csv",
+  "phases": [
+    "development",
+    "validation",
+    "retrospective"
+  ],
+  "rule": "g <= -8.0 and cagey no-loss chance >= 0.85: the bet stays in its normal place and is flagged, with p_r, p_c and g shown in the row and listed in a short 'For inspection' section of the summary. The flag never removes or reorders a bet. Needs both views (a bet with one view missing can't carry it).",
+  "flag": {
+    "bets": 0,
+    "max_cagey_no_loss_in_backtest": 0.847145018460408
+  },
+  "comparable": {
+    "definition": "safe picks (cagey no-loss >= 0.75) on which the research view's no-loss chance was at least 8 points below the cagey tier's",
+    "bets": 278,
+    "avoided_defeat": 0.9028776978417267,
+    "cagey_predicted": 0.7826359346490406,
+    "research_predicted": 0.6552466352047902,
+    "first_kickoff_utc": "2022-11-06",
+    "last_kickoff_utc": "2026-11-08",
+    "by_phase": {
+      "development": {
+        "bets": 209,
+        "avoided_defeat": 0.9234449760765551,
+        "cagey_predicted": 0.7819275868197315,
+        "research_predicted": 0.6602797642679488,
+        "first_kickoff_utc": "2022-11-06",
+        "last_kickoff_utc": "2025-05-24"
+      },
+      "validation": {
+        "bets": 29,
+        "avoided_defeat": 0.8620689655172413,
+        "cagey_predicted": 0.7778567176172885,
+        "research_predicted": 0.6681630403811549,
+        "first_kickoff_utc": "2025-08-09",
+        "last_kickoff_utc": "2026-01-12"
+      },
+      "retrospective": {
+        "bets": 40,
+        "avoided_defeat": 0.825,
+        "cagey_predicted": 0.7898019844052,
+        "research_predicted": 0.6195841420969229,
+        "first_kickoff_utc": "2026-02-07",
+        "last_kickoff_utc": "2026-11-08"
+      }
+    }
+  },
+  "note": "Offline backtest offers (Bet365 prices with a synthetic Pinnacle margin where Pinnacle is missing); descriptive only, never used to change a pick or a ranking."
+}
