@@ -426,3 +426,12 @@ Declaration `evaluation/declarations/ce3n_european_holdout.json` (committed on i
 - Context: league phase (187) AH all +0.0114 (−0.0016 to +0.0243); knockouts (90) −0.0154 (−0.0427 to +0.0129).
 - Calibration v3: pass (CE3n 0.91 / 1.00; CE 0.79 / 0.93 on the same fixtures; no band fails).
 - **Verdict: not proven.** Production unchanged; CE3n stays offline. Full tables in `docs/plan.md` (Phase 2c).
+
+## 8. CE3n live as research v6 (14 Nov 2026, Paul's exception)
+
+CE3n is live for UCL and UEL as research v6, released without holdout proof by Paul's decision of 14 Nov 2026 (`docs/plan.md`, Phase 2c and Decisions, "European value picks"). The holdout result in section 7 stands. Domestic leagues stay on research v5.
+
+- **What live computes.** `research_ce3n.py` uses this harness's own blend (`european_candidates.domestic_rates`, `blended_rates`) on live CE's goal rates, which are research v4 as live has always run it for UCL/UEL, ESPN form included. The factors and domestic strengths come from a fit file built with the harness's functions on the backfilled European history, the older domestic files and the reviewed aliases.
+- **Two fit files.** The tested fit (`research_ce3n_fits.json`, locked) is the factors exactly as the locked European run fits them; the builder was checked against that run (difference 0.0). The live fit (`research_ce3n_live_fits.json`) adds the European and domestic holdout periods' results. With those left out, the live builder reproduces the tested file exactly.
+- **What is unchanged.** Every harness output, including the CE3n holdout result and both ledgers. The parity mode adds its own CE3n files (`ce3n_parity.json`, `ce3n_parity_matches.csv`).
+- **Parity caveat, now measured.** Live CE still trains UCL from 2023/24 and UEL from 2022/23 and adds ESPN form, so live and harness CE goal rates differ. On the 29 UEL fixtures of 5 Nov 2026 this input gap is 3.5 points of 1X2 on average (max 11.6). With the same inputs and fit, the two give identical probabilities.

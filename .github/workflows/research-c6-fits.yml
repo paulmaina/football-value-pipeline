@@ -1,9 +1,9 @@
-name: Refresh live C6 research fits
+name: Refresh live C6 and CE3n research fits
 
 on:
   schedule:
-    # Mondays 17:05 UTC, after the 16:17 training refresh. The script builds only on fold origins
-    # (every second Monday); on the other Mondays it records "not a fit day" and stops.
+    # Mondays 17:05 UTC, after the 16:17 training refresh. Both scripts build only on fold origins
+    # (every second Monday); on the other Mondays they record "not a fit day" and stop.
     - cron: '5 17 * * 1'
   workflow_dispatch:
     inputs:
@@ -40,18 +40,43 @@ jobs:
       # and commits it on latest main. Any failure leaves the committed fit in place; live forecasts then
       # carry the "stale fit" warning until a refresh succeeds. The harness's locked fits are never touched.
       - name: Build, validate and publish the live fits
+        id: c6
         env:
           SCHEDULED: ${{ github.event_name == 'schedule' || inputs.any_day == false }}
         run: |
           scheduled=
           if [ "$SCHEDULED" = "true" ]; then scheduled=--scheduled; fi
           python scripts/build_research_c6_fits.py $scheduled --publish
-      - name: Report a failed refresh
-        if: failure()
+      - name: Report a failed C6 refresh
+        if: failure() && steps.c6.outcome == 'failure'
         run: |
           {
             echo '### Live C6 research fits NOT refreshed'
             echo
             echo 'The previous fit stays in place. Live research v5 forecasts warn that the fit is stale until a'
             echo 'refresh succeeds: rerun this workflow (workflow_dispatch) once the training cache has the results.'
+          } >> "$GITHUB_STEP_SUMMARY"
+      # Research v6 (CE3n, UCL/UEL; Paul's decision of 14 Nov 2026): builds research_ce3n_live_fits.json
+      # (league-strength factors and domestic strengths from every result known before each fold origin,
+      # holdout periods included) with the same publish conditions (domestic files, UCL and UEL training data
+      # checked 12 hours after the origin, every earlier window kept, today's window present). Runs even if the
+      # C6 refresh failed; a failure leaves the committed CE3n fit in place and live v6 forecasts warn that it
+      # is stale. The harness's locked CE3n fits (research_ce3n_fits.json) are never touched.
+      - name: Build, validate and publish the live CE3n fits
+        id: ce3n
+        if: success() || failure()
+        env:
+          SCHEDULED: ${{ github.event_name == 'schedule' || inputs.any_day == false }}
+        run: |
+          scheduled=
+          if [ "$SCHEDULED" = "true" ]; then scheduled=--scheduled; fi
+          python scripts/build_research_ce3n_fits.py $scheduled --publish
+      - name: Report a failed CE3n refresh
+        if: failure() && steps.ce3n.outcome == 'failure'
+        run: |
+          {
+            echo '### Live CE3n research fits NOT refreshed'
+            echo
+            echo 'The previous fit stays in place. Live research v6 (UCL/UEL) forecasts warn that the CE3n fit is'
+            echo 'stale until a refresh succeeds: rerun this workflow (workflow_dispatch) once the results are in.'
           } >> "$GITHUB_STEP_SUMMARY"
