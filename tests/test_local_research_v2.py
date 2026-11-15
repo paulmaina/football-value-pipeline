@@ -17,6 +17,7 @@ import europa_training as et
 import profit_shortlist as ps
 import price_edge_cagey_shortlist as v28
 import team_research as tr
+from master_switch import switched
 
 SETTINGS = {**V2, 'value_rule': ps.RULE_V2}
 
@@ -106,6 +107,7 @@ class LocalResearchSelectionTests(OfflineQuotePolicyTestCase):
         self.assertAlmostEqual(tracking.grade([row], [], [final], CLOCK).iloc[0].unit_profit, -1.02)
         self.assertIsNone(tracking.close_dc12_share([{'bookmaker': 'pinnacle', 'selection': 'home', 'fair_probability': .4}]))
 
+    @switched('old')  # pre-release behaviour: the rollback state (master_shortlist_config.json live "old")
     def test_replay_raw_readable_and_master_pool_remain_bound(self):
         from workflow_checks import raw_check
         from pipeline_health import write_generation_metadata

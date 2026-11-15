@@ -134,6 +134,20 @@ def capture_master_file(raw: Path, generated) -> Optional[Path]:
     return path
 
 
+def capture_old_master_file(raw: Path, generated) -> Optional[Path]:
+    """Archive the old master (shadow since the release) only when it belongs to this exact v28 generation."""
+    from performance_tracking import read_csv, utc
+    from master_shortlist import OLD_FILE
+    path = Path(raw) / OLD_FILE
+    if not path.exists():
+        return None
+    rows = read_csv(path)
+    if any(r.get('selection_policy_version') != CAGEY_POLICY or utc(r.get('evaluated_at_utc')) != utc(generated)
+           for r in rows):
+        return None
+    return path
+
+
 def capture_new_master_file(raw: Path, generated) -> Optional[Path]:
     """Archive the new master (shadow) only when every row belongs to this exact v28 generation and the rule."""
     from performance_tracking import read_csv, utc
@@ -164,28 +178,52 @@ def latest_per_fixture(rows: List[dict]) -> List[dict]:
     return list(frozen.values())
 
 
-def frozen_master_picks(root: Path, archive) -> List[dict]:
-    """Latest-generation pre-kickoff archived master-shortlist pick per fixture."""
-    from master_shortlist import FILE as MASTER_FILE
-    return latest_per_fixture(archived_tier_rows(root, archive, MASTER_FILE))
+def new_master_versions() -> tuple:
+    """Versions that count as the new master rule: the rule in shadow (master_shortlist_new.csv) and the same rule
+    released as the live master (master_shortlist.csv since 14 Nov 2026). A rule change restarts the comparison."""
+    import master_reconciliation as mr
+    from master_shortlist import VERSION_NEW_LIVE
+    return (mr.VERSION, VERSION_NEW_LIVE)
+
+
+def _new_master_rows(root: Path, archive) -> List[dict]:
+    """Every archived pre-kickoff new-master row under the current rule, from its shadow file (before the release, or
+    after a rollback) and from the live master file (since the release), oldest capture first. Shadow rows name their
+    overlap columns after the then-live master (in_live_master, ...), which was the old master logic; they are read
+    under the live file's names (in_old_master, ...), so both eras line up in one graded file."""
+    import master_reconciliation as mr
+    from master_shortlist import FILE as MASTER_FILE, LIVE_RENAMES
+    versions = new_master_versions()
+    rows = archived_tier_rows(root, archive, mr.load_config()['file']) + archived_tier_rows(root, archive, MASTER_FILE)
+    rows = [{LIVE_RENAMES.get(k, k): v for k, v in r.items()} for r in rows if r.get('new_master_version') in versions]
+    return sorted(rows, key=lambda r: str(r.get('snapshot_captured_utc') or ''))
+
+
+def frozen_old_master_picks(root: Path, archive) -> List[dict]:
+    """Latest-generation pre-kickoff archived pick per fixture of the old master logic: master_shortlist.csv before
+    the release (old-master rows only), master_shortlist_old.csv (its shadow) since."""
+    from master_shortlist import FILE as MASTER_FILE, OLD_FILE, is_new_schema
+    rows = [r for r in archived_tier_rows(root, archive, MASTER_FILE) if not is_new_schema(r)]
+    rows += archived_tier_rows(root, archive, OLD_FILE)
+    return latest_per_fixture(sorted(rows, key=lambda r: str(r.get('snapshot_captured_utc') or '')))
+
+
+frozen_master_picks = frozen_old_master_picks  # the pre-release name (the old master was the live master then)
 
 
 def frozen_new_master_picks(root: Path, archive) -> List[dict]:
-    """Latest-generation pre-kickoff archived new-master pick per fixture, exactly as the live master's: the
+    """Latest-generation pre-kickoff archived new-master pick per fixture, graded exactly as the old master's: the
     archived file lists every nominated offer, so only its ranked picks (SHORTLISTED) are picks. Only picks made
-    under the current rule's version count, so a rule change restarts the comparison."""
-    import master_reconciliation as mr
-    rows = archived_tier_rows(root, archive, mr.load_config()['file'])
-    return latest_per_fixture([r for r in rows if r.get('new_master_decision') == 'SHORTLISTED'
-                               and r.get('new_master_version') == mr.VERSION])
+    under the current rule (shadow or released) count, so a rule change restarts the comparison."""
+    return latest_per_fixture([r for r in _new_master_rows(root, archive)
+                               if r.get('new_master_decision') == 'SHORTLISTED'])
 
 
 def new_master_offer_counts(root: Path, archive) -> Dict[str, int]:
     """Context for the comparison: gap checks over every offer of each fixture's newest pre-kickoff generation."""
     from performance_tracking import fixture_key, utc
     import master_reconciliation as mr
-    rows = [r for r in archived_tier_rows(root, archive, mr.load_config()['file'])
-            if r.get('new_master_version') == mr.VERSION]
+    rows = _new_master_rows(root, archive)
     newest = {}
     for row in rows:
         key, stamp = fixture_key(row), utc(row['snapshot_generated_utc'])
@@ -884,7 +922,7 @@ def review(root: Path, archive, records: List[dict], clock, active_rule: Optiona
     graded = grade(bind_event_ids(picks, archive), observations, records, clock)
     tagged = grade(bind_event_ids(frozen_candidates(root, archive), archive), observations, records, clock)
     tier = grade(bind_event_ids(frozen_tier_picks(root, archive), archive), observations, records, clock)
-    master = grade(bind_event_ids(frozen_master_picks(root, archive), archive), observations, records, clock)
+    master = grade(bind_event_ids(frozen_old_master_picks(root, archive), archive), observations, records, clock)
     new_master = grade(bind_event_ids(frozen_new_master_picks(root, archive), archive), observations, records, clock)
     from recommendation_history import rows as history_rows, summarize as history_summary
     history = grade(bind_event_ids(history_rows(root,archive),archive),observations,records,clock)
@@ -904,6 +942,9 @@ def review(root: Path, archive, records: List[dict], clock, active_rule: Optiona
         'stop_review': bool(stop),
         'stop_review_rule': f'>= {STOP_REVIEW_MIN_PICKS} graded picks with mean CLV < 0',
         'clv_by': split_table(graded, 'clv'),
+        # Since the release (14 Nov 2026) the new master is live and the old master runs in shadow; both are graded
+        # the same way. 'master' is the old master logic (the live master before the release).
+        'live_master_list': _live_list(),
         'master_picks': int(len(master)),
         'master': {'clv': summarize(master['clv'] if len(master) else []),
                    'profit': summarize(master['unit_profit'] if len(master) else []),
@@ -923,6 +964,9 @@ def review(root: Path, archive, records: List[dict], clock, active_rule: Optiona
                                    for tier, g in (new_master.groupby(new_master['new_master_tier'].fillna('n/a'))
                                                    if len(new_master) and 'new_master_tier' in new_master else [])}},
         'master_comparison': _master_comparison(root, archive, new_master, master),
+        'master_release_incidents': (incidents := master_release_incidents(root, archive)),
+        'master_rollback': master_rollback(new_master, master,
+                                           baseline_missing_runs=incidents['baseline_missing']['runs']),
         'cagey_tier_picks': int(len(tier)),
         'cagey_tier': {'clv': summarize(tier['clv'] if len(tier) else []),
                        'profit': summarize(tier['unit_profit'] if len(tier) else [])},
@@ -951,8 +995,11 @@ def review(root: Path, archive, records: List[dict], clock, active_rule: Optiona
     tagged.to_csv(dest / 'tagged_candidates.csv', index=False)
     tier.to_csv(dest / 'cagey_tier_picks.csv', index=False)
     history.to_csv(dest / 'all_recommendation_generations.csv', index=False)
-    master.to_csv(dest / 'master_shortlist_picks.csv', index=False)
-    new_master.to_csv(dest / 'master_shortlist_new_picks.csv', index=False)
+    # Since the release the live list's graded picks are master_shortlist_picks.csv (the new master, both eras) and
+    # the old master logic's are master_shortlist_old_picks.csv (both eras); the shadow-period name is removed.
+    new_master.to_csv(dest / GRADED_FILES['new'], index=False)
+    master.to_csv(dest / GRADED_FILES['old'], index=False)
+    (dest / LEGACY_GRADED_NEW_FILE).unlink(missing_ok=True)
     monitoring.to_csv(dest / 'correction_monitoring.csv', index=False)
     (dest / 'report.md').write_text(report(summary), encoding='utf-8')
     return summary
@@ -964,24 +1011,133 @@ def _master_comparison(root: Path, archive, new_master: pd.DataFrame, master: pd
                            new_master_offer_counts(root, archive))
 
 
+def master_release_incidents(root: Path, archive) -> dict:
+    """Runs with a master release incident, from each archived run summary (selection_summary.json), one per
+    generation: the new master failed and the old master was published (NEW MASTER FAILED - OLD MASTER PUBLISHED),
+    or the released new master ran without its old-master shadow (comparison baseline missing), whether or not the
+    run recorded why."""
+    from performance_tracking import load_json, utc
+    import master_shortlist as ms
+    runs = {ms.NEW_MASTER_FAILED: {}, ms.BASELINE_MISSING: {}}
+    for meta, _, _ in sorted(archive, key=lambda item: item[0]['captured_at_utc']):
+        info = load_json(Path(root) / 'performance' / 'snapshots' / meta['git_commit_sha'][:16]
+                         / 'selection_summary.json', {})
+        status = (info.get(ms.RELEASE_STATUS_KEY) or {})
+        incident = status.get('status')
+        if incident not in runs and (info.get('master_shortlist') or {}).get('version') == ms.VERSION_NEW_LIVE \
+                and ms.OLD_SUMMARY_KEY not in info:
+            incident = ms.BASELINE_MISSING  # released new master without its shadow, even if unrecorded
+        if incident in runs:
+            generated = utc(meta['generated_at_utc']).isoformat()
+            runs[incident].setdefault(generated, {'generated_at_utc': generated,
+                                                  'error': status.get('error') or 'not recorded'})
+    out = {}
+    for incident, key in ((ms.NEW_MASTER_FAILED, 'new_master_failed'), (ms.BASELINE_MISSING, 'baseline_missing')):
+        listed = sorted(runs[incident].values(), key=lambda r: r['generated_at_utc'])
+        out[key] = {'status': incident, 'runs': len(listed), 'details': listed}
+    failed, missing = out['new_master_failed'], out['baseline_missing']
+    out['messages'] = [m for m in (
+        f"{ms.NEW_MASTER_FAILED} in {failed['runs']} run{'s' if failed['runs'] != 1 else ''} (latest "
+        f"{failed['details'][-1]['generated_at_utc']}: {failed['details'][-1]['error']}): the old master was the live "
+        f"list for those runs." if failed['runs'] else None,
+        f"Comparison baseline missing in {missing['runs']} run{'s' if missing['runs'] != 1 else ''} (the old master "
+        f"shadow failed; latest {missing['details'][-1]['generated_at_utc']}: {missing['details'][-1]['error']}): "
+        f"those runs have no old-master picks to compare with." if missing['runs'] else None) if m]
+    return out
+
+
+def _live_list() -> str:
+    """Which master is live: "new" (the release) or "old" (master_shortlist_config.json, live)."""
+    from master_shortlist import configured_live
+    return configured_live()
+
+
+ROLLBACK_TRIGGERED = 'ROLLBACK TRIGGERED'
+GRADED_FILES = {'new': 'master_shortlist_picks.csv', 'old': 'master_shortlist_old_picks.csv'}
+LEGACY_GRADED_NEW_FILE = 'master_shortlist_new_picks.csv'  # the new master's graded picks while it was in shadow
+BASELINE_MISSING_STATUS = 'COMPARISON BASELINE MISSING'
+
+
+def master_rollback(new: pd.DataFrame, old: pd.DataFrame, live: Optional[str] = None,
+                    baseline_missing_runs: int = 0) -> dict:
+    """The release's rollback rule (master_shortlist_config.json, release.rollback; docs/plan.md, Phase 5): after at
+    least 150 graded matches over at least 3 weeks on each list, new minus old flat-stake return per bet at Pinnacle
+    prices, whole kickoff weeks resampled (the live comparison's interval); if the 95% interval is entirely below
+    zero, ROLLBACK TRIGGERED. It only reports: nothing switches automatically. Runs whose old master (shadow)
+    failed have no comparison baseline: while any exist the status says COMPARISON BASELINE MISSING with their count
+    (unless the rule triggered), never an ordinary wait for data."""
+    import master_reconciliation as mr
+    from master_shortlist import load_config, LIVE_NEW
+    rule = load_config()['release']['rollback']
+    live = live or _live_list()
+    comparison = compare_masters(new, old, {**mr.load_config()['live_comparison'],
+                                            'min_graded_matches': rule['min_graded_matches'],
+                                            'min_weeks': rule['min_weeks']})
+    out = {'rule': rule['rule'], 'live_master_list': live, 'min_graded_matches': rule['min_graded_matches'],
+           'min_weeks': rule['min_weeks'], 'new_master': comparison['new_master'],
+           'old_master': comparison['live_master'], 'difference': comparison['difference'],
+           'interval_95': comparison['interval_95'], 'triggered': False,
+           'baseline_missing_runs': int(baseline_missing_runs)}
+    if live != LIVE_NEW:
+        out.update(status='OLD MASTER LIVE', message='The old master is live (master_shortlist_config.json, live '
+                                                     '"old"); the rollback rule does not apply.')
+    elif comparison['status'] != 'COMPARED':
+        out.update(status='WAITING', message=f"Not triggered: waiting for at least {rule['min_graded_matches']} graded "
+                                             f"matches over at least {rule['min_weeks']} weeks on each list.")
+    elif comparison['interval_95'][1] < 0:
+        lo, hi = comparison['interval_95']
+        out.update(status=ROLLBACK_TRIGGERED, triggered=True,
+                   message=f"{ROLLBACK_TRIGGERED}: new master minus old master flat-stake return per bet "
+                           f"{comparison['difference']:+.2%} (95% interval {lo:+.2%} to {hi:+.2%}, entirely below "
+                           f"zero; {comparison['new_master']['graded_matches']} and "
+                           f"{comparison['live_master']['graded_matches']} graded matches). Nothing has been switched: "
+                           f"Paul decides; rolling back is setting live to \"old\" in master_shortlist_config.json.")
+    else:
+        lo, hi = comparison['interval_95']
+        out.update(status='NOT TRIGGERED', message=f"Not triggered: new minus old {comparison['difference']:+.2%} per "
+                                                   f"bet (95% interval {lo:+.2%} to {hi:+.2%}), not entirely below zero.")
+    if baseline_missing_runs and live == LIVE_NEW:
+        missing = (f"Comparison baseline missing in {baseline_missing_runs} "
+                   f"run{'s' if baseline_missing_runs != 1 else ''} (the old master shadow failed)")
+        if out['triggered']:
+            out['message'] += f' {missing}.'
+        else:
+            out.update(status=BASELINE_MISSING_STATUS, message=f"{missing}; {out['message'][0].lower()}"
+                                                               f"{out['message'][1:]}")
+    return out
+
+
 def new_master_report(summary: dict) -> List[str]:
-    """The new master (shadow) beside the live master, with the comparison rule's status."""
+    """The new master beside the old master (whichever is live), with the comparison and rollback rules' status."""
     if 'master_comparison' not in summary:
         return []
     m, c = summary['new_master'], summary['master_comparison']
-    lines = ["## New master (shadow, fill rule) beside the live master", '',
+    released = summary.get('live_master_list', 'old') == 'new'
+    heading = ("## Master shortlist: new master (live since 14 Nov 2026) beside the old master (shadow)" if released
+               else "## New master (shadow, fill rule) beside the live master")
+    old_name = 'old master' if released else 'live master'
+    lines = [heading, '',
              f"Frozen picks: {summary['new_master_picks']}; CLV {_fmt(m['clv'])}; realised profit per bet "
-             f"{_fmt(m['profit'])}. Live master: {summary.get('master_picks', 0)} frozen picks, realised profit per "
-             f"bet {_fmt(summary['master']['profit'])}.", '',
+             f"{_fmt(m['profit'])}. {old_name.capitalize()}: {summary.get('master_picks', 0)} frozen picks, realised "
+             f"profit per bet {_fmt(summary['master']['profit'])}.", '',
              f"Comparison rule (decided {c['decided']}): {c['rule']}", '']
+    if summary.get('master_rollback'):
+        r = summary['master_rollback']
+        lines += [f"Rollback rule (release, decided by Paul 14 Nov 2026): {r['rule']}", '',
+                  f"**Rollback status: {r['status']}.** {r['message']}", '']
+    incidents = summary.get('master_release_incidents') or {}
+    if incidents:
+        lines += [f"Release incidents: new master failed (old master published) in "
+                  f"{incidents['new_master_failed']['runs']} runs; comparison baseline missing (old master shadow "
+                  f"failed) in {incidents['baseline_missing']['runs']} runs.", '']
     row = lambda name, x: (f"| {name} | {x['graded_matches']} | {x['weeks']} | "
                            + (f"{x['flat_stake_return_per_bet']:+.2%} | {x['hit_rate']:.1%} | {x['average_price']:.2f} |"
                               if x['graded_matches'] else 'n/a | n/a | n/a |'))
     lines += ['| list | graded matches | weeks | flat-stake return per bet | hit rate | average price |',
-              '|---|---|---|---|---|---|', row('new master', c['new_master']), row('live master', c['live_master']), '']
+              '|---|---|---|---|---|---|', row('new master', c['new_master']), row(old_name, c['live_master']), '']
     if c['status'] == 'COMPARED':
         lo, hi = c['interval_95']
-        lines.append(f"**New minus live:** {c['difference']:+.2%} per bet (95% interval {lo:+.2%} to {hi:+.2%}, "
+        lines.append(f"**New minus {'old' if released else 'live'}:** {c['difference']:+.2%} per bet (95% interval {lo:+.2%} to {hi:+.2%}, "
                      f"{c['weeks_resampled']} weeks resampled): {c['verdict']}.")
     else:
         lines.append(f"**Status:** waiting for at least 150 graded matches over at least 3 weeks on each list "
@@ -1013,6 +1169,12 @@ def _fmt(m: dict) -> str:
 
 def report(summary: dict) -> str:
     lines = ['# v27/v28 price-edge tracking', '']
+    rollback = summary.get('master_rollback') or {}
+    if rollback.get('triggered'):  # the release's rollback rule: at the very top, never acted on automatically
+        lines += [f"> **{ROLLBACK_TRIGGERED}** (master shortlist): {rollback['message']}", '']
+    for message in (summary.get('master_release_incidents') or {}).get('messages', []):  # release incidents next
+        head, _, rest = message.partition(' in ')
+        lines += [f"> **{head}** (master shortlist) in {rest}", '']
     if 'recommendation_history' in summary:
         info=summary['recommendation_history']
         lines += ['## Recommendation history and placed bets', '', info['note'], '',
@@ -1040,14 +1202,19 @@ def report(summary: dict) -> str:
         lines += [f'## CLV by {column}', '', '| group | mean CLV (n) |', '|---|---|']
         lines += [f'| {k} | {_fmt(v)} |' for k, v in groups.items()] or ['| none | n/a |']
         lines.append('')
+    released = summary.get('live_master_list', 'old') == 'new'
+    if released:  # the live (new) master first, then the old master in shadow
+        lines += new_master_report(summary)
     if summary.get('master_picks'):
         m = summary['master']
-        lines += ['## Master shortlist (10 best bets per run)', '',
+        lines += [('## Old master (shadow since 14 Nov 2026; master_shortlist_old.csv)'
+                   if summary.get('live_master_list', 'old') == 'new' else '## Master shortlist (10 best bets per run)'), '',
                   f"Frozen picks: {summary['master_picks']}; CLV {_fmt(m['clv'])}; realised profit per bet {_fmt(m['profit'])}.",
                   '', '| price flag | mean CLV (n) | realised profit per bet (n) |', '|---|---|---|']
         lines += [f"| {flag} | {_fmt(v['clv'])} | {_fmt(v['profit'])} |" for flag, v in m['by_price_flag'].items()]
         lines.append('')
-    lines += new_master_report(summary)
+    if not released:
+        lines += new_master_report(summary)
     if 'both_tiers_clv_by' in summary:
         lines += ['## Both tiers (value and cagey)', '',
                   f"Cagey-tier picks frozen: {summary['cagey_tier_picks']}; CLV {_fmt(summary['cagey_tier']['clv'])}; "

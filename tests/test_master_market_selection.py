@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 from offline_test_case import OfflineQuotePolicyTestCase
 import master_shortlist as ms
+from master_switch import switched
 import master_selection as selection
 from test_price_edge_shortlist import NOW
 from test_value_per_market import fixture, over_1xbet
@@ -219,6 +220,7 @@ class MarketSelectionTests(OfflineQuotePolicyTestCase):
         pred['price_edge_quotes']=json.dumps(quotes)
         self.assertEqual(selection.evaluate(pd.DataFrame([r]),pd.DataFrame([pred])).iloc[0].master_decision,'EXCLUDED')
 
+    @switched('old')  # pre-release behaviour: the rollback state (master_shortlist_config.json live "old")
     def test_pipeline_replay_checks_the_master_and_audit(self):
         from test_local_research_v2 import row_with_evidence, SETTINGS
         from test_value_per_market import run
