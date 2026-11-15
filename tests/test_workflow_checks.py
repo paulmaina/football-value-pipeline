@@ -378,7 +378,7 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
         self.assertEqual(set(matrix['os']),{'ubuntu-latest','windows-latest'})
         self.assertEqual(matrix['python'],['3.14'])
         self.assertNotIn('exclude',matrix)
-        self.assertEqual(ci['jobs']['self-test']['timeout-minutes'],'30')
+        self.assertEqual(ci['jobs']['self-test']['timeout-minutes'],'45')
         # Every other workflow sets up the production Python, 3.14.
         for path in sorted(workflows.glob('*.yml')):
             if path.name=='pipeline-self-test.yml':
