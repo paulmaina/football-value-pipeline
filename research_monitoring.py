@@ -1,6 +1,7 @@
-"""Monitoring of research v5 (C6) after its release without holdout proof (docs/plan.md, Decisions, 14 Nov 2026).
+"""Monitoring of research v5 (C6, domestic) and v6 (CE3n, UCL/UEL) after their releases without holdout proof
+(docs/plan.md, Decisions, 14 Nov 2026).
 
-Two checks, shown at the top of the weekly performance reports (performance_tracking.report):
+Four checks, shown at the top of the weekly performance reports (performance_tracking.report):
 
 1. Rollback trigger (docs/plan.md, release gate, the rule for correctness fixes): after at least 150 graded
    matches across at least 3 calendar weeks, research v5 is rolled back if its research log loss on AH all lines
@@ -12,6 +13,15 @@ Two checks, shown at the top of the weekly performance reports (performance_trac
 2. Home favourites in the holdout leagues (Eredivisie, Primeira Liga, Süper Lig), where C6 was too confident on
    the holdout (home slope 0.79): value-shortlist picks backing the home side in matches the v5 research makes
    the home team favourite, with v5's predicted home-win rate, v4's on the same forecasts and the actual rate.
+3. Rollback trigger for research v6 (Paul's decision for the European value picks, 14 Nov 2026): after at least
+   150 graded European matches across at least 3 calendar weeks, v6 is rolled back if CE3n's research log loss on
+   AH all lines is worse than CE's with the week-resampled 95% interval entirely above zero. Each graded v6
+   forecast is replayed from its frozen inputs: CE3n on the independent grid of its frozen CE3n goal rates, CE on
+   the grid of the CE goal rates frozen beside them (its 'shadow_v4'), on the same in-scope Pinnacle AH offers.
+4. Calibration of CE3n and CE on the graded European matches as they accumulate: home and away logistic
+   calibration slopes (evaluation_harness.calibration_slope; 1 is calibrated, below 1 too sharp), CE3n against CE
+   on the same forecasts. CE was too sharp on European development (0.75 / 0.76); CE3n passed calibration v3 on
+   the European holdout (0.91 / 1.00 against CE's 0.79 / 0.93). Reported, never a trigger.
 
 Reads frozen forecasts and verified results only; no odds reach a research probability (the offers only say
 which lines are scored).
@@ -24,13 +34,15 @@ import json
 import numpy as np
 import pandas as pd
 
-VERSION = 'research-v5-monitoring-v1'
+VERSION = 'research-v5-v6-monitoring-v1'
 MIN_MATCHES = 150
 MIN_WEEKS = 3
 MONITOR_LEAGUES = ('Eredivisie', 'Primeira Liga', 'Super Lig', 'Süper Lig')
 TRIGGERED = 'ROLLBACK TRIGGERED'
 HOME_MARKETS = ('Home win', 'Double Chance 1X')
 TOLERANCE = 1e-12
+CE3N_MIN_MATCHES = 150  # graded European matches
+CE3N_MIN_WEEKS = 3
 
 
 def _week(stamp) -> str:
@@ -43,16 +55,18 @@ def _frozen(meta, row):
             'snapshot_captured_utc': meta['captured_at_utc']}
 
 
-def latest_v5_forecasts(archived, records):
-    """The latest v5 forecast made before each verified match's kickoff: {identity: (generated, row, research, final)}."""
+def latest_v5_forecasts(archived, records, versions=None):
+    """The latest v5 forecast (or one of `versions`) made before each verified match's kickoff:
+    {identity: (generated, row, research, final)}."""
     import performance_tracking as pt
     from team_research import C6_VERSIONS, decode, utc
+    versions = C6_VERSIONS if versions is None else versions
     latest = {}
     for meta, rows, _ in archived:
         generated = utc(meta['generated_at_utc'])
         for row in rows:
             research = decode(row.get('team_research_json'))
-            if research.get('version') not in C6_VERSIONS:
+            if research.get('version') not in versions:
                 continue
             frozen = _frozen(meta, row)
             final, _ = pt.graded_match(frozen, records)
@@ -78,6 +92,104 @@ def version_grids(research):
         if not frozen or set(frozen) != set(rebuilt) or max(abs(frozen[k] - rebuilt[k]) for k in frozen) > TOLERANCE:
             raise ValueError(f'{name} grid does not reproduce the frozen research')
     return grids['v5'], grids['v4']
+
+
+def ce3n_grids(research):
+    """(CE3n grid, CE grid) from a v6 forecast's frozen CE3n and CE goal rates. Raises if the rebuilt grids don't
+    reproduce the frozen v6 and shadow (CE) margin distributions."""
+    from asian_handicap import margins
+    from research_ce3n import live_grid
+    from team_research import research_grid
+    grids = {'CE3n': live_grid([float(v) for v in research['goal_rates']]),
+             'CE': research_grid([float(v) for v in research['shadow_v4']['goal_rates']])}
+    for name, frozen in (('CE3n', research.get('margin_distribution')),
+                         ('CE', (research.get('shadow_v4') or {}).get('margin_distribution'))):
+        rebuilt = json.loads(margins(grids[name]))
+        if not frozen or set(frozen) != set(rebuilt) or max(abs(frozen[k] - rebuilt[k]) for k in frozen) > TOLERANCE:
+            raise ValueError(f'{name} grid does not reproduce the frozen research')
+    return grids['CE3n'], grids['CE']
+
+
+def _scored(archived, records, root, clock, versions, grids, names):
+    """Each graded forecast of `versions` replayed under both grids on its in-scope Pinnacle AH offers:
+    (AH score rows, {identity: (row, research, final, (grid, grid))}, coverage)."""
+    import evaluation_harness as eh
+    from team_research import utc
+    coverage = Counter()
+    usable = eh.usable_results(records, root, coverage, clock)
+    out, used = [], {}
+    for identity, (generated, row, research, final) in sorted(latest_v5_forecasts(archived, usable, versions).items()):
+        try:
+            pair = grids(research)
+        except (ValueError, TypeError, KeyError) as exc:
+            coverage['not_replayed:' + str(exc)[:60]] += 1
+            continue
+        used[identity] = (row, research, final, pair)
+        kickoff = utc(final.get('kickoff_utc')) if 'kickoff_utc' in final else utc(row.get('kickoff_utc'))
+        offers = [o for o in eh.scoped_offers(row, kickoff, generated, coverage) if o['group'] == 'Asian handicap']
+        if not offers:
+            coverage['no_in_scope_ah_offer'] += 1
+            continue
+        date = pd.Timestamp(str(row['kickoff_utc'])[:10])
+        ident = {'league': row.get('league'), 'date': date.date().isoformat(), 'week': _week(date),
+                 'fixture_key': ':'.join(identity), 'phase': 'live', 'market_book': 'pinnacle'}
+        out.extend(eh.score_offers(ident, dict(zip(names, pair)), offers, final['home_goals'], final['away_goals']))
+        coverage['matches_scored'] += 1
+    return out, used, coverage
+
+
+def _trigger(out, names, min_matches, min_weeks):
+    """Matches, weeks, eligibility and (first minus second) log loss with its interval; triggered when eligible
+    and the interval is entirely above zero (the first, the released version, worse)."""
+    import evaluation_harness as eh
+    scores = eh.match_scores(out)
+    scores = scores.loc[scores['group'].eq('Asian handicap')] if len(scores) else scores
+    matches = int(scores['fixture_key'].nunique()) if len(scores) else 0
+    weeks = int(scores['week'].nunique()) if len(scores) else 0
+    # paired(baseline=first, candidate=second) is first minus second: positive = the released version worse.
+    difference = eh.paired(scores, *names) if matches else None
+    eligible = matches >= min_matches and weeks >= min_weeks
+    interval = (difference or {}).get('interval_95')
+    means = scores.groupby('candidate').log_loss.mean().to_dict() if len(scores) else {}
+    return {'matches': matches, 'weeks': weeks, 'eligible': eligible,
+            'triggered': bool(eligible and interval and interval[0] > 0),
+            'difference': None if not difference else difference['mean_gain'], 'interval_95': interval,
+            'log_loss': {k: float(v) for k, v in means.items()}}
+
+
+def ce3n_rollback_check(archived, records, root, clock=None) -> dict:
+    """Research v6's rollback trigger: CE3n against CE on graded European matches (module docstring, check 3),
+    with the calibration slopes of both on the same graded matches (check 4)."""
+    import evaluation_harness as eh
+    from team_research import CE3N_VERSIONS
+    out, used, coverage = _scored(archived, records, root, clock, CE3N_VERSIONS, ce3n_grids, ('CE3n', 'CE'))
+    result = _trigger(out, ('CE3n', 'CE'), CE3N_MIN_MATCHES, CE3N_MIN_WEEKS)
+    probs = {'CE3n': [], 'CE': []}
+    outcomes, domestic = [], 0
+    for row, research, final, pair in used.values():
+        for name, grid in zip(('CE3n', 'CE'), pair):
+            h, a = np.indices(grid.shape)
+            probs[name].append([float(grid[h > a].sum()), float(grid[h == a].sum()), float(grid[h < a].sum())])
+        hg, ag = final['home_goals'], final['away_goals']
+        outcomes.append(0 if hg > ag else 1 if hg == ag else 2)
+        domestic += bool((research.get('ce3n') or {}).get('domestic_used'))
+    y = np.array(outcomes)
+    slopes = {}
+    for name, rows in probs.items():
+        p = np.array(rows, dtype=float).reshape(-1, 3)
+        raw = ({side: eh.calibration_slope(p[:, k], y == k) for k, side in ((0, 'home'), (2, 'away'))}
+               if len(y) >= 2 else {'home': None, 'away': None})
+        slopes[name] = {k: (None if v is None or not np.isfinite(v) else float(v)) for k, v in raw.items()}
+    return {'rule': (f'After at least {CE3N_MIN_MATCHES} graded European matches across at least {CE3N_MIN_WEEKS} '
+                     "weeks, roll back research v6 (CE3n, UCL/UEL) if CE3n's research log loss on AH all lines minus "
+                     "CE's, on the same frozen inputs, matches and offers, has a week-resampled 95% interval "
+                     'entirely above zero.'),
+            'matches': result['matches'], 'weeks': result['weeks'], 'eligible': result['eligible'],
+            'triggered': result['triggered'], 'ce3n_minus_ce_log_loss': result['difference'],
+            'interval_95': result['interval_95'], 'log_loss': result['log_loss'],
+            'calibration': {'graded_matches': int(len(y)), 'domestic_used': int(domestic), 'slopes': slopes,
+                            'note': 'Logistic calibration slopes (1 = calibrated, below 1 too sharp); reported, not a trigger.'},
+            'coverage': dict(sorted(coverage.items()))}
 
 
 def rollback_check(archived, records, root, clock=None) -> dict:
@@ -186,23 +298,67 @@ def home_favourites(archived, records, root, clock=None) -> dict:
 
 def review(root, archived, records, clock=None) -> dict:
     return {'version': VERSION, 'rollback': rollback_check(archived, records, root, clock),
-            'home_favourites': home_favourites(archived, records, root, clock)}
+            'home_favourites': home_favourites(archived, records, root, clock),
+            'ce3n': ce3n_rollback_check(archived, records, root, clock)}
 
 
 def _pct(value):
     return '—' if value is None else f'{100 * value:.1f}%'
 
 
-def markdown(check) -> list[str]:
-    """The report section; its first line is the trigger banner when the rollback fires."""
+def banner(check) -> list[str]:
+    """The trigger banners (each a line and a blank line) that open the report when a rollback fires."""
     if not check:
         return []
-    rollback, fav = check['rollback'], check['home_favourites']
     lines = []
+    rollback = check['rollback']
     if rollback['triggered']:
         lines += [f'> **{TRIGGERED}**: research v5 (C6) has a worse research log loss than v4 on AH all lines '
                   f'over {rollback["matches"]} graded matches and {rollback["weeks"]} weeks, with the 95% interval '
                   'entirely above zero. Roll back by reverting the v5 release PR; v5 forecasts keep their numbers.', '']
+    ce3n = check.get('ce3n') or {}
+    if ce3n.get('triggered'):
+        lines += [f'> **{TRIGGERED}**: research v6 (CE3n, UCL/UEL) has a worse research log loss than CE on AH all '
+                  f'lines over {ce3n["matches"]} graded European matches and {ce3n["weeks"]} weeks, with the 95% '
+                  'interval entirely above zero. Roll back by reverting the v6 release PR; v6 forecasts keep their '
+                  'numbers.', '']
+    return lines
+
+
+def _slope(value):
+    return '—' if value is None else f'{value:.2f}'
+
+
+def ce3n_markdown(ce3n) -> list[str]:
+    if not ce3n:
+        return []
+    diff, interval = ce3n['ce3n_minus_ce_log_loss'], ce3n['interval_95']
+    status = (TRIGGERED if ce3n['triggered'] else 'not triggered' if ce3n['eligible']
+              else f'not yet eligible (needs {CE3N_MIN_MATCHES} matches and {CE3N_MIN_WEEKS} weeks)')
+    cal = ce3n['calibration']
+    lines = ['## Research v6 (CE3n, UCL/UEL) rollback check', '',
+             "Released on 14 Nov 2026 without holdout proof (Paul's exception; not proven on the European holdout). "
+             'European rows stay flagged "unvalidated view". ' + ce3n['rule'], '',
+             '| Graded European matches | Weeks | CE3n − CE log loss (AH all) | 95% interval | Status |',
+             '|---|---|---|---|---|',
+             f"| {ce3n['matches']} | {ce3n['weeks']} | {'—' if diff is None else f'{diff:+.5f}'} | "
+             f"{'—' if not interval else f'{interval[0]:+.5f} to {interval[1]:+.5f}'} | {status} |", '',
+             f"Calibration on {cal['graded_matches']} graded European matches ({cal['domestic_used']} with domestic "
+             'form for both teams); logistic slopes, 1 = calibrated, below 1 too sharp. Reported, not a trigger.', '',
+             '| | Home slope | Away slope |', '|---|---|---|']
+    for name in ('CE3n', 'CE'):
+        slope = cal['slopes'].get(name) or {}
+        lines.append(f"| {name} | {_slope(slope.get('home'))} | {_slope(slope.get('away'))} |")
+    lines.append('')
+    return lines
+
+
+def markdown(check) -> list[str]:
+    """The report section; it opens with the trigger banners (banner()) when a rollback fires."""
+    if not check:
+        return []
+    rollback, fav = check['rollback'], check['home_favourites']
+    lines = banner(check)
     diff, interval = rollback['v5_minus_v4_log_loss'], rollback['interval_95']
     status = (TRIGGERED if rollback['triggered'] else 'not triggered' if rollback['eligible']
               else f'not yet eligible (needs {MIN_MATCHES} matches and {MIN_WEEKS} weeks)')
@@ -222,4 +378,5 @@ def markdown(check) -> list[str]:
                      f"{_pct(part['v5_predicted_home_win'])} | {_pct(part['v4_predicted_home_win'])} | "
                      f"{_pct(part['actual_home_win'])} |")
     lines.append('')
+    lines += ce3n_markdown(check.get('ce3n'))
     return lines

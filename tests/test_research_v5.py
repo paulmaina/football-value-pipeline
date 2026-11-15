@@ -179,17 +179,19 @@ class LiveV5Test(unittest.TestCase):
         fav = int(np.argmax([p2[0], p2[2]])) * 2
         self.assertGreater(p5[fav] / (p5[0] + p5[2]), float(p2[fav] / (p2[0] + p2[2])))
 
-    def test_european_competitions_stay_v4(self):
+    def test_european_competitions_are_never_c6(self):
         row, evidence, cutoff, _ = frozen()
         for league in sorted(tr.EUROPEAN_COMPETITIONS):
             europe = {**row, 'league': league}
-            context = tr.prepare(europe, cutoff, copy.deepcopy(evidence))
             same = tr.prepare(europe, cutoff, copy.deepcopy(evidence), version=tr.V4_VERSION)
-            self.assertEqual(context['version'], tr.V4_VERSION)
-            self.assertEqual(context, same)
-            # Even a v5 replay of a UCL/UEL row is v4.
-            self.assertEqual(tr.prepare(europe, cutoff, copy.deepcopy(evidence), version=tr.VERSION), same)
-            self.assertNotIn('shadow_v4', context)
+            # A v5 replay of a UCL/UEL row is v4, as v5 made it (tests/test_research_v6_ce3n.py covers v6).
+            v5 = tr.prepare(europe, cutoff, copy.deepcopy(evidence), version=tr.VERSION)
+            self.assertEqual(v5, same)
+            self.assertNotIn('shadow_v4', v5)
+            # The live rule for UCL/UEL is v6 (CE3n), never C6.
+            live = tr.prepare(europe, cutoff, copy.deepcopy(evidence))
+            self.assertEqual(live['version'], tr.CE3N_VERSION)
+            self.assertNotIn('c6_fit', live)
 
     def test_v5_replays_from_its_frozen_fit_without_the_fit_file(self):
         row, evidence, cutoff, _ = frozen()
@@ -228,11 +230,12 @@ class LiveV5Test(unittest.TestCase):
         domestic, europe = out
         context = json.loads(domestic['team_research_json'])
         self.assertEqual(domestic['research_version'], tr.VERSION)
-        self.assertEqual(europe['research_version'], tr.V4_VERSION)
+        self.assertEqual(europe['research_version'], tr.CE3N_VERSION)  # UCL/UEL: v6 since the CE3n release
         self.assertEqual(domestic['research_p_home'], rm_hda(context)[0])
         self.assertEqual(domestic[tr.SHADOW_PREFIX + 'home'], rm_hda(context['shadow_v4'])[0])
         self.assertEqual(domestic[tr.SHADOW_PREFIX + 'over_1_5'], context['shadow_v4']['p_over_1_5'])
-        self.assertNotIn(tr.SHADOW_PREFIX + 'home', {k for k, v in europe.items() if v is not None and v == v})
+        # v6's CE shadow uses the same columns (CE is v4 on UCL/UEL).
+        self.assertEqual(europe[tr.SHADOW_PREFIX + 'home'], rm_hda(json.loads(europe['team_research_json'])['shadow_v4'])[0])
 
     def test_live_replay_rebuilds_v5_on_c6_and_v4_on_poisson(self):
         row, evidence, cutoff, _ = frozen()
