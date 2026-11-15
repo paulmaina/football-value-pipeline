@@ -126,7 +126,8 @@ def recompute(root, start, end, labels, histories):
                     current['research_history_json'] = json.dumps(rebuilt, sort_keys=True)
             view, _ = friendlies.labelled_evidence(evidence, labels, tr.LEAGUES.get(league, ''), parity, tr)
             before = tr.prepare(current, cutoff, copy.deepcopy(view), version=tr.V4_VERSION)
-            after = tr.prepare(current, cutoff, copy.deepcopy(view))
+            # The v5 release's rule (v5 domestic, v4 for UCL/UEL), pinned so this replay is unchanged by v6.
+            after = tr.prepare(current, cutoff, copy.deepcopy(view), version=tr.VERSION)
             harness_fit = after
             if after['version'] in tr.C6_VERSIONS:
                 shadow_gap = max(abs(a - b) for a, b in zip(hda(after['shadow_v4']), hda(before)))
@@ -136,7 +137,7 @@ def recompute(root, start, end, labels, histories):
                 counts['c6_fits_version:' + after['c6_fit']['fits_version']] += 1
                 fit_h = c6.fit_for(cutoff, c6.HARNESS_FITS)
                 counts['c6_harness_fit_origin:' + fit_h['origin']] += 1
-                harness_fit = tr.prepare(current, cutoff, copy.deepcopy(view), c6_fit=fit_h)
+                harness_fit = tr.prepare(current, cutoff, copy.deepcopy(view), version=tr.VERSION, c6_fit=fit_h)
                 if harness_fit['goal_rates'] != after['goal_rates']:
                     raise AssertionError('the fit changed the goal rates')
             b, a, h = hda(before), hda(after), hda(harness_fit)

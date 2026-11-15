@@ -17,11 +17,12 @@ import pandas as pd
 
 import historical_benchmark as hb
 from score_probability import valid_matrix, score_grid
-from team_research import (C6_VERSIONS, V4_VERSION, VERSION as RESEARCH_VERSION, decode, form_history, prepare,
-                           utc)
+from team_research import (C6_VERSIONS, CE3N_VERSION, V4_VERSION, VERSION as RESEARCH_VERSION, decode, form_history,
+                           prepare, utc)
 # Frozen research versions the live replay rebuilds: v4 on its independent grid, v5 on C6's grid under the
-# fit frozen in the forecast. Older versions stay unavailable (gaps), as before v5.
-REPLAYED_VERSIONS = (V4_VERSION, RESEARCH_VERSION)
+# fit frozen in the forecast, v6 (UCL/UEL) on the independent grid of its frozen CE3n goal rates. Older
+# versions stay unavailable (gaps), as before v5.
+REPLAYED_VERSIONS = (V4_VERSION, RESEARCH_VERSION, CE3N_VERSION)
 
 VERSION = 'research-comparison-v1'
 CANDIDATES = {'A': 'published-grid-v1', 'B': 'pinnacle-uncorrected-fit-B-v1',

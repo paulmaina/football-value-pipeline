@@ -27,17 +27,29 @@ VERSION = 'team-form-research-v5'
 # origin, holdout period included (research_low_score_sharpen.FITS, refreshed
 # every second Monday; it differs from the harness's tested, holdout-free fit by
 # design), frozen in each forecast as 'c6_fit'. Released by Paul's decision of 14 Nov 2026 without
-# holdout proof (docs/plan.md, Decisions). UCL and UEL forecasts stay v4 (a
-# separate release handles Europe), and every v5 forecast also carries v4's
-# probabilities on the same inputs ('shadow_v4') for the rollback comparison.
+# holdout proof (docs/plan.md, Decisions). v5 is the live rule for domestic
+# leagues only; every v5 forecast also carries v4's probabilities on the same
+# inputs ('shadow_v4') for the rollback comparison.
 # v4 records the ESPN competition of each result and leaves friendlies out of
-# the form (is_friendly) on an independent Poisson grid; it is the live rule for
-# UCL and UEL and the shadow for domestic forecasts.
+# the form (is_friendly) on an independent Poisson grid; it is the shadow for
+# domestic and European forecasts (CE: v4 exactly as live ran it for UCL/UEL).
 V4_VERSION = 'team-form-research-v4'
 PREVIOUS_VERSION = V4_VERSION
 # Versions whose domestic score grid is C6 rather than independent Poisson.
 C6_VERSIONS = (VERSION,)
-# Competitions that keep v4 under v5 (the C6 fits are domestic only).
+# v6 is the live rule for UCL and UEL only: candidate CE3n (research_ce3n), v4's
+# goal rates (CE) blended with each team's domestic strength through the walk-
+# forward league-strength factors, exactly as the harness declared it on the
+# European holdout (not proven there), with the factors and strengths refitted on
+# every result known before each fold origin, holdout periods included
+# (research_ce3n.FITS, refreshed every second Monday; differs from the harness's
+# tested fit by design), frozen in each forecast as 'ce3n_fit'. Released by
+# Paul's decision of 14 Nov 2026 without holdout proof (docs/plan.md, Decisions,
+# "European value picks"). Every v6 forecast carries CE (v4 on the same inputs)
+# as 'shadow_v4' for the rollback comparison. Domestic leagues stay v5.
+CE3N_VERSION = 'team-form-research-v6'
+CE3N_VERSIONS = (CE3N_VERSION,)
+# Competitions priced by v6 (CE3n) and never by v5 (the C6 fits are domestic only).
 EUROPEAN_COMPETITIONS = frozenset({'UEFA Champions League', 'UEFA Europa League'})
 # v3 kept every completed ESPN game in the last-ten form, club friendlies
 # included (most of them international-break friendlies, which aren't
@@ -101,7 +113,7 @@ TTL_HOURS = 3
 SCHEMA_VERSION = 'value-model-inputs-v1'
 INPUT_SCHEMA = {
     # Identity and timing.
-    'league': 'competition identity: picks the score grid (C6 for domestic leagues from v5, v4 for UCL/UEL)',
+    'league': 'competition identity: picks the score grid (C6 for domestic leagues from v5, CE3n for UCL/UEL from v6)',
     'home_team': 'team identity',
     'away_team': 'team identity',
     'kickoff_utc': 'kickoff time, for rest and travel context only',
@@ -555,29 +567,63 @@ def collect_fixture(row, client):
     return evidence
 
 
+RESEARCH_CONFIG = Path(__file__).with_name('research_config.json')
+# The live-version switch per scope (research_config.json): rolling back is switching a scope to v4, never
+# reverting a release, so every version's implementation stays and archived forecasts replay exactly.
+LIVE_CHOICES = {'domestic': {'v5': VERSION, 'v4': V4_VERSION},
+                'european': {'v6': CE3N_VERSION, 'v4': V4_VERSION}}
+
+
+@lru_cache(maxsize=4)
+def _live_switch(path: str, mtime: float) -> tuple:
+    data = json.loads(Path(path).read_text(encoding='utf-8'))
+    live = data.get('live') if isinstance(data, dict) else None
+    if not isinstance(live, dict) or set(live) != set(LIVE_CHOICES) or any(
+            live[scope] not in choices for scope, choices in LIVE_CHOICES.items()):
+        raise ValueError('research_config.json: live must give domestic "v5" or "v4" and european "v6" or "v4"')
+    return tuple((scope, LIVE_CHOICES[scope][live[scope]]) for scope in sorted(LIVE_CHOICES))
+
+
+def configured_live(path=None) -> dict:
+    """{'domestic': version, 'european': version}: the research versions new forecasts use (research_config.json)."""
+    path = Path(path or RESEARCH_CONFIG)
+    return dict(_live_switch(str(path), path.stat().st_mtime))
+
+
 def research_version(league, version=None):
     """The research version a forecast of this competition is made (or replayed) under.
 
-    No version: the live rule, v5, except for UCL and UEL, which stay v4. A v5 replay of a
-    UCL/UEL row is v4 too, so a version stamp always names the grid the forecast used.
+    No version: the live rule, as research_config.json's switch sets it per scope (v5 or v4 for
+    domestic leagues, v6 (CE3n) or v4 for UCL and UEL). A v5 replay of a UCL/UEL row is v4 (as v5
+    made it) and a v6 replay of a domestic row is v5, so a version stamp always names the grid the
+    forecast used. A frozen forecast always replays under its own version, whatever the switch says.
     """
-    version = VERSION if version is None else version
-    if version in C6_VERSIONS and str(league) in EUROPEAN_COMPETITIONS:
+    european = str(league) in EUROPEAN_COMPETITIONS
+    if version is None:
+        return configured_live()['european' if european else 'domestic']
+    if version in C6_VERSIONS and european:
         return V4_VERSION
+    if version in CE3N_VERSIONS and not european:
+        return VERSION
     return version
 
 
-def prepare(row, cutoff, evidence=None, version=None, c6_fit=None):
+def prepare(row, cutoff, evidence=None, version=None, c6_fit=None, ce3n_fit=None):
     """One replayable context and goal model. Prior shrinks ten-game form to the fitted team rates.
 
     `version` is for replaying a frozen forecast under the rules it was made with (see form_rows):
     v3 reads each side's training-history name from research_history_json['teams']. Without one the
-    live rule applies (research_version: v5, UCL/UEL v4).
+    live rule applies (research_version: v5, UCL/UEL v6).
 
     v5 prices the goal rates on C6's grid (research_low_score_sharpen) with `c6_fit`, the fit frozen
     in the forecast (team_research_json['c6_fit']); without it, the fit file's window for the cutoff
     day (research_low_score_sharpen.fit_for). It also records v4's probabilities on the same goal
     rates as 'shadow_v4'. The goal rates and form are v4's in both.
+
+    v6 (UCL/UEL) blends v4's goal rates (CE) with both teams' domestic strengths (research_ce3n) under
+    `ce3n_fit`, the fit frozen in the forecast (team_research_json['ce3n_fit']); without it, the fit
+    file's window for the cutoff day (research_ce3n.fit_for). 'goal_rates' are then CE3n's, CE's are
+    kept in 'ce3n' and in 'shadow_v4' (v4 on the same inputs, for the rollback comparison).
 
     Enforces the value model input schema: the row is projected onto
     INPUT_SCHEMA and the numbers read only research_evidence(evidence), so no
@@ -661,6 +707,10 @@ def prepare(row, cutoff, evidence=None, version=None, c6_fit=None):
         if version in C6_VERSIONS:
             context['shadow_v4'] = {'version': V4_VERSION, 'grid': 'independent Poisson (C)', **grid_outputs(matrix)}
             matrix = c6_matrix(rates, cutoff, c6_fit, context, warnings)
+        elif version in CE3N_VERSIONS:
+            context['shadow_v4'] = {'version': V4_VERSION, 'grid': 'independent Poisson (CE)',
+                                    'goal_rates': list(rates), **grid_outputs(matrix)}
+            matrix = ce3n_matrix(row, cached, rates, cutoff, ce3n_fit, context, warnings)
         if matrix is not None:
             context.update(grid_outputs(matrix))
     else:
@@ -699,6 +749,47 @@ def c6_matrix(rates, cutoff, fit, context, warnings):
     except (ValueError, TypeError, KeyError) as exc:
         warnings.append(f'C6 grid invalid ({exc}); no research probabilities')
         return None
+
+
+def ce3n_matrix(row, history, rates, cutoff, fit, context, warnings):
+    """v6's grid: CE3n's goal rates (CE's blended with both teams' domestic strengths) under the frozen fit (or
+    the fit file's window for the cutoff), on the independent Poisson grid.
+
+    Records the fit in context['ce3n_fit'], CE's and the domestic goal rates in context['ce3n'], and sets
+    context['goal_rates'] to CE3n's. A side without a reviewed domestic identity or strength, or unfitted
+    factors, leaves CE exactly (as in the harness). No fit, or an invalid grid, leaves the forecast without
+    research probabilities (warned), never silently on another grid."""
+    import research_ce3n as ce3n
+    if fit is None:
+        teams = history.get('teams') if isinstance(history.get('teams'), dict) else {}
+        try:
+            fit = ce3n.fit_for(cutoff, row.get('league'), (row.get('home_team'), teams.get('home')),
+                               (row.get('away_team'), teams.get('away')))
+        except (OSError, ValueError, KeyError) as exc:
+            warnings.append(f'CE3n fit file unavailable ({type(exc).__name__}); no research probabilities')
+            return None
+    if fit is None:
+        warnings.append('no CE3n fit window on or before the research cutoff; no research probabilities')
+        return None
+    context['ce3n_fit'] = dict(fit)
+    if fit.get('stale'):
+        warnings.append(f"CE3n fit is stale (fortnightly refresh missed): using the window from {fit['origin']}, "
+                        f"the window for this day opened {fit['expected_origin']}")
+    try:
+        blended, domestic = ce3n.live_rates(rates, fit)
+        matrix = ce3n.live_grid(blended)
+    except (ValueError, TypeError, KeyError) as exc:
+        warnings.append(f'CE3n grid invalid ({exc}); no research probabilities')
+        return None
+    context['ce3n'] = {'ce_goal_rates': [float(v) for v in rates], 'domestic_goal_rates': domestic,
+                       'domestic_used': domestic is not None}
+    if domestic is None:
+        missing = [side for side in ('home', 'away') if (fit.get(side) or {}).get('strength') is None]
+        reason = (f"no domestic strength for {' and '.join(missing)} team" if missing
+                  else f"league factors {fit['factors'].get('status')}")
+        warnings.append(f'CE3n equals CE for this match: {reason}')
+    context['goal_rates'] = list(blended)
+    return matrix
 
 
 def research_grid(goal_rates):

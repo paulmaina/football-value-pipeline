@@ -4585,6 +4585,15 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     # Other policies: no master list, and any copy seeded from an earlier run is removed.
     from master_shortlist import refresh as refresh_master
     refresh_master(decisions, out_dir, selection_summary, all_predictions)
+    # Research v6 (CE3n) post-release check on runs with UCL fixtures (research_live_check): reporting only.
+    try:
+        from research_live_check import run_check as ucl_live_check
+        ucl_check = ucl_live_check(all_predictions, out_dir)
+        if ucl_check.get('ucl_fixtures'):
+            selection_summary['ce3n_ucl_live_check'] = ucl_check
+    except Exception as exc:  # a reporting check must never break or alter the run
+        warnings.warn(f'CE3n UCL live check unavailable ({type(exc).__name__}: {exc}); run complete')
+        selection_summary['ce3n_ucl_live_check'] = {'status': 'error', 'error': f'{type(exc).__name__}: {exc}'}
     # Correction monitoring: one record per fixture from the correction just computed (evidence only).
     record_monitoring(selection_summary, monitoring, out_dir)
     try:

@@ -1,0 +1,21 @@
+{
+ "check": "scripts/build_research_ce3n_fits.py --leave-out-holdout --end 2026-11-09 against research_ce3n_fits.json",
+ "windows_compared": 299,
+ "windows_identical": 299,
+ "identities_identical": true,
+ "european_results": [
+  2356,
+  2356
+ ],
+ "factor_rows_with_both_strengths": [
+  932,
+  932
+ ],
+ "harness_check_of_tested_file": {
+  "harness_windows_compared": 119,
+  "factor_max_abs_diff": 0.0,
+  "factor_rows_compared": 2356,
+  "strength_max_abs_diff": 0.0
+ },
+ "note": "Factor records compared in the harness representation (unfitted windows carry s, c, h as null); the check build was made before the builder wrote that representation itself."
+}
