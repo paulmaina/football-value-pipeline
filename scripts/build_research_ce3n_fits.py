@@ -465,9 +465,7 @@ def main(argv=None):
         upcoming = origin + pd.Timedelta(days=int(cfg['european']['step_days']))
         text = f'Not a CE3n fit day: the current window opened {origin.date()}; next refresh {upcoming.date()}.'
         c6b.write_summary([text])
-        if args.publish:  # the scheduled workflow: every run is logged (model_activity.py)
-            ma.record_refit(REPO, ma.refit_event('CE3n', ma.NOT_FIT_DAY, origin=origin.date().isoformat(), reason=text),
-                            f'Log the CE3n refit check of {today.date()} (not a fit day) [skip ci]')
+        # Not a fit day: nothing is built, logged or committed (model_activity logs real outcomes only).
         return 0
     try:
         return _refresh(args, cfg, origin)
