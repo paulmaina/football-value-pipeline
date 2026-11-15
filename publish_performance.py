@@ -12,7 +12,8 @@ import tempfile
 from pathlib import Path
 
 SNAPSHOTS = Path("football_output_v2/performance/snapshots")
-OUTPUTS = ("football_output_v2/performance", "football_output_v2/readable/football_performance_report.xlsx")
+OUTPUTS = ("football_output_v2/performance", "football_output_v2/readable/football_performance_report.xlsx",
+           "football_output_v2/model_activity")
 
 
 def git(repo: Path, *args: str, check: bool = True) -> subprocess.CompletedProcess:

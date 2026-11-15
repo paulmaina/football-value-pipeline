@@ -361,8 +361,10 @@ def factor_change(a, b) -> float:
     return max(abs(a[k][x] - b[k][x]) for k in ('s', 'c', 'h') for x in a[k])
 
 
-def publish(repo, built: Path, target: Path, origin: str, attempts=3):
-    """Commit the validated file on latest main as the C6 refresh does (no rebase or force-push)."""
+def publish(repo, built: Path, target: Path, origin: str, attempts=3, activity=None):
+    """Commit the validated file on latest main as the C6 refresh does (no rebase or force-push), with the model
+    activity line `activity(previous file or None)` when given (model_activity.py)."""
+    import model_activity
     import research_ce3n as ce3n
     repo = Path(repo).resolve()
     relative = Path(target).resolve().relative_to(repo)
@@ -376,13 +378,17 @@ def publish(repo, built: Path, target: Path, origin: str, attempts=3):
             git(repo, 'worktree', 'add', '--detach', str(work), base)
             try:
                 current = work / relative
-                validate(new, json.loads(current.read_text(encoding='utf-8')) if current.exists() else None, origin)
+                before = json.loads(current.read_text(encoding='utf-8')) if current.exists() else None
+                validate(new, before, origin)
                 shutil.copyfile(built, current)
                 ce3n.load_fits(current)
                 git(work, 'add', '--', relative.as_posix())
                 if git(work, 'diff', '--cached', '--quiet', check=False).returncode == 0:
                     print('Live CE3n fits unchanged on main.')
                     return False
+                if activity is not None:
+                    model_activity.append(work / model_activity.LOG, [activity(before)])
+                    git(work, 'add', '--', model_activity.LOG.as_posix())
                 git(work, '-c', 'user.name=github-actions[bot]', '-c',
                     'user.email=41898282+github-actions[bot]@users.noreply.github.com',
                     'commit', '-m', f'Refresh live CE3n research fits to the {origin} window [skip ci]')
@@ -418,6 +424,7 @@ def summary_lines(report, data, origin):
 
 def main(argv=None):
     import evaluation_harness as eh
+    import model_activity as ma
     import research_ce3n as ce3n
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument('--basis', choices=('live', 'harness'), default='live')
@@ -456,8 +463,27 @@ def main(argv=None):
     origin = ce3n.expected_origin(today, european_fold_rule(cfg))
     if args.scheduled and origin != today:
         upcoming = origin + pd.Timedelta(days=int(cfg['european']['step_days']))
-        c6b.write_summary([f'Not a CE3n fit day: the current window opened {origin.date()}; next refresh {upcoming.date()}.'])
+        text = f'Not a CE3n fit day: the current window opened {origin.date()}; next refresh {upcoming.date()}.'
+        c6b.write_summary([text])
+        if args.publish:  # the scheduled workflow: every run is logged (model_activity.py)
+            ma.record_refit(REPO, ma.refit_event('CE3n', ma.NOT_FIT_DAY, origin=origin.date().isoformat(), reason=text),
+                            f'Log the CE3n refit check of {today.date()} (not a fit day) [skip ci]')
         return 0
+    try:
+        return _refresh(args, cfg, origin)
+    except Exception as exc:
+        if args.publish:
+            outcome, reason = ma.classify_failure(exc)
+            ma.record_refit(REPO, ma.refit_event('CE3n', outcome, origin=origin.date().isoformat(), reason=reason,
+                                                 previous=ma.committed(ce3n.FITS)),
+                            f'Log the CE3n refit of the {origin.date()} window ({outcome.lower()}) [skip ci]')
+        raise
+
+
+def _refresh(args, cfg, origin):
+    """Build, validate and write or publish the live CE3n fit for the window opening at `origin`."""
+    import model_activity as ma
+    import research_ce3n as ce3n
     end = args.end or (origin + pd.Timedelta(days=int(cfg['european']['step_days']))).date().isoformat()
     cfg['european']['end_exclusive'] = cfg['end_exclusive'] = end
     cfg['seasons'] = c6b.live_seasons(args.cache, cfg)
@@ -478,7 +504,15 @@ def main(argv=None):
         with tempfile.TemporaryDirectory(prefix='ce3n-fits-') as temporary:
             built = Path(temporary) / ce3n.FITS.name
             built.write_text(json.dumps(data, indent=1) + '\n', encoding='utf-8')
-            changed = publish(REPO, built, ce3n.FITS, origin.date().isoformat())
+            changed = publish(REPO, built, ce3n.FITS, origin.date().isoformat(),
+                              activity=lambda before: ma.refit_event('CE3n', ma.PUBLISHED,
+                                                                     origin=origin.date().isoformat(), previous=before,
+                                                                     new=data, built=data['built_with']))
+        if not changed:
+            ma.record_refit(REPO, ma.refit_event('CE3n', ma.SKIPPED, origin=origin.date().isoformat(),
+                                                 reason='unchanged on main (this window is already published)',
+                                                 previous=data, new=data),
+                            f'Log the CE3n refit of the {origin.date()} window (unchanged) [skip ci]')
         c6b.write_summary(summary_lines(report, data, origin.date()) +
                           [f"- {'Committed to main' if changed else 'Unchanged on main; nothing committed'}"])
     else:
