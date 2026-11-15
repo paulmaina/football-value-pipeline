@@ -20,7 +20,7 @@ except ImportError:  # pragma: no cover - CI installs the dev requirements
     openpyxl = None
 
 SHEETS = ['Dashboard', 'Picks & Results', 'Weekly Trends', 'Breakdowns', 'Calibration', 'CLV', 'Model Monitoring',
-          'Guide']
+          'Model Activity', 'Guide']
 PICKS = ['Kickoff (EAT)', 'Match', 'List', 'League', 'Bet', 'Price', 'Tier', 'Predicted no-loss', 'Chance of profit',
          'Labels and flags', 'Score', 'Result', 'Return (units)', 'CLV', 'Also on the other list']
 SLOPES = lambda n, home=None: {'graded_matches': n, 'domestic_used': 0, 'note': 'reported, not a trigger',
@@ -119,7 +119,7 @@ class LayoutTests(ReportCase):
         self.assertNotIn('Old FC v Before United', [r['Match'] for r in rows])
         self.assertEqual(len(rows), 6 + 3)
         for sheet in SHEETS[:-1]:
-            if sheet != 'Model Monitoring':
+            if sheet not in ('Model Monitoring', 'Model Activity'):
                 self.assertIn('Master tracking from Mon 16 Nov 2026 12:00 EAT', self.book['cells'][sheet]['A2'], sheet)
 
     def test_headline_figures_side_by_side(self):
