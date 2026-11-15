@@ -1,0 +1,29 @@
+{
+  "source": "origin/main at ebba9d8 (14 Nov 2026, after PR #173 and #174 merged), before the master release: the master outputs written by master_shortlist.refresh with the production quote policy (shortlist_quote_policy.json). The files themselves are in tests/fixtures/master_release_pre_release/<case>/ (LF line endings), with run_summary_master_shortlist.json = run_summary[\"master_shortlist\"]; the digests here are sha256 of those LF files and match the raw Windows output of main once CRLF is normalised. Compared by tests/master_golden.py (platform-independent; byte digests of these outputs depend on the CPU's BLAS kernels and on line endings).",
+  "frozen_forecast": {
+    "inputs": "tests/fixtures/frozen_forecast_row.json through tests/test_master_reconciliation.production_run",
+    "master_shortlist.csv": "e594b3f5a300b63be383525c88a3d52ec968e047bbc439b973dd6c6854e3c333",
+    "master_shortlist_audit.csv": "b9e1f3a2760d9ef560fb2555a9f710569dde9ce58e72e9e678916572a0ff2116",
+    "master_shortlist_new.csv": "7a73139be266e1fe7a531171c36bc40d78d17da5635d3b4d03333b1a44c0f6cf",
+    "master_shortlist_new_summary.json": "893b8b3df36907064501d40f33f76d31b672a86e6003922566776e2443aaeaaf",
+    "files": [
+      "master_shortlist.csv",
+      "master_shortlist_audit.csv",
+      "master_shortlist_new.csv",
+      "master_shortlist_new_summary.json"
+    ]
+  },
+  "snapshot_a00d5e530cc2e80e": {
+    "inputs": "football_output_v2/performance/snapshots/a00d5e530cc2e80e (5 Nov 2026 13:37 UTC; new master 15 picks, safe 13, fill 2) rebuilt as scripts/master_reconciliation_replay.py does",
+    "master_shortlist.csv": "c77e95cc088ce22a4e5402c1af8c7665162173ed7b5edd81dfc3b5074b67f6ce",
+    "master_shortlist_audit.csv": "9717ce78b4762c45c3a42775ec5d54615b134ef14d4c40b21c85db541d90c340",
+    "master_shortlist_new.csv": "bb20cff648230adff7ba6bb5c96e49fae3a00a9552acb61e66e49d595c4ac6a2",
+    "master_shortlist_new_summary.json": "2215b36e8388a9ca61725d6ffe8bc5db9bf6ddb9870254759fd1c0333fa4d526",
+    "files": [
+      "master_shortlist.csv",
+      "master_shortlist_audit.csv",
+      "master_shortlist_new.csv",
+      "master_shortlist_new_summary.json"
+    ]
+  }
+}

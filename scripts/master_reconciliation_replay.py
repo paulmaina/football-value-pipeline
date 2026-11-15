@@ -30,7 +30,11 @@ ROOT = Path(__file__).resolve().parents[1]
 SNAPSHOTS = Path('football_output_v2') / 'performance' / 'snapshots'
 # decisions.csv: the run's decision rows after the master refresh, i.e. every live probability and both lists' picks
 # (value shortlist and cagey tier), so the comparison also shows the cagey tier untouched.
-LIVE_FILES = ('master_shortlist.csv', 'master_shortlist_audit.csv', 'master_summary.json', 'decisions.csv')
+LIVE_FILES = ('master_shortlist.csv', 'master_shortlist_audit.csv', 'master_summary.json', 'decisions.csv',
+              # the shadow new master, and (absent before the release) the release's files: under live "old" the
+              # branch must write exactly main's files and nothing else
+              'master_shortlist_new.csv', 'master_shortlist_new_summary.json', 'master_shortlist_old.csv',
+              'master_shortlist_old_audit.csv', 'master_shortlist_summary.json', 'master_old_summary.json')
 
 
 def runs(root: Path, start: str, end: str):
@@ -72,6 +76,10 @@ def replay(root: Path, output: Path, start: str, end: str) -> dict:
             (target / 'master_summary.json').write_text(
                 json.dumps(summary.get('master_shortlist'), indent=2, sort_keys=True, default=str) + '\n',
                 encoding='utf-8')
+            if summary.get('master_shortlist_old') is not None:  # since the release: the old master, in shadow
+                (target / 'master_old_summary.json').write_text(
+                    json.dumps(summary['master_shortlist_old'], indent=2, sort_keys=True, default=str) + '\n',
+                    encoding='utf-8')
             entry.update(status='ok', decisions=int(len(decisions)),
                          value_shortlisted=int(decisions.decision.eq('SHORTLISTED').sum()),
                          cagey_shortlisted=int(decisions.get('cagey_tier_decision', pd.Series(dtype=object))
@@ -184,6 +192,108 @@ def compare(main: Path, branch: Path) -> dict:
     return result
 
 
+# The release (14 Nov 2026): branch file under live "new" -> the main (pre-release) file it must equal byte for byte,
+# apart from the file name and the version field (new_master_version in the CSV; version, status and note in the new
+# master's summary, which said "shadow only" before).
+RELEASE_PAIRS = (('master_shortlist.csv', 'master_shortlist_new.csv'),
+                 ('master_shortlist_summary.json', 'master_shortlist_new_summary.json'),
+                 ('master_shortlist_old.csv', 'master_shortlist.csv'),
+                 ('master_shortlist_old_audit.csv', 'master_shortlist_audit.csv'),
+                 ('master_old_summary.json', 'master_summary.json'),
+                 ('decisions.csv', 'decisions.csv'))
+
+
+def _shadow_names(value, names):
+    if isinstance(value, dict):
+        return {names.get(k, k): _shadow_names(v, names) for k, v in value.items() if k != 'detail'}
+    if isinstance(value, list):
+        return [_shadow_names(v, names) for v in value]
+    return value
+
+
+def _normalised(path: Path, live_version: str, rule_version: str, released: bool) -> bytes:
+    """A file in the shadow period's terms, for comparing the release with main's replay on one machine.
+
+    The released live master_shortlist.csv (`released`): overlap columns back to their shadow names, only the rule's
+    columns (no inspection columns), the rule version, as CSV text. Main's shadow master_shortlist_new.csv: in the live
+    file's platform-stable row order (master_reconciliation.stable_order), as CSV text. The new master's summaries:
+    without version, status and note (and the live summary's inspection details), keys under the shadow names. Every
+    other file: its bytes."""
+    import master_reconciliation as mr
+    import master_shortlist
+    data = path.read_bytes()
+    names = {live: shadow for shadow, live in master_shortlist.SUMMARY_RENAMES.items()}
+    if path.name in ('master_shortlist.csv', 'master_shortlist_new.csv') and (released or path.name.endswith('_new.csv')):
+        frame = pd.read_csv(path, low_memory=False, float_precision='round_trip')
+        if released:
+            frame = frame.rename(columns=names)[list(mr.COLUMNS)]
+            frame['new_master_version'] = frame['new_master_version'].replace(live_version, rule_version)
+        else:
+            frame = mr.stable_order(frame)
+        return frame.to_csv(index=False, lineterminator='\n').encode()
+    if path.name in ('master_shortlist_summary.json', 'master_shortlist_new_summary.json'):
+        info = _shadow_names(json.loads(data), names)
+        for key in ('version', 'status', 'note'):
+            info.pop(key)
+        return json.dumps(info, indent=2, default=str).encode()
+    return data
+
+
+def release_compare(main: Path, branch: Path) -> dict:
+    """Main's replay (pre-release) against the branch's under live "new", file by file through RELEASE_PAIRS (see
+    _normalised: the live file against main's shadow file in the shadow-period terms and the stable row order); also
+    checks the run summary's live master is the new master's summary file, counts the runs whose rows the stable order
+    moved and the flagged picks carrying inspection details."""
+    sys.path.insert(0, str(ROOT))
+    import master_reconciliation as mr
+    import master_shortlist
+    left = json.loads((main / 'replay.json').read_text(encoding='utf-8'))
+    right = json.loads((branch / 'replay.json').read_text(encoding='utf-8'))
+    a, b = {r['snapshot']: r for r in left['runs']}, {r['snapshot']: r for r in right['runs']}
+    result = {'runs_main': len(a), 'runs_branch': len(b), 'same_runs': sorted(a) == sorted(b), 'pairs': RELEASE_PAIRS,
+              'compared_files': 0, 'differences': [], 'runs_ok': 0, 'runs_reordered_by_stable_order': [],
+              'inspection_detail_rows': 0, 'flagged_picks': 0}
+    for name in sorted(set(a) & set(b)):
+        if not (a[name].get('status') == b[name].get('status') == 'ok'):
+            result['differences'].append({'snapshot': name, 'status': [a[name].get('status'), b[name].get('status')]})
+            continue
+        result['runs_ok'] += 1
+        for mine, theirs in RELEASE_PAIRS:
+            ours, base = branch / 'runs' / name / mine, main / 'runs' / name / theirs
+            result['compared_files'] += 1
+            if not (ours.exists() and base.exists()) or (
+                    _normalised(ours, master_shortlist.VERSION_NEW_LIVE, mr.VERSION, mine == 'master_shortlist.csv')
+                    != _normalised(base, master_shortlist.VERSION_NEW_LIVE, mr.VERSION, False)):
+                result['differences'].append({'snapshot': name, 'file': [mine, theirs]})
+        live = json.loads((branch / 'runs' / name / 'master_summary.json').read_text(encoding='utf-8'))
+        written = json.loads((branch / 'runs' / name / 'master_shortlist_summary.json').read_text(encoding='utf-8'))
+        if live != written or live.get('version') != master_shortlist.VERSION_NEW_LIVE:
+            result['differences'].append({'snapshot': name, 'file': 'run summary master_shortlist'})
+        new = pd.read_csv(branch / 'runs' / name / 'master_shortlist.csv', dtype=str, keep_default_na=False)
+        shadow = pd.read_csv(main / 'runs' / name / 'master_shortlist_new.csv', low_memory=False)
+        if list(new.columns) != master_shortlist.live_columns():
+            result['differences'].append({'snapshot': name, 'file': 'live columns'})
+        if set(new.get('new_master_version', [])) - {master_shortlist.VERSION_NEW_LIVE}:
+            result['differences'].append({'snapshot': name, 'file': 'version field'})
+        if len(shadow) and list(mr.stable_order(shadow.assign(_i=range(len(shadow))))['_i']) != list(range(len(shadow))):
+            result['runs_reordered_by_stable_order'].append(name)
+        result['inspection_detail_rows'] += int(new.get('inspection_summary', pd.Series(dtype=str)).ne('').sum())
+        result['flagged_picks'] += int((new.get('new_master_decision', pd.Series(dtype=str)).eq('SHORTLISTED')
+                                        & new.get('inspection_flag', pd.Series(dtype=str)).eq('True')).sum())
+    result['identical_in_shadow_terms'] = result['same_runs'] and not result['differences']
+    return result
+
+
+def _switched_config(live: str, directory: Path) -> Path:
+    """A copy of master_shortlist_config.json with only the `live` switch changed."""
+    import master_shortlist
+    config = json.loads(master_shortlist.CONFIG.read_text(encoding='utf-8'))
+    config['live'] = live
+    path = directory / 'master_shortlist_config.json'
+    path.write_text(json.dumps(config, indent=2) + '\n', encoding='utf-8')
+    return path
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument('--root', type=Path, default=ROOT, help='repository whose code and snapshots are replayed')
@@ -191,12 +301,25 @@ def main(argv=None):
     parser.add_argument('--start', default='2026-10-27')
     parser.add_argument('--end', default='2026-11-09', help='exclusive')
     parser.add_argument('--compare', nargs=2, type=Path, metavar=('MAIN', 'BRANCH'))
+    parser.add_argument('--release-compare', nargs=2, type=Path, metavar=('MAIN', 'BRANCH'),
+                        help='main (pre-release) against the branch replayed with live "new"')
+    parser.add_argument('--live', choices=('new', 'old'),
+                        help='replay with master_shortlist_config.json\'s live switch set to this (a copy of the '
+                             'config with only that field changed); default: the config as committed')
     args = parser.parse_args(argv)
     if args.compare:
         result = compare(*args.compare)
         print(json.dumps(result, indent=2))
         return 0 if result['byte_identical'] else 1
+    if args.release_compare:
+        result = release_compare(*args.release_compare)
+        print(json.dumps(result, indent=2))
+        return 0 if result['byte_identical_apart_from_names_and_version'] else 1
     args.output.mkdir(parents=True, exist_ok=True)
+    if args.live:
+        sys.path.insert(0, str(args.root.resolve()))
+        import master_shortlist
+        master_shortlist.CONFIG = _switched_config(args.live, args.output)
     report = replay(args.root.resolve(), args.output, args.start, args.end)
     print(json.dumps({r['snapshot']: r['status'] for r in report['runs']}, indent=2))
     return 0
