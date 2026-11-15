@@ -68,7 +68,7 @@ class AdaptiveWeightTests(OfflineQuotePolicyTestCase):
 
     def test_legacy_and_adaptive_captures_keep_separate_first_preoff_cohorts(self):
         from performance_excel import write_workbook
-        from performance_report_layout import get_sheet, text, q
+        from excel_book import read_workbook
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             raw, data, frame, _, _, summary = setup(root)
@@ -104,8 +104,9 @@ class AdaptiveWeightTests(OfflineQuotePolicyTestCase):
             self.assertIn('Calibration gap', report)
             self.assertIn('Adaptive evidence', report)
             workbook = write_workbook(root, [], [], {})
-            with ZipFile(workbook) as z: parts = {n:z.read(n) for n in z.namelist()}
-            displayed = ' '.join(str(text(c) or '') for c in get_sheet(parts, 'Experiments').root.iter(q('c')))
+            book = read_workbook(workbook)
+            displayed = ' '.join(str(v) for cells in book['cells'].values() for v in cells.values())
+            self.assertNotIn('Experiments', book['sheets'])  # removed in the workbook redesign
             # Retired: the archived comparison stays in its own report, not the workbook.
             self.assertNotIn('Legacy v1 fixed weights', displayed)
             self.assertNotIn('Adaptive evidence', displayed)

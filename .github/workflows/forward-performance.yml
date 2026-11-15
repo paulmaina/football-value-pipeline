@@ -41,7 +41,7 @@ on:
       - 'api_key_config.py'
       - 'football_value_pipeline_v2_standalone.py'
       - 'football_value*requirements.txt'
-      - 'assets/performance_report_template.xlsx'
+      - 'excel_book.py'
       - '.github/workflows/forward-performance.yml'
   schedule:
     # Daily at approximately 10:30 EAT; dispatch manually for an earlier review.

@@ -318,14 +318,17 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
         from zipfile import ZipFile
         self.reviewed()
         path=self.root/'readable/football_performance_report.xlsx'
+        from excel_book import read_workbook
+        cell=read_workbook(path)['names']['new_master_picks'].split('!')[1].replace('$','')
         with ZipFile(path) as z:parts={name:z.read(name) for name in z.namelist()}
         text=parts['xl/worksheets/sheet1.xml'].decode()
         import re
-        text=re.sub(r'(<c[^>]*r="B9"[^>]*>.*?<v>)[^<]+',r'\g<1>99',text)
+        text,count=re.subn(rf'(<c r="{cell}"[^>]*><v>)[^<]+',r'\g<1>99',text)
+        self.assertEqual(count,1)
         parts['xl/worksheets/sheet1.xml']=text.encode()
         with ZipFile(path,'w') as z:
             for name,data in parts.items():z.writestr(name,data)
-        with self.assertRaisesRegex(ValueError,'Workbook wins'):report_check(self.root)
+        with self.assertRaisesRegex(ValueError,'Workbook new master picks'):report_check(self.root)
 
     def test_code_only_push_skips_capture_and_initial_data_push_is_supported(self):
         repo=Path(self.tmp.name)/'repo';repo.mkdir()

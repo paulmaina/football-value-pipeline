@@ -38,7 +38,7 @@ inside the 72-hour horizon, freezes every variant for each fixture.
 
 The normal forward review writes `performance/shortlist_policy_experiment/`
 with `summary.json`, `report.md`, `selections.csv` and `candidate_decisions.csv`.
-Excel's Experiments sheet and health/review-queue reports show its progress.
+Health/review-queue reports (and Excel's Experiments sheet until the Nov 2026 redesign) showed its progress.
 It reports counts, probability Brier/log loss, calibration buckets, simulated
 ROI after configured costs, drawdown and league/market/week breakdowns.
 Selected cohorts differ, so their Brier scores are not paired model tests.

@@ -6,12 +6,11 @@ import json
 from pathlib import Path
 import tempfile
 from unittest.mock import patch
-from zipfile import ZipFile
 import pandas as pd
 
 from performance_tracking import capture, snapshots, frozen_rows, review, tracking_key, write_json
 from performance_excel import REPORT_NAME, write_workbook
-from performance_report_layout import get_sheet, q, text
+from excel_book import named_value, read_workbook
 from workflow_checks import report_check
 from test_performance_tracking import fixture, pick, final, T0, KICK, MockSession
 
@@ -68,21 +67,12 @@ class PredictionRunTrackingTests(OfflineQuotePolicyTestCase):
             self.assertEqual(len(history),3)
             self.assertEqual(history.offered_decimal_odds.tolist(),[1.5,3.,1.8])
             self.assertEqual(metrics['shortlist_run_history']['total'],3)
-            with ZipFile(root/'readable'/REPORT_NAME) as z: parts={n:z.read(n) for n in z.namelist()}
-            dashboard=get_sheet(parts,'Dashboard')
-            self.assertEqual(text(dashboard.cell('B7')),2)
-            self.assertAlmostEqual(text(dashboard.cell('B13')),-2.05/2)
-            self.assertIn('Latest-match',text(dashboard.cell('A18')))
-            runs=get_sheet(parts,'Run Tracking')
-            self.assertEqual(text(runs.cell('A8')),2)
-            self.assertEqual(text(runs.cell('I8')),2)
-            sheet=get_sheet(parts,'Selections')
-            self.assertEqual(text(sheet.cell('V5')),'Generated UTC')
-            self.assertEqual(text(sheet.cell('W5')),'Captured UTC')
-            for raw in parts.values():
-                if raw.lstrip().startswith(b'<?xml') and b'<table ' in raw and b'name="SelectionsTable"' in raw:
-                    self.assertIn(b':W7',raw)
-                    self.assertIn(b'count="23"',raw)
+            # The workbook reports the master lists from their release on (no master run here); the run history
+            # stays in shortlist_run_history.csv and the Markdown report.
+            book=read_workbook(root/'readable'/REPORT_NAME)
+            self.assertNotIn('Run Tracking',book['sheets'])
+            self.assertIn('has not started yet',named_value(book,'master_tracking_start'))
+            self.assertEqual(named_value(book,'new_master_picks'),0)
             report=(root/'performance/README.md').read_text()
             self.assertIn('Latest selections by prediction run',report)
             self.assertIn('First-prediction reference',report)
