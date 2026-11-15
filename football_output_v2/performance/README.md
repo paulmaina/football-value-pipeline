@@ -13,6 +13,22 @@ Earlier predictions remain in shortlist_run_history.csv and the Run Tracking tab
 history rows are correlated records and are excluded from main win-rate/ROI totals.
 Whole-fixture model metrics and research experiments retain their unique-fixture cohorts.
 
+## Research v5 (C6) rollback check
+
+Released on 14 Nov 2026 without holdout proof (Paul's exception). After at least 150 graded matches across at least 3 weeks, roll back research v5 if its research log loss on AH all lines minus v4's, on the same frozen inputs, matches and offers, has a week-resampled 95% interval entirely above zero.
+
+| Graded matches | Weeks | v5 − v4 log loss (AH all) | 95% interval | Status |
+|---|---|---|---|---|
+| 0 | 0 | — | — | not yet eligible (needs 150 matches and 3 weeks) |
+
+## Home favourites in Eredivisie, Primeira Liga and Süper Lig (v5 value picks)
+
+C6 was too confident on these leagues' home sides in the holdout (home slope 0.79). Value-shortlist picks backing the home side when the v5 research makes it favourite; latest pre-kickoff pick per match.
+
+| League | Matches | Picks | Graded | v5 predicted home win | v4 on the same forecasts | Actual home win |
+|---|---|---|---|---|---|---|
+| All three | 0 | 0 | 0 | — | — | — |
+
 ## Cumulative shortlist — latest prediction per match
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
