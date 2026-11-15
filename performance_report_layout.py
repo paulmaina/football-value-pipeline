@@ -339,8 +339,8 @@ def release_status(root: Path, key: str, state: Optional[str] = None, missing: s
     if figures.get('eligible'):
         return f"{spec['live']} - not triggered"
     need_matches, need_weeks = research_minimum(key)
-    return (f"{spec['live']} - not yet eligible ({matches} of {need_matches} graded matches, "
-            f"{weeks} of {need_weeks} weeks)")
+    from model_activity import minimum_progress
+    return f"{spec['live']} - not yet eligible ({minimum_progress(matches, need_matches, weeks, need_weeks)})"
 
 
 def master_status(root: Path, rollback: dict) -> str:
@@ -564,9 +564,10 @@ def dashboard(book: xb.Book, ctx: Context) -> None:
     table = s.table(row + 1, ['Item', 'Status', 'Detail'], activity_summary(ctx), ['text', 'text', 'wrap'],
                     widths={'Item': 40, 'Status': 30, 'Detail': 70}, bold_first=True)
     status_rules(s, table.column_range('Status'))
-    activity_rules(s, table.column_range('Status'))
+    assessed_rules(s, table.column_range('Status'))
     for name, offset in (('last_c6_refit', 1), ('last_ce3n_refit', 2), ('stale_fit_warning', 3),
-                         ('switch_settings', 8), ('last_switch_change', 9)):
+                         ('competition_warnings', 7), ('ucl_live_check', 8), ('switch_settings', 9),
+                         ('last_switch_change', 10)):
         book.define(name, s, table.top + offset, table.left + 1)
     s.note(table.bottom + 1, 'From model_activity/activity_log.jsonl (every event is in the Model Activity sheet); '
                              'release statuses from the live switches, as in Rollback status above.', 6)
@@ -585,8 +586,8 @@ def master_rollback_status(rollback: dict) -> str:
     if rollback.get('triggered'):
         return 'ROLLBACK TRIGGERED'
     if status == 'WAITING':
-        return (f"Waiting: {rollback.get('min_graded_matches', 150)} graded matches over "
-                f"{rollback.get('min_weeks', 3)} weeks on each list")
+        from model_activity import master_progress
+        return f'Waiting: {master_progress(rollback)}'
     if status == 'NOT TRIGGERED':
         return 'not triggered'
     return status or 'not recorded'
@@ -1013,14 +1014,38 @@ def monitoring(book: xb.Book, ctx: Context) -> None:
 CE3N_WARNING = 'CE3n COMPETITION WARNING'
 
 
-def competition_rows(ce3n: Optional[dict]) -> List[List[Any]]:
+NOT_ASSESSED = 'not assessed yet'
+
+
+def not_assessed(reason: str) -> str:
+    return f'{NOT_ASSESSED} ({reason})'
+
+
+def competition_state(ce3n: Optional[dict], why: str, code: str) -> Tuple[Optional[bool], str]:
+    """(True: warning / False: checked, none / None: not assessed, the text) for one competition's CE3n check."""
+    if ce3n is None:
+        return None, not_assessed(why)
+    part = (ce3n.get('by_competition') or {}).get(code)
+    if part is None:
+        return None, not_assessed(f'performance/{MONITORING} has no {code} figures yet')
+    if part.get('warning'):
+        return True, f'{CE3N_WARNING} ({code})'
+    if not int(part.get('matches') or 0):
+        return None, not_assessed(f'no graded {code} matches under research v6 yet')
+    if not part.get('interval_95'):
+        return None, not_assessed(f"{part.get('matches')} graded {code} matches; no interval yet (needs two weeks)")
+    return False, f"none ({part.get('matches')} graded {code} matches checked)"
+
+
+def competition_rows(ce3n: Optional[dict], why: str = '') -> List[List[Any]]:
     """One row per competition (UCL, UEL) from research_monitoring's ce3n.by_competition (PR #178)."""
     rows = []
     parts = (ce3n or {}).get('by_competition') or {}
     for code in ('UCL', 'UEL'):
         part = parts.get(code)
+        state = competition_state(ce3n, why or 'no CE3n figures', code)[1]
         if part is None:
-            rows.append([code] + ['not recorded'] * 9)
+            rows.append([code] + ['not recorded'] * 8 + [state])
             continue
         slopes = (part.get('calibration') or {}).get('slopes') or {}
 
@@ -1029,19 +1054,47 @@ def competition_rows(ce3n: Optional[dict]) -> List[List[Any]]:
         rows.append([code, int(part.get('matches') or 0), int(part.get('weeks') or 0),
                      value_or(xb.number(part.get('ce3n_minus_ce_log_loss')), 'not computed yet'),
                      interval_text(part.get('interval_95'), 'log'),
-                     slope('CE3n', 'home'), slope('CE3n', 'away'), slope('CE', 'home'), slope('CE', 'away'),
-                     f'{CE3N_WARNING} ({code})' if part.get('warning') else 'no warning'])
+                     slope('CE3n', 'home'), slope('CE3n', 'away'), slope('CE', 'home'), slope('CE', 'away'), state])
     return rows
 
 
-def ucl_check_rows(check: Optional[dict]) -> List[List[str]]:
+def competition_summary(ce3n: Optional[dict], why: str) -> Tuple[str, str]:
+    """(status, detail) over both competitions: a warning, "none" only when both were checked, else not assessed."""
+    states = {code: competition_state(ce3n, why, code) for code in ('UCL', 'UEL')}
+    detail = '; '.join(f'{code}: {text}' for code, (_, text) in states.items())
+    warned = [code for code, (flag, _) in states.items() if flag]
+    if warned:
+        return ', '.join(f'{CE3N_WARNING} ({c})' for c in warned), detail
+    if all(flag is False for flag, _ in states.values()):
+        return 'none', detail
+    if all(flag is None for flag, _ in states.values()):
+        reasons = {text for _, text in states.values()}
+        return (reasons.pop() if len(reasons) == 1 else NOT_ASSESSED), detail
+    return ' · '.join(f"{code} {'none' if flag is False else NOT_ASSESSED}" for code, (flag, _) in states.items()), detail
+
+
+def ucl_check_state(check: Optional[dict]) -> str:
+    """The UCL live check's status: passed / FAILED, or not assessed yet with the reason."""
     if not check:
-        return [['Status', 'not recorded (the review has not run the UCL live check yet)']]
+        return not_assessed(f'the review has not written the UCL live check to performance/{MONITORING} yet')
+    status = str(check.get('status') or '')
+    if status == 'passed':
+        return ucl_check_text(check)
+    if status.startswith('pending') or not check.get('runs'):
+        return not_assessed('no forecast run with a UCL fixture under research v6 yet')
+    if status == 'failed':
+        return 'FAILED: ' + '; '.join(str(p) for r in check['runs'][-1:] for p in (r.get('problems') or [])[:3])
+    return status or not_assessed('no status recorded')
+
+
+def ucl_check_rows(check: Optional[dict]) -> List[List[str]]:
+    rows = [['Status', ucl_check_state(check)]]
+    if not check:
+        return rows
     runs = check.get('runs') or []
-    rows = [['Status', ucl_check_text(check)],
-            ['Runs checked', f'{len(runs)} (every run with a UCL forecast under research v6, oldest first, until one '
-                             'passes)' if runs else 'none yet (no UCL forecast under research v6)'],
-            ['Check version', str(check.get('version') or 'not recorded')]]
+    rows += [['Runs checked', f'{len(runs)} (every run with a UCL forecast under research v6, oldest first, until one '
+                              'passes)' if runs else 'none yet (no UCL forecast under research v6)'],
+             ['Check version', str(check.get('version') or 'not recorded')]]
     for run in runs[-5:]:
         problems = '; '.join(str(p) for p in (run.get('problems') or [])[:5])
         rows.append([f"Run of {xb.eat_text(run.get('generated_at_utc'))}",
@@ -1055,28 +1108,24 @@ def ce3n_competitions(book: xb.Book, s: xb.Sheet, ctx: Context, row: int) -> int
     s.section(row, 'CE3n vs CE by competition (research v6): UCL and UEL', 4)
     table = s.table(row + 1, ['Competition', 'Graded matches', 'Weeks', 'CE3n − CE log loss (AH all)', '95% interval',
                               'CE3n home slope', 'CE3n away slope', 'CE home slope', 'CE away slope', 'Warning'],
-                    competition_rows(ce3n), ['text', 'int', 'int', 'signed_decimal', 'text', 'decimal', 'decimal',
-                                             'decimal', 'decimal', 'text'], bold_first=True,
+                    competition_rows(ce3n, why), ['text', 'int', 'int', 'signed_decimal', 'text', 'decimal', 'decimal',
+                                                  'decimal', 'decimal', 'text'], bold_first=True,
                     widths={'Competition': 38, 'Warning': 34})
-    s.highlight(table.column_range('Warning'), 'bad', 'contains_case', CE3N_WARNING)
-    s.highlight(table.column_range('Warning'), 'good', 'equals', 'no warning')
+    assessed_rules(s, table.column_range('Warning'))
     s.note(table.bottom + 1, ('Log loss difference positive = CE3n worse. A competition whose interval is entirely '
                               'above zero before the pooled trigger is eligible gets the CE3n COMPETITION WARNING: a '
-                              'warning, not a rollback. Slopes: 1 is calibrated, below 1 too sharp (reported, not a '
-                              'trigger).') if ce3n is not None else f'No CE3n figures: {why}.', 10)
+                              'warning, not a rollback. "none" means the check ran and found nothing; "not assessed '
+                              'yet" means it has not run on that competition. Slopes: 1 is calibrated, below 1 too '
+                              'sharp (reported, not a trigger).') if ce3n is not None else f'No CE3n figures: {why}.',
+           10)
     row = table.bottom + 3
-    warned = [c for c, part in sorted(((ce3n or {}).get('by_competition') or {}).items()) if part.get('warning')]
     s.section(row, 'CE3n competition warning and UCL live check', 4)
-    rows = [['CE3n competition warning', ', '.join(f'{CE3N_WARNING} ({c})' for c in warned) if warned else
-             ('none' if ce3n is not None else f'not recorded ({why})')]]
+    rows = [['CE3n competition warning', competition_summary(ce3n, why)[0]]]
     rows += [['UCL live check' if k == 'Status' else f'UCL live check: {k}', v]
              for k, v in ucl_check_rows(ctx.research.get('ucl_live_check'))]
     table = s.table(row + 1, ['Item', 'Value'], rows, ['text', 'wrap'], widths={'Item': 38, 'Value': 100},
                     bold_first=True)
-    s.highlight(table.column_range('Value'), 'bad', 'contains_case', CE3N_WARNING)
-    s.highlight(table.column_range('Value'), 'bad', 'begins', 'failed')
-    s.highlight(table.column_range('Value'), 'good', 'begins', 'passed')
-    s.highlight(table.column_range('Value'), 'warn', 'begins', 'pending')
+    assessed_rules(s, table.column_range('Value'))
     book.define('ce3n_competition_warning', s, table.top + 1, table.left + 1)
     book.define('ucl_live_check_status', s, table.top + 2, table.left + 1)
     return table.bottom + 2
@@ -1084,16 +1133,22 @@ def ce3n_competitions(book: xb.Book, s: xb.Sheet, ctx: Context, row: int) -> int
 
 # --- model activity ----------------------------------------------------------------------------------------------
 
-def activity_rules(sheet: xb.Sheet, ref: str) -> None:
-    """Red: rollback triggered, competition warnings, failures; amber: stale fits (and skipped refits); green:
-    releases and published refits."""
+def assessed_rules(sheet: xb.Sheet, ref: str) -> None:
+    """Red: rollback triggered, competition warnings, failures; amber: stale fits, skipped refits and anything not
+    assessed yet; green: releases, published refits, passed checks and checks that found nothing."""
     for text in ('ROLLBACK TRIGGERED', 'COMPETITION WARNING', 'FAILED', 'MISSING'):
         sheet.highlight(ref, 'bad', 'contains_case', text)
     sheet.highlight(ref, 'warn', 'contains_case', 'STALE FIT WARNING STARTED')
     sheet.highlight(ref, 'warn', 'begins', 'ACTIVE')
     sheet.highlight(ref, 'warn', 'begins', 'SKIPPED')
+    sheet.highlight(ref, 'warn', 'contains', NOT_ASSESSED)
     sheet.highlight(ref, 'good', 'begins', 'RELEASED')
     sheet.highlight(ref, 'good', 'begins', 'PUBLISHED')
+    sheet.highlight(ref, 'good', 'begins', 'passed')
+    sheet.highlight(ref, 'good', 'begins', 'none')
+
+
+activity_rules = assessed_rules
 
 
 def activity_rows(events: Sequence[dict]) -> List[List[Any]]:
@@ -1115,8 +1170,8 @@ def activity_sheet(book: xb.Book, ctx: Context) -> None:
     s = book.sheet('Model Activity', xb.NAVY)
     s.title('Model activity: releases, refits, stale fits, rollback checks, switch changes and master fallbacks',
             f'Run {ctx.run}. Newest first, from model_activity/activity_log.jsonl (append-only; written by the refit '
-            'workflow, each forecast run, the weekly report and the backfill of earlier releases). Times are '
-            f'{xb.EAT_LABEL}. Use the filters to pick an event, model or outcome.', span=5)
+            'workflow on fit days, each forecast run, the weekly report and the backfill of earlier releases). Times '
+            f'are {xb.EAT_LABEL}. Use the filters to pick an event, model or outcome.', span=5)
     table = s.table(4, ['Date (EAT)', 'Event', 'Model or list', 'Outcome or status', 'Details'],
                     activity_rows(ctx.activity), ['datetime_year', 'text', 'text', 'text', 'wrap'], freeze_columns=1,
                     empty='No model activity recorded yet (model_activity/activity_log.jsonl is empty or missing).',
@@ -1127,44 +1182,96 @@ def activity_sheet(book: xb.Book, ctx: Context) -> None:
     nav(s, table.bottom + 2)
 
 
+def latest_run_fits(root: Path) -> Tuple[Optional[datetime], Dict[str, Optional[dict]]]:
+    """(when, per fit the stale state) from the latest archived forecast run (model_activity.stale_state)."""
+    import model_activity as ma
+    runs = archived_runs(root, 'predictions.csv')
+    if not runs:
+        return None, {'C6': None, 'CE3n': None}
+    stamp, folder = runs[-1]
+    return stamp, ma.stale_state(read_rows(folder / 'predictions.csv'))
+
+
+def stale_summary(ctx: Context) -> Tuple[str, str]:
+    """(status, detail): ACTIVE, "none" only when the latest forecast run checked both fits, else not assessed."""
+    import model_activity as ma
+    stamp, fits = latest_run_fits(ctx.root)
+    states, details = {}, []
+    for fit in ('C6', 'CE3n'):
+        state, logged = fits.get(fit), latest_activity(ctx.activity, f'stale:{fit}')
+        if state is None:
+            if logged and logged.get('outcome') == ma.STALE_STARTED:
+                states[fit] = 'active'
+                details.append(f"{fit}: stale since {xb.eat_text(logged.get('recorded_at_utc'))} (activity log)")
+                continue
+            states[fit] = 'not assessed'
+            details.append(f'{fit}: {NOT_ASSESSED} (' + ('no archived forecast run yet' if stamp is None else
+                           f'the latest forecast run, {xb.eat_text(stamp)}, has no forecast using the {fit} fit') + ')')
+        elif state['stale']:
+            states[fit] = 'active'
+            details.append(f"{fit}: {state['stale_forecasts']} of {state['forecasts']} forecasts of the run of "
+                           f"{xb.eat_text(stamp)} used the window from {state['origin']}; the window for that day opened "
+                           f"{state['expected_origin']}")
+        else:
+            states[fit] = 'none'
+            details.append(f"{fit}: none ({state['forecasts']} forecasts of the run of {xb.eat_text(stamp)} used the "
+                           f"current window from {state['origin']})")
+    active = [f for f, s in states.items() if s == 'active']
+    if active:
+        status = 'ACTIVE: ' + ', '.join(active)
+    elif all(s == 'none' for s in states.values()):
+        status = 'none'
+    elif all(s == 'not assessed' for s in states.values()):
+        status = NOT_ASSESSED
+    else:
+        status = ' · '.join(f"{f} {'none' if s == 'none' else NOT_ASSESSED}" for f, s in states.items())
+    return status, '; '.join(details)
+
+
+def assessed_status(status: str) -> str:
+    """A release status, with "monitoring data not available yet" shown as not assessed yet (same reason)."""
+    if NOT_AVAILABLE in status:
+        return NOT_ASSESSED + status.split(NOT_AVAILABLE, 1)[1]
+    if status.startswith('Release status unknown'):
+        return not_assessed(status)
+    return status
+
+
 def activity_summary(ctx: Context) -> List[List[str]]:
-    """The Dashboard's model-activity rows."""
+    """The Dashboard's model-activity rows. "none" only where a completed check found nothing; "not assessed yet",
+    with the reason, where nothing has checked it."""
     import model_activity as ma
     events = ctx.activity
     rows = []
     for fit, label in (('C6', 'Last C6 refit (research v5 live fit)'),
                        ('CE3n', 'Last CE3n refit (research v6 live fit)')):
         item = latest_activity(events, f'refit:{fit}')
-        rows.append([label, str(item.get('outcome')) if item else 'none recorded',
+        rows.append([label, str(item.get('outcome')) if item else
+                     not_assessed(f'no {fit} refit in the activity log'),
                      f"{xb.eat_text(item.get('recorded_at_utc'))}: {item.get('details')}" if item else
-                     'No refit in the activity log yet.'])
-    active = []
-    for fit in ('C6', 'CE3n'):
-        item = latest_activity(events, f'stale:{fit}')
-        if item and item.get('outcome') == ma.STALE_STARTED:
-            active.append((fit, item))
-    rows.append(['Stale-fit warning', 'ACTIVE: ' + ', '.join(f for f, _ in active) if active else 'none active',
-                 ' '.join(f"{fit} since {xb.eat_text(i.get('recorded_at_utc'))}: {i.get('details')}" for fit, i in active)
-                 or 'No forecast run is using a stale C6 or CE3n fit.'])
+                     'The refit workflow logs fit days only (published, skipped or failed); none is logged yet.'])
+    rows.append(['Stale-fit warning', *stale_summary(ctx)])
     checks = monitoring_checks(ctx)
     for label, key, status in (('New master rollback status', 'rollback:master', checks[0][1]),
                                ('Research v5 rollback status', 'rollback:v5', checks[2][1]),
                                ('Research v6 (CE3n) rollback status', 'rollback:v6', checks[4][1])):
         item = latest_activity(events, key)
-        rows.append([label, status, f"Last rollback check logged {xb.eat_text(item.get('recorded_at_utc'))}: "
-                                    f"{item.get('outcome')}." if item else 'No rollback check logged yet.'])
-    ce3n, _ = research_figures(ctx.root, 'v6')
-    warned = [c for c, part in sorted(((ce3n or {}).get('by_competition') or {}).items()) if part.get('warning')]
-    rows.append(['CE3n competition warnings (UCL, UEL)',
-                 ', '.join(f'{CE3N_WARNING} ({c})' for c in warned) if warned else 'none',
-                 'Per-competition CE3n − CE check; see Model Monitoring.'])
+        rows.append([label, assessed_status(status),
+                     f"Last rollback check logged {xb.eat_text(item.get('recorded_at_utc'))}: {item.get('outcome')}."
+                     if item else 'No rollback check logged yet.'])
+    ce3n, why = research_figures(ctx.root, 'v6')
+    rows.append(['CE3n competition warnings (UCL, UEL)', *competition_summary(ce3n, why)])
+    rows.append(['UCL live check (research v6)', ucl_check_state(ctx.research.get('ucl_live_check')),
+                 'Runs with UCL fixtures are checked until one passes; see Model Monitoring.'])
     state = ma.switch_state(config_path('master'), config_path('v6'))
     rows.append(['Switch settings', ma.switch_settings_text(state),
                  'master_shortlist_config.json live; research_config.json live.domestic and live.european (read when '
                  'the workbook is built).'])
     change = latest_activity(events, 'switches')
-    rows.append(['Last switch change', xb.eat_text(change.get('recorded_at_utc')) if change else 'none recorded',
-                 f"{change.get('outcome')}: {change.get('details')}" if change else 'No switch change in the log.'])
+    rows.append(['Last switch change', xb.eat_text(change.get('recorded_at_utc')) if change else
+                 not_assessed('no switch state in the activity log'),
+                 f"{change.get('outcome')}: {change.get('details')}" if change else
+                 'Run python model_activity.py backfill to record the releases\' switch changes.'])
     return rows
 
 
