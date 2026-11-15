@@ -285,7 +285,6 @@ class PolicyExperimentTests(OfflineQuotePolicyTestCase):
 
     def test_review_queue_and_excel_readiness_integration(self):
         from experiment_review_queue import build_queue
-        from performance_report_layout import experiment_rows
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             summary = trial.review_experiment(root, [], [], NOW)
@@ -293,8 +292,11 @@ class PolicyExperimentTests(OfflineQuotePolicyTestCase):
             # Retired: the archived report is neither queued nor shown as readiness.
             queue = build_queue(root, NOW)
             self.assertNotIn(trial.NAME, [r['name'] for r in queue['experiments']])
-            self.assertFalse(any(r[0] == 'Probability / calibration policy'
-                                 for r in experiment_rows(root, {'review_queue': queue})))
+            from excel_book import read_workbook
+            from performance_excel import write_workbook
+            book = read_workbook(write_workbook(root, [], [], {}))
+            self.assertNotIn('Probability / calibration policy',
+                             ' '.join(str(v) for cells in book['cells'].values() for v in cells.values()))
 
     def test_control_mismatch_unsupported_policy_and_missing_archive_are_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:

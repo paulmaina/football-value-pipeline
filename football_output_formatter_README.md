@@ -42,20 +42,31 @@ python format_football_output.py --no-technical
 
 The raw `football_output_v2` files remain the source of truth.
 
-# Performance workbook navigation
+# The two workbooks
 
-The generated `football_performance_report.xlsx` opens on Dashboard. Use its
-links to open experiment readiness, collection health, weekly sample/profit
-trends and metric definitions. Experiments shows each existing review gate,
-the unit being counted, coverage and remaining requirements; readiness does
-not approve a production change.
+Both workbooks share one theme (`excel_book.py`): a title line on every sheet with
+the run time in Nairobi time (EAT, UTC+3) and the CSV that keeps the full columns,
+native Excel tables with their own filters, banded rows, frozen header rows and
+lead columns, number formats (odds 2 dp, probabilities as %, returns with a sign)
+and colour cues (tiers safe / fill / risky fill; flags such as "research strongly
+disagrees" and "unvalidated view"; wins green, losses red). Blank inputs show a
+short reason ("no Pinnacle quote", "not graded yet"), never a silent blank.
 
-Pipeline Health separates source freshness, near-close coverage, quote audits
-and capture counts. Capture Details retains all six experiment capture states.
-Selections and Predictions freeze the kickoff, league and match columns;
-technical fields are grouped and collapsed, and can be expanded in Excel.
-ROI Plan retains the editable bankroll and flat stake. Weekly Trends updates
-from the calculated breakdowns and shows simulated offered-price results.
+`league_predictions.xlsx` (`predictions_workbook.py`): Master shortlist, Old master
+(shadow) with the same columns, Value shortlist, Cagey tier, then one tab per
+league. The master tabs read the run bundle's raw master files: tier, cagey and
+research no-loss chances, the research gap, labels, a short inspection note for
+flagged picks, list overlap, quote time and a re-check reminder.
+
+`football_performance_report.xlsx` (`performance_report_layout.py`): Dashboard,
+Picks & Results, Weekly Trends, Breakdowns, Calibration, CLV, Model Monitoring and
+Guide. Master tracking starts afresh at the first forecast run after the new master
+went live (14 Nov 2026); earlier graded data stays in the repository but is not
+shown. The Dashboard puts the live and old master side by side, the rollback checks
+and data health (last forecast run, Odds API credits, warnings, training freshness).
+Model Monitoring shows the new master's rollback rule, research v5 vs v4, CE3n vs
+CE ("not released yet" until its release writes figures) and the home-favourite
+check.
 
 The layout refreshes with the existing formatter and forward-review workflow.
 No new command, API request or dependency is required. Close the workbook in

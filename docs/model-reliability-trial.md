@@ -23,7 +23,7 @@ Both use private copies of the same training history and production's existing 1
 
 Push the new sidecar with the forecasts at least 20 minutes before kickoff. Existing forward-review automation captures and hashes it alongside the exact production CSV. The first eligible snapshot freezes each fixture, including failed/unavailable candidates: reruns do not fill missing candidates after the fact. There is no backfill of already played fixtures. Subsequent reviews grade only verified finished regulation-time results.
 
-Results appear in `football_output_v2/performance/model_reliability_experiment/report.md`, `summary.json` and `graded.json`. The existing review queue, health capture history and Excel Experiments sheet show the two candidates separately. Forecasting flags do not need to change for report regeneration.
+Results appear in `football_output_v2/performance/model_reliability_experiment/report.md`, `summary.json` and `graded.json`. The existing review queue, health capture history and Excel Experiments sheet (until the Nov 2026 workbook redesign) showed the two candidates separately. Forecasting flags do not need to change for report regeneration.
 
 Primary metric: paired 1X2 log loss. Reports also show Brier/RPS, top-label calibration, goal-market probability bands and league breakdowns for Over 1.5, Under 3.5, BTTS Yes and Over 2.5. These descriptive breakdowns must not be mined to redefine the primary trial. Each candidate needs 300 paired settled fixtures across six ISO weeks and at least 80% coverage of verified in-scope first observations. Missing candidates remain in the coverage denominator.
 

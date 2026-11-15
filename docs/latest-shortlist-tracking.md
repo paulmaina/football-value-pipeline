@@ -21,7 +21,7 @@ at that forecast's recorded odds, after frozen costs. They are not actual accoun
 returns or accumulator returns.
 
 `shortlist_run_history.csv` retains every distinct eligible generation/fixture
-for audit. The workbook **Run Tracking** tab and JSON `run_history_groups` show
+for audit. JSON `run_history_groups` (the workbook's Run Tracking tab until the Nov 2026 redesign) shows
 per-run historical results; they are excluded from the main totals. Earlier
 forecasts of the same match are correlated, not extra independent observations.
 The first-prediction reference in Markdown/JSON permits comparison with the

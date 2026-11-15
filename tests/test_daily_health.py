@@ -6,15 +6,13 @@ from pathlib import Path
 import tempfile
 import unittest
 from unittest.mock import Mock, patch
-from zipfile import ZipFile
-import xml.etree.ElementTree as ET
 
 import pandas as pd
 from ucl_training import inspect_payload, apply_payload, health, fetch_payload
 from quote_policy import is_exchange, load_policy, usable_bookmaker, stake_cost
 from conservative_bet_filter import build_conservative_shortlist
 from performance_tracking import score_shortlist, capture, review, write_json
-from performance_excel import write_workbook, NS
+from performance_excel import prepared_rows
 from pipeline_health import write_report
 from test_conservative_bet_filter import fixture, NOW
 from test_performance_tracking import fixture as forecast_fixture, pick, SHA as COMMIT
@@ -163,7 +161,7 @@ class DailyHealthTests(OfflineQuotePolicyTestCase):
         self.assertIn('EV below +1.5%', r['rejection_reasons'])
         self.assertEqual(r['per_stake_cost'], .01)
 
-    def test_net_settlement_costs_match_native_excel_formula_and_cache(self):
+    def test_net_settlement_costs_carry_into_the_report_ledger(self):
         row = fixture(); row.update(fixture_key='k', snapshot_commit=COMMIT,
             snapshot_captured_utc=NOW.isoformat(), market='Over 1.5', offered_decimal_odds=1.3,
             predicted_probability=.85, per_stake_cost=.02, decision='SHORTLISTED')
@@ -172,15 +170,10 @@ class DailyHealthTests(OfflineQuotePolicyTestCase):
         self.assertEqual(won['unit_profit'], .28)
         lost = score_shortlist(row, dict(final, home_goals=0, away_goals=0), 'VERIFIED_FINISHED')
         self.assertEqual(lost['unit_profit'], -1.02)
-        with tempfile.TemporaryDirectory() as tmp:
-            path = write_workbook(Path(tmp), [won, lost | {'fixture_key': 'second'}], [], {})
-            with ZipFile(path) as z:
-                sheet = ET.fromstring(z.read('xl/worksheets/sheet5.xml'))
-                self.assertEqual(sheet.find(f'.//{{{NS}}}c[@r="N6"]/{{{NS}}}v').text, '0.28')
-                self.assertIn('-U6', sheet.find(f'.//{{{NS}}}c[@r="N6"]/{{{NS}}}f').text)
-                self.assertEqual(sheet.find(f'.//{{{NS}}}c[@r="U6"]/{{{NS}}}v').text, '0.02')
-                ledger=ET.fromstring(z.read('xl/worksheets/sheet2.xml'))
-                self.assertEqual(ledger.find(f'.//{{{NS}}}c[@r="E10"]/{{{NS}}}v').text, '0.28')
+        ledger = {r['fixture_key']: r for r in prepared_rows([won, lost | {'fixture_key': 'second'}])}
+        self.assertAlmostEqual(ledger['k']['gain'], .28)
+        self.assertAlmostEqual(ledger['k']['cost'], .02)
+        self.assertAlmostEqual(ledger['second']['gain'], -1.02)
 
     def test_health_history_is_daily_and_frozen_health_is_hash_bound(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -205,7 +198,7 @@ class DailyHealthTests(OfflineQuotePolicyTestCase):
 
     def test_health_history_omits_experiment_summaries_but_trend_and_checks_still_work(self):
         from performance_excel import REPORT_NAME
-        from performance_report_layout import get_sheet, text, q
+        from excel_book import read_workbook
         from workflow_checks import report_check
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp); raw = root/'raw'; raw.mkdir()
@@ -235,11 +228,13 @@ class DailyHealthTests(OfflineQuotePolicyTestCase):
             health = json.loads((root/'performance/pipeline_health.json').read_text())
             # The benchmark-forward and totals-anchor trials are archived: no live experiment reports.
             self.assertEqual(health['experimental_reports'], {})
-            with ZipFile(root/'readable'/REPORT_NAME) as z: parts = {n: z.read(n) for n in z.namelist()}
-            contents = [text(c) for c in get_sheet(parts, 'Pipeline Health').root.iter(q('c'))]
-            start = contents.index('Daily review observations')
-            for day in history['days']:
-                self.assertIn(day, contents[start:])
+            book = read_workbook(root/'readable'/REPORT_NAME)
+            contents = [v for cells in book['cells'].values() for v in cells.values()]
+            # Data health is folded into the Dashboard (the Pipeline Health sheet was removed in the redesign).
+            dashboard = list(book['cells']['Dashboard'].values())
+            self.assertIn('Data health (folded in from Pipeline Health)', dashboard)
+            self.assertIn('Last forecast generated', dashboard)
+            self.assertNotIn('Pipeline Health', book['sheets'])
             # Retired: the EV sensitivity table left the workbook with its experiment.
             self.assertNotIn('EV sensitivity results', contents)
             # Workflow verification compares today's history entry with the review.

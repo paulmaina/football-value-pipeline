@@ -77,8 +77,8 @@ Verified regulation-time results produce:
   outcome, Brier/log loss, same-snapshot baseline scores and verified match ID.
 - `coverage.csv`: pending/unverified/unavailable markets and candidate errors.
 
-The main performance dashboard and native Excel **Pipeline Health** sheet show
-recency capture status; the dashboard links to the detailed report. Daily
+The main performance dashboard showed
+recency capture status (and the Excel Pipeline Health sheet, until the Nov 2026 workbook redesign); the dashboard links to the detailed report. Daily
 health observations retain its current summary. One first eligible recency
 observation is frozen per fixture/market; missing candidates cannot be replaced
 later to improve apparent coverage. Comparisons are paired to the baseline on

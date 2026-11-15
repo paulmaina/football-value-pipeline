@@ -182,26 +182,17 @@ if __name__ == '__main__':
 
 
 class WorkbookSheetTests(unittest.TestCase):
-    def parts(self):
-        from zipfile import ZipFile
-        from performance_excel import TEMPLATE
-        with ZipFile(TEMPLATE) as z:
-            return {n: z.read(n) for n in z.namelist()}
-
-    def clv_sheet_text(self, parts):
-        import xml.etree.ElementTree as ET
-        from performance_report_layout import get_sheet
-        sheet = get_sheet(parts, 'CLV')
-        ns = '{http://schemas.openxmlformats.org/spreadsheetml/2006/main}'
-        return ' | '.join(t.text for t in sheet.root.iter(ns + 't') if t.text)
+    def clv_sheet_text(self, root):
+        import excel_book as xb
+        import performance_report_layout as layout
+        path = layout.write(root, root / 'readable' / layout.REPORT_NAME, {})
+        return ' | '.join(str(v) for v in xb.read_workbook(path)['cells']['CLV'].values())
 
     def test_sheet_from_report_and_placeholder(self):
-        from performance_report_layout import add_clv, styles, clv_reading
+        from performance_report_layout import clv_reading
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            parts = self.parts(); st = styles(parts)
-            add_clv(parts, root, st)
-            self.assertIn('No CLV report yet', self.clv_sheet_text(parts))
+            self.assertIn('No candidate CLV report yet', self.clv_sheet_text(root))
             rows = [{**decision('Home win', 2.1, 'Pinnacle', evaluated=f'2026-10-1{i}T10:00:00+00:00',
                                 market_probability=0.5, raw_dc_probability=0.55),
                      'home_team': f'Home{i}', 'kickoff_utc': f'2026-10-1{i}T16:30:00+00:00'} for i in range(3)]
@@ -210,10 +201,10 @@ class WorkbookSheetTests(unittest.TestCase):
                             for i in range(3)]
             write_root(root, observations, [rows])
             clv_report.build_report(root)
-            add_clv(parts, root, st)  # replaces the placeholder sheet
-            text = self.clv_sheet_text(parts)
-            self.assertNotIn('No CLV report yet', text)
-            for expected in ('Headline', 'Shortlisted picks', 'By market and entry bookmaker', 'Pinnacle', 'Small sample'):
+            text = self.clv_sheet_text(root)
+            self.assertNotIn('No candidate CLV report yet', text)
+            for expected in ('All priced candidates', 'Shortlisted picks', 'By market and entry bookmaker', 'Pinnacle',
+                             'Small sample', 'Master picks since the start'):
                 self.assertIn(expected, text)
         self.assertEqual([clv_reading(n, t) for n, t in ((10, 5), (40, 2.5), (40, -3), (40, 0.5), (40, None))],
                          ['Small sample', 'Positive (t >= 2)', 'Negative (t <= -2)',
