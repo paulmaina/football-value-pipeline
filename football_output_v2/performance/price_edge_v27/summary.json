@@ -891,6 +891,7 @@
     "standard_error": null
   },
   "frozen_picks": 311,
+  "live_master_list": "new",
   "master": {
     "by_price_flag": {
       "below value threshold": {
@@ -982,6 +983,42 @@
     "verdict": "not yet comparable"
   },
   "master_picks": 61,
+  "master_release_incidents": {
+    "baseline_missing": {
+      "details": [],
+      "runs": 0,
+      "status": "COMPARISON BASELINE MISSING"
+    },
+    "messages": [],
+    "new_master_failed": {
+      "details": [],
+      "runs": 0,
+      "status": "NEW MASTER FAILED - OLD MASTER PUBLISHED"
+    }
+  },
+  "master_rollback": {
+    "baseline_missing_runs": 0,
+    "difference": null,
+    "interval_95": null,
+    "live_master_list": "new",
+    "message": "Not triggered: waiting for at least 150 graded matches over at least 3 weeks on each list.",
+    "min_graded_matches": 150,
+    "min_weeks": 3,
+    "new_master": {
+      "graded_matches": 0,
+      "weeks": 0
+    },
+    "old_master": {
+      "average_price": 1.5708196721311476,
+      "flat_stake_return_per_bet": 0.009016393442622945,
+      "graded_matches": 61,
+      "hit_rate": 0.6721311475409836,
+      "weeks": 1
+    },
+    "rule": "After at least 150 graded matches over at least 3 calendar weeks on each list, compare flat-stake return per bet at Pinnacle prices, new master minus old master, whole kickoff weeks resampled (the same weeks for both), 95% interval. If the interval is entirely below zero, the weekly report says ROLLBACK TRIGGERED at the top and in the run summary. Nothing switches automatically: Paul decides, and rolling back is setting live to \"old\".",
+    "status": "WAITING",
+    "triggered": false
+  },
   "new_master": {
     "by_labels": {},
     "by_tier": {},
@@ -1027,7 +1064,7 @@
     }
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-15T00:01:24.568840+00:00",
+  "reviewed_at_utc": "2026-11-15T05:33:40.998169+00:00",
   "stop_review": false,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "tagged_candidates": {
