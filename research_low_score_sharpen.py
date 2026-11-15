@@ -20,15 +20,35 @@ Until research_sharpen.MIN_MATCHES decided matches exist the slope is neutral (1
 and C6 equals C2 exactly. Reads only C's goal rates and final scores: never odds,
 market fits or the published grid.
 
-Not used by the live pipeline. It is a harness candidate until it passes the release
-gate in docs/plan.md.
+Live since research v5 (team-form-research-v5, domestic leagues only), released by Paul's
+decision of 14 Nov 2026 without holdout proof (docs/plan.md, Decisions). Live reads its fits
+from FITS, written by scripts/build_research_c6_fits.py with the harness's own walk-forward
+fit (evaluation_harness.c6_walk_forward), one entry per 14-day fold window, on every result
+known before each origin, including the holdout leagues' 16 Jan - 10 Oct 2026 matches (Paul,
+14 Nov 2026). The harness's own, holdout-free fits (the tested fit) stay in HARNESS_FITS,
+locked; the live fit differs from it by design. A forecast uses the window with the latest
+origin on or before its research observation day, so every result in that fit was played
+before the forecast was made, and the chosen fit is frozen in the forecast
+(team_research_json['c6_fit']) so it replays exactly. A scheduled job refreshes FITS every
+second Monday (.github/workflows/research-c6-fits.yml).
 """
 from __future__ import annotations
+
+from functools import lru_cache
+import json
+from pathlib import Path
+
+import pandas as pd
 
 import research_low_score as rls
 import research_sharpen as rs
 
 VERSION = 'research-low-score-then-sharpen-walk-forward-v1'
+FITS = Path(__file__).with_name('research_c6_live_fits.json')  # live: every known result
+FITS_VERSION = 'research-c6-live-fits-v1'
+HARNESS_FITS = Path(__file__).with_name('research_c6_fits.json')  # the harness's locked, holdout-free fits
+HARNESS_FITS_VERSION = 'research-c6-fits-v1'
+FIT_FIELDS = ('rho', 'delta', 'slope')
 
 
 def c2_one_x_two(goal_rates, low_score_params):
@@ -44,3 +64,55 @@ def fit_slope(c2_probs, outcomes, age_days, half_life_days):
 def grid(goal_rates, low_score_params, sharpen_params):
     """C6's score grid: C2's grid moved onto its sharpened 1X2. A neutral slope gives C2's grid exactly."""
     return rs.sharpen_matrix(rls.adjusted_grid(goal_rates, low_score_params), sharpen_params['slope'])
+
+
+# ---------------------------------------------------------------------------
+# Live (research v5): the harness's walk-forward fits, frozen per fold window
+# ---------------------------------------------------------------------------
+
+@lru_cache(maxsize=4)
+def _load(path: str, mtime: float) -> dict:
+    data = json.loads(Path(path).read_text(encoding='utf-8'))
+    if data.get('version') not in (FITS_VERSION, HARNESS_FITS_VERSION) or data.get('candidate_version') != VERSION:
+        raise ValueError(f'unsupported C6 fit file {path}')
+    return data
+
+
+def load_fits(path=FITS) -> dict:
+    path = Path(path)
+    return _load(str(path), path.stat().st_mtime)
+
+
+def expected_origin(day, rule) -> pd.Timestamp:
+    """The fold origin the harness gives `day` (evaluation_harness.fold_windows): the latest 14-day step from
+    the test start, or fixed period boundary, on or before it."""
+    start, step = pd.Timestamp(rule['test_start']), int(rule['step_days'])
+    steps = (day - start).days // step
+    bounds = [start + pd.Timedelta(days=step * steps), *[pd.Timestamp(b) for b in rule['fixed_bounds']]]
+    return max(b for b in bounds if start <= b <= day)
+
+
+def fit_for(cutoff, path=FITS) -> dict | None:
+    """The C6 fit a forecast observed at `cutoff` uses: the fit file's window with the latest origin on or before
+    the cutoff's UTC day. None when the file has no such window. `stale` is True when the harness would already
+    have a later window for that day (the file was built before it) and the older fit is used instead."""
+    data = load_fits(path)
+    day = pd.Timestamp(cutoff).tz_convert('UTC').tz_localize(None).normalize()
+    windows = [w for w in data['windows'] if pd.Timestamp(w['origin']) <= day]
+    if not windows:
+        return None
+    window = windows[-1]
+    expected = expected_origin(day, data['fold_rule'])
+    return {'fits_version': data['version'], 'candidate_version': data['candidate_version'],
+            'origin': window['origin'], 'end_exclusive': window['end_exclusive'],
+            **{k: float(window[k]) for k in FIT_FIELDS},
+            'low_score_status': window['low_score_status'], 'slope_status': window['slope_status'],
+            'expected_origin': expected.date().isoformat(), 'stale': bool(expected > pd.Timestamp(window['origin']))}
+
+
+def live_grid(goal_rates, fit):
+    """C6's score grid for these goal rates under a frozen fit, validated exactly as the harness scores it
+    (research_backtest.matrix_value of grid())."""
+    from research_backtest import matrix_value
+    return matrix_value(grid(goal_rates, {'rho': float(fit['rho']), 'delta': float(fit['delta'])},
+                             {'slope': float(fit['slope'])}))
