@@ -18,7 +18,14 @@ For every saved run generated in [--start, --end):
 
 Forecasts saved without research (runs before research was collected) have no frozen research inputs; the value
 shortlist prices them with the live rule on their frozen goal rates (profit_shortlist.context), so they are rebuilt
-the same way here, before and after, and reported apart ("legacy").
+the same way here, before and after, and reported apart as reconstructions ("legacy_reconstruction"): repriced at
+replay time, never forecasts originally made under v6. Grading and every report read the published snapshots, so a
+reconstruction never changes a graded pick or a past result.
+
+ESPN form check (European forecasts with research): v6 and v4 recomputed with the frozen pre-kickoff evidence
+dropped (no ESPN rows: training-history form only, the form the harness's CE3n was tested with) and with no form at
+all (no ESPN rows, empty training history: the goal rates alone), to show how far v6 moves when ESPN form is
+missing at run time.
 
 Then each run's decision rows are rebuilt from its frozen predictions at the run's own clock with each side's
 research (price_edge_cagey_shortlist.build_shortlist, master_shortlist.refresh under the live switch), and the value
@@ -143,6 +150,9 @@ def recompute(root, start, end, labels, histories):
             tested = after
             record = {'snapshot': meta['git_commit_sha'], 'snapshot_generated_utc': generated, 'league': league,
                       'group': 'european' if european else 'domestic', 'legacy': legacy,
+                      'legacy_reconstruction': legacy and european,
+                      'row_kind': ('reconstruction: saved without research, repriced at replay' if legacy
+                                   else f'frozen forecast ({frozen_version})'),
                       'home_team': row.get('home_team'), 'away_team': row.get('away_team'),
                       'kickoff_utc': str(row.get('kickoff_utc')), 'research_observed_utc': cutoff.isoformat(),
                       'frozen_version': frozen_version, 'frozen_reproduced_max_abs_diff': diff,
@@ -167,6 +177,8 @@ def recompute(root, start, end, labels, histories):
                     fit_t = ce3n.fit_for(cutoff, league, *sides.values(), path=ce3n.HARNESS_FITS)
                     tested = tr.prepare(current, cutoff, copy.deepcopy(view), ce3n_fit=fit_t)
                     counts['tested_fit_origin:' + fit_t['origin']] += 1
+                    if not legacy:
+                        record.update(espn_check(current, cutoff, view, after, before, tr))
                     record.update(
                         live_fit_origin=fit['origin'], tested_fit_origin=fit_t['origin'],
                         domestic_used=after['ce3n']['domestic_used'],
@@ -200,6 +212,25 @@ def recompute(root, start, end, labels, histories):
                          ('changed_fit_effect', 'fit_effect_1x2')):
             frame[col] = frame[src].fillna(0) > TOLERANCE if src in frame else False
     return frame, contexts, counts, worst
+
+
+def espn_check(row, cutoff, view, after, before, tr) -> dict:
+    """v6 and v4 without the ESPN rows (training-history form only) and without any form, on the same row."""
+    espn = sum(len(v) for v in (view.get('recent') or {}).values())
+    history = tr.decode(row.get('research_history_json'))
+    no_form_row = {**row, 'research_history_json': json.dumps(
+        {'home': [], 'away': [], 'h2h': [], **({'teams': history['teams']} if 'teams' in history else {})})}
+    out = {'espn_rows': espn}
+    variants = {'no_espn': (row, {}), 'no_form': (no_form_row, {})}
+    for name, (r, evidence) in variants.items():
+        v6 = tr.prepare(r, cutoff, copy.deepcopy(evidence), version=tr.CE3N_VERSION)
+        v4 = tr.prepare(r, cutoff, copy.deepcopy(evidence), version=tr.V4_VERSION)
+        a, b, c, d = hda(v6), hda(v4), hda(after), hda(before)
+        out.update({f'{name}_v6_move_1x2': max(abs(x - y) for x, y in zip(a, c)),
+                    f'{name}_v4_move_1x2': max(abs(x - y) for x, y in zip(b, d)),
+                    f'{name}_v6_vs_v4_1x2': max(abs(x - y) for x, y in zip(a, b)),
+                    f'{name}_domestic_used': bool(v6['ce3n']['domestic_used'])})
+    return out
 
 
 def run_lists(directory, generated, predictions):
@@ -347,6 +378,23 @@ MOVES = {'v4_to_v6': {}, 'v4_to_v6_tested_fit': {'after': 'tested', 'move': 'mov
          'fit_effect': {'before': 'tested', 'move': 'fit_effect_1x2', 'flag': 'changed_fit_effect'}}
 
 
+def espn_summary(rows) -> dict:
+    """How far v6 moves without ESPN form (training-history form only) and without any form, latest forecast per fixture."""
+    def stats(column, part):
+        values = part[column].dropna() * 100 if column in part else pd.Series(dtype=float)
+        return {'mean': float(values.mean()) if len(values) else None, 'max': float(values.max()) if len(values) else None}
+    out = {'fixtures': int(len(rows)),
+           'espn_rows_per_fixture': float(rows['espn_rows'].mean()) if 'espn_rows' in rows and len(rows) else None}
+    for name in ('no_espn', 'no_form'):
+        both = rows.loc[rows[f'{name}_domestic_used'].fillna(False).astype(bool)] if f'{name}_domestic_used' in rows else rows
+        out[name] = {'v6_move_points': stats(f'{name}_v6_move_1x2', rows), 'v4_move_points': stats(f'{name}_v4_move_1x2', rows),
+                     'v6_vs_v4_points': stats(f'{name}_v6_vs_v4_1x2', rows),
+                     'domestic_used_fixtures': int(len(both)),
+                     'v6_move_points_domestic_used': stats(f'{name}_v6_move_1x2', both),
+                     'v6_vs_v4_points_domestic_used': stats(f'{name}_v6_vs_v4_1x2', both)}
+    return out
+
+
 def totals(per_run) -> dict:
     out, kinds = Counter(), {'live_master': Counter(), 'old_master': Counter()}
     for r in per_run:
@@ -389,13 +437,18 @@ def main(argv=None):
                                           **{c: movement(latest.loc[~latest['legacy'] & latest['league'].eq(c)], **kw)
                                              for c in sorted(tr.EUROPEAN_COMPETITIONS)}}
                                    for name, kw in MOVES.items()},
-        'european_legacy_without_research': {name: movement(latest.loc[latest['legacy']], **kw)
-                                             for name, kw in MOVES.items()},
+        'european_legacy_reconstructions': {
+            'label': ('Reconstructions, not forecasts: European rows saved without research (27 Oct - 4 Nov), repriced at '
+                      'replay with the live rule on their frozen goal rates and no form. None was made under v6; grading '
+                      'and every report use the published snapshots, so no graded pick or past result changes.'),
+            **{name: movement(latest.loc[latest['legacy']], **kw) for name, kw in MOVES.items()}},
+        'espn_form_check': espn_summary(latest.loc[~latest['legacy']]),
         'note': ('Probabilities only: no result is read. Moves are the largest of the three 1X2 probabilities, in '
                  'points, latest forecast per fixture. v4_to_v6: CE (v4) to CE3n on the live fit (holdout periods '
                  "included); v4_to_v6_tested_fit: on the harness's tested, holdout-free fit; fit_effect: tested fit to "
-                 'live fit. Legacy: forecasts saved without research, priced by the value shortlist with the live '
-                 'rule on their frozen goal rates and no form.')}
+                 'live fit. Legacy reconstructions: forecasts saved without research, repriced at replay by the value '
+                 "shortlist's live rule on their frozen goal rates and no form; never forecasts made under v6. "
+                 'espn_form_check: v6 and v4 without ESPN rows (training-history form only) and without any form.')}
     args.output.mkdir(parents=True, exist_ok=True)
     frame.to_csv(args.output / 'forecasts.csv', index=False, lineterminator='\n', float_format='%.6f')
     if not args.skip_lists:

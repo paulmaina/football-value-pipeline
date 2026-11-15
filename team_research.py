@@ -567,16 +567,40 @@ def collect_fixture(row, client):
     return evidence
 
 
+RESEARCH_CONFIG = Path(__file__).with_name('research_config.json')
+# The live-version switch per scope (research_config.json): rolling back is switching a scope to v4, never
+# reverting a release, so every version's implementation stays and archived forecasts replay exactly.
+LIVE_CHOICES = {'domestic': {'v5': VERSION, 'v4': V4_VERSION},
+                'european': {'v6': CE3N_VERSION, 'v4': V4_VERSION}}
+
+
+@lru_cache(maxsize=4)
+def _live_switch(path: str, mtime: float) -> tuple:
+    data = json.loads(Path(path).read_text(encoding='utf-8'))
+    live = data.get('live') if isinstance(data, dict) else None
+    if not isinstance(live, dict) or set(live) != set(LIVE_CHOICES) or any(
+            live[scope] not in choices for scope, choices in LIVE_CHOICES.items()):
+        raise ValueError('research_config.json: live must give domestic "v5" or "v4" and european "v6" or "v4"')
+    return tuple((scope, LIVE_CHOICES[scope][live[scope]]) for scope in sorted(LIVE_CHOICES))
+
+
+def configured_live(path=None) -> dict:
+    """{'domestic': version, 'european': version}: the research versions new forecasts use (research_config.json)."""
+    path = Path(path or RESEARCH_CONFIG)
+    return dict(_live_switch(str(path), path.stat().st_mtime))
+
+
 def research_version(league, version=None):
     """The research version a forecast of this competition is made (or replayed) under.
 
-    No version: the live rule, v5 for domestic leagues and v6 (CE3n) for UCL and UEL. A v5 replay
-    of a UCL/UEL row is v4 (as v5 made it) and a v6 replay of a domestic row is v5, so a version
-    stamp always names the grid the forecast used.
+    No version: the live rule, as research_config.json's switch sets it per scope (v5 or v4 for
+    domestic leagues, v6 (CE3n) or v4 for UCL and UEL). A v5 replay of a UCL/UEL row is v4 (as v5
+    made it) and a v6 replay of a domestic row is v5, so a version stamp always names the grid the
+    forecast used. A frozen forecast always replays under its own version, whatever the switch says.
     """
     european = str(league) in EUROPEAN_COMPETITIONS
     if version is None:
-        return CE3N_VERSION if european else VERSION
+        return configured_live()['european' if european else 'domestic']
     if version in C6_VERSIONS and european:
         return V4_VERSION
     if version in CE3N_VERSIONS and not european:

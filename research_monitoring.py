@@ -30,6 +30,7 @@ from __future__ import annotations
 
 from collections import Counter
 import json
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -43,6 +44,7 @@ HOME_MARKETS = ('Home win', 'Double Chance 1X')
 TOLERANCE = 1e-12
 CE3N_MIN_MATCHES = 150  # graded European matches
 CE3N_MIN_WEEKS = 3
+CE3N_WARNING = 'CE3n COMPETITION WARNING'
 
 
 def _week(stamp) -> str:
@@ -157,13 +159,9 @@ def _trigger(out, names, min_matches, min_weeks):
             'log_loss': {k: float(v) for k, v in means.items()}}
 
 
-def ce3n_rollback_check(archived, records, root, clock=None) -> dict:
-    """Research v6's rollback trigger: CE3n against CE on graded European matches (module docstring, check 3),
-    with the calibration slopes of both on the same graded matches (check 4)."""
+def _calibration(used) -> dict:
+    """CE3n and CE home/away logistic calibration slopes on graded forecasts ({identity: (row, research, final, grids)})."""
     import evaluation_harness as eh
-    from team_research import CE3N_VERSIONS
-    out, used, coverage = _scored(archived, records, root, clock, CE3N_VERSIONS, ce3n_grids, ('CE3n', 'CE'))
-    result = _trigger(out, ('CE3n', 'CE'), CE3N_MIN_MATCHES, CE3N_MIN_WEEKS)
     probs = {'CE3n': [], 'CE': []}
     outcomes, domestic = [], 0
     for row, research, final, pair in used.values():
@@ -180,15 +178,39 @@ def ce3n_rollback_check(archived, records, root, clock=None) -> dict:
         raw = ({side: eh.calibration_slope(p[:, k], y == k) for k, side in ((0, 'home'), (2, 'away'))}
                if len(y) >= 2 else {'home': None, 'away': None})
         slopes[name] = {k: (None if v is None or not np.isfinite(v) else float(v)) for k, v in raw.items()}
+    return {'graded_matches': int(len(y)), 'domestic_used': int(domestic), 'slopes': slopes,
+            'note': 'Logistic calibration slopes (1 = calibrated, below 1 too sharp); reported, not a trigger.'}
+
+
+CE3N_COMPETITIONS = {'UCL': 'UEFA Champions League', 'UEL': 'UEFA Europa League'}
+
+
+def ce3n_rollback_check(archived, records, root, clock=None) -> dict:
+    """Research v6's rollback trigger: CE3n against CE on graded European matches, pooled (module docstring, check
+    3), with the calibration slopes of both (check 4); and the same per competition (UCL, UEL), with a warning when
+    one competition's interval is entirely above zero (CE3n worse) before the pooled trigger is eligible."""
+    from team_research import CE3N_VERSIONS
+    out, used, coverage = _scored(archived, records, root, clock, CE3N_VERSIONS, ce3n_grids, ('CE3n', 'CE'))
+    result = _trigger(out, ('CE3n', 'CE'), CE3N_MIN_MATCHES, CE3N_MIN_WEEKS)
+    by_competition = {}
+    for code, league in CE3N_COMPETITIONS.items():
+        part = _trigger([r for r in out if r.get('league') == league], ('CE3n', 'CE'), CE3N_MIN_MATCHES, CE3N_MIN_WEEKS)
+        interval = part['interval_95']
+        by_competition[code] = {
+            'matches': part['matches'], 'weeks': part['weeks'], 'ce3n_minus_ce_log_loss': part['difference'],
+            'interval_95': interval,
+            'warning': bool(interval and interval[0] > 0 and not result['eligible']),
+            'calibration': _calibration({k: v for k, v in used.items() if v[0].get('league') == league})}
     return {'rule': (f'After at least {CE3N_MIN_MATCHES} graded European matches across at least {CE3N_MIN_WEEKS} '
                      "weeks, roll back research v6 (CE3n, UCL/UEL) if CE3n's research log loss on AH all lines minus "
                      "CE's, on the same frozen inputs, matches and offers, has a week-resampled 95% interval "
-                     'entirely above zero.'),
+                     'entirely above zero (pooled over UCL and UEL). Rolling back is setting research_config.json '
+                     'live.european to "v4". Per competition: reported, and a warning (not a rollback) when one '
+                     "competition's interval is entirely above zero before the pooled trigger is eligible."),
             'matches': result['matches'], 'weeks': result['weeks'], 'eligible': result['eligible'],
             'triggered': result['triggered'], 'ce3n_minus_ce_log_loss': result['difference'],
             'interval_95': result['interval_95'], 'log_loss': result['log_loss'],
-            'calibration': {'graded_matches': int(len(y)), 'domestic_used': int(domestic), 'slopes': slopes,
-                            'note': 'Logistic calibration slopes (1 = calibrated, below 1 too sharp); reported, not a trigger.'},
+            'calibration': _calibration(used), 'by_competition': by_competition,
             'coverage': dict(sorted(coverage.items()))}
 
 
@@ -296,10 +318,57 @@ def home_favourites(archived, records, root, clock=None) -> dict:
             'fixtures': rows}
 
 
+def ucl_live_check(root, archived) -> dict:
+    """research_live_check on the published snapshots: every run that holds a UCL forecast made under research v6,
+    oldest first, until the first one that passes (runs from before the release are never checked). The live master
+    file comes from the run's snapshot when it was archived."""
+    import research_live_check as lc
+    from team_research import CE3N_VERSIONS, decode
+    runs = []
+    for meta, rows, _ in archived:
+        ucl = [r for r in rows if str(r.get('league')) == lc.LEAGUE]
+        if not any(decode(r.get('team_research_json')).get('version') in CE3N_VERSIONS for r in ucl):
+            continue
+        folder = Path(root) / 'performance' / 'snapshots' / str(meta.get('git_commit_sha'))
+        master = None
+        if (folder / 'master_shortlist.csv').exists():
+            try:
+                master = pd.read_csv(folder / 'master_shortlist.csv', low_memory=False)
+            except pd.errors.EmptyDataError:
+                master = pd.DataFrame()
+        result = lc.check_run(rows, master)
+        runs.append({'snapshot': meta.get('git_commit_sha'), 'generated_at_utc': str(meta.get('generated_at_utc')),
+                     'status': result['status'], 'ucl_fixtures': result['ucl_fixtures'],
+                     'domestic_used': result.get('domestic_used'), 'checks': result.get('checks'),
+                     'problems': result.get('problems', [])})
+        if result['status'] == 'passed':
+            break
+    passed = next((r for r in runs if r['status'] == 'passed'), None)
+    status = 'passed' if passed else ('pending: no UCL forecast under research v6 yet' if not runs else 'failed')
+    return {'version': lc.VERSION, 'status': status, 'passed_on': passed, 'runs': runs}
+
+
+def ucl_check_markdown(check) -> list[str]:
+    if not check:
+        return []
+    if check['status'] == 'passed':
+        run = check['passed_on']
+        return [f"UCL live check of research v6: passed on the run of {run['generated_at_utc'][:16]} UTC "
+                f"({run['ucl_fixtures']} UCL fixtures; snapshot {run['snapshot']}).", '']
+    lines = ['### UCL live check of research v6 (until a run passes)', '',
+             'Competition, reviewed team mapping, fit window, CE shadow, frozen replay and "unvalidated view" on the '
+             'first runs with UCL fixtures (research_live_check). Status: **' + check['status'] + '**.', '']
+    for run in check['runs']:
+        lines.append(f"- {run['generated_at_utc'][:16]} UTC, {run['ucl_fixtures']} UCL fixtures: {run['status']}"
+                     + (f" ({'; '.join(run['problems'][:5])})" if run['problems'] else ''))
+    return lines + ([''] if check['runs'] else [])
+
+
 def review(root, archived, records, clock=None) -> dict:
     return {'version': VERSION, 'rollback': rollback_check(archived, records, root, clock),
             'home_favourites': home_favourites(archived, records, root, clock),
-            'ce3n': ce3n_rollback_check(archived, records, root, clock)}
+            'ce3n': ce3n_rollback_check(archived, records, root, clock),
+            'ucl_live_check': ucl_live_check(root, archived)}
 
 
 def _pct(value):
@@ -315,13 +384,21 @@ def banner(check) -> list[str]:
     if rollback['triggered']:
         lines += [f'> **{TRIGGERED}**: research v5 (C6) has a worse research log loss than v4 on AH all lines '
                   f'over {rollback["matches"]} graded matches and {rollback["weeks"]} weeks, with the 95% interval '
-                  'entirely above zero. Roll back by reverting the v5 release PR; v5 forecasts keep their numbers.', '']
+                  'entirely above zero. Roll back by setting research_config.json live.domestic to "v4" (Paul decides): new '
+                  'forecasts then use v4; v5 forecasts keep their numbers and still replay exactly.', '']
     ce3n = check.get('ce3n') or {}
     if ce3n.get('triggered'):
         lines += [f'> **{TRIGGERED}**: research v6 (CE3n, UCL/UEL) has a worse research log loss than CE on AH all '
                   f'lines over {ce3n["matches"]} graded European matches and {ce3n["weeks"]} weeks, with the 95% '
-                  'interval entirely above zero. Roll back by reverting the v6 release PR; v6 forecasts keep their '
-                  'numbers.', '']
+                  'interval entirely above zero. Roll back by setting research_config.json live.european to "v4" (Paul '
+                  'decides): new UCL/UEL forecasts then use v4; v6 forecasts keep their numbers and still replay exactly.', '']
+    for code, part in sorted((ce3n.get('by_competition') or {}).items()):
+        if part.get('warning'):
+            low, high = part['interval_95']
+            lines += [f'> **{CE3N_WARNING} ({code})**: CE3n has a worse research log loss than CE on AH all lines over '
+                      f"{part['matches']} graded {code} matches and {part['weeks']} weeks (CE3n − CE {low:+.5f} to "
+                      f'{high:+.5f}, entirely above zero), before the pooled rollback trigger is eligible. A warning, '
+                      'not a rollback: review it with the pooled check below.', '']
     return lines
 
 
@@ -350,6 +427,21 @@ def ce3n_markdown(ce3n) -> list[str]:
         slope = cal['slopes'].get(name) or {}
         lines.append(f"| {name} | {_slope(slope.get('home'))} | {_slope(slope.get('away'))} |")
     lines.append('')
+    parts = ce3n.get('by_competition') or {}
+    if parts:
+        lines += ['By competition (reported; a competition whose interval is entirely above zero before the pooled '
+                  'trigger is eligible gets a warning, not a rollback):', '',
+                  '| Competition | Graded matches | Weeks | CE3n − CE log loss (AH all) | 95% interval | '
+                  'CE3n home / away slope | CE home / away slope | Warning |',
+                  '|---|---|---|---|---|---|---|---|']
+        for code, part in sorted(parts.items()):
+            d, i, sl = part['ce3n_minus_ce_log_loss'], part['interval_95'], part['calibration']['slopes']
+            lines.append(f"| {code} | {part['matches']} | {part['weeks']} | {'—' if d is None else f'{d:+.5f}'} | "
+                         f"{'—' if not i else f'{i[0]:+.5f} to {i[1]:+.5f}'} | "
+                         f"{_slope(sl['CE3n'].get('home'))} / {_slope(sl['CE3n'].get('away'))} | "
+                         f"{_slope(sl['CE'].get('home'))} / {_slope(sl['CE'].get('away'))} | "
+                         f"{'yes' if part['warning'] else 'no'} |")
+        lines.append('')
     return lines
 
 
@@ -379,4 +471,5 @@ def markdown(check) -> list[str]:
                      f"{_pct(part['actual_home_win'])} |")
     lines.append('')
     lines += ce3n_markdown(check.get('ce3n'))
+    lines += ucl_check_markdown(check.get('ucl_live_check'))
     return lines
