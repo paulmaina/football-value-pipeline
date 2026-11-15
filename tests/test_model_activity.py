@@ -22,7 +22,7 @@ import excel_book as xb
 import model_activity as ma
 import performance_report_layout as layout
 from excel_fixtures import post_release_root
-from test_performance_report_layout import CE3N, table
+from test_performance_report_layout import CE3N, CE3N_EMPTY, table
 
 REPO = Path(__file__).resolve().parents[1]
 GOLDEN = Path(__file__).with_name('fixtures') / 'performance_workbook_before_activity.json'
@@ -109,15 +109,28 @@ class RefitWorkflowTests(unittest.TestCase):
         with mock.patch.dict(os.environ, no_summary_env(), clear=True):
             return builder.main(argv)
 
-    def test_not_a_fit_day_is_one_line_for_each_fit(self):
-        for name, fit in (('build_research_c6_fits', 'C6'), ('build_research_ce3n_fits', 'CE3n')):
+    def test_a_day_that_is_not_a_fit_day_logs_and_commits_nothing(self):
+        for name in ('build_research_c6_fits', 'build_research_ce3n_fits'):
             b = script(name)
             with mock.patch.object(b, 'build', side_effect=AssertionError('built on a non-fit day')):
                 self.assertEqual(self.run_main(b, ['--scheduled', '--publish', '--today', '2026-11-09']), 0)
-            item = ma.read(self.log)[-1]
-            self.assertEqual((item['event'], item['outcome'], item['key']), (ma.REFIT, ma.NOT_FIT_DAY, f'refit:{fit}'))
-            self.assertIn('next refresh', item['details'])
-        self.assertEqual(len(lines(self.log)), 2)
+        self.assertFalse(self.log.exists())
+        self.commit.assert_not_called()
+        self.assertFalse(hasattr(ma, 'NOT_FIT_DAY'))
+
+    def test_an_unchanged_window_is_skipped_with_its_reason_in_its_own_commit(self):
+        b = script('build_research_c6_fits')
+        data = live_c6(['2026-11-02', '2026-11-16'])
+        with mock.patch.object(b, 'build', return_value=data), \
+                mock.patch.object(b, 'results_known_through', return_value=pd.Timestamp('2026-11-16 18:00')), \
+                mock.patch.object(b, 'validate', return_value={'windows': 2, 'latest': data['windows'][-1]}), \
+                mock.patch.object(b, 'publish', return_value=False), \
+                mock.patch.object(b, 'summary_lines', return_value=[]), \
+                mock.patch.object(b, 'live_seasons', return_value=['2627']):
+            self.assertEqual(self.run_main(b, ['--scheduled', '--publish', '--today', '2026-11-16']), 0)
+        item, = ma.read(self.log)
+        self.assertEqual(item['outcome'], 'SKIPPED: unchanged on main (this window is already published)')
+        self.commit.assert_called_once()
 
     def test_without_publish_nothing_is_logged(self):
         b = script('build_research_c6_fits')
@@ -190,7 +203,7 @@ class CommitEventsTests(unittest.TestCase):
             ma.git(repo, 'checkout', '-b', 'main')
             (repo / 'keep.txt').write_text('x', encoding='utf-8')
             ma.git(repo, 'add', '.'), ma.git(repo, 'commit', '-m', 'Initial'), ma.git(repo, 'push', 'origin', 'main')
-            item = ma.refit_event('CE3n', ma.NOT_FIT_DAY, origin='2026-11-02', reason='Not a CE3n fit day.')
+            item = ma.refit_event('CE3n', ma.SKIPPED, origin='2026-11-02', reason='results not in yet')
             self.assertTrue(ma.commit_events(repo, [item], 'Log [skip ci]'))
             self.assertFalse(ma.commit_events(repo, [item], 'Log [skip ci]'))
             subprocess.run(['git', 'clone', '--branch', 'main', str(remote), str(other)], check=True, capture_output=True)
@@ -346,9 +359,11 @@ class WeeklyReportTests(unittest.TestCase):
                       by_key['rollback:UCL']['details'])
         self.assertIn('CE3n home 0.88', by_key['rollback:UCL']['details'])
         self.assertEqual(by_key['rollback:v6']['outcome'],
-                         'not yet eligible (40 of 150 graded matches, 2 of 3 weeks)')
+                         'not yet eligible (40 of 150 graded matches · 2 of 3 weeks)')
         self.assertEqual(by_key['rollback:v6']['data']['interval_95'], [-0.001, 0.003])
-        self.assertTrue(by_key['rollback:master']['outcome'].startswith('not yet eligible'))
+        self.assertEqual(by_key['rollback:master']['outcome'],
+                         'not yet eligible (new master 6 of 150 graded matches · 1 of 3 weeks; old master 60 of 150 '
+                         'graded matches · 2 of 3 weeks)')
         before = (self.root / ma.RELATIVE).read_bytes()
         self.research['rollback']['matches'] = 30  # more matches, same status, same week: nothing
         self.assertEqual(self.review('2026-11-18T07:30:00Z'), [])
@@ -531,12 +546,105 @@ class ActivityTabTests(WorkbookCase):
 class NoActivityTests(WorkbookCase):
     activity = False
 
-    def test_empty_log_says_so(self):
+    def test_empty_log_is_not_assessed_never_none(self):
         _, rows = table(self.book, 'Model Activity')
         self.assertTrue(rows[0]['Date (EAT)'].startswith('No model activity recorded yet'))
-        self.assertEqual(self.named('last_c6_refit'), 'none recorded')
-        self.assertEqual(self.named('stale_fit_warning'), 'none active')
-        self.assertEqual(self.named('last_switch_change'), 'none recorded')
+        self.assertEqual(self.named('last_c6_refit'), 'not assessed yet (no C6 refit in the activity log)')
+        self.assertEqual(self.named('last_ce3n_refit'), 'not assessed yet (no CE3n refit in the activity log)')
+        self.assertEqual(self.named('stale_fit_warning'), 'not assessed yet')
+        self.assertIn('C6: not assessed yet (no archived forecast run yet)',
+                      json.dumps(self.book['cells']['Dashboard'], ensure_ascii=False))
+        self.assertEqual(self.named('last_switch_change'), 'not assessed yet (no switch state in the activity log)')
+
+
+class IncompleteActivityTests(WorkbookCase):
+    """A log with only the releases (and a torn line): what nothing has checked stays not assessed."""
+    def write_activity(self):
+        log = self.root / ma.RELATIVE
+        ma.append(log, [e for e in ma.backfill_events(REPO) if e['event'] == ma.RELEASE])
+        with log.open('a', encoding='utf-8', newline=NL) as handle:
+            handle.write('{"torn":')
+
+    def test_missing_kinds_are_not_assessed(self):
+        _, rows = table(self.book, 'Model Activity')
+        self.assertEqual([r['Event'] for r in rows], [ma.RELEASE] * 3)
+        self.assertTrue(self.named('last_c6_refit').startswith('not assessed yet'))
+        self.assertTrue(self.named('last_switch_change').startswith('not assessed yet'))
+        self.assertEqual(self.named('switch_settings'),
+                         'master live "new", research domestic "v5", research UCL/UEL "v6"')
+        self.assertIn('No rollback check logged yet.', json.dumps(self.book['cells']['Dashboard'], ensure_ascii=False))
+
+
+class MissingCE3nFiguresTests(WorkbookCase):
+    ce3n = None
+    research_extra = {'ucl_live_check': {'version': 'ce3n-ucl-live-check-v1', 'passed_on': None, 'runs': [],
+                                         'status': 'pending: no UCL forecast under research v6 yet'}}
+
+    def test_competitions_rollback_and_ucl_check_are_not_assessed(self):
+        why = 'performance/research_v5_monitoring.json has no "ce3n" entry yet'
+        self.assertEqual(self.named('competition_warnings'), f'not assessed yet ({why})')
+        self.assertEqual(self.named('ce3n_competition_warning'), f'not assessed yet ({why})')
+        self.assertEqual(self.named('ucl_live_check'),
+                         'not assessed yet (no forecast run with a UCL fixture under research v6 yet)')
+        dashboard = self.book['cells']['Dashboard']
+        self.assertIn(f'not assessed yet ({why})', dashboard.values())  # the v6 rollback status, not "none"
+        self.assertIn(f'not assessed yet ({why})', self.book['cells']['Model Monitoring'].values())
+
+
+class NoGradedEuropeanMatchesTests(WorkbookCase):
+    ce3n = CE3N_EMPTY
+
+    def test_zero_matches_is_not_assessed_not_none(self):
+        self.assertEqual(self.named('competition_warnings'), 'not assessed yet')
+        dash = json.dumps(self.book['cells']['Dashboard'], ensure_ascii=False)
+        self.assertIn('UCL: not assessed yet (no graded UCL matches under research v6 yet); UEL: not assessed yet', dash)
+        self.assertIn('not assessed yet (no graded European (UCL/UEL) matches under research v6 yet)', dash)
+
+
+class StaleFromLatestRunTests(WorkbookCase):
+    """The stale-fit status comes from the latest archived forecast run: none only for a fit it checked."""
+    activity = False
+    rows = [['Premier League', research('c6_fit', False, '2026-11-16', '2026-11-16')]]
+    expected = 'C6 none · CE3n not assessed yet'
+
+    def write_activity(self):
+        pass
+
+    def setUp(self):
+        original = post_release_root
+
+        def with_run(root, **kwargs):
+            out = original(root, **kwargs)
+            folder = out / 'performance' / 'snapshots' / 'dddddddddddddddd'
+            folder.mkdir(parents=True, exist_ok=True)
+            (folder / 'metadata.json').write_text(json.dumps({'generated_at_utc': '2026-11-23T06:00:00+00:00'}),
+                                                  encoding='utf-8')
+            with (folder / 'predictions.csv').open('w', encoding='utf-8', newline='') as handle:
+                writer = csv.writer(handle)
+                writer.writerow(['league', 'team_research_json'])
+                writer.writerows(self.rows)
+            return out
+        with mock.patch(f'{__name__}.post_release_root', side_effect=with_run):
+            super().setUp()
+
+    def test_stale_status(self):
+        self.assertEqual(self.named('stale_fit_warning'), self.expected)
+
+
+class StaleCheckedTests(StaleFromLatestRunTests):
+    rows = [['Premier League', research('c6_fit', False, '2026-11-16', '2026-11-16')],
+            ['UEFA Europa League', research('ce3n_fit', False, '2026-11-16', '2026-11-16')]]
+    expected = 'none'
+
+    def test_detail(self):
+        self.assertIn('C6: none (1 forecasts of the run of Mon 23 Nov 2026 09:00 EAT used the current window from '
+                      '2026-11-16)', json.dumps(self.book['cells']['Dashboard'], ensure_ascii=False))
+
+
+class StaleActiveTests(StaleFromLatestRunTests):
+    rows = [['Premier League', research('c6_fit', True, '2026-11-02', '2026-11-16')],
+            ['UEFA Europa League', research('ce3n_fit', False, '2026-11-16', '2026-11-16')]]
+    expected = 'ACTIVE: C6'
 
 
 class MonitoringAdditionTests(WorkbookCase):
@@ -564,9 +672,11 @@ class MonitoringAdditionTests(WorkbookCase):
         self.assertAlmostEqual(ucl['CE3n home slope'], 0.88)
         self.assertEqual(ucl['CE3n away slope'], 'not computed yet')
         self.assertEqual(ucl['Warning'], 'CE3n COMPETITION WARNING (UCL)')
-        self.assertEqual(uel['Warning'], 'no warning')
+        self.assertEqual(uel['Warning'], 'none (16 graded UEL matches checked)')
         self.assertEqual(self.named('ce3n_competition_warning'), 'CE3n COMPETITION WARNING (UCL)')
-        self.assertEqual(self.named('ucl_live_check_status'), 'failed')
+        self.assertEqual(self.named('ucl_live_check_status'),
+                         'FAILED: mapping: home side has no European training name')
+        self.assertEqual(self.named('ucl_live_check'), 'FAILED: mapping: home side has no European training name')
         self.assertIn('failed: 8 UCL fixtures (mapping: home side has no European training name)',
                       json.dumps(self.book['cells']['Model Monitoring'], ensure_ascii=False))
 
@@ -596,11 +706,11 @@ class RealShapedCE3nTests(MonitoringAdditionTests):
                 for side in ('home', 'away'):
                     self.assertAlmostEqual(row[f'{name} {side} slope'], part['calibration']['slopes'][name][side])
             self.assertEqual(row['Warning'], f'CE3n COMPETITION WARNING ({row["Competition"]})' if part['warning']
-                             else 'no warning')
+                             else f'none (20 graded {row["Competition"]} matches checked)')
         self.assertEqual(self.named('ucl_live_check_status'), 'passed on the run of Tue 24 Nov 2026 09:00 EAT '
                                                               '(8 UCL fixtures)')
-        self.assertEqual(self.named('ce3n_status'), 'Live (research v6) - not yet eligible (40 of 150 graded matches, '
-                                                    '4 of 3 weeks)')
+        self.assertEqual(self.named('ce3n_status'), 'Live (research v6) - not yet eligible (40 of 150 graded matches · '
+                                                    'weeks met (4))')
 
 
 class ExistingSheetsUnchangedTests(WorkbookCase):

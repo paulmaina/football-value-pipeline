@@ -550,11 +550,11 @@
    "B23": "risky fill",
    "B24": "all picks (old rule has no tiers)",
    "B27": "Status",
-   "B28": "Live (new master) - Waiting: 150 graded matches over 3 weeks on each list",
+   "B28": "Live (new master) - Waiting: new master 6 of 150 graded matches · 2 of 3 weeks; old master 64 of 150 graded matches · weeks met (3)",
    "B29": "none",
-   "B30": "Live (research v5) - not yet eligible (12 of 150 graded matches, 2 of 3 weeks)",
+   "B30": "Live (research v5) - not yet eligible (12 of 150 graded matches · 2 of 3 weeks)",
    "B31": "2 graded of 3 picks",
-   "B32": "Live (research v6) - not yet eligible (40 of 150 graded matches, 2 of 3 weeks)",
+   "B32": "Live (research v6) - not yet eligible (40 of 150 graded matches · 2 of 3 weeks)",
    "B35": "Value",
    "B36": "Sat 21 Nov 2026 12:00 EAT",
    "B37": "Mon 16 Nov 2026 12:00 EAT",
@@ -733,7 +733,7 @@
    "B14": "none",
    "B15": "After at least 150 graded matches ...",
    "B19": "Value",
-   "B20": "Live (research v5) - not yet eligible (12 of 150 graded matches, 2 of 3 weeks)",
+   "B20": "Live (research v5) - not yet eligible (12 of 150 graded matches · 2 of 3 weeks)",
    "B21": "research_config.json live.domestic = \"v5\"",
    "B22": "12 / 2",
    "B23": -0.0021,
@@ -741,7 +741,7 @@
    "B25": "offers: 40",
    "B26": "After at least 150 ...",
    "B29": "Value",
-   "B30": "Live (research v6) - not yet eligible (40 of 150 graded matches, 2 of 3 weeks)",
+   "B30": "Live (research v6) - not yet eligible (40 of 150 graded matches · 2 of 3 weeks)",
    "B31": "research_config.json live.european = \"v6\"",
    "B32": "40 / 2",
    "B33": 0.0012,
@@ -757,7 +757,7 @@
    "B45": 4.0,
    "B46": 4.0,
    "B5": "Value",
-   "B6": "Live (new master) - Waiting: 150 graded matches over 3 weeks on each list",
+   "B6": "Live (new master) - Waiting: new master 6 of 150 graded matches · 2 of 3 weeks; old master 64 of 150 graded matches · weeks met (3)",
    "B7": "master_shortlist_config.json live = \"new\"",
    "B8": "New master (live)",
    "B9": "6 / 2",
@@ -987,5 +987,5 @@
   "Model Monitoring",
   "Guide"
  ],
- "source": "performance_report_layout.py at 710381de6 (main before the model activity log)"
+ "source": "performance_report_layout.py at 710381de6 (main before the model activity log), with the rollback-status wording of PR #180 review item 4 substituted: \"N of M graded matches · weeks met (W)\" and the master's per-list progress"
 }
