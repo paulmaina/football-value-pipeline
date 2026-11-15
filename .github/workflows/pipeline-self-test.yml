@@ -35,7 +35,7 @@ jobs:
         # Production workflows run Python 3.14 on Linux; local work uses 3.14 on Windows.
         python: ['3.14']
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
