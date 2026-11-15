@@ -8,6 +8,31 @@ from pathlib import Path
 from publish_performance import SNAPSHOTS, git, merge_snapshots, publish
 
 
+class ActivityOnlyReviewTests(OfflineQuotePolicyTestCase):
+    def test_a_review_that_only_adds_activity_lines_still_publishes_them(self):
+        with tempfile.TemporaryDirectory() as d:
+            base = Path(d)
+            remote, event = base / 'remote.git', base / 'event'
+            subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+            subprocess.run(['git', 'clone', str(remote), str(event)], check=True, capture_output=True)
+            git(event, 'checkout', '-b', 'main')
+            for key, value in [('user.name', 'Test'), ('user.email', 'test@example.com')]:
+                git(event, 'config', key, value)
+            (event / 'baseline.txt').write_text('unchanged')
+            git(event, 'add', '.'); git(event, 'commit', '-m', 'baseline'); git(event, 'push', 'origin', 'main')
+            reviewer = base / 'review.py'
+            reviewer.write_text("from pathlib import Path\n"
+                                "p = Path('football_output_v2/model_activity/activity_log.jsonl')\n"
+                                "p.parent.mkdir(parents=True, exist_ok=True)\n"
+                                "p.open('a').write('{}\\n')\n")
+            publish(event, review_command=[sys.executable, str(reviewer)])
+            git(event, 'fetch', 'origin', 'main')
+            self.assertEqual(git(event, 'log', '-1', '--format=%s', 'FETCH_HEAD').stdout.strip(),
+                             'Record model activity (performance reports unchanged) [skip ci]')
+            self.assertEqual(git(event, 'show', 'FETCH_HEAD:football_output_v2/model_activity/activity_log.jsonl').stdout,
+                             '{}\n')
+
+
 class PublisherTests(OfflineQuotePolicyTestCase):
     def test_conflicting_snapshot_fails_closed(self):
         with tempfile.TemporaryDirectory() as d:
