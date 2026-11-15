@@ -9,7 +9,7 @@ normal 90-minute results are used, never extra-time/penalty scorelines.
 The main totals use the latest eligible pre-kickoff shortlist entry for each match,
 with that prediction's original market, probability, odds and costs. Each match counts once.
 Later uploads of an older generation never replace a newer prediction.
-Earlier predictions remain in shortlist_run_history.csv and the Run Tracking tab;
+Earlier predictions remain in shortlist_run_history.csv;
 history rows are correlated records and are excluded from main win-rate/ROI totals.
 Whole-fixture model metrics and research experiments retain their unique-fixture cohorts.
 
