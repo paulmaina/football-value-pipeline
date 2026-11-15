@@ -1,0 +1,31 @@
+{
+  "home_favourites": {
+    "all": {
+      "actual_home_win": null,
+      "fixtures": 0,
+      "graded": 0,
+      "picks": 0,
+      "v4_predicted_home_win": null,
+      "v5_predicted_home_win": null
+    },
+    "by_league": {},
+    "fixtures": [],
+    "leagues": [
+      "Eredivisie",
+      "Primeira Liga",
+      "Super Lig"
+    ]
+  },
+  "rollback": {
+    "coverage": {},
+    "eligible": false,
+    "interval_95": null,
+    "log_loss": {},
+    "matches": 0,
+    "rule": "After at least 150 graded matches across at least 3 weeks, roll back research v5 if its research log loss on AH all lines minus v4's, on the same frozen inputs, matches and offers, has a week-resampled 95% interval entirely above zero.",
+    "triggered": false,
+    "v5_minus_v4_log_loss": null,
+    "weeks": 0
+  },
+  "version": "research-v5-monitoring-v1"
+}
