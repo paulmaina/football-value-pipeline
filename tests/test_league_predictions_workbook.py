@@ -1,10 +1,8 @@
-"""Display-only league predictions workbook written beside the readable CSVs."""
+"""league_predictions.xlsx: list tabs first (master, old master, value, cagey), then one tab per league; display only."""
 from pathlib import Path
 import json
-import re
 import tempfile
 import unittest
-from unittest.mock import patch
 import warnings
 import xml.etree.ElementTree as ET
 from zipfile import ZipFile
@@ -12,20 +10,31 @@ from zipfile import ZipFile
 import pandas as pd
 
 from offline_test_case import OfflineQuotePolicyTestCase
+import excel_book as xb
 import format_football_output as formatter
-from format_football_output import WORKBOOK_NAME, main, write_predictions_workbook
+from format_football_output import WORKBOOK_NAME, main, read_shortlist_tabs, write_predictions_workbook
+import predictions_workbook as pw
 from test_conservative_bet_filter import fixture
 from test_readable_safest_ah import MARGINS, offer
 
 try:
     import openpyxl
-except ImportError:  # pragma: no cover - CI installs only the runtime requirements
+except ImportError:  # pragma: no cover - CI installs the dev requirements
     openpyxl = None
 
-NS = {"m": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
-LEAD = ["Match date", "League", "Home team", "Away team", "Model lean"]
-UNSIGNED_PCT = re.compile(r"^\d+(\.\d+)?%$")
-SHORTLIST_TABS = ["Master shortlist", "Value shortlist", "Cagey tier"]
+LIST_TABS = ['Master shortlist', 'Old master (shadow)', 'Value shortlist', 'Cagey tier']
+MASTER = ['Rank', 'Kickoff (EAT)', 'League', 'Match', 'Bet', 'Price', 'Tier', 'Cagey no-loss chance',
+          'Chance of profit', 'Research no-loss chance', 'Research gap (points)', 'Labels and flags', 'Inspection note',
+          'On value shortlist', 'On cagey tier']
+TAIL = ['Quote time (EAT)', 'Re-check price before betting']
+LISTS = ['Kickoff (EAT)', 'League', 'Match', 'Bet', 'Price', 'Chance of no loss', 'Chance of profit',
+         'Expected return', 'Probability basis', 'Price check status']
+LEAGUE = ['Kickoff (EAT)', 'Match', 'Model lean', 'Lean chance', 'Home win', 'Draw', 'Away win', 'Expected home goals',
+          'Expected away goals', 'Expected total goals', 'Most likely score', 'Score chance', 'Double chance 1X',
+          'Double chance X2', 'Double chance 12', 'Over 1.5', 'Under 1.5', 'Over 2.5', 'Under 2.5', 'Over 3.5',
+          'Under 3.5', 'Home odds', 'Draw odds', 'Away odds', 'Safest AH line', 'Safest AH odds (bookmaker)',
+          'Safest AH no-loss chance']
+KICKOFF = '2026-11-17T19:00:00+00:00'  # 22:00 in Nairobi
 
 
 def league_rows(league, count, start=0):
@@ -33,13 +42,11 @@ def league_rows(league, count, start=0):
     for i in range(start, start + count):
         row = fixture(i)
         row.update({
-            "league": league,
-            "fixture_source": "The Odds API",
+            "league": league, "fixture_source": "The Odds API",
             "p_over_2_5": 0.55, "p_under_2_5": 0.45, "p_btts_yes": 0.52, "p_btts_no": 0.48,
             "p_over_0_5": 0.93, "p_over_3_5": 0.31, "p_under_3_5": 0.69, "p_under_4_5": 0.84,
-            "p_home_draw": 0.89, "p_draw_away": 0.28, "p_home_away": 0.83,
-            "lambda_home": 1.9, "lambda_away": 0.8,
-            "goal_margin_distribution": MARGINS,
+            "p_under_1_5": 0.22, "p_home_draw": 0.89, "p_draw_away": 0.28, "p_home_away": 0.83,
+            "lambda_home": 1.9, "lambda_away": 0.8, "goal_margin_distribution": MARGINS,
             "asian_handicap_offers": json.dumps([offer("home", .5, 1.40, book="Pinnacle", opposite=2.9)]),
             "totals_anchor_status": "ANCHORED_MAIN",
             "top_scorelines": json.dumps([{"score": "2-0", "p": 0.137}, {"score": "1-0", "p": 0.12}]),
@@ -48,287 +55,249 @@ def league_rows(league, count, start=0):
     return rows
 
 
+def master_files(raw: Path, kickoff: str = KICKOFF) -> None:
+    """The released new master (every nominated offer) and the old master in shadow, as the pipeline writes them."""
+    import master_reconciliation as mr
+    import master_shortlist as ms
+    base = {'kickoff_utc': kickoff, 'league': 'Premier League', 'bookmaker': 'Pinnacle',
+            'offered_last_update_utc': '2026-11-16T08:55:00+00:00', 'evaluated_at_utc': '2026-11-16T09:00:00+00:00',
+            'new_master_version': ms.VERSION_NEW_LIVE, 'pinnacle_no_loss_probability': 0.79}
+    new = [
+        dict(base, new_master_rank=1, new_master_tier='safe', new_master_decision='SHORTLISTED', home_team='Arsenal',
+             away_team='Chelsea', market_to_bet='Asian Handicap Home +0.00', offered_decimal_odds=1.2,
+             cagey_no_loss_probability=0.84, ranking_profit_probability=0.62, research_no_loss_probability=0.72,
+             gap_points=-12.0, new_master_labels='research strongly disagrees', inspection_flag=True,
+             inspection_summary='research expects a low-scoring draw', inspection_driver='form W-D-L 2-5-3',
+             in_value_shortlist=False, in_cagey_tier=True, in_old_master=True, old_master_rank=1),
+        dict(base, new_master_rank=2, new_master_tier='fill', new_master_decision='SHORTLISTED', home_team='Genoa',
+             away_team='AC Milan', market_to_bet='Double Chance X2', offered_decimal_odds=1.3,
+             cagey_no_loss_probability=None, ranking_profit_probability=0.66, research_no_loss_probability=None,
+             gap_points=None, missing_evidence_reason='no research forecast', new_master_labels='unvalidated view',
+             inspection_flag=False, in_value_shortlist=True, in_cagey_tier=False, in_old_master=False),
+        dict(base, league='Serie A', new_master_rank=None, new_master_tier=None, new_master_decision='NOT_RANKED',
+             home_team='Lazio',
+             away_team='Roma', market_to_bet='Away win', offered_decimal_odds=1.95, cagey_no_loss_probability=0.51,
+             ranking_profit_probability=0.51, research_no_loss_probability=0.55, gap_points=4.0,
+             new_master_labels='both agree', inspection_flag=False, in_value_shortlist=True, in_cagey_tier=False),
+    ]
+    pd.DataFrame(new, columns=list(dict.fromkeys(mr.COLUMNS + ['old_master_rank', 'in_old_master', 'inspection_summary',
+                                                               'inspection_driver']))).drop(
+        columns=['in_live_master', 'live_master_rank', 'live_master_same_offer']).to_csv(raw / ms.FILE, index=False)
+    old = [dict(master_rank=1, kickoff_utc=kickoff, league='Premier League', home_team='Arsenal', away_team='Chelsea',
+                market_to_bet='Double Chance 1X', offered_decimal_odds=1.15, master_profit_probability=0.87,
+                master_price_flag='negative market EV nomination', in_value_shortlist=True, in_cagey_tier=True,
+                offered_last_update_utc='2026-11-16T08:58:00+00:00', master_offer_age_minutes=2.0),
+           dict(master_rank=2, kickoff_utc=kickoff, league='Serie A', home_team='Lazio', away_team='Roma',
+                market_to_bet='Away win', offered_decimal_odds=1.95, master_profit_probability=0.51,
+                master_price_flag='value', in_value_shortlist=True, in_cagey_tier=False,
+                offered_last_update_utc='', master_offer_age_minutes='')]
+    pd.DataFrame(old).to_csv(raw / ms.OLD_FILE, index=False)
+    (raw / 'conservative_bet_summary.json').write_text(json.dumps({'generated_at_utc': '2026-11-16T09:00:00+00:00'}))
+
+
+def readable_lists(out: Path) -> None:
+    value = pd.DataFrame({'Kickoff (UTC)': [KICKOFF], 'League': ['Premier League'], 'Home': ['Arsenal'],
+                          'Away': ['Chelsea'], 'Market to bet': ['Asian Handicap Away +1.50'], 'Price': ['1.32'],
+                          'Chance of no loss': ['88.6%'], 'Chance of positive return': ['88.6%'],
+                          'Expected return after cost': ['+14.6%'], 'Probability basis': ['team_form_poisson_v1'],
+                          'Price check status': ['PASSED'], 'Price check warning': [''],
+                          'Corrected-grid no-loss lower bound': ['52.0%'], 'Corrected draw probability': ['19.8%']})
+    cagey = value.assign(**{'Price check status': [''], 'Expected return after cost': ['-2.8%'],
+                            'Also in value tier': ['yes']})
+    value.to_csv(out / 'conservative_bet_shortlist_readable.csv', index=False, encoding='utf-8-sig')
+    cagey.to_csv(out / 'cagey_tier_shortlist_readable.csv', index=False, encoding='utf-8-sig')
+
+
+def table(book, sheet, header_row=4):
+    """Rows of the sheet's first table as dicts (header row, then rows until column A is empty)."""
+    cells = book['cells'][sheet]
+    headers, c = [], 1
+    while xb.address(header_row, c) in cells:
+        headers.append(cells[xb.address(header_row, c)])
+        c += 1
+    rows, r = [], header_row + 1
+    while xb.address(r, 1) in cells and cells[xb.address(r, 1)] not in (None, ''):
+        rows.append({h: cells.get(xb.address(r, i)) for i, h in enumerate(headers, start=1)})
+        r += 1
+    return headers, rows
+
+
 class WorkbookCase(OfflineQuotePolicyTestCase):
-    """Runs the formatter on EPL and LaLiga fixtures, an empty UCL file and a stale UEL CSV."""
+    """The formatter on EPL and LaLiga fixtures, an empty UCL file, a stale UEL CSV and both master files."""
 
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
         root = Path(self.tmp.name)
-        raw, self.readable = root / "raw", root / "readable"
-        raw.mkdir()
+        self.raw, self.readable = root / "raw", root / "readable"
+        self.raw.mkdir()
         self.readable.mkdir()
-        pd.DataFrame(league_rows("Premier League", 3)).to_csv(raw / "EPL_predictions.csv", index=False)
-        pd.DataFrame(league_rows("La Liga", 2, start=10)).to_csv(raw / "LaLiga_predictions.csv", index=False)
-        (raw / "UCL_predictions.csv").write_text("\n", encoding="utf-8")
-        # A stale readable CSV from an earlier run holds already-played matches.
+        pd.DataFrame(league_rows("Premier League", 3)).to_csv(self.raw / "EPL_predictions.csv", index=False)
+        pd.DataFrame(league_rows("La Liga", 2, start=10)).to_csv(self.raw / "LaLiga_predictions.csv", index=False)
+        (self.raw / "UCL_predictions.csv").write_text("\n", encoding="utf-8")
         stale = pd.DataFrame(league_rows("Europa League", 1, start=20))
-        stale.to_csv(raw / "stale.csv", index=False)
         formatter.readable_predictions_frame(stale, {}).to_csv(
             self.readable / "UEL_predictions_readable.csv", index=False, encoding="utf-8-sig")
-        (raw / "stale.csv").unlink()
+        master_files(self.raw)
         self.assertEqual(main(["--root-dir", str(root)]), 0)
         self.path = self.readable / WORKBOOK_NAME
+        self.book = xb.read_workbook(self.path)
 
-    def csv(self, league):
-        return pd.read_csv(self.readable / f"{league}_predictions_readable.csv",
-                           dtype=str, keep_default_na=False, encoding="utf-8-sig")
 
-    def parts(self):
+class TabsAndColumnsTests(WorkbookCase):
+    def test_tabs_in_order_lists_first_then_each_league_with_fixtures(self):
+        self.assertEqual(self.book['sheets'], LIST_TABS + ['EPL', 'LaLiga'])
+        self.assertEqual(formatter.workbook_league_tabs(self.path), ['EPL', 'LaLiga'])
+
+    def test_master_and_old_master_columns(self):
+        self.assertEqual(table(self.book, 'Master shortlist')[0], MASTER + ['In old master (shadow)'] + TAIL)
+        self.assertEqual(table(self.book, 'Old master (shadow)')[0], MASTER + ['In new master (live)'] + TAIL)
+
+    def test_master_rows_show_tier_views_flags_inspection_overlap_and_times_in_eat(self):
+        _, rows = table(self.book, 'Master shortlist')
+        self.assertEqual([r['Rank'] for r in rows], [1.0, 2.0])  # ranked picks only, best first
+        first, second = rows
+        self.assertEqual(first['Match'], 'Arsenal v Chelsea')
+        self.assertEqual(first['Tier'], 'safe')
+        self.assertAlmostEqual(first['Cagey no-loss chance'], 0.84)
+        self.assertAlmostEqual(first['Research gap (points)'], -12.0)
+        self.assertEqual(first['Labels and flags'], 'research strongly disagrees')
+        self.assertEqual(first['Inspection note'],
+                         'research strongly disagrees: research expects a low-scoring draw; form W-D-L 2-5-3')
+        self.assertEqual(first['In old master (shadow)'], 'yes (rank 1, other bet: Double Chance 1X)')
+        self.assertEqual(first['Kickoff (EAT)'], xb.excel_time(KICKOFF))
+        self.assertAlmostEqual(xb.excel_time(KICKOFF) % 1, 22 / 24, places=7)  # 19:00 UTC is 22:00 EAT
+        self.assertTrue(first['Re-check price before betting'].startswith('yes: re-check at Pinnacle'))
+        self.assertIn('5 min old', first['Re-check price before betting'])
+        # Gaps carry a reason, never a silent blank.
+        self.assertEqual(second['Cagey no-loss chance'], 'no cagey score (Pinnacle no-loss 79.0%)')
+        self.assertEqual(second['Research no-loss chance'], 'no research forecast')
+        self.assertEqual(second['Inspection note'], 'not flagged')
+        self.assertEqual(second['In old master (shadow)'], 'no')
+
+    def test_old_master_carries_the_new_rules_view_of_the_same_offer(self):
+        _, rows = table(self.book, 'Old master (shadow)')
+        arsenal, lazio = rows
+        self.assertEqual(arsenal['Tier'], 'old rule: no tiers')
+        self.assertEqual(arsenal['Cagey no-loss chance'], 'not nominated to the new master')
+        self.assertEqual(arsenal['In new master (live)'], 'yes (rank 1, other bet: Asian Handicap Home +0.00)')
+        self.assertAlmostEqual(lazio['Cagey no-loss chance'], 0.51)  # the same offer, nominated but not ranked
+        self.assertAlmostEqual(lazio['Research gap (points)'], 4.0)
+        self.assertEqual(lazio['Labels and flags'], 'value; both agree')
+        self.assertEqual(lazio['In new master (live)'], 'no')
+        self.assertEqual(lazio['Quote time (EAT)'], 'not recorded')
+        self.assertEqual(lazio['Re-check price before betting'], 'yes: re-check at Pinnacle before betting')
+
+    def test_league_tab_columns_drop_btts_and_diagnostics(self):
+        headers, rows = table(self.book, 'EPL')
+        self.assertEqual(headers, LEAGUE)
+        self.assertEqual(len(rows), 3)
+        for dropped in ('BTTS Yes', 'BTTS No', 'Over 0.5', 'Under 4.5', 'Fixture source', 'Research home win',
+                        'Training status', 'Best model-estimated value'):
+            self.assertNotIn(dropped, headers)
+        csv = pd.read_csv(self.readable / 'EPL_predictions_readable.csv', dtype=str, keep_default_na=False,
+                          encoding='utf-8-sig')
+        self.assertIn('BTTS Yes', csv.columns)  # full detail stays in the CSV
+        row = rows[0]
+        self.assertAlmostEqual(row['Under 1.5'], 0.22)  # from the run's raw forecast
+        self.assertAlmostEqual(row['Home win'], xb.number(csv.loc[0, 'Home win']))
+        self.assertIsInstance(row['Kickoff (EAT)'], float)
+
+    def test_titles_name_the_run_time_in_eat_and_the_csv_with_full_columns(self):
+        for sheet, csv in (('Master shortlist', 'master_shortlist_readable.csv'),
+                           ('Old master (shadow)', 'master_shortlist_old.csv'),
+                           ('Value shortlist', 'conservative_bet_shortlist_readable.csv'),
+                           ('Cagey tier', 'cagey_tier_shortlist_readable.csv'),
+                           ('EPL', 'EPL_predictions_readable.csv')):
+            subtitle = self.book['cells'][sheet]['A2']
+            self.assertIn('Run Mon 16 Nov 2026 12:00 EAT', subtitle, sheet)
+            self.assertIn(csv, subtitle, sheet)
+            self.assertTrue(self.book['cells'][sheet]['A1'], sheet)
+
+    def test_no_silent_blank_in_any_table(self):
         with ZipFile(self.path) as archive:
-            self.assertIsNone(archive.testzip())
-            return {name: archive.read(name) for name in archive.namelist()}
+            tables = [ET.fromstring(archive.read(n)) for n in archive.namelist() if n.startswith('xl/tables/')]
+        self.assertEqual(len(tables), len(self.book['sheets']))  # one native table (with its filter) per tab
+        for sheet in self.book['sheets']:
+            headers, rows = table(self.book, sheet)
+            for row in rows:
+                for header in headers:
+                    self.assertNotIn(row[header], (None, ''), f'{sheet}: {header}')
 
-    def sheet_names(self):
-        workbook = ET.fromstring(self.parts()["xl/workbook.xml"])
-        return [s.get("name") for s in workbook.findall("m:sheets/m:sheet", NS)]
+    def test_refresh_rewrites_list_tabs_and_keeps_league_tabs(self):
+        readable_lists(self.readable)
+        formatter.refresh_workbook_shortlists(self.readable, self.raw)
+        book = xb.read_workbook(self.path)
+        self.assertEqual(book['sheets'], LIST_TABS + ['EPL', 'LaLiga'])
+        self.assertEqual(table(book, 'Value shortlist')[1][0]['Match'], 'Arsenal v Chelsea')
+        self.assertEqual(table(book, 'Master shortlist')[1][0]['Match'], 'Arsenal v Chelsea')
 
-    def all_sheet_xmls(self):
-        parts = self.parts()
-        return [ET.fromstring(parts[f"xl/worksheets/sheet{i}.xml"]) for i in range(1, len(self.sheet_names()) + 1)]
-
-    def sheet_xmls(self):
-        """League tabs only (the shortlist tabs come first)."""
-        return [x for name, x in zip(self.sheet_names(), self.all_sheet_xmls()) if name not in SHORTLIST_TABS]
-
-
-class LeaguePredictionsWorkbookTests(WorkbookCase):
-    def test_every_fixture_league_gets_a_tab_and_empty_or_stale_leagues_do_not(self):
-        workbook = ET.fromstring(self.parts()["xl/workbook.xml"])
-        names = [s.get("name") for s in workbook.findall("m:sheets/m:sheet", NS)]
-        self.assertEqual(names[:3], SHORTLIST_TABS)
-        self.assertEqual(sorted(names[3:]), ["EPL", "LaLiga"])
-        self.assertNotIn("UCL", names)
-        self.assertNotIn("UEL", names)
-
-    def test_fixture_source_is_only_in_the_csvs(self):
-        for league in ("EPL", "LaLiga"):
-            self.assertIn("Fixture source", self.csv(league).columns)
-        for xml in self.sheet_xmls():
-            headers = [c.findtext(".//m:t", namespaces=NS) for c in xml.findall("m:sheetData/m:row[@r='1']/m:c", NS)]
-            self.assertNotIn("Fixture source", headers)
-            self.assertEqual(headers[:5], LEAD)
-
-    def test_frozen_pane_is_consistent_with_its_split(self):
-        # Excel repairs a frozen pane whose top-left cell sits inside the frozen area.
-        for xml in self.sheet_xmls():
-            pane = xml.find("m:sheetViews/m:sheetView/m:pane", NS)
-            self.assertEqual((pane.get("xSplit"), pane.get("ySplit")), ("5", "1"))
-            self.assertEqual(pane.get("topLeftCell"), "F2")
-            self.assertEqual(pane.get("state"), "frozen")
-            self.assertEqual(pane.get("activePane"), "bottomRight")
-            panes = {s.get("pane") for s in xml.findall("m:sheetViews/m:sheetView/m:selection", NS)}
-            self.assertEqual(panes, {"topRight", "bottomLeft", "bottomRight"})
-            self.assertIsNotNone(xml.find("m:autoFilter", NS))
-            # Schema order: autoFilter follows sheetData.
-            tags = [child.tag.split("}")[1] for child in xml]
-            self.assertLess(tags.index("sheetData"), tags.index("autoFilter"))
-        sheets = [x.find("m:sheetViews/m:sheetView", NS).get("tabSelected") for x in self.all_sheet_xmls()]
-        self.assertEqual(sheets.index("1"), 0)
-        self.assertEqual(sheets.count("1"), 1)
-
-    def test_every_part_is_well_formed_xml(self):
-        for name, data in self.parts().items():
-            with self.subTest(part=name):
-                ET.fromstring(data)
-
-    def test_failed_write_keeps_the_published_workbook(self):
-        before = self.path.read_bytes()
-        with patch.object(formatter.ZipFile, "writestr", side_effect=OSError("disk full")):
-            with self.assertRaises(OSError):
-                write_predictions_workbook([("EPL", self.csv("EPL"))], self.path)
-        self.assertEqual(self.path.read_bytes(), before)
-        self.assertEqual([p.name for p in self.readable.glob("*.tmp")], [])
-
-    def test_no_fixtures_anywhere_replaces_old_tabs_with_a_note(self):
-        write_predictions_workbook([], self.path)
-        workbook = ET.fromstring(self.parts()["xl/workbook.xml"])
-        self.assertEqual([s.get("name") for s in workbook.findall("m:sheets/m:sheet", NS)], ["No fixtures"])
+    def test_same_inputs_give_the_same_bytes(self):
+        first = self.path.read_bytes()
+        formatter.refresh_workbook_shortlists(self.readable, self.raw)
+        self.assertEqual(self.path.read_bytes(), first)
 
 
-@unittest.skipIf(openpyxl is None, "openpyxl is not installed")
-class LeaguePredictionsWorkbookOpenpyxlTests(WorkbookCase):
-    def load(self):
-        with warnings.catch_warnings():
-            warnings.simplefilter("error")
-            return openpyxl.load_workbook(self.path)
-
-    def test_reloads_cleanly_with_openpyxl(self):
-        workbook = self.load()
-        self.assertEqual(workbook.sheetnames[:3], SHORTLIST_TABS)
-        self.assertEqual(sorted(workbook.sheetnames[3:]), ["EPL", "LaLiga"])
-        for sheet in workbook.worksheets[3:]:
-            self.assertEqual(sheet.freeze_panes, "F2")
-            self.assertEqual([c.value for c in sheet[1][:5]], LEAD)
-            self.assertEqual(sheet.auto_filter.ref, f"A1:{sheet.cell(1, sheet.max_column).column_letter}{sheet.max_row}")
-            self.assertTrue(all(d.width >= 10 for d in sheet.column_dimensions.values()))
-
-    def test_rows_and_values_match_the_csv(self):
-        workbook = self.load()
-        for league in ("EPL", "LaLiga"):
-            frame, sheet = self.csv(league), workbook[league]
-            headers = [c.value for c in sheet[1]]
-            self.assertEqual(sorted(headers), sorted(c for c in frame.columns if c != "Fixture source"))
-            self.assertEqual(sheet.max_row - 1, len(frame))
-            for r, record in enumerate(frame.to_dict("records"), start=2):
-                for c, header in enumerate(headers, start=1):
-                    text, cell = record[header], sheet.cell(r, c)
-                    with self.subTest(league=league, column=header, row=r):
-                        if text in ("", "—"):
-                            self.assertIsNone(cell.value)
-                        elif cell.number_format in ("0.0%", "+0.0%;-0.0%;0.0%"):
-                            self.assertAlmostEqual(cell.value, float(text.rstrip("%")) / 100)
-                        elif cell.number_format == "+0.0;-0.0;0.0":
-                            self.assertAlmostEqual(cell.value, float(text.removesuffix(" pp")))
-                        elif cell.number_format == "0.00":
-                            self.assertAlmostEqual(cell.value, float(text))
-                        elif cell.number_format == "yyyy-mm-dd":
-                            self.assertEqual(cell.value.date().isoformat(), text)
-                        else:
-                            self.assertEqual(cell.value, text)
-
-    def test_probability_gap_and_odds_columns_are_numeric(self):
-        workbook = self.load()
-        frame, sheet = self.csv("EPL"), workbook["EPL"]
-        headers = [c.value for c in sheet[1]]
-        # Any column the CSV shows as an unsigned percentage is a 0-1 probability.
-        probability = [h for h in headers if (frame[h] != "—").any()
-                       and frame[h][frame[h] != "—"].str.match(UNSIGNED_PCT).all()]
-        for expected in ["Model lean probability", "Home win", "Draw", "Away win",
-                         "Most likely score probability", "Over 0.5", "Over 1.5", "Over 2.5",
-                         "Under 2.5", "Over 3.5", "Under 3.5", "Under 4.5",
-                         "Double Chance 1X", "Double Chance X2", "Double Chance 12", "BTTS Yes",
-                         "BTTS No", "Safest AH model no-loss probability",
-                         "Safest AH model break-even win share", "Safest AH Pinnacle no-vig win share"]:
-            self.assertIn(expected, probability)
-        formats = {
-            **dict.fromkeys(probability, "0.0%"),
-            "Safest AH model minus Pinnacle win share": "+0.0;-0.0;0.0",
-            "Home market odds": "0.00", "Away market odds": "0.00",
-        }
-        for header, number_format in formats.items():
-            cell = sheet.cell(2, headers.index(header) + 1)
-            with self.subTest(column=header):
-                self.assertEqual(cell.data_type, "n")
-                self.assertIsInstance(cell.value, float)
-                self.assertEqual(cell.number_format, number_format)
-                if number_format == "0.0%":
-                    self.assertTrue(0 <= cell.value <= 1)
-
-
-class ShortlistTabTests(OfflineQuotePolicyTestCase):
-    """The three readable shortlists lead the workbook: master, value, cagey tier."""
-
-    MASTER = pd.DataFrame({"Rank": ["1", "2"], "Kickoff (UTC)": ["2026-11-04T20:00:00+00:00"] * 2,
-                           "League": ["UCL", "UCL"], "Home": ["Porto", "PSV"], "Away": ["Napoli", "Brugge"],
-                           "Market to bet": ["Asian Handicap Home +0.00", "Home win"], "Price": ["1.53", "2.13"],
-                           "Fair odds": ["1.50", "2.13"], "Edge": ["+2.2%", "+0.1%"],
-                           "No-loss probability": ["72.7%", ""],
-                           "Price flag (value / below value threshold)": ["value", "below value threshold"]})
-    CAGEY = pd.DataFrame({"Kickoff (UTC)": ["2026-11-04T20:00:00+00:00"], "League": ["UCL"], "Home": ["Porto"],
-                          "Away": ["Napoli"], "AH line": ["1.0"], "Price": ["1.07"], "Fair odds": ["1.1136478360629778"],
-                          "Edge": ["-0.039193571477033284"], "Pinnacle draw probability": ["0.24932458510227712"],
-                          "Offered quote age (min)": ["3.34826285"], "Balanced": ["False"]})
-
+class ListTabTests(OfflineQuotePolicyTestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
         self.out = Path(self.tmp.name)
-        self.MASTER.to_csv(self.out / "master_shortlist_readable.csv", index=False, encoding="utf-8-sig")
-        self.CAGEY.to_csv(self.out / "cagey_tier_shortlist_readable.csv", index=False, encoding="utf-8-sig")
-        self.path = self.out / WORKBOOK_NAME
-        self.league = pd.DataFrame([{h: "x" for h in LEAD}])
+        readable_lists(self.out)
+        self.path = write_predictions_workbook([], self.out / WORKBOOK_NAME, read_shortlist_tabs(self.out))
+        self.book = xb.read_workbook(self.path)
 
-    def names(self):
-        with ZipFile(self.path) as archive:
-            root = ET.fromstring(archive.read("xl/workbook.xml"))
-        return [s.get("name") for s in root.findall("m:sheets/m:sheet", NS)]
+    def test_value_and_cagey_tabs_keep_only_the_columns_to_judge_a_bet(self):
+        for sheet in ('Value shortlist', 'Cagey tier'):
+            headers, rows = table(self.book, sheet)
+            self.assertEqual(headers, LISTS)
+            self.assertEqual(rows[0]['Match'], 'Arsenal v Chelsea')
+            self.assertAlmostEqual(rows[0]['Price'], 1.32)
+            self.assertAlmostEqual(rows[0]['Chance of no loss'], 0.886)
+        self.assertEqual(table(self.book, 'Value shortlist')[1][0]['Price check status'], 'PASSED')
+        self.assertEqual(table(self.book, 'Cagey tier')[1][0]['Price check status'], 'not checked in this run')
+        self.assertAlmostEqual(table(self.book, 'Cagey tier')[1][0]['Expected return'], -0.028)
 
-    def test_market_measures_are_adjacent_on_all_three_shortlist_tabs(self):
-        metrics = {"Model fair odds after cost": ["1.50"],
-                   "Chance of positive return": ["75.0%"], "Chance of no loss": ["82.0%"]}
-        frames = []
-        for _,name,_ in formatter.WORKBOOK_SHORTLISTS:
-            frame = pd.DataFrame({"Home": ["Home FC"], "Away": ["Away FC"],
-                "Market to bet": ["Asian Handicap Home +1.00"], "Bookmaker": ["Pinnacle"],
-                "Price": ["1.53"], "Research coverage": ["partial"], **metrics})
-            frames.append((name,frame,"unused"))
-        write_predictions_workbook([("EPL",self.league)],self.path,frames)
-        with ZipFile(self.path) as archive:
-            for i in range(1,4):
-                xml=ET.fromstring(archive.read(f"xl/worksheets/sheet{i}.xml"))
-                headers=[c.find("m:is/m:t",NS).text for c in xml.findall("m:sheetData/m:row",NS)[0]]
-                start=headers.index("Market to bet")
-                self.assertEqual(headers[start:start+5],["Market to bet","Price","Model fair odds after cost",
-                    "Chance of positive return","Chance of no loss"])
-                data=xml.findall("m:sheetData/m:row",NS)[1]
-                values={headers[j]:float(c.find("m:v",NS).text) for j,c in enumerate(data)
-                        if c.find("m:v",NS) is not None}
-                self.assertAlmostEqual(values['Price'],1.53)
-                self.assertAlmostEqual(values['Model fair odds after cost'],1.50)
-                self.assertAlmostEqual(values['Chance of positive return'],.75)
-                self.assertAlmostEqual(values['Chance of no loss'],.82)
-        self.assertEqual(list(frames[0][1].columns)[3],"Bookmaker") # input frame untouched
+    def test_without_a_run_bundle_the_master_tabs_say_why(self):
+        self.assertEqual(self.book['sheets'], LIST_TABS)
+        for sheet in ('Master shortlist', 'Old master (shadow)'):
+            self.assertEqual(table(self.book, sheet)[1][0]['Rank'], 'Run bundle not available to the workbook.')
 
-    def test_master_aliases_missing_columns_and_league_order_are_preserved(self):
-        original=["Home","Away","Market to bet","Bookmaker","No-loss probability","Price",
-                  "Chance of positive return","Fair odds","Notes"]
-        ordered=formatter.workbook_market_headers(original)
-        self.assertEqual(ordered[2:7],["Market to bet","Price","Fair odds","Chance of positive return","No-loss probability"])
-        self.assertEqual(original[3],"Bookmaker")
-        self.assertEqual(formatter.workbook_market_headers(["Home","Market to bet","Price"]),
-                         ["Home","Market to bet","Price"])
-        self.assertEqual(formatter.workbook_market_headers(LEAD),LEAD)
-        league=pd.DataFrame(columns=LEAD+["Market to bet","Other","Price","Chance of no loss"])
-        self.assertEqual(formatter.workbook_headers(league),LEAD+["Market to bet","Price","Chance of no loss","Other"])
+    def test_a_pre_release_run_shows_its_live_old_master_and_why_the_new_tab_is_empty(self):
+        import master_shortlist as ms
+        raw = self.out / 'raw'
+        raw.mkdir()
+        pd.DataFrame([dict(master_rank=1, kickoff_utc=KICKOFF, league='Premier League', home_team='Arsenal',
+                           away_team='Chelsea', market_to_bet='Home win', offered_decimal_odds=1.6,
+                           master_profit_probability=0.6, in_value_shortlist=True, in_cagey_tier=False)]).to_csv(
+            raw / ms.FILE, index=False)
+        book = xb.read_workbook(write_predictions_workbook([], self.out / 'pre.xlsx', None, raw))
+        self.assertEqual(table(book, 'Master shortlist')[1][0]['Rank'],
+                         'No new-master file in this run (made before the release).')
+        old = table(book, 'Old master (shadow)')[1][0]
+        self.assertEqual(old['Match'], 'Arsenal v Chelsea')
+        self.assertEqual(old['Cagey no-loss chance'], 'no new-master view in this run')
+        self.assertIn('the old master was the live list', book['cells']['Old master (shadow)']['A2'])
 
-    def test_tabs_lead_in_order_and_a_missing_list_gets_a_note(self):
-        write_predictions_workbook([("EPL", self.league)], self.path, formatter.read_shortlist_tabs(self.out))
-        self.assertEqual(self.names(), SHORTLIST_TABS + ["EPL"])
-        with ZipFile(self.path) as archive:
-            value_tab = archive.read("xl/worksheets/sheet2.xml").decode()
-        self.assertIn("No value shortlist in this run.", value_tab)
 
-    def test_refresh_rewrites_shortlist_tabs_and_keeps_league_tabs(self):
-        self.league.to_csv(self.out / "EPL_predictions_readable.csv", index=False, encoding="utf-8-sig")
-        write_predictions_workbook([("EPL", self.league)], self.path, formatter.read_shortlist_tabs(self.out))
-        (self.out / "master_shortlist_readable.csv").unlink()
-        formatter.refresh_workbook_shortlists(self.out)
-        self.assertEqual(self.names(), SHORTLIST_TABS + ["EPL"])
-        with ZipFile(self.path) as archive:
-            self.assertIn("No master shortlist in this run.", archive.read("xl/worksheets/sheet1.xml").decode())
-        # No workbook yet: nothing is created by a shortlist-only refresh.
-        self.path.unlink()
-        self.assertIsNone(formatter.refresh_workbook_shortlists(self.out))
-        self.assertFalse(self.path.exists())
-
-    @unittest.skipIf(openpyxl is None, "openpyxl is not installed")
-    def test_values_are_numbers_with_formats(self):
-        write_predictions_workbook([("EPL", self.league)], self.path, formatter.read_shortlist_tabs(self.out))
-        with warnings.catch_warnings():
-            warnings.simplefilter("error")
-            workbook = openpyxl.load_workbook(self.path)
-        master, cagey = workbook["Master shortlist"], workbook["Cagey tier"]
-        self.assertEqual(workbook.active.title, "Master shortlist")
-        self.assertEqual(master.freeze_panes, "F2")
-        self.assertEqual(cagey.freeze_panes, "E2")
-        cell = lambda sheet, header, row=2: sheet.cell(row, [c.value for c in sheet[1]].index(header) + 1)
-        self.assertEqual((cell(master, "Rank").value, cell(master, "Price").value), (1.0, 1.53))
-        self.assertEqual(cell(master, "Price").number_format, "0.00")
-        self.assertAlmostEqual(cell(master, "Edge").value, 0.022)
-        self.assertEqual(cell(master, "Edge").number_format, "+0.0%;-0.0%;0.0%")
-        self.assertAlmostEqual(cell(master, "No-loss probability").value, 0.727)
-        self.assertIsNone(cell(master, "No-loss probability", 3).value)
-        self.assertEqual(cell(master, "Price flag (value / below value threshold)", 3).value, "below value threshold")
-        self.assertEqual(cell(master, "Market to bet").value, "Asian Handicap Home +0.00")
-        # Unformatted fractions in the cagey tier still display as percentages.
-        self.assertAlmostEqual(cell(cagey, "Edge").value, -0.039193571477033284)
-        self.assertEqual(cell(cagey, "Edge").number_format, "+0.0%;-0.0%;0.0%")
-        self.assertEqual(cell(cagey, "Pinnacle draw probability").number_format, "0.0%")
-        self.assertEqual(cell(cagey, "Fair odds").number_format, "0.00")
-        self.assertEqual(cell(cagey, "Balanced").value, "False")
-        self.assertEqual(cell(cagey, "AH line").value, "1.0")
-        self.assertEqual(cagey.auto_filter.ref, "A1:K2")
+@unittest.skipIf(openpyxl is None, "openpyxl is not installed")
+class OpenpyxlTests(WorkbookCase):
+    def test_reloads_cleanly_with_formats_tables_and_frozen_panes(self):
+        with warnings.catch_warnings(record=True) as caught:
+            warnings.simplefilter('always')
+            book = openpyxl.load_workbook(self.path)
+        self.assertEqual([str(w.message) for w in caught], [])
+        master = book['Master shortlist']
+        self.assertEqual(master.freeze_panes, 'E5')  # header row and rank, kickoff, league, match
+        self.assertEqual(master['F5'].number_format, '0.00')
+        self.assertEqual(master['H5'].number_format, '0.0%')
+        self.assertEqual(master['B5'].number_format, 'ddd dd mmm hh:mm')
+        self.assertEqual(master['B5'].value.hour, 22)
+        self.assertEqual(len(master.tables), 1)
+        self.assertTrue(master.conditional_formatting)
+        epl = book['EPL']
+        self.assertEqual(epl.freeze_panes, 'C5')
+        self.assertEqual(epl['E5'].number_format, '0.0%')
 
 
 if __name__ == "__main__":

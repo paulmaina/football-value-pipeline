@@ -1,344 +1,768 @@
-"""Readable monitoring views for the generated report (standard library only).
+"""The sheets of football_performance_report.xlsx (display only; standard library).
 
-Presentation is applied after the evidence calculations. Existing ledger cells,
-formula caches, native tables and editable simulation inputs are preserved.
+Master tracking starts afresh at the first forecast run after the new master went live (PR #175's release of
+14 Nov 2026): the live master and the old master (shadow) are shown only from that run on. Earlier graded data
+stays in the repo untouched (grading and the rollback check read it) but is not shown here.
+
+Every figure is read from files the review has already written; nothing is graded, recomputed for a decision or
+changed. Sources:
+
+  performance/price_edge_v27/master_shortlist_picks.csv       graded new-master picks (every column)
+  performance/price_edge_v27/master_shortlist_old_picks.csv   graded old-master picks (every column)
+  performance/price_edge_v27/summary.json                     rollback rule, release incidents, live list
+  performance/research_v5_monitoring.json                     research v5 vs v4 rollback, home-favourite check
+  performance/clv_report/                                     candidate closing-line value
+  performance/pipeline_health.json, workflow_health.json      data health and the last validation's warnings
+  odds_api_usage/usage_log.jsonl                              Odds API credits and the last forecast run
+
+Release status. Each monitored release's status starts from its live switch, read when the workbook is built, so no
+section can show an outdated release status:
+
+  master_shortlist_config.json  live           "new": Live (new master)    "old": Rolled back to the old master
+  research_config.json          live.domestic  "v5":  Live (research v5)   "v4":  Rolled back to research v4
+  research_config.json          live.european  "v6":  Live (research v6)   "v4":  Rolled back to CE (research v4)
+
+While a release is live its status adds the rollback check's state, or "monitoring data not available yet" with the
+reason (the review has not written the figures, or no graded matches yet). After a rollback the date is the first
+archived forecast run made without the release, when one exists. CE3n's figures are research_monitoring's "ce3n"
+entry of research_v5_monitoring.json (PR #178).
 """
 from __future__ import annotations
 
-import copy
 from csv_utils import dict_reader
+from datetime import datetime
 import json
-import math
 from pathlib import Path
-import re
-import tempfile
-import os
-import xml.etree.ElementTree as ET
-from zipfile import ZipFile, ZipInfo, ZIP_DEFLATED
+from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
-NS = 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'
-REL = 'http://schemas.openxmlformats.org/officeDocument/2006/relationships'
-PKG = 'http://schemas.openxmlformats.org/package/2006/relationships'
-CT = 'http://schemas.openxmlformats.org/package/2006/content-types'
-C = 'http://schemas.openxmlformats.org/drawingml/2006/chart'
-A = 'http://schemas.openxmlformats.org/drawingml/2006/main'
-XDR = 'http://schemas.openxmlformats.org/drawingml/2006/spreadsheetDrawing'
-# Live forward trials only; retired experiments (archive/) keep their frozen reports. None remain live.
-NAMES = {}
+import excel_book as xb
+from excel_book import Typed
 
-
-def q(name):
-    return f'{{{NS}}}{name}'
-
-
-def xml_bytes(root):
-    # OPC readers expect the content-types namespace as the default namespace.
-    # Keep package XML portable across Excel and strict OpenXML readers.
-    namespace = root.tag.split('}')[0][1:]
-    ET.register_namespace('', namespace)
-    data = ET.tostring(root, encoding='utf-8', xml_declaration=True)
-    ET.register_namespace('', NS)
-    return data
+REPORT_NAME = 'football_performance_report.xlsx'
+SHEETS = ('Dashboard', 'Picks & Results', 'Weekly Trends', 'Breakdowns', 'Calibration', 'CLV', 'Model Monitoring',
+          'Guide')
+RELEASED = '14 Nov 2026'  # the new master's release (docs/plan.md, Decisions: Master shortlist release)
+TRACKING = Path('price_edge_v27')
+GRADED = {'new': TRACKING / 'master_shortlist_picks.csv', 'old': TRACKING / 'master_shortlist_old_picks.csv'}
+PICKS_CSV = ('performance/price_edge_v27/master_shortlist_picks.csv (new) and master_shortlist_old_picks.csv (old)')
+# The release switches; None reads the pipeline's own (master_shortlist.CONFIG, team_research.RESEARCH_CONFIG).
+MASTER_CONFIG: Optional[Path] = None
+RESEARCH_CONFIG: Optional[Path] = None
+MONITORING = 'research_v5_monitoring.json'
+NOT_AVAILABLE = 'monitoring data not available yet'
+SETTLED = {'WON': 'Won', 'HALF_WON': 'Half won', 'REFUNDED': 'Refund', 'HALF_LOST': 'Half lost', 'LOST': 'Lost'}
+BANDS = ((0.0, 0.5), (0.5, 0.6), (0.6, 0.7), (0.7, 0.75), (0.75, 0.8), (0.8, 0.85), (0.85, 0.9), (0.9, 1.000001))
+TIERS = ('safe', 'fill', 'risky fill')
+NO_GRADED = 'no graded picks yet'
+SMALL = 30  # below this many graded picks a rate is a small sample
 
 
-def text(cell):
-    if cell is None:
-        return None
-    v = cell.find(q('v'))
-    if v is not None:
-        if cell.get('t') in ('str', 'e'):
-            return v.text
+# --- reading -----------------------------------------------------------------------------------------------------
+
+def load(root: Path, relative: str | Path) -> dict:
+    path = Path(root) / 'performance' / relative
+    try:
+        return json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
+    except ValueError:
+        return {}
+
+
+def read_rows(path: Path) -> List[dict]:
+    if not path.exists() or path.stat().st_size == 0:
+        return []
+    with path.open(encoding='utf-8-sig', newline='') as handle:
+        return list(dict_reader(handle))
+
+
+def tracking_start(root: Path) -> Optional[datetime]:
+    """Generation time of the first archived run made by the released new master (its run summary records the
+    released version), or None while no such run exists."""
+    from master_shortlist import VERSION_NEW_LIVE
+    base = Path(root) / 'performance' / 'snapshots'
+    stamps = []
+    for path in sorted(base.glob('*/selection_summary.json')) if base.exists() else []:
+        if path.parent.name.startswith('.capture-'):
+            continue
         try:
-            return float(v.text)
-        except (ValueError, TypeError):
-            return v.text
-    return ''.join(t.text or '' for t in cell.iter(q('t'))) or None
+            summary = json.loads(path.read_text(encoding='utf-8'))
+        except (OSError, ValueError):
+            continue
+        if (summary.get('master_shortlist') or {}).get('version') == VERSION_NEW_LIVE:
+            stamp = xb.parse_utc(summary.get('generated_at_utc'))
+            if stamp is not None:
+                stamps.append(stamp)
+    return min(stamps) if stamps else None
 
 
-def column(i):
-    result = ''
-    while i:
-        i, rem = divmod(i - 1, 26)
-        result = chr(65 + rem) + result
-    return result
+def live_list(root: Path) -> str:
+    """'new' or 'old': which master is live now, from master_shortlist_config.json's switch (rolling back is setting
+    it to "old"); the review's record only when the switch can't be read."""
+    value, _ = switch('master')
+    if value is not None:
+        return value
+    recorded = load(root, TRACKING / 'summary.json').get('live_master_list')
+    return recorded if recorded in ('new', 'old') else 'new'
 
 
-def label(value):
-    return str(value).replace('_', ' ').lower().capitalize() if value else 'Unavailable'
+def list_names(root: Path) -> Dict[str, str]:
+    live = live_list(root)
+    return {'new': 'New master (live)' if live == 'new' else 'New master (shadow)',
+            'old': 'Old master (live)' if live == 'old' else 'Old master (shadow)'}
 
 
-class Sheet:
-    def __init__(self, root=None):
-        self.root = root if root is not None else ET.Element(q('worksheet'))
-        self.data = self.root.find(q('sheetData'))
-        if self.data is None:
-            self.data = ET.SubElement(self.root, q('sheetData'))
-
-    def cell(self, address):
-        nr = re.search(r'\d+', address).group()
-        row = self.data.find(f"{q('row')}[@r='{nr}']")
-        if row is None:
-            row = ET.SubElement(self.data, q('row'), {'r': nr})
-        cell = row.find(f"{q('c')}[@r='{address}']")
-        return cell if cell is not None else ET.SubElement(row, q('c'), {'r': address})
-
-    def put(self, address, value, style=None, formula=None):
-        cell = self.cell(address)
-        cell[:] = []
-        cell.attrib.pop('t', None)
-        if style is not None:
-            cell.set('s', str(style))
-        if formula:
-            ET.SubElement(cell, q('f')).text = formula.lstrip('=')
-        if value is None or value == '':
-            return
-        if isinstance(value, (int, float)) and math.isfinite(value):
-            ET.SubElement(cell, q('v')).text = str(value)
-        elif formula:
-            cell.set('t', 'str')
-            ET.SubElement(cell, q('v')).text = str(value)
-        else:
-            cell.set('t', 'inlineStr')
-            ET.SubElement(ET.SubElement(cell, q('is')), q('t')).text = str(value)
-
-    def row(self, nr, values, styles, header=False):
-        for i, value in enumerate(values, 1):
-            style = styles['header'] if header else styles['number'] if isinstance(value, (int, float)) else styles['body']
-            self.put(f'{column(i)}{nr}', value, style)
-        r = self.data.find(f"{q('row')}[@r='{nr}']")
-        r.set('ht', '34' if header else '30')
-        r.set('customHeight', '1')
-
-    def merge(self, ref):
-        merges = self.root.find(q('mergeCells'))
-        if merges is None:
-            merges = ET.SubElement(self.root, q('mergeCells'))
-        if not any(x.get('ref') == ref for x in merges):
-            ET.SubElement(merges, q('mergeCell'), {'ref': ref})
-        merges.set('count', str(len(merges)))
-
-    def setup(self, widths, freeze=None, hidden=()):
-        for name in ('sheetViews', 'cols'):
-            old = self.root.find(q(name))
-            if old is not None:
-                self.root.remove(old)
-        views = ET.Element(q('sheetViews'))
-        view = ET.SubElement(views, q('sheetView'), {'workbookViewId': '0', 'showGridLines': '0', 'zoomScale': '90'})
-        if freeze:
-            x, y, top = freeze
-            ET.SubElement(view, q('pane'), {'xSplit': str(x), 'ySplit': str(y), 'topLeftCell': top,
-                'activePane': 'bottomRight' if x and y else 'bottomLeft', 'state': 'frozen'})
-        self.root.insert(0, views)
-        cols = ET.Element(q('cols'))
-        for i, width in enumerate(widths, 1):
-            attrs = {'min': str(i), 'max': str(i), 'width': str(width), 'customWidth': '1'}
-            if i in hidden:
-                attrs.update(hidden='1', outlineLevel='1')
-            ET.SubElement(cols, q('col'), attrs)
-        self.root.insert(list(self.root).index(self.data), cols)
-
-    def finish(self):
-        self.data[:] = sorted(self.data, key=lambda r: int(r.get('r')))
-        for row in self.data:
-            row[:] = sorted(row, key=lambda c: (len(re.match('[A-Z]+', c.get('r')).group()), c.get('r')))
-        # Keep worksheet child order valid, including views, drawing and tables.
-        order = ['sheetPr', 'dimension', 'sheetViews', 'sheetFormatPr', 'cols', 'sheetData',
-            'sheetCalcPr', 'sheetProtection', 'protectedRanges', 'scenarios', 'autoFilter',
-            'sortState', 'dataConsolidate', 'customSheetViews', 'mergeCells', 'phoneticPr',
-            'conditionalFormatting', 'dataValidations', 'hyperlinks', 'printOptions',
-            'pageMargins', 'pageSetup', 'headerFooter', 'rowBreaks', 'colBreaks',
-            'customProperties', 'cellWatches', 'ignoredErrors', 'smartTags', 'drawing',
-            'legacyDrawing', 'legacyDrawingHF', 'picture', 'oleObjects', 'controls',
-            'webPublishItems', 'tableParts', 'extLst']
-        self.root[:] = sorted(self.root, key=lambda x: order.index(x.tag.split('}')[-1]) if x.tag.split('}')[-1] in order else len(order))
-        return xml_bytes(self.root)
+def market_family(row: dict) -> str:
+    bet = str(row.get('market_to_bet') or row.get('market') or '')
+    if bet.startswith('Asian Handicap') or bet.startswith('Draw No Bet'):
+        return 'Asian handicap'
+    if bet.startswith('Double Chance'):
+        return 'Double chance'
+    if bet in ('Home win', 'Away win') or bet.endswith(' win'):
+        return 'Match winner'
+    if bet.startswith('Over') or bet.startswith('Under'):
+        return 'Totals'
+    return bet or 'not recorded'
 
 
-def styles(parts):
-    root = ET.fromstring(parts['xl/styles.xml'])
-    fonts, fills, xfs = (root.find(q(n)) for n in ('fonts', 'fills', 'cellXfs'))
-    formats = root.find(q('numFmts'))
-    if formats is None:
-        formats = ET.Element(q('numFmts')); root.insert(0, formats)
-    def add(parent, node):
-        raw = ET.tostring(node)
-        for i, old in enumerate(parent):
-            if ET.tostring(old) == raw:
-                return i
-        parent.append(node); parent.set('count', str(len(parent))); return len(parent) - 1
-    def fmt(code):
-        for old in formats:
-            if old.get('formatCode') == code:
-                return old.get('numFmtId')
-        idx = max([163] + [int(x.get('numFmtId')) for x in formats]) + 1
-        ET.SubElement(formats, q('numFmt'), {'numFmtId': str(idx), 'formatCode': code})
-        formats.set('count', str(len(formats))); return str(idx)
-    out = {}
-    for name, size, bold, color, fill, number, align in [
-        ('body', 11, False, '243746', 'FFFFFF', None, 'left'),
-        ('number', 11, False, '243746', 'FFFFFF', '#,##0', 'right'),
-        ('percent', 11, False, '243746', 'FFFFFF', '0.0%', 'right'),
-        ('decimal', 11, False, '243746', 'FFFFFF', '0.000', 'right'),
-        ('units', 11, False, '243746', 'FFFFFF', '0.00;[Red]-0.00', 'right'),
-        ('date', 11, False, '243746', 'FFFFFF', 'dd mmm yy hh:mm', 'left'),
-        ('header', 11, True, 'FFFFFF', '243E5B', None, 'center'),
-        ('title', 16, True, '243E5B', 'FFFFFF', None, 'left'),
-        ('section', 11, True, '243E5B', 'EAF0F5', None, 'left'),
-        ('note', 11, False, '526477', 'FFFFFF', None, 'left'),
-        ('warning', 11, True, '805B10', 'FFF3CF', None, 'left'),
-        ('error', 11, True, '9C3030', 'FCE9E9', None, 'left'),
-        ('ready', 11, True, '176547', 'E5F3EA', None, 'left'),
-        ('link', 11, True, '245BA0', 'FFFFFF', None, 'left'),
-    ]:
-        f = ET.Element(q('font')); ET.SubElement(f, q('sz'), {'val': str(size)})
-        ET.SubElement(f, q('name'), {'val': 'Arial'}); ET.SubElement(f, q('color'), {'rgb': 'FF' + color})
-        if bold: ET.SubElement(f, q('b'))
-        fid = add(fonts, f)
-        f = ET.Element(q('fill')); pattern = ET.SubElement(f, q('patternFill'), {'patternType': 'solid'})
-        ET.SubElement(pattern, q('fgColor'), {'rgb': 'FF' + fill}); ET.SubElement(pattern, q('bgColor'), {'indexed': '64'})
-        fillid = add(fills, f)
-        xf = ET.Element(q('xf'), {'fontId': str(fid), 'fillId': str(fillid), 'borderId': '0', 'xfId': '0',
-            'numFmtId': fmt(number) if number else '0', 'applyFont': '1', 'applyFill': '1', 'applyAlignment': '1', 'applyNumberFormat': '1'})
-        ET.SubElement(xf, q('alignment'), {'horizontal': align, 'vertical': 'center', 'wrapText': '1'})
-        out[name] = add(xfs, xf)
-    dxfs = root.find(q('dxfs'))
-    if dxfs is None:dxfs = ET.SubElement(root,q('dxfs'),{'count':'0'})
-    for name in ('warning','error','ready'):
-        xf=xfs[out[name]];dxf=ET.Element(q('dxf'))
-        dxf.append(copy.deepcopy(fonts[int(xf.get('fontId'))]))
-        dxf.append(copy.deepcopy(fills[int(xf.get('fillId'))]))
-        out['dxf_'+name]=add(dxfs,dxf)
-    parts['xl/styles.xml'] = xml_bytes(root)
-    return out
+def fixture_identity(row: dict) -> Tuple[str, str, str, str]:
+    kickoff = xb.parse_utc(row.get('kickoff_utc'))
+    return (str(row.get('league') or ''), str(row.get('home_team') or ''), str(row.get('away_team') or ''),
+            kickoff.isoformat() if kickoff else '')
 
 
-def status_rules(sheet, ref, st, groups):
-    for old in list(sheet.root.findall(q('conditionalFormatting'))):
-        if old.get('sqref') == ref and all(int(r.get('priority','0')) >= 101 for r in old):
-            sheet.root.remove(old)
-    node=ET.SubElement(sheet.root,q('conditionalFormatting'),{'sqref':ref})
-    address=ref.split(':')[0]
-    for priority,(style,values) in enumerate(groups,101):
-        rule=ET.SubElement(node,q('cfRule'),{'type':'expression','priority':str(priority),'dxfId':str(st['dxf_'+style])})
-        expressions=[f'{address}="{value}"' for value in values]
-        ET.SubElement(rule,q('formula')).text='OR('+','.join(expressions)+')'
+def week_of(kickoff: Optional[datetime]) -> str:
+    if kickoff is None:
+        return 'not recorded'
+    iso = kickoff.isocalendar()
+    return f'{iso.year}-W{iso.week:02d}'
 
 
-def put_sheet(parts, name, sheet):
-    wb = ET.fromstring(parts['xl/workbook.xml']); sheets = wb.find(q('sheets'))
-    rels = ET.fromstring(parts['xl/_rels/workbook.xml.rels'])
-    old = next((s for s in sheets if s.get('name') == name), None)
-    if old is not None:
-        rid = old.get(f'{{{REL}}}id')
-        target = next(r.get('Target') for r in rels if r.get('Id') == rid)
-        path = target.lstrip('/') if target.startswith('/') else 'xl/' + target
-    else:
-        index = max(int(s.get('sheetId')) for s in sheets) + 1
-        path = f'xl/worksheets/sheet{index}.xml'; rid = f'rIdReadable{index}'
-        ET.SubElement(sheets, q('sheet'), {'name': name, 'sheetId': str(index), f'{{{REL}}}id': rid})
-        ET.SubElement(rels, f'{{{PKG}}}Relationship', {'Id': rid, 'Type': REL + '/worksheet', 'Target': path[3:]})
-        types = ET.fromstring(parts['[Content_Types].xml'])
-        ET.SubElement(types, f'{{{CT}}}Override', {'PartName': '/' + path, 'ContentType': 'application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml'})
-        parts['[Content_Types].xml'] = xml_bytes(types)
-    parts['xl/workbook.xml'] = xml_bytes(wb); parts['xl/_rels/workbook.xml.rels'] = xml_bytes(rels)
-    parts[path] = sheet.finish()
-    return path
-
-
-def get_sheet(parts, name):
-    wb = ET.fromstring(parts['xl/workbook.xml']); rels = ET.fromstring(parts['xl/_rels/workbook.xml.rels'])
-    node = next((s for s in wb.find(q('sheets')) if s.get('name') == name), None)
-    if node is None: return None
-    target = next(r.get('Target') for r in rels if r.get('Id') == node.get(f'{{{REL}}}id'))
-    path = target.lstrip('/') if target.startswith('/') else 'xl/' + target
-    return Sheet(ET.fromstring(parts[path]))
-
-
-def title(sheet, name, note, widths, st, freeze=None):
-    sheet.setup(widths, freeze)
-    sheet.put('A2', name, st['title']); sheet.merge(f'A2:{column(len(widths))}2')
-    sheet.put('A4', note, st['note']); sheet.merge(f'A4:{column(len(widths))}4')
-    for nr, ht in ((2, 28), (4, 34)):
-        r = sheet.data.find(f"{q('row')}[@r='{nr}']"); r.set('ht', str(ht)); r.set('customHeight', '1')
-
-
-def link(sheet, address, target, caption, st):
-    sheet.put(address, caption, st['link'])
-    links = sheet.root.find(q('hyperlinks'))
-    if links is None: links = ET.SubElement(sheet.root, q('hyperlinks'))
-    for old in list(links):
-        if old.get('ref') == address: links.remove(old)
-    ET.SubElement(links, q('hyperlink'), {'ref': address, 'location': "'" + target.replace("'", "''") + "'!A1", 'display': caption})
-
-
-def load(root, filename):
-    path = Path(root) / 'performance' / filename
-    return json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
-
-
-def experiment_rows(root, health):
-    queue = (health or {}).get('review_queue') or load(root, 'experiment_review_queue.json')
-    by_name = {i['name']: i for i in queue.get('experiments', [])}
-    result = []
-    for name, display in NAMES.items():
-        item = by_name.get(name, {})
-        summary = load(root, name + '/summary.json')
-        state = item.get('status', 'REPORT_UNAVAILABLE_OR_STALE')
-        n = item.get('settled_evidence')
-        requirements = []
-        if name in ('benchmark_forward_experiment', 'totals_anchor_experiment'):
-            gates = summary.get('review_gates', {})
-            minimum = gates.get('minimum_paired_fixtures'); weeks = gates.get('minimum_gameweeks')
-            coverage_min = gates.get('minimum_verified_coverage'); coverage = summary.get('verified_coverage')
-            progress = item.get('gameweeks')
-            if minimum is None or weeks is None or coverage_min is None:
-                requirements.append('Review thresholds unavailable')
+def picks(root: Path, start: Optional[datetime]) -> List[dict]:
+    """Both lists' graded picks from the tracking start on, one display record per pick."""
+    if start is None:
+        return []
+    out = []
+    raw = {which: [r for r in read_rows(Path(root) / 'performance' / GRADED[which])
+                   if (xb.parse_utc(r.get('snapshot_generated_utc')) or datetime.min.replace(tzinfo=start.tzinfo))
+                   >= start] for which in GRADED}
+    keys = {which: {fixture_identity(r) for r in rows} for which, rows in raw.items()}
+    for which, rows in raw.items():
+        other = 'old' if which == 'new' else 'new'
+        for r in rows:
+            kickoff = xb.parse_utc(r.get('kickoff_utc'))
+            status = str(r.get('result_status') or '')
+            profit = xb.number(r.get('unit_profit')) if status in SETTLED else None
+            if which == 'new':
+                tier = r.get('new_master_tier') or 'not recorded'
+                no_loss, profit_p = r.get('ranking_no_loss_probability'), r.get('ranking_profit_probability')
+                labels = [x.strip() for x in str(r.get('new_master_labels') or '').split(';') if x.strip()]
             else:
-                if n is None or n < minimum: requirements.append(f'{max(0, minimum-(n or 0))} more paired fixtures')
-                if progress is None or progress < weeks: requirements.append(f'{max(0, weeks-(progress or 0))} more ISO weeks')
-                if coverage is None: requirements.append('Verified coverage unavailable')
-                elif coverage < coverage_min: requirements.append(f'Coverage below {coverage_min:.0%}')
-            if summary.get('rejected_snapshot_commits'): requirements.append('Rejected snapshots need review')
-            scope = 'Approval review'
-            threshold = f'{minimum} paired fixtures' if minimum is not None else 'Unavailable'
-            period = f'{progress if progress is not None else "?"} / {weeks if weeks is not None else "?"} ISO weeks'
-            coverage_text = coverage
-        else:
-            threshold = '30 settled observations'; period = f'{item.get("collection_days", "?")} / 28 days'
-            coverage_text = None; scope = 'Initial review only'
-            if n is None or n < 30: requirements.append(f'{max(0,30-(n or 0))} more observations')
-            if item.get('collection_days', 0) < 28: requirements.append(f'{28-item.get("collection_days",0)} more days')
-        if state == 'REPORT_UNAVAILABLE_OR_STALE': requirements.insert(0, 'Regenerate the forward review')
-        if state == 'DATA_QUALITY_BLOCKED': requirements.insert(0, 'Resolve data-quality blockers')
-        if state in ('READY_FOR_REVIEW', 'FIRST_LOOK_READY'):
-            next_action = 'Review the paired results; approval is separate'
-        else:
-            next_action = '; '.join(requirements) or 'Continue collection; see detailed report'
-        unit = 'Paired fixtures' if name in ('benchmark_forward_experiment','totals_anchor_experiment') else 'Settled observations'
-        result.append([display, label(state), n if n is not None else 'Unavailable', unit, threshold, period,
-            coverage_text if coverage_text is not None else 'Unavailable' if scope=='Approval review' else 'Not applicable',
-            scope, next_action, label(item.get('evidence')) if 'evidence' in item else 'Initial review only'])
-    return result
+                tier = 'old rule (no tiers)'
+                no_loss, profit_p = r.get('master_no_loss_probability'), r.get('master_profit_probability')
+                labels = [str(r['master_price_flag'])] if xb.present(r.get('master_price_flag')) else []
+            flags = [name for name, column in (('on value shortlist', 'in_value_shortlist'),
+                                                ('on cagey tier', 'in_cagey_tier')) if str(r.get(column)) == 'True']
+            out.append({
+                'list': which, 'kickoff': kickoff, 'week': week_of(kickoff), 'league': r.get('league') or 'not recorded',
+                'match': f"{r.get('home_team', '')} v {r.get('away_team', '')}", 'bet': r.get('market_to_bet') or r.get('market'),
+                'market': market_family(r), 'price': xb.number(r.get('offered_decimal_odds')), 'tier': tier,
+                'p_no_loss': xb.number(no_loss), 'p_profit': xb.number(profit_p), 'labels': labels, 'flags': flags,
+                'score': r.get('final_score') if xb.present(r.get('final_score')) else None,
+                'status': status, 'profit': profit, 'clv': xb.number(r.get('clv')),
+                'in_other': fixture_identity(r) in keys[other],
+            })
+    return sorted(out, key=lambda p: (p['kickoff'] or datetime.max.replace(tzinfo=start.tzinfo), p['list'], p['match']))
 
 
-def add_experiments(parts, root, health, st):
-    sheet = Sheet(); title(sheet, 'Experiment readiness', 'Readiness invites review, including negative findings. Production changes still require approval.',
-        [28, 28, 12, 22, 25, 20, 15, 23, 48, 32], st, (1, 5, 'B6'))
-    sheet.row(5, ['Experiment', 'Status', 'Collected', 'Evidence unit', 'Required sample', 'Time collected / required', 'Verified coverage', 'Review scope', 'Remaining requirements / next action', 'Evidence finding'], st, True)
-    rows = experiment_rows(root, health)
-    end = 5 + len(rows)
-    for nr, values in enumerate(rows, 6):
-        sheet.row(nr, values, st); sheet.cell(f'G{nr}').set('s', str(st['percent']))
-        state = values[1]
-        sheet.cell(f'B{nr}').set('s', str(st['ready'] if state in ('Ready for review','First look ready') else st['error'] if state in ('Report unavailable or stale','Data quality blocked') else st['warning']))
-        sheet.data.find(f"{q('row')}[@r='{nr}']").set('ht', '66')
-    ET.SubElement(sheet.root, q('autoFilter'), {'ref': f'A5:J{end}'})
-    status_rules(sheet,f'B6:B{end}',st,[('ready',['Ready for review','First look ready']),
-        ('error',['Report unavailable or stale','Data quality blocked']),('warning',['Collect more data'])])
-    sheet.put(f'A{end+2}', 'Retired experiments are archived; their last committed reports are frozen and no longer listed here.', st['note']); sheet.merge(f'A{end+2}:J{end+2}')
-    sheet.put(f'A{end+3}', 'Coverage and time gates must also pass. Reaching a sample count alone does not make a candidate ready.', st['note']); sheet.merge(f'A{end+3}:J{end+3}')
-    link(sheet, f'A{end+5}', 'Dashboard', 'Back to dashboard', st)
-    put_sheet(parts, 'Experiments', sheet)
+def stats(rows: Sequence[dict]) -> dict:
+    graded = [r for r in rows if r['profit'] is not None]
+    gains = [r['profit'] for r in graded]
+    prices = [r['price'] for r in graded if r['price'] is not None]
+    clv = [r['clv'] for r in rows if r['clv'] is not None]
+    n = len(graded)
+    return {'picks': len(rows), 'graded': n, 'pending': len(rows) - n,
+            'wins': sum(g > 1e-12 for g in gains), 'no_loss': sum(g >= -1e-12 for g in gains),
+            'win_rate': sum(g > 1e-12 for g in gains) / n if n else None,
+            'no_loss_rate': sum(g >= -1e-12 for g in gains) / n if n else None,
+            'return': sum(gains) if n else None, 'per_bet': sum(gains) / n if n else None,
+            'odds': sum(prices) / len(prices) if prices else None,
+            'clv_n': len(clv), 'clv': sum(clv) / len(clv) if clv else None,
+            'clv_positive': sum(c > 0 for c in clv) / len(clv) if clv else None}
+
+
+def outcome(record: dict) -> str:
+    if record['status'] in SETTLED:
+        return SETTLED[record['status']]
+    if record['status'] == 'UNVERIFIED_FIXTURE_OR_RESULT':
+        return 'Not graded yet (result not verified)'
+    return 'Not graded yet'
+
+
+# --- release status ----------------------------------------------------------------------------------------------
+
+# Each monitored release: its switch (config attribute, key path), the released and rolled-back values and texts;
+# for research, the scope (European or domestic), its entry in research_v5_monitoring.json and its minimum sample.
+RELEASES = {
+    'master': {'config': 'MASTER_CONFIG', 'path': ('live',), 'released': 'new', 'rolled': 'old',
+               'live': 'Live (new master)', 'back': 'Rolled back to the old master'},
+    'v5': {'config': 'RESEARCH_CONFIG', 'path': ('live', 'domestic'), 'released': 'v5', 'rolled': 'v4',
+           'live': 'Live (research v5)', 'back': 'Rolled back to research v4', 'european': False,
+           'figures': 'rollback', 'matches': 'domestic', 'minimum': ('MIN_MATCHES', 'MIN_WEEKS')},
+    'v6': {'config': 'RESEARCH_CONFIG', 'path': ('live', 'european'), 'released': 'v6', 'rolled': 'v4',
+           'live': 'Live (research v6)', 'back': 'Rolled back to CE (research v4)', 'european': True,
+           'figures': 'ce3n', 'matches': 'European (UCL/UEL)', 'minimum': ('CE3N_MIN_MATCHES', 'CE3N_MIN_WEEKS')},
+}
+
+
+def config_path(key: str) -> Path:
+    """The release's switch file: the same one the pipeline reads, unless overridden here."""
+    name = RELEASES[key]['config']
+    if globals()[name] is not None:
+        return Path(globals()[name])
+    if name == 'MASTER_CONFIG':
+        import master_shortlist
+        return Path(master_shortlist.CONFIG)
+    import team_research
+    return Path(team_research.RESEARCH_CONFIG)
+
+
+def switch(key: str) -> Tuple[Optional[str], str]:
+    """(the switch's value, '') or (None, why it can't be read)."""
+    spec = RELEASES[key]
+    path = config_path(key)
+    where = f"{path.name} {'.'.join(spec['path'])}"
+    try:
+        value: Any = json.loads(path.read_text(encoding='utf-8'))
+        for part in spec['path']:
+            value = value[part]
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        return None, f'{where} could not be read ({type(exc).__name__})'
+    if value not in (spec['released'], spec['rolled']):
+        return None, f'{where} is {value!r}, expected "{spec["released"]}" or "{spec["rolled"]}"'
+    return value, ''
+
+
+def load_json(path: Path) -> dict:
+    try:
+        data = json.loads(Path(path).read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def archived_runs(root: Path, name: str) -> List[Tuple[datetime, Path]]:
+    """(generation time, folder) of every archived run holding `name`, oldest first."""
+    base = Path(root) / 'performance' / 'snapshots'
+    out = []
+    for path in sorted(base.glob(f'*/{name}')) if base.exists() else []:
+        if path.parent.name.startswith('.capture-'):
+            continue
+        meta = 'selection_summary.json' if name == 'selection_summary.json' else 'metadata.json'
+        stamp = xb.parse_utc(load_json(path.parent / meta).get('generated_at_utc'))
+        if stamp is not None:
+            out.append((stamp, path.parent))
+    return sorted(out)
+
+
+def research_versions(folder: Path, european: bool) -> set:
+    """The research versions of a run's forecasts in one scope (UCL/UEL or domestic)."""
+    from team_research import EUROPEAN_COMPETITIONS, decode
+    versions = set()
+    for row in read_rows(folder / 'predictions.csv'):
+        if (str(row.get('league')) in EUROPEAN_COMPETITIONS) == european:
+            version = decode(row.get('team_research_json')).get('version')
+            if version:
+                versions.add(version)
+    return versions
+
+
+def rollback_date(root: Path, key: str) -> Optional[datetime]:
+    """When a release was rolled back: the first archived run after the release's last run that was made without it,
+    or None when no run has been made since (or the release never ran)."""
+    after = None
+    if key == 'master':
+        from master_shortlist import VERSION_NEW_LIVE
+        for stamp, folder in reversed(archived_runs(root, 'selection_summary.json')):
+            version = (load_json(folder / 'selection_summary.json').get('master_shortlist') or {}).get('version')
+            if version == VERSION_NEW_LIVE:
+                return after
+            after = stamp if version else after
+        return None
+    from team_research import CE3N_VERSIONS, C6_VERSIONS
+    released = set(CE3N_VERSIONS if RELEASES[key]['european'] else C6_VERSIONS)
+    for stamp, folder in reversed(archived_runs(root, 'predictions.csv')):
+        versions = research_versions(folder, RELEASES[key]['european'])
+        if versions & released:
+            return after
+        after = stamp if versions else after
+    return None
+
+
+def research_minimum(key: str) -> Tuple[int, int]:
+    import research_monitoring as rm
+    matches, weeks = RELEASES[key]['minimum']
+    return int(getattr(rm, matches)), int(getattr(rm, weeks))
+
+
+def research_figures(root: Path, key: str) -> Tuple[Optional[dict], str]:
+    """(the release's monitoring figures, '') or (None, why there are none)."""
+    if not (Path(root) / 'performance' / MONITORING).exists():
+        return None, f'the review has not written performance/{MONITORING} yet'
+    figures = load(root, MONITORING).get(RELEASES[key]['figures'])
+    if not isinstance(figures, dict) or not figures:
+        return None, f'performance/{MONITORING} has no "{RELEASES[key]["figures"]}" entry yet'
+    return figures, ''
+
+
+def release_status(root: Path, key: str, state: Optional[str] = None, missing: str = '') -> str:
+    """The release's status from its live switch: rolled back (with the date when known), or live with the rollback
+    check's state (`state` for the master), or live with why monitoring data is not available yet."""
+    spec = RELEASES[key]
+    value, problem = switch(key)
+    if value is None:
+        return f'Release status unknown: {problem}'
+    if value == spec['rolled']:
+        date = rollback_date(root, key)
+        return spec['back'] + (f' on {xb.eat_text(date)} (first forecast run after the switch)' if date else
+                               ' (date not known: no archived forecast run since the switch)')
+    if key == 'master':
+        return f"{spec['live']} - {state}" if state else f"{spec['live']} - {NOT_AVAILABLE} ({missing})"
+    figures, why = research_figures(root, key)
+    if figures is None:
+        return f"{spec['live']} - {NOT_AVAILABLE} ({why})"
+    matches, weeks = int(figures.get('matches') or 0), int(figures.get('weeks') or 0)
+    if not matches:
+        return f"{spec['live']} - {NOT_AVAILABLE} (no graded {spec['matches']} matches under research {key} yet)"
+    if figures.get('triggered'):
+        return f"{spec['live']} - ROLLBACK TRIGGERED"
+    if figures.get('eligible'):
+        return f"{spec['live']} - not triggered"
+    need_matches, need_weeks = research_minimum(key)
+    return (f"{spec['live']} - not yet eligible ({matches} of {need_matches} graded matches, "
+            f"{weeks} of {need_weeks} weeks)")
+
+
+def master_status(root: Path, rollback: dict) -> str:
+    return release_status(root, 'master', master_rollback_status(rollback) if rollback else None,
+                          'the review has not recorded the rollback check yet')
+
+
+def health_data(root: Path, health: Optional[dict]) -> dict:
+    return health if health is not None else load(root, 'pipeline_health.json')
+
+
+def usage(root: Path) -> Tuple[List[dict], dict]:
+    """The Odds API usage log under this output root (odds_api_usage/usage_log.jsonl) and the latest key balances."""
+    from odds_api_usage import LOG, latest_balances, read_log
+    records = read_log(root, LOG.relative_to(LOG.parts[0]))
+    return records, latest_balances(records)
+
+
+# --- formatting helpers ------------------------------------------------------------------------------------------
+
+def value_or(value: Any, reason: str, kind: Optional[str] = None) -> Any:
+    if value is None:
+        return reason
+    return Typed(value, kind) if kind else value
+
+
+def interval_text(interval: Any, kind: str = 'pct') -> str:
+    if not interval or len(interval) != 2 or any(xb.number(v) is None for v in interval):
+        return 'not computed yet'
+    a, b = (float(v) for v in interval)
+    if kind == 'pct':
+        return f'{a:+.1%} to {b:+.1%}'
+    return f'{a:+.5f} to {b:+.5f}'
+
+
+def status_rules(sheet: xb.Sheet, ref: str) -> None:
+    for text in ('ROLLBACK TRIGGERED', 'FAILED', 'MISSING', 'Release status unknown'):
+        sheet.highlight(ref, 'bad', 'contains_case', text)
+    sheet.highlight(ref, 'warn', 'begins', 'Rolled back')
+    sheet.highlight(ref, 'good', 'contains', 'not triggered')
+    for text in ('not yet eligible', 'Waiting', NOT_AVAILABLE):
+        sheet.highlight(ref, 'warn', 'contains', text)
+
+
+def result_rules(sheet: xb.Sheet, table: xb.Table, result: str = 'Result', money: Iterable[str] = ()) -> None:
+    ref = table.column_range(result)
+    sheet.highlight(ref, 'good', 'begins', 'Won')
+    sheet.highlight(ref, 'good', 'equals', 'Half won')
+    sheet.highlight(ref, 'bad', 'equals', 'Lost')
+    sheet.highlight(ref, 'bad', 'equals', 'Half lost')
+    sheet.highlight(ref, 'muted', 'begins', 'Not graded')
+    for header in money:
+        sheet.highlight(table.column_range(header), 'good_font', 'positive')
+        sheet.highlight(table.column_range(header), 'bad_font', 'negative')
+
+
+def tier_rules(sheet: xb.Sheet, ref: str) -> None:
+    sheet.highlight(ref, 'good', 'equals', 'safe')
+    sheet.highlight(ref, 'info', 'equals', 'fill')
+    sheet.highlight(ref, 'warn', 'equals', 'risky fill')
+
+
+def label_rules(sheet: xb.Sheet, ref: str) -> None:
+    sheet.highlight(ref, 'bad', 'contains', 'research strongly disagrees')
+    sheet.highlight(ref, 'warn', 'contains', 'unvalidated view')
+    sheet.highlight(ref, 'warn', 'contains', 'risky fill')
+
+
+def money_rules(sheet: xb.Sheet, table: xb.Table, headers: Iterable[str]) -> None:
+    for header in headers:
+        sheet.highlight(table.column_range(header), 'good_font', 'positive')
+        sheet.highlight(table.column_range(header), 'bad_font', 'negative')
+
+
+def nav(sheet: xb.Sheet, row: int) -> None:
+    sheet.link(row, 1, '← Dashboard', 'Dashboard')
+
+
+# --- sheets ------------------------------------------------------------------------------------------------------
+
+class Context:
+    def __init__(self, root: Path, metrics: dict, health: Optional[dict]):
+        self.root = Path(root)
+        self.metrics = metrics or {}
+        self.health = health_data(self.root, health) or {}
+        self.start = tracking_start(self.root)
+        self.names = list_names(self.root)
+        self.picks = picks(self.root, self.start)
+        self.by_list = {w: [p for p in self.picks if p['list'] == w] for w in ('new', 'old')}
+        self.tracking = load(self.root, TRACKING / 'summary.json')
+        self.research = load(self.root, 'research_v5_monitoring.json')
+        reviewed = self.metrics.get('reviewed_at_utc') or self.health.get('reviewed_at_utc') \
+            or self.tracking.get('reviewed_at_utc')
+        self.run = xb.eat_text(reviewed)
+
+    @property
+    def start_text(self) -> str:
+        """The tracking start as a phrase: a date, or why there is none yet."""
+        if self.start is None:
+            return f'not started yet (the first forecast run after the {RELEASED} release; none archived yet)'
+        return xb.eat_text(self.start)
+
+    @property
+    def tracking_phrase(self) -> str:
+        if self.start is None:
+            return (f'Master tracking has not started yet: it begins with the first forecast run after the new master '
+                    f'went live on {RELEASED}, and none is archived yet')
+        return f'Master tracking from {self.start_text} (the first forecast run after the {RELEASED} release)'
+
+    def empty(self, what: str) -> str:
+        if self.start is None:
+            return f'No {what} yet: master tracking has not started (first forecast run after the {RELEASED} release).'
+        return f'No {what} since the start ({self.start_text}).'
+
+    def subtitle(self, what: str, csv: str = PICKS_CSV) -> str:
+        return f'{what} Run {self.run}. {self.tracking_phrase}. Full columns: {csv}.'
+
+
+def dashboard(book: xb.Book, ctx: Context) -> None:
+    s = book.sheet('Dashboard', xb.NAVY)
+    s.title('Performance dashboard: live master vs old master (shadow)',
+            ctx.subtitle('Headline results at Pinnacle prices, rollback checks and data health.'), span=6)
+    new, old = (stats(ctx.by_list[w]) for w in ('new', 'old'))
+    style = 'info' if ctx.start is not None else 'warn'
+    s.note(4, (f'Master tracking started afresh on {ctx.start_text}, the first forecast run after the new master went '
+               f'live ({RELEASED}).' if ctx.start is not None else ctx.tracking_phrase + '.')
+           + ' Graded picks from before the start stay in the repo (grading and the rollback check use them) and are '
+             'not shown in this workbook.', 6, style)
+    row = 6
+    s.section(row, 'Headline results (1-unit flat stakes at the Pinnacle price)', 6)
+    rows = []
+    for label, key, kind in (('Picks since the start', 'picks', 'int'), ('Graded', 'graded', 'int'),
+                             ('Not graded yet', 'pending', 'int'), ('Wins (full or half)', 'wins', 'int'),
+                             ('Win rate', 'win_rate', 'pct'), ('No-loss rate (win, half win or refund)', 'no_loss_rate', 'pct'),
+                             ('Return (units)', 'return', 'units'), ('Return per bet', 'per_bet', 'signed_pct'),
+                             ('Average odds (graded picks)', 'odds', 'odds'),
+                             ('Mean CLV (picks with a near-kickoff quote)', 'clv', 'signed_pct')):
+        rows.append([label, value_or(new[key], NO_GRADED if key not in ('picks', 'pending') else 0, kind),
+                     value_or(old[key], NO_GRADED if key not in ('picks', 'pending') else 0, kind)])
+    table = s.table(row + 1, ['Measure', ctx.names['new'], ctx.names['old']], rows, ['text', 'int', 'int'],
+                    widths={'Measure': 40, ctx.names['new']: 22, ctx.names['old']: 22}, bold_first=True)
+    # Named cells: workflow_checks.py reads the headline figures by name, not by address.
+    for which, col in (('new', table.left + 1), ('old', table.left + 2)):
+        for name, offset in (('picks', 1), ('graded', 2), ('return', 7)):
+            book.define(f'{which}_master_{name}', s, table.top + offset, col)
+    for col in (table.left + 1, table.left + 2):  # return and return per bet: green above zero, red below
+        ref = f'{xb.address(table.top + 7, col)}:{xb.address(table.top + 8, col)}'
+        s.highlight(ref, 'good_font', 'positive')
+        s.highlight(ref, 'bad_font', 'negative')
+    book.define('master_tracking_start', s, 4, 1)
+    row = table.bottom + 2
+
+    s.section(row, 'Return by tier', 6)
+    tier_rows = []
+    for which in ('new', 'old'):
+        groups = ([(t, [p for p in ctx.by_list[which] if p['tier'] == t]) for t in TIERS] if which == 'new'
+                  else [('all picks (old rule has no tiers)', ctx.by_list[which])])
+        for tier, part in groups:
+            st = stats(part)
+            tier_rows.append([ctx.names[which], tier, st['picks'], st['graded'],
+                              value_or(st['win_rate'], NO_GRADED), value_or(st['no_loss_rate'], NO_GRADED),
+                              value_or(st['return'], NO_GRADED), value_or(st['per_bet'], NO_GRADED)])
+    table = s.table(row + 1, ['List', 'Tier', 'Picks', 'Graded', 'Win rate', 'No-loss rate', 'Return (units)',
+                              'Return per bet'], tier_rows,
+                    ['text', 'text', 'int', 'int', 'pct', 'pct', 'units', 'signed_pct'])
+    tier_rules(s, table.column_range('Tier'))
+    money_rules(s, table, ['Return (units)', 'Return per bet'])
+    row = table.bottom + 2
+
+    s.section(row, 'Rollback status', 6)
+    checks = monitoring_checks(ctx)
+    table = s.table(row + 1, ['Check', 'Status', 'Detail'], [c[:3] for c in checks], ['text', 'text', 'wrap'],
+                    widths={'Check': 40, 'Status': 30, 'Detail': 70}, bold_first=True)
+    status_rules(s, table.column_range('Status'))
+    book.define('master_rollback_status', s, table.top + 1, table.left + 1)
+    row = table.bottom + 2
+
+    s.section(row, 'Data health (folded in from Pipeline Health)', 6)
+    health_rows, warnings = data_health(ctx)
+    table = s.table(row + 1, ['Item', 'Value', 'Detail'], health_rows, ['text', 'text', 'wrap'],
+                    widths={'Item': 40, 'Value': 30, 'Detail': 70}, bold_first=True)
+    s.highlight(table.column_range('Value'), 'bad', 'contains', 'exhausted')
+    s.highlight(table.column_range('Value'), 'warn', 'contains', 'older than')
+    s.highlight(table.column_range('Value'), 'warn', 'contains', 'WARNINGS')
+    s.highlight(table.column_range('Value'), 'good', 'begins', 'VERIFIED')
+    row = table.bottom + 2
+    s.section(row, 'Warnings', 6)
+    table = s.table(row + 1, ['Source', 'Warning'], warnings, ['text', 'wrap'], empty='none recorded',
+                    widths={'Source': 40, 'Warning': 100})
+    row = table.bottom + 2
+    training = []
+    for league, info in sorted((ctx.health.get('training') or {}).items()):
+        state = (info.get('current_source_health') or info.get('forecast_training_health') or {}).get('status')
+        training.append([league, value_or(info.get('training_end'), 'not recorded'),
+                         value_or(info.get('days_since_latest_result'), 'not recorded', 'int'),
+                         int(xb.number(info.get('training_matches')))
+                         if xb.number(info.get('training_matches')) is not None else 'not recorded',
+                         str(state).replace('_', ' ').lower() if state else 'not recorded'])
+    s.section(row, 'Training data freshness', 6)
+    table = s.table(row + 1, ['League', 'Latest result', 'Days since result', 'Training matches', 'Source status'],
+                    training, ['text', 'text', 'int', 'int', 'text'], empty='no health report yet')
+    s.highlight(table.column_range('Source status'), 'warn', 'contains', 'stale')
+    s.highlight(table.column_range('Source status'), 'bad', 'contains', 'unavailable')
+    row = table.bottom + 2
+    s.section(row, 'Sheets', 6)
+    for i, name in enumerate(SHEETS[1:]):
+        s.link(row + 1 + i // 3, 1 + i % 3, name, name)
+    s.freeze = (2, 0)
+
+
+def master_rollback_status(rollback: dict) -> str:
+    """The release's rollback status as the review recorded it (price_edge_tracking.master_rollback)."""
+    if not rollback:
+        return 'not recorded (no review yet)'
+    status = str(rollback.get('status') or '')
+    if rollback.get('triggered'):
+        return 'ROLLBACK TRIGGERED'
+    if status == 'WAITING':
+        return (f"Waiting: {rollback.get('min_graded_matches', 150)} graded matches over "
+                f"{rollback.get('min_weeks', 3)} weeks on each list")
+    if status == 'NOT TRIGGERED':
+        return 'not triggered'
+    return status or 'not recorded'
+
+
+def switch_text(key: str) -> str:
+    spec = RELEASES[key]
+    value, problem = switch(key)
+    return problem if value is None else f"{config_path(key).name} {'.'.join(spec['path'])} = \"{value}\""
+
+
+def log_figures(figures: Optional[dict], key: str, label: str) -> str:
+    """'N graded matches over W weeks; <difference>; 95% interval ...' for a research rollback check."""
+    if not figures:
+        return 'no figures'
+    diff = figures.get(key)
+    return (f"{figures.get('matches', 0)} graded matches over {figures.get('weeks', 0)} weeks; "
+            f"{label} log loss "
+            f"{'not computed yet' if xb.number(diff) is None else f'{float(diff):+.5f}'}; 95% interval "
+            f"{interval_text(figures.get('interval_95'), 'log')}.")
+
+
+def monitoring_checks(ctx: Context) -> List[List[str]]:
+    rollback = ctx.tracking.get('master_rollback') or {}
+    incidents = ctx.tracking.get('master_release_incidents') or {}
+    favourites = (ctx.research.get('home_favourites') or {}).get('all') or {}
+    v5, why_v5 = research_figures(ctx.root, 'v5')
+    ce3n, why_ce3n = research_figures(ctx.root, 'v6')
+    failed = (incidents.get('new_master_failed') or {}).get('runs', 0)
+    missing = (incidents.get('baseline_missing') or {}).get('runs', 0)
+    return [
+        ['New master vs old master (flat return per bet)', master_status(ctx.root, rollback),
+         rollback.get('message') or 'The review has not recorded the rollback check yet.'],
+        ['Release incidents', 'none' if not (failed or missing) else
+         f'NEW MASTER FAILED in {failed} runs; BASELINE MISSING in {missing} runs',
+         '; '.join(incidents.get('messages') or []) or 'No run published the old master in place of the new one, '
+                                                       'and every run kept its old-master shadow.'],
+        ['Research v5 vs v4 (AH log loss, domestic)', release_status(ctx.root, 'v5'),
+         log_figures(v5, 'v5_minus_v4_log_loss', 'v5 − v4') if v5 else why_v5],
+        ['Home favourites (Eredivisie, Primeira Liga, Süper Lig)',
+         f"{favourites.get('graded', 0)} graded of {favourites.get('picks', 0)} picks",
+         'Value picks backing a v5 home favourite in the three holdout leagues; see Model Monitoring.'],
+        ['CE3n vs CE (research v6, UCL/UEL)', release_status(ctx.root, 'v6'),
+         log_figures(ce3n, 'ce3n_minus_ce_log_loss', 'CE3n − CE') if ce3n else why_ce3n],
+    ]
+
+
+def data_health(ctx: Context) -> Tuple[List[List[Any]], List[List[str]]]:
+    rows: List[List[Any]] = []
+    freshness = ctx.health.get('forecast_freshness') or {}
+    age = xb.number(freshness.get('age_hours'))
+    rows.append(['Last forecast generated', xb.eat_text(freshness.get('generated_at_utc')),
+                 (f'{age:.0f} hours before the review; ' if age is not None else '')
+                 + f"{freshness.get('upcoming_fixture_count', 'unknown')} upcoming fixtures; status "
+                 + str(freshness.get('status') or 'not recorded').replace('_', ' ').lower()])
+    try:
+        records, balances = usage(ctx.root)
+    except Exception:  # noqa: BLE001  (display only)
+        records, balances = [], {}
+    forecasts = [r for r in records if (xb.number(r.get('forecast_rows')) or 0) > 0]
+    rows.append(['Last run that produced forecasts', xb.eat_text(forecasts[-1].get('recorded_at_utc'))
+                 if forecasts else 'none in the usage log',
+                 f"{forecasts[-1].get('workflow', 'workflow not recorded')}: {int(forecasts[-1]['forecast_rows'])} "
+                 'forecast rows' if forecasts else 'odds_api_usage/usage_log.jsonl'])
+    if records:
+        last = records[-1]
+        rows.append(['Last forecast workflow run', xb.eat_text(last.get('recorded_at_utc')),
+                     f"{last.get('outcome') or 'outcome not recorded'}: {last.get('message') or 'no message'}"])
+    else:
+        rows.append(['Last forecast workflow run', 'none in the usage log', 'odds_api_usage/usage_log.jsonl'])
+    if balances:
+        total = sum(int(v['remaining']) for v in balances.values())
+        detail = '; '.join(f"{slot}: {v['remaining']} left ({xb.eat_text(v.get('observed_at_utc'))})"
+                           for slot, v in sorted(balances.items()))
+        exhausted = bool(records and records[-1].get('all_keys_exhausted'))
+        rows.append(['Odds API credits left', f'{total}' + (' (all keys exhausted)' if exhausted else ''), detail])
+    else:
+        rows.append(['Odds API credits left', 'not recorded', 'No usage log entry with key balances yet.'])
+    workflow = load(ctx.root, 'workflow_health.json')
+    rows.append(['Last report validation', str(workflow.get('status') or 'not recorded'),
+                 f"workflow_checks.py reports, {xb.eat_text(workflow.get('reviewed_at_utc'))}"])
+    errors = ctx.metrics.get('provider_errors') or {}
+    rows.append(['Result provider', 'errors recorded' if errors else 'no errors',
+                 '; '.join(f'{k}: {v}' for k, v in sorted(errors.items())) or 'football-data.org results verified'])
+    warnings = [['Last report validation', str(w)] for w in workflow.get('warnings') or []]
+    warnings += [['Master release', str(m)] for m in (ctx.tracking.get('master_release_incidents') or {}).get('messages') or []]
+    return rows, warnings
+
+
+def picks_sheet(book: xb.Book, ctx: Context) -> None:
+    s = book.sheet('Picks & Results', xb.NAVY)
+    s.title('Every pick on both master lists since the start, with its result',
+            ctx.subtitle('Returns are for a 1-unit stake at the Pinnacle price; refunds and half results settle as '
+                         'graded.'), span=10)
+    rows = []
+    for p in ctx.picks:
+        rows.append([xb.excel_time(p['kickoff']) if p['kickoff'] else 'not recorded', p['match'], ctx.names[p['list']],
+                     p['league'], p['bet'] or 'not recorded', value_or(p['price'], 'no Pinnacle quote'), p['tier'],
+                     value_or(p['p_no_loss'], 'not recorded'), value_or(p['p_profit'], 'not recorded'),
+                     '; '.join(p['labels'] + p['flags']) or 'none',
+                     p['score'] or 'not graded yet', outcome(p), value_or(p['profit'], 'not graded yet'),
+                     value_or(p['clv'], 'no near-kickoff quote'), 'yes' if p['in_other'] else 'no'])
+    headers = ['Kickoff (EAT)', 'Match', 'List', 'League', 'Bet', 'Price', 'Tier', 'Predicted no-loss',
+               'Chance of profit', 'Labels and flags', 'Score', 'Result', 'Return (units)', 'CLV',
+               'Also on the other list']
+    kinds = ['datetime', 'text', 'text', 'text', 'text', 'odds', 'text', 'pct', 'pct', 'wrap', 'text', 'text', 'units',
+             'signed_pct', 'text']
+    table = s.table(4, headers, rows, kinds, freeze_columns=2,
+                    empty=ctx.empty('picks'),
+                    widths={'Labels and flags': 34, 'Match': 32})
+    result_rules(s, table, 'Result', ['Return (units)', 'CLV'])
+    tier_rules(s, table.column_range('Tier'))
+    label_rules(s, table.column_range('Labels and flags'))
+    nav(s, table.bottom + 2)
+
+
+def weekly(book: xb.Book, ctx: Context) -> None:
+    s = book.sheet('Weekly Trends', xb.NAVY)
+    s.title('Weekly results by kickoff week (ISO week, UTC kickoff as the rollback check counts it)',
+            ctx.subtitle('Graded picks and returns per week, and cumulative return since the start.'), span=10)
+    weeks = sorted({p['week'] for p in ctx.picks if p['profit'] is not None})
+    rows, running = [], {'new': 0.0, 'old': 0.0}
+    for week in weeks:
+        line = [week]
+        for which in ('new', 'old'):
+            st = stats([p for p in ctx.by_list[which] if p['week'] == week])
+            running[which] += st['return'] or 0.0
+            line += [st['graded'], value_or(st['return'], 0.0) if st['graded'] else 0.0, running[which],
+                     value_or(st['no_loss_rate'], NO_GRADED)]
+        rows.append(line)
+    n, o = ctx.names['new'], ctx.names['old']
+    headers = ['Week', f'{n}: graded', f'{n}: return (units)', f'{n}: cumulative (units)', f'{n}: no-loss rate',
+               f'{o}: graded', f'{o}: return (units)', f'{o}: cumulative (units)', f'{o}: no-loss rate']
+    table = s.table(4, headers, rows, ['text', 'int', 'units', 'units', 'pct', 'int', 'units', 'units', 'pct'],
+                    freeze_columns=1, empty=ctx.empty('graded weeks'))
+    money_rules(s, table, [h for h in headers if 'units' in h])
+    first, last = table.top + 1, table.bottom
+    anchor_row = table.bottom + 2
+    s.chart(xb.Chart('line', 'Cumulative return (units, 1-unit stakes)', (1, first, last),
+                     [(n, table.columns[headers[3]]), (o, table.columns[headers[7]])],
+                     (0, anchor_row, 6, anchor_row + 18), '0.00'))
+    s.chart(xb.Chart('bar', 'Graded picks per week', (1, first, last),
+                     [(n, table.columns[headers[1]]), (o, table.columns[headers[5]])],
+                     (6, anchor_row, 12, anchor_row + 18), '0'))
+    nav(s, anchor_row + 20)
+
+
+def breakdowns(book: xb.Book, ctx: Context) -> None:
+    s = book.sheet('Breakdowns', xb.NAVY)
+    s.title('Results by league, market, tier, labels and flags',
+            ctx.subtitle('Graded picks only for rates and returns; a pick can carry several labels.'), span=10)
+    rows = []
+    dims = (('League', lambda p: [p['league']]), ('Market', lambda p: [p['market']]),
+            ('Tier', lambda p: [p['tier']]), ('Labels and flags',
+                                              lambda p: p['labels'] + p['flags'] + (['also on the other list']
+                                                                                     if p['in_other'] else []) or ['none']))
+    for dim, groups_of in dims:
+        for which in ('new', 'old'):
+            groups: Dict[str, List[dict]] = {}
+            for p in ctx.by_list[which]:
+                for g in groups_of(p):
+                    groups.setdefault(g, []).append(p)
+            for group in sorted(groups):
+                st = stats(groups[group])
+                rows.append([dim, group, ctx.names[which], st['picks'], st['graded'],
+                             value_or(st['win_rate'], NO_GRADED), value_or(st['no_loss_rate'], NO_GRADED),
+                             value_or(st['return'], NO_GRADED), value_or(st['per_bet'], NO_GRADED),
+                             value_or(st['odds'], NO_GRADED)])
+    table = s.table(4, ['Breakdown', 'Group', 'List', 'Picks', 'Graded', 'Win rate', 'No-loss rate', 'Return (units)',
+                        'Return per bet', 'Average odds'], rows,
+                    ['text', 'text', 'text', 'int', 'int', 'pct', 'pct', 'units', 'signed_pct', 'odds'],
+                    freeze_columns=2, empty=ctx.empty('picks'))
+    money_rules(s, table, ['Return (units)', 'Return per bet'])
+    label_rules(s, table.column_range('Group'))
+    tier_rules(s, table.column_range('Group'))
+    nav(s, table.bottom + 2)
+
+
+def calibration(book: xb.Book, ctx: Context) -> None:
+    s = book.sheet('Calibration', xb.NAVY)
+    s.title('Predicted vs actual no-loss rate, by predicted band',
+            ctx.subtitle('Predicted no-loss: the new master\'s ranking (market) no-loss chance and the old master\'s '
+                         'no-loss probability, both frozen before kickoff. Actual: win, half win or refund.'), span=8)
+    rows = []
+    for which in ('new', 'old'):
+        for lo, hi in BANDS:
+            part = [p for p in ctx.by_list[which] if p['profit'] is not None and p['p_no_loss'] is not None
+                    and lo <= p['p_no_loss'] < hi]
+            n = len(part)
+            mean = sum(p['p_no_loss'] for p in part) / n if n else None
+            actual = sum(p['profit'] >= -1e-12 for p in part) / n if n else None
+            gap = (actual - mean) * 100 if n else None
+            reading = ('no graded picks' if not n else f'small sample (under {SMALL})' if n < SMALL else
+                       'within 5 points' if abs(gap) <= 5 else
+                       'actual lower than predicted' if gap < 0 else 'actual higher than predicted')
+            rows.append([ctx.names[which], f'{lo:.0%}–{min(hi, 1):.0%}', n, value_or(mean, NO_GRADED),
+                         value_or(actual, NO_GRADED), value_or(gap, NO_GRADED), reading])
+    table = s.table(4, ['List', 'Predicted no-loss band', 'Graded picks', 'Mean predicted no-loss',
+                        'Actual no-loss rate', 'Actual minus predicted (points)', 'Reading'], rows,
+                    ['text', 'text', 'int', 'pct', 'pct', 'points', 'text'], freeze_columns=2)
+    s.highlight(table.column_range('Reading'), 'bad', 'equals', 'actual lower than predicted')
+    s.highlight(table.column_range('Reading'), 'good', 'equals', 'within 5 points')
+    s.highlight(table.column_range('Reading'), 'muted', 'begins', 'small sample')
+    nav(s, table.bottom + 2)
 
 
 def clv_reading(n, t):
@@ -352,416 +776,255 @@ def clv_reading(n, t):
     return 'Not distinguishable from zero'
 
 
-def add_clv(parts, root, st):
-    """Candidate CLV sheet from clv_report outputs; never recomputes evidence."""
-    folder = Path(root) / 'performance' / 'clv_report'
-    summary = load(root, 'clv_report/summary.json')
-    sheet = Sheet()
-    title(sheet, 'Closing-line value',
-          'CLV = entry odds x Pinnacle fair closing probability - 1, for every priced candidate (shortlisted or not). '
-          'The t-ratio uses fixture-clustered uncertainty and is descriptive, not proof of a profitable edge. Near-kickoff quotes are not '
-          'guaranteed official closing prices; candidates from one fixture are not independent.',
-          [30, 22, 11, 11, 16, 13, 11, 16, 13, 30], st, (1, 6, 'B7'))
-    sheet.data.find(f"{q('row')}[@r='4']").set('ht', '48')
+def clv_sheet(book: xb.Book, ctx: Context) -> None:
+    s = book.sheet('CLV', xb.NAVY)
+    s.title('Closing-line value: entry price vs Pinnacle\'s near-kickoff fair price',
+            ctx.subtitle('CLV = entry odds × Pinnacle near-kickoff fair probability − 1. Near-kickoff feed quotes are '
+                         'not guaranteed official closes; descriptive, not proof of an edge.',
+                         PICKS_CSV + '; candidate CLV: performance/clv_report/*.csv'), span=10)
+    row = 4
+    s.section(row, 'Master picks since the start', 10)
+    rows = []
+    for which in ('new', 'old'):
+        tiers = (('all tiers', ctx.by_list[which]),) + tuple(
+            (t, [p for p in ctx.by_list[which] if p['tier'] == t]) for t in (TIERS if which == 'new' else ()))
+        for tier, part in tiers:
+            st = stats(part)
+            rows.append([ctx.names[which], tier, st['picks'], st['clv_n'],
+                         value_or(st['clv'], 'no near-kickoff quote yet'),
+                         value_or(st['clv_positive'], 'no near-kickoff quote yet'),
+                         'Small sample' if st['clv_n'] < SMALL else 'Descriptive only'])
+    table = s.table(row + 1, ['List', 'Tier', 'Picks', 'Picks with a near-kickoff quote', 'Mean CLV',
+                              'Positive share', 'Reading'], rows,
+                    ['text', 'text', 'int', 'int', 'signed_pct', 'pct', 'text'], freeze_columns=1)
+    money_rules(s, table, ['Mean CLV'])
+    tier_rules(s, table.column_range('Tier'))
+    row = table.bottom + 2
+    summary = load(ctx.root, 'clv_report/summary.json')
+    s.section(row, 'All priced candidates (shortlisted or not), from the candidate CLV report', 10)
     if summary.get('status') != 'OK':
-        sheet.put('A6', 'No CLV report yet. Run py clv_report.py or the daily performance review.', st['warning'])
-        sheet.merge('A6:J6')
-        put_sheet(parts, 'CLV', sheet)
-        return
-    sheet.put('A5', f"Generated UTC: {summary.get('generated_at_utc')}; {summary.get('candidates')} candidates on "
-                    f"{summary.get('fixtures')} fixtures. Source: performance/clv_report.", st['note'])
-    sheet.merge('A5:J5')
-    nr = 7
-    readings = []
-
-    def section(name, headers):
-        nonlocal nr
-        sheet.put(f'A{nr}', name, st['section']); sheet.merge(f'A{nr}:J{nr}'); nr += 1
-        sheet.row(nr, headers, st, True); nr += 1
-
-    def stat_row(values, percent_cols, t_col, reading_col):
-        nonlocal nr
-        sheet.row(nr, ['' if v is None else v for v in values], st)
-        for c in percent_cols:
-            sheet.cell(f'{c}{nr}').set('s', str(st['percent']))
-        sheet.cell(f'{t_col}{nr}').set('s', str(st['units']))
-        readings.append(f'{reading_col}{nr}')
-        nr += 1
-
-    section('Headline', ['Measure', 'Scope', 'n', 'Fixtures', 'Mean CLV', 'Positive', 't', '', '', 'Reading'])
-    for label_text, scope, key in (('CLV vs Pinnacle fair close', 'All candidates', 'overall_pinnacle_fair'),
-                                   ('CLV vs Pinnacle fair close', 'Shortlisted picks', 'shortlisted_pinnacle_fair'),
-                                   ('Same-book price CLV', 'Where the entry book was quoted', 'overall_same_book')):
-        s = summary.get(key) or {}
-        stat_row([label_text, scope, s.get('n'), s.get('independent_fixtures'), s.get('mean'), s.get('positive_share'), s.get('t_stat'),
-                  None, None, clv_reading(s.get('independent_fixtures'), s.get('t_stat'))], 'EF', 'G', 'J')
-    nr += 1
-    move = summary.get('market_move_towards_model') or {}
-    section('Does the closing price move towards the model?',
-            ['Test', 'Scope', 'n', '', 'Correlation', 'Same direction', '', '', '', 'Reading'])
-    verdict = ('Small sample' if (move.get('n') or 0) < 30 else
-               'Descriptive only; no significance test')
-    sheet.row(nr, ['Model gap vs later price move', 'Fixture averages, binary markets', move.get('n'), '',
-                   move.get('correlation'), move.get('sign_agreement'), '', '', '', verdict], st)
-    sheet.cell(f'E{nr}').set('s', str(st['decimal'])); sheet.cell(f'F{nr}').set('s', str(st['percent']))
-    readings.append(f'J{nr}'); nr += 3
-
-    for name, filename, keys in (('By market and entry bookmaker', 'by_market_bookmaker.csv', ['market_family', 'entry_bookmaker']),
-                                 ('By hours before kickoff at entry', 'by_hours_before_kickoff.csv', ['hours_bucket']),
-                                 ('Shortlisted vs not selected', 'by_decision.csv', ['decision_group']),
-                                 ('By league', 'by_league.csv', ['league'])):
-        path = folder / filename
-        if not path.exists():
-            continue
-        with path.open(encoding='utf-8', newline='') as handle:
-            records = list(dict_reader(handle))
-        # Largest samples first so small-sample extremes do not lead the table.
-        records.sort(key=lambda r: -float(r['pinnacle_fair_n'] or 0))
-        section(name, ['Market' if len(keys) == 2 else 'Group', 'Entry bookmaker' if len(keys) == 2 else '',
-                       'n', 'Fixtures', 'Mean CLV', 'Positive', 't', 'Same-book CLV', 'Same-book n', 'Reading'])
-        for r in records:
-            n, t = int(float(r['pinnacle_fair_n'] or 0)), (float(r['pinnacle_fair_t_stat']) if r['pinnacle_fair_t_stat'] else None)
-            value = lambda k: float(r[k]) if r.get(k) not in (None, '') else None
-            stat_row([r[keys[0]], r[keys[1]] if len(keys) == 2 else '', n, int(float(r['fixtures'])),
-                      value('pinnacle_fair_mean'), value('pinnacle_fair_positive_share'), t,
-                      value('same_book_mean'), int(float(r['same_book_n'] or 0)), clv_reading(int(float(r['fixtures'])), t)],
-                     'EFH', 'G', 'J')
-        nr += 2
-    for ref in readings:
-        status_rules(sheet, ref, st, [('ready', ['Positive (t >= 2)', 'Model carries information']),
-                                      ('error', ['Negative (t <= -2)', 'No information beyond the market']),
-                                      ('warning', ['Small sample', 'Not distinguishable from zero'])])
-    link(sheet, f'A{nr}', 'Dashboard', 'Back to dashboard', st)
-    put_sheet(parts, 'CLV', sheet)
+        s.note(row + 1, 'No candidate CLV report yet: it is written by the daily performance review (clv_report.py).',
+               10, 'warn')
+        row += 3
+    else:
+        rows = []
+        for label, scope, key in (('CLV vs Pinnacle fair close', 'All candidates', 'overall_pinnacle_fair'),
+                                  ('CLV vs Pinnacle fair close', 'Shortlisted picks', 'shortlisted_pinnacle_fair'),
+                                  ('Same-book price CLV', 'Where the entry book was quoted', 'overall_same_book')):
+            st = summary.get(key) or {}
+            rows.append([label, scope, value_or(st.get('n'), 0), value_or(st.get('independent_fixtures'), 0),
+                         value_or(st.get('mean'), 'no quotes'), value_or(st.get('positive_share'), 'no quotes'),
+                         value_or(st.get('t_stat'), 'not computed'),
+                         clv_reading(st.get('independent_fixtures'), st.get('t_stat'))])
+        table = s.table(row + 1, ['Measure', 'Scope', 'Candidates', 'Fixtures', 'Mean CLV', 'Positive share', 't',
+                                  'Reading'], rows,
+                        ['text', 'text', 'int', 'int', 'signed_pct', 'pct', 'odds', 'text'])
+        reading_rules(s, table)
+        row = table.bottom + 2
+        folder = ctx.root / 'performance' / 'clv_report'
+        for name, filename, keys in (('By market and entry bookmaker', 'by_market_bookmaker.csv',
+                                      ['market_family', 'entry_bookmaker']),
+                                     ('By league', 'by_league.csv', ['league'])):
+            records = read_rows(folder / filename)
+            if not records:
+                continue
+            records.sort(key=lambda r: -(xb.number(r.get('pinnacle_fair_n')) or 0))
+            rows = []
+            for r in records:
+                n = int(xb.number(r.get('pinnacle_fair_n')) or 0)
+                fixtures = int(xb.number(r.get('fixtures')) or 0)
+                t = xb.number(r.get('pinnacle_fair_t_stat'))
+                rows.append([' / '.join(str(r.get(k) or 'not recorded') for k in keys), n, fixtures,
+                             value_or(xb.number(r.get('pinnacle_fair_mean')), 'no quotes'),
+                             value_or(xb.number(r.get('pinnacle_fair_positive_share')), 'no quotes'),
+                             value_or(t, 'not computed'), clv_reading(fixtures, t)])
+            s.section(row, name, 10)
+            table = s.table(row + 1, ['Group', 'Candidates', 'Fixtures', 'Mean CLV', 'Positive share', 't', 'Reading'],
+                            rows, ['text', 'int', 'int', 'signed_pct', 'pct', 'odds', 'text'])
+            reading_rules(s, table)
+            row = table.bottom + 2
+    nav(s, row)
 
 
-def add_health(parts, data, history, st):
-    sheet = Sheet(); title(sheet, 'Pipeline health', 'Health describes collection and evidence coverage. Recent result dates alone do not verify source completeness.',
-        [28, 23, 18, 22, 36, 44], st, (1, 6, 'B7'))
-    sheet.put('A5', 'Review UTC: ' + str(data.get('reviewed_at_utc', 'Unavailable')), st['note']); sheet.merge('A5:F5')
-    nr = 7
-    def section(name, headers, records, formats=None):
-        nonlocal nr
-        sheet.put(f'A{nr}', name, st['section']); sheet.merge(f'A{nr}:F{nr}'); nr += 1
-        sheet.row(nr, headers, st, True); nr += 1
-        for values in records or [['No observations available']]:
-            sheet.row(nr, values, st)
-            for i, style in (formats or {}).items(): sheet.cell(f'{column(i)}{nr}').set('s', str(st[style]))
-            if name=='Training data freshness':
-                status_rules(sheet,f'E{nr}',st,[('error',['Stale','Source unavailable','Refresh failed']),
-                    ('warning',['Result date only not completeness verified'])])
-            if name=='Forecast capture coverage':
-                status_rules(sheet,f'B{nr}',st,[('error',['Capture failed','Invalid','Hash mismatch']),
-                    ('warning',['Legacy not recorded','Missing','Not captured'])])
-            sheet.data.find(f"{q('row')}[@r='{nr}']").set('ht', '44')
-            nr += 1
-        nr += 2
-    training=[]
-    for league, info in data.get('training', {}).items():
-        state=info.get('current_source_health', info.get('forecast_training_health',{})).get('status')
-        training.append([league,info.get('training_end'),info.get('training_matches'),info.get('days_since_latest_result'),label(state), 'Source completeness unverified' if state=='RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED' else 'See source health report'])
-    section('Training data freshness', ['League','Latest result','Training matches','Days since result','Source status','Next check'],training)
-    supplementary = []
-    for league, info in data.get('training', {}).items():
-        api = info.get('api_football', {'status': 'NOT_COLLECTED'})
-        supplementary.append([league, api.get('status'), api.get('matched_results'),
-            api.get('added_results'), api.get('conflicts'), api.get('statistics_observations')])
-    section('API-Football supplementary inputs',
-        ['League','Source status','Confirmed results','Added results','Conflicts held','Stats observations'], supplementary)
-    closing=[]
-    for book, info in data.get('closing_odds',{}).get('by_bookmaker',{}).items():
-        closing.append([book,info.get('covered_selections'),info.get('missing_selections'),info.get('pending_selections'),
-            info.get('mean_fair_close_ev') if info.get('mean_fair_close_ev') is not None else 'Unavailable',
-            info.get('mean_same_book_offered_price_clv') if info.get('mean_same_book_offered_price_clv') is not None else 'Unavailable'])
-    basis=data.get('closing_odds',{}).get('tracking_basis')
-    closing_title = ('Near-close quotes: latest selections' if basis=='LATEST_PREMATCH_PER_FIXTURE'
-                     else 'Near-close quotes: first-entry reference')
-    section('Near-close quote coverage', ['Bookmaker','Covered selections','Missing selections','Pending selections','Mean fair-close EV','Same-book offer CLV'],closing,{5:'percent',6:'percent'})
-    sheet.put(f'A{nr}', closing_title+'. Observed quotes are not guaranteed official closes; accepted execution is unverified.',st['note']);sheet.merge(f'A{nr}:F{nr}');nr+=2
-    audit=[]
-    for key,value in data.get('quote_audit',{}).items():
-        if isinstance(value,dict): audit.extend([[label(key)+': '+str(k),v] for k,v in value.items()])
-        else: audit.append([label(key),label(value) if isinstance(value,str) else value])
-    section('Latest shortlist quote audit',['Check','Recorded value'],audit)
-    counts=[]
-    capture=data.get('snapshot_capture_history',[])
-    for name,display in NAMES.items():
-        states={}
-        for snap in capture:
-            state=snap.get('experiments',{}).get(name,'LEGACY_NOT_RECORDED');states[state]=states.get(state,0)+1
-        counts.extend([[display,label(state),count] for state,count in sorted(states.items())])
-    section('Forecast capture coverage',['Experiment','Capture state','Snapshot count'],counts)
-    section('Daily review observations',['Review date','Graded','Win rate','Simulated ROI','Brier'],
-        [[day]+[v['shortlist_performance'].get(k) for k in ('graded','win_rate','flat_stake_roi','brier')] for day,v in sorted((history or {}).get('days',{}).items())],{3:'percent',4:'percent',5:'decimal'})
-    section('Dependency versions',['Dependency','Version'],[[k,v] for k,v in data.get('dependencies',{}).items()])
-    link(sheet,f'A{nr}','Dashboard','Back to dashboard',st)
-    put_sheet(parts,'Pipeline Health',sheet)
-    details=Sheet();title(details,'Forecast capture history','Raw capture states are retained for diagnosing missing or failed experiment capture.',[24,26,32,32,32,32,32,32],st,(1,5,'B6'))
-    details.row(5,['Snapshot','Captured UTC']+list(NAMES.values()),st,True)
-    for nr,snap in enumerate(capture,6):
-        details.row(nr,[snap.get('commit'),snap.get('captured_at_utc')]+[snap.get('experiments',{}).get(n,'LEGACY_NOT_RECORDED') for n in NAMES],st)
-        details.data.find(f"{q('row')}[@r='{nr}']").set('ht','56')
-    ET.SubElement(details.root,q('autoFilter'),{'ref':f'A5:H{max(6,5+len(capture))}'})
-    put_sheet(parts,'Capture Details',details)
+def reading_rules(sheet: xb.Sheet, table: xb.Table) -> None:
+    ref = table.column_range('Reading')
+    sheet.highlight(ref, 'good', 'begins', 'Positive')
+    sheet.highlight(ref, 'bad', 'begins', 'Negative')
+    sheet.highlight(ref, 'muted', 'equals', 'Small sample')
+    money_rules(sheet, table, ['Mean CLV'])
 
 
-def add_guide(parts, st):
-    sheet=Sheet();title(sheet,'Metric guide','Definitions apply to the archived forecasts and simulated selections in this workbook.',[28,68,64],st)
-    sheet.row(5,['Metric','Meaning','How to read it'],st,True)
-    definitions=[
-        ['Win rate','Full/half wins divided by all settled selections. Refunds are settled but not wins; half-losses are losses.','Read with the settled sample size and 95% interval.'],
-        ['Simulated ROI','Simulated net profit divided by staked units. Includes recorded per-stake costs.','Offered prices and simulated stakes are not proof of actual returns. Missing prices are excluded.'],
-        ['Binary Brier','Probability error for the frozen event: v23-v25 profitable outcome (refunds excluded); v22, v26 and older Asian forecasts no net loss.','Lower is better. Read the number of valid probability samples.'],
-        ['1X2 Brier','Multiclass probability error across home win, draw and away win.','Lower is better. Its scale differs from binary Brier; do not compare the two directly.'],
-        ['Log loss','Penalty assigned to the probability of the observed outcome.','Lower is better. Compare candidates on the same fixtures.'],
-        ['Calibration gap','Mean forecast probability minus observed win rate on the same scored selections.','Closer to zero is better. Positive indicates overconfidence; negative indicates underconfidence.'],
-        ['Same-book offer CLV','Frozen offered odds divided by observed near-close odds at the same bookmaker, minus one.','Positive means a better earlier offered price. Quotes are not accepted prices or guaranteed official closing odds.'],
-        ['Candidate CLV','Entry odds x Pinnacle fair closing probability - 1, for every priced candidate, shortlisted or not (CLV sheet).','Uncertainty is clustered by fixture; readings require at least 30 independent fixtures. Descriptive price movements do not establish an edge.'],
-        ['Fair-close EV','Binary reference EV only. Asian handicap fair-close EV is unavailable without a settlement-aware margin distribution.','Positive indicates value relative to that observed reference. Coverage must be shown.'],
-        ['Verified coverage','Share of verified in-scope fixtures with a usable paired candidate forecast.','Use each versioned trial\'s registered minimum. Missing coverage remains unavailable.'],
-        ['Initial review','Original sidecars: at least 28 collection days and 30 settled observations.','An initial look permits review, not promotion or a profitability claim.'],
-        ['Approval review','Versioned trials: registered fixture, ISO-week and coverage gates must pass.','Readiness can include negative findings. Production changes require approval.'],
-        ['ISO week','Calendar year and week, assigned by the existing grading system.','This is not a competition gameweek.'],
-        ['Unavailable / n.a.','The required input or settled sample is missing.','This is not a zero result and must not be interpreted as healthy evidence.'],
+def coverage_text(figures: dict) -> str:
+    return '; '.join(f'{k}: {v}' for k, v in sorted((figures.get('coverage') or {}).items())) or 'no graded matches yet'
+
+
+def slopes_text(calibration: Optional[dict]) -> str:
+    calibration = calibration or {}
+    parts = []
+    for name, slopes in sorted((calibration.get('slopes') or {}).items()):
+        shown = [f"{side} {float(slopes[side]):.2f}" for side in ('home', 'away') if xb.number(slopes.get(side)) is not None]
+        parts.append(f"{name}: {', '.join(shown) if shown else 'not computed yet'}")
+    graded = calibration.get('graded_matches', 0)
+    return (f"{'; '.join(parts) or 'not computed yet'} ({graded} graded matches; reported, not a trigger)")
+
+
+def competition_text(part: dict) -> str:
+    diff = part.get('ce3n_minus_ce_log_loss')
+    return (f"{part.get('matches', 0)} graded matches over {part.get('weeks', 0)} weeks; CE3n − CE "
+            f"{'not computed yet' if xb.number(diff) is None else f'{float(diff):+.5f}'}; 95% interval "
+            f"{interval_text(part.get('interval_95'), 'log')}; calibration {slopes_text(part.get('calibration'))}"
+            + ('. WARNING: interval entirely above zero before the pooled trigger is eligible' if part.get('warning')
+               else ''))
+
+
+def ucl_check_text(check: Optional[dict]) -> str:
+    if not check:
+        return 'not recorded'
+    passed = check.get('passed_on') or {}
+    if check.get('status') == 'passed' and passed:
+        return f"passed on the run of {xb.eat_text(passed.get('generated_at_utc'))} ({passed.get('ucl_fixtures')} UCL fixtures)"
+    return str(check.get('status') or 'not recorded')
+
+
+def monitoring(book: xb.Book, ctx: Context) -> None:
+    s = book.sheet('Model Monitoring', xb.NAVY)
+    s.title('Model monitoring: the new master\'s rollback rule, research v5 vs v4, CE3n vs CE, home favourites',
+            f'Run {ctx.run}. From performance/price_edge_v27/summary.json and performance/research_v5_monitoring.json '
+            '(written by price_edge_tracking.py and research_monitoring.py); the weekly report shows the same checks. '
+            'Nothing here switches anything automatically: Paul decides.', span=4)
+    row = 4
+    rollback = ctx.tracking.get('master_rollback') or {}
+    checks = monitoring_checks(ctx)
+    s.section(row, 'New master vs old master: rollback rule', 4)
+    nm, om = rollback.get('new_master') or {}, rollback.get('old_master') or {}
+    live, recorded = live_list(ctx.root), rollback.get('live_master_list') or ctx.tracking.get('live_master_list')
+    rows = [['Status', checks[0][1]],
+            ['Release switch', switch_text('master')],
+            ['Live list', ctx.names[live] + ('' if recorded in (None, live) else
+                                             f' (the last review ran with the {recorded} master live; the next '
+                                             'review re-runs the rollback check)')],
+            ['New master graded matches / weeks', f"{nm.get('graded_matches', 0)} / {nm.get('weeks', 0)}"],
+            ['Old master graded matches / weeks', f"{om.get('graded_matches', 0)} / {om.get('weeks', 0)}"],
+            ['Minimum on each list', f"{rollback.get('min_graded_matches', 150)} matches over "
+                                     f"{rollback.get('min_weeks', 3)} weeks"],
+            ['New − old return per bet', value_or(xb.number(rollback.get('difference')), 'not computed yet',
+                                                  'signed_pct')],
+            ['95% interval (weeks resampled)', interval_text(rollback.get('interval_95'))],
+            ['Release incidents', checks[1][1]],
+            ['Rule', rollback.get('rule') or 'not recorded (no review yet)']]
+    table = s.table(row + 1, ['Item', 'Value'], rows, ['text', 'wrap'], widths={'Item': 38, 'Value': 100},
+                    bold_first=True)
+    status_rules(s, f'{xb.address(table.top + 1, table.left + 1)}:{xb.address(table.top + 1, table.left + 1)}')
+    s.note(table.bottom + 1, 'The graded counts here are the rollback rule\'s own (every graded pick under the '
+                             'released rule); the other sheets start at the first run after the release.', 4)
+    row = table.bottom + 3
+
+    s.section(row, 'Research v5 (C6) vs v4: rollback trigger (domestic leagues)', 4)
+    research, why = research_figures(ctx.root, 'v5')
+    rows = [['Status', checks[2][1]], ['Release switch', switch_text('v5')]]
+    if research is None:
+        rows.append(['Why no figures', why])
+    else:
+        diff = research.get('v5_minus_v4_log_loss')
+        rows += [['Graded matches / weeks', f"{research.get('matches', 0)} / {research.get('weeks', 0)}"],
+                 ['v5 − v4 research log loss (AH all lines)',
+                  value_or(xb.number(diff), 'not computed yet', 'signed_decimal')],
+                 ['95% interval (weeks resampled)', interval_text(research.get('interval_95'), 'log')],
+                 ['Coverage', coverage_text(research)],
+                 ['Rule', research.get('rule') or 'not recorded']]
+    table = s.table(row + 1, ['Item', 'Value'], rows, ['text', 'wrap'], widths={'Item': 38, 'Value': 100},
+                    bold_first=True)
+    status_rules(s, f'{xb.address(table.top + 1, table.left + 1)}:{xb.address(table.top + 1, table.left + 1)}')
+    book.define('research_v5_status', s, table.top + 1, table.left + 1)
+    row = table.bottom + 2
+
+    s.section(row, 'CE3n vs CE (research v6, UCL/UEL): rollback trigger', 4)
+    ce3n, why = research_figures(ctx.root, 'v6')
+    rows = [['Status', checks[4][1]], ['Release switch', switch_text('v6')]]
+    if ce3n is None:
+        rows.append(['Why no figures', why])
+    else:
+        diff = ce3n.get('ce3n_minus_ce_log_loss')
+        means = ce3n.get('log_loss') or {}
+        rows += [['Graded matches / weeks (UCL and UEL pooled)', f"{ce3n.get('matches', 0)} / {ce3n.get('weeks', 0)}"],
+                 ['CE3n − CE research log loss (AH all lines)',
+                  value_or(xb.number(diff), 'not computed yet', 'signed_decimal')],
+                 ['95% interval (weeks resampled)', interval_text(ce3n.get('interval_95'), 'log')],
+                 ['Mean log loss', ', '.join(f'{k} {float(v):.5f}' for k, v in sorted(means.items())
+                                             if xb.number(v) is not None) or 'not computed yet'],
+                 ['Calibration slopes (1 = calibrated)', slopes_text(ce3n.get('calibration'))]]
+        for code, part in sorted((ce3n.get('by_competition') or {}).items()):
+            rows.append([code, competition_text(part)])
+        rows += [['UCL live check', ucl_check_text(ctx.research.get('ucl_live_check'))],
+                 ['Coverage', coverage_text(ce3n)],
+                 ['Rule', ce3n.get('rule') or 'not recorded']]
+    table = s.table(row + 1, ['Item', 'Value'], rows, ['text', 'wrap'], widths={'Item': 38, 'Value': 100},
+                    bold_first=True)
+    status_rules(s, f'{xb.address(table.top + 1, table.left + 1)}:{xb.address(table.top + 1, table.left + 1)}')
+    s.highlight(table.column_range('Value'), 'warn', 'contains_case', 'WARNING')
+    book.define('ce3n_status', s, table.top + 1, table.left + 1)
+    row = table.bottom + 2
+
+    favourites = ctx.research.get('home_favourites') or {}
+    s.section(row, 'Home favourites in Eredivisie, Primeira Liga and Süper Lig (v5 value picks)', 4)
+    pct = lambda v: value_or(xb.number(v), 'no graded picks')
+    rows = [[name, part.get('fixtures', 0), part.get('picks', 0), part.get('graded', 0),
+             pct(part.get('v5_predicted_home_win')), pct(part.get('v4_predicted_home_win')),
+             pct(part.get('actual_home_win'))]
+            for name, part in [*sorted((favourites.get('by_league') or {}).items()), ('All three', favourites.get('all') or {})]]
+    table = s.table(row + 1, ['League', 'Matches', 'Picks', 'Graded', 'v5 predicted home win', 'v4 on the same forecasts',
+                              'Actual home win'], rows, ['text', 'int', 'int', 'int', 'pct', 'pct', 'pct'],
+                    bold_first=False)
+    s.note(table.bottom + 1, 'C6 was too confident on these leagues\' home sides in the holdout (home slope 0.79). '
+                             'Latest pre-kickoff value-shortlist pick per match.', 7)
+    nav(s, table.bottom + 3)
+    s.set_width(1, 38)
+
+
+def guide(book: xb.Book, ctx: Context) -> None:
+    s = book.sheet('Guide', xb.NAVY)
+    s.title('Guide: what each measure means', f'Run {ctx.run}. One line per measure; times are {xb.EAT_LABEL}.',
+            span=3)
+    rows = [
+        ['Master tracking start', 'The first forecast run after the new master went live; earlier picks are not shown.'],
+        ['New master / old master', 'The live list (new rule since 14 Nov 2026) and the old rule kept in shadow for comparison.'],
+        ['Tier', 'New master step: safe (no-loss ≥75%), fill (≥50%, ranked by chance of profit), risky fill (labelled).'],
+        ['Graded', 'Picks whose match finished and whose result was verified; the rest are "not graded yet".'],
+        ['Win rate', 'Full or half wins divided by graded picks.'],
+        ['No-loss rate', 'Wins, half wins and refunds (no money lost) divided by graded picks.'],
+        ['Return (units)', 'Profit of a 1-unit stake on every graded pick at the Pinnacle price.'],
+        ['Return per bet', 'Return divided by graded picks (flat-stake ROI).'],
+        ['Average odds', 'Mean Pinnacle price of the graded picks.'],
+        ['Predicted no-loss', 'The list\'s own no-loss chance, frozen before kickoff (new: market ranking chance).'],
+        ['Chance of profit', 'The list\'s own chance that the bet ends in profit, frozen before kickoff.'],
+        ['Labels and flags', 'Research view labels (e.g. research strongly disagrees, unvalidated view) and list overlap; they never reorder bets.'],
+        ['CLV', 'Entry odds × Pinnacle near-kickoff fair probability − 1; positive means the price was better than near-kickoff.'],
+        ['Calibration gap', 'Actual no-loss rate minus mean predicted no-loss, in percentage points.'],
+        ['Rollback rule', 'After 150 graded matches over 3 weeks on each list, new − old return per bet; triggered if the 95% interval is below zero.'],
+        ['Research v5 rollback', 'Triggered if v5 − v4 research log loss on AH lines has a 95% interval above zero after 150 matches and 3 weeks.'],
+        ['Release status', 'Read from each release\'s live switch when the workbook is built (master_shortlist_config.json live; research_config.json live.domestic and live.european): Live, or Rolled back with the date of the first run after the switch.'],
+        ['CE3n vs CE', 'Research v6 (UCL/UEL) monitoring: CE3n − CE research log loss on AH lines; rollback if its 95% interval is above zero after 150 European matches over 3 weeks.'],
+        ['Small sample', f'Fewer than {SMALL} graded picks (or fixtures): read rates with care.'],
+        ['not graded yet / not recorded', 'The input is missing or the match is not settled; never a zero.'],
     ]
-    for nr,row in enumerate(definitions,6):
-        sheet.row(nr,row,st);sheet.data.find(f"{q('row')}[@r='{nr}']").set('ht','54')
-    link(sheet,'A21','Dashboard','Back to dashboard',st);put_sheet(parts,'Metric Guide',sheet)
+    table = s.table(4, ['Measure', 'What it means'], rows, ['text', 'wrap'], widths={'Measure': 30, 'What it means': 110},
+                    bold_first=True, freeze_columns=1)
+    nav(s, table.bottom + 2)
 
 
-def ledger_layout(parts, st):
-    settings={
-        'Selections':([12,23,22,44,20,18,32,18,14,12,36,12,14,14,14,16,24,26,18,16,18,28,28],(0,5,'A6'),(1,7,12,17,18,19,20,21),{'B':'date','H':'percent','I':'units','M':'units','N':'units','O':'decimal','S':'percent','U':'units'}),
-        'Predictions':([12,23,22,44,32,34,12,16,16,16,16,16,16,16,24,26],(0,5,'A6'),(1,5,15,16),{'B':'date','I':'decimal'}),
-        'Breakdowns':([18,38,13,13,13,13,13,15,16,16,15,15,18,18,18,18,48],(2,5,'C6'),(),{'H':'percent','I':'units','J':'units','K':'percent','L':'decimal','M':'percent','N':'percent','O':'percent'}),
-        'Calibration':([18,16,16,14,20,20,20,16,48],(1,5,'B6'),(),{'B':'percent','C':'percent','E':'percent','F':'percent','G':'percent','H':'decimal'}),
-        'ROI Plan':([24,44,36,16,18,18,18,18,18,16],(2,9,'C10'),(),{'D':'units','E':'units','F':'units','G':'units','H':'units','I':'units'}),
-    }
-    for name,(widths,freeze,hidden,formats) in settings.items():
-        sheet=get_sheet(parts,name)
-        if sheet is None:continue
-        # Hide only technical fields; freeze visible kickoff/league/match identity.
-        if name in ('Selections','Predictions'): freeze=(4,5,'E6')
-        sheet.setup(widths,freeze,hidden)
-        header=9 if name=='ROI Plan' else 5
-        for row in sheet.data:
-            nr=int(row.get('r'));row.set('customHeight','1')
-            row.set('ht','44' if nr==header else '36' if nr>header else row.get('ht','24'))
-            for cell in row:
-                address=cell.get('r');c=re.match('[A-Z]+',address).group()
-                if nr==2:cell.set('s',str(st['title']))
-                elif nr==header:cell.set('s',str(st['header']))
-                elif nr>header:
-                    kind=formats.get(c,'number' if isinstance(text(cell),(int,float)) else 'body')
-                    cell.set('s',str(st[kind]))
-        for nr in ((2,) if name=='ROI Plan' else (2,4)):
-            sheet.merge(f'A{nr}:{column(len(widths))}{nr}')
-        if name!='ROI Plan':sheet.put('A4', text(sheet.cell('A4')) or '',st['note'])
-        if name=='Breakdowns':
-            sheet.put('O5','Calibration gap',st['header'])
-            # Excel requires table column names to match their header cells.
-            for path in list(parts):
-                if not (path.startswith('xl/tables/') and path.endswith('.xml')):
-                    continue
-                table = ET.fromstring(parts[path])
-                if table.get('name') == 'BreakdownsTable':
-                    table.find(q('tableColumns'))[14].set('name', 'Calibration gap')
-                    parts[path] = xml_bytes(table)
-        if name=='Selections':sheet.put('A4','Latest eligible selection per fixture. v23/v24 probabilities/Brier measure profitable outcomes; legacy Asian forecasts measure no net loss. Refunds are not wins. Half settlements affect ROI. Times are UTC.',st['note'])
-        if name in ('Selections','Predictions'):
-            for nr in (2,4):
-                merges=sheet.root.find(q('mergeCells'))
-                for node in list(merges):
-                    if node.get('ref')==f'A{nr}:{column(len(widths))}{nr}':merges.remove(node)
-                sheet.put(f'B{nr}',text(sheet.cell(f'A{nr}')),st['title'] if nr==2 else st['note'])
-                sheet.merge(f'B{nr}:{column(len(widths))}{nr}')
-        if name=='Selections':
-            last=max(int(r.get('r')) for r in sheet.data)
-            status_rules(sheet,f'K6:K{max(6,last)}',st,[('ready',['WON','HALF_WON']),('error',['LOST','HALF_LOST']),('warning',['REFUNDED']),
-                ('warning',['PENDING_KICKOFF_OR_FINAL_SCORE','UNVERIFIED_FIXTURE_OR_RESULT'])])
-        put_sheet(parts,name,sheet)
+def build(root: Path, metrics: Optional[dict] = None, health: Optional[dict] = None) -> xb.Book:
+    ctx = Context(root, metrics or {}, health)
+    book = xb.Book()
+    dashboard(book, ctx)
+    picks_sheet(book, ctx)
+    weekly(book, ctx)
+    breakdowns(book, ctx)
+    calibration(book, ctx)
+    clv_sheet(book, ctx)
+    monitoring(book, ctx)
+    guide(book, ctx)
+    return book
 
 
-def dashboard(parts, st, health, rows):
-    sheet=get_sheet(parts,'Dashboard');sheet.setup([34,17,3,31,13,17])
-    for row in sheet.data:
-        nr=int(row.get('r'));row.set('ht','26');row.set('customHeight','1')
-        for cell in row:
-            if nr<=29:cell.set('s',str(st['body']))
-    sheet.cell('A2').set('s',str(st['title']));sheet.merge('A2:F2')
-    for nr in (4,21,23,24,25,26,27,28,29):
-        sheet.merge(f'A{nr}:F{nr}');sheet.cell(f'A{nr}').set('s',str(st['note']))
-        sheet.data.find(f"{q('row')}[@r='{nr}']").set('ht','34' if nr in (21,26,28,29) else '26')
-    for address in ('A6','B6','D6','E6','F6','D16','E16','F16'):sheet.cell(address).set('s',str(st['header']))
-    for nr in range(7,20):sheet.cell(f'B{nr}').set('s',str(st['percent'] if nr in (12,13,16,18,19) else st['decimal'] if nr in (15,17) else st['units'] if nr==14 else st['number']))
-    for nr in (7,8,17,18,19,20):sheet.cell(f'F{nr}').set('s',str(st['percent']))
-    for ref in ('D11:F12','D14:F15'):sheet.merge(ref)
-    sheet.cell('D11').set('s',str(st['warning']))
-    sheet.put('A14','Simulated net profit (units)',st['body'])
-    sheet.put('A15','Selection Brier (lower is better)',st['body'])
-    if health:sheet.put('A27','Review UTC: '+str(health.get('reviewed_at_utc') or 'Unavailable'),st['note'])
-    link(sheet,'D43','Run Tracking','Results by prediction run',st)
-    link(sheet,'A31','Experiments','Experiment readiness',st);link(sheet,'D31','Pipeline Health','Collection health',st)
-    sheet.put('A33','Monitoring and next actions',st['section']);sheet.merge('A33:F33')
-    sheet.row(34,['Check','Status',None,'Next action'],st,True);sheet.merge('D34:F34')
-    ready=sum(r[1] in ('Ready for review','First look ready') for r in rows)
-    stale=sum(r[1]=='Report unavailable or stale' for r in rows)
-    rejected=len((health or {}).get('closing_odds',{}).get('rejected_files',[]))
-    coverage=(health or {}).get('closing_odds',{}).get('by_bookmaker',{})
-    missing=sum(x.get('missing_selections',0) for x in coverage.values())
-    capture=(health or {}).get('snapshot_capture_history',[])
-    messages=[
-        ['Experiments ready',ready,None,'Open Experiments and review results' if ready else 'Continue generating and pushing forecasts'],
-        ['Unavailable / stale reports',stale,None,'Run or check the forward review' if stale else 'No stale experiment reports recorded'],
-        ['Missing near-close quotes',missing if coverage else 'Unavailable',None,'Check cloud collection; latest-selection counts overlap across bookmakers' if missing else 'See coverage by bookmaker'],
-        ['Rejected quote files',rejected if health else 'Unavailable',None,'Review the closing report' if rejected else 'No rejected quote files recorded' if health else 'Run the forward review'],
-        ['Latest frozen capture',str(capture[-1].get('captured_at_utc', 'Unavailable')).replace('T',' ').replace('Z',' UTC') if capture else 'Unavailable',None,'See Capture Details for all six experiment states'],
-    ]
-    for nr,row in enumerate(messages,35):
-        sheet.row(nr,row,st);sheet.merge(f'D{nr}:F{nr}');sheet.data.find(f"{q('row')}[@r='{nr}']").set('ht','44')
-    link(sheet,'A41','Weekly Trends','Weekly samples and profit',st);link(sheet,'D41','Metric Guide','Metric definitions',st)
-    # Existing charts remain, below the new operational section.
-    for path in list(parts):
-        if path.startswith('xl/drawings/drawing') and path.endswith('.xml') and 'Monitoring' not in path:
-            drawing=ET.fromstring(parts[path])
-            for anchor in drawing:
-                start=anchor.find(f'{{{XDR}}}from/{{{XDR}}}row')
-                if start is not None and int(start.text)==30:
-                    for marker in anchor.findall(f'.//{{{XDR}}}row'):marker.text=str(int(marker.text)+20)
-            parts[path]=xml_bytes(drawing)
-    put_sheet(parts,'Dashboard',sheet)
-
-
-def add_trends(parts, st):
-    breakdown=get_sheet(parts,'Breakdowns');sheet=Sheet()
-    selections=get_sheet(parts,'Selections')
-    ledger_end=max(6,max(int(r.get('r')) for r in selections.data))
-    title(sheet,'Weekly performance','ISO calendar weeks. All archived selection policies and tiers; profit uses offered prices and simulated stakes.',[20,18,18,20,22,22,20,20],st,(0,5,'A6'))
-    sheet.row(5,['ISO week','Settled selections','Priced selections','Simulated profit (units)','Cumulative profit (units)','Win rate'],st,True)
-    source=[]
-    for row in breakdown.data:
-        cells={re.match('[A-Z]+',c.get('r')).group():c for c in row}
-        if text(cells.get('A'))=='Week':source.append((int(row.get('r')),cells))
-    running=0
-    for nr,(original,cells) in enumerate(source,6):
-        for target,origin in [('A','B'),('B','D'),('C','I'),('D','J'),('F','H')]:
-            value=text(cells.get(origin));sheet.put(f'{target}{nr}',value,st['percent'] if target=='F' else st['units'] if target=='D' else st['body'] if target=='A' else st['number'],f'Breakdowns!{origin}{original}')
-        sheet.data.find(f"{q('row')}[@r='{nr}']").set('ht','26')
-        sheet.data.find(f"{q('row')}[@r='{nr}']").set('customHeight','1')
-        priced = text(cells.get('I')) or 0
-        sheet.put(f'C{nr}',priced,st['number'],f'COUNTIFS(Selections!$P$6:$P${ledger_end},A{nr},Selections!$M$6:$M${ledger_end},">0")')
-        running+=text(cells.get('J')) or 0
-        sheet.put(f'D{nr}',text(cells.get('J')) if priced else 'n.a.',st['units'],f'IF(C{nr}=0,"n.a.",Breakdowns!J{original})')
-        cumulative_priced=sum(text(cs.get('I')) or 0 for _,cs in source[:nr-5])
-        sheet.put(f'E{nr}',running if cumulative_priced else 'n.a.',st['units'],f'IF(SUM($C$6:C{nr})=0,"n.a.",SUM($D$6:D{nr}))')
-    end=max(6,5+len(source))
-    if not source:sheet.put('A6','No archived weeks',st['note'])
-    sheet.put(f'A{end+2}','Pending selections are excluded from rates. Weeks with no priced settled selections have no realised evidence of profit.',st['note']);sheet.merge(f'A{end+2}:H{end+2}')
-    path=put_sheet(parts,'Weekly Trends',sheet)
-    add_trend_charts(parts,path,sheet,end,max(10,end+5))
-
-
-def add_trend_charts(parts,path,sheet,end,start):
-    # Dedicated package names make repeated formatting idempotent.
-    drawing_name='drawingMonitoring.xml'; drawing=ET.Element(f'{{{XDR}}}wsDr')
-    rels=ET.Element(f'{{{PKG}}}Relationships')
-    types=ET.fromstring(parts['[Content_Types].xml'])
-    def content_type(p,t):
-        if not any(x.get('PartName')=='/'+p for x in types):
-            ET.SubElement(types,f'{{{CT}}}Override',{'PartName':'/'+p,'ContentType':t})
-    for idx,(kind,col,title_text) in enumerate([('bar','B','Settled selections by ISO week'),('line','E','Cumulative simulated profit (units)')],1):
-        name=f'chartMonitoring{idx}.xml';chart=ET.Element(f'{{{C}}}chartSpace')
-        ch=ET.SubElement(chart,f'{{{C}}}chart');tit=ET.SubElement(ch,f'{{{C}}}title');tx=ET.SubElement(tit,f'{{{C}}}tx');rich=ET.SubElement(tx,f'{{{C}}}rich');ET.SubElement(rich,f'{{{A}}}bodyPr');ET.SubElement(rich,f'{{{A}}}lstStyle');p=ET.SubElement(rich,f'{{{A}}}p');r=ET.SubElement(p,f'{{{A}}}r');ET.SubElement(r,f'{{{A}}}rPr',{'sz':'1200'});ET.SubElement(r,f'{{{A}}}t').text=title_text
-        plot=ET.SubElement(ch,f'{{{C}}}plotArea');ET.SubElement(plot,f'{{{C}}}layout')
-        graph=ET.SubElement(plot,f'{{{C}}}{kind}Chart')
-        if kind=='bar':ET.SubElement(graph,f'{{{C}}}barDir',{'val':'col'});ET.SubElement(graph,f'{{{C}}}grouping',{'val':'clustered'})
-        else:ET.SubElement(graph,f'{{{C}}}grouping',{'val':'standard'})
-        ser=ET.SubElement(graph,f'{{{C}}}ser');ET.SubElement(ser,f'{{{C}}}idx',{'val':'0'});ET.SubElement(ser,f'{{{C}}}order',{'val':'0'});t=ET.SubElement(ser,f'{{{C}}}tx');ET.SubElement(t,f'{{{C}}}v').text=title_text
-        sp=ET.SubElement(ser,f'{{{C}}}spPr');fill=ET.SubElement(sp,f'{{{A}}}solidFill');ET.SubElement(fill,f'{{{A}}}srgbClr',{'val':'336A9C'})
-        line=ET.SubElement(sp,f'{{{A}}}ln',{'w':'25400'});ET.SubElement(ET.SubElement(line,f'{{{A}}}solidFill'),f'{{{A}}}srgbClr',{'val':'336A9C'})
-        for which,source,numeric in [('cat','A',False),('val',col,True)]:
-            ref=ET.SubElement(ET.SubElement(ser,f'{{{C}}}{which}'),f'{{{C}}}'+('numRef' if numeric else 'strRef'))
-            ET.SubElement(ref,f'{{{C}}}f').text=f"'Weekly Trends'!${source}$6:${source}${end}"
-            cache=ET.SubElement(ref,f'{{{C}}}'+('numCache' if numeric else 'strCache'))
-            if numeric:ET.SubElement(cache,f'{{{C}}}formatCode').text='0.00' if col=='E' else '0'
-            ET.SubElement(cache,f'{{{C}}}ptCount',{'val':str(end-5)})
-            for nr in range(6,end+1):
-                v=text(sheet.cell(f'{source}{nr}'))
-                if v is None or numeric and not isinstance(v,(int,float)):continue
-                ET.SubElement(ET.SubElement(cache,f'{{{C}}}pt',{'idx':str(nr-6)}),f'{{{C}}}v').text=str(v)
-        for aid in (1,2):ET.SubElement(graph,f'{{{C}}}axId',{'val':str(aid)})
-        if kind=='line':ET.SubElement(ser,f'{{{C}}}smooth',{'val':'0'})
-        for ax,aid,cross,pos in [('catAx',1,2,'b'),('valAx',2,1,'l')]:
-            node=ET.SubElement(plot,f'{{{C}}}{ax}');ET.SubElement(node,f'{{{C}}}axId',{'val':str(aid)});scale=ET.SubElement(node,f'{{{C}}}scaling');ET.SubElement(scale,f'{{{C}}}orientation',{'val':'minMax'})
-            if ax=='valAx' and kind=='bar':ET.SubElement(scale,f'{{{C}}}min',{'val':'0'})
-            ET.SubElement(node,f'{{{C}}}axPos',{'val':pos});ET.SubElement(node,f'{{{C}}}numFmt',{'formatCode':'0.00' if col=='E' and ax=='valAx' else '0','sourceLinked':'0'});ET.SubElement(node,f'{{{C}}}crossAx',{'val':str(cross)});ET.SubElement(node,f'{{{C}}}crosses',{'val':'min' if ax=='catAx' else 'autoZero'})
-        ET.SubElement(ch,f'{{{C}}}plotVisOnly',{'val':'1'});ET.SubElement(ch,f'{{{C}}}dispBlanksAs',{'val':'gap'})
-        parts['xl/charts/'+name]=xml_bytes(chart);content_type('xl/charts/'+name,'application/vnd.openxmlformats-officedocument.drawingml.chart+xml')
-        anchor=ET.SubElement(drawing,f'{{{XDR}}}twoCellAnchor')
-        offset=start-1+(idx-1)*18
-        for marker,rownum,coln in [('from',offset,0),('to',offset+16,8)]:
-            node=ET.SubElement(anchor,f'{{{XDR}}}{marker}')
-            for key,value in [('col',coln),('colOff',0),('row',rownum),('rowOff',0)]:ET.SubElement(node,f'{{{XDR}}}{key}').text=str(value)
-        frame=ET.SubElement(anchor,f'{{{XDR}}}graphicFrame',{'macro':''});nv=ET.SubElement(frame,f'{{{XDR}}}nvGraphicFramePr');ET.SubElement(nv,f'{{{XDR}}}cNvPr',{'id':str(idx),'name':title_text});ET.SubElement(nv,f'{{{XDR}}}cNvGraphicFramePr');transform=ET.SubElement(frame,f'{{{XDR}}}xfrm');ET.SubElement(transform,f'{{{A}}}off',{'x':'0','y':'0'});ET.SubElement(transform,f'{{{A}}}ext',{'cx':'0','cy':'0'});graphic=ET.SubElement(frame,f'{{{A}}}graphic');gdata=ET.SubElement(graphic,f'{{{A}}}graphicData',{'uri':C});ET.SubElement(gdata,f'{{{C}}}chart',{f'{{{REL}}}id':f'rId{idx}'});ET.SubElement(anchor,f'{{{XDR}}}clientData')
-        ET.SubElement(rels,f'{{{PKG}}}Relationship',{'Id':f'rId{idx}','Type':REL+'/chart','Target':'../charts/'+name})
-    parts['xl/drawings/'+drawing_name]=xml_bytes(drawing);parts['xl/drawings/_rels/'+drawing_name+'.rels']=xml_bytes(rels);content_type('xl/drawings/'+drawing_name,'application/vnd.openxmlformats-officedocument.drawing+xml')
-    ET.SubElement(sheet.root,q('drawing'),{f'{{{REL}}}id':'rIdMonitoring'})
-    srels=ET.Element(f'{{{PKG}}}Relationships');ET.SubElement(srels,f'{{{PKG}}}Relationship',{'Id':'rIdMonitoring','Type':REL+'/drawing','Target':'../drawings/'+drawing_name})
-    parts[path.rsplit('/',1)[0]+'/_rels/'+path.rsplit('/',1)[1]+'.rels']=xml_bytes(srels)
-    parts[path]=sheet.finish();parts['[Content_Types].xml']=xml_bytes(types)
-
-
-def add_run_tracking(parts, root, st):
-    metrics = load(root, 'metrics.json')
-    sheet = Sheet()
-    title(sheet, 'Prediction run tracking',
-        'Main totals count each match once using its latest eligible pre-kickoff shortlist entry. The history below preserves earlier predictions; it is excluded from main win rate and ROI.',
-        [30,24,14,14,14,17,17,20,14], st, (2,11,'C12'))
-    unique = metrics.get('shortlist', {})
-    sheet.put('A6', 'Main totals — latest eligible prediction per match', st['section']); sheet.merge('A6:I6')
-    sheet.row(7, ['Unique matches','Settled','Wins','Losses','Pending','Win rate','Net ROI','Profit (units)','Runs tracked'], st, True)
-    sheet.row(8, [metrics.get('unique_shortlisted_fixtures','Unavailable'), unique.get('graded','Unavailable'),
-        unique.get('wins','Unavailable'), unique.get('losses','Unavailable'), unique.get('pending','Unavailable'),
-        unique.get('win_rate','Unavailable'), unique.get('flat_stake_roi','Unavailable'),
-        unique.get('profit_per_unit_staked','Unavailable'), metrics.get('tracked_prediction_runs','Unavailable')], st)
-    for c in ('F','G'): sheet.cell(c+'8').set('s',str(st['percent']))
-    sheet.put('A10', 'Historical runs — descriptive results, excluded from main totals', st['section']); sheet.merge('A10:I10')
-    sheet.row(11, ['Generated UTC','First snapshot','Selected','Settled','Wins','Win rate','Net ROI','Profit (units)','Pending'], st, True)
-    nr = 12
-    for run, values in sorted(metrics.get('run_history_groups',{}).items()):
-        source = metrics.get('run_provenance',{}).get(run,{})
-        sheet.row(nr, [run, source.get('first_snapshot_commit','Unavailable'), values['total'],values['graded'],
-            values['wins'],values['win_rate'],values['flat_stake_roi'],values['profit_per_unit_staked'],values['pending']], st)
-        for c in ('F','G'): sheet.cell(f'{c}{nr}').set('s',str(st['percent']))
-        nr += 1
-    if nr == 12: sheet.put('A12','No tracked prediction runs yet',st['note'])
-    link(sheet,f'A{nr+2}','Dashboard','Back to dashboard',st)
-    put_sheet(parts,'Run Tracking',sheet)
-
-
-def format_report(destination, root, health=None, history=None):
-    """Apply presentation atomically without recomputing evidence or changing it."""
-    destination=Path(destination)
-    with ZipFile(destination) as z:parts={n:z.read(n) for n in z.namelist()}
-    if health is None:
-        health = load(root, 'pipeline_health.json') or None
-        history = load(root, 'health_history.json') if health else None
-    st=styles(parts);ledger_layout(parts,st)
-    add_experiments(parts,root,health,st);add_trends(parts,st);add_guide(parts,st);add_run_tracking(parts,root,st)
-    if health is not None:add_health(parts,health,history,st)
-    add_clv(parts,root,st)
-    dashboard(parts,st,health,experiment_rows(root,health))
-    # Show monitoring views first; source and simulation tabs remain available.
-    wb=ET.fromstring(parts['xl/workbook.xml']);sheets=wb.find(q('sheets'))
-    order=['Dashboard','Run Tracking','Experiments','Pipeline Health','CLV','Weekly Trends','Breakdowns','Calibration','Selections','Predictions','ROI Plan','Capture Details','Metric Guide']
-    sheets[:]=sorted(sheets,key=lambda s:order.index(s.get('name')) if s.get('name') in order else len(order))
-    parts['xl/workbook.xml']=xml_bytes(wb)
-    fd,name=tempfile.mkstemp(prefix='layout.',suffix='.tmp',dir=destination.parent);os.close(fd)
-    temp=Path(name)
-    try:
-        with ZipFile(temp,'w',ZIP_DEFLATED) as z:
-            for path,data in sorted(parts.items()):
-                info=ZipInfo(path,date_time=(1980,1,1,0,0,0));info.compress_type=ZIP_DEFLATED;z.writestr(info,data)
-        if destination.read_bytes()!=temp.read_bytes():temp.replace(destination)
-    finally:temp.unlink(missing_ok=True)
-
+def write(root: Path, destination: Path, metrics: Optional[dict] = None, health: Optional[dict] = None) -> Path:
+    return build(root, metrics, health).save(destination, 'the performance review')

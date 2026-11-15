@@ -179,9 +179,8 @@ class WeightTrialTests(OfflineQuotePolicyTestCase):
 
     def test_review_queue_excel_and_frozen_input_binding(self):
         from experiment_review_queue import write_queue
-        from performance_report_layout import experiment_rows, get_sheet, text, q
+        from excel_book import read_workbook
         from performance_excel import write_workbook
-        from zipfile import ZipFile
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp); raw, data, frame, picks, decisions, summary=setup(root)
             self.assertIsNotNone(trial.capture_file(raw,summary['generated_at_utc']))
@@ -194,12 +193,10 @@ class WeightTrialTests(OfflineQuotePolicyTestCase):
             # Retired: the archived report is neither queued nor rendered in the workbook.
             queue=write_queue(root,NOW)
             self.assertNotIn(trial.NAME,[r['name'] for r in queue['experiments']])
-            self.assertFalse(any(r[0]=='Shortlist probability / EV weights' for r in experiment_rows(root,{'review_queue':queue})))
-            workbook=write_workbook(root,[],[],{})
-            with ZipFile(workbook) as z: parts={n:z.read(n) for n in z.namelist()}
-            sheet=get_sheet(parts,'Experiments')
-            displayed=' '.join(str(text(c) or '') for c in sheet.root.iter(q('c')))
+            book=read_workbook(write_workbook(root,[],[],{}))
+            displayed=' '.join(str(v) for cells in book['cells'].values() for v in cells.values())
+            self.assertNotIn('Experiments',book['sheets'])  # removed in the workbook redesign
             self.assertNotIn('ALL selections primary',displayed)
-            self.assertIn('Retired experiments are archived',displayed)
+            self.assertNotIn('Shortlist probability / EV weights',displayed)
             report=root/'performance'/trial.NAME/'report.md'
             self.assertIn('No automatic production change',report.read_text())

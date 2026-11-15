@@ -67,7 +67,7 @@ Generation identity is independent of upload commit: uploading the same bundle
 again does not duplicate its stake, replace its bytes or reset capture time.
 First-entry comparisons break simultaneous-receipt ties by generation time.
 Headline ROI and win rate use the latest eligible archived shortlist per fixture;
-Run Tracking retains all eligible generation/fixture entries.
+`shortlist_run_history.csv` retains all eligible generation/fixture entries.
 
 The actual receiving capture clock remains authoritative. A bundle saved before
 kickoff but first captured inside the twenty-minute exclusion window is not

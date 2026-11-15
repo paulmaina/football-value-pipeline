@@ -876,7 +876,7 @@ class ReadersTest(unittest.TestCase):
         text = '\n'.join(lines)
         self.assertIn('Master shortlist (new master rule, live since 14 Nov 2026; target 15 matches)', text)
         self.assertIn('safe 13, fill 2, risky fill 0', text)
-        book = write_predictions_workbook([], readable_dir / 'book.xlsx', read_shortlist_tabs(readable_dir))
+        book = write_predictions_workbook([], readable_dir / 'book.xlsx', read_shortlist_tabs(readable_dir), out)
         with ZipFile(book) as archive_:
             sheet = archive_.read('xl/worksheets/sheet1.xml').decode()
             names = archive_.read('xl/workbook.xml').decode()
@@ -892,10 +892,32 @@ class ReadersTest(unittest.TestCase):
         self.assertEqual(list(readable.Home), list(pd.read_csv(out / ms.FILE).home_team))
         self.assertNotIn('Tier (safe / fill / risky fill)', readable.columns)
 
-    def test_staking_recommendation_history_and_the_performance_workbook_never_read_a_master_file(self):
+    def test_staking_and_recommendation_history_never_read_a_master_file(self):
         """They read the value shortlist and the cagey tier only, before and after the release: nothing to switch."""
-        for name in ('staking.py', 'recommendation_history.py', 'performance_excel.py'):
+        for name in ('staking.py', 'recommendation_history.py'):
             self.assertNotIn('master', (REPO / name).read_text(encoding='utf-8').lower(), name)
+
+    def test_the_performance_workbook_reads_only_the_graded_master_files_and_labels_the_live_list(self):
+        """Since the Excel redesign the performance workbook shows both masters (display only): it reads the weekly
+        report's graded files, and which list is live from the release switch (master_shortlist_config.json), so
+        a rollback relabels it at once; the review's record only when the switch can't be read."""
+        import performance_report_layout as layout
+        self.assertEqual({k: v.as_posix() for k, v in layout.GRADED.items()},
+                         {'new': 'price_edge_v27/master_shortlist_picks.csv',
+                          'old': 'price_edge_v27/master_shortlist_old_picks.csv'})
+        self.assertEqual(layout.config_path('master'), ms.CONFIG)
+        with switched('old'):
+            self.assertEqual(layout.live_list(Path('.')), 'old')
+        with tempfile.TemporaryDirectory() as tmp:
+            summary = Path(tmp) / 'performance' / 'price_edge_v27' / 'summary.json'
+            summary.parent.mkdir(parents=True)
+            summary.write_text(json.dumps({'live_master_list': 'new'}), encoding='utf-8')
+            config = Path(tmp) / 'master_shortlist_config.json'
+            config.write_text(json.dumps({'live': 'old'}), encoding='utf-8')
+            with mock.patch.object(layout, 'MASTER_CONFIG', config):
+                self.assertEqual(layout.list_names(Path(tmp)), {'new': 'New master (shadow)', 'old': 'Old master (live)'})
+            with mock.patch.object(layout, 'MASTER_CONFIG', Path(tmp) / 'missing.json'):
+                self.assertEqual(layout.list_names(Path(tmp)), {'new': 'New master (live)', 'old': 'Old master (shadow)'})
 
     def test_readme_describes_the_release(self):
         readme = (REPO / 'README.md').read_text(encoding='utf-8')

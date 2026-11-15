@@ -153,9 +153,12 @@ class FifteenMasterTests(OfflineQuotePolicyTestCase):
             self.assertEqual(len(readable),15)
             self.assertIn('Match-window weather',readable)
             self.assertIn('Training data review',readable)
+            # The workbook shows this (pre-release, old-schema) master on its Old master tab with the columns used
+            # to choose a bet; the context columns stay in the readable CSV (checked above).
             path=root/'league_predictions.xlsx'
-            write_predictions_workbook([],path,[('Master shortlist',readable,'No picks')])
+            write_predictions_workbook([],path,None,root)
             with ZipFile(path) as archive:
-                xml=archive.read('xl/worksheets/sheet1.xml').decode()
-                self.assertIn('Match-window weather',xml)
-                self.assertIn('Training data review',xml)
+                xml=archive.read('xl/worksheets/sheet2.xml').decode()
+            for home in readable['Home']:
+                self.assertIn(home.replace('&','&amp;'),xml)
+            self.assertNotIn('Match-window weather',xml)

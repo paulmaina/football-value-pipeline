@@ -59,9 +59,10 @@ gross assumptions; reports do not retrospectively change their bets.
 
 ## Evidence visible in reports
 
-- The performance Markdown dashboard and Excel **Pipeline Health** sheet show
-  training/source health, quote problems, capture coverage, daily observations
-  and review dependency versions.
+- The performance Markdown dashboard shows training/source health, quote
+  problems, capture coverage, daily observations and review dependency versions;
+  the Excel Dashboard's data-health section shows the last forecast run, Odds API
+  credits, the last validation's warnings and training-data freshness.
 - `performance/health_history.json` stores one latest observation per UTC day.
   It records sample counts, ROI, Brier, policies, experiments and data health.
 - New immutable snapshots include a hash-bound `pipeline_health.json` with

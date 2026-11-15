@@ -137,7 +137,7 @@ Push the raw directory, including **all run bundles**, before kickoff. One push
 can carry several runs, and capture records each separately. Forward eligibility
 still requires actual capture at least twenty minutes before kickoff; local
 save times never backdate cloud evidence. Headline performance uses the latest
-eligible archived selection per fixture; all eligible runs remain in Run Tracking.
+eligible archived selection per fixture; all eligible runs remain in shortlist_run_history.csv.
 
 New value, cagey-tier and master shortlists use kickoffs from 20 minutes to
 24 hours after the run. Archived generations retain their recorded horizons.
