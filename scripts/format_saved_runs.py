@@ -175,7 +175,7 @@ def main(argv=None) -> int:
     parser.add_argument('--release', action='store_true')
     parser.add_argument('--compare', nargs=2, type=Path)
     parser.add_argument('--digests', nargs=2, type=Path, metavar=('OUTPUT', 'JSON'),
-                        help="write a formatted tree's normalised CSV digests (the test fixture)")
+                        help="write a formatted tree's CSV digests, line endings normalised")
     args = parser.parse_args(argv)
     if args.digests:
         source, target = args.digests
