@@ -264,14 +264,27 @@ def tier_output_columns(rule: str) -> List[str]:
     return [*TIER_OUTPUT_COLUMNS[:at], 'price_flag', *TIER_OUTPUT_COLUMNS[at:]]
 
 
-def corrected_context(pin: Mapping, fit: mi.Fit, fit_info: Mapping, model: Mapping) -> Optional[Dict[str, object]]:
-    """Corrected margin distribution for a fixture: fit B, else fit A; None when neither is usable."""
+def devig_method(settings: Mapping) -> str:
+    """How the cagey tier's grid removes the bookmaker margin. Live is proportional: the setting is absent from
+    cagey_correction_config.json and from every recorded run. Offline candidates (docs/plan.md, Phase 3b) pass
+    'power' or 'shin' together with the correction model fitted on that grid."""
+    return mi.check_devig_method(settings.get('devig_method', mi.DEVIG_PROPORTIONAL))
+
+
+def corrected_context(pin: Mapping, fit: mi.Fit, fit_info: Mapping, model: Mapping,
+                      method: str = mi.DEVIG_PROPORTIONAL) -> Optional[Dict[str, object]]:
+    """Corrected margin distribution for a fixture: fit B, else fit A; None when neither is usable.
+
+    `fit` and `fit_info` must come from the same margin-removal `method`, and `model` must be the correction
+    fitted on that method's grid (narrow_margin.require_method)."""
+    nm.require_method(model, method)
     source = fit if fit.usable else fit_info['fit_a'] if fit_info['fit_a'].usable else None
     if source is None or pin['h2h'] is None or pin['ou25'] is None:
         return None
     margins, probs = mi.margin_distribution(source.matrix)
-    p_home, p_draw, p_away = mi.devig_three_way(*pin['h2h'][:3])
-    inputs = {'p_over_2_5': devig_proportional(*pin['ou25'][:2])[0], 'p_home': p_home, 'p_away': p_away, 'p_draw': p_draw}
+    p_home, p_draw, p_away = mi.devig_three_way(*pin['h2h'][:3], method=method)
+    inputs = {'p_over_2_5': mi.devig_two_way(*pin['ou25'][:2], method=method)[0], 'p_home': p_home, 'p_away': p_away,
+              'p_draw': p_draw}
     p2, p3 = nm.corrected_tails(model, nm.margin_tail(margins, probs, 2), nm.margin_tail(margins, probs, 3), inputs)
     return {'fit': source.kind, 'fit_b': fit.usable, 'margins': margins, 'uncorrected_probs': probs,
             'probs': nm.correct_distribution(margins, probs, p2, p3), 'score': p2,
@@ -483,9 +496,15 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
     quintiles = nm.load_quintiles(model) if monitor is not None and model is not None else None
     per_market = value_rule(settings) in (VALUE_RULE_PER_MARKET, *PROFIT_RULES)
     strict = timing_rule(settings) == TIMING_RULE_CUTOFF
+    method = devig_method(settings)
 
     def transform(row, items, pin, fit, fit_info, now) -> List[Dict[str, object]]:
-        context = corrected_context(pin, fit, fit_info, model) if model is not None else None
+        # The cagey tier's own grid. Live (proportional) it is the fixture's fit, exactly as before. An offline
+        # candidate refits it with its method: the cagey context changes (and with it the c-cagey fair price of
+        # derived plus lines, which is the corrected grid's by definition); every other value figure keeps `fit`.
+        cagey_fit, cagey_info = (fit, fit_info) if method == mi.DEVIG_PROPORTIONAL else \
+            v27.market_fit(pin, now, strict, method=method)
+        context = corrected_context(pin, cagey_fit, cagey_info, model, method) if model is not None else None
         raw_context = None
         if fit.usable:
             margins, probs = mi.margin_distribution(fit.matrix)
@@ -497,7 +516,7 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
         expanded = settings['cagey_tier_enabled'] and tier_rule(settings) in EXPANDED_RULES
         if expanded and context is not None:
             from cagey_tier_v3 import corrected_grid
-            source = fit if fit.usable else fit_info['fit_a']
+            source = cagey_fit if cagey_fit.usable else cagey_info['fit_a']
             context = {**context, 'matrix': corrected_grid(context, source.matrix)}
             if tier_rule(settings) == TIER_RULE_MARKET_BASIS:
                 context['uncorrected_matrix'] = source.matrix
@@ -536,7 +555,8 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
         if expanded:
             from cagey_tier_v3 import annotate
             for decision in out:
-                annotate(decision, context, row, now, policy, cost, rule=tier_rule(settings), pin=pin)
+                annotate(decision, context, row, now, policy, cost, rule=tier_rule(settings), pin=pin,
+                         **({} if method == mi.DEVIG_PROPORTIONAL else {'method': method}))
         for decision in out:
             apply_market_exclusions(decision, settings)
         return out
