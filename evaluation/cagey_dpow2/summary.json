@@ -171,6 +171,35 @@
     "D_pow2"
   ],
   "harness_commit": "b941245ef929398e0d85da2d7a2603987b598d53",
+  "one_x_two_prematch_development_fit": {
+    "all_priced": {
+      "a": 0.04482089420225568,
+      "b": 0.016979658090396414,
+      "log_loss": {
+        "quote": 0.5517420131737872,
+        "rule": 0.5515562434872123
+      },
+      "matches": 8132,
+      "standard_error": {
+        "a": 0.026096354857391996,
+        "b": 0.21069685562840682
+      }
+    },
+    "harness": {
+      "a": 0.053388610193662187,
+      "b": 0.05393933033103782,
+      "log_loss": {
+        "quote": 0.5530906540326899,
+        "rule": 0.5528171751784119
+      },
+      "matches": 6875,
+      "standard_error": {
+        "a": 0.02837540810034783,
+        "b": 0.22838598564751333
+      }
+    },
+    "note": "Diagnostic only; the candidate keeps the training-row fit (no re-tuning)."
+  },
   "one_x_two_training": {
     "a": 0.029140423665650176,
     "b": -0.060942333452805655,
@@ -230,7 +259,7 @@
         "drawn": 0.20732562215212058,
         "matches": 5706,
         "quote_draw": 0.20680959642391752,
-        "rule_draw": 0.210314091575857
+        "rule_draw": 0.21031409157585704
       }
     ],
     "first_date": "2021-08-06",
