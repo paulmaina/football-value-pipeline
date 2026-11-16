@@ -891,6 +891,188 @@
     "standard_error": null
   },
   "frozen_picks": 311,
+  "headline": {
+    "cagey tier": {
+      "definition": "CLV = frozen offered odds x Pinnacle fair close probability - 1 (clv_report). Return = flat-stake profit per unit at the frozen price. Per fixture: a match's picks averaged first, so each match counts once.",
+      "fixtures_with_picks": 81,
+      "per_fixture": {
+        "clv": {
+          "independent_fixtures": 15,
+          "mean": -0.00937538502104495,
+          "median": -0.00924767139533772,
+          "n": 15,
+          "positive_share": 0.26666666666666666,
+          "standard_error": 0.007356105957165427,
+          "t_stat": -1.2745038034576686
+        },
+        "return": {
+          "independent_fixtures": 79,
+          "mean": 0.06800632911392405,
+          "median": 0.15500000000000003,
+          "n": 79,
+          "positive_share": 0.5949367088607594,
+          "standard_error": 0.03842288652303373,
+          "t_stat": 1.7699432621532913
+        }
+      },
+      "per_pick": {
+        "clv": {
+          "independent_fixtures": 15,
+          "mean": -0.007356267814750502,
+          "median": -0.012827652115753208,
+          "n": 38,
+          "positive_share": 0.3157894736842105,
+          "standard_error": 0.007513964098686671,
+          "t_stat": -0.9790129042586546
+        },
+        "return": {
+          "independent_fixtures": 79,
+          "mean": 0.05577889447236182,
+          "median": 0.22999999999999998,
+          "n": 199,
+          "positive_share": 0.7185929648241206,
+          "standard_error": 0.04381926315280527,
+          "t_stat": 1.2729309088984737
+        }
+      },
+      "picks": 202
+    },
+    "new master (live)": {
+      "definition": "CLV = frozen offered odds x Pinnacle fair close probability - 1 (clv_report). Return = flat-stake profit per unit at the frozen price. Per fixture: a match's picks averaged first, so each match counts once.",
+      "fixtures_with_picks": 0,
+      "per_fixture": {
+        "clv": {
+          "independent_fixtures": 0,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "positive_share": null,
+          "standard_error": null,
+          "t_stat": null
+        },
+        "return": {
+          "independent_fixtures": 0,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "positive_share": null,
+          "standard_error": null,
+          "t_stat": null
+        }
+      },
+      "per_pick": {
+        "clv": {
+          "independent_fixtures": 0,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "positive_share": null,
+          "standard_error": null,
+          "t_stat": null
+        },
+        "return": {
+          "independent_fixtures": 0,
+          "mean": null,
+          "median": null,
+          "n": 0,
+          "positive_share": null,
+          "standard_error": null,
+          "t_stat": null
+        }
+      },
+      "picks": 0
+    },
+    "old master (shadow)": {
+      "definition": "CLV = frozen offered odds x Pinnacle fair close probability - 1 (clv_report). Return = flat-stake profit per unit at the frozen price. Per fixture: a match's picks averaged first, so each match counts once.",
+      "fixtures_with_picks": 61,
+      "per_fixture": {
+        "clv": {
+          "independent_fixtures": 10,
+          "mean": 0.008572283266215463,
+          "median": -0.0016482055070144996,
+          "n": 10,
+          "positive_share": 0.5,
+          "standard_error": 0.023593221686772466,
+          "t_stat": 0.3633366981424801
+        },
+        "return": {
+          "independent_fixtures": 61,
+          "mean": 0.009016393442622948,
+          "median": 0.18999999999999995,
+          "n": 61,
+          "positive_share": 0.6721311475409836,
+          "standard_error": 0.08601958568374982,
+          "t_stat": 0.104817912931732
+        }
+      },
+      "per_pick": {
+        "clv": {
+          "independent_fixtures": 10,
+          "mean": 0.008572283266215463,
+          "median": -0.0016482055070144996,
+          "n": 10,
+          "positive_share": 0.5,
+          "standard_error": 0.023593221686772466,
+          "t_stat": 0.3633366981424801
+        },
+        "return": {
+          "independent_fixtures": 61,
+          "mean": 0.009016393442622945,
+          "median": 0.18999999999999995,
+          "n": 61,
+          "positive_share": 0.6721311475409836,
+          "standard_error": 0.08601958568374982,
+          "t_stat": 0.10481791293173195
+        }
+      },
+      "picks": 61
+    },
+    "value shortlist": {
+      "definition": "CLV = frozen offered odds x Pinnacle fair close probability - 1 (clv_report). Return = flat-stake profit per unit at the frozen price. Per fixture: a match's picks averaged first, so each match counts once.",
+      "fixtures_with_picks": 98,
+      "per_fixture": {
+        "clv": {
+          "independent_fixtures": 19,
+          "mean": -0.002345449709126478,
+          "median": -0.00706421580953102,
+          "n": 19,
+          "positive_share": 0.3684210526315789,
+          "standard_error": 0.010017396336900323,
+          "t_stat": -0.2341376571561537
+        },
+        "return": {
+          "independent_fixtures": 96,
+          "mean": 0.028203124999999996,
+          "median": 0.065,
+          "n": 96,
+          "positive_share": 0.5416666666666666,
+          "standard_error": 0.041430454951459604,
+          "t_stat": 0.6807341370748426
+        }
+      },
+      "per_pick": {
+        "clv": {
+          "independent_fixtures": 19,
+          "mean": -0.016160880624771442,
+          "median": -0.019746453302053157,
+          "n": 49,
+          "positive_share": 0.2653061224489796,
+          "standard_error": 0.006626657062396354,
+          "t_stat": -2.4387682164025084
+        },
+        "return": {
+          "independent_fixtures": 96,
+          "mean": 0.036693811074918564,
+          "median": 0.24,
+          "n": 307,
+          "positive_share": 0.739413680781759,
+          "standard_error": 0.03807693533441763,
+          "t_stat": 0.9636755361913577
+        }
+      },
+      "picks": 311
+    }
+  },
   "live_master_list": "new",
   "master": {
     "by_price_flag": {
@@ -1064,7 +1246,7 @@
     }
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-16T06:57:48.466109+00:00",
+  "reviewed_at_utc": "2026-11-16T09:54:01.969228+00:00",
   "stop_review": false,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "tagged_candidates": {

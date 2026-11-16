@@ -1,5 +1,20 @@
 # v27/v28 price-edge tracking
 
+## Headline: closing-line value first, returns second
+
+| List | View | With a close | Mean CLV | 95% interval | Beat the close | Settled | Return per unit | 95% interval |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| value shortlist | per pick | 49 | -1.6% | -2.9% to -0.3% | 27% | 307 | +3.7% | -3.8% to +11.1% |
+| value shortlist | per fixture (a match's picks averaged) | 19 | -0.2% | -2.2% to +1.7% | 37% | 96 | +2.8% | -5.3% to +10.9% |
+| cagey tier | per pick | 38 | -0.7% | -2.2% to +0.7% | 32% | 199 | +5.6% | -3.0% to +14.2% |
+| cagey tier | per fixture (a match's picks averaged) | 15 | -0.9% | -2.4% to +0.5% | 27% | 79 | +6.8% | -0.7% to +14.3% |
+| new master (live) | per pick | 0 | — | — | — | 0 | — | — |
+| new master (live) | per fixture (a match's picks averaged) | 0 | — | — | — | 0 | — | — |
+| old master (shadow) | per pick | 10 | +0.9% | -3.8% to +5.5% | 50% | 61 | +0.9% | -16.0% to +17.8% |
+| old master (shadow) | per fixture (a match's picks averaged) | 10 | +0.9% | -3.8% to +5.5% | 50% | 61 | +0.9% | -16.0% to +17.8% |
+
+Closing-line value (CLV) leads because it is the less noisy measure: it compares the frozen price with the Pinnacle fair close and does not wait for results. Returns come second: with few matches they are mostly luck. Intervals are mean ± 1.96 standard errors, clustered by fixture. Near-kickoff feed quotes are not verified official closing prices. The headline CLV is clv_report's (the Pinnacle close with the margin removed by the power method). The STOP REVIEW rule and the tables below keep this report's own CLV (the same line, margin removed proportionally), so the two can differ slightly.
+
 ## Recommendation history and placed bets
 
 Every captured generation is graded at its own offered odds; re-uploads deduplicate. Repeated fixtures and overlapping lists are correlated recommendations, not independent bets. Unit returns are hypothetical, not actual betting ROI. Latest-view reports remain separate.
@@ -9,7 +24,7 @@ value: 1120 captured recommendations; 1102 graded; 98 distinct fixtures.
 cagey: 892 captured recommendations; 875 graded; 81 distinct fixtures.
 Actual placed bets: NOT_RECORDED
 
-Reviewed 2026-11-16T06:57:48.466109+00:00. Frozen v27 picks: 311.
+Reviewed 2026-11-16T09:54:01.969228+00:00. Frozen v27 picks: 311.
 
 **Mean CLV vs Pinnacle close:** -2.36% ± 1.18% (n=49). **Flat-stake profit per bet:** +3.67% ± 7.46% (n=307).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
