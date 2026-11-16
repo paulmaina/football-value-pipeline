@@ -25,7 +25,9 @@ skipped before their prices or results are read):
   * favourite-win and draw calibration by favourite band (the bands of PR #182: the favourite is the likelier of
     home and away under the power-method quote, grouped by that quote);
   * 1X2 calibration slopes and P(narrow);
-  * the choice rule of docs/plan.md (3b-2), applied mechanically.
+  * the choice rule of docs/plan.md (3b-2), applied mechanically;
+  * a diagnostic that changes nothing: a and b refitted on the development matches' pre-match power quotes
+    (the candidate keeps its training-row fit; decision of 17 Nov 2026, no re-tuning).
 
 live mode (integration check, no result read): every saved run in the window is rebuilt from its frozen
 predictions under today's rule, D_pow and D_pow2, and the cagey no-loss >= 0.75 set, the cagey tier list and the
@@ -308,6 +310,25 @@ def uplift_section(fx, spec):
             'logit_shift_at_f': {f'{f:.2f}': spec['a'] + spec['b'] * (f - 0.5) for f in (0.35, 0.5, 0.65, 0.8, 0.9)}}
 
 
+def rule_standard_errors(home, draw, away, a, b):
+    """Standard errors of a and b from the observed information of the draw likelihood."""
+    z = np.column_stack([np.ones(len(home)), nm.favourite_probability(home, away) - 0.5])
+    p = 1 / (1 + np.exp(-(nm._logit(draw) + z @ np.array([a, b]))))
+    errors = np.sqrt(np.diag(np.linalg.inv((z * (p * (1 - p))[:, None]).T @ z)))
+    return {'a': float(errors[0]), 'b': float(errors[1])}
+
+
+def prematch_fit(fx):
+    """Diagnostic only: the 1X2 rule's a and b refitted on these matches' pre-match power quotes. Never used by
+    the candidate, whose a and b stay as fitted on the correction's training rows."""
+    q = np.array([f['QPOW'] for f in fx])
+    drawn = np.array([f['outcome'] == 1 for f in fx], float)
+    fitted = nm.fit_one_x_two(q[:, 0], q[:, 1], q[:, 2], drawn)
+    return {'matches': len(fx), 'a': fitted['a'], 'b': fitted['b'],
+            'standard_error': rule_standard_errors(q[:, 0], q[:, 1], q[:, 2], fitted['a'], fitted['b']),
+            'log_loss': {'quote': fitted['quote_training_log_loss'], 'rule': fitted['training_log_loss']}}
+
+
 def training_section(cache, model, workers):
     """The 1X2 rule on its own training rows: the correction's training matches (Pinnacle closing prices, power
     method), rebuilt and checked against the model's fingerprint. No evaluation match is used."""
@@ -320,9 +341,8 @@ def training_section(cache, model, workers):
     refit = nm.fit_one_x_two(home, draw, away, drawn)
     assert abs(refit['a'] - spec['a']) < 1e-9 and abs(refit['b'] - spec['b']) < 1e-9, refit
     f = nm.favourite_probability(home, away)
-    z = np.column_stack([np.ones(len(f)), f - 0.5])
-    p = 1 / (1 + np.exp(-(nm._logit(draw) + z @ np.array([spec['a'], spec['b']]))))
-    errors = np.sqrt(np.diag(np.linalg.inv((z * (p * (1 - p))[:, None]).T @ z)))  # observed information
+    p = 1 / (1 + np.exp(-(nm._logit(draw) + spec['a'] + spec['b'] * (f - 0.5))))
+    errors = rule_standard_errors(home, draw, away, spec['a'], spec['b'])
     gain = spec['quote_training_log_loss'] - spec['training_log_loss']
     bands = []
     for label, low, high in BANDS:
@@ -331,7 +351,7 @@ def training_section(cache, model, workers):
                       'quote_draw': float(draw[mask].mean()), 'rule_draw': float(p[mask].mean())})
     return {'matches': int(len(data)), 'first_date': data.date.min().date().isoformat(),
             'last_date': data.date.max().date().isoformat(), 'a': spec['a'], 'b': spec['b'],
-            'standard_error': {'a': float(errors[0]), 'b': float(errors[1])},
+            'standard_error': errors,
             'log_loss': {'quote': spec['quote_training_log_loss'], 'rule': spec['training_log_loss']},
             # twice the log-likelihood gained by the two parameters (chi-squared, 2 degrees of freedom, if a = b = 0)
             'likelihood_ratio_statistic': float(2 * len(data) * gain), 'p_value': float(math.exp(-len(data) * gain)),
@@ -456,6 +476,11 @@ def historical(args, cfg):
             summary['periods'][name][cohort] = entry
     summary['choice_rule'] = choice_rule(summary['periods'])
     summary['one_x_two_training'] = training_section(args.cache, corrections['D_pow2'][0], args.workers)
+    development = [f for f in fixtures if f['phase'] == 'development']  # validation is not used for this
+    summary['one_x_two_prematch_development_fit'] = {
+        'note': 'Diagnostic only; the candidate keeps the training-row fit (no re-tuning).',
+        'harness': prematch_fit([f for f in development if f['fixture_key'] in harness_keys]),
+        'all_priced': prematch_fit(development)}
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / 'summary.json').write_text(json.dumps(summary, indent=2, sort_keys=True, default=float) + '\n',
                                               encoding='utf-8')
