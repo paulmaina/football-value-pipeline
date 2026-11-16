@@ -1,0 +1,67 @@
+{
+  "devig_method": "shin",
+  "features": [
+    "logit_matrix_p",
+    "p_over_2_5",
+    "abs_home_minus_away",
+    "p_draw"
+  ],
+  "matrix_source": "market_implied fit B (1X2 + O/U 2.5 + main AH), fit A only when B is unusable",
+  "targets": {
+    "2": {
+      "coefficients": [
+        0.44428611438228954,
+        0.0806406183968526,
+        -0.06059780800449845,
+        0.025056584083885763
+      ],
+      "feature_mean": [
+        -0.40725300962186134,
+        0.5299949011511375,
+        0.31800484211069313,
+        0.24618894334121297
+      ],
+      "feature_std": [
+        0.40902067673980413,
+        0.09829518638880388,
+        0.22130507123395726,
+        0.05541264068419795
+      ],
+      "intercept": -0.5304966834790863,
+      "training_log_loss": 0.6392938592289534
+    },
+    "3": {
+      "coefficients": [
+        0.2731212140908059,
+        0.22758980453336378,
+        0.14006736750893561,
+        0.0344382763681188
+      ],
+      "feature_mean": [
+        -1.6029083041065797,
+        0.5299949011511375,
+        0.31800484211069313,
+        0.24618894334121297
+      ],
+      "feature_std": [
+        0.5421295050498444,
+        0.09829518638880388,
+        0.22130507123395726,
+        0.05541264068419795
+      ],
+      "intercept": -1.7154898051469385,
+      "training_log_loss": 0.4262433530910265
+    }
+  },
+  "training_cagey_p20": 0.29424275043634074,
+  "training_fingerprint": "d094b60b310bdf8c8f26948bb91cc0c2afadcf1815fe5776cd3cc4e96d749fdf",
+  "training_first_date": "2021-08-06",
+  "training_fit_counts": {
+    "A": 1,
+    "B": 10955
+  },
+  "training_last_date": "2025-06-01",
+  "training_matches": 10956,
+  "training_until_exclusive": "2025-07-01",
+  "version": "cagey-correction-through-2425-shin-v1"
+}

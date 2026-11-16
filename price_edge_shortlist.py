@@ -320,15 +320,18 @@ def _overround(*prices) -> float:
 FUTURE_INPUT_REASON = 'input timestamped after evaluation'
 
 
-def market_fit(pin: Mapping, now: pd.Timestamp, cutoff: bool = False) -> Tuple[mi.Fit, Dict[str, object]]:
+def market_fit(pin: Mapping, now: pd.Timestamp, cutoff: bool = False,
+               method: str = mi.DEVIG_PROPORTIONAL) -> Tuple[mi.Fit, Dict[str, object]]:
     """Fit B on Pinnacle's current 1X2, O/U 2.5 and main AH line.
 
     `cutoff` (v28 observed-by-cutoff-v2): a fit with any input stamped after `now` is unusable, so no
     ranking, settlement, staking, correction or monitoring figure can depend on a future quote.
+    `method`: how the margin is removed from the three markets (market_implied.DEVIG_METHODS). Live is
+    proportional; the others are offline candidates only.
     """
     h2h, ou, line = pin['h2h'], pin['ou25'], pin['main_line']
     ah = (line, *pin['ah'][line][:2]) if line is not None else None
-    targets = mi.targets_from_prices(h2h[:3] if h2h else None, ou[:2] if ou else None, ah)
+    targets = mi.targets_from_prices(h2h[:3] if h2h else None, ou[:2] if ou else None, ah, method=method)
     stamps = {'h2h': h2h[3] if h2h else None, 'ou25': ou[2] if ou else None,
               'ah_main': pin['ah'][line][2] if line is not None else None}
     groups = {'h2h': h2h[:3] if h2h else None, 'ou25': ou[:2] if ou else None,

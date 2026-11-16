@@ -14,13 +14,13 @@ from __future__ import annotations
 import math
 from dataclasses import dataclass, field
 from functools import lru_cache
-from typing import Dict, Iterable, List, Optional, Tuple
+from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 
 import numpy as np
 from scipy.optimize import least_squares
 from scipy.stats import poisson
 
-from ah_close_backtest import devig_proportional, effective_probability, outcome_probabilities, settle
+from ah_close_backtest import devig_proportional, devig_shin, effective_probability, outcome_probabilities, settle
 
 VERSION = 'market-implied-dc-v1'
 MAX_GOALS = 20
@@ -29,13 +29,83 @@ LAMBDA_BOUNDS = (0.05, 6.0)
 RHO_BOUNDS = (-0.3, 0.3)
 INPUTS_A = ('home', 'draw', 'away', 'over_2_5')
 INPUTS_B = (*INPUTS_A, 'ah_main')
+# Margin removal. 'proportional' is what every live grid uses; 'power' and 'shin' exist for offline
+# candidates only (docs/plan.md, Phase 3b) and are reached only when a caller names them.
+DEVIG_PROPORTIONAL, DEVIG_POWER, DEVIG_SHIN = 'proportional', 'power', 'shin'
+DEVIG_METHODS = (DEVIG_PROPORTIONAL, DEVIG_POWER, DEVIG_SHIN)
 
 
-def devig_three_way(home: float, draw: float, away: float) -> Tuple[float, float, float]:
-    """Proportional margin removal for a 1X2 triple."""
-    q = np.array([1 / home, 1 / draw, 1 / away])
-    fair = q / q.sum()
-    return float(fair[0]), float(fair[1]), float(fair[2])
+def check_devig_method(method: str) -> str:
+    if method not in DEVIG_METHODS:
+        raise ValueError(f'Unknown margin-removal method {method!r}; expected one of {DEVIG_METHODS}')
+    return method
+
+
+def devig_power(odds: Sequence[float]) -> Tuple[float, ...]:
+    """Power method for any number of outcomes: fair_i = q_i ** k with sum(q_i ** k) = 1, q_i = 1 / odds_i.
+
+    The same bisection as `devig(odds, 'power')` in football_value_pipeline_v2_standalone.py (the harness's
+    QPOW quote reference), so the two agree exactly; a test pins that."""
+    q = np.array([1.0 / float(o) for o in odds], dtype=float)
+    lo, hi = 0.01, 10.0
+    if not (float(np.power(q, lo).sum()) >= 1.0 >= float(np.power(q, hi).sum())):
+        return tuple(float(x) for x in q / q.sum())
+    for _ in range(80):
+        k = (lo + hi) / 2.0
+        if float(np.power(q, k).sum()) > 1.0:
+            lo = k
+        else:
+            hi = k
+    fair = np.power(q, (lo + hi) / 2.0)
+    fair /= fair.sum()
+    return tuple(float(x) for x in fair)
+
+
+def devig_shin_n(odds: Sequence[float]) -> Tuple[float, ...]:
+    """Shin (1993) for any number of outcomes: fair_i = (sqrt(z^2 + 4 (1 - z) q_i^2 / B) - z) / (2 (1 - z)),
+    B = sum(q), with the insider share z solved so the fair probabilities sum to 1. Proportional when the
+    book has no margin. With two outcomes it is ah_close_backtest.devig_shin, step for step."""
+    q = np.array([1 / float(o) for o in odds])
+    book = q.sum()
+    if book <= 1:
+        return tuple(float(x) for x in q / book)
+
+    def fair(z):
+        return (np.sqrt(z * z + 4 * (1 - z) * q * q / book) - z) / (2 * (1 - z))
+
+    low, high = 0.0, 0.5
+    for _ in range(100):
+        mid = (low + high) / 2
+        if fair(mid).sum() > 1:
+            low = mid
+        else:
+            high = mid
+    p = fair((low + high) / 2)
+    p = p / p.sum()
+    return tuple(float(x) for x in p)
+
+
+def devig_three_way(home: float, draw: float, away: float,
+                    method: str = DEVIG_PROPORTIONAL) -> Tuple[float, float, float]:
+    """Margin removal for a 1X2 triple: proportional (the default, and every live grid), power or Shin."""
+    if method == DEVIG_PROPORTIONAL:
+        q = np.array([1 / home, 1 / draw, 1 / away])
+        fair = q / q.sum()
+        return float(fair[0]), float(fair[1]), float(fair[2])
+    check_devig_method(method)
+    fair = devig_power((home, draw, away)) if method == DEVIG_POWER else devig_shin_n((home, draw, away))
+    return fair[0], fair[1], fair[2]
+
+
+def devig_two_way(first: float, second: float, method: str = DEVIG_PROPORTIONAL) -> Tuple[float, float]:
+    """Margin removal for a two-way pair (totals, an AH line): proportional by default, power or Shin."""
+    if method == DEVIG_PROPORTIONAL:
+        return devig_proportional(first, second)
+    check_devig_method(method)
+    if method == DEVIG_SHIN:
+        return devig_shin(first, second)
+    fair = devig_power((first, second))
+    return fair[0], fair[1]
 
 
 def dixon_coles_matrix(lam_home: float, lam_away: float, rho: float, max_goals: int = MAX_GOALS) -> np.ndarray:
@@ -90,17 +160,21 @@ def model_inputs(matrix: np.ndarray, ah_line: Optional[float]) -> Dict[str, floa
 
 def targets_from_prices(h2h: Optional[Tuple[float, float, float]] = None,
                         ou25: Optional[Tuple[float, float]] = None,
-                        ah_main: Optional[Tuple[float, float, float]] = None) -> Dict[str, float]:
-    """Margin-free targets: h2h (home, draw, away odds), ou25 (over, under), ah_main (home line, home, away odds)."""
+                        ah_main: Optional[Tuple[float, float, float]] = None,
+                        method: str = DEVIG_PROPORTIONAL) -> Dict[str, float]:
+    """Margin-free targets: h2h (home, draw, away odds), ou25 (over, under), ah_main (home line, home, away odds).
+
+    `method` removes the margin from all three markets the same way; the default is proportional."""
+    check_devig_method(method)
     targets: Dict[str, float] = {}
     if h2h is not None:
-        targets['home'], targets['draw'], targets['away'] = devig_three_way(*h2h)
+        targets['home'], targets['draw'], targets['away'] = devig_three_way(*h2h, method=method)
     if ou25 is not None:
-        targets['over_2_5'] = devig_proportional(*ou25)[0]
+        targets['over_2_5'] = devig_two_way(*ou25, method=method)[0]
     if ah_main is not None:
         line, home, away = ah_main
         targets['ah_line'] = float(line)
-        targets['ah_main'] = devig_proportional(home, away)[0]
+        targets['ah_main'] = devig_two_way(home, away, method=method)[0]
     return targets
 
 
