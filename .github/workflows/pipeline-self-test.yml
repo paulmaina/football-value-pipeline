@@ -77,6 +77,7 @@ jobs:
           --ignore=tests/test_research_low_score_sharpen.py
           --ignore=tests/test_research_sharpen.py
           --ignore=tests/test_research_low_score.py
+          --ignore=tests/test_research_rate_calibration.py
           --ignore=tests/test_understat_xg.py
       - name: Verify dotted unittest entry point
         run: python -m unittest tests.test_all_market_ev_thresholds tests.test_double_chance

@@ -1,9 +1,11 @@
-"""C's forecasts on real EPL folds, with and without every price moved, shared by the C2, C5 and C6 odds tests.
+"""C's forecasts on real EPL folds, with and without every price moved, shared by the C2, C5, C6, C7 and C8
+odds tests.
 
 test_research_low_score, test_research_sharpen and test_research_low_score_sharpen each check that their
 candidate reads only C's goal rates and the scores. They need the same inputs: C's forecasts of 40 EPL matches
 before 1 Dec 2023 (fit only) and 5 after 1 Mar 2024 (scored), from Dixon-Coles folds refitted on the real
-history and on the same history with every price moved. Both are computed once per test process.
+history and on the same history with every price moved. Both are computed once per test process. Each row
+also carries what C7 and C8 read: C0's goal rates and the Elo difference from the fold's training rows.
 """
 from functools import lru_cache
 import json
@@ -20,12 +22,13 @@ ORIGIN = pd.Timestamp('2024-03-01')
 FIT_ORIGIN = pd.Timestamp('2023-12-01')
 
 
-def research_row(league, date, goal_rates, hg, ag, scored=True, phase='development'):
+def research_row(league, date, goal_rates, hg, ag, scored=True, phase='development', base_rates=None, elo_z=None):
     """One entry of the harness's research list (evaluate_league)."""
     identity = {'league': league, 'date': str(date.date()),
                 'week': f'{date.isocalendar().year}-W{date.isocalendar().week:02d}',
                 'fixture_key': f'{league}|{date.isoformat()}', 'phase': phase, 'market_book': 'pinnacle'}
     return {'identity': identity, 'date': date, 'goal_rates': [float(v) for v in goal_rates],
+            'base_rates': [float(v) for v in (goal_rates if base_rates is None else base_rates)], 'elo_z': elo_z,
             'home_goals': float(hg), 'away_goals': float(ag), 'scored': scored}
 
 
@@ -65,14 +68,17 @@ def scored_fold():
 
 
 def _research_rows(frame, folds):
+    from elo_ratings import fit_history
     import narrow_margin as nm
     cagey, rows, matrices = nm.production_model(), [], []
     for (origin, scored), (train, model) in zip(((FIT_ORIGIN, False), (ORIGIN, True)), folds):
         test = frame[frame.Date >= origin].head(5 if scored else 40)
+        elo = fit_history(train)
         for _, row in test.iterrows():
-            m, _, extra = eh.candidates(row, train, origin, model, CFG, cagey)
+            m, _, extra = eh.candidates(row, train, origin, model, CFG, cagey, elo=elo)
             matrices.append(m)
-            rows.append(research_row('EPL', row.Date, extra['research_goal_rates'], row.FTHG, row.FTAG, scored))
+            rows.append(research_row('EPL', row.Date, extra['research_goal_rates'], row.FTHG, row.FTAG, scored,
+                                     base_rates=extra['research_base_rates'], elo_z=extra['elo_z']))
     return rows, matrices
 
 

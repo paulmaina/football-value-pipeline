@@ -108,6 +108,24 @@ class IndependenceTest(unittest.TestCase):
         np.testing.assert_array_equal(first['C'], base)
         self.assertFalse(np.array_equal(first['C0'], first['C']))
         self.assertFalse(np.array_equal(first['DC'], first['C0']))
+        # C7 and C8 read C0's goal rates and the Elo difference from the training rows: no odds field moves
+        # either, so the same calibration gives the same grid (their fits read these and earlier scores only).
+        from elo_ratings import fit_history
+        import research_rate_calibration as rrc
+        elo = fit_history(train)
+        inputs = [eh.candidates(r, train, origin, model, CFG, nm.production_model(), elo=elo)[2] for r in (row, changed)]
+        self.assertEqual(inputs[0]['research_base_rates'], context['base_rates'])
+        self.assertEqual(inputs[0]['elo_z'], rrc.elo_z(elo, row.HomeTeam, row.AwayTeam))
+        self.assertTrue(np.isfinite(inputs[0]['elo_z']))
+        for key in ('research_base_rates', 'elo_z'):
+            self.assertEqual(inputs[0][key], inputs[1][key])
+        self.assertIsNone(extra['elo_z'])  # no ratings given: no Elo difference
+        fitted = {'a_home': .03, 'a_away': -.02, 'b': .9, 'c': .25}
+        grids = [rrc.grid(i['research_base_rates'], fitted, params, i['elo_z']) for i in inputs]
+        np.testing.assert_array_equal(*grids)
+        self.assertFalse(np.array_equal(grids[0], first['C0']))
+        np.testing.assert_array_equal(eh.rb.matrix_value(rrc.grid(context['base_rates'], rrc.NEUTRAL, {'rho': 0., 'delta': 0.})),
+                                      first['C0'])
         self.assertEqual(set(extra['quote_references']), set(eh.QUOTE_REFERENCES))
         self.assertNotIn('quote_references', changed_extra)  # 9.99 everywhere is not a valid book
         self.assertNotIn('M', second)
