@@ -18,6 +18,7 @@ Read `docs/plan.md` first. It holds the current plan, the release rules and the 
 pip install -r football_value_dev_requirements.txt
 python -m pytest -q tests                                   # full suite (~5 min)
 python evaluation_harness.py --output /tmp/eval             # development + validation, 8 leagues
+python evaluation_diagnostics.py --run /tmp/eval --output evaluation/diagnostics # standing diagnostics from that run
 python evaluation_harness.py --mode live --output /tmp/live # replay frozen forecasts since 5 Nov 2026
 python evaluation_harness.py --mode parity --output /tmp/parity # research model: harness vs live inputs and probabilities
 python evaluation_harness.py --mode european --output /tmp/europe # UCL/UEL results only, locked; CE baseline
@@ -31,7 +32,8 @@ python performance_tracking.py review --api-key-source environment && python wor
 - `research_monitoring.py`: v5's rollback trigger and holdout-league home-favourite check, and v6's rollback trigger (CE3n vs CE on graded European matches) with calibration slopes, in the weekly report.
 - `price_edge_cagey_shortlist.py`, `narrow_margin.py`, `cagey_market_basis.py`: the cagey tier (market view).
 - `master_shortlist.py`, `master_selection*.py`: the master shortlist.
-- `performance_tracking.py`, `workflow_checks.py`: grading, reports and their validation.
+- `performance_tracking.py`, `workflow_checks.py`: grading, reports and their validation. The dashboard, weekly files and price-edge report lead with closing-line value (`clv_report.py`), returns second, per pick and with one row per fixture (`performance/fixture_grades.csv`).
 - `model_activity.py`: the append-only model activity log (`football_output_v2/model_activity/activity_log.jsonl`): releases, C6/CE3n refits, stale-fit warnings, rollback checks, switch changes and master fallbacks, written by the refit workflow, forecast runs and the review; shown in the performance workbook's Model Activity tab. Never edit or remove a line; `python model_activity.py backfill` is idempotent.
 - `evaluation_harness.py`, `research_backtest.py`, `historical_benchmark.py`: offline evaluation; `european_results.py`: cached UCL/UEL results for the harness.
+- `evaluation_diagnostics.py`: the standing diagnostics a locked harness run writes (`diagnostics.json`; saved report in `evaluation/diagnostics/`): research baselines C0 and DC, de-vigged quote references QPROP and QPOW, the disagreement test (p ∝ M^a · R^b), fixed segments for the gap to M and return by odds band. Reporting only; definitions fixed 15 Nov 2026 (`docs/plan.md`, "How each change is judged"). C0, DC, QPROP and QPOW are yardsticks, never declared candidates.
 - `.football_cache/`: historical football-data.co.uk files (Pinnacle prices end 15 Jan 2026; Bet365 continues).
