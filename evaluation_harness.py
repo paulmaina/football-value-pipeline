@@ -207,7 +207,8 @@ def market_matrix(prices, method='proportional'):
 def cagey_matrix(matrix, prices, model, method='proportional'):
     """The cagey correction applied to a market grid: by default the production correction on M. For another
     `method`, `matrix` is that method's grid and `model` must be the correction fitted on it (never the
-    production coefficients on a new grid: narrow_margin.require_method)."""
+    production coefficients on a new grid: narrow_margin.require_method). A model with a `one_x_two` block (the
+    offline candidate D_pow2) then has its 1X2 set separately (narrow_margin.one_x_two_target)."""
     import market_implied as mi
     import narrow_margin as nm
     nm.require_method(model, method)
@@ -216,7 +217,11 @@ def cagey_matrix(matrix, prices, model, method='proportional'):
     inputs = {'p_over_2_5': mi.devig_two_way(*prices['ou'], method=method)[0], 'p_home': p_home, 'p_away': p_away,
               'p_draw': p_draw}
     p2, p3 = nm.corrected_tails(model, nm.margin_tail(margins, probs, 2), nm.margin_tail(margins, probs, 3), inputs)
-    return rb.matrix_value(nm.correct_matrix(matrix, p2, p3))
+    corrected = nm.correct_matrix(matrix, p2, p3)
+    spec = nm.one_x_two(model)
+    if spec is not None:  # offline candidate D_pow2 only: the 1X2 set separately, the corrected grid moved onto it
+        corrected = nm.set_one_x_two(corrected, nm.one_x_two_target(spec, p_home, p_draw, p_away))
+    return rb.matrix_value(corrected)
 
 
 def overround(prices) -> float:
