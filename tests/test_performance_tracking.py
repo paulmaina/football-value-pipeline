@@ -118,6 +118,72 @@ class SnapshotTests(OfflineQuotePolicyTestCase):
         self.assertEqual(session.calls[0][1], {"X-Auth-Token": "fake-token"})
         self.assertTrue((self.root / "performance" / "weekly" / "2026-W41.md").exists())
 
+    def two_picks_and_a_close(self):
+        """Two picks on one match (one per market group) and a Pinnacle near-kickoff quote for it."""
+        import closing_odds
+        from test_clv_report import observation, quote
+        picks = [{**pick(), "value_market_group": "totals"},
+                 {**pick(market="Home win"), "offered_decimal_odds": 1.4, "value_market_group": "match_winner"}]
+        pd.DataFrame(picks).to_csv(self.root / "raw" / "conservative_bet_shortlist.csv", index=False)
+        observed = observation((KICK - timedelta(minutes=4)).isoformat(),
+                               [quote("pinnacle", "home", 1.45), quote("pinnacle", "draw", 4.6),
+                                quote("pinnacle", "away", 8.0)],
+                               {**fixture(), "odds_event_id": "event1"})
+        directory = self.root / "closing_odds" / "observations"
+        directory.mkdir(parents=True)
+        (directory / f"{closing_odds.digest(observed)}.json").write_text(json.dumps(observed), encoding="utf-8")
+        self.assertTrue(capture(SHA, root=self.root, captured_at=T0))
+        return observed
+
+    def test_report_leads_with_clv_and_adds_one_row_per_fixture(self):
+        import clv_report
+        observed = self.two_picks_and_a_close()
+        result = review(root=self.root, token="fake-token", clock=KICK + timedelta(days=1),
+                        session=MockSession([final()]))
+        self.assertEqual(result["shortlist"]["graded"], 2)  # the per-pick figures are unchanged
+        self.assertAlmostEqual(result["shortlist"]["flat_stake_roi"], 0.45)
+        headline = result["headline"]
+        fair_home = clv_report.fair_closing_prices(observed["quotes"])["home"]
+        self.assertTrue(headline["clv_available"])
+        self.assertEqual((headline["picks"], headline["fixtures_with_picks"]), (2, 1))
+        self.assertEqual((headline["per_pick"]["return"]["n"], headline["per_fixture"]["return"]["n"]), (2, 1))
+        self.assertAlmostEqual(headline["per_fixture"]["return"]["mean"], 0.45)
+        # Only the home win has a closing selection in the feed: one CLV, at the frozen 1.4.
+        self.assertEqual((headline["per_pick"]["clv"]["n"], headline["per_fixture"]["clv"]["n"]), (1, 1))
+        self.assertAlmostEqual(headline["per_pick"]["clv"]["mean"], 1.4 * fair_home - 1)
+        self.assertEqual(set(headline["by_week"]), {"2026-W41"})
+        self.assertNotIn("fixtures", headline)
+        performance = self.root / "performance"
+        self.assertEqual(json.loads((performance / "metrics.json").read_text(encoding="utf-8"))["headline"], headline)
+        rows = pd.read_csv(performance / "fixture_grades.csv")
+        self.assertEqual(list(rows.columns), clv_report.FIXTURE_VIEW_COLUMNS)
+        self.assertEqual(rows[["picks", "picks_with_close", "settled_picks"]].iloc[0].tolist(), [2, 1, 2])
+        self.assertAlmostEqual(rows.mean_unit_profit.iloc[0], 0.45)
+        self.assertAlmostEqual(rows.mean_clv.iloc[0], 1.4 * fair_home - 1)
+        readme = (performance / "README.md").read_text(encoding="utf-8")
+        lead = readme.index("## Headline: closing-line value first, returns second")
+        self.assertLess(lead, readme.index("## Cumulative shortlist"))
+        self.assertIn("| per fixture (a match's picks averaged) | 1 |", readme)
+        self.assertIn("2 picks on 1 matches", readme)
+        self.assertIn("## Gameweeks: closing-line value first, per pick and per fixture", readme)
+        self.assertIn("| All selections | 2 | 2-0 | 100.0% | +45.0% |", readme)
+        weekly = (performance / "weekly" / "2026-W41.md").read_text(encoding="utf-8")
+        self.assertLess(weekly.index("## Closing-line value first, returns second"), weekly.index("## Per-pick results"))
+        from workflow_checks import report_check
+        self.assertIn(report_check(self.root)["status"], ("VERIFIED", "VERIFIED_WITH_WARNINGS"))
+
+    def test_unreadable_closing_quotes_leave_a_returns_only_headline(self):
+        self.two_picks_and_a_close()
+        with patch("clv_report.load_closes", side_effect=OSError("unreadable")), self.assertWarnsRegex(
+                UserWarning, "closing-line value failed"):
+            result = review(root=self.root, token="fake-token", clock=KICK + timedelta(days=1),
+                            session=MockSession([final()]))
+        self.assertFalse(result["headline"]["clv_available"])
+        self.assertEqual(result["headline"]["per_pick"]["clv"]["n"], 0)
+        self.assertAlmostEqual(result["headline"]["per_fixture"]["return"]["mean"], 0.45)
+        readme = (self.root / "performance" / "README.md").read_text(encoding="utf-8")
+        self.assertIn("Closing-line value is unavailable in this review", readme)
+
     def test_late_capture_never_counts_as_forward_prediction(self):
         time = KICK + timedelta(hours=3)
         self.assertFalse(capture(SHA, root=self.root, captured_at=time))

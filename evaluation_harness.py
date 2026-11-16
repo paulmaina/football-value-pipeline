@@ -29,6 +29,19 @@ candidate is scored on the same matches:
   D  cagey tier: M corrected toward narrow margins (production correction)
   A  published-grid production proxy (benchmark only; mixes model and market)
 
+Diagnostic references (15 Nov 2026; reporting only, never live; scored wherever C is, locked runs only):
+
+  C0 research baseline: the independent Poisson grid on the fold model's Dixon-Coles goal rates, i.e. C
+     without its last-ten form term (team_research.prepare's base_rates; uses no odds)
+  DC research baseline: the fold model's own Dixon-Coles score grid (model.score_matrix; uses no odds)
+  QPROP, QPOW  quote references, Pinnacle periods only, 1X2 only: the plain Pinnacle 1X2 quote with the
+     margin removed proportionally (market_implied.devig_three_way) and by the power method
+     (football_value_pipeline_v2_standalone.devig), scored beside M
+
+A locked run also writes diagnostics.json (evaluation_diagnostics.py): these baselines and references on
+the common cohort, the information test p ~ M^a * R^b, the pre-declared segment tables for the gap to M
+and the flat-stake return at Pinnacle 1X2 prices by odds band.
+
 Periods (configured in evaluation_harness_config.json):
 
   development    Aug 2022 - Jun 2025, Pinnacle. Build and choose candidates here.
@@ -106,7 +119,16 @@ CANDIDATES = {
     'M':'market reference: margin-free fit to the period bookmaker (Pinnacle, Bet365 on the holdout)',
     'D': 'cagey tier: M corrected toward narrow margins (production correction model)',
     'A': 'published-grid production proxy (benchmark only; mixes model and market)',
+    'C0': "diagnostic baseline: C without its form term, the independent Poisson grid on the fold model's "
+          'Dixon-Coles goal rates (team_research.prepare base_rates; uses no odds)',
+    'DC': "diagnostic baseline: the fold model's own Dixon-Coles score grid (model.score_matrix; uses no odds)",
+    'QPROP': 'diagnostic quote reference, Pinnacle periods, 1X2 only: the Pinnacle 1X2 quote with the margin '
+             'removed proportionally (market_implied.devig_three_way)',
+    'QPOW': 'diagnostic quote reference, Pinnacle periods, 1X2 only: the Pinnacle 1X2 quote with the margin '
+            'removed by the power method (football_value_pipeline_v2_standalone.devig)',
 }
+RESEARCH_BASELINES = ('C0', 'DC')  # diagnostics: scored wherever C is; never live and never a declared candidate
+QUOTE_REFERENCES = ('QPROP', 'QPOW')  # diagnostics: 1X2 forecasts only (no score grid), Pinnacle periods only
 GAP_CANDIDATES = ('MP', 'MB')  # Pinnacle and Bet365 market fits on the same matches
 BOOKS = {
     'pinnacle': {'hda': ('PSH', 'PSD', 'PSA'), 'ou': ('P>2.5', 'P<2.5'), 'ah': ('AHh', 'PAHH', 'PAHA')},
@@ -280,9 +302,35 @@ def published_proxy(matrix, info, prices, model, cfg):
     return rb.matrix_value(matrix)
 
 
+def quote_references(prices) -> dict:
+    """QPROP and QPOW: the plain 1X2 quote with the margin removed proportionally and by the power method.
+    1X2 probabilities only (no score grid), so they are scored on 1X2 alone."""
+    import market_implied as mi
+    from football_value_pipeline_v2_standalone import devig
+    return {'QPROP': [float(v) for v in mi.devig_three_way(*prices['hda'])],
+            'QPOW': [float(v) for v in devig(list(prices['hda']), 'power')]}
+
+
+def score_1x2(identity, forecasts, home_goals, away_goals):
+    """1X2 records for forecasts that have no score grid (the quote references), as research_backtest.score_fixture
+    scores a grid's 1X2."""
+    outcome = 0 if home_goals > away_goals else 1 if home_goals == away_goals else 2
+    records = []
+    for candidate, probs in forecasts.items():
+        probs = np.array(probs, dtype=float)
+        records.append({**identity, 'candidate': candidate, 'market': '1X2',
+                        'log_loss': float(-np.log(max(probs[outcome], 1e-15))),
+                        'brier': float(np.sum((probs - np.eye(3)[outcome]) ** 2))})
+    return records
+
+
 def candidates(row, train, origin, model, cfg, cagey_model, xg_train=None):
     """C, M, D and A for one match (and C3 when `xg_train` is given: the same training rows with
-    Understat xG). C's goal rates go out in extra['research_goal_rates'] for C2."""
+    Understat xG). C's goal rates go out in extra['research_goal_rates'] for C2.
+
+    Diagnostics (reporting only): the research baselines C0 and DC wherever C exists; in Pinnacle periods the
+    quote references in extra['quote_references']; and extra['fixture'], what the pre-declared segment tables
+    need (each team's matches in the fold's training rows, and the Pinnacle 1X2 quote)."""
     from team_research import research_grid
     if train.Date.max() >= origin:
         raise ValueError('Training reaches prediction origin')
@@ -292,6 +340,13 @@ def candidates(row, train, origin, model, cfg, cagey_model, xg_train=None):
     context, model_grid, info = research_context(row, train, origin, model)
     matrices['C'] = rb.matrix_value(research_grid(context['goal_rates']))
     extra['research_goal_rates'] = [float(v) for v in context['goal_rates']]
+    for name, build in (('C0', lambda: research_grid(context['base_rates'])), ('DC', lambda: model_grid)):
+        try:
+            matrices[name] = rb.matrix_value(build())
+        except (ValueError, TypeError) as exc:
+            gaps[name] = str(exc)
+    extra['fixture'] = {side + '_training_matches': int(((train.HomeTeam == team) | (train.AwayTeam == team)).sum())
+                        for side, team in (('home', row.HomeTeam), ('away', row.AwayTeam))}
     if xg_train is not None:
         if xg_train.Date.max() >= origin:
             raise ValueError('xG training reaches prediction origin')
@@ -307,6 +362,9 @@ def candidates(row, train, origin, model, cfg, cagey_model, xg_train=None):
         gaps['market'] = book + ' prices missing'
     else:
         extra['market_book'] = book
+        if book == 'pinnacle':
+            extra['quote_references'] = quote_references(prices)
+            extra['fixture']['pinnacle_hda'] = [float(v) for v in prices['hda']]
         try:
             matrices['M'] = market_matrix(prices)
             matrices['D'] = cagey_matrix(matrices['M'], prices, cagey_model)
@@ -417,8 +475,10 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None, master_rows=
             matrices, gaps, extra = candidates(row, train, origin, model, cfg, cagey_model, xg_train)
             if 'c3_used_xg' in extra:
                 coverage[f"{league}:C3:{'xg_form' if extra['c3_used_xg'] else 'goals_form'}"] += 1
+            quotes = extra.get('quote_references', {})
             if keep is not None:
                 matrices = {k: v for k, v in matrices.items() if k in keep}
+                quotes = {k: v for k, v in quotes.items() if k in keep}
             date = row.Date
             identity = {'league': league, 'date': date.date().isoformat(),
                         'week': f'{date.isocalendar().year}-W{date.isocalendar().week:02d}',
@@ -428,6 +488,7 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None, master_rows=
                 research.append({'identity': identity, 'date': date, 'goal_rates': extra['research_goal_rates'],
                                  'home_goals': row.FTHG, 'away_goals': row.FTAG, 'scored': True})
             records.extend(rb.score_fixture(identity, matrices, row.FTHG, row.FTAG))
+            records.extend(score_1x2(identity, quotes, row.FTHG, row.FTAG))
             outcome = 0 if row.FTHG > row.FTAG else 1 if row.FTHG == row.FTAG else 2
             quote = book_prices(row, extra['market_book']) if extra.get('market_book') else None
             if master_rows is not None and quote is not None and {'C', 'D', 'M'} <= set(matrices):
@@ -439,12 +500,18 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None, master_rows=
                               'candidate': cand, 'probs': probs, 'outcome': outcome,
                               **({'cagey': cagey_inputs(matrix, quote, extra['market_book'], identity['week'],
                                                         row.FTHG - row.FTAG)}
-                                 if cand in CAGEY_EVENT_CANDIDATES and quote is not None else {})})
+                                 if cand in CAGEY_EVENT_CANDIDATES and quote is not None else {}),
+                              # Diagnostics: C's row carries what the segment tables need for this fixture.
+                              **({'fixture': {'date': identity['date'], 'week': identity['week'], **extra['fixture']}}
+                                 if cand == 'C' else {})})
+            for cand, probs in quotes.items():
+                calib.append({'phase': identity['phase'], 'league': league, 'fixture_key': identity['fixture_key'],
+                              'candidate': cand, 'probs': probs, 'outcome': outcome})
             if 'overround' in extra:
                 overrounds.append(extra['overround'])
             for key, reason in gaps.items():
                 coverage[f'{league}:{key}:{reason}'] += 1
-            for key in matrices:
+            for key in (*matrices, *quotes):
                 coverage[f'{league}:{key}:available'] += 1
     return records, folds, coverage, overrounds, sources, calib, research
 
@@ -1079,6 +1146,11 @@ def validate_declaration(path, cfg, setup, ledger=LEDGER, candidates=None):
         raise ValueError('Declaration missing ' + ', '.join(missing))
     if data['candidate'] not in registry or data['baseline'] not in registry or data['candidate'] == data['baseline']:
         raise ValueError('Candidate and baseline must be two different candidates registered in the harness')
+    # Diagnostic references are yardsticks, not candidates: a research baseline (C0, DC) may be the declared
+    # baseline; a quote reference exists only in Pinnacle periods, so it can be neither (the holdout is Bet365).
+    if data['candidate'] in (*RESEARCH_BASELINES, *QUOTE_REFERENCES) or data['baseline'] in QUOTE_REFERENCES:
+        raise ValueError('Diagnostic references cannot be declared: C0 and DC may only be the baseline, and the '
+                         'quote references (QPROP, QPOW) neither candidate nor baseline')
     if data['primary_metric'] not in GROUPS:
         raise ValueError('Primary metric must be one of ' + ', '.join(GROUPS))
     if sorted(round(float(v), 2) for v in data['draw_sensitive_lines']) != sorted(round(float(v), 2) for v in cfg['draw_sensitive_lines']):
@@ -3527,6 +3599,11 @@ def main(argv=None):
         pd.DataFrame([{k: r[k] for k in ('phase', 'league', 'fixture_key', 'candidate', 'outcome')}
                       | dict(zip(('p_home', 'p_draw', 'p_away'), r['probs'])) for r in calib
                       if 'fixture_key' in r]).to_csv(args.output / 'forecasts_1x2.csv', index=False)
+        # Standing diagnostics (evaluation_diagnostics.py; reporting only, locked runs only): built from the
+        # files just written, so `evaluation_diagnostics.py --run` rebuilds exactly the same report.
+        import evaluation_diagnostics as ed
+        ed.fixture_frame(calib).to_csv(args.output / 'diagnostic_fixtures.csv', index=False)
+        ed.write_json(args.output / 'diagnostics.json', {**ed.from_run(args.output), 'source_commit': commit})
     return 0
 
 

@@ -300,6 +300,33 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
         data.to_csv(grades,index=False)
         self.assertEqual(report_check(self.root)['status'],'VERIFIED')
 
+    def test_headline_and_fixture_view_must_reconcile_with_the_graded_selections(self):
+        self.reviewed();performance=self.root/'performance'
+        metrics=performance/'metrics.json';original=json.loads(metrics.read_text())
+        self.assertEqual(original['headline']['per_fixture']['return']['n'],1)
+        for scope,measure,field,value,message in [('per_fixture','return','mean',0.9,'Headline per_fixture return'),
+                ('per_pick','return','n',5,'Headline per_pick return count'),('per_pick','clv','mean',0.1,'Headline per_pick clv')]:
+            wrong=copy.deepcopy(original);wrong['headline'][scope][measure][field]=value;write_json(metrics,wrong)
+            with self.assertRaisesRegex(ValueError,message):report_check(self.root)
+        wrong=copy.deepcopy(original);wrong['headline']['fixtures_with_picks']=4;write_json(metrics,wrong)
+        with self.assertRaisesRegex(ValueError,'Headline pick or fixture count'):report_check(self.root)
+        write_json(metrics,original)
+        view=performance/'fixture_grades.csv';rows=pd.read_csv(view)
+        for field,value,message in [('mean_unit_profit',0.9,'Fixture view return'),('picks',3,'Fixture view pick counts'),
+                ('fixture_key','other','Fixture view differs'),('mean_clv',0.2,'Fixture view CLV')]:
+            rows.assign(**{field:value}).to_csv(view,index=False)
+            with self.assertRaisesRegex(ValueError,message):report_check(self.root)
+        rows.to_csv(view,index=False)
+        self.assertEqual(report_check(self.root)['status'],'VERIFIED')
+        # A report written before the headline existed carries none and still verifies.
+        legacy=copy.deepcopy(original);del legacy['headline'];write_json(metrics,legacy);view.unlink()
+        self.assertEqual(report_check(self.root)['status'],'VERIFIED')
+        # A returns-only headline (closing quotes unreadable at the review) is checked without them.
+        partial=copy.deepcopy(original);partial['headline']['clv_available']=False;write_json(metrics,partial)
+        rows.to_csv(view,index=False)
+        with patch('clv_report.load_closes',side_effect=AssertionError('not read')):
+            self.assertEqual(report_check(self.root)['status'],'VERIFIED')
+
     def test_missing_verified_source_and_broken_workbook_are_rejected(self):
         self.reviewed()
         cache=self.root/'performance/verified_results.json';data=cache.read_text();write_json(cache,{})

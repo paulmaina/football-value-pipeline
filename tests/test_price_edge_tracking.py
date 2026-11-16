@@ -147,6 +147,37 @@ class ReviewTests(OfflineQuotePolicyTestCase):
         self.assertFalse(summary['stop_review'])
         self.assertNotIn('> **STOP REVIEW**', report)
 
+    def test_headline_leads_with_clv_per_pick_and_per_fixture(self):
+        import clv_report
+        both = [pick(home='Winner', price=2.00, value_market_group='asian_handicap'),
+                pick(home='Winner', market='Asian Handicap Away -1.00', price=2.20, value_market_group='match_winner'),
+                pick(home='Other', price=1.70)]
+        summary, report, _ = self.run_review(both, [observation(home='Winner'), observation(home='Other')])
+        self.assertEqual(set(summary['headline']), {'value shortlist', 'cagey tier', 'new master (live)',
+                                                    'old master (shadow)'})
+        value = summary['headline']['value shortlist']
+        self.assertEqual((value['picks'], value['fixtures_with_picks']), (3, 2))
+        self.assertEqual((value['per_pick']['clv']['n'], value['per_fixture']['clv']['n']), (3, 2))
+        fair = clv_report.fair_closing_prices(observation()['quotes'])
+        home, away = fair['Asian Handicap Home +1.00'], fair['Asian Handicap Away -1.00']
+        self.assertAlmostEqual(value['per_pick']['clv']['mean'], (2.0 * home + 2.2 * away + 1.7 * home) / 3 - 1)
+        self.assertAlmostEqual(value['per_fixture']['clv']['mean'], ((2.0 * home + 2.2 * away) / 2 + 1.7 * home) / 2 - 1)
+        self.assertEqual(value['per_pick']['return']['n'], 0)  # nothing settled in this review
+        self.assertNotIn('fixtures', value)
+        self.assertEqual(summary['headline']['cagey tier']['picks'], 0)
+        lead = report.index('## Headline: closing-line value first, returns second')
+        self.assertLess(lead, report.index('## Recommendation history'))
+        self.assertLess(lead, report.index('**Mean CLV vs Pinnacle close:**'))
+        self.assertIn("| value shortlist | per fixture (a match's picks averaged) | 2 |", report)
+        self.assertIn("this report's own CLV", report)
+        # Unreadable closing quotes never fail the review: the headline keeps the lists, without CLV.
+        with tempfile.TemporaryDirectory() as tmp, patch('clv_report.load_closes', side_effect=OSError('unreadable')), \
+                patch('closing_odds.load_observations', return_value=([], [])):
+            quiet = tracking.review(Path(tmp), [(meta(), [], both)], [], CLOCK)
+        self.assertEqual((quiet['headline']['value shortlist']['picks'],
+                          quiet['headline']['value shortlist']['per_pick']['clv']['n']), (3, 0))
+        self.assertNotIn('## Headline', tracking.report({k: v for k, v in summary.items() if k != 'headline'}))
+
     def test_only_v27_picks_are_graded_and_splits_are_reported(self):
         archive_pick = pick(home='Winner', price=2.00)
         summary, report, _ = self.run_review([archive_pick], [observation(home='Winner')])
