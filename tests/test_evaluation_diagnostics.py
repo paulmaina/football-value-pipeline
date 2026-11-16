@@ -201,6 +201,14 @@ class ReportTest(unittest.TestCase):
         self.assertEqual(set(self.report['baselines']), {p for p, _ in ed.PERIODS})
         self.assertEqual(self.report['baselines']['validation+retrospective']['fixtures'], 360)
         self.assertEqual(set(entry) - {'fixtures'}, set(ed.GROUPS))
+        # Research views need no price: their differences also cover matches outside the common cohort.
+        scores, _, _ = synthetic(counts=(('development', 60), ('validation', 30)), missing={('M', 0), ('A', 1), ('C0', 2)})
+        wide = ed.baselines(scores, ed.cohort(scores))['development']
+        self.assertEqual(wide['fixtures'], 57)
+        self.assertEqual(wide['1X2']['differences']['C_minus_C0']['n'], 57)
+        every = wide['1X2']['research_differences_every_forecast']
+        self.assertEqual((every['C_minus_C0']['n'], every['C_minus_DC']['n']), (59, 60))
+        self.assertEqual(set(every), {'C_minus_C0', 'C_minus_DC', 'C0_minus_DC', 'C6_minus_C0', 'C6_minus_DC'})
 
     def test_quote_references_cover_pinnacle_periods_only(self):
         quotes = self.report['quote_references']
@@ -209,7 +217,12 @@ class ReportTest(unittest.TestCase):
         self.assertEqual(quotes['development']['differences']['QPROP_minus_M']['mean'], 0.)
         self.assertEqual(set(quotes['development']['mean_log_loss']), {'QPROP', 'QPOW', 'M'})
         scores, forecasts, fixtures = self.frames
-        self.assertEqual(ed.quote_references(scores[~scores.candidate.isin(ed.QUOTES)], ed.cohort(scores)), {})
+        self.assertEqual(ed.quote_references(scores[~scores.candidate.isin(ed.QUOTES)]), {})
+        # A market-only comparison: a match without the published-grid proxy A still counts here.
+        scores, _, _ = synthetic(counts=(('development', 60), ('validation', 30)), missing={('A', 1), ('QPOW', 2)})
+        self.assertEqual(len(ed.cohort(scores)), 88)
+        self.assertEqual(ed.quote_references(scores)['development+validation']['fixtures'], 88)
+        self.assertEqual(ed.quote_references(scores)['development']['fixtures'], 59)
 
     def test_noise_fails_the_information_test_and_informed_research_passes(self):
         info = self.report['information_test']
@@ -297,7 +310,7 @@ class ReportTest(unittest.TestCase):
     def test_the_readable_copy_has_every_section(self):
         text = ed.markdown({**self.report, 'source_commit': 'abc123'})
         for heading in ('## 1. Research baselines', '## 2. Quote references', '## 3. Information test',
-                        '## 4. Segments: gap to M', '## 5. Flat-stake return at Pinnacle 1X2 prices by odds band',
+                        '## 4. Segments: gap to M', '### Research views on every match both forecast (1X2)', '## 5. Flat-stake return at Pinnacle 1X2 prices by odds band',
                         'Verdict (development): C does not pass', 'abc123', 'either team under 16',
                         'August-September', '75%+', 'above 5.00'):
             self.assertIn(heading, text)

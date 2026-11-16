@@ -14,7 +14,7 @@ the two research baselines C0 and DC all exist), and every interval resamples wh
 
   1. Research baselines: C0 (C without its form term) and DC (the fold model's own grid) beside C, C6 and M.
   2. Quote references, Pinnacle periods: the plain 1X2 quote de-vigged proportionally (QPROP) and by the
-     power method (QPOW), beside M.
+     power method (QPOW), beside M, on every match that has all three (no research view needed).
   3. Information test: p ~ M^a * R^b fitted by maximum likelihood on 1X2 for R = C, C6 and C0; a and b per
      period, and the gain over M on later periods with the development weights. Research passes only when b
      is positive with its interval clear of zero.
@@ -46,6 +46,7 @@ GROUPS = ('1X2', 'Over 1.5', 'AH all', 'AH draw-sensitive')
 BASELINE_TABLE = ('C', 'C6', 'C0', 'DC', 'M')
 BASELINE_DIFFERENCES = (('C', 'C0'), ('C', 'DC'), ('C0', 'DC'), ('C6', 'C0'), ('C6', 'DC'),
                         ('C', 'M'), ('C6', 'M'), ('C0', 'M'), ('DC', 'M'))
+RESEARCH_DIFFERENCES = tuple(pair for pair in BASELINE_DIFFERENCES if 'M' not in pair)
 QUOTES = ('QPROP', 'QPOW')
 QUOTE_DIFFERENCES = (('QPROP', 'M'), ('QPOW', 'M'), ('QPROP', 'QPOW'))
 INFORMATION = ('C', 'C6', 'C0')  # the research views R of p ~ M^a * R^b
@@ -142,35 +143,41 @@ def _differences(table, weeks, pairs) -> dict:
 
 def baselines(scores, members) -> dict:
     """Mean log loss of C, C6, the research baselines C0 and DC, and M on the common cohort, per period and
-    group, with paired differences."""
+    group, with paired differences. The research views need no market price, so their differences are also
+    given on every fixture both views forecast (`research_differences_every_forecast`), a wider cohort."""
     wide = {group: _wide(scores, group) for group in GROUPS}
+    everything = scores.drop_duplicates('fixture_key').set_index('fixture_key')[['phase', 'week']]
+    every = dict(period_keys(everything))
     out = {}
     for period, keys in period_keys(members):
         entry = {'fixtures': int(len(keys))}
         for group in GROUPS:
             table = wide[group].reindex(keys)
             entry[group] = {'mean_log_loss': {c: float(table[c].mean()) for c in BASELINE_TABLE if c in table},
-                            'differences': _differences(table, members.week.reindex(keys), BASELINE_DIFFERENCES)}
+                            'differences': _differences(table, members.week.reindex(keys), BASELINE_DIFFERENCES),
+                            'research_differences_every_forecast': _differences(
+                                wide[group].reindex(every[period]), everything.week.reindex(every[period]),
+                                RESEARCH_DIFFERENCES)}
         out[period] = entry
     return out
 
 
-def quote_references(scores, members) -> dict:
-    """1X2 log loss of the de-vigged Pinnacle quote (proportional and power) beside M, on the common-cohort
-    fixtures that have both quote references (Pinnacle periods)."""
-    table = _wide(scores, '1X2')
+def quote_references(scores) -> dict:
+    """1X2 log loss of the de-vigged Pinnacle quote (proportional and power) beside M, on every fixture that has
+    M and both quote references (Pinnacle periods). A market-only comparison needs no research view, so this
+    cohort is every priced match: slightly wider than the common cohort, which also needs C ... A."""
+    part = scores.loc[scores.group == '1X2']
+    table = part.pivot(index='fixture_key', columns='candidate', values='log_loss')
     out = {}
-    if any(q not in table for q in QUOTES):
+    if any(c not in table for c in (*QUOTES, 'M')):
         return out
-    for period, keys in period_keys(members):
-        if period not in PINNACLE_PERIODS:
-            continue
-        part = table.reindex(keys).dropna(subset=list(QUOTES))
-        if part.empty:
-            continue
-        out[period] = {'fixtures': int(len(part)),
-                       'mean_log_loss': {c: float(part[c].mean()) for c in (*QUOTES, 'M')},
-                       'differences': _differences(part, members.week.reindex(part.index), QUOTE_DIFFERENCES)}
+    table = table.dropna(subset=[*QUOTES, 'M'])
+    priced = part.drop_duplicates('fixture_key').set_index('fixture_key')[['phase', 'week']].loc[table.index]
+    for period, keys in period_keys(priced):
+        if period in PINNACLE_PERIODS:
+            out[period] = {'fixtures': int(len(keys)),
+                           'mean_log_loss': {c: float(table.loc[keys, c].mean()) for c in (*QUOTES, 'M')},
+                           'differences': _differences(table.loc[keys], priced.week.loc[keys], QUOTE_DIFFERENCES)}
     return out
 
 
@@ -453,6 +460,7 @@ def report(scores, forecasts, fixtures) -> dict:
         'version': VERSION, 'declared': DECLARED,
         'definitions': {
             'cohort': 'fixtures where ' + ', '.join(COHORT) + ' all have a score',
+            'quote_reference_cohort': 'every fixture with M and both quote references (no research view needed)',
             'intervals': f'whole calendar weeks resampled, {SAMPLES} draws, seed {SEED}, 95%',
             'differences': 'X_minus_Y is X minus Y log loss: positive means X is worse',
             'information_test': 'p ~ M^a * R^b, maximum likelihood on 1X2; passes only when b on development is '
@@ -466,7 +474,7 @@ def report(scores, forecasts, fixtures) -> dict:
             'odds_bands': list(ODDS_BANDS)},
         'cohort': {phase: int((members.phase == phase).sum()) for phase in PHASES if (members.phase == phase).any()},
         'baselines': baselines(scores, members),
-        'quote_references': quote_references(scores, members),
+        'quote_references': quote_references(scores),
         'information_test': information_test(forecasts, members),
         'segments': segments(scores, forecasts, fixtures, members),
         'odds_bands': odds_bands(forecasts, fixtures, members),
@@ -535,9 +543,19 @@ def markdown(data) -> str:
                             ('C_minus_C0', 'C_minus_DC', 'C6_minus_C0', 'C6_minus_DC'))]
                          for period, e in data['baselines'].items()])
 
+    lines += ['### Research views on every match both forecast (1X2)', '',
+              'The research views need no price, so the same differences are also taken on every match both '
+              'views forecast (n in brackets), a wider cohort than the common one.', '']
+    lines += _table(['Period', 'C minus C0', 'C minus DC', 'C6 minus C0', 'C6 minus DC'],
+                    [[period, *(_ci(d) + f" [n={d['n']:,}]" for d in
+                                (e['1X2']['research_differences_every_forecast'][k]
+                                 for k in ('C_minus_C0', 'C_minus_DC', 'C6_minus_C0', 'C6_minus_DC')))]
+                     for period, e in data['baselines'].items()])
     lines += ['## 2. Quote references (Pinnacle periods, 1X2)', '',
               'The plain Pinnacle 1X2 quote with the margin removed proportionally (QPROP) and by the power '
-              'method (QPOW), beside M (the grid fitted to 1X2, totals and the main AH line).', '']
+              'method (QPOW), beside M (the grid fitted to 1X2, totals and the main AH line). Cohort: every match '
+              'with M and both quote references, which needs no research view and so is slightly wider than '
+              'the common cohort.', '']
     lines += _table(['Period', 'Fixtures', 'QPROP', 'QPOW', 'M', 'QPROP minus M', 'QPOW minus M', 'QPROP minus QPOW'],
                     [[period, f"{e['fixtures']:,}", *(_f(e['mean_log_loss'][c]) for c in (*QUOTES, 'M')),
                       *(_ci(e['differences'][k], '+.5f') for k in ('QPROP_minus_M', 'QPOW_minus_M', 'QPROP_minus_QPOW'))]
