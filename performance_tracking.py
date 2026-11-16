@@ -965,9 +965,34 @@ def report_table(groups: dict[str, dict]) -> str:
     return "\n".join(lines)
 
 
+def headline_view(selections: list[dict], clv: list | None) -> dict:
+    """Per-pick figures beside the one-row-per-fixture view (a match's picks averaged), CLV first.
+
+    `clv` is each selection's closing-line value (clv_report.pick_clv), in the same order, or None when the
+    closing quotes could not be read: the view then holds returns only.
+    """
+    from clv_report import fixture_view
+    view = fixture_view(selections, clv if clv is not None else [None] * len(selections))
+    view['clv_available'] = clv is not None
+    return view
+
+
+def headline_lines(view: dict, title: str) -> list[str]:
+    """Markdown: closing-line value first, returns second, per pick and per fixture."""
+    from clv_report import HEADLINE_NOTE, headline_table
+    lines = [title, "", *headline_table({"": view}), ""]
+    if not view["clv_available"]:
+        lines += ["Closing-line value is unavailable in this review (the closing quotes could not be read).", ""]
+    lines += [f"{view['picks']} picks on {view['fixtures_with_picks']} matches. A match can hold several picks "
+              "(one per market group); the per-fixture row averages them, so each match counts once. "
+              + HEADLINE_NOTE, ""]
+    return lines
+
+
 def report(root: Path, selections: list[dict], all_predictions: list[dict],
            failures: dict, reviewed_at: str | None = None, *,
-           selection_history: list[dict] | None = None, research_check: dict | None = None) -> dict:
+           selection_history: list[dict] | None = None, research_check: dict | None = None,
+           clv: list | None = None) -> dict:
     output = root / "performance"
     output.mkdir(parents=True, exist_ok=True)
     write_csv(output / "shortlist_grades.csv", selections, SHORTLIST_COLUMNS)
@@ -1005,6 +1030,17 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
     graded_prediction = [r for r in all_predictions if r["status"] == "GRADED"]
     one_x_two = [float(r["one_x_two_brier"]) for r in graded_prediction
                  if number(r.get("one_x_two_brier")) is not None]
+    # Headline (reporting only): closing-line value first and returns second, per pick and with one row per
+    # fixture (a match's picks averaged); the same pair per gameweek.
+    from clv_report import FIXTURE_VIEW_COLUMNS, headline_table
+    headline = headline_view(selections, clv)
+    write_csv(output / "fixture_grades.csv", headline["fixtures"], FIXTURE_VIEW_COLUMNS)
+    week_views = {}
+    for week in weeks:
+        index = [i for i, r in enumerate(selections) if r["week"] == week]
+        week_views[week] = headline_view([selections[i] for i in index],
+                                         None if clv is None else [clv[i] for i in index])
+    compact = lambda view: {k: v for k, v in view.items() if k != "fixtures"}
     result = {
         "status": (
             "AWAITING_PREMATCH_SNAPSHOTS" if not selections
@@ -1019,6 +1055,7 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
         "source": "football-data.org v4 FINISHED regulation-time scorelines; Europa: corroborated Cornerflick / Fixture Download league-phase scores",
         "reviewed_at_utc": reviewed_at,
         "shortlist": stats(selections),
+        "headline": {**compact(headline), "by_week": {week: compact(view) for week, view in week_views.items()}},
         "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
         "first_prediction_reference": stats(unique_selections),
         "shortlist_run_history": stats(selection_history),
@@ -1064,6 +1101,7 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
         "history rows are correlated records and are excluded from main win-rate/ROI totals.",
         "Whole-fixture model metrics and research experiments retain their unique-fixture cohorts.",
         "",
+        *headline_lines(headline, "## Headline: closing-line value first, returns second"),
         *research_lines[len(banner):],
         "## Cumulative shortlist — latest prediction per match",
         "",
@@ -1081,6 +1119,8 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
         "", "## By market", "", report_table(groupings["market"]),
         "", "## By league", "", report_table(groupings["league"]),
         "", "## Gameweeks", "", report_table(groupings["week"]),
+        "", "## Gameweeks: closing-line value first, per pick and per fixture", "",
+        *headline_table(week_views),
         "", "## Confidence calibration of shortlisted markets",
         "", calibration_table(result["calibration"]),
         "",
@@ -1113,6 +1153,9 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
             "",
             "Predictions frozen in Git before kickoff; 90-minute final results.",
             "Provisional near-misses are separate from strict candidates.",
+            "",
+            *headline_lines(week_views[week], "## Closing-line value first, returns second"),
+            "## Per-pick results",
             "",
             report_table({"Gameweek": stats(subset)}),
             "",
@@ -1180,8 +1223,14 @@ def review(*, root: Path = ROOT, token: str = "",
     except Exception as exc:
         warnings.warn(f'Research v5/v6 monitoring failed ({type(exc).__name__}: {exc}); production report complete')
         research_check = None
+    try:  # Closing-line value of each latest selection, to lead the report (clv_report's definition).
+        from clv_report import load_closes, pick_clv
+        clv = pick_clv(selections_graded, load_closes(root, clock))
+    except Exception as exc:
+        warnings.warn(f'Selection closing-line value failed ({type(exc).__name__}); report shows returns only')
+        clv = None
     result = report(root, selections_graded, predictions_graded, errors, reviewed_at=iso(clock),
-                    selection_history=history_graded, research_check=research_check)
+                    selection_history=history_graded, research_check=research_check, clv=clv)
     try:
         from bbs_statistics_model import forward_assessment
         write_json(root/'performance/bbs_statistics_forward.json',

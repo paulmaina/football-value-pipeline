@@ -524,6 +524,35 @@ def report_workbook_check(root, workbook):
             require(isinstance(shown_return, str), f'Workbook {which} master return must be unavailable')
 
 
+def headline_check(root, metrics, selections):
+    """The report's headline (closing-line value first, returns second; per pick and one row per fixture),
+    recomputed from the graded selections and the closing observations as of the review. Reports written
+    before the headline existed carry none and are not checked."""
+    headline = metrics.get('headline')
+    if headline is None:
+        return
+    from clv_report import fixture_view, load_closes, pick_clv
+    from performance_tracking import read_csv, utc
+    clv = (pick_clv(selections, load_closes(root, utc(metrics['reviewed_at_utc'])))
+           if headline.get('clv_available') else [None] * len(selections))
+    view = fixture_view(selections, clv)
+    require(headline.get('picks') == view['picks'] and headline.get('fixtures_with_picks') == view['fixtures_with_picks'],
+            'Headline pick or fixture count mismatch')
+    for scope in ('per_pick', 'per_fixture'):
+        for measure in ('clv', 'return'):
+            shown, want = headline.get(scope, {}).get(measure, {}), view[scope][measure]
+            require(shown.get('n') == want['n'], f'Headline {scope} {measure} count mismatch')
+            close(shown.get('mean'), want['mean'], f'Headline {scope} {measure}')
+    rows = read_csv(root/'performance'/'fixture_grades.csv')
+    require([r['fixture_key'] for r in rows] == [f['fixture_key'] for f in view['fixtures']],
+            'Fixture view differs from the graded selections')
+    for row, want in zip(rows, view['fixtures']):
+        require(all(int(row[k]) == want[k] for k in ('picks', 'picks_with_close', 'settled_picks')),
+                'Fixture view pick counts differ')
+        close(row.get('mean_clv'), want['mean_clv'], 'Fixture view CLV')
+        close(row.get('mean_unit_profit'), want['mean_unit_profit'], 'Fixture view return')
+
+
 def report_check(root):
     from performance_tracking import read_csv,utc,frozen_rows,snapshots,result_for_market,number,graded_match,tracking_key,pick_key
     from performance_tracking import verified_result_source
@@ -621,6 +650,7 @@ def report_check(root):
         else:
             require(row.get('unit_profit') in ('',None) and row.get('brier') in ('',None),'Pending result included in scored metrics')
     for field,value in expected_stats(selections).items():close(metrics['shortlist'].get(field),value,'Shortlist '+field)
+    headline_check(root, metrics, selections)
     if latest:
         from performance_tracking import score_shortlist
         originals = {tracking_key(r):r for r in frozen_rows(archived,'shortlist',all_runs=True)}

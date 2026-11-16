@@ -208,6 +208,102 @@ def candidate_clv(root: Path, clock=None) -> pd.DataFrame:
     return frame
 
 
+def pick_clv(rows, closes) -> list:
+    """Closing-line value of frozen picks at their own frozen price, in the order given.
+
+    The module's definition: offered odds x Pinnacle fair close probability - 1. None when the pick has no
+    usable price, its market has no closing selection, or no validated near-kickoff Pinnacle quote observed
+    at or after the pick's capture prices it. `closes` is load_closes().
+    """
+    from performance_tracking import fixture_key, utc
+    values = []
+    for row in rows:
+        value = None
+        key = selection_key(str(row.get('market')))
+        kickoff, entered = utc(row.get('kickoff_utc')), utc(row.get('snapshot_captured_utc'))
+        odds = pd.to_numeric(row.get('offered_decimal_odds'), errors='coerce')
+        close = closes.get((fixture_key(row), kickoff.isoformat())) if kickoff is not None else None
+        if key is not None and close is not None and key in close['fair'] and entered is not None \
+                and pd.notna(odds) and odds > 1 and utc(close['observed'][key]) >= entered \
+                and 0 < close['fair'][key] < 1:
+            value = float(odds) * close['fair'][key] - 1
+        values.append(value)
+    return values
+
+
+FIXTURE_VIEW_COLUMNS = ['fixture_key', 'league', 'home_team', 'away_team', 'kickoff_utc', 'week', 'picks',
+                        'picks_with_close', 'mean_clv', 'settled_picks', 'mean_unit_profit']
+
+
+def fixture_view(rows, clv, profit: str = 'unit_profit') -> dict:
+    """Per-pick figures beside the one-row-per-fixture view (a match's picks averaged), CLV first.
+
+    A match with several picks is one piece of evidence, not several: its picks share one result and one
+    closing line. `per_pick` keeps every pick (uncertainty clustered by fixture); `per_fixture` first averages
+    each match's picks, CLV over its picks with a close and return over its settled, priced picks, so every
+    match counts once. `fixtures` lists those rows.
+    """
+    from performance_tracking import fixture_key
+    rows = list(rows)
+    frame = pd.DataFrame({'fixture_key': [fixture_key(r) for r in rows],
+                          'clv': pd.to_numeric(pd.Series(list(clv), dtype=object), errors='coerce'),
+                          'profit': pd.to_numeric(pd.Series([r.get(profit) for r in rows], dtype=object),
+                                                  errors='coerce')})
+    by_fixture = frame.groupby('fixture_key', sort=True)
+    means = by_fixture[['clv', 'profit']].mean()
+    first = {}
+    for row, key in zip(rows, frame.fixture_key):
+        first.setdefault(key, row)
+    fixtures = [{'fixture_key': key, **{c: first[key].get(c) for c in ('league', 'home_team', 'away_team',
+                                                                       'kickoff_utc', 'week')},
+                 'picks': int(part.shape[0]), 'picks_with_close': int(part.clv.notna().sum()),
+                 'mean_clv': _finite(means.loc[key, 'clv']), 'settled_picks': int(part.profit.notna().sum()),
+                 'mean_unit_profit': _finite(means.loc[key, 'profit'])} for key, part in by_fixture]
+    return {'definition': 'CLV = frozen offered odds x Pinnacle fair close probability - 1 (clv_report). Return = '
+                          'flat-stake profit per unit at the frozen price. Per fixture: a match\'s picks averaged '
+                          'first, so each match counts once.',
+            'picks': int(len(frame)), 'fixtures_with_picks': int(len(means)),
+            'per_pick': {'clv': summarize(frame.clv, frame.fixture_key),
+                         'return': summarize(frame.profit, frame.fixture_key)},
+            'per_fixture': {'clv': summarize(means.clv), 'return': summarize(means.profit)},
+            'fixtures': fixtures}
+
+
+def _interval(m: dict) -> str:
+    if m.get('mean') is None or not m.get('standard_error'):
+        return '—'
+    return f"{m['mean'] - 1.96 * m['standard_error']:+.1%} to {m['mean'] + 1.96 * m['standard_error']:+.1%}"
+
+
+def headline_rows(view: dict, label: str = '') -> list:
+    """The two table rows of one list: per pick, then per fixture; CLV columns first, return columns second."""
+    rows = []
+    for name, key in (('per pick', 'per_pick'), ("per fixture (a match's picks averaged)", 'per_fixture')):
+        clv, gain = view[key]['clv'], view[key]['return']
+        rows.append('| ' + (f'{label} | ' if label else '') + f"{name} | {clv['n']} | {_pct(clv['mean'])} | "
+                    f"{_interval(clv)} | {_num(clv['positive_share'], '{:.0%}')} | {gain['n']} | "
+                    f"{_pct(gain['mean'])} | {_interval(gain)} |")
+    return rows
+
+
+def headline_table(views: dict) -> list:
+    """Markdown table for one or more lists ({label: fixture_view}); a single unlabelled list has no list column."""
+    labelled = list(views) != ['']
+    head = (['List'] if labelled else []) + ['View', 'With a close', 'Mean CLV', '95% interval', 'Beat the close',
+                                             'Settled', 'Return per unit', '95% interval']
+    lines = ['| ' + ' | '.join(head) + ' |',
+             '|' + '---|' * (2 if labelled else 1) + '---:|' * 7]
+    for label, view in views.items():
+        lines += headline_rows(view, label)
+    return lines
+
+
+HEADLINE_NOTE = ('Closing-line value (CLV) leads because it is the less noisy measure: it compares the frozen price '
+                 'with the Pinnacle fair close and does not wait for results. Returns come second: with few matches '
+                 'they are mostly luck. Intervals are mean ± 1.96 standard errors, clustered by fixture. '
+                 'Near-kickoff feed quotes are not verified official closing prices.')
+
+
 def summarize(values: pd.Series, clusters=None) -> dict:
     """Candidate mean with uncertainty clustered by fixture, never by row."""
     data = pd.DataFrame({'value': pd.to_numeric(values, errors='coerce')})
