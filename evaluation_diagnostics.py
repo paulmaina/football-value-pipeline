@@ -244,16 +244,17 @@ def week_bootstrap_fits(logs, outcome, weeks, start, samples=None, seed=SEED):
     return [[float(v) for v in np.quantile(np.array(fits)[:, k], [.025, .975])] for k in range(logs.shape[2])]
 
 
-def information_test(forecasts, members) -> dict:
+def information_test(forecasts, members, names=INFORMATION) -> dict:
     """p ~ M^a * R^b by maximum likelihood on 1X2, for each research view R: a and b per period (each fitted
-    on that period), and the gain over M on the later periods with the development weights.
+    on that period), and the gain over M on the later periods with the development weights. `names` are the
+    research views (the standing report's by default; a candidate report passes its own).
 
     a alone sharpens or flattens M; b is what R adds to M. Research passes only when b is positive with its
     week-resampled 95% interval clear of zero. The later-period gain is split into what a alone gives (M^a
     fitted on development with b = 0) and what R adds beyond it."""
     market = _probabilities(forecasts, 'M')
     out = {}
-    for name in INFORMATION:
+    for name in names:
         research = _probabilities(forecasts, name)
         if research.empty or market.empty:
             continue
@@ -342,12 +343,13 @@ SEGMENT_ORDER = {'training matches': (f'either team under {MIN_TRAINING_MATCHES}
                  'favourite market probability': tuple(label for _, _, label in FAVOURITE_BANDS)}
 
 
-def segments(scores, forecasts, fixtures, members) -> dict:
+def segments(scores, forecasts, fixtures, members, candidates=SEGMENT_CANDIDATES) -> dict:
     """Candidate minus M log loss (positive: behind the market) on 1X2 and AH all lines, per period and
-    pre-declared segment; per league also each view's sharpness."""
+    pre-declared segment; per league also each view's sharpness. `candidates` are the views tabulated (the
+    standing report's by default; a candidate report passes its own, on the same fixed segments)."""
     labels = segment_labels(members, fixtures, forecasts)
     wide = {group: _wide(scores, group) for group in SEGMENT_GROUPS}
-    probabilities = {c: _probabilities(forecasts, c) for c in (*SEGMENT_CANDIDATES, 'M')}
+    probabilities = {c: _probabilities(forecasts, c) for c in (*candidates, 'M')}
     out = {}
     for phase in PHASES:
         inside = members.index[members.phase == phase]
@@ -357,7 +359,7 @@ def segments(scores, forecasts, fixtures, members) -> dict:
         def gap(keys):
             weeks = members.week.reindex(keys)
             return {cand: {group: week_mean(wide[group][cand].reindex(keys) - wide[group]['M'].reindex(keys), weeks)
-                           for group in SEGMENT_GROUPS} for cand in SEGMENT_CANDIDATES}
+                           for group in SEGMENT_GROUPS} for cand in candidates}
 
         entry = {'all': {'fixtures': int(len(inside)), 'gap_to_M': gap(inside)}}
         for dimension in labels.columns:

@@ -1,0 +1,50 @@
+{
+  "all_existing_outputs_identical": true,
+  "diagnostic_fixtures.csv": {
+    "byte_identical": true
+  },
+  "diagnostics.json": {
+    "identical_except_source_commit": true
+  },
+  "fixture_scores.csv": {
+    "branch_rows": 548138,
+    "branch_rows_not_c7_c8": 470098,
+    "main_rows": 470098,
+    "main_sha256": "b2fcb52a27f6478c8037504f168d6bb4b8cbd69f02c9a685a687f0391fb9b06a",
+    "new_rows": 78040,
+    "non_c7_c8_rows_byte_identical_in_order": true
+  },
+  "forecasts_1x2.csv": {
+    "branch_rows": 149306,
+    "branch_rows_not_c7_c8": 129796,
+    "main_rows": 129796,
+    "main_sha256": "0d5b949afbf873b80fe8a6519d294befc5c20f9b2ee5ff2e7b066d87daf25e56",
+    "new_rows": 19510,
+    "non_c7_c8_rows_byte_identical_in_order": true
+  },
+  "results.json": {
+    "average_margin": "identical",
+    "bet365_gap": "identical",
+    "cagey_events_check": "identical",
+    "calibration_1x2": "existing identical, 141 C7/C8 rows added",
+    "calibration_1x2_understat_leagues": "existing identical, 135 C7/C8 rows added",
+    "calibration_tolerance_check": "existing identical, C7 and C8 added per period",
+    "candidates": "existing identical, added C7, C8",
+    "config": "identical",
+    "config_sha256": "identical",
+    "coverage": "existing identical, 16 C7/C8 keys added",
+    "folds": "existing identical, C7 and C8 fit paths appended",
+    "inputs": "identical",
+    "log_loss_all_available": "existing identical, 24 C7/C8 rows added",
+    "log_loss_common_cohort": "identical",
+    "mode": "identical",
+    "notes": "identical",
+    "paired": "existing identical, 84 C7/C8 comparisons added",
+    "synthetic_price_margin": "identical",
+    "version": "identical"
+  },
+  "source_commit": {
+    "branch": "fc02e81483000299ec9b586e50c097324c974d33",
+    "main": "0be34a19060ed48a8b42f716f3fde59ba5eb2997"
+  }
+}
