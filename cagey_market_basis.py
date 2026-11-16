@@ -23,10 +23,13 @@ def binary_market(item):
     return None
 
 
-def reference(item, pin, now):
-    """Only a fresh, synchronized, margin-free Pinnacle price; never a fitted fair."""
+def reference(item, pin, now, method='proportional'):
+    """Only a fresh, synchronized, margin-free Pinnacle price; never a fitted fair.
+
+    `method` removes the margin (market_implied.DEVIG_METHODS): proportional live, power or Shin for an
+    offline candidate grid, so the price check uses the same margin removal as the grid it guards."""
     from quote_freshness import quote_utc, quote_is_fresh
-    from market_implied import devig_three_way
+    from market_implied import devig_three_way, devig_two_way
     market = binary_market(item)
     record = (pin or {}).get('ou15' if market == 'Over 1.5' else 'h2h')
     if record is None:
@@ -40,9 +43,9 @@ def reference(item, pin, now):
     if not np.isfinite(values).all() or (values <= 1).any() or not 1 <= (1/values).sum() <= 1.1:
         return None, 'Pinnacle reference overround/price invalid'
     if market == 'Over 1.5':
-        q = (1/values[0])/(1/values).sum()
+        q = (1/values[0])/(1/values).sum() if method == 'proportional' else devig_two_way(*values, method=method)[0]
     else:
-        h,d,a = devig_three_way(*values)
+        h,d,a = devig_three_way(*values, method=method)
         q = {'Home win':h,'Away win':a,'Double Chance 1X':h+d,
              'Double Chance X2':d+a,'Double Chance 12':h+a}[market]
     return (1/float(q) if q > 0 else None), None
@@ -57,7 +60,7 @@ def over_probability(matrix):
     return float(grid[np.add.outer(np.arange(grid.shape[0]),np.arange(grid.shape[1])) >= 2].sum())
 
 
-def annotate(item, context, row, now, policy, cost, pin):
+def annotate(item, context, row, now, policy, cost, pin, method='proportional'):
     from cagey_tier_v3 import annotate as previous, RULE_NO_GATE, RULE_MARKET_BASIS, BASIS
     from price_edge_shortlist import pinnacle_quotes
     previous(item,context,row,now,policy,cost,rule=RULE_NO_GATE)
@@ -95,9 +98,9 @@ def annotate(item, context, row, now, policy, cost, pin):
     if binary_market(item) is not None:
         # A model discrepancy is not a verified bookmaker data error.
         reasons = [r for r in reasons if r != 'offered price above 1.15 x corrected fair odds']
-        fair,warning = reference(item,pin,now)
+        fair,warning = reference(item,pin,now,method)
         item.update(price_guard_fair_odds=fair,price_guard_warning=warning,
-                    price_guard_basis='pinnacle_ou15_proportional' if item['market']=='Over 1.5' else 'pinnacle_1x2_proportional',
+                    price_guard_basis=('pinnacle_ou15_' if item['market']=='Over 1.5' else 'pinnacle_1x2_')+method,
                     price_guard_status='UNAVAILABLE' if fair is None else 'PASSED')
         if fair is not None and item.get('offered_decimal_odds') is not None and item['offered_decimal_odds'] > 1.15*fair:
             reasons.append('offered price above 1.15 x independent Pinnacle fair odds')
@@ -107,11 +110,11 @@ def annotate(item, context, row, now, policy, cost, pin):
                     price_guard_status='UNAVAILABLE' if context is None else
                         'SUSPECTED_PRICE_ERROR' if 'offered price above 1.15 x corrected fair odds' in reasons else 'PASSED')
     if context and 'matrix' in context:
-        fair,_ = reference({**item,'market':'Home win'},pin,now)
+        fair,_ = reference({**item,'market':'Home win'},pin,now,method)
         h2h = pin.get('h2h')
         if fair is not None and h2h is not None:
             from market_implied import devig_three_way
             grid = context['matrix']
-            item['corrected_draw_delta_vs_pinnacle'] = float(np.trace(grid))-devig_three_way(*h2h[:3])[1]
+            item['corrected_draw_delta_vs_pinnacle'] = float(np.trace(grid))-devig_three_way(*h2h[:3],method=method)[1]
     item['cagey_tier_reasons'] = '; '.join(reasons)
     item['cagey_tier_decision'] = 'REJECTED' if reasons else 'ELIGIBLE'

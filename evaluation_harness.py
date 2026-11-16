@@ -212,23 +212,27 @@ def book_prices(row, book):
     return {'hda': hda, 'ou': ou, 'ah': ah}
 
 
-def market_matrix(prices):
-    """Margin-free score grid fitted to 1X2, totals and the main AH line (fit B)."""
+def market_matrix(prices, method='proportional'):
+    """Margin-free score grid fitted to 1X2, totals and the main AH line (fit B). `method` removes the margin
+    (market_implied.DEVIG_METHODS); M is the default, proportional. Power and Shin are offline candidates only."""
     import market_implied as mi
-    result = mi.fit(mi.targets_from_prices(prices['hda'], prices['ou'], prices['ah']), include_ah=True)
+    result = mi.fit(mi.targets_from_prices(prices['hda'], prices['ou'], prices['ah'], method=method), include_ah=True)
     if not result.usable:
         raise ValueError('; '.join(result.reasons))
     return rb.matrix_value(result.matrix)
 
 
-def cagey_matrix(matrix, prices, model):
-    """The production cagey correction applied to a market grid."""
+def cagey_matrix(matrix, prices, model, method='proportional'):
+    """The cagey correction applied to a market grid: by default the production correction on M. For another
+    `method`, `matrix` is that method's grid and `model` must be the correction fitted on it (never the
+    production coefficients on a new grid: narrow_margin.require_method)."""
     import market_implied as mi
     import narrow_margin as nm
-    from price_edge_cagey_shortlist import devig_proportional
+    nm.require_method(model, method)
     margins, probs = mi.margin_distribution(matrix)
-    p_home, p_draw, p_away = mi.devig_three_way(*prices['hda'])
-    inputs = {'p_over_2_5': devig_proportional(*prices['ou'])[0], 'p_home': p_home, 'p_away': p_away, 'p_draw': p_draw}
+    p_home, p_draw, p_away = mi.devig_three_way(*prices['hda'], method=method)
+    inputs = {'p_over_2_5': mi.devig_two_way(*prices['ou'], method=method)[0], 'p_home': p_home, 'p_away': p_away,
+              'p_draw': p_draw}
     p2, p3 = nm.corrected_tails(model, nm.margin_tail(margins, probs, 2), nm.margin_tail(margins, probs, 3), inputs)
     return rb.matrix_value(nm.correct_matrix(matrix, p2, p3))
 

@@ -15,6 +15,13 @@ matrix. corrected_cagey_score = corrected P(|margin| >= 2).
 Training data: football-data.co.uk CSVs, Pinnacle CLOSE prices, 8 leagues.
 Coefficients are saved with a version id, the training date range and a
 fingerprint of the training rows.
+
+A correction belongs to the grid it was fitted on. The production models were
+fitted on the proportional grid (market_implied's default). Offline candidates
+for other margin-removal methods (`--method power|shin`, docs/plan.md Phase 3b)
+are fitted by this same procedure on their own grid, record `devig_method`, and
+live in narrow_margin_models/candidates/, which nothing live reads;
+`require_method` refuses a model on a grid it was not fitted on.
 """
 from __future__ import annotations
 
@@ -43,6 +50,10 @@ GATE_VERSION = 'cagey-correction-pre2024-v1'
 # the latest completed one (2024/25). Refits only by a future PR.
 PRODUCTION_VERSION = 'cagey-correction-through-2425-v1'
 PRODUCTION_UNTIL = pd.Timestamp('2025-07-01')
+CANDIDATE_DIR = MODEL_DIR / 'candidates'  # offline candidates only; no live code loads from here
+# Offline candidates: PRODUCTION_VERSION's specification and training rows on another margin-removal method's grid.
+CANDIDATE_VERSIONS = {mi.DEVIG_POWER: 'cagey-correction-through-2425-power-v1',
+                      mi.DEVIG_SHIN: 'cagey-correction-through-2425-shin-v1'}
 TARGETS = (2, 3)
 FEATURES = ('logit_matrix_p', 'p_over_2_5', 'abs_home_minus_away', 'p_draw')
 EPS = 1e-6
@@ -161,14 +172,33 @@ def fingerprint(rows: pd.DataFrame) -> str:
     return hashlib.sha256('\n'.join(keys).encode()).hexdigest()
 
 
-def train(frame: pd.DataFrame, *, version: str, until: pd.Timestamp) -> Dict[str, object]:
-    """Fit both targets on matches dated strictly before `until`."""
+def model_method(model: Mapping) -> str:
+    """The margin-removal method of the grid a model was fitted on (models saved before the field: proportional)."""
+    return mi.check_devig_method(model.get('devig_method', mi.DEVIG_PROPORTIONAL))
+
+
+def require_method(model: Mapping, method: str) -> None:
+    """A correction is only valid on the grid it was fitted on: never reuse coefficients across methods."""
+    if model_method(model) != mi.check_devig_method(method):
+        raise ValueError(f"Correction model {model.get('version')!r} was fitted on the {model_method(model)} grid "
+                         f'and cannot correct a {method} grid')
+
+
+def train(frame: pd.DataFrame, *, version: str, until: pd.Timestamp,
+          method: str = mi.DEVIG_PROPORTIONAL) -> Dict[str, object]:
+    """Fit both targets on matches dated strictly before `until`. `method` is the margin-removal method
+    `frame` was built with (build_dataset); it is recorded on the model unless it is the default."""
+    mi.check_devig_method(method)
+    built = frame['devig_method'] if 'devig_method' in frame else pd.Series(mi.DEVIG_PROPORTIONAL, index=frame.index)
+    if not built.eq(method).all():
+        raise ValueError('The dataset was built with a different margin-removal method')
     data = frame[frame.date < until]
     if data.empty:
         raise ValueError('No training matches before the cutoff')
     if not (data.date < until).all():
         raise AssertionError('Training data crosses the cutoff')
-    return {'version': version, 'features': list(FEATURES), 'targets': {
+    return {**({} if method == mi.DEVIG_PROPORTIONAL else {'devig_method': method}),
+            'version': version, 'features': list(FEATURES), 'targets': {
                 str(g): fit_logistic(feature_matrix(data, g), (data.abs_margin >= g).astype(float).to_numpy())
                 for g in TARGETS},
             'training_until_exclusive': until.date().isoformat(),
@@ -280,11 +310,11 @@ def quintile_label(score: float, boundaries: Sequence[float]) -> str:
 # Historical dataset (shared with the holdout gate report)
 # ---------------------------------------------------------------------------
 
-def match_record(row) -> Optional[Dict[str, object]]:
+def match_record(row, method: str = mi.DEVIG_PROPORTIONAL) -> Optional[Dict[str, object]]:
     """One historical match: fit B (else A), matrix tails, margin distribution and outcome."""
     targets = mi.targets_from_prices(tuple(float(row[c]) for c in COLUMNS_1X2),
                                      tuple(float(row[c]) for c in COLUMNS_OU),
-                                     (float(row['AHCh']), float(row['PCAHH']), float(row['PCAHA'])))
+                                     (float(row['AHCh']), float(row['PCAHH']), float(row['PCAHA'])), method=method)
     fit_b = mi.fit(targets, include_ah=True)
     result = fit_b if fit_b.usable else mi.fit(targets, include_ah=False)
     if not result.usable:
@@ -302,27 +332,33 @@ def match_record(row) -> Optional[Dict[str, object]]:
             'probs': probs, **{c: row[c] for c in FINGERPRINT_COLUMNS if c not in ('Date',)}}
 
 
-def division_records(division: str, cache_dir: str) -> List[Dict[str, object]]:
+def division_records(division: str, cache_dir: str, method: str = mi.DEVIG_PROPORTIONAL) -> List[Dict[str, object]]:
     warnings.filterwarnings('ignore')
     history = load_division(Path(cache_dir), division, available_seasons(Path(cache_dir), division))
     records = []
     for _, row in history.iterrows():
         if drop_reason(row) is None:
-            record = match_record(row)
+            record = match_record(row, method)
             if record is not None:
                 records.append(record)
     return records
 
 
 def build_dataset(cache_dir: Path = Path('.football_cache'), divisions: Sequence[str] = DIVISIONS,
-                  workers: int = len(DIVISIONS)) -> pd.DataFrame:
+                  workers: int = len(DIVISIONS), method: str = mi.DEVIG_PROPORTIONAL) -> pd.DataFrame:
+    """Every usable historical match on the `method` grid. The default builds exactly the production dataset;
+    another method adds a `devig_method` column so `train` cannot mix grids."""
+    mi.check_devig_method(method)
     if workers > 1:
         with ProcessPoolExecutor(max_workers=workers) as pool:
-            parts = list(pool.map(division_records, divisions, [str(cache_dir)] * len(divisions)))
+            parts = list(pool.map(division_records, divisions, [str(cache_dir)] * len(divisions),
+                                  [method] * len(divisions)))
     else:
-        parts = [division_records(d, str(cache_dir)) for d in divisions]
+        parts = [division_records(d, str(cache_dir), method) for d in divisions]
     frame = pd.DataFrame([r for p in parts for r in p])
     frame['Date'] = frame['date']
+    if method != mi.DEVIG_PROPORTIONAL:
+        frame['devig_method'] = method
     return frame.sort_values(['date', 'league', 'home_team'], kind='stable').reset_index(drop=True)
 
 
@@ -336,18 +372,27 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument('--version', default=GATE_VERSION)
     parser.add_argument('--workers', type=int, default=len(DIVISIONS))
     parser.add_argument('--divisions', nargs='+', default=list(DIVISIONS))
-    parser.add_argument('--model-dir', default=str(MODEL_DIR))
+    parser.add_argument('--model-dir', default=None,
+                        help='default: narrow_margin_models, or narrow_margin_models/candidates with --method')
+    parser.add_argument('--method', default=mi.DEVIG_PROPORTIONAL, choices=mi.DEVIG_METHODS,
+                        help='margin-removal method of the grid (offline candidates only; default: the live method)')
     parser.add_argument('--quintiles', action='store_true',
                         help='write the fixed monitoring quintile boundaries of the saved --version model (no refit)')
     args = parser.parse_args(argv)
-    frame = build_dataset(Path(args.cache_dir), args.divisions, workers=args.workers)
+    candidate = args.method != mi.DEVIG_PROPORTIONAL
+    model_dir = Path(args.model_dir) if args.model_dir else CANDIDATE_DIR if candidate else MODEL_DIR
+    if candidate and model_dir.resolve() == MODEL_DIR.resolve():
+        raise SystemExit('A candidate for another margin-removal method is never saved beside the production models')
+    frame = build_dataset(Path(args.cache_dir), args.divisions, workers=args.workers, method=args.method)
     if args.quintiles:
-        data = quintile_boundaries(frame, load(args.version, Path(args.model_dir)))
-        print(f"Saved {save_quintiles(data, Path(args.model_dir))}: boundaries {data['boundaries']}")
+        model = load(args.version, model_dir)
+        require_method(model, args.method)
+        data = quintile_boundaries(frame, model)
+        print(f"Saved {save_quintiles(data, model_dir)}: boundaries {data['boundaries']}")
         return 0
     until = pd.Timestamp(args.until)
-    model = finalise(train(frame, version=args.version, until=until), frame, until)
-    print(f"Saved {save(model, Path(args.model_dir))}: {model['training_matches']} matches "
+    model = finalise(train(frame, version=args.version, until=until, method=args.method), frame, until)
+    print(f"Saved {save(model, model_dir)}: {model['training_matches']} matches "
           f"{model['training_first_date']}..{model['training_last_date']}")
     return 0
 
