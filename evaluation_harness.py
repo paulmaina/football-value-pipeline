@@ -25,6 +25,15 @@ candidate is scored on the same matches:
      leagues; C2's draw is held and C6 equals C2 until enough matches exist
      (low_score_sharpen_candidate). Live as research v5 for domestic leagues, released without
      holdout proof by Paul's decision of 14 Nov 2026; its fits come from c6_walk_forward
+  C7 candidate: fitted rate calibration on C0's goal rates (the fold's Dixon-Coles rates, without C's
+     last-ten form term): log(home') = a_home + b log(home), log(away') = a_away + b log(away), by Poisson
+     likelihood on goals, then C2's (rho, delta) grid refitted on C7's own rates. Both fits walk-forward
+     on matches forecast and played before the fold origin, pooled across leagues, C2's half-life;
+     C7 equals C0 until enough matches exist (research_rate_calibration.py; rate_calibration_candidate;
+     uses no odds). Offline only
+  C8 candidate: C7 plus Elo: + c z on the home rate and - c z on the away rate, z the pre-match Elo
+     difference / 400 from elo_ratings on the fold's training rows (never later results), c fitted with
+     C7's parameters; (rho, delta) refitted on C8's own rates (uses no odds). Offline only
   M  market reference: margin-free fit to Pinnacle, or to Bet365 on the holdout
   D  cagey tier: M corrected toward narrow margins (production correction)
   A  published-grid production proxy (benchmark only; mixes model and market)
@@ -116,6 +125,12 @@ CANDIDATES = {
     'C6': "candidate: C2's draw and low-score corrected grid with its home/away split sharpened by a slope "
           "fitted walk-forward on C2's own earlier forecasts of decided matches, C2's draw held, pooled across "
           'leagues (research_low_score_sharpen.py; uses no odds)',
+    'C7': "candidate: C0's Dixon-Coles goal rates (no form term) through a rate calibration (a_home, a_away, b) "
+          "fitted walk-forward by Poisson likelihood on earlier forecasts' goals, on C2's (rho, delta) grid "
+          "refitted on C7's own rates, pooled across leagues (research_rate_calibration.py; uses no odds)",
+    'C8': 'candidate: C7 plus a fitted Elo term (+c z home, -c z away; z = pre-match Elo difference / 400 from '
+          "elo_ratings on the fold's training rows), on C2's (rho, delta) grid refitted on C8's own rates "
+          '(research_rate_calibration.py; uses no odds)',
     'M':'market reference: margin-free fit to the period bookmaker (Pinnacle, Bet365 on the holdout)',
     'D': 'cagey tier: M corrected toward narrow margins (production correction model)',
     'A': 'published-grid production proxy (benchmark only; mixes model and market)',
@@ -127,6 +142,8 @@ CANDIDATES = {
     'QPOW': 'diagnostic quote reference, Pinnacle periods, 1X2 only: the Pinnacle 1X2 quote with the margin '
             'removed by the power method (football_value_pipeline_v2_standalone.devig)',
 }
+RATE_CALIBRATION_CANDIDATES = {'C7': False, 'C8': True}  # candidate: whether its calibration has the Elo term
+WALK_FORWARD_CANDIDATES = frozenset({'C2', 'C5', 'C6', *RATE_CALIBRATION_CANDIDATES})  # fitted on earlier forecasts
 RESEARCH_BASELINES = ('C0', 'DC')  # diagnostics: scored wherever C is; never live and never a declared candidate
 QUOTE_REFERENCES = ('QPROP', 'QPOW')  # diagnostics: 1X2 forecasts only (no score grid), Pinnacle periods only
 GAP_CANDIDATES = ('MP', 'MB')  # Pinnacle and Bet365 market fits on the same matches
@@ -143,7 +160,8 @@ SETUP_FILES = ('evaluation_harness.py', 'research_backtest.py', 'historical_benc
                'narrow_margin.py', 'price_edge_cagey_shortlist.py', 'ah_close_backtest.py',
                'evaluation_harness_config.json', 'narrow_margin_models/cagey-correction-through-2425-v1.json',
                'research_low_score.py', 'understat_history.py', 'understat_team_aliases.json',
-               'research_sharpen.py', 'research_low_score_sharpen.py')
+               'research_sharpen.py', 'research_low_score_sharpen.py', 'research_rate_calibration.py',
+               'elo_ratings.py')
 CALIBRATION_MIN_BIN = 30  # diagnostics' smallest reported band; the release rule's own minimum is in the config
 CAGEY_EVENT_CANDIDATES = ('D', 'M')  # calib rows carry their margin distribution for rule cagey-events-v1
 DECIDING_CRITERIA = ('log_loss_superiority', 'calibration')  # a declaration without one is log-loss superiority
@@ -263,6 +281,14 @@ def research_matrix(row, train, origin, model):
     return rb.matrix_value(research_grid(context['goal_rates'])), matrix, info
 
 
+def rate_calibration_inputs(row, context, elo) -> dict:
+    """What C7 and C8 read for one match: C0's goal rates (the fold's Dixon-Coles rates, before the form term)
+    and the pre-match Elo difference / 400 from ratings fitted on the fold's training rows. No odds."""
+    import research_rate_calibration as rrc
+    return {'research_base_rates': [float(v) for v in context['base_rates']],
+            'elo_z': None if elo is None else rrc.elo_z(elo, row.HomeTeam, row.AwayTeam)}
+
+
 def low_score_matrix(goal_rates, params):
     """C2: C's goal rates on the draw and low-score corrected grid (research_low_score)."""
     import research_low_score as rls
@@ -324,9 +350,11 @@ def score_1x2(identity, forecasts, home_goals, away_goals):
     return records
 
 
-def candidates(row, train, origin, model, cfg, cagey_model, xg_train=None):
+def candidates(row, train, origin, model, cfg, cagey_model, xg_train=None, elo=None):
     """C, M, D and A for one match (and C3 when `xg_train` is given: the same training rows with
-    Understat xG). C's goal rates go out in extra['research_goal_rates'] for C2.
+    Understat xG). C's goal rates go out in extra['research_goal_rates'] for C2; C0's goal rates in
+    extra['research_base_rates'] and, when `elo` (elo_ratings fitted on `train`) is given, the pre-match Elo
+    difference / 400 in extra['elo_z'], for C7 and C8.
 
     Diagnostics (reporting only): the research baselines C0 and DC wherever C exists; in Pinnacle periods the
     quote references in extra['quote_references']; and extra['fixture'], what the pre-declared segment tables
@@ -340,6 +368,7 @@ def candidates(row, train, origin, model, cfg, cagey_model, xg_train=None):
     context, model_grid, info = research_context(row, train, origin, model)
     matrices['C'] = rb.matrix_value(research_grid(context['goal_rates']))
     extra['research_goal_rates'] = [float(v) for v in context['goal_rates']]
+    extra.update(rate_calibration_inputs(row, context, elo))
     for name, build in (('C0', lambda: research_grid(context['base_rates'])), ('DC', lambda: model_grid)):
         try:
             matrices[name] = rb.matrix_value(build())
@@ -415,6 +444,7 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None, master_rows=
     if master_rows is not None and include_holdout:
         raise ValueError('The master backtest never runs on the holdout')
     from football_value_pipeline_v2_standalone import DixonColesModel
+    from elo_ratings import fit_history
     import narrow_margin as nm
     cagey_model = nm.production_model()
     load_cfg = {**cfg, 'test_end_exclusive': cfg['end_exclusive']}
@@ -422,6 +452,7 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None, master_rows=
     end = pd.Timestamp(cfg['end_exclusive'])
     profile = cfg['production_v2']
     records, folds, coverage, overrounds, calib, research = [], [], Counter(), [], [], []
+    with_elo = keep is None or 'C8' in keep  # C8's Elo difference: ratings from the fold's training rows only
     history = training_rows(data, league, cfg, include_holdout)
     xg_history = None
     if keep is None or 'C3' in keep:
@@ -442,14 +473,18 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None, master_rows=
                                 bbs_statistics=False).fit(train.copy(), as_of=origin)
         folds.append({'league': league, 'origin': origin.date().isoformat(), 'end_exclusive': stop.date().isoformat(),
                       'training_end': train.Date.max().date().isoformat(), 'training_matches': len(train)})
+        elo = fit_history(train) if with_elo else None
         for _, row in test.iterrows():
             name = phase(row.Date, league, cfg)
-            if include_holdout and name != 'holdout' and keep is not None and keep & {'C2', 'C5', 'C6'} \
+            if include_holdout and name != 'holdout' and keep is not None and keep & WALK_FORWARD_CANDIDATES \
                     and row.HomeTeam in model.teams and row.AwayTeam in model.teams:
-                # Not scored in a holdout run, but C2's, C5's and C6's walk-forward fits learn from C's forecast of it.
+                # Not scored in a holdout run, but the walk-forward fits (C2, C5, C6, C7, C8) learn from the
+                # research model's forecast of it.
                 context, _, _ = research_context(row, train, origin, model)
+                inputs = rate_calibration_inputs(row, context, elo)
                 research.append({'identity': {'league': league, 'phase': name}, 'date': row.Date,
                                  'goal_rates': [float(v) for v in context['goal_rates']],
+                                 'base_rates': inputs['research_base_rates'], 'elo_z': inputs['elo_z'],
                                  'home_goals': row.FTHG, 'away_goals': row.FTAG, 'scored': False})
             if include_holdout and name != 'holdout':
                 # A holdout run still measures the Bet365-Pinnacle gap on pre-holdout matches.
@@ -472,7 +507,7 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None, master_rows=
                 coverage[league + ':locked_holdout'] += 1
                 continue
             xg_train = None if xg_history is None else xg_history.loc[xg_history.Date < origin]
-            matrices, gaps, extra = candidates(row, train, origin, model, cfg, cagey_model, xg_train)
+            matrices, gaps, extra = candidates(row, train, origin, model, cfg, cagey_model, xg_train, elo)
             if 'c3_used_xg' in extra:
                 coverage[f"{league}:C3:{'xg_form' if extra['c3_used_xg'] else 'goals_form'}"] += 1
             quotes = extra.get('quote_references', {})
@@ -486,6 +521,7 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None, master_rows=
                         'phase': name, 'market_book': extra.get('market_book', '')}
             if 'research_goal_rates' in extra:
                 research.append({'identity': identity, 'date': date, 'goal_rates': extra['research_goal_rates'],
+                                 'base_rates': extra['research_base_rates'], 'elo_z': extra['elo_z'],
                                  'home_goals': row.FTHG, 'away_goals': row.FTAG, 'scored': True})
             records.extend(rb.score_fixture(identity, matrices, row.FTHG, row.FTAG))
             records.extend(score_1x2(identity, quotes, row.FTHG, row.FTAG))
@@ -705,6 +741,97 @@ def low_score_sharpen_candidate(research, cfg, end, keep=None, matrices=None):
     return records, calib, coverage, fits
 
 
+def rate_calibration_walk_forward(research, cfg, end, elo, every_window=False):
+    """C7's (`elo` False) or C8's (`elo` True) walk-forward fits: one rate calibration and one (rho, delta) per
+    fold window.
+
+    Returns (research sorted by date, each row's calibrated goal rates, windows). For each window the
+    calibration (research_rate_calibration.fit) is fitted on C0's goal rates, and for C8 the Elo
+    differences, of the matches forecast and played before the origin, and gives every match inside the
+    window its calibrated rates: the candidate's forecast of it, scored or not. (rho, delta)
+    (research_low_score.fit, C2's fit) is fitted on the candidate's own calibrated rates of the matches
+    before the origin, each as it was forecast (under the calibration of the window it was played in).
+    Rates are NaN where the candidate made no forecast (C8 without an Elo difference); such rows feed
+    neither fit. Each window is a dict with its `origin`, `stop`, `calibration`, `low_score` and `scored`
+    (indices of the scored rows inside it). Windows without research rows are fitted only with
+    `every_window`. A fit reads only rows played before its origin, so it is the same whatever `end` is.
+    """
+    import research_low_score as rls
+    import research_rate_calibration as rrc
+    research = sorted(research, key=lambda r: r['date'])
+    dates = pd.DatetimeIndex([r['date'] for r in research])
+    base = np.array([r['base_rates'] for r in research], dtype=float).reshape(-1, 2)
+    z = np.array([np.nan if r.get('elo_z') is None else r['elo_z'] for r in research], dtype=float)
+    goals = np.array([(r['home_goals'], r['away_goals']) for r in research], dtype=float).reshape(-1, 2)
+    usable = np.isfinite(base).all(axis=1) & (base > 0).all(axis=1)
+    if elo:
+        usable &= np.isfinite(z)
+    half_life = cfg['production_v2']['half_life_days']
+    rates = np.full((len(research), 2), np.nan)
+    windows = []
+    for origin, stop in fold_windows(cfg, end):
+        inside = np.flatnonzero((dates >= origin) & (dates < stop))
+        window = {'origin': origin, 'stop': stop, 'calibration': None, 'low_score': None,
+                  'scored': [i for i in inside if research[i]['scored']]}
+        windows.append(window)
+        if not len(inside) and not every_window:
+            continue
+        earlier = np.asarray(dates < origin)
+        age = lambda mask: (origin - dates[mask]).total_seconds().to_numpy() / 86400
+        past = earlier & usable
+        window['calibration'] = rrc.fit(base[past], goals[past, 0], goals[past, 1], age(past), half_life,
+                                        z[past] if elo else None)
+        forecast = earlier & np.isfinite(rates).all(axis=1)
+        window['low_score'] = rls.fit(rates[forecast], goals[forecast, 0], goals[forecast, 1], age(forecast),
+                                      half_life)
+        for i in inside:
+            try:
+                rates[i] = rrc.calibrated_rates(base[i], window['calibration'], z[i] if elo else None)
+            except ValueError:
+                pass
+    return research, rates, windows
+
+
+def rate_calibration_candidate(research, cfg, end, name, keep=None):
+    """C7 or C8 (`name`) for every scored match: C0's goal rates through the walk-forward rate calibration, on
+    C2's grid with (rho, delta) refitted on the candidate's own rates (rate_calibration_walk_forward).
+
+    Before enough earlier forecasts exist both fits are neutral and the candidate is C0 exactly. A locked
+    run never computes a research forecast for a holdout match, so no holdout result can reach either
+    fit. Reads C0's goal rates, the Elo difference (C8) and final scores only: no odds and no form term.
+    """
+    records, calib, coverage, fits = [], [], Counter(), []
+    if (keep is not None and name not in keep) or not research:
+        return records, calib, coverage, fits
+    research, rates, windows = rate_calibration_walk_forward(research, cfg, end, RATE_CALIBRATION_CANDIDATES[name])
+    for window in windows:
+        inside = window['scored']
+        if not inside:
+            continue
+        low_score = window['low_score']
+        fits.append({'origin': window['origin'].date().isoformat(), 'end_exclusive': window['stop'].date().isoformat(),
+                     'scored_matches': len(inside), **window['calibration'],
+                     'low_score': {k: low_score.get(k) for k in ('rho', 'delta', 'status', 'matches')}})
+        for i in inside:
+            r = research[i]
+            try:
+                if not np.isfinite(rates[i]).all():
+                    raise ValueError('no calibrated goal rates')
+                matrix = low_score_matrix(rates[i], low_score)
+            except ValueError as exc:
+                coverage[f"{r['identity']['league']}:{name}:{exc}"] += 1
+                continue
+            coverage[f"{r['identity']['league']}:{name}:available"] += 1
+            hg, ag = r['home_goals'], r['away_goals']
+            records.extend(rb.score_fixture(r['identity'], {name: matrix}, hg, ag))
+            h, a = np.indices(matrix.shape)
+            calib.append({'phase': r['identity']['phase'], 'league': r['identity']['league'],
+                          'fixture_key': r['identity']['fixture_key'], 'candidate': name,
+                          'probs': [float(matrix[h > a].sum()), float(matrix[h == a].sum()), float(matrix[h < a].sum())],
+                          'outcome': 0 if hg > ag else 1 if hg == ag else 2})
+    return records, calib, coverage, fits
+
+
 # ---------------------------------------------------------------------------
 # Summaries
 # ---------------------------------------------------------------------------
@@ -780,7 +907,9 @@ def summarize(records, overrounds, coverage, cfg, metadata):
             sub = part.loc[part.group == group]
             entry = {}
             for base, cand in (('C', 'C2'), ('C', 'C3'), ('C2', 'C3'), ('C', 'C5'), ('C2', 'C5'), ('C3', 'C5'),
-                               ('C', 'C6'), ('C2', 'C6'), ('C5', 'C6'), ('C', 'M'), ('C', 'D'), ('C', 'A'), ('M', 'D')):
+                               ('C', 'C6'), ('C2', 'C6'), ('C5', 'C6'), ('C', 'M'), ('C', 'D'), ('C', 'A'), ('M', 'D'),
+                               ('C6', 'C7'), ('C6', 'C8'), ('C', 'C7'), ('C', 'C8'), ('C0', 'C7'), ('C0', 'C8'),
+                               ('C7', 'C8')):
                 result = paired(sub, base, cand)
                 if result:
                     entry[f'{cand}_vs_{base}'] = result
@@ -2411,6 +2540,10 @@ def historical(cache, cfg, *, include_holdout=False, keep=None, leagues=None, wo
     r, k, c, fits = low_score_sharpen_candidate(research, cfg, pd.Timestamp(cfg['end_exclusive']), keep)
     records += r; calib += k; coverage.update(c)
     folds.append({'candidate': 'C6', 'walk_forward_fits': fits})
+    for name in RATE_CALIBRATION_CANDIDATES:
+        r, k, c, fits = rate_calibration_candidate(research, cfg, pd.Timestamp(cfg['end_exclusive']), name, keep)
+        records += r; calib += k; coverage.update(c)
+        folds.append({'candidate': name, 'walk_forward_fits': fits})
     if not include_holdout and any(r['phase'] == 'holdout' for r in records):
         raise ValueError('Locked holdout rows leaked into an unlocked run')
     if include_holdout and any(r['phase'] != 'holdout' and r['candidate'] not in GAP_CANDIDATES for r in records):
