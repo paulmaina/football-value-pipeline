@@ -45,10 +45,12 @@ def columns(rule):
     return list(COLUMNS)
 
 
-def annotate(item, context, row, now, policy, cost, rule=RULE, pin=None):
+def annotate(item, context, row, now, policy, cost, rule=RULE, pin=None, method='proportional'):
     if rule == RULE_MARKET_BASIS:
         from cagey_market_basis import annotate as market_annotate
-        return market_annotate(item,context,row,now,policy,cost,pin)
+        return market_annotate(item,context,row,now,policy,cost,pin,method=method)
+    if method != 'proportional':
+        raise ValueError('Only the market-basis rule (v5) has a margin-removal method')
     import price_edge_cagey_shortlist as v28
     from quote_freshness import quote_is_fresh, quote_utc
     from quote_policy import usable_bookmaker
