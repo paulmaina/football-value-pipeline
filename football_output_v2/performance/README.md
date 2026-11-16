@@ -13,6 +13,15 @@ Earlier predictions remain in shortlist_run_history.csv;
 history rows are correlated records and are excluded from main win-rate/ROI totals.
 Whole-fixture model metrics and research experiments retain their unique-fixture cohorts.
 
+## Headline: closing-line value first, returns second
+
+| View | With a close | Mean CLV | 95% interval | Beat the close | Settled | Return per unit | 95% interval |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| per pick | 105 | -1.9% | -2.9% to -0.8% | 29% | 390 | +3.6% | -2.9% to +10.1% |
+| per fixture (a match's picks averaged) | 75 | -1.6% | -2.9% to -0.3% | 32% | 179 | +3.0% | -4.5% to +10.5% |
+
+394 picks on 181 matches. A match can hold several picks (one per market group); the per-fixture row averages them, so each match counts once. Closing-line value (CLV) leads because it is the less noisy measure: it compares the frozen price with the Pinnacle fair close and does not wait for results. Returns come second: with few matches they are mostly luck. Intervals are mean ± 1.96 standard errors, clustered by fixture. Near-kickoff feed quotes are not verified official closing prices.
+
 ## Research v5 (C6) rollback check
 
 Released on 14 Nov 2026 without holdout proof (Paul's exception). After at least 150 graded matches across at least 3 weeks, roll back research v5 if its research log loss on AH all lines minus v4's, on the same frozen inputs, matches and offers, has a week-resampled 95% interval entirely above zero.
@@ -242,6 +251,21 @@ Whole-fixture 1X2 multiclass Brier (n=377): 0.5405
 | 2026-W44 | 13 | 8-2 | 61.5% | +2.6% |
 | 2026-W45 | 307 | 227-80 | 73.9% | +3.7% |
 
+## Gameweeks: closing-line value first, per pick and per fixture
+
+| List | View | With a close | Mean CLV | 95% interval | Beat the close | Settled | Return per unit | 95% interval |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| 2026-W41 | per pick | 0 | — | — | — | 5 | -49.6% | -110.1% to +10.9% |
+| 2026-W41 | per fixture (a match's picks averaged) | 0 | — | — | — | 5 | -49.6% | -110.1% to +10.9% |
+| 2026-W42 | per pick | 14 | -1.4% | -2.9% to +0.1% | 36% | 24 | +19.5% | -0.2% to +39.1% |
+| 2026-W42 | per fixture (a match's picks averaged) | 14 | -1.4% | -2.9% to +0.1% | 36% | 24 | +19.5% | -0.2% to +39.1% |
+| 2026-W43 | per pick | 30 | -3.1% | -6.0% to -0.3% | 23% | 41 | +0.5% | -20.4% to +21.3% |
+| 2026-W43 | per fixture (a match's picks averaged) | 30 | -3.1% | -6.0% to -0.3% | 23% | 41 | +0.5% | -20.4% to +21.3% |
+| 2026-W44 | per pick | 12 | -0.1% | -2.7% to +2.5% | 42% | 13 | +2.6% | -23.3% to +28.5% |
+| 2026-W44 | per fixture (a match's picks averaged) | 12 | -0.1% | -2.7% to +2.5% | 42% | 13 | +2.6% | -23.3% to +28.5% |
+| 2026-W45 | per pick | 49 | -1.6% | -2.9% to -0.3% | 27% | 307 | +3.7% | -3.8% to +11.1% |
+| 2026-W45 | per fixture (a match's picks averaged) | 19 | -0.2% | -2.2% to +1.7% | 37% | 96 | +2.8% | -5.3% to +10.9% |
+
 ## Confidence calibration of shortlisted markets
 
 | Forecast bin | Samples | Average forecast | Observed event rate (frozen probability basis) | Binary Brier |
@@ -289,7 +313,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 
 No forward model trials are generated or captured. The benchmark-forward and totals-anchor trials are archived (archive/); their frozen reports stay readable.
 
-Dependency versions at review: {"python": "3.14.10", "numpy": "2.5.5", "pandas": "3.1.1", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.14.10", "numpy": "2.5.5", "pandas": "3.1.1", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.3", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Closing odds: [report](closing_odds/report.md). Latest-selection comparison aligned with headline ROI, with a separate first-entry reference; official close and accepted execution are unverified.
 

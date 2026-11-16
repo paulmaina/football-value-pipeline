@@ -2001,13 +2001,291 @@
       }
     }
   },
+  "headline": {
+    "by_week": {
+      "2026-W41": {
+        "clv_available": true,
+        "definition": "CLV = frozen offered odds x Pinnacle fair close probability - 1 (clv_report). Return = flat-stake profit per unit at the frozen price. Per fixture: a match's picks averaged first, so each match counts once.",
+        "fixtures_with_picks": 5,
+        "per_fixture": {
+          "clv": {
+            "independent_fixtures": 0,
+            "mean": null,
+            "median": null,
+            "n": 0,
+            "positive_share": null,
+            "standard_error": null,
+            "t_stat": null
+          },
+          "return": {
+            "independent_fixtures": 5,
+            "mean": -0.4959999999999999,
+            "median": -1.0,
+            "n": 5,
+            "positive_share": 0.4,
+            "standard_error": 0.3087005021051958,
+            "t_stat": -1.6067353198893668
+          }
+        },
+        "per_pick": {
+          "clv": {
+            "independent_fixtures": 0,
+            "mean": null,
+            "median": null,
+            "n": 0,
+            "positive_share": null,
+            "standard_error": null,
+            "t_stat": null
+          },
+          "return": {
+            "independent_fixtures": 5,
+            "mean": -0.496,
+            "median": -1.0,
+            "n": 5,
+            "positive_share": 0.4,
+            "standard_error": 0.3087005021051958,
+            "t_stat": -1.606735319889367
+          }
+        },
+        "picks": 5
+      },
+      "2026-W42": {
+        "clv_available": true,
+        "definition": "CLV = frozen offered odds x Pinnacle fair close probability - 1 (clv_report). Return = flat-stake profit per unit at the frozen price. Per fixture: a match's picks averaged first, so each match counts once.",
+        "fixtures_with_picks": 24,
+        "per_fixture": {
+          "clv": {
+            "independent_fixtures": 14,
+            "mean": -0.014251444686630874,
+            "median": -0.022885705951760038,
+            "n": 14,
+            "positive_share": 0.35714285714285715,
+            "standard_error": 0.0077524932522884645,
+            "t_stat": -1.8383046876466456
+          },
+          "return": {
+            "independent_fixtures": 24,
+            "mean": 0.19458333333333333,
+            "median": 0.275,
+            "n": 24,
+            "positive_share": 0.875,
+            "standard_error": 0.1002098869233873,
+            "t_stat": 1.9417578375484712
+          }
+        },
+        "per_pick": {
+          "clv": {
+            "independent_fixtures": 14,
+            "mean": -0.014251444686630874,
+            "median": -0.022885705951760038,
+            "n": 14,
+            "positive_share": 0.35714285714285715,
+            "standard_error": 0.0077524932522884645,
+            "t_stat": -1.8383046876466456
+          },
+          "return": {
+            "independent_fixtures": 24,
+            "mean": 0.19458333333333333,
+            "median": 0.275,
+            "n": 24,
+            "positive_share": 0.875,
+            "standard_error": 0.1002098869233873,
+            "t_stat": 1.9417578375484712
+          }
+        },
+        "picks": 24
+      },
+      "2026-W43": {
+        "clv_available": true,
+        "definition": "CLV = frozen offered odds x Pinnacle fair close probability - 1 (clv_report). Return = flat-stake profit per unit at the frozen price. Per fixture: a match's picks averaged first, so each match counts once.",
+        "fixtures_with_picks": 41,
+        "per_fixture": {
+          "clv": {
+            "independent_fixtures": 30,
+            "mean": -0.03145227999236613,
+            "median": -0.024461245361690476,
+            "n": 30,
+            "positive_share": 0.23333333333333334,
+            "standard_error": 0.014366341742165114,
+            "t_stat": -2.1893033422735524
+          },
+          "return": {
+            "independent_fixtures": 41,
+            "mean": 0.004512195121951231,
+            "median": 0.165,
+            "n": 41,
+            "positive_share": 0.7317073170731707,
+            "standard_error": 0.10634100190099002,
+            "t_stat": 0.0424313768094113
+          }
+        },
+        "per_pick": {
+          "clv": {
+            "independent_fixtures": 30,
+            "mean": -0.03145227999236613,
+            "median": -0.024461245361690476,
+            "n": 30,
+            "positive_share": 0.23333333333333334,
+            "standard_error": 0.014366341742165114,
+            "t_stat": -2.1893033422735524
+          },
+          "return": {
+            "independent_fixtures": 41,
+            "mean": 0.004512195121951237,
+            "median": 0.165,
+            "n": 41,
+            "positive_share": 0.7317073170731707,
+            "standard_error": 0.10634100190099002,
+            "t_stat": 0.04243137680941136
+          }
+        },
+        "picks": 41
+      },
+      "2026-W44": {
+        "clv_available": true,
+        "definition": "CLV = frozen offered odds x Pinnacle fair close probability - 1 (clv_report). Return = flat-stake profit per unit at the frozen price. Per fixture: a match's picks averaged first, so each match counts once.",
+        "fixtures_with_picks": 13,
+        "per_fixture": {
+          "clv": {
+            "independent_fixtures": 12,
+            "mean": -0.0011069471825216708,
+            "median": -0.010578491766676523,
+            "n": 12,
+            "positive_share": 0.4166666666666667,
+            "standard_error": 0.013245347602897486,
+            "t_stat": -0.08357252793271507
+          },
+          "return": {
+            "independent_fixtures": 13,
+            "mean": 0.026153846153846153,
+            "median": 0.24,
+            "n": 13,
+            "positive_share": 0.6153846153846154,
+            "standard_error": 0.1322077738391765,
+            "t_stat": 0.1978238146998895
+          }
+        },
+        "per_pick": {
+          "clv": {
+            "independent_fixtures": 12,
+            "mean": -0.0011069471825216708,
+            "median": -0.010578491766676523,
+            "n": 12,
+            "positive_share": 0.4166666666666667,
+            "standard_error": 0.013245347602897486,
+            "t_stat": -0.08357252793271507
+          },
+          "return": {
+            "independent_fixtures": 13,
+            "mean": 0.026153846153846142,
+            "median": 0.24,
+            "n": 13,
+            "positive_share": 0.6153846153846154,
+            "standard_error": 0.1322077738391765,
+            "t_stat": 0.19782381469988944
+          }
+        },
+        "picks": 13
+      },
+      "2026-W45": {
+        "clv_available": true,
+        "definition": "CLV = frozen offered odds x Pinnacle fair close probability - 1 (clv_report). Return = flat-stake profit per unit at the frozen price. Per fixture: a match's picks averaged first, so each match counts once.",
+        "fixtures_with_picks": 98,
+        "per_fixture": {
+          "clv": {
+            "independent_fixtures": 19,
+            "mean": -0.002345449709126478,
+            "median": -0.00706421580953102,
+            "n": 19,
+            "positive_share": 0.3684210526315789,
+            "standard_error": 0.010017396336900323,
+            "t_stat": -0.2341376571561537
+          },
+          "return": {
+            "independent_fixtures": 96,
+            "mean": 0.028203124999999996,
+            "median": 0.065,
+            "n": 96,
+            "positive_share": 0.5416666666666666,
+            "standard_error": 0.041430454951459604,
+            "t_stat": 0.6807341370748426
+          }
+        },
+        "per_pick": {
+          "clv": {
+            "independent_fixtures": 19,
+            "mean": -0.016160880624771442,
+            "median": -0.019746453302053157,
+            "n": 49,
+            "positive_share": 0.2653061224489796,
+            "standard_error": 0.006626657062396354,
+            "t_stat": -2.4387682164025084
+          },
+          "return": {
+            "independent_fixtures": 96,
+            "mean": 0.03669381107491857,
+            "median": 0.24,
+            "n": 307,
+            "positive_share": 0.739413680781759,
+            "standard_error": 0.03807693533441763,
+            "t_stat": 0.9636755361913578
+          }
+        },
+        "picks": 311
+      }
+    },
+    "clv_available": true,
+    "definition": "CLV = frozen offered odds x Pinnacle fair close probability - 1 (clv_report). Return = flat-stake profit per unit at the frozen price. Per fixture: a match's picks averaged first, so each match counts once.",
+    "fixtures_with_picks": 181,
+    "per_fixture": {
+      "clv": {
+        "independent_fixtures": 75,
+        "mean": -0.01601247381396639,
+        "median": -0.01791149972269135,
+        "n": 75,
+        "positive_share": 0.32,
+        "standard_error": 0.006862700237921315,
+        "t_stat": -2.3332614362909294
+      },
+      "return": {
+        "independent_fixtures": 179,
+        "mean": 0.030293296089385472,
+        "median": 0.16,
+        "n": 179,
+        "positive_share": 0.6312849162011173,
+        "standard_error": 0.0381762629889536,
+        "t_stat": 0.7935113004159394
+      }
+    },
+    "per_pick": {
+      "clv": {
+        "independent_fixtures": 75,
+        "mean": -0.01855481087797978,
+        "median": -0.02049305356580755,
+        "n": 105,
+        "positive_share": 0.2857142857142857,
+        "standard_error": 0.005410371941229956,
+        "t_stat": -3.4294889666608874
+      },
+      "return": {
+        "independent_fixtures": 179,
+        "mean": 0.03584615384615385,
+        "median": 0.24,
+        "n": 390,
+        "positive_share": 0.7384615384615385,
+        "standard_error": 0.0331299980527405,
+        "t_stat": 1.0819847857850589
+      }
+    },
+    "picks": 394
+  },
   "pending_reason_counts": {
     "UNVERIFIED_FIXTURE_OR_RESULT": 4
   },
   "prediction_1x2_multiclass_brier": 0.540451,
   "prediction_fixtures_graded": 377,
   "provider_errors": {},
-  "reviewed_at_utc": "2026-11-16T06:57:48Z",
+  "reviewed_at_utc": "2026-11-16T09:54:01Z",
   "run_history_groups": {
     "2026-10-11T06:32:27.587243+00:00": {
       "brier": 0.232708,
