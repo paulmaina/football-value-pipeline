@@ -9,12 +9,16 @@ its correction model and every pick stay unchanged, and this script changes no p
              onto that 1X2 with reweight_matrix_to_1x2 (narrow_margin.one_x_two_target; a and b fitted on the
              correction's own training rows, model cagey-correction-through-2425-power-1x2-v1)
 
-M and M_pow (the uncorrected grids) and the plain quotes QPROP and QPOW are carried for reference.
+M and M_pow (the uncorrected grids) and the plain quotes QPROP and QPOW are carried for reference, and one
+context grid that is not a candidate: D_powq, D_pow moved onto the power quote's 1X2 as it stands (a = b = 0),
+which shows what the fitted uplift adds to simply taking the quote's 1X2.
 
 historical mode (development and validation only, both priced by Pinnacle; holdout and retrospective matches are
 skipped before their prices or results are read):
 
   * the problem statement's figures, reproduced with D and QPOW;
+  * the 1X2 rule on its own training rows (the correction's 10,956 closing-price matches, rebuilt and checked
+    against the model's fingerprint): a and b refitted, their standard errors, and draws by favourite band;
   * log loss on AH settlement (all lines, draw-sensitive lines), 1X2 and Over 1.5, week-resampled 95% intervals;
   * rule cagey-events-v1 on the rule's own events (side chosen by D, synthetic prices from M), every grid scored
     on those same events, and D_pow and D_pow2 on the events their own tier would create;
@@ -59,6 +63,7 @@ GROUPS = base.GROUPS
 GRIDS = ('M', 'D', 'M_pow', 'D_pow', 'D_pow2')
 CORRECTED = ('D', 'D_pow', 'D_pow2')
 QUOTES = ('QPROP', 'QPOW')
+CONTEXT = 'D_powq'  # D_pow on the power quote's own 1X2 (a = b = 0): context for the uplift, never a candidate
 # Every grid's own uncorrected grid (the price basis of the events its own tier would create).
 OWN_BASIS = {'D_pow': 'M_pow', 'D_pow2': 'M_pow'}
 # PR #182's favourite bands, plus the two groups of the problem statement.
@@ -124,6 +129,8 @@ def league_records(league, cache, cfg):
                   'QPOW': [float(v) for v in mi.devig_three_way(*prices['hda'], method=mi.DEVIG_POWER)]}
         records.extend(rb.score_fixture(identity, grids, hg, ag))
         records.extend(eh.score_1x2(identity, quotes, hg, ag))
+        records.extend(rb.score_fixture(identity, {CONTEXT: rb.matrix_value(
+            nm.set_one_x_two(grids['D_pow'], quotes['QPOW']))}, hg, ag))
         margin = hg - ag
         fixture = {**identity, 'margin': margin, 'outcome': 0 if margin > 0 else 1 if margin == 0 else 2, **quotes}
         inputs = {}
@@ -163,10 +170,12 @@ def log_loss_section(scores, keys):
     for group in GROUPS:
         sub = part.loc[part.group == group]
         means = sub.groupby('candidate').log_loss.mean()
-        entry = {'mean': {c: float(means[c]) for c in (*GRIDS, *QUOTES) if c in means},
+        entry = {'mean': {c: float(means[c]) for c in (*GRIDS, *QUOTES, CONTEXT) if c in means},
                  'D_minus': {c: pair(sub, 'D', c) for c in GRIDS if c != 'D'},
                  'D_pow_minus_D_pow2': pair(sub, 'D_pow', 'D_pow2'),
-                 'M_pow_minus': {c: pair(sub, 'M_pow', c) for c in ('D_pow', 'D_pow2')}}
+                 'M_pow_minus': {c: pair(sub, 'M_pow', c) for c in ('D_pow', 'D_pow2')},
+                 # Context: the quote's own 1X2 (a = b = 0) against the fitted uplift; positive = the uplift helps.
+                 'D_powq_minus_D_pow2': pair(sub, CONTEXT, 'D_pow2'), 'D_minus_D_powq': pair(sub, 'D', CONTEXT)}
         if group == '1X2':
             entry['QPOW_minus'] = {c: pair(sub, 'QPOW', c) for c in GRIDS}
         out[group] = entry
@@ -246,6 +255,11 @@ def band_frame(fx):
     return pd.DataFrame(rows)
 
 
+def wilson(rate, n, z=1.959964):
+    centre, half = rate + z * z / (2 * n), z * math.sqrt(rate * (1 - rate) / n + z * z / (4 * n * n))
+    return [float((centre - half) / (1 + z * z / n)), float((centre + half) / (1 + z * z / n))]
+
+
 def gap(part, observed, forecast):
     """Observed rate minus mean forecast, whole weeks resampled."""
     value = base.week_mean(part.assign(gap=part[observed] - part[forecast]), 'gap')
@@ -266,8 +280,7 @@ def favourite_bands(fx):
         won, drawn = base.week_mean(part, 'won'), base.week_mean(part, 'drawn')
         out.append({'band': label, 'fixtures': n,
                     'won': won['mean'], 'won_interval_95': won['interval_95'],
-                    'won_binomial_95': [float(won['mean'] + s * 1.959964 * math.sqrt(won['mean'] * (1 - won['mean']) / n))
-                                        for s in (-1, 1)],
+                    'won_wilson_95': wilson(won['mean'], n),
                     'drawn': drawn['mean'], 'drawn_interval_95': drawn['interval_95'],
                     'favourite': {c: gap(part, 'won', f'fav_{c}') for c in (*GRIDS, *QUOTES)},
                     'draw': {c: gap(part, 'drawn', f'draw_{c}') for c in (*GRIDS, *QUOTES)}})
@@ -295,6 +308,37 @@ def uplift_section(fx, spec):
             'logit_shift_at_f': {f'{f:.2f}': spec['a'] + spec['b'] * (f - 0.5) for f in (0.35, 0.5, 0.65, 0.8, 0.9)}}
 
 
+def training_section(cache, model, workers):
+    """The 1X2 rule on its own training rows: the correction's training matches (Pinnacle closing prices, power
+    method), rebuilt and checked against the model's fingerprint. No evaluation match is used."""
+    spec = model['one_x_two']
+    frame = nm.build_dataset(Path(cache), workers=workers, method=mi.DEVIG_POWER)
+    data = frame[frame.date < pd.Timestamp(model['training_until_exclusive'])]
+    assert len(data) == spec['training_matches'] and nm.fingerprint(data) == spec['training_fingerprint']
+    home, draw, away = (data[c].to_numpy() for c in ('p_home', 'p_draw', 'p_away'))
+    drawn = (data.margin == 0).to_numpy().astype(float)
+    refit = nm.fit_one_x_two(home, draw, away, drawn)
+    assert abs(refit['a'] - spec['a']) < 1e-9 and abs(refit['b'] - spec['b']) < 1e-9, refit
+    f = nm.favourite_probability(home, away)
+    z = np.column_stack([np.ones(len(f)), f - 0.5])
+    p = 1 / (1 + np.exp(-(nm._logit(draw) + z @ np.array([spec['a'], spec['b']]))))
+    errors = np.sqrt(np.diag(np.linalg.inv((z * (p * (1 - p))[:, None]).T @ z)))  # observed information
+    gain = spec['quote_training_log_loss'] - spec['training_log_loss']
+    bands = []
+    for label, low, high in BANDS:
+        mask = (f >= low) & (f < high)
+        bands.append({'band': label, 'matches': int(mask.sum()), 'drawn': float(drawn[mask].mean()),
+                      'quote_draw': float(draw[mask].mean()), 'rule_draw': float(p[mask].mean())})
+    return {'matches': int(len(data)), 'first_date': data.date.min().date().isoformat(),
+            'last_date': data.date.max().date().isoformat(), 'a': spec['a'], 'b': spec['b'],
+            'standard_error': {'a': float(errors[0]), 'b': float(errors[1])},
+            'log_loss': {'quote': spec['quote_training_log_loss'], 'rule': spec['training_log_loss']},
+            # twice the log-likelihood gained by the two parameters (chi-squared, 2 degrees of freedom, if a = b = 0)
+            'likelihood_ratio_statistic': float(2 * len(data) * gain), 'p_value': float(math.exp(-len(data) * gain)),
+            'draw_rate': float(drawn.mean()), 'quote_draw': float(draw.mean()), 'rule_draw': float(p.mean()),
+            'draws_by_favourite_band': bands}
+
+
 def reproduction(fx, scores, harness_scores):
     """The problem statement's figures, with D and QPOW, on development and validation together."""
     bands = {b['band']: b for b in favourite_bands(fx)}
@@ -310,7 +354,7 @@ def reproduction(fx, scores, harness_scores):
         'favourites_above_50': {'fixtures': above['fixtures'], 'quote': pick('favourite above 50%', 'favourite', 'QPOW'),
                                 'D': pick('favourite above 50%', 'favourite', 'D'), 'won': above['won'],
                                 'won_interval_95_weeks': above['won_interval_95'],
-                                'won_interval_95_binomial': above['won_binomial_95']},
+                                'won_interval_95_wilson': above['won_wilson_95']},
         'D_minus_QPOW_1x2_log_loss': {'mean': -own['mean_gain'], 'interval_95': [-own['interval_95'][1], -own['interval_95'][0]],
                                       'fixtures': own['fixtures'],
                                       'from_harness_scores': {'mean': -harness['mean_gain'],
@@ -411,11 +455,13 @@ def historical(args, cfg):
                 entry['reproduction'] = reproduction(fx, scores, hd)
             summary['periods'][name][cohort] = entry
     summary['choice_rule'] = choice_rule(summary['periods'])
+    summary['one_x_two_training'] = training_section(args.cache, corrections['D_pow2'][0], args.workers)
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / 'summary.json').write_text(json.dumps(summary, indent=2, sort_keys=True, default=float) + '\n',
                                               encoding='utf-8')
     print(json.dumps({'counts': counts, 'consistency_with_harness': consistency,
-                      'choice_rule': summary['choice_rule']}, indent=2, default=float))
+                      'choice_rule': summary['choice_rule'], 'one_x_two_training': summary['one_x_two_training']},
+                     indent=2, default=float))
     return 0
 
 
