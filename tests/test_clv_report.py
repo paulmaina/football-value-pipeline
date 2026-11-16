@@ -177,6 +177,85 @@ class ReportTests(unittest.TestCase):
         self.assertEqual(json.loads((self.root / 'cli' / 'summary.json').read_text())['candidates'], 1)
 
 
+class PickViewTests(unittest.TestCase):
+    """CLV of frozen picks at their own price, and the one-row-per-fixture view beside the per-pick figures."""
+
+    def setUp(self):
+        self.directory = tempfile.TemporaryDirectory()
+        self.addCleanup(self.directory.cleanup)
+        self.root = Path(self.directory.name)
+
+    @staticmethod
+    def pick(market, odds, captured='2026-10-17T10:00:00+00:00', **extra):
+        return {'league': 'La Liga', 'home_team': 'Levante', 'away_team': 'Athletic Bilbao', 'kickoff_utc': KICK,
+                'market': market, 'offered_decimal_odds': odds, 'snapshot_captured_utc': captured, **extra}
+
+    def test_pick_clv_is_the_frozen_price_against_the_pinnacle_fair_close(self):
+        late = observation('2026-10-18T16:26:00+00:00', CLOSE)
+        write_root(self.root, [late], [])
+        closes = clv_report.load_closes(self.root)
+        fair = clv_report.fair_closing_prices(late['quotes'])
+        picks = [self.pick('Home win', '2.7'), self.pick('Asian Handicap Home -0.50', 2.6),
+                 self.pick('Double Chance X2', 1.7),
+                 self.pick('Corners Over 9.5', 1.9),  # no closing selection for the market
+                 self.pick('Home win', ''),  # no usable price
+                 self.pick('Home win', 2.7, captured='2026-10-18T16:27:00+00:00'),  # captured after the quote
+                 self.pick('Home win', 2.7, captured=None),
+                 self.pick('Home win', 2.7, home_team='Somebody Else'),  # no observation for the fixture
+                 self.pick('Home win', 2.7, kickoff_utc='not a time')]
+        values = clv_report.pick_clv(picks, closes)
+        self.assertAlmostEqual(values[0], 2.7 * fair['home'] - 1)
+        self.assertAlmostEqual(values[1], 2.6 * fair['Asian Handicap Home -0.50'] - 1)
+        self.assertAlmostEqual(values[2], 1.7 * (fair['draw'] + fair['away']) - 1)
+        self.assertEqual(values[3:], [None] * 6)
+        self.assertEqual(clv_report.pick_clv([], closes), [])
+
+    def test_a_match_with_several_picks_counts_once_in_the_fixture_view(self):
+        first = dict(league='La Liga', home_team='Levante', away_team='Athletic Bilbao', kickoff_utc=KICK, week='2026-W42')
+        second = {**first, 'home_team': 'Getafe'}
+        rows = [{**first, 'unit_profit': 0.5}, {**first, 'unit_profit': -1.0}, {**first, 'unit_profit': ''},
+                {**second, 'unit_profit': '0.2'}]
+        view = clv_report.fixture_view(rows, [0.02, None, -0.04, 0.01])
+        self.assertEqual((view['picks'], view['fixtures_with_picks']), (4, 2))
+        self.assertEqual((view['per_pick']['clv']['n'], view['per_pick']['clv']['independent_fixtures']), (3, 2))
+        self.assertAlmostEqual(view['per_pick']['clv']['mean'], (0.02 - 0.04 + 0.01) / 3)
+        self.assertAlmostEqual(view['per_pick']['return']['mean'], (0.5 - 1.0 + 0.2) / 3)
+        self.assertEqual(view['per_fixture']['clv']['n'], 2)
+        self.assertAlmostEqual(view['per_fixture']['clv']['mean'], ((0.02 - 0.04) / 2 + 0.01) / 2)
+        self.assertAlmostEqual(view['per_fixture']['return']['mean'], ((0.5 - 1.0) / 2 + 0.2) / 2)
+        by_key = {f['home_team']: f for f in view['fixtures']}
+        self.assertEqual({k: by_key['Levante'][k] for k in ('picks', 'picks_with_close', 'settled_picks', 'week')},
+                         {'picks': 3, 'picks_with_close': 2, 'settled_picks': 2, 'week': '2026-W42'})
+        self.assertAlmostEqual(by_key['Levante']['mean_clv'], -0.01)
+        self.assertAlmostEqual(by_key['Levante']['mean_unit_profit'], -0.25)
+        self.assertEqual(set(view['fixtures'][0]), set(clv_report.FIXTURE_VIEW_COLUMNS))
+        json.dumps(view, allow_nan=False)
+        # No close at all: the view still holds returns, and an empty list is an empty view.
+        returns_only = clv_report.fixture_view(rows, [None] * 4)
+        self.assertEqual((returns_only['per_pick']['clv']['n'], returns_only['per_fixture']['return']['n']), (0, 2))
+        self.assertIsNone(returns_only['fixtures'][0]['mean_clv'])
+        empty = clv_report.fixture_view([], [])
+        self.assertEqual((empty['picks'], empty['fixtures'], empty['per_fixture']['clv']['mean']), (0, [], None))
+
+    def test_the_headline_table_leads_with_clv(self):
+        first = dict(league='La Liga', home_team='Levante', away_team='Athletic Bilbao', kickoff_utc=KICK)
+        rows = [{**first, 'unit_profit': 0.5}, {**first, 'unit_profit': -1.0},
+                {**first, 'home_team': 'Getafe', 'unit_profit': 0.2}, {**first, 'home_team': 'Elche', 'unit_profit': 0.3}]
+        view = clv_report.fixture_view(rows, [0.02, -0.04, 0.01, 0.03])
+        table = clv_report.headline_table({'': view})
+        header = table[0].split(' | ')
+        self.assertLess(header.index('Mean CLV'), header.index('Return per unit'))
+        self.assertEqual(len(table), 4)
+        self.assertIn('| per pick | 4 | +0.5% |', table[2])
+        self.assertIn("| per fixture (a match's picks averaged) | 3 | +1.0% |", table[3])
+        self.assertIn(' to ', table[2])
+        labelled = clv_report.headline_table({'value': view, 'cagey': clv_report.fixture_view([], [])})
+        self.assertTrue(labelled[0].startswith('| List | View |'))
+        self.assertIn('| cagey | per pick | 0 | — | — | — | 0 | — | — |', labelled)
+        self.assertEqual(len(labelled), 6)
+        self.assertIn('less noisy', clv_report.HEADLINE_NOTE)
+
+
 if __name__ == '__main__':
     unittest.main()
 

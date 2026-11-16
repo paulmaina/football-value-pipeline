@@ -94,6 +94,60 @@ class IndependenceTest(unittest.TestCase):
         import research_low_score_sharpen as c6
         np.testing.assert_array_equal(c6.grid(rates[0], params, sharp), c6.grid(rates[1], params, sharp))
         self.assertFalse(np.array_equal(c6.grid(rates[0], params, sharp), eh.low_score_matrix(rates[0], params)))
+        # The diagnostic baselines read no odds either: C0 is C's grid on the goal rates before the form term,
+        # DC the fold model's own grid. The quote references are the market's and exist only with valid prices.
+        import narrow_margin as nm
+        from team_research import research_grid
+        first, _, extra = eh.candidates(row, train, origin, model, CFG, nm.production_model())
+        second, gaps, changed_extra = eh.candidates(changed, train, origin, model, CFG, nm.production_model())
+        for name in eh.RESEARCH_BASELINES:
+            np.testing.assert_array_equal(first[name], second[name])
+        context, model_grid, _ = eh.research_context(row, train, origin, model)
+        np.testing.assert_array_equal(first['C0'], eh.rb.matrix_value(research_grid(context['base_rates'])))
+        np.testing.assert_array_equal(first['DC'], eh.rb.matrix_value(model_grid))
+        np.testing.assert_array_equal(first['C'], base)
+        self.assertFalse(np.array_equal(first['C0'], first['C']))
+        self.assertFalse(np.array_equal(first['DC'], first['C0']))
+        self.assertEqual(set(extra['quote_references']), set(eh.QUOTE_REFERENCES))
+        self.assertNotIn('quote_references', changed_extra)  # 9.99 everywhere is not a valid book
+        self.assertNotIn('M', second)
+        played = lambda team: int(((train.HomeTeam == team) | (train.AwayTeam == team)).sum())
+        self.assertEqual(extra['fixture'], {'home_training_matches': played(row.HomeTeam),
+                                            'away_training_matches': played(row.AwayTeam),
+                                            'pinnacle_hda': [float(row[k]) for k in ('PSH', 'PSD', 'PSA')]})
+        self.assertEqual({k: v for k, v in changed_extra['fixture'].items()},
+                         {k: v for k, v in extra['fixture'].items() if k != 'pinnacle_hda'})
+
+
+class QuoteReferenceTest(unittest.TestCase):
+    def test_the_quote_is_de_vigged_proportionally_and_by_the_power_method(self):
+        import market_implied as mi
+        from football_value_pipeline_v2_standalone import devig
+        prices = eh.book_prices(priced(PSH=1.25, PSD=6.5, PSA=13.), 'pinnacle')
+        quotes = eh.quote_references(prices)
+        self.assertEqual(tuple(quotes), eh.QUOTE_REFERENCES)
+        self.assertEqual(quotes['QPROP'], list(mi.devig_three_way(1.25, 6.5, 13.)))
+        self.assertEqual(quotes['QPOW'], devig([1.25, 6.5, 13.], 'power'))
+        for probs in quotes.values():
+            self.assertAlmostEqual(sum(probs), 1., places=9)
+        # The power method takes more of the margin out of the long shot than the proportional method.
+        self.assertLess(quotes['QPOW'][2], quotes['QPROP'][2])
+        self.assertGreater(quotes['QPOW'][0], quotes['QPROP'][0])
+
+    def test_a_quote_is_scored_on_1x2_like_a_grid(self):
+        matrix = grid()
+        h, a = np.indices(matrix.shape)
+        probs = [float(matrix[h > a].sum()), float(matrix[h == a].sum()), float(matrix[h < a].sum())]
+        identity = {'fixture_key': 'k', 'league': 'EPL', 'week': 'w', 'phase': 'development'}
+        for goals in ((2, 1), (1, 1), (0, 3)):
+            mine = eh.score_1x2(identity, {'QPROP': probs}, *goals)
+            theirs = [r for r in eh.rb.score_fixture(identity, {'QPROP': matrix}, *goals) if r['market'] == '1X2']
+            self.assertEqual(len(mine), 1)
+            self.assertEqual(set(mine[0]), set(theirs[0]))
+            for key in ('log_loss', 'brier'):
+                self.assertAlmostEqual(mine[0][key], theirs[0][key], places=12)
+        scores = eh.fixture_scores(eh.score_1x2(identity, {'QPROP': probs, 'QPOW': probs}, 2, 1))
+        self.assertEqual(set(scores.group), {'1X2'})
 
 
 class PairedTest(unittest.TestCase):
@@ -145,6 +199,16 @@ class HoldoutLockTest(unittest.TestCase):
         for extra, message in bad:
             with self.assertRaisesRegex(ValueError, message):
                 eh.validate_declaration(self.declaration(**extra), CFG, self.setup, self.ledger)
+
+    def test_diagnostic_references_are_yardsticks_not_candidates(self):
+        for extra in ({'candidate': 'C0'}, {'candidate': 'DC'}, {'candidate': 'QPROP'}, {'candidate': 'QPOW'},
+                      {'baseline': 'QPROP'}, {'baseline': 'QPOW'}):
+            with self.assertRaisesRegex(ValueError, 'Diagnostic references cannot be declared'):
+                eh.validate_declaration(self.declaration(**extra), CFG, self.setup, self.ledger)
+        for baseline in eh.RESEARCH_BASELINES:  # a later candidate may be judged against a research baseline
+            declared = eh.validate_declaration(self.declaration(baseline=baseline), CFG, self.setup, self.ledger)
+            self.assertEqual(declared['baseline'], baseline)
+        self.assertTrue({*eh.RESEARCH_BASELINES, *eh.QUOTE_REFERENCES} <= set(eh.CANDIDATES))
 
     def test_a_valid_declaration_carries_the_configured_rule(self):
         declared = eh.validate_declaration(self.declaration(), CFG, self.setup, self.ledger)
@@ -206,6 +270,21 @@ class HoldoutLockTest(unittest.TestCase):
             self.assertTrue(research)
             self.assertEqual({r['identity']['phase'] for r in research}, {'validation'})
             self.assertEqual(coverage['Eredivisie:locked_holdout'], len(held['Eredivisie']))
+            # Diagnostic references are scored wherever C is: the research baselines on every market, the
+            # quote references (Pinnacle period) on 1X2 only. C's calibration row carries the fixture context.
+            by_candidate = {}
+            for r in locked:
+                by_candidate.setdefault(r['candidate'], set()).add(r['market'])
+            self.assertEqual(by_candidate['C0'], by_candidate['C'])
+            self.assertEqual(by_candidate['DC'], by_candidate['C'])
+            self.assertEqual((by_candidate['QPROP'], by_candidate['QPOW']), ({'1X2'}, {'1X2'}))
+            fixtures = [r for r in calib if 'fixture' in r]
+            self.assertEqual({r['candidate'] for r in fixtures}, {'C'})
+            self.assertEqual(len(fixtures), len({r['fixture_key'] for r in locked}))
+            self.assertTrue(all(len(r['fixture']['pinnacle_hda']) == 3 for r in fixtures))
+            quotes = [r for r in calib if r['candidate'] in eh.QUOTE_REFERENCES]
+            self.assertTrue(quotes and all(abs(sum(r['probs']) - 1) < 1e-9 for r in quotes))
+            self.assertEqual(coverage['Eredivisie:QPROP:available'], coverage['Eredivisie:M:available'])
             with mock.patch.object(eh.rb, 'score_fixture', identities_only):
                 unlocked = eh.evaluate_league('Eredivisie', cache, cfg, True, keep={'D', 'M'})[0]
             holdout = [r for r in unlocked if r['phase'] == 'holdout']
@@ -222,6 +301,11 @@ class HoldoutLockTest(unittest.TestCase):
             retro = eh.evaluate_league('EPL', cache, cfg, False)[0]
             self.assertEqual(held['EPL'], set())
             self.assertIn('retrospective', {r['phase'] for r in retro})
+            # No Pinnacle quote in the Bet365 period: the quote references stop, the research baselines go on.
+            after = {r['candidate'] for r in retro if r['phase'] == 'retrospective'}
+            self.assertFalse(after & set(eh.QUOTE_REFERENCES))
+            self.assertTrue(set(eh.RESEARCH_BASELINES) <= after)
+            self.assertTrue(set(eh.QUOTE_REFERENCES) <= {r['candidate'] for r in retro if r['phase'] == 'validation'})
 
 
 class ReviewGuardTest(unittest.TestCase):
