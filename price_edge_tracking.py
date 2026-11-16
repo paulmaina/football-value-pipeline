@@ -912,6 +912,23 @@ def split_table(frame: pd.DataFrame, value: str, columns=SPLITS) -> Dict[str, Di
     return out
 
 
+def list_headlines(root: Path, clock, frames: Dict[str, pd.DataFrame]) -> Dict[str, dict]:
+    """Per list: closing-line value first and returns second, per pick and with one row per fixture (a match's
+    picks averaged). Reporting only. The CLV is clv_report's (frozen price x Pinnacle fair close - 1, power
+    de-vig), not this module's same-line proportional CLV, which the STOP REVIEW rule and the splits keep."""
+    from clv_report import fixture_view, load_closes, pick_clv
+    try:
+        closes = load_closes(Path(root), clock)
+    except Exception:  # unreadable closing quotes: returns only, never a failed review
+        closes = None
+    out = {}
+    for name, frame in frames.items():
+        rows = frame.to_dict('records') if len(frame) else []
+        view = fixture_view(rows, pick_clv(rows, closes) if closes is not None else [None] * len(rows))
+        out[name] = {k: v for k, v in view.items() if k != 'fixtures'}
+    return out
+
+
 def review(root: Path, archive, records: List[dict], clock, active_rule: Optional[str] = None) -> dict:
     """Write performance/price_edge_v27/{summary.json, picks.csv, tagged_candidates.csv, report.md}."""
     from performance_tracking import frozen_rows, write_json
@@ -938,6 +955,10 @@ def review(root: Path, archive, records: List[dict], clock, active_rule: Optiona
         'version': VERSION, 'policy': POLICY, 'reviewed_at_utc': clock.isoformat(),
         'recommendation_history': history_summary(history), 'actual_bets': actual_bets,
         'frozen_picks': int(len(graded)), 'clv': overall,
+        'headline': list_headlines(root, clock, {
+            'value shortlist': graded, 'cagey tier': tier,
+            'new master (live)' if _live_list() == 'new' else 'new master (shadow)': new_master,
+            'old master (shadow)' if _live_list() == 'new' else 'old master (live)': master}),
         'profit': summarize(graded['unit_profit'] if len(graded) else []),
         'stop_review': bool(stop),
         'stop_review_rule': f'>= {STOP_REVIEW_MIN_PICKS} graded picks with mean CLV < 0',
@@ -1175,6 +1196,12 @@ def report(summary: dict) -> str:
     for message in (summary.get('master_release_incidents') or {}).get('messages', []):  # release incidents next
         head, _, rest = message.partition(' in ')
         lines += [f"> **{head}** (master shortlist) in {rest}", '']
+    if summary.get('headline'):  # closing-line value leads, returns second; per pick and per fixture
+        from clv_report import HEADLINE_NOTE, headline_table
+        lines += ['## Headline: closing-line value first, returns second', '', *headline_table(summary['headline']), '',
+                  HEADLINE_NOTE + " The headline CLV is clv_report's (the Pinnacle close with the margin removed by "
+                  "the power method). The STOP REVIEW rule and the tables below keep this report's own CLV (the "
+                  'same line, margin removed proportionally), so the two can differ slightly.', '']
     if 'recommendation_history' in summary:
         info=summary['recommendation_history']
         lines += ['## Recommendation history and placed bets', '', info['note'], '',
