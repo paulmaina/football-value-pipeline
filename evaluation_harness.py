@@ -68,9 +68,9 @@ Periods (configured in evaluation_harness_config.json):
                  diagnostics; the cagey correction is out-of-sample from here.
   holdout        16 Jan - 10 Oct 2026, Eredivisie, Primeira Liga and Super Lig only,
                  Bet365. No earlier benchmark or live report scored these results.
-                 LOCKED: scored only for one declared candidate, once per candidate
-                 and once per frozen setup (code, data and config fingerprint), and
-                 recorded in evaluation/holdout_ledger.json.
+                 LOCKED: scored only for one declared candidate per run, once per
+                 candidate; a frozen setup (code, data and config fingerprint) is never
+                 scored twice for the same candidate. Recorded in evaluation/holdout_ledger.json.
   retrospective  Every other match from 16 Jan 2026, Bet365. The five big leagues
                  were scored by the earlier benchmark (to 13 Oct 2026) and every
                  league from 11 Oct 2026 by the live performance reports, so these
@@ -93,7 +93,8 @@ it for UCL and UEL: walk-forward folds on the competition's own results, no odds
 domestic results. There are no historical European prices, so there is no market
 reference and no market bar. The European holdout (UCL, 21 Jan 2025 - 12 Oct 2026) is
 locked like the domestic one: never scored or trained on by a locked run, scored only with
-a declaration, once per candidate and per frozen setup (evaluation/european_holdout_ledger.json).
+a declaration, once per candidate (evaluation/european_holdout_ledger.json); a frozen setup is never scored
+twice for the same candidate.
 
 Live-replay mode replays the frozen forecasts with the report's grading: each
 forecast must precede the verified kickoff (performance_tracking.graded_match)
@@ -184,7 +185,7 @@ BOOKS = {
 DECLARATION_FIELDS = ('candidate', 'baseline', 'primary_metric', 'draw_sensitive_lines',
                       'calibration_tolerance', 'declared_by', 'declared_at')
 # Everything that can change a score. The setup fingerprint hashes these files,
-# the config and every input CSV, so one frozen setup is evaluated once.
+# the config and every input CSV, so a frozen setup is evaluated once per candidate.
 SETUP_FILES = ('evaluation_harness.py', 'research_backtest.py', 'historical_benchmark.py', 'team_research.py',
                'score_probability.py', 'football_value_pipeline_v2_standalone.py', 'market_implied.py',
                'narrow_margin.py', 'price_edge_cagey_shortlist.py', 'ah_close_backtest.py',
@@ -1430,7 +1431,12 @@ def setup_fingerprint(cfg, cache, root=Path(__file__).parent) -> dict:
 
 def validate_declaration(path, cfg, setup, ledger=LEDGER, candidates=None):
     """A declaration names one registered candidate and how it is judged. It must match the
-    configured scoring, and neither the candidate nor the frozen setup may have been scored before.
+    configured scoring, and the candidate may not have been scored before.
+
+    Frozen setup (Paul, 17 Nov 2026): a setup already scored is refused only for the same candidate. Before
+    that, any second declaration on a scored setup was refused, so two declared candidates could not both be
+    scored from one commit (C8 and D_pow2, Prompt 5). Every second run of a candidate stays refused, whatever
+    the setup; different declared candidates may share one. The rule's records are unchanged (C6, D, CE3n).
     `candidates` is the registry it must name (CANDIDATES; EUROPEAN_CANDIDATES for the European holdout)."""
     domestic = candidates is None or candidates is CANDIDATES
     registry = {**CANDIDATES, **CAGEY_CANDIDATES} if domestic else candidates
@@ -1487,8 +1493,9 @@ def validate_declaration(path, cfg, setup, ledger=LEDGER, candidates=None):
     entries = json.loads(ledger.read_text(encoding='utf-8')) if ledger.exists() else []
     if any(e['candidate'] == data['candidate'] for e in entries):
         raise ValueError(f"Holdout already scored for candidate {data['candidate']!r}")
-    if any(e.get('setup_sha256') == setup['sha256'] for e in entries):
-        raise ValueError('Holdout already scored for this frozen setup (same code, data and config)')
+    if any(e.get('setup_sha256') == setup['sha256'] and e['candidate'] == data['candidate'] for e in entries):
+        raise ValueError(f"Holdout already scored for candidate {data['candidate']!r} on this frozen setup "
+                         '(same code, data and config)')
     digest = hashlib.sha256(json.dumps(data, sort_keys=True).encode()).hexdigest()
     return {**data, 'calibration_rule': rule, 'sha256': digest}
 
@@ -2341,7 +2348,7 @@ EUROPEAN_CANDIDATES = {
     'CE4': "CE3 followed by CE2's calibration, the slope refitted on CE3's own earlier forecasts",
 }
 # Everything that can change a European score: the European setup fingerprint hashes these files,
-# the config and every cached European result file, so one frozen setup is evaluated once.
+# the config and every cached European result file, so a frozen setup is evaluated once per candidate.
 EUROPEAN_SETUP_FILES = ('evaluation_harness.py', 'european_results.py', 'research_backtest.py', 'team_research.py',
                         'score_probability.py', 'football_value_pipeline_v2_standalone.py', 'europa_training.py',
                         'ucl_training.py', 'match_scores.py', 'scripts/europa_research.py', 'ah_close_backtest.py',
