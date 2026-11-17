@@ -173,14 +173,18 @@ class FixtureIndex:
 def recompute(row: Mapping, evaluated_at: str, model_version: str, cutoff: bool = False) -> Optional[Dict[str, object]]:
     """Rerun the run's own fit and correction on one forecast row; None when no usable fit.
 
-    `cutoff`: the run used observed-by-cutoff-v2, which excludes fits with inputs stamped after it."""
+    `cutoff`: the run used observed-by-cutoff-v2, which excludes fits with inputs stamped after it. The fit uses
+    the margin-removal method the model was fitted on (proportional for D; power for D_pow2, which prices domestic
+    fixtures since 17 Nov 2026 and is named in their monitoring rows)."""
     import narrow_margin as nm
     import price_edge_cagey_shortlist as v28
     import price_edge_shortlist as v27
     row = {k: _clean(v) for k, v in row.items()}
     pin = v27.pinnacle_quotes(row)
-    fit, fit_info = v27.market_fit(pin, pd.Timestamp(evaluated_at), cutoff)
-    context = v28.corrected_context(pin, fit, fit_info, nm.load(model_version))
+    model = nm.load(model_version)
+    method = nm.model_method(model)
+    fit, fit_info = v27.market_fit(pin, pd.Timestamp(evaluated_at), cutoff, method=method)
+    context = v28.corrected_context(pin, fit, fit_info, model, method)
     if context is None:
         return None
     margins, corrected, raw = context['margins'], context['probs'], context['uncorrected_probs']

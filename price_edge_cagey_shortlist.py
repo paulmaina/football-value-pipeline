@@ -39,6 +39,16 @@ CAGEY TIER (a separate list, never merged into the value tier):
 v27 stays registered and replayable. The switches in
 cagey_correction_config.json turn the correction and the cagey tier on; with
 both off, v28 returns exactly v27's picks and decisions.
+
+WHICH CORRECTION (cagey_correction_config.json, cagey_correction_live; docs/plan.md, Phase 3b-3):
+  * D: the proportional market grid with the production correction (model_version). Every run before
+    17 Nov 2026 used D everywhere and records no cagey_correction_live, so it replays exactly as before.
+  * D_pow2: the power-method market grid, the correction fitted on that grid and the 1X2 set from the power
+    quote (cagey-correction-through-2425-power-1x2-v1). Released for domestic leagues on 17 Nov 2026 after
+    passing its declared holdout test against D; UCL and UEL keep D (never validated on European fixtures).
+  * Per scope (domestic, european); a run records the switch and the models in its summary. Where D_pow2
+    prices a row, D's no-loss probability for the same line is kept beside it (shadow). Rolling back is
+    setting cagey_correction_live.domestic to "D" (research_monitoring's cagey trigger says when).
 """
 from __future__ import annotations
 
@@ -103,7 +113,67 @@ DEFAULT_SETTINGS = {'cagey_correction_enabled': True, 'cagey_tier_enabled': True
 CONFIG = Path(__file__).with_name('cagey_correction_config.json')
 SWITCHES = ('cagey_correction_enabled', 'cagey_tier_enabled')
 # Everything a replay needs from a run's summary to reproduce its selection.
-REPLAY_SETTINGS = (*SWITCHES, 'cagey_tier_rule', 'value_rule', 'quote_timing_rule', 'excluded_markets')
+REPLAY_SETTINGS = (*SWITCHES, 'cagey_tier_rule', 'value_rule', 'quote_timing_rule', 'excluded_markets',
+                   'cagey_correction_live', 'cagey_corrections')
+# The cagey correction live per scope (module docstring, WHICH CORRECTION). A run that records no
+# cagey_correction_live used D, the proportional grid with the run's model, everywhere.
+CORRECTION_D = 'D'
+CORRECTION_D_POW2 = 'D_pow2'
+CORRECTION_METHODS = {CORRECTION_D: mi.DEVIG_PROPORTIONAL, CORRECTION_D_POW2: mi.DEVIG_POWER}
+CORRECTION_SCOPES = ('domestic', 'european')
+# The European competitions (team_research.EUROPEAN_COMPETITIONS, master_reconciliation_config.json european).
+EUROPEAN_LEAGUES = frozenset({'UEFA Champions League', 'UEFA Europa League'})
+# Decision columns of a run that records cagey_correction_live: which correction priced the row's cagey figures,
+# and, where that is not D, D's no-loss probability for the same line (the shadow).
+SHADOW_COLUMNS = ['cagey_correction', 'shadow_cagey_correction', 'shadow_corrected_no_loss_probability']
+
+
+def correction_scope(league) -> str:
+    return 'european' if str(league) in EUROPEAN_LEAGUES else 'domestic'
+
+
+def correction_live(settings: Mapping) -> Optional[Dict[str, str]]:
+    """The correction live per scope, or None (D everywhere, exactly as every run before 17 Nov 2026)."""
+    live = settings.get('cagey_correction_live')
+    if live is None:
+        return None
+    if not isinstance(live, Mapping) or set(live) != set(CORRECTION_SCOPES) \
+            or any(value not in CORRECTION_METHODS for value in live.values()):
+        raise ValueError(f'cagey_correction_live must give each of {CORRECTION_SCOPES} one of '
+                         f'{tuple(CORRECTION_METHODS)}')
+    if live['european'] != CORRECTION_D:
+        raise ValueError('UCL and UEL keep D: D_pow2 was tested on domestic leagues only')
+    if settings.get('devig_method', mi.DEVIG_PROPORTIONAL) != mi.DEVIG_PROPORTIONAL:
+        raise ValueError('devig_method is for offline candidates and cannot be combined with cagey_correction_live')
+    return dict(live)
+
+
+def correction_models(settings: Mapping, model: Optional[Mapping]) -> Dict[str, tuple]:
+    """name -> (correction model, margin-removal method) for every correction the settings put live. D is the
+    run's model on the proportional grid; another correction's model comes from settings['cagey_corrections'] and
+    must have been fitted on its own grid (narrow_margin.require_method): any other pairing is refused."""
+    live = correction_live(settings)
+    out = {CORRECTION_D: (model, mi.DEVIG_PROPORTIONAL)}
+    if live is None:
+        return out
+    table = settings.get('cagey_corrections') or {}
+    named = (table.get(CORRECTION_D) or {}).get('model_version')
+    if model is not None and named is not None and named != model['version']:
+        raise ValueError(f"cagey_corrections.D names {named!r}, but the run's model is {model['version']!r}")
+    for name in sorted(set(live.values()) - {CORRECTION_D}):
+        spec = table.get(name) or {}
+        if spec.get('devig_method') != CORRECTION_METHODS[name] or not spec.get('model_version'):
+            raise ValueError(f'cagey_corrections.{name} must name its model and devig_method '
+                             f'{CORRECTION_METHODS[name]!r}')
+        if model is None:
+            out[name] = (None, spec['devig_method'])
+            continue
+        candidate = nm.load(spec['model_version'])
+        nm.require_method(candidate, spec['devig_method'])
+        if name == CORRECTION_D_POW2 and nm.one_x_two(candidate) is None:
+            raise ValueError('D_pow2 needs the correction model that carries the 1X2 rule')
+        out[name] = (candidate, spec['devig_method'])
+    return out
 
 
 def excluded_markets(settings: Mapping) -> list:
@@ -216,9 +286,15 @@ def load_settings(path: Optional[Path] = None) -> Dict[str, object]:
         raise ValueError('cagey_correction_enabled and cagey_tier_enabled must be true or false')
     if any(data[name] for name in SWITCHES) and nm.versions()['gate'].get('gate_result') != 'PASS':
         raise ValueError('The cagey correction may only be switched on after GATE: PASS')
-    return {**{name: data[name] for name in (*SWITCHES, 'model_version')}, 'cagey_tier_rule': tier_rule(data),
-            'value_rule': value_rule(data), 'quote_timing_rule': timing_rule(data),
-            'excluded_markets': excluded_markets(data)}
+    settings = {**{name: data[name] for name in (*SWITCHES, 'model_version')}, 'cagey_tier_rule': tier_rule(data),
+                'value_rule': value_rule(data), 'quote_timing_rule': timing_rule(data),
+                'excluded_markets': excluded_markets(data)}
+    if data.get('cagey_correction_live') is not None:
+        settings.update(cagey_correction_live=data['cagey_correction_live'],
+                        cagey_corrections=data.get('cagey_corrections'))
+        # Refuse a bad switch or pairing when the config is read, not halfway through a run.
+        correction_models(settings, nm.load(data['model_version']))
+    return settings
 TIER_LINES = (1.0, 1.25, 1.5, 1.75, 2.0, 2.25)
 TIER_MIN_NO_LOSS = 0.85
 TIER_QUANTILE = 0.20
@@ -299,6 +375,26 @@ def corrected_context(pin: Mapping, fit: mi.Fit, fit_info: Mapping, model: Mappi
             'probs': corrected, 'score': p2,
             'input_stamps': [stamp for key, stamp in fit_info.get('input_stamps', {}).items()
                              if source.kind == 'B' or key != 'ah_main']}
+
+
+def shadow_fields(name: Optional[str], context: Optional[Mapping], shadow: Optional[Mapping],
+                  item: Mapping) -> Dict[str, object]:
+    """SHADOW_COLUMNS for one decision row: the correction that priced the row's cagey figures (None when it has
+    none), and D's no-loss probability for the same line and price wherever another correction is live."""
+    out = {'cagey_correction': name if context is not None else None, 'shadow_cagey_correction': None,
+           'shadow_corrected_no_loss_probability': None}
+    if shadow is None or name in (None, CORRECTION_D):
+        return out
+    out['shadow_cagey_correction'] = CORRECTION_D
+    try:
+        side, line = item.get('handicap_side'), float(item.get('handicap_line'))
+    except (TypeError, ValueError):
+        return out
+    if side in ('home', 'away') and np.isfinite(line):
+        out['shadow_corrected_no_loss_probability'] = corrected_price(
+            shadow, side, line, item.get('offered_decimal_odds'), item.get('per_stake_cost', 0.0) or 0.0
+        )['corrected_no_loss_probability']
+    return out
 
 
 def corrected_price(context: Mapping, side: str, line: float, price=None, cost=0.0) -> Dict[str, object]:
@@ -506,20 +602,33 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
     per_market = value_rule(settings) in (VALUE_RULE_PER_MARKET, *PROFIT_RULES)
     strict = timing_rule(settings) == TIMING_RULE_CUTOFF
     method = devig_method(settings)
+    live = correction_live(settings)
+    corrections = correction_models(settings, model)
+    quintile_sets = {CORRECTION_D: quintiles}
 
     def transform(row, items, pin, fit, fit_info, now) -> List[Dict[str, object]]:
-        # The cagey tier's own grid. Live (proportional) it is the fixture's fit, exactly as before. An offline
-        # candidate refits it with its method: the cagey context changes (and with it the c-cagey fair price of
-        # derived plus lines, which is the corrected grid's by definition); every other value figure keeps `fit`.
-        cagey_fit, cagey_info = (fit, fit_info) if method == mi.DEVIG_PROPORTIONAL else \
-            v27.market_fit(pin, now, strict, method=method)
-        context = corrected_context(pin, cagey_fit, cagey_info, model, method) if model is not None else None
+        # The cagey tier's own grid. Live D (proportional) it is the fixture's fit, exactly as before. Another
+        # method (D_pow2 where cagey_correction_live puts it, or an offline candidate's devig_method) refits it:
+        # the cagey context changes (and with it the c-cagey fair price of derived plus lines, which is the
+        # corrected grid's by definition); every other value figure keeps `fit`.
+        name = None if live is None else live[correction_scope(row.get('league'))]
+        row_model, row_method = (model, method) if name is None else corrections[name]
+        cagey_fit, cagey_info = (fit, fit_info) if row_method == mi.DEVIG_PROPORTIONAL else \
+            v27.market_fit(pin, now, strict, method=row_method)
+        context = corrected_context(pin, cagey_fit, cagey_info, row_model, row_method) if row_model is not None else None
+        # Shadow: D on the same fixture wherever another correction is live (reporting and the rollback trigger).
+        shadow = (corrected_context(pin, fit, fit_info, model) if name not in (None, CORRECTION_D) and model is not None
+                  else None)
         raw_context = None
         if fit.usable:
             margins, probs = mi.margin_distribution(fit.matrix)
             raw_context = {'margins': margins, 'probs': probs, 'input_stamps': list(fit_info['input_stamps'].values())}
-        if monitor is not None and model is not None:
-            monitor.append(monitoring_record(row, items, fit, fit_info, now, context, model, quintiles,
+        if monitor is not None and row_model is not None:
+            if name not in quintile_sets:
+                quintile_sets[name] = nm.load_quintiles(row_model)
+            record_fit, record_info = (fit, fit_info) if name in (None, CORRECTION_D) else (cagey_fit, cagey_info)
+            monitor.append(monitoring_record(row, items, record_fit, record_info, now, context, row_model,
+                           quintile_sets[CORRECTION_D if name is None else name],
                            used_inputs_only=settings['price_edge_execution_version'] >= EXECUTION_VERSION,
                            strict=strict))
         expanded = settings['cagey_tier_enabled'] and tier_rule(settings) in EXPANDED_RULES
@@ -535,6 +644,8 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
             if settings['price_edge_execution_version'] >= EXECUTION_VERSION:
                 item = {**item, 'per_stake_cost': cost}
             decision = value_tier_item(item, context, settings['cagey_correction_enabled'], tier)
+            if live is not None:
+                decision.update(shadow_fields(name, context, shadow, item))
             if per_market:
                 apply_group_threshold(decision)
             if settings['price_edge_execution_version'] >= EXECUTION_VERSION:
@@ -557,7 +668,10 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
                 out.append(decision)
         if value_rule(settings) == VALUE_RULE_LOCAL_RESEARCH:
             from profit_shortlist import dc12_candidates
-            out.extend(dc12_candidates(row, pin, fit, fit_info, now, policy))
+            extra = dc12_candidates(row, pin, fit, fit_info, now, policy)
+            if live is not None:
+                extra = [{**item, **shadow_fields(name, context, shadow, item)} for item in extra]
+            out.extend(extra)
         if strict:
             for decision in out:
                 apply_cutoff_timing(decision, fit_info, context, now)
@@ -922,12 +1036,20 @@ def _build_shortlist(predictions, as_of, market_reliability, execution_policy, s
             if uses_transform else (), cutoff=timing_rule(settings) == TIMING_RULE_CUTOFF, **group)
     else:
         model = model or (nm.load(settings['model_version']) if settings.get('model_version') else nm.production_model())
+        live = correction_live(settings)
         selected, decisions, summary = v27.build_shortlist(
             predictions, as_of, market_reliability, policy,
             transform=make_transform(model, settings, monitor, cost, policy=policy),
             extra_columns=[*VALUE_COLUMNS, *tier_columns(tier_rule(settings)), *groups,
-                           *(EXECUTION_COLUMNS if execution_version == EXECUTION_VERSION else [])],
+                           *(EXECUTION_COLUMNS if execution_version == EXECUTION_VERSION else []),
+                           *(SHADOW_COLUMNS if live is not None else [])],
             cutoff=timing_rule(settings) == TIMING_RULE_CUTOFF, **group)
+        if live is not None:
+            # Recorded so replays reproduce it; runs before 17 Nov 2026 record nothing and used D everywhere.
+            table = settings.get('cagey_corrections') or {}
+            summary.update(cagey_correction_live=live, cagey_corrections={
+                name: {'model_version': model['version'] if name == CORRECTION_D else table[name]['model_version'],
+                       'devig_method': CORRECTION_METHODS[name]} for name in sorted(set(live.values()) | {CORRECTION_D})})
     if value_rule(settings) in PROFIT_RULES:
         from profit_shortlist import COLUMNS as PROFIT_COLUMNS, annotate, select
         from performance_tracking import fixture_key
