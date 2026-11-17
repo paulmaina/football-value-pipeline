@@ -81,6 +81,33 @@ class RegistrationTest(unittest.TestCase):
             self.assertFalse((Path(tmp) / 'out').exists())
 
 
+class HistoricalForwardingTest(unittest.TestCase):
+    """historical() asks evaluate_league for D_pow2 only when asked for or declared, and otherwise calls it
+    exactly as before (same arguments)."""
+
+    def calls(self, **kwargs):
+        from tests.test_research_c8_variants import InlinePool
+        seen = []
+
+        def league(*args):
+            seen.append(args)
+            return [], [], {}, [], [], [], []
+
+        with mock.patch.object(eh, 'ProcessPoolExecutor', InlinePool), mock.patch.object(eh, 'evaluate_league', league):
+            eh.historical('cache', CFG, leagues=['EPL'], **kwargs)
+        return seen
+
+    def test_default_asked_and_declared_calls(self):
+        self.assertEqual(self.calls(), [('EPL', 'cache', CFG, False, None)])
+        self.assertEqual(self.calls(cagey=['D_pow2']), [('EPL', 'cache', CFG, False, None, None, ('D_pow2',))])
+        keep = {'D_pow2', 'D', 'M'}
+        self.assertEqual(self.calls(include_holdout=True, keep=keep),
+                         [('EPL', 'cache', CFG, True, keep, None, ('D_pow2',))])
+        # A declaration of anything else never computes it.
+        self.assertEqual(self.calls(include_holdout=True, keep={'C8', 'C6', 'M'}),
+                         [('EPL', 'cache', CFG, True, {'C8', 'C6', 'M'})])
+
+
 class HarnessRunTest(unittest.TestCase):
     """Real Eredivisie folds across the holdout start, with every holdout result blanked."""
 
