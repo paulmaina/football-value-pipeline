@@ -1734,6 +1734,33 @@ def dixon_coles_loss_and_gradient(
 # Dixon-Coles model
 # ---------------------------------------------------------------------------
 
+SEASON_GAP_DAYS = 45  # a summer break; the same length elo_ratings regresses its ratings after
+
+
+def season_carry_over_multipliers(dates, reference, carry_over: float,
+                                  gap_days: int = SEASON_GAP_DAYS) -> np.ndarray:
+    """Weight multiplier per training match: carry_over ** (summer gaps between the match and `reference`).
+
+    A summer gap is at least `gap_days` days with no training match that contains a 1 July, counted
+    between consecutive match days and between the last match day and `reference` (the fit's as-of date),
+    so the new season's first forecasts already treat last season as carried over. A winter or
+    tournament break, however long, is not a summer gap. Offline research only: DixonColesModel applies
+    this only when its season_carry_over is below 1, and every live fit leaves it at 1.
+    """
+    days = pd.DatetimeIndex(pd.to_datetime(dates)).normalize().values.astype('datetime64[D]')
+    end = np.datetime64(pd.Timestamp(reference).normalize(), 'D')
+    points = np.unique(np.r_[days, end])
+    before, after = points[:-1], points[1:]
+    long_enough = (after - before).astype(int) >= gap_days
+    first_july = (after.astype('datetime64[Y]') + np.timedelta64(6, 'M')).astype('datetime64[D]')
+    earlier_july = ((after.astype('datetime64[Y]') - np.timedelta64(1, 'Y')) + np.timedelta64(6, 'M')).astype('datetime64[D]')
+    # The latest 1 July on or before the gap's end lies after the gap's start.
+    latest_july = np.where(first_july <= after, first_july, earlier_july)
+    season_starts = after[long_enough & (latest_july > before)]
+    gaps = (days[:, None] < season_starts[None, :]).sum(axis=1)
+    return float(carry_over) ** gaps
+
+
 class DixonColesModel:
     """
     Recency-weighted Dixon-Coles model.
@@ -1751,6 +1778,8 @@ class DixonColesModel:
         max_goals: int = 10,
         bbs_statistics: bool = True,
         shot_features: bool = False,
+        *,
+        season_carry_over: float = 1.0,
     ):
         if not math.isfinite(half_life_days) or half_life_days <= 0:
             raise ValueError("half_life_days must be > 0")
@@ -1758,9 +1787,14 @@ class DixonColesModel:
             raise ValueError('l2 must be finite and nonnegative')
         if isinstance(max_goals, bool) or not isinstance(max_goals, (int, np.integer)) or not 5 <= max_goals <= 100:
             raise ValueError("max_goals should be an integer from 5 to 100")
+        if not math.isfinite(season_carry_over) or not 0 < season_carry_over <= 1:
+            raise ValueError('season_carry_over must be in (0, 1]')
 
         self.half_life_days = float(half_life_days)
         self.l2 = float(l2)
+        # 1.0 (the default, and what every live and benchmark fit uses) leaves the recency weights untouched.
+        # Below 1 is an offline research setting only (evaluation_harness.RATE_VARIANTS; docs/plan.md, Phase 2g).
+        self.season_carry_over = float(season_carry_over)
         self.max_goals = int(max_goals)
         self.bbs_statistics_enabled = bool(bbs_statistics)
         self.statistics_model = None
@@ -1861,6 +1895,8 @@ class DixonColesModel:
             raise ValueError("as_of must not precede the last training match")
         age_days = (reference - dates).dt.total_seconds().to_numpy() / 86400.0
         weights = np.exp(-math.log(2.0) * age_days / self.half_life_days)
+        if self.season_carry_over != 1.0:
+            weights = weights * season_carry_over_multipliers(dates, reference, self.season_carry_over)
 
         home_mean = max(float(hg.mean()), 0.2)
         away_mean = max(float(ag.mean()), 0.2)
@@ -1959,7 +1995,8 @@ class DixonColesModel:
                 from shot_features import fit_shot_model
                 def shot_baseline(past, origin):
                     return DixonColesModel(half_life_days=self.half_life_days, l2=self.l2,
-                        max_goals=self.max_goals, bbs_statistics=False).fit(past, as_of=origin)
+                        max_goals=self.max_goals, bbs_statistics=False,
+                        season_carry_over=self.season_carry_over).fit(past, as_of=origin)
                 try:
                     self.shot_model = fit_shot_model(df, reference, shot_baseline, self.half_life_days)
                     self.shot_features_report = self.shot_model.report
@@ -1977,7 +2014,8 @@ class DixonColesModel:
             from bbs_statistics_model import fit_statistics
             def baseline_factory(past, origin):
                 return DixonColesModel(half_life_days=self.half_life_days, l2=self.l2,
-                    max_goals=self.max_goals, bbs_statistics=False).fit(past, as_of=origin)
+                    max_goals=self.max_goals, bbs_statistics=False,
+                    season_carry_over=self.season_carry_over).fit(past, as_of=origin)
             try:
                 self.statistics_model = fit_statistics(df, reference, baseline_factory,
                     validation_mode=df.attrs.get('bbs_statistics_validation', 'auto'))
