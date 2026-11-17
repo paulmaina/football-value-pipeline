@@ -1,0 +1,57 @@
+{
+  "all_existing_outputs_identical": true,
+  "diagnostic_fixtures.csv": {
+    "byte_identical": true
+  },
+  "diagnostics.json": {
+    "identical_except_source_commit": true
+  },
+  "fixture_scores.csv": {
+    "branch_rows": 704218,
+    "branch_rows_not_variants": 548138,
+    "main_rows": 548138,
+    "main_sha256": "465984fed96a176cf0c22548805f5c3b5e4ba2c294c19a66a597d603e8499277",
+    "new_rows": 156080,
+    "non_variant_rows_byte_identical_in_order": true
+  },
+  "forecasts_1x2.csv": {
+    "branch_rows": 188326,
+    "branch_rows_not_variants": 149306,
+    "main_rows": 149306,
+    "main_sha256": "30a37449ec7814760a4c94f3aaf9967dcdfa5501a4b41e7536c6629a314b1896",
+    "new_rows": 39020,
+    "non_variant_rows_byte_identical_in_order": true
+  },
+  "rate_goals.csv": "branch only (written only with --rate-variants)",
+  "results.json": {
+    "average_margin": "identical",
+    "bet365_gap": "identical",
+    "cagey_events_check": "identical",
+    "calibration_1x2": "existing identical, 276 variant rows added",
+    "calibration_1x2_understat_leagues": "existing identical, 268 variant rows added",
+    "calibration_tolerance_check": "existing identical, variants added per period",
+    "candidates": "identical",
+    "config": "identical",
+    "config_sha256": "identical",
+    "coverage": "existing identical, 32 variant keys added",
+    "folds": "existing identical, 4 variant rows added",
+    "inputs": "identical",
+    "log_loss_all_available": "existing identical, 48 variant rows added",
+    "log_loss_common_cohort": "identical",
+    "mode": "identical",
+    "notes": "identical",
+    "paired": "identical",
+    "synthetic_price_margin": "identical",
+    "version": "identical"
+  },
+  "source_commit": {
+    "branch": "73a915aea51a68600e4a1c44f8e7ddf278acbfd0",
+    "main": "18bf9e11b3a73f50b54c996371eaa2879113562e"
+  },
+  "variants_in_branch_run": [
+    "C8P1",
+    "C8P3",
+    "C8S50",
+    "C8S70"
+  ]
+}
