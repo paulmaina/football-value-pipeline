@@ -1,4 +1,23 @@
 {
+  "cagey": {
+    "coverage": {},
+    "d_pow2_minus_d_log_loss": null,
+    "eligible": false,
+    "fallbacks": {
+      "domestic_fixtures": 0,
+      "domestic_records": 0,
+      "fallback_fixtures": 0,
+      "fallback_records": 0,
+      "runs": 0
+    },
+    "graded_fallbacks": 0,
+    "interval_95": null,
+    "log_loss": {},
+    "matches": 0,
+    "rule": "After at least 150 graded domestic matches across at least 3 weeks, roll back the cagey correction D_pow2 if its log loss on AH all lines minus D's, on the same frozen Pinnacle quotes, matches and offers, has a week-resampled 95% interval entirely above zero. Rolling back is setting cagey_correction_config.json cagey_correction_live.domestic to \"D\".",
+    "triggered": false,
+    "weeks": 0
+  },
   "ce3n": {
     "by_competition": {
       "UCL": {
