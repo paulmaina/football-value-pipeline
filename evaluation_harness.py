@@ -40,6 +40,12 @@ candidate is scored on the same matches:
      Computed only when asked (--rate-variants); not registered, so none can be declared (uses no odds)
   M  market reference: margin-free fit to Pinnacle, or to Bet365 on the holdout
   D  cagey tier: M corrected toward narrow margins (production correction)
+  D_pow2 cagey candidate (docs/plan.md, Phase 3b-2; CAGEY_CANDIDATES): the power-method market grid with the
+     correction refitted on that grid, then the 1X2 set separately from the power quote
+     (narrow_margin.one_x_two_target; model cagey-correction-through-2425-power-1x2-v1, a and b as fitted on
+     the correction's own training rows, nothing later). Computed only when asked (--cagey-candidates) or
+     declared, so a plain run fits and scores exactly what it did before. Declared against D only, under
+     rule cagey-events-v1 on the rule's own events (side chosen by D, prices from M, judged against M)
   A  published-grid production proxy (benchmark only; mixes model and market)
 
 Diagnostic references (15 Nov 2026; reporting only, never live; scored wherever C is, locked runs only):
@@ -146,6 +152,16 @@ CANDIDATES = {
     'QPOW': 'diagnostic quote reference, Pinnacle periods, 1X2 only: the Pinnacle 1X2 quote with the margin '
             'removed by the power method (football_value_pipeline_v2_standalone.devig)',
 }
+# Cagey candidates (docs/plan.md, Phase 3b-2; Paul's decision of 17 Nov 2026). Kept apart from CANDIDATES and
+# computed only when asked (--cagey-candidates, locked runs) or declared, so a plain run writes exactly the
+# bytes it did before. A cagey candidate is a market view: it may only be declared against the cagey tier
+# (D) under a cagey events rule. Its correction model is the one fitted on its own grid (cagey_candidate_models).
+CAGEY_CANDIDATES = {
+    'D_pow2': 'cagey candidate: the power-method market grid (fit B on power-de-vigged 1X2, totals and main AH '
+              "line) corrected toward narrow margins by the correction refitted on that grid, then the 1X2 set "
+              'separately from the power quote with the fitted draw uplift (narrow_margin_models/candidates/'
+              'cagey-correction-through-2425-power-1x2-v1; rule power-quote-draw-uplift-v1; offline until declared)',
+}
 RATE_CALIBRATION_CANDIDATES = {'C7': False, 'C8': True}  # candidate: whether its calibration has the Elo term
 # C8 variants (docs/plan.md, Phase 2g, "Penalty and season carry-over"): C8's calibration and (rho, delta)
 # refitted walk-forward on goal rates from a fold Dixon-Coles fit with these settings changed. The penalty
@@ -175,10 +191,17 @@ SETUP_FILES = ('evaluation_harness.py', 'research_backtest.py', 'historical_benc
                'evaluation_harness_config.json', 'narrow_margin_models/cagey-correction-through-2425-v1.json',
                'research_low_score.py', 'understat_history.py', 'understat_team_aliases.json',
                'research_sharpen.py', 'research_low_score_sharpen.py', 'research_rate_calibration.py',
-               'elo_ratings.py')
+               'elo_ratings.py', 'narrow_margin_models/candidates/cagey-correction-through-2425-power-1x2-v1.json')
 CALIBRATION_MIN_BIN = 30  # diagnostics' smallest reported band; the release rule's own minimum is in the config
 CAGEY_EVENT_CANDIDATES = ('D', 'M')  # calib rows carry their margin distribution for rule cagey-events-v1
-DECIDING_CRITERIA = ('log_loss_superiority', 'calibration')  # a declaration without one is log-loss superiority
+# What decides a declared verdict; a declaration without one is log-loss superiority.
+#   log_loss_superiority            the primary gain's interval clear of zero, and calibration
+#   calibration                     calibration alone (D against M, 12 Nov 2026); log loss reported
+#   calibration_and_point_estimates calibration, and the point estimates against the baseline on the primary
+#                                   metric (AH all lines) and on the draw-sensitive lines both not negative;
+#                                   intervals reported, not deciding (D_pow2 against D; Paul, 17 Nov 2026)
+POINT_ESTIMATES = 'calibration_and_point_estimates'
+DECIDING_CRITERIA = ('log_loss_superiority', 'calibration', POINT_ESTIMATES)
 PROMOTION_RULES = Path(__file__).with_name('benchmark_promotion_rules.json')
 
 
@@ -254,6 +277,24 @@ def cagey_matrix(matrix, prices, model, method='proportional'):
     if spec is not None:  # offline candidate D_pow2 only: the 1X2 set separately, the corrected grid moved onto it
         corrected = nm.set_one_x_two(corrected, nm.one_x_two_target(spec, p_home, p_draw, p_away))
     return rb.matrix_value(corrected)
+
+
+def cagey_candidate_models(names) -> dict:
+    """name -> (correction model, margin-removal method) for the cagey candidates asked for. Each model is the
+    one fitted on its candidate's own grid, read from narrow_margin_models/candidates/ (nothing live loads from
+    there); any other pairing is refused (narrow_margin.require_method)."""
+    import market_implied as mi
+    import narrow_margin as nm
+    out = {}
+    for name in names:
+        if name != 'D_pow2':
+            raise ValueError(f'{name!r} is not a registered cagey candidate')
+        model = nm.load(nm.ONE_X_TWO_VERSION, nm.CANDIDATE_DIR)
+        nm.require_method(model, mi.DEVIG_POWER)
+        if nm.one_x_two(model) is None:
+            raise ValueError('D_pow2 needs the correction model that carries the 1X2 rule')
+        out[name] = (model, mi.DEVIG_POWER)
+    return out
 
 
 def overround(prices) -> float:
@@ -373,7 +414,7 @@ def score_1x2(identity, forecasts, home_goals, away_goals):
     return records
 
 
-def candidates(row, train, origin, model, cfg, cagey_model, xg_train=None, elo=None):
+def candidates(row, train, origin, model, cfg, cagey_model, xg_train=None, elo=None, cagey_candidates=None):
     """C, M, D and A for one match (and C3 when `xg_train` is given: the same training rows with
     Understat xG). C's goal rates go out in extra['research_goal_rates'] for C2; C0's goal rates in
     extra['research_base_rates'] and, when `elo` (elo_ratings fitted on `train`) is given, the pre-match Elo
@@ -381,7 +422,10 @@ def candidates(row, train, origin, model, cfg, cagey_model, xg_train=None, elo=N
 
     Diagnostics (reporting only): the research baselines C0 and DC wherever C exists; in Pinnacle periods the
     quote references in extra['quote_references']; and extra['fixture'], what the pre-declared segment tables
-    need (each team's matches in the fold's training rows, and the Pinnacle 1X2 quote)."""
+    need (each team's matches in the fold's training rows, and the Pinnacle 1X2 quote).
+
+    `cagey_candidates` (cagey_candidate_models; none by default) adds each asked-for cagey candidate: its own
+    method's market grid from the same prices, corrected by its own model. M and D are unaffected."""
     from team_research import research_grid
     if train.Date.max() >= origin:
         raise ValueError('Training reaches prediction origin')
@@ -422,6 +466,11 @@ def candidates(row, train, origin, model, cfg, cagey_model, xg_train=None, elo=N
             matrices['D'] = cagey_matrix(matrices['M'], prices, cagey_model)
         except (ValueError, TypeError, KeyError) as exc:
             gaps['M'] = str(exc)
+        for name, (candidate_model, method) in (cagey_candidates or {}).items():
+            try:
+                matrices[name] = cagey_matrix(market_matrix(prices, method), prices, candidate_model, method)
+            except (ValueError, TypeError, KeyError) as exc:
+                gaps[name] = str(exc)
         try:
             matrices['A'] = published_proxy(model_grid, info, prices, model, cfg)
         except (ValueError, TypeError, KeyError) as exc:
@@ -499,18 +548,21 @@ def fixture_key(league, row) -> str:
     return '|'.join((league, row.Date.date().isoformat(), row.HomeTeam, row.AwayTeam))
 
 
-def evaluate_league(league, cache, cfg, include_holdout, keep=None, master_rows=None):
+def evaluate_league(league, cache, cfg, include_holdout, keep=None, master_rows=None, cagey=()):
     """Locked runs skip every holdout match. A holdout run scores ONLY holdout matches,
     and only the candidates in `keep` (declared candidate, baseline and M).
 
     `master_rows`, a list in locked runs only, receives each scored match's C, D and M margin distributions,
     its period bookmaker's prices and its result, for the Phase 4 master backtest (--mode master); it changes
-    nothing else."""
+    nothing else.
+
+    `cagey` names the cagey candidates (CAGEY_CANDIDATES) to compute beside D; none by default."""
     if master_rows is not None and include_holdout:
         raise ValueError('The master backtest never runs on the holdout')
     from elo_ratings import fit_history
     import narrow_margin as nm
     cagey_model = nm.production_model()
+    cagey_candidates = cagey_candidate_models(cagey)
     load_cfg = {**cfg, 'test_end_exclusive': cfg['end_exclusive']}
     data, sources, _ = hb.load_history(Path(cache), league, load_cfg)
     end = pd.Timestamp(cfg['end_exclusive'])
@@ -570,7 +622,8 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None, master_rows=
                 coverage[league + ':locked_holdout'] += 1
                 continue
             xg_train = None if xg_history is None else xg_history.loc[xg_history.Date < origin]
-            matrices, gaps, extra = candidates(row, train, origin, model, cfg, cagey_model, xg_train, elo)
+            matrices, gaps, extra = candidates(row, train, origin, model, cfg, cagey_model, xg_train, elo,
+                                               cagey_candidates)
             if 'c3_used_xg' in extra:
                 coverage[f"{league}:C3:{'xg_form' if extra['c3_used_xg'] else 'goals_form'}"] += 1
             quotes = extra.get('quote_references', {})
@@ -600,7 +653,8 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None, master_rows=
                               'candidate': cand, 'probs': probs, 'outcome': outcome,
                               **({'cagey': cagey_inputs(matrix, quote, extra['market_book'], identity['week'],
                                                         row.FTHG - row.FTAG)}
-                                 if cand in CAGEY_EVENT_CANDIDATES and quote is not None else {}),
+                                 if cand in (*CAGEY_EVENT_CANDIDATES, *CAGEY_CANDIDATES) and quote is not None
+                                 else {}),
                               # Diagnostics: C's row carries what the segment tables need for this fixture.
                               **({'fixture': {'date': identity['date'], 'week': identity['week'], **extra['fixture']}}
                                  if cand == 'C' else {})})
@@ -1004,7 +1058,7 @@ def summarize(records, overrounds, coverage, cfg, metadata):
             for base, cand in (('C', 'C2'), ('C', 'C3'), ('C2', 'C3'), ('C', 'C5'), ('C2', 'C5'), ('C3', 'C5'),
                                ('C', 'C6'), ('C2', 'C6'), ('C5', 'C6'), ('C', 'M'), ('C', 'D'), ('C', 'A'), ('M', 'D'),
                                ('C6', 'C7'), ('C6', 'C8'), ('C', 'C7'), ('C', 'C8'), ('C0', 'C7'), ('C0', 'C8'),
-                               ('C7', 'C8')):
+                               ('C7', 'C8'), *((b, c) for c in CAGEY_CANDIDATES for b in ('D', 'M'))):
                 result = paired(sub, base, cand)
                 if result:
                     entry[f'{cand}_vs_{base}'] = result
@@ -1267,8 +1321,19 @@ def cagey_events(calib, rule) -> pd.DataFrame:
                          **{k: v for k, v in event.items() if k != 'lines'},
                          'lines': ' '.join(f'{v:+.2f}' for v in event.get('lines', [])),
                          **{f'p_{c}': cagey_event_probability(event, f) for c, f in forecasts.items()}})
+    scored = [c for c in CAGEY_CANDIDATES if any(c in forecasts for forecasts in by_fixture.values())]
     return pd.DataFrame(rows, columns=['phase', 'fixture_key', 'week', 'family', 'side', 'k', 'y', 'lines',
-                                       *[f'p_{c}' for c in CAGEY_EVENT_CANDIDATES]])
+                                       *[f'p_{c}' for c in (*CAGEY_EVENT_CANDIDATES, *scored)]])
+
+
+def cagey_candidate_events(events, candidate) -> pd.DataFrame:
+    """The rule's events on which `candidate` has a forecast. D and M have one on every event by construction;
+    a cagey candidate lacks it where its own grid could not be fitted, and it and its references are then
+    judged on the same remaining events."""
+    column = f'p_{candidate}'
+    if not len(events) or column not in events:
+        return events.iloc[0:0]
+    return events.loc[events[column].notna()]
 
 
 def binary_bands(p, y, rule) -> list[dict]:
@@ -1333,6 +1398,10 @@ def cagey_events_checks(calib, rule) -> dict:
         part = events.loc[events.phase == name]
         output[name] = {c: cagey_events_check(part, rule, c, rule['price_basis'])
                         for c in (rule['event_selector'], rule['price_basis'])}
+        for c in CAGEY_CANDIDATES:  # only when computed: the candidate on the rule's own events, against M
+            own = cagey_candidate_events(part, c)
+            if len(own):
+                output[name][c] = cagey_events_check(own, rule, c, rule['price_basis'])
     return output
 
 
@@ -1363,7 +1432,8 @@ def validate_declaration(path, cfg, setup, ledger=LEDGER, candidates=None):
     """A declaration names one registered candidate and how it is judged. It must match the
     configured scoring, and neither the candidate nor the frozen setup may have been scored before.
     `candidates` is the registry it must name (CANDIDATES; EUROPEAN_CANDIDATES for the European holdout)."""
-    registry = CANDIDATES if candidates is None else candidates
+    domestic = candidates is None or candidates is CANDIDATES
+    registry = {**CANDIDATES, **CAGEY_CANDIDATES} if domestic else candidates
     data = json.loads(Path(path).read_text(encoding='utf-8'))
     missing = [k for k in DECLARATION_FIELDS if data.get(k) in (None, '', [])]
     if missing:
@@ -1390,11 +1460,24 @@ def validate_declaration(path, cfg, setup, ledger=LEDGER, candidates=None):
     criterion = data.get('deciding_criterion', 'log_loss_superiority')
     if criterion not in DECIDING_CRITERIA:
         raise ValueError('Deciding criterion must be one of ' + ', '.join(DECIDING_CRITERIA))
-    if not is_1x2_rule(rule) and (data['candidate'], data['baseline']) != (rule['event_selector'], rule['price_basis']):
+    # An events rule judges the cagey tier (D) against the market fit (M), or a registered cagey candidate
+    # declared against the cagey tier: the candidate is then scored on the rule's own events (side chosen by
+    # D, prices from M) and judged against M, exactly as D was.
+    challenger = data['candidate'] in CAGEY_CANDIDATES
+    if data['baseline'] in CAGEY_CANDIDATES:
+        raise ValueError('A cagey candidate cannot be the baseline')
+    if challenger and is_1x2_rule(rule):
+        raise ValueError(f"Cagey candidate {data['candidate']!r} must be declared under a cagey events rule")
+    if not is_1x2_rule(rule) and (data['candidate'], data['baseline']) != (rule['event_selector'], rule['price_basis']) \
+            and not (challenger and data['baseline'] == rule['event_selector']):
         raise ValueError(f"Calibration rule {rule['name']!r} judges {rule['event_selector']} against "
-                         f"{rule['price_basis']} only")
-    if criterion == 'calibration':
-        minimum = promotion_minimums('domestic' if registry is CANDIDATES else 'european')
+                         f"{rule['price_basis']} only (or a registered cagey candidate, "
+                         f"{', '.join(CAGEY_CANDIDATES)}, declared against {rule['event_selector']})")
+    if criterion == POINT_ESTIMATES and data['primary_metric'] != 'AH all':
+        raise ValueError(f'Deciding criterion {POINT_ESTIMATES!r} reads AH all lines and the draw-sensitive lines: '
+                         "the primary metric must be 'AH all'")
+    if criterion in ('calibration', POINT_ESTIMATES):
+        minimum = promotion_minimums('domestic' if domestic else 'european')
         declared = data.get('sample_minimum') or {}
         if not isinstance(declared, dict) or {k: declared.get(k) for k in minimum} != minimum:
             raise ValueError(f'A calibration-deciding declaration must state the sample minimum {minimum}')
@@ -1419,7 +1502,13 @@ def holdout_verdict(records, calib, declaration, gap, minimum=None):
     Deciding criterion: without one (C6, CE3n) the candidate must beat the baseline on the primary metric
     with the interval clear of zero, meet the sample minimum and pass calibration. With
     'deciding_criterion': 'calibration' it must meet the sample minimum and pass calibration; log loss is
-    reported, not deciding."""
+    reported, not deciding. With 'calibration_and_point_estimates' it must meet the sample minimum, pass
+    calibration, and have both point estimates against the baseline (baseline minus candidate log loss on
+    the primary metric and on the draw-sensitive lines) not negative; the intervals are reported only.
+
+    An events rule is always judged against its price basis (M) on its own events. For D against M that is
+    the declared baseline; for a cagey candidate declared against D, the candidate, D and M are all scored
+    on the rule's events on which the candidate has a forecast, and D's check is reported as context."""
     scores = fixture_scores(records, declaration['draw_sensitive_lines'])
     hold = scores.loc[scores.phase == 'holdout']
     cand, base = declaration['candidate'], declaration['baseline']
@@ -1433,15 +1522,24 @@ def holdout_verdict(records, calib, declaration, gap, minimum=None):
         calibrated = calibration_check([r for r in held if r['candidate'] == cand], rule,
                                        [r for r in held if r['candidate'] == base])
     else:
-        events = cagey_events(held, rule)
-        calibrated = cagey_events_check(events, rule, cand, base)
-        baseline_calibration = cagey_events_check(events, rule, base, base)
+        events = cagey_candidate_events(cagey_events(held, rule), cand)
+        against = rule['price_basis']
+        calibrated = cagey_events_check(events, rule, cand, against)
+        baseline_calibration = cagey_events_check(events, rule, base, against)
     market = paired(hold.loc[hold.group == declaration['primary_metric']], 'M', cand) if cand != 'M' else None
     bar = max(0., gap.get(declaration['primary_metric'], {}).get('bet365_minus_pinnacle_log_loss', 0.))
     minimum = minimum or promotion_minimums()
     enough = bool(primary and primary['fixtures'] >= minimum['fixtures'] and primary['weeks'] >= minimum['weeks'])
+    point_estimates = None
     if criterion == 'calibration':
         passed = bool(enough and calibrated['passes'])
+    elif criterion == POINT_ESTIMATES:
+        gains = {declaration['primary_metric']: primary and primary['mean_gain'],
+                 'AH draw-sensitive': draw and draw['mean_gain']}
+        point_estimates = {'baseline_minus_candidate': gains,
+                           'not_negative': {k: bool(v is not None and v >= 0) for k, v in gains.items()}}
+        point_estimates['all_not_negative'] = all(point_estimates['not_negative'].values())
+        passed = bool(enough and calibrated['passes'] and point_estimates['all_not_negative'])
     else:
         passed = bool(enough and primary and primary['clear_of_zero'] and calibrated['passes'])
     verdict = {'candidate': cand, 'baseline': base, 'primary_metric': declaration['primary_metric'],
@@ -1459,6 +1557,15 @@ def holdout_verdict(records, calib, declaration, gap, minimum=None):
             verdict['primary_metric_role'] = 'reported, not deciding'
             verdict['next_steps'] = ('Calibration-deciding test: passing confirms the candidate against its baseline '
                                      'on the declared rule; any production change still needs a reviewed PR.')
+        if criterion == POINT_ESTIMATES:
+            verdict['point_estimates'] = point_estimates
+            verdict['primary_metric_role'] = 'point estimate decides (not negative); interval reported, not deciding'
+            verdict['next_steps'] = ('Passing needs the sample minimum, the calibration rule and both point estimates '
+                                     'not negative; parity test and live replay follow, then a reviewed PR.')
+        if not is_1x2_rule(rule) and base != rule['price_basis']:
+            verdict['calibration_judged_against'] = rule['price_basis']
+            verdict['price_basis_calibration'] = cagey_events_check(events, rule, rule['price_basis'],
+                                                                    rule['price_basis'])
     return verdict
 
 
@@ -2618,15 +2725,18 @@ def european_summary(records, calib, coverage, cfg, metadata):
 # Entry point
 # ---------------------------------------------------------------------------
 
-def historical(cache, cfg, *, include_holdout=False, keep=None, leagues=None, workers=None, variants=()):
+def historical(cache, cfg, *, include_holdout=False, keep=None, leagues=None, workers=None, variants=(), cagey=()):
     """`variants` are the C8 variants (RATE_VARIANTS) to score beside the candidates; a declared variant
-    (`keep`) is always among them. None by default: a plain run fits and scores exactly what it did before."""
+    (`keep`) is always among them. None by default: a plain run fits and scores exactly what it did before.
+    `cagey` are the cagey candidates (CAGEY_CANDIDATES) to compute beside D, on the same terms."""
     leagues = list(leagues or cfg['leagues'])
     variants = [name for name in RATE_VARIANTS if name in {*variants, *(keep or ())}]
+    cagey = tuple(name for name in CAGEY_CANDIDATES if name in {*cagey, *(keep or ())})
     records, folds, coverage, overrounds, sources, calib, research = [], [], Counter(), [], [], [], []
     variant_rates = {name: {} for name in variants}
     with ProcessPoolExecutor(max_workers=workers) as pool:
-        futures = [pool.submit(evaluate_league, league, str(cache), cfg, include_holdout, keep) for league in leagues]
+        futures = [pool.submit(evaluate_league, league, str(cache), cfg, include_holdout, keep, None, cagey)
+                   for league in leagues]
         variant_futures = [(name, pool.submit(variant_base_rates, league, str(cache), cfg, include_holdout, name))
                            for name in variants for league in leagues]
         for future in futures:
@@ -3760,9 +3870,13 @@ def main(argv=None):
     parser.add_argument('--workers', type=int)
     parser.add_argument('--rate-variants', nargs='+', choices=sorted(RATE_VARIANTS), default=[],
                         help='Historical locked runs only: also score these C8 variants (offline research)')
+    parser.add_argument('--cagey-candidates', nargs='+', choices=sorted(CAGEY_CANDIDATES), default=[],
+                        help='Historical locked runs only: also score these cagey candidates (offline research)')
     args = parser.parse_args(argv)
     if args.rate_variants and (args.mode != 'historical' or args.declaration):
         raise ValueError('--rate-variants is for locked historical runs only')
+    if args.cagey_candidates and (args.mode != 'historical' or args.declaration):
+        raise ValueError('--cagey-candidates is for locked historical runs only')
     args.output.mkdir(parents=True, exist_ok=True)
     commit = git_commit()
     if args.mode == 'live':
@@ -3823,10 +3937,13 @@ def main(argv=None):
         keep = {declaration['candidate'], declaration['baseline'], 'M'}
     records, folds, coverage, overrounds, sources, calib = historical(
         args.cache, cfg, include_holdout=declaration is not None, keep=keep, leagues=args.leagues, workers=args.workers,
-        variants=args.rate_variants)
+        variants=args.rate_variants, cagey=args.cagey_candidates)
     metadata = {'mode': 'holdout' if declaration else 'historical', 'source_commit': commit, 'folds': folds,
                 'inputs': sources, 'config_sha256': hashlib.sha256(json.dumps(cfg, sort_keys=True).encode()).hexdigest()}
     summary = summarize(records, overrounds, coverage, cfg, metadata)
+    scored_cagey = [c for c in CAGEY_CANDIDATES if c in {*args.cagey_candidates, *(keep or ())}]
+    if scored_cagey:  # never in a plain run: its results.json is unchanged
+        summary['cagey_candidates'] = {c: CAGEY_CANDIDATES[c] for c in scored_cagey}
     summary['calibration_1x2'] = calibration(calib)
     summary['calibration_tolerance_check'] = calibration_checks(calib, cfg['calibration_tolerance'])
     cagey_rules = [r for r in calibration_rules(cfg).values() if r.get('kind') == 'cagey_events']

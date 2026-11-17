@@ -78,7 +78,9 @@ class ModelTest(unittest.TestCase):
         self.assertNotIn(nm.ONE_X_TWO_VERSION, nm.CANDIDATE_VERSIONS.values())
         self.assertNotIn(nm.ONE_X_TWO_VERSION, json.dumps(nm.versions()))
         self.assertEqual(v28.load_settings()['model_version'], nm.PRODUCTION_VERSION)
-        self.assertNotIn(f'narrow_margin_models/candidates/{nm.ONE_X_TWO_VERSION}.json', eh.SETUP_FILES)
+        # Registered as harness candidate D_pow2 on 17 Nov 2026 (declared once against D): the holdout's setup
+        # fingerprint now covers the model, as it covers everything that can change a score. Still nothing live.
+        self.assertIn(f'narrow_margin_models/candidates/{nm.ONE_X_TWO_VERSION}.json', eh.SETUP_FILES)
 
     def test_the_rule_is_only_valid_on_the_power_grid(self):
         spec = model()['one_x_two']
