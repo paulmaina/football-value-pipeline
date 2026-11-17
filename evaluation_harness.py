@@ -34,6 +34,10 @@ candidate is scored on the same matches:
   C8 candidate: C7 plus Elo: + c z on the home rate and - c z on the away rate, z the pre-match Elo
      difference / 400 from elo_ratings on the fold's training rows (never later results), c fitted with
      C7's parameters; (rho, delta) refitted on C8's own rates (uses no odds). Offline only
+  C8P1, C8P3, C8S70, C8S50 and their pairs (RATE_VARIANTS): C8 with both fits refitted on goal rates
+     from a fold Dixon-Coles fit with one setting changed, the penalty l2 (1 or 3, against 0.08) or the
+     season carry-over (0.7 or 0.5, against 1.0: earlier seasons' weights scaled after each summer gap).
+     Computed only when asked (--rate-variants); not registered, so none can be declared (uses no odds)
   M  market reference: margin-free fit to Pinnacle, or to Bet365 on the holdout
   D  cagey tier: M corrected toward narrow margins (production correction)
   A  published-grid production proxy (benchmark only; mixes model and market)
@@ -143,7 +147,17 @@ CANDIDATES = {
             'removed by the power method (football_value_pipeline_v2_standalone.devig)',
 }
 RATE_CALIBRATION_CANDIDATES = {'C7': False, 'C8': True}  # candidate: whether its calibration has the Elo term
-WALK_FORWARD_CANDIDATES = frozenset({'C2', 'C5', 'C6', *RATE_CALIBRATION_CANDIDATES})  # fitted on earlier forecasts
+# C8 variants (docs/plan.md, Phase 2g, "Penalty and season carry-over"): C8's calibration and (rho, delta)
+# refitted walk-forward on goal rates from a fold Dixon-Coles fit with these settings changed. The penalty
+# is DixonColesModel's l2 (cfg['baseline_l2'], 0.08, for every other candidate); the season carry-over
+# scales earlier seasons' recency weights after each summer gap (1.0 for every other candidate). Offline
+# only and computed only when asked (--rate-variants). None is in CANDIDATES, so none can be declared: a
+# variant is registered only if the plan's choice rule names it.
+RATE_VARIANTS = {'C8P1': {'l2': 1.}, 'C8P3': {'l2': 3.},
+                 'C8S70': {'season_carry_over': .7}, 'C8S50': {'season_carry_over': .5},
+                 'C8P1S70': {'l2': 1., 'season_carry_over': .7}, 'C8P1S50': {'l2': 1., 'season_carry_over': .5},
+                 'C8P3S70': {'l2': 3., 'season_carry_over': .7}, 'C8P3S50': {'l2': 3., 'season_carry_over': .5}}
+WALK_FORWARD_CANDIDATES = frozenset({'C2', 'C5', 'C6', *RATE_CALIBRATION_CANDIDATES, *RATE_VARIANTS})  # fitted on earlier forecasts
 RESEARCH_BASELINES = ('C0', 'DC')  # diagnostics: scored wherever C is; never live and never a declared candidate
 QUOTE_REFERENCES = ('QPROP', 'QPOW')  # diagnostics: 1X2 forecasts only (no score grid), Pinnacle periods only
 GAP_CANDIDATES = ('MP', 'MB')  # Pinnacle and Bet365 market fits on the same matches
@@ -443,6 +457,48 @@ def training_rows(data, league, cfg, include_holdout):
     return data.loc[~locked]
 
 
+def fold_model(train, origin, cfg, **settings):
+    """One fold's Dixon-Coles fit as every candidate reads it: the production profile's half-life and shot
+    features, cfg['baseline_l2'], no BBS statistics. `settings` are a C8 variant's changes (RATE_VARIANTS)."""
+    from football_value_pipeline_v2_standalone import DixonColesModel
+    profile = cfg['production_v2']
+    return DixonColesModel(**{'half_life_days': profile['half_life_days'], 'l2': cfg['baseline_l2'],
+                              'max_goals': cfg['max_goals'], 'shot_features': profile['shot_features'],
+                              'bbs_statistics': False, **settings}).fit(train.copy(), as_of=origin)
+
+
+def variant_base_rates(league, cache, cfg, include_holdout, name) -> dict:
+    """One C8 variant's goal rates for a league: fixture key -> the fold Dixon-Coles goal rates under the
+    variant's settings (RATE_VARIANTS), i.e. what C0's rates (prepare's base_rates) are under the default fit.
+
+    The same folds, training rows and matches as evaluate_league: each fold is fitted on the training rows
+    before its origin (never a locked holdout result), and a locked run makes no forecast of a holdout
+    match. Reads team names, dates and scores only, never a price."""
+    from team_research import number
+    load_cfg = {**cfg, 'test_end_exclusive': cfg['end_exclusive']}
+    data, _, _ = hb.load_history(Path(cache), league, load_cfg)
+    end = pd.Timestamp(cfg['end_exclusive'])
+    history = training_rows(data, league, cfg, include_holdout)
+    rates = {}
+    for origin, stop in fold_windows(cfg, end):
+        train = history.loc[history.Date < origin]
+        test = data.loc[(data.Date >= origin) & (data.Date < stop)]
+        if test.empty or len(train) < cfg['min_train']:
+            continue
+        model = fold_model(train, origin, cfg, **RATE_VARIANTS[name])
+        for _, row in test.iterrows():
+            if (phase(row.Date, league, cfg) == 'holdout' and not include_holdout) \
+                    or row.HomeTeam not in model.teams or row.AwayTeam not in model.teams:
+                continue
+            _, info = model.score_matrix(row.HomeTeam, row.AwayTeam)
+            rates[fixture_key(league, row)] = [number(info['lambda_home']), number(info['lambda_away'])]
+    return rates
+
+
+def fixture_key(league, row) -> str:
+    return '|'.join((league, row.Date.date().isoformat(), row.HomeTeam, row.AwayTeam))
+
+
 def evaluate_league(league, cache, cfg, include_holdout, keep=None, master_rows=None):
     """Locked runs skip every holdout match. A holdout run scores ONLY holdout matches,
     and only the candidates in `keep` (declared candidate, baseline and M).
@@ -452,16 +508,15 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None, master_rows=
     nothing else."""
     if master_rows is not None and include_holdout:
         raise ValueError('The master backtest never runs on the holdout')
-    from football_value_pipeline_v2_standalone import DixonColesModel
     from elo_ratings import fit_history
     import narrow_margin as nm
     cagey_model = nm.production_model()
     load_cfg = {**cfg, 'test_end_exclusive': cfg['end_exclusive']}
     data, sources, _ = hb.load_history(Path(cache), league, load_cfg)
     end = pd.Timestamp(cfg['end_exclusive'])
-    profile = cfg['production_v2']
     records, folds, coverage, overrounds, calib, research = [], [], Counter(), [], [], []
-    with_elo = keep is None or 'C8' in keep  # C8's Elo difference: ratings from the fold's training rows only
+    # C8's Elo difference (and its variants'): ratings from the fold's training rows only
+    with_elo = keep is None or 'C8' in keep or bool(keep & set(RATE_VARIANTS))
     history = training_rows(data, league, cfg, include_holdout)
     xg_history = None
     if keep is None or 'C3' in keep:
@@ -477,9 +532,7 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None, master_rows=
         if len(train) < cfg['min_train']:
             coverage[league + ':insufficient_training'] += len(test)
             continue
-        model = DixonColesModel(half_life_days=profile['half_life_days'], l2=cfg['baseline_l2'],
-                                max_goals=cfg['max_goals'], shot_features=profile['shot_features'],
-                                bbs_statistics=False).fit(train.copy(), as_of=origin)
+        model = fold_model(train, origin, cfg)
         folds.append({'league': league, 'origin': origin.date().isoformat(), 'end_exclusive': stop.date().isoformat(),
                       'training_end': train.Date.max().date().isoformat(), 'training_matches': len(train)})
         elo = fit_history(train) if with_elo else None
@@ -492,6 +545,7 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None, master_rows=
                 context, _, _ = research_context(row, train, origin, model)
                 inputs = rate_calibration_inputs(row, context, elo)
                 research.append({'identity': {'league': league, 'phase': name}, 'date': row.Date,
+                                 'fixture_key': fixture_key(league, row),
                                  'goal_rates': [float(v) for v in context['goal_rates']],
                                  'base_rates': inputs['research_base_rates'], 'elo_z': inputs['elo_z'],
                                  'home_goals': row.FTHG, 'away_goals': row.FTAG, 'scored': False})
@@ -529,7 +583,8 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None, master_rows=
                         'fixture_key': '|'.join((league, date.date().isoformat(), row.HomeTeam, row.AwayTeam)),
                         'phase': name, 'market_book': extra.get('market_book', '')}
             if 'research_goal_rates' in extra:
-                research.append({'identity': identity, 'date': date, 'goal_rates': extra['research_goal_rates'],
+                research.append({'identity': identity, 'date': date, 'fixture_key': identity['fixture_key'],
+                                 'goal_rates': extra['research_goal_rates'],
                                  'base_rates': extra['research_base_rates'], 'elo_z': extra['elo_z'],
                                  'home_goals': row.FTHG, 'away_goals': row.FTAG, 'scored': True})
             records.extend(rb.score_fixture(identity, matrices, row.FTHG, row.FTAG))
@@ -801,9 +856,26 @@ def rate_calibration_walk_forward(research, cfg, end, elo, every_window=False):
     return research, rates, windows
 
 
+def with_variant_rates(research, rates, name) -> list:
+    """The research rows as one C8 variant reads them: `base_rates` are the variant's goal rates
+    (variant_base_rates, by fixture key) instead of C0's. Everything else, the Elo difference included, is
+    C8's own input. Every row must have the variant's rates: the two are built from the same folds."""
+    missing = [r['fixture_key'] for r in research if r['fixture_key'] not in rates]
+    if missing:
+        raise ValueError(f'{name}: no goal rates for {len(missing)} research rows, first {missing[0]}')
+    return [{**r, 'base_rates': rates[r['fixture_key']]} for r in research]
+
+
+def expected_goals(matrix) -> list:
+    """Home and away expected goals of a score grid (rows: home goals)."""
+    goals = np.arange(matrix.shape[0])
+    return [float(matrix.sum(axis=1) @ goals), float(matrix.sum(axis=0) @ goals)]
+
+
 def rate_calibration_candidate(research, cfg, end, name, keep=None):
     """C7 or C8 (`name`) for every scored match: C0's goal rates through the walk-forward rate calibration, on
-    C2's grid with (rho, delta) refitted on the candidate's own rates (rate_calibration_walk_forward).
+    C2's grid with (rho, delta) refitted on the candidate's own rates (rate_calibration_walk_forward). A C8
+    variant (`name` in RATE_VARIANTS) is C8's procedure on the rows with_variant_rates gives it.
 
     Before enough earlier forecasts exist both fits are neutral and the candidate is C0 exactly. A locked
     run never computes a research forecast for a holdout match, so no holdout result can reach either
@@ -812,7 +884,8 @@ def rate_calibration_candidate(research, cfg, end, name, keep=None):
     records, calib, coverage, fits = [], [], Counter(), []
     if (keep is not None and name not in keep) or not research:
         return records, calib, coverage, fits
-    research, rates, windows = rate_calibration_walk_forward(research, cfg, end, RATE_CALIBRATION_CANDIDATES[name])
+    research, rates, windows = rate_calibration_walk_forward(
+        research, cfg, end, name in RATE_VARIANTS or RATE_CALIBRATION_CANDIDATES[name])
     for window in windows:
         inside = window['scored']
         if not inside:
@@ -837,8 +910,21 @@ def rate_calibration_candidate(research, cfg, end, name, keep=None):
             calib.append({'phase': r['identity']['phase'], 'league': r['identity']['league'],
                           'fixture_key': r['identity']['fixture_key'], 'candidate': name,
                           'probs': [float(matrix[h > a].sum()), float(matrix[h == a].sum()), float(matrix[h < a].sum())],
-                          'outcome': 0 if hg > ag else 1 if hg == ag else 2})
+                          'outcome': 0 if hg > ag else 1 if hg == ag else 2,
+                          # Reporting only (rate_goals_frame): the grid's expected goals beside the score.
+                          'goals': {'expected': expected_goals(matrix), 'actual': [float(hg), float(ag)]}})
     return records, calib, coverage, fits
+
+
+RATE_GOALS_COLUMNS = ['phase', 'league', 'fixture_key', 'candidate', 'expected_home_goals', 'expected_away_goals',
+                      'home_goals', 'away_goals']
+
+
+def rate_goals_frame(calib) -> pd.DataFrame:
+    """Expected and actual goals per fixture for the rate-calibration candidates (C7, C8 and any variant in
+    the run), from their calibration rows. Written only by a locked run with --rate-variants."""
+    return pd.DataFrame([[r['phase'], r['league'], r['fixture_key'], r['candidate'], *r['goals']['expected'],
+                          *r['goals']['actual']] for r in calib if 'goals' in r], columns=RATE_GOALS_COLUMNS)
 
 
 # ---------------------------------------------------------------------------
@@ -2532,14 +2618,22 @@ def european_summary(records, calib, coverage, cfg, metadata):
 # Entry point
 # ---------------------------------------------------------------------------
 
-def historical(cache, cfg, *, include_holdout=False, keep=None, leagues=None, workers=None):
+def historical(cache, cfg, *, include_holdout=False, keep=None, leagues=None, workers=None, variants=()):
+    """`variants` are the C8 variants (RATE_VARIANTS) to score beside the candidates; a declared variant
+    (`keep`) is always among them. None by default: a plain run fits and scores exactly what it did before."""
     leagues = list(leagues or cfg['leagues'])
+    variants = [name for name in RATE_VARIANTS if name in {*variants, *(keep or ())}]
     records, folds, coverage, overrounds, sources, calib, research = [], [], Counter(), [], [], [], []
+    variant_rates = {name: {} for name in variants}
     with ProcessPoolExecutor(max_workers=workers) as pool:
         futures = [pool.submit(evaluate_league, league, str(cache), cfg, include_holdout, keep) for league in leagues]
+        variant_futures = [(name, pool.submit(variant_base_rates, league, str(cache), cfg, include_holdout, name))
+                           for name in variants for league in leagues]
         for future in futures:
             r, f, c, o, s, k, x = future.result()
             records += r; folds += f; coverage.update(c); overrounds += o; sources += s; calib += k; research += x
+        for name, future in variant_futures:
+            variant_rates[name].update(future.result())
     r, k, c, fits = low_score_candidate(research, cfg, pd.Timestamp(cfg['end_exclusive']), keep)
     records += r; calib += k; coverage.update(c)
     folds.append({'candidate': 'C2', 'walk_forward_fits': fits})
@@ -2553,6 +2647,11 @@ def historical(cache, cfg, *, include_holdout=False, keep=None, leagues=None, wo
         r, k, c, fits = rate_calibration_candidate(research, cfg, pd.Timestamp(cfg['end_exclusive']), name, keep)
         records += r; calib += k; coverage.update(c)
         folds.append({'candidate': name, 'walk_forward_fits': fits})
+    for name in variants:
+        r, k, c, fits = rate_calibration_candidate(with_variant_rates(research, variant_rates[name], name), cfg,
+                                                   pd.Timestamp(cfg['end_exclusive']), name, keep)
+        records += r; calib += k; coverage.update(c)
+        folds.append({'candidate': name, 'settings': RATE_VARIANTS[name], 'walk_forward_fits': fits})
     if not include_holdout and any(r['phase'] == 'holdout' for r in records):
         raise ValueError('Locked holdout rows leaked into an unlocked run')
     if include_holdout and any(r['phase'] != 'holdout' and r['candidate'] not in GAP_CANDIDATES for r in records):
@@ -3659,7 +3758,11 @@ def main(argv=None):
     parser.add_argument('--leagues', nargs='+')
     parser.add_argument('--declaration', type=Path, help='Scores the locked holdout for one declared candidate, once')
     parser.add_argument('--workers', type=int)
+    parser.add_argument('--rate-variants', nargs='+', choices=sorted(RATE_VARIANTS), default=[],
+                        help='Historical locked runs only: also score these C8 variants (offline research)')
     args = parser.parse_args(argv)
+    if args.rate_variants and (args.mode != 'historical' or args.declaration):
+        raise ValueError('--rate-variants is for locked historical runs only')
     args.output.mkdir(parents=True, exist_ok=True)
     commit = git_commit()
     if args.mode == 'live':
@@ -3719,7 +3822,8 @@ def main(argv=None):
         declaration = validate_declaration(args.declaration, cfg, setup)
         keep = {declaration['candidate'], declaration['baseline'], 'M'}
     records, folds, coverage, overrounds, sources, calib = historical(
-        args.cache, cfg, include_holdout=declaration is not None, keep=keep, leagues=args.leagues, workers=args.workers)
+        args.cache, cfg, include_holdout=declaration is not None, keep=keep, leagues=args.leagues, workers=args.workers,
+        variants=args.rate_variants)
     metadata = {'mode': 'holdout' if declaration else 'historical', 'source_commit': commit, 'folds': folds,
                 'inputs': sources, 'config_sha256': hashlib.sha256(json.dumps(cfg, sort_keys=True).encode()).hexdigest()}
     summary = summarize(records, overrounds, coverage, cfg, metadata)
@@ -3746,6 +3850,8 @@ def main(argv=None):
         import evaluation_diagnostics as ed
         ed.fixture_frame(calib).to_csv(args.output / 'diagnostic_fixtures.csv', index=False)
         ed.write_json(args.output / 'diagnostics.json', {**ed.from_run(args.output), 'source_commit': commit})
+        if args.rate_variants:  # predicted against actual goals for C8 and the variants (scripts/c8_variants_report.py)
+            rate_goals_frame(calib).to_csv(args.output / 'rate_goals.csv', index=False)
     return 0
 
 
