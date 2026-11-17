@@ -157,8 +157,12 @@ class CorrectionModelTest(unittest.TestCase):
 
     def test_candidates_live_where_nothing_live_reads(self):
         self.assertEqual(nm.CANDIDATE_DIR, nm.MODEL_DIR / 'candidates')
+        # D_pow2's model and quintiles sit beside the production model since its release (17 Nov 2026, plan 3b-3);
+        # the power and Shin candidates themselves stay where nothing live reads.
         self.assertEqual(sorted(p.name for p in nm.MODEL_DIR.glob('*.json')),
-                         ['cagey-correction-pre2024-v1.json', 'cagey-correction-through-2425-v1.json',
+                         ['cagey-correction-pre2024-v1.json', 'cagey-correction-through-2425-power-1x2-v1.json',
+                          'cagey-correction-through-2425-power-1x2-v1.quintiles.json',
+                          'cagey-correction-through-2425-v1.json',
                           'cagey-correction-through-2425-v1.quintiles.json', 'index.json'])
         self.assertEqual(nm.versions()['production']['version'], nm.PRODUCTION_VERSION)
         self.assertEqual(v28.load_settings()['model_version'], nm.PRODUCTION_VERSION)
@@ -179,7 +183,9 @@ class CorrectionModelTest(unittest.TestCase):
 
 
 def live_run(row, method=None, model=None):
-    settings = v28.load_settings() if method is None else {**v28.load_settings(), 'devig_method': method}
+    # The rule before the D_pow2 release (D everywhere): these offline candidates are judged against D.
+    before = {k: v for k, v in v28.load_settings().items() if k not in ('cagey_correction_live', 'cagey_corrections')}
+    settings = before if method is None else {**before, 'devig_method': method}
     selected, decisions, summary = v28.build_shortlist(
         pd.DataFrame([row]), FROZEN['snapshot_generated_utc'], execution_policy=POLICY, settings=settings,
         model=model or nm.production_model())

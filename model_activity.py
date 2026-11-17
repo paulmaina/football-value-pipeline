@@ -329,8 +329,11 @@ def record_refit(repo: Path | str, item: Mapping, message: str) -> None:
 
 # --- forecast runs -----------------------------------------------------------------------------------------------
 
-def switch_state(master_config: Path | str, research_config: Path | str) -> dict:
-    """The release switches and their files' versions, as read now (None where unreadable)."""
+def switch_state(master_config: Path | str, research_config: Path | str,
+                 cagey_config: Optional[Path | str] = None) -> dict:
+    """The release switches and their files' versions, as read now (None where unreadable). With `cagey_config`
+    (cagey_correction_config.json) also the cagey correction live per scope (since 17 Nov 2026); a repository
+    without that file records no cagey switch."""
     def load(path):
         try:
             data = json.loads(Path(path).read_text(encoding='utf-8'))
@@ -339,9 +342,15 @@ def switch_state(master_config: Path | str, research_config: Path | str) -> dict
         return data if isinstance(data, dict) else {}
     master, research = load(master_config), load(research_config)
     live = research.get('live') if isinstance(research.get('live'), dict) else {}
-    return {'master_live': master.get('live'), 'research_domestic': live.get('domestic'),
-            'research_european': live.get('european'), 'master_config_version': master.get('version'),
-            'research_config_version': research.get('version')}
+    state = {'master_live': master.get('live'), 'research_domestic': live.get('domestic'),
+             'research_european': live.get('european'), 'master_config_version': master.get('version'),
+             'research_config_version': research.get('version')}
+    if cagey_config is not None and Path(cagey_config).exists():
+        cagey = load(cagey_config).get('cagey_correction_live')
+        cagey = cagey if isinstance(cagey, dict) else {}
+        # A config without the switch (before 17 Nov 2026) used D everywhere.
+        state.update(cagey_domestic=cagey.get('domestic', 'D'), cagey_european=cagey.get('european', 'D'))
+    return state
 
 
 SWITCH_NAMES = {
@@ -350,12 +359,28 @@ SWITCH_NAMES = {
     'research_european': 'research_config.json live.european (UCL/UEL research version)',
     'master_config_version': 'master_shortlist_config.json version',
     'research_config_version': 'research_config.json version',
+    'cagey_domestic': 'cagey_correction_config.json cagey_correction_live.domestic (domestic cagey correction)',
+    'cagey_european': 'cagey_correction_config.json cagey_correction_live.european (UCL/UEL cagey correction)',
+}
+# The first forecast run that finds a correction live logs its release once (the moment it took effect).
+CAGEY_RELEASES = {
+    'D_pow2': ("The cagey correction D_pow2 (power-method grid, the correction fitted on it and the 1X2 set from the "
+               'power quote; model cagey-correction-through-2425-power-1x2-v1) became the domestic leagues\' cagey '
+               'correction, D kept in shadow; UCL and UEL keep D. Released by its declared holdout test against D '
+               '(scored once on 17 Nov 2026: cagey-events-v1 passed, both point estimates not negative; a Bet365 '
+               'safety check, not a measure of the live effect). Rollback rule: D_pow2 − D log loss on AH lines with '
+               'a 95% interval entirely above zero after 150 graded domestic matches over 3 weeks; rolling back is '
+               'setting cagey_correction_live.domestic to "D".'),
 }
 
 
 def switch_settings_text(state: Mapping) -> str:
-    return (f'master live "{state.get("master_live")}", research domestic "{state.get("research_domestic")}", '
+    text = (f'master live "{state.get("master_live")}", research domestic "{state.get("research_domestic")}", '
             f'research UCL/UEL "{state.get("research_european")}"')
+    if 'cagey_domestic' in state:
+        text += (f', cagey correction domestic "{state.get("cagey_domestic")}", '
+                 f'cagey correction UCL/UEL "{state.get("cagey_european")}"')
+    return text
 
 
 def switch_event(before: Optional[Mapping], after: Mapping, *, when: Any = None, source: str = SOURCE_FORECAST,
@@ -371,7 +396,8 @@ def switch_event(before: Optional[Mapping], after: Mapping, *, when: Any = None,
     outcome = ('SWITCH CHANGED: ' + ', '.join(f'{k.replace("research_", "").replace("_live", "")} '
                                               f'{shown(changed[k][0])} → {shown(changed[k][1])}' for k in flips)
                if flips else 'CONFIG VERSION CHANGED')
-    model = ', '.join(sorted({'master shortlist' if k.startswith('master') else 'research' for k in changed}))
+    model = ', '.join(sorted({'master shortlist' if k.startswith('master') else 'cagey correction'
+                              if k.startswith('cagey') else 'research' for k in changed}))
     return event(SWITCH, model, outcome, f'{words}. Now: {switch_settings_text(after)}.' + (f' {note}' if note else ''),
                  key='switches', source=source, when=when, backfilled=backfilled, ident=ident,
                  data={'changed': changed, 'state_before': before or None, 'state_after': dict(after)})
@@ -474,8 +500,21 @@ def master_events(summary: Mapping, when: Any = None) -> List[dict]:
     return []
 
 
+def cagey_release_event(log: Sequence[Mapping], state: Mapping, when: Any = None) -> Optional[dict]:
+    """The release line of a domestic cagey correction the first time a forecast run finds it live."""
+    name = state.get('cagey_domestic')
+    if name not in CAGEY_RELEASES or last(log, f'release:cagey correction {name}') is not None:
+        return None
+    return event(RELEASE, f'cagey correction {name}, domestic', 'RELEASED (holdout test passed)', CAGEY_RELEASES[name],
+                 key=f'release:cagey correction {name}', source=SOURCE_FORECAST, when=when,
+                 data={'decided': '2026-11-17', 'decision': 'declared holdout test passed (evaluation/holdout_ledger.json)',
+                       'versions': {'before': 'D (cagey-correction-through-2425-v1, proportional grid)',
+                                    'after': f'{name} (cagey-correction-through-2425-power-1x2-v1, power grid)'}})
+
+
 def forecast_events(log: Sequence[Mapping], out_dir: Path | str, master_config: Path | str,
-                    research_config: Path | str, when: Any = None) -> List[dict]:
+                    research_config: Path | str, when: Any = None,
+                    cagey_config: Optional[Path | str] = None) -> List[dict]:
     """The events of one forecast run, from its run summary and predictions (out_dir) and the switch files."""
     from csv_utils import dict_reader
     out_dir = Path(out_dir)
@@ -494,10 +533,13 @@ def forecast_events(log: Sequence[Mapping], out_dir: Path | str, master_config: 
             rows = list(dict_reader(handle))
     events = []
     previous = last(log, 'switches')
-    change = switch_event((previous or {}).get('data', {}).get('state_after'),
-                          switch_state(master_config, research_config), when=when)
+    state = switch_state(master_config, research_config, cagey_config)
+    change = switch_event((previous or {}).get('data', {}).get('state_after'), state, when=when)
     if change is not None:
         events.append(change)
+    release = cagey_release_event(log, state, when)
+    if release is not None:
+        events.append(release)
     events += stale_events(log, rows, when)
     events += master_events(summary, when)
     ucl = ucl_event(log, summary.get('ce3n_ucl_live_check'), when)
@@ -513,7 +555,8 @@ def record_forecast(repo: Path | str, out_dir: Path | str, when: Any = None) -> 
     try:
         log = read(repo / LOG)
         return append(repo / LOG, forecast_events(log, out_dir, repo / 'master_shortlist_config.json',
-                                                  repo / 'research_config.json', when))
+                                                  repo / 'research_config.json', when,
+                                                  repo / 'cagey_correction_config.json'))
     except Exception as exc:  # noqa: BLE001
         warnings.warn(f'Model activity not recorded for this forecast run ({type(exc).__name__}: {exc})')
         return []
@@ -622,6 +665,19 @@ def rollback_checks(research: Optional[Mapping], price_edge: Optional[Mapping]) 
                                        'a warning, not a rollback.' if warn else '')),
                         'data': {'matches': part.get('matches'), 'weeks': part.get('weeks'), 'difference': d,
                                  'interval_95': part.get('interval_95'), 'warning': warn, 'slopes': sl}})
+    cagey = research.get('cagey') or {}
+    if cagey:
+        shown, state = _research_state(cagey, (rm.CAGEY_MIN_MATCHES, rm.CAGEY_MIN_WEEKS))
+        diff = cagey.get('d_pow2_minus_d_log_loss')
+        out.append({'key': 'rollback:cagey', 'model': 'cagey correction D_pow2 vs D, domestic', 'status': shown,
+                    'state': state,
+                    'details': (f'{cagey.get("matches", 0)} graded domestic matches over {cagey.get("weeks", 0)} weeks; '
+                                f'D_pow2 − D log loss on AH lines {"not computed yet" if diff is None else f"{diff:+.5f}"}'
+                                f', 95% interval {_interval(cagey.get("interval_95"))}. Rollback if the interval is '
+                                f'entirely above zero after {rm.CAGEY_MIN_MATCHES} matches and {rm.CAGEY_MIN_WEEKS} '
+                                'weeks.'),
+                    'data': {k: cagey.get(k) for k in ('matches', 'weeks', 'eligible', 'triggered',
+                                                        'd_pow2_minus_d_log_loss', 'interval_95')}})
     return out
 
 

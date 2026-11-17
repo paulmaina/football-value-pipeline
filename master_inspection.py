@@ -99,10 +99,14 @@ def research_view(forecast: Mapping) -> Optional[dict]:
             'likely_scores': likely_scores(matrix), 'context': context}
 
 
-def market_view(forecast: Mapping, clock, model_version: Optional[str] = None) -> Optional[dict]:
+def market_view(forecast: Mapping, clock, model_version: Optional[str] = None,
+                cagey: Optional[Mapping] = None) -> Optional[dict]:
     """Pinnacle's view at the run clock: fit B's expected goals and scorelines; home/draw/away from the cagey tier's
     corrected margins with the run's cagey model (`model_version`, else the production model), fit B's where the
-    correction is unavailable."""
+    correction is unavailable. `cagey` is the run's per-scope correction (its summary's cagey_correction_live and
+    cagey_corrections; price_edge_cagey_shortlist.correction_live): the fixture's scope picks the correction exactly
+    as the cagey tier did, including its fallback to D where D_pow2's power grid fails its fit check
+    (price_edge_cagey_shortlist.cagey_basis). None (every run before 17 Nov 2026): D, as before."""
     import narrow_margin as nm
     import price_edge_cagey_shortlist as v28
     import price_edge_shortlist as v27
@@ -111,7 +115,12 @@ def market_view(forecast: Mapping, clock, model_version: Optional[str] = None) -
     if not fit.usable or fit.matrix is None:
         return None
     model = nm.load(model_version) if model_version else nm.production_model()
-    context = v28.corrected_context(pin, fit, info, model)
+    settings = dict(cagey or {})
+    live = v28.correction_live(settings)
+    name = None if live is None else live[v28.correction_scope(forecast.get('league'))]
+    _, row_model, method, cagey_fit, cagey_info, _ = v28.cagey_basis(
+        name, v28.correction_models(settings, model), pin, fit, info, pd.Timestamp(clock), True)
+    context = v28.corrected_context(pin, cagey_fit, cagey_info, row_model, method)
     split, basis = ((margin_hda(context['margins'], context['probs']), 'cagey-corrected margins')
                     if context is not None else (hda(fit.matrix), 'market fit B'))
     return {'expected_goals': {'home': float(fit.lam_home), 'away': float(fit.lam_away)}, 'home_draw_away': split,
@@ -203,7 +212,8 @@ def history_text(history: Optional[dict]) -> str:
 
 
 def detail(row: Mapping, forecast: Optional[Mapping], clock, european: bool,
-           history: Optional[dict], model_version: Optional[str] = None) -> Dict[str, object]:
+           history: Optional[dict], model_version: Optional[str] = None,
+           cagey: Optional[Mapping] = None) -> Dict[str, object]:
     """The structured inspection detail of one flagged pick (see the module docstring)."""
     research_no_loss = _number(row.get('research_no_loss_probability'))
     cagey_no_loss = _number(row.get('cagey_no_loss_probability'))
@@ -215,7 +225,7 @@ def detail(row: Mapping, forecast: Optional[Mapping], clock, european: bool,
         out['unavailable'] = 'no unique forecast row for this fixture'
         return out
     research = research_view(forecast)
-    market = market_view(forecast, clock, model_version)
+    market = market_view(forecast, clock, model_version, cagey)
     if research is None or market is None:
         out['unavailable'] = ('research goal rates unavailable' if research is None
                               else 'market fit unavailable at the run clock')
@@ -275,7 +285,7 @@ def columns(info: Mapping) -> Dict[str, Optional[str]]:
 
 
 def annotate(frame: pd.DataFrame, predictions: Optional[pd.DataFrame], clock, config: Mapping,
-             model_version: Optional[str] = None):
+             model_version: Optional[str] = None, cagey: Optional[Mapping] = None):
     """(frame with COLUMNS added, {row index: detail}) for the flagged picks; every other row gets empty columns.
     A pick whose detail can't be built says so in its row; the list itself is never affected."""
     from master_selection import identity
@@ -296,7 +306,7 @@ def annotate(frame: pd.DataFrame, predictions: Optional[pd.DataFrame], clock, co
         row = out.loc[index].to_dict()
         try:
             info = detail(row, by_fixture.get(identity(row)), clock, row.get('league') in european, history,
-                          model_version)
+                          model_version, cagey)
             text = columns(info)
         except Exception as exc:  # reporting only: never affects the list
             info = {'no_loss': {'research': _number(row.get('research_no_loss_probability')),

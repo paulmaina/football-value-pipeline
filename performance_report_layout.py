@@ -1263,10 +1263,11 @@ def activity_summary(ctx: Context) -> List[List[str]]:
     rows.append(['CE3n competition warnings (UCL, UEL)', *competition_summary(ce3n, why)])
     rows.append(['UCL live check (research v6)', ucl_check_state(ctx.research.get('ucl_live_check')),
                  'Runs with UCL fixtures are checked until one passes; see Model Monitoring.'])
-    state = ma.switch_state(config_path('master'), config_path('v6'))
+    import price_edge_cagey_shortlist as v28
+    state = ma.switch_state(config_path('master'), config_path('v6'), v28.CONFIG)
     rows.append(['Switch settings', ma.switch_settings_text(state),
-                 'master_shortlist_config.json live; research_config.json live.domestic and live.european (read when '
-                 'the workbook is built).'])
+                 'master_shortlist_config.json live; research_config.json live.domestic and live.european; '
+                 'cagey_correction_config.json cagey_correction_live (read when the workbook is built).'])
     change = latest_activity(events, 'switches')
     rows.append(['Last switch change', xb.eat_text(change.get('recorded_at_utc')) if change else
                  not_assessed('no switch state in the activity log'),
