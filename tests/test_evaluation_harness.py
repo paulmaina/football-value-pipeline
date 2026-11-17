@@ -220,9 +220,18 @@ class HoldoutLockTest(unittest.TestCase):
         eh.validate_declaration(self.declaration(candidate='C7', baseline='C6'), CFG, {'sha256': 'c' * 64}, self.ledger)
 
     def test_the_committed_declarations_can_both_be_scored_from_one_setup_once_each(self):
-        """C8 against C6 and D_pow2 against D (Prompt 5) on a copy of the real ledger: in either order the second
-        is accepted on the first one's setup, and neither can be scored twice. Nothing is scored here."""
-        entries = json.loads(eh.LEDGER.read_text(encoding='utf-8'))
+        """C8 against C6 and D_pow2 against D (Prompt 5). Both were scored once on 17 Nov 2026, from one setup: the
+        real ledger refuses each again. On a copy without those two entries, in either order the second is accepted
+        on the first one's setup, and neither can be scored twice. Nothing is scored here."""
+        real = json.loads(eh.LEDGER.read_text(encoding='utf-8'))
+        scored = {e['candidate']: e for e in real if e['candidate'] in ('C8', 'D_pow2')}
+        self.assertEqual(set(scored), {'C8', 'D_pow2'})
+        self.assertEqual(scored['C8']['setup_sha256'], scored['D_pow2']['setup_sha256'])
+        for name in ('c8_holdout.json', 'cagey_dpow2_holdout.json'):
+            with self.assertRaisesRegex(ValueError, 'already scored for candidate'):
+                eh.validate_declaration(REPO / 'evaluation/declarations' / name, CFG,
+                                        {'sha256': scored['C8']['setup_sha256']})
+        entries = [e for e in real if e['candidate'] not in scored]
         paths = [REPO / 'evaluation/declarations' / name for name in ('c8_holdout.json', 'cagey_dpow2_holdout.json')
                  if (REPO / 'evaluation/declarations' / name).exists()]
         if len(paths) < 2:

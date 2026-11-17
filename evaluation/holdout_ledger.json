@@ -20,5 +20,27 @@
     "deciding_criterion": "calibration",
     "calibration_tolerance": "cagey-events-v1",
     "scored_at_utc": "2026-11-12T21:54:39.784180+00:00"
+  },
+  {
+    "candidate": "D_pow2",
+    "baseline": "D",
+    "declaration_sha256": "06b19ad6947e36e098cf37a3d13e65182db7034ba3f2c0a5c1fdb6b8c14f6e5a",
+    "setup_sha256": "01ae89f3fe5252069f24d00037e10d297ff93b4e87249eff6cf06fd0fc09cfba",
+    "source_commit": "e7ba42efdafb442be1f14c7fad52695e243c6be2",
+    "holdout_fixtures": 638,
+    "passes_holdout_gate": true,
+    "deciding_criterion": "calibration_and_point_estimates",
+    "calibration_tolerance": "cagey-events-v1",
+    "scored_at_utc": "2026-11-17T13:56:17.715075+00:00"
+  },
+  {
+    "candidate": "C8",
+    "baseline": "C6",
+    "declaration_sha256": "b91d845f6c5197bbac5b8e52a7f58e2d970bd3ae863b1bcaf22a9d0e449dc43e",
+    "setup_sha256": "01ae89f3fe5252069f24d00037e10d297ff93b4e87249eff6cf06fd0fc09cfba",
+    "source_commit": "e7ba42efdafb442be1f14c7fad52695e243c6be2",
+    "holdout_fixtures": 640,
+    "passes_holdout_gate": false,
+    "scored_at_utc": "2026-11-17T14:10:23.636445+00:00"
   }
 ]
