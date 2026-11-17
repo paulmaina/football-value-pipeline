@@ -199,14 +199,42 @@ class HoldoutLockTest(unittest.TestCase):
         path.write_text(json.dumps(data), encoding='utf-8')
         return path
 
-    def test_a_declaration_is_scored_once_per_candidate_and_per_setup(self):
+    def test_a_declaration_is_scored_once_per_candidate_and_a_setup_once_per_candidate(self):
         declared = eh.validate_declaration(self.declaration(), CFG, self.setup, self.ledger)
         eh.record_holdout(declared, self.setup, 'abc', 646, {'passes_holdout_gate': False}, self.ledger)
-        with self.assertRaisesRegex(ValueError, "already scored for candidate 'D'"):
-            eh.validate_declaration(self.declaration(), CFG, {'sha256': 'b' * 64}, self.ledger)
-        # Same frozen setup under another candidate: refused too.
-        with self.assertRaisesRegex(ValueError, 'frozen setup'):
-            eh.validate_declaration(self.declaration(candidate='A'), CFG, self.setup, self.ledger)
+        # A second run of the candidate is refused, on the same setup or any other.
+        for setup in (self.setup, {'sha256': 'b' * 64}):
+            with self.assertRaisesRegex(ValueError, "already scored for candidate 'D'"):
+                eh.validate_declaration(self.declaration(), CFG, setup, self.ledger)
+        # Same frozen setup, another declared candidate: accepted since 17 Nov 2026 (Paul), and that candidate
+        # is then locked in turn.
+        other = eh.validate_declaration(self.declaration(candidate='C6', baseline='C'), CFG, self.setup, self.ledger)
+        eh.record_holdout(other, self.setup, 'abc', 646, {'passes_holdout_gate': False}, self.ledger)
+        with self.assertRaisesRegex(ValueError, "already scored for candidate 'C6'"):
+            eh.validate_declaration(self.declaration(candidate='C6', baseline='C'), CFG, self.setup, self.ledger)
+        # A ledger entry for the same candidate on the same setup is what the setup check itself refuses.
+        self.ledger.write_text(json.dumps([{'candidate': 'C8', 'baseline': 'C6', 'setup_sha256': 'c' * 64}]),
+                               encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, 'already scored for candidate'):
+            eh.validate_declaration(self.declaration(candidate='C8', baseline='C6'), CFG, {'sha256': 'c' * 64}, self.ledger)
+        eh.validate_declaration(self.declaration(candidate='C7', baseline='C6'), CFG, {'sha256': 'c' * 64}, self.ledger)
+
+    def test_the_committed_declarations_can_both_be_scored_from_one_setup_once_each(self):
+        """C8 against C6 and D_pow2 against D (Prompt 5) on a copy of the real ledger: in either order the second
+        is accepted on the first one's setup, and neither can be scored twice. Nothing is scored here."""
+        entries = json.loads(eh.LEDGER.read_text(encoding='utf-8'))
+        paths = [REPO / 'evaluation/declarations' / name for name in ('c8_holdout.json', 'cagey_dpow2_holdout.json')
+                 if (REPO / 'evaluation/declarations' / name).exists()]
+        if len(paths) < 2:
+            self.skipTest('both Prompt 5 declarations are needed')
+        for order in (paths, paths[::-1]):
+            self.ledger.write_text(json.dumps(entries), encoding='utf-8')
+            for path in order:
+                declared = eh.validate_declaration(path, CFG, self.setup, self.ledger)
+                eh.record_holdout(declared, self.setup, 'abc', 640, {'passes_holdout_gate': False}, self.ledger)
+            for path in order:
+                with self.assertRaisesRegex(ValueError, 'already scored for candidate'):
+                    eh.validate_declaration(path, CFG, {'sha256': 'f' * 64}, self.ledger)
 
     def test_the_declaration_must_match_registered_candidates_and_scoring(self):
         bad = [({'calibration_tolerance': None}, 'missing calibration_tolerance'),
