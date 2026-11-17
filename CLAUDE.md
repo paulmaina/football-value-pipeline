@@ -6,7 +6,7 @@ Read `docs/plan.md` first. It holds the current plan, the release rules and the 
 
 - **No production change without evidence.** Predictions, probabilities and shortlist logic change only after a candidate passes the release gate in `docs/plan.md`, and only through a reviewed PR. Reporting-only fixes may go in separate PRs.
 - **The value shortlist's research model must stay independent of bookmaker odds.** Never feed odds, the published grid or market fits into it. Keep the odds-perturbation test passing.
-- **The holdout (Eredivisie, Primeira Liga and Süper Lig, 16 Jan – 10 Oct 2026) is locked.** Don't run `evaluation_harness.py --declaration` or look at holdout scores while developing; each candidate and each frozen setup can be scored once. Develop on the development period; validation and retrospective periods have already been inspected.
+- **The holdout (Eredivisie, Primeira Liga and Süper Lig, 16 Jan – 10 Oct 2026) is locked.** Don't run `evaluation_harness.py --declaration` or look at holdout scores while developing; each candidate can be scored once, and a frozen setup once per candidate. Develop on the development period; validation and retrospective periods have already been inspected.
 - **The European holdout (UCL, 21 Jan 2025 – 12 Oct 2026) is locked the same way**, with its own ledger (`evaluation/european_holdout_ledger.json`). Don't run `--mode european --declaration`; develop on European development and validation (UEL only; see `docs/european-backtest.md`).
 - **Pre-kickoff data only.** Anything graded or replayed must have been known before the match (see `performance_tracking.lead_checked`).
 - **Bets are placed at Pinnacle only** (`shortlist_quote_policy.json`). That is separate from where a model's probabilities come from.
