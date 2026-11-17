@@ -37,10 +37,13 @@ TOL = 1e-9
 
 
 def production_run(row=None):
-    """The production rules on a real frozen forecast (Brighton v Brentford, 8 Nov 2026)."""
+    """The production rules on a real frozen forecast (Brighton v Brentford, 8 Nov 2026), with the cagey correction
+    these assertions were written for: D everywhere, the rule before the D_pow2 release (its effect on the master is
+    in tests/test_cagey_dpow2_release.py and evaluation/cagey_dpow2_release/)."""
     predictions = pd.DataFrame([row or FROZEN['row']])
+    settings = {k: v for k, v in v28.load_settings().items() if k not in ('cagey_correction_live', 'cagey_corrections')}
     _, decisions, summary = v28.build_shortlist(predictions, FROZEN['snapshot_generated_utc'], execution_policy=POLICY,
-                                                settings=v28.load_settings(), model=nm.production_model())
+                                                settings=settings, model=nm.production_model())
     summary['quote_execution_policy'] = POLICY
     return predictions, decisions, summary
 

@@ -494,9 +494,11 @@ class InspectionTest(unittest.TestCase):
         seen = []
         real = master_inspection.annotate
 
-        def spy(frame, preds, clock, config, model_version=None):
+        def spy(frame, preds, clock, config, model_version=None, cagey=None):
             seen.append(model_version)
-            return real(frame, preds, clock, config, model_version)
+            seen_cagey.append(cagey)
+            return real(frame, preds, clock, config, model_version, cagey)
+        seen_cagey = []
         with mock.patch.object(master_inspection, 'annotate', side_effect=spy), \
                 mock.patch.object(nm, 'load', return_value=nm.production_model()) as load, \
                 mock.patch.object(mr, 'load_config', return_value=flag_config()), warnings.catch_warnings():
@@ -504,6 +506,8 @@ class InspectionTest(unittest.TestCase):
             ms.refresh(decisions, Path(tempfile.mkdtemp()), summary, predictions)
         self.assertEqual(seen, ['recorded-version'])
         load.assert_called_with('recorded-version')
+        # The run records no per-scope cagey correction (a run from before 17 Nov 2026): D, as before.
+        self.assertEqual(seen_cagey, [ms.cagey_settings(summary)])
 
     def test_the_historical_record_is_the_committed_evidence(self):
         import master_inspection

@@ -417,8 +417,13 @@ class BackfillTests(unittest.TestCase):
         self.assertEqual(len(ids), len(set(ids)))
         expected = {e['id'] for e in ma.backfill_events(REPO)}
         self.assertTrue(expected <= set(ids))
-        state = ma.switch_state(REPO / 'master_shortlist_config.json', REPO / 'research_config.json')
-        self.assertEqual(ma.last(committed, 'switches')['data']['state_after'], state)
+        state = ma.switch_state(REPO / 'master_shortlist_config.json', REPO / 'research_config.json',
+                                REPO / 'cagey_correction_config.json')
+        # Every switch the log records agrees with the files. A switch added later (the cagey correction, 17 Nov
+        # 2026) enters the log with the first forecast run that reads it, as a Switch change line.
+        recorded = ma.last(committed, 'switches')['data']['state_after']
+        self.assertEqual({k: state[k] for k in recorded}, recorded)
+        self.assertTrue(set(recorded) <= set(state))
 
     def test_archived_master_incidents_are_backfilled_once(self):
         import master_shortlist as ms
@@ -534,7 +539,8 @@ class ActivityTabTests(WorkbookCase):
         self.assertEqual(self.named('last_ce3n_refit'), 'FAILED: RuntimeError: push rejected')
         self.assertEqual(self.named('stale_fit_warning'), 'ACTIVE: CE3n')
         self.assertEqual(self.named('switch_settings'),
-                         'master live "new", research domestic "v5", research UCL/UEL "v6"')
+                         'master live "new", research domestic "v5", research UCL/UEL "v6", '
+                         'cagey correction domestic "D_pow2", cagey correction UCL/UEL "D"')
         self.assertEqual(self.named('last_switch_change'), 'Sun 15 Nov 2026 14:44 EAT')
         dash = json.dumps(self.book['cells']['Dashboard'], ensure_ascii=False)
         for text in ('Research v6 (CE3n) rollback status', 'Live (research v6) - not yet eligible',
@@ -571,7 +577,8 @@ class IncompleteActivityTests(WorkbookCase):
         self.assertTrue(self.named('last_c6_refit').startswith('not assessed yet'))
         self.assertTrue(self.named('last_switch_change').startswith('not assessed yet'))
         self.assertEqual(self.named('switch_settings'),
-                         'master live "new", research domestic "v5", research UCL/UEL "v6"')
+                         'master live "new", research domestic "v5", research UCL/UEL "v6", '
+                         'cagey correction domestic "D_pow2", cagey correction UCL/UEL "D"')
         self.assertIn('No rollback check logged yet.', json.dumps(self.book['cells']['Dashboard'], ensure_ascii=False))
 
 
