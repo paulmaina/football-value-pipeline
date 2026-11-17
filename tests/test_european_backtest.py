@@ -163,6 +163,9 @@ class EuropeanLockTest(unittest.TestCase):
                 eh.validate_declaration(path, CFG, setup, ledger, registry)
             with self.assertRaises(ValueError):
                 eh.validate_declaration(path, CFG, {'sha256': 'c' * 64}, ledger, registry)
+            # Another European candidate on the same setup is accepted (setup refused per candidate only).
+            path.write_text(json.dumps({**declare, 'candidate': 'CE3'}), encoding='utf-8')
+            eh.validate_declaration(path, CFG, setup, ledger, {**registry, 'CE3': 'test'})
 
     def test_the_european_setup_fingerprint_covers_code_data_and_config(self):
         first = eh.european_setup_fingerprint(CFG, CACHE)
