@@ -21,7 +21,9 @@ VALUE_ONLY = {'cagey_correction_enabled': True, 'cagey_tier_enabled': False}
 def run(*rows, settings=None, monitor=None):
     # These are legacy narrow-63/value-v1 replay regressions, independent of the live default.
     if settings is None:
-        settings = {**v28.load_settings(), 'cagey_tier_rule': v28.TIER_RULE_NARROW}
+        # The rule before the D_pow2 release (D everywhere): these regressions are about D's rules.
+        settings = {**{k: v for k, v in v28.load_settings().items() if k not in ('cagey_correction_live', 'cagey_corrections')},
+                    'cagey_tier_rule': v28.TIER_RULE_NARROW}
     return v28.build_shortlist(pd.DataFrame(list(rows)), NOW, execution_policy=POLICY, settings=settings,
                                monitor=monitor)
 
@@ -109,7 +111,12 @@ class SwitchTests(OfflineQuotePolicyTestCase):
                                     'value_rule': v28.VALUE_RULE_LOCAL_RESEARCH,
                                     'quote_timing_rule': v28.TIMING_RULE_CUTOFF,
                                     'excluded_markets': ['Double Chance 12', 'Draw No Bet Away',
-                                                         'Draw No Bet Home', 'Over 1.5']})
+                                                         'Draw No Bet Home', 'Over 1.5'],
+                                    # Released 17 Nov 2026 (plan 3b-3): D_pow2 for domestic leagues, D for UCL/UEL.
+                                    'cagey_correction_live': {'domestic': 'D_pow2', 'european': 'D'},
+                                    'cagey_corrections': {
+                                        'D': {'model_version': nm.PRODUCTION_VERSION, 'devig_method': 'proportional'},
+                                        'D_pow2': {'model_version': nm.ONE_X_TWO_VERSION, 'devig_method': 'power'}}})
         self.assertEqual(PRODUCTION_POLICY, v28.POLICY)
         self.assertIn(v27.POLICY, POLICIES)
 

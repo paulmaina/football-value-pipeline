@@ -72,12 +72,16 @@ class ModelTest(unittest.TestCase):
             self.assertNotIn('one_x_two', other)
             self.assertIsNone(nm.one_x_two(other))
 
-    def test_it_sits_where_nothing_live_reads(self):
+    def test_where_it_sits(self):
+        # Released for domestic leagues on 17 Nov 2026 (plan 3b-3): the tested candidate file stays where the
+        # harness reads it, and an identical copy sits beside the production model for the live switch
+        # (cagey_correction_config.json cagey_correction_live; tests/test_cagey_dpow2_release.py).
         self.assertTrue((nm.CANDIDATE_DIR / f'{nm.ONE_X_TWO_VERSION}.json').exists())
-        self.assertFalse((nm.MODEL_DIR / f'{nm.ONE_X_TWO_VERSION}.json').exists())
+        self.assertEqual(nm.load(nm.ONE_X_TWO_VERSION), nm.load(nm.ONE_X_TWO_VERSION, nm.CANDIDATE_DIR))
         self.assertNotIn(nm.ONE_X_TWO_VERSION, nm.CANDIDATE_VERSIONS.values())
         self.assertNotIn(nm.ONE_X_TWO_VERSION, json.dumps(nm.versions()))
         self.assertEqual(v28.load_settings()['model_version'], nm.PRODUCTION_VERSION)
+        self.assertEqual(v28.load_settings()['cagey_corrections']['D_pow2']['model_version'], nm.ONE_X_TWO_VERSION)
         # Registered as harness candidate D_pow2 on 17 Nov 2026 (declared once against D): the holdout's setup
         # fingerprint now covers the model, as it covers everything that can change a score. Still nothing live.
         self.assertIn(f'narrow_margin_models/candidates/{nm.ONE_X_TWO_VERSION}.json', eh.SETUP_FILES)

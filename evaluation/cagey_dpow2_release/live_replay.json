@@ -1,0 +1,2950 @@
+{
+  "end_exclusive": "2026-11-18",
+  "note": "Integration check: no result is read.",
+  "release": {
+    "cagey_correction_live": {
+      "domestic": "D_pow2",
+      "european": "D"
+    },
+    "cagey_corrections": {
+      "D": {
+        "devig_method": "proportional",
+        "model_version": "cagey-correction-through-2425-v1"
+      },
+      "D_pow2": {
+        "devig_method": "power",
+        "model_version": "cagey-correction-through-2425-power-1x2-v1"
+      }
+    }
+  },
+  "runs": [
+    {
+      "compare": {
+        "cagey_decision_changed": 2,
+        "cagey_tier": {
+          "max_rank_move": 2,
+          "mean_probability_baseline": 0.7224479298309401,
+          "mean_probability_candidate": 0.7291419302830119,
+          "mean_rank_move": 0.5,
+          "only_baseline": 1,
+          "only_candidate": 1,
+          "picks_baseline": 7,
+          "picks_candidate": 7,
+          "same_order": false,
+          "shared": 6,
+          "shared_moved": 2,
+          "spearman": 0.942857142857143,
+          "top5_shared": 3,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": 0.7648974608265159,
+          "mean_probability_candidate": 0.7641844572107486,
+          "mean_rank_move": 0.0,
+          "only_baseline": 1,
+          "only_candidate": 1,
+          "picks_baseline": 3,
+          "picks_candidate": 3,
+          "same_order": false,
+          "shared": 2,
+          "shared_moved": 0,
+          "shared_tier_changed": 0,
+          "spearman": null,
+          "top5_shared": 2,
+          "top5_size": 3
+        },
+        "no_loss_max_abs_change": 0.028751428414665492,
+        "no_loss_mean_abs_change": 0.01075020374904633,
+        "no_loss_mean_change": 0.00036252723654569457,
+        "offers_scored_by_both": 188,
+        "safe_baseline": 23,
+        "safe_both": 23,
+        "safe_candidate": 24,
+        "safe_entered": 1,
+        "safe_left": 0,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 24,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 0,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-10-27T09:50:40.995248+00:00",
+      "offers": 230,
+      "parity": {
+        "fixtures_compared": {
+          "D": 8,
+          "D_pow2": 8
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 1.6653345369377348e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 0,
+          "no_context": 0,
+          "no_usable_fit_b": 7
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 212,
+        "rows_with_shadow": 204,
+        "rows_without_shadow": 8,
+        "shadow_is_d": true
+      },
+      "snapshot": "026e1ab4c40e3e64"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 2,
+        "cagey_tier": {
+          "max_rank_move": 1,
+          "mean_probability_baseline": 0.7241857843832001,
+          "mean_probability_candidate": 0.7306005098371766,
+          "mean_rank_move": 0.3333333333333333,
+          "only_baseline": 1,
+          "only_candidate": 1,
+          "picks_baseline": 7,
+          "picks_candidate": 7,
+          "same_order": false,
+          "shared": 6,
+          "shared_moved": 2,
+          "spearman": 0.942857142857143,
+          "top5_shared": 3,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": 0.7577244601371437,
+          "mean_probability_candidate": 0.7582891631772188,
+          "mean_rank_move": 0.0,
+          "only_baseline": 1,
+          "only_candidate": 1,
+          "picks_baseline": 3,
+          "picks_candidate": 3,
+          "same_order": false,
+          "shared": 2,
+          "shared_moved": 0,
+          "shared_tier_changed": 0,
+          "spearman": null,
+          "top5_shared": 2,
+          "top5_size": 3
+        },
+        "no_loss_max_abs_change": 0.028047792037081187,
+        "no_loss_mean_abs_change": 0.010584970541374404,
+        "no_loss_mean_change": 0.00036327577277480734,
+        "offers_scored_by_both": 188,
+        "safe_baseline": 21,
+        "safe_both": 21,
+        "safe_candidate": 22,
+        "safe_entered": 1,
+        "safe_left": 0,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 15,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 0,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-10-27T11:35:10.735016+00:00",
+      "offers": 221,
+      "parity": {
+        "fixtures_compared": {
+          "D": 8,
+          "D_pow2": 8
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 1.6653345369377348e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 0,
+          "no_context": 0,
+          "no_usable_fit_b": 7
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 203,
+        "rows_with_shadow": 195,
+        "rows_without_shadow": 8,
+        "shadow_is_d": true
+      },
+      "snapshot": "d414de1a572b09b2"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 4,
+        "cagey_tier": {
+          "max_rank_move": 1,
+          "mean_probability_baseline": 0.7185063115738171,
+          "mean_probability_candidate": 0.7274075534712268,
+          "mean_rank_move": 0.09090909090909091,
+          "only_baseline": 2,
+          "only_candidate": 2,
+          "picks_baseline": 13,
+          "picks_candidate": 13,
+          "same_order": false,
+          "shared": 11,
+          "shared_moved": 1,
+          "spearman": 1.0,
+          "top5_shared": 4,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": 0.7934793059894523,
+          "mean_probability_candidate": 0.7997092017125421,
+          "mean_rank_move": 0.0,
+          "only_baseline": 1,
+          "only_candidate": 1,
+          "picks_baseline": 5,
+          "picks_candidate": 5,
+          "same_order": false,
+          "shared": 4,
+          "shared_moved": 0,
+          "shared_tier_changed": 0,
+          "spearman": 1.0,
+          "top5_shared": 4,
+          "top5_size": 5
+        },
+        "no_loss_max_abs_change": 0.02760117954162361,
+        "no_loss_mean_abs_change": 0.008052537320695795,
+        "no_loss_mean_change": 0.00025736841142501407,
+        "offers_scored_by_both": 167,
+        "safe_baseline": 24,
+        "safe_both": 24,
+        "safe_candidate": 25,
+        "safe_entered": 1,
+        "safe_left": 0,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 34,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 0,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-10-28T12:13:37.819395+00:00",
+      "offers": 257,
+      "parity": {
+        "fixtures_compared": {
+          "D": 8,
+          "D_pow2": 8
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 1.1102230246251565e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 0,
+          "no_context": 0,
+          "no_usable_fit_b": 12
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 201,
+        "rows_with_shadow": 194,
+        "rows_without_shadow": 7,
+        "shadow_is_d": true
+      },
+      "snapshot": "04e55dde9bbe885f"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 2,
+        "cagey_tier": {
+          "max_rank_move": 1,
+          "mean_probability_baseline": 0.7193129563293534,
+          "mean_probability_candidate": 0.7274535118561529,
+          "mean_rank_move": 0.16666666666666666,
+          "only_baseline": 1,
+          "only_candidate": 1,
+          "picks_baseline": 13,
+          "picks_candidate": 13,
+          "same_order": false,
+          "shared": 12,
+          "shared_moved": 2,
+          "spearman": 0.9930069930069931,
+          "top5_shared": 5,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": 0.7931472991789829,
+          "mean_probability_candidate": 0.8005476989342586,
+          "mean_rank_move": 0.0,
+          "only_baseline": 1,
+          "only_candidate": 1,
+          "picks_baseline": 5,
+          "picks_candidate": 5,
+          "same_order": false,
+          "shared": 4,
+          "shared_moved": 0,
+          "shared_tier_changed": 0,
+          "spearman": 1.0,
+          "top5_shared": 4,
+          "top5_size": 5
+        },
+        "no_loss_max_abs_change": 0.025306147712149674,
+        "no_loss_mean_abs_change": 0.008161781357256204,
+        "no_loss_mean_change": 0.0003535187304232985,
+        "offers_scored_by_both": 191,
+        "safe_baseline": 24,
+        "safe_both": 24,
+        "safe_candidate": 25,
+        "safe_entered": 1,
+        "safe_left": 0,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 84,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 0,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-10-28T16:16:05.061508+00:00",
+      "offers": 431,
+      "parity": {
+        "fixtures_compared": {
+          "D": 14,
+          "D_pow2": 14
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 1.1102230246251565e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 0,
+          "no_context": 0,
+          "no_usable_fit_b": 19
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 275,
+        "rows_with_shadow": 268,
+        "rows_without_shadow": 7,
+        "shadow_is_d": true
+      },
+      "snapshot": "fd052ff5e9f0163b"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 2,
+        "cagey_tier": {
+          "max_rank_move": 1,
+          "mean_probability_baseline": 0.7143358286088983,
+          "mean_probability_candidate": 0.7162188225008287,
+          "mean_rank_move": 0.25,
+          "only_baseline": 1,
+          "only_candidate": 1,
+          "picks_baseline": 5,
+          "picks_candidate": 5,
+          "same_order": false,
+          "shared": 4,
+          "shared_moved": 1,
+          "spearman": 1.0,
+          "top5_shared": 4,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": 0.7759635946242084,
+          "mean_probability_candidate": 0.7785145121514587,
+          "mean_rank_move": 0.0,
+          "only_baseline": 1,
+          "only_candidate": 1,
+          "picks_baseline": 2,
+          "picks_candidate": 2,
+          "same_order": false,
+          "shared": 1,
+          "shared_moved": 0,
+          "shared_tier_changed": 0,
+          "spearman": null,
+          "top5_shared": 1,
+          "top5_size": 2
+        },
+        "no_loss_max_abs_change": 0.037553135580877806,
+        "no_loss_mean_abs_change": 0.007885316908164726,
+        "no_loss_mean_change": 0.0004243443946446493,
+        "offers_scored_by_both": 249,
+        "safe_baseline": 26,
+        "safe_both": 24,
+        "safe_candidate": 28,
+        "safe_entered": 4,
+        "safe_left": 2,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 92,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 0,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-10-29T12:08:22.532184+00:00",
+      "offers": 543,
+      "parity": {
+        "fixtures_compared": {
+          "D": 16,
+          "D_pow2": 16
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 1.1102230246251565e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 0,
+          "no_context": 0,
+          "no_usable_fit_b": 29
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 341,
+        "rows_with_shadow": 334,
+        "rows_without_shadow": 7,
+        "shadow_is_d": true
+      },
+      "snapshot": "c75d4ab52706e716"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 2,
+        "cagey_tier": {
+          "max_rank_move": 5,
+          "mean_probability_baseline": 0.7304556453633398,
+          "mean_probability_candidate": 0.7401804840789002,
+          "mean_rank_move": 0.9230769230769231,
+          "only_baseline": 1,
+          "only_candidate": 1,
+          "picks_baseline": 14,
+          "picks_candidate": 14,
+          "same_order": false,
+          "shared": 13,
+          "shared_moved": 4,
+          "spearman": 0.9395604395604396,
+          "top5_shared": 3,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": 0.7933434010220316,
+          "mean_probability_candidate": 0.806181260605993,
+          "mean_rank_move": 0.0,
+          "only_baseline": 2,
+          "only_candidate": 2,
+          "picks_baseline": 5,
+          "picks_candidate": 5,
+          "same_order": false,
+          "shared": 3,
+          "shared_moved": 0,
+          "shared_tier_changed": 0,
+          "spearman": 1.0,
+          "top5_shared": 3,
+          "top5_size": 5
+        },
+        "no_loss_max_abs_change": 0.035360224501930104,
+        "no_loss_mean_abs_change": 0.0067909150971965475,
+        "no_loss_mean_change": 0.00029850647237549243,
+        "offers_scored_by_both": 807,
+        "safe_baseline": 78,
+        "safe_both": 76,
+        "safe_candidate": 84,
+        "safe_entered": 8,
+        "safe_left": 2,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 185,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 0,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-10-30T07:29:50.498587+00:00",
+      "offers": 1238,
+      "parity": {
+        "fixtures_compared": {
+          "D": 42,
+          "D_pow2": 42
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 2.220446049250313e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 0,
+          "no_context": 0,
+          "no_usable_fit_b": 25
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 992,
+        "rows_with_shadow": 967,
+        "rows_without_shadow": 25,
+        "shadow_is_d": true
+      },
+      "snapshot": "02d8d3b21fd68fd9"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 0,
+        "cagey_tier": {
+          "max_rank_move": 2,
+          "mean_probability_baseline": 0.7310582302419495,
+          "mean_probability_candidate": 0.7394978965099893,
+          "mean_rank_move": 0.5333333333333333,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 15,
+          "picks_candidate": 15,
+          "same_order": false,
+          "shared": 15,
+          "shared_moved": 4,
+          "spearman": 0.9714285714285713,
+          "top5_shared": 5,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 1,
+          "mean_probability_baseline": 0.7877902468290878,
+          "mean_probability_candidate": 0.795529837312437,
+          "mean_rank_move": 0.3333333333333333,
+          "only_baseline": 1,
+          "only_candidate": 1,
+          "picks_baseline": 7,
+          "picks_candidate": 7,
+          "same_order": false,
+          "shared": 6,
+          "shared_moved": 2,
+          "shared_tier_changed": 0,
+          "spearman": 0.942857142857143,
+          "top5_shared": 4,
+          "top5_size": 5
+        },
+        "no_loss_max_abs_change": 0.03805286034780675,
+        "no_loss_mean_abs_change": 0.006980449098323077,
+        "no_loss_mean_change": 0.00032928683955856886,
+        "offers_scored_by_both": 872,
+        "safe_baseline": 86,
+        "safe_both": 83,
+        "safe_candidate": 99,
+        "safe_entered": 16,
+        "safe_left": 3,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 186,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 0,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-10-30T12:03:48.308948+00:00",
+      "offers": 1282,
+      "parity": {
+        "fixtures_compared": {
+          "D": 45,
+          "D_pow2": 45
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 1.6653345369377348e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 0,
+          "no_context": 0,
+          "no_usable_fit_b": 22
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 1058,
+        "rows_with_shadow": 1032,
+        "rows_without_shadow": 26,
+        "shadow_is_d": true
+      },
+      "snapshot": "2f2bbe3e322ecab7"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 6,
+        "cagey_tier": {
+          "max_rank_move": 13,
+          "mean_probability_baseline": 0.7428295641864854,
+          "mean_probability_candidate": 0.7491667119800648,
+          "mean_rank_move": 2.406779661016949,
+          "only_baseline": 3,
+          "only_candidate": 3,
+          "picks_baseline": 62,
+          "picks_candidate": 62,
+          "same_order": false,
+          "shared": 59,
+          "shared_moved": 46,
+          "spearman": 0.9812390414962012,
+          "top5_shared": 3,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 2,
+          "mean_probability_baseline": 0.7845167639211508,
+          "mean_probability_candidate": 0.7922565753439441,
+          "mean_rank_move": 1.0,
+          "only_baseline": 1,
+          "only_candidate": 1,
+          "picks_baseline": 12,
+          "picks_candidate": 12,
+          "same_order": false,
+          "shared": 11,
+          "shared_moved": 9,
+          "shared_tier_changed": 0,
+          "spearman": 0.9545454545454546,
+          "top5_shared": 4,
+          "top5_size": 5
+        },
+        "no_loss_max_abs_change": 0.03661232144757187,
+        "no_loss_mean_abs_change": 0.007261754545057895,
+        "no_loss_mean_change": 0.00028466789931661825,
+        "offers_scored_by_both": 1208,
+        "safe_baseline": 130,
+        "safe_both": 124,
+        "safe_candidate": 133,
+        "safe_entered": 9,
+        "safe_left": 6,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 266,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 0,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-10-31T12:03:11.165007+00:00",
+      "offers": 1628,
+      "parity": {
+        "fixtures_compared": {
+          "D": 57,
+          "D_pow2": 57
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 1.6653345369377348e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 9,
+          "no_context": 0,
+          "no_usable_fit_b": 10
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 1474,
+        "rows_with_shadow": 1440,
+        "rows_without_shadow": 34,
+        "shadow_is_d": true
+      },
+      "snapshot": "f82ff3e276c6c573"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 6,
+        "cagey_tier": {
+          "max_rank_move": 10,
+          "mean_probability_baseline": 0.7231695899769599,
+          "mean_probability_candidate": 0.7300617971896541,
+          "mean_rank_move": 2.0392156862745097,
+          "only_baseline": 3,
+          "only_candidate": 3,
+          "picks_baseline": 54,
+          "picks_candidate": 54,
+          "same_order": false,
+          "shared": 51,
+          "shared_moved": 33,
+          "spearman": 0.9768325791855202,
+          "top5_shared": 3,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 6,
+          "mean_probability_baseline": 0.7869742477486336,
+          "mean_probability_candidate": 0.7924351640379123,
+          "mean_rank_move": 2.0,
+          "only_baseline": 3,
+          "only_candidate": 3,
+          "picks_baseline": 15,
+          "picks_candidate": 15,
+          "same_order": false,
+          "shared": 12,
+          "shared_moved": 10,
+          "shared_tier_changed": 0,
+          "spearman": 0.7902097902097903,
+          "top5_shared": 4,
+          "top5_size": 5
+        },
+        "no_loss_max_abs_change": 0.03584992647149915,
+        "no_loss_mean_abs_change": 0.0074945560237918,
+        "no_loss_mean_change": 0.00032740130680363095,
+        "offers_scored_by_both": 748,
+        "safe_baseline": 80,
+        "safe_both": 79,
+        "safe_candidate": 87,
+        "safe_entered": 8,
+        "safe_left": 1,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 147,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 66,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-11-01T07:37:30.159727+00:00",
+      "offers": 1004,
+      "parity": {
+        "fixtures_compared": {
+          "D": 34,
+          "D_pow2": 34
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 2.220446049250313e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 9,
+          "no_context": 0,
+          "no_usable_fit_b": 2
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 895,
+        "rows_with_shadow": 875,
+        "rows_without_shadow": 20,
+        "shadow_is_d": true
+      },
+      "snapshot": "796c7451f4101f75"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 0,
+        "cagey_tier": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": 0.7657431711688467,
+          "mean_probability_candidate": 0.7648410523716724,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 8,
+          "picks_candidate": 8,
+          "same_order": true,
+          "shared": 8,
+          "shared_moved": 0,
+          "spearman": 1.0,
+          "top5_shared": 5,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": null,
+          "mean_probability_candidate": null,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 0,
+          "picks_candidate": 0,
+          "same_order": true,
+          "shared": 0,
+          "shared_moved": 0,
+          "shared_tier_changed": 0,
+          "spearman": null,
+          "top5_shared": 0,
+          "top5_size": 0
+        },
+        "no_loss_max_abs_change": 0.013050979853095113,
+        "no_loss_mean_abs_change": 0.003685882252491729,
+        "no_loss_mean_change": 0.00016081712511357217,
+        "offers_scored_by_both": 138,
+        "safe_baseline": 12,
+        "safe_both": 12,
+        "safe_candidate": 12,
+        "safe_entered": 0,
+        "safe_left": 0,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 53,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 0,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-11-01T09:36:12.166126+00:00",
+      "offers": 216,
+      "parity": {
+        "fixtures_compared": {
+          "D": 6,
+          "D_pow2": 6
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 1.1102230246251565e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 9,
+          "no_context": 0,
+          "no_usable_fit_b": 30
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 191,
+        "rows_with_shadow": 185,
+        "rows_without_shadow": 6,
+        "shadow_is_d": true
+      },
+      "snapshot": "dc55908798d79d00"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 0,
+        "cagey_tier": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": null,
+          "mean_probability_candidate": null,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 0,
+          "picks_candidate": 0,
+          "same_order": true,
+          "shared": 0,
+          "shared_moved": 0,
+          "spearman": null,
+          "top5_shared": 0,
+          "top5_size": 0
+        },
+        "columns_changed_outside_cagey": [],
+        "master": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": null,
+          "mean_probability_candidate": null,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 0,
+          "picks_candidate": 0,
+          "same_order": true,
+          "shared": 0,
+          "shared_moved": 0,
+          "shared_tier_changed": 0,
+          "spearman": null,
+          "top5_shared": 0,
+          "top5_size": 0
+        },
+        "no_loss_max_abs_change": null,
+        "no_loss_mean_abs_change": null,
+        "no_loss_mean_change": null,
+        "offers_scored_by_both": 0,
+        "safe_baseline": 0,
+        "safe_both": 0,
+        "safe_candidate": 0,
+        "safe_entered": 0,
+        "safe_left": 0,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 0,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 0,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-11-01T12:23:24.469126+00:00",
+      "offers": 0,
+      "parity": {
+        "fixtures_compared": {
+          "D": 0,
+          "D_pow2": 0
+        },
+        "max_abs_margin_probability_gap": {
+          "D": null,
+          "D_pow2": null
+        },
+        "skipped": {
+          "european": 18,
+          "no_context": 0,
+          "no_usable_fit_b": 16
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 0,
+        "rows_with_shadow": 0,
+        "rows_without_shadow": 0,
+        "shadow_is_d": true
+      },
+      "snapshot": "cbf58accd4fa0691"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 0,
+        "cagey_tier": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": 0.7089614973524005,
+          "mean_probability_candidate": 0.7089614973524005,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 17,
+          "picks_candidate": 17,
+          "same_order": true,
+          "shared": 17,
+          "shared_moved": 0,
+          "spearman": 1.0,
+          "top5_shared": 5,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [],
+        "master": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": 0.7525191585137617,
+          "mean_probability_candidate": 0.7525191585137617,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 9,
+          "picks_candidate": 9,
+          "same_order": true,
+          "shared": 9,
+          "shared_moved": 0,
+          "shared_tier_changed": 0,
+          "spearman": 1.0,
+          "top5_shared": 5,
+          "top5_size": 5
+        },
+        "no_loss_max_abs_change": 0.0,
+        "no_loss_mean_abs_change": 0.0,
+        "no_loss_mean_change": 0.0,
+        "offers_scored_by_both": 407,
+        "safe_baseline": 58,
+        "safe_both": 58,
+        "safe_candidate": 58,
+        "safe_entered": 0,
+        "safe_left": 0,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 0,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [
+          "D"
+        ],
+        "rows": 609,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-11-03T13:23:43.479885+00:00",
+      "offers": 609,
+      "parity": {
+        "fixtures_compared": {
+          "D": 0,
+          "D_pow2": 0
+        },
+        "max_abs_margin_probability_gap": {
+          "D": null,
+          "D_pow2": null
+        },
+        "skipped": {
+          "european": 36,
+          "no_context": 0,
+          "no_usable_fit_b": 7
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 0,
+        "rows_with_shadow": 0,
+        "rows_without_shadow": 0,
+        "shadow_is_d": true
+      },
+      "snapshot": "765b01b571df2fd9"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 0,
+        "cagey_tier": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": 0.7115203920643436,
+          "mean_probability_candidate": 0.7115203920643436,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 17,
+          "picks_candidate": 17,
+          "same_order": true,
+          "shared": 17,
+          "shared_moved": 0,
+          "spearman": 1.0,
+          "top5_shared": 5,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [],
+        "master": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": 0.7536340457760743,
+          "mean_probability_candidate": 0.7536340457760743,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 9,
+          "picks_candidate": 9,
+          "same_order": true,
+          "shared": 9,
+          "shared_moved": 0,
+          "shared_tier_changed": 0,
+          "spearman": 1.0,
+          "top5_shared": 5,
+          "top5_size": 5
+        },
+        "no_loss_max_abs_change": 0.0,
+        "no_loss_mean_abs_change": 0.0,
+        "no_loss_mean_change": 0.0,
+        "offers_scored_by_both": 407,
+        "safe_baseline": 58,
+        "safe_both": 58,
+        "safe_candidate": 58,
+        "safe_entered": 0,
+        "safe_left": 0,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 0,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [
+          "D"
+        ],
+        "rows": 609,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-11-03T13:58:02.173298+00:00",
+      "offers": 609,
+      "parity": {
+        "fixtures_compared": {
+          "D": 0,
+          "D_pow2": 0
+        },
+        "max_abs_margin_probability_gap": {
+          "D": null,
+          "D_pow2": null
+        },
+        "skipped": {
+          "european": 36,
+          "no_context": 0,
+          "no_usable_fit_b": 7
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 0,
+        "rows_with_shadow": 0,
+        "rows_without_shadow": 0,
+        "shadow_is_d": true
+      },
+      "snapshot": "4dfe537371e33ca4"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 0,
+        "cagey_tier": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": 0.695255290036658,
+          "mean_probability_candidate": 0.695255290036658,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 2,
+          "picks_candidate": 2,
+          "same_order": true,
+          "shared": 2,
+          "shared_moved": 0,
+          "spearman": null,
+          "top5_shared": 2,
+          "top5_size": 2
+        },
+        "columns_changed_outside_cagey": [],
+        "master": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": 0.6287462080904892,
+          "mean_probability_candidate": 0.6287462080904892,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 9,
+          "picks_candidate": 9,
+          "same_order": true,
+          "shared": 9,
+          "shared_moved": 0,
+          "shared_tier_changed": 0,
+          "spearman": 1.0,
+          "top5_shared": 5,
+          "top5_size": 5
+        },
+        "no_loss_max_abs_change": 0.0,
+        "no_loss_mean_abs_change": 0.0,
+        "no_loss_mean_change": 0.0,
+        "offers_scored_by_both": 25,
+        "safe_baseline": 3,
+        "safe_both": 3,
+        "safe_candidate": 3,
+        "safe_entered": 0,
+        "safe_left": 0,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 0,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [
+          "D"
+        ],
+        "rows": 78,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-11-04T09:31:03.622249+00:00",
+      "offers": 138,
+      "parity": {
+        "fixtures_compared": {
+          "D": 0,
+          "D_pow2": 0
+        },
+        "max_abs_margin_probability_gap": {
+          "D": null,
+          "D_pow2": null
+        },
+        "skipped": {
+          "european": 27,
+          "no_context": 0,
+          "no_usable_fit_b": 7
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 0,
+        "rows_with_shadow": 0,
+        "rows_without_shadow": 0,
+        "shadow_is_d": true
+      },
+      "snapshot": "85c451a1e15281f6"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 0,
+        "cagey_tier": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": 0.7009501902793857,
+          "mean_probability_candidate": 0.7009501902793857,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 23,
+          "picks_candidate": 23,
+          "same_order": true,
+          "shared": 23,
+          "shared_moved": 0,
+          "spearman": 1.0,
+          "top5_shared": 5,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": 0.7587236144403171,
+          "mean_probability_candidate": 0.7587236144403171,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 10,
+          "picks_candidate": 10,
+          "same_order": true,
+          "shared": 10,
+          "shared_moved": 0,
+          "shared_tier_changed": 0,
+          "spearman": 0.9999999999999999,
+          "top5_shared": 5,
+          "top5_size": 5
+        },
+        "no_loss_max_abs_change": 0.009562854374800644,
+        "no_loss_mean_abs_change": 5.989583591684078e-05,
+        "no_loss_mean_change": 1.2488115395997895e-05,
+        "offers_scored_by_both": 570,
+        "safe_baseline": 71,
+        "safe_both": 71,
+        "safe_candidate": 71,
+        "safe_entered": 0,
+        "safe_left": 0,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 20,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [
+          "D"
+        ],
+        "rows": 680,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-11-04T10:20:33.895771+00:00",
+      "offers": 782,
+      "parity": {
+        "fixtures_compared": {
+          "D": 2,
+          "D_pow2": 2
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 1.1102230246251565e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 27,
+          "no_context": 0,
+          "no_usable_fit_b": 6
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 28,
+        "rows_with_shadow": 28,
+        "rows_without_shadow": 0,
+        "shadow_is_d": true
+      },
+      "snapshot": "ddf20a3972dd45e3"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 0,
+        "cagey_tier": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": 0.6977424648485462,
+          "mean_probability_candidate": 0.6977424648485462,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 18,
+          "picks_candidate": 18,
+          "same_order": true,
+          "shared": 18,
+          "shared_moved": 0,
+          "spearman": 1.0,
+          "top5_shared": 5,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": 0.7619577671538076,
+          "mean_probability_candidate": 0.7619577671538076,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 8,
+          "picks_candidate": 8,
+          "same_order": true,
+          "shared": 8,
+          "shared_moved": 0,
+          "shared_tier_changed": 0,
+          "spearman": 1.0,
+          "top5_shared": 5,
+          "top5_size": 5
+        },
+        "no_loss_max_abs_change": 0.022480852549546015,
+        "no_loss_mean_abs_change": 0.0006488406113029788,
+        "no_loss_mean_change": 0.00010786182858725381,
+        "offers_scored_by_both": 486,
+        "safe_baseline": 70,
+        "safe_both": 70,
+        "safe_candidate": 70,
+        "safe_entered": 0,
+        "safe_left": 0,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 75,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [
+          "D"
+        ],
+        "rows": 475,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-11-04T19:40:50.340029+00:00",
+      "offers": 861,
+      "parity": {
+        "fixtures_compared": {
+          "D": 10,
+          "D_pow2": 10
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 1.6653345369377348e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 24,
+          "no_context": 0,
+          "no_usable_fit_b": 22
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 166,
+        "rows_with_shadow": 165,
+        "rows_without_shadow": 1,
+        "shadow_is_d": true
+      },
+      "snapshot": "8a970f7baa207beb"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 0,
+        "cagey_tier": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": null,
+          "mean_probability_candidate": null,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 0,
+          "picks_candidate": 0,
+          "same_order": true,
+          "shared": 0,
+          "shared_moved": 0,
+          "spearman": null,
+          "top5_shared": 0,
+          "top5_size": 0
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": null,
+          "mean_probability_candidate": null,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 0,
+          "picks_candidate": 0,
+          "same_order": true,
+          "shared": 0,
+          "shared_moved": 0,
+          "shared_tier_changed": 0,
+          "spearman": null,
+          "top5_shared": 0,
+          "top5_size": 0
+        },
+        "no_loss_max_abs_change": 0.021193556287583903,
+        "no_loss_mean_abs_change": 0.005691050496876031,
+        "no_loss_mean_change": 0.0003126636683501769,
+        "offers_scored_by_both": 224,
+        "safe_baseline": 29,
+        "safe_both": 29,
+        "safe_candidate": 29,
+        "safe_entered": 0,
+        "safe_left": 0,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 97,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 0,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-11-05T12:32:00.598966+00:00",
+      "offers": 521,
+      "parity": {
+        "fixtures_compared": {
+          "D": 15,
+          "D_pow2": 15
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 1.1102230246251565e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 0,
+          "no_context": 0,
+          "no_usable_fit_b": 25
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 316,
+        "rows_with_shadow": 311,
+        "rows_without_shadow": 5,
+        "shadow_is_d": true
+      },
+      "snapshot": "0af36ab1e9657f52"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 0,
+        "cagey_tier": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": 0.7259709529511016,
+          "mean_probability_candidate": 0.7259709529511016,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 39,
+          "picks_candidate": 39,
+          "same_order": true,
+          "shared": 39,
+          "shared_moved": 0,
+          "spearman": 1.0,
+          "top5_shared": 5,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": 0.7804956964372808,
+          "mean_probability_candidate": 0.7804956964372808,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 15,
+          "picks_candidate": 15,
+          "same_order": true,
+          "shared": 15,
+          "shared_moved": 0,
+          "shared_tier_changed": 0,
+          "spearman": 1.0,
+          "top5_shared": 5,
+          "top5_size": 5
+        },
+        "no_loss_max_abs_change": 0.021193556287583903,
+        "no_loss_mean_abs_change": 0.0019956229407250537,
+        "no_loss_mean_change": 9.5496703955416e-05,
+        "offers_scored_by_both": 697,
+        "safe_baseline": 109,
+        "safe_both": 109,
+        "safe_candidate": 109,
+        "safe_entered": 0,
+        "safe_left": 0,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 103,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [
+          "D"
+        ],
+        "rows": 465,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-11-05T13:37:38.336530+00:00",
+      "offers": 1070,
+      "parity": {
+        "fixtures_compared": {
+          "D": 16,
+          "D_pow2": 16
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 1.1102230246251565e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 17,
+          "no_context": 0,
+          "no_usable_fit_b": 27
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 380,
+        "rows_with_shadow": 373,
+        "rows_without_shadow": 7,
+        "shadow_is_d": true
+      },
+      "snapshot": "a00d5e530cc2e80e"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 0,
+        "cagey_tier": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": null,
+          "mean_probability_candidate": null,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 0,
+          "picks_candidate": 0,
+          "same_order": true,
+          "shared": 0,
+          "shared_moved": 0,
+          "spearman": null,
+          "top5_shared": 0,
+          "top5_size": 0
+        },
+        "columns_changed_outside_cagey": [],
+        "master": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": null,
+          "mean_probability_candidate": null,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 0,
+          "picks_candidate": 0,
+          "same_order": true,
+          "shared": 0,
+          "shared_moved": 0,
+          "shared_tier_changed": 0,
+          "spearman": null,
+          "top5_shared": 0,
+          "top5_size": 0
+        },
+        "no_loss_max_abs_change": null,
+        "no_loss_mean_abs_change": null,
+        "no_loss_mean_change": null,
+        "offers_scored_by_both": 0,
+        "safe_baseline": 0,
+        "safe_both": 0,
+        "safe_candidate": 0,
+        "safe_entered": 0,
+        "safe_left": 0,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 0,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 0,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-11-05T16:17:48.024788+00:00",
+      "offers": 0,
+      "parity": {
+        "fixtures_compared": {
+          "D": 0,
+          "D_pow2": 0
+        },
+        "max_abs_margin_probability_gap": {
+          "D": null,
+          "D_pow2": null
+        },
+        "skipped": {
+          "european": 17,
+          "no_context": 0,
+          "no_usable_fit_b": 15
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 0,
+        "rows_with_shadow": 0,
+        "rows_without_shadow": 0,
+        "shadow_is_d": true
+      },
+      "snapshot": "92039638c61ad8bc"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 0,
+        "cagey_tier": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": null,
+          "mean_probability_candidate": null,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 0,
+          "picks_candidate": 0,
+          "same_order": true,
+          "shared": 0,
+          "shared_moved": 0,
+          "spearman": null,
+          "top5_shared": 0,
+          "top5_size": 0
+        },
+        "columns_changed_outside_cagey": [],
+        "master": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": null,
+          "mean_probability_candidate": null,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 0,
+          "picks_candidate": 0,
+          "same_order": true,
+          "shared": 0,
+          "shared_moved": 0,
+          "shared_tier_changed": 0,
+          "spearman": null,
+          "top5_shared": 0,
+          "top5_size": 0
+        },
+        "no_loss_max_abs_change": null,
+        "no_loss_mean_abs_change": null,
+        "no_loss_mean_change": null,
+        "offers_scored_by_both": 0,
+        "safe_baseline": 0,
+        "safe_both": 0,
+        "safe_candidate": 0,
+        "safe_entered": 0,
+        "safe_left": 0,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 0,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 0,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-11-05T16:27:43.343008+00:00",
+      "offers": 0,
+      "parity": {
+        "fixtures_compared": {
+          "D": 0,
+          "D_pow2": 0
+        },
+        "max_abs_margin_probability_gap": {
+          "D": null,
+          "D_pow2": null
+        },
+        "skipped": {
+          "european": 17,
+          "no_context": 0,
+          "no_usable_fit_b": 15
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 0,
+        "rows_with_shadow": 0,
+        "rows_without_shadow": 0,
+        "shadow_is_d": true
+      },
+      "snapshot": "7b8f8817eb577b04"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 0,
+        "cagey_tier": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": 0.7288508597772768,
+          "mean_probability_candidate": 0.7288508597772768,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 40,
+          "picks_candidate": 40,
+          "same_order": true,
+          "shared": 40,
+          "shared_moved": 0,
+          "spearman": 1.0,
+          "top5_shared": 5,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": 0.7860148150376312,
+          "mean_probability_candidate": 0.7860148150376312,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 15,
+          "picks_candidate": 15,
+          "same_order": true,
+          "shared": 15,
+          "shared_moved": 0,
+          "shared_tier_changed": 0,
+          "spearman": 1.0,
+          "top5_shared": 5,
+          "top5_size": 5
+        },
+        "no_loss_max_abs_change": 0.03369184916309592,
+        "no_loss_mean_abs_change": 0.003469470583491476,
+        "no_loss_mean_change": 0.00014466657388464087,
+        "offers_scored_by_both": 945,
+        "safe_baseline": 139,
+        "safe_both": 132,
+        "safe_candidate": 135,
+        "safe_entered": 3,
+        "safe_left": 7,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 163,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [
+          "D"
+        ],
+        "rows": 463,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-11-05T16:50:22.659919+00:00",
+      "offers": 1467,
+      "parity": {
+        "fixtures_compared": {
+          "D": 27,
+          "D_pow2": 27
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 1.6653345369377348e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 17,
+          "no_context": 0,
+          "no_usable_fit_b": 36
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 685,
+        "rows_with_shadow": 671,
+        "rows_without_shadow": 14,
+        "shadow_is_d": true
+      },
+      "snapshot": "775022176692974f"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 2,
+        "cagey_tier": {
+          "max_rank_move": 2,
+          "mean_probability_baseline": 0.7305091670502496,
+          "mean_probability_candidate": 0.7342240855187445,
+          "mean_rank_move": 0.5,
+          "only_baseline": 1,
+          "only_candidate": 1,
+          "picks_baseline": 17,
+          "picks_candidate": 17,
+          "same_order": false,
+          "shared": 16,
+          "shared_moved": 5,
+          "spearman": 0.988235294117647,
+          "top5_shared": 4,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 1,
+          "mean_probability_baseline": 0.7997132178972215,
+          "mean_probability_candidate": 0.7990023183839079,
+          "mean_rank_move": 0.25,
+          "only_baseline": 1,
+          "only_candidate": 1,
+          "picks_baseline": 9,
+          "picks_candidate": 9,
+          "same_order": false,
+          "shared": 8,
+          "shared_moved": 2,
+          "shared_tier_changed": 0,
+          "spearman": 1.0,
+          "top5_shared": 4,
+          "top5_size": 5
+        },
+        "no_loss_max_abs_change": 0.03875511574651014,
+        "no_loss_mean_abs_change": 0.00742305016881114,
+        "no_loss_mean_change": 0.0003702567339746928,
+        "offers_scored_by_both": 836,
+        "safe_baseline": 118,
+        "safe_both": 105,
+        "safe_candidate": 117,
+        "safe_entered": 12,
+        "safe_left": 13,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 190,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 0,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-11-06T11:26:29.717902+00:00",
+      "offers": 1347,
+      "parity": {
+        "fixtures_compared": {
+          "D": 42,
+          "D_pow2": 42
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 1.6653345369377348e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 0,
+          "no_context": 0,
+          "no_usable_fit_b": 33
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 1005,
+        "rows_with_shadow": 984,
+        "rows_without_shadow": 21,
+        "shadow_is_d": true
+      },
+      "snapshot": "5d2089b153695efa"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 0,
+        "cagey_tier": {
+          "max_rank_move": 2,
+          "mean_probability_baseline": 0.7373702337020063,
+          "mean_probability_candidate": 0.741108658473111,
+          "mean_rank_move": 0.42857142857142855,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 14,
+          "picks_candidate": 14,
+          "same_order": false,
+          "shared": 14,
+          "shared_moved": 5,
+          "spearman": 0.9824175824175824,
+          "top5_shared": 4,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 1,
+          "mean_probability_baseline": 0.7964464148829504,
+          "mean_probability_candidate": 0.7967133273498244,
+          "mean_rank_move": 0.2857142857142857,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 7,
+          "picks_candidate": 7,
+          "same_order": false,
+          "shared": 7,
+          "shared_moved": 2,
+          "shared_tier_changed": 0,
+          "spearman": 0.9642857142857145,
+          "top5_shared": 5,
+          "top5_size": 5
+        },
+        "no_loss_max_abs_change": 0.03875511574651014,
+        "no_loss_mean_abs_change": 0.007190786948636455,
+        "no_loss_mean_change": 0.0003602214982391891,
+        "offers_scored_by_both": 733,
+        "safe_baseline": 100,
+        "safe_both": 96,
+        "safe_candidate": 104,
+        "safe_entered": 8,
+        "safe_left": 4,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 166,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 0,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-11-06T12:17:20.125743+00:00",
+      "offers": 1194,
+      "parity": {
+        "fixtures_compared": {
+          "D": 37,
+          "D_pow2": 37
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 1.6653345369377348e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 0,
+          "no_context": 0,
+          "no_usable_fit_b": 38
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 884,
+        "rows_with_shadow": 862,
+        "rows_without_shadow": 22,
+        "shadow_is_d": true
+      },
+      "snapshot": "440236589764dce4"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 0,
+        "cagey_tier": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": null,
+          "mean_probability_candidate": null,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 0,
+          "picks_candidate": 0,
+          "same_order": true,
+          "shared": 0,
+          "shared_moved": 0,
+          "spearman": null,
+          "top5_shared": 0,
+          "top5_size": 0
+        },
+        "columns_changed_outside_cagey": [],
+        "master": {
+          "max_rank_move": 0,
+          "mean_probability_baseline": null,
+          "mean_probability_candidate": null,
+          "mean_rank_move": 0.0,
+          "only_baseline": 0,
+          "only_candidate": 0,
+          "picks_baseline": 0,
+          "picks_candidate": 0,
+          "same_order": true,
+          "shared": 0,
+          "shared_moved": 0,
+          "shared_tier_changed": 0,
+          "spearman": null,
+          "top5_shared": 0,
+          "top5_size": 0
+        },
+        "no_loss_max_abs_change": null,
+        "no_loss_mean_abs_change": null,
+        "no_loss_mean_change": null,
+        "offers_scored_by_both": 0,
+        "safe_baseline": 0,
+        "safe_both": 0,
+        "safe_candidate": 0,
+        "safe_entered": 0,
+        "safe_left": 0,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 0,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 0,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-11-06T13:21:43.280136+00:00",
+      "offers": 0,
+      "parity": {
+        "fixtures_compared": {
+          "D": 0,
+          "D_pow2": 0
+        },
+        "max_abs_margin_probability_gap": {
+          "D": null,
+          "D_pow2": null
+        },
+        "skipped": {
+          "european": 0,
+          "no_context": 0,
+          "no_usable_fit_b": 16
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 0,
+        "rows_with_shadow": 0,
+        "rows_without_shadow": 0,
+        "shadow_is_d": true
+      },
+      "snapshot": "d46504cc4373448f"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 4,
+        "cagey_tier": {
+          "max_rank_move": 2,
+          "mean_probability_baseline": 0.7390817795224454,
+          "mean_probability_candidate": 0.7423634934732004,
+          "mean_rank_move": 0.15,
+          "only_baseline": 2,
+          "only_candidate": 2,
+          "picks_baseline": 22,
+          "picks_candidate": 22,
+          "same_order": false,
+          "shared": 20,
+          "shared_moved": 2,
+          "spearman": 0.9984962406015038,
+          "top5_shared": 4,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 1,
+          "mean_probability_baseline": 0.8072478777889794,
+          "mean_probability_candidate": 0.8069911388334843,
+          "mean_rank_move": 0.1,
+          "only_baseline": 2,
+          "only_candidate": 2,
+          "picks_baseline": 12,
+          "picks_candidate": 12,
+          "same_order": false,
+          "shared": 10,
+          "shared_moved": 1,
+          "shared_tier_changed": 0,
+          "spearman": 0.9999999999999999,
+          "top5_shared": 4,
+          "top5_size": 5
+        },
+        "no_loss_max_abs_change": 0.03621155277123844,
+        "no_loss_mean_abs_change": 0.0069794760962996775,
+        "no_loss_mean_change": 0.00033382240237837005,
+        "offers_scored_by_both": 922,
+        "safe_baseline": 129,
+        "safe_both": 120,
+        "safe_candidate": 128,
+        "safe_entered": 8,
+        "safe_left": 9,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 216,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 0,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-11-06T13:40:19.404227+00:00",
+      "offers": 1413,
+      "parity": {
+        "fixtures_compared": {
+          "D": 46,
+          "D_pow2": 46
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 1.6653345369377348e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 0,
+          "no_context": 0,
+          "no_usable_fit_b": 29
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 1115,
+        "rows_with_shadow": 1092,
+        "rows_without_shadow": 23,
+        "shadow_is_d": true
+      },
+      "snapshot": "b9d2d10f3419c606"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 14,
+        "cagey_tier": {
+          "max_rank_move": 8,
+          "mean_probability_baseline": 0.7251360059534365,
+          "mean_probability_candidate": 0.7305940958343776,
+          "mean_rank_move": 1.8571428571428572,
+          "only_baseline": 7,
+          "only_candidate": 7,
+          "picks_baseline": 56,
+          "picks_candidate": 56,
+          "same_order": false,
+          "shared": 49,
+          "shared_moved": 36,
+          "spearman": 0.9879591836734692,
+          "top5_shared": 4,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 4,
+          "mean_probability_baseline": 0.8126855757476755,
+          "mean_probability_candidate": 0.8156815030374301,
+          "mean_rank_move": 1.2307692307692308,
+          "only_baseline": 2,
+          "only_candidate": 2,
+          "picks_baseline": 15,
+          "picks_candidate": 15,
+          "same_order": false,
+          "shared": 13,
+          "shared_moved": 9,
+          "shared_tier_changed": 0,
+          "spearman": 0.9230769230769231,
+          "top5_shared": 4,
+          "top5_size": 5
+        },
+        "no_loss_max_abs_change": 0.03515388861218807,
+        "no_loss_mean_abs_change": 0.0075754297963714495,
+        "no_loss_mean_change": 0.00027652306426420657,
+        "offers_scored_by_both": 1441,
+        "safe_baseline": 202,
+        "safe_both": 185,
+        "safe_candidate": 189,
+        "safe_entered": 4,
+        "safe_left": 17,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 214,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 0,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-11-07T11:48:25.259368+00:00",
+      "offers": 1705,
+      "parity": {
+        "fixtures_compared": {
+          "D": 64,
+          "D_pow2": 64
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 2.220446049250313e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 0,
+          "no_context": 0,
+          "no_usable_fit_b": 2
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 1623,
+        "rows_with_shadow": 1582,
+        "rows_without_shadow": 41,
+        "shadow_is_d": true
+      },
+      "snapshot": "1dabcf85eb639cd0"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 8,
+        "cagey_tier": {
+          "max_rank_move": 10,
+          "mean_probability_baseline": 0.7243624199410791,
+          "mean_probability_candidate": 0.7312732899861493,
+          "mean_rank_move": 2.1666666666666665,
+          "only_baseline": 4,
+          "only_candidate": 4,
+          "picks_baseline": 52,
+          "picks_candidate": 52,
+          "same_order": false,
+          "shared": 48,
+          "shared_moved": 34,
+          "spearman": 0.9792661745549284,
+          "top5_shared": 3,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 4,
+          "mean_probability_baseline": 0.8034967925938624,
+          "mean_probability_candidate": 0.8092530597964936,
+          "mean_rank_move": 1.2307692307692308,
+          "only_baseline": 2,
+          "only_candidate": 2,
+          "picks_baseline": 15,
+          "picks_candidate": 15,
+          "same_order": false,
+          "shared": 13,
+          "shared_moved": 9,
+          "shared_tier_changed": 0,
+          "spearman": 0.8956043956043955,
+          "top5_shared": 4,
+          "top5_size": 5
+        },
+        "no_loss_max_abs_change": 0.03515388861218807,
+        "no_loss_mean_abs_change": 0.007761158219629036,
+        "no_loss_mean_change": 0.00028797369490147183,
+        "offers_scored_by_both": 1311,
+        "safe_baseline": 194,
+        "safe_both": 176,
+        "safe_candidate": 180,
+        "safe_entered": 4,
+        "safe_left": 18,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 187,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 0,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-11-07T13:54:13.645217+00:00",
+      "offers": 1566,
+      "parity": {
+        "fixtures_compared": {
+          "D": 59,
+          "D_pow2": 59
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 1.6653345369377348e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 0,
+          "no_context": 0,
+          "no_usable_fit_b": 4
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 1470,
+        "rows_with_shadow": 1433,
+        "rows_without_shadow": 37,
+        "shadow_is_d": true
+      },
+      "snapshot": "688a34b2f4bd83f2"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 16,
+        "cagey_tier": {
+          "max_rank_move": 9,
+          "mean_probability_baseline": 0.722280508516942,
+          "mean_probability_candidate": 0.7272817931927189,
+          "mean_rank_move": 1.2266666666666666,
+          "only_baseline": 8,
+          "only_candidate": 8,
+          "picks_baseline": 83,
+          "picks_candidate": 83,
+          "same_order": false,
+          "shared": 75,
+          "shared_moved": 43,
+          "spearman": 0.9965860597439544,
+          "top5_shared": 3,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 4,
+          "mean_probability_baseline": 0.8267862731423692,
+          "mean_probability_candidate": 0.8302471927138768,
+          "mean_rank_move": 1.1818181818181819,
+          "only_baseline": 4,
+          "only_candidate": 4,
+          "picks_baseline": 15,
+          "picks_candidate": 15,
+          "same_order": false,
+          "shared": 11,
+          "shared_moved": 8,
+          "shared_tier_changed": 0,
+          "spearman": 0.881818181818182,
+          "top5_shared": 3,
+          "top5_size": 5
+        },
+        "no_loss_max_abs_change": 0.027452096045137098,
+        "no_loss_mean_abs_change": 0.006512839400225509,
+        "no_loss_mean_change": 0.00026607369993763506,
+        "offers_scored_by_both": 875,
+        "safe_baseline": 121,
+        "safe_both": 119,
+        "safe_candidate": 120,
+        "safe_entered": 1,
+        "safe_left": 2,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 122,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 0,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-11-08T09:01:04.075316+00:00",
+      "offers": 997,
+      "parity": {
+        "fixtures_compared": {
+          "D": 39,
+          "D_pow2": 39
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 1.3877787807814457e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 0,
+          "no_context": 0,
+          "no_usable_fit_b": 0
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 976,
+        "rows_with_shadow": 952,
+        "rows_without_shadow": 24,
+        "shadow_is_d": true
+      },
+      "snapshot": "bdc58d9d3727286d"
+    },
+    {
+      "compare": {
+        "cagey_decision_changed": 12,
+        "cagey_tier": {
+          "max_rank_move": 8,
+          "mean_probability_baseline": 0.7244721320680318,
+          "mean_probability_candidate": 0.7300509677325315,
+          "mean_rank_move": 1.1666666666666667,
+          "only_baseline": 6,
+          "only_candidate": 6,
+          "picks_baseline": 78,
+          "picks_candidate": 78,
+          "same_order": false,
+          "shared": 72,
+          "shared_moved": 44,
+          "spearman": 0.997234548845585,
+          "top5_shared": 4,
+          "top5_size": 5
+        },
+        "columns_changed_outside_cagey": [
+          "fair_odds",
+          "fair_probability",
+          "minimum_odds",
+          "predicted_probability"
+        ],
+        "master": {
+          "max_rank_move": 3,
+          "mean_probability_baseline": 0.8295461851400167,
+          "mean_probability_candidate": 0.8351840474590859,
+          "mean_rank_move": 1.25,
+          "only_baseline": 3,
+          "only_candidate": 3,
+          "picks_baseline": 15,
+          "picks_candidate": 15,
+          "same_order": false,
+          "shared": 12,
+          "shared_moved": 8,
+          "shared_tier_changed": 0,
+          "spearman": 0.9230769230769231,
+          "top5_shared": 4,
+          "top5_size": 5
+        },
+        "no_loss_max_abs_change": 0.027941428377842525,
+        "no_loss_mean_abs_change": 0.006832346775031216,
+        "no_loss_mean_change": 0.00028354067078749135,
+        "offers_scored_by_both": 809,
+        "safe_baseline": 112,
+        "safe_both": 110,
+        "safe_candidate": 111,
+        "safe_entered": 1,
+        "safe_left": 2,
+        "scored_only_by_baseline": 0,
+        "scored_only_by_candidate": 0,
+        "value_decisions_same": true,
+        "value_reference_rows_moved": 111,
+        "value_reference_rows_moved_not_c_cagey": 0,
+        "value_shortlist_same": true
+      },
+      "european": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "rows": 0,
+        "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
+      "generated_at_utc": "2026-11-08T12:20:11.356382+00:00",
+      "offers": 920,
+      "parity": {
+        "fixtures_compared": {
+          "D": 36,
+          "D_pow2": 36
+        },
+        "max_abs_margin_probability_gap": {
+          "D": 1.6653345369377348e-16,
+          "D_pow2": 0.0
+        },
+        "skipped": {
+          "european": 0,
+          "no_context": 0,
+          "no_usable_fit_b": 0
+        }
+      },
+      "release_is_the_default_call": true,
+      "shadow": {
+        "max_abs_gap": 0.0,
+        "rows_priced_by_d_pow2": 902,
+        "rows_with_shadow": 879,
+        "rows_without_shadow": 23,
+        "shadow_is_d": true
+      },
+      "snapshot": "d5829163b3fa9bf3"
+    }
+  ],
+  "safe_no_loss": 0.75,
+  "script": "scripts/cagey_dpow2_release_replay.py",
+  "start": "2026-10-27",
+  "totals": {
+    "cagey_decision_changed": 82,
+    "cagey_tier": {
+      "max_rank_move": 13,
+      "mean_spearman": 0.9859989997542036,
+      "only_baseline": 41,
+      "only_candidate": 41,
+      "picks_baseline": 676,
+      "picks_candidate": 676,
+      "runs_same_order": 13,
+      "runs_same_picks": 15,
+      "shared": 635,
+      "shared_moved": 264,
+      "top5_shared": 96,
+      "top5_size": 117
+    },
+    "columns_changed_outside_cagey": [
+      "fair_odds",
+      "fair_probability",
+      "minimum_odds",
+      "predicted_probability"
+    ],
+    "european_rows": 3445,
+    "european_untouched_in_every_run": true,
+    "fallback_fixtures": 0,
+    "fallback_priced_as_d_in_every_run": true,
+    "fallback_reasons": [],
+    "fallback_rows": 0,
+    "master": {
+      "max_rank_move": 6,
+      "mean_spearman": 0.9637737262737263,
+      "only_baseline": 26,
+      "only_candidate": 26,
+      "picks_baseline": 220,
+      "picks_candidate": 220,
+      "runs_same_order": 13,
+      "runs_same_picks": 14,
+      "shared": 194,
+      "shared_moved": 60,
+      "top5_shared": 91,
+      "top5_size": 108
+    },
+    "master_shared_tier_changed": 0,
+    "no_loss_max_abs_change": 0.03875511574651014,
+    "no_loss_mean_abs_change": 0.005947602355133901,
+    "no_loss_mean_change": 0.0002553759496480523,
+    "offers_scored_by_both": 15444,
+    "parity": {
+      "fixtures_compared": {
+        "D": 631,
+        "D_pow2": 631
+      },
+      "max_abs_margin_probability_gap": {
+        "D": 2.220446049250313e-16,
+        "D_pow2": 0.0
+      }
+    },
+    "release_is_the_default_call_in_every_run": true,
+    "rows_priced_by_d_pow2": 15392,
+    "runs": 29,
+    "runs_with_offers": 25,
+    "runs_with_safe_set_changed": 17,
+    "safe_baseline": 2017,
+    "safe_both": 1931,
+    "safe_candidate": 2021,
+    "safe_entered": 90,
+    "safe_left": 86,
+    "scored_only_by_baseline": 0,
+    "scored_only_by_candidate": 0,
+    "shadow_is_d_in_every_run": true,
+    "value_decisions_same_in_every_run": true,
+    "value_reference_rows_moved": 2750,
+    "value_reference_rows_moved_not_c_cagey": 0,
+    "value_shortlist_same_in_every_run": true
+  }
+}
