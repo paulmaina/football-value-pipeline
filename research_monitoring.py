@@ -30,6 +30,10 @@ Four checks, shown at the top of the weekly performance reports (performance_tra
    corrections with the run's own settings (cagey_contexts), and checked against the cagey score the run froze where
    it froze one; both are scored on the same in-scope Pinnacle AH offers. Rolling back is setting
    cagey_correction_config.json cagey_correction_live.domestic to "D".
+   Fallbacks (Paul, 17 Nov 2026): where D_pow2's power grid failed its fit check the run priced the fixture with
+   D (price_edge_cagey_shortlist.cagey_basis). Such a match has no D_pow2 forecast, so it is left out of the
+   comparison (as the holdout left out the fixtures whose power grid could not be fitted) and counted; the report
+   also counts every fallback in the D_pow2 runs' correction-monitoring records (cagey_fallbacks).
 
 Reads frozen forecasts and verified results only; no odds reach a research probability (the offers only say
 which lines are scored).
@@ -514,10 +518,15 @@ def run_summaries(root) -> dict:
     return out
 
 
+class CageyFallback(ValueError):
+    """The run priced the fixture with D: D_pow2's power grid failed its fit check (cagey_basis)."""
+
+
 def cagey_contexts(row, summary):
     """{correction: (corrected context, corrected grid)} for D_pow2 and D, rebuilt from the run's frozen Pinnacle
-    quotes at its clock with the run's own settings (quote timing rule, models), exactly as its cagey tier built them.
-    Raises when either correction can't be built."""
+    quotes at its clock with the run's own settings (quote timing rule, models), exactly as its cagey tier built them
+    (price_edge_cagey_shortlist.cagey_basis). Raises CageyFallback where the run fell back to D (no D_pow2
+    forecast), and ValueError when either correction can't be built."""
     import narrow_margin as nm
     import price_edge_cagey_shortlist as v28
     import price_edge_shortlist as v27
@@ -526,16 +535,49 @@ def cagey_contexts(row, summary):
     clock = pd.Timestamp(summary['generated_at_utc'])
     strict = v28.timing_rule(summary) == v28.TIMING_RULE_CUTOFF
     corrections = v28.correction_models(summary, nm.load(summary['cagey_model_version']))
+    fit, info = v27.market_fit(pin, clock, strict)
     out = {}
     for name in (v28.CORRECTION_D_POW2, v28.CORRECTION_D):
-        model, method = corrections[name]
-        fit, info = v27.market_fit(pin, clock, strict, method=method)
-        context = v28.corrected_context(pin, fit, info, model, method)
+        used, model, method, grid_fit, grid_info, fallback = v28.cagey_basis(name, corrections, pin, fit, info,
+                                                                             clock, strict)
+        context = v28.corrected_context(pin, grid_fit, grid_info, model, method)
         if context is None:
-            raise ValueError(f'no corrected {name} distribution')
-        source = fit if fit.usable else info['fit_a']
+            raise ValueError(f'no corrected {used} distribution')
+        if fallback:
+            raise CageyFallback(fallback)
+        source = grid_fit if grid_fit.usable else grid_info['fit_a']
         out[name] = (context, corrected_grid(context, source.matrix))
     return out
+
+
+def cagey_fallbacks(root, archived, summaries) -> dict:
+    """Fixtures the D_pow2 runs priced with D because D_pow2's power grid failed its fit check, counted from each
+    run's archived correction-monitoring records: a domestic record names the model that priced its fixture, so in a
+    run whose switch put D_pow2 on domestic fixtures a USABLE record naming D's model is a fallback (an UNUSABLE one
+    is a fixture neither correction could price, e.g. no Pinnacle 1X2 or O/U 2.5)."""
+    import price_edge_cagey_shortlist as v28
+    from performance_tracking import fixture_key, read_csv
+    runs = records = fallbacks = 0
+    fixtures, fell_back = set(), set()
+    for meta, _, _ in archived:
+        summary = summaries.get(meta['generated_at_utc']) or {}
+        if (summary.get('cagey_correction_live') or {}).get('domestic') != v28.CORRECTION_D_POW2:
+            continue
+        path = Path(root) / 'performance' / 'snapshots' / meta['git_commit_sha'][:16] / v28.MONITOR_FILE
+        if v28.MONITOR_FILE not in meta.get('sha256', {}) or not path.exists():
+            continue
+        d_model = summary['cagey_corrections'][v28.CORRECTION_D]['model_version']
+        runs += 1
+        for row in read_csv(path):
+            if v28.correction_scope(row.get('league')) != 'domestic':
+                continue
+            records += 1
+            fixtures.add(fixture_key(row))
+            if row.get('model_version') == d_model and row.get('status') == 'USABLE':
+                fallbacks += 1
+                fell_back.add(fixture_key(row))
+    return {'runs': runs, 'domestic_records': records, 'fallback_records': fallbacks,
+            'domestic_fixtures': len(fixtures), 'fallback_fixtures': len(fell_back)}
 
 
 def latest_cagey_forecasts(archived, records, summaries):
@@ -592,6 +634,9 @@ def cagey_rollback_check(archived, records, root, clock=None) -> dict:
     for identity, (generated, row, summary, final) in sorted(latest_cagey_forecasts(archived, usable, summaries).items()):
         try:
             built = cagey_contexts(row, summary)
+        except CageyFallback:
+            coverage['fallback_to_D'] += 1
+            continue
         except (ValueError, TypeError, KeyError) as exc:
             coverage['not_replayed:' + str(exc)[:60]] += 1
             continue
@@ -623,6 +668,8 @@ def cagey_rollback_check(archived, records, root, clock=None) -> dict:
             'matches': result['matches'], 'weeks': result['weeks'], 'eligible': result['eligible'],
             'triggered': result['triggered'], 'd_pow2_minus_d_log_loss': result['difference'],
             'interval_95': result['interval_95'], 'log_loss': result['log_loss'],
+            'graded_fallbacks': coverage.get('fallback_to_D', 0),
+            'fallbacks': cagey_fallbacks(root, archived, summaries),
             'coverage': dict(sorted(coverage.items()))}
 
 
@@ -632,10 +679,21 @@ def cagey_markdown(cagey) -> list[str]:
     diff, interval = cagey['d_pow2_minus_d_log_loss'], cagey['interval_95']
     status = (TRIGGERED if cagey['triggered'] else 'not triggered' if cagey['eligible']
               else f'not yet eligible (needs {CAGEY_MIN_MATCHES} matches and {CAGEY_MIN_WEEKS} weeks)')
-    return ['## Cagey correction D_pow2 rollback check', '',
-            'Released for domestic leagues on 17 Nov 2026 after passing its declared holdout test against D (a Bet365 '
-            'safety check, not a measure of the live effect); UCL and UEL keep D. ' + cagey['rule'], '',
-            '| Graded domestic matches | Weeks | D_pow2 − D log loss (AH all) | 95% interval | Status |',
-            '|---|---|---|---|---|',
-            f"| {cagey['matches']} | {cagey['weeks']} | {'—' if diff is None else f'{diff:+.5f}'} | "
-            f"{'—' if not interval else f'{interval[0]:+.5f} to {interval[1]:+.5f}'} | {status} |", '']
+    lines = ['## Cagey correction D_pow2 rollback check', '',
+             'Released for domestic leagues on 17 Nov 2026 after passing its declared holdout test against D (a Bet365 '
+             'safety check, not a measure of the live effect); UCL and UEL keep D. ' + cagey['rule'], '',
+             '| Graded domestic matches | Weeks | D_pow2 − D log loss (AH all) | 95% interval | Status |',
+             '|---|---|---|---|---|',
+             f"| {cagey['matches']} | {cagey['weeks']} | {'—' if diff is None else f'{diff:+.5f}'} | "
+             f"{'—' if not interval else f'{interval[0]:+.5f} to {interval[1]:+.5f}'} | {status} |", '']
+    fallbacks = cagey.get('fallbacks')
+    if fallbacks is not None:
+        lines += ['Fallbacks to D: where D_pow2\'s power grid failed its fit check, the run priced the fixture with D '
+                  '(flagged in cagey_correction_fallback) and the match is left out of the comparison above.', '',
+                  '| D_pow2 runs | Domestic fixture forecasts | Priced by D (fallback) | Domestic fixtures | '
+                  'Fixtures with a fallback | Graded matches left out |',
+                  '|---|---|---|---|---|---|',
+                  f"| {fallbacks['runs']} | {fallbacks['domestic_records']} | {fallbacks['fallback_records']} | "
+                  f"{fallbacks['domestic_fixtures']} | {fallbacks['fallback_fixtures']} | "
+                  f"{cagey.get('graded_fallbacks', 0)} |", '']
+    return lines

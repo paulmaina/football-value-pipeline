@@ -105,7 +105,8 @@ def market_view(forecast: Mapping, clock, model_version: Optional[str] = None,
     corrected margins with the run's cagey model (`model_version`, else the production model), fit B's where the
     correction is unavailable. `cagey` is the run's per-scope correction (its summary's cagey_correction_live and
     cagey_corrections; price_edge_cagey_shortlist.correction_live): the fixture's scope picks the correction exactly
-    as the cagey tier did. None (every run before 17 Nov 2026): D, as before."""
+    as the cagey tier did, including its fallback to D where D_pow2's power grid fails its fit check
+    (price_edge_cagey_shortlist.cagey_basis). None (every run before 17 Nov 2026): D, as before."""
     import narrow_margin as nm
     import price_edge_cagey_shortlist as v28
     import price_edge_shortlist as v27
@@ -117,12 +118,9 @@ def market_view(forecast: Mapping, clock, model_version: Optional[str] = None,
     settings = dict(cagey or {})
     live = v28.correction_live(settings)
     name = None if live is None else live[v28.correction_scope(forecast.get('league'))]
-    if name in (None, v28.CORRECTION_D):
-        context = v28.corrected_context(pin, fit, info, model)
-    else:
-        row_model, method = v28.correction_models(settings, model)[name]
-        cagey_fit, cagey_info = v27.market_fit(pin, pd.Timestamp(clock), cutoff=True, method=method)
-        context = v28.corrected_context(pin, cagey_fit, cagey_info, row_model, method)
+    _, row_model, method, cagey_fit, cagey_info, _ = v28.cagey_basis(
+        name, v28.correction_models(settings, model), pin, fit, info, pd.Timestamp(clock), True)
+    context = v28.corrected_context(pin, cagey_fit, cagey_info, row_model, method)
     split, basis = ((margin_hda(context['margins'], context['probs']), 'cagey-corrected margins')
                     if context is not None else (hda(fit.matrix), 'market fit B'))
     return {'expected_goals': {'home': float(fit.lam_home), 'away': float(fit.lam_away)}, 'home_draw_away': split,

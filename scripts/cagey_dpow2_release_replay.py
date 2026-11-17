@@ -12,6 +12,8 @@ the cagey tier list, the master list and the value shortlist. It also checks, ru
   * UCL and UEL rows are untouched (every cagey figure identical to the before build);
   * the shadow column is D exactly: on every row D_pow2 prices, shadow_corrected_no_loss_probability equals the
     before build's corrected_no_loss_probability;
+  * fallbacks: every domestic row whose power grid failed its fit check (cagey_correction_fallback) is labelled D
+    and priced exactly as the before build;
 
 and measures the harness-live parity gap: for each domestic fixture whose live fit B is usable, the live D_pow2
 margin distribution (price_edge_cagey_shortlist.corrected_context on the frozen Pinnacle quotes at the run clock)
@@ -73,6 +75,21 @@ def shadow_is_d(before, release) -> dict:
     return {'rows_priced_by_d_pow2': int(priced.sum()), 'rows_with_shadow': int(both.sum()),
             'rows_without_shadow': int((priced & shadow.isna()).sum()), 'max_abs_gap': gap,
             'shadow_is_d': bool(gap <= 1e-12)}
+
+
+def fallback_is_d(before, release) -> dict:
+    """Rows of domestic fixtures whose power grid failed its fit check (cagey_correction_fallback): each must be
+    labelled D and priced exactly as the before build (D's grid with D's own correction)."""
+    a, b = before[0], release[0]
+    flagged = base._column(b, v28.FALLBACK_COLUMN).notna()
+    columns = [c for c in a.columns if c.startswith(('corrected_', 'cagey_tier'))]
+    changed = sorted(c for c in columns if c in b and a.loc[flagged, c].astype(object).map(str).tolist()
+                     != b.loc[flagged, c].astype(object).map(str).tolist())
+    labels = sorted(set(base._column(b, 'cagey_correction')[flagged].dropna().map(str)))
+    keys = set(zip(*(base._column(b, c)[flagged].map(str) for c in ('league', 'home_team', 'away_team'))))
+    reasons = sorted(set(base._column(b, v28.FALLBACK_COLUMN)[flagged].map(str)))
+    return {'rows': int(flagged.sum()), 'fixtures': len(keys), 'corrections': labels, 'cagey_columns_changed': changed,
+            'reasons': reasons, 'priced_as_d': not changed and set(labels) <= {v28.CORRECTION_D}}
 
 
 def parity(predictions, generated, settings) -> dict:
@@ -143,6 +160,7 @@ def main(argv=None):
                  'release_is_the_default_call': bool(default_call(predictions, generated).to_csv(index=False)
                                                      == release[0].to_csv(index=False)),
                  'european': european_untouched(before, release), 'shadow': shadow_is_d(before, release),
+                 'fallback': fallback_is_d(before, release),
                  'compare': base.compare_run(before, release, directory.name),
                  'parity': parity(predictions, generated, release_settings)}
         report['runs'].append(entry)
@@ -158,6 +176,10 @@ def main(argv=None):
         'european_untouched_in_every_run': all(r['european']['untouched'] for r in rows),
         'rows_priced_by_d_pow2': sum(r['shadow']['rows_priced_by_d_pow2'] for r in rows),
         'shadow_is_d_in_every_run': all(r['shadow']['shadow_is_d'] for r in rows),
+        'fallback_rows': sum(r['fallback']['rows'] for r in rows),
+        'fallback_fixtures': sum(r['fallback']['fixtures'] for r in rows),
+        'fallback_priced_as_d_in_every_run': all(r['fallback']['priced_as_d'] for r in rows),
+        'fallback_reasons': sorted({x for r in rows for x in r['fallback']['reasons']}),
         'parity': {'max_abs_margin_probability_gap': {n: gap(n) for n in (v28.CORRECTION_D, v28.CORRECTION_D_POW2)},
                    'fixtures_compared': {n: sum(r['parity']['fixtures_compared'][n] for r in rows)
                                          for n in (v28.CORRECTION_D, v28.CORRECTION_D_POW2)}}}

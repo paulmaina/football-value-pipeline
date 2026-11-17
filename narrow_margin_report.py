@@ -175,7 +175,9 @@ def recompute(row: Mapping, evaluated_at: str, model_version: str, cutoff: bool 
 
     `cutoff`: the run used observed-by-cutoff-v2, which excludes fits with inputs stamped after it. The fit uses
     the margin-removal method the model was fitted on (proportional for D; power for D_pow2, which prices domestic
-    fixtures since 17 Nov 2026 and is named in their monitoring rows)."""
+    fixtures since 17 Nov 2026 and is named in their monitoring rows). D_pow2 is rebuilt on its power fit B only,
+    as live priced it (price_edge_cagey_shortlist.cagey_basis): a fixture whose power grid fails its fit check was
+    priced by D and its monitoring row names D's model."""
     import narrow_margin as nm
     import price_edge_cagey_shortlist as v28
     import price_edge_shortlist as v27
@@ -184,6 +186,8 @@ def recompute(row: Mapping, evaluated_at: str, model_version: str, cutoff: bool 
     model = nm.load(model_version)
     method = nm.model_method(model)
     fit, fit_info = v27.market_fit(pin, pd.Timestamp(evaluated_at), cutoff, method=method)
+    if nm.one_x_two(model) is not None and not fit.usable:
+        return None  # never D_pow2's correction on the power fit A
     context = v28.corrected_context(pin, fit, fit_info, model, method)
     if context is None:
         return None
