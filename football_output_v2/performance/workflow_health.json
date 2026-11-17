@@ -33,13 +33,13 @@
       "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
       "observations": 479,
       "rejected_files": [],
-      "reviewed_at_utc": "2026-11-17T02:30:22.969876+00:00",
+      "reviewed_at_utc": "2026-11-17T03:01:56.600737+00:00",
       "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
       "version": "local-closing-quotes-v4"
     },
     "dependencies": {
-      "PyYAML": "6.0.3",
-      "coverage": "7.17.3",
+      "PyYAML": "NOT_INSTALLED",
+      "coverage": "NOT_INSTALLED",
       "numpy": "2.5.5",
       "pandas": "3.1.1",
       "python": "3.14.10",
@@ -67,7 +67,7 @@
     "experiment_capture_counts": {},
     "experimental_reports": {},
     "forecast_freshness": {
-      "age_hours": 206.16989263722223,
+      "age_hours": 206.69590120972222,
       "generated_at_utc": "2026-11-08T12:20:11.356382+00:00",
       "status": "OLDER_THAN_24_HOURS",
       "upcoming_fixture_count": 0
@@ -91,10 +91,10 @@
       "automatic_promotion": false,
       "experiments": [],
       "note": "Only live forward trials are queued, and none is live. Notifications invite review, including negative findings; they never approve changes.",
-      "reviewed_at_utc": "2026-11-17T02:30:22.969876+00:00",
+      "reviewed_at_utc": "2026-11-17T03:01:56.600737+00:00",
       "version": "experiment-review-queue-v1"
     },
-    "reviewed_at_utc": "2026-11-17T02:30:22.969876+00:00",
+    "reviewed_at_utc": "2026-11-17T03:01:56.600737+00:00",
     "selection_policy_groups": {
       "48h-ah-price-edge-cagey-v28": {
         "brier": 0.197092,
@@ -41886,11 +41886,11 @@
         "current_source_health": {
           "added_matches": 0,
           "cache_hash_verified": true,
-          "checked_at_utc": "2026-11-16T18:44:18.354042+00:00",
+          "checked_at_utc": "2026-11-17T03:01:09.112855+00:00",
           "completed_matches": 72,
           "corrected_scores": 0,
           "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-          "download_age_hours": 7.767948842777778,
+          "download_age_hours": 0.013191078333333333,
           "download_status": "VERIFIED_LIVE",
           "latest_completed_date": "2026-11-04",
           "latest_completed_utc": "2026-11-04T20:00:00+00:00",
@@ -41899,7 +41899,7 @@
           "overdue_unfinished_match_ids": [],
           "provider": "football-data.org",
           "season_start": 2026,
-          "sha256": "5b316af66abf977e34973823bac07f372d46879f43dc7795af6b4d4644fb5a68",
+          "sha256": "7984d4193e74a54e5a20523445bf891881e1e4b541f4b22701a27912153c3717",
           "source_schedule_matches": 144,
           "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
           "training_end": "2026-11-04"
@@ -41952,7 +41952,7 @@
             }
           },
           "status": "VERIFIED_WITHIN_24_HOURS",
-          "verified_at_utc": "2026-11-17T02:30:22.969876+00:00"
+          "verified_at_utc": "2026-11-17T03:01:56.600737+00:00"
         },
         "days_since_latest_result": 12,
         "diagnostics_sha256": "6d70a4acfcaaa01104fcd514bf870e52206326aa84de138210f3521660303f7a",
@@ -42051,7 +42051,7 @@
       }
     }
   },
-  "reviewed_at_utc": "2026-11-17T02:30:22Z",
+  "reviewed_at_utc": "2026-11-17T03:01:56Z",
   "snapshots": 82,
   "shortlist": {
     "brier": 0.187212,
