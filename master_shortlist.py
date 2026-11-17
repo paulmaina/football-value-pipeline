@@ -448,8 +448,18 @@ def write_old_shadow(decisions: pd.DataFrame, out_dir, run_summary: Mapping,
         return None
 
 
+def cagey_settings(summary: Mapping) -> Optional[dict]:
+    """The run's per-scope cagey correction from its summary (price_edge_cagey_shortlist.correction_live), or None
+    for runs that record none (D everywhere)."""
+    if not summary or summary.get('cagey_correction_live') is None:
+        return None
+    return {'cagey_correction_live': summary['cagey_correction_live'],
+            'cagey_corrections': summary.get('cagey_corrections')}
+
+
 def new_live(decisions: pd.DataFrame, old_master: Optional[pd.DataFrame], generated_at_utc=None,
-             predictions: Optional[pd.DataFrame] = None, cagey_model_version: Optional[str] = None):
+             predictions: Optional[pd.DataFrame] = None, cagey_model_version: Optional[str] = None,
+             cagey: Optional[Mapping] = None):
     """The live master under the release: (frame, summary). Exactly the new master's shadow output (the rule's
     reconcile and summary on the same inputs) with VERSION_NEW_LIVE in place of the rule version and the live status
     and note; the overlap columns compare with the old master and are named after it (LIVE_RENAMES). Each pick the
@@ -462,7 +472,7 @@ def new_live(decisions: pd.DataFrame, old_master: Optional[pd.DataFrame], genera
     frame = mr.stable_order(frame)  # platform-independent row order (ties in theory no longer follow float noise)
     info = _renamed(mr.summary(frame, old_master, config, generated_at_utc))
     clock = mr.run_clock(mr._records(decisions), generated_at_utc)
-    frame, details = master_inspection.annotate(frame, predictions, clock, config, cagey_model_version)
+    frame, details = master_inspection.annotate(frame, predictions, clock, config, cagey_model_version, cagey)
     by_rank = {frame.at[i, 'new_master_rank']: d for i, d in details.items()}
     for pick in info['for_inspection']['picks']:
         pick['detail'] = by_rank.get(pick['new_master_rank'])
@@ -484,7 +494,8 @@ def release(decisions: pd.DataFrame, out_dir, run_summary: Mapping,
     old = write_old_shadow(decisions, out, run_summary, predictions)
     generated = run_summary.get('generated_at_utc')
     try:
-        frame, info = new_live(decisions, old, generated, predictions, run_summary.get('cagey_model_version'))
+        frame, info = new_live(decisions, old, generated, predictions, run_summary.get('cagey_model_version'),
+                               cagey_settings(run_summary))
     except Exception as exc:
         if old is None:  # nothing to publish: both masters failed
             raise

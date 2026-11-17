@@ -11,5 +11,21 @@
     "Double Chance 12",
     "Draw No Bet Home",
     "Draw No Bet Away"
-  ]
+  ],
+  "cagey_correction_live": {
+    "domestic": "D_pow2",
+    "european": "D"
+  },
+  "cagey_corrections": {
+    "D": {
+      "model_version": "cagey-correction-through-2425-v1",
+      "devig_method": "proportional"
+    },
+    "D_pow2": {
+      "model_version": "cagey-correction-through-2425-power-1x2-v1",
+      "devig_method": "power"
+    }
+  },
+  "cagey_correction_switch": "The cagey correction live per scope (price_edge_cagey_shortlist.correction_live). domestic: \"D_pow2\" (power-method grid, the correction fitted on it and the 1X2 set from the power quote; released 17 Nov 2026 after passing its declared holdout test against D, docs/plan.md Phase 3b-3) or \"D\" (the proportional grid with model_version). european (UCL and UEL): \"D\" only. Where D_pow2 is live, D is kept in shadow (shadow_corrected_no_loss_probability). Each run records the switch and the models in its summary, so it replays exactly; runs before the release record nothing and used D everywhere.",
+  "cagey_correction_rollback": "Rolling back is setting cagey_correction_live.domestic to \"D\" (Paul decides; nothing switches automatically): new runs then use D everywhere; D_pow2 runs keep their numbers and still replay exactly. The weekly report says ROLLBACK TRIGGERED (research_monitoring.cagey_rollback_check) when D_pow2 has a worse log loss than D on AH all lines over at least 150 graded domestic matches and 3 weeks, with the week-resampled 95% interval entirely above zero."
 }
