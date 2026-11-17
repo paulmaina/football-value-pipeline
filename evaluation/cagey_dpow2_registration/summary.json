@@ -1,0 +1,347 @@
+{
+  "what": "Checks of the D_pow2 registration before any holdout row is read for it (locked runs only; no holdout fixture computed: coverage locked_holdout 646).",
+  "runs": {
+    "main": "cc3850c4f (origin/main), evaluation_harness.py --output DIR",
+    "branch_default": "9f53902f3, same command",
+    "branch_with_D_pow2": "9f53902f3, --cagey-candidates D_pow2"
+  },
+  "default_run_against_main": {
+    "fixture_scores.csv": {
+      "byte_identical": true
+    },
+    "forecasts_1x2.csv": {
+      "byte_identical": true
+    },
+    "diagnostic_fixtures.csv": {
+      "byte_identical": true
+    },
+    "results.json": {
+      "byte_identical": false,
+      "identical_apart_from_commit": true,
+      "commits": [
+        "cc3850c4f7c9b8742a13511b80491d18a11656b2",
+        "9f53902f3a926f9f4333a9a618c5880b7cc9796d"
+      ]
+    },
+    "diagnostics.json": {
+      "byte_identical": false,
+      "identical_apart_from_commit": true,
+      "commits": [
+        "cc3850c4f7c9b8742a13511b80491d18a11656b2",
+        "9f53902f3a926f9f4333a9a618c5880b7cc9796d"
+      ]
+    }
+  },
+  "with_D_pow2_against_main": {
+    "fixture_scores.csv": {
+      "rows_main": 548138,
+      "rows_asked": 586598,
+      "candidate_rows": 38460,
+      "other_rows_identical_and_in_order": true
+    },
+    "forecasts_1x2.csv": {
+      "rows_main": 149306,
+      "rows_asked": 158921,
+      "candidate_rows": 9615,
+      "other_rows_identical_and_in_order": true
+    },
+    "diagnostic_fixtures.csv": {
+      "byte_identical": true
+    },
+    "results.json": {
+      "identical_once_the_candidate_is_removed": true,
+      "identical_as_written": false
+    },
+    "diagnostics.json": {
+      "identical_once_the_candidate_is_removed": true,
+      "identical_as_written": true
+    }
+  },
+  "reproduces_pr184_on_the_harness_cohort": {
+    "development": {
+      "log_loss_D_minus_D_pow2": {
+        "1X2": {
+          "pr184": 0.0015575037529523977,
+          "harness": 0.0015575037529523977,
+          "fixtures": [
+            6875,
+            6875
+          ],
+          "equal": true,
+          "max_abs_difference": 0.0
+        },
+        "AH all": {
+          "pr184": 0.0009808080217638111,
+          "harness": 0.0009808080217638111,
+          "fixtures": [
+            6875,
+            6875
+          ],
+          "equal": true,
+          "max_abs_difference": 0.0
+        },
+        "AH draw-sensitive": {
+          "pr184": 0.001416103442104642,
+          "harness": 0.001416103442104642,
+          "fixtures": [
+            6875,
+            6875
+          ],
+          "equal": true,
+          "max_abs_difference": 0.0
+        },
+        "Over 1.5": {
+          "pr184": 6.936054523686904e-05,
+          "harness": 6.936054523686904e-05,
+          "fixtures": [
+            6875,
+            6875
+          ],
+          "equal": true,
+          "max_abs_difference": 0.0
+        }
+      },
+      "events_against_M": {
+        "narrow": {
+          "pr184": [
+            6875,
+            0.9965887409312635,
+            1.0828933781412908
+          ],
+          "harness": [
+            6875,
+            0.9965887409312632,
+            1.0828933781412908
+          ],
+          "equal": true,
+          "max_abs_difference": 3.3306690738754696e-16
+        },
+        "no_loss": {
+          "pr184": [
+            14937,
+            1.0571345785456796,
+            1.0931771853950722
+          ],
+          "harness": [
+            14937,
+            1.0571345785456796,
+            1.0931771853950722
+          ],
+          "equal": true,
+          "max_abs_difference": 0
+        }
+      }
+    },
+    "validation": {
+      "log_loss_D_minus_D_pow2": {
+        "1X2": {
+          "pr184": 0.0018318557114433197,
+          "harness": 0.0018318557114433197,
+          "fixtures": [
+            1305,
+            1305
+          ],
+          "equal": true,
+          "max_abs_difference": 0.0
+        },
+        "AH all": {
+          "pr184": 0.0012266444367189547,
+          "harness": 0.0012266444367189547,
+          "fixtures": [
+            1305,
+            1305
+          ],
+          "equal": true,
+          "max_abs_difference": 0.0
+        },
+        "AH draw-sensitive": {
+          "pr184": 0.0017638227899772043,
+          "harness": 0.0017638227899772043,
+          "fixtures": [
+            1305,
+            1305
+          ],
+          "equal": true,
+          "max_abs_difference": 0.0
+        },
+        "Over 1.5": {
+          "pr184": -0.0001860561567247001,
+          "harness": -0.0001860561567247001,
+          "fixtures": [
+            1305,
+            1305
+          ],
+          "equal": true,
+          "max_abs_difference": 0.0
+        }
+      },
+      "events_against_M": {
+        "narrow": {
+          "pr184": [
+            1305,
+            1.1743771482959648,
+            1.306086677994149
+          ],
+          "harness": [
+            1305,
+            1.1743771482959648,
+            1.3060866779941491
+          ],
+          "equal": true,
+          "max_abs_difference": 2.220446049250313e-16
+        },
+        "no_loss": {
+          "pr184": [
+            2823,
+            0.9555827927601419,
+            1.0032392053087995
+          ],
+          "harness": [
+            2823,
+            0.955582792760142,
+            1.0032392053087995
+          ],
+          "equal": true,
+          "max_abs_difference": 1.1102230246251565e-16
+        }
+      }
+    }
+  },
+  "retrospective_diagnostic_only": {
+    "D_minus_D_pow2": {
+      "1X2": {
+        "clear_of_zero": false,
+        "fixtures": 1435,
+        "interval_95": [
+          -0.00024134550796908974,
+          0.0038963471784518545
+        ],
+        "mean_gain": 0.0018835558274462119,
+        "weeks": 29
+      },
+      "AH all": {
+        "clear_of_zero": false,
+        "fixtures": 1435,
+        "interval_95": [
+          -0.0005781875940195502,
+          0.0017508052406356328
+        ],
+        "mean_gain": 0.0006591958089833997,
+        "weeks": 29
+      },
+      "AH draw-sensitive": {
+        "clear_of_zero": false,
+        "fixtures": 1435,
+        "interval_95": [
+          -0.00044831988160606785,
+          0.0027775375490774064
+        ],
+        "mean_gain": 0.0012240417116014923,
+        "weeks": 29
+      },
+      "Over 1.5": {
+        "clear_of_zero": false,
+        "fixtures": 1435,
+        "interval_95": [
+          -0.0006870319133901114,
+          0.00038080244664249823
+        ],
+        "mean_gain": -0.00017243613778984305,
+        "weeks": 29
+      }
+    },
+    "events": {
+      "D": {
+        "passes": true,
+        "narrow": {
+          "events": 1436,
+          "fixtures": 1436,
+          "mean_forecast": 0.621761627190873,
+          "observed_rate": 0.6364902506963789,
+          "slope": 0.9581556716114112,
+          "baseline_slope": 1.0782413657980263,
+          "slope_passes": true,
+          "bands_pass": true
+        },
+        "no_loss": {
+          "events": 3099,
+          "fixtures": 1436,
+          "mean_forecast": 0.6850634029421591,
+          "observed_rate": 0.6795740561471443,
+          "slope": 1.06501476188634,
+          "baseline_slope": 1.0840240551853566,
+          "slope_passes": true,
+          "bands_pass": true
+        }
+      },
+      "D_pow2": {
+        "passes": true,
+        "narrow": {
+          "events": 1435,
+          "fixtures": 1435,
+          "mean_forecast": 0.6166515101293647,
+          "observed_rate": 0.6362369337979094,
+          "slope": 0.9472503689791549,
+          "baseline_slope": 1.0833611277229735,
+          "slope_passes": true,
+          "bands_pass": true
+        },
+        "no_loss": {
+          "events": 3097,
+          "fixtures": 1435,
+          "mean_forecast": 0.6774644617418872,
+          "observed_rate": 0.6793671294801421,
+          "slope": 1.0447231420219654,
+          "baseline_slope": 1.0847749699996558,
+          "slope_passes": true,
+          "bands_pass": true
+        }
+      },
+      "M": {
+        "passes": false,
+        "narrow": {
+          "events": 1436,
+          "fixtures": 1436,
+          "mean_forecast": 0.5996690921502902,
+          "observed_rate": 0.6364902506963789,
+          "slope": 1.0782413657980263,
+          "baseline_slope": 1.0782413657980263,
+          "slope_passes": true,
+          "bands_pass": false
+        },
+        "no_loss": {
+          "events": 3099,
+          "fixtures": 1436,
+          "mean_forecast": 0.6717742610745989,
+          "observed_rate": 0.6795740561471443,
+          "slope": 1.0840240551853566,
+          "baseline_slope": 1.0840240551853566,
+          "slope_passes": true,
+          "bands_pass": true
+        }
+      }
+    }
+  },
+  "D_pow2_coverage": {
+    "Bundesliga:D_pow2:available": 1057,
+    "EPL:D_pow2:available": 1464,
+    "Eredivisie:D_pow2:available": 888,
+    "LaLiga:D_pow2:available": 1492,
+    "Ligue1:D_pow2:available": 1258,
+    "PrimeiraLiga:D_pow2:available": 900,
+    "SerieA:D_pow2:available": 1493,
+    "SuperLig:D_pow2:available": 1063,
+    "SuperLig:D_pow2:residual 0.0352 above 0.03": 1,
+    "SuperLig:D_pow2:residual 0.0393 above 0.03": 1
+  },
+  "locked_holdout": {
+    "Eredivisie:locked_holdout": 214,
+    "PrimeiraLiga:locked_holdout": 220,
+    "SuperLig:locked_holdout": 212
+  },
+  "reproduction_tolerance": {
+    "rule": "equal within 1e-12 (floating-point summation order); events counts and fixtures exact",
+    "largest_difference": 3.3306690738754696e-16,
+    "all_equal": true
+  }
+}
