@@ -49,6 +49,11 @@ WHICH CORRECTION (cagey_correction_config.json, cagey_correction_live; docs/plan
   * Per scope (domestic, european); a run records the switch and the models in its summary. Where D_pow2
     prices a row, D's no-loss probability for the same line is kept beside it (shadow). Rolling back is
     setting cagey_correction_live.domestic to "D" (research_monitoring's cagey trigger says when).
+  * Fallback (Paul, 17 Nov 2026): D_pow2 prices a fixture only on its power-method fit B, the grid it was
+    tested on. When that fit fails its fit check (market_implied.fit unusable: residual above 3pp, missing or
+    late quotes), the fixture is priced by D, D's own grid with D's own correction, and its rows say so in
+    cagey_correction_fallback (cagey_basis). A fixture D cannot price either has no cagey figures and no flag. D_pow2's correction is never applied to another grid: not the
+    power fit A, not D's grid. research_monitoring counts the fallbacks.
 """
 from __future__ import annotations
 
@@ -124,8 +129,11 @@ CORRECTION_SCOPES = ('domestic', 'european')
 # The European competitions (team_research.EUROPEAN_COMPETITIONS, master_reconciliation_config.json european).
 EUROPEAN_LEAGUES = frozenset({'UEFA Champions League', 'UEFA Europa League'})
 # Decision columns of a run that records cagey_correction_live: which correction priced the row's cagey figures,
-# and, where that is not D, D's no-loss probability for the same line (the shadow).
-SHADOW_COLUMNS = ['cagey_correction', 'shadow_cagey_correction', 'shadow_corrected_no_loss_probability']
+# why D priced a fixture the switch gave to D_pow2 (its power grid failed its fit check; else empty), and, where
+# the pricing correction is not D, D's no-loss probability for the same line (the shadow).
+FALLBACK_COLUMN = 'cagey_correction_fallback'
+SHADOW_COLUMNS = ['cagey_correction', FALLBACK_COLUMN, 'shadow_cagey_correction', 'shadow_corrected_no_loss_probability']
+FALLBACK_REASON = 'power grid failed its fit check'
 
 
 def correction_scope(league) -> str:
@@ -174,6 +182,33 @@ def correction_models(settings: Mapping, model: Optional[Mapping]) -> Dict[str, 
             raise ValueError('D_pow2 needs the correction model that carries the 1X2 rule')
         out[name] = (candidate, spec['devig_method'])
     return out
+
+
+def cagey_basis(name: Optional[str], corrections: Mapping[str, tuple], pin: Mapping, fit: mi.Fit,
+                fit_info: Mapping, now, strict: bool = False, method: str = mi.DEVIG_PROPORTIONAL):
+    """(correction, model, method, grid fit, grid fit info, fallback) that price one fixture's cagey figures.
+
+    `name` is the switch's correction for the fixture's scope (None: no switch, the run's model on its `method`
+    grid, exactly as before 17 Nov 2026; offline candidates keep their B-else-A refit). `corrections` is
+    correction_models(). D is the fixture's own fit (`fit`, `fit_info`: fit B, else fit A, as always).
+
+    D_pow2 is priced on its power-method fit B only, the grid it was tested on (evaluation_harness.market_matrix).
+    When that fit fails its fit check, the fixture falls back to D, D's grid with D's own correction, and
+    `fallback` says why; D_pow2's correction is never paired with another grid (not the power fit A, not D's)."""
+    if name is None:
+        model = corrections[CORRECTION_D][0]
+        if method == mi.DEVIG_PROPORTIONAL:
+            return None, model, method, fit, fit_info, None
+        return (None, model, method, *v27.market_fit(pin, now, strict, method=method), None)
+    if name == CORRECTION_D:
+        return (CORRECTION_D, *corrections[CORRECTION_D], fit, fit_info, None)
+    model, row_method = corrections[name]
+    cagey_fit, cagey_info = v27.market_fit(pin, now, strict, method=row_method)
+    if cagey_fit.usable:
+        return name, model, row_method, cagey_fit, cagey_info, None
+    reasons = '; '.join(dict.fromkeys(cagey_fit.reasons)) or 'no fit'
+    return (CORRECTION_D, *corrections[CORRECTION_D], fit, fit_info,
+            f'{name} {FALLBACK_REASON} ({reasons}); priced by D')
 
 
 def excluded_markets(settings: Mapping) -> list:
@@ -378,11 +413,12 @@ def corrected_context(pin: Mapping, fit: mi.Fit, fit_info: Mapping, model: Mappi
 
 
 def shadow_fields(name: Optional[str], context: Optional[Mapping], shadow: Optional[Mapping],
-                  item: Mapping) -> Dict[str, object]:
+                  item: Mapping, fallback: Optional[str] = None) -> Dict[str, object]:
     """SHADOW_COLUMNS for one decision row: the correction that priced the row's cagey figures (None when it has
-    none), and D's no-loss probability for the same line and price wherever another correction is live."""
-    out = {'cagey_correction': name if context is not None else None, 'shadow_cagey_correction': None,
-           'shadow_corrected_no_loss_probability': None}
+    none), why D priced a fixture the switch gave to D_pow2 (cagey_basis), and D's no-loss probability for the
+    same line and price wherever another correction priced the row."""
+    out = {'cagey_correction': name if context is not None else None, FALLBACK_COLUMN: fallback,
+           'shadow_cagey_correction': None, 'shadow_corrected_no_loss_probability': None}
     if shadow is None or name in (None, CORRECTION_D):
         return out
     out['shadow_cagey_correction'] = CORRECTION_D
@@ -610,12 +646,14 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
         # The cagey tier's own grid. Live D (proportional) it is the fixture's fit, exactly as before. Another
         # method (D_pow2 where cagey_correction_live puts it, or an offline candidate's devig_method) refits it:
         # the cagey context changes (and with it the c-cagey fair price of derived plus lines, which is the
-        # corrected grid's by definition); every other value figure keeps `fit`.
+        # corrected grid's by definition); every other value figure keeps `fit`. D_pow2 whose power fit B fails
+        # its fit check falls back to D for the fixture (cagey_basis).
         name = None if live is None else live[correction_scope(row.get('league'))]
-        row_model, row_method = (model, method) if name is None else corrections[name]
-        cagey_fit, cagey_info = (fit, fit_info) if row_method == mi.DEVIG_PROPORTIONAL else \
-            v27.market_fit(pin, now, strict, method=row_method)
+        name, row_model, row_method, cagey_fit, cagey_info, fallback = cagey_basis(
+            name, corrections, pin, fit, fit_info, now, strict, method)
         context = corrected_context(pin, cagey_fit, cagey_info, row_model, row_method) if row_model is not None else None
+        if context is None:
+            fallback = None  # D could not price it either (e.g. no Pinnacle 1X2 or O/U 2.5): no cagey figures, as before
         # Shadow: D on the same fixture wherever another correction is live (reporting and the rollback trigger).
         shadow = (corrected_context(pin, fit, fit_info, model) if name not in (None, CORRECTION_D) and model is not None
                   else None)
@@ -645,7 +683,7 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
                 item = {**item, 'per_stake_cost': cost}
             decision = value_tier_item(item, context, settings['cagey_correction_enabled'], tier)
             if live is not None:
-                decision.update(shadow_fields(name, context, shadow, item))
+                decision.update(shadow_fields(name, context, shadow, item, fallback))
             if per_market:
                 apply_group_threshold(decision)
             if settings['price_edge_execution_version'] >= EXECUTION_VERSION:
@@ -670,7 +708,7 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
             from profit_shortlist import dc12_candidates
             extra = dc12_candidates(row, pin, fit, fit_info, now, policy)
             if live is not None:
-                extra = [{**item, **shadow_fields(name, context, shadow, item)} for item in extra]
+                extra = [{**item, **shadow_fields(name, context, shadow, item, fallback)} for item in extra]
             out.extend(extra)
         if strict:
             for decision in out:

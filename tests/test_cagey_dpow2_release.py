@@ -208,6 +208,146 @@ class LiveTest(unittest.TestCase):
         self.assertEqual(self.release[1][cagey].to_csv(index=False), mirrored[1][cagey].to_csv(index=False))
 
 
+def fallback_row(row=None):
+    """The frozen forecast with Pinnacle's home price cut from 1.88 to 1.654: the proportional fit B still passes its
+    fit check (residual 0.017), the power fit B fails it (0.031 above 0.03) and the power fit A passes, as for the
+    two Süper Lig holdout fixtures D_pow2 could not price (residuals 0.0332 and 0.0353)."""
+    row = dict(FROZEN['row'] if row is None else row)
+    quotes = json.loads(row['price_edge_quotes'])
+    for quote in quotes:
+        if quote.get('bookmaker') == 'Pinnacle' and quote.get('market') == 'h2h':
+            quote['prices']['home'] = 1.654
+    return {**row, 'price_edge_quotes': json.dumps(quotes)}
+
+
+def no_totals_row():
+    """The frozen forecast with no Pinnacle O/U 2.5 quote: neither the power nor the proportional fit B exists, and D
+    has no corrected distribution (it needs the O/U 2.5 quote), so the fixture has no cagey figures at all."""
+    row = dict(FROZEN['row'])
+    quotes = [q for q in json.loads(row['price_edge_quotes'])
+              if not (q.get('bookmaker') == 'Pinnacle' and q.get('market') == 'totals')]
+    return {**row, 'price_edge_quotes': json.dumps(quotes), 'totals_anchor_reference_source': None,
+            'market_source_ou25': None}
+
+
+class FallbackTest(unittest.TestCase):
+    """Paul, 17 Nov 2026: where D_pow2's power grid fails its fit check, the fixture is priced by D (D's grid, D's own
+    correction), flagged, and counted; D_pow2's correction is never paired with another grid."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.row = fallback_row()
+        cls.clock = pd.Timestamp(FROZEN['snapshot_generated_utc'])
+        cls.pin = v27.pinnacle_quotes(cls.row)
+        cls.before = build(cls.row, before_settings())
+        cls.monitor = []
+        cls.release = v28.build_shortlist(pd.DataFrame([cls.row]), FROZEN['snapshot_generated_utc'],
+                                          execution_policy=POLICY, settings=v28.load_settings(),
+                                          model=nm.production_model(), monitor=cls.monitor)
+
+    def test_the_fixture_is_the_case_in_question(self):
+        proportional, _ = v27.market_fit(self.pin, self.clock, True)
+        power, power_info = v27.market_fit(self.pin, self.clock, True, method='power')
+        self.assertTrue(proportional.usable)
+        self.assertFalse(power.usable)
+        self.assertTrue(any(r.startswith('residual') for r in power.reasons))
+        # The untested pairing exists: D_pow2's correction on the power fit A would give a figure.
+        self.assertTrue(power_info['fit_a'].usable)
+        self.assertIsNotNone(v28.corrected_context(self.pin, power, power_info, nm.load(nm.ONE_X_TWO_VERSION), 'power'))
+
+    def test_cagey_basis_falls_back_to_d_and_never_pairs_d_pow2_with_another_grid(self):
+        settings = v28.load_settings()
+        corrections = v28.correction_models(settings, nm.production_model())
+        fit, info = v27.market_fit(self.pin, self.clock, True)
+        name, model, method, grid, grid_info, fallback = v28.cagey_basis('D_pow2', corrections, self.pin, fit, info,
+                                                                         self.clock, True)
+        self.assertEqual((name, model['version'], method), ('D', nm.PRODUCTION_VERSION, 'proportional'))
+        self.assertIs(grid, fit)
+        self.assertIs(grid_info, info)
+        self.assertIn(v28.FALLBACK_REASON, fallback)
+        self.assertIn('residual', fallback)
+        # A fixture whose power fit passes is D_pow2's, on that fit.
+        pin = v27.pinnacle_quotes(FROZEN['row'])
+        fit, info = v27.market_fit(pin, self.clock, True)
+        name, model, method, grid, _, fallback = v28.cagey_basis('D_pow2', corrections, pin, fit, info, self.clock, True)
+        self.assertEqual((name, model['version'], method, grid.usable, fallback),
+                         ('D_pow2', nm.ONE_X_TWO_VERSION, 'power', True, None))
+
+    def test_the_fixture_is_priced_by_d_and_flagged(self):
+        decisions, before = self.release[1], self.before[1]
+        self.assertTrue(len(decisions))
+        self.assertEqual(set(decisions.cagey_correction.dropna()), {'D'})
+        flags = decisions[v28.FALLBACK_COLUMN]
+        self.assertTrue(flags.notna().all())
+        self.assertTrue(flags.str.startswith('D_pow2 power grid failed its fit check (residual').all())
+        self.assertTrue(decisions.shadow_cagey_correction.isna().all())
+        self.assertTrue(decisions.shadow_corrected_no_loss_probability.isna().all())
+        for column in before.columns:
+            if column.startswith(('corrected_', 'cagey_tier')):
+                self.assertEqual(before[column].astype(object).map(str).tolist(),
+                                 decisions[column].astype(object).map(str).tolist(), column)
+        # The flag reaches the cagey output.
+        self.assertIn(v28.FALLBACK_COLUMN, v28.cagey_tier_list(decisions).columns)
+        # A fixture D_pow2 prices carries no flag.
+        priced = build(FROZEN['row'], v28.load_settings())[1]
+        self.assertTrue(priced[v28.FALLBACK_COLUMN].isna().all())
+        # Nor does one that neither correction can price (no Pinnacle O/U 2.5): no cagey figures, as before.
+        unpriced = build(no_totals_row(), v28.load_settings())[1]
+        self.assertTrue(len(unpriced))
+        self.assertTrue(unpriced.cagey_correction.isna().all())
+        self.assertTrue(unpriced[v28.FALLBACK_COLUMN].isna().all())
+        self.assertTrue(pd.to_numeric(unpriced.corrected_cagey_score, errors='coerce').isna().all())
+
+    def test_monitoring_names_ds_model_and_the_report_counts_the_fallback(self):
+        self.assertEqual([(r['model_version'], r['quintile_model_sha256']) for r in self.monitor],
+                         [(nm.PRODUCTION_VERSION, nm.load_quintiles(nm.production_model())['model_sha256'])])
+        summary = self.release[2]
+        with self.assertRaises(rm.CageyFallback):
+            rm.cagey_contexts(self.row, summary)
+        # The archived monitoring records of a D_pow2 run: one fallback, one D_pow2 fixture, one UEFA fixture (D).
+        import performance_tracking as pt
+        monitor = list(self.monitor)
+        for row in (FROZEN['row'], {**FROZEN['row'], 'league': 'UEFA Champions League'},
+                    {**no_totals_row(), 'home_team': 'Unpriced'}):
+            v28.build_shortlist(pd.DataFrame([row]), FROZEN['snapshot_generated_utc'], execution_policy=POLICY,
+                                settings=v28.load_settings(), model=nm.production_model(), monitor=monitor)
+        self.assertEqual([(r['model_version'], r['status']) for r in monitor],
+                         [(nm.PRODUCTION_VERSION, 'USABLE'), (nm.ONE_X_TWO_VERSION, 'USABLE'),
+                          (nm.PRODUCTION_VERSION, 'USABLE'), (nm.PRODUCTION_VERSION, 'UNUSABLE')])
+        monitor[1] = {**monitor[1], 'home_team': 'Other'}
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            sha = 'a' * 40
+            directory = root / 'performance' / 'snapshots' / sha[:16]
+            directory.mkdir(parents=True)
+            pt.write_csv(directory / v28.MONITOR_FILE, monitor, v28.MONITOR_COLUMNS)
+            meta = {'generated_at_utc': summary['generated_at_utc'], 'git_commit_sha': sha,
+                    'sha256': {v28.MONITOR_FILE: '0' * 64}}
+            old = {**meta, 'generated_at_utc': '2026-11-10T06:00:00+00:00'}  # a run before the release: not counted
+            counts = rm.cagey_fallbacks(root, [(meta, [], []), (old, [], [])],
+                                        {summary['generated_at_utc']: summary, old['generated_at_utc']: {}})
+        # The unpriced fixture names D's model but is UNUSABLE: not a fallback.
+        self.assertEqual(counts, {'runs': 1, 'domestic_records': 3, 'fallback_records': 1, 'domestic_fixtures': 3,
+                                  'fallback_fixtures': 1})
+        check = {'matches': 0, 'weeks': 0, 'eligible': False, 'triggered': False, 'd_pow2_minus_d_log_loss': None,
+                 'interval_95': None, 'rule': 'the rule', 'log_loss': {}, 'coverage': {'fallback_to_D': 1},
+                 'graded_fallbacks': 1, 'fallbacks': counts}
+        lines = rm.cagey_markdown(check)
+        self.assertTrue(any(line.startswith('Fallbacks to D') for line in lines))
+        self.assertIn('| 1 | 3 | 1 | 3 | 1 | 1 |', lines)
+
+    def test_inspection_and_the_correction_report_follow_the_same_rule(self):
+        import master_inspection
+        import master_shortlist
+        import narrow_margin_report
+        cagey = master_shortlist.cagey_settings(self.release[2])
+        self.assertEqual(master_inspection.market_view(self.row, self.clock, nm.PRODUCTION_VERSION, cagey),
+                         master_inspection.market_view(self.row, self.clock, nm.PRODUCTION_VERSION))
+        evaluated = self.clock.isoformat()
+        self.assertIsNone(narrow_margin_report.recompute(self.row, evaluated, nm.ONE_X_TWO_VERSION, True))
+        self.assertIsNotNone(narrow_margin_report.recompute(self.row, evaluated, nm.PRODUCTION_VERSION, True))
+
+
 class MasterInspectionTest(unittest.TestCase):
     def test_the_market_view_uses_the_runs_correction_for_the_fixtures_scope(self):
         import master_inspection

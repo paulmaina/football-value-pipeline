@@ -82,6 +82,14 @@
         "rows": 0,
         "untouched": true
       },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
       "generated_at_utc": "2026-10-27T09:50:40.995248+00:00",
       "offers": 230,
       "parity": {
@@ -172,6 +180,14 @@
         "corrections": [],
         "rows": 0,
         "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
       },
       "generated_at_utc": "2026-10-27T11:35:10.735016+00:00",
       "offers": 221,
@@ -264,6 +280,14 @@
         "rows": 0,
         "untouched": true
       },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
       "generated_at_utc": "2026-10-28T12:13:37.819395+00:00",
       "offers": 257,
       "parity": {
@@ -354,6 +378,14 @@
         "corrections": [],
         "rows": 0,
         "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
       },
       "generated_at_utc": "2026-10-28T16:16:05.061508+00:00",
       "offers": 431,
@@ -446,6 +478,14 @@
         "rows": 0,
         "untouched": true
       },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
       "generated_at_utc": "2026-10-29T12:08:22.532184+00:00",
       "offers": 543,
       "parity": {
@@ -536,6 +576,14 @@
         "corrections": [],
         "rows": 0,
         "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
       },
       "generated_at_utc": "2026-10-30T07:29:50.498587+00:00",
       "offers": 1238,
@@ -628,6 +676,14 @@
         "rows": 0,
         "untouched": true
       },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
       "generated_at_utc": "2026-10-30T12:03:48.308948+00:00",
       "offers": 1282,
       "parity": {
@@ -718,6 +774,14 @@
         "corrections": [],
         "rows": 0,
         "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
       },
       "generated_at_utc": "2026-10-31T12:03:11.165007+00:00",
       "offers": 1628,
@@ -810,6 +874,14 @@
         "rows": 66,
         "untouched": true
       },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
       "generated_at_utc": "2026-11-01T07:37:30.159727+00:00",
       "offers": 1004,
       "parity": {
@@ -901,6 +973,14 @@
         "rows": 0,
         "untouched": true
       },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
       "generated_at_utc": "2026-11-01T09:36:12.166126+00:00",
       "offers": 216,
       "parity": {
@@ -986,6 +1066,14 @@
         "corrections": [],
         "rows": 0,
         "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
       },
       "generated_at_utc": "2026-11-01T12:23:24.469126+00:00",
       "offers": 0,
@@ -1075,6 +1163,14 @@
         "rows": 609,
         "untouched": true
       },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
       "generated_at_utc": "2026-11-03T13:23:43.479885+00:00",
       "offers": 609,
       "parity": {
@@ -1163,6 +1259,14 @@
         "rows": 609,
         "untouched": true
       },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
       "generated_at_utc": "2026-11-03T13:58:02.173298+00:00",
       "offers": 609,
       "parity": {
@@ -1250,6 +1354,14 @@
         ],
         "rows": 78,
         "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
       },
       "generated_at_utc": "2026-11-04T09:31:03.622249+00:00",
       "offers": 138,
@@ -1344,6 +1456,14 @@
         "rows": 680,
         "untouched": true
       },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
       "generated_at_utc": "2026-11-04T10:20:33.895771+00:00",
       "offers": 782,
       "parity": {
@@ -1437,6 +1557,14 @@
         "rows": 475,
         "untouched": true
       },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
       "generated_at_utc": "2026-11-04T19:40:50.340029+00:00",
       "offers": 861,
       "parity": {
@@ -1527,6 +1655,14 @@
         "corrections": [],
         "rows": 0,
         "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
       },
       "generated_at_utc": "2026-11-05T12:32:00.598966+00:00",
       "offers": 521,
@@ -1621,6 +1757,14 @@
         "rows": 465,
         "untouched": true
       },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
       "generated_at_utc": "2026-11-05T13:37:38.336530+00:00",
       "offers": 1070,
       "parity": {
@@ -1707,6 +1851,14 @@
         "rows": 0,
         "untouched": true
       },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
       "generated_at_utc": "2026-11-05T16:17:48.024788+00:00",
       "offers": 0,
       "parity": {
@@ -1792,6 +1944,14 @@
         "corrections": [],
         "rows": 0,
         "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
       },
       "generated_at_utc": "2026-11-05T16:27:43.343008+00:00",
       "offers": 0,
@@ -1886,6 +2046,14 @@
         "rows": 463,
         "untouched": true
       },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
       "generated_at_utc": "2026-11-05T16:50:22.659919+00:00",
       "offers": 1467,
       "parity": {
@@ -1976,6 +2144,14 @@
         "corrections": [],
         "rows": 0,
         "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
       },
       "generated_at_utc": "2026-11-06T11:26:29.717902+00:00",
       "offers": 1347,
@@ -2068,6 +2244,14 @@
         "rows": 0,
         "untouched": true
       },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
       "generated_at_utc": "2026-11-06T12:17:20.125743+00:00",
       "offers": 1194,
       "parity": {
@@ -2153,6 +2337,14 @@
         "corrections": [],
         "rows": 0,
         "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
       },
       "generated_at_utc": "2026-11-06T13:21:43.280136+00:00",
       "offers": 0,
@@ -2245,6 +2437,14 @@
         "rows": 0,
         "untouched": true
       },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
       "generated_at_utc": "2026-11-06T13:40:19.404227+00:00",
       "offers": 1413,
       "parity": {
@@ -2335,6 +2535,14 @@
         "corrections": [],
         "rows": 0,
         "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
       },
       "generated_at_utc": "2026-11-07T11:48:25.259368+00:00",
       "offers": 1705,
@@ -2427,6 +2635,14 @@
         "rows": 0,
         "untouched": true
       },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
       "generated_at_utc": "2026-11-07T13:54:13.645217+00:00",
       "offers": 1566,
       "parity": {
@@ -2517,6 +2733,14 @@
         "corrections": [],
         "rows": 0,
         "untouched": true
+      },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
       },
       "generated_at_utc": "2026-11-08T09:01:04.075316+00:00",
       "offers": 997,
@@ -2609,6 +2833,14 @@
         "rows": 0,
         "untouched": true
       },
+      "fallback": {
+        "cagey_columns_changed": [],
+        "corrections": [],
+        "fixtures": 0,
+        "priced_as_d": true,
+        "reasons": [],
+        "rows": 0
+      },
       "generated_at_utc": "2026-11-08T12:20:11.356382+00:00",
       "offers": 920,
       "parity": {
@@ -2664,6 +2896,10 @@
     ],
     "european_rows": 3445,
     "european_untouched_in_every_run": true,
+    "fallback_fixtures": 0,
+    "fallback_priced_as_d_in_every_run": true,
+    "fallback_reasons": [],
+    "fallback_rows": 0,
     "master": {
       "max_rank_move": 6,
       "mean_spearman": 0.9637737262737263,
