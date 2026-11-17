@@ -286,8 +286,17 @@ def corrected_context(pin: Mapping, fit: mi.Fit, fit_info: Mapping, model: Mappi
     inputs = {'p_over_2_5': mi.devig_two_way(*pin['ou25'][:2], method=method)[0], 'p_home': p_home, 'p_away': p_away,
               'p_draw': p_draw}
     p2, p3 = nm.corrected_tails(model, nm.margin_tail(margins, probs, 2), nm.margin_tail(margins, probs, 3), inputs)
+    corrected = nm.correct_distribution(margins, probs, p2, p3)
+    spec = nm.one_x_two(model)
+    if spec is not None:
+        # Offline candidate D_pow2 only: the 1X2 set separately and the corrected grid moved onto it, exactly as
+        # evaluation_harness.cagey_matrix does; the score is the final grid's P(|margin| >= 2).
+        grid = nm.set_one_x_two(nm.correct_matrix(source.matrix, p2, p3),
+                                nm.one_x_two_target(spec, p_home, p_draw, p_away))
+        corrected = mi.margin_distribution(grid)[1]
+        p2 = nm.margin_tail(margins, corrected, 2)
     return {'fit': source.kind, 'fit_b': fit.usable, 'margins': margins, 'uncorrected_probs': probs,
-            'probs': nm.correct_distribution(margins, probs, p2, p3), 'score': p2,
+            'probs': corrected, 'score': p2,
             'input_stamps': [stamp for key, stamp in fit_info.get('input_stamps', {}).items()
                              if source.kind == 'B' or key != 'ah_main']}
 
