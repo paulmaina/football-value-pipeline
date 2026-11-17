@@ -1,0 +1,17 @@
+{
+  "outcome": "no_release",
+  "release": false,
+  "baseline_minus_candidate": {
+    "AH all": 0.004662882562019435,
+    "AH draw-sensitive": 0.007273529697543935
+  },
+  "conditions": {
+    "sample_minimum_met": true,
+    "calibration_passes": false,
+    "point_estimates_positive": {
+      "AH all": true,
+      "AH draw-sensitive": true
+    },
+    "primary_interval_clear_of_zero": false
+  }
+}
