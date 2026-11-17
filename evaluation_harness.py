@@ -2735,7 +2735,9 @@ def historical(cache, cfg, *, include_holdout=False, keep=None, leagues=None, wo
     records, folds, coverage, overrounds, sources, calib, research = [], [], Counter(), [], [], [], []
     variant_rates = {name: {} for name in variants}
     with ProcessPoolExecutor(max_workers=workers) as pool:
-        futures = [pool.submit(evaluate_league, league, str(cache), cfg, include_holdout, keep, None, cagey)
+        # The cagey candidates go in only when asked for, so a default run calls evaluate_league exactly as before.
+        extra = (None, cagey) if cagey else ()
+        futures = [pool.submit(evaluate_league, league, str(cache), cfg, include_holdout, keep, *extra)
                    for league in leagues]
         variant_futures = [(name, pool.submit(variant_base_rates, league, str(cache), cfg, include_holdout, name))
                            for name in variants for league in leagues]
