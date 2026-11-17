@@ -22,6 +22,12 @@ for other margin-removal methods (`--method power|shin`, docs/plan.md Phase 3b)
 are fitted by this same procedure on their own grid, record `devig_method`, and
 live in narrow_margin_models/candidates/, which nothing live reads;
 `require_method` refuses a model on a grid it was not fitted on.
+
+One further offline candidate (docs/plan.md Phase 3b-2, D_pow2) carries a
+`one_x_two` block: the power candidate's correction for the shape of margins,
+then the 1X2 set separately from the power quote (rule ONE_X_TWO_RULE) and the
+corrected grid moved onto it. No production model has the block, and a model
+without it is corrected exactly as before.
 """
 from __future__ import annotations
 
@@ -54,6 +60,9 @@ CANDIDATE_DIR = MODEL_DIR / 'candidates'  # offline candidates only; no live cod
 # Offline candidates: PRODUCTION_VERSION's specification and training rows on another margin-removal method's grid.
 CANDIDATE_VERSIONS = {mi.DEVIG_POWER: 'cagey-correction-through-2425-power-v1',
                       mi.DEVIG_SHIN: 'cagey-correction-through-2425-shin-v1'}
+# Offline candidate D_pow2: the power candidate's margin correction, then the 1X2 set separately (`--one-x-two-from`).
+ONE_X_TWO_VERSION = 'cagey-correction-through-2425-power-1x2-v1'
+ONE_X_TWO_RULE = 'power-quote-draw-uplift-v1'
 TARGETS = (2, 3)
 FEATURES = ('logit_matrix_p', 'p_over_2_5', 'abs_home_minus_away', 'p_draw')
 EPS = 1e-6
@@ -165,6 +174,89 @@ def corrected_tails(model: Mapping, matrix_p2: float, matrix_p3: float, inputs: 
     p2 = float(predict(model['targets']['2'], features_for(matrix_p2, *common))[0])
     p3 = float(predict(model['targets']['3'], features_for(matrix_p3, *common))[0])
     return p2, min(p3, p2)
+
+
+# ---------------------------------------------------------------------------
+# The 1X2 set separately (offline candidate D_pow2 only)
+# ---------------------------------------------------------------------------
+
+def one_x_two(model: Mapping) -> Optional[Mapping]:
+    """The model's 1X2 rule, or None (every production model, and the power and Shin candidates). The rule was
+    fitted on the power quote, so it is only valid on a model of the power grid."""
+    spec = model.get('one_x_two')
+    if spec is None:
+        return None
+    if spec.get('rule') != ONE_X_TWO_RULE:
+        raise ValueError(f"Unknown 1X2 rule {spec.get('rule')!r}")
+    require_method(model, mi.DEVIG_POWER)
+    return spec
+
+
+def favourite_probability(p_home, p_away):
+    """f: the quote's probability for the favourite, the likelier of home and away."""
+    return np.maximum(p_home, p_away)
+
+
+def one_x_two_target(spec: Mapping, p_home: float, p_draw: float, p_away: float) -> Tuple[float, float, float]:
+    """Rule power-quote-draw-uplift-v1 on a margin-free quote (home, draw, away):
+
+        logit(draw') = logit(draw) + a + b * (f - 0.5),  f = max(home, away)
+
+    and home and away share 1 - draw' in the quote's own ratio."""
+    eta = float(_logit(p_draw)) + spec['a'] + spec['b'] * (float(favourite_probability(p_home, p_away)) - 0.5)
+    draw = 1 / (1 + math.exp(-eta))
+    home = (1 - draw) * p_home / (p_home + p_away)
+    return home, draw, 1 - draw - home
+
+
+def set_one_x_two(matrix: np.ndarray, target: Sequence[float]) -> np.ndarray:
+    """The grid moved onto `target` (home, draw, away): scorelines keep their shape inside each result."""
+    from football_value_pipeline_v2_standalone import reweight_matrix_to_1x2
+    return reweight_matrix_to_1x2(matrix, target)
+
+
+def fit_one_x_two(p_home, p_draw, p_away, drawn) -> Dict[str, object]:
+    """a and b of rule power-quote-draw-uplift-v1 by maximum likelihood on the draw (deterministic BFGS):
+    a logistic regression of `drawn` on f - 0.5 with logit(p_draw) as a fixed offset."""
+    offset = _logit(p_draw)
+    z = np.column_stack([np.ones(len(offset)),
+                         favourite_probability(np.asarray(p_home, float), np.asarray(p_away, float)) - 0.5])
+    y = np.asarray(drawn, dtype=float)
+
+    def loss(beta):
+        eta = offset + z @ beta
+        return float(np.mean(np.logaddexp(0, eta) - y * eta))
+
+    def grad(beta):
+        p = 1 / (1 + np.exp(-(offset + z @ beta)))
+        return z.T @ (p - y) / len(y)
+
+    result = minimize(loss, np.zeros(2), jac=grad, method='BFGS', options={'gtol': 1e-10, 'maxiter': 1000})
+    if not result.success and result.fun > loss(np.zeros(2)):
+        raise ValueError(f'1X2 fit failed: {result.message}')
+    return {'rule': ONE_X_TWO_RULE, 'a': float(result.x[0]), 'b': float(result.x[1]),
+            'training_log_loss': float(result.fun), 'quote_training_log_loss': loss(np.zeros(2))}
+
+
+def train_one_x_two(frame: pd.DataFrame, base: Mapping, *, version: str) -> Dict[str, object]:
+    """D_pow2's model: `base` (the power candidate) unchanged, plus the 1X2 rule fitted on base's own training
+    rows and nothing later. `frame` is build_dataset(method='power')."""
+    require_method(base, mi.DEVIG_POWER)
+    if 'one_x_two' in base:
+        raise ValueError('The base model already has a 1X2 rule')
+    if 'devig_method' not in frame or not frame['devig_method'].eq(mi.DEVIG_POWER).all():
+        raise ValueError('The dataset was built with a different margin-removal method')
+    data = frame[frame.date < pd.Timestamp(base['training_until_exclusive'])]
+    if len(data) != base['training_matches'] or fingerprint(data) != base['training_fingerprint']:
+        raise ValueError("Training rows differ from the base model's recorded training data")
+    drawn = (data.margin == 0).to_numpy()
+    spec = fit_one_x_two(data.p_home.to_numpy(), data.p_draw.to_numpy(), data.p_away.to_numpy(), drawn)
+    spec.update(base_version=base['version'], training_matches=int(len(data)),
+                training_fingerprint=base['training_fingerprint'], training_draw_rate=float(drawn.mean()),
+                training_quote_draw=float(data.p_draw.mean()),
+                formula="logit(draw') = logit(draw_q) + a + b * (f - 0.5); f = max(home_q, away_q); home and away "
+                        "share 1 - draw' in the power quote's ratio; grid moved with reweight_matrix_to_1x2")
+    return {**base, 'version': version, 'one_x_two': spec}
 
 
 def fingerprint(rows: pd.DataFrame) -> str:
@@ -378,12 +470,22 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                         help='margin-removal method of the grid (offline candidates only; default: the live method)')
     parser.add_argument('--quintiles', action='store_true',
                         help='write the fixed monitoring quintile boundaries of the saved --version model (no refit)')
+    parser.add_argument('--one-x-two-from', metavar='BASE_VERSION',
+                        help='offline candidate D_pow2: save --version as the saved power candidate BASE_VERSION '
+                             'plus the 1X2 rule fitted on its own training rows (needs --method power)')
     args = parser.parse_args(argv)
     candidate = args.method != mi.DEVIG_PROPORTIONAL
     model_dir = Path(args.model_dir) if args.model_dir else CANDIDATE_DIR if candidate else MODEL_DIR
     if candidate and model_dir.resolve() == MODEL_DIR.resolve():
         raise SystemExit('A candidate for another margin-removal method is never saved beside the production models')
+    if args.one_x_two_from and args.method != mi.DEVIG_POWER:
+        raise SystemExit('The 1X2 rule is fitted on the power quote: use --method power')
     frame = build_dataset(Path(args.cache_dir), args.divisions, workers=args.workers, method=args.method)
+    if args.one_x_two_from:
+        model = train_one_x_two(frame, load(args.one_x_two_from, model_dir), version=args.version)
+        print(f"Saved {save(model, model_dir)}: a {model['one_x_two']['a']:.4f}, b {model['one_x_two']['b']:.4f} "
+              f"on {model['one_x_two']['training_matches']} matches")
+        return 0
     if args.quintiles:
         model = load(args.version, model_dir)
         require_method(model, args.method)

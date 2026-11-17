@@ -473,11 +473,126 @@ def compare_lists(base, cand, probability, tier=None):
             'mean_probability_candidate': float(pd.to_numeric(cand[probability], errors='coerce').mean()) if len(cand) else None}
 
 
-def live(args):
+def build_variant(predictions, generated, settings, model, target):
+    """One saved run rebuilt under one rule: (decisions, cagey tier list, master picks). No result is read."""
     import master_shortlist
     import price_edge_cagey_shortlist as v28
-    import shortlist_window
     from quote_policy import load_policy
+    target.mkdir(parents=True, exist_ok=True)
+    with warnings.catch_warnings():
+        warnings.simplefilter('ignore')
+        _, decisions, summary = v28.build_shortlist(predictions, pd.Timestamp(generated),
+                                                    execution_policy=load_policy(), settings=settings, model=model)
+        tier = v28.cagey_tier_list(decisions)
+        summary.setdefault('quote_execution_policy', load_policy())
+        master_shortlist.refresh(decisions.copy(), target, summary, predictions)
+    master = master_picks(pd.read_csv(target / master_shortlist.FILE, low_memory=False)
+                          if (target / master_shortlist.FILE).exists() else pd.DataFrame(columns=ROW_KEY))
+    return decisions, tier, master
+
+
+def compare_run(baseline, candidate, label):
+    """One saved run under two rules (each a build_variant result): the cagey no-loss probabilities, the 0.75
+    safe set, the cagey tier list, the master list, and whether anything outside the cagey tier moved."""
+    import price_edge_cagey_shortlist as v28
+    base_decisions, base_tier, base_master = baseline
+    decisions, tier, master = candidate
+    assert _pick_key(decisions) == _pick_key(base_decisions), label
+    column = v28.tier_no_loss_column(base_decisions)
+    base_p = pd.to_numeric(_column(base_decisions, column), errors='coerce')
+    p = pd.to_numeric(_column(decisions, column), errors='coerce')
+    both = base_p.notna() & p.notna()
+    safe_a, safe_b = both & (base_p >= SAFE_NO_LOSS), both & (p >= SAFE_NO_LOSS)
+    other = [c for c in decisions.columns if not c.startswith(('cagey_', 'corrected_', 'uncorrected_',
+                                                               'price_guard', 'totals_correction', 'narrow_'))
+             and c not in ('price_flag', 'in_value_tier', 'correction_validation_note')]
+    value_same = bool(_pick_key(decisions.loc[_column(decisions, 'decision').eq('SHORTLISTED')])
+                      == _pick_key(base_decisions.loc[_column(base_decisions, 'decision').eq('SHORTLISTED')]))
+    return {
+        'offers_scored_by_both': int(both.sum()),
+        'scored_only_by_baseline': int((base_p.notna() & p.isna()).sum()),
+        'scored_only_by_candidate': int((base_p.isna() & p.notna()).sum()),
+        'no_loss_mean_change': float((p - base_p)[both].mean()) if both.any() else None,
+        'no_loss_mean_abs_change': float((p - base_p)[both].abs().mean()) if both.any() else None,
+        'no_loss_max_abs_change': float((p - base_p)[both].abs().max()) if both.any() else None,
+        'safe_baseline': int(safe_a.sum()), 'safe_candidate': int(safe_b.sum()),
+        'safe_both': int((safe_a & safe_b).sum()), 'safe_left': int((safe_a & ~safe_b).sum()),
+        'safe_entered': int((~safe_a & safe_b).sum()),
+        'cagey_decision_changed': int((_column(decisions, 'cagey_tier_decision').astype(object).map(str)
+                                       != _column(base_decisions, 'cagey_tier_decision').astype(object).map(str)).sum()),
+        'value_shortlist_same': value_same,
+        'columns_changed_outside_cagey': sorted(
+            c for c in other if c in base_decisions and decisions[c].astype(object).map(str).tolist()
+            != base_decisions[c].astype(object).map(str).tolist()),
+        'cagey_tier': compare_lists(base_tier, tier, v28.tier_no_loss_column(base_tier)),
+        # The value tier's older price-edge reference for derived plus lines (reference_type c-cagey) is
+        # the cagey-corrected fair price by definition, so those rows' fair odds follow the cagey grid.
+        'value_reference_rows_moved': int((pd.to_numeric(_column(decisions, 'fair_odds'), errors='coerce')
+                                           .sub(pd.to_numeric(_column(base_decisions, 'fair_odds'), errors='coerce'))
+                                           .abs() > 1e-12).sum()),
+        'value_reference_rows_moved_not_c_cagey': int(((pd.to_numeric(_column(decisions, 'fair_odds'), errors='coerce')
+                                                        .sub(pd.to_numeric(_column(base_decisions, 'fair_odds'), errors='coerce'))
+                                                        .abs() > 1e-12)
+                                                       & ~_column(base_decisions, 'reference_type').eq('c-cagey')).sum()),
+        'value_decisions_same': bool(
+            _column(decisions, 'decision').astype(object).map(str).tolist()
+            == _column(base_decisions, 'decision').astype(object).map(str).tolist()
+            and _column(decisions, 'rejection_reasons').astype(object).map(str).tolist()
+            == _column(base_decisions, 'rejection_reasons').astype(object).map(str).tolist()),
+        'master': compare_lists(base_master, master, 'ranking_no_loss_probability', tier='new_master_tier')}
+
+
+def run_totals(rows):
+    """compare_run results of every saved run, added up."""
+    add = lambda key: int(sum(r[key] for r in rows))  # noqa: E731
+    weight = sum(r['offers_scored_by_both'] for r in rows)
+    return {
+        'runs': len(rows), 'offers_scored_by_both': weight,
+        'scored_only_by_baseline': add('scored_only_by_baseline'),
+        'scored_only_by_candidate': add('scored_only_by_candidate'),
+        'no_loss_mean_change': sum((r['no_loss_mean_change'] or 0) * r['offers_scored_by_both'] for r in rows) / max(weight, 1),
+        'no_loss_mean_abs_change': sum((r['no_loss_mean_abs_change'] or 0) * r['offers_scored_by_both'] for r in rows) / max(weight, 1),
+        'no_loss_max_abs_change': max((r['no_loss_max_abs_change'] or 0) for r in rows),
+        **{k: add(k) for k in ('safe_baseline', 'safe_candidate', 'safe_both', 'safe_left', 'safe_entered',
+                               'cagey_decision_changed', 'value_reference_rows_moved',
+                               'value_reference_rows_moved_not_c_cagey')},
+        'value_decisions_same_in_every_run': all(r['value_decisions_same'] for r in rows),
+        'master_shared_tier_changed': int(sum(r['master'].get('shared_tier_changed', 0) for r in rows)),
+        'runs_with_safe_set_changed': sum(bool(r['safe_left'] or r['safe_entered']) for r in rows),
+        'value_shortlist_same_in_every_run': all(r['value_shortlist_same'] for r in rows),
+        'columns_changed_outside_cagey': sorted({c for r in rows for c in r['columns_changed_outside_cagey']}),
+        **{name: {'picks_baseline': sum(r[name]['picks_baseline'] for r in rows),
+                  'picks_candidate': sum(r[name]['picks_candidate'] for r in rows),
+                  'shared': sum(r[name]['shared'] for r in rows),
+                  'only_baseline': sum(r[name]['only_baseline'] for r in rows),
+                  'only_candidate': sum(r[name]['only_candidate'] for r in rows),
+                  'runs_same_picks': sum(r[name]['only_baseline'] == 0 and r[name]['only_candidate'] == 0 for r in rows),
+                  'runs_same_order': sum(r[name]['same_order'] for r in rows),
+                  'shared_moved': sum(r[name]['shared_moved'] for r in rows),
+                  'max_rank_move': max(r[name]['max_rank_move'] for r in rows),
+                  'mean_spearman': float(np.mean([r[name]['spearman'] for r in rows if r[name]['spearman'] is not None]))
+                  if any(r[name]['spearman'] is not None for r in rows) else None,
+                  'top5_shared': sum(r[name]['top5_shared'] for r in rows),
+                  'top5_size': sum(r[name]['top5_size'] for r in rows)}
+           for name in ('cagey_tier', 'master')}}
+
+
+def check_default(predictions, generated, built, label):
+    """Today's rule with the settings spelled out must be the pipeline's own default call."""
+    import price_edge_cagey_shortlist as v28
+    from quote_policy import load_policy
+    with warnings.catch_warnings():
+        warnings.simplefilter('ignore')
+        _, default, _ = v28.build_shortlist(predictions, pd.Timestamp(generated),
+                                            execution_policy=load_policy(), model=nm.production_model())
+    identical = bool(default.to_csv(index=False) == built[0].to_csv(index=False))
+    assert identical, label
+    return identical
+
+
+def live(args):
+    import price_edge_cagey_shortlist as v28
+    import shortlist_window
     from scripts.master_reconciliation_replay import runs
     corrections = models()
     base_settings = {**v28.load_settings(), 'shortlist_lookahead_hours': shortlist_window.DEFAULT_HOURS}
@@ -489,111 +604,19 @@ def live(args):
         built, entry = {}, {'snapshot': directory.name, 'generated_at_utc': generated}
         for method in METHODS:
             settings = base_settings if method == mi.DEVIG_PROPORTIONAL else {**base_settings, 'devig_method': method}
-            target = out_root / method / directory.name
-            target.mkdir(parents=True, exist_ok=True)
-            with warnings.catch_warnings():
-                warnings.simplefilter('ignore')
-                _, decisions, summary = v28.build_shortlist(predictions, pd.Timestamp(generated),
-                                                            execution_policy=load_policy(), settings=settings,
-                                                            model=corrections[method])
-                tier = v28.cagey_tier_list(decisions)
-                summary.setdefault('quote_execution_policy', load_policy())
-                master_shortlist.refresh(decisions.copy(), target, summary, predictions)
-            master = master_picks(pd.read_csv(target / master_shortlist.FILE, low_memory=False)
-                                  if (target / master_shortlist.FILE).exists() else pd.DataFrame(columns=ROW_KEY))
-            built[method] = (decisions, tier, master)
+            built[method] = build_variant(predictions, generated, settings, corrections[method],
+                                          out_root / method / directory.name)
         if args.check_default:
-            # Today's rule with the settings spelled out must be the pipeline's own default call.
-            with warnings.catch_warnings():
-                warnings.simplefilter('ignore')
-                _, default, _ = v28.build_shortlist(predictions, pd.Timestamp(generated),
-                                                    execution_policy=load_policy(), model=nm.production_model())
-            entry['default_identical'] = bool(default.to_csv(index=False) == built[mi.DEVIG_PROPORTIONAL][0].to_csv(index=False))
-            assert entry['default_identical'], directory.name
-        base_decisions, base_tier, base_master = built[mi.DEVIG_PROPORTIONAL]
+            entry['default_identical'] = check_default(predictions, generated, built[mi.DEVIG_PROPORTIONAL],
+                                                       directory.name)
+        base_decisions = built[mi.DEVIG_PROPORTIONAL][0]
         entry['offers'] = int(len(base_decisions))
-        column = v28.tier_no_loss_column(base_decisions)
-        base_p = pd.to_numeric(_column(base_decisions, column), errors='coerce')
+        base_p = pd.to_numeric(_column(base_decisions, v28.tier_no_loss_column(base_decisions)), errors='coerce')
         entry['offers_with_cagey_no_loss'] = int(base_p.notna().sum())
-        entry['methods'] = {}
-        for method in METHODS[1:]:
-            decisions, tier, master = built[method]
-            assert _pick_key(decisions) == _pick_key(base_decisions), directory.name
-            p = pd.to_numeric(_column(decisions, column), errors='coerce')
-            both = base_p.notna() & p.notna()
-            safe_a, safe_b = both & (base_p >= SAFE_NO_LOSS), both & (p >= SAFE_NO_LOSS)
-            other = [c for c in decisions.columns if not c.startswith(('cagey_', 'corrected_', 'uncorrected_',
-                                                                       'price_guard', 'totals_correction', 'narrow_'))
-                     and c not in ('price_flag', 'in_value_tier', 'correction_validation_note')]
-            value_same = bool(_pick_key(decisions.loc[_column(decisions, 'decision').eq('SHORTLISTED')])
-                              == _pick_key(base_decisions.loc[_column(base_decisions, 'decision').eq('SHORTLISTED')]))
-            entry['methods'][method] = {
-                'offers_scored_by_both': int(both.sum()),
-                'scored_only_by_baseline': int((base_p.notna() & p.isna()).sum()),
-                'scored_only_by_candidate': int((base_p.isna() & p.notna()).sum()),
-                'no_loss_mean_change': float((p - base_p)[both].mean()) if both.any() else None,
-                'no_loss_mean_abs_change': float((p - base_p)[both].abs().mean()) if both.any() else None,
-                'no_loss_max_abs_change': float((p - base_p)[both].abs().max()) if both.any() else None,
-                'safe_baseline': int(safe_a.sum()), 'safe_candidate': int(safe_b.sum()),
-                'safe_both': int((safe_a & safe_b).sum()), 'safe_left': int((safe_a & ~safe_b).sum()),
-                'safe_entered': int((~safe_a & safe_b).sum()),
-                'cagey_decision_changed': int((_column(decisions, 'cagey_tier_decision').astype(object).map(str)
-                                               != _column(base_decisions, 'cagey_tier_decision').astype(object).map(str)).sum()),
-                'value_shortlist_same': value_same,
-                'columns_changed_outside_cagey': sorted(
-                    c for c in other if c in base_decisions and decisions[c].astype(object).map(str).tolist()
-                    != base_decisions[c].astype(object).map(str).tolist()),
-                'cagey_tier': compare_lists(base_tier, tier, v28.tier_no_loss_column(base_tier)),
-                # The value tier's older price-edge reference for derived plus lines (reference_type c-cagey) is
-                # the cagey-corrected fair price by definition, so those rows' fair odds follow the cagey grid.
-                'value_reference_rows_moved': int((pd.to_numeric(_column(decisions, 'fair_odds'), errors='coerce')
-                                                   .sub(pd.to_numeric(_column(base_decisions, 'fair_odds'), errors='coerce'))
-                                                   .abs() > 1e-12).sum()),
-                'value_reference_rows_moved_not_c_cagey': int(((pd.to_numeric(_column(decisions, 'fair_odds'), errors='coerce')
-                                                                .sub(pd.to_numeric(_column(base_decisions, 'fair_odds'), errors='coerce'))
-                                                                .abs() > 1e-12)
-                                                               & ~_column(base_decisions, 'reference_type').eq('c-cagey')).sum()),
-                'value_decisions_same': bool(
-                    _column(decisions, 'decision').astype(object).map(str).tolist()
-                    == _column(base_decisions, 'decision').astype(object).map(str).tolist()
-                    and _column(decisions, 'rejection_reasons').astype(object).map(str).tolist()
-                    == _column(base_decisions, 'rejection_reasons').astype(object).map(str).tolist()),
-                'master': compare_lists(base_master, master, 'ranking_no_loss_probability', tier='new_master_tier')}
+        entry['methods'] = {method: compare_run(built[mi.DEVIG_PROPORTIONAL], built[method], directory.name)
+                            for method in METHODS[1:]}
         report['runs'].append(entry)
-    totals = {}
-    for method in METHODS[1:]:
-        rows = [r['methods'][method] for r in report['runs']]
-        add = lambda key: int(sum(r[key] for r in rows))  # noqa: E731
-        weight = sum(r['offers_scored_by_both'] for r in rows)
-        totals[method] = {
-            'runs': len(rows), 'offers_scored_by_both': weight,
-            'scored_only_by_baseline': add('scored_only_by_baseline'),
-            'scored_only_by_candidate': add('scored_only_by_candidate'),
-            'no_loss_mean_change': sum((r['no_loss_mean_change'] or 0) * r['offers_scored_by_both'] for r in rows) / max(weight, 1),
-            'no_loss_mean_abs_change': sum((r['no_loss_mean_abs_change'] or 0) * r['offers_scored_by_both'] for r in rows) / max(weight, 1),
-            'no_loss_max_abs_change': max((r['no_loss_max_abs_change'] or 0) for r in rows),
-            **{k: add(k) for k in ('safe_baseline', 'safe_candidate', 'safe_both', 'safe_left', 'safe_entered',
-                                   'cagey_decision_changed', 'value_reference_rows_moved',
-                                   'value_reference_rows_moved_not_c_cagey')},
-            'value_decisions_same_in_every_run': all(r['value_decisions_same'] for r in rows),
-            'master_shared_tier_changed': int(sum(r['master'].get('shared_tier_changed', 0) for r in rows)),
-            'runs_with_safe_set_changed': sum(bool(r['safe_left'] or r['safe_entered']) for r in rows),
-            'value_shortlist_same_in_every_run': all(r['value_shortlist_same'] for r in rows),
-            'columns_changed_outside_cagey': sorted({c for r in rows for c in r['columns_changed_outside_cagey']}),
-            **{name: {'picks_baseline': sum(r[name]['picks_baseline'] for r in rows),
-                      'picks_candidate': sum(r[name]['picks_candidate'] for r in rows),
-                      'shared': sum(r[name]['shared'] for r in rows),
-                      'only_baseline': sum(r[name]['only_baseline'] for r in rows),
-                      'only_candidate': sum(r[name]['only_candidate'] for r in rows),
-                      'runs_same_picks': sum(r[name]['only_baseline'] == 0 and r[name]['only_candidate'] == 0 for r in rows),
-                      'runs_same_order': sum(r[name]['same_order'] for r in rows),
-                      'shared_moved': sum(r[name]['shared_moved'] for r in rows),
-                      'max_rank_move': max(r[name]['max_rank_move'] for r in rows),
-                      'mean_spearman': float(np.mean([r[name]['spearman'] for r in rows if r[name]['spearman'] is not None]))
-                      if any(r[name]['spearman'] is not None for r in rows) else None,
-                      'top5_shared': sum(r[name]['top5_shared'] for r in rows),
-                      'top5_size': sum(r[name]['top5_size'] for r in rows)}
-               for name in ('cagey_tier', 'master')}}
+    totals = {method: run_totals([r['methods'][method] for r in report['runs']]) for method in METHODS[1:]}
     report['totals'] = totals
     report['default_identical_in_every_run'] = (all(r.get('default_identical') for r in report['runs'])
                                                 if args.check_default else None)
