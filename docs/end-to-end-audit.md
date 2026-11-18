@@ -1,5 +1,10 @@
 # End-to-end audit — football-value-pipeline
 
+> **Superseded in part (18 Nov 2026).** See the [simplification audit](audit/simplification-2026-11.md)
+> for current status. Two claims below are stale: `price_check.py` re-ranks with
+> `PRODUCTION_POLICY` (v28), not v27; and `research_backtest.py` is not dead, the
+> evaluation harness imports it.
+
 Inspection only. No code, config, outputs or history were changed. Audited at
 `main` = `e1eccb9f3` on 2026-11-07. Evidence was gathered with local commands,
 the committed outputs, the GitHub Actions run history (`gh run list`,

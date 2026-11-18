@@ -1,3 +1,5 @@
+**ARCHIVED (18 Nov 2026).** Superseded; kept for history only. Current behaviour: [README](../../README.md) and [docs/plan.md](../plan.md).
+
 # Football Value Pipeline V2
 
 ## Current operating rules (20 October 2026)
