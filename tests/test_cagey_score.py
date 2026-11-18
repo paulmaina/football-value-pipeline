@@ -119,7 +119,8 @@ class ClosingCoverageTests(OfflineQuotePolicyTestCase):
         self.assertIn('Asian Handicap Home +1.75', selections)
         self.assertIn('Asian Handicap Away -1.75', selections)
         share = tracking.close_win_share(quotes, 'home', 1.75)
-        self.assertAlmostEqual(share, (1 / 1.18) / (1 / 1.18 + 1 / 5.20))
+        from football_value_pipeline_v2_standalone import devig
+        self.assertAlmostEqual(share, devig([1.18, 5.20], 'power')[0])
 
 
 class CalibrationTests(OfflineQuotePolicyTestCase):

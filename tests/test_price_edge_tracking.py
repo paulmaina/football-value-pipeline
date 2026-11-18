@@ -70,14 +70,22 @@ class SidecarTests(OfflineQuotePolicyTestCase):
 
 class ClvTests(OfflineQuotePolicyTestCase):
     def test_close_win_share_from_same_line_pair_and_from_1x2(self):
+        # One fair-close method with clv_report (power), through clv_report.fair_closing_prices.
+        from football_value_pipeline_v2_standalone import devig
+        from clv_report import fair_closing_prices
         pair = observation()['quotes']
-        self.assertAlmostEqual(tracking.close_win_share(pair, 'home', 1.0), (1 / 1.8) / (1 / 1.8 + 1 / 2.1))
-        hda = [{'bookmaker': 'pinnacle', 'selection': k, 'decimal_odds': v}
-               for k, v in (('home', 2.0), ('draw', 3.5), ('away', 4.0))]
-        total = 1 / 2 + 1 / 3.5 + 1 / 4
-        self.assertAlmostEqual(tracking.close_win_share(hda, 'home', -0.5), 0.5 / total)
-        self.assertAlmostEqual(tracking.close_win_share(hda, 'away', 0.5), 1 - 0.5 / total)
+        self.assertAlmostEqual(tracking.close_win_share(pair, 'home', 1.0), devig([1.8, 2.1], 'power')[0])
+        self.assertEqual(tracking.close_win_share(pair, 'home', 1.0), fair_closing_prices(pair)['Asian Handicap Home +1.00'])
+        # The 1X2 close as closing_odds stores it: power fair probabilities on a complete book.
+        fair = devig([2.0, 3.5, 4.0], 'power')
+        hda = [{'bookmaker': 'pinnacle', 'selection': k, 'decimal_odds': v, 'fair_probability': p}
+               for (k, v), p in zip((('home', 2.0), ('draw', 3.5), ('away', 4.0)), fair)]
+        self.assertAlmostEqual(tracking.close_win_share(hda, 'home', -0.5), fair[0])
+        self.assertAlmostEqual(tracking.close_win_share(hda, 'away', 0.5), 1 - fair[0])
         self.assertIsNone(tracking.close_win_share(hda, 'home', 1.0))
+        # A 1X2 without the stored fair probabilities (an incomplete or incoherent book) gives no close.
+        self.assertIsNone(tracking.close_win_share([{k: v for k, v in q.items() if k != 'fair_probability'} for q in hda],
+                                                   'home', -0.5))
         self.assertIsNone(tracking.close_win_share([{**pair[0], 'bookmaker': '1xbet'}, pair[1]], 'home', 1.0))
 
     def test_equivalent_markets_map_to_their_ah_line(self):
@@ -92,7 +100,8 @@ class ClvTests(OfflineQuotePolicyTestCase):
         with patch('performance_tracking.fixture_match', return_value=(final, 'VERIFIED_FINISHED')):
             graded = tracking.grade(rows, [observation()], [], CLOCK)
         item = graded.iloc[0]
-        q = (1 / 1.8) / (1 / 1.8 + 1 / 2.1)
+        from football_value_pipeline_v2_standalone import devig
+        q = devig([1.8, 2.1], 'power')[0]
         self.assertAlmostEqual(item.clv, 1.90 * q - 1)
         self.assertEqual(item.result_status, 'REFUNDED')
         self.assertEqual(item.unit_profit, 0.0)
