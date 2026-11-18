@@ -37,9 +37,9 @@ class MainTotalsTests(OfflineQuotePolicyTestCase):
             result = api.extra_markets_for_event(
                 LEAGUES['EPL'], 'event0', main_over_1_5_offers=offers)
         self.assertEqual(request.call_count, 1)
-        # BTTS and corner totals are no longer requested, in any league.
+        # BTTS is not requested; domestic leagues add corner totals for the shadow corner list.
         self.assertEqual(request.call_args.kwargs['params']['markets'],
-                         'alternate_totals,alternate_spreads,draw_no_bet,double_chance')
+                         'alternate_totals,alternate_spreads,draw_no_bet,double_chance,alternate_totals_corners')
         return result
 
     def test_exact_main_line_retains_pair_without_relabelling_as_25(self):

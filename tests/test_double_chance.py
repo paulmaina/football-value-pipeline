@@ -121,8 +121,10 @@ class DoubleChanceTests(OfflineQuotePolicyTestCase):
                 self.assertIn('alternate_spreads',fetch.call_args.kwargs['params']['markets'])
                 self.assertIn('double_chance',fetch.call_args.kwargs['params']['markets'])
                 self.assertIn('ah_dc_v4',fetch.call_args.args[1])
-                for dropped in ('btts','alternate_totals_corners','alternate_totals_cards'):
+                for dropped in ('btts','alternate_totals_cards'):
                     self.assertNotIn(dropped,fetch.call_args.kwargs['params']['markets'].split(','))
+                # Domestic leagues request corner totals for the shadow corner list only.
+                self.assertIn('alternate_totals_corners',fetch.call_args.kwargs['params']['markets'].split(','))
                 self.assertEqual(r['market_home_draw_odds'],1.35)
 
     def test_primary_quote_preferred_and_fallback_used_when_primary_stale(self):
