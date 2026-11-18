@@ -234,4 +234,43 @@ def test_review_writes_grades_summary_and_report(tmp_path, monkeypatch):
     assert [g['result_status'] for g in grades] == ['WON', 'PENDING']
     report = (out / 'report.md').read_text(encoding='utf-8')
     assert 'unvalidated, not bet' in report and summary['weeks']
+    assert summary['decision_rule']['verdict'] == cs.RULE_TOO_EARLY
+    assert '**Verdict: not enough weeks yet.**' in report and '- Graded picks: 1 over 1 kickoff week(s); 0 with a Pinnacle close, 1 lacking one.' in report
     assert json.loads((out / 'summary.json').read_text(encoding='utf-8'))['all']['won'] == 1
+
+
+def _graded(week, clv, status='LOST'):
+    return {'week': week, 'clv_vs_pinnacle_fair': clv, 'result_status': status,
+            'unit_return': -1.0 if status == 'LOST' else 0.9}
+
+
+def test_decision_rule_needs_two_kickoff_weeks_of_graded_picks():
+    rows = [_graded('2026-W48', 0.05), _graded('2026-W48', 0.04), _graded('2026-W49', 0.03, 'PENDING')]
+    rule = cs.decision_rule(rows)
+    assert rule['verdict'] == cs.RULE_TOO_EARLY == 'not enough weeks yet'
+    assert rule['graded_picks'] == 2 and rule['graded_weeks'] == 1
+
+
+def test_decision_rule_met_only_when_the_whole_week_interval_is_clear_of_zero():
+    from evaluation_diagnostics import week_mean
+    # All picks lost: win rate and return do not decide; positive CLV in every week does.
+    rows = [_graded(f'2026-W{w}', c) for w in (48, 49, 50) for c in (0.03, 0.05, 0.04)]
+    rule = cs.decision_rule(rows)
+    expected = week_mean([r['clv_vs_pinnacle_fair'] for r in rows], [r['week'] for r in rows])
+    assert rule['interval_95'] == expected['interval_95'] and rule['mean_clv_vs_pinnacle_fair'] == expected['mean']
+    assert rule['interval_95'][0] > 0 and rule['verdict'] == cs.RULE_MET == 'rule met'
+    # Positive mean, but one week negative enough that the interval spans zero.
+    mixed = [_graded('2026-W48', 0.20, 'WON'), _graded('2026-W49', -0.15, 'WON'), _graded('2026-W50', 0.02, 'WON')]
+    rule = cs.decision_rule(mixed)
+    assert rule['mean_clv_vs_pinnacle_fair'] > 0 and rule['interval_95'][0] <= 0
+    assert rule['verdict'] == cs.RULE_NOT_MET == 'rule not met'
+
+
+def test_decision_rule_counts_picks_lacking_a_close_and_ignores_pending():
+    rows = [_graded('2026-W48', 0.05), _graded('2026-W49', None), _graded('2026-W49', None, 'WON'),
+            _graded('2026-W50', 0.5, 'PENDING'), _graded('2026-W50', 0.5, 'AWAITING_COUNT_RESULT')]
+    rule = cs.decision_rule(rows)
+    assert (rule['graded_picks'], rule['graded_with_close'], rule['graded_lacking_close']) == (3, 1, 2)
+    assert rule['graded_weeks'] == 2 and rule['weeks_with_close'] == 1
+    # Two graded weeks, but closes in only one: no interval, so the rule is not met.
+    assert rule['interval_95'] is None and rule['verdict'] == cs.RULE_NOT_MET

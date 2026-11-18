@@ -45,5 +45,7 @@ Each fixture's latest pre-kickoff archived pick is graded from the committed foo
   (clv_report's definition), with the share of picks beating the close;
 - overall, picks with positive expected return at entry, and by kickoff week.
 
+The report opens with the corners decision rule (`docs/plan.md`, Phase 6): graded picks, how many lack a Pinnacle close, mean CLV over the graded picks with one, its 95% interval resampling whole kickoff weeks (`evaluation_diagnostics.week_mean`, 2,000 draws, seed 136) and a one-line verdict: "not enough weeks yet" until graded picks span two kickoff weeks, then "rule met" (mean positive, interval clear of zero) or "rule not met" (including when closes cover fewer than two weeks, so no interval exists). Win rate and return are shown but do not decide.
+
 Written to `football_output_v2/performance/corners_shadow/` (`grades.csv`, `summary.json`, `report.md`).
 Corner counts arrive with the training-data refresh, so recent picks show `AWAITING_COUNT_RESULT` until then.
