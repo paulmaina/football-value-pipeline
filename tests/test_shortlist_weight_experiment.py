@@ -177,8 +177,7 @@ class WeightTrialTests(OfflineQuotePolicyTestCase):
         with patch.object(trial,'frozen',return_value=(rows,[])),patch('performance_tracking.fixture_match',return_value=(match,'VERIFIED')):
             self.assertEqual(trial.evaluate(Path('.'),[],[],NOW+timedelta(days=90))[0]['status'],'COLLECT_MORE_DATA')
 
-    def test_review_queue_excel_and_frozen_input_binding(self):
-        from experiment_review_queue import write_queue
+    def test_excel_and_frozen_input_binding(self):
         from excel_book import read_workbook
         from performance_excel import write_workbook
         with tempfile.TemporaryDirectory() as tmp:
@@ -190,9 +189,7 @@ class WeightTrialTests(OfflineQuotePolicyTestCase):
             (raw/'all_leagues_predictions.csv').write_text('changed')
             with self.assertRaises(ValueError): trial.capture_file(raw,summary['generated_at_utc'])
             trial.review_experiment(root,[],[],NOW)
-            # Retired: the archived report is neither queued nor rendered in the workbook.
-            queue=write_queue(root,NOW)
-            self.assertNotIn(trial.NAME,[r['name'] for r in queue['experiments']])
+            # Retired: the archived report is not rendered in the workbook.
             book=read_workbook(write_workbook(root,[],[],{}))
             displayed=' '.join(str(v) for cells in book['cells'].values() for v in cells.values())
             self.assertNotIn('Experiments',book['sheets'])  # removed in the workbook redesign

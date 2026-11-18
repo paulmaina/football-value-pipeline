@@ -240,7 +240,7 @@ fresh `main`:
    - the closing-odds review and the CLV report;
    - v27/v28 price-edge tracking, including both tiers and the Correction
      monitoring section;
-   - the experiment review queue (no live trials) and pipeline health.
+   - pipeline health.
 
 The provider requests are unchanged: the removed steps use only committed
 history, and monitoring reuses the run's own quotes.
