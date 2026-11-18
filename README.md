@@ -15,21 +15,26 @@ This project combines:
 
 The pipeline is designed to estimate probabilities for:
 
-- 1X2 outcomes (Home/Draw/Away)
-- goal markets such as Over/Under 1.5, 2.5, 3.5, and Under 3.5
-- BTTS markets
-- candidate shortlist selections based on probability, EV, and reliability gates
+- 1X2 outcomes (Home/Draw/Away), double chance and draw no bet
+- goal totals (Over/Under 1.5, 2.5 and 3.5)
+- full-time Asian handicap lines, main and alternate
+- three shortlists built from those: the value shortlist, the cagey tier and the master shortlist
+
+Bets are placed at Pinnacle only (`shortlist_quote_policy.json`). The value
+shortlist takes Pinnacle home and away wins, double chance 1X and X2 and Asian
+handicap lines; draw no bet, double chance 12 and totals are excluded
+([value rule](docs/team_research_profit.md)). The cagey tier excludes Over 1.5,
+double chance 12 and both draw no bet markets (`cagey_correction_config.json`).
 
 It is intended as a research and forecasting tool rather than a guaranteed betting system.
 
 ## Supported competitions
 
-- EPL
-- La Liga
-- Bundesliga
-- Serie A
-- Ligue 1
-- UEFA Champions League (UCL)
+The ten leagues in `league_registry.py` (`python league_registry.py` lists them):
+
+- EPL, La Liga, Bundesliga, Serie A, Ligue 1
+- Eredivisie, Primeira Liga, Süper Lig
+- UEFA Champions League (UCL) and UEFA Europa League (UEL)
 
 ## Key features
 
@@ -48,15 +53,13 @@ It is intended as a research and forecasting tool rather than a guaranteed betti
 ├── football_value_pipeline_v2_standalone.py     # Main forecasting pipeline
 ├── format_football_output.py                    # Formats raw outputs into readable reports
 ├── football_value_requirements.txt              # Python dependencies
-├── DATABASE_DESIGN.md                           # SQLite-first design notes
-├── PIPELINE_AUDIT.md                           # Audit and limitations notes
-├── Commands.txt                                 # Example commands
 ├── .env.example                                 # Example environment config
 ├── football_output_v2/
 │   ├── raw/                                    # Raw predictions and shortlist data
 │   ├── readable/                               # Human-readable outputs and reports
 │   └── performance/                            # Forward-performance snapshots and summaries
 ├── tests/                                       # Automated tests
+├── docs/                                        # Plan, rules and audits (docs/archive/: superseded docs)
 ├── assets/                                      # Supporting files
 ├── conservative_bet_filter.py                   # Conservative shortlist logic
 ├── goal_market_validation.py                    # Market validation checks
@@ -106,16 +109,25 @@ regions, retries, failover and optional market-led research can add usage.
 
 ## Quick start
 
-### Run the default multi-league forecast
+### Run the production forecast
+
+This is the command the scheduled run uses (`publish_scheduled_forecasts.py`),
+apart from `--api-key-source environment`, which GitHub Actions adds because it
+reads keys from repository secrets rather than `.env`:
 
 ```powershell
-python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL --tune-half-life
+python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL UEL Eredivisie PrimeiraLiga SuperLig --additional-odds-coverage all --no-legacy-comparison --research-free-sources
 ```
+
+Do not add `--tune-half-life`: it replaces production's fixed 480-day half-life
+with a tuned one, so the run is no longer the production model. Without
+`--no-legacy-comparison` the run also fits the legacy companion model, which
+nothing live reads.
 
 ### Run only a specific league
 
 ```powershell
-python football_value_pipeline_v2_standalone.py --leagues EPL --tune-half-life
+python football_value_pipeline_v2_standalone.py --leagues EPL --additional-odds-coverage all --no-legacy-comparison --research-free-sources
 ```
 
 ### Format raw outputs into readable reports
@@ -183,24 +195,6 @@ likely scores, both no-loss chances, the main driver with its form and
 history, warnings and the historical record of comparable bets
 (`master_inspection.py`; reporting only, it never changes a pick).
 
-The archived v22 shortlist was capped at twelve distinct matches within 48 hours.
-Policy v22 allows Home win, Away win, Over 1.5, Double Chance 1X/X2/12 and
-full-time Asian goal handicaps from Pinnacle/bet365, with 1xBet as an exact-market fallback. Every
-shortlisted market requires adjusted estimated EV >=1% and unblended EV >=0.
-Every market must also have an adjusted no-loss probability of at least 75%
-(conservative loss estimate at most 25%). This common cutoff replaces the old
-market-specific probability floors. Zero risk tolerance selects the lowest
-conservative loss estimate per match; adjusted EV, unblended EV and refund
-probability break equal-risk ties. The 75% cutoff is a user-selected policy
-setting, not an empirically optimized threshold. Selected fixture representatives
-are ordered by loss risk for the twelve-match cap.
-Draw, BTTS and Under 3.5 are excluded under v22. The readable CSV and
-Markdown report show a qualifying alternative per match, preferring another
-market type, with price, loss risk, refund chance and both EV estimates. Alternatives
-are informational and never create extra selections. Failed gates are never used to fill
-twelve matches. Refunds and half settlements are graded explicitly; estimates
-are not guarantees. See [Asian handicap rules, coverage and quote input](docs/asian-handicap-shortlist.md).
-
 Closing collection runs in GitHub Actions; the PC can be off. Its primary
 closing analysis now uses the latest-selection ROI cohort, with a separate
 first-entry reference. Existing experimental first-entry baselines are preserved.
@@ -264,6 +258,29 @@ is in `archive/`, importable for replay; their last reports under
 `football_output_v2/performance/` are frozen and marked ARCHIVED. Archived
 snapshots still load and verify.
 
+## History
+
+The archived v22 shortlist was capped at twelve distinct matches within 48 hours.
+Policy v22 allows Home win, Away win, Over 1.5, Double Chance 1X/X2/12 and
+full-time Asian goal handicaps from Pinnacle/bet365, with 1xBet as an exact-market fallback. Every
+shortlisted market requires adjusted estimated EV >=1% and unblended EV >=0.
+Every market must also have an adjusted no-loss probability of at least 75%
+(conservative loss estimate at most 25%). This common cutoff replaces the old
+market-specific probability floors. Zero risk tolerance selects the lowest
+conservative loss estimate per match; adjusted EV, unblended EV and refund
+probability break equal-risk ties. The 75% cutoff is a user-selected policy
+setting, not an empirically optimized threshold. Selected fixture representatives
+are ordered by loss risk for the twelve-match cap.
+Draw, BTTS and Under 3.5 are excluded under v22. The readable CSV and
+Markdown report show a qualifying alternative per match, preferring another
+market type, with price, loss risk, refund chance and both EV estimates. Alternatives
+are informational and never create extra selections. Failed gates are never used to fill
+twelve matches. Refunds and half settlements are graded explicitly; estimates
+are not guarantees. See [Asian handicap rules, coverage and quote input](docs/asian-handicap-shortlist.md).
+
+Since 8 Nov 2026 the shortlists use Pinnacle only; bet365 and 1xBet are no
+longer quote sources.
+
 ## Output formats
 
 The project writes both machine-readable and narrative outputs.
@@ -299,15 +316,17 @@ Located under `football_output_v2/readable/`:
 
 ## Recommended usage
 
-The project includes a documented daily-use model that keeps a consistent market blend and recency setup across runs. The README in `football_value_V2_README.md` contains extended operational guidance and validation notes.
-
-For daily use, the usual workflow is:
+For a local run that matches production, use the scheduled command and then
+check and format its outputs:
 
 ```powershell
-python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL --tune-half-life
+python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL UEL Eredivisie PrimeiraLiga SuperLig --additional-odds-coverage all --no-legacy-comparison --research-free-sources
 python workflow_checks.py raw
 python format_football_output.py
 ```
+
+`docs/plan.md` holds the current plan, the release rules and the decisions
+already made.
 
 ## Testing
 
@@ -330,12 +349,12 @@ pytest -q
 
 Additional reference documents in this repo include:
 
-- `football_value_V2_README.md` — authoritative project-level documentation
-- `docs/architecture.md` — module layers, run flow, staking/Elo/Monte Carlo, API service layer
+- `docs/plan.md` — current plan, release rules and decisions
+- `docs/architecture.md` — module layers, run flow, staking/Elo/Monte Carlo
 - `football_output_v2/readable/README.md` — readable output explanation
-- `PIPELINE_AUDIT.md` — audit and reliability details
-- `DATABASE_DESIGN.md` — proposed storage architecture
-- `Commands.txt` — example commands and parameters
+- `docs/audit/simplification-2026-11.md` — the November 2026 simplification audit
+- `docs/archive/` — superseded docs kept for history (`football_value_V2_README.md`,
+  `PIPELINE_AUDIT.md`, `DATABASE_DESIGN.md`)
 
 ## License
 

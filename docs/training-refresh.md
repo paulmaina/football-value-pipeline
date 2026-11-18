@@ -19,7 +19,7 @@ The cloud job cannot update a Windows working folder directly. Before your usual
 
 ```powershell
 git pull --rebase origin main
-py football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL --tune-half-life
+py football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL UEL Eredivisie PrimeiraLiga SuperLig --additional-odds-coverage all --no-legacy-comparison --research-free-sources
 ```
 
 Training is refitted when the prediction command runs; the background job only refreshes inputs. The pipeline's existing four-hour cache TTL and stale-cache fallback are unchanged. Check training diagnostics after refitting to confirm which match dates the models actually used. If you have locally changed tracked cache files, commit your intended local work before pulling and resolve any reported conflicts explicitly.
