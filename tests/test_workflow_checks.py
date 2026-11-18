@@ -222,16 +222,14 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
         self.assertTrue(any('OLDER_THAN_24_HOURS' in x for x in result['warnings']))
         self.assertTrue(any('no remaining future kickoffs' in x for x in result['warnings']))
 
-    def test_raw_check_validates_every_present_optional_sidecar(self):
-        from workflow_checks import LIVE_SIDECARS, SIDECARS
+    def test_raw_check_never_imports_archived_sidecars(self):
+        from workflow_checks import SIDECARS
         raw = self.root/'raw'
         for name in SIDECARS:
             write_json(raw/name, {})
         warnings = raw_check(self.root)['warnings']
-        for name in LIVE_SIDECARS:
-            self.assertTrue(any(name in warning for warning in warnings), name)
         # Retired experiments' sidecars are no longer imported or captured.
-        for name in set(SIDECARS)-set(LIVE_SIDECARS):
+        for name in SIDECARS:
             self.assertFalse(any(name in warning for warning in warnings), name)
 
     def test_provider_outage_is_visible_while_verified_cache_remains_usable(self):

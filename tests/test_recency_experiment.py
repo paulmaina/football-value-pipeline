@@ -3,6 +3,7 @@ import copy
 from datetime import timedelta
 import hashlib
 import json
+import math
 from pathlib import Path
 import tempfile
 import unittest
@@ -10,7 +11,8 @@ from unittest.mock import patch
 import numpy as np
 import pandas as pd
 
-from dc_decay_validation import tune_half_life
+from dc_decay_validation import make_walkforward_folds, tune_half_life
+import archive.recency_experiment as recency
 from archive.recency_experiment import (VERSION,goal_probabilities,binary_metrics,historical_audit,
     generate_league,assemble,valid_extension,review_experiment,paired_comparison,validate_report)
 from archive.goal_blend_experiment import write_experiment,capture_file
@@ -47,9 +49,50 @@ class ToyModel:
         return {'home':.8,'draw':.1,'away':.1} if self.half==120 else {'home':.4,'draw':.3,'away':.3}
 
 
+def recency_tuning(data,model_class,*,candidates,min_train,min_validation_matches,l2=.08,max_goals=10,
+                   validation_days=365,step_days=56):
+    """Half-life tuning plus the archived recency diagnostics per candidate, from the archive functions.
+
+    This was dc_decay_validation.tune_half_life's collect_recency_metrics option until 18 Nov 2026 (simplification
+    audit item 8): live code no longer imports archive/, and only this archived experiment used it."""
+    result=tune_half_life(data,model_class,candidates=candidates,l2=l2,max_goals=max_goals,
+        validation_days=validation_days,step_days=step_days,min_train=min_train,
+        min_validation_matches=min_validation_matches)
+    folds=make_walkforward_folds(data,validation_days=validation_days,step_days=step_days,min_train=min_train)
+    for candidate in result['candidates']:
+        if 'error' in candidate:
+            continue
+        diagnostics,error=[],None
+        for train,test,origin in folds:
+            model=model_class(half_life_days=candidate['half_life_days'],l2=l2,max_goals=max_goals).fit(train,as_of=origin)
+            rows=[]
+            for row in test.itertuples(index=False):
+                matrix,_=model.score_matrix(str(row.HomeTeam),str(row.AwayTeam))
+                x12=model.one_x_two(matrix)
+                probs=np.array([x12['home'],x12['draw'],x12['away']],dtype=float)
+                hg,ag=int(row.FTHG),int(row.FTAG)
+                actual=0 if hg>ag else (1 if hg==ag else 2)
+                one_hot=np.eye(3)[actual]
+                if error is None:
+                    try:
+                        rows.append({**recency.goal_probabilities(matrix),'y_over_1_5':int(hg+ag>=2),
+                            'y_btts_yes':int(hg>0 and ag>0),
+                            'one_x_two_brier':float(np.sum((probs-one_hot)**2)),
+                            'one_x_two_log_loss':-math.log(max(float(probs[actual]),1e-12))})
+                    except Exception as exc:
+                        error=type(exc).__name__
+            if error is None:
+                try:
+                    diagnostics.append(recency.fold_diagnostic(origin,train,test,rows))
+                except Exception as exc:
+                    error=type(exc).__name__
+        candidate['recency_folds']=diagnostics if error is None else []
+        candidate['recency_diagnostics_error']=error
+    return result
+
+
 def tuning():
-    return tune_half_life(history(),ToyModel,candidates=[120,240],min_train=30,
-        min_validation_matches=5,collect_recency_metrics=True)
+    return recency_tuning(history(),ToyModel,candidates=[120,240],min_train=30,min_validation_matches=5)
 
 
 def part(data=None):
@@ -67,13 +110,9 @@ def setup(root,parts=None):
 
 
 class RecencyTests(OfflineQuotePolicyTestCase):
-    def test_optional_diagnostics_reuse_fits_and_leave_production_selection_unchanged(self):
-        ToyModel.fits=[];ToyModel.matrices=0
+    def test_diagnostics_leave_production_selection_unchanged(self):
         plain=tune_half_life(history(),ToyModel,candidates=[120,240],min_train=30,min_validation_matches=5)
-        fits=ToyModel.fits.copy();matrices=ToyModel.matrices
-        ToyModel.fits=[];ToyModel.matrices=0
         research=tuning()
-        self.assertEqual(ToyModel.fits,fits);self.assertEqual(ToyModel.matrices,matrices)
         stripped=copy.deepcopy(research)
         for candidate in stripped['candidates']:
             candidate.pop('recency_folds');candidate.pop('recency_diagnostics_error')

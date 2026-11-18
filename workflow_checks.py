@@ -25,8 +25,6 @@ FORECAST_PATHS = (
 )
 # Every sidecar an archived snapshot may hold, including retired experiments.
 SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json', 'totals_anchor_experiment.json', 'model_reliability_experiment.json', 'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv', 'cagey_correction_monitoring.csv', 'master_shortlist.csv', 'master_shortlist_audit.csv', 'master_shortlist_new.csv', 'master_shortlist_old.csv')
-# Experiment sidecars still generated, captured and reviewed (none since the trials were archived).
-LIVE_SIDECARS = ()
 CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output.py',
              'collect_api_football_data.py', 'publish_api_football_data.py',
              'performance_tracking.py', 'performance_excel.py', 'publish_performance.py',
@@ -43,7 +41,7 @@ COVERAGE_FLOORS = {'asian_handicap.py':85, 'api_football_data.py':85, 'api_footb
     'performance_excel.py':85, 'publish_performance.py':75, 'workflow_checks.py':80,
     'dc_decay_validation.py':85, 'market_blend_validation.py':90, 'refresh_training_data.py':70, 'format_football_output.py':60, 'ucl_training.py':90, 'quote_policy.py':95, 'pipeline_health.py':90, 'refresh_ucl_training.py':75, 'league_registry.py':90, 'recency_experiment.py':85, 'filter_sensitivity_experiment.py':85, 'historical_benchmark.py':85, 'benchmark_forward_experiment.py':85, 'experiment_review_queue.py':85, 'publish_scheduled_forecasts.py':80, 'odds_api_usage.py':90, 'totals_anchor_experiment.py':90, 'closing_odds.py':90, 'model_reliability_experiment.py':90, 'model_comparison.py':90,
     'excel_book.py':90, 'predictions_workbook.py':90, 'performance_report_layout.py':90, 'model_activity.py':85,
-    'shortlist_replay.py':95, 'market_implied.py':95, 'market_implied_calibration.py':85, 'price_edge_shortlist.py':90, 'price_edge_tracking.py':90, 'price_check.py':90, 'narrow_margin.py':90, 'cagey_correction_report.py':90, 'price_edge_cagey_shortlist.py':95, 'staking.py':95, 'elo_ratings.py':95, 'match_simulation.py':95, 'pipeline_service.py':90, 'clv_report.py':90}
+    'shortlist_replay.py':95, 'market_implied.py':95, 'market_implied_calibration.py':85, 'price_edge_shortlist.py':90, 'price_edge_tracking.py':90, 'price_check.py':90, 'narrow_margin.py':90, 'cagey_correction_report.py':90, 'price_edge_cagey_shortlist.py':95, 'staking.py':95, 'elo_ratings.py':95, 'clv_report.py':90}
 
 
 def require(condition, message):
@@ -382,17 +380,7 @@ def raw_check(root, *, raw_dir=None):
                       'eligible_markets', 'quote_execution_policy'):
             require(equivalent(summary.get(field), replay[field]),
                     f'Current shortlist summary {field} differs from ranking replay')
-    warnings=[]
-    for name in LIVE_SIDECARS:
-        module = name.removesuffix('.json')
-        if (raw/name).exists():
-            try:
-                import importlib
-                valid=importlib.import_module(module).capture_file(raw,summary['generated_at_utc'])
-                if valid is None: warnings.append(f'{name}: stale/unbound sidecar excluded from capture')
-            except Exception:
-                warnings.append(f'{name}: invalid optional sidecar excluded from capture')
-    return {'forecasts':len(predictions),'selections':len(picks),'warnings':warnings}
+    return {'forecasts':len(predictions),'selections':len(picks),'warnings':[]}
 
 
 def changed_forecasts(repo, before, sha):

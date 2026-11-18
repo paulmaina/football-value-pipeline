@@ -32,7 +32,7 @@ silently. Older CSV statistics are not automatically BBS predictor features.
 
 ## Retrospective diagnostic
 
-The reproducible `docs/audits/history_window_audit.py` compares four- and six-season
+A retrospective audit (script removed 18 Nov 2026; in git history as `docs/audits/history_window_audit.py`) compared four- and six-season
 score-only models on the same 297 Aug-Oct 2026 fixtures, with monthly fits using
 only results dated before each fit origin. Both use half-life 240 days and L2
 0.08, without bookmaker blending, BBS statistics or tuning on the comparison.
