@@ -1,0 +1,35 @@
+{
+  "all": {
+    "graded": 0,
+    "mean_clv_vs_pinnacle_fair": null,
+    "mean_odds": null,
+    "pending": 0,
+    "picks": 0,
+    "positive_clv_share": null,
+    "return_per_unit": null,
+    "units_returned": 0,
+    "win_rate": null,
+    "with_close": 0,
+    "won": 0
+  },
+  "definition": "latest pre-kickoff pick per fixture; return per unit had it been staked; clv_vs_pinnacle_fair = entry odds x Pinnacle power-de-vigged closing probability - 1",
+  "list_version": "corners-shadow-v1",
+  "positive_expected_return_at_entry": {
+    "graded": 0,
+    "mean_clv_vs_pinnacle_fair": null,
+    "mean_odds": null,
+    "pending": 0,
+    "picks": 0,
+    "positive_clv_share": null,
+    "return_per_unit": null,
+    "units_returned": 0,
+    "win_rate": null,
+    "with_close": 0,
+    "won": 0
+  },
+  "rejected_closing_observations": [],
+  "reviewed_at_utc": "2026-11-18T19:45:50.996807+00:00",
+  "stake": 0,
+  "status": "unvalidated, not bet",
+  "weeks": {}
+}
