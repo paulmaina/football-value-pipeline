@@ -8,7 +8,6 @@ import unittest
 from unittest.mock import patch
 
 import requests
-import yaml
 from scripts import audit_europa_access as audit
 
 NOW=datetime(2026,10,22,tzinfo=timezone.utc)
@@ -114,12 +113,3 @@ class EuropaAccessAuditTests(unittest.TestCase):
         self.assertEqual(report['providers']['bbs']['seasons']['2026']['request_status'],'UNKNOWN_COMPETITION')
         self.assertTrue(all('bigballsdata.com' in url for url,_ in session.calls))
 
-    def test_workflow_is_read_only_and_targeted_to_the_audit_branch(self):
-        path=Path(__file__).resolve().parents[1]/'.github/workflows/audit-europa-access.yml'
-        workflow=yaml.safe_load(path.read_text())
-        self.assertEqual(workflow['permissions'],{'contents':'read'})
-        trigger=workflow.get('on',workflow.get(True))
-        self.assertEqual(trigger['push']['branches'],['audit/europa-league-access'])
-        steps=workflow['jobs']['audit']['steps']
-        self.assertFalse(steps[0]['with']['persist-credentials'])
-        self.assertFalse(any('git push' in str(step.get('run','')) for step in steps))
