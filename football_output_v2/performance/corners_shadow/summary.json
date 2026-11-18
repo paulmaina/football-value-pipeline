@@ -12,6 +12,17 @@
     "with_close": 0,
     "won": 0
   },
+  "decision_rule": {
+    "graded_lacking_close": 0,
+    "graded_picks": 0,
+    "graded_weeks": 0,
+    "graded_with_close": 0,
+    "interval_95": null,
+    "mean_clv_vs_pinnacle_fair": null,
+    "rule": "plan Phase 6 (18 Nov 2026): after two weeks of graded picks, small stakes only if mean CLV against Pinnacle's margin-free close across all graded corner picks is positive with its 95% interval (whole weeks resampled) clear of zero; otherwise no bets, keep tracking, re-check after two more weeks. Win rate and return do not decide.",
+    "verdict": "not enough weeks yet",
+    "weeks_with_close": 0
+  },
   "definition": "latest pre-kickoff pick per fixture; return per unit had it been staked; clv_vs_pinnacle_fair = entry odds x Pinnacle power-de-vigged closing probability - 1",
   "list_version": "corners-shadow-v1",
   "positive_expected_return_at_entry": {
@@ -28,7 +39,7 @@
     "won": 0
   },
   "rejected_closing_observations": [],
-  "reviewed_at_utc": "2026-11-18T21:04:47.320836+00:00",
+  "reviewed_at_utc": "2026-11-18T21:46:28.906757+00:00",
   "stake": 0,
   "status": "unvalidated, not bet",
   "weeks": {}
