@@ -120,9 +120,10 @@ python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga 
 ```
 
 Do not add `--tune-half-life`: it replaces production's fixed 480-day half-life
-with a tuned one, so the run is no longer the production model. Without
-`--no-legacy-comparison` the run also fits the legacy companion model, which
-nothing live reads.
+with a tuned one, so the run is no longer the production model. The legacy
+companion model, which nothing live reads, is fitted only with
+`--legacy-comparison`; `--no-legacy-comparison` is still accepted and has no
+effect.
 
 ### Run only a specific league
 
@@ -216,20 +217,22 @@ fresh `main`:
      what its probability columns mean: [docs/cagey-market-basis-v5.md](docs/cagey-market-basis-v5.md#probability-columns-on-cagey_tier_shortlistcsv));
    - `cagey_correction_monitoring.csv`: one correction record per fixture, from
      the correction the shortlist already computed;
-   - `price_edge_tagged_candidates.csv` and `bet365_vs_pinnacle.csv`.
+   - `price_edge_tagged_candidates.csv`.
 
    It no longer runs goal-market walk-forward or count-market validation,
    because v28 selection does not read them (`--goal-market-validation` runs
    them on request; a policy that needs them still runs them and fails closed
    without them). It no longer runs the legacy companion or its half-life
-   tuning, because their only readers were archived trials. A manual run without
-   `--no-legacy-comparison` still produces them for offline replay.
+   tuning, because their only readers were archived trials. A manual run with
+   `--legacy-comparison` still produces them for offline replay. It no longer
+   writes `bet365_vs_pinnacle.csv`: requests are Pinnacle-only, so the list was
+   always empty (archived runs keep theirs).
 2. **Check and format**: `workflow_checks.py raw` replays the shortlist, the
    cagey tier and the monitoring records deterministically, then
    `format_football_output.py` writes the readable outputs.
 3. **Capture**: `performance_tracking.py capture` archives the forecast, the
    shortlist and these sidecars, each only when bound to the same generation:
-   `bet365_vs_pinnacle.csv`, `price_edge_tagged_candidates.csv`,
+   `price_edge_tagged_candidates.csv`,
    `cagey_tier_shortlist.csv` and `cagey_correction_monitoring.csv`.
 4. **Review**: `performance_tracking.py review` grades results and refreshes:
    - performance tracking and the BBS forward assessment. The dashboard

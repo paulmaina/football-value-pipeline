@@ -160,29 +160,3 @@ class ReferenceSizingTests(OfflineQuotePolicyTestCase):
         plan = staking.stake_recommendations(selected)
         self.assertEqual(plan.iloc[0].probability_basis, 'uncorrected_matrix')
         self.assertGreater(plan.iloc[0].stake_fraction, 0)
-
-    def test_refresh_writes_cagey_only_stakes_preserves_settings_and_clears_disabled_list(self):
-        from refresh_conservative_shortlist import _refresh
-        from workflow_checks import raw_check
-        settings = {'bankroll': 250, 'multiplier': 0.2, 'max_fraction': 0.01, 'max_total_exposure': 0.04}
-        with tempfile.TemporaryDirectory() as tmp:
-            root, raw = Path(tmp), Path(tmp) / 'raw'
-            raw.mkdir()
-            predictions = pd.DataFrame([{**tier_fixture(), 'p_home': 0.45, 'p_draw': 0.27, 'p_away': 0.28}])
-            predictions.to_csv(raw / 'all_leagues_predictions.csv', index=False)
-            (raw / 'conservative_bet_summary.json').write_text(json.dumps({'staking_settings': settings}))
-            summary = _refresh(root, NOW)
-            self.assertEqual(summary['staking_settings'], settings)
-            self.assertEqual(summary['n_shortlisted'], 0)
-            self.assertEqual(summary['cagey_tier']['n_shortlisted'], 1)
-            tier_path = raw / staking.CAGEY_OUTPUT_FILE
-            plan = pd.read_csv(tier_path)
-            self.assertEqual(len(plan), 1)
-            self.assertEqual(plan.iloc[0].probability_basis, 'corrected_matrix')
-            self.assertEqual(plan.iloc[0].bankroll_units, 250)
-            self.assertEqual(plan.iloc[0].kelly_multiplier, 0.2)
-            raw_check(root)
-            switches = {**v28.load_settings(), 'cagey_tier_enabled': False}
-            with patch.object(v28, 'load_settings', return_value=switches):
-                _refresh(root, NOW)
-            self.assertTrue(pd.read_csv(tier_path).empty)

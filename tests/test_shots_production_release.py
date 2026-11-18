@@ -63,7 +63,7 @@ class ShotsReleaseTests(OfflineQuotePolicyTestCase):
                 'goal_market_validation.evaluate_market_history',return_value={**sample_report(),'league':'UEFA Champions League'}):
             raw=Path(tmp)/'raw'
             self.assertNotIn('FOOTBALL_DATA_API_KEY',os.environ)
-            self.assertEqual(main(['--leagues','UCL','--out-dir',str(raw)]),0)
+            self.assertEqual(main(['--leagues','UCL','--out-dir',str(raw),'--legacy-comparison']),0)
             output=read_csv(raw/'UCL_predictions.csv')
             self.assertEqual(len(output),1)
             self.assertEqual(output[0]['legacy_status'],'UNAVAILABLE_HALF_LIFE_TUNING_RuntimeError')

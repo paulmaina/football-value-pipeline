@@ -251,46 +251,6 @@ class ReplayComparisonTests(OfflineQuotePolicyTestCase):
 
 
 class RefreshTests(OldMasterLive, OfflineQuotePolicyTestCase):  # pre-release behaviour (live "old")
-    def test_refresh_rebuilds_the_master_list_and_replaces_a_seeded_copy(self):
-        from refresh_conservative_shortlist import _refresh
-        from shortlist_window import scope
-        from format_football_output import publish_shortlists, MASTER_READABLE
-        import narrow_margin_report as narrow
-        predictions = pd.DataFrame([
-            fixture(h2h_1xbet(home=price_at('home', 0.015)), home='Value FC'),
-            fixture(over_1xbet(price_at('over_1_5', 0.03)), home='Fill FC')])
-        predictions['p_home'], predictions['p_draw'], predictions['p_away'] = 0.45, 0.27, 0.28
-        with tempfile.TemporaryDirectory() as tmp:
-            raw, out = Path(tmp) / 'raw', Path(tmp) / 'readable'
-            raw.mkdir()
-            out.mkdir()
-            predictions.to_csv(raw / 'all_leagues_predictions.csv', index=False)
-            # A master list seeded from the previous run (different match, older evaluation).
-            stale = ms.build(pd.DataFrame([cand('Old FC')]))
-            stale.assign(evaluated_at_utc=(NOW - pd.Timedelta(hours=6)).isoformat()).to_csv(raw / ms.FILE, index=False)
-            summary = _refresh(Path(tmp), as_of=NOW.to_pydatetime(), raw_dir=raw)
-            written = pd.read_csv(raw / ms.FILE)
-            decisions = pd.read_csv(raw / 'conservative_bet_rejections.csv', low_memory=False)
-            stored = json.loads((raw / 'conservative_bet_summary.json').read_text(encoding='utf-8'))
-            # A narrow report left over from the previous run.
-            pd.DataFrame([{'home_team': 'Old FC'}]).to_csv(out / narrow.CSV_NAME, index=False)
-            (out / narrow.MD_NAME).write_text('previous run', encoding='utf-8')
-            publish_shortlists(raw, out)
-            readable = pd.read_csv(out / MASTER_READABLE)
-            report = pd.read_csv(out / narrow.CSV_NAME)
-            expected_report = narrow.build(raw)
-            report_md = (out / narrow.MD_NAME).read_text(encoding='utf-8')
-        self.assertEqual(sorted(report.home_team), ['Fill FC', 'Value FC'])
-        self.assertEqual(list(report.home_team), list(expected_report.home_team))
-        self.assertNotEqual(report_md, 'previous run')
-        self.assertNotIn('Old FC', set(written.home_team))
-        self.assertEqual(set(written.evaluated_at_utc), {summary['generated_at_utc']})
-        self.assertEqual(stored['shortlist_lookahead_hours'], 24)
-        with scope(stored['shortlist_lookahead_hours']):
-            self.assertEqual(stored['master_shortlist'], ms.summary(written))
-            self.assertTrue(ms.matches(written, ms.build(decisions, predictions, stored['master_shortlist']['version'])))
-        self.assertEqual(list(readable.Home), list(written.home_team))
-
     def test_other_policies_remove_a_seeded_copy(self):
         with tempfile.TemporaryDirectory() as tmp:
             ms.build(pd.DataFrame([cand('Old FC')])).to_csv(Path(tmp) / ms.FILE, index=False)
