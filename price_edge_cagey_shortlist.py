@@ -120,6 +120,9 @@ SWITCHES = ('cagey_correction_enabled', 'cagey_tier_enabled')
 # Everything a replay needs from a run's summary to reproduce its selection.
 REPLAY_SETTINGS = (*SWITCHES, 'cagey_tier_rule', 'value_rule', 'quote_timing_rule', 'excluded_markets',
                    'cagey_correction_live', 'cagey_corrections')
+# Rules the live config must state (load_settings). Each has a default for replaying old run summaries, which in
+# the live config would silently bring back an older rule (cagey_correction_live: D everywhere, undoing D_pow2).
+LIVE_REQUIRED = ('cagey_tier_rule', 'value_rule', 'quote_timing_rule', 'excluded_markets', 'cagey_correction_live')
 # The cagey correction live per scope (module docstring, WHICH CORRECTION). A run that records no
 # cagey_correction_live used D, the proportional grid with the run's model, everywhere.
 CORRECTION_D = 'D'
@@ -315,8 +318,18 @@ def settlement_basis(row: Mapping, tier='value') -> str:
 
 
 def load_settings(path: Optional[Path] = None) -> Dict[str, object]:
-    """Switches, tier and value rules, model version. A switch may be on only when the recorded holdout gate passed."""
-    data = json.loads(Path(path or CONFIG).read_text(encoding='utf-8-sig'))
+    """Switches, tier and value rules, model version. A switch may be on only when the recorded holdout gate passed.
+
+    The live config must state every rule in LIVE_REQUIRED (missing or null is refused). The defaults in
+    tier_rule(), value_rule(), timing_rule(), excluded_markets() and correction_live() are for replaying run
+    summaries written before a rule existed; in the live config they would silently bring back an older rule.
+    The documented rollback states cagey_correction_live explicitly: {"domestic": "D", "european": "D"}."""
+    path = Path(path or CONFIG)
+    data = json.loads(path.read_text(encoding='utf-8-sig'))
+    missing = [name for name in LIVE_REQUIRED if data.get(name) is None]
+    if missing:
+        raise ValueError(f'{path.name} must set {", ".join(missing)}: a missing rule would silently fall back '
+                         f'to the rule older runs replay under')
     if any(not isinstance(data.get(name), bool) for name in SWITCHES):
         raise ValueError('cagey_correction_enabled and cagey_tier_enabled must be true or false')
     if any(data[name] for name in SWITCHES) and nm.versions()['gate'].get('gate_result') != 'PASS':
@@ -324,11 +337,10 @@ def load_settings(path: Optional[Path] = None) -> Dict[str, object]:
     settings = {**{name: data[name] for name in (*SWITCHES, 'model_version')}, 'cagey_tier_rule': tier_rule(data),
                 'value_rule': value_rule(data), 'quote_timing_rule': timing_rule(data),
                 'excluded_markets': excluded_markets(data)}
-    if data.get('cagey_correction_live') is not None:
-        settings.update(cagey_correction_live=data['cagey_correction_live'],
-                        cagey_corrections=data.get('cagey_corrections'))
-        # Refuse a bad switch or pairing when the config is read, not halfway through a run.
-        correction_models(settings, nm.load(data['model_version']))
+    settings.update(cagey_correction_live=data['cagey_correction_live'],
+                    cagey_corrections=data.get('cagey_corrections'))
+    # Refuse a bad switch or pairing when the config is read, not halfway through a run.
+    correction_models(settings, nm.load(data['model_version']))
     return settings
 TIER_LINES = (1.0, 1.25, 1.5, 1.75, 2.0, 2.25)
 TIER_MIN_NO_LOSS = 0.85
