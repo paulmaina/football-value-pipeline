@@ -331,8 +331,6 @@ Dependency versions at review: {"python": "3.14.10", "numpy": "2.5.5", "pandas":
 
 Closing odds: [report](closing_odds/report.md). Latest-selection comparison aligned with headline ROI, with a separate first-entry reference; official close and accepted execution are unverified.
 
-Experiment review queue: [report](experiment_review_queue.md). No live trials are queued; no production promotion.
-
 Filter sensitivity: [report](filter_sensitivity_experiment/report.md). Frozen 1.5%, 3% and 5% adjusted EV policies; production unchanged.
 
 Shortlist probability/EV weights: [report](shortlist_weight_experiment/report.md). Four frozen weightings; production stays 50/50.
