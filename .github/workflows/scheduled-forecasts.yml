@@ -10,7 +10,6 @@ on:
 
 permissions:
   contents: write
-  issues: write
 
 concurrency:
   group: scheduled-forecast-collection
@@ -53,6 +52,3 @@ jobs:
       - name: Generate, capture, grade and publish on latest main
         if: steps.credentials.outputs.ready == 'true'
         run: python publish_scheduled_forecasts.py
-      - name: Notify ready experiment reviews
-        if: steps.credentials.outputs.ready == 'true'
-        run: python experiment_review_queue.py --notify-repository "$GITHUB_REPOSITORY"

@@ -1262,8 +1262,6 @@ def review(*, root: Path = ROOT, token: str = "",
         build_clv_report(root, clock=clock)
     except Exception as exc:
         warnings.warn(f'Candidate CLV report failed ({type(exc).__name__}); production report complete')
-    from experiment_review_queue import write_queue
-    write_queue(root, clock)
     from pipeline_health import write_report
     write_report(root, result, clock)
     print(f"Performance: {result['shortlist']['graded']} graded, "

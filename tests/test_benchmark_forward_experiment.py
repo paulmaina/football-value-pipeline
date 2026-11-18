@@ -1,6 +1,5 @@
 from offline_test_case import OfflineQuotePolicyTestCase
 from archived_hooks import setUpModule, tearDownModule  # noqa: F401  (retired capture/review hooks)
-import base64
 import copy
 from datetime import datetime,timedelta,timezone
 import hashlib
@@ -14,7 +13,6 @@ import numpy as np
 import pandas as pd
 
 import archive.benchmark_forward_experiment as bf
-import experiment_review_queue as eq
 from performance_tracking import capture,snapshots,write_json,verified_record
 from test_conservative_bet_filter import fixture
 from test_performance_tracking import final
@@ -166,26 +164,3 @@ class ForwardBridgeTests(OfflineQuotePolicyTestCase):
             result=bf.write_experiment(data,raw,NOW.isoformat(),{fixture_key(row):invalid})
             self.assertEqual(result['rows'][0]['secondary_status'],'unavailable');self.assertEqual(result['rows'][0]['status'],'available')
 
-    def test_queue_and_idempotent_notifications(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            root=Path(tmp);setup(root)
-            bf.review_experiment(root,[],[],NOW)
-            # Archived: the trial no longer enters the queue; notification still handles a queued item.
-            q=eq.write_queue(root,NOW);self.assertEqual(q['experiments'],[])
-            self.assertTrue(all(x['status']!='READY_FOR_REVIEW' for x in q['experiments']))
-            q['experiments']=[{'name':'benchmark_forward_experiment','key':'trial-1','status':'READY_FOR_REVIEW','settled_evidence':300,'scope':'REVIEW_ONLY'}]
-            payload=json.dumps({'content':base64.b64encode(json.dumps(q).encode()).decode()})
-            def response(cmd,**kwargs):
-                from subprocess import CompletedProcess
-                if cmd[1]=='api':return CompletedProcess(cmd,0,payload,'')
-                if cmd[2]=='list':return CompletedProcess(cmd,0,'[]','')
-                if cmd[2]=='create':
-                    body=Path(cmd[-1]).read_text();self.assertIn('does not approve',body)
-                    return CompletedProcess(cmd,0,'https://github.com/owner/repo/issues/1\n','')
-            self.assertEqual(eq.notify('owner/repo',NOW,runner=response),['https://github.com/owner/repo/issues/1'])
-            def exists(cmd,**kwargs):
-                from subprocess import CompletedProcess
-                return CompletedProcess(cmd,0,payload if cmd[1]=='api' else '[{"number":1}]','')
-            self.assertEqual(eq.notify('owner/repo',NOW,runner=exists),[])
-            with self.assertRaises(ValueError):eq.notify('bad',NOW,runner=response)
-            with self.assertRaises(ValueError):eq.notify('owner/repo',NOW+timedelta(days=3),runner=response)

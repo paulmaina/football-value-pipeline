@@ -217,10 +217,6 @@ class ReliabilityTests(OfflineQuotePolicyTestCase):
             summary['observed_fixtures'] = 99
             write_json(root/'performance/model_reliability_experiment/summary.json', summary)
             with self.assertRaises(ValueError): m.validate_report(root)
-            from experiment_review_queue import build_queue
-            queue = build_queue(root, clock)
-            # Retired: archived trials no longer enter the review queue.
-            self.assertEqual([r for r in queue['experiments'] if r['name'] == 'model_reliability_experiment'], [])
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             raw, data, result = setup(root, rows=[])
