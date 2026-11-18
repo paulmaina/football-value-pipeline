@@ -1,3 +1,5 @@
+**ARCHIVED (18 Nov 2026).** Superseded; kept for history only. Current behaviour: [README](../../README.md) and [docs/plan.md](../plan.md).
+
 # Database design proposal
 
 ## Recommendation
