@@ -1,3 +1,5 @@
+**ARCHIVED (18 Nov 2026).** Superseded; kept for history only. Current behaviour: [README](../../README.md) and [docs/plan.md](../plan.md).
+
 # Pipeline audit — 11 October 2026
 
 ## Findings and repairs

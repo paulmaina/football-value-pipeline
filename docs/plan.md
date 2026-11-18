@@ -38,6 +38,7 @@ Historical data in `.football_cache` (football-data.co.uk, 8 domestic leagues, 2
 - Pinnacle prices in the files stop on 15 Jan 2026; Bet365 continues for every league.
 - On matches priced by both, margin-free Bet365 sits about 0.7 points from Pinnacle, with a 1X2 log-loss gap of about 0.0008. The harness measures this gap; on the holdout a candidate must beat the market by more than it.
 - Expected return on the holdout uses synthetic Pinnacle-like prices (Bet365 margin-free probabilities plus Pinnacle's average margin) and is indicative only.
+- `devig_method` in `evaluation_harness_config.json` (`"power"`) applies only to A, the published-grid proxy (`evaluation_harness.published_proxy`). M, D and QPROP remove the margin proportionally (`market_matrix` and `cagey_matrix` default to `method='proportional'`), and QPOW uses power by definition. The key keeps its name, because the config is part of the setup fingerprint that declarations validate against.
 - European results (UCL and UEL, results only; Phase 2 European backtest, decided 11 Nov 2026 before any European score was computed; backfilled the same day, see `docs/european-backtest.md`). Values in `evaluation_harness_config.json` (`european`). Each competition's development starts once its 14-day fold has 250 earlier matches of that competition (the pipeline's own UCL/UEL walk-forward warm-up); validation and holdout dates are unchanged:
 
   | Period | UCL | UEL | Use |
