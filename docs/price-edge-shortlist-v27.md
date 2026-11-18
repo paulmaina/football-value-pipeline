@@ -103,9 +103,11 @@ and writes `football_output_v2/performance/price_edge_v27/`: `summary.json`,
 
 - **Picks:** every frozen v27 pick (latest pre-kickoff entry per fixture) is graded
   by CLV:
-  - CLV = entry odds × Pinnacle's near-kickoff fair win-share on the same AH line − 1;
-  - the closing-odds workflow collects the Pinnacle close;
-  - margin removal is proportional, as in the rule.
+  - CLV = entry odds × Pinnacle's near-kickoff fair win-share on the same AH line − 1,
+    with the margin removed by the power method (`clv_report.fair_closing_prices`, the
+    dashboard's method). Until 18 Nov 2026 this report removed it proportionally;
+  - the closing-odds workflow collects the Pinnacle close (the selection rule's own
+    references still remove the margin proportionally);
   - CLV is split by bookmaker, odds band, reference type, favourite/underdog
     side and each tag (balanced, low_total, high_draw, any tag, no tag).
   - Flat-stake results are recorded too.
