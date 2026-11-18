@@ -298,12 +298,8 @@ class TenMarketTests(OfflineQuotePolicyTestCase):
             extra = api.extra_markets_for_event(LEAGUES["EPL"], "e42")
         self.assertEqual(extra["market_over_1_5_odds"], 1.30)
         self.assertEqual(extra["market_under_3_5_odds"], 1.39)
-        self.assertEqual(extra["market_btts_yes_odds"], 1.47)
-        self.assertEqual(extra["market_btts_yes_bookmakers"], 1)
-        self.assertEqual(
-            extra["market_best_btts_yes_last_update_utc"],
-            "2026-10-09T08:15:00Z",
-        )
+        # BTTS is never requested, and the parser no longer reads it (simplification audit item 20).
+        self.assertFalse([key for key in extra if 'btts' in key])
 
     def test_ucl_cli_generates_competition_specific_reliability_report(self):
         from test_graded_candidates import sample_report

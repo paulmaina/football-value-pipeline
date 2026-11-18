@@ -21,7 +21,6 @@ import requests
 
 import closing_odds as c
 import odds_api_usage as usage
-import price_check
 from football_value_pipeline_v2_standalone import TheOddsAPI
 from performance_tracking import write_json
 from publish_performance import git
@@ -174,37 +173,6 @@ class LowCreditGuardTests(OfflineQuotePolicyTestCase):
         self.assertEqual(diagnostics['additional_odds_unrequested_linked_fixtures'], 18)
         pipeline, _ = self.coverage_with_balance(usage.FORECAST_RUN_CREDITS + 100)
         self.assertEqual(pipeline.odds_api.extra_markets_for_event.call_count, 18)
-
-    def test_price_check_is_skipped_without_any_request(self):
-        from test_price_check import FakeApi, forecast
-        from test_price_edge_shortlist import NOW
-        with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp)
-            (root / 'raw').mkdir()
-            pd.DataFrame([forecast()]).to_csv(root / 'raw' / 'all_leagues_predictions.csv', index=False)
-            api = FakeApi()
-            api.usage = ledger(100)
-            result = price_check.check(root, api, NOW.to_pydatetime())
-            self.assertEqual(result['status'], 'SKIPPED_LOW_CREDITS')
-            self.assertEqual(result['remaining_total'], 100)
-            self.assertEqual(api.calls, [])
-
-    def test_price_check_main_reports_skip_in_summary(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            summary = Path(tmp) / 'summary.md'
-
-            class Api:
-                KEY_ENV_NAMES = ('THE_ODDS_API_KEY',)
-
-                def __init__(self, key, cache_dir=None):
-                    pass
-            buffer = io.StringIO()
-            with patch.dict(os.environ, {'THE_ODDS_API_KEY': 'offline-fake-key', 'GITHUB_STEP_SUMMARY': str(summary)}, clear=True), \
-                    patch('football_value_pipeline_v2_standalone.TheOddsAPI', Api), \
-                    patch.object(price_check, 'check', return_value={'status': 'SKIPPED_LOW_CREDITS'}), \
-                    redirect_stdout(buffer):
-                self.assertEqual(price_check.main(['--api-key-source', 'environment', '--root', str(Path(tmp) / 'out')]), 0)
-            self.assertIn('price check skipped to keep the core forecast', summary.read_text(encoding='utf-8'))
 
     def test_closing_collects_picks_only_when_credits_are_low(self):
         from test_closing_odds import setup, payload

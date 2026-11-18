@@ -76,6 +76,12 @@ identity: `dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2+custo
    contain bet365, so this list stays empty until a supported bet365 football source
    is integrated. Adding regions would raise costs without adding bet365.
 
+   **No longer computed (18 Nov 2026, simplification audit item 12).** Since 8 Nov
+   requests are Pinnacle-only, so the list was always empty. The run no longer
+   calls the comparison or writes `bet365_vs_pinnacle.csv`, and
+   `bet365_pinnacle_quotes` is always `[]`. `bet365_pinnacle.py` stays for archived
+   runs and closing collection of their entries.
+
 ## Legacy model alongside, and the forward comparison
 
 Every live run also computes `dc-blend50-tuned-half-life-v1` for the same fixtures and
@@ -83,8 +89,9 @@ odds snapshot: market weight 0.50, the half-life tuned that run, no anchor, no s
 The results are written as `legacy_*` columns in the forecast files
 (`legacy_p_home/draw/away`, `legacy_p_over_1_5`, `legacy_p_under_3_5`,
 `legacy_p_btts_yes`, `legacy_p_over_2_5`, `legacy_goal_margin_distribution`,
-`legacy_status`). No selection or staking code reads them. `--no-legacy-comparison`
-skips them.
+`legacy_status`). No selection or staking code reads them. Since 18 Nov 2026 they are
+fitted only with `--legacy-comparison`; `--no-legacy-comparison` is accepted and has no
+effect.
 
 **Archived 2026-11-02:** this review moved to `archive/model_comparison.py` and no longer runs; its last report is frozen. The legacy companion columns are still generated for the benchmark-forward and totals-anchor trials.
 

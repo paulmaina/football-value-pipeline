@@ -259,8 +259,7 @@ class PublicationTests(OfflineQuotePolicyTestCase):
             with self.assertRaisesRegex(ValueError,'checksum'):
                 runs.capture_runs(root,'a'*40,captured_at=T0)
 
-    def test_legacy_read_and_seeded_refresh_do_not_delete_unrelated_files(self):
-        from refresh_conservative_shortlist import refresh
+    def test_legacy_read_and_publish_do_not_delete_unrelated_files(self):
         with tempfile.TemporaryDirectory() as temp:
             root=Path(temp);raw=root/'raw';raw.mkdir()
             self.assertEqual(runs.resolve_raw(raw),raw)
@@ -269,10 +268,6 @@ class PublicationTests(OfflineQuotePolicyTestCase):
             publish(root)
             self.assertEqual((raw/'notes.txt').read_text(),'keep')
             self.assertTrue((raw/'EPL_backtest_predictions.csv').exists())
-            # Re-ranking is also a complete, separately preserved generation.
-            refresh(root,as_of=T0+timedelta(minutes=1))
-            self.assertEqual(len(list((raw/'prediction_runs').iterdir())),2)
-            self.assertEqual(raw_check(root)['forecasts'],1)
 
 
 class PruneCapturedRunsTests(OfflineQuotePolicyTestCase):

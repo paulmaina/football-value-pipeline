@@ -48,9 +48,6 @@ Designed as a module too:
     from football_value_pipeline_v2_standalone import FootballValuePipelineV2
     pipeline = FootballValuePipelineV2()
     frames = pipeline.run(["EPL"])
-
-Read-only access to published runs (e.g. for an HTTP API) lives in
-pipeline_service.py; see docs/architecture.md.
 """
 
 from __future__ import annotations
@@ -989,7 +986,6 @@ class TheOddsAPI:
         """
         from quote_freshness import quote_clock, quote_is_fresh, quote_utc
         from asian_handicap import parse_quotes as parse_handicap_quotes
-        from bet365_pinnacle import compare_event as compare_bet365
         from price_edge_shortlist import capture_quotes as capture_price_edge
         clock = quote_clock(as_of) if as_of is not None else None
         event_id = str(event.get("id") or "")
@@ -1184,9 +1180,9 @@ class TheOddsAPI:
             "asian_handicap_offers": json.dumps(parse_handicap_quotes(event, clock), sort_keys=True),
             # Per-book 1X2 and O/U 2.5 for the v27 price-edge policy (Pinnacle reference, 1xBet offers).
             "price_edge_quotes": json.dumps(capture_price_edge(event, clock, ("h2h", "totals")), sort_keys=True),
-            # Same response, same capture instant; no extra request (live only).
-            "bet365_pinnacle_quotes": "[]" if clock is None else json.dumps(
-                compare_bet365(event, clock), sort_keys=True, allow_nan=False),
+            # The bet365 vs Pinnacle comparison is no longer computed: requests are Pinnacle-only
+            # (shortlist_quote_policy.json), so it was always empty. Archived runs keep their own lists.
+            "bet365_pinnacle_quotes": "[]",
         }
 
     def odds(
@@ -1303,7 +1299,7 @@ class TheOddsAPI:
         clock = datetime.now(timezone.utc)
 
         offers: Dict[str, List[Tuple[str, str, float, float]]] = {
-            "over_1_5": list(main_over_1_5_offers or []), "under_3_5": [], "btts_yes": [],
+            "over_1_5": list(main_over_1_5_offers or []), "under_3_5": [],
         }
         books = payload.get("bookmakers")
         if not isinstance(books, list):
@@ -1315,7 +1311,7 @@ class TheOddsAPI:
             name = str(book.get("title") or book.get("key") or "").strip()
             if not name:
                 continue
-            for market_key in ("alternate_totals", "btts"):
+            for market_key in ("alternate_totals",):
                 market = self._market(book, market_key)
                 if market is None:
                     continue
@@ -1325,22 +1321,20 @@ class TheOddsAPI:
                 updated = self._last_update(book, market)
                 if not quote_is_fresh(updated, clock):
                     continue
-                for point in ((1.5, 3.5) if market_key == "alternate_totals" else (None,)):
+                for point in (1.5, 3.5):
                     pair: Dict[str, float] = {}
                     duplicate = False
                     for outcome in outcomes:
                         if not isinstance(outcome, dict):
                             continue
-                        if point is not None and safe_float(outcome.get("point")) != point:
+                        if safe_float(outcome.get("point")) != point:
                             continue
                         side = str(outcome.get("name") or "").lower().strip()
                         price = _valid_price(outcome.get("price"))
                         if price is not None:
                             duplicate |= side in pair
                             pair[side] = price
-                    left, right = (
-                        ("over", "under") if point is not None else ("yes", "no")
-                    )
+                    left, right = "over", "under"
                     if (
                         duplicate or left not in pair or right not in pair
                         or not self._coherent_overround([pair[left], pair[right]])
@@ -1350,13 +1344,9 @@ class TheOddsAPI:
                         offers["over_1_5"].append(
                             (updated, name, pair["over"], pair["under"])
                         )
-                    elif point == 3.5:
+                    else:
                         offers["under_3_5"].append(
                             (updated, name, pair["under"], pair["over"])
-                        )
-                    else:
-                        offers["btts_yes"].append(
-                            (updated, name, pair["yes"], pair["no"])
                         )
 
         from double_chance import parse_quotes
@@ -1381,10 +1371,6 @@ class TheOddsAPI:
             result['_count_market_identity'] = {k:payload.get(k) for k in ('home_team','away_team','commence_time')}
         for market, available in offers.items():
             result.update(self._goal_quote_fields(market, available, as_of=clock))
-        from bet365_pinnacle import compare_event as compare_bet365
-        bet365 = compare_bet365(payload, clock)
-        if bet365:
-            result['_bet365_pinnacle_extra'] = bet365
         return result
 
 
@@ -3552,7 +3538,6 @@ class FootballValuePipelineV2(FootballValuePipeline):
                     main_over_1_5_offers=primary if isinstance(primary, (list, tuple)) else None)
                 identity = extra.pop('_asian_handicap_identity', None)
                 count_identity = extra.pop('_count_market_identity', None)
-                bet365_extra = extra.pop('_bet365_pinnacle_extra', [])
                 valid_identity = isinstance(identity,dict) and all(canonical_team_key(str(identity.get(k,''))) == canonical_team_key(str(row[field])) for k,field in [('home_team','HomeTeam'),('away_team','AwayTeam')])
                 event_kick = pd.to_datetime((identity or {}).get('commence_time'),utc=True,errors='coerce')
                 row_kick = pd.to_datetime(row.get('kickoff_utc'),utc=True,errors='coerce')
@@ -3593,10 +3578,6 @@ class FootballValuePipelineV2(FootballValuePipeline):
                     from price_edge_shortlist import merge_quotes as merge_price_edge
                     extra['price_edge_quotes'] = merge_price_edge(
                         pred.get('price_edge_quotes'), [] if identity_rejected else extra['price_edge_quotes'])
-                if identity_rejected:
-                    bet365_extra = []
-                from bet365_pinnacle import merge as merge_bet365
-                extra['bet365_pinnacle_quotes'] = merge_bet365(pred.get('bet365_pinnacle_quotes'), bet365_extra)
                 pred.update(extra)
                 ah = json.loads(pred.get('asian_handicap_offers') or '[]')
                 coverage_row['asian_handicap_quotes'] = len(ah)
@@ -4130,10 +4111,13 @@ def build_parser() -> argparse.ArgumentParser:
                    help='Fetch missing pre-match context from cached, timestamped free public sources (default)')
     p.add_argument('--no-research-free-sources', dest='research_free_sources', action='store_false',
                    help='Use cached research only; never fetch new context for this generation')
+    p.add_argument("--legacy-comparison", action="store_true",
+                   help=(f"Also fit the side-by-side {LEGACY_MODEL_VERSION} columns (legacy_*) and their "
+                         "half-life tuning, for offline replay. Off by default: the columns were read only by "
+                         "the archived forward trials and are never used for selection or staking."))
     p.add_argument("--no-legacy-comparison", action="store_true",
-                   help=(f"Skip the side-by-side {LEGACY_MODEL_VERSION} columns (legacy_*) and their "
-                         "half-life tuning. Scheduled runs pass it; the columns were read only by the "
-                         "archived forward trials and are never used for selection or staking."))
+                   help="Accepted for older commands; no effect (the legacy comparison is off unless "
+                        "--legacy-comparison is given).")
     p.add_argument("--no-shot-features", action="store_true",
                    help="Disable gated shot features; the no-shots profile remains replayable.")
     p.add_argument(
@@ -4277,7 +4261,7 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         )
     if args.auto_market_weight:
         from market_blend_validation import select_market_weight
-    legacy_comparison = not args.backtest and not args.no_legacy_comparison
+    legacy_comparison = not args.backtest and args.legacy_comparison
     run_validation = goal_market_validation_enabled(args)
     from asian_handicap import PRODUCTION_POLICY as CURRENT_SELECTION_POLICY
     if args.tune_half_life or legacy_comparison:
@@ -4671,13 +4655,6 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         from pipeline_health import write_generation_metadata
         write_generation_metadata(out_dir, selection_summary)
     if not args.backtest:
-        # Separate labelled list; never merged into the shortlist above.
-        from bet365_pinnacle import write_list as write_bet365_list
-        bet365_rows = write_bet365_list(
-            all_predictions.astype(object).where(all_predictions.notna(), None).to_dict('records'),
-            out_dir, selection_summary['generated_at_utc'])
-        print(f"bet365 vs Pinnacle list: {len(bet365_rows)} entries at >= 2% EV "
-              f"(see {out_dir / 'bet365_vs_pinnacle.csv'})", file=sys.stderr)
         # v27 narrow-margin hypothesis: every tagged candidate, picked or rejected.
         from price_edge_tracking import write_list as write_tagged_list
         write_tagged_list(decisions, out_dir, selection_summary['generated_at_utc'])
