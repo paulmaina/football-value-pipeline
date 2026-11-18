@@ -91,27 +91,74 @@ def test_sources_without_a_check_are_unchanged(tmp_path):
     assert page['status'] == 'available' and page['data'] == MAINTENANCE
 
 
+class Recorder:
+    """A research client that serves Understat's maintenance page and leaves every other source offline."""
+
+    def __init__(self, calls):
+        self.calls = calls
+
+    def clock(self):
+        return NOW
+
+    def get(self, url, xml=False, max_age_minutes=None, check=None):
+        self.calls.append((url, check))
+        if 'understat.com' in url:
+            reason = check(MAINTENANCE) if check else None
+            return {'url': url, 'observed_at_utc': NOW.isoformat(),
+                    **({'status': 'unavailable', 'reason': reason} if reason else
+                       {'status': 'available', 'data': MAINTENANCE})}
+        return {'url': url, 'observed_at_utc': NOW.isoformat(), 'status': 'unavailable', 'reason': 'offline'}
+
+
+ROW = {'league': 'Premier League', 'home_team': 'Arsenal', 'away_team': 'Chelsea',
+       'kickoff_utc': '2026-11-14T15:00:00+00:00', 'date': '2026-11-14'}
+
+
 def test_collect_fixture_records_understat_unavailable(tmp_path, monkeypatch):
+    monkeypatch.setattr(tr, 'understat_live', lambda path=None: True)  # the fetch, when the switch is on
     calls = []
-
-    class Recorder:
-        def clock(self):
-            return NOW
-
-        def get(self, url, xml=False, max_age_minutes=None, check=None):
-            calls.append((url, check))
-            if 'understat.com' in url:
-                reason = check(MAINTENANCE) if check else None
-                return {'url': url, 'observed_at_utc': NOW.isoformat(),
-                        **({'status': 'unavailable', 'reason': reason} if reason else
-                           {'status': 'available', 'data': MAINTENANCE})}
-            return {'url': url, 'observed_at_utc': NOW.isoformat(), 'status': 'unavailable', 'reason': 'offline'}
-
-    row = {'league': 'Premier League', 'home_team': 'Arsenal', 'away_team': 'Chelsea',
-           'kickoff_utc': '2026-11-14T15:00:00+00:00', 'date': '2026-11-14'}
-    evidence = tr.collect_fixture(row, Recorder())
+    evidence = tr.collect_fixture(ROW, Recorder(calls))
     understat = [s for s in evidence['sources'] if 'understat.com' in s['url']]
     assert [s['url'].rsplit('/', 1)[-1] for s in understat] == ['2026', '2025']
     assert all(s['status'] == 'unavailable' and s['reason'] == 'no match data (maintenance page)' for s in understat)
     assert all(c is tr.understat_check for u, c in calls if 'understat.com' in u)
     assert all(c is None for u, c in calls if 'understat.com' not in u)
+
+
+def test_understat_switch_is_off_in_the_live_config():
+    """Simplification audit item 22: live xG cannot return without a release decision."""
+    assert json.loads(tr.RESEARCH_CONFIG.read_text(encoding='utf-8'))['understat_live'] is False
+    assert tr.understat_live() is False
+
+
+def test_understat_switch_defaults_off_and_accepts_only_booleans(tmp_path):
+    live = json.loads(tr.RESEARCH_CONFIG.read_text(encoding='utf-8'))
+    def config(name, **changes):
+        path = tmp_path / name
+        data = {k: v for k, v in {**live, **changes}.items() if v is not None}
+        path.write_text(json.dumps(data), encoding='utf-8')
+        return path
+    missing = config('missing.json', understat_live=None)
+    assert tr.understat_live(missing) is False
+    assert tr.configured_live(missing) == tr.configured_live()  # the version switch is untouched
+    assert tr.understat_live(config('on.json', understat_live=True)) is True
+    for value in ('true', 1, 0):
+        try:
+            tr.understat_live(config(f'bad-{value!r}.json'.replace("'", ''), understat_live=value))
+        except ValueError as exc:
+            assert 'understat_live' in str(exc)
+        else:
+            raise AssertionError(f'understat_live={value!r} was accepted')
+
+
+def test_collect_fixture_makes_no_understat_request_while_the_switch_is_off(monkeypatch):
+    off_calls, on_calls = [], []
+    off = tr.collect_fixture(ROW, Recorder(off_calls))  # the live config: off
+    assert not [u for u, _ in off_calls if 'understat.com' in u]
+    assert not [s for s in off['sources'] if 'understat.com' in s['url']]
+    monkeypatch.setattr(tr, 'understat_live', lambda path=None: True)
+    on = tr.collect_fixture(ROW, Recorder(on_calls))
+    # Off removes exactly the two Understat requests and their source entries; nothing else changes.
+    assert [c for c in on_calls if 'understat.com' not in c[0]] == off_calls
+    assert [s for s in on['sources'] if 'understat.com' not in s['url']] == off['sources']
+    assert {k: v for k, v in on.items() if k != 'sources'} == {k: v for k, v in off.items() if k != 'sources'}
