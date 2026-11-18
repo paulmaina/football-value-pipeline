@@ -136,7 +136,7 @@ def load(cache_dir, now=None, *, refresh_if_stale=True, force_refresh=False):
             refresh_error = type(exc).__name__ + (': ' + str(exc).splitlines()[0][:200] if isinstance(exc, ValueError) else '')
             warnings.warn('Europa live refresh failed; using last verified local training snapshot: ' + refresh_error,
                           RuntimeWarning)
-    if payload is None: raise ValueError('Europa cache missing: run refresh_europa_training.py')
+    if payload is None: raise ValueError('Europa cache missing: run refresh_training_data.py')
     verified = datetime.fromisoformat(payload['verified_at_utc'])
     if verified.tzinfo is None or verified > now:
         raise ValueError('Europa verification time missing or after evaluation')
