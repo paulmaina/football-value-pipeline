@@ -35,6 +35,6 @@ unchanged; the new timing screen is applied to live ingestion.
 
 After merging, pull and run the usual full pipeline command, or wait for the
 next scheduled forecast collection. Old stored forecasts lack some required
-reference timestamps and therefore cannot qualify under v11 merely by running
-`refresh_conservative_shortlist.py`. That command does not fetch or invent
-missing timestamps. A full fresh forecast run supplies the provenance.
+reference timestamps and therefore cannot qualify under v11 by re-ranking stored
+data. A full fresh forecast run supplies the provenance. (The re-ranking command,
+`refresh_conservative_shortlist.py`, was removed on 18 Nov 2026.)

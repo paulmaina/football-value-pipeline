@@ -96,20 +96,6 @@ class BundleTests(OfflineQuotePolicyTestCase):
             with runs.stage_run(raw, seed=True, validation_cache=False) as staging:
                 self.assertEqual(sorted(p.name for p in staging.iterdir()), ['EPL_predictions.csv'])
 
-    def test_v28_refresh_leaves_validation_out_but_earlier_bundles_keep_it(self):
-        from refresh_conservative_shortlist import refresh
-        with tempfile.TemporaryDirectory() as temp:
-            root = Path(temp)
-            first = publish(root)
-            self.assertTrue((first/'EPL_goal_market_validation.json').exists())
-            refresh(root, as_of=T0 + timedelta(minutes=1))
-            current = runs.resolve_raw(root/'raw')
-            self.assertNotEqual(current, first)
-            self.assertFalse((current/'EPL_goal_market_validation.json').exists())
-            self.assertTrue((first/'EPL_goal_market_validation.json').exists())
-            self.assertEqual(runs.validate_bundle(first)['run_id'], first.name)
-            self.assertEqual(raw_check(root)['forecasts'], 1)
-
 
 class FailClosedTests(OfflineQuotePolicyTestCase):
     def summary_for(self, root, **changes):
