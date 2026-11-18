@@ -291,18 +291,21 @@ class TrackingTests(OfflineQuotePolicyTestCase):
     def test_price_edge_tracker_grades_over_1_5_with_clv(self):
         import price_edge_tracking as tracking
         from unittest.mock import patch
+        from football_value_pipeline_v2_standalone import devig
         kick = NOW + pd.Timedelta(hours=24)
         pick = {'league': 'Premier League', 'home_team': 'Home FC', 'away_team': 'Away FC',
                 'kickoff_utc': kick.isoformat(), 'market': 'Over 1.5', 'offered_decimal_odds': 1.40,
                 'fair_odds': 1.35, 'snapshot_captured_utc': NOW.isoformat(), 'value_market_group': 'over_1_5'}
         close = {'fixture': {**pick}, 'observed_at_utc': (kick - pd.Timedelta(minutes=5)).isoformat(),
-                 'quotes': [{'bookmaker': 'pinnacle', 'selection': 'over_1_5', 'decimal_odds': 1.30},
-                            {'bookmaker': 'pinnacle', 'selection': 'under_1_5', 'decimal_odds': 3.80}]}
+                 'quotes': [{'bookmaker': 'pinnacle', 'selection': 'over_1_5', 'decimal_odds': 1.30,
+                             'fair_probability': devig([1.30, 3.80], 'power')[0]},
+                            {'bookmaker': 'pinnacle', 'selection': 'under_1_5', 'decimal_odds': 3.80,
+                             'fair_probability': devig([1.30, 3.80], 'power')[1]}]}
         final = {'home_goals': 2, 'away_goals': 0}
         with patch('performance_tracking.fixture_match', return_value=(final, 'VERIFIED_FINISHED')):
             graded = tracking.grade([pick], [close], [], kick + pd.Timedelta(hours=5))
         row = graded.iloc[0]
-        q = (1 / 1.30) / (1 / 1.30 + 1 / 3.80)
+        q = devig([1.30, 3.80], 'power')[0]  # the closing_odds fair probability, as clv_report reads it
         self.assertAlmostEqual(row.clv, 1.40 * q - 1)
         self.assertEqual(row.result_status, 'WON')
         self.assertAlmostEqual(row.unit_profit, 0.40)

@@ -3,7 +3,8 @@
 1. Grades every frozen v27 pick by closing line value against Pinnacle's
    near-kickoff price on the same AH line (the closing-odds workflow already
    collects it): clv = entry odds x Pinnacle fair close win-share - 1, with
-   the two-way margin removed proportionally, as in the selection rule.
+   the margin removed by the power method through clv_report.fair_closing_prices,
+   the same fair close as the dashboard's headline CLV (one method since 19 Nov 2026).
    Splits: bookmaker, odds band, reference type, favourite/underdog side and
    each narrow-margin tag (balanced, low_total, high_draw, even_odds, any tag, no tag).
 2. Records every TAGGED candidate, picked or rejected, with the offered price
@@ -696,30 +697,26 @@ def ah_line(market: str, side=None, line=None):
 
 
 def close_win_share(quotes: List[dict], side: str, line: float) -> Optional[float]:
-    """Pinnacle fair close win-share on (side, line), proportional margin removal."""
+    """Pinnacle fair close win-share on (side, line): clv_report.fair_closing_prices (power method).
+
+    The same AH line's complete opposite-side pair first; for +-0.5 lines, the complete 1X2 instead.
+    """
     from asian_handicap import label
-    from ah_close_backtest import devig_proportional
-    pinnacle = {q['selection']: float(q['decimal_odds']) for q in quotes
-                if q.get('bookmaker') == 'pinnacle' and q.get('decimal_odds')}
-    mine, other = label(side, line), label('away' if side == 'home' else 'home', -line)
-    if mine in pinnacle and other in pinnacle:
-        return devig_proportional(pinnacle[mine], pinnacle[other])[0]
-    if abs(line) == 0.5 and all(k in pinnacle for k in ('home', 'draw', 'away')):
-        total = sum(1 / pinnacle[k] for k in ('home', 'draw', 'away'))
-        p = {k: (1 / pinnacle[k]) / total for k in ('home', 'draw', 'away')}
+    from clv_report import fair_closing_prices
+    fair = fair_closing_prices(quotes)
+    mine = label(side, line)
+    if mine in fair:
+        return fair[mine]
+    if abs(line) == 0.5 and all(k in fair for k in ('home', 'draw', 'away')):
         opponent = 'away' if side == 'home' else 'home'
-        return p[side] if line < 0 else 1 - p[opponent]
+        return fair[side] if line < 0 else 1 - fair[opponent]
     return None
 
 
 def close_over_share(quotes: List[dict], point: float = 1.5) -> Optional[float]:
-    """Pinnacle fair close probability of over `point` goals, proportional margin removal."""
-    from ah_close_backtest import devig_proportional
-    pinnacle = {q['selection']: float(q['decimal_odds']) for q in quotes
-                if q.get('bookmaker') == 'pinnacle' and q.get('decimal_odds')}
-    suffix = str(point).replace('.', '_')
-    over, under = pinnacle.get('over_' + suffix), pinnacle.get('under_' + suffix)
-    return devig_proportional(over, under)[0] if over and under else None
+    """Pinnacle fair close probability of over `point` goals: clv_report.fair_closing_prices (power method)."""
+    from clv_report import fair_closing_prices
+    return fair_closing_prices(quotes).get('over_' + str(point).replace('.', '_'))
 
 
 def closing_for(row: dict, observations: List[dict], side: Optional[str], line: Optional[float], share=None):
@@ -915,7 +912,9 @@ def split_table(frame: pd.DataFrame, value: str, columns=SPLITS) -> Dict[str, Di
 def list_headlines(root: Path, clock, frames: Dict[str, pd.DataFrame]) -> Dict[str, dict]:
     """Per list: closing-line value first and returns second, per pick and with one row per fixture (a match's
     picks averaged). Reporting only. The CLV is clv_report's (frozen price x Pinnacle fair close - 1, power
-    de-vig), not this module's same-line proportional CLV, which the STOP REVIEW rule and the splits keep."""
+    de-vig). This module's own per-pick CLV, which the STOP REVIEW rule and the splits use, takes its fair close
+    from the same function (clv_report.fair_closing_prices); the two can still differ in which observation
+    prices a pick (here: the latest near-kickoff observation after the pick was captured)."""
     from clv_report import fixture_view, load_closes, pick_clv
     try:
         closes = load_closes(Path(root), clock)
@@ -1005,7 +1004,8 @@ def review(root: Path, archive, records: List[dict], clock, active_rule: Optiona
                        for t in TAGS}},
         'correction_monitoring': monitoring_summary(monitoring),
         'rejected_observation_files': rejected,
-        'note': 'CLV = entry odds x Pinnacle near-kickoff fair win-share on the same AH line - 1 (proportional). '
+        'note': 'CLV = entry odds x Pinnacle near-kickoff fair win-share on the same AH line - 1 (power method, '
+                'as clv_report). '
                 'Near-kickoff feed quotes, not verified official closes or executed bets. Tagged candidates are '
                 'tracked for the narrow-margin hypothesis only; they never change a decision.',
     }
@@ -1200,8 +1200,9 @@ def report(summary: dict) -> str:
         from clv_report import HEADLINE_NOTE, headline_table
         lines += ['## Headline: closing-line value first, returns second', '', *headline_table(summary['headline']), '',
                   HEADLINE_NOTE + " The headline CLV is clv_report's (the Pinnacle close with the margin removed by "
-                  "the power method). The STOP REVIEW rule and the tables below keep this report's own CLV (the "
-                  'same line, margin removed proportionally), so the two can differ slightly.', '']
+                  "the power method). The STOP REVIEW rule and the tables below use this report's own CLV, with "
+                  'the same margin removal, priced from the latest near-kickoff observation after each pick was '
+                  'captured, so the two can still differ slightly.', '']
     if 'recommendation_history' in summary:
         info=summary['recommendation_history']
         lines += ['## Recommendation history and placed bets', '', info['note'], '',
