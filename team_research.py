@@ -541,9 +541,10 @@ def collect_fixture(row, client):
     if not structured_news:
         news = client.get('https://www.bing.com/news/search?' + urlencode({'q': query, 'format': 'rss'}), xml=True)
         evidence['sources'].append({k: news.get(k) for k in ('url', 'observed_at_utc', 'status', 'reason')})
-    # Public xG for supported domestic leagues. Keep unavailable coverage explicit
-    # when a site rejects collection or its schema changes.
-    slug = UNDERSTAT.get(row.get('league'))
+    # Public xG for supported domestic leagues, only while research_config.json's understat_live switch is on
+    # (off by default: live xG would change research probabilities without a release decision). Keep unavailable
+    # coverage explicit when a site rejects collection or its schema changes.
+    slug = UNDERSTAT.get(row.get('league')) if understat_live() else None
     if slug:
         season = kick.year if kick.month >= 7 else kick.year-1
         for year in (season, season-1):
@@ -588,6 +589,26 @@ def configured_live(path=None) -> dict:
     """{'domestic': version, 'european': version}: the research versions new forecasts use (research_config.json)."""
     path = Path(path or RESEARCH_CONFIG)
     return dict(_live_switch(str(path), path.stat().st_mtime))
+
+
+@lru_cache(maxsize=4)
+def _understat_switch(path: str, mtime: float) -> bool:
+    data = json.loads(Path(path).read_text(encoding='utf-8'))
+    value = data.get('understat_live', False) if isinstance(data, dict) else False
+    if not isinstance(value, bool):
+        raise ValueError('research_config.json: understat_live must be true or false')
+    return value
+
+
+def understat_live(path=None) -> bool:
+    """Whether new forecasts' research fetches Understat xG (research_config.json understat_live; off by default).
+
+    Off, collect_fixture makes no Understat request, so no xG row can reach the last-ten form. Turning it on is a
+    release decision (simplification audit item 22): if Understat returns, live research v5 probabilities would
+    start using xG. Frozen forecasts replay from their own evidence either way.
+    """
+    path = Path(path or RESEARCH_CONFIG)
+    return _understat_switch(str(path), path.stat().st_mtime)
 
 
 def research_version(league, version=None):
