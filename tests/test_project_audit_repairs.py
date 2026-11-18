@@ -103,7 +103,6 @@ class QuoteInputTests(OfflineQuotePolicyTestCase):
         for market_key, names, point, result_key in (
             ('alternate_totals', ('Over', 'Under'), 1.5, 'market_over_1_5_odds'),
             ('alternate_totals', ('Under', 'Over'), 3.5, 'market_under_3_5_odds'),
-            ('btts', ('Yes', 'No'), None, 'market_btts_yes_odds'),
         ):
             response = event()
             outcomes = [{'name': name, 'price': price, **({'point': point} if point else {})}

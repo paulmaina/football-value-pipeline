@@ -90,7 +90,7 @@ class FreshnessTests(OfflineQuotePolicyTestCase):
     def test_goal_offers_and_reference_timestamps_keep_only_fresh_complete_books(self):
         bad = book('Book A', (NOW-timedelta(hours=25)).isoformat(), over=1.40, btts=1.60)
         result = extra(payload([bad, book('Book B')]))
-        for key, odds in (('over_1_5', 1.30), ('under_3_5', 1.40), ('btts_yes', 1.49)):
+        for key, odds in (('over_1_5', 1.30), ('under_3_5', 1.40)):
             self.assertEqual(result[f'best_{key}_bookmaker'], 'Book B')
             self.assertEqual(result[f'market_{key}_odds'], odds)
             self.assertEqual(result[f'market_{key}_bookmakers'], 1)
@@ -110,16 +110,17 @@ class FreshnessTests(OfflineQuotePolicyTestCase):
         flat = TheOddsAPI.flatten_odds_event(response, as_of=NOW)
         self.assertIsNone(flat['live_ref_home_odds'])
         self.assertIsNotNone(flat['live_ref_over_2_5_odds'])
-        self.assertIn('market_btts_yes_odds', extra(response))
+        self.assertIn('market_over_1_5_odds', extra(response))
         response['bookmakers'][0]['markets'][2]['last_update'] = 'bad-time'
         result = extra(response)
         self.assertNotIn('market_over_1_5_odds', result)
-        self.assertIn('market_btts_yes_odds', result)
+        self.assertNotIn('market_under_3_5_odds', result)
+        self.assertFalse([key for key in result if 'btts' in key])  # never parsed (audit item 20)
         response = payload([book()])
         for market in response['bookmakers'][0]['markets']:
             market.pop('last_update')
         self.assertEqual(TheOddsAPI.flatten_odds_event(response, as_of=NOW)['odds_bookmakers_1x2'], 1)
-        self.assertEqual(extra(response)['market_reference_btts_yes_last_update_utc'], NOW.isoformat())
+        self.assertEqual(extra(response)['market_reference_over_1_5_last_update_utc'], NOW.isoformat())
 
     def test_reference_order_uses_utc_and_prices_keep_atomic_timestamps(self):
         old = book('Book A', '2026-10-09T10:00:00+02:00', home=1.60)
@@ -130,7 +131,7 @@ class FreshnessTests(OfflineQuotePolicyTestCase):
         # equal-margin O/U books fall back to the newest UTC update.
         self.assertEqual(flat['live_ref_1x2_bookmaker'], 'Book A')
         self.assertEqual(flat['live_ref_ou25_bookmaker'], 'Book B')
-        self.assertEqual(extra(response)['market_reference_btts_yes_last_update_utc'], NOW.isoformat())
+        self.assertEqual(extra(response)['market_reference_over_1_5_last_update_utc'], NOW.isoformat())
         # Repeated display names must not relabel an older selected price as new.
         new['title'] = 'Book A'
         flat = TheOddsAPI.flatten_odds_event(response, as_of=NOW)
