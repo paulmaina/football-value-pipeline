@@ -400,6 +400,40 @@ def summary_block(rows: list) -> dict:
             'pending': sum(r['result_status'] in ('PENDING', 'AWAITING_COUNT_RESULT') for r in rows)}
 
 
+RULE_MIN_WEEKS = 2  # plan Phase 6: "after two weeks of graded picks"
+RULE_MET, RULE_NOT_MET, RULE_TOO_EARLY = 'rule met', 'rule not met', 'not enough weeks yet'
+
+
+def decision_rule(rows: list) -> dict:
+    """The corners decision rule (docs/plan.md, Phase 6, fixed 18 Nov 2026), computed exactly as defined there.
+
+    Over every graded pick (WON or LOST) that has a Pinnacle close: mean clv_vs_pinnacle_fair with a 95% interval
+    that resamples whole kickoff ISO weeks (evaluation_diagnostics.week_mean: 2,000 draws, seed 136). Once graded
+    picks span at least two kickoff weeks, the rule is met only if the mean is positive and the interval is clear of
+    zero (lower bound above zero); with no interval (closes in fewer than two weeks) it is not met. Win rate and
+    return are not used."""
+    from evaluation_diagnostics import week_mean
+    graded = [r for r in rows if r['result_status'] in ('WON', 'LOST')]
+    closed = [r for r in graded if r['clv_vs_pinnacle_fair'] is not None]
+    weeks = sorted({r['week'] for r in graded})
+    stats = week_mean([r['clv_vs_pinnacle_fair'] for r in closed], [r['week'] for r in closed])
+    interval = stats['interval_95']
+    if len(weeks) < RULE_MIN_WEEKS:
+        verdict = RULE_TOO_EARLY
+    elif stats['mean'] is not None and stats['mean'] > 0 and interval is not None and interval[0] > 0:
+        verdict = RULE_MET
+    else:
+        verdict = RULE_NOT_MET
+    return {'graded_picks': len(graded), 'graded_with_close': len(closed),
+            'graded_lacking_close': len(graded) - len(closed), 'graded_weeks': len(weeks),
+            'weeks_with_close': stats['weeks'], 'mean_clv_vs_pinnacle_fair': stats['mean'],
+            'interval_95': interval, 'verdict': verdict,
+            'rule': 'plan Phase 6 (18 Nov 2026): after two weeks of graded picks, small stakes only if mean CLV against '
+                    "Pinnacle's margin-free close across all graded corner picks is positive with its 95% interval "
+                    '(whole weeks resampled) clear of zero; otherwise no bets, keep tracking, re-check after two more '
+                    'weeks. Win rate and return do not decide.'}
+
+
 def review(root: Path, archive, verified_for, clock) -> dict:
     """Grade every fixture's latest archived pick; write grades.csv, summary.json and report.md."""
     from performance_tracking import write_json
@@ -415,7 +449,8 @@ def review(root: Path, archive, verified_for, clock) -> dict:
     summary = {'list_version': VERSION, 'status': LABEL, 'stake': 0, 'reviewed_at_utc': clock.isoformat(),
                'definition': 'latest pre-kickoff pick per fixture; return per unit had it been staked; '
                              'clv_vs_pinnacle_fair = entry odds x Pinnacle power-de-vigged closing probability - 1',
-               'rejected_closing_observations': rejected, 'all': summary_block(rows),
+               'rejected_closing_observations': rejected, 'decision_rule': decision_rule(rows),
+               'all': summary_block(rows),
                'positive_expected_return_at_entry': summary_block([r for r in rows if float(r['expected_return']) > 0]),
                'weeks': {w: summary_block(v) for w, v in sorted(weeks.items())}}
     out = root / GRADES_DIR
@@ -439,8 +474,18 @@ def markdown(summary: dict) -> str:
                 f"{f(b['positive_clv_share'], '{:.0%}')} | {b['pending']} |")
     head = ['| | picks | graded | win rate | mean odds | return per unit | with close | mean CLV | CLV > 0 | pending |',
             '|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|']
+    rule = summary['decision_rule']
+    mean, interval = rule['mean_clv_vs_pinnacle_fair'], rule['interval_95']
     out = ['# Shadow corner list (unvalidated, not bet)', '',
            f"Zero stake: returns are what one unit per pick would have made. {summary['definition']}.", '',
+           '## Decision rule (plan Phase 6)', '',
+           f"**Verdict: {rule['verdict']}.**", '',
+           f"- Graded picks: {rule['graded_picks']} over {rule['graded_weeks']} kickoff week(s); "
+           f"{rule['graded_with_close']} with a Pinnacle close, {rule['graded_lacking_close']} lacking one.",
+           f"- Mean CLV against Pinnacle's margin-free close: {'—' if mean is None else f'{mean:+.4f}'}; 95% interval, "
+           f"whole weeks resampled ({rule['weeks_with_close']} week(s)): "
+           f"{'—' if interval is None else f'[{interval[0]:+.4f}, {interval[1]:+.4f}]'}.",
+           f"- Rule: {rule['rule']}", '',
            *head, line('All', summary['all']), line('Positive expected return at entry',
                                                    summary['positive_expected_return_at_entry']), '',
            '## By kickoff week', '', *head]
