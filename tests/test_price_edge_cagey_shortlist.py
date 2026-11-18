@@ -18,6 +18,11 @@ OFF = {'cagey_correction_enabled': False, 'cagey_tier_enabled': False}
 VALUE_ONLY = {'cagey_correction_enabled': True, 'cagey_tier_enabled': False}
 
 
+def live_config():
+    """The live cagey_correction_config.json as a dict."""
+    return json.loads(v28.CONFIG.read_text(encoding='utf-8-sig'))
+
+
 def run(*rows, settings=None, monitor=None):
     # These are legacy narrow-63/value-v1 replay regressions, independent of the live default.
     if settings is None:
@@ -120,37 +125,75 @@ class SwitchTests(OfflineQuotePolicyTestCase):
         self.assertEqual(PRODUCTION_POLICY, v28.POLICY)
         self.assertIn(v27.POLICY, POLICIES)
 
-    def test_tier_rule_defaults_to_value_v1_and_rejects_unknown_rules(self):
+    def load(self, data):
+        """load_settings on a config file holding `data`."""
         import tempfile
         from pathlib import Path
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / 'config.json'
-            base = {'cagey_correction_enabled': True, 'cagey_tier_enabled': True, 'model_version': 'x'}
-            path.write_text(json.dumps(base), encoding='utf-8')
-            self.assertEqual(v28.load_settings(path)['cagey_tier_rule'], v28.TIER_RULE_VALUE)
-            path.write_text(json.dumps({**base, 'cagey_tier_rule': 'narrow-50-v9'}), encoding='utf-8')
-            with self.assertRaises(ValueError):
-                v28.load_settings(path)
+            path.write_text(json.dumps(data), encoding='utf-8')
+            return v28.load_settings(path)
+
+    def assert_missing_refused(self, key):
+        """The live config without `key` is refused, naming it, and so is a null `key`; the replay default stays."""
+        data = live_config()
+        self.assertIn(key, v28.LIVE_REQUIRED)
+        for config in ({k: v for k, v in data.items() if k != key}, {**data, key: None}):
+            with self.assertRaisesRegex(ValueError, rf'must set {key}:'):
+                self.load(config)
+        self.load(data)  # the same config with the key loads
+
+    def test_live_config_without_cagey_tier_rule_is_refused(self):
+        self.assert_missing_refused('cagey_tier_rule')
+        self.assertEqual(v28.tier_rule({}), v28.TIER_RULE_VALUE)  # old summaries still replay as value-v1
+
+    def test_live_config_without_value_rule_is_refused(self):
+        self.assert_missing_refused('value_rule')
+        self.assertEqual(v28.value_rule({}), v28.VALUE_RULE_ONE)
+
+    def test_live_config_without_quote_timing_rule_is_refused(self):
+        self.assert_missing_refused('quote_timing_rule')
+        self.assertEqual(v28.timing_rule({}), v28.TIMING_RULE_SKEW)
+
+    def test_live_config_without_excluded_markets_is_refused(self):
+        self.assert_missing_refused('excluded_markets')
+        self.assertEqual(v28.excluded_markets({}), [])
+        self.assertEqual(self.load({**live_config(), 'excluded_markets': []})['excluded_markets'], [])  # stated: none
+
+    def test_live_config_without_cagey_correction_live_is_refused(self):
+        self.assert_missing_refused('cagey_correction_live')
+        self.assertIsNone(v28.correction_live({}))  # runs before 17 Nov 2026 replay under D everywhere
+
+    def test_every_missing_rule_is_named(self):
+        data = {k: v for k, v in live_config().items() if k not in v28.LIVE_REQUIRED}
+        with self.assertRaisesRegex(ValueError, 'must set ' + ', '.join(v28.LIVE_REQUIRED) + ':'):
+            self.load(data)
+
+    def test_the_documented_all_d_rollback_loads(self):
+        settings = self.load({**live_config(), 'cagey_correction_live': {'domestic': 'D', 'european': 'D'}})
+        self.assertEqual(settings['cagey_correction_live'], {'domestic': 'D', 'european': 'D'})
+        self.assertEqual(v28.correction_live(settings), {'domestic': 'D', 'european': 'D'})
+        self.assertEqual(set(v28.correction_models(settings, nm.production_model())), {'D'})
+
+    def test_tier_rule_defaults_to_value_v1_and_rejects_unknown_rules(self):
+        # The default is for replaying old summaries; the live config must state its rule (tests above).
+        self.assertEqual(v28.tier_rule({}), v28.TIER_RULE_VALUE)
+        self.assertEqual(self.load({**live_config(), 'cagey_tier_rule': v28.TIER_RULE_VALUE})['cagey_tier_rule'],
+                         v28.TIER_RULE_VALUE)
+        with self.assertRaises(ValueError):
+            self.load({**live_config(), 'cagey_tier_rule': 'narrow-50-v9'})
 
     def test_switches_must_be_booleans_and_need_a_passed_gate(self):
-        import tempfile
-        from pathlib import Path
         from unittest.mock import patch
-        with tempfile.TemporaryDirectory() as tmp:
-            path = Path(tmp) / 'config.json'
-            path.write_text(json.dumps({'cagey_correction_enabled': 'yes', 'cagey_tier_enabled': False,
-                                        'model_version': 'x'}), encoding='utf-8')
-            with self.assertRaises(ValueError):
-                v28.load_settings(path)
-            path.write_text(json.dumps({'cagey_correction_enabled': False, 'cagey_tier_enabled': True,
-                                        'model_version': 'x'}), encoding='utf-8')
-            failed = {'gate': {'gate_result': 'FAIL'}, 'production': {'version': 'x'}}
-            with patch.object(nm, 'versions', return_value=failed):
-                with self.assertRaises(ValueError):
-                    v28.load_settings(path)
-                path.write_text(json.dumps({'cagey_correction_enabled': False, 'cagey_tier_enabled': False,
-                                            'model_version': 'x'}), encoding='utf-8')
-                self.assertFalse(v28.load_settings(path)['cagey_tier_enabled'])
+        data = live_config()
+        with self.assertRaisesRegex(ValueError, 'true or false'):
+            self.load({**data, 'cagey_correction_enabled': 'yes', 'cagey_tier_enabled': False})
+        failed = {'gate': {'gate_result': 'FAIL'}, 'production': {'version': data['model_version']}}
+        with patch.object(nm, 'versions', return_value=failed):
+            with self.assertRaisesRegex(ValueError, 'GATE: PASS'):
+                self.load({**data, 'cagey_correction_enabled': False, 'cagey_tier_enabled': True})
+            self.assertFalse(self.load({**data, 'cagey_correction_enabled': False,
+                                        'cagey_tier_enabled': False})['cagey_tier_enabled'])
 
     def test_raw_check_replays_with_the_runs_recorded_settings(self):
         import tempfile
