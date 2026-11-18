@@ -4,10 +4,12 @@ trigger rebuilds both corrections from frozen quotes, and the activity log recor
 """
 from __future__ import annotations
 
+from datetime import datetime
 import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest import mock
 
 import numpy as np
 import pandas as pd
@@ -425,7 +427,31 @@ class RollbackTriggerTest(unittest.TestCase):
         self.assertEqual((rm.CAGEY_MIN_MATCHES, rm.CAGEY_MIN_WEEKS), (rm.MIN_MATCHES, rm.MIN_WEEKS))
 
 
+REAL_UTC_TIME = ma.utc_time
+# The clock model_activity reads for an event given no time: before the forecast runs these tests log at.
+CLOCK = '2026-11-18T05:00:00Z'
+
+
+def fixed_clock(at):
+    """Patch the clock model_activity uses (utc_time with no value, i.e. now) to `at`; explicit times pass through."""
+    return mock.patch.object(ma, 'utc_time', lambda value=None: REAL_UTC_TIME(at if value is None else value))
+
+
+def wall_clock(at):
+    """Patch the real date model_activity would read (datetime.now), to show a test does not depend on it."""
+    class Wall(datetime):
+        @classmethod
+        def now(cls, tz=None):
+            return REAL_UTC_TIME(at).astimezone(tz)
+    return mock.patch.object(ma, 'datetime', Wall)
+
+
 class ActivityTest(unittest.TestCase):
+    def setUp(self):
+        clock = fixed_clock(CLOCK)
+        clock.start()
+        self.addCleanup(clock.stop)
+
     def test_the_switch_state_carries_the_cagey_correction_and_the_release_is_logged_once(self):
         state = ma.switch_state(REPO / 'master_shortlist_config.json', REPO / 'research_config.json', v28.CONFIG)
         self.assertEqual((state['cagey_domestic'], state['cagey_european']), ('D_pow2', 'D'))
@@ -447,6 +473,17 @@ class ActivityTest(unittest.TestCase):
         self.assertEqual((plain['cagey_domestic'], plain['cagey_european']), ('D', 'D'))
 
     def test_a_forecast_run_logs_the_switch_and_the_release(self):
+        self.check_forecast_run_logs_the_switch_and_the_release()
+
+    def test_the_forecast_run_check_does_not_depend_on_the_real_date(self):
+        # Before and after the runs' own times (06:00 and 08:00 on 18 Nov 2026), and long after.
+        for wall in ('2026-11-18T05:59:00Z', '2026-11-18T06:01:00Z', '2026-11-18T09:00:00Z', '2027-06-01T00:00:00Z'):
+            with self.subTest(wall=wall), wall_clock(wall):
+                self.assertEqual(REAL_UTC_TIME(), REAL_UTC_TIME(wall))  # the real date is patched
+                self.assertEqual(ma.utc_time(), REAL_UTC_TIME(CLOCK))  # the test's clock is not
+                self.check_forecast_run_logs_the_switch_and_the_release()
+
+    def check_forecast_run_logs_the_switch_and_the_release(self):
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp)
             log = [ma.event(ma.SWITCH, 'research', 'x', 'x', key='switches', source=ma.SOURCE_FORECAST,
