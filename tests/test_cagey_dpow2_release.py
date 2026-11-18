@@ -119,20 +119,30 @@ class LiveTest(unittest.TestCase):
                                           execution_policy=POLICY, settings=offline, model=nm.load(nm.ONE_X_TWO_VERSION))
 
     def test_a_run_without_the_switch_is_exactly_the_old_rule(self):
-        import importlib
         decisions, summary = self.before[1], self.before[2]
         for column in v28.SHADOW_COLUMNS:
             self.assertNotIn(column, decisions)
         for key in RELEASE_KEYS:
             self.assertNotIn(key, summary)
-        # The same as the pipeline's call with the switch absent from the config.
+        # The live config may not leave the switch out (it would silently undo the release); the rollback states
+        # D everywhere explicitly, and prices exactly as the old rule: the same selection and decision rows, plus
+        # the columns and summary keys saying D priced every row with no shadow.
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / 'config.json'
             data = json.loads(v28.CONFIG.read_text(encoding='utf-8-sig'))
-            path.write_text(json.dumps({k: v for k, v in data.items() if k not in RELEASE_KEYS}), encoding='utf-8')
-            old = build(self.row, v28.load_settings(path))
-        self.assertEqual(old[1].to_csv(index=False), decisions.to_csv(index=False))
-        importlib.reload(v28)
+            path.write_text(json.dumps({**data, 'cagey_correction_live': {'domestic': 'D', 'european': 'D'}}),
+                            encoding='utf-8')
+            rollback = v28.load_settings(path)
+        for league in (None, 'UEFA Champions League'):
+            before, old = build(self.row, before_settings(), league), build(self.row, rollback, league)
+            for i in (0, 1):
+                self.assertEqual(old[i].drop(columns=v28.SHADOW_COLUMNS).to_csv(index=False),
+                                 before[i].to_csv(index=False), msg=(league, i))
+            self.assertEqual(old[1][v28.SHADOW_COLUMNS].drop_duplicates().to_dict('records'),
+                             [{'cagey_correction': 'D', v28.FALLBACK_COLUMN: None, 'shadow_cagey_correction': None,
+                               'shadow_corrected_no_loss_probability': None}])
+            self.assertEqual({k: v for k, v in old[2].items() if k not in RELEASE_KEYS}, before[2])
+            self.assertEqual(old[2]['cagey_correction_live'], {'domestic': 'D', 'european': 'D'})
 
     def test_domestic_rows_are_priced_by_d_pow2_exactly_as_the_tested_candidate(self):
         decisions = self.release[1]
