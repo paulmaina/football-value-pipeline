@@ -182,7 +182,6 @@ def write_report(root, metrics, clock):
     data['snapshot_capture_history'] = capture_rows
     data['experiment_capture_counts'] = dict(capture_counts)
     data['experimental_reports'] = {name:read(output/name/'summary.json', {}) for name in LIVE_EXPERIMENTS}
-    data['review_queue']=read(output/'experiment_review_queue.json',{})
     data['closing_odds']=read(output/'closing_odds/summary.json',{})
     history = read(output/'health_history.json', {'schema_version': 1, 'days': {}})
     # Full experiment summaries stay in pipeline_health.json; repeating them daily dominated the history size.
@@ -204,7 +203,6 @@ def write_report(root, metrics, clock):
         '(archive/); their frozen reports stay readable.']
     lines += ['', 'Dependency versions at review: '+json.dumps(data['dependencies'])+'. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.', '',
         'Closing odds: [report](closing_odds/report.md). Latest-selection comparison aligned with headline ROI, with a separate first-entry reference; official close and accepted execution are unverified.', '',
-        'Experiment review queue: [report](experiment_review_queue.md). No live trials are queued; no production promotion.', '',
         'Filter sensitivity: [report](filter_sensitivity_experiment/report.md). Frozen 1.5%, 3% and 5% adjusted EV policies; production unchanged.', '',
         'Shortlist probability/EV weights: [report](shortlist_weight_experiment/report.md). Four frozen weightings; production stays 50/50.', '',
         'Probability/calibration policies: [report](shortlist_policy_experiment/report.md). Fixed one-factor cutoffs and development-only penalty strengths; production unchanged.', '',
