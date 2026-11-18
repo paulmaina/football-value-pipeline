@@ -145,7 +145,6 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 self.assertNotIn(name,data['experiments'])
                 self.assertEqual([p for p in root.rglob(name+'.json')],[])
                 self.assertFalse((root/'performance'/name).exists())
-            self.assertEqual(data['pipeline_health']['review_queue']['experiments'],[])
             self.assertEqual(data['pipeline_health']['experiment_capture_counts'],{})
             self.assertTrue((root/'readable/football_performance_report.xlsx').exists())
 

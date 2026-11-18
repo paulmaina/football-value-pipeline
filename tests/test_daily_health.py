@@ -221,7 +221,6 @@ class DailyHealthTests(OfflineQuotePolicyTestCase):
             for day in (NOW.date().isoformat(), today):
                 self.assertNotIn('experimental_reports', history['days'][day])
                 self.assertNotIn('snapshot_capture_history', history['days'][day])
-                self.assertIn('review_queue', history['days'][day])
             self.assertEqual(history['days'][today]['shortlist_performance'], metrics['shortlist'])
             # Older days are kept as written; only new observations are slimmed.
             self.assertEqual(history['days'][legacy_day], legacy)

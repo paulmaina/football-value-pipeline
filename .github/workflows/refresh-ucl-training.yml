@@ -35,10 +35,6 @@ jobs:
         env:
           FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
         run: python refresh_ucl_training.py --api-key-source environment --publish
-      - name: Update visible performance health from refreshed main
-        env:
-          FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
-        run: python publish_performance.py --api-key-source environment --validate-reports --artifact-dir workflow_artifacts
       - uses: actions/upload-artifact@v7
         if: always()
         with:

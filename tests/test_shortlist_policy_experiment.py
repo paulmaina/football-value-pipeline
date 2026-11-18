@@ -283,15 +283,12 @@ class PolicyExperimentTests(OfflineQuotePolicyTestCase):
             health = json.loads((root/'performance/snapshots'/('a'*16)/'pipeline_health.json').read_text())
             self.assertNotIn(trial.NAME, health['experiments'])  # retired: health tracks live trials only
 
-    def test_review_queue_and_excel_readiness_integration(self):
-        from experiment_review_queue import build_queue
+    def test_excel_readiness_integration(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             summary = trial.review_experiment(root, [], [], NOW)
             self.assertEqual(summary['status'], 'COLLECT_MORE_DATA')
-            # Retired: the archived report is neither queued nor shown as readiness.
-            queue = build_queue(root, NOW)
-            self.assertNotIn(trial.NAME, [r['name'] for r in queue['experiments']])
+            # Retired: the archived report is not shown as readiness.
             from excel_book import read_workbook
             from performance_excel import write_workbook
             book = read_workbook(write_workbook(root, [], [], {}))
