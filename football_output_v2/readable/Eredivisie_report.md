@@ -2,7 +2,413 @@
 
 Fixtures in this report: **5**.
 
-> Probabilities are model estimates. They describe uncertainty; they are not guarantees. Market EV figures are only shown when bookmaker prices are available.
+> Each match shows the two models the shortlists use, side by side, and the master's verdict on them: **Research** (the value shortlist's model, independent of bookmaker odds) and **Cagey** (the cagey tier's market view, built from Pinnacle's prices). Probabilities are model estimates, not guarantees. No probability here is blended or averaged. The production model (70% Pinnacle blend) is kept only as a benchmark at the end of this report.
+
+## Quick reference
+
+- **Research:** The value shortlist's model: team form, goal rates and xG, never bookmaker odds. Live research v5 (C6 grid) for domestic leagues and v6 (CE3n) for UCL/UEL, exactly as the forecast carries it.
+- **Cagey:** The cagey tier's market view: Pinnacle's 1X2, O/U 2.5 and main AH line with the margin removed, plus the narrow-margin correction (D_pow2 for domestic leagues, D for UCL/UEL, D where D_pow2's power fit fails). Blank without Pinnacle 1X2 and O/U 2.5.
+- **No-loss:** The chance a bet does not lose: a win, a half win or a refund (push) on that exact line.
+- **Gap:** Research minus cagey no-loss on the same Pinnacle offer, in percentage points (the master's g). +4 or more: research too optimistic; -4 or less: research too pessimistic; -8 or less with cagey no-loss of 85% or more: flagged for inspection.
+- **Cagey tier:** The master's market classes from the cagey no-loss: safe (75% or more), risky (below 50%), in between otherwise; fair price when the Pinnacle price is within its 2.70% margin of the cagey fair odds.
+- **Best offer:** The fixture's master pick, or else the Pinnacle offer the master's own rule would choose for it (safe first, then chance of profit), shown with both views and the master's labels.
+- **Expected goals:** A view's average goal expectation for each team, from its score grid. It is not a prediction that the team will score exactly that many goals.
+- **Fixture source:** Football-Data may include bookmaker prices. A schedule fallback may supply fixtures without betting prices, so EV fields can legitimately be blank.
+
+---
+
+## 2026-11-21 — FC Utrecht vs SC Cambuur
+
+Research leans **FC Utrecht win** at **43.1%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| FC Utrecht win | 43.1% | — |
+| Draw | 22.2% | — |
+| SC Cambuur win | 34.7% | — |
+| FC Utrecht expected goals | 2.06 | — |
+| SC Cambuur expected goals | 1.85 | — |
+| Expected total goals | 3.90 | — |
+| Most likely score | 1-1 | — |
+| Most likely score probability | 8.1% | — |
+| Over 1.5 | 90.3% | — |
+| Under 1.5 | 9.7% | — |
+| Over 2.5 | 74.6% | — |
+| Under 2.5 | 25.4% | — |
+| Over 3.5 | 54.9% | — |
+| Under 3.5 | 45.1% | — |
+| BTTS Yes | 73.9% | — |
+| BTTS No | 26.1% | — |
+| Double Chance 1X | 65.3% | — |
+| Double Chance X2 | 56.9% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (8.15%) | — |
+| 2 | 2-1 (7.83%) | — |
+| 3 | 2-2 (7.62%) | — |
+| 4 | 1-2 (6.91%) | — |
+| 5 | 3-1 (5.36%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| FC Utrecht -0.50 | 1.93 | 43.1% | — |
+| SC Cambuur +0.50 | 1.93 | 56.9% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Asian Handicap Away +0.50 | 1.93 | 56.9% | — | — | one view missing (no cagey view) | in between, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Asian Handicap Home -0.50 | 1.93 | 43.1% | — | — | one view missing (no cagey view) | in between, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Home win | 1.92 | 43.1% | — | — | one view missing (no cagey view) | in between, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Away win | 3.52 | 34.7% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — Feyenoord vs Excelsior
+
+Research leans **Feyenoord win** at **71.5%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Feyenoord win | 71.5% | — |
+| Draw | 17.6% | — |
+| Excelsior win | 10.9% | — |
+| Feyenoord expected goals | 2.64 | — |
+| Excelsior expected goals | 1.04 | — |
+| Expected total goals | 3.68 | — |
+| Most likely score | 2-1 | — |
+| Most likely score probability | 9.5% | — |
+| Over 1.5 | 88.4% | — |
+| Under 1.5 | 11.6% | — |
+| Over 2.5 | 70.9% | — |
+| Under 2.5 | 29.1% | — |
+| Over 3.5 | 50.3% | — |
+| Under 3.5 | 49.7% | — |
+| BTTS Yes | 61.2% | — |
+| BTTS No | 38.8% | — |
+| Double Chance 1X | 89.1% | — |
+| Double Chance X2 | 28.5% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 2-1 (9.46%) | — |
+| 2 | 2-0 (8.77%) | — |
+| 3 | 3-1 (8.17%) | — |
+| 4 | 1-1 (7.61%) | — |
+| 5 | 3-0 (7.58%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Feyenoord -2.00 | 1.91 | 49.8% | — |
+| Excelsior +2.00 | 1.93 | 70.6% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Home win | 1.19 | 71.5% | — | — | one view missing (no cagey view) | safe, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Away win | 10.63 | 10.9% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away +2.00 | 1.93 | 70.6% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+| Asian Handicap Home -2.00 | 1.91 | 49.8% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (safe step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — Groningen vs Heerenveen
+
+Research leans **Heerenveen win** at **42.7%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Groningen win | 33.2% | — |
+| Draw | 24.0% | — |
+| Heerenveen win | 42.7% | — |
+| Groningen expected goals | 1.57 | — |
+| Heerenveen expected goals | 1.79 | — |
+| Expected total goals | 3.36 | — |
+| Most likely score | 1-1 | — |
+| Most likely score probability | 10.4% | — |
+| Over 1.5 | 85.2% | — |
+| Under 1.5 | 14.8% | — |
+| Over 2.5 | 65.2% | — |
+| Under 2.5 | 34.8% | — |
+| Over 3.5 | 43.5% | — |
+| Under 3.5 | 56.5% | — |
+| BTTS Yes | 66.6% | — |
+| BTTS No | 33.4% | — |
+| Double Chance 1X | 57.3% | — |
+| Double Chance X2 | 66.8% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (10.35%) | — |
+| 2 | 1-2 (8.69%) | — |
+| 3 | 2-1 (7.46%) | — |
+| 4 | 2-2 (7.20%) | — |
+| 5 | 0-1 (5.95%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Groningen +0.00 | 1.81 | 57.3% | — |
+| Heerenveen +0.00 | 2.06 | 66.8% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Home win | 2.40 | 33.2% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Away win | 2.72 | 42.7% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away +0.00 | 2.06 | 66.8% | — | — | one view missing (no cagey view) | no market view | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Home +0.00 | 1.81 | 57.3% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+
+_Best offer: none (no offer passes the master checks with a market view). Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — NEC Nijmegen vs PSV Eindhoven
+
+Research leans **PSV Eindhoven win** at **54.9%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| NEC Nijmegen win | 24.0% | — |
+| Draw | 21.2% | — |
+| PSV Eindhoven win | 54.9% | — |
+| NEC Nijmegen expected goals | 1.54 | — |
+| PSV Eindhoven expected goals | 2.32 | — |
+| Expected total goals | 3.86 | — |
+| Most likely score | 1-2 | — |
+| Most likely score probability | 8.9% | — |
+| Over 1.5 | 90.0% | — |
+| Under 1.5 | 10.0% | — |
+| Over 2.5 | 73.9% | — |
+| Under 2.5 | 26.1% | — |
+| Over 3.5 | 54.0% | — |
+| Under 3.5 | 46.0% | — |
+| BTTS Yes | 71.5% | — |
+| BTTS No | 28.5% | — |
+| Double Chance 1X | 45.1% | — |
+| Double Chance X2 | 76.0% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-2 (8.85%) | — |
+| 2 | 1-1 (8.08%) | — |
+| 3 | 2-2 (7.13%) | — |
+| 4 | 1-3 (6.76%) | — |
+| 5 | 0-2 (5.63%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| NEC Nijmegen +0.75 | 1.93 | 45.1% | — |
+| PSV Eindhoven -0.75 | 1.93 | 54.9% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Away win | 1.74 | 54.9% | — | — | one view missing (no cagey view) | in between, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Home win | 3.95 | 24.0% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away -0.75 | 1.93 | 54.9% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+| Asian Handicap Home +0.75 | 1.93 | 45.1% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — SC Telstar vs FC Zwolle
+
+Research leans **SC Telstar win** at **51.6%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| SC Telstar win | 51.6% | — |
+| Draw | 24.2% | — |
+| FC Zwolle win | 24.3% | — |
+| SC Telstar expected goals | 1.87 | — |
+| FC Zwolle expected goals | 1.25 | — |
+| Expected total goals | 3.12 | — |
+| Most likely score | 1-1 | — |
+| Most likely score probability | 11.0% | — |
+| Over 1.5 | 82.1% | — |
+| Under 1.5 | 17.9% | — |
+| Over 2.5 | 60.1% | — |
+| Under 2.5 | 39.9% | — |
+| Over 3.5 | 38.1% | — |
+| Under 3.5 | 61.9% | — |
+| BTTS Yes | 61.1% | — |
+| BTTS No | 38.9% | — |
+| Double Chance 1X | 75.7% | — |
+| Double Chance X2 | 48.4% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (11.05%) | — |
+| 2 | 2-1 (9.76%) | — |
+| 3 | 1-0 (8.07%) | — |
+| 4 | 2-0 (7.65%) | — |
+| 5 | 2-2 (6.39%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| SC Telstar -0.25 | 1.81 | 51.6% | — |
+| FC Zwolle +0.25 | 2.06 | 48.4% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Home win | 2.07 | 51.6% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Away win | 3.43 | 24.3% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away +0.25 | 2.06 | 48.4% | — | — | one view missing (no cagey view) | no market view | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Home -0.25 | 1.81 | 51.6% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+
+_Best offer: none (no offer passes the master checks with a market view). Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## Benchmark (70% Pinnacle blend), display only
+
+The production forecasting model blends 70% of Pinnacle's prices into its score grid, so it is neither independent research nor the cagey tier's market view. It is shown for comparison only: no list, probability or stake reads it, and its EV is not a recommendation.
+
+- **Benchmark EV:** Model-estimated return per unit staked at the available decimal price. +5% EV means +0.05 expected units per 1 unit staked under the model; it is not a guaranteed return.
+- **Fair odds:** Decimal odds implied by the model probability, before any bookmaker margin.
+- **Probability edge:** Model probability minus the de-vigged market probability.
 
 ### Model context
 
@@ -63,33 +469,17 @@ Fixtures in this report: **5**.
 
 </details>
 
-## Quick reference
-
-- **Expected goals:** The model's average goal expectation for each team. It is not a prediction that the team will score exactly that many goals.
-- **Fair odds:** Decimal odds implied by the model probability, before any bookmaker margin.
-- **Expected value:** Model-estimated return per unit staked at the available decimal price. +5% EV means +0.05 expected units per 1 unit staked under the model; it is not a guaranteed return.
-- **Probability edge:** Model probability minus the de-vigged market probability.
-- **Fixture source:** Football-Data may include bookmaker prices. A schedule fallback may supply fixtures without betting prices, so EV fields can legitimately be blank.
-
----
-
-## 2026-11-21 — FC Utrecht vs SC Cambuur
+### 2026-11-21 — FC Utrecht vs SC Cambuur
 
 The model's most likely 1X2 outcome is **FC Utrecht win** at **52.4%**. Expected goals are 2.40 for FC Utrecht and 1.50 for SC Cambuur (3.91 combined). The most likely exact score is 1-1 at 8.5%. Goal-market probabilities: at least one goal: 97.2%; Over 2.5 goals: 74.1%; Under 3.5 goals: 45.6%; Double Chance 1X: 74.5%; Double Chance X2: 47.6%; Double Chance 12 (either team wins): 77.9%; Under 4.5 goals: 65.3%; BTTS Yes (both teams score): 71.9%; BTTS No (at least one team does not score): 28.1%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | FC Utrecht win | 52.4% | 1.91 |
 | Draw | 22.1% | 4.53 |
 | SC Cambuur win | 25.5% | 3.92 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | FC Utrecht expected goals | 2.40 |
 | SC Cambuur expected goals | 1.50 |
@@ -105,9 +495,7 @@ The model's most likely 1X2 outcome is **FC Utrecht win** at **52.4%**. Expected
 | Over 4.5 | 34.7% |
 | Under 4.5 | 65.3% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-1 | 8.50% |
 | 2 | 2-1 | 8.03% |
@@ -115,18 +503,14 @@ The model's most likely 1X2 outcome is **FC Utrecht win** at **52.4%**. Expected
 | 4 | 3-1 | 6.43% |
 | 5 | 1-2 | 6.12% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | FC Utrecht win | 52.4% | 50.5% | 1.92 | +0.6% |
 | Draw | 22.1% | 22.8% | 4.09 | -9.8% |
 | SC Cambuur win | 25.5% | 26.7% | 3.52 | -10.1% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -238,25 +622,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Feyenoord vs Excelsior
+### 2026-11-21 — Feyenoord vs Excelsior
 
 The model's most likely 1X2 outcome is **Feyenoord win** at **81.8%**. Expected goals are 3.05 for Feyenoord and 0.87 for Excelsior (3.92 combined). The most likely exact score is 3-0 at 9.6%. Goal-market probabilities: at least one goal: 98.0%; Over 2.5 goals: 75.8%; Under 3.5 goals: 44.6%; Double Chance 1X: 92.7%; Double Chance X2: 18.2%; Double Chance 12 (either team wins): 89.1%; Under 4.5 goals: 64.0%; BTTS Yes (both teams score): 55.2%; BTTS No (at least one team does not score): 44.8%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Feyenoord win | 81.8% | 1.22 |
 | Draw | 10.9% | 9.16 |
 | Excelsior win | 7.3% | 13.76 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Feyenoord expected goals | 3.05 |
 | Excelsior expected goals | 0.87 |
@@ -272,9 +648,7 @@ The model's most likely 1X2 outcome is **Feyenoord win** at **81.8%**. Expected 
 | Over 4.5 | 36.0% |
 | Under 4.5 | 64.0% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 3-0 | 9.58% |
 | 2 | 2-0 | 9.43% |
@@ -282,18 +656,14 @@ The model's most likely 1X2 outcome is **Feyenoord win** at **81.8%**. Expected 
 | 4 | 2-1 | 8.20% |
 | 5 | 4-0 | 7.30% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Feyenoord win | 81.8% | 82.5% | 1.19 | -2.6% |
 | Draw | 10.9% | 10.1% | 7.96 | -13.1% |
 | Excelsior win | 7.3% | 7.4% | 10.63 | -22.7% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -405,25 +775,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Groningen vs Heerenveen
+### 2026-11-21 — Groningen vs Heerenveen
 
 The model's most likely 1X2 outcome is **Groningen win** at **40.3%**. Expected goals are 1.65 for Groningen and 1.50 for Heerenveen (3.15 combined). The most likely exact score is 1-1 at 11.3%. Goal-market probabilities: at least one goal: 95.0%; Over 2.5 goals: 61.1%; Under 3.5 goals: 61.3%; Double Chance 1X: 65.2%; Double Chance X2: 59.7%; Double Chance 12 (either team wins): 75.2%; Under 4.5 goals: 78.9%; BTTS Yes (both teams score): 63.5%; BTTS No (at least one team does not score): 36.5%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Groningen win | 40.3% | 2.48 |
 | Draw | 24.8% | 4.03 |
 | Heerenveen win | 34.8% | 2.87 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Groningen expected goals | 1.65 |
 | Heerenveen expected goals | 1.50 |
@@ -439,9 +801,7 @@ The model's most likely 1X2 outcome is **Groningen win** at **40.3%**. Expected 
 | Over 4.5 | 21.1% |
 | Under 4.5 | 78.9% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-1 | 11.26% |
 | 2 | 2-1 | 8.66% |
@@ -449,18 +809,14 @@ The model's most likely 1X2 outcome is **Groningen win** at **40.3%**. Expected 
 | 4 | 2-2 | 6.47% |
 | 5 | 1-0 | 6.20% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Groningen win | 40.3% | 40.1% | 2.40 | -3.2% |
 | Draw | 24.8% | 24.7% | 3.82 | -5.1% |
 | Heerenveen win | 34.8% | 35.2% | 2.72 | -5.2% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -572,25 +928,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — NEC Nijmegen vs PSV Eindhoven
+### 2026-11-21 — NEC Nijmegen vs PSV Eindhoven
 
 The model's most likely 1X2 outcome is **PSV Eindhoven win** at **57.2%**. Expected goals are 1.49 for NEC Nijmegen and 2.58 for PSV Eindhoven (4.07 combined). The most likely exact score is 1-2 at 8.0%. Goal-market probabilities: at least one goal: 97.7%; Over 2.5 goals: 76.7%; Under 3.5 goals: 42.4%; Double Chance 1X: 42.8%; Double Chance X2: 77.4%; Double Chance 12 (either team wins): 79.8%; Under 4.5 goals: 62.0%; BTTS Yes (both teams score): 72.5%; BTTS No (at least one team does not score): 27.5%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | NEC Nijmegen win | 22.6% | 4.42 |
 | Draw | 20.2% | 4.95 |
 | PSV Eindhoven win | 57.2% | 1.75 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | NEC Nijmegen expected goals | 1.49 |
 | PSV Eindhoven expected goals | 2.58 |
@@ -606,9 +954,7 @@ The model's most likely 1X2 outcome is **PSV Eindhoven win** at **57.2%**. Expec
 | Over 4.5 | 38.0% |
 | Under 4.5 | 62.0% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-2 | 8.02% |
 | 2 | 1-1 | 7.51% |
@@ -616,18 +962,14 @@ The model's most likely 1X2 outcome is **PSV Eindhoven win** at **57.2%**. Expec
 | 4 | 2-2 | 6.69% |
 | 5 | 2-1 | 5.42% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | NEC Nijmegen win | 22.6% | 23.5% | 3.95 | -10.7% |
 | Draw | 20.2% | 20.7% | 4.46 | -9.9% |
 | PSV Eindhoven win | 57.2% | 55.8% | 1.74 | -0.5% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -739,25 +1081,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — SC Telstar vs FC Zwolle
+### 2026-11-21 — SC Telstar vs FC Zwolle
 
 The model's most likely 1X2 outcome is **SC Telstar win** at **48.8%**. Expected goals are 1.93 for SC Telstar and 1.20 for FC Zwolle (3.13 combined). The most likely exact score is 1-1 at 11.6%. Goal-market probabilities: at least one goal: 94.5%; Over 2.5 goals: 59.9%; Under 3.5 goals: 62.2%; Double Chance 1X: 73.9%; Double Chance X2: 51.2%; Double Chance 12 (either team wins): 74.9%; Under 4.5 goals: 79.7%; BTTS Yes (both teams score): 61.1%; BTTS No (at least one team does not score): 38.9%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | SC Telstar win | 48.8% | 2.05 |
 | Draw | 25.1% | 3.98 |
 | FC Zwolle win | 26.1% | 3.83 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | SC Telstar expected goals | 1.93 |
 | FC Zwolle expected goals | 1.20 |
@@ -773,9 +1107,7 @@ The model's most likely 1X2 outcome is **SC Telstar win** at **48.8%**. Expected
 | Over 4.5 | 20.3% |
 | Under 4.5 | 79.7% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-1 | 11.58% |
 | 2 | 2-1 | 8.89% |
@@ -783,18 +1115,14 @@ The model's most likely 1X2 outcome is **SC Telstar win** at **48.8%**. Expected
 | 4 | 1-2 | 6.97% |
 | 5 | 1-0 | 6.96% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | SC Telstar win | 48.8% | 46.7% | 2.07 | +0.9% |
 | Draw | 25.1% | 25.8% | 3.65 | -8.2% |
 | FC Zwolle win | 26.1% | 27.5% | 3.43 | -10.5% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -904,6 +1232,3 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Team research json | {"base_rates": [1.9306272550602215, 1.2015299303799156], "c6_fit": {"candidate_version": "research-low-score-then-sharpen-walk-forward-v1", "delta": 0.05820390771129642, "end_exclusive": "2026-11-16", "expected_origin": "2026-11-16", "fits_version": "research-c6-live-fits-v1", "low_score_status": "fitted", "origin": "2026-11-02", "rho": -0.018955143658940854, "slope": 1.1447833796793323, "slope_status": "fitted", "stale": true}, "coverage": {"form": "last ten, exponential rank half-life five matches", "h2h": "last four years; descriptive only", "training_cache": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED", "venue_splits": "home team home matches / away team away matches", "xg": "verified supplied xG; no goals-to-xG substitution"}, "evidence": {"coverage": {}, "errors": ["free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing"], "news": [], "quality_review": {"absence_note": "Reported absences only; not proof of complete coverage or a fitted player-value effect", "assessed_at_utc": "2026-11-18T21:46:10.586955+00:00", "availability": "UNAVAILABLE_OR_STALE", "form": {"away": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 10.0}, "home": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 10.0}}, "lineups": "UNCONFIRMED_OR_STALE", "probability_effect": "NONE; factual coverage/freshness review, not a calibrated confidence score", "status": "REVIEW_REQUIRED", "summary_max_age_minutes": 180, "training": {"cutoff": "2026-11-08", "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}, "version": "pre-match-research-quality-v1", "warnings": ["Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"], "weather": "UNAVAILABLE_INCOMPLETE_OR_STALE", "weather_max_age_minutes": 180}, "review_links": [{"label": "Sofascore", "status": "reference only; no authorized public bulk API", "url": "https://www.sofascore.com/football"}, {"label": "Sports Mole previews", "status": "reference only; article reproduction requires permission", "url": "https://www.sportsmole.co.uk/football/"}], "sources": [{"observed_at_utc": "2026-11-18T21:46:07.213850+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20261121"}, {"observed_at_utc": "2026-11-18T21:46:07.802317+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/news?limit=20"}, {"observed_at_utc": "2026-11-18T21:46:10.545481+00:00", "reason": null, "status": "available", "url": "https://www.bing.com/news/search?q=%22SC+Telstar%22+%22FC+Zwolle%22+injury+suspension+lineup+preview&format=rss"}, {"observed_at_utc": "2026-11-18T21:45:46.684732+00:00", "reason": null, "status": "available", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"}, {"observed_at_utc": "2026-11-18T21:45:46.820635+00:00", "reason": null, "status": "available", "url": "https://www.theguardian.com/football/rss"}, {"observed_at_utc": "2026-11-18T21:46:10.586600+00:00", "reason": "TheSportsDB free source limit: 30 requests per minute", "status": "unavailable", "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=SC+Telstar_vs_FC+Zwolle&d=2026-11-21"}]}, "evidence_quality_version": "pre-match-research-quality-v1", "form": {"away": {"all": {"goals_against": 1.6028217998116971, "goals_for": 1.1960280673020078, "last_match": "2026-11-06T00:00:00+00:00", "matches": 10, "points_per_game": 1.309894491388459, "results": "DWDWLLLDLW", "xg_against": 1.4727395388112348, "xg_for": 1.0791166716533163, "xg_matches": 10}, "venue": {"goals_against": 1.4145285122538318, "goals_for": 1.1232992550353904, "last_match": "2026-11-06T00:00:00+00:00", "matches": 5, "points_per_game": 1.1011880542565662, "results": "DDLDW", "xg_against": 1.3286349869216183, "xg_for": 0.901189585914834, "xg_matches": 5}}, "home": {"all": {"goals_against": 2.1557251984211865, "goals_for": 1.861592154476946, "last_match": "2026-11-07T00:00:00+00:00", "matches": 10, "points_per_game": 0.8545653110527947, "results": "DWLLDLDLDL", "xg_against": 1.9057602139865213, "xg_for": 1.3571879037273136, "xg_matches": 10}, "venue": {"goals_against": 2.7481658301577703, "goals_for": 2.445785596903284, "last_match": "2026-11-01T00:00:00+00:00", "matches": 5, "points_per_game": 1.1437148317366184, "results": "WLDDL", "xg_against": 1.9464815211455238, "xg_for": 2.0388889331634954, "xg_matches": 5}}}, "goal_rates": [1.8483388233876668, 1.2756318047633366], "h2h": [{"away": "Telstar", "away_goals": 1.0, "away_xg": null, "date": "2026-01-31T00:00:00+00:00", "home": "Zwolle", "home_goals": 4.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Zwolle", "away_goals": 2.0, "away_xg": null, "date": "2025-08-15T00:00:00+00:00", "home": "Telstar", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}], "margin_distribution": {"-1": 0.14068111086735943, "-10": 1.5824939343066405e-07, "-11": 1.8034238963627596e-08, "-12": 1.8888982611216417e-09, "-13": 1.8300093586908366e-10, "-14": 1.6483564037708702e-11, "-15": 1.3761234621736988e-12, "-16": 9.562294369681763e-14, "-2": 0.06813993216172033, "-3": 0.02461544872888446, "-4": 0.007073983561784938, "-5": 0.001679516223252218, "-6": 0.00033880005851798673, "-7": 5.9320270992116565e-05, "-8": 9.166194499631998e-06, "-9": 1.2666878593677516e-06, "0": 0.24186462055964777, "1": 0.2251291689281268, "10": 7.100809962594122e-06, "11": 1.172519037455625e-06, "12": 1.779454536151337e-07, "13": 2.4979738487130562e-08, "14": 3.2601827359820475e-09, "15": 3.9437054446968303e-10, "16": 3.9706849214956816e-11, "2": 0.15736841005628527, "3": 0.08237204807715756, "4": 0.03429986418257029, "5": 0.01179964127303732, "6": 0.003448929560985985, "7": 0.0008749842210883735, "8": 0.00019590359706286406, "9": 3.9226467227995334e-05}, "model_note": "Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient", "observed_at_utc": "2026-11-18T21:46:10.586955+00:00", "p_over_1_5": 0.821119457305521, "shadow_v4": {"grid": "independent Poisson (C)", "margin_distribution": {"-1": 0.1539981232980553, "-10": 1.7101829259029094e-07, "-11": 1.948939385398785e-08, "-12": 2.0413105446456504e-09, "-13": 1.97766998762421e-10, "-14": 1.7813597363119034e-11, "-15": 1.4871607390868102e-12, "-16": 1.033386113460988e-13, "-2": 0.07363803805429074, "-3": 0.026601631271352177, "-4": 0.007644772370507078, "-5": 0.0018150337935047775, "-6": 0.00036613731200570593, "-7": 6.410673204576953e-05, "-8": 9.905800577772253e-06, "-9": 1.3688949464999818e-06, "0": 0.22742155442394413, "1": 0.22313704390072395, "10": 6.975976931874088e-06, "11": 1.1519060220681448e-06, "12": 1.7481715270373834e-07, "13": 2.454059189985826e-08, "14": 3.2028683600477993e-09, "15": 3.8743746633462535e-10, "16": 3.9008798379353876e-11, "2": 0.1546018558645234, "3": 0.08092393828936494, "4": 0.033696868746591675, "5": 0.011592202264067653, "6": 0.0033882969948272213, "7": 0.0008596019009409454, "8": 0.00019245958998773602, "9": 3.853686156127476e-05}, "p_over_1_5": 0.8186187635676488, "version": "team-form-research-v4"}, "version": "team-form-research-v5", "warnings": ["availability unavailable or unconfirmed", "lineups unavailable or unconfirmed", "rotation unavailable or unconfirmed", "tactics unavailable or unconfirmed", "motivation unavailable or unconfirmed", "rivalry unavailable or unconfirmed", "weather unavailable or unconfirmed", "travel unavailable or unconfirmed", "free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing", "C6 fit is stale (fortnightly refresh missed): using the window from 2026-11-02, the window for this day opened 2026-11-16", "Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"]} |
 
 </details>
-
-
----

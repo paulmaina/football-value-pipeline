@@ -21,11 +21,11 @@ class BttsReportingTests(OfflineQuotePolicyTestCase):
         row["p_btts_yes"] = 0.61234
         row["p_btts_no"] = 0.38766
         output = readable_predictions_frame(pd.DataFrame([row]), {})
-        self.assertEqual(output.iloc[0]["BTTS Yes"], "61.2%")
-        self.assertEqual(output.iloc[0]["BTTS No"], "38.8%")
+        self.assertEqual(output.iloc[0]["Benchmark BTTS Yes"], "61.2%")
+        self.assertEqual(output.iloc[0]["Benchmark BTTS No"], "38.8%")
         self.assertEqual(
-            list(output.columns).index("BTTS No"),
-            list(output.columns).index("BTTS Yes") + 1,
+            list(output.columns).index("Benchmark BTTS No"),
+            list(output.columns).index("Benchmark BTTS Yes") + 1,
         )
         self.assertEqual(row["p_btts_yes"], 0.61234)
         self.assertEqual(row["p_btts_no"], 0.38766)
@@ -35,8 +35,8 @@ class BttsReportingTests(OfflineQuotePolicyTestCase):
         row.pop("p_btts_yes")
         row.pop("p_btts_no", None)
         output = readable_predictions_frame(pd.DataFrame([row]), {})
-        self.assertEqual(output.iloc[0]["BTTS Yes"], "—")
-        self.assertEqual(output.iloc[0]["BTTS No"], "—")
+        self.assertEqual(output.iloc[0]["Benchmark BTTS Yes"], "—")
+        self.assertEqual(output.iloc[0]["Benchmark BTTS No"], "—")
 
     def test_match_narrative_explains_btts_probabilities(self):
         row = fixture()
@@ -72,8 +72,8 @@ class BttsReportingTests(OfflineQuotePolicyTestCase):
             csv_report = pd.read_csv(
                 readable / "EPL_predictions_readable.csv"
             )
-            self.assertEqual(csv_report.iloc[0]["BTTS Yes"], "58.4%")
-            self.assertEqual(csv_report.iloc[0]["BTTS No"], "41.6%")
+            self.assertEqual(csv_report.iloc[0]["Benchmark BTTS Yes"], "58.4%")
+            self.assertEqual(csv_report.iloc[0]["Benchmark BTTS No"], "41.6%")
 
             report = (readable / "EPL_report.md").read_text(
                 encoding="utf-8"

@@ -2,7 +2,567 @@
 
 Fixtures in this report: **7**.
 
-> Probabilities are model estimates. They describe uncertainty; they are not guarantees. Market EV figures are only shown when bookmaker prices are available.
+> Each match shows the two models the shortlists use, side by side, and the master's verdict on them: **Research** (the value shortlist's model, independent of bookmaker odds) and **Cagey** (the cagey tier's market view, built from Pinnacle's prices). Probabilities are model estimates, not guarantees. No probability here is blended or averaged. The production model (70% Pinnacle blend) is kept only as a benchmark at the end of this report.
+
+## Quick reference
+
+- **Research:** The value shortlist's model: team form, goal rates and xG, never bookmaker odds. Live research v5 (C6 grid) for domestic leagues and v6 (CE3n) for UCL/UEL, exactly as the forecast carries it.
+- **Cagey:** The cagey tier's market view: Pinnacle's 1X2, O/U 2.5 and main AH line with the margin removed, plus the narrow-margin correction (D_pow2 for domestic leagues, D for UCL/UEL, D where D_pow2's power fit fails). Blank without Pinnacle 1X2 and O/U 2.5.
+- **No-loss:** The chance a bet does not lose: a win, a half win or a refund (push) on that exact line.
+- **Gap:** Research minus cagey no-loss on the same Pinnacle offer, in percentage points (the master's g). +4 or more: research too optimistic; -4 or less: research too pessimistic; -8 or less with cagey no-loss of 85% or more: flagged for inspection.
+- **Cagey tier:** The master's market classes from the cagey no-loss: safe (75% or more), risky (below 50%), in between otherwise; fair price when the Pinnacle price is within its 2.70% margin of the cagey fair odds.
+- **Best offer:** The fixture's master pick, or else the Pinnacle offer the master's own rule would choose for it (safe first, then chance of profit), shown with both views and the master's labels.
+- **Expected goals:** A view's average goal expectation for each team, from its score grid. It is not a prediction that the team will score exactly that many goals.
+- **Fixture source:** Football-Data may include bookmaker prices. A schedule fallback may supply fixtures without betting prices, so EV fields can legitimately be blank.
+
+---
+
+## 2026-11-20 — Bayern Munich vs 1. FC Köln
+
+Research leans **Bayern Munich win** at **88.6%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Bayern Munich win | 88.6% | — |
+| Draw | 8.6% | — |
+| 1. FC Köln win | 2.9% | — |
+| Bayern Munich expected goals | 3.74 | — |
+| 1. FC Köln expected goals | 0.82 | — |
+| Expected total goals | 4.56 | — |
+| Most likely score | 3-0 | — |
+| Most likely score probability | 9.1% | — |
+| Over 1.5 | 94.4% | — |
+| Under 1.5 | 5.6% | — |
+| Over 2.5 | 83.2% | — |
+| Under 2.5 | 16.8% | — |
+| Over 3.5 | 66.9% | — |
+| Under 3.5 | 33.1% | — |
+| BTTS Yes | 55.3% | — |
+| BTTS No | 44.7% | — |
+| Double Chance 1X | 97.1% | — |
+| Double Chance X2 | 11.4% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 3-0 (9.11%) | — |
+| 2 | 4-0 (8.45%) | — |
+| 3 | 3-1 (7.65%) | — |
+| 4 | 2-0 (7.37%) | — |
+| 5 | 4-1 (7.09%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Bayern Munich -3.00 | 1.95 | 55.6% | — |
+| 1. FC Köln +3.00 | 1.92 | 63.2% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Home win | 1.08 | 88.6% | — | — | one view missing (no cagey view) | safe, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Away win | 21.68 | 2.9% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away +3.00 | 1.92 | 63.2% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+| Asian Handicap Home -3.00 | 1.95 | 55.6% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+
+_Best offer: none (no offer passes the master checks with a market view). Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — Bayer Leverkusen vs SC Paderborn
+
+Research leans **Bayer Leverkusen win** at **61.6%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Bayer Leverkusen win | 61.6% | — |
+| Draw | 24.5% | — |
+| SC Paderborn win | 13.9% | — |
+| Bayer Leverkusen expected goals | 1.80 | — |
+| SC Paderborn expected goals | 0.77 | — |
+| Expected total goals | 2.57 | — |
+| Most likely score | 1-0 | — |
+| Most likely score probability | 13.7% | — |
+| Over 1.5 | 73.1% | — |
+| Under 1.5 | 26.9% | — |
+| Over 2.5 | 47.2% | — |
+| Under 2.5 | 52.8% | — |
+| Over 3.5 | 25.9% | — |
+| Under 3.5 | 74.1% | — |
+| BTTS Yes | 46.1% | — |
+| BTTS No | 53.9% | — |
+| Double Chance 1X | 86.1% | — |
+| Double Chance X2 | 38.4% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-0 (13.66%) | — |
+| 2 | 2-0 (12.25%) | — |
+| 3 | 1-1 (11.56%) | — |
+| 4 | 2-1 (9.82%) | — |
+| 5 | 0-0 (8.23%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Bayer Leverkusen -1.75 | 2.02 | 35.5% | — |
+| SC Paderborn +1.75 | 1.87 | 64.5% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Home win | 1.30 | 61.6% | — | — | one view missing (no cagey view) | in between, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Away win | 7.99 | 13.9% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away +1.75 | 1.87 | 64.5% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+| Asian Handicap Home -1.75 | 2.02 | 35.5% | — | — | one view missing (no cagey view) | no market view | one view missing | offered odds outside (1.15, 2.00] |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — Borussia Monchengladbach vs Borussia Dortmund
+
+Research leans **Borussia Dortmund win** at **53.0%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Borussia Monchengladbach win | 22.6% | — |
+| Draw | 24.4% | — |
+| Borussia Dortmund win | 53.0% | — |
+| Borussia Monchengladbach expected goals | 1.16 | — |
+| Borussia Dortmund expected goals | 1.85 | — |
+| Expected total goals | 3.01 | — |
+| Most likely score | 1-1 | — |
+| Most likely score probability | 11.4% | — |
+| Over 1.5 | 80.6% | — |
+| Under 1.5 | 19.4% | — |
+| Over 2.5 | 57.7% | — |
+| Under 2.5 | 42.3% | — |
+| Over 3.5 | 35.7% | — |
+| Under 3.5 | 64.3% | — |
+| BTTS Yes | 58.8% | — |
+| BTTS No | 41.2% | — |
+| Double Chance 1X | 47.0% | — |
+| Double Chance X2 | 77.4% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (11.36%) | — |
+| 2 | 1-2 (9.91%) | — |
+| 3 | 0-1 (8.93%) | — |
+| 4 | 0-2 (8.32%) | — |
+| 5 | 2-2 (6.05%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Borussia Monchengladbach +1.00 | 1.93 | 70.1% | — |
+| Borussia Dortmund -1.00 | 1.98 | 53.0% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Away win | 1.60 | 53.0% | — | — | one view missing (no cagey view) | in between, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Home win | 5.23 | 22.6% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away -1.00 | 1.98 | 53.0% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+| Asian Handicap Home +1.00 | 1.93 | 70.1% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — Eintracht Frankfurt vs TSG Hoffenheim
+
+Research leans **Eintracht Frankfurt win** at **51.0%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Eintracht Frankfurt win | 51.0% | — |
+| Draw | 22.5% | — |
+| TSG Hoffenheim win | 26.4% | — |
+| Eintracht Frankfurt expected goals | 2.09 | — |
+| TSG Hoffenheim expected goals | 1.50 | — |
+| Expected total goals | 3.59 | — |
+| Most likely score | 1-1 | — |
+| Most likely score probability | 9.3% | — |
+| Over 1.5 | 87.5% | — |
+| Under 1.5 | 12.5% | — |
+| Over 2.5 | 69.3% | — |
+| Under 2.5 | 30.7% | — |
+| Over 3.5 | 48.3% | — |
+| Under 3.5 | 51.7% | — |
+| BTTS Yes | 68.6% | — |
+| BTTS No | 31.4% | — |
+| Double Chance 1X | 73.6% | — |
+| Double Chance X2 | 49.0% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (9.26%) | — |
+| 2 | 2-1 (9.13%) | — |
+| 3 | 2-2 (7.15%) | — |
+| 4 | 3-1 (6.29%) | — |
+| 5 | 1-2 (6.18%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Eintracht Frankfurt -0.25 | 2.13 | 51.0% | — |
+| TSG Hoffenheim +0.25 | 1.80 | 49.0% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Home win | 2.42 | 51.0% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Away win | 2.71 | 26.4% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away +0.25 | 1.80 | 49.0% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+| Asian Handicap Home -0.25 | 2.13 | 51.0% | — | — | one view missing (no cagey view) | no market view | one view missing | offered odds outside (1.15, 2.00] |
+
+_Best offer: none (no offer passes the master checks with a market view). Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — Elversberg vs SC Freiburg
+
+Research leans **Elversberg win** at **48.0%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Elversberg win | 48.0% | — |
+| Draw | 22.5% | — |
+| SC Freiburg win | 29.5% | — |
+| Elversberg expected goals | 2.07 | — |
+| SC Freiburg expected goals | 1.62 | — |
+| Expected total goals | 3.69 | — |
+| Most likely score | 1-1 | — |
+| Most likely score probability | 8.9% | — |
+| Over 1.5 | 88.5% | — |
+| Under 1.5 | 11.5% | — |
+| Over 2.5 | 71.1% | — |
+| Under 2.5 | 28.9% | — |
+| Over 3.5 | 50.5% | — |
+| Under 3.5 | 49.5% | — |
+| BTTS Yes | 70.7% | — |
+| BTTS No | 29.3% | — |
+| Double Chance 1X | 70.5% | — |
+| Double Chance X2 | 52.0% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (8.92%) | — |
+| 2 | 2-1 (8.69%) | — |
+| 3 | 2-2 (7.39%) | — |
+| 4 | 1-2 (6.53%) | — |
+| 5 | 3-1 (5.96%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Elversberg +0.50 | 1.87 | 70.5% | — |
+| SC Freiburg -0.50 | 2.04 | 29.5% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Asian Handicap Home +0.50 | 1.87 | 70.5% | — | — | one view missing (no cagey view) | in between, fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Asian Handicap Away -0.50 | 2.04 | 29.5% | — | — | one view missing (no cagey view) | risky, fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Away win | 2.04 | 29.5% | — | — | one view missing (no cagey view) | risky, fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Home win | 3.66 | 48.0% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — FC Schalke 04 vs VfB Stuttgart
+
+Research leans **VfB Stuttgart win** at **56.3%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| FC Schalke 04 win | 15.4% | — |
+| Draw | 28.4% | — |
+| VfB Stuttgart win | 56.3% | — |
+| FC Schalke 04 expected goals | 0.67 | — |
+| VfB Stuttgart expected goals | 1.48 | — |
+| Expected total goals | 2.15 | — |
+| Most likely score | 0-1 | — |
+| Most likely score probability | 17.0% | — |
+| Over 1.5 | 63.9% | — |
+| Under 1.5 | 36.1% | — |
+| Over 2.5 | 36.4% | — |
+| Under 2.5 | 63.6% | — |
+| Over 3.5 | 17.3% | — |
+| Under 3.5 | 82.7% | — |
+| BTTS Yes | 39.1% | — |
+| BTTS No | 60.9% | — |
+| Double Chance 1X | 43.7% | — |
+| Double Chance X2 | 84.6% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 0-1 (16.98%) | — |
+| 2 | 1-1 (12.55%) | — |
+| 3 | 0-2 (12.53%) | — |
+| 4 | 0-0 (12.29%) | — |
+| 5 | 1-2 (8.78%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| FC Schalke 04 +0.75 | 1.87 | 43.7% | — |
+| VfB Stuttgart -0.75 | 2.04 | 56.3% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Away win | 1.82 | 56.3% | — | — | one view missing (no cagey view) | in between, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Home win | 4.08 | 15.4% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away -0.75 | 2.04 | 56.3% | — | — | one view missing (no cagey view) | no market view | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Home +0.75 | 1.87 | 43.7% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — Union Berlin vs RB Leipzig
+
+Research leans **RB Leipzig win** at **43.8%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Union Berlin win | 30.5% | — |
+| Draw | 25.7% | — |
+| RB Leipzig win | 43.8% | — |
+| Union Berlin expected goals | 1.33 | — |
+| RB Leipzig expected goals | 1.63 | — |
+| Expected total goals | 2.96 | — |
+| Most likely score | 1-1 | — |
+| Most likely score probability | 12.0% | — |
+| Over 1.5 | 79.8% | — |
+| Under 1.5 | 20.2% | — |
+| Over 2.5 | 56.6% | — |
+| Under 2.5 | 43.4% | — |
+| Over 3.5 | 34.5% | — |
+| Under 3.5 | 65.5% | — |
+| BTTS Yes | 59.8% | — |
+| BTTS No | 40.2% | — |
+| Double Chance 1X | 56.2% | — |
+| Double Chance X2 | 69.5% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (11.95%) | — |
+| 2 | 1-2 (9.13%) | — |
+| 3 | 0-1 (8.15%) | — |
+| 4 | 2-1 (7.27%) | — |
+| 5 | 0-2 (6.77%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Union Berlin +1.00 | 2.04 | 77.5% | — |
+| RB Leipzig -1.00 | 1.87 | 43.8% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Away win | 1.55 | 43.8% | — | — | one view missing (no cagey view) | in between, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Home win | 5.57 | 30.5% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away -1.00 | 1.87 | 43.8% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+| Asian Handicap Home +1.00 | 2.04 | 77.5% | — | — | one view missing (no cagey view) | no market view | one view missing | offered odds outside (1.15, 2.00] |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## Benchmark (70% Pinnacle blend), display only
+
+The production forecasting model blends 70% of Pinnacle's prices into its score grid, so it is neither independent research nor the cagey tier's market view. It is shown for comparison only: no list, probability or stake reads it, and its EV is not a recommendation.
+
+- **Benchmark EV:** Model-estimated return per unit staked at the available decimal price. +5% EV means +0.05 expected units per 1 unit staked under the model; it is not a guaranteed return.
+- **Fair odds:** Decimal odds implied by the model probability, before any bookmaker margin.
+- **Probability edge:** Model probability minus the de-vigged market probability.
 
 ### Model context
 
@@ -64,33 +624,17 @@ Fixtures in this report: **7**.
 
 </details>
 
-## Quick reference
-
-- **Expected goals:** The model's average goal expectation for each team. It is not a prediction that the team will score exactly that many goals.
-- **Fair odds:** Decimal odds implied by the model probability, before any bookmaker margin.
-- **Expected value:** Model-estimated return per unit staked at the available decimal price. +5% EV means +0.05 expected units per 1 unit staked under the model; it is not a guaranteed return.
-- **Probability edge:** Model probability minus the de-vigged market probability.
-- **Fixture source:** Football-Data may include bookmaker prices. A schedule fallback may supply fixtures without betting prices, so EV fields can legitimately be blank.
-
----
-
-## 2026-11-20 — Bayern Munich vs 1. FC Köln
+### 2026-11-20 — Bayern Munich vs 1. FC Köln
 
 The model's most likely 1X2 outcome is **Bayern Munich win** at **90.8%**. Expected goals are 3.78 for Bayern Munich and 0.80 for 1. FC Köln (4.58 combined). The most likely exact score is 3-0 at 9.5%. Goal-market probabilities: at least one goal: 99.1%; Over 2.5 goals: 84.4%; Under 3.5 goals: 32.3%; Double Chance 1X: 96.7%; Double Chance X2: 9.2%; Double Chance 12 (either team wins): 94.1%; Under 4.5 goals: 50.9%; BTTS Yes (both teams score): 53.3%; BTTS No (at least one team does not score): 46.7%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Bayern Munich win | 90.8% | 1.10 |
 | Draw | 5.9% | 16.97 |
 | 1. FC Köln win | 3.3% | 29.86 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Bayern Munich expected goals | 3.78 |
 | 1. FC Köln expected goals | 0.80 |
@@ -106,9 +650,7 @@ The model's most likely 1X2 outcome is **Bayern Munich win** at **90.8%**. Expec
 | Over 4.5 | 49.1% |
 | Under 4.5 | 50.9% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 3-0 | 9.49% |
 | 2 | 4-0 | 8.96% |
@@ -116,18 +658,14 @@ The model's most likely 1X2 outcome is **Bayern Munich win** at **90.8%**. Expec
 | 4 | 2-0 | 7.54% |
 | 5 | 4-1 | 7.16% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Bayern Munich win | 90.8% | 91.8% | 1.08 | -2.0% |
 | Draw | 5.9% | 5.0% | 14.53 | -14.4% |
 | 1. FC Köln win | 3.3% | 3.2% | 21.68 | -27.4% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -244,25 +782,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Bayer Leverkusen vs SC Paderborn
+### 2026-11-21 — Bayer Leverkusen vs SC Paderborn
 
 The model's most likely 1X2 outcome is **Bayer Leverkusen win** at **72.2%**. Expected goals are 1.81 for Bayer Leverkusen and 0.67 for SC Paderborn (2.49 combined). The most likely exact score is 1-0 at 16.2%. Goal-market probabilities: at least one goal: 93.7%; Over 2.5 goals: 48.3%; Under 3.5 goals: 74.9%; Double Chance 1X: 88.5%; Double Chance X2: 27.8%; Double Chance 12 (either team wins): 83.7%; Under 4.5 goals: 88.4%; BTTS Yes (both teams score): 39.7%; BTTS No (at least one team does not score): 60.3%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Bayer Leverkusen win | 72.2% | 1.38 |
 | Draw | 16.3% | 6.13 |
 | SC Paderborn win | 11.5% | 8.72 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Bayer Leverkusen expected goals | 1.81 |
 | SC Paderborn expected goals | 0.67 |
@@ -278,9 +808,7 @@ The model's most likely 1X2 outcome is **Bayer Leverkusen win** at **72.2%**. Ex
 | Over 4.5 | 11.6% |
 | Under 4.5 | 88.4% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-0 | 16.17% |
 | 2 | 2-0 | 15.46% |
@@ -288,18 +816,14 @@ The model's most likely 1X2 outcome is **Bayer Leverkusen win** at **72.2%**. Ex
 | 4 | 3-0 | 9.35% |
 | 5 | 1-1 | 7.56% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Bayer Leverkusen win | 72.2% | 75.7% | 1.30 | -6.1% |
 | Draw | 16.3% | 13.2% | 6.76 | +10.2% |
 | SC Paderborn win | 11.5% | 11.1% | 7.99 | -8.4% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -416,25 +940,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Borussia Monchengladbach vs Borussia Dortmund
+### 2026-11-21 — Borussia Monchengladbach vs Borussia Dortmund
 
 The model's most likely 1X2 outcome is **Borussia Dortmund win** at **60.1%**. Expected goals are 1.16 for Borussia Monchengladbach and 2.04 for Borussia Dortmund (3.19 combined). The most likely exact score is 1-2 at 10.4%. Goal-market probabilities: at least one goal: 95.5%; Over 2.5 goals: 62.5%; Under 3.5 goals: 60.1%; Double Chance 1X: 39.9%; Double Chance X2: 81.3%; Double Chance 12 (either team wins): 78.7%; Under 4.5 goals: 77.8%; BTTS Yes (both teams score): 59.9%; BTTS No (at least one team does not score): 40.1%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Borussia Monchengladbach win | 18.7% | 5.35 |
 | Draw | 21.3% | 4.70 |
 | Borussia Dortmund win | 60.1% | 1.66 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Borussia Monchengladbach expected goals | 1.16 |
 | Borussia Dortmund expected goals | 2.04 |
@@ -450,9 +966,7 @@ The model's most likely 1X2 outcome is **Borussia Dortmund win** at **60.1%**. E
 | Over 4.5 | 22.2% |
 | Under 4.5 | 77.8% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-2 | 10.38% |
 | 2 | 1-1 | 9.76% |
@@ -460,18 +974,14 @@ The model's most likely 1X2 outcome is **Borussia Dortmund win** at **60.1%**. E
 | 4 | 0-1 | 8.04% |
 | 5 | 1-3 | 7.05% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Borussia Monchengladbach win | 18.7% | 18.0% | 5.23 | -2.3% |
 | Draw | 21.3% | 20.7% | 4.57 | -2.9% |
 | Borussia Dortmund win | 60.1% | 61.4% | 1.60 | -3.9% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -588,25 +1098,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Eintracht Frankfurt vs TSG Hoffenheim
+### 2026-11-21 — Eintracht Frankfurt vs TSG Hoffenheim
 
 The model's most likely 1X2 outcome is **Eintracht Frankfurt win** at **43.1%**. Expected goals are 2.19 for Eintracht Frankfurt and 1.65 for TSG Hoffenheim (3.84 combined). The most likely exact score is 1-1 at 8.9%. Goal-market probabilities: at least one goal: 97.1%; Over 2.5 goals: 73.2%; Under 3.5 goals: 46.9%; Double Chance 1X: 66.2%; Double Chance X2: 56.9%; Double Chance 12 (either team wins): 76.8%; Under 4.5 goals: 66.5%; BTTS Yes (both teams score): 72.8%; BTTS No (at least one team does not score): 27.2%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Eintracht Frankfurt win | 43.1% | 2.32 |
 | Draw | 23.2% | 4.32 |
 | TSG Hoffenheim win | 33.8% | 2.96 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Eintracht Frankfurt expected goals | 2.19 |
 | TSG Hoffenheim expected goals | 1.65 |
@@ -622,9 +1124,7 @@ The model's most likely 1X2 outcome is **Eintracht Frankfurt win** at **43.1%**.
 | Over 4.5 | 33.5% |
 | Under 4.5 | 66.5% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-1 | 8.94% |
 | 2 | 1-2 | 7.54% |
@@ -632,18 +1132,14 @@ The model's most likely 1X2 outcome is **Eintracht Frankfurt win** at **43.1%**.
 | 4 | 2-1 | 7.39% |
 | 5 | 3-1 | 5.38% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Eintracht Frankfurt win | 43.1% | 40.3% | 2.42 | +4.2% |
 | Draw | 23.2% | 23.8% | 4.04 | -6.4% |
 | TSG Hoffenheim win | 33.8% | 35.9% | 2.71 | -8.5% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -760,25 +1256,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Elversberg vs SC Freiburg
+### 2026-11-21 — Elversberg vs SC Freiburg
 
 The model's most likely 1X2 outcome is **SC Freiburg win** at **42.8%**. Expected goals are 2.11 for Elversberg and 1.68 for SC Freiburg (3.79 combined). The most likely exact score is 1-1 at 9.6%. Goal-market probabilities: at least one goal: 96.8%; Over 2.5 goals: 72.0%; Under 3.5 goals: 48.1%; Double Chance 1X: 57.2%; Double Chance X2: 67.4%; Double Chance 12 (either team wins): 75.4%; Under 4.5 goals: 67.8%; BTTS Yes (both teams score): 73.0%; BTTS No (at least one team does not score): 27.0%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Elversberg win | 32.6% | 3.07 |
 | Draw | 24.6% | 4.07 |
 | SC Freiburg win | 42.8% | 2.34 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Elversberg expected goals | 2.11 |
 | SC Freiburg expected goals | 1.68 |
@@ -794,9 +1282,7 @@ The model's most likely 1X2 outcome is **SC Freiburg win** at **42.8%**. Expecte
 | Over 4.5 | 32.2% |
 | Under 4.5 | 67.8% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-1 | 9.58% |
 | 2 | 1-2 | 9.42% |
@@ -804,18 +1290,14 @@ The model's most likely 1X2 outcome is **SC Freiburg win** at **42.8%**. Expecte
 | 4 | 2-1 | 5.81% |
 | 5 | 2-3 | 5.58% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Elversberg win | 32.6% | 26.3% | 3.66 | +19.4% |
 | Draw | 24.6% | 25.7% | 3.75 | -7.8% |
 | SC Freiburg win | 42.8% | 48.0% | 2.04 | -12.7% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -932,25 +1414,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — FC Schalke 04 vs VfB Stuttgart
+### 2026-11-21 — FC Schalke 04 vs VfB Stuttgart
 
 The model's most likely 1X2 outcome is **VfB Stuttgart win** at **54.1%**. Expected goals are 0.78 for FC Schalke 04 and 1.54 for VfB Stuttgart (2.32 combined). The most likely exact score is 0-1 at 14.1%. Goal-market probabilities: at least one goal: 90.6%; Over 2.5 goals: 42.1%; Under 3.5 goals: 79.4%; Double Chance 1X: 45.9%; Double Chance X2: 78.2%; Double Chance 12 (either team wins): 75.9%; Under 4.5 goals: 91.1%; BTTS Yes (both teams score): 42.8%; BTTS No (at least one team does not score): 57.2%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | FC Schalke 04 win | 21.8% | 4.59 |
 | Draw | 24.1% | 4.15 |
 | VfB Stuttgart win | 54.1% | 1.85 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | FC Schalke 04 expected goals | 0.78 |
 | VfB Stuttgart expected goals | 1.54 |
@@ -966,9 +1440,7 @@ The model's most likely 1X2 outcome is **VfB Stuttgart win** at **54.1%**. Expec
 | Over 4.5 | 8.9% |
 | Under 4.5 | 91.1% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 0-1 | 14.09% |
 | 2 | 0-2 | 11.57% |
@@ -976,18 +1448,14 @@ The model's most likely 1X2 outcome is **VfB Stuttgart win** at **54.1%**. Expec
 | 4 | 0-0 | 9.38% |
 | 5 | 1-2 | 9.02% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | FC Schalke 04 win | 21.8% | 23.4% | 4.08 | -11.1% |
 | Draw | 24.1% | 22.6% | 4.22 | +1.6% |
 | VfB Stuttgart win | 54.1% | 53.9% | 1.82 | -1.5% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -1104,25 +1572,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Union Berlin vs RB Leipzig
+### 2026-11-21 — Union Berlin vs RB Leipzig
 
 The model's most likely 1X2 outcome is **RB Leipzig win** at **60.5%**. Expected goals are 1.09 for Union Berlin and 1.82 for RB Leipzig (2.91 combined). The most likely exact score is 1-2 at 11.1%. Goal-market probabilities: at least one goal: 94.6%; Over 2.5 goals: 57.1%; Under 3.5 goals: 66.1%; Double Chance 1X: 39.5%; Double Chance X2: 81.7%; Double Chance 12 (either team wins): 78.8%; Under 4.5 goals: 82.3%; BTTS Yes (both teams score): 55.4%; BTTS No (at least one team does not score): 44.6%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Union Berlin win | 18.3% | 5.47 |
 | Draw | 21.2% | 4.72 |
 | RB Leipzig win | 60.5% | 1.65 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Union Berlin expected goals | 1.09 |
 | RB Leipzig expected goals | 1.82 |
@@ -1138,9 +1598,7 @@ The model's most likely 1X2 outcome is **RB Leipzig win** at **60.5%**. Expected
 | Over 4.5 | 17.7% |
 | Under 4.5 | 82.3% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-2 | 11.08% |
 | 2 | 0-1 | 10.24% |
@@ -1148,18 +1606,14 @@ The model's most likely 1X2 outcome is **RB Leipzig win** at **60.5%**. Expected
 | 4 | 1-1 | 10.02% |
 | 5 | 1-3 | 6.73% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Union Berlin win | 18.3% | 16.8% | 5.57 | +1.8% |
 | Draw | 21.2% | 19.7% | 4.77 | +1.1% |
 | RB Leipzig win | 60.5% | 63.4% | 1.55 | -6.2% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -1274,6 +1728,3 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Team research json | {"base_rates": [1.0882639443140707, 1.8234581648320303], "c6_fit": {"candidate_version": "research-low-score-then-sharpen-walk-forward-v1", "delta": 0.05820390771129642, "end_exclusive": "2026-11-16", "expected_origin": "2026-11-16", "fits_version": "research-c6-live-fits-v1", "low_score_status": "fitted", "origin": "2026-11-02", "rho": -0.018955143658940854, "slope": 1.1447833796793323, "slope_status": "fitted", "stale": true}, "coverage": {"form": "last ten, exponential rank half-life five matches", "h2h": "last four years; descriptive only", "motivation": "standings context; urgency not inferred", "rotation": "schedule congestion only; rotation unconfirmed", "training_cache": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED", "travel": "previous fixture venue; itinerary and fatigue unverified", "venue_splits": "home team home matches / away team away matches", "weather": "Open-Meteo match-window forecast with units and observation time", "xg": "verified supplied xG; no goals-to-xG substitution"}, "evidence": {"coverage": {"motivation": "standings context; urgency not inferred", "weather": "Open-Meteo match-window forecast with units and observation time"}, "errors": ["TheSportsDB venue: exact fixture identity/time unavailable"], "news": [], "quality_review": {"absence_note": "Reported absences only; not proof of complete coverage or a fitted player-value effect", "assessed_at_utc": "2026-11-18T21:45:58.412319+00:00", "availability": "UNAVAILABLE_OR_STALE", "form": {"away": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 6.0}, "home": {"matches": 10.0, "venue_matches": 6.0, "xg_matches": 9.0}}, "lineups": "UNCONFIRMED_OR_STALE", "probability_effect": "NONE; factual coverage/freshness review, not a calibrated confidence score", "status": "REVIEW_REQUIRED", "summary_max_age_minutes": 180, "training": {"cutoff": "2026-11-08", "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}, "version": "pre-match-research-quality-v1", "warnings": ["Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"], "weather": "FRESH_COMPLETE_WINDOW", "weather_max_age_minutes": 180}, "recent": {"away": [{"away": "Mlada Boleslav", "away_goals": 5.0, "away_xg": null, "competition": "club.friendly", "date": "2026-11-12T10:00:00+00:00", "home": "RB Leipzig", "home_goals": 4.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/11420/schedule"}, {"away": "FC Augsburg", "away_goals": 2.0, "away_xg": null, "competition": "ger.1", "date": "2026-11-07T14:30:00+00:00", "home": "RB Leipzig", "home_goals": 5.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/11420/schedule"}, {"away": "Manchester City", "away_goals": 3.0, "away_xg": null, "competition": "uefa.champions", "date": "2026-11-04T20:00:00+00:00", "home": "RB Leipzig", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/11420/schedule"}, {"away": "RB Leipzig", "away_goals": 2.0, "away_xg": null, "competition": "ger.1", "date": "2026-10-31T14:30:00+00:00", "home": "Schalke 04", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/11420/schedule"}, {"away": "RB Leipzig", "away_goals": 2.0, "away_xg": null, "competition": "ger.dfb_pokal", "date": "2026-10-27T17:00:00+00:00", "home": "Rot-Weiss Essen", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/11420/schedule"}, {"away": "SV Elversberg", "away_goals": 0.0, "away_xg": null, "competition": "ger.1", "date": "2026-10-24T13:30:00+00:00", "home": "RB Leipzig", "home_goals": 4.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/11420/schedule"}, {"away": "RB Leipzig", "away_goals": 1.0, "away_xg": null, "competition": "uefa.champions", "date": "2026-10-21T19:00:00+00:00", "home": "Real Madrid", "home_goals": 4.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/11420/schedule"}, {"away": "RB Leipzig", "away_goals": 1.0, "away_xg": null, "competition": "ger.1", "date": "2026-10-17T16:30:00+00:00", "home": "Bayern Munich", "home_goals": 6.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/11420/schedule"}, {"away": "PSV Eindhoven", "away_goals": 0.0, "away_xg": null, "competition": "uefa.champions", "date": "2026-10-13T19:00:00+00:00", "home": "RB Leipzig", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/11420/schedule"}, {"away": "Eintracht Frankfurt", "away_goals": 0.0, "away_xg": null, "competition": "ger.1", "date": "2026-10-10T16:30:00+00:00", "home": "RB Leipzig", "home_goals": 6.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/11420/schedule"}, {"away": "RB Leipzig", "away_goals": 0.0, "away_xg": null, "competition": "ger.1", "date": "2026-09-20T13:30:00+00:00", "home": "Bayer Leverkusen", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/11420/schedule"}, {"away": "Hamburg SV", "away_goals": 0.0, "away_xg": null, "competition": "ger.1", "date": "2026-09-13T13:30:00+00:00", "home": "RB Leipzig", "home_goals": 5.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/11420/schedule"}, {"away": "RB Leipzig", "away_goals": 1.0, "away_xg": null, "competition": "uefa.champions", "date": "2026-09-10T19:00:00+00:00", "home": "Como", "home_goals": 4.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/11420/schedule"}, {"away": "RB Leipzig", "away_goals": 1.0, "away_xg": null, "competition": "ger.1", "date": "2026-09-05T13:30:00+00:00", "home": "Werder Bremen", "home_goals": 3.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/11420/schedule"}, {"away": "Borussia M\u00f6nchengladbach", "away_goals": 0.0, "away_xg": null, "competition": "ger.1", "date": "2026-08-29T13:30:00+00:00", "home": "RB Leipzig", "home_goals": 3.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/11420/schedule"}, {"away": "RB Leipzig", "away_goals": 6.0, "away_xg": null, "competition": "ger.dfb_pokal", "date": "2026-08-22T16:00:00+00:00", "home": "Eintracht Trier", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/11420/schedule"}, {"away": "RB Leipzig", "away_goals": 1.0, "away_xg": null, "competition": "club.friendly", "date": "2026-08-15T13:30:00+00:00", "home": "Bayern Munich", "home_goals": 3.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/11420/schedule"}, {"away": "RB Leipzig", "away_goals": 0.0, "away_xg": null, "competition": "club.friendly", "date": "2026-08-08T13:00:00+00:00", "home": "Leeds United", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/11420/schedule"}], "home": [{"away": "1. FC Union Berlin", "away_goals": 0.0, "away_xg": null, "competition": "club.friendly", "date": "2026-11-12T13:30:00+00:00", "home": "VfL Wolfsburg", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/598/schedule"}, {"away": "1. FC Union Berlin", "away_goals": 0.0, "away_xg": null, "competition": "ger.1", "date": "2026-11-08T16:30:00+00:00", "home": "SC Freiburg", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/598/schedule"}, {"away": "FC Cologne", "away_goals": 1.0, "away_xg": null, "competition": "ger.1", "date": "2026-11-01T14:30:00+00:00", "home": "1. FC Union Berlin", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/598/schedule"}, {"away": "1. FC Union Berlin", "away_goals": 0.0, "away_xg": null, "competition": "ger.dfb_pokal", "date": "2026-10-27T19:45:00+00:00", "home": "FC Cologne", "home_goals": 5.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/598/schedule"}, {"away": "1. FC Union Berlin", "away_goals": 1.0, "away_xg": null, "competition": "ger.1", "date": "2026-10-24T13:30:00+00:00", "home": "FC Augsburg", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/598/schedule"}, {"away": "Borussia Dortmund", "away_goals": 0.0, "away_xg": null, "competition": "ger.1", "date": "2026-10-17T13:30:00+00:00", "home": "1. FC Union Berlin", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/598/schedule"}, {"away": "SV Elversberg", "away_goals": 0.0, "away_xg": null, "competition": "ger.1", "date": "2026-10-10T13:30:00+00:00", "home": "1. FC Union Berlin", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/598/schedule"}, {"away": "1. FC Union Berlin", "away_goals": 1.0, "away_xg": null, "competition": "club.friendly", "date": "2026-09-26T17:15:00+00:00", "home": "Rijeka", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/598/schedule"}, {"away": "1. FC Union Berlin", "away_goals": 0.0, "away_xg": null, "competition": "ger.1", "date": "2026-09-18T18:30:00+00:00", "home": "Bayern Munich", "home_goals": 7.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/598/schedule"}, {"away": "Schalke 04", "away_goals": 3.0, "away_xg": null, "competition": "ger.1", "date": "2026-09-11T18:30:00+00:00", "home": "1. FC Union Berlin", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/598/schedule"}, {"away": "1. FC Union Berlin", "away_goals": 0.0, "away_xg": null, "competition": "ger.1", "date": "2026-09-05T13:30:00+00:00", "home": "Bayer Leverkusen", "home_goals": 4.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/598/schedule"}, {"away": "Eintracht Frankfurt", "away_goals": 3.0, "away_xg": null, "competition": "ger.1", "date": "2026-08-29T13:30:00+00:00", "home": "1. FC Union Berlin", "home_goals": 3.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/598/schedule"}, {"away": "1. FC Union Berlin", "away_goals": 4.0, "away_xg": null, "competition": "ger.dfb_pokal", "date": "2026-08-23T13:30:00+00:00", "home": "TSV Eintracht Braunschweig", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/598/schedule"}, {"away": "Ipswich Town", "away_goals": 4.0, "away_xg": null, "competition": "club.friendly", "date": "2026-08-15T13:30:00+00:00", "home": "1. FC Union Berlin", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/598/schedule"}, {"away": "Aris Limassol", "away_goals": 2.0, "away_xg": null, "competition": "club.friendly", "date": "2026-08-09T15:00:00+00:00", "home": "1. FC Union Berlin", "home_goals": 3.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/598/schedule"}]}, "rest_and_travel": {"away": {"completed_matches_last_14_days": 2, "days_between_kickoffs": 9.1875, "note": "schedule-derived travel context; actual itinerary and fatigue unverified", "previous_fixture": {"completed": true, "date": "2026-11-12T10:00Z", "home_away": "home", "name": "Mlada Boleslav at RB Leipzig", "venue": null}}, "home": {"completed_matches_last_14_days": 2, "days_between_kickoffs": 9.041666666666666, "note": "schedule-derived travel context; actual itinerary and fatigue unverified", "previous_fixture": {"completed": true, "date": "2026-11-12T13:30Z", "home_away": "away", "name": "1. FC Union Berlin at VfL Wolfsburg", "venue": {"address": {"city": "Wolfsburg", "country": "Germany"}, "fullName": "AOK Stadion"}}}}, "review_links": [{"label": "Sofascore", "status": "reference only; no authorized public bulk API", "url": "https://www.sofascore.com/football"}, {"label": "Sports Mole previews", "status": "reference only; article reproduction requires permission", "url": "https://www.sportsmole.co.uk/football/"}], "schedules": {"away": [{"completed": true, "date": "2026-11-12T10:00Z", "home_away": "home", "name": "Mlada Boleslav at RB Leipzig", "venue": null}, {"completed": true, "date": "2026-11-07T14:30Z", "home_away": "home", "name": "FC Augsburg at RB Leipzig", "venue": {"address": {"city": "Leipzig", "country": "Germany"}, "fullName": "Red Bull Arena"}}], "home": [{"completed": true, "date": "2026-11-12T13:30Z", "home_away": "away", "name": "1. FC Union Berlin at VfL Wolfsburg", "venue": {"address": {"city": "Wolfsburg", "country": "Germany"}, "fullName": "AOK Stadion"}}, {"completed": true, "date": "2026-11-08T16:30Z", "home_away": "away", "name": "1. FC Union Berlin at SC Freiburg", "venue": {"address": {"city": "Freiburg im Breisgau", "country": "Germany"}, "fullName": "Europa-Park Stadion"}}]}, "sources": [{"observed_at_utc": "2026-11-18T21:45:54.441208+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261121"}, {"observed_at_utc": "2026-11-18T21:45:57.585928+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=401884732"}, {"observed_at_utc": "2026-11-18T21:45:57.768207+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/598/schedule"}, {"observed_at_utc": "2026-11-18T21:45:57.861895+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/11420/schedule"}, {"observed_at_utc": "2026-11-18T21:45:54.781209+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/v2/sports/soccer/ger.1/standings"}, {"observed_at_utc": "2026-11-18T21:45:54.049823+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/news?limit=20"}, {"observed_at_utc": "2026-11-18T21:45:58.150852+00:00", "reason": null, "status": "available", "url": "https://www.bing.com/news/search?q=%22Union+Berlin%22+%22RB+Leipzig%22+injury+suspension+lineup+preview&format=rss"}, {"observed_at_utc": "2026-11-18T21:45:54.195727+00:00", "reason": "no match data (maintenance page)", "status": "unavailable", "url": "https://understat.com/league/Bundesliga/2026"}, {"observed_at_utc": "2026-11-18T21:45:54.334475+00:00", "reason": "no match data (maintenance page)", "status": "unavailable", "url": "https://understat.com/league/Bundesliga/2025"}, {"observed_at_utc": "2026-11-18T21:45:46.684732+00:00", "reason": null, "status": "available", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"}, {"observed_at_utc": "2026-11-18T21:45:46.820635+00:00", "reason": null, "status": "available", "url": "https://www.theguardian.com/football/rss"}, {"observed_at_utc": "2026-11-18T21:45:58.220611+00:00", "reason": "HTTPError", "status": "unavailable", "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=Union+Berlin_vs_RB+Leipzig&d=2026-11-21"}, {"observed_at_utc": "2026-11-18T21:45:58.348268+00:00", "reason": null, "status": "available", "url": "https://geocoding-api.open-meteo.com/v1/search?name=Berlin&count=10&language=en&format=json"}, {"observed_at_utc": "2026-11-18T21:45:58.381849+00:00", "reason": null, "status": "available", "url": "https://api.open-meteo.com/v1/forecast?latitude=52.52437&longitude=13.41053&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m%2Cwind_gusts_10m%2Crelative_humidity_2m&timezone=UTC&forecast_days=7&wind_speed_unit=kmh&temperature_unit=celsius&precipitation_unit=mm"}], "standings": {"abbreviation": "Bundesliga", "children": [{"abbreviation": "2026-27", "id": "1", "name": "2026-27 German Bundesliga", "standings": {"displayName": "Standings", "entries": [{"note": {"color": "#81D6AC", "description": "Champions League", "rank": 1}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "9", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 9.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "0", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 0.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+20", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 20.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "21", "name": "points", "shortDisplayName": "P", "type": "points", "value": 21.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "9", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 9.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "29", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 29.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "6", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 6.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "1", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 1.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "6-3-0", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "6-3-0", "type": "total"}], "team": {"abbreviation": "MUN", "displayName": "Bayern Munich", "id": "132", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/132/bayern-munich", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Bayern Munich", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/132.png", "lastUpdated": "2022-07-27T14:42Z", "rel": ["full", "default"], "width": 500}], "name": "Bayern Munich", "shortDisplayName": "Bayern", "uid": "s:600~t:132"}}, {"note": {"color": "#81D6AC", "description": "Champions League", "rank": 2}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "9", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 9.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "0", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 0.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+9", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 9.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "21", "name": "points", "shortDisplayName": "P", "type": "points", "value": 21.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "7", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 7.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "16", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 16.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "6", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 6.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "2", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 2.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "6-3-0", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "6-3-0", "type": "total"}], "team": {"abbreviation": "DOR", "displayName": "Borussia Dortmund", "id": "124", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/124/borussia-dortmund", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Borussia Dortmund", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/124.png", "lastUpdated": "2024-01-04T17:49Z", "rel": ["full", "default"], "width": 500}], "name": "Borussia Dortmund", "shortDisplayName": "Dortmund", "uid": "s:600~t:124"}}, {"note": {"color": "#81D6AC", "description": "Champions League", "rank": 3}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "9", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 9.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "2", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 2.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+10", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 10.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "19", "name": "points", "shortDisplayName": "P", "type": "points", "value": 19.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "10", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 10.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "20", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 20.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "1", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 1.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "6", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 6.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "3", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 3.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "6-1-2", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "6-1-2", "type": "total"}], "team": {"abbreviation": "SCF", "displayName": "SC Freiburg", "id": "126", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/126/sc-freiburg", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "SC Freiburg", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/126.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "SC Freiburg", "shortDisplayName": "Freiburg", "uid": "s:600~t:126"}}, {"note": {"color": "#81D6AC", "description": "Champions League", "rank": 4}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "9", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 9.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "3", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 3.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+14", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 14.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "18", "name": "points", "shortDisplayName": "P", "type": "points", "value": 18.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "13", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 13.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "27", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 27.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "0", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 0.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "6", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 6.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "4", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 4.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "6-0-3", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "6-0-3", "type": "total"}], "team": {"abbreviation": "RBL", "displayName": "RB Leipzig", "id": "11420", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/11420/rb-leipzig", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "RB Leipzig", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/11420.png", "lastUpdated": "2024-01-04T17:49Z", "rel": ["full", "default"], "width": 500}], "name": "RB Leipzig", "shortDisplayName": "RB Leipzig", "uid": "s:600~t:11420"}}, {"note": {"color": "#B2BFD0", "description": "Europa League", "rank": 5}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "9", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 9.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "3", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 3.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+3", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 3.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "16", "name": "points", "shortDisplayName": "P", "type": "points", "value": 16.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "17", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 17.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "20", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 20.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "1", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 1.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "5", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 5.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "5", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 5.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "5-1-3", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "5-1-3", "type": "total"}], "team": {"abbreviation": "B04", "displayName": "Bayer Leverkusen", "id": "131", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/131/bayer-leverkusen", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Bayer Leverkusen", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/131.png", "lastUpdated": "2024-01-04T17:49Z", "rel": ["full", "default"], "width": 500}], "name": "Bayer Leverkusen", "shortDisplayName": "Leverkusen", "uid": "s:600~t:131"}}, {"note": {"color": "#B2BFD0", "description": "Europa League", "rank": 6}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "9", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 9.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "2", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 2.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+2", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 2.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "15", "name": "points", "shortDisplayName": "P", "type": "points", "value": 15.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "15", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 15.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "17", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 17.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "4", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 4.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "6", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 6.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "4-3-2", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "4-3-2", "type": "total"}], "team": {"abbreviation": "SVW", "displayName": "Werder Bremen", "id": "137", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/137/werder-bremen", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Werder Bremen", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/137.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Werder Bremen", "shortDisplayName": "Bremen", "uid": "s:600~t:137"}}, {"note": {"color": "#B2BFD0", "description": "Conference League qualifying", "rank": 7}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "9", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 9.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "4", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 4.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-1", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -1.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "13", "name": "points", "shortDisplayName": "P", "type": "points", "value": 13.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "18", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 18.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "17", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 17.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "1", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 1.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "4", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 4.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "7", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 7.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "4-1-4", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "4-1-4", "type": "total"}], "team": {"abbreviation": "ELV", "displayName": "SV Elversberg", "id": "10388", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/10388/sv-elversberg", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "SV Elversberg", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/10388.png", "lastUpdated": "2023-09-15T18:47Z", "rel": ["full", "default"], "width": 500}], "name": "SV Elversberg", "shortDisplayName": "Elversberg", "uid": "s:600~t:10388"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "9", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 9.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "5", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 5.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "0", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 0.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "12", "name": "points", "shortDisplayName": "P", "type": "points", "value": 12.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "15", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 15.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "15", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 15.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "0", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 0.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "4", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 4.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "8", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 8.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "4-0-5", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "4-0-5", "type": "total"}], "team": {"abbreviation": "VFB", "displayName": "VfB Stuttgart", "id": "134", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/134/vfb-stuttgart", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "VfB Stuttgart", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/134.png", "lastUpdated": "2024-03-11T21:58Z", "rel": ["full", "default"], "width": 500}], "name": "VfB Stuttgart", "shortDisplayName": "Stuttgart", "uid": "s:600~t:134"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "9", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 9.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "5", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 5.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-1", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -1.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "12", "name": "points", "shortDisplayName": "P", "type": "points", "value": 12.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "17", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 17.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "16", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 16.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "0", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 0.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "4", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 4.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "9", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 9.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "4-0-5", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "4-0-5", "type": "total"}], "team": {"abbreviation": "TSG", "displayName": "TSG Hoffenheim", "id": "7911", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/7911/tsg-hoffenheim", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "TSG Hoffenheim", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/7911.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "TSG Hoffenheim", "shortDisplayName": "Hoffenheim", "uid": "s:600~t:7911"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "9", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 9.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "3", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 3.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-5", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -5.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "12", "name": "points", "shortDisplayName": "P", "type": "points", "value": 12.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "20", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 20.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "15", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 15.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "3", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 3.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "10", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 10.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "3-3-3", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "3-3-3", "type": "total"}], "team": {"abbreviation": "SGE", "displayName": "Eintracht Frankfurt", "id": "125", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/125/eintracht-frankfurt", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Eintracht Frankfurt", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/125.png", "lastUpdated": "2024-01-04T17:49Z", "rel": ["full", "default"], "width": 500}], "name": "Eintracht Frankfurt", "shortDisplayName": "Frankfurt", "uid": "s:600~t:125"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "9", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 9.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "5", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 5.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-10", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -10.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "12", "name": "points", "shortDisplayName": "P", "type": "points", "value": 12.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "20", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 20.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "10", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 10.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "0", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 0.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "4", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 4.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "11", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 11.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "4-0-5", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "4-0-5", "type": "total"}], "team": {"abbreviation": "HSV", "displayName": "Hamburg SV", "id": "127", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/127/hamburg-sv", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Hamburg SV", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/127.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Hamburg SV", "shortDisplayName": "Hamburg", "uid": "s:600~t:127"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "9", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 9.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "5", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 5.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-1", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -1.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "10", "name": "points", "shortDisplayName": "P", "type": "points", "value": 10.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "19", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 19.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "18", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 18.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "1", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 1.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "3", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 3.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "12", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 12.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "3-1-5", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "3-1-5", "type": "total"}], "team": {"abbreviation": "M05", "displayName": "Mainz", "id": "2950", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/2950/mainz", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Mainz", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/2950.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Mainz", "shortDisplayName": "Mainz", "uid": "s:600~t:2950"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "9", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 9.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "3", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 3.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-3", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -3.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "10", "name": "points", "shortDisplayName": "P", "type": "points", "value": 10.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "11", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 11.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "8", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 8.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "4", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 4.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "2", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 2.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "13", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 13.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "2-4-3", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "2-4-3", "type": "total"}], "team": {"abbreviation": "SCP", "displayName": "SC Paderborn 07", "id": "3307", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/3307/sc-paderborn-07", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "SC Paderborn 07", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/3307.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "SC Paderborn 07", "shortDisplayName": "Paderborn", "uid": "s:600~t:3307"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "9", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 9.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "4", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 4.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "0", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 0.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "9", "name": "points", "shortDisplayName": "P", "type": "points", "value": 9.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "20", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 20.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "20", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 20.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "2", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 2.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "14", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 14.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "2-3-4", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "2-3-4", "type": "total"}], "team": {"abbreviation": "FCA", "displayName": "FC Augsburg", "id": "3841", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/3841/fc-augsburg", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "FC Augsburg", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/3841.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "FC Augsburg", "shortDisplayName": "Augsburg", "uid": "s:600~t:3841"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "9", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 9.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "4", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 4.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-4", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -4.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "9", "name": "points", "shortDisplayName": "P", "type": "points", "value": 9.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "14", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 14.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "10", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 10.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "2", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 2.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "15", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 15.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "2-3-4", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "2-3-4", "type": "total"}], "team": {"abbreviation": "KOE", "displayName": "FC Cologne", "id": "122", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/122/fc-cologne", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "FC Cologne", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/122.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "FC Cologne", "shortDisplayName": "Cologne", "uid": "s:600~t:122"}}, {"note": {"color": "#FEB4B5", "description": "Relegation playoff", "rank": 16}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "9", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 9.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "4", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 4.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-14", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -14.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "7", "name": "points", "shortDisplayName": "P", "type": "points", "value": 7.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "21", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 21.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "7", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 7.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "4", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 4.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "1", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 1.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "16", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 16.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "1-4-4", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "1-4-4", "type": "total"}], "team": {"abbreviation": "FCU", "displayName": "1. FC Union Berlin", "id": "598", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/598/1-fc-union-berlin", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "1. FC Union Berlin", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/598.png", "lastUpdated": "2019-08-05T22:53Z", "rel": ["full", "default"], "width": 500}], "name": "1. FC Union Berlin", "shortDisplayName": "Union Berlin", "uid": "s:600~t:598"}}, {"note": {"color": "#FF7F84", "description": "Relegation", "rank": 17}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "9", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 9.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "5", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 5.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-6", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -6.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "6", "name": "points", "shortDisplayName": "P", "type": "points", "value": 6.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "11", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 11.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "5", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 5.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "1", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 1.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "17", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 17.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "1-3-5", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "1-3-5", "type": "total"}], "team": {"abbreviation": "S04", "displayName": "Schalke 04", "id": "133", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/133/schalke-04", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Schalke 04", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/133.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Schalke 04", "shortDisplayName": "Schalke", "uid": "s:600~t:133"}}, {"note": {"color": "#FF7F84", "description": "Relegation", "rank": 18}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "9", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 9.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "7", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 7.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-13", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -13.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "4", "name": "points", "shortDisplayName": "P", "type": "points", "value": 4.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "25", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 25.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "12", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 12.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "1", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 1.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "1", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 1.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "18", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 18.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "1-1-7", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "1-1-7", "type": "total"}], "team": {"abbreviation": "BMG", "displayName": "Borussia M\u00f6nchengladbach", "id": "268", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/268/borussia-monchengladbach", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Borussia M\u00f6nchengladbach", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/268.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Borussia M\u00f6nchengladbach", "shortDisplayName": "Gladbach", "uid": "s:600~t:268"}}], "id": "0", "links": [{"href": "https://www.espn.com/soccer/table/_/league/ger.1", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["standings", "desktop"], "shortText": "Standings", "text": "Full Table"}], "name": "overall", "season": 2026, "seasonDisplayName": "2026-27 German Bundesliga", "seasonType": 1}, "uid": "s:600~l:720~g:1"}], "id": "10", "name": "German Bundesliga", "season": {"displayName": "2026-27 German Bundesliga", "endDate": "2027-07-01T03:59Z", "startDate": "2026-07-01T04:00Z", "year": 2026}, "seasons": [{"displayName": "2026-27 German Bundesliga", "endDate": "2027-07-01T03:59Z", "seasonYears": "2026-27", "startDate": "2026-07-01T04:00Z", "types": [{"abbreviation": "2026-27 Bundesliga", "endDate": "2027-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2026-27 German Bundesliga", "startDate": "2026-06-01T04:00Z"}], "year": 2026}, {"displayName": "2025-26 German Bundesliga", "endDate": "2026-07-01T03:59Z", "seasonYears": "2025-26", "startDate": "2025-07-01T04:00Z", "types": [{"abbreviation": "2025-26 Bundesliga", "endDate": "2026-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2025-26 German Bundesliga", "startDate": "2025-06-01T04:00Z"}], "year": 2025}, {"displayName": "2024-25 German Bundesliga", "endDate": "2025-07-01T03:59Z", "seasonYears": "2024-25", "startDate": "2024-07-01T04:00Z", "types": [{"abbreviation": "2024-25 Bundesliga", "endDate": "2025-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2024-25 German Bundesliga", "startDate": "2024-08-01T04:00Z"}], "year": 2024}, {"displayName": "2023-24 German Bundesliga", "endDate": "2024-07-01T03:59Z", "seasonYears": "2023-24", "startDate": "2023-07-01T04:00Z", "types": [{"abbreviation": "2023-24 Bundesliga", "endDate": "2024-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2023-24 German Bundesliga", "startDate": "2023-06-30T04:00Z"}], "year": 2023}, {"displayName": "2022-23 German Bundesliga", "endDate": "2023-07-01T03:59Z", "seasonYears": "2022-23", "startDate": "2022-07-01T04:00Z", "types": [{"abbreviation": "2022-23 Bundesliga", "endDate": "2023-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2022-23 German Bundesliga", "startDate": "2022-07-01T04:00Z"}], "year": 2022}, {"displayName": "2021-22 German Bundesliga", "endDate": "2022-07-01T03:59Z", "seasonYears": "2021-22", "startDate": "2021-07-01T04:00Z", "types": [{"abbreviation": "2021-22 Bundesliga", "endDate": "2022-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2021-22 German Bundesliga", "startDate": "2021-07-01T04:00Z"}], "year": 2021}, {"displayName": "2020-21 German Bundesliga", "endDate": "2021-07-01T03:59Z", "seasonYears": "2020-21", "startDate": "2020-07-01T04:00Z", "types": [{"abbreviation": "2020-21 Bundesliga", "endDate": "2021-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2020-21 German Bundesliga", "startDate": "2020-07-01T04:00Z"}], "year": 2020}, {"displayName": "2019-20 German Bundesliga", "endDate": "2020-07-01T03:59Z", "seasonYears": "2019-20", "startDate": "2019-07-01T04:00Z", "types": [{"abbreviation": "2019-20 Bundesliga", "endDate": "2020-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2019-20 German Bundesliga", "startDate": "2019-07-01T04:00Z"}], "year": 2019}, {"displayName": "2018-19 German Bundesliga", "endDate": "2019-07-01T03:59Z", "seasonYears": "2018-19", "startDate": "2018-07-01T04:00Z", "types": [{"abbreviation": "2019/19 Bundesliga", "endDate": "2019-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2018/19 German Bundesliga", "startDate": "2018-06-29T04:00Z"}], "year": 2018}, {"displayName": "2017-18 German Bundesliga", "endDate": "2018-07-01T03:59Z", "seasonYears": "2017-18", "startDate": "2017-07-01T04:00Z", "types": [{"abbreviation": "2017-18", "endDate": "2018-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2017/2018 German Bundesliga", "startDate": "2017-07-01T04:00Z"}], "year": 2017}, {"displayName": "2016-17 German Bundesliga", "endDate": "2017-07-01T03:59Z", "seasonYears": "2016-17", "startDate": "2016-07-01T04:00Z", "types": [{"abbreviation": "2016-17", "endDate": "2017-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2016/2017 German Bundesliga", "startDate": "2016-06-29T04:00Z"}], "year": 2016}, {"displayName": "2015-16 German Bundesliga", "endDate": "2016-06-16T03:59Z", "seasonYears": "2015-16", "startDate": "2015-06-16T04:00Z", "types": [{"abbreviation": "2015-16", "endDate": "2016-06-16T03:59Z", "hasStandings": true, "id": "1", "name": "2015/2016 German Bundesliga", "startDate": "2015-06-16T04:00Z"}, {"abbreviation": "2015-16 Playoffs", "endDate": "2016-06-29T03:59Z", "hasStandings": false, "id": "2", "name": "2015/2016 German Bundesliga Playoffs", "startDate": "2016-05-09T04:00Z"}], "year": 2015}, {"displayName": "2014-15 German Bundesliga", "endDate": "2015-06-16T03:59Z", "seasonYears": "2014-15", "startDate": "2014-06-01T04:00Z", "types": [{"abbreviation": "2014-15", "endDate": "2015-06-16T03:59Z", "hasStandings": true, "id": "1", "name": "2014/2015 German Bundesliga", "startDate": "2014-07-01T04:00Z"}, {"abbreviation": "2014-15 Playoffs", "endDate": "2015-07-01T03:59Z", "hasStandings": false, "id": "2", "name": "2014/2015 German Bundesliga Playoffs", "startDate": "2015-05-09T04:00Z"}], "year": 2014}, {"displayName": "2013-14 German Bundesliga", "endDate": "2014-07-01T03:59Z", "seasonYears": "2013-14", "startDate": "2013-06-01T04:00Z", "types": [{"abbreviation": "2013-14", "endDate": "2014-05-09T03:59Z", "hasStandings": true, "id": "1", "name": "2013/2014 German Bundesliga", "startDate": "2013-06-01T04:00Z"}, {"abbreviation": "2013-14 Playoffs", "endDate": "2014-07-01T03:59Z", "hasStandings": false, "id": "2", "name": "2013/2014 German Bundesliga Playoffs", "startDate": "2014-05-09T04:00Z"}], "year": 2013}, {"displayName": "2012-13 German Bundesliga", "endDate": "2013-05-31T03:59Z", "seasonYears": "2012-13", "startDate": "2012-07-01T04:00Z", "types": [{"abbreviation": "2012-13", "endDate": "2013-05-09T03:59Z", "hasStandings": true, "id": "1", "name": "2012/2013 German Bundesliga", "startDate": "2012-07-01T04:00Z"}, {"abbreviation": "2012-13 Playoffs", "endDate": "2013-05-31T03:59Z", "hasStandings": false, "id": "2", "name": "2012/2013 German Bundesliga Playoffs", "startDate": "2013-05-09T04:00Z"}], "year": 2012}, {"displayName": "2011-12 German Bundesliga", "endDate": "2012-07-01T03:59Z", "seasonYears": "2011-12", "startDate": "2011-07-01T04:00Z", "types": [{"abbreviation": "2011-12", "endDate": "2012-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2011/2012 German Bundesliga", "startDate": "2011-07-01T04:00Z"}, {"abbreviation": "2011-12 Playoffs", "endDate": "2012-07-01T03:59Z", "hasStandings": false, "id": "2", "name": "2011/2012 German Bundesliga Playoffs", "startDate": "2011-07-01T04:00Z"}], "year": 2011}, {"displayName": "2010-11 German Bundesliga", "endDate": "2011-07-01T03:59Z", "seasonYears": "2010-11", "startDate": "2010-07-01T04:00Z", "types": [{"abbreviation": "2010-11 German Bundesliga", "endDate": "2011-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2010-11 German Bundesliga", "startDate": "2010-07-01T04:00Z"}, {"abbreviation": "2010-11 Playoffs", "endDate": "2011-07-01T03:59Z", "hasStandings": false, "id": "2", "name": "2010/2011 German Bundesliga Playoffs", "startDate": "2010-07-01T04:00Z"}], "year": 2010}, {"displayName": "2009/10 German Bundesliga", "endDate": "2010-07-01T03:59Z", "seasonYears": "2009-10", "startDate": "2009-07-01T04:00Z", "types": [{"abbreviation": "2009-10", "endDate": "2010-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2009/2010 German Bundesliga", "startDate": "2009-07-01T04:00Z"}, {"abbreviation": "2009-10 Playoffs", "endDate": "2010-07-01T03:59Z", "hasStandings": false, "id": "2", "name": "2009/2010 German Bundesliga Playoffs", "startDate": "2009-07-01T04:00Z"}], "year": 2009}, {"displayName": "2008/09 German Bundesliga", "endDate": "2009-07-01T03:59Z", "seasonYears": "2008-09", "startDate": "2008-07-01T04:00Z", "types": [{"abbreviation": "2008-09", "endDate": "2009-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2008/2009 German Bundesliga", "startDate": "2008-07-01T04:00Z"}, {"abbreviation": "2008-09 Playoffs", "endDate": "2009-07-01T03:59Z", "hasStandings": false, "id": "2", "name": "2008/2009 German Bundesliga Playoffs", "startDate": "2008-07-01T04:00Z"}], "year": 2008}, {"displayName": "2007/08 German Bundesliga", "endDate": "2008-07-01T03:59Z", "seasonYears": "2007-08", "startDate": "2007-07-01T04:00Z", "types": [{"abbreviation": "2007-08", "endDate": "2008-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2007/2008 German Bundesliga", "startDate": "2007-07-01T04:00Z"}], "year": 2007}, {"displayName": "2006/07 German Bundesliga", "endDate": "2007-07-01T03:59Z", "seasonYears": "2006-07", "startDate": "2006-07-01T04:00Z", "types": [{"abbreviation": "2006-07", "endDate": "2007-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2006/2007 German Bundesliga", "startDate": "2006-07-01T04:00Z"}], "year": 2006}, {"displayName": "2005/06 German Bundesliga", "endDate": "2006-07-01T03:59Z", "seasonYears": "2005-06", "startDate": "2005-07-01T04:00Z", "types": [{"abbreviation": "2005-06", "endDate": "2006-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2005/2006 German Bundesliga", "startDate": "2005-07-01T04:00Z"}], "year": 2005}, {"displayName": "2004/05 German Bundesliga", "endDate": "2005-07-01T03:59Z", "seasonYears": "2004-05", "startDate": "2004-07-01T04:00Z", "types": [{"abbreviation": "2004-05", "endDate": "2005-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2004/2005 German Bundesliga", "startDate": "2004-07-01T04:00Z"}], "year": 2004}, {"displayName": "2003/04 German Bundesliga", "endDate": "2004-07-01T03:59Z", "seasonYears": "2003-04", "startDate": "2003-07-01T04:00Z", "types": [{"abbreviation": "2003-04", "endDate": "2004-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2003/2004 German Bundesliga", "startDate": "2003-07-01T04:00Z"}], "year": 2003}, {"displayName": "2002/03 German Bundesliga", "endDate": "2003-07-01T03:59Z", "seasonYears": "2002-03", "startDate": "2002-07-01T04:00Z", "types": [{"abbreviation": "2002-03", "endDate": "2003-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2002/2003 German Bundesliga", "startDate": "2002-07-01T04:00Z"}], "year": 2002}], "uid": "s:600~l:720"}, "summary_identity_verified": true, "venue": {"address": {"city": "Berlin", "country": "Germany"}, "fullName": "Stadion An der Alten F\u00f6rsterei", "guid": "506f94d4-d526-3448-a466-c60336a3c5fa", "id": "4305", "images": [], "shortName": "Stadion An der Alten F\u00f6rsterei"}, "weather": {"complete_match_window": true, "effect_on_probabilities": "context only; no validated coefficient", "hours": [{"precipitation": 0.0, "rain": 0.0, "relative_humidity_2m": 74.0, "snowfall": 0.0, "temperature_2m": 5.9, "time": "2026-11-21T14:00:00+00:00", "wind_gusts_10m": 37.8, "wind_speed_10m": 12.6}, {"precipitation": 0.0, "rain": 0.0, "relative_humidity_2m": 75.0, "snowfall": 0.0, "temperature_2m": 6.1, "time": "2026-11-21T15:00:00+00:00", "wind_gusts_10m": 31.0, "wind_speed_10m": 10.0}, {"precipitation": 0.0, "rain": 0.0, "relative_humidity_2m": 77.0, "snowfall": 0.0, "temperature_2m": 5.7, "time": "2026-11-21T16:00:00+00:00", "wind_gusts_10m": 27.4, "wind_speed_10m": 10.2}], "latitude": 52.52437, "location_precision": "venue city centre; stadium coordinates unavailable", "longitude": 13.41053, "missing_fields": [], "observed_at_utc": "2026-11-18T21:45:58.381849+00:00", "precipitation": 0.0, "rain": 0.0, "relative_humidity_2m": 74.0, "roof_status": "unverified", "snowfall": 0.0, "source": "https://api.open-meteo.com/v1/forecast?latitude=52.52437&longitude=13.41053&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m%2Cwind_gusts_10m%2Crelative_humidity_2m&timezone=UTC&forecast_days=7&wind_speed_unit=kmh&temperature_unit=celsius&precipitation_unit=mm", "temperature_2m": 5.9, "time": "2026-11-21T14:00:00+00:00", "units": {"precipitation": "mm", "rain": "mm", "relative_humidity_2m": "%", "snowfall": "cm", "temperature_2m": "\u00b0C", "time": "iso8601", "wind_gusts_10m": "km/h", "wind_speed_10m": "km/h"}, "wind_gusts_10m": 37.8, "wind_speed_10m": 12.6}, "weather_location_precision": "venue city centre; stadium coordinates unavailable"}, "evidence_quality_version": "pre-match-research-quality-v1", "form": {"away": {"all": {"goals_against": 1.8049405099300018, "goals_for": 2.6178453614389707, "last_match": "2026-11-07T00:00:00+00:00", "matches": 10, "points_per_game": 1.9162490913496628, "results": "WLWWWLLWWL", "xg_against": 1.6174374560143052, "xg_for": 2.5485746270526373, "xg_matches": 6}, "venue": {"goals_against": 2.332473227681091, "goals_for": 1.3355850784925671, "last_match": "2026-10-31T00:00:00+00:00", "matches": 5, "points_per_game": 1.4528503004688058, "results": "WWLLL", "xg_against": 1.8069604853123042, "xg_for": 2.1356722321663097, "xg_matches": 3}}, "home": {"all": {"goals_against": 1.8881636698823736, "goals_for": 0.8243965963434486, "last_match": "2026-11-08T00:00:00+00:00", "matches": 10, "points_per_game": 0.8979667646465336, "results": "LDDDWLLLDW", "xg_against": 1.9171461243001895, "xg_for": 0.8795723112674716, "xg_matches": 9}, "venue": {"goals_against": 1.077890312008384, "goals_for": 1.4075972284047864, "last_match": "2026-11-01T00:00:00+00:00", "matches": 6, "points_per_game": 1.42543438731457, "results": "DDWLDW", "xg_against": 1.2440915017804424, "xg_for": 1.1847582699236006, "xg_matches": 5}}}, "form_friendlies_excluded": {"away": 3, "home": 4}, "goal_rates": [1.3488543722236936, 1.6178846749715121], "h2h": [{"away": "Union Berlin", "away_goals": 1.0, "away_xg": null, "date": "2026-04-24T00:00:00+00:00", "home": "RB Leipzig", "home_goals": 3.0, "home_xg": null, "source": "pipeline training history"}, {"away": "RB Leipzig", "away_goals": 1.0, "away_xg": null, "date": "2025-12-12T00:00:00+00:00", "home": "Union Berlin", "home_goals": 3.0, "home_xg": null, "source": "pipeline training history"}, {"away": "RB Leipzig", "away_goals": 0.0, "away_xg": null, "date": "2025-02-01T00:00:00+00:00", "home": "Union Berlin", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Union Berlin", "away_goals": 0.0, "away_xg": null, "date": "2024-09-14T00:00:00+00:00", "home": "RB Leipzig", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Union Berlin", "away_goals": 0.0, "away_xg": null, "date": "2024-02-04T00:00:00+00:00", "home": "RB Leipzig", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}, {"away": "RB Leipzig", "away_goals": 3.0, "away_xg": null, "date": "2023-09-03T00:00:00+00:00", "home": "Union Berlin", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Union Berlin", "away_goals": 2.0, "away_xg": null, "date": "2023-02-11T00:00:00+00:00", "home": "RB Leipzig", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}], "margin_distribution": {"-1": 0.2127164187803592, "-10": 2.1313997115673168e-06, "-11": 3.0845694540947715e-07, "-12": 4.1019467589919436e-08, "-13": 5.0428992098297654e-09, "-14": 5.719236235022258e-10, "-15": 5.3852334100364296e-11, "-2": 0.1324536873290057, "-3": 0.061313716420472716, "-4": 0.022503275547536006, "-5": 0.006809793674720461, "-6": 0.0017486960193699315, "-7": 0.00038943026070495645, "-8": 7.649207216785063e-05, "-9": 1.343115592853792e-05, "0": 0.2573755380981344, "1": 0.16904118623144332, "10": 3.3028259153313624e-07, "11": 3.985041396489574e-08, "12": 4.418204417647409e-09, "13": 4.528491712938356e-10, "14": 4.2818241515846716e-11, "15": 3.3613429601864796e-12, "2": 0.08793156686598418, "3": 0.03393562895093194, "4": 0.010383924040298361, "5": 0.0026197944692854507, "6": 0.0005608737199911161, "7": 0.00010413529893856342, "8": 1.7053055345232026e-05, "9": 2.496414343648347e-06}, "model_note": "Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient", "observed_at_utc": "2026-11-18T21:45:58.412319+00:00", "p_over_1_5": 0.7979467648483054, "shadow_v4": {"grid": "independent Poisson (C)", "margin_distribution": {"-1": 0.2139027610657466, "-10": 2.1219531048077525e-06, "-11": 3.070898290259448e-07, "-12": 4.0837664628369946e-08, "-13": 5.020548505030077e-09, "-14": 5.693887927342522e-10, "-15": 5.3613654409938355e-11, "-2": 0.13186663747098942, "-3": 0.06104196703210214, "-4": 0.022403538462208456, "-5": 0.006779611892012257, "-6": 0.001740945599048792, "-7": 0.0003877042613472624, "-8": 7.615305057463545e-05, "-9": 1.3371627512682973e-05, "0": 0.2421505423900661, "1": 0.1783338942247739, "10": 3.4427921902796234e-07, "11": 4.1539184169804647e-08, "12": 4.60543790501576e-09, "13": 4.720398925865278e-10, "14": 4.463278152444622e-11, "15": 3.5037890548404455e-12, "2": 0.09165790733323854, "3": 0.03537374397547504, "4": 0.010823971201282454, "5": 0.002730815419948893, "6": 0.0005846422767712741, "7": 0.00010854831683799214, "8": 1.7775725172327408e-05, "9": 2.6022067242839492e-06}, "p_over_1_5": 0.7958284462321151, "version": "team-form-research-v4"}, "version": "team-form-research-v5", "warnings": ["availability unavailable or unconfirmed", "lineups unavailable or unconfirmed", "tactics unavailable or unconfirmed", "rivalry unavailable or unconfirmed", "TheSportsDB venue: exact fixture identity/time unavailable", "C6 fit is stale (fortnightly refresh missed): using the window from 2026-11-02, the window for this day opened 2026-11-16", "Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"]} |
 
 </details>
-
-
----

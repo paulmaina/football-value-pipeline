@@ -2,7 +2,567 @@
 
 Fixtures in this report: **7**.
 
-> Probabilities are model estimates. They describe uncertainty; they are not guarantees. Market EV figures are only shown when bookmaker prices are available.
+> Each match shows the two models the shortlists use, side by side, and the master's verdict on them: **Research** (the value shortlist's model, independent of bookmaker odds) and **Cagey** (the cagey tier's market view, built from Pinnacle's prices). Probabilities are model estimates, not guarantees. No probability here is blended or averaged. The production model (70% Pinnacle blend) is kept only as a benchmark at the end of this report.
+
+## Quick reference
+
+- **Research:** The value shortlist's model: team form, goal rates and xG, never bookmaker odds. Live research v5 (C6 grid) for domestic leagues and v6 (CE3n) for UCL/UEL, exactly as the forecast carries it.
+- **Cagey:** The cagey tier's market view: Pinnacle's 1X2, O/U 2.5 and main AH line with the margin removed, plus the narrow-margin correction (D_pow2 for domestic leagues, D for UCL/UEL, D where D_pow2's power fit fails). Blank without Pinnacle 1X2 and O/U 2.5.
+- **No-loss:** The chance a bet does not lose: a win, a half win or a refund (push) on that exact line.
+- **Gap:** Research minus cagey no-loss on the same Pinnacle offer, in percentage points (the master's g). +4 or more: research too optimistic; -4 or less: research too pessimistic; -8 or less with cagey no-loss of 85% or more: flagged for inspection.
+- **Cagey tier:** The master's market classes from the cagey no-loss: safe (75% or more), risky (below 50%), in between otherwise; fair price when the Pinnacle price is within its 2.70% margin of the cagey fair odds.
+- **Best offer:** The fixture's master pick, or else the Pinnacle offer the master's own rule would choose for it (safe first, then chance of profit), shown with both views and the master's labels.
+- **Expected goals:** A view's average goal expectation for each team, from its score grid. It is not a prediction that the team will score exactly that many goals.
+- **Fixture source:** Football-Data may include bookmaker prices. A schedule fallback may supply fixtures without betting prices, so EV fields can legitimately be blank.
+
+---
+
+## 2026-11-21 — Aston Villa vs Sunderland
+
+Research leans **Aston Villa win** at **58.5%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Aston Villa win | 58.5% | — |
+| Draw | 23.7% | — |
+| Sunderland win | 17.8% | — |
+| Aston Villa expected goals | 1.92 | — |
+| Sunderland expected goals | 1.00 | — |
+| Expected total goals | 2.92 | — |
+| Most likely score | 1-1 | — |
+| Most likely score probability | 11.2% | — |
+| Over 1.5 | 79.2% | — |
+| Under 1.5 | 20.8% | — |
+| Over 2.5 | 55.6% | — |
+| Under 2.5 | 44.4% | — |
+| Over 3.5 | 33.6% | — |
+| Under 3.5 | 66.4% | — |
+| BTTS Yes | 55.0% | — |
+| BTTS No | 45.0% | — |
+| Double Chance 1X | 82.2% | — |
+| Double Chance X2 | 41.5% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (11.20%) | — |
+| 2 | 1-0 (10.22%) | — |
+| 3 | 2-1 (10.16%) | — |
+| 4 | 2-0 (9.83%) | — |
+| 5 | 3-1 (6.39%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Aston Villa -0.75 | 2.11 | 58.5% | — |
+| Sunderland +0.75 | 1.81 | 41.5% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Home win | 1.85 | 58.5% | — | — | one view missing (no cagey view) | in between, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Away win | 4.35 | 17.8% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away +0.75 | 1.81 | 41.5% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+| Asian Handicap Home -0.75 | 2.11 | 58.5% | — | — | one view missing (no cagey view) | no market view | one view missing | offered odds outside (1.15, 2.00] |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — Bournemouth vs Nottingham Forest
+
+Research leans **Bournemouth win** at **56.2%**. Cagey leans **Bournemouth win** at **49.9%**. The two views agree on the lean.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** cagey D_pow2 (fit B)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Bournemouth win | 56.2% | 49.9% |
+| Draw | 25.2% | 26.7% |
+| Nottingham Forest win | 18.6% | 23.5% |
+| Bournemouth expected goals | 1.76 | 1.64 |
+| Nottingham Forest expected goals | 0.94 | 1.07 |
+| Expected total goals | 2.70 | 2.72 |
+| Most likely score | 1-1 | 1-1 |
+| Most likely score probability | 12.0% | 12.7% |
+| Over 1.5 | 75.6% | 76.9% |
+| Under 1.5 | 24.4% | 23.1% |
+| Over 2.5 | 50.6% | 51.5% |
+| Under 2.5 | 49.4% | 48.5% |
+| Over 3.5 | 28.9% | 28.8% |
+| Under 3.5 | 71.1% | 71.2% |
+| BTTS Yes | 51.7% | 55.0% |
+| BTTS No | 48.3% | 45.0% |
+| Double Chance 1X | 81.4% | 76.5% |
+| Double Chance X2 | 43.8% | 50.1% |
+
+_Cagey Over/Under 1.5 come from the uncorrected Pinnacle grid, as the cagey tier prices Over 1.5; its other figures from the corrected grid._
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (11.99%) | 1-1 (12.71%) |
+| 2 | 1-0 (11.60%) | 1-0 (10.39%) |
+| 3 | 2-0 (10.24%) | 2-1 (10.22%) |
+| 4 | 2-1 (9.98%) | 2-0 (8.29%) |
+| 5 | 0-0 (7.19%) | 0-0 (7.48%) |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Bournemouth -0.50 | 1.95 | 56.2% | 49.9% |
+| Nottingham Forest +0.50 | 1.95 | 43.8% | 50.1% |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Asian Handicap Away +0.50 | 1.95 | 43.8% | 50.1% | -6.4 | research too pessimistic | in between, fair price | none | eligible |
+| Asian Handicap Home -0.50 | 1.95 | 56.2% | 49.9% | +6.4 | research too optimistic | risky, below fair price | research too optimistic | eligible |
+| Home win | 1.95 | 56.2% | 49.9% | +6.4 | research too optimistic | risky, below fair price | research too optimistic | eligible |
+| Away win | 4.05 | 18.6% | 23.5% | -4.9 | research too pessimistic | risky, below fair price | none | offered odds outside (1.15, 2.00] |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+### Safest Asian handicap (cagey tier)
+
+_No quoted Pinnacle line has cagey EV >= 0 at odds >= 1.20 (2 lines checked)._
+
+
+---
+
+## 2026-11-21 — Chelsea vs Leeds United
+
+Research leans **Chelsea win** at **58.5%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Chelsea win | 58.5% | — |
+| Draw | 22.8% | — |
+| Leeds United win | 18.7% | — |
+| Chelsea expected goals | 2.04 | — |
+| Leeds United expected goals | 1.11 | — |
+| Expected total goals | 3.15 | — |
+| Most likely score | 1-1 | — |
+| Most likely score probability | 10.5% | — |
+| Over 1.5 | 82.6% | — |
+| Under 1.5 | 17.4% | — |
+| Over 2.5 | 60.8% | — |
+| Under 2.5 | 39.2% | — |
+| Over 3.5 | 38.9% | — |
+| Under 3.5 | 61.1% | — |
+| BTTS Yes | 59.4% | — |
+| BTTS No | 40.6% | — |
+| Double Chance 1X | 81.3% | — |
+| Double Chance X2 | 41.5% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (10.47%) | — |
+| 2 | 2-1 (10.10%) | — |
+| 3 | 2-0 (8.80%) | — |
+| 4 | 1-0 (8.58%) | — |
+| 5 | 3-1 (6.76%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Chelsea -0.50 | 1.92 | 58.5% | — |
+| Leeds United +0.50 | 1.99 | 41.5% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Asian Handicap Home -0.50 | 1.92 | 58.5% | — | — | one view missing (no cagey view) | in between, fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Home win | 1.91 | 58.5% | — | — | one view missing (no cagey view) | in between, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Asian Handicap Away +0.50 | 1.99 | 41.5% | — | — | one view missing (no cagey view) | risky, fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Away win | 4.05 | 18.7% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — Coventry City vs Crystal Palace
+
+Research leans **Coventry City win** at **39.9%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Coventry City win | 39.9% | — |
+| Draw | 26.4% | — |
+| Crystal Palace win | 33.6% | — |
+| Coventry City expected goals | 1.50 | — |
+| Crystal Palace expected goals | 1.36 | — |
+| Expected total goals | 2.86 | — |
+| Most likely score | 1-1 | — |
+| Most likely score probability | 12.4% | — |
+| Over 1.5 | 78.2% | — |
+| Under 1.5 | 21.8% | — |
+| Over 2.5 | 54.3% | — |
+| Under 2.5 | 45.7% | — |
+| Over 3.5 | 32.3% | — |
+| Under 3.5 | 67.7% | — |
+| BTTS Yes | 58.4% | — |
+| BTTS No | 41.6% | — |
+| Double Chance 1X | 66.4% | — |
+| Double Chance X2 | 60.1% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (12.41%) | — |
+| 2 | 2-1 (8.68%) | — |
+| 3 | 1-0 (8.24%) | — |
+| 4 | 1-2 (7.79%) | — |
+| 5 | 0-1 (7.38%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Coventry City +0.00 | 1.85 | 66.4% | — |
+| Crystal Palace +0.00 | 2.06 | 60.1% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Home win | 2.52 | 39.9% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Away win | 2.80 | 33.6% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away +0.00 | 2.06 | 60.1% | — | — | one view missing (no cagey view) | no market view | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Home +0.00 | 1.85 | 66.4% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+
+_Best offer: none (no offer passes the master checks with a market view). Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — Manchester City vs Fulham
+
+Research leans **Manchester City win** at **61.5%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Manchester City win | 61.5% | — |
+| Draw | 22.2% | — |
+| Fulham win | 16.3% | — |
+| Manchester City expected goals | 2.10 | — |
+| Fulham expected goals | 1.04 | — |
+| Expected total goals | 3.13 | — |
+| Most likely score | 1-1 | — |
+| Most likely score probability | 10.3% | — |
+| Over 1.5 | 82.3% | — |
+| Under 1.5 | 17.7% | — |
+| Over 2.5 | 60.4% | — |
+| Under 2.5 | 39.6% | — |
+| Over 3.5 | 38.4% | — |
+| Under 3.5 | 61.6% | — |
+| BTTS Yes | 57.7% | — |
+| BTTS No | 42.3% | — |
+| Double Chance 1X | 83.7% | — |
+| Double Chance X2 | 38.5% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (10.28%) | — |
+| 2 | 2-1 (10.18%) | — |
+| 3 | 2-0 (9.50%) | — |
+| 4 | 1-0 (9.04%) | — |
+| 5 | 3-1 (6.99%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Manchester City -1.25 | 1.90 | 37.8% | — |
+| Fulham +1.25 | 2.01 | 62.2% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Home win | 1.42 | 61.5% | — | — | one view missing (no cagey view) | in between, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Away win | 7.00 | 16.3% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away +1.25 | 2.01 | 62.2% | — | — | one view missing (no cagey view) | no market view | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Home -1.25 | 1.90 | 37.8% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — Newcastle United vs Arsenal
+
+Research leans **Arsenal win** at **50.7%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Newcastle United win | 22.5% | — |
+| Draw | 26.8% | — |
+| Arsenal win | 50.7% | — |
+| Newcastle United expected goals | 1.00 | — |
+| Arsenal expected goals | 1.59 | — |
+| Expected total goals | 2.59 | — |
+| Most likely score | 1-1 | — |
+| Most likely score probability | 12.8% | — |
+| Over 1.5 | 73.5% | — |
+| Under 1.5 | 26.5% | — |
+| Over 2.5 | 47.7% | — |
+| Under 2.5 | 52.3% | — |
+| Over 3.5 | 26.3% | — |
+| Under 3.5 | 73.7% | — |
+| BTTS Yes | 51.2% | — |
+| BTTS No | 48.8% | — |
+| Double Chance 1X | 49.3% | — |
+| Double Chance X2 | 77.5% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (12.77%) | — |
+| 2 | 0-1 (11.69%) | — |
+| 3 | 1-2 (9.60%) | — |
+| 4 | 0-2 (9.37%) | — |
+| 5 | 0-0 (8.03%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Newcastle United +1.00 | 1.91 | 73.6% | — |
+| Arsenal -1.00 | 2.00 | 50.7% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Away win | 1.58 | 50.7% | — | — | one view missing (no cagey view) | in between, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Home win | 5.80 | 22.5% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away -1.00 | 2.00 | 50.7% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+| Asian Handicap Home +1.00 | 1.91 | 73.6% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — Tottenham Hotspur vs Ipswich Town
+
+Research leans **Tottenham Hotspur win** at **61.4%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Tottenham Hotspur win | 61.4% | — |
+| Draw | 21.8% | — |
+| Ipswich Town win | 16.8% | — |
+| Tottenham Hotspur expected goals | 2.16 | — |
+| Ipswich Town expected goals | 1.10 | — |
+| Expected total goals | 3.25 | — |
+| Most likely score | 2-1 | — |
+| Most likely score probability | 10.1% | — |
+| Over 1.5 | 83.9% | — |
+| Under 1.5 | 16.1% | — |
+| Over 2.5 | 62.9% | — |
+| Under 2.5 | 37.1% | — |
+| Over 3.5 | 41.2% | — |
+| Under 3.5 | 58.8% | — |
+| BTTS Yes | 59.9% | — |
+| BTTS No | 40.1% | — |
+| Double Chance 1X | 83.2% | — |
+| Double Chance X2 | 38.6% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 2-1 (10.09%) | — |
+| 2 | 1-1 (9.89%) | — |
+| 3 | 2-0 (8.92%) | — |
+| 4 | 1-0 (8.22%) | — |
+| 5 | 3-1 (7.14%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Tottenham Hotspur -1.00 | 1.89 | 61.4% | — |
+| Ipswich Town +1.00 | 2.02 | 61.9% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Home win | 1.56 | 61.4% | — | — | one view missing (no cagey view) | in between, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Away win | 5.79 | 16.8% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away +1.00 | 2.02 | 61.9% | — | — | one view missing (no cagey view) | no market view | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Home -1.00 | 1.89 | 61.4% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## Benchmark (70% Pinnacle blend), display only
+
+The production forecasting model blends 70% of Pinnacle's prices into its score grid, so it is neither independent research nor the cagey tier's market view. It is shown for comparison only: no list, probability or stake reads it, and its EV is not a recommendation.
+
+- **Benchmark EV:** Model-estimated return per unit staked at the available decimal price. +5% EV means +0.05 expected units per 1 unit staked under the model; it is not a guaranteed return.
+- **Fair odds:** Decimal odds implied by the model probability, before any bookmaker margin.
+- **Probability edge:** Model probability minus the de-vigged market probability.
 
 ### Model context
 
@@ -64,33 +624,17 @@ Fixtures in this report: **7**.
 
 </details>
 
-## Quick reference
-
-- **Expected goals:** The model's average goal expectation for each team. It is not a prediction that the team will score exactly that many goals.
-- **Fair odds:** Decimal odds implied by the model probability, before any bookmaker margin.
-- **Expected value:** Model-estimated return per unit staked at the available decimal price. +5% EV means +0.05 expected units per 1 unit staked under the model; it is not a guaranteed return.
-- **Probability edge:** Model probability minus the de-vigged market probability.
-- **Fixture source:** Football-Data may include bookmaker prices. A schedule fallback may supply fixtures without betting prices, so EV fields can legitimately be blank.
-
----
-
-## 2026-11-21 — Aston Villa vs Sunderland
+### 2026-11-21 — Aston Villa vs Sunderland
 
 The model's most likely 1X2 outcome is **Aston Villa win** at **52.4%**. Expected goals are 1.60 for Aston Villa and 0.99 for Sunderland (2.59 combined). The most likely exact score is 1-1 at 12.1%. Goal-market probabilities: at least one goal: 92.1%; Over 2.5 goals: 48.1%; Under 3.5 goals: 73.8%; Double Chance 1X: 77.8%; Double Chance X2: 47.6%; Double Chance 12 (either team wins): 74.5%; Under 4.5 goals: 87.8%; BTTS Yes (both teams score): 50.4%; BTTS No (at least one team does not score): 49.6%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Aston Villa win | 52.4% | 1.91 |
 | Draw | 25.5% | 3.93 |
 | Sunderland win | 22.2% | 4.51 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Aston Villa expected goals | 1.60 |
 | Sunderland expected goals | 0.99 |
@@ -106,9 +650,7 @@ The model's most likely 1X2 outcome is **Aston Villa win** at **52.4%**. Expecte
 | Over 4.5 | 12.2% |
 | Under 4.5 | 87.8% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-1 | 12.13% |
 | 2 | 1-0 | 11.74% |
@@ -116,18 +658,14 @@ The model's most likely 1X2 outcome is **Aston Villa win** at **52.4%**. Expecte
 | 4 | 2-1 | 9.76% |
 | 5 | 0-0 | 7.91% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Aston Villa win | 52.4% | 53.0% | 1.85 | -3.1% |
 | Draw | 25.5% | 25.1% | 3.81 | -3.0% |
 | Sunderland win | 22.2% | 21.9% | 4.35 | -3.6% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -246,25 +784,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Bournemouth vs Nottingham Forest
+### 2026-11-21 — Bournemouth vs Nottingham Forest
 
 The model's most likely 1X2 outcome is **Bournemouth win** at **49.1%**. Expected goals are 1.58 for Bournemouth and 1.17 for Nottingham Forest (2.75 combined). The most likely exact score is 1-1 at 12.4%. Goal-market probabilities: at least one goal: 93.0%; Over 2.5 goals: 51.7%; Under 3.5 goals: 70.4%; Double Chance 1X: 75.2%; Double Chance X2: 50.9%; Double Chance 12 (either team wins): 73.9%; Under 4.5 goals: 85.6%; BTTS Yes (both teams score): 55.1%; BTTS No (at least one team does not score): 44.9%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Bournemouth win | 49.1% | 2.04 |
 | Draw | 26.1% | 3.83 |
 | Nottingham Forest win | 24.8% | 4.03 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Bournemouth expected goals | 1.58 |
 | Nottingham Forest expected goals | 1.17 |
@@ -280,9 +810,7 @@ The model's most likely 1X2 outcome is **Bournemouth win** at **49.1%**. Expecte
 | Over 4.5 | 14.4% |
 | Under 4.5 | 85.6% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-1 | 12.42% |
 | 2 | 1-0 | 10.14% |
@@ -290,9 +818,7 @@ The model's most likely 1X2 outcome is **Bournemouth win** at **49.1%**. Expecte
 | 4 | 2-0 | 8.50% |
 | 5 | 0-0 | 7.04% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Bournemouth win | 49.1% | 50.2% | 1.95 | -4.3% |
 | Draw | 26.1% | 26.1% | 3.68 | -3.9% |
@@ -300,10 +826,8 @@ The model's most likely 1X2 outcome is **Bournemouth win** at **49.1%**. Expecte
 | Over 2.5 | 51.7% | 51.7% | 1.88 | -2.7% |
 | Under 2.5 | 48.3% | 48.3% | 2.01 | -3.0% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -438,25 +962,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Chelsea vs Leeds United
+### 2026-11-21 — Chelsea vs Leeds United
 
 The model's most likely 1X2 outcome is **Chelsea win** at **51.6%**. Expected goals are 1.77 for Chelsea and 1.10 for Leeds United (2.87 combined). The most likely exact score is 1-1 at 11.8%. Goal-market probabilities: at least one goal: 93.7%; Over 2.5 goals: 54.6%; Under 3.5 goals: 67.6%; Double Chance 1X: 76.6%; Double Chance X2: 48.4%; Double Chance 12 (either team wins): 75.1%; Under 4.5 goals: 83.7%; BTTS Yes (both teams score): 56.1%; BTTS No (at least one team does not score): 43.9%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Chelsea win | 51.6% | 1.94 |
 | Draw | 24.9% | 4.01 |
 | Leeds United win | 23.4% | 4.27 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Chelsea expected goals | 1.77 |
 | Leeds United expected goals | 1.10 |
@@ -472,9 +988,7 @@ The model's most likely 1X2 outcome is **Chelsea win** at **51.6%**. Expected go
 | Over 4.5 | 16.3% |
 | Under 4.5 | 83.7% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-1 | 11.79% |
 | 2 | 2-1 | 9.62% |
@@ -482,18 +996,14 @@ The model's most likely 1X2 outcome is **Chelsea win** at **51.6%**. Expected go
 | 4 | 2-0 | 8.72% |
 | 5 | 0-0 | 6.32% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Chelsea win | 51.6% | 51.3% | 1.91 | -1.4% |
 | Draw | 24.9% | 25.1% | 3.82 | -4.8% |
 | Leeds United win | 23.4% | 23.6% | 4.05 | -5.1% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -612,25 +1122,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Coventry City vs Crystal Palace
+### 2026-11-21 — Coventry City vs Crystal Palace
 
 The model's most likely 1X2 outcome is **Coventry City win** at **37.7%**. Expected goals are 1.34 for Coventry City and 1.40 for Crystal Palace (2.75 combined). The most likely exact score is 1-1 at 12.7%. Goal-market probabilities: at least one goal: 93.0%; Over 2.5 goals: 51.8%; Under 3.5 goals: 70.4%; Double Chance 1X: 64.3%; Double Chance X2: 62.3%; Double Chance 12 (either team wins): 73.3%; Under 4.5 goals: 85.6%; BTTS Yes (both teams score): 56.4%; BTTS No (at least one team does not score): 43.6%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Coventry City win | 37.7% | 2.66 |
 | Draw | 26.7% | 3.75 |
 | Crystal Palace win | 35.7% | 2.80 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Coventry City expected goals | 1.34 |
 | Crystal Palace expected goals | 1.40 |
@@ -646,9 +1148,7 @@ The model's most likely 1X2 outcome is **Coventry City win** at **37.7%**. Expec
 | Over 4.5 | 14.4% |
 | Under 4.5 | 85.6% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-1 | 12.66% |
 | 2 | 2-1 | 8.67% |
@@ -656,18 +1156,14 @@ The model's most likely 1X2 outcome is **Coventry City win** at **37.7%**. Expec
 | 4 | 1-2 | 7.97% |
 | 5 | 0-1 | 7.87% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Coventry City win | 37.7% | 38.7% | 2.52 | -5.1% |
 | Draw | 26.7% | 26.6% | 3.62 | -3.4% |
 | Crystal Palace win | 35.7% | 34.7% | 2.80 | -0.2% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -786,25 +1282,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Manchester City vs Fulham
+### 2026-11-21 — Manchester City vs Fulham
 
 The model's most likely 1X2 outcome is **Manchester City win** at **68.0%**. Expected goals are 2.08 for Manchester City and 0.86 for Fulham (2.94 combined). The most likely exact score is 2-0 at 11.9%. Goal-market probabilities: at least one goal: 94.9%; Over 2.5 goals: 57.4%; Under 3.5 goals: 65.6%; Double Chance 1X: 86.6%; Double Chance X2: 32.0%; Double Chance 12 (either team wins): 81.5%; Under 4.5 goals: 82.0%; BTTS Yes (both teams score): 50.4%; BTTS No (at least one team does not score): 49.6%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Manchester City win | 68.0% | 1.47 |
 | Draw | 18.5% | 5.40 |
 | Fulham win | 13.4% | 7.45 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Manchester City expected goals | 2.08 |
 | Fulham expected goals | 0.86 |
@@ -820,9 +1308,7 @@ The model's most likely 1X2 outcome is **Manchester City win** at **68.0%**. Exp
 | Over 4.5 | 18.0% |
 | Under 4.5 | 82.0% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 2-0 | 11.93% |
 | 2 | 1-0 | 10.97% |
@@ -830,18 +1316,14 @@ The model's most likely 1X2 outcome is **Manchester City win** at **68.0%**. Exp
 | 4 | 1-1 | 8.82% |
 | 5 | 3-0 | 8.27% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Manchester City win | 68.0% | 69.4% | 1.42 | -3.4% |
 | Draw | 18.5% | 17.5% | 5.32 | -1.5% |
 | Fulham win | 13.4% | 13.1% | 7.00 | -6.0% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -960,25 +1442,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Newcastle United vs Arsenal
+### 2026-11-21 — Newcastle United vs Arsenal
 
 The model's most likely 1X2 outcome is **Arsenal win** at **58.8%**. Expected goals are 1.02 for Newcastle United and 1.64 for Arsenal (2.66 combined). The most likely exact score is 0-1 at 12.5%. Goal-market probabilities: at least one goal: 93.2%; Over 2.5 goals: 50.9%; Under 3.5 goals: 71.7%; Double Chance 1X: 41.2%; Double Chance X2: 81.8%; Double Chance 12 (either team wins): 77.0%; Under 4.5 goals: 86.4%; BTTS Yes (both teams score): 51.2%; BTTS No (at least one team does not score): 48.8%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Newcastle United win | 18.2% | 5.51 |
 | Draw | 23.0% | 4.34 |
 | Arsenal win | 58.8% | 1.70 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Newcastle United expected goals | 1.02 |
 | Arsenal expected goals | 1.64 |
@@ -994,9 +1468,7 @@ The model's most likely 1X2 outcome is **Arsenal win** at **58.8%**. Expected go
 | Over 4.5 | 13.6% |
 | Under 4.5 | 86.4% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 0-1 | 12.51% |
 | 2 | 1-2 | 11.03% |
@@ -1004,18 +1476,14 @@ The model's most likely 1X2 outcome is **Arsenal win** at **58.8%**. Expected go
 | 4 | 0-2 | 10.80% |
 | 5 | 0-0 | 6.78% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Newcastle United win | 18.2% | 16.1% | 5.80 | +5.3% |
 | Draw | 23.0% | 21.8% | 4.32 | -0.5% |
 | Arsenal win | 58.8% | 62.1% | 1.58 | -7.1% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -1134,25 +1602,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Tottenham Hotspur vs Ipswich Town
+### 2026-11-21 — Tottenham Hotspur vs Ipswich Town
 
 The model's most likely 1X2 outcome is **Tottenham Hotspur win** at **62.5%**. Expected goals are 2.21 for Tottenham Hotspur and 1.13 for Ipswich Town (3.34 combined). The most likely exact score is 2-1 at 10.0%. Goal-market probabilities: at least one goal: 96.0%; Over 2.5 goals: 64.9%; Under 3.5 goals: 57.0%; Double Chance 1X: 83.3%; Double Chance X2: 37.5%; Double Chance 12 (either team wins): 79.3%; Under 4.5 goals: 75.4%; BTTS Yes (both teams score): 60.7%; BTTS No (at least one team does not score): 39.3%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Tottenham Hotspur win | 62.5% | 1.60 |
 | Draw | 20.7% | 4.82 |
 | Ipswich Town win | 16.7% | 5.98 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Tottenham Hotspur expected goals | 2.21 |
 | Ipswich Town expected goals | 1.13 |
@@ -1168,9 +1628,7 @@ The model's most likely 1X2 outcome is **Tottenham Hotspur win** at **62.5%**. E
 | Over 4.5 | 24.6% |
 | Under 4.5 | 75.4% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 2-1 | 9.96% |
 | 2 | 1-1 | 9.36% |
@@ -1178,18 +1636,14 @@ The model's most likely 1X2 outcome is **Tottenham Hotspur win** at **62.5%**. E
 | 4 | 1-0 | 7.50% |
 | 5 | 3-1 | 7.34% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Tottenham Hotspur win | 62.5% | 63.0% | 1.56 | -2.4% |
 | Draw | 20.7% | 20.8% | 4.54 | -5.8% |
 | Ipswich Town win | 16.7% | 16.2% | 5.79 | -3.2% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -1306,6 +1760,3 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Team research json | {"base_rates": [2.2109710375370453, 1.1310610406101542], "c6_fit": {"candidate_version": "research-low-score-then-sharpen-walk-forward-v1", "delta": 0.05820390771129642, "end_exclusive": "2026-11-16", "expected_origin": "2026-11-16", "fits_version": "research-c6-live-fits-v1", "low_score_status": "fitted", "origin": "2026-11-02", "rho": -0.018955143658940854, "slope": 1.1447833796793323, "slope_status": "fitted", "stale": true}, "coverage": {"form": "last ten, exponential rank half-life five matches", "h2h": "last four years; descriptive only", "motivation": "standings context; urgency not inferred", "rotation": "schedule congestion only; rotation unconfirmed", "team_news": "dated news leads; absences and tactics require confirmation", "training_cache": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED", "travel": "previous fixture venue; itinerary and fatigue unverified", "venue_splits": "home team home matches / away team away matches", "weather": "Open-Meteo match-window forecast with units and observation time", "xg": "verified supplied xG; no goals-to-xG substitution"}, "evidence": {"coverage": {"motivation": "standings context; urgency not inferred", "weather": "Open-Meteo match-window forecast with units and observation time"}, "errors": ["TheSportsDB venue: exact fixture identity/time unavailable"], "news": [{"headline": "Mauricio Pochettino to Man United: Is Tottenham love affair finally over?", "published_at_utc": "2026-11-17T07:07:18+00:00", "source": "ESPN league news; unconfirmed context lead", "url": "https://www.espn.com/soccer/story/_/id/50470622/mauricio-pochettino-tottenham-man-united"}], "quality_review": {"absence_note": "Reported absences only; not proof of complete coverage or a fitted player-value effect", "assessed_at_utc": "2026-11-18T21:45:50.243852+00:00", "availability": "UNAVAILABLE_OR_STALE", "form": {"away": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 9.0}, "home": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 9.0}}, "lineups": "UNCONFIRMED_OR_STALE", "probability_effect": "NONE; factual coverage/freshness review, not a calibrated confidence score", "status": "REVIEW_REQUIRED", "summary_max_age_minutes": 180, "training": {"cutoff": "2026-11-08", "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}, "version": "pre-match-research-quality-v1", "warnings": ["Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"], "weather": "FRESH_COMPLETE_WINDOW", "weather_max_age_minutes": 180}, "recent": {"away": [{"away": "AFC Bournemouth", "away_goals": 2.0, "away_xg": null, "competition": "eng.1", "date": "2026-11-08T14:00:00+00:00", "home": "Ipswich Town", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/373/schedule"}, {"away": "Ipswich Town", "away_goals": 2.0, "away_xg": null, "competition": "eng.1", "date": "2026-10-31T15:00:00+00:00", "home": "Hull City", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/373/schedule"}, {"away": "Nottingham Forest", "away_goals": 1.0, "away_xg": null, "competition": "eng.1", "date": "2026-10-23T19:00:00+00:00", "home": "Ipswich Town", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/373/schedule"}, {"away": "Ipswich Town", "away_goals": 2.0, "away_xg": null, "competition": "eng.1", "date": "2026-10-17T14:00:00+00:00", "home": "Manchester City", "home_goals": 3.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/373/schedule"}, {"away": "Fulham", "away_goals": 1.0, "away_xg": null, "competition": "eng.1", "date": "2026-10-10T14:00:00+00:00", "home": "Ipswich Town", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/373/schedule"}, {"away": "Ipswich Town", "away_goals": 0.0, "away_xg": null, "competition": "eng.1", "date": "2026-09-19T14:00:00+00:00", "home": "Everton", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/373/schedule"}, {"away": "Arsenal", "away_goals": 4.0, "away_xg": null, "competition": "eng.league_cup", "date": "2026-09-15T19:00:00+00:00", "home": "Ipswich Town", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/373/schedule"}, {"away": "Ipswich Town", "away_goals": 3.0, "away_xg": null, "competition": "eng.1", "date": "2026-09-12T14:00:00+00:00", "home": "Crystal Palace", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/373/schedule"}, {"away": "Liverpool", "away_goals": 2.0, "away_xg": null, "competition": "eng.1", "date": "2026-09-04T19:00:00+00:00", "home": "Ipswich Town", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/373/schedule"}, {"away": "Ipswich Town", "away_goals": 2.0, "away_xg": null, "competition": "eng.1", "date": "2026-08-30T15:30:00+00:00", "home": "Manchester United", "home_goals": 5.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/373/schedule"}, {"away": "Leicester City", "away_goals": 1.0, "away_xg": null, "competition": "eng.league_cup", "date": "2026-08-25T18:45:00+00:00", "home": "Ipswich Town", "home_goals": 3.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/373/schedule"}, {"away": "Sunderland", "away_goals": 1.0, "away_xg": null, "competition": "eng.1", "date": "2026-08-22T14:00:00+00:00", "home": "Ipswich Town", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/373/schedule"}, {"away": "Ipswich Town", "away_goals": 4.0, "away_xg": null, "competition": "club.friendly", "date": "2026-08-15T13:30:00+00:00", "home": "1. FC Union Berlin", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/373/schedule"}, {"away": "Rayo Vallecano", "away_goals": 0.0, "away_xg": null, "competition": "club.friendly", "date": "2026-08-08T14:00:00+00:00", "home": "Ipswich Town", "home_goals": 3.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/373/schedule"}], "home": [{"away": "Tottenham Hotspur", "away_goals": 0.0, "away_xg": null, "competition": "eng.1", "date": "2026-11-07T12:30:00+00:00", "home": "Leeds United", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/367/schedule"}, {"away": "Crystal Palace", "away_goals": 0.0, "away_xg": null, "competition": "eng.1", "date": "2026-10-31T17:30:00+00:00", "home": "Tottenham Hotspur", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/367/schedule"}, {"away": "Tottenham Hotspur", "away_goals": 2.0, "away_xg": null, "competition": "eng.1", "date": "2026-10-24T16:30:00+00:00", "home": "Chelsea", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/367/schedule"}, {"away": "Coventry City", "away_goals": 1.0, "away_xg": null, "competition": "eng.1", "date": "2026-10-19T19:00:00+00:00", "home": "Tottenham Hotspur", "home_goals": 3.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/367/schedule"}, {"away": "Tottenham Hotspur", "away_goals": 1.0, "away_xg": null, "competition": "eng.1", "date": "2026-10-10T16:30:00+00:00", "home": "Manchester United", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/367/schedule"}, {"away": "Aston Villa", "away_goals": 3.0, "away_xg": null, "competition": "eng.1", "date": "2026-09-19T11:30:00+00:00", "home": "Tottenham Hotspur", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/367/schedule"}, {"away": "Tottenham Hotspur", "away_goals": 1.0, "away_xg": null, "competition": "eng.league_cup", "date": "2026-09-15T19:00:00+00:00", "home": "Liverpool", "home_goals": 3.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/367/schedule"}, {"away": "Everton", "away_goals": 0.0, "away_xg": null, "competition": "eng.1", "date": "2026-09-12T16:30:00+00:00", "home": "Tottenham Hotspur", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/367/schedule"}, {"away": "Tottenham Hotspur", "away_goals": 0.0, "away_xg": null, "competition": "eng.1", "date": "2026-09-05T14:00:00+00:00", "home": "Nottingham Forest", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/367/schedule"}, {"away": "Newcastle United", "away_goals": 2.0, "away_xg": null, "competition": "eng.1", "date": "2026-08-29T16:30:00+00:00", "home": "Tottenham Hotspur", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/367/schedule"}, {"away": "Charlton Athletic", "away_goals": 1.0, "away_xg": null, "competition": "eng.league_cup", "date": "2026-08-26T18:45:00+00:00", "home": "Tottenham Hotspur", "home_goals": 5.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/367/schedule"}, {"away": "Tottenham Hotspur", "away_goals": 0.0, "away_xg": null, "competition": "eng.1", "date": "2026-08-22T16:30:00+00:00", "home": "Brentford", "home_goals": 3.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/367/schedule"}, {"away": "TSG Hoffenheim", "away_goals": 2.0, "away_xg": null, "competition": "club.friendly", "date": "2026-08-16T11:00:00+00:00", "home": "Tottenham Hotspur", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/367/schedule"}, {"away": "TSG Hoffenheim", "away_goals": 0.0, "away_xg": null, "competition": "club.friendly", "date": "2026-08-15T14:00:00+00:00", "home": "Tottenham Hotspur", "home_goals": 3.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/367/schedule"}, {"away": "Getafe", "away_goals": 1.0, "away_xg": null, "competition": "club.friendly", "date": "2026-08-08T14:00:00+00:00", "home": "Tottenham Hotspur", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/367/schedule"}, {"away": "Tottenham Hotspur", "away_goals": 2.0, "away_xg": null, "competition": "club.friendly", "date": "2026-07-26T03:00:00+00:00", "home": "Auckland FC", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/367/schedule"}, {"away": "Milton Keynes Dons", "away_goals": 0.0, "away_xg": null, "competition": "club.friendly", "date": "2026-07-22T16:00:00+00:00", "home": "Tottenham Hotspur", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/367/schedule"}]}, "rest_and_travel": {"away": {"completed_matches_last_14_days": 1, "days_between_kickoffs": 13.041666666666666, "note": "schedule-derived travel context; actual itinerary and fatigue unverified", "previous_fixture": {"completed": true, "date": "2026-11-08T14:00Z", "home_away": "home", "name": "AFC Bournemouth at Ipswich Town", "venue": {"address": {"city": "Ipswich", "country": "England"}, "fullName": "Portman Road"}}}}, "review_links": [{"label": "Sofascore", "status": "reference only; no authorized public bulk API", "url": "https://www.sofascore.com/football"}, {"label": "Sports Mole previews", "status": "reference only; article reproduction requires permission", "url": "https://www.sportsmole.co.uk/football/"}, {"label": "Premier Injuries", "status": "reference only; copying/network storage restricted by source terms", "url": "https://www.premierinjuries.com/injury-table.php"}], "schedules": {"away": [{"completed": true, "date": "2026-11-08T14:00Z", "home_away": "home", "name": "AFC Bournemouth at Ipswich Town", "venue": {"address": {"city": "Ipswich", "country": "England"}, "fullName": "Portman Road"}}], "home": []}, "sources": [{"observed_at_utc": "2026-11-18T21:45:43.869582+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261121"}, {"observed_at_utc": "2026-11-18T21:45:50.000599+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401878754"}, {"observed_at_utc": "2026-11-18T21:45:50.070896+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/367/schedule"}, {"observed_at_utc": "2026-11-18T21:45:50.149808+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/373/schedule"}, {"observed_at_utc": "2026-11-18T21:45:44.139296+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/v2/sports/soccer/eng.1/standings"}, {"observed_at_utc": "2026-11-18T21:45:44.206486+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/news?limit=20"}, {"observed_at_utc": "2026-11-18T21:45:44.760590+00:00", "reason": "no match data (maintenance page)", "status": "unavailable", "url": "https://understat.com/league/EPL/2026"}, {"observed_at_utc": "2026-11-18T21:45:44.887366+00:00", "reason": "no match data (maintenance page)", "status": "unavailable", "url": "https://understat.com/league/EPL/2025"}, {"observed_at_utc": "2026-11-18T21:45:50.205652+00:00", "reason": "HTTPError", "status": "unavailable", "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=Tottenham+Hotspur_vs_Ipswich+Town&d=2026-11-21"}, {"observed_at_utc": "2026-11-18T21:45:49.174007+00:00", "reason": null, "status": "available", "url": "https://geocoding-api.open-meteo.com/v1/search?name=London&count=10&language=en&format=json"}, {"observed_at_utc": "2026-11-18T21:45:49.206903+00:00", "reason": null, "status": "available", "url": "https://api.open-meteo.com/v1/forecast?latitude=51.50853&longitude=-0.12574&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m%2Cwind_gusts_10m%2Crelative_humidity_2m&timezone=UTC&forecast_days=7&wind_speed_unit=kmh&temperature_unit=celsius&precipitation_unit=mm"}], "standings": {"abbreviation": "Premier League", "children": [{"abbreviation": "2026-2027", "id": "1", "name": "2026-27 English Premier League", "standings": {"displayName": "Standings", "entries": [{"note": {"color": "#81D6AC", "description": "Champions League", "rank": 1}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "1", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 1.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+10", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 10.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "27", "name": "points", "shortDisplayName": "P", "type": "points", "value": 27.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "5", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 5.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "15", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 15.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "0", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 0.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "9", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 9.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "1", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 1.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "9-0-1", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "9-0-1", "type": "total"}], "team": {"abbreviation": "ARS", "displayName": "Arsenal", "id": "359", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/359/arsenal", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Arsenal", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/359.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Arsenal", "shortDisplayName": "Arsenal", "uid": "s:600~t:359"}}, {"note": {"color": "#81D6AC", "description": "Champions League", "rank": 2}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "2", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 2.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+19", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 19.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "22", "name": "points", "shortDisplayName": "P", "type": "points", "value": 22.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "7", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 7.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "26", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 26.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "1", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 1.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "7", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 7.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "2", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 2.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "7-1-2", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "7-1-2", "type": "total"}], "team": {"abbreviation": "BHA", "displayName": "Brighton & Hove Albion", "id": "331", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/331/brighton-hove-albion", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Brighton & Hove Albion", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/331.png", "lastUpdated": "2024-01-04T17:49Z", "rel": ["full", "default"], "width": 500}], "name": "Brighton & Hove Albion", "shortDisplayName": "Brighton", "uid": "s:600~t:331"}}, {"note": {"color": "#81D6AC", "description": "Champions League", "rank": 3}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "3", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 3.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+8", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 8.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "21", "name": "points", "shortDisplayName": "P", "type": "points", "value": 21.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "13", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 13.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "21", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 21.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "0", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 0.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "7", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 7.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "3", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 3.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "7-0-3", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "7-0-3", "type": "total"}], "team": {"abbreviation": "MNC", "displayName": "Manchester City", "id": "382", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/382/manchester-city", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Manchester City", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Manchester City", "shortDisplayName": "Man City", "uid": "s:600~t:382"}}, {"note": {"color": "#81D6AC", "description": "Champions League", "rank": 4}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "2", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 2.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+4", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 4.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "18", "name": "points", "shortDisplayName": "P", "type": "points", "value": 18.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "10", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 10.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "14", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 14.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "5", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 5.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "4", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 4.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "5-3-2", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "5-3-2", "type": "total"}], "team": {"abbreviation": "LIV", "displayName": "Liverpool", "id": "364", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/364/liverpool", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Liverpool", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png", "lastUpdated": "2026-02-18T19:33Z", "rel": ["full", "default"], "width": 500}], "name": "Liverpool", "shortDisplayName": "Liverpool", "uid": "s:600~t:364"}}, {"note": {"color": "##B5E7CE", "description": "Europa League", "rank": 5}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "4", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 4.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+3", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 3.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "16", "name": "points", "shortDisplayName": "P", "type": "points", "value": 16.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "16", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 16.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "19", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 19.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "1", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 1.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "5", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 5.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "5", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 5.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "5-1-4", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "5-1-4", "type": "total"}], "team": {"abbreviation": "CHE", "displayName": "Chelsea", "id": "363", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/363/chelsea", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Chelsea", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/363.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Chelsea", "shortDisplayName": "Chelsea", "uid": "s:600~t:363"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "2", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 2.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+2", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 2.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "16", "name": "points", "shortDisplayName": "P", "type": "points", "value": 16.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "10", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 10.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "12", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 12.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "4", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 4.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "4", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 4.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "6", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 6.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "4-4-2", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "4-4-2", "type": "total"}], "team": {"abbreviation": "EVE", "displayName": "Everton", "id": "368", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/368/everton", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Everton", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/368.png", "lastUpdated": "2024-01-04T17:49Z", "rel": ["full", "default"], "width": 500}], "name": "Everton", "shortDisplayName": "Everton", "uid": "s:600~t:368"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "3", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 3.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+2", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 2.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "15", "name": "points", "shortDisplayName": "P", "type": "points", "value": 15.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "14", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 14.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "16", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 16.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "4", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 4.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "7", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 7.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "4-3-3", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "4-3-3", "type": "total"}], "team": {"abbreviation": "BOU", "displayName": "AFC Bournemouth", "id": "349", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/349/afc-bournemouth", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "AFC Bournemouth", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/349.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "AFC Bournemouth", "shortDisplayName": "Bournemouth", "uid": "s:600~t:349"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "2", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 2.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+5", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 5.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "14", "name": "points", "shortDisplayName": "P", "type": "points", "value": 14.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "11", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 11.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "16", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 16.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "5", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 5.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "3", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 3.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "8", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 8.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "3-5-2", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "3-5-2", "type": "total"}], "team": {"abbreviation": "BRE", "displayName": "Brentford", "id": "337", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/337/brentford", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Brentford", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/337.png", "lastUpdated": "2020-07-16T16:13Z", "rel": ["full", "default"], "width": 500}], "name": "Brentford", "shortDisplayName": "Brentford", "uid": "s:600~t:337"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "2", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 2.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+2", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 2.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "14", "name": "points", "shortDisplayName": "P", "type": "points", "value": 14.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "8", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 8.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "10", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 10.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "5", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 5.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "3", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 3.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "9", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 9.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "3-5-2", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "3-5-2", "type": "total"}], "team": {"abbreviation": "LEE", "displayName": "Leeds United", "id": "357", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/357/leeds-united", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Leeds United", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/357.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Leeds United", "shortDisplayName": "Leeds", "uid": "s:600~t:357"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "3", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 3.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-3", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -3.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "13", "name": "points", "shortDisplayName": "P", "type": "points", "value": 13.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "17", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 17.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "14", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 14.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "4", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 4.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "3", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 3.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "10", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 10.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "3-4-3", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "3-4-3", "type": "total"}], "team": {"abbreviation": "AVL", "displayName": "Aston Villa", "id": "362", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/362/aston-villa", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Aston Villa", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/362.png", "lastUpdated": "2025-03-21T13:31Z", "rel": ["full", "default"], "width": 500}], "name": "Aston Villa", "shortDisplayName": "Aston Villa", "uid": "s:600~t:362"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "4", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 4.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-1", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -1.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "12", "name": "points", "shortDisplayName": "P", "type": "points", "value": 12.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "11", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 11.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "10", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 10.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "3", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 3.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "11", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 11.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "3-3-4", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "3-3-4", "type": "total"}], "team": {"abbreviation": "TOT", "displayName": "Tottenham Hotspur", "id": "367", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/367/tottenham-hotspur", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Tottenham Hotspur", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/367.png", "lastUpdated": "2024-01-04T17:49Z", "rel": ["full", "default"], "width": 500}], "name": "Tottenham Hotspur", "shortDisplayName": "Spurs", "uid": "s:600~t:367"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "4", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 4.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-3", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -3.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "12", "name": "points", "shortDisplayName": "P", "type": "points", "value": 12.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "16", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 16.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "13", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 13.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "3", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 3.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "12", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 12.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "3-3-4", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "3-3-4", "type": "total"}], "team": {"abbreviation": "NEW", "displayName": "Newcastle United", "id": "361", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/361/newcastle-united", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Newcastle United", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/361.png", "lastUpdated": "2024-01-04T17:49Z", "rel": ["full", "default"], "width": 500}], "name": "Newcastle United", "shortDisplayName": "Newcastle", "uid": "s:600~t:361"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "3", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 3.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "0", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 0.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "11", "name": "points", "shortDisplayName": "P", "type": "points", "value": 11.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "11", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 11.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "11", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 11.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "5", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 5.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "2", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 2.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "13", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 13.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "2-5-3", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "2-5-3", "type": "total"}], "team": {"abbreviation": "HUL", "displayName": "Hull City", "id": "306", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/306/hull-city", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Hull City", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/306.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Hull City", "shortDisplayName": "Hull", "uid": "s:600~t:306"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "5", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 5.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-5", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -5.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "11", "name": "points", "shortDisplayName": "P", "type": "points", "value": 11.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "20", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 20.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "15", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 15.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "2", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 2.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "3", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 3.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "14", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 14.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "3-2-5", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "3-2-5", "type": "total"}], "team": {"abbreviation": "IPS", "displayName": "Ipswich Town", "id": "373", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/373/ipswich-town", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Ipswich Town", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/373.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Ipswich Town", "shortDisplayName": "Ipswich", "uid": "s:600~t:373"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "4", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 4.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-2", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -2.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "10", "name": "points", "shortDisplayName": "P", "type": "points", "value": 10.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "12", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 12.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "10", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 10.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "4", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 4.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "2", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 2.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "15", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 15.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "2-4-4", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "2-4-4", "type": "total"}], "team": {"abbreviation": "FUL", "displayName": "Fulham", "id": "370", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/370/fulham", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Fulham", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/370.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Fulham", "shortDisplayName": "Fulham", "uid": "s:600~t:370"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "5", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 5.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-4", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -4.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "9", "name": "points", "shortDisplayName": "P", "type": "points", "value": 9.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "13", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 13.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "9", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 9.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "2", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 2.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "16", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 16.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "2-3-5", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "2-3-5", "type": "total"}], "team": {"abbreviation": "NFO", "displayName": "Nottingham Forest", "id": "393", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/393/nottingham-forest", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Nottingham Forest", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/393.png", "lastUpdated": "2024-01-04T17:49Z", "rel": ["full", "default"], "width": 500}], "name": "Nottingham Forest", "shortDisplayName": "Nottm Forest", "uid": "s:600~t:393"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "7", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 7.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-9", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -9.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "9", "name": "points", "shortDisplayName": "P", "type": "points", "value": 9.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "19", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 19.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "10", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 10.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "0", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 0.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "3", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 3.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "17", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 17.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "3-0-7", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "3-0-7", "type": "total"}], "team": {"abbreviation": "COV", "displayName": "Coventry City", "id": "388", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/388/coventry-city", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Coventry City", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/388.png", "lastUpdated": "2018-06-05T12:14Z", "rel": ["full", "default"], "width": 500}], "name": "Coventry City", "shortDisplayName": "Coventry", "uid": "s:600~t:388"}}, {"note": {"color": "#FF7F84", "description": "Relegation", "rank": 18}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "4", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 4.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-5", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -5.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "8", "name": "points", "shortDisplayName": "P", "type": "points", "value": 8.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "19", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 19.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "14", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 14.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "5", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 5.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "1", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 1.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "18", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 18.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "1-5-4", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "1-5-4", "type": "total"}], "team": {"abbreviation": "MAN", "displayName": "Manchester United", "id": "360", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/360/manchester-united", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Manchester United", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/360.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Manchester United", "shortDisplayName": "Man Utd", "uid": "s:600~t:360"}}, {"note": {"color": "#FF7F84", "description": "Relegation", "rank": 19}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "6", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 6.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-9", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -9.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "8", "name": "points", "shortDisplayName": "P", "type": "points", "value": 8.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "17", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 17.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "8", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 8.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "2", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 2.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "2", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 2.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "19", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 19.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "2-2-6", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "2-2-6", "type": "total"}], "team": {"abbreviation": "SUN", "displayName": "Sunderland", "id": "366", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/366/sunderland", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Sunderland", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/366.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Sunderland", "shortDisplayName": "Sunderland", "uid": "s:600~t:366"}}, {"note": {"color": "#FF7F84", "description": "Relegation", "rank": 20}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "7", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 7.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-14", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -14.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "7", "name": "points", "shortDisplayName": "P", "type": "points", "value": 7.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "24", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 24.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "10", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 10.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "1", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 1.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "2", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 2.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "20", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 20.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "2-1-7", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "2-1-7", "type": "total"}], "team": {"abbreviation": "CRY", "displayName": "Crystal Palace", "id": "384", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/384/crystal-palace", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Crystal Palace", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/384.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Crystal Palace", "shortDisplayName": "C Palace", "uid": "s:600~t:384"}}], "id": "0", "links": [{"href": "https://www.espn.com/soccer/table/_/league/eng.1", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["standings", "desktop"], "shortText": "Standings", "text": "Full Table"}], "name": "overall", "season": 2026, "seasonDisplayName": "2026-27 English Premier League", "seasonType": 1}, "uid": "s:600~l:700~g:1"}], "id": "23", "name": "English Premier League", "season": {"displayName": "2026-27 English Premier League", "endDate": "2027-06-01T03:59Z", "startDate": "2026-06-01T04:00Z", "year": 2026}, "seasons": [{"displayName": "2026-27 English Premier League", "endDate": "2027-06-01T03:59Z", "seasonYears": "2026-27", "startDate": "2026-06-01T04:00Z", "types": [{"abbreviation": "2026-27 English Premier League", "endDate": "2027-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2026-27 English Premier League", "startDate": "2026-06-01T04:00Z"}], "year": 2026}, {"displayName": "2025-26 English Premier League", "endDate": "2026-06-01T03:59Z", "seasonYears": "2025-26", "startDate": "2025-06-01T04:00Z", "types": [{"abbreviation": "2025-26 English Premier League", "endDate": "2026-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2025-26 English Premier League", "startDate": "2025-06-01T04:00Z"}], "year": 2025}, {"displayName": "2024-25 English Premier League", "endDate": "2025-06-01T03:59Z", "seasonYears": "2024-25", "startDate": "2024-06-01T04:00Z", "types": [{"abbreviation": "2024-25 English Premier League", "endDate": "2025-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2024-25 English Premier League", "startDate": "2024-06-01T04:00Z"}], "year": 2024}, {"displayName": "2023-24 English Premier League", "endDate": "2024-06-01T03:59Z", "seasonYears": "2023-24", "startDate": "2023-06-01T04:00Z", "types": [{"abbreviation": "2023-24 English Premier League", "endDate": "2024-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2023-24 English Premier League", "startDate": "2023-06-01T04:00Z"}], "year": 2023}, {"displayName": "2022-23 English Premier League", "endDate": "2023-06-01T03:59Z", "seasonYears": "2022-23", "startDate": "2022-06-01T04:00Z", "types": [{"abbreviation": "2022-23 English Premier League", "endDate": "2023-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2022-23 English Premier League", "startDate": "2022-06-01T04:00Z"}], "year": 2022}, {"displayName": "2021-22 English Premier League", "endDate": "2022-06-01T03:59Z", "seasonYears": "2021-22", "startDate": "2021-06-01T04:00Z", "types": [{"abbreviation": "2021-22 English Premier League", "endDate": "2022-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2021-22 English Premier League", "startDate": "2021-06-01T04:00Z"}], "year": 2021}, {"displayName": "2020-21 English Premier League", "endDate": "2021-06-01T03:59Z", "seasonYears": "2020-21", "startDate": "2020-08-01T04:00Z", "types": [{"abbreviation": "2020-21 English Premier League", "endDate": "2021-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2020-21 English Premier League", "startDate": "2020-08-01T04:00Z"}], "year": 2020}, {"displayName": "2019-20 English Premier League", "endDate": "2020-08-01T03:59Z", "seasonYears": "2019-20", "startDate": "2019-06-01T04:00Z", "types": [{"abbreviation": "2019-20 English Premier League", "endDate": "2020-08-01T03:59Z", "hasStandings": true, "id": "1", "name": "2019-20 English Premier League", "startDate": "2019-06-01T04:00Z"}], "year": 2019}, {"displayName": "2018-19 English Premier League", "endDate": "2019-06-01T03:59Z", "seasonYears": "2018-19", "startDate": "2018-06-01T04:00Z", "types": [{"abbreviation": "2018-2019 English Premier League", "endDate": "2019-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2018/2019 English Premier League", "startDate": "2018-06-01T04:00Z"}], "year": 2018}, {"displayName": "2017-18 English Premier League", "endDate": "2018-06-01T03:59Z", "seasonYears": "2017-18", "startDate": "2017-06-01T04:00Z", "types": [{"abbreviation": "2017-2018 English Premier League", "endDate": "2018-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2017/2018 English Premier League", "startDate": "2017-06-01T04:00Z"}], "year": 2017}, {"displayName": "2016-17 English Premier League", "endDate": "2017-06-01T03:59Z", "seasonYears": "2016-17", "startDate": "2016-06-01T04:00Z", "types": [{"abbreviation": "2016-2017 English Premier League", "endDate": "2017-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2016/2017 English Premier League", "startDate": "2016-06-01T04:00Z"}], "year": 2016}, {"displayName": "2015-16 Barclays Premier League", "endDate": "2016-06-01T03:59Z", "seasonYears": "2015-16", "startDate": "2015-06-17T04:00Z", "types": [{"abbreviation": "2015-16", "endDate": "2016-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2015-2016 Barclays Premier League", "startDate": "2015-06-17T04:00Z"}], "year": 2015}, {"displayName": "2014-15 Barclays Premier League", "endDate": "2015-06-17T03:59Z", "seasonYears": "2014-15", "startDate": "2014-06-01T04:00Z", "types": [{"abbreviation": "2014-15", "endDate": "2015-06-17T03:59Z", "hasStandings": true, "id": "1", "name": "2014-2015 Barclays Premier League", "startDate": "2014-06-01T04:00Z"}], "year": 2014}, {"displayName": "2013-14 Barclays Premier League", "endDate": "2014-05-31T03:59Z", "seasonYears": "2013-14", "startDate": "2013-06-01T04:00Z", "types": [{"abbreviation": "2013-14", "endDate": "2014-05-31T03:59Z", "hasStandings": true, "id": "1", "name": "2013-2014 Barclays Premier League", "startDate": "2013-06-01T04:00Z"}], "year": 2013}, {"displayName": "2012-13 Barclays Premier League", "endDate": "2013-05-31T03:59Z", "seasonYears": "2012-13", "startDate": "2012-07-01T04:00Z", "types": [{"abbreviation": "2012-13", "endDate": "2013-05-31T03:59Z", "hasStandings": true, "id": "1", "name": "2012-2013 Barclays Premier League", "startDate": "2012-07-01T04:00Z"}], "year": 2012}, {"displayName": "2011-12 Barclays Premier League", "endDate": "2012-06-01T03:59Z", "seasonYears": "2011-12", "startDate": "2011-06-01T04:00Z", "types": [{"abbreviation": "2011-12", "endDate": "2012-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2011-2012 Barclays Premier League", "startDate": "2011-06-01T04:00Z"}], "year": 2011}, {"displayName": "2010-11 Barclays Premier League", "endDate": "2011-06-01T03:59Z", "seasonYears": "2010-11", "startDate": "2010-06-01T04:00Z", "types": [{"abbreviation": "2010-11", "endDate": "2011-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2010-2011 Barclays Premier League", "startDate": "2010-06-01T04:00Z"}], "year": 2010}, {"displayName": "2009-10 Barclays Premier League", "endDate": "2010-05-10T03:59Z", "seasonYears": "2009-10", "startDate": "2009-08-15T04:00Z", "types": [{"abbreviation": "2009-10", "endDate": "2010-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2009-2010 Barclays Premier League", "startDate": "2009-06-01T04:00Z"}], "year": 2009}, {"displayName": "2008-09 Barclays Premier League", "endDate": "2009-06-01T03:59Z", "seasonYears": "2008-09", "startDate": "2008-06-01T04:00Z", "types": [{"abbreviation": "2008-09", "endDate": "2009-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2008-2009 Barclays Premier League", "startDate": "2008-06-01T04:00Z"}], "year": 2008}, {"displayName": "2007-08 Barclays Premier League", "endDate": "2008-06-01T03:59Z", "seasonYears": "2007-08", "startDate": "2007-08-01T04:00Z", "types": [{"abbreviation": "2007-08", "endDate": "2008-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2007-2008 Barclays Premier League", "startDate": "2007-08-01T04:00Z"}], "year": 2007}, {"displayName": "2006-07 Barclays Premier League", "endDate": "2007-08-01T03:59Z", "seasonYears": "2006-07", "startDate": "2006-08-01T04:00Z", "types": [{"abbreviation": "2006-07", "endDate": "2007-08-01T03:59Z", "hasStandings": true, "id": "1", "name": "2006-2007 Barclays Premier League", "startDate": "2006-08-01T04:00Z"}], "year": 2006}, {"displayName": "2005-06 Barclays Premier League", "endDate": "2006-08-01T03:59Z", "seasonYears": "2005-06", "startDate": "2005-08-01T04:00Z", "types": [{"abbreviation": "2005-06", "endDate": "2006-08-01T03:59Z", "hasStandings": true, "id": "1", "name": "2005-2006 Barclays Premier League", "startDate": "2005-08-01T04:00Z"}], "year": 2005}, {"displayName": "2004-05 Barclays Premier League", "endDate": "2005-08-01T03:59Z", "seasonYears": "2004-05", "startDate": "2004-08-01T04:00Z", "types": [{"abbreviation": "2004-05", "endDate": "2005-08-01T03:59Z", "hasStandings": true, "id": "1", "name": "2004-2005 Barclays Premier League", "startDate": "2004-08-01T04:00Z"}], "year": 2004}, {"displayName": "2003-04 Barclays Premier League", "endDate": "2004-08-01T03:59Z", "seasonYears": "2003-04", "startDate": "2003-08-01T04:00Z", "types": [{"abbreviation": "2003-04", "endDate": "2004-08-01T03:59Z", "hasStandings": true, "id": "1", "name": "2003-2004 Barclays Premier League", "startDate": "2003-08-01T04:00Z"}], "year": 2003}, {"displayName": "2002-03 Barclays Premier League", "endDate": "2003-08-01T03:59Z", "seasonYears": "2002-03", "startDate": "2002-08-01T04:00Z", "types": [{"abbreviation": "2002-03", "endDate": "2003-08-01T03:59Z", "hasStandings": true, "id": "1", "name": "2002-2003 Barclays Premier League", "startDate": "2002-08-01T04:00Z"}], "year": 2002}], "uid": "s:600~l:700"}, "summary_identity_verified": true, "venue": {"address": {"city": "London", "country": "England"}, "fullName": "Tottenham Hotspur Stadium", "guid": "31a9613a-ff0e-3b16-bad0-7450d467ab77", "id": "7827", "images": [], "shortName": "Tottenham Hotspur Stadium"}, "weather": {"complete_match_window": true, "effect_on_probabilities": "context only; no validated coefficient", "hours": [{"precipitation": 0.0, "rain": 0.0, "relative_humidity_2m": 73.0, "snowfall": 0.0, "temperature_2m": 6.9, "time": "2026-11-21T15:00:00+00:00", "wind_gusts_10m": 17.6, "wind_speed_10m": 8.6}, {"precipitation": 0.0, "rain": 0.0, "relative_humidity_2m": 74.0, "snowfall": 0.0, "temperature_2m": 7.1, "time": "2026-11-21T16:00:00+00:00", "wind_gusts_10m": 19.4, "wind_speed_10m": 9.4}], "latitude": 51.50853, "location_precision": "venue city centre; stadium coordinates unavailable", "longitude": -0.12574, "missing_fields": [], "observed_at_utc": "2026-11-18T21:45:49.206903+00:00", "precipitation": 0.0, "rain": 0.0, "relative_humidity_2m": 73.0, "roof_status": "unverified", "snowfall": 0.0, "source": "https://api.open-meteo.com/v1/forecast?latitude=51.50853&longitude=-0.12574&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m%2Cwind_gusts_10m%2Crelative_humidity_2m&timezone=UTC&forecast_days=7&wind_speed_unit=kmh&temperature_unit=celsius&precipitation_unit=mm", "temperature_2m": 6.9, "time": "2026-11-21T15:00:00+00:00", "units": {"precipitation": "mm", "rain": "mm", "relative_humidity_2m": "%", "snowfall": "cm", "temperature_2m": "\u00b0C", "time": "iso8601", "wind_gusts_10m": "km/h", "wind_speed_10m": "km/h"}, "wind_gusts_10m": 17.6, "wind_speed_10m": 8.6}, "weather_location_precision": "venue city centre; stadium coordinates unavailable"}, "evidence_quality_version": "pre-match-research-quality-v1", "form": {"away": {"all": {"goals_against": 2.0965901339432316, "goals_for": 1.4755255796932567, "last_match": "2026-11-08T00:00:00+00:00", "matches": 10, "points_per_game": 0.7746675096111432, "results": "LDDLWLLWLL", "xg_against": 2.036610933302657, "xg_for": 1.2077314068025617, "xg_matches": 9}, "venue": {"goals_against": 2.4752709693354515, "goals_for": 1.7783922443008515, "last_match": "2026-10-31T00:00:00+00:00", "matches": 5, "points_per_game": 0.7713275407353295, "results": "DLLWL", "xg_against": 2.21931433500874, "xg_for": 1.5169553870575774, "xg_matches": 5}}, "home": {"all": {"goals_against": 0.9690201929413892, "goals_for": 1.2506030716079986, "last_match": "2026-11-07T00:00:00+00:00", "matches": 10, "points_per_game": 1.4062771836929042, "results": "LWWWDLLDDL", "xg_against": 0.9252652667070667, "xg_for": 1.3994883778826308, "xg_matches": 9}, "venue": {"goals_against": 1.1114072372884318, "goals_for": 1.5863687385360616, "last_match": "2026-10-31T00:00:00+00:00", "matches": 5, "points_per_game": 1.6236598562446651, "results": "WWLDL", "xg_against": 0.7497855953586868, "xg_for": 1.6730540436288734, "xg_matches": 5}}}, "form_friendlies_excluded": {"away": 2, "home": 5}, "goal_rates": [2.1227087547976327, 1.1318308574761469], "h2h": [{"away": "Tottenham", "away_goals": 4.0, "away_xg": null, "date": "2025-02-22T00:00:00+00:00", "home": "Ipswich", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Ipswich", "away_goals": 2.0, "away_xg": null, "date": "2024-11-10T00:00:00+00:00", "home": "Tottenham", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}], "margin_distribution": {"-1": 0.10464507573893, "-10": 3.967563112974041e-08, "-11": 4.010471094542237e-09, "-12": 3.726001161969905e-10, "-13": 3.2022024571952996e-11, "-14": 2.5597832292356818e-12, "-15": 1.911744253604737e-13, "-16": 1.329704141782965e-14, "-17": 7.75671440472101e-16, "-2": 0.044863631455511095, "-3": 0.014342821940186367, "-4": 0.0036507960037902923, "-5": 0.0007681055803546158, "-6": 0.00013735076421031399, "-7": 2.1322290342844998e-05, "-8": 2.9216447226835034e-06, "-9": 3.580653157957992e-07, "0": 0.21762778447179756, "1": 0.23271388752745154, "10": 2.515661194029935e-05, "11": 4.769057713197716e-06, "12": 8.309770979536959e-07, "13": 1.339379773173171e-07, "14": 2.0080153115381386e-08, "15": 2.812564592677554e-09, "16": 3.6689062471469595e-10, "17": 4.013915958007378e-11, "2": 0.18584534297706717, "3": 0.11142964484670652, "4": 0.05319399240441584, "5": 0.020989631874329874, "6": 0.007039209043662983, "7": 0.0020494414534818705, "8": 0.0005266692328836323, "9": 0.00012105470687337113}, "model_note": "Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient", "observed_at_utc": "2026-11-18T21:45:50.243852+00:00", "p_over_1_5": 0.8390229766717076, "shadow_v4": {"grid": "independent Poisson (C)", "margin_distribution": {"-1": 0.12193716659665453, "-10": 4.556537447760471e-08, "-11": 4.605815006618695e-09, "-12": 4.279116258893896e-10, "-13": 3.6775610106385334e-11, "-14": 2.939776333745223e-12, "-15": 2.1955376723827976e-13, "-16": 1.5270952330067998e-14, "-17": 8.908178307515582e-16, "-2": 0.05152351984045135, "-3": 0.016471976227249305, "-4": 0.004192747092291455, "-5": 0.0008821288385494915, "-6": 0.0001577401248026244, "-7": 2.4487528402886013e-05, "-8": 3.355355216512278e-06, "-9": 4.112191725022756e-07, "0": 0.2043649823753324, "1": 0.22868884459212666, "10": 2.4531480214834805e-05, "11": 4.650548540175278e-06, "12": 8.103276500750189e-07, "13": 1.3060967225524007e-07, "14": 1.958116935737771e-08, "15": 2.74267348965567e-09, "16": 3.577735397181567e-10, "17": 3.9141717549861755e-11, "2": 0.18122716067968497, "3": 0.10866066282654288, "4": 0.05187214301010807, "5": 0.02046804793363053, "6": 0.006864287519818136, "7": 0.0019985136546552995, "8": 0.0005135817135037186, "9": 0.00011804654591898888}, "p_over_1_5": 0.8357807831001549, "version": "team-form-research-v4"}, "version": "team-form-research-v5", "warnings": ["availability unavailable or unconfirmed", "lineups unavailable or unconfirmed", "tactics unavailable or unconfirmed", "rivalry unavailable or unconfirmed", "TheSportsDB venue: exact fixture identity/time unavailable", "C6 fit is stale (fortnightly refresh missed): using the window from 2026-11-02, the window for this day opened 2026-11-16", "Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"]} |
 
 </details>
-
-
----
