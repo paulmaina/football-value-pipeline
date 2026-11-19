@@ -62,7 +62,7 @@ Built from an AST import graph of every tracked `.py` file, starting from the sc
 | `refresh-ucl-training.yml` | cron every 4 h | `refresh_ucl_training.py --publish`, **`publish_performance.py`** | UCL cache, `performance/` |
 | `collect-api-football-data.yml`, `collect-bbs-data.yml` | cron 3×/day | collectors and publishers | `.football_cache/` |
 | `research-c6-fits.yml` | cron Monday 17:05 (fortnightly publish) | `scripts/build_research_c6_fits.py`, `scripts/build_research_ce3n_fits.py` | `research_c6_live_fits.json`, `research_ce3n_live_fits.json`, activity log |
-| `historical-benchmark.yml` | cron Monday 08:15, push | **`run_offline_tests.py`**, `historical_benchmark.py` | Actions artifact only |
+| `historical-benchmark.yml` | cron Monday 08:15 (suite only since 19 Nov 2026), push to its paths, manual | **`run_offline_tests.py`**; `historical_benchmark.py` on push and manual only | Actions artifact only (push and manual) |
 | `pipeline-self-test.yml` | every push and PR | smoke, self-test, suite under coverage, pytest pass, coverage floors | Actions artifact only |
 | `price-checks.yml` | cron hourly, job gated off (`vars.PRICE_CHECKS_ENABLED`) | `price_check.py` → `refresh_conservative_shortlist._refresh` | a new run bundle (if enabled) |
 | `europa-production-check.yml`, `audit-europa-access.yml` | push to branch `audit/europa-league-access`, manual | pipeline for UEL; `scripts/audit_europa_access.py` | Actions artifact only |
