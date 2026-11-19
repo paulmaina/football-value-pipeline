@@ -9,6 +9,9 @@ on:
       - 'historical_benchmark_inputs.json'
       - 'benchmark_promotion_rules.json'
       - '.github/workflows/historical-benchmark.yml'
+  # Weekly: the offline regression checks only. The benchmark itself (pinned replay, promotion rules,
+  # validation, summary, artifact) reads fixed, hash-pinned data, so it runs only when its own code, config
+  # or this workflow changes (push above) or by hand (workflow_dispatch). docs/historical-benchmark.md.
   schedule:
     - cron: '15 8 * * 1'
   workflow_dispatch:
@@ -41,19 +44,24 @@ jobs:
       - name: Offline regression checks
         run: python run_offline_tests.py
       - name: Run benchmark against pinned historical data
+        if: github.event_name != 'schedule'
         run: python historical_benchmark.py --materialize-pinned-data --source-commit "$SOURCE_SHA"
         env:
           SOURCE_SHA: ${{ github.sha }}
       - name: Retain preregistered review rules
+        if: github.event_name != 'schedule'
         run: cp benchmark_promotion_rules.json workflow_artifacts/historical_benchmark/promotion_rules.json
       - name: Record installed dependency versions
+        if: github.event_name != 'schedule'
         run: python -m pip freeze > workflow_artifacts/historical_benchmark/dependencies.txt
       - name: Reconcile benchmark evidence
+        if: github.event_name != 'schedule'
         run: python historical_benchmark.py --validate-only
       - name: Publish job summary
+        if: github.event_name != 'schedule'
         run: cat workflow_artifacts/historical_benchmark/report.md >> "$GITHUB_STEP_SUMMARY"
       - name: Retain full benchmark evidence
-        if: always()
+        if: always() && github.event_name != 'schedule'
         uses: actions/upload-artifact@v7
         with:
           name: historical-model-benchmark-${{ github.sha }}
