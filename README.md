@@ -314,6 +314,13 @@ Located under `football_output_v2/readable/`:
 - `<league>_report.md`
 - `<league>_predictions_readable.csv`
 - `<league>_scorelines_readable.csv`
+
+The league files show the two models the shortlists use, side by side: research (the value
+shortlist's model, v5 domestic, v6 UCL/UEL) and cagey (the cagey tier's Pinnacle market view,
+D_pow2 domestic, D UCL/UEL), the lists each fixture is on, and the master's verdict on every
+Pinnacle offer (no-loss from both views, gap, label, cagey tier). The production model (70%
+Pinnacle blend) appears only as a labelled benchmark at the end. Display only
+(`readable_views.py`; terms in `football_output_v2/readable/README.md`).
 - `conservative_bet_shortlist_report.md`
 - `conservative_bet_shortlist_readable.csv`
 

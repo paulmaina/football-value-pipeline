@@ -2,7 +2,336 @@
 
 Fixtures in this report: **4**.
 
-> Probabilities are model estimates. They describe uncertainty; they are not guarantees. Market EV figures are only shown when bookmaker prices are available.
+> Each match shows the two models the shortlists use, side by side, and the master's verdict on them: **Research** (the value shortlist's model, independent of bookmaker odds) and **Cagey** (the cagey tier's market view, built from Pinnacle's prices). Probabilities are model estimates, not guarantees. No probability here is blended or averaged. The production model (70% Pinnacle blend) is kept only as a benchmark at the end of this report.
+
+## Quick reference
+
+- **Research:** The value shortlist's model: team form, goal rates and xG, never bookmaker odds. Live research v5 (C6 grid) for domestic leagues and v6 (CE3n) for UCL/UEL, exactly as the forecast carries it.
+- **Cagey:** The cagey tier's market view: Pinnacle's 1X2, O/U 2.5 and main AH line with the margin removed, plus the narrow-margin correction (D_pow2 for domestic leagues, D for UCL/UEL, D where D_pow2's power fit fails). Blank without Pinnacle 1X2 and O/U 2.5.
+- **No-loss:** The chance a bet does not lose: a win, a half win or a refund (push) on that exact line.
+- **Gap:** Research minus cagey no-loss on the same Pinnacle offer, in percentage points (the master's g). +4 or more: research too optimistic; -4 or less: research too pessimistic; -8 or less with cagey no-loss of 85% or more: flagged for inspection.
+- **Cagey tier:** The master's market classes from the cagey no-loss: safe (75% or more), risky (below 50%), in between otherwise; fair price when the Pinnacle price is within its 2.70% margin of the cagey fair odds.
+- **Best offer:** The fixture's master pick, or else the Pinnacle offer the master's own rule would choose for it (safe first, then chance of profit), shown with both views and the master's labels.
+- **Expected goals:** A view's average goal expectation for each team, from its score grid. It is not a prediction that the team will score exactly that many goals.
+- **Fixture source:** Football-Data may include bookmaker prices. A schedule fallback may supply fixtures without betting prices, so EV fields can legitimately be blank.
+
+---
+
+## 2026-11-21 — Amed SK vs Çaykur Rizespor
+
+Research leans **Amed SK win** at **76.7%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Amed SK win | 76.7% | — |
+| Draw | 14.8% | — |
+| Çaykur Rizespor win | 8.5% | — |
+| Amed SK expected goals | 3.05 | — |
+| Çaykur Rizespor expected goals | 1.09 | — |
+| Expected total goals | 4.14 | — |
+| Most likely score | 2-1 | — |
+| Most likely score probability | 8.4% | — |
+| Over 1.5 | 92.0% | — |
+| Under 1.5 | 8.0% | — |
+| Over 2.5 | 77.9% | — |
+| Under 2.5 | 22.1% | — |
+| Over 3.5 | 59.5% | — |
+| Under 3.5 | 40.5% | — |
+| BTTS Yes | 64.3% | — |
+| BTTS No | 35.7% | — |
+| Double Chance 1X | 91.5% | — |
+| Double Chance X2 | 23.3% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 2-1 (8.38%) | — |
+| 2 | 3-1 (8.37%) | — |
+| 3 | 2-0 (7.43%) | — |
+| 4 | 3-0 (7.43%) | — |
+| 5 | 4-1 (6.28%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Amed SK -0.75 | 1.90 | 76.7% | — |
+| Çaykur Rizespor +0.75 | 1.95 | 23.3% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Home win | 1.70 | 76.7% | — | — | one view missing (no cagey view) | in between, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Away win | 4.42 | 8.5% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away +0.75 | 1.95 | 23.3% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+| Asian Handicap Home -0.75 | 1.90 | 76.7% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — Galatasaray vs Samsunspor
+
+Research leans **Galatasaray win** at **74.0%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Galatasaray win | 74.0% | — |
+| Draw | 16.9% | — |
+| Samsunspor win | 9.1% | — |
+| Galatasaray expected goals | 2.65 | — |
+| Samsunspor expected goals | 0.93 | — |
+| Expected total goals | 3.58 | — |
+| Most likely score | 2-0 | — |
+| Most likely score probability | 9.7% | — |
+| Over 1.5 | 87.5% | — |
+| Under 1.5 | 12.5% | — |
+| Over 2.5 | 69.2% | — |
+| Under 2.5 | 30.8% | — |
+| Over 3.5 | 48.3% | — |
+| Under 3.5 | 51.7% | — |
+| BTTS Yes | 57.6% | — |
+| BTTS No | 42.4% | — |
+| Double Chance 1X | 90.9% | — |
+| Double Chance X2 | 26.0% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 2-0 (9.74%) | — |
+| 2 | 2-1 (9.44%) | — |
+| 3 | 3-0 (8.46%) | — |
+| 4 | 3-1 (8.19%) | — |
+| 5 | 1-1 (7.58%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Galatasaray -1.75 | 1.82 | 52.3% | — |
+| Samsunspor +1.75 | 2.03 | 47.7% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Home win | 1.23 | 74.0% | — | — | one view missing (no cagey view) | safe, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Away win | 10.00 | 9.1% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away +1.75 | 2.03 | 47.7% | — | — | one view missing (no cagey view) | no market view | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Home -1.75 | 1.82 | 52.3% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (safe step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — Genclerbirligi SK vs Gazişehir Gaziantep
+
+Research leans **Genclerbirligi SK win** at **45.8%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Genclerbirligi SK win | 45.8% | — |
+| Draw | 27.9% | — |
+| Gazişehir Gaziantep win | 26.3% | — |
+| Genclerbirligi SK expected goals | 1.47 | — |
+| Gazişehir Gaziantep expected goals | 1.06 | — |
+| Expected total goals | 2.53 | — |
+| Most likely score | 1-1 | — |
+| Most likely score probability | 13.2% | — |
+| Over 1.5 | 72.3% | — |
+| Under 1.5 | 27.7% | — |
+| Over 2.5 | 46.2% | — |
+| Under 2.5 | 53.8% | — |
+| Over 3.5 | 25.0% | — |
+| Under 3.5 | 75.0% | — |
+| BTTS Yes | 51.2% | — |
+| BTTS No | 48.8% | — |
+| Double Chance 1X | 73.7% | — |
+| Double Chance X2 | 54.2% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (13.24%) | — |
+| 2 | 1-0 (11.38%) | — |
+| 3 | 2-1 (9.15%) | — |
+| 4 | 0-0 (8.50%) | — |
+| 5 | 2-0 (8.44%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Genclerbirligi SK -0.25 | 2.09 | 45.8% | — |
+| Gazişehir Gaziantep +0.25 | 1.78 | 54.2% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Home win | 2.41 | 45.8% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Away win | 2.86 | 26.3% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away +0.25 | 1.78 | 54.2% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+| Asian Handicap Home -0.25 | 2.09 | 45.8% | — | — | one view missing (no cagey view) | no market view | one view missing | offered odds outside (1.15, 2.00] |
+
+_Best offer: none (no offer passes the master checks with a market view). Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — Kocaelispor vs Fenerbahce
+
+Research leans **Fenerbahce win** at **46.9%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Kocaelispor win | 24.3% | — |
+| Draw | 28.9% | — |
+| Fenerbahce win | 46.9% | — |
+| Kocaelispor expected goals | 0.95 | — |
+| Fenerbahce expected goals | 1.40 | — |
+| Expected total goals | 2.35 | — |
+| Most likely score | 1-1 | — |
+| Most likely score probability | 13.5% | — |
+| Over 1.5 | 68.4% | — |
+| Under 1.5 | 31.6% | — |
+| Over 2.5 | 41.5% | — |
+| Under 2.5 | 58.5% | — |
+| Over 3.5 | 21.2% | — |
+| Under 3.5 | 78.8% | — |
+| BTTS Yes | 47.0% | — |
+| BTTS No | 53.0% | — |
+| Double Chance 1X | 53.1% | — |
+| Double Chance X2 | 75.7% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (13.54%) | — |
+| 2 | 0-1 (13.08%) | — |
+| 3 | 0-0 (10.15%) | — |
+| 4 | 0-2 (9.23%) | — |
+| 5 | 1-2 (8.94%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Kocaelispor +1.00 | 1.89 | 77.4% | — |
+| Fenerbahce -1.00 | 1.96 | 46.9% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Away win | 1.53 | 46.9% | — | — | one view missing (no cagey view) | in between, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Home win | 5.77 | 24.3% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away -1.00 | 1.96 | 46.9% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+| Asian Handicap Home +1.00 | 1.89 | 77.4% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## Benchmark (70% Pinnacle blend), display only
+
+The production forecasting model blends 70% of Pinnacle's prices into its score grid, so it is neither independent research nor the cagey tier's market view. It is shown for comparison only: no list, probability or stake reads it, and its EV is not a recommendation.
+
+- **Benchmark EV:** Model-estimated return per unit staked at the available decimal price. +5% EV means +0.05 expected units per 1 unit staked under the model; it is not a guaranteed return.
+- **Fair odds:** Decimal odds implied by the model probability, before any bookmaker margin.
+- **Probability edge:** Model probability minus the de-vigged market probability.
 
 ### Model context
 
@@ -63,33 +392,17 @@ Fixtures in this report: **4**.
 
 </details>
 
-## Quick reference
-
-- **Expected goals:** The model's average goal expectation for each team. It is not a prediction that the team will score exactly that many goals.
-- **Fair odds:** Decimal odds implied by the model probability, before any bookmaker margin.
-- **Expected value:** Model-estimated return per unit staked at the available decimal price. +5% EV means +0.05 expected units per 1 unit staked under the model; it is not a guaranteed return.
-- **Probability edge:** Model probability minus the de-vigged market probability.
-- **Fixture source:** Football-Data may include bookmaker prices. A schedule fallback may supply fixtures without betting prices, so EV fields can legitimately be blank.
-
----
-
-## 2026-11-21 — Amed SK vs Çaykur Rizespor
+### 2026-11-21 — Amed SK vs Çaykur Rizespor
 
 The model's most likely 1X2 outcome is **Amed SK win** at **63.8%**. Expected goals are 3.43 for Amed SK and 1.18 for Çaykur Rizespor (4.61 combined). The most likely exact score is 1-1 at 6.8%. Goal-market probabilities: at least one goal: 97.9%; Over 2.5 goals: 80.9%; Under 3.5 goals: 35.3%; Double Chance 1X: 82.8%; Double Chance X2: 36.2%; Double Chance 12 (either team wins): 81.0%; Under 4.5 goals: 54.7%; BTTS Yes (both teams score): 70.5%; BTTS No (at least one team does not score): 29.5%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Amed SK win | 63.8% | 1.57 |
 | Draw | 19.0% | 5.26 |
 | Çaykur Rizespor win | 17.2% | 5.81 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Amed SK expected goals | 3.43 |
 | Çaykur Rizespor expected goals | 1.18 |
@@ -105,9 +418,7 @@ The model's most likely 1X2 outcome is **Amed SK win** at **63.8%**. Expected go
 | Over 4.5 | 45.3% |
 | Under 4.5 | 54.7% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-1 | 6.83% |
 | 2 | 3-1 | 6.36% |
@@ -115,18 +426,14 @@ The model's most likely 1X2 outcome is **Amed SK win** at **63.8%**. Expected go
 | 4 | 2-1 | 5.56% |
 | 5 | 4-1 | 5.46% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Amed SK win | 63.8% | 57.2% | 1.70 | +8.4% |
 | Draw | 19.0% | 21.9% | 4.23 | -19.6% |
 | Çaykur Rizespor win | 17.2% | 20.9% | 4.42 | -23.9% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -238,25 +545,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Galatasaray vs Samsunspor
+### 2026-11-21 — Galatasaray vs Samsunspor
 
 The model's most likely 1X2 outcome is **Galatasaray win** at **78.8%**. Expected goals are 2.68 for Galatasaray and 0.79 for Samsunspor (3.48 combined). The most likely exact score is 2-0 at 11.4%. Goal-market probabilities: at least one goal: 96.8%; Over 2.5 goals: 68.5%; Under 3.5 goals: 53.7%; Double Chance 1X: 92.0%; Double Chance X2: 21.2%; Double Chance 12 (either team wins): 86.7%; Under 4.5 goals: 72.4%; BTTS Yes (both teams score): 51.0%; BTTS No (at least one team does not score): 49.0%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Galatasaray win | 78.8% | 1.27 |
 | Draw | 13.3% | 7.54 |
 | Samsunspor win | 8.0% | 12.56 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Galatasaray expected goals | 2.68 |
 | Samsunspor expected goals | 0.79 |
@@ -272,9 +571,7 @@ The model's most likely 1X2 outcome is **Galatasaray win** at **78.8%**. Expecte
 | Over 4.5 | 27.6% |
 | Under 4.5 | 72.4% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 2-0 | 11.43% |
 | 2 | 3-0 | 10.22% |
@@ -282,18 +579,14 @@ The model's most likely 1X2 outcome is **Galatasaray win** at **78.8%**. Expecte
 | 4 | 3-1 | 8.11% |
 | 5 | 1-0 | 7.88% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Galatasaray win | 78.8% | 79.7% | 1.23 | -3.1% |
 | Draw | 13.3% | 12.4% | 6.70 | -11.1% |
 | Samsunspor win | 8.0% | 8.0% | 10.00 | -20.4% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -405,25 +698,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Genclerbirligi SK vs Gazişehir Gaziantep
+### 2026-11-21 — Genclerbirligi SK vs Gazişehir Gaziantep
 
 The model's most likely 1X2 outcome is **Genclerbirligi SK win** at **41.6%**. Expected goals are 1.45 for Genclerbirligi SK and 1.04 for Gazişehir Gaziantep (2.49 combined). The most likely exact score is 1-1 at 13.0%. Goal-market probabilities: at least one goal: 91.0%; Over 2.5 goals: 45.8%; Under 3.5 goals: 76.1%; Double Chance 1X: 68.9%; Double Chance X2: 58.4%; Double Chance 12 (either team wins): 72.7%; Under 4.5 goals: 89.2%; BTTS Yes (both teams score): 50.5%; BTTS No (at least one team does not score): 49.5%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Genclerbirligi SK win | 41.6% | 2.41 |
 | Draw | 27.3% | 3.66 |
 | Gazişehir Gaziantep win | 31.1% | 3.21 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Genclerbirligi SK expected goals | 1.45 |
 | Gazişehir Gaziantep expected goals | 1.04 |
@@ -439,9 +724,7 @@ The model's most likely 1X2 outcome is **Genclerbirligi SK win** at **41.6%**. E
 | Over 4.5 | 10.8% |
 | Under 4.5 | 89.2% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-1 | 13.00% |
 | 2 | 1-0 | 9.93% |
@@ -449,18 +732,14 @@ The model's most likely 1X2 outcome is **Genclerbirligi SK win** at **41.6%**. E
 | 4 | 0-1 | 8.95% |
 | 5 | 2-1 | 8.30% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Genclerbirligi SK win | 41.6% | 39.9% | 2.41 | +0.2% |
 | Draw | 27.3% | 26.7% | 3.54 | -3.3% |
 | Gazişehir Gaziantep win | 31.1% | 33.4% | 2.86 | -11.0% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -572,25 +851,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Kocaelispor vs Fenerbahce
+### 2026-11-21 — Kocaelispor vs Fenerbahce
 
 The model's most likely 1X2 outcome is **Fenerbahce win** at **60.2%**. Expected goals are 0.77 for Kocaelispor and 1.46 for Fenerbahce (2.23 combined). The most likely exact score is 0-1 at 16.7%. Goal-market probabilities: at least one goal: 90.5%; Over 2.5 goals: 40.8%; Under 3.5 goals: 80.6%; Double Chance 1X: 39.8%; Double Chance X2: 83.5%; Double Chance 12 (either team wins): 76.7%; Under 4.5 goals: 91.8%; BTTS Yes (both teams score): 41.0%; BTTS No (at least one team does not score): 59.0%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Kocaelispor win | 16.5% | 6.06 |
 | Draw | 23.3% | 4.30 |
 | Fenerbahce win | 60.2% | 1.66 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Kocaelispor expected goals | 0.77 |
 | Fenerbahce expected goals | 1.46 |
@@ -606,9 +877,7 @@ The model's most likely 1X2 outcome is **Fenerbahce win** at **60.2%**. Expected
 | Over 4.5 | 8.2% |
 | Under 4.5 | 91.8% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 0-1 | 16.72% |
 | 2 | 0-2 | 13.14% |
@@ -616,18 +885,14 @@ The model's most likely 1X2 outcome is **Fenerbahce win** at **60.2%**. Expected
 | 4 | 1-2 | 10.18% |
 | 5 | 0-0 | 9.52% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Kocaelispor win | 16.5% | 15.5% | 5.77 | -4.7% |
 | Draw | 23.3% | 20.8% | 4.38 | +1.9% |
 | Fenerbahce win | 60.2% | 63.6% | 1.53 | -7.9% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -737,6 +1002,3 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Team research json | {"base_rates": [0.7748024001840111, 1.4578091922457175], "c6_fit": {"candidate_version": "research-low-score-then-sharpen-walk-forward-v1", "delta": 0.05820390771129642, "end_exclusive": "2026-11-16", "expected_origin": "2026-11-16", "fits_version": "research-c6-live-fits-v1", "low_score_status": "fitted", "origin": "2026-11-02", "rho": -0.018955143658940854, "slope": 1.1447833796793323, "slope_status": "fitted", "stale": true}, "coverage": {"form": "last ten, exponential rank half-life five matches", "h2h": "last four years; descriptive only", "motivation": "standings context; urgency not inferred", "rotation": "schedule congestion only; rotation unconfirmed", "training_cache": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED", "travel": "previous fixture venue; itinerary and fatigue unverified", "venue_splits": "home team home matches / away team away matches", "xg": "verified supplied xG; no goals-to-xG substitution"}, "evidence": {"coverage": {"motivation": "standings context; urgency not inferred"}, "errors": ["TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing"], "news": [], "quality_review": {"absence_note": "Reported absences only; not proof of complete coverage or a fitted player-value effect", "assessed_at_utc": "2026-11-18T21:46:12.806411+00:00", "availability": "UNAVAILABLE_OR_STALE", "form": {"away": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 7.0}, "home": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 10.0}}, "lineups": "UNCONFIRMED_OR_STALE", "probability_effect": "NONE; factual coverage/freshness review, not a calibrated confidence score", "status": "REVIEW_REQUIRED", "summary_max_age_minutes": 180, "training": {"cutoff": "2026-11-08", "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}, "version": "pre-match-research-quality-v1", "warnings": ["Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"], "weather": "UNAVAILABLE_INCOMPLETE_OR_STALE", "weather_max_age_minutes": 180}, "recent": {"away": [{"away": "Fenerbahce", "away_goals": 5.0, "away_xg": null, "competition": "tur.1", "date": "2026-11-08T13:00:00+00:00", "home": "\u00c7orum FK", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Liverpool", "away_goals": 2.0, "away_xg": null, "competition": "uefa.champions", "date": "2026-11-04T17:45:00+00:00", "home": "Fenerbahce", "home_goals": 3.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Goztepe", "away_goals": 2.0, "away_xg": null, "competition": "tur.1", "date": "2026-10-31T16:00:00+00:00", "home": "Fenerbahce", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Fenerbahce", "away_goals": 1.0, "away_xg": null, "competition": "tur.1", "date": "2026-10-26T18:30:00+00:00", "home": "Galatasaray", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Slavia Prague", "away_goals": 2.0, "away_xg": null, "competition": "uefa.champions", "date": "2026-10-20T16:45:00+00:00", "home": "Fenerbahce", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Alanyaspor", "away_goals": 0.0, "away_xg": null, "competition": "tur.1", "date": "2026-10-17T16:00:00+00:00", "home": "Fenerbahce", "home_goals": 3.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Fenerbahce", "away_goals": 0.0, "away_xg": null, "competition": "uefa.champions", "date": "2026-10-14T19:00:00+00:00", "home": "Aston Villa", "home_goals": 6.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Fenerbahce", "away_goals": 3.0, "away_xg": null, "competition": "tur.1", "date": "2026-10-10T16:00:00+00:00", "home": "Caykur Rizespor", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Fenerbahce", "away_goals": 2.0, "away_xg": null, "competition": "club.friendly", "date": "2026-10-03T16:00:00+00:00", "home": "PFC Turan Tovuz", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Eyupspor", "away_goals": 0.0, "away_xg": null, "competition": "tur.1", "date": "2026-09-20T14:00:00+00:00", "home": "Fenerbahce", "home_goals": 8.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Fenerbahce", "away_goals": 0.0, "away_xg": null, "competition": "tur.1", "date": "2026-09-14T17:00:00+00:00", "home": "Gaziantep FK", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "AS Roma", "away_goals": 1.0, "away_xg": null, "competition": "uefa.champions", "date": "2026-09-10T16:45:00+00:00", "home": "Fenerbahce", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Besiktas", "away_goals": 2.0, "away_xg": null, "competition": "tur.1", "date": "2026-09-05T17:00:00+00:00", "home": "Fenerbahce", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Fenerbahce", "away_goals": 2.0, "away_xg": null, "competition": "tur.1", "date": "2026-08-30T18:30:00+00:00", "home": "Samsunspor", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Fenerbahce", "away_goals": 2.0, "away_xg": null, "competition": "uefa.champions_qual", "date": "2026-08-26T19:00:00+00:00", "home": "Lyon", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Konyaspor", "away_goals": 2.0, "away_xg": null, "competition": "tur.1", "date": "2026-08-22T18:30:00+00:00", "home": "Fenerbahce", "home_goals": 4.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Lyon", "away_goals": 1.0, "away_xg": null, "competition": "uefa.champions_qual", "date": "2026-08-18T19:00:00+00:00", "home": "Fenerbahce", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Fenerbahce", "away_goals": 1.0, "away_xg": null, "competition": "tur.1", "date": "2026-08-15T18:30:00+00:00", "home": "Genclerbirligi", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Fenerbahce", "away_goals": 1.0, "away_xg": null, "competition": "uefa.champions_qual", "date": "2026-08-11T18:30:00+00:00", "home": "SK Sturm Graz", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "SK Sturm Graz", "away_goals": 0.0, "away_xg": null, "competition": "uefa.champions_qual", "date": "2026-08-05T18:00:00+00:00", "home": "Fenerbahce", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Fenerbahce", "away_goals": 1.0, "away_xg": null, "competition": "uefa.champions_qual", "date": "2026-07-29T18:00:00+00:00", "home": "Gornik Zabrze", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Gornik Zabrze", "away_goals": 0.0, "away_xg": null, "competition": "uefa.champions_qual", "date": "2026-07-21T18:00:00+00:00", "home": "Fenerbahce", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Fenerbahce", "away_goals": 2.0, "away_xg": null, "competition": "club.friendly", "date": "2026-07-14T17:30:00+00:00", "home": "LASK Linz", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Pogon Szczecin", "away_goals": 0.0, "away_xg": null, "competition": "club.friendly", "date": "2026-07-11T17:30:00+00:00", "home": "Fenerbahce", "home_goals": 4.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"away": "Fenerbahce", "away_goals": 5.0, "away_xg": null, "competition": "club.friendly", "date": "2026-07-08T17:30:00+00:00", "home": "FC Admira Wacker Modling", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}], "home": [{"away": "Kocaelispor", "away_goals": 2.0, "away_xg": null, "competition": "tur.1", "date": "2026-11-07T10:30:00+00:00", "home": "Eyupspor", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/995/schedule"}, {"away": "Caykur Rizespor", "away_goals": 0.0, "away_xg": null, "competition": "tur.1", "date": "2026-10-31T13:00:00+00:00", "home": "Kocaelispor", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/995/schedule"}, {"away": "Kocaelispor", "away_goals": 2.0, "away_xg": null, "competition": "tur.1", "date": "2026-10-23T17:00:00+00:00", "home": "Alanyaspor", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/995/schedule"}, {"away": "Goztepe", "away_goals": 2.0, "away_xg": null, "competition": "tur.1", "date": "2026-10-18T13:00:00+00:00", "home": "Kocaelispor", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/995/schedule"}, {"away": "Kocaelispor", "away_goals": 1.0, "away_xg": null, "competition": "tur.1", "date": "2026-10-11T16:00:00+00:00", "home": "Besiktas", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/995/schedule"}, {"away": "Gaziantep FK", "away_goals": 0.0, "away_xg": null, "competition": "tur.1", "date": "2026-09-19T14:00:00+00:00", "home": "Kocaelispor", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/995/schedule"}, {"away": "Kocaelispor", "away_goals": 0.0, "away_xg": null, "competition": "tur.1", "date": "2026-09-13T17:00:00+00:00", "home": "Galatasaray", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/995/schedule"}, {"away": "Samsunspor", "away_goals": 0.0, "away_xg": null, "competition": "tur.1", "date": "2026-09-06T17:00:00+00:00", "home": "Kocaelispor", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/995/schedule"}, {"away": "Kocaelispor", "away_goals": 2.0, "away_xg": null, "competition": "tur.1", "date": "2026-08-29T16:00:00+00:00", "home": "Konyaspor", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/995/schedule"}, {"away": "Amed SFK", "away_goals": 0.0, "away_xg": null, "competition": "tur.1", "date": "2026-08-24T18:30:00+00:00", "home": "Kocaelispor", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/995/schedule"}, {"away": "Kocaelispor", "away_goals": 0.0, "away_xg": null, "competition": "tur.1", "date": "2026-08-16T16:00:00+00:00", "home": "Istanbul Basaksehir", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/995/schedule"}]}, "rest_and_travel": {"away": {"completed_matches_last_14_days": 1, "days_between_kickoffs": 13.125, "note": "schedule-derived travel context; actual itinerary and fatigue unverified", "previous_fixture": {"completed": true, "date": "2026-11-08T13:00Z", "home_away": "away", "name": "Fenerbahce at \u00c7orum FK", "venue": {"address": {"city": "\u00c7orum", "country": "T\u00fcrkiye"}, "fullName": "\u00c7orum Sehir Stadyumu"}}}}, "review_links": [{"label": "Sofascore", "status": "reference only; no authorized public bulk API", "url": "https://www.sofascore.com/football"}, {"label": "Sports Mole previews", "status": "reference only; article reproduction requires permission", "url": "https://www.sportsmole.co.uk/football/"}], "schedules": {"away": [{"completed": true, "date": "2026-11-08T13:00Z", "home_away": "away", "name": "Fenerbahce at \u00c7orum FK", "venue": {"address": {"city": "\u00c7orum", "country": "T\u00fcrkiye"}, "fullName": "\u00c7orum Sehir Stadyumu"}}], "home": []}, "sources": [{"observed_at_utc": "2026-11-18T21:46:10.651045+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20261121"}, {"observed_at_utc": "2026-11-18T21:46:12.223057+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/summary?event=401888244"}, {"observed_at_utc": "2026-11-18T21:46:12.292505+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/995/schedule"}, {"observed_at_utc": "2026-11-18T21:46:12.373321+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"observed_at_utc": "2026-11-18T21:46:11.571008+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/v2/sports/soccer/tur.1/standings"}, {"observed_at_utc": "2026-11-18T21:46:10.724974+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/news?limit=20"}, {"observed_at_utc": "2026-11-18T21:46:12.638619+00:00", "reason": null, "status": "available", "url": "https://www.bing.com/news/search?q=%22Kocaelispor%22+%22Fenerbahce%22+injury+suspension+lineup+preview&format=rss"}, {"observed_at_utc": "2026-11-18T21:45:46.684732+00:00", "reason": null, "status": "available", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"}, {"observed_at_utc": "2026-11-18T21:45:46.820635+00:00", "reason": null, "status": "available", "url": "https://www.theguardian.com/football/rss"}, {"observed_at_utc": "2026-11-18T21:46:12.677669+00:00", "reason": "TheSportsDB free source limit: 30 requests per minute", "status": "unavailable", "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=Kocaelispor_vs_Fenerbahce&d=2026-11-21"}, {"observed_at_utc": "2026-11-18T21:46:12.805782+00:00", "reason": null, "status": "available", "url": "https://geocoding-api.open-meteo.com/v1/search?name=Kocaeli&count=10&language=en&format=json"}], "standings": {"abbreviation": "Turkish Super Lig", "children": [{"abbreviation": "2026-2027", "id": "1", "name": "2026/2027 Turkish Super Lig", "standings": {"displayName": "Standings", "entries": [{"note": {"color": "#81D6AC", "description": "Champions League", "rank": 1}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "11", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 11.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "1", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 1.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+12", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 12.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "28", "name": "points", "shortDisplayName": "P", "type": "points", "value": 28.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "15", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 15.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "27", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 27.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "1", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 1.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "9", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 9.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "1", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 1.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "9-1-1", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "9-1-1", "type": "total"}], "team": {"abbreviation": "GAL", "displayName": "Galatasaray", "id": "432", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/432/galatasaray", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Galatasaray", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/432.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Galatasaray", "shortDisplayName": "Galatasaray", "uid": "s:600~t:432"}}, {"note": {"color": "#B5E7CE", "description": "Champions League qualifying", "rank": 2}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "11", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 11.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "2", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 2.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+18", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 18.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "25", "name": "points", "shortDisplayName": "P", "type": "points", "value": 25.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "8", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 8.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "26", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 26.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "1", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 1.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "8", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 8.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "2", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 2.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "8-1-2", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "8-1-2", "type": "total"}], "team": {"abbreviation": "TRAB", "displayName": "Trabzonspor", "id": "997", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/997/trabzonspor", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Trabzonspor", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/997.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Trabzonspor", "shortDisplayName": "Trabzonspor", "uid": "s:600~t:997"}}, {"note": {"color": "#B2BFD0", "description": "Europa League qualifying", "rank": 3}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "11", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 11.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "2", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 2.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+13", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 13.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "23", "name": "points", "shortDisplayName": "P", "type": "points", "value": 23.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "15", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 15.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "28", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 28.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "2", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 2.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "7", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 7.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "3", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 3.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "7-2-2", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "7-2-2", "type": "total"}], "team": {"abbreviation": "AMED", "displayName": "Amed SFK", "id": "132335", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/132335/amed-sfk", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Amed SFK", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/132335.png", "lastUpdated": "2026-10-07T20:26Z", "rel": ["full", "default"], "width": 500}], "name": "Amed SFK", "shortDisplayName": "Amed SFK", "uid": "s:600~t:132335"}}, {"note": {"color": "#c6d1e0", "description": "Conference League qualifying", "rank": 4}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "11", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 11.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "3", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 3.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+11", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 11.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "22", "name": "points", "shortDisplayName": "P", "type": "points", "value": 22.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "12", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 12.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "23", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 23.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "1", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 1.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "7", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 7.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "4", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 4.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "7-1-3", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "7-1-3", "type": "total"}], "team": {"abbreviation": "BES", "displayName": "Besiktas", "id": "1895", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/1895/besiktas", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Besiktas", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/1895.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Besiktas", "shortDisplayName": "Besiktas", "uid": "s:600~t:1895"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "11", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 11.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "1", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 1.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+6", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 6.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "20", "name": "points", "shortDisplayName": "P", "type": "points", "value": 20.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "11", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 11.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "17", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 17.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "5", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 5.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "5", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 5.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "5", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 5.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "5-5-1", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "5-5-1", "type": "total"}], "team": {"abbreviation": "KAS", "displayName": "Kasimpasa", "id": "6870", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/6870/kasimpasa", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Kasimpasa", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/6870.png", "lastUpdated": "2018-09-21T18:22Z", "rel": ["full", "default"], "width": 500}], "name": "Kasimpasa", "shortDisplayName": "Kasimpasa", "uid": "s:600~t:6870"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "11", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 11.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "4", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 4.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+19", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 19.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "19", "name": "points", "shortDisplayName": "P", "type": "points", "value": 19.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "10", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 10.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "29", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 29.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "1", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 1.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "6", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 6.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "6", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 6.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "6-1-4", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "6-1-4", "type": "total"}], "team": {"abbreviation": "FEN", "displayName": "Fenerbahce", "id": "436", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/436/fenerbahce", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Fenerbahce", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/436.png", "lastUpdated": "2018-06-05T12:14Z", "rel": ["full", "default"], "width": 500}], "name": "Fenerbahce", "shortDisplayName": "Fenerbahce", "uid": "s:600~t:436"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "11", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 11.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "4", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 4.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+4", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 4.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "19", "name": "points", "shortDisplayName": "P", "type": "points", "value": 19.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "9", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 9.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "13", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 13.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "1", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 1.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "6", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 6.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "7", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 7.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "6-1-4", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "6-1-4", "type": "total"}], "team": {"abbreviation": "KOC", "displayName": "Kocaelispor", "id": "995", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/995/kocaelispor", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Kocaelispor", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/995.png", "lastUpdated": "2026-01-08T17:34Z", "rel": ["full", "default"], "width": 500}], "name": "Kocaelispor", "shortDisplayName": "Kocaelispor", "uid": "s:600~t:995"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "11", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 11.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "4", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 4.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+2", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 2.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "17", "name": "points", "shortDisplayName": "P", "type": "points", "value": 17.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "17", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 17.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "19", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 19.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "2", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 2.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "5", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 5.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "8", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 8.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "5-2-4", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "5-2-4", "type": "total"}], "team": {"abbreviation": "IBFK", "displayName": "Istanbul Basaksehir", "id": "7914", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/7914/istanbul-basaksehir", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Istanbul Basaksehir", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/7914.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Istanbul Basaksehir", "shortDisplayName": "Istanbul BB", "uid": "s:600~t:7914"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "11", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 11.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "5", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 5.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "0", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 0.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "16", "name": "points", "shortDisplayName": "P", "type": "points", "value": 16.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "21", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 21.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "21", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 21.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "1", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 1.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "5", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 5.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "9", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 9.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "5-1-5", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "5-1-5", "type": "total"}], "team": {"abbreviation": "COR", "displayName": "\u00c7orum FK", "id": "132334", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/132334/corum-fk", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "\u00c7orum FK", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/132334.png", "lastUpdated": "2026-09-02T15:49Z", "rel": ["full", "default"], "width": 500}], "name": "\u00c7orum FK", "shortDisplayName": "\u00c7orum FK", "uid": "s:600~t:132334"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "11", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 11.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "4", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 4.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+3", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 3.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "15", "name": "points", "shortDisplayName": "P", "type": "points", "value": 15.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "19", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 19.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "22", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 22.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "4", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 4.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "10", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 10.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "4-3-4", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "4-3-4", "type": "total"}], "team": {"abbreviation": "GOZ", "displayName": "Goztepe", "id": "789", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/789/goztepe", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Goztepe", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/789.png", "lastUpdated": "2018-09-21T18:23Z", "rel": ["full", "default"], "width": 500}], "name": "Goztepe", "shortDisplayName": "Goztepe", "uid": "s:600~t:789"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "11", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 11.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "5", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 5.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-3", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -3.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "14", "name": "points", "shortDisplayName": "P", "type": "points", "value": 14.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "16", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 16.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "13", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 13.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "2", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 2.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "4", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 4.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "11", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 11.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "4-2-5", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "4-2-5", "type": "total"}], "team": {"abbreviation": "CAY", "displayName": "Caykur Rizespor", "id": "7656", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/7656/caykur-rizespor", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Caykur Rizespor", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/7656.png", "lastUpdated": "2018-09-21T18:23Z", "rel": ["full", "default"], "width": 500}], "name": "Caykur Rizespor", "shortDisplayName": "Caykur Rizespor", "uid": "s:600~t:7656"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "11", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 11.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "5", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 5.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-7", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -7.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "14", "name": "points", "shortDisplayName": "P", "type": "points", "value": 14.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "17", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 17.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "10", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 10.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "2", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 2.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "4", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 4.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "12", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 12.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "4-2-5", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "4-2-5", "type": "total"}], "team": {"abbreviation": "ERZ", "displayName": "Erzurum BB", "id": "19267", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/19267/erzurum-bb", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Erzurum BB", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/19267.png", "lastUpdated": "2018-09-21T18:20Z", "rel": ["full", "default"], "width": 500}], "name": "Erzurum BB", "shortDisplayName": "Erzurum", "uid": "s:600~t:19267"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "11", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 11.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "5", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 5.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-9", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -9.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "12", "name": "points", "shortDisplayName": "P", "type": "points", "value": 12.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "18", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 18.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "9", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 9.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "3", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 3.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "13", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 13.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "3-3-5", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "3-3-5", "type": "total"}], "team": {"abbreviation": "ALA", "displayName": "Alanyaspor", "id": "9078", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/9078/alanyaspor", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Alanyaspor", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/9078.png", "lastUpdated": "2018-09-21T18:23Z", "rel": ["full", "default"], "width": 500}], "name": "Alanyaspor", "shortDisplayName": "Alanyaspor", "uid": "s:600~t:9078"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "11", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 11.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "6", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 6.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-9", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -9.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "11", "name": "points", "shortDisplayName": "P", "type": "points", "value": 11.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "21", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 21.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "12", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 12.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "2", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 2.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "3", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 3.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "14", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 14.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "3-2-6", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "3-2-6", "type": "total"}], "team": {"abbreviation": "GEN", "displayName": "Genclerbirligi", "id": "996", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/996/genclerbirligi", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Genclerbirligi", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/996.png", "lastUpdated": "2019-08-05T22:30Z", "rel": ["full", "default"], "width": 500}], "name": "Genclerbirligi", "shortDisplayName": "Genclerbirli", "uid": "s:600~t:996"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "11", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 11.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "7", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 7.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-8", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -8.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "8", "name": "points", "shortDisplayName": "P", "type": "points", "value": 8.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "14", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 14.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "6", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 6.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "2", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 2.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "2", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 2.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "15", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 15.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "2-2-7", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "2-2-7", "type": "total"}], "team": {"abbreviation": "KNY", "displayName": "Konyaspor", "id": "7648", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/7648/konyaspor", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Konyaspor", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/7648.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Konyaspor", "shortDisplayName": "Konyaspor", "uid": "s:600~t:7648"}}, {"note": {"color": "#FF7F84", "description": "Relegated", "rank": 16}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "11", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 11.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "7", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 7.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-10", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -10.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "8", "name": "points", "shortDisplayName": "P", "type": "points", "value": 8.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "19", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 19.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "9", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 9.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "2", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 2.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "2", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 2.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "16", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 16.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "2-2-7", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "2-2-7", "type": "total"}], "team": {"abbreviation": "GAZ", "displayName": "Gaziantep FK", "id": "20070", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/20070/gaziantep-fk", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Gaziantep FK", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/20070.png", "lastUpdated": "2019-08-05T22:30Z", "rel": ["full", "default"], "width": 500}], "name": "Gaziantep FK", "shortDisplayName": "Gaziantep", "uid": "s:600~t:20070"}}, {"note": {"color": "#FF7F84", "description": "Relegated", "rank": 17}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "11", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 11.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "8", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 8.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-15", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -15.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "7", "name": "points", "shortDisplayName": "P", "type": "points", "value": 7.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "26", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 26.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "11", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 11.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "1", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 1.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "2", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 2.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "17", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 17.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "2-1-8", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "2-1-8", "type": "total"}], "team": {"abbreviation": "SAM", "displayName": "Samsunspor", "id": "11429", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/11429/samsunspor", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Samsunspor", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/11429.png", "lastUpdated": "2023-09-15T18:47Z", "rel": ["full", "default"], "width": 500}], "name": "Samsunspor", "shortDisplayName": "Samsunspor", "uid": "s:600~t:11429"}}, {"note": {"color": "#FF7F84", "description": "Relegated", "rank": 18}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "11", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 11.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "10", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 10.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-27", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -27.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "3", "name": "points", "shortDisplayName": "P", "type": "points", "value": 3.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "30", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 30.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "3", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 3.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "0", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 0.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "1", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 1.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "18", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 18.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "1-0-10", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "1-0-10", "type": "total"}], "team": {"abbreviation": "EYU", "displayName": "Eyupspor", "id": "20729", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/20729/eyupspor", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Eyupspor", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/20729.png", "lastUpdated": "2024-10-03T18:24Z", "rel": ["full", "default"], "width": 500}], "name": "Eyupspor", "shortDisplayName": "Eyupspor", "uid": "s:600~t:20729"}}], "id": "0", "links": [{"href": "https://www.espn.com/soccer/table/_/league/tur.1", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["standings", "desktop"], "shortText": "Standings", "text": "Full Table"}], "name": "overall", "season": 2026, "seasonDisplayName": "2026-27 Turkish Super Lig", "seasonType": 1}, "uid": "s:600~l:3946~g:1"}], "id": "18", "name": "Turkish Super Lig", "season": {"displayName": "2026-27 Turkish Super Lig", "endDate": "2027-07-01T03:59Z", "startDate": "2026-07-01T04:00Z", "year": 2026}, "seasons": [{"displayName": "2026-27 Turkish Super Lig", "endDate": "2027-07-01T03:59Z", "seasonYears": "2026-27", "startDate": "2026-07-01T04:00Z", "types": [{"abbreviation": "2026-27 Super Lig", "endDate": "2027-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2026-27 Turkish Super Lig", "startDate": "2026-07-01T04:00Z"}], "year": 2026}, {"displayName": "2025-26 Turkish Super Lig", "endDate": "2026-07-01T03:59Z", "seasonYears": "2025-26", "startDate": "2025-07-01T04:00Z", "types": [{"abbreviation": "2025-26 Super Lig", "endDate": "2026-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2025-26 Turkish Super Lig", "startDate": "2025-07-01T04:00Z"}], "year": 2025}, {"displayName": "2024-25 Turkish Super Lig", "endDate": "2025-07-01T03:59Z", "seasonYears": "2024-25", "startDate": "2024-07-01T04:00Z", "types": [{"abbreviation": "2024-25 Super Lig", "endDate": "2025-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2024-25 Turkish Super Lig", "startDate": "2024-07-01T04:00Z"}], "year": 2024}, {"displayName": "2023-24 Turkish Super Lig", "endDate": "2024-07-01T03:59Z", "seasonYears": "2023-24", "startDate": "2023-07-01T04:00Z", "types": [{"abbreviation": "2023-24 Super Lig", "endDate": "2024-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2023-24 Turkish Super Lig", "startDate": "2023-07-01T04:00Z"}], "year": 2023}, {"displayName": "2022-23 Turkish Super Lig", "endDate": "2023-07-01T03:59Z", "seasonYears": "2022-23", "startDate": "2022-07-01T04:00Z", "types": [{"abbreviation": "2022-23 Super Lig", "endDate": "2023-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2022-23 Turkish Super Lig", "startDate": "2022-07-01T04:00Z"}], "year": 2022}, {"displayName": "2021-22 Turkish Super Lig", "endDate": "2022-08-09T03:59Z", "seasonYears": "2021-22", "startDate": "2021-07-01T04:00Z", "types": [{"abbreviation": "2021-22 Super Lig", "endDate": "2022-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2021-22 Turkish Super Lig", "startDate": "2021-07-01T04:00Z"}], "year": 2021}, {"displayName": "2020-21 Turkish Super Lig", "endDate": "2021-08-09T03:59Z", "seasonYears": "2020-21", "startDate": "2020-07-01T04:00Z", "types": [{"abbreviation": "2020-21", "endDate": "2021-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2020-21 Turkish Super Lig", "startDate": "2020-08-26T04:00Z"}], "year": 2020}, {"displayName": "2019-20 Turkish Super Lig", "endDate": "2020-08-09T03:59Z", "seasonYears": "2019-20", "startDate": "2019-07-01T04:00Z", "types": [{"abbreviation": "2019-20", "endDate": "2020-08-09T03:59Z", "hasStandings": true, "id": "1", "name": "2019-20 Turkish Super Lig", "startDate": "2019-07-01T04:00Z"}], "year": 2019}, {"displayName": "2018-19 Turkish Super Lig", "endDate": "2019-07-01T03:59Z", "seasonYears": "2018-19", "startDate": "2018-07-01T04:00Z", "types": [{"abbreviation": "2018-19", "endDate": "2019-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2018/2019 Turkish Super Lig", "startDate": "2018-07-01T04:00Z"}], "year": 2018}, {"displayName": "2017-18 Turkish Super Lig", "endDate": "2018-07-01T03:59Z", "seasonYears": "2017-18", "startDate": "2017-07-01T04:00Z", "types": [{"abbreviation": "2017-18", "endDate": "2018-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2017/2018 Turkish Super Lig", "startDate": "2017-07-01T04:00Z"}], "year": 2017}, {"displayName": "2016-17 Turkish Super Lig", "endDate": "2017-07-01T03:59Z", "seasonYears": "2016-17", "startDate": "2016-07-01T04:00Z", "types": [{"abbreviation": "2016-17", "endDate": "2017-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2016/2017 Turkish Super Lig", "startDate": "2016-07-01T04:00Z"}], "year": 2016}, {"displayName": "2015/16 Turkish Super Lig", "endDate": "2016-07-01T03:59Z", "seasonYears": "2015-16", "startDate": "2015-07-01T04:00Z", "types": [{"abbreviation": "2015-16", "endDate": "2016-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2015/2016 Turkish Super Lig", "startDate": "2015-07-01T04:00Z"}], "year": 2015}, {"displayName": "2014/15 Turkish Super Lig", "endDate": "2015-07-01T03:59Z", "seasonYears": "2014-15", "startDate": "2014-07-01T04:00Z", "types": [{"abbreviation": "2014-15", "endDate": "2015-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2014/2015 Turkish Super Lig", "startDate": "2014-07-01T04:00Z"}], "year": 2014}, {"displayName": "2013/14 Turkish Super Lig", "endDate": "2014-07-01T03:59Z", "seasonYears": "2013-14", "startDate": "2013-07-01T04:00Z", "types": [{"abbreviation": "2013-14", "endDate": "2014-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2013/2014 Turkish Super Lig", "startDate": "2013-07-01T04:00Z"}], "year": 2013}, {"displayName": "2012/13 Turkish Super Lig", "endDate": "2013-07-01T03:59Z", "seasonYears": "2012-13", "startDate": "2012-07-01T04:00Z", "types": [{"abbreviation": "2012-13", "endDate": "2013-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2012/2013 Turkish Super Lig", "startDate": "2012-07-01T04:00Z"}], "year": 2012}, {"displayName": "2011/12 Turkish Super Lig", "endDate": "2012-07-01T03:59Z", "seasonYears": "2011-12", "startDate": "2011-07-01T04:00Z", "types": [{"abbreviation": "2011-12", "endDate": "2012-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2011/2012 Turkish Super Lig", "startDate": "2011-07-01T04:00Z"}], "year": 2011}, {"displayName": "2010/11 Turkish Super Lig", "endDate": "2011-07-01T03:59Z", "seasonYears": "2010-11", "startDate": "2010-07-01T04:00Z", "types": [{"abbreviation": "2010-11", "endDate": "2011-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2010/2011 Turkish Super Lig", "startDate": "2010-07-01T04:00Z"}], "year": 2010}, {"displayName": "2009/10 Turkish Super Lig", "endDate": "2010-07-01T03:59Z", "seasonYears": "2009-10", "startDate": "2009-07-01T04:00Z", "types": [{"abbreviation": "2009-10", "endDate": "2010-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2009/2010 Turkish Super Lig", "startDate": "2009-07-01T04:00Z"}], "year": 2009}, {"displayName": "2008/09 Turkish Super Lig", "endDate": "2009-07-01T03:59Z", "seasonYears": "2008-09", "startDate": "2008-07-01T04:00Z", "types": [{"abbreviation": "2008-09", "endDate": "2009-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2008/2009 Turkish Super Lig", "startDate": "2008-07-01T04:00Z"}], "year": 2008}, {"displayName": "2007/08 Turkish Super Lig", "endDate": "2008-07-01T03:59Z", "seasonYears": "2007-08", "startDate": "2007-07-01T04:00Z", "types": [{"abbreviation": "2007-08", "endDate": "2008-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2007/2008 Turkish Super Lig", "startDate": "2007-07-01T04:00Z"}], "year": 2007}, {"displayName": "2006/07 Turkish Super Lig", "endDate": "2007-07-01T03:59Z", "seasonYears": "2006-07", "startDate": "2006-07-01T04:00Z", "types": [{"abbreviation": "2006-07", "endDate": "2007-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2006/2007 Turkish Super Lig", "startDate": "2006-07-01T04:00Z"}], "year": 2006}], "uid": "s:600~l:3946"}, "summary_identity_verified": true, "venue": {"address": {"city": "Kocaeli", "country": "T\u00fcrkiye"}, "fullName": "Yildiz Entegre Kocaeli Stadyumu", "id": "10727", "images": [], "shortName": "Yildiz Entegre Kocaeli Stadyumu"}}, "evidence_quality_version": "pre-match-research-quality-v1", "form": {"away": {"all": {"goals_against": 1.4389039556200316, "goals_for": 2.667308323742042, "last_match": "2026-11-08T00:00:00+00:00", "matches": 10, "points_per_game": 1.7431823068973538, "results": "WWLLDWLWWD", "xg_against": 1.6002794435345855, "xg_for": 1.7580192094346891, "xg_matches": 7}, "venue": {"goals_against": 1.6280210545887233, "goals_for": 2.0323075944481865, "last_match": "2026-11-08T00:00:00+00:00", "matches": 5, "points_per_game": 1.4378236425478677, "results": "WLLWD", "xg_against": 1.7813281058195345, "xg_for": 0.9138278067391681, "xg_matches": 4}}, "home": {"all": {"goals_against": 0.6888810234747647, "goals_for": 1.2708227207418687, "last_match": "2026-11-07T00:00:00+00:00", "matches": 10, "points_per_game": 1.8350868715965611, "results": "WDWLLWLWWW", "xg_against": 1.0926510779797987, "xg_for": 1.2122471003724866, "xg_matches": 10}, "venue": {"goals_against": 0.4507691201637004, "goals_for": 1.0860081373267871, "last_match": "2026-10-31T00:00:00+00:00", "matches": 5, "points_per_game": 1.8060485729389457, "results": "DLWWW", "xg_against": 1.0475851403022542, "xg_for": 1.215883539079851, "xg_matches": 5}}}, "form_friendlies_excluded": {"away": 4, "home": 0}, "goal_rates": [0.9688731321085925, 1.3857189139324595], "h2h": [{"away": "Fenerbahce", "away_goals": 2.0, "away_xg": null, "date": "2026-02-02T00:00:00+00:00", "home": "Kocaelispor", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Kocaelispor", "away_goals": 1.0, "away_xg": null, "date": "2025-08-23T00:00:00+00:00", "home": "Fenerbahce", "home_goals": 3.0, "home_xg": null, "source": "pipeline training history"}], "margin_distribution": {"-1": 0.2426345664636601, "-10": 7.810284268822305e-07, "-11": 9.740691980334713e-08, "-12": 1.1151453965747198e-08, "-13": 1.1754516004121769e-09, "-14": 1.0616499289948498e-10, "-2": 0.1412139923658318, "-3": 0.05902317170087214, "-4": 0.019211374961055627, "-5": 0.00510286164216284, "-6": 0.0011428301587425222, "-7": 0.0002210309411759541, "-8": 3.759499251275965e-05, "-9": 5.704374951871772e-06, "0": 0.2887505800443723, "1": 0.15542089837697115, "10": 2.0064940715291735e-08, "11": 1.749655788848281e-09, "12": 1.4005095397979698e-10, "13": 1.0321696739946398e-11, "14": 6.51807639441477e-13, "2": 0.06352060538453044, "3": 0.01856313008757098, "4": 0.004224534695148353, "5": 0.000784559695447527, "6": 0.00012285297028172086, "7": 1.6613028466733374e-05, "8": 1.9756841093976352e-06, "9": 2.0959809745144045e-07}, "model_note": "Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient", "observed_at_utc": "2026-11-18T21:46:12.806411+00:00", "p_over_1_5": 0.6842520550977612, "shadow_v4": {"grid": "independent Poisson (C)", "margin_distribution": {"-1": 0.24198385059432886, "-10": 7.711570761705933e-07, "-11": 9.617580217174249e-08, "-12": 1.1010511703914308e-08, "-13": 1.1605951693363678e-09, "-14": 1.0482318273977964e-10, "-2": 0.1394292009343622, "-3": 0.0582771829405164, "-4": 0.018968564055119246, "-5": 0.005038367015374634, "-6": 0.0011283860272455206, "-7": 0.00021823735023435316, "-8": 3.7119832655164905e-05, "-9": 5.6322778504059695e-06, "0": 0.2721136685223749, "1": 0.16919134817874926, "10": 2.153081783443957e-08, "11": 1.8774797592078143e-09, "12": 1.5028260588781137e-10, "13": 1.107576520675922e-11, "14": 6.994265144882816e-13, "2": 0.0681612072855686, "3": 0.019919289970684758, "4": 0.00453316499894709, "5": 0.000841876989452071, "6": 0.00013182819531281582, "7": 1.7826720480813267e-05, "8": 2.1200209490486384e-06, "9": 2.2491062987456533e-07}, "p_over_1_5": 0.6815411076795607, "version": "team-form-research-v4"}, "version": "team-form-research-v5", "warnings": ["availability unavailable or unconfirmed", "lineups unavailable or unconfirmed", "tactics unavailable or unconfirmed", "rivalry unavailable or unconfirmed", "weather unavailable or unconfirmed", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing", "C6 fit is stale (fortnightly refresh missed): using the window from 2026-11-02, the window for this day opened 2026-11-16", "Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"]} |
 
 </details>
-
-
----

@@ -7,7 +7,13 @@ Each CSV must be byte-identical after that normalisation, or else cell-for-cell 
 the last bits (relative 1e-12): some older lists carry full-precision floats whose last digit depends on the CPU's
 math kernels (the same reason tests/master_golden.py never compares raw digests across machines). On one machine
 main and the branch were compared byte for byte (scripts/format_saved_runs.py --compare): 556 of 556 identical.
-The workbooks are not compared: they are what changed."""
+The workbooks are not compared: they are what changed.
+
+Since the readable league files show the research and cagey views (readable_views.py, 19 Nov 2026), the league
+CSVs (*_predictions_readable.csv, *_scorelines_readable.csv: 466 of the 556) are written and named as before but
+their contents are what changed, so they are not compared here; tests/test_readable_views.py checks them against
+the run's shortlist and master files. The other 90 (value shortlist, cagey tier, master and bet365 lists) must
+still match main's."""
 from __future__ import annotations
 
 import contextlib
@@ -26,6 +32,7 @@ import quote_policy
 REPO = Path(__file__).resolve().parents[1]
 FIXTURE = Path(__file__).with_name('fixtures') / 'saved_runs_readable_csv_main.zip'
 START, END = '2026-10-27', '2026-11-09'
+LEAGUE_FILES = ('_predictions_readable.csv', '_scorelines_readable.csv')  # changed by design (see the docstring)
 
 
 def script():
@@ -87,11 +94,13 @@ class SavedRunsReadableCsvTests(unittest.TestCase):
                 written = {p.name: p.read_bytes() for p in sorted(out.glob('*.csv'))}
                 self.assertEqual(sorted(written), sorted(expected[snapshot.name]), snapshot.name)
                 for name, data in written.items():
+                    if name.endswith(LEAGUE_FILES):
+                        continue
                     problems += differences(data, expected[snapshot.name][name], f'{snapshot.name}/{name}')
+                    compared += 1
                 self.assertTrue((out / 'league_predictions.xlsx').exists())
-                compared += len(written)
         self.assertEqual(problems, [])
-        self.assertEqual(compared, 556)
+        self.assertEqual(compared, 90)
 
     def test_comparison_allows_only_last_bit_float_noise(self):
         want = b'a,b\nx,0.2493245851022771\n'

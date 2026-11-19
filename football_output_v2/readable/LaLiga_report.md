@@ -2,7 +2,413 @@
 
 Fixtures in this report: **5**.
 
-> Probabilities are model estimates. They describe uncertainty; they are not guarantees. Market EV figures are only shown when bookmaker prices are available.
+> Each match shows the two models the shortlists use, side by side, and the master's verdict on them: **Research** (the value shortlist's model, independent of bookmaker odds) and **Cagey** (the cagey tier's market view, built from Pinnacle's prices). Probabilities are model estimates, not guarantees. No probability here is blended or averaged. The production model (70% Pinnacle blend) is kept only as a benchmark at the end of this report.
+
+## Quick reference
+
+- **Research:** The value shortlist's model: team form, goal rates and xG, never bookmaker odds. Live research v5 (C6 grid) for domestic leagues and v6 (CE3n) for UCL/UEL, exactly as the forecast carries it.
+- **Cagey:** The cagey tier's market view: Pinnacle's 1X2, O/U 2.5 and main AH line with the margin removed, plus the narrow-margin correction (D_pow2 for domestic leagues, D for UCL/UEL, D where D_pow2's power fit fails). Blank without Pinnacle 1X2 and O/U 2.5.
+- **No-loss:** The chance a bet does not lose: a win, a half win or a refund (push) on that exact line.
+- **Gap:** Research minus cagey no-loss on the same Pinnacle offer, in percentage points (the master's g). +4 or more: research too optimistic; -4 or less: research too pessimistic; -8 or less with cagey no-loss of 85% or more: flagged for inspection.
+- **Cagey tier:** The master's market classes from the cagey no-loss: safe (75% or more), risky (below 50%), in between otherwise; fair price when the Pinnacle price is within its 2.70% margin of the cagey fair odds.
+- **Best offer:** The fixture's master pick, or else the Pinnacle offer the master's own rule would choose for it (safe first, then chance of profit), shown with both views and the master's labels.
+- **Expected goals:** A view's average goal expectation for each team, from its score grid. It is not a prediction that the team will score exactly that many goals.
+- **Fixture source:** Football-Data may include bookmaker prices. A schedule fallback may supply fixtures without betting prices, so EV fields can legitimately be blank.
+
+---
+
+## 2026-11-20 — Athletic Bilbao vs Espanyol
+
+Research leans **Athletic Bilbao win** at **56.2%**. Cagey leans **Athletic Bilbao win** at **65.8%**. The two views agree on the lean.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** cagey D_pow2 (fit B)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Athletic Bilbao win | 56.2% | 65.8% |
+| Draw | 27.0% | 20.9% |
+| Espanyol win | 16.7% | 13.2% |
+| Athletic Bilbao expected goals | 1.59 | 1.97 |
+| Espanyol expected goals | 0.78 | 0.79 |
+| Expected total goals | 2.36 | 2.76 |
+| Most likely score | 1-0 | 1-0 |
+| Most likely score probability | 14.7% | 13.3% |
+| Over 1.5 | 68.8% | 77.3% |
+| Under 1.5 | 31.2% | 22.7% |
+| Over 2.5 | 41.9% | 52.3% |
+| Under 2.5 | 58.1% | 47.7% |
+| Over 3.5 | 21.5% | 29.7% |
+| Under 3.5 | 78.5% | 70.3% |
+| BTTS Yes | 44.1% | 48.3% |
+| BTTS No | 55.9% | 51.7% |
+| Double Chance 1X | 83.3% | 86.8% |
+| Double Chance X2 | 43.8% | 34.2% |
+
+_Cagey Over/Under 1.5 come from the uncorrected Pinnacle grid, as the cagey tier prices Over 1.5; its other figures from the corrected grid._
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-0 (14.74%) | 1-0 (13.33%) |
+| 2 | 1-1 (12.54%) | 2-0 (11.74%) |
+| 3 | 2-0 (11.68%) | 2-1 (10.85%) |
+| 4 | 0-0 (10.02%) | 1-1 (9.96%) |
+| 5 | 2-1 (9.41%) | 3-0 (7.48%) |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Athletic Bilbao -1.00 | 1.81 | 56.2% | 65.8% |
+| Espanyol +1.00 | 2.13 | 70.1% | 61.6% |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Asian Handicap Home -1.00 | 1.81 | 56.2% | 65.8% | -9.6 | research too pessimistic | in between, below fair price | none | eligible |
+| **best** Home win | 1.49 | 56.2% | 65.8% | -9.6 | research too pessimistic | in between, fair price | none | eligible |
+| Asian Handicap Away +1.00 | 2.13 | 70.1% | 61.6% | +8.5 | research too optimistic | in between, fair price | research too optimistic | offered odds outside (1.15, 2.00] |
+| Away win | 6.99 | 16.7% | 13.2% | +3.5 | both agree (gap within ±4 points) | risky, below fair price | none | offered odds outside (1.15, 2.00] |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+### Safest Asian handicap (cagey tier)
+
+Espanyol +1.00 at 2.13 (Pinnacle): cagey no-loss **61.6%**, research no-loss 70.1%, cagey expected value +0.2%.
+
+
+---
+
+## 2026-11-21 — Alavés vs Deportivo La Coruña
+
+Research leans **Alavés win** at **37.0%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Alavés win | 37.0% | — |
+| Draw | 30.4% | — |
+| Deportivo La Coruña win | 32.6% | — |
+| Alavés expected goals | 1.17 | — |
+| Deportivo La Coruña expected goals | 1.08 | — |
+| Expected total goals | 2.25 | — |
+| Most likely score | 1-1 | — |
+| Most likely score probability | 14.1% | — |
+| Over 1.5 | 66.1% | — |
+| Under 1.5 | 33.9% | — |
+| Over 2.5 | 38.9% | — |
+| Under 2.5 | 61.1% | — |
+| Over 3.5 | 19.2% | — |
+| Under 3.5 | 80.8% | — |
+| BTTS Yes | 46.3% | — |
+| BTTS No | 53.7% | — |
+| Double Chance 1X | 67.4% | — |
+| Double Chance X2 | 63.0% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (14.13%) | — |
+| 2 | 1-0 (11.85%) | — |
+| 3 | 0-0 (11.16%) | — |
+| 4 | 0-1 (10.86%) | — |
+| 5 | 2-1 (7.70%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Alavés -0.25 | 1.91 | 37.0% | — |
+| Deportivo La Coruña +0.25 | 1.99 | 63.0% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Home win | 2.22 | 37.0% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Away win | 3.47 | 32.6% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away +0.25 | 1.99 | 63.0% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+| Asian Handicap Home -0.25 | 1.91 | 37.0% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+
+_Best offer: none (no offer passes the master checks with a market view). Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — Rayo Vallecano vs Valencia
+
+Research leans **Rayo Vallecano win** at **36.1%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Rayo Vallecano win | 36.1% | — |
+| Draw | 28.9% | — |
+| Valencia win | 35.0% | — |
+| Rayo Vallecano expected goals | 1.24 | — |
+| Valencia expected goals | 1.22 | — |
+| Expected total goals | 2.46 | — |
+| Most likely score | 1-1 | — |
+| Most likely score probability | 13.7% | — |
+| Over 1.5 | 70.8% | — |
+| Under 1.5 | 29.2% | — |
+| Over 2.5 | 44.4% | — |
+| Under 2.5 | 55.6% | — |
+| Over 3.5 | 23.5% | — |
+| Under 3.5 | 76.5% | — |
+| BTTS Yes | 50.8% | — |
+| BTTS No | 49.2% | — |
+| Double Chance 1X | 65.0% | — |
+| Double Chance X2 | 63.9% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (13.71%) | — |
+| 2 | 1-0 (10.14%) | — |
+| 3 | 0-1 (9.93%) | — |
+| 4 | 0-0 (9.08%) | — |
+| 5 | 2-1 (7.91%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Rayo Vallecano -0.50 | 1.96 | 36.1% | — |
+| Valencia +0.50 | 1.94 | 63.9% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Asian Handicap Away +0.50 | 1.94 | 63.9% | — | — | one view missing (no cagey view) | in between, fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Asian Handicap Home -0.50 | 1.96 | 36.1% | — | — | one view missing (no cagey view) | risky, fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Home win | 1.95 | 36.1% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Away win | 4.16 | 35.0% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — Real Madrid vs Celta Vigo
+
+Research leans **Real Madrid win** at **70.5%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Real Madrid win | 70.5% | — |
+| Draw | 19.3% | — |
+| Celta Vigo win | 10.2% | — |
+| Real Madrid expected goals | 2.32 | — |
+| Celta Vigo expected goals | 0.84 | — |
+| Expected total goals | 3.16 | — |
+| Most likely score | 2-0 | — |
+| Most likely score probability | 11.4% | — |
+| Over 1.5 | 82.7% | — |
+| Under 1.5 | 17.3% | — |
+| Over 2.5 | 61.0% | — |
+| Under 2.5 | 39.0% | — |
+| Over 3.5 | 39.1% | — |
+| Under 3.5 | 60.9% | — |
+| BTTS Yes | 52.5% | — |
+| BTTS No | 47.5% | — |
+| Double Chance 1X | 89.8% | — |
+| Double Chance X2 | 29.5% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 2-0 (11.35%) | — |
+| 2 | 2-1 (9.92%) | — |
+| 3 | 1-0 (9.79%) | — |
+| 4 | 1-1 (9.08%) | — |
+| 5 | 3-0 (8.63%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Real Madrid -2.00 | 1.87 | 46.9% | — |
+| Celta Vigo +2.00 | 2.02 | 74.1% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Home win | 1.18 | 70.5% | — | — | one view missing (no cagey view) | safe, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Away win | 16.28 | 10.2% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away +2.00 | 2.02 | 74.1% | — | — | one view missing (no cagey view) | no market view | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Home -2.00 | 1.87 | 46.9% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (safe step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — Sevilla vs Real Betis
+
+Research leans **Real Betis win** at **37.6%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Sevilla win | 33.5% | — |
+| Draw | 28.8% | — |
+| Real Betis win | 37.6% | — |
+| Sevilla expected goals | 1.19 | — |
+| Real Betis expected goals | 1.27 | — |
+| Expected total goals | 2.46 | — |
+| Most likely score | 1-1 | — |
+| Most likely score probability | 13.7% | — |
+| Over 1.5 | 70.8% | — |
+| Under 1.5 | 29.2% | — |
+| Over 2.5 | 44.4% | — |
+| Under 2.5 | 55.6% | — |
+| Over 3.5 | 23.6% | — |
+| Under 3.5 | 76.4% | — |
+| BTTS Yes | 50.8% | — |
+| BTTS No | 49.2% | — |
+| Double Chance 1X | 62.4% | — |
+| Double Chance X2 | 66.5% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (13.69%) | — |
+| 2 | 0-1 (10.43%) | — |
+| 3 | 1-0 (9.65%) | — |
+| 4 | 0-0 (9.08%) | — |
+| 5 | 1-2 (8.12%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Sevilla +0.25 | 1.83 | 62.4% | — |
+| Real Betis -0.25 | 2.08 | 37.6% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Away win | 2.40 | 37.6% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Home win | 2.99 | 33.5% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away -0.25 | 2.08 | 37.6% | — | — | one view missing (no cagey view) | no market view | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Home +0.25 | 1.83 | 62.4% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+
+_Best offer: none (no offer passes the master checks with a market view). Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## Benchmark (70% Pinnacle blend), display only
+
+The production forecasting model blends 70% of Pinnacle's prices into its score grid, so it is neither independent research nor the cagey tier's market view. It is shown for comparison only: no list, probability or stake reads it, and its EV is not a recommendation.
+
+- **Benchmark EV:** Model-estimated return per unit staked at the available decimal price. +5% EV means +0.05 expected units per 1 unit staked under the model; it is not a guaranteed return.
+- **Fair odds:** Decimal odds implied by the model probability, before any bookmaker margin.
+- **Probability edge:** Model probability minus the de-vigged market probability.
 
 ### Model context
 
@@ -64,33 +470,17 @@ Fixtures in this report: **5**.
 
 </details>
 
-## Quick reference
-
-- **Expected goals:** The model's average goal expectation for each team. It is not a prediction that the team will score exactly that many goals.
-- **Fair odds:** Decimal odds implied by the model probability, before any bookmaker margin.
-- **Expected value:** Model-estimated return per unit staked at the available decimal price. +5% EV means +0.05 expected units per 1 unit staked under the model; it is not a guaranteed return.
-- **Probability edge:** Model probability minus the de-vigged market probability.
-- **Fixture source:** Football-Data may include bookmaker prices. A schedule fallback may supply fixtures without betting prices, so EV fields can legitimately be blank.
-
----
-
-## 2026-11-20 — Athletic Bilbao vs Espanyol
+### 2026-11-20 — Athletic Bilbao vs Espanyol
 
 The model's most likely 1X2 outcome is **Athletic Bilbao win** at **62.4%**. Expected goals are 1.53 for Athletic Bilbao and 0.82 for Espanyol (2.35 combined). The most likely exact score is 1-0 at 12.0%. Goal-market probabilities: at least one goal: 93.8%; Over 2.5 goals: 53.3%; Under 3.5 goals: 69.1%; Double Chance 1X: 84.8%; Double Chance X2: 37.6%; Double Chance 12 (either team wins): 77.6%; Under 4.5 goals: 84.7%; BTTS Yes (both teams score): 51.7%; BTTS No (at least one team does not score): 48.3%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Athletic Bilbao win | 62.4% | 1.60 |
 | Draw | 22.4% | 4.46 |
 | Espanyol win | 15.2% | 6.57 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Athletic Bilbao expected goals | 1.53 |
 | Espanyol expected goals | 0.82 |
@@ -106,9 +496,7 @@ The model's most likely 1X2 outcome is **Athletic Bilbao win** at **62.4%**. Exp
 | Over 4.5 | 15.3% |
 | Under 4.5 | 84.7% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-0 | 11.95% |
 | 2 | 2-0 | 11.17% |
@@ -116,9 +504,7 @@ The model's most likely 1X2 outcome is **Athletic Bilbao win** at **62.4%**. Exp
 | 4 | 1-1 | 10.67% |
 | 5 | 3-0 | 6.74% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Athletic Bilbao win | 62.4% | 66.1% | 1.49 | -7.1% |
 | Draw | 22.4% | 20.6% | 4.58 | +2.6% |
@@ -126,10 +512,8 @@ The model's most likely 1X2 outcome is **Athletic Bilbao win** at **62.4%**. Exp
 | Over 2.5 | 53.3% | 53.3% | 1.83 | -2.4% |
 | Under 2.5 | 46.7% | 46.7% | 2.08 | -2.9% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -262,25 +646,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Alavés vs Deportivo La Coruña
+### 2026-11-21 — Alavés vs Deportivo La Coruña
 
 The model's most likely 1X2 outcome is **Alavés win** at **42.2%**. Expected goals are 1.15 for Alavés and 1.04 for Deportivo La Coruña (2.19 combined). The most likely exact score is 1-0 at 13.8%. Goal-market probabilities: at least one goal: 88.9%; Over 2.5 goals: 38.0%; Under 3.5 goals: 82.0%; Double Chance 1X: 70.9%; Double Chance X2: 57.8%; Double Chance 12 (either team wins): 71.3%; Under 4.5 goals: 92.7%; BTTS Yes (both teams score): 44.4%; BTTS No (at least one team does not score): 55.6%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Alavés win | 42.2% | 2.37 |
 | Draw | 28.7% | 3.48 |
 | Deportivo La Coruña win | 29.1% | 3.44 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Alavés expected goals | 1.15 |
 | Deportivo La Coruña expected goals | 1.04 |
@@ -296,9 +672,7 @@ The model's most likely 1X2 outcome is **Alavés win** at **42.2%**. Expected go
 | Over 4.5 | 7.3% |
 | Under 4.5 | 92.7% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-0 | 13.83% |
 | 2 | 1-1 | 13.24% |
@@ -306,18 +680,14 @@ The model's most likely 1X2 outcome is **Alavés win** at **42.2%**. Expected go
 | 4 | 0-1 | 10.10% |
 | 5 | 2-1 | 8.59% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Alavés win | 42.2% | 44.0% | 2.22 | -6.4% |
 | Draw | 28.7% | 28.2% | 3.42 | -1.7% |
 | Deportivo La Coruña win | 29.1% | 27.8% | 3.47 | +0.9% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -434,25 +804,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Rayo Vallecano vs Valencia
+### 2026-11-21 — Rayo Vallecano vs Valencia
 
 The model's most likely 1X2 outcome is **Rayo Vallecano win** at **48.5%**. Expected goals are 1.27 for Rayo Vallecano and 0.91 for Valencia (2.19 combined). The most likely exact score is 1-0 at 15.2%. Goal-market probabilities: at least one goal: 89.1%; Over 2.5 goals: 38.0%; Under 3.5 goals: 82.0%; Double Chance 1X: 76.1%; Double Chance X2: 51.5%; Double Chance 12 (either team wins): 72.4%; Under 4.5 goals: 92.7%; BTTS Yes (both teams score): 43.0%; BTTS No (at least one team does not score): 57.0%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Rayo Vallecano win | 48.5% | 2.06 |
 | Draw | 27.6% | 3.62 |
 | Valencia win | 23.9% | 4.18 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Rayo Vallecano expected goals | 1.27 |
 | Valencia expected goals | 0.91 |
@@ -468,9 +830,7 @@ The model's most likely 1X2 outcome is **Rayo Vallecano win** at **48.5%**. Expe
 | Over 4.5 | 7.3% |
 | Under 4.5 | 92.7% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-0 | 15.17% |
 | 2 | 1-1 | 12.64% |
@@ -478,18 +838,14 @@ The model's most likely 1X2 outcome is **Rayo Vallecano win** at **48.5%**. Expe
 | 4 | 2-0 | 9.97% |
 | 5 | 2-1 | 9.08% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Rayo Vallecano win | 48.5% | 50.2% | 1.95 | -5.5% |
 | Draw | 27.6% | 26.8% | 3.58 | -1.1% |
 | Valencia win | 23.9% | 23.0% | 4.16 | -0.5% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -606,25 +962,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Real Madrid vs Celta Vigo
+### 2026-11-21 — Real Madrid vs Celta Vigo
 
 The model's most likely 1X2 outcome is **Real Madrid win** at **80.5%**. Expected goals are 2.34 for Real Madrid and 0.73 for Celta Vigo (3.07 combined). The most likely exact score is 2-0 at 14.0%. Goal-market probabilities: at least one goal: 96.3%; Over 2.5 goals: 61.6%; Under 3.5 goals: 61.7%; Double Chance 1X: 93.6%; Double Chance X2: 19.5%; Double Chance 12 (either team wins): 86.9%; Under 4.5 goals: 79.1%; BTTS Yes (both teams score): 45.6%; BTTS No (at least one team does not score): 54.4%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Real Madrid win | 80.5% | 1.24 |
 | Draw | 13.1% | 7.62 |
 | Celta Vigo win | 6.4% | 15.72 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Real Madrid expected goals | 2.34 |
 | Celta Vigo expected goals | 0.73 |
@@ -640,9 +988,7 @@ The model's most likely 1X2 outcome is **Real Madrid win** at **80.5%**. Expecte
 | Over 4.5 | 20.9% |
 | Under 4.5 | 79.1% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 2-0 | 13.95% |
 | 2 | 1-0 | 11.62% |
@@ -650,18 +996,14 @@ The model's most likely 1X2 outcome is **Real Madrid win** at **80.5%**. Expecte
 | 4 | 2-1 | 10.22% |
 | 5 | 3-1 | 7.98% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Real Madrid win | 80.5% | 83.7% | 1.18 | -5.0% |
 | Draw | 13.1% | 11.4% | 7.52 | -1.3% |
 | Celta Vigo win | 6.4% | 5.0% | 16.28 | +3.6% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -778,25 +1120,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Sevilla vs Real Betis
+### 2026-11-21 — Sevilla vs Real Betis
 
 The model's most likely 1X2 outcome is **Real Betis win** at **40.1%**. Expected goals are 1.34 for Sevilla and 1.43 for Real Betis (2.77 combined). The most likely exact score is 1-1 at 12.7%. Goal-market probabilities: at least one goal: 93.2%; Over 2.5 goals: 52.1%; Under 3.5 goals: 70.0%; Double Chance 1X: 59.9%; Double Chance X2: 66.9%; Double Chance 12 (either team wins): 73.2%; Under 4.5 goals: 85.4%; BTTS Yes (both teams score): 56.6%; BTTS No (at least one team does not score): 43.4%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Sevilla win | 33.1% | 3.02 |
 | Draw | 26.8% | 3.74 |
 | Real Betis win | 40.1% | 2.49 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Sevilla expected goals | 1.34 |
 | Real Betis expected goals | 1.43 |
@@ -812,9 +1146,7 @@ The model's most likely 1X2 outcome is **Real Betis win** at **40.1%**. Expected
 | Over 4.5 | 14.6% |
 | Under 4.5 | 85.4% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-1 | 12.67% |
 | 2 | 1-2 | 8.84% |
@@ -822,18 +1154,14 @@ The model's most likely 1X2 outcome is **Real Betis win** at **40.1%**. Expected
 | 4 | 2-1 | 7.65% |
 | 5 | 1-0 | 7.62% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Sevilla win | 33.1% | 32.4% | 2.99 | -1.0% |
 | Draw | 26.8% | 27.0% | 3.57 | -4.5% |
 | Real Betis win | 40.1% | 40.6% | 2.40 | -3.7% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -948,6 +1276,3 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Team research json | {"base_rates": [1.3375044975688535, 1.4286490660551654], "c6_fit": {"candidate_version": "research-low-score-then-sharpen-walk-forward-v1", "delta": 0.05820390771129642, "end_exclusive": "2026-11-16", "expected_origin": "2026-11-16", "fits_version": "research-c6-live-fits-v1", "low_score_status": "fitted", "origin": "2026-11-02", "rho": -0.018955143658940854, "slope": 1.1447833796793323, "slope_status": "fitted", "stale": true}, "coverage": {"form": "last ten, exponential rank half-life five matches", "h2h": "last four years; descriptive only", "motivation": "standings context; urgency not inferred", "rotation": "schedule congestion only; rotation unconfirmed", "training_cache": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED", "travel": "previous fixture venue; itinerary and fatigue unverified", "venue_splits": "home team home matches / away team away matches", "xg": "verified supplied xG; no goals-to-xG substitution"}, "evidence": {"coverage": {"motivation": "standings context; urgency not inferred"}, "errors": ["TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing"], "news": [], "quality_review": {"absence_note": "Reported absences only; not proof of complete coverage or a fitted player-value effect", "assessed_at_utc": "2026-11-18T21:45:53.433461+00:00", "availability": "UNAVAILABLE_OR_STALE", "form": {"away": {"matches": 10.0, "venue_matches": 4.0, "xg_matches": 7.0}, "home": {"matches": 10.0, "venue_matches": 4.0, "xg_matches": 9.0}}, "lineups": "UNCONFIRMED_OR_STALE", "probability_effect": "NONE; factual coverage/freshness review, not a calibrated confidence score", "status": "REVIEW_REQUIRED", "summary_max_age_minutes": 180, "training": {"cutoff": "2026-11-08", "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}, "version": "pre-match-research-quality-v1", "warnings": ["Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"], "weather": "UNAVAILABLE_INCOMPLETE_OR_STALE", "weather_max_age_minutes": 180}, "recent": {"away": [{"away": "Real Betis", "away_goals": 2.0, "away_xg": null, "competition": "esp.1", "date": "2026-11-08T13:00:00+00:00", "home": "Elche", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/244/schedule"}, {"away": "Real Betis", "away_goals": 1.0, "away_xg": null, "competition": "uefa.champions", "date": "2026-11-04T20:00:00+00:00", "home": "Borussia Dortmund", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/244/schedule"}, {"away": "M\u00e1laga", "away_goals": 1.0, "away_xg": null, "competition": "esp.1", "date": "2026-10-31T17:30:00+00:00", "home": "Real Betis", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/244/schedule"}, {"away": "Real Betis", "away_goals": 0.0, "away_xg": null, "competition": "esp.1", "date": "2026-10-25T15:15:00+00:00", "home": "Celta Vigo", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/244/schedule"}, {"away": "Feyenoord Rotterdam", "away_goals": 0.0, "away_xg": null, "competition": "uefa.champions", "date": "2026-10-21T19:00:00+00:00", "home": "Real Betis", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/244/schedule"}, {"away": "Barcelona", "away_goals": 5.0, "away_xg": null, "competition": "esp.1", "date": "2026-10-17T16:30:00+00:00", "home": "Real Betis", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/244/schedule"}, {"away": "FC Porto", "away_goals": 2.0, "away_xg": null, "competition": "uefa.champions", "date": "2026-10-14T19:00:00+00:00", "home": "Real Betis", "home_goals": 3.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/244/schedule"}, {"away": "Osasuna", "away_goals": 2.0, "away_xg": null, "competition": "esp.1", "date": "2026-10-11T16:30:00+00:00", "home": "Real Betis", "home_goals": 5.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/244/schedule"}, {"away": "Real Betis", "away_goals": 1.0, "away_xg": null, "competition": "esp.1", "date": "2026-09-20T16:30:00+00:00", "home": "Deportivo", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/244/schedule"}, {"away": "Getafe", "away_goals": 0.0, "away_xg": null, "competition": "esp.1", "date": "2026-09-17T17:00:00+00:00", "home": "Real Betis", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/244/schedule"}, {"away": "Real Betis", "away_goals": 2.0, "away_xg": null, "competition": "esp.1", "date": "2026-09-14T19:00:00+00:00", "home": "Villarreal", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/244/schedule"}, {"away": "Real Betis", "away_goals": 3.0, "away_xg": null, "competition": "uefa.champions", "date": "2026-09-08T19:00:00+00:00", "home": "Lille", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/244/schedule"}, {"away": "Real Madrid", "away_goals": 0.0, "away_xg": null, "competition": "esp.1", "date": "2026-09-04T19:00:00+00:00", "home": "Real Betis", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/244/schedule"}, {"away": "Real Betis", "away_goals": 2.0, "away_xg": null, "competition": "esp.1", "date": "2026-08-29T15:00:00+00:00", "home": "Levante", "home_goals": 5.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/244/schedule"}, {"away": "Real Betis", "away_goals": 1.0, "away_xg": null, "competition": "esp.1", "date": "2026-08-25T19:00:00+00:00", "home": "Valencia", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/244/schedule"}, {"away": "Real Sociedad", "away_goals": 0.0, "away_xg": null, "competition": "esp.1", "date": "2026-08-21T19:00:00+00:00", "home": "Real Betis", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/244/schedule"}, {"away": "Real Betis", "away_goals": 0.0, "away_xg": null, "competition": "club.friendly", "date": "2026-08-15T17:30:00+00:00", "home": "Internazionale", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/244/schedule"}, {"away": "AFC Bournemouth", "away_goals": 2.0, "away_xg": null, "competition": "club.friendly", "date": "2026-08-08T18:30:00+00:00", "home": "Real Betis", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/244/schedule"}, {"away": "Real Betis", "away_goals": 3.0, "away_xg": null, "competition": "club.friendly", "date": "2026-08-05T18:30:00+00:00", "home": "Arsenal", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/244/schedule"}], "home": [{"away": "Alav\u00e9s", "away_goals": 0.0, "away_xg": null, "competition": "esp.1", "date": "2026-11-06T20:00:00+00:00", "home": "Sevilla", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/243/schedule"}, {"away": "Sevilla", "away_goals": 1.0, "away_xg": null, "competition": "esp.1", "date": "2026-11-01T13:00:00+00:00", "home": "Getafe", "home_goals": 3.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/243/schedule"}, {"away": "Sevilla", "away_goals": 3.0, "away_xg": null, "competition": "esp.copa_del_rey", "date": "2026-10-29T20:00:00+00:00", "home": "Sporting Hortaleza", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/243/schedule"}, {"away": "Osasuna", "away_goals": 0.0, "away_xg": null, "competition": "esp.1", "date": "2026-10-26T20:00:00+00:00", "home": "Sevilla", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/243/schedule"}, {"away": "Sevilla", "away_goals": 1.0, "away_xg": null, "competition": "esp.1", "date": "2026-10-18T19:00:00+00:00", "home": "Real Madrid", "home_goals": 4.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/243/schedule"}, {"away": "Sevilla", "away_goals": 3.0, "away_xg": null, "competition": "esp.1", "date": "2026-10-12T19:00:00+00:00", "home": "Levante", "home_goals": 3.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/243/schedule"}, {"away": "Aston Villa", "away_goals": 3.0, "away_xg": null, "competition": "club.friendly", "date": "2026-10-02T18:30:00+00:00", "home": "Sevilla", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/243/schedule"}, {"away": "Barcelona", "away_goals": 3.0, "away_xg": null, "competition": "esp.1", "date": "2026-09-19T19:00:00+00:00", "home": "Sevilla", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/243/schedule"}, {"away": "Sevilla", "away_goals": 1.0, "away_xg": null, "competition": "esp.1", "date": "2026-09-16T17:00:00+00:00", "home": "Deportivo", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/243/schedule"}, {"away": "Valencia", "away_goals": 0.0, "away_xg": null, "competition": "esp.1", "date": "2026-09-11T19:00:00+00:00", "home": "Sevilla", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/243/schedule"}, {"away": "Sevilla", "away_goals": 1.0, "away_xg": null, "competition": "esp.1", "date": "2026-09-06T19:00:00+00:00", "home": "Espanyol", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/243/schedule"}, {"away": "Atl\u00e9tico Madrid", "away_goals": 3.0, "away_xg": null, "competition": "esp.1", "date": "2026-08-29T19:30:00+00:00", "home": "Sevilla", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/243/schedule"}, {"away": "Sevilla", "away_goals": 3.0, "away_xg": null, "competition": "esp.1", "date": "2026-08-22T15:00:00+00:00", "home": "Athletic Club", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/243/schedule"}, {"away": "Rayo Vallecano", "away_goals": 1.0, "away_xg": null, "competition": "esp.1", "date": "2026-08-15T19:30:00+00:00", "home": "Sevilla", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/243/schedule"}, {"away": "Sevilla", "away_goals": 1.0, "away_xg": null, "competition": "club.friendly", "date": "2026-08-08T13:30:00+00:00", "home": "Bayer Leverkusen", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/243/schedule"}]}, "rest_and_travel": {"away": {"completed_matches_last_14_days": 2, "days_between_kickoffs": 8.979166666666666, "note": "schedule-derived travel context; actual itinerary and fatigue unverified", "previous_fixture": {"completed": true, "date": "2026-11-12T18:00Z", "home_away": "away", "name": "Real Betis at CD Artistico Navalcarnero", "venue": {"address": {"city": "Madrid", "country": "Spain"}, "fullName": "Municipal de Santo Domingo"}}}}, "review_links": [{"label": "Sofascore", "status": "reference only; no authorized public bulk API", "url": "https://www.sofascore.com/football"}, {"label": "Sports Mole previews", "status": "reference only; article reproduction requires permission", "url": "https://www.sportsmole.co.uk/football/"}], "schedules": {"away": [{"completed": true, "date": "2026-11-12T18:00Z", "home_away": "away", "name": "Real Betis at CD Artistico Navalcarnero", "venue": {"address": {"city": "Madrid", "country": "Spain"}, "fullName": "Municipal de Santo Domingo"}}, {"completed": true, "date": "2026-11-08T13:00Z", "home_away": "away", "name": "Real Betis at Elche", "venue": {"address": {"city": "Elche", "country": "Spain"}, "fullName": "Estadio Mart\u00ednez Valero"}}], "home": []}, "sources": [{"observed_at_utc": "2026-11-18T21:45:51.415249+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20261121"}, {"observed_at_utc": "2026-11-18T21:45:52.693741+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/summary?event=401882797"}, {"observed_at_utc": "2026-11-18T21:45:52.781191+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/243/schedule"}, {"observed_at_utc": "2026-11-18T21:45:52.950775+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/244/schedule"}, {"observed_at_utc": "2026-11-18T21:45:52.082596+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/v2/sports/soccer/esp.1/standings"}, {"observed_at_utc": "2026-11-18T21:45:50.801736+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/news?limit=20"}, {"observed_at_utc": "2026-11-18T21:45:53.215737+00:00", "reason": null, "status": "available", "url": "https://www.bing.com/news/search?q=%22Sevilla%22+%22Real+Betis%22+injury+suspension+lineup+preview&format=rss"}, {"observed_at_utc": "2026-11-18T21:45:51.157950+00:00", "reason": "no match data (maintenance page)", "status": "unavailable", "url": "https://understat.com/league/La_liga/2026"}, {"observed_at_utc": "2026-11-18T21:45:51.296412+00:00", "reason": "no match data (maintenance page)", "status": "unavailable", "url": "https://understat.com/league/La_liga/2025"}, {"observed_at_utc": "2026-11-18T21:45:46.684732+00:00", "reason": null, "status": "available", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"}, {"observed_at_utc": "2026-11-18T21:45:46.820635+00:00", "reason": null, "status": "available", "url": "https://www.theguardian.com/football/rss"}, {"observed_at_utc": "2026-11-18T21:45:53.304834+00:00", "reason": "HTTPError", "status": "unavailable", "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=Sevilla_vs_Real+Betis&d=2026-11-21"}, {"observed_at_utc": "2026-11-18T21:45:53.432859+00:00", "reason": null, "status": "available", "url": "https://geocoding-api.open-meteo.com/v1/search?name=Sevilla&count=10&language=en&format=json"}], "standings": {"abbreviation": "LALIGA", "children": [{"abbreviation": "2026-2027", "id": "1", "name": "2026-27 LALIGA", "standings": {"displayName": "Standings", "entries": [{"note": {"color": "#81D6AC", "description": "Champions League", "rank": 1}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "12", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 12.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "1", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 1.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+35", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 35.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "33", "name": "points", "shortDisplayName": "P", "type": "points", "value": 33.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "13", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 13.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "48", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 48.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "0", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 0.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "11", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 11.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "1", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 1.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "11-0-1", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "11-0-1", "type": "total"}], "team": {"abbreviation": "BAR", "displayName": "Barcelona", "id": "83", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/83/barcelona", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Barcelona", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Barcelona", "shortDisplayName": "Barcelona", "uid": "s:600~t:83"}}, {"note": {"color": "#81D6AC", "description": "Champions League", "rank": 2}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "12", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 12.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "2", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 2.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+21", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 21.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "30", "name": "points", "shortDisplayName": "P", "type": "points", "value": 30.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "10", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 10.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "31", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 31.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "0", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 0.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "10", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 10.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "2", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 2.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "10-0-2", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "10-0-2", "type": "total"}], "team": {"abbreviation": "RMA", "displayName": "Real Madrid", "id": "86", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/86/real-madrid", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Real Madrid", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Real Madrid", "shortDisplayName": "Real Madrid", "uid": "s:600~t:86"}}, {"note": {"color": "#81D6AC", "description": "Champions League", "rank": 3}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "12", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 12.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "2", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 2.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+13", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 13.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "28", "name": "points", "shortDisplayName": "P", "type": "points", "value": 28.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "10", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 10.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "23", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 23.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "1", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 1.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "9", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 9.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "3", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 3.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "9-1-2", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "9-1-2", "type": "total"}], "team": {"abbreviation": "ATM", "displayName": "Atl\u00e9tico Madrid", "id": "1068", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/1068/atletico-madrid", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Atl\u00e9tico Madrid", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png", "lastUpdated": "2025-09-19T20:43Z", "rel": ["full", "default"], "width": 500}], "name": "Atl\u00e9tico Madrid", "shortDisplayName": "Atl\u00e9tico", "uid": "s:600~t:1068"}}, {"note": {"color": "#81D6AC", "description": "Champions League", "rank": 4}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "12", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 12.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "2", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 2.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+5", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 5.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "26", "name": "points", "shortDisplayName": "P", "type": "points", "value": 26.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "15", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 15.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "20", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 20.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "2", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 2.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "8", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 8.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "4", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 4.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "8-2-2", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "8-2-2", "type": "total"}], "team": {"abbreviation": "BET", "displayName": "Real Betis", "id": "244", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/244/real-betis", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Real Betis", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/244.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Real Betis", "shortDisplayName": "Betis", "uid": "s:600~t:244"}}, {"note": {"color": "#81D6AC", "description": "Champions League", "rank": 5}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "12", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 12.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "4", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 4.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+1", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 1.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "22", "name": "points", "shortDisplayName": "P", "type": "points", "value": 22.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "20", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 20.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "21", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 21.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "1", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 1.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "7", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 7.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "5", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 5.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "7-1-4", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "7-1-4", "type": "total"}], "team": {"abbreviation": "RSO", "displayName": "Real Sociedad", "id": "89", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/89/real-sociedad", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Real Sociedad", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/89.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Real Sociedad", "shortDisplayName": "Real Sociedad", "uid": "s:600~t:89"}}, {"note": {"color": "#c6d1e0", "description": "Europa League", "rank": 6}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "12", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 12.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "4", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 4.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-2", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -2.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "18", "name": "points", "shortDisplayName": "P", "type": "points", "value": 18.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "19", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 19.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "17", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 17.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "5", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 5.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "6", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 6.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "5-3-4", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "5-3-4", "type": "total"}], "team": {"abbreviation": "SEV", "displayName": "Sevilla", "id": "243", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/243/sevilla", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Sevilla", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/243.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Sevilla", "shortDisplayName": "Sevilla", "uid": "s:600~t:243"}}, {"note": {"color": "#B2BFD0", "description": "Conference League qualifying", "rank": 7}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "11", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 11.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "3", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 3.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+4", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 4.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "16", "name": "points", "shortDisplayName": "P", "type": "points", "value": 16.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "11", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 11.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "15", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 15.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "4", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 4.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "4", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 4.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "7", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 7.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "4-4-3", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "4-4-3", "type": "total"}], "team": {"abbreviation": "ATH", "displayName": "Athletic Club", "id": "93", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/93/athletic-club", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Athletic Club", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/93.png", "lastUpdated": "2022-05-18T17:24Z", "rel": ["full", "default"], "width": 500}], "name": "Athletic Club", "shortDisplayName": "Athletic", "uid": "s:600~t:93"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "12", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 12.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "5", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 5.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+2", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 2.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "15", "name": "points", "shortDisplayName": "P", "type": "points", "value": 15.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "15", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 15.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "17", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 17.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "4", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 4.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "8", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 8.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "4-3-5", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "4-3-5", "type": "total"}], "team": {"abbreviation": "VIL", "displayName": "Villarreal", "id": "102", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/102/villarreal", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Villarreal", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/102.png", "lastUpdated": "2021-08-02T20:09Z", "rel": ["full", "default"], "width": 500}], "name": "Villarreal", "shortDisplayName": "Villarreal", "uid": "s:600~t:102"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "12", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 12.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "3", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 3.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+1", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 1.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "15", "name": "points", "shortDisplayName": "P", "type": "points", "value": 15.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "14", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 14.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "15", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 15.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "6", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 6.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "3", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 3.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "9", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 9.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "3-6-3", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "3-6-3", "type": "total"}], "team": {"abbreviation": "DEP", "displayName": "Deportivo", "id": "90", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/90/deportivo", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Deportivo", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/90.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Deportivo", "shortDisplayName": "Deportivo", "uid": "s:600~t:90"}}, {"note": {"color": "##c6d1e0", "description": "Europa League", "rank": 10}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "12", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 12.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "6", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 6.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-13", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -13.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "14", "name": "points", "shortDisplayName": "P", "type": "points", "value": 14.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "30", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 30.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "17", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 17.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "2", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 2.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "4", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 4.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "10", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 10.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "4-2-6", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "4-2-6", "type": "total"}], "team": {"abbreviation": "RAC", "displayName": "Racing Santander", "id": "87", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/87/racing-santander", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Racing Santander", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/87.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Racing Santander", "shortDisplayName": "Racing", "uid": "s:600~t:87"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "12", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 12.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "3", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 3.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "0", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 0.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "13", "name": "points", "shortDisplayName": "P", "type": "points", "value": 13.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "10", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 10.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "10", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 10.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "7", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 7.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "2", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 2.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "11", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 11.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "2-7-3", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "2-7-3", "type": "total"}], "team": {"abbreviation": "CEL", "displayName": "Celta Vigo", "id": "85", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/85/celta-vigo", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Celta Vigo", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/85.png", "lastUpdated": "2024-01-04T17:49Z", "rel": ["full", "default"], "width": 500}], "name": "Celta Vigo", "shortDisplayName": "Celta Vigo", "uid": "s:600~t:85"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "12", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 12.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "5", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 5.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-2", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -2.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "13", "name": "points", "shortDisplayName": "P", "type": "points", "value": 13.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "17", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 17.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "15", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 15.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "4", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 4.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "3", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 3.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "12", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 12.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "3-4-5", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "3-4-5", "type": "total"}], "team": {"abbreviation": "ALA", "displayName": "Alav\u00e9s", "id": "96", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/96/alaves", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Alav\u00e9s", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/96.png", "lastUpdated": "2021-08-02T20:09Z", "rel": ["full", "default"], "width": 500}], "name": "Alav\u00e9s", "shortDisplayName": "Alav\u00e9s", "uid": "s:600~t:96"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "12", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 12.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "6", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 6.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-1", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -1.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "12", "name": "points", "shortDisplayName": "P", "type": "points", "value": 12.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "14", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 14.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "13", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 13.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "3", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 3.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "13", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 13.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "3-3-6", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "3-3-6", "type": "total"}], "team": {"abbreviation": "ESP", "displayName": "Espanyol", "id": "88", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/88/espanyol", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Espanyol", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/88.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Espanyol", "shortDisplayName": "Espanyol", "uid": "s:600~t:88"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "11", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 11.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "5", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 5.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-6", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -6.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "12", "name": "points", "shortDisplayName": "P", "type": "points", "value": 12.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "21", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 21.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "15", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 15.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "3", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 3.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "14", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 14.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "3-3-5", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "3-3-5", "type": "total"}], "team": {"abbreviation": "RAY", "displayName": "Rayo Vallecano", "id": "101", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/101/rayo-vallecano", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Rayo Vallecano", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/101.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Rayo Vallecano", "shortDisplayName": "Rayo", "uid": "s:600~t:101"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "12", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 12.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "6", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 6.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-10", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -10.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "12", "name": "points", "shortDisplayName": "P", "type": "points", "value": 12.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "18", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 18.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "8", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 8.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "3", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 3.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "15", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 15.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "3-3-6", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "3-3-6", "type": "total"}], "team": {"abbreviation": "GET", "displayName": "Getafe", "id": "2922", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/2922/getafe", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Getafe", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/2922.png", "lastUpdated": "2026-10-12T17:04Z", "rel": ["full", "default"], "width": 500}], "name": "Getafe", "shortDisplayName": "Getafe", "uid": "s:600~t:2922"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "12", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 12.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "6", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 6.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-11", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -11.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "12", "name": "points", "shortDisplayName": "P", "type": "points", "value": 12.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "23", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 23.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "12", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 12.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "3", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 3.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "16", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 16.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "3-3-6", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "3-3-6", "type": "total"}], "team": {"abbreviation": "OSA", "displayName": "Osasuna", "id": "97", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/97/osasuna", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Osasuna", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/97.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Osasuna", "shortDisplayName": "Osasuna", "uid": "s:600~t:97"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "12", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 12.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "5", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 5.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-5", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -5.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "11", "name": "points", "shortDisplayName": "P", "type": "points", "value": 11.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "21", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 21.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "16", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 16.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "5", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 5.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "2", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 2.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "17", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 17.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "2-5-5", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "2-5-5", "type": "total"}], "team": {"abbreviation": "LEV", "displayName": "Levante", "id": "1538", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/1538/levante", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Levante", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/1538.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Levante", "shortDisplayName": "Levante", "uid": "s:600~t:1538"}}, {"note": {"color": "#FF7F84", "description": "Relegation", "rank": 18}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "12", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 12.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "6", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 6.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-6", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -6.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "10", "name": "points", "shortDisplayName": "P", "type": "points", "value": 10.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "20", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 20.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "14", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 14.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "4", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 4.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "2", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 2.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "18", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 18.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "2-4-6", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "2-4-6", "type": "total"}], "team": {"abbreviation": "ELC", "displayName": "Elche", "id": "3751", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/3751/elche", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Elche", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/3751.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Elche", "shortDisplayName": "Elche", "uid": "s:600~t:3751"}}, {"note": {"color": "#FF7F84", "description": "Relegation", "rank": 19}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "12", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 12.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "7", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 7.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-12", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -12.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "9", "name": "points", "shortDisplayName": "P", "type": "points", "value": 9.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "20", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 20.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "8", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 8.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "2", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 2.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "19", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 19.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "2-3-7", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "2-3-7", "type": "total"}], "team": {"abbreviation": "VAL", "displayName": "Valencia", "id": "94", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/94/valencia", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Valencia", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/94.png", "lastUpdated": "2024-01-04T17:49Z", "rel": ["full", "default"], "width": 500}], "name": "Valencia", "shortDisplayName": "Valencia", "uid": "s:600~t:94"}}, {"note": {"color": "#FF7F84", "description": "Relegation", "rank": 20}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "12", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 12.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "7", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 7.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-14", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -14.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "5", "name": "points", "shortDisplayName": "P", "type": "points", "value": 5.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "23", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 23.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "9", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 9.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "5", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 5.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "0", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 0.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "20", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 20.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "0-5-7", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "0-5-7", "type": "total"}], "team": {"abbreviation": "MCF", "displayName": "M\u00e1laga", "id": "99", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/99/malaga", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "M\u00e1laga", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/99.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "M\u00e1laga", "shortDisplayName": "M\u00e1laga", "uid": "s:600~t:99"}}], "id": "0", "links": [{"href": "https://www.espn.com/soccer/table/_/league/esp.1", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["standings", "desktop"], "shortText": "Standings", "text": "Full Table"}], "name": "overall", "season": 2026, "seasonDisplayName": "2026-27 Spanish LALIGA", "seasonType": 1}, "uid": "s:600~l:740~g:1"}], "id": "15", "name": "Spanish LALIGA", "season": {"displayName": "2026-27 Spanish LALIGA", "endDate": "2027-06-01T03:59Z", "startDate": "2026-06-01T04:00Z", "year": 2026}, "seasons": [{"displayName": "2026-27 Spanish LALIGA", "endDate": "2027-06-01T03:59Z", "seasonYears": "2026-27", "startDate": "2026-06-01T04:00Z", "types": [{"abbreviation": "2026-27 LALIGA", "endDate": "2027-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2026-27 LALIGA", "startDate": "2026-06-01T04:00Z"}], "year": 2026}, {"displayName": "2025-26 Spanish LALIGA", "endDate": "2026-06-01T03:59Z", "seasonYears": "2025-26", "startDate": "2025-06-01T04:00Z", "types": [{"abbreviation": "2025-26 LALIGA", "endDate": "2026-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2025-26 LALIGA", "startDate": "2025-06-01T04:00Z"}], "year": 2025}, {"displayName": "2024-25 Spanish LALIGA", "endDate": "2025-06-01T03:59Z", "seasonYears": "2024-25", "startDate": "2024-06-01T04:00Z", "types": [{"abbreviation": "2024-25 LALIGA", "endDate": "2025-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2024-25 LALIGA", "startDate": "2024-06-01T04:00Z"}], "year": 2024}, {"displayName": "2023-24 Spanish LALIGA", "endDate": "2024-06-01T03:59Z", "seasonYears": "2023-24", "startDate": "2023-06-05T04:00Z", "types": [{"abbreviation": "2023-24 LALIGA", "endDate": "2024-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2023-24 LALIGA", "startDate": "2023-06-05T04:00Z"}], "year": 2023}, {"displayName": "2022-23 Spanish LaLiga", "endDate": "2023-06-06T03:59Z", "seasonYears": "2022-23", "startDate": "2022-07-01T04:00Z", "types": [{"abbreviation": "2022-23 LaLiga", "endDate": "2023-06-06T03:59Z", "hasStandings": true, "id": "1", "name": "2022-23 LaLiga", "startDate": "2022-07-01T04:00Z"}], "year": 2022}, {"displayName": "2021-22 Spanish LaLiga", "endDate": "2022-07-01T03:59Z", "seasonYears": "2021-22", "startDate": "2021-07-01T04:00Z", "types": [{"abbreviation": "2021-22 LaLiga", "endDate": "2022-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2021-22 LaLiga", "startDate": "2021-07-01T04:00Z"}], "year": 2021}, {"displayName": "2020-21 Spanish LaLiga", "endDate": "2021-07-01T03:59Z", "seasonYears": "2020-21", "startDate": "2020-07-01T04:00Z", "types": [{"abbreviation": "2020-21 LaLiga", "endDate": "2021-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2020-2021 LaLiga", "startDate": "2020-08-01T04:00Z"}], "year": 2020}, {"displayName": "2019-20 Spanish LaLiga", "endDate": "2020-07-31T03:59Z", "seasonYears": "2019-20", "startDate": "2019-07-01T04:00Z", "types": [{"abbreviation": "2019-20 LaLiga", "endDate": "2020-07-31T03:59Z", "hasStandings": true, "id": "1", "name": "2019-2020 LaLiga", "startDate": "2019-07-01T04:00Z"}], "year": 2019}, {"displayName": "2018-19 Spanish LaLiga", "endDate": "2019-07-01T03:59Z", "seasonYears": "2018-19", "startDate": "2018-07-01T04:00Z", "types": [{"abbreviation": "2018-19 Spanish LaLiga", "endDate": "2019-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2018-19 Spanish LaLiga", "startDate": "2018-07-01T04:00Z"}], "year": 2018}, {"displayName": "2017-18 Spanish LaLiga", "endDate": "2018-07-01T03:59Z", "seasonYears": "2017-18", "startDate": "2017-07-01T04:00Z", "types": [{"abbreviation": "2017-18 Spanish LaLiga", "endDate": "2018-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2017-18 Spanish LaLiga", "startDate": "2017-07-01T04:00Z"}], "year": 2017}, {"displayName": "2016-17 Spanish LaLiga", "endDate": "2017-07-01T03:59Z", "seasonYears": "2016-17", "startDate": "2016-07-01T04:00Z", "types": [{"abbreviation": "2016-17 Spanish LaLiga", "endDate": "2017-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2016-17 Spanish LaLiga", "startDate": "2016-07-01T04:00Z"}], "year": 2016}, {"displayName": "2015-16 Spanish LaLiga", "endDate": "2016-07-01T03:59Z", "seasonYears": "2015-16", "startDate": "2015-07-01T04:00Z", "types": [{"abbreviation": "2015-16 Spanish LaLiga", "endDate": "2016-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2015-16 Spanish LaLiga", "startDate": "2015-07-01T04:00Z"}], "year": 2015}, {"displayName": "2014-15 Spanish Primera Divisi\u00f3n", "endDate": "2015-07-01T03:59Z", "seasonYears": "2014-15", "startDate": "2014-07-01T04:00Z", "types": [{"abbreviation": "2014-15", "endDate": "2015-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2014/2015 Spanish Primera Divisi\u00f3n", "startDate": "2014-07-01T04:00Z"}], "year": 2014}, {"displayName": "2013-14 Spanish Primera Divisi\u00f3n", "endDate": "2014-07-01T03:59Z", "seasonYears": "2013-14", "startDate": "2013-07-01T04:00Z", "types": [{"abbreviation": "2013-14", "endDate": "2014-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2013-2014 Spanish Primera Divisi\u00f3n", "startDate": "2013-07-01T04:00Z"}], "year": 2013}, {"displayName": "2012-13 Spanish Primera Divisi\u00f3n", "endDate": "2013-07-01T03:59Z", "seasonYears": "2012-13", "startDate": "2012-07-01T04:00Z", "types": [{"abbreviation": "2012-13", "endDate": "2013-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2012/2013 Spanish Primera Divisi\u00f3n", "startDate": "2012-07-01T04:00Z"}], "year": 2012}, {"displayName": "2011-12 Spanish Primera Divisi\u00f3n", "endDate": "2012-07-01T03:59Z", "seasonYears": "2011-12", "startDate": "2011-07-01T04:00Z", "types": [{"abbreviation": "2011-12", "endDate": "2012-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2011/2012 Spanish Primera Divisi\u00f3n", "startDate": "2011-07-01T04:00Z"}], "year": 2011}, {"displayName": "2010-11 Spanish Primera Divisi\u00f3n", "endDate": "2011-07-01T03:59Z", "seasonYears": "2010-11", "startDate": "2010-07-01T04:00Z", "types": [{"abbreviation": "2010-11", "endDate": "2011-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2010/2011 Spanish Primera Divisi\u00f3n", "startDate": "2010-07-01T04:00Z"}], "year": 2010}, {"displayName": "2009-10 Spanish Primera Divisi\u00f3n", "endDate": "2010-07-01T03:59Z", "seasonYears": "2009-10", "startDate": "2009-07-01T04:00Z", "types": [{"abbreviation": "2009-10", "endDate": "2010-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2009-2010 Spanish Primera Divisi\u00f3n", "startDate": "2009-07-01T04:00Z"}], "year": 2009}, {"displayName": "2008-09 Spanish Primera Divisi\u00f3n", "endDate": "2009-07-01T03:59Z", "seasonYears": "2008-09", "startDate": "2008-07-01T04:00Z", "types": [{"abbreviation": "2008-09", "endDate": "2009-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2008-2009 Spanish Primera Divisi\u00f3n", "startDate": "2008-07-01T04:00Z"}], "year": 2008}, {"displayName": "2007-08 Spanish Primera Divisi\u00f3n", "endDate": "2008-07-01T03:59Z", "seasonYears": "2007-08", "startDate": "2007-07-01T04:00Z", "types": [{"abbreviation": "2007-08", "endDate": "2008-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2007-2008 Spanish Primera Divisi\u00f3n", "startDate": "2007-07-01T04:00Z"}], "year": 2007}, {"displayName": "2006-07 Spanish Primera Divisi\u00f3n", "endDate": "2007-07-01T03:59Z", "seasonYears": "2006-07", "startDate": "2006-07-01T04:00Z", "types": [{"abbreviation": "2006-07", "endDate": "2007-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2006-2007 Spanish Primera Divisi\u00f3n", "startDate": "2006-07-01T04:00Z"}], "year": 2006}, {"displayName": "2005-06 Spanish Primera Divisi\u00f3n", "endDate": "2006-07-01T03:59Z", "seasonYears": "2005-06", "startDate": "2005-07-01T04:00Z", "types": [{"abbreviation": "2005-06", "endDate": "2006-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2005-2006 Spanish Primera Divisi\u00f3n", "startDate": "2005-07-01T04:00Z"}], "year": 2005}, {"displayName": "2004-05 Spanish Primera Divisi\u00f3n", "endDate": "2005-07-01T03:59Z", "seasonYears": "2004-05", "startDate": "2004-07-01T04:00Z", "types": [{"abbreviation": "2004-05", "endDate": "2005-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2004-2005 Spanish Primera Divisi\u00f3n", "startDate": "2004-07-01T04:00Z"}], "year": 2004}, {"displayName": "2003/04 Spanish Primera Divisi\u00f3n", "endDate": "2004-07-01T03:59Z", "seasonYears": "2003-04", "startDate": "2003-07-01T04:00Z", "types": [{"abbreviation": "2003-04", "endDate": "2004-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2003/2004 Spanish Primera Divisi\u00f3n", "startDate": "2003-07-01T04:00Z"}], "year": 2003}, {"displayName": "2002/03 Spanish Primera Divisi\u00f3n", "endDate": "2003-07-01T03:59Z", "seasonYears": "2002-03", "startDate": "2002-07-01T04:00Z", "types": [{"abbreviation": "2002-03", "endDate": "2003-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2002/2003 Spanish Primera Divisi\u00f3n", "startDate": "2002-07-01T04:00Z"}], "year": 2002}], "uid": "s:600~l:740"}, "summary_identity_verified": true, "venue": {"address": {"city": "Sevilla", "country": "Spain"}, "fullName": "Ram\u00f3n S\u00e1nchez Pizju\u00e1n Stadium", "id": "10628", "images": [], "shortName": "Ram\u00f3n S\u00e1nchez Pizju\u00e1n Stadium"}}, "evidence_quality_version": "pre-match-research-quality-v1", "form": {"away": {"all": {"goals_against": 1.200815302085245, "goals_for": 1.6876995210867534, "last_match": "2026-11-08T00:00:00+00:00", "matches": 10, "points_per_game": 1.9487128948768295, "results": "WLWDWLWWDW", "xg_against": 1.35092994422123, "xg_for": 1.6152026965680488, "xg_matches": 7}, "venue": {"goals_against": 0.7301509160567812, "goals_for": 1.073640428205715, "last_match": "2026-11-08T00:00:00+00:00", "matches": 4, "points_per_game": 1.3434895121489339, "results": "WLDD", "xg_against": 1.1560406658107993, "xg_for": 1.3150744934344696, "xg_matches": 3}}, "home": {"all": {"goals_against": 1.3811476186444074, "goals_for": 1.3754845781672447, "last_match": "2026-11-06T00:00:00+00:00", "matches": 10, "points_per_game": 1.4095196262801861, "results": "DLWWLDLWWD", "xg_against": 1.3033166128403353, "xg_for": 1.1218798488867665, "xg_matches": 9}, "venue": {"goals_against": 0.6914422997625728, "goals_for": 0.9606316826443054, "last_match": "2026-11-06T00:00:00+00:00", "matches": 4, "points_per_game": 1.7003153106509485, "results": "DWLW", "xg_against": 1.139516976008757, "xg_for": 1.078728536811343, "xg_matches": 4}}}, "form_friendlies_excluded": {"away": 3, "home": 2}, "goal_rates": [1.196900726649336, 1.2726182940348736], "h2h": [{"away": "Sevilla", "away_goals": 2.0, "away_xg": null, "date": "2026-03-01T00:00:00+00:00", "home": "Betis", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Betis", "away_goals": 2.0, "away_xg": null, "date": "2025-11-30T00:00:00+00:00", "home": "Sevilla", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Sevilla", "away_goals": 1.0, "away_xg": null, "date": "2025-03-30T00:00:00+00:00", "home": "Betis", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Betis", "away_goals": 0.0, "away_xg": null, "date": "2024-10-06T00:00:00+00:00", "home": "Sevilla", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Sevilla", "away_goals": 1.0, "away_xg": null, "date": "2024-04-28T00:00:00+00:00", "home": "Betis", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Betis", "away_goals": 1.0, "away_xg": null, "date": "2023-11-12T00:00:00+00:00", "home": "Sevilla", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Betis", "away_goals": 0.0, "away_xg": null, "date": "2023-05-21T00:00:00+00:00", "home": "Sevilla", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}], "margin_distribution": {"-1": 0.20894239103995846, "-10": 2.953658446302146e-07, "-11": 3.3785307522222966e-08, "-12": 3.547943879770439e-09, "-13": 3.4276383235418225e-10, "-14": 2.8100365034760274e-11, "-2": 0.10961010842455024, "-3": 0.04157698897384682, "-4": 0.012332570230791403, "-5": 0.0029921912286442463, "-6": 0.0006129984957129137, "-7": 0.00010855229648752472, "-8": 1.6916210336327134e-05, "-9": 2.3527061110735243e-06, "0": 0.28844535070094124, "1": 0.19353379893989647, "10": 1.5763352516764494e-07, "11": 1.6958059693152105e-08, "12": 1.6748850021848492e-09, "13": 1.521819730936467e-10, "14": 1.1733839701364332e-11, "2": 0.09555626643432906, "3": 0.03408957354625895, "4": 0.009510034665616314, "5": 0.0021700903555786633, "6": 0.00041812664986615443, "7": 6.963818193165531e-05, "8": 1.0206373421749182e-05, "9": 1.335045374911405e-06}, "model_note": "Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient", "observed_at_utc": "2026-11-18T21:45:53.433461+00:00", "p_over_1_5": 0.7084764491137701, "shadow_v4": {"grid": "independent Poisson (C)", "margin_distribution": {"-1": 0.2133945603259529, "-10": 2.98205564804386e-07, "-11": 3.4110127812400916e-08, "-12": 3.5820546884349475e-09, "-13": 3.4605924848779474e-10, "-14": 2.8370528883903676e-11, "-2": 0.11066392707638524, "-3": 0.04197672041374351, "-4": 0.012451138606656285, "-5": 0.0030209588940714994, "-6": 0.0006188920146375273, "-7": 0.00010959594507415864, "-8": 1.7078846960147793e-05, "-9": 2.3753256086524547e-06, "0": 0.27176121597390007, "1": 0.20069812410707777, "10": 1.614787690748494e-07, "11": 1.7371727253043027e-08, "12": 1.7157414211672336e-09, "13": 1.5589423420182382e-10, "14": 1.202006990253379e-11, "2": 0.09788722459130134, "3": 0.034921139831657594, "4": 0.009742018330362593, "5": 0.0022230265993694286, "6": 0.0004283262501804135, "7": 7.133690556608978e-05, "8": 1.0455343272375161e-05, "9": 1.367611893285336e-06}, "p_over_1_5": 0.7063900364657666, "version": "team-form-research-v4"}, "version": "team-form-research-v5", "warnings": ["availability unavailable or unconfirmed", "lineups unavailable or unconfirmed", "tactics unavailable or unconfirmed", "rivalry unavailable or unconfirmed", "weather unavailable or unconfirmed", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing", "C6 fit is stale (fortnightly refresh missed): using the window from 2026-11-02, the window for this day opened 2026-11-16", "Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"]} |
 
 </details>
-
-
----

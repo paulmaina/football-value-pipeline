@@ -9,7 +9,10 @@ must be byte-identical.
 
 --release also rebuilds each run's master lists with this tree's current production rules (the released new
 master live, the old master in shadow, as scripts/master_reconciliation_replay.py does) before formatting, so the
-workbook can be seen with both master lists filled. Integration evidence only: no result is read.
+workbook can be seen with both master lists filled. --lists rebuilds every list of the run that way, as a live run
+writes them: the decision rows (conservative_bet_rejections.csv), the value shortlist, the cagey tier, both masters
+and the cagey settings in the summary, so the readable league files can show the master's verdict on every offer
+(scripts/readable_views_check.py checks them against these files). Integration evidence only: no result is read.
 
     python scripts/format_saved_runs.py --output <dir> --code-root <tree>
     python scripts/format_saved_runs.py --compare <main output> <branch output>
@@ -46,8 +49,8 @@ def runs(root: Path, start: str, end: str):
     return sorted(out)
 
 
-def bundle(snapshot: Path, target: Path, release: bool = False) -> Path:
-    """A raw bundle the formatter reads, from one archived run."""
+def bundle(snapshot: Path, target: Path, release: bool = False, lists: bool = False) -> Path:
+    """A raw bundle the formatter reads, from one archived run (`lists`: every list rebuilt, see the docstring)."""
     import pandas as pd
     from league_registry import REGISTRY
     keys = {league.name: league.key for league in REGISTRY}
@@ -61,13 +64,14 @@ def bundle(snapshot: Path, target: Path, release: bool = False) -> Path:
     for name in SIDECARS:
         if (snapshot / name).exists():
             shutil.copyfile(snapshot / name, target / name)
-    if release:
-        rebuild_masters(snapshot, target)
+    if release or lists:
+        rebuild_masters(snapshot, target, lists)
     return target
 
 
-def rebuild_masters(snapshot: Path, target: Path) -> None:
-    """The run's master lists under this tree's production rules (new master live, old in shadow)."""
+def rebuild_masters(snapshot: Path, target: Path, lists: bool = False) -> None:
+    """The run's master lists under this tree's production rules (new master live, old in shadow); with `lists`
+    also its decision rows, value shortlist, cagey tier and cagey settings, exactly as the pipeline writes them."""
     import pandas as pd
     import master_shortlist
     import narrow_margin as nm
@@ -79,10 +83,16 @@ def rebuild_masters(snapshot: Path, target: Path) -> None:
         (target / name).unlink(missing_ok=True)
     with warnings.catch_warnings():
         warnings.simplefilter('ignore')
-        _, decisions, rebuilt = v28.build_shortlist(predictions, pd.Timestamp(summary['generated_at_utc']),
-                                                    execution_policy=load_policy(), model=nm.production_model())
+        selected, decisions, rebuilt = v28.build_shortlist(predictions, pd.Timestamp(summary['generated_at_utc']),
+                                                           execution_policy=load_policy(), model=nm.production_model())
         rebuilt.setdefault('quote_execution_policy', load_policy())
+        if lists:
+            selected.to_csv(target / 'conservative_bet_shortlist.csv', index=False)
+            decisions.to_csv(target / 'conservative_bet_rejections.csv', index=False)
+            v28.cagey_tier_list(decisions).to_csv(target / v28.TIER_FILE, index=False)
         master_shortlist.refresh(decisions, target, rebuilt, predictions)
+    if lists:  # the rebuilt run's own summary, as the pipeline writes it with these lists
+        summary = rebuilt
     for key in ('master_shortlist', 'master_shortlist_old', master_shortlist.RELEASE_STATUS_KEY):
         if key in rebuilt:
             summary[key] = rebuilt[key]
@@ -98,11 +108,13 @@ def format_run(code_root: Path, raw: Path, output: Path) -> subprocess.Completed
                           cwd=code_root, stdin=subprocess.DEVNULL, capture_output=True, text=True)
 
 
-def produce(root: Path, code_root: Path, output: Path, start: str, end: str, release: bool) -> dict:
+def produce(root: Path, code_root: Path, output: Path, start: str, end: str, release: bool,
+            lists: bool = False) -> dict:
     sys.path.insert(0, str(root))
-    report = {'code_root': str(code_root), 'start': start, 'end_exclusive': end, 'release': release, 'runs': []}
+    report = {'code_root': str(code_root), 'start': start, 'end_exclusive': end, 'release': release,
+              'lists': lists, 'runs': []}
     for generated, snapshot in runs(root, start, end):
-        raw = bundle(snapshot, output / 'bundles' / snapshot.name, release)
+        raw = bundle(snapshot, output / 'bundles' / snapshot.name, release, lists)
         out = output / 'runs' / snapshot.name
         if out.exists():
             shutil.rmtree(out)
@@ -173,6 +185,7 @@ def main(argv=None) -> int:
     parser.add_argument('--start', default='2026-10-27')
     parser.add_argument('--end', default='2026-11-09', help='exclusive')
     parser.add_argument('--release', action='store_true')
+    parser.add_argument('--lists', action='store_true', help='rebuild every list of each run (implies --release)')
     parser.add_argument('--compare', nargs=2, type=Path)
     parser.add_argument('--digests', nargs=2, type=Path, metavar=('OUTPUT', 'JSON'),
                         help="write a formatted tree's CSV digests, line endings normalised")
@@ -188,7 +201,7 @@ def main(argv=None) -> int:
     if args.output is None:
         parser.error('--output is required')
     report = produce(args.root.resolve(), args.code_root.resolve(), args.output.resolve(), args.start, args.end,
-                     args.release)
+                     args.release, args.lists)
     failed = [r['snapshot'] for r in report['runs'] if r['status'] != 'ok']
     print(f"{len(report['runs'])} runs formatted, {len(failed)} failed{': ' + ', '.join(failed) if failed else ''}")
     return 1 if failed else 0

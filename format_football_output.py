@@ -171,8 +171,33 @@ DIAGNOSTIC_LABELS: Dict[str, str] = {
 }
 
 TECH_EXPLANATIONS: Dict[str, str] = {
+    "Research": (
+        "The value shortlist's model: team form, goal rates and xG, never bookmaker odds. Live research v5 "
+        "(C6 grid) for domestic leagues and v6 (CE3n) for UCL/UEL, exactly as the forecast carries it."
+    ),
+    "Cagey": (
+        "The cagey tier's market view: Pinnacle's 1X2, O/U 2.5 and main AH line with the margin removed, plus the "
+        "narrow-margin correction (D_pow2 for domestic leagues, D for UCL/UEL, D where D_pow2's power fit fails). "
+        "Blank without Pinnacle 1X2 and O/U 2.5."
+    ),
+    "No-loss": (
+        "The chance a bet does not lose: a win, a half win or a refund (push) on that exact line."
+    ),
+    "Gap": (
+        "Research minus cagey no-loss on the same Pinnacle offer, in percentage points (the master's g). "
+        "+4 or more: research too optimistic; -4 or less: research too pessimistic; -8 or less with cagey "
+        "no-loss of 85% or more: flagged for inspection."
+    ),
+    "Cagey tier": (
+        "The master's market classes from the cagey no-loss: safe (75% or more), risky (below 50%), in between "
+        "otherwise; fair price when the Pinnacle price is within its 2.70% margin of the cagey fair odds."
+    ),
+    "Best offer": (
+        "The fixture's master pick, or else the Pinnacle offer the master's own rule would choose for it "
+        "(safe first, then chance of profit), shown with both views and the master's labels."
+    ),
     "Expected goals": (
-        "The model's average goal expectation for each team. It is not a prediction "
+        "A view's average goal expectation for each team, from its score grid. It is not a prediction "
         "that the team will score exactly that many goals."
     ),
     "Fair odds": (
@@ -490,99 +515,253 @@ def positive_value_candidates(row: Mapping[str, Any]) -> List[Dict[str, Any]]:
 
 
 SAFEST_AH_MIN_ODDS = 1.20
+# Display only: the quoted Pinnacle AH line the cagey tier rates safest (readable_views.safest_ah).
 SAFEST_AH_COLUMNS = [
     "Safest AH line",
-    "Safest AH odds and bookmaker",
-    "Safest AH expected value",
-    "Safest AH model no-loss probability",
-    "Safest AH model break-even win share",
+    "Safest AH Pinnacle odds",
+    "Safest AH cagey expected value",
+    "Safest AH cagey no-loss probability",
+    "Safest AH research no-loss probability",
+    "Safest AH cagey break-even win share",
     "Safest AH Pinnacle no-vig win share",
-    "Safest AH model minus Pinnacle win share",
-    "Totals anchor status",
+    "Safest AH cagey minus Pinnacle win share",
     "Safest AH reason",
 ]
+# Per view (Research, Cagey): (column after the view's name, readable_views.grid_markets key, format).
+VIEW_FIELDS = [
+    ("home win", "home", "pct"), ("draw", "draw", "pct"), ("away win", "away", "pct"),
+    ("expected home goals", "xg_home", "goals"), ("expected away goals", "xg_away", "goals"),
+    ("expected total goals", "xg_total", "goals"), ("most likely score", "score", "text"),
+    ("most likely score probability", "score_p", "pct"),
+    ("Over 1.5", "over_1_5", "pct"), ("Under 1.5", "under_1_5", "pct"),
+    ("Over 2.5", "over_2_5", "pct"), ("Under 2.5", "under_2_5", "pct"),
+    ("Over 3.5", "over_3_5", "pct"), ("Under 3.5", "under_3_5", "pct"),
+    ("BTTS Yes", "btts_yes", "pct"), ("BTTS No", "btts_no", "pct"),
+    ("Double Chance 1X", "dc_1x", "pct"), ("Double Chance X2", "dc_x2", "pct"),
+]
+BEST_OFFER_COLUMNS = [
+    "Best offer", "Best offer basis", "Best offer research no-loss", "Best offer cagey no-loss",
+    "Best offer gap (points)", "Best offer gap label", "Best offer cagey tier", "Best offer master labels",
+    "Best offer master check", "Best offer note",
+]
+BENCHMARK_PREFIX = "Benchmark "
 
 
-def safest_asian_handicap(row: Mapping[str, Any]) -> Dict[str, str]:
-    """Display only: the quoted AH line with the highest model no-loss probability.
+def view_value(markets: Optional[Mapping[str, Any]], key: str, kind: str) -> str:
+    if not markets:
+        return "—"
+    if key == "xg_total":
+        return decimal(markets["xg_home"] + markets["xg_away"], 2)
+    if kind == "text":
+        return str(markets[key])
+    return decimal(markets[key], 2) if kind == "goals" else pct(markets[key])
 
-    Lines need EV >= 0 at the best available price and odds >= 1.20; ties go to
-    higher EV, then higher odds. Never feeds the shortlist or any policy gate.
-    """
-    from asian_handicap import distribution, line, probabilities
 
-    out = dict.fromkeys(SAFEST_AH_COLUMNS, "—")
-    out["Totals anchor status"] = format_value("totals_anchor_status", row.get("totals_anchor_status"))
-    out["Safest AH reason"] = ""
-    offers = row.get("asian_handicap_offers")
-    try:
-        offers = json.loads(offers) if isinstance(offers, str) else offers
-    except ValueError:
-        offers = None
-    if not isinstance(offers, list) or not offers:
-        out["Safest AH reason"] = "No Asian handicap quotes"
+def view_model_text(view_name: str, info: Mapping[str, Any], row: Mapping[str, Any]) -> str:
+    """Which model priced the view, or why it is blank."""
+    view = info["research"] if view_name == "Research" else info["cagey"]
+    if "reason" in view:
+        return "unavailable: " + view["reason"]
+    if view_name == "Research":
+        version = str(view.get("version") or row.get("research_version") or "")
+        grid = {"team-form-research-v5": "v5, C6", "team-form-research-v6": "v6, CE3n"}.get(version, version)
+        text = f"research {grid}" if grid else "research"
+        if not view.get("frozen", True):
+            text += " (forecast saved without research: computed at the run clock, as the value shortlist does)"
+        return text
+    text = f"cagey {view['correction']} (fit {view['fit']})"
+    return text + (f"; {view['fallback']}" if view.get("fallback") else "")
+
+
+def ah_no_loss_text(info: Mapping[str, Any], view_name: str) -> str:
+    key = "research" if view_name == "Research" else "cagey"
+    if "reason" in info[key]:
+        return "—"
+    if not info["lines"]:
+        return "no Pinnacle AH quotes"
+    return "; ".join(f"{line['label']} @ {line['price']:.2f}: {pct(line[key])}" for line in info["lines"])
+
+
+def best_offer_values(info: Mapping[str, Any]) -> Dict[str, str]:
+    import master_reconciliation as mr
+    import readable_views as rv
+    out = dict.fromkeys(BEST_OFFER_COLUMNS, "—")
+    if info["offers"] is None:
+        out["Best offer note"] = rv.MISSING_DECISIONS
         return out
-    try:
-        distribution(row.get("goal_margin_distribution"))
-    except (ValueError, TypeError):
-        out["Safest AH reason"] = "Model goal-margin distribution unavailable"
+    best = info["best"]
+    if best is None:
+        if not info["offers"]:
+            out["Best offer note"] = "no Pinnacle offer of this match in the run's decision rows"
+        else:
+            reasons = sorted({rv.master_check(o) for o in info["offers"] if not o.get("new_master_executable")})
+            out["Best offer note"] = ("no offer passes the master's execution and timing checks with a market view"
+                                      + (f" ({'; '.join(reasons)})" if reasons else " (no market view)"))
         return out
-
-    # Best available price per side/line across bookmakers; Pinnacle kept for the no-vig reference.
-    best: Dict[Tuple[str, float], Dict[str, Any]] = {}
-    pinnacle: Dict[Tuple[str, float], Dict[str, Any]] = {}
-    for offer in offers:
-        try:
-            key = (offer["side"], line(offer["line"]))
-            price = float(offer["price"])
-            if key[0] not in ("home", "away") or not math.isfinite(price) or price <= 1:
-                continue
-        except (ValueError, TypeError, KeyError):
-            continue
-        book = str(offer.get("bookmaker"))
-        if book == "Pinnacle":
-            pinnacle[key] = offer
-        current = best.get(key)
-        if current is None or price > current["price"]:
-            best[key] = {"price": price, "books": {book}}
-        elif price == current["price"]:
-            current["books"].add(book)
-
-    candidates = []
-    for (side, point), quote in best.items():
-        values = probabilities(row["goal_margin_distribution"], side, point, quote["price"])
-        if quote["price"] >= SAFEST_AH_MIN_ODDS and values["estimated_ev"] + 1e-12 >= 0:
-            candidates.append((side, point, quote, values))
-    if not candidates:
-        out["Safest AH reason"] = (
-            f"No quoted line has EV >= 0 at odds >= {SAFEST_AH_MIN_ODDS:.2f} "
-            f"({len(best)} lines checked)"
-        )
-        return out
-
-    side, point, quote, values = min(candidates, key=lambda c: (
-        -round(c[3]["p_no_loss"], 12), -round(c[3]["estimated_ev"], 12), -c[2]["price"], c[0], c[1]))
-    team = row.get("home_team" if side == "home" else "away_team") or side.title()
+    gap = to_float(best.get("gap_points"))
     out.update({
-        "Safest AH line": f"{team} {point:+.2f}",
-        "Safest AH odds and bookmaker": f"{quote['price']:.2f} ({'/'.join(sorted(quote['books']))})",
-        "Safest AH expected value": signed_pct(values["estimated_ev"]),
-        "Safest AH model no-loss probability": pct(values["p_no_loss"]),
+        "Best offer": rv._offer_text(best),
+        "Best offer basis": info["best_basis"] or "—",
+        "Best offer research no-loss": pct(best.get("research_no_loss_probability")),
+        "Best offer cagey no-loss": pct(best.get("cagey_no_loss_probability")),
+        "Best offer gap (points)": f"{gap:+.1f}" if gap is not None else "—",
+        "Best offer gap label": rv.gap_label(best, mr.load_config()),
+        "Best offer cagey tier": rv.cagey_tier(best),
+        "Best offer master labels": best.get("new_master_labels") or "none",
+        "Best offer master check": rv.master_check(best),
+        "Best offer note": best.get("missing_evidence_reason") or "",
     })
-    # Break-even win share excludes refunds, so it is comparable with a two-way
-    # no-vig price on half, whole and quarter lines alike (v26 audit measure).
-    won = values["p_full_win"] + values["p_half_win"] / 2
-    lost = values["p_full_loss"] + values["p_half_loss"] / 2
-    share = won / (won + lost) if won + lost > 0 else None
-    out["Safest AH model break-even win share"] = pct(share)
-    reference = pinnacle.get((side, point))
-    if reference is not None and share is not None:
-        from football_value_pipeline_v2_standalone import devig
-        fair = to_float(devig([reference.get("price"), reference.get("opposite_price")], "proportional")[0])
-        if fair is not None:
-            out["Safest AH Pinnacle no-vig win share"] = pct(fair)
-            out["Safest AH model minus Pinnacle win share"] = f"{100 * (share - fair):+.1f} pp"
     return out
+
+
+def safest_ah_values(info: Mapping[str, Any]) -> Dict[str, str]:
+    out = dict.fromkeys(SAFEST_AH_COLUMNS, "—")
+    safest = info["safest"]
+    if "reason" in safest:
+        out["Safest AH reason"] = safest["reason"]
+        return out
+    out.update({
+        "Safest AH line": safest["label"],
+        "Safest AH Pinnacle odds": decimal(safest["price"]),
+        "Safest AH cagey expected value": signed_pct(safest["ev"]),
+        "Safest AH cagey no-loss probability": pct(safest["cagey"]),
+        "Safest AH research no-loss probability": pct(safest["research"]),
+        "Safest AH cagey break-even win share": pct(safest["share"]),
+        "Safest AH Pinnacle no-vig win share": pct(safest["pinnacle_share"]),
+        "Safest AH reason": "",
+    })
+    if safest["share"] is not None and safest["pinnacle_share"] is not None:
+        out["Safest AH cagey minus Pinnacle win share"] = f"{100 * (safest['share'] - safest['pinnacle_share']):+.1f} pp"
+    return out
+
+
+def pinnacle_1x2(row: Mapping[str, Any]) -> Tuple[Optional[float], Optional[float], Optional[float]]:
+    from price_edge_shortlist import pinnacle_quotes
+    h2h = pinnacle_quotes(row).get("h2h")
+    return tuple(h2h[:3]) if h2h else (None, None, None)
+
+
+def benchmark_values(row: Mapping[str, Any], scorelines: Mapping[str, Mapping[str, float]]) -> Dict[str, str]:
+    """The production model (70% Pinnacle blend): display only, never a shortlist's probability."""
+    ranked = ranked_scorelines(row, scorelines, top_n=1)
+    lh, la = to_float(row.get("lambda_home")), to_float(row.get("lambda_away"))
+    lean_label, lean_p = model_lean(row)
+    values = positive_value_candidates(row)
+    best_value = values[0] if values else None
+    out = {
+        "lean": lean_label, "lean probability": pct(lean_p),
+        "home win": pct(row.get("p_home")), "draw": pct(row.get("p_draw")), "away win": pct(row.get("p_away")),
+        "expected home goals": decimal(lh, 2), "expected away goals": decimal(la, 2),
+        "expected total goals": decimal(None if lh is None or la is None else lh + la, 2),
+        "most likely score": ranked[0][0] if ranked else "—",
+        "most likely score probability": pct(ranked[0][1] if ranked else None),
+        "Over 0.5": pct(row.get("p_over_0_5")), "Over 1.5": pct(row.get("p_over_1_5")),
+        "Over 2.5": pct(row.get("p_over_2_5")), "Under 2.5": pct(row.get("p_under_2_5")),
+        "Over 3.5": pct(row.get("p_over_3_5")), "Under 3.5": pct(row.get("p_under_3_5")),
+        "Under 4.5": pct(row.get("p_under_4_5")),
+        "BTTS Yes": pct(row.get("p_btts_yes")), "BTTS No": pct(row.get("p_btts_no")),
+        "Double Chance 1X": pct(row.get("p_home_draw")), "Double Chance X2": pct(row.get("p_draw_away")),
+        "Double Chance 12": pct(row.get("p_home_away")),
+        "best quoted home odds": decimal(row.get("market_home_odds"), 2),
+        "best quoted draw odds": decimal(row.get("market_draw_odds"), 2),
+        "best quoted away odds": decimal(row.get("market_away_odds"), 2),
+        "best EV (display only)": (f"{best_value['selection']} ({signed_pct(best_value['ev'])})"
+                                   if best_value else "No positive EV found / no odds available"),
+        "totals anchor status": format_value("totals_anchor_status", row.get("totals_anchor_status")),
+    }
+    return {BENCHMARK_PREFIX + k: v for k, v in out.items()}
+
+
+def fixture_infos(df: pd.DataFrame, run=None) -> List[Tuple[Dict[str, Any], Dict[str, Any]]]:
+    """(forecast row, readable_views.fixture) for every row, computed once for the CSV, the report and the
+    scorelines."""
+    import readable_views as rv
+    run = run if run is not None else rv.Run(None)
+    return [(row, rv.fixture(row, run)) for row in
+            df.astype(object).where(df.notna(), None).to_dict("records")]
+
+
+def readable_predictions_frame(
+    df: pd.DataFrame,
+    scorelines: Mapping[str, Mapping[str, float]],
+    run=None,
+    infos: Optional[List[Tuple[Dict[str, Any], Dict[str, Any]]]] = None,
+) -> pd.DataFrame:
+    """One row per fixture: research, cagey, the lists and the master's verdict on the best offer, the cagey tier's
+    safest AH line, then the production model as the last (benchmark) columns. `run` is readable_views.Run (the run
+    bundle); without it the views that need the bundle show why they are blank."""
+    import readable_views as rv
+    rows: List[Dict[str, Any]] = []
+    for row, info in (infos if infos is not None else fixture_infos(df, run)):
+        home, away = str(row.get("home_team", "Home")), str(row.get("away_team", "Away"))
+        pin_home, pin_draw, pin_away = pinnacle_1x2(row)
+        out: Dict[str, Any] = {
+            "Match date": row.get("date"),
+            "Kickoff (UTC)": row.get("kickoff_utc"),
+            "League": row.get("league"),
+            "Home team": home,
+            "Away team": away,
+            "Fixture source": row.get("fixture_source"),
+        }
+        for view in (rv.RESEARCH, rv.CAGEY):
+            markets = info["markets"][view]
+            label, probability = info["leans"][view]
+            out[f"{view} model"] = view_model_text(view, info, row)
+            out[f"{view} lean"] = label or "—"
+            out[f"{view} lean probability"] = pct(probability)
+            for suffix, key, kind in VIEW_FIELDS:
+                out[f"{view} {suffix}"] = view_value(markets, key, kind)
+            out[f"{view} AH no-loss (quoted Pinnacle lines)"] = ah_no_loss_text(info, view)
+        out.update({
+            "Views agree on the lean": info["agree"],
+            "Pinnacle home odds": decimal(pin_home), "Pinnacle draw odds": decimal(pin_draw),
+            "Pinnacle away odds": decimal(pin_away),
+            "On value shortlist": rv.list_text(info["value"], info["offers"]),
+            "On cagey tier": rv.list_text(info["cagey_picks"], info["offers"], with_tier=True),
+            "On master": rv.master_text(info),
+            **best_offer_values(info),
+            **safest_ah_values(info),
+            "Training status": row.get("training_data_status"),
+            "Training cutoff": row.get("training_cutoff"),
+            "Training refresh warning": row.get("training_refresh_warning"),
+            **benchmark_values(row, scorelines),
+        })
+        rows.append(out)
+    return pd.DataFrame(rows)
+
+
+def flattened_scorelines_frame(
+    predictions: pd.DataFrame,
+    full_scorelines: Mapping[str, Mapping[str, float]],
+    run=None,
+    infos: Optional[List[Tuple[Dict[str, Any], Dict[str, Any]]]] = None,
+) -> pd.DataFrame:
+    """Ranked scorelines per fixture and model: research and cagey (cells at or above 0.01%), then the benchmark's
+    scorelines as the pipeline wrote them."""
+    import readable_views as rv
+    rows: List[Dict[str, Any]] = []
+    for row, info in (infos if infos is not None else fixture_infos(predictions, run)):
+        ranked_by_model = []
+        for view, source in ((rv.RESEARCH, info["research"]), (rv.CAGEY, info["cagey"])):
+            if "matrix" in source:
+                ranked_by_model.append((view, rv.ranked_scores(source["matrix"], rv.SCORELINE_MIN)))
+        scores = full_scorelines.get(match_id_from_row(row))
+        ranked_by_model.append((rv.BENCHMARK, sorted(scores.items(), key=lambda x: x[1], reverse=True) if scores
+                                else parse_top_scorelines(row.get("top_scorelines"))))
+        for model, ranked in ranked_by_model:
+            for rank, (score, probability) in enumerate(ranked, start=1):
+                rows.append({
+                    "Match date": row.get("date"),
+                    "League": row.get("league"),
+                    "Home team": row.get("home_team"),
+                    "Away team": row.get("away_team"),
+                    "Model": model,
+                    "Rank": rank,
+                    "Score": score,
+                    "Probability": pct(probability, 2),
+                    "Probability (decimal)": probability,
+                })
+    return pd.DataFrame(rows)
 
 
 def build_match_summary(
@@ -641,114 +820,6 @@ def build_match_summary(
     if totals:
         pieces.append("Goal-market probabilities: " + "; ".join(totals) + ".")
     return " ".join(pieces)
-
-
-# ---------------------------------------------------------------------------
-# Readable data frames
-# ---------------------------------------------------------------------------
-
-def readable_predictions_frame(
-    df: pd.DataFrame,
-    scorelines: Mapping[str, Mapping[str, float]],
-) -> pd.DataFrame:
-    rows: List[Dict[str, Any]] = []
-
-    for _, r in df.iterrows():
-        row = r.to_dict()
-        ranked = ranked_scorelines(row, scorelines, top_n=1)
-        top_score = ranked[0][0] if ranked else None
-        top_score_p = ranked[0][1] if ranked else None
-
-        lh = to_float(row.get("lambda_home"))
-        la = to_float(row.get("lambda_away"))
-        lean, lean_p = model_lean(row)
-        values = positive_value_candidates(row)
-        best_value = values[0] if values else None
-
-        out = {
-            "Match date": row.get("date"),
-            "League": row.get("league"),
-            "Home team": row.get("home_team"),
-            "Away team": row.get("away_team"),
-            "Fixture source": row.get("fixture_source"),
-            "Model lean": lean,
-            "Model lean probability": pct(lean_p),
-            "Home win": pct(row.get("p_home")),
-            "Draw": pct(row.get("p_draw")),
-            "Away win": pct(row.get("p_away")),
-            "Expected home goals": decimal(lh, 2),
-            "Expected away goals": decimal(la, 2),
-            "Expected total goals": decimal(
-                None if lh is None or la is None else lh + la, 2
-            ),
-            "Most likely score": top_score or "—",
-            "Most likely score probability": pct(top_score_p),
-            "Over 0.5": pct(row.get("p_over_0_5")),
-            "Over 1.5": pct(row.get("p_over_1_5")),
-            "Over 2.5": pct(row.get("p_over_2_5")),
-            "Under 2.5": pct(row.get("p_under_2_5")),
-            "Over 3.5": pct(row.get("p_over_3_5")),
-            "Under 3.5": pct(row.get("p_under_3_5")),
-            "Double Chance 1X": pct(row.get("p_home_draw")),
-            "Double Chance X2": pct(row.get("p_draw_away")),
-            "Double Chance 12": pct(row.get("p_home_away")),
-            "Under 4.5": pct(row.get("p_under_4_5")),
-            "BTTS Yes": pct(row.get("p_btts_yes")),
-            "BTTS No": pct(row.get("p_btts_no")),
-            "Home market odds": decimal(row.get("market_home_odds"), 2),
-            "Draw market odds": decimal(row.get("market_draw_odds"), 2),
-            "Away market odds": decimal(row.get("market_away_odds"), 2),
-            "Best model-estimated value": (
-                f"{best_value['selection']} ({signed_pct(best_value['ev'])})"
-                if best_value else "No positive EV found / no odds available"
-            ),
-            **safest_asian_handicap(row),
-        }
-        if 'research_probability_basis' in row:
-            out.update({
-                'Research home win': pct(row.get('research_p_home')),
-                'Research draw': pct(row.get('research_p_draw')),
-                'Research away win': pct(row.get('research_p_away')),
-                'Research Over 1.5': pct(row.get('research_p_over_1_5')),
-                'Research basis': row.get('research_probability_basis'),
-                'Training status': row.get('training_data_status'),
-                'Training cutoff': row.get('training_cutoff'),
-                'Training refresh warning': row.get('training_refresh_warning'),
-            })
-        rows.append(out)
-
-    return pd.DataFrame(rows)
-
-
-def flattened_scorelines_frame(
-    predictions: pd.DataFrame,
-    full_scorelines: Mapping[str, Mapping[str, float]],
-) -> pd.DataFrame:
-    rows: List[Dict[str, Any]] = []
-
-    for _, r in predictions.iterrows():
-        row = r.to_dict()
-        mid = match_id_from_row(row)
-
-        scores = full_scorelines.get(mid)
-        if scores:
-            ranked = sorted(scores.items(), key=lambda x: x[1], reverse=True)
-        else:
-            ranked = parse_top_scorelines(row.get("top_scorelines"))
-
-        for rank, (score, probability) in enumerate(ranked, start=1):
-            rows.append({
-                "Match date": row.get("date"),
-                "League": row.get("league"),
-                "Home team": row.get("home_team"),
-                "Away team": row.get("away_team"),
-                "Rank": rank,
-                "Score": score,
-                "Probability": pct(probability, 2),
-                "Probability (decimal)": probability,
-            })
-
-    return pd.DataFrame(rows)
 
 
 def readable_bets_frame(df: pd.DataFrame) -> pd.DataFrame:
@@ -827,146 +898,194 @@ def diagnostics_markdown(diag: Mapping[str, Any]) -> str:
     return "\n".join(out)
 
 
+def views_summary(row: Mapping[str, Any], info: Mapping[str, Any]) -> str:
+    import readable_views as rv
+    pieces = []
+    for view in (rv.RESEARCH, rv.CAGEY):
+        label, probability = info["leans"][view]
+        source = info["research"] if view == rv.RESEARCH else info["cagey"]
+        pieces.append(f"{view} leans **{label}** at **{100 * probability:.1f}%**." if label else
+                      f"{view}: {source['reason']}.")
+    pieces.append({"yes": "The two views agree on the lean.", "no": "The two views lean differently.",
+                   "one view missing": "Only one view is available."}[info["agree"]])
+    return " ".join(pieces)
+
+
 def match_markdown(
     row: Mapping[str, Any],
     full_scorelines: Mapping[str, Mapping[str, float]],
     top_n: int,
     include_technical: bool,
+    run=None,
+    info: Optional[Mapping[str, Any]] = None,
 ) -> str:
+    """One fixture: the research and cagey views, each view's AH no-loss on the quoted Pinnacle lines, the lists
+    and the master's verdict on every Pinnacle offer. The production model is in benchmark_markdown, at the end of
+    the report. `include_technical` is kept for the command line; the technical appendix is in the benchmark
+    section."""
+    import master_reconciliation as mr
+    import readable_views as rv
+    if info is None:
+        info = rv.fixture(dict(row), run if run is not None else rv.Run(None))
+    home = str(row.get("home_team", "Home"))
+    away = str(row.get("away_team", "Away"))
+    date = str(row.get("date", "Date unavailable"))
+    lines = [f"## {date} — {home} vs {away}", "", views_summary(row, info), ""]
+    source = row.get("fixture_source")
+    if not is_missing(source):
+        lines.extend([f"**Fixture source:** {source}", ""])
+
+    research, cagey = info["markets"][rv.RESEARCH], info["markets"][rv.CAGEY]
+    lines.extend([
+        "### The two views",
+        "",
+        f"- **Research:** {view_model_text(rv.RESEARCH, info, row)}",
+        f"- **Cagey:** {view_model_text(rv.CAGEY, info, row)}",
+        "",
+    ])
+    if research or cagey:
+        table = []
+        for suffix, key, kind in VIEW_FIELDS:
+            label = suffix[0].upper() + suffix[1:]
+            label = {"Home win": f"{home} win", "Away win": f"{away} win",
+                     "Expected home goals": f"{home} expected goals",
+                     "Expected away goals": f"{away} expected goals"}.get(label, label)
+            table.append([label, view_value(research, key, kind), view_value(cagey, key, kind)])
+        lines.extend([markdown_table(["Measure", "Research", "Cagey"], table), ""])
+        if cagey:
+            lines.extend(["_Cagey Over/Under 1.5 come from the uncorrected Pinnacle grid, as the cagey tier prices "
+                          "Over 1.5; its other figures from the corrected grid._", ""])
+
+    ranked = {view: rv.ranked_scores(source["matrix"])[:top_n] for view, source in
+              ((rv.RESEARCH, info["research"]), (rv.CAGEY, info["cagey"])) if "matrix" in source}
+    if ranked:
+        cell = lambda view, i: (f"{ranked[view][i][0]} ({pct(ranked[view][i][1], 2)})"
+                                if view in ranked and i < len(ranked[view]) else "—")
+        lines.extend([
+            f"### {top_n} most likely scorelines",
+            "",
+            markdown_table(["Rank", "Research", "Cagey"],
+                           [[i + 1, cell(rv.RESEARCH, i), cell(rv.CAGEY, i)] for i in range(top_n)]),
+            "",
+        ])
+
+    lines.extend(["### No-loss on the quoted Pinnacle Asian handicap lines", ""])
+    if info["lines"]:
+        lines.extend([markdown_table(["Line", "Pinnacle odds", "Research no-loss", "Cagey no-loss"],
+                                     [[l["label"], decimal(l["price"]), pct(l["research"]), pct(l["cagey"])]
+                                      for l in info["lines"]]), "",
+                      "_No-loss: win, half win or refund, from each view's own goal-margin distribution._", ""])
+    else:
+        lines.extend(["_No Pinnacle Asian handicap quotes in this forecast._", ""])
+
+    lines.extend([
+        "### On the lists",
+        "",
+        f"- **Value shortlist:** {rv.list_text(info['value'], info['offers'])}",
+        f"- **Cagey tier:** {rv.list_text(info['cagey_picks'], info['offers'], with_tier=True)}",
+        f"- **Master shortlist:** {rv.master_text(info)}",
+        "",
+        "### The master's verdict on every Pinnacle offer",
+        "",
+    ])
+    if info["offers"] is None:
+        lines.extend([f"_{rv.MISSING_DECISIONS[0].upper() + rv.MISSING_DECISIONS[1:]}._", ""])
+    elif not info["offers"]:
+        lines.extend(["_No Pinnacle offer of this match in the run's decision rows._", ""])
+    else:
+        config = mr.load_config()
+        best = info["best"]
+        table = []
+        for offer in sorted(info["offers"], key=lambda o: (-(to_float(o.get("ranking_no_loss_probability")) or -1),
+                                                           str(o.get("market_to_bet")))):
+            gap = to_float(offer.get("gap_points"))
+            table.append([("**best** " if best is not None and rv.offer_key(offer) == rv.offer_key(best) else "")
+                          + str(offer.get("market_to_bet")), decimal(offer.get("offered_decimal_odds")),
+                          pct(offer.get("research_no_loss_probability")), pct(offer.get("cagey_no_loss_probability")),
+                          f"{gap:+.1f}" if gap is not None else "—", rv.gap_label(offer, config),
+                          rv.cagey_tier(offer), offer.get("new_master_labels") or "none", rv.master_check(offer)])
+        lines.extend([
+            markdown_table(["Offer", "Pinnacle odds", "Research no-loss", "Cagey no-loss", "Gap (points)",
+                            "Gap label", "Cagey tier", "Master labels", "Master check"], table),
+            "",
+            f"_Best offer: {info['best_basis'] or 'none (no offer passes the master checks with a market view)'}. "
+            "Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky "
+            "below 50%) and fair price; the research view only labels. No probability is blended._",
+            "",
+        ])
+        missing = sorted({o.get("missing_evidence_reason") for o in info["offers"] if o.get("missing_evidence_reason")})
+        if missing:
+            lines.extend(["_Views the master could not use: " + "; ".join(missing) + "._", ""])
+
+    safest = info["safest"]
+    lines.extend(["### Safest Asian handicap (cagey tier)", ""])
+    if "reason" in safest:
+        lines.extend([f"_{safest['reason']}._", ""])
+    else:
+        lines.extend([
+            f"{safest['label']} at {decimal(safest['price'])} (Pinnacle): cagey no-loss **{pct(safest['cagey'])}**, "
+            f"research no-loss {pct(safest['research'])}, cagey expected value {signed_pct(safest['ev'])}.",
+            "",
+        ])
+    return "\n".join(lines)
+
+
+def benchmark_markdown(
+    row: Mapping[str, Any],
+    full_scorelines: Mapping[str, Mapping[str, float]],
+    top_n: int,
+    include_technical: bool,
+) -> str:
+    """The production model for one fixture (70% Pinnacle blend): display only. Its EV is never a headline."""
     home = str(row.get("home_team", "Home"))
     away = str(row.get("away_team", "Away"))
     date = str(row.get("date", "Date unavailable"))
     scorelines = ranked_scorelines(row, full_scorelines, top_n=top_n)
-
-    lines = [
-        f"## {date} — {home} vs {away}",
-        "",
-        build_match_summary(row, scorelines),
-        "",
-    ]
-
-    source = row.get("fixture_source")
-    if not is_missing(source):
-        lines.append(f"**Fixture source:** {source}")
-        lines.append("")
-
-    one_x_two_rows = [
-        [home + " win", pct(row.get("p_home")), decimal(row.get("fair_home"))],
-        ["Draw", pct(row.get("p_draw")), decimal(row.get("fair_draw"))],
-        [away + " win", pct(row.get("p_away")), decimal(row.get("fair_away"))],
-    ]
+    lines = [f"### {date} — {home} vs {away}", "", build_match_summary(row, scorelines), ""]
     lines.extend([
-        "### Match outcome probabilities",
-        "",
-        markdown_table(["Outcome", "Model probability", "Model fair odds"], one_x_two_rows),
+        markdown_table(["Outcome", "Benchmark probability", "Benchmark fair odds"], [
+            [home + " win", pct(row.get("p_home")), decimal(row.get("fair_home"))],
+            ["Draw", pct(row.get("p_draw")), decimal(row.get("fair_draw"))],
+            [away + " win", pct(row.get("p_away")), decimal(row.get("fair_away"))]]),
         "",
     ])
-
-    lh, la = to_float(row.get("lambda_home")), to_float(row.get("lambda_away"))
     goals_rows = []
+    lh, la = to_float(row.get("lambda_home")), to_float(row.get("lambda_away"))
     if lh is not None:
         goals_rows.append([f"{home} expected goals", f"{lh:.2f}"])
     if la is not None:
         goals_rows.append([f"{away} expected goals", f"{la:.2f}"])
     if lh is not None and la is not None:
         goals_rows.append(["Expected total goals", f"{lh + la:.2f}"])
-
     for line_value in ("0_5", "1_5", "2_5", "3_5", "4_5"):
-        over_key = f"p_over_{line_value}"
-        under_key = f"p_under_{line_value}"
         label = line_value.replace("_", ".")
-        if over_key in row and not is_missing(row.get(over_key)):
-            goals_rows.append([f"Over {label}", pct(row.get(over_key))])
-        if under_key in row and not is_missing(row.get(under_key)):
-            goals_rows.append([f"Under {label}", pct(row.get(under_key))])
-
-    lines.extend([
-        "### Goals outlook",
-        "",
-        markdown_table(["Measure", "Model estimate"], goals_rows),
-        "",
-    ])
-
+        for side in ("over", "under"):
+            key = f"p_{side}_{line_value}"
+            if key in row and not is_missing(row.get(key)):
+                goals_rows.append([f"{side.title()} {label}", pct(row.get(key))])
+    if goals_rows:
+        lines.extend([markdown_table(["Measure", "Benchmark estimate"], goals_rows), ""])
     if scorelines:
-        lines.extend([
-            f"### {len(scorelines)} most likely scorelines",
-            "",
-            markdown_table(
-                ["Rank", "Score", "Probability"],
-                [[i, score, pct(probability, 2)] for i, (score, probability) in enumerate(scorelines, 1)],
-            ),
-            "",
-        ])
-
-    market_present = any(
-        to_float(row.get(c)) is not None
-        for c in (
-            "market_home_odds", "market_draw_odds", "market_away_odds",
-            "market_over_2_5_odds", "market_under_2_5_odds",
-        )
-    )
-
-    if market_present:
-        market_rows = []
-        specs = [
-            (home + " win", "p_home", "market_p_home", "market_home_odds", "ev_home"),
-            ("Draw", "p_draw", "market_p_draw", "market_draw_odds", "ev_draw"),
-            (away + " win", "p_away", "market_p_away", "market_away_odds", "ev_away"),
-            ("Over 2.5", "p_over_2_5", "market_p_over_2_5", "market_over_2_5_odds", "ev_over_2_5"),
-            ("Under 2.5", "p_under_2_5", "market_p_under_2_5", "market_under_2_5_odds", "ev_under_2_5"),
-        ]
-        for label, model_col, market_col, odds_col, ev_col in specs:
-            if all(
-                not is_missing(row.get(c))
-                for c in (model_col, odds_col)
-            ):
-                market_rows.append([
-                    label,
-                    pct(row.get(model_col)),
-                    pct(row.get(market_col)),
-                    decimal(row.get(odds_col)),
-                    signed_pct(row.get(ev_col)),
-                ])
-
-        lines.extend([
-            "### Market comparison",
-            "",
-            markdown_table(
-                ["Selection", "Model", "Market fair", "Available odds", "Model EV"],
-                market_rows,
-            ),
-            "",
-            "_EV is a model estimate, not a guarantee or a recommendation to bet._",
-            "",
-        ])
-    else:
-        lines.extend([
-            "### Market comparison",
-            "",
-            "_No bookmaker prices were available in this run. This commonly occurs when "
-            "the schedule fallback supplies fixtures before Football-Data publishes its "
-            "next odds update. Match probabilities and scoreline estimates are still available._",
-            "",
-        ])
-
+        lines.extend([markdown_table(["Rank", "Score", "Benchmark probability"],
+                                     [[i, s, pct(p, 2)] for i, (s, p) in enumerate(scorelines, 1)]), ""])
+    specs = [
+        (home + " win", "p_home", "market_p_home", "market_home_odds", "ev_home"),
+        ("Draw", "p_draw", "market_p_draw", "market_draw_odds", "ev_draw"),
+        (away + " win", "p_away", "market_p_away", "market_away_odds", "ev_away"),
+        ("Over 2.5", "p_over_2_5", "market_p_over_2_5", "market_over_2_5_odds", "ev_over_2_5"),
+        ("Under 2.5", "p_under_2_5", "market_p_under_2_5", "market_under_2_5_odds", "ev_under_2_5"),
+    ]
+    market_rows = [[label, pct(row.get(m)), pct(row.get(mk)), decimal(row.get(o)), signed_pct(row.get(ev))]
+                   for label, m, mk, o, ev in specs if not is_missing(row.get(m)) and not is_missing(row.get(o))]
+    if market_rows:
+        lines.extend([markdown_table(["Selection", "Benchmark", "Market fair", "Best quoted odds",
+                                      "Benchmark EV (display only)"], market_rows), ""])
     if include_technical:
-        technical_rows = []
-        for key, value in row.items():
-            if key in MAIN_MATCH_FIELDS or is_missing(value):
-                continue
-            technical_rows.append([friendly_label(key), format_value(key, value)])
-
+        technical_rows = [[friendly_label(k), format_value(k, v)] for k, v in row.items()
+                          if k not in MAIN_MATCH_FIELDS and not is_missing(v)]
         if technical_rows:
-            lines.extend([
-                "<details>",
-                "<summary>Additional technical details</summary>",
-                "",
-                markdown_table(["Field", "Value"], technical_rows),
-                "",
-                "</details>",
-                "",
-            ])
-
+            lines.extend(["<details>", "<summary>Additional technical details (forecast row)</summary>", "",
+                          markdown_table(["Field", "Value"], technical_rows), "", "</details>", ""])
     return "\n".join(lines)
 
 
@@ -1101,27 +1220,63 @@ def league_key_from_path(path: Path) -> str:
 def write_readme(output_dir: Path) -> None:
     text = """# Human-readable football reports
 
-This folder is generated by `format_football_output.py`.
+This folder is generated by `format_football_output.py`. Display only: no list, grade, stake
+or decision reads these files.
+
+## The two views, and the master's verdict
+
+Every league file shows, for each fixture, the two models the shortlists use, side by side:
+
+- **Research**: the value shortlist's model (team form, goal rates and xG; never bookmaker
+  odds). Live research v5 (C6 grid) for domestic leagues and v6 (CE3n) for UCL/UEL, exactly
+  as the forecast row carries it: home/draw/away are the row's research probabilities, and
+  the other markets come from the score grid rebuilt from the goal rates and fit frozen in
+  the forecast by the live grid function, shown only when it reproduces the frozen forecast.
+- **Cagey**: the cagey tier's market view, the grid the cagey tier builds from Pinnacle's
+  1X2, O/U 2.5 and main AH line at the run's clock, with the run's correction (D_pow2 for
+  domestic leagues, D for UCL/UEL; D where D_pow2's power fit fails its check, flagged in
+  the model column). Over/Under 1.5 come from the uncorrected Pinnacle grid, as the cagey
+  tier prices Over 1.5. Without Pinnacle 1X2 and O/U 2.5 there is no cagey grid, and its
+  columns are blank with the reason.
+
+For every Pinnacle offer in the run's decision rows, the master's own reconciliation
+(`master_reconciliation.offer_row`, the function the master builds its rows with) gives
+research's and cagey's no-loss probability, the gap, its label and the cagey tier. No
+probability is blended or averaged.
+
+The production forecasting model blends 70% of Pinnacle's prices into its grid. It is kept
+only as a benchmark: the last columns of the CSV (prefixed "Benchmark") and the section
+"Benchmark (70% Pinnacle blend), display only" at the end of each report. Its EV is never
+a headline.
 
 ## Files
 
-- `*_report.md` — narrative report intended for reading and sharing.
-- `*_predictions_readable.csv` — compact fixture-level summary for Excel or filtering,
-  including **Under 3.5**, **BTTS Yes**, and **BTTS No** model probabilities
-  (percentages) alongside the other goal markets. The **Safest AH** columns show,
-  for display only, the quoted Asian handicap line with the highest model
-  no-loss probability (win or refund) among lines with EV >= 0 at the best
-  price and odds >= 1.20; ties go to higher EV, then higher odds. The model's
-  break-even win share, (full win + ½ half win) / (that + full loss + ½ half
-  loss), excludes refunds and is compared with Pinnacle's no-vig share at the
-  same line when Pinnacle quotes it. These columns do not affect the shortlist.
+- `*_report.md` — per match: both views (1X2, expected goals, most likely scores, Over/Under
+  1.5, 2.5 and 3.5, BTTS, double chance 1X and X2), each view's no-loss on the quoted
+  Pinnacle AH lines, the lists the match is on, the master's verdict on every Pinnacle
+  offer and the cagey tier's safest AH line; then the benchmark section.
+- `*_predictions_readable.csv` — one row per fixture: for each view its model (or why it is
+  blank), lean and lean probability, the markets above and its AH no-loss on the quoted
+  Pinnacle lines; whether the two leans agree; Pinnacle's 1X2 odds; whether the fixture is
+  on the value shortlist, the cagey tier (with its cagey tier class) and the master (with
+  its rank); the fixture's best offer with research and cagey no-loss, gap, gap label,
+  cagey tier, master labels and master check; the **Safest AH** columns; training status;
+  then the benchmark columns.
+  The **Safest AH** columns show, for display only, the quoted Pinnacle AH line with the
+  highest cagey no-loss probability (win, half win or refund) among lines with cagey
+  expected value >= 0 at odds >= 1.20; ties go to higher expected value, then higher odds.
+  Research's no-loss on the same line is beside it. The cagey break-even win share,
+  (full win + ½ half win) / (that + full loss + ½ half loss), excludes refunds and is
+  compared with Pinnacle's no-vig share at the same line.
+- `*_scorelines_readable.csv` — ranked scorelines per match with a **Model** column:
+  Research and Cagey (every score at 0.01% or more), then the benchmark's scorelines.
 - `league_predictions.xlsx` — tabs: Master shortlist, Old master (shadow) with the
   same columns, Value shortlist, Cagey tier, then one tab per league with fixtures in
-  the latest run. Only the columns used to choose a bet are shown; each tab's title
-  line names the CSV with the full columns. Kickoff and quote times are in Nairobi
-  time (EAT, UTC+3); blanks carry a short reason. Refreshes and price checks rewrite
-  the list tabs and keep the league tabs. Display only.
-- `*_scorelines_readable.csv` — flattened scoreline probabilities, ranked per match.
+  the latest run. League tabs show both views, the lists, the best offer's verdict, the
+  safest AH line and the benchmark's 1X2 last. Only the columns used to choose a bet are
+  shown; each tab's title line names the CSV with the full columns. Kickoff and quote
+  times are in Nairobi time (EAT, UTC+3); blanks carry a short reason. Refreshes and price
+  checks rewrite the list tabs and keep the league tabs. Display only.
 - `*_backtest_bets_readable.csv` — historical selected bets, when backtest files exist.
 - `conservative_bet_shortlist_readable.csv` — shortlisted matches with
   **the actual selected betting market** beside each fixture, probability,
@@ -1133,17 +1288,38 @@ The original machine-generated files in `football_output_v2/raw` are not changed
 
 ## Terms
 
-**Model probability** — the pipeline's estimated chance of an outcome.
+**Research** — the value shortlist's model, independent of bookmaker odds.
 
-**Fair odds** — 1 / model probability. These do not include a bookmaker margin.
+**Cagey** — the cagey tier's market view: Pinnacle's prices with the margin removed and
+the narrow-margin correction.
 
-**Market fair probability** — bookmaker implied probability after the configured
-margin-removal method.
+**No-loss probability** — the chance a bet does not lose on that exact line: a win, a half
+win or a refund.
 
-**Expected value (EV)** — model probability × available decimal odds − 1.
-It is a model estimate, not a guaranteed return.
+**Gap** — research minus cagey no-loss on the same Pinnacle offer, in percentage points (the
+master's g). Labels: both agree (within ±4 points), research too optimistic (+4 or more),
+research too pessimistic (−4 or less), and flagged for inspection (−8 or less with cagey
+no-loss of 85% or more). The research view only labels; it never adds or removes a bet.
 
-**Expected goals** — the model's average scoring expectation, not an exact-score forecast.
+**Cagey tier** — the master's market classes from the cagey no-loss: safe (75% or more),
+risky (below 50%), in between otherwise; "fair price" when the Pinnacle price is within its
+average 2.70% margin of the cagey fair odds. Where the cagey view is missing, the master
+uses Pinnacle's margin-free price as a stand-in, marked as such.
+
+**Best offer** — the fixture's master pick; otherwise the Pinnacle offer the master's own
+rule would choose for it (safe first, then chance of profit), marked "not on the master".
+
+**Master check** — whether the offer passes the master's execution rule (Pinnacle, odds in
+(1.15, 2.00], native markets) and quote timing checks.
+
+**Fair odds** — 1 / probability. These do not include a bookmaker margin.
+
+**Expected value (EV)** — probability × available decimal odds − 1. It is a model estimate,
+not a guaranteed return. In the league files it is shown for the cagey view (Safest AH) and
+for the benchmark (display only).
+
+**Expected goals** — a view's average scoring expectation from its score grid, not an
+exact-score forecast.
 
 **Scoreline probability** — estimated probability assigned to a particular final score.
 
@@ -2059,7 +2235,10 @@ def process_league(
     output_dir: Path,
     top_scorelines: int,
     include_technical: bool,
+    run=None,
 ) -> Tuple[str, int]:
+    """One league's readable CSVs and report. `run` (readable_views.Run) is the run bundle, read once per formatter
+    call; without it the bundle at `input_dir` is read."""
     key = league_key_from_path(predictions_path)
     try:
         df = pd.read_csv(predictions_path, low_memory=False)
@@ -2084,14 +2263,21 @@ def process_league(
     diagnostics = load_json_file(diag_path)
     metrics = load_json_file(metrics_path)
 
-    readable = readable_predictions_frame(df, scorelines)
+    import readable_views as rv
+    run = run if run is not None else rv.Run(input_dir)
+    sort_cols = [c for c in ("date", "home_team") if c in df.columns]
+    if sort_cols:
+        df = df.sort_values(sort_cols, kind="stable")
+    infos = fixture_infos(df, run)
+
+    readable = readable_predictions_frame(df, scorelines, run, infos)
     readable.to_csv(
         output_dir / f"{key}_predictions_readable.csv",
         index=False,
         encoding="utf-8-sig",
     )
 
-    flat_scores = flattened_scorelines_frame(df, scorelines)
+    flat_scores = flattened_scorelines_frame(df, scorelines, run, infos)
     if not flat_scores.empty:
         flat_scores.to_csv(
             output_dir / f"{key}_scorelines_readable.csv",
@@ -2124,37 +2310,44 @@ def process_league(
         "",
         f"Fixtures in this report: **{len(df):,}**.",
         "",
-        "> Probabilities are model estimates. They describe uncertainty; they are not "
-        "guarantees. Market EV figures are only shown when bookmaker prices are available.",
-        "",
-        diagnostics_markdown(diagnostics),
+        "> Each match shows the two models the shortlists use, side by side, and the master's verdict on them: "
+        "**Research** (the value shortlist's model, independent of bookmaker odds) and **Cagey** (the cagey "
+        "tier's market view, built from Pinnacle's prices). Probabilities are model estimates, not guarantees. "
+        "No probability here is blended or averaged. The production model (70% Pinnacle blend) is kept only as "
+        "a benchmark at the end of this report.",
         "",
         "## Quick reference",
         "",
-        f"- **Expected goals:** {TECH_EXPLANATIONS['Expected goals']}",
-        f"- **Fair odds:** {TECH_EXPLANATIONS['Fair odds']}",
-        f"- **Expected value:** {TECH_EXPLANATIONS['Expected value']}",
-        f"- **Probability edge:** {TECH_EXPLANATIONS['Probability edge']}",
-        f"- **Fixture source:** {TECH_EXPLANATIONS['Fixture source']}",
+        *[f"- **{term}:** {TECH_EXPLANATIONS[term]}" for term in (
+            "Research", "Cagey", "No-loss", "Gap", "Cagey tier", "Best offer", "Expected goals",
+            "Fixture source")],
         "",
         "---",
         "",
     ]
 
-    sort_cols = [c for c in ("date", "home_team") if c in df.columns]
-    if sort_cols:
-        df = df.sort_values(sort_cols, kind="stable")
-
-    for _, r in df.iterrows():
-        lines.append(
-            match_markdown(
-                r.to_dict(),
-                scorelines,
-                top_n=top_scorelines,
-                include_technical=include_technical,
-            )
-        )
+    for row, info in infos:
+        lines.append(match_markdown(row, scorelines, top_n=top_scorelines, include_technical=include_technical,
+                                    run=run, info=info))
         lines.extend(["", "---", ""])
+
+    lines.extend([
+        f"## {rv.BENCHMARK}",
+        "",
+        "The production forecasting model blends 70% of Pinnacle's prices into its score grid, so it is neither "
+        "independent research nor the cagey tier's market view. It is shown for comparison only: no list, "
+        "probability or stake reads it, and its EV is not a recommendation.",
+        "",
+        f"- **Benchmark EV:** {TECH_EXPLANATIONS['Expected value']}",
+        f"- **Fair odds:** {TECH_EXPLANATIONS['Fair odds']}",
+        f"- **Probability edge:** {TECH_EXPLANATIONS['Probability edge']}",
+        "",
+        diagnostics_markdown(diagnostics),
+        "",
+    ])
+    for row, _ in infos:
+        lines.extend([benchmark_markdown(row, scorelines, top_n=top_scorelines,
+                                         include_technical=include_technical), ""])
 
     if metrics:
         lines.extend([
@@ -2250,6 +2443,7 @@ def process_combined_file(
     output_dir: Path,
     top_scorelines: int,
     include_technical: bool,
+    run=None,
 ) -> List[Tuple[str, int]]:
     try:
         df = pd.read_csv(path, low_memory=False)
@@ -2262,7 +2456,7 @@ def process_combined_file(
         temp = output_dir / "__combined_predictions.csv"
         df.to_csv(temp, index=False)
         result = process_league(
-            temp, input_dir, output_dir, top_scorelines, include_technical
+            temp, input_dir, output_dir, top_scorelines, include_technical, run
         )
         temp.unlink(missing_ok=True)
         return [result]
@@ -2273,7 +2467,7 @@ def process_combined_file(
         temp = output_dir / f"{safe}_predictions.csv"
         group.to_csv(temp, index=False)
         result = process_league(
-            temp, input_dir, output_dir, top_scorelines, include_technical
+            temp, input_dir, output_dir, top_scorelines, include_technical, run
         )
         temp.unlink(missing_ok=True)
         results.append(result)
@@ -2431,6 +2625,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             f"No *_predictions.csv files were found in {input_dir}.{hint}"
         )
 
+    import readable_views
+    run = readable_views.Run(input_dir)  # the run bundle, read once for every league
     processed: List[Tuple[str, int]] = []
     for path in prediction_files:
         if path.name == "all_leagues_predictions.csv":
@@ -2441,6 +2637,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                     output_dir,
                     top_scorelines=max(1, args.top_scorelines),
                     include_technical=not args.no_technical,
+                    run=run,
                 )
             )
         else:
@@ -2451,6 +2648,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                     output_dir,
                     top_scorelines=max(1, args.top_scorelines),
                     include_technical=not args.no_technical,
+                    run=run,
                 )
             )
 

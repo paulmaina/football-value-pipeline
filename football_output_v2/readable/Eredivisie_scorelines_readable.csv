@@ -1,101 +1,403 @@
-﻿Match date,League,Home team,Away team,Rank,Score,Probability,Probability (decimal)
-2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,1,1-2,8.02%,0.08015691876437263
-2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,2,1-1,7.51%,0.07505999160976226
-2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,3,1-3,6.88%,0.06881144122353561
-2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,4,2-2,6.69%,0.06693563151141424
-2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,5,2-1,5.42%,0.05419839217478116
-2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,6,0-2,5.38%,0.05376159029113781
-2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,7,2-3,5.13%,0.05129789757282878
-2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,8,0-3,4.62%,0.04615212969047797
-2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,9,1-4,4.43%,0.04430385907028529
-2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,10,0-1,3.70%,0.036990448633244785
-2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,11,3-2,3.47%,0.03468526002810468
-2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,12,2-4,3.30%,0.03302786258008508
-2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,13,0-4,2.97%,0.02971478889619754
-2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,14,3-3,2.86%,0.028557794071722695
-2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,15,3-1,2.69%,0.02693605909093107
-2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,16,0-0,2.35%,0.023491179577450786
-2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,17,1-5,2.28%,0.02281983220951174
-2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,18,1-0,2.27%,0.02267036080157643
-2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,19,2-0,2.10%,0.021044834218778303
-2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,20,2-5,1.70%,0.01701184271827587
-2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,1,1-1,8.50%,0.08503765782128349
-2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,2,2-1,8.03%,0.08027182726297233
-2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,3,2-2,7.14%,0.07143202615065396
-2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,4,3-1,6.43%,0.064341657360072
-2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,5,1-2,6.12%,0.061210968479218385
-2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,6,2-0,5.34%,0.05336676421547484
-2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,7,3-2,4.84%,0.04838987787012389
-2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,8,3-0,4.28%,0.04277597975088988
-2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,9,1-0,3.93%,0.03928117366154055
-2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,10,4-1,3.87%,0.03867965586119024
-2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,11,2-3,3.69%,0.036899512444357706
-2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,12,1-3,3.07%,0.03069023926904604
-2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,13,4-2,2.91%,0.02909007787453927
-2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,14,3-3,2.87%,0.028707348844585145
-2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,15,0-0,2.79%,0.02788146411053444
-2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,16,0-1,2.76%,0.02762308406530838
-2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,17,4-0,2.57%,0.025715224689198325
-2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,18,0-2,2.55%,0.025455339977053005
-2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,19,5-1,1.86%,0.018602141616184634
-2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,20,4-3,1.46%,0.014585318162837093
-2026-11-21,Eredivisie,Feyenoord,Excelsior,1,3-0,9.58%,0.09579461396808936
-2026-11-21,Eredivisie,Feyenoord,Excelsior,2,2-0,9.43%,0.094305116535596
-2026-11-21,Eredivisie,Feyenoord,Excelsior,3,3-1,8.33%,0.08332749502640138
-2026-11-21,Eredivisie,Feyenoord,Excelsior,4,2-1,8.20%,0.08203184713184153
-2026-11-21,Eredivisie,Feyenoord,Excelsior,5,4-0,7.30%,0.07298072789479688
-2026-11-21,Eredivisie,Feyenoord,Excelsior,6,4-1,6.35%,0.06348270522497866
-2026-11-21,Eredivisie,Feyenoord,Excelsior,7,1-0,5.78%,0.05777569090948516
-2026-11-21,Eredivisie,Feyenoord,Excelsior,8,1-1,4.85%,0.04849384172098038
-2026-11-21,Eredivisie,Feyenoord,Excelsior,9,5-0,4.45%,0.04448005100435915
-2026-11-21,Eredivisie,Feyenoord,Excelsior,10,5-1,3.87%,0.03869122777690277
-2026-11-21,Eredivisie,Feyenoord,Excelsior,11,3-2,3.62%,0.03624145001350454
-2026-11-21,Eredivisie,Feyenoord,Excelsior,12,2-2,2.99%,0.029853823944038262
-2026-11-21,Eredivisie,Feyenoord,Excelsior,13,4-2,2.76%,0.027610397833322066
-2026-11-21,Eredivisie,Feyenoord,Excelsior,14,1-2,2.36%,0.023574585010453477
-2026-11-21,Eredivisie,Feyenoord,Excelsior,15,6-0,2.26%,0.02259129446934721
-2026-11-21,Eredivisie,Feyenoord,Excelsior,16,0-0,2.04%,0.020439406210679942
-2026-11-21,Eredivisie,Feyenoord,Excelsior,17,6-1,1.97%,0.019651167216578374
-2026-11-21,Eredivisie,Feyenoord,Excelsior,18,5-2,1.68%,0.016827893326127958
-2026-11-21,Eredivisie,Feyenoord,Excelsior,19,0-1,1.36%,0.013642072156109217
-2026-11-21,Eredivisie,Feyenoord,Excelsior,20,2-3,1.04%,0.010415188419106398
-2026-11-21,Eredivisie,Groningen,Heerenveen,1,1-1,11.26%,0.11256186289174434
-2026-11-21,Eredivisie,Groningen,Heerenveen,2,2-1,8.66%,0.0866344260920418
-2026-11-21,Eredivisie,Groningen,Heerenveen,3,1-2,8.12%,0.08123234084566017
-2026-11-21,Eredivisie,Groningen,Heerenveen,4,2-2,6.47%,0.06473966654459697
-2026-11-21,Eredivisie,Groningen,Heerenveen,5,1-0,6.20%,0.06195622566254685
-2026-11-21,Eredivisie,Groningen,Heerenveen,6,2-0,5.79%,0.05787437750705537
-2026-11-21,Eredivisie,Groningen,Heerenveen,7,0-1,5.73%,0.057303141863485896
-2026-11-21,Eredivisie,Groningen,Heerenveen,8,0-0,5.02%,0.050219012544841866
-2026-11-21,Eredivisie,Groningen,Heerenveen,9,0-2,4.91%,0.04910130150203408
-2026-11-21,Eredivisie,Groningen,Heerenveen,10,3-1,4.78%,0.04777549687411956
-2026-11-21,Eredivisie,Groningen,Heerenveen,11,1-3,4.05%,0.04053329258080839
-2026-11-21,Eredivisie,Groningen,Heerenveen,12,3-2,3.58%,0.0357585077476376
-2026-11-21,Eredivisie,Groningen,Heerenveen,13,2-3,3.35%,0.03352878781008173
-2026-11-21,Eredivisie,Groningen,Heerenveen,14,3-0,3.19%,0.03191545516492928
-2026-11-21,Eredivisie,Groningen,Heerenveen,15,0-3,2.45%,0.024500554817961546
-2026-11-21,Eredivisie,Groningen,Heerenveen,16,4-1,1.98%,0.019759738171036476
-2026-11-21,Eredivisie,Groningen,Heerenveen,17,3-3,1.78%,0.017814272163623565
-2026-11-21,Eredivisie,Groningen,Heerenveen,18,1-4,1.52%,0.015168968944551756
-2026-11-21,Eredivisie,Groningen,Heerenveen,19,4-2,1.48%,0.014789563619652453
-2026-11-21,Eredivisie,Groningen,Heerenveen,20,4-0,1.32%,0.013200093749523734
-2026-11-21,Eredivisie,SC Telstar,FC Zwolle,1,1-1,11.58%,0.11581649973359873
-2026-11-21,Eredivisie,SC Telstar,FC Zwolle,2,2-1,8.89%,0.08888490500864316
-2026-11-21,Eredivisie,SC Telstar,FC Zwolle,3,2-0,7.40%,0.0739764385066449
-2026-11-21,Eredivisie,SC Telstar,FC Zwolle,4,1-2,6.97%,0.06969422439498502
-2026-11-21,Eredivisie,SC Telstar,FC Zwolle,5,1-0,6.96%,0.06959357301839765
-2026-11-21,Eredivisie,SC Telstar,FC Zwolle,6,2-2,6.24%,0.062393954746166644
-2026-11-21,Eredivisie,SC Telstar,FC Zwolle,7,3-1,5.72%,0.05720120672437509
-2026-11-21,Eredivisie,SC Telstar,FC Zwolle,8,0-0,5.46%,0.054607711047891715
-2026-11-21,Eredivisie,SC Telstar,FC Zwolle,9,0-1,5.12%,0.05121789294047321
-2026-11-21,Eredivisie,SC Telstar,FC Zwolle,10,3-0,4.76%,0.047606976137738365
-2026-11-21,Eredivisie,SC Telstar,FC Zwolle,11,0-2,3.61%,0.036099264740158794
-2026-11-21,Eredivisie,SC Telstar,FC Zwolle,12,3-2,3.44%,0.034364480966592774
-2026-11-21,Eredivisie,SC Telstar,FC Zwolle,13,1-3,2.79%,0.027913232195062868
-2026-11-21,Eredivisie,SC Telstar,FC Zwolle,14,4-1,2.76%,0.027608552181103124
-2026-11-21,Eredivisie,SC Telstar,FC Zwolle,15,2-3,2.69%,0.026945023426306412
-2026-11-21,Eredivisie,SC Telstar,FC Zwolle,16,4-0,2.30%,0.022977831415629816
-2026-11-21,Eredivisie,SC Telstar,FC Zwolle,17,4-2,1.66%,0.016586250890025554
-2026-11-21,Eredivisie,SC Telstar,FC Zwolle,18,3-3,1.61%,0.01608173978919968
-2026-11-21,Eredivisie,SC Telstar,FC Zwolle,19,0-3,1.45%,0.014458115683336386
-2026-11-21,Eredivisie,SC Telstar,FC Zwolle,20,5-1,1.07%,0.010660364662718014
+﻿Match date,League,Home team,Away team,Model,Rank,Score,Probability,Probability (decimal)
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,1,1-1,8.15%,0.08149752961896727
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,2,2-1,7.83%,0.07834013204805702
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,3,2-2,7.62%,0.07623319647926183
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,4,1-2,6.91%,0.06908441113340553
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,5,3-1,5.36%,0.053554586727614734
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,6,3-2,4.98%,0.04977918614698127
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,7,2-3,4.39%,0.043897880585072005
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,8,1-3,4.28%,0.04280947685714123
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,9,2-0,4.21%,0.042140839583361525
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,10,1-0,3.96%,0.039647869260968104
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,11,0-1,3.48%,0.03483177278174882
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,12,0-2,3.37%,0.03368576637627556
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,13,3-3,3.23%,0.03229359272965117
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,14,3-0,2.88%,0.02880816242251417
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,15,4-1,2.75%,0.02745808902076717
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,16,4-2,2.55%,0.025522395150896722
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,17,0-0,2.25%,0.02249457006170924
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,18,0-3,2.09%,0.020874029501612504
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,19,2-4,2.04%,0.02040162106204326
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,20,1-4,1.99%,0.019895783419683143
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,21,4-3,1.58%,0.01581544036673135
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,22,4-0,1.48%,0.014770295816963814
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,23,3-4,1.39%,0.013946879536543048
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,24,5-1,1.13%,0.011262477389763702
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,25,5-2,1.05%,0.010468514327496991
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,26,0-4,0.97%,0.00970124375605118
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,27,4-4,0.77%,0.007695044298262591
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,28,2-5,0.76%,0.007585352849144157
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,29,1-5,0.74%,0.007397281666466459
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,30,5-3,0.65%,0.0064870151526113485
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,31,5-0,0.61%,0.006058328478462648
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,32,3-5,0.52%,0.0051854704147020324
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,33,6-1,0.38%,0.0038496062386510813
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,34,0-5,0.36%,0.0036069367596534936
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,35,6-2,0.36%,0.003578223215894615
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,36,5-4,0.30%,0.003014852270847791
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,37,4-5,0.27%,0.0026586538513614344
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,38,2-6,0.24%,0.00235020449563959
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,39,1-6,0.23%,0.0022919335426832953
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,40,6-3,0.22%,0.0022173144626611054
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,41,6-0,0.21%,0.002070785875910793
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,42,3-6,0.16%,0.0016066379670147887
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,43,5-5,0.12%,0.0011735074706205508
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,44,7-1,0.11%,0.0011278514369796157
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,45,0-6,0.11%,0.0011175536796527252
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,46,7-2,0.10%,0.0010483420759663695
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,47,6-4,0.10%,0.0010305009909290074
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,48,4-6,0.08%,0.0008237428578585038
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,49,7-3,0.06%,0.000649625220844484
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,50,2-7,0.06%,0.0006241496452259205
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,51,1-7,0.06%,0.0006086744835188749
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,52,7-0,0.06%,0.0006066955114457274
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,53,3-7,0.04%,0.0004266788353861415
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,54,6-5,0.04%,0.00038314179073407255
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,55,5-6,0.03%,0.0003378743984912438
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,56,7-4,0.03%,0.0003019145209603196
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,57,0-7,0.03%,0.0002967915064286121
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,58,8-1,0.03%,0.00028913158565014116
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,59,8-2,0.03%,0.000268748876660247
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,60,4-7,0.02%,0.00021876343673227984
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,61,8-3,0.02%,0.00016653538225219595
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,62,8-0,0.02%,0.00015553008976154444
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,63,2-8,0.01%,0.00014503735007468903
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,64,1-8,0.01%,0.00014144129508509635
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,65,6-6,0.01%,0.00012427910041700927
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,Research,66,7-5,0.01%,0.00011225226489600298
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,"Benchmark (70% Pinnacle blend), display only",1,1-1,8.50%,0.08503765782128349
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,"Benchmark (70% Pinnacle blend), display only",2,2-1,8.03%,0.08027182726297233
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,"Benchmark (70% Pinnacle blend), display only",3,2-2,7.14%,0.07143202615065396
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,"Benchmark (70% Pinnacle blend), display only",4,3-1,6.43%,0.064341657360072
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,"Benchmark (70% Pinnacle blend), display only",5,1-2,6.12%,0.061210968479218385
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,"Benchmark (70% Pinnacle blend), display only",6,2-0,5.34%,0.05336676421547484
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,"Benchmark (70% Pinnacle blend), display only",7,3-2,4.84%,0.04838987787012389
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,"Benchmark (70% Pinnacle blend), display only",8,3-0,4.28%,0.04277597975088988
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,"Benchmark (70% Pinnacle blend), display only",9,1-0,3.93%,0.03928117366154055
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,"Benchmark (70% Pinnacle blend), display only",10,4-1,3.87%,0.03867965586119024
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,"Benchmark (70% Pinnacle blend), display only",11,2-3,3.69%,0.036899512444357706
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,"Benchmark (70% Pinnacle blend), display only",12,1-3,3.07%,0.03069023926904604
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,"Benchmark (70% Pinnacle blend), display only",13,4-2,2.91%,0.02909007787453927
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,"Benchmark (70% Pinnacle blend), display only",14,3-3,2.87%,0.028707348844585145
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,"Benchmark (70% Pinnacle blend), display only",15,0-0,2.79%,0.02788146411053444
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,"Benchmark (70% Pinnacle blend), display only",16,0-1,2.76%,0.02762308406530838
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,"Benchmark (70% Pinnacle blend), display only",17,4-0,2.57%,0.025715224689198325
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,"Benchmark (70% Pinnacle blend), display only",18,0-2,2.55%,0.025455339977053005
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,"Benchmark (70% Pinnacle blend), display only",19,5-1,1.86%,0.018602141616184634
+2026-11-21,Eredivisie,FC Utrecht,SC Cambuur,"Benchmark (70% Pinnacle blend), display only",20,4-3,1.46%,0.014585318162837093
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,1,2-1,9.46%,0.09459255845851623
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,2,2-0,8.77%,0.0877046227149225
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,3,3-1,8.17%,0.08171150229172292
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,4,1-1,7.61%,0.07613902066542182
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,5,3-0,7.58%,0.07576152497353117
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,6,1-0,6.63%,0.06630318047065945
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,7,4-1,5.29%,0.05293838423107839
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,8,2-2,5.22%,0.0522124646701333
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,9,4-0,4.91%,0.049083575830761624
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,10,3-2,4.41%,0.044064382343827584
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,11,1-2,3.10%,0.03103727813946602
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,12,4-2,2.85%,0.028547966173655636
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,13,0-0,2.82%,0.02815076693869721
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,14,5-1,2.74%,0.02743772855862592
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,15,5-0,2.54%,0.025439798548678432
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,16,0-1,2.11%,0.021118182302072984
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,17,3-3,1.62%,0.016214876686783793
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,18,5-2,1.48%,0.01479628360689092
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,19,2-3,1.45%,0.014458203828464288
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,20,0-2,1.20%,0.011976671845289132
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,21,6-1,1.19%,0.011850710333525099
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,22,1-3,1.12%,0.011158269868106349
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,23,6-0,1.10%,0.010987778485360101
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,24,4-3,1.03%,0.010263332671113583
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,25,6-2,0.64%,0.0063907065289055985
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,26,5-3,0.53%,0.005319439571628859
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,27,7-1,0.44%,0.004387264527040146
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,28,0-3,0.43%,0.004305755677768546
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,29,7-0,0.41%,0.004067797576945406
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,30,2-4,0.39%,0.003898421908998344
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,31,3-4,0.34%,0.00336755782846195
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,32,1-4,0.30%,0.003008647840107415
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,33,4-4,0.28%,0.0028325372694267023
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,34,7-2,0.24%,0.002365910503919247
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,35,6-3,0.23%,0.0022975348475136837
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,36,5-4,0.14%,0.0014343012462450105
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,37,8-1,0.14%,0.0014211872792807433
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,38,8-0,0.13%,0.0013177008442078243
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,39,0-4,0.12%,0.0011609777029122045
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,40,7-3,0.09%,0.0008505729068087873
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,41,2-5,0.08%,0.0008409173676546548
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,42,8-2,0.08%,0.0007664005421517542
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,43,3-5,0.07%,0.0007264062050335279
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,44,1-5,0.06%,0.0006489867646349884
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,45,6-4,0.06%,0.000619493285092653
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,46,4-5,0.05%,0.0004706163723757622
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,47,9-1,0.04%,0.0004092194619405287
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,48,9-0,0.04%,0.0003794213741754061
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,49,5-5,0.03%,0.00031667777832117
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,50,8-3,0.03%,0.0002755300912008199
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,51,0-5,0.03%,0.00025043115820409616
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,52,7-4,0.02%,0.00022934329149349033
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,53,9-2,0.02%,0.000220678880301402
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,54,2-6,0.02%,0.00015115988719927219
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,55,6-5,0.01%,0.00013362911320024333
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,56,3-6,0.01%,0.0001305758261599054
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,57,1-6,0.01%,0.00011665922230819374
+2026-11-21,Eredivisie,Feyenoord,Excelsior,Research,58,10-1,0.01%,0.00010604831145412575
+2026-11-21,Eredivisie,Feyenoord,Excelsior,"Benchmark (70% Pinnacle blend), display only",1,3-0,9.58%,0.09579461396808936
+2026-11-21,Eredivisie,Feyenoord,Excelsior,"Benchmark (70% Pinnacle blend), display only",2,2-0,9.43%,0.094305116535596
+2026-11-21,Eredivisie,Feyenoord,Excelsior,"Benchmark (70% Pinnacle blend), display only",3,3-1,8.33%,0.08332749502640138
+2026-11-21,Eredivisie,Feyenoord,Excelsior,"Benchmark (70% Pinnacle blend), display only",4,2-1,8.20%,0.08203184713184153
+2026-11-21,Eredivisie,Feyenoord,Excelsior,"Benchmark (70% Pinnacle blend), display only",5,4-0,7.30%,0.07298072789479688
+2026-11-21,Eredivisie,Feyenoord,Excelsior,"Benchmark (70% Pinnacle blend), display only",6,4-1,6.35%,0.06348270522497866
+2026-11-21,Eredivisie,Feyenoord,Excelsior,"Benchmark (70% Pinnacle blend), display only",7,1-0,5.78%,0.05777569090948516
+2026-11-21,Eredivisie,Feyenoord,Excelsior,"Benchmark (70% Pinnacle blend), display only",8,1-1,4.85%,0.04849384172098038
+2026-11-21,Eredivisie,Feyenoord,Excelsior,"Benchmark (70% Pinnacle blend), display only",9,5-0,4.45%,0.04448005100435915
+2026-11-21,Eredivisie,Feyenoord,Excelsior,"Benchmark (70% Pinnacle blend), display only",10,5-1,3.87%,0.03869122777690277
+2026-11-21,Eredivisie,Feyenoord,Excelsior,"Benchmark (70% Pinnacle blend), display only",11,3-2,3.62%,0.03624145001350454
+2026-11-21,Eredivisie,Feyenoord,Excelsior,"Benchmark (70% Pinnacle blend), display only",12,2-2,2.99%,0.029853823944038262
+2026-11-21,Eredivisie,Feyenoord,Excelsior,"Benchmark (70% Pinnacle blend), display only",13,4-2,2.76%,0.027610397833322066
+2026-11-21,Eredivisie,Feyenoord,Excelsior,"Benchmark (70% Pinnacle blend), display only",14,1-2,2.36%,0.023574585010453477
+2026-11-21,Eredivisie,Feyenoord,Excelsior,"Benchmark (70% Pinnacle blend), display only",15,6-0,2.26%,0.02259129446934721
+2026-11-21,Eredivisie,Feyenoord,Excelsior,"Benchmark (70% Pinnacle blend), display only",16,0-0,2.04%,0.020439406210679942
+2026-11-21,Eredivisie,Feyenoord,Excelsior,"Benchmark (70% Pinnacle blend), display only",17,6-1,1.97%,0.019651167216578374
+2026-11-21,Eredivisie,Feyenoord,Excelsior,"Benchmark (70% Pinnacle blend), display only",18,5-2,1.68%,0.016827893326127958
+2026-11-21,Eredivisie,Feyenoord,Excelsior,"Benchmark (70% Pinnacle blend), display only",19,0-1,1.36%,0.013642072156109217
+2026-11-21,Eredivisie,Feyenoord,Excelsior,"Benchmark (70% Pinnacle blend), display only",20,2-3,1.04%,0.010415188419106398
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,1,1-1,10.35%,0.10353851941264136
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,2,1-2,8.69%,0.08689267022734201
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,3,2-1,7.46%,0.0746368995379799
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,4,2-2,7.20%,0.07197278422662291
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,5,0-1,5.95%,0.05949541045158228
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,6,0-2,5.48%,0.05482048408869361
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,7,1-3,5.18%,0.05177296315082607
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,8,1-0,5.09%,0.05090171067290939
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,9,2-0,4.18%,0.041755381597221856
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,10,2-3,4.10%,0.04103111353849654
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,11,3-1,3.94%,0.0394341616773046
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,12,0-0,3.78%,0.03779063567988569
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,13,3-2,3.52%,0.035243882954589814
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,14,0-3,3.27%,0.03266350194105667
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,15,1-4,2.31%,0.02313578095600999
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,16,3-3,2.27%,0.022657250402961567
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,17,3-0,2.21%,0.022061319253548425
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,18,2-4,1.83%,0.01833557126028019
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,19,4-1,1.56%,0.01562618272749081
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,20,0-4,1.46%,0.014596337164689333
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,21,4-2,1.40%,0.013965742687302446
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,22,3-4,0.97%,0.00968753908588736
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,23,4-0,0.87%,0.00874201938629933
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,24,4-3,0.83%,0.008321160802538108
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,25,1-5,0.83%,0.00827094804498837
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,26,2-5,0.66%,0.00655489250859131
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,27,0-5,0.52%,0.005218131454729104
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,28,5-1,0.50%,0.004953625511424789
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,29,5-2,0.44%,0.004427252673815648
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,30,4-4,0.40%,0.004012071205150685
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,31,3-5,0.35%,0.0034632560109173383
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,32,5-0,0.28%,0.0027712904046077362
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,33,5-3,0.26%,0.002637874851137087
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,34,1-6,0.25%,0.0024640253731139025
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,35,2-6,0.20%,0.0019527896162991724
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,36,0-6,0.16%,0.00155455072801323
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,37,4-5,0.14%,0.001372349986834417
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,38,6-1,0.13%,0.0013086159159581888
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,39,5-4,0.12%,0.0011787869774322803
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,40,6-2,0.12%,0.0011695622326640565
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,41,3-6,0.10%,0.001031750004724103
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,42,6-0,0.07%,0.0007321011091467839
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,43,6-3,0.07%,0.0006968562735601215
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,44,1-7,0.06%,0.0006291993551740749
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,45,2-7,0.05%,0.0004986531310809154
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,46,5-5,0.05%,0.00045468437891214576
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,47,4-6,0.04%,0.0004088413045227016
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,48,0-7,0.04%,0.0003969611377886157
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,49,6-4,0.03%,0.00031140412141256977
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,50,7-1,0.03%,0.0002963155447401141
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,51,7-2,0.03%,0.00026482901961769105
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,52,3-7,0.03%,0.000263461750336142
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,53,7-0,0.02%,0.00016577281104122087
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,54,7-3,0.02%,0.00015779217093988857
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,55,1-8,0.01%,0.00014058513916387501
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,56,5-6,0.01%,0.00012960597936979658
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,57,2-8,0.01%,0.0001114165474758277
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,58,6-5,0.01%,0.00011132571293339241
+2026-11-21,Eredivisie,Groningen,Heerenveen,Research,59,4-7,0.01%,0.00010439936535601579
+2026-11-21,Eredivisie,Groningen,Heerenveen,"Benchmark (70% Pinnacle blend), display only",1,1-1,11.26%,0.11256186289174434
+2026-11-21,Eredivisie,Groningen,Heerenveen,"Benchmark (70% Pinnacle blend), display only",2,2-1,8.66%,0.0866344260920418
+2026-11-21,Eredivisie,Groningen,Heerenveen,"Benchmark (70% Pinnacle blend), display only",3,1-2,8.12%,0.08123234084566017
+2026-11-21,Eredivisie,Groningen,Heerenveen,"Benchmark (70% Pinnacle blend), display only",4,2-2,6.47%,0.06473966654459697
+2026-11-21,Eredivisie,Groningen,Heerenveen,"Benchmark (70% Pinnacle blend), display only",5,1-0,6.20%,0.06195622566254685
+2026-11-21,Eredivisie,Groningen,Heerenveen,"Benchmark (70% Pinnacle blend), display only",6,2-0,5.79%,0.05787437750705537
+2026-11-21,Eredivisie,Groningen,Heerenveen,"Benchmark (70% Pinnacle blend), display only",7,0-1,5.73%,0.057303141863485896
+2026-11-21,Eredivisie,Groningen,Heerenveen,"Benchmark (70% Pinnacle blend), display only",8,0-0,5.02%,0.050219012544841866
+2026-11-21,Eredivisie,Groningen,Heerenveen,"Benchmark (70% Pinnacle blend), display only",9,0-2,4.91%,0.04910130150203408
+2026-11-21,Eredivisie,Groningen,Heerenveen,"Benchmark (70% Pinnacle blend), display only",10,3-1,4.78%,0.04777549687411956
+2026-11-21,Eredivisie,Groningen,Heerenveen,"Benchmark (70% Pinnacle blend), display only",11,1-3,4.05%,0.04053329258080839
+2026-11-21,Eredivisie,Groningen,Heerenveen,"Benchmark (70% Pinnacle blend), display only",12,3-2,3.58%,0.0357585077476376
+2026-11-21,Eredivisie,Groningen,Heerenveen,"Benchmark (70% Pinnacle blend), display only",13,2-3,3.35%,0.03352878781008173
+2026-11-21,Eredivisie,Groningen,Heerenveen,"Benchmark (70% Pinnacle blend), display only",14,3-0,3.19%,0.03191545516492928
+2026-11-21,Eredivisie,Groningen,Heerenveen,"Benchmark (70% Pinnacle blend), display only",15,0-3,2.45%,0.024500554817961546
+2026-11-21,Eredivisie,Groningen,Heerenveen,"Benchmark (70% Pinnacle blend), display only",16,4-1,1.98%,0.019759738171036476
+2026-11-21,Eredivisie,Groningen,Heerenveen,"Benchmark (70% Pinnacle blend), display only",17,3-3,1.78%,0.017814272163623565
+2026-11-21,Eredivisie,Groningen,Heerenveen,"Benchmark (70% Pinnacle blend), display only",18,1-4,1.52%,0.015168968944551756
+2026-11-21,Eredivisie,Groningen,Heerenveen,"Benchmark (70% Pinnacle blend), display only",19,4-2,1.48%,0.014789563619652453
+2026-11-21,Eredivisie,Groningen,Heerenveen,"Benchmark (70% Pinnacle blend), display only",20,4-0,1.32%,0.013200093749523734
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,1,1-2,8.85%,0.08851883807895773
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,2,1-1,8.08%,0.08080319244082215
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,3,2-2,7.13%,0.07133776541615784
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,4,1-3,6.76%,0.06755259774010386
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,5,0-2,5.63%,0.05631930283787164
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,6,2-1,5.47%,0.054725257646941874
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,7,2-3,5.31%,0.05308728233358219
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,8,0-1,4.77%,0.047733615749230573
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,9,0-3,4.30%,0.04297972377604248
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,10,1-4,3.87%,0.038664256901162354
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,11,3-2,3.28%,0.03282030431635144
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,12,2-4,3.04%,0.030384920654377832
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,13,1-0,2.91%,0.02909670010728091
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,14,3-1,2.87%,0.028671142198049487
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,15,3-3,2.85%,0.0285222006666073
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,16,0-4,2.46%,0.024599780574113366
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,17,2-0,2.39%,0.023903429241493263
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,18,0-0,2.35%,0.02354090205998999
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,19,1-5,1.77%,0.017703831523643576
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,20,3-4,1.59%,0.015918981805045918
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,21,2-5,1.39%,0.013912837313788165
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,22,4-2,1.29%,0.012896178828085712
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,23,3-0,1.25%,0.012523259793956678
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,24,4-1,1.13%,0.011265836338004579
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,25,0-5,1.13%,0.011263901228361912
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,26,4-3,0.98%,0.00984163822824973
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,27,3-5,0.73%,0.007289082850471335
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,28,1-6,0.68%,0.0067552841594492015
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,29,4-4,0.64%,0.006414592725785034
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,30,2-6,0.53%,0.005308747397042794
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,31,4-0,0.49%,0.004920801350796097
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,32,0-6,0.43%,0.0042979878926171335
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,33,5-2,0.41%,0.004053866820073523
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,34,5-1,0.35%,0.0035413745993932186
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,35,5-3,0.31%,0.0030936831134646212
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,36,4-5,0.29%,0.0028641207901773953
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,37,3-6,0.28%,0.002781308998051736
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,38,1-7,0.22%,0.002209394084178623
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,39,5-4,0.18%,0.0017706936916028059
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,40,2-7,0.17%,0.0017362874479556099
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,41,5-0,0.15%,0.0015468359728946432
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,42,0-7,0.14%,0.00140570682145722
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,43,4-6,0.11%,0.0010928679353277386
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,44,6-2,0.11%,0.0010619318852743457
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,45,6-1,0.09%,0.000927681833595144
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,46,5-5,0.09%,0.0009232835924527829
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,47,3-7,0.09%,0.0009096593868627604
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,48,6-3,0.08%,0.0008104066776084444
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,49,1-8,0.06%,0.0006322819797045102
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,50,2-8,0.05%,0.0004968888406060876
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,51,6-4,0.05%,0.0004638425911912557
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,52,6-0,0.04%,0.0004052018760883698
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,53,0-8,0.04%,0.0004022836389034379
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,54,4-7,0.04%,0.0003574351417510891
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,55,5-6,0.03%,0.00034353905298667523
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,56,3-8,0.03%,0.00026032532724744865
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,57,7-2,0.02%,0.00023843887027529966
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,58,6-5,0.02%,0.00021238714373671066
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,59,7-1,0.02%,0.00020829528846871362
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,60,7-3,0.02%,0.0001819631328073323
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,61,1-9,0.02%,0.00016084067964228696
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,62,2-9,0.01%,0.00012639920382848932
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,63,5-7,0.01%,0.00011235843429197408
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,64,7-4,0.01%,0.00010414802019118028
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,65,0-9,0.01%,0.00010233341446871504
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,Research,66,4-8,0.01%,0.0001022903974717393
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,"Benchmark (70% Pinnacle blend), display only",1,1-2,8.02%,0.08015691876437263
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,"Benchmark (70% Pinnacle blend), display only",2,1-1,7.51%,0.07505999160976226
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,"Benchmark (70% Pinnacle blend), display only",3,1-3,6.88%,0.06881144122353561
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,"Benchmark (70% Pinnacle blend), display only",4,2-2,6.69%,0.06693563151141424
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,"Benchmark (70% Pinnacle blend), display only",5,2-1,5.42%,0.05419839217478116
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,"Benchmark (70% Pinnacle blend), display only",6,0-2,5.38%,0.05376159029113781
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,"Benchmark (70% Pinnacle blend), display only",7,2-3,5.13%,0.05129789757282878
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,"Benchmark (70% Pinnacle blend), display only",8,0-3,4.62%,0.04615212969047797
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,"Benchmark (70% Pinnacle blend), display only",9,1-4,4.43%,0.04430385907028529
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,"Benchmark (70% Pinnacle blend), display only",10,0-1,3.70%,0.036990448633244785
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,"Benchmark (70% Pinnacle blend), display only",11,3-2,3.47%,0.03468526002810468
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,"Benchmark (70% Pinnacle blend), display only",12,2-4,3.30%,0.03302786258008508
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,"Benchmark (70% Pinnacle blend), display only",13,0-4,2.97%,0.02971478889619754
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,"Benchmark (70% Pinnacle blend), display only",14,3-3,2.86%,0.028557794071722695
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,"Benchmark (70% Pinnacle blend), display only",15,3-1,2.69%,0.02693605909093107
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,"Benchmark (70% Pinnacle blend), display only",16,0-0,2.35%,0.023491179577450786
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,"Benchmark (70% Pinnacle blend), display only",17,1-5,2.28%,0.02281983220951174
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,"Benchmark (70% Pinnacle blend), display only",18,1-0,2.27%,0.02267036080157643
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,"Benchmark (70% Pinnacle blend), display only",19,2-0,2.10%,0.021044834218778303
+2026-11-21,Eredivisie,NEC Nijmegen,PSV Eindhoven,"Benchmark (70% Pinnacle blend), display only",20,2-5,1.70%,0.01701184271827587
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,1,1-1,11.05%,0.11046792334124733
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,2,2-1,9.76%,0.09755244600021414
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,3,1-0,8.07%,0.08074786447637472
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,4,2-0,7.65%,0.07647382703687972
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,5,2-2,6.39%,0.06390400204962826
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,6,1-2,6.12%,0.06120382293201975
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,7,3-1,6.01%,0.06010332441954158
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,8,0-1,5.01%,0.05009714137530109
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,9,0-0,4.80%,0.04803553684280304
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,10,3-0,4.71%,0.04711651449509941
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,11,3-2,3.83%,0.03833485610078807
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,12,0-2,3.31%,0.03311288068918249
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,13,4-1,2.78%,0.027772826984825676
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,14,1-3,2.60%,0.02602451436839602
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,15,2-3,2.41%,0.024051060133458257
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,16,4-0,2.18%,0.021771820740999998
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,17,4-2,1.77%,0.017713950705016537
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,18,3-3,1.67%,0.016741426950528666
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,19,0-3,1.41%,0.014079947918151633
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,20,5-1,1.03%,0.010266718870256389
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,21,1-4,0.83%,0.008299424557961598
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,22,5-0,0.80%,0.00804834030628543
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,23,2-4,0.77%,0.007670074311128722
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,24,4-3,0.75%,0.007532159635776341
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,25,5-2,0.65%,0.00654827656073148
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,26,3-4,0.47%,0.004725632042509212
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,27,0-4,0.45%,0.004490207343451387
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,28,6-1,0.32%,0.0031627291794502745
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,29,5-3,0.28%,0.0027843966157517852
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,30,6-0,0.25%,0.0024793433086571903
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,31,4-4,0.25%,0.002467058308316133
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,32,1-5,0.21%,0.002117401985473942
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,33,6-2,0.20%,0.0020172389655799105
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,34,2-5,0.20%,0.001956838147234808
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,35,3-5,0.12%,0.0012056333062066956
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,36,0-5,0.11%,0.001145570259457696
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,37,5-4,0.09%,0.0008879662200320936
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,38,6-3,0.09%,0.0008577513941005425
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,39,7-1,0.08%,0.0008351135900341368
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,40,7-0,0.07%,0.000654666641985359
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,41,4-5,0.06%,0.0005571047116577666
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,42,7-2,0.05%,0.0005326487280188175
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,43,1-6,0.05%,0.00045017088602326616
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,44,2-6,0.04%,0.0004160341628978136
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,45,6-4,0.03%,0.0002735437397236857
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,46,3-6,0.03%,0.00025632403171320595
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,47,0-6,0.02%,0.00024355430959253736
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,48,5-5,0.02%,0.00023267318236103285
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,49,7-3,0.02%,0.00022648788607584664
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,50,8-1,0.02%,0.0001929466087998434
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,51,8-0,0.02%,0.0001512557213447967
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,52,8-2,0.01%,0.00012306441540315484
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,Research,53,4-6,0.01%,0.00011844341479569248
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,"Benchmark (70% Pinnacle blend), display only",1,1-1,11.58%,0.11581649973359873
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,"Benchmark (70% Pinnacle blend), display only",2,2-1,8.89%,0.08888490500864316
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,"Benchmark (70% Pinnacle blend), display only",3,2-0,7.40%,0.0739764385066449
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,"Benchmark (70% Pinnacle blend), display only",4,1-2,6.97%,0.06969422439498502
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,"Benchmark (70% Pinnacle blend), display only",5,1-0,6.96%,0.06959357301839765
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,"Benchmark (70% Pinnacle blend), display only",6,2-2,6.24%,0.062393954746166644
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,"Benchmark (70% Pinnacle blend), display only",7,3-1,5.72%,0.05720120672437509
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,"Benchmark (70% Pinnacle blend), display only",8,0-0,5.46%,0.054607711047891715
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,"Benchmark (70% Pinnacle blend), display only",9,0-1,5.12%,0.05121789294047321
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,"Benchmark (70% Pinnacle blend), display only",10,3-0,4.76%,0.047606976137738365
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,"Benchmark (70% Pinnacle blend), display only",11,0-2,3.61%,0.036099264740158794
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,"Benchmark (70% Pinnacle blend), display only",12,3-2,3.44%,0.034364480966592774
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,"Benchmark (70% Pinnacle blend), display only",13,1-3,2.79%,0.027913232195062868
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,"Benchmark (70% Pinnacle blend), display only",14,4-1,2.76%,0.027608552181103124
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,"Benchmark (70% Pinnacle blend), display only",15,2-3,2.69%,0.026945023426306412
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,"Benchmark (70% Pinnacle blend), display only",16,4-0,2.30%,0.022977831415629816
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,"Benchmark (70% Pinnacle blend), display only",17,4-2,1.66%,0.016586250890025554
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,"Benchmark (70% Pinnacle blend), display only",18,3-3,1.61%,0.01608173978919968
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,"Benchmark (70% Pinnacle blend), display only",19,0-3,1.45%,0.014458115683336386
+2026-11-21,Eredivisie,SC Telstar,FC Zwolle,"Benchmark (70% Pinnacle blend), display only",20,5-1,1.07%,0.010660364662718014
