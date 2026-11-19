@@ -1,287 +1,396 @@
 ﻿Match date,League,Home team,Away team,Model,Rank,Score,Probability,Probability (decimal)
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,1,2-1,8.38%,0.08376274463220246
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,2,3-1,8.37%,0.0837245274120722
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,3,2-0,7.43%,0.07431018661385562
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,4,3-0,7.43%,0.07427628217612245
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,5,4-1,6.28%,0.06276474572157154
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,6,1-1,5.85%,0.05846421874179631
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,7,4-0,5.57%,0.05568179490560875
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,8,1-0,4.85%,0.04850376461760156
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,9,2-2,4.85%,0.04848425211652276
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,10,3-2,4.72%,0.04718731393793604
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,11,5-1,3.76%,0.03764166537344239
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,12,4-2,3.54%,0.03537433834677553
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,13,5-0,3.34%,0.03339383386538946
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,14,1-2,2.39%,0.023851437690375944
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,15,5-2,2.12%,0.021214919164383988
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,16,6-1,1.88%,0.018812245576676247
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,17,3-3,1.82%,0.018208903697494512
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,18,0-0,1.81%,0.018062570426959346
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,19,6-0,1.67%,0.01668929887107658
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,20,2-3,1.34%,0.013436585478530248
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,21,0-1,1.33%,0.013310812341276292
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,22,4-3,1.33%,0.01329136602707084
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,23,6-2,1.06%,0.010602619869505217
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,24,1-3,0.90%,0.008961812529379986
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,25,7-1,0.81%,0.008058712450520669
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,26,5-3,0.80%,0.007971181060245901
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,27,0-2,0.80%,0.007954108336484833
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,28,7-0,0.71%,0.007149293265103538
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,29,7-2,0.45%,0.0045419067278418815
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,30,6-3,0.40%,0.0039837720821804
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,31,4-4,0.38%,0.0038467098007539573
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,32,2-4,0.38%,0.0037864434522797818
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,33,3-4,0.38%,0.003784715866303916
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,34,8-1,0.30%,0.0030206383567311776
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,35,0-3,0.30%,0.002988634424277005
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,36,8-0,0.27%,0.0026797617600434866
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,37,1-4,0.25%,0.002525447884557463
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,38,5-4,0.22%,0.0022462869291258497
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,39,7-3,0.17%,0.0017065519131063771
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,40,8-2,0.17%,0.0017024379215724683
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,41,6-4,0.11%,0.0011226310240834306
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,42,9-1,0.10%,0.001006420057869294
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,43,9-0,0.09%,0.0008928463679238461
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,44,2-5,0.09%,0.0008536188924021603
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,45,3-5,0.09%,0.0008532294240142566
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,46,0-4,0.08%,0.0008422002200740247
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,47,8-3,0.06%,0.0006396649834737609
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,48,4-5,0.06%,0.0006396300999926101
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,49,1-5,0.06%,0.0005693390257122029
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,50,9-2,0.06%,0.0005672203915870242
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,51,5-5,0.05%,0.0005200858318385012
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,52,7-4,0.05%,0.0004809080646033289
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,53,10-1,0.03%,0.0003017882619288329
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,54,10-0,0.03%,0.00026773170053433383
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,55,6-5,0.03%,0.0002530868514033712
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,56,9-3,0.02%,0.00021312437758397838
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,57,0-5,0.02%,0.00018986630279863048
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,58,8-4,0.02%,0.00018025824285470264
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,59,10-2,0.02%,0.00017008847823447455
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,60,2-6,0.02%,0.00016036711464843706
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,61,3-6,0.02%,0.0001602939462565811
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,62,4-6,0.01%,0.00012016560843615947
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,63,7-5,0.01%,0.00010841630533444115
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,64,1-6,0.01%,0.00010696021095934592
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",1,1-1,6.83%,0.0683253406870416
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",2,3-1,6.36%,0.06361144764536446
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",3,2-2,6.33%,0.06333897327641602
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",4,2-1,5.56%,0.05561394989665529
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",5,4-1,5.46%,0.05456926201598071
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",6,3-0,5.38%,0.05384030971007399
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",7,1-2,4.75%,0.047524529326217445
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",8,2-0,4.71%,0.04707128036654044
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",9,4-0,4.62%,0.046187063435030644
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",10,3-2,3.76%,0.03757794386147285
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",11,5-1,3.74%,0.03744991780184093
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",12,4-2,3.22%,0.03223634645183175
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",13,2-3,3.21%,0.03211198086778807
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",14,5-0,3.17%,0.03169736341026133
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",15,3-3,2.85%,0.028531790871983313
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",16,1-0,2.44%,0.02441026030907299
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",17,5-2,2.21%,0.022123233488098495
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",18,6-1,2.14%,0.021417679287317404
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",19,0-0,2.12%,0.02124698669390363
-2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",20,1-3,1.87%,0.018716485382943605
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,1,2-0,9.74%,0.09743722448597854
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,2,2-1,9.44%,0.09438615211857608
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,3,3-0,8.46%,0.08456724810561235
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,4,3-1,8.19%,0.08191917602388517
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,5,1-1,7.58%,0.07578038275482825
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,6,1-0,7.35%,0.07346963658363254
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,7,4-0,5.50%,0.05504789999317966
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,8,4-1,5.33%,0.0533241734868187
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,9,2-2,4.69%,0.04689468929565695
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,10,3-2,3.97%,0.03967701179096852
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,11,0-0,3.09%,0.03089597447142086
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,12,5-0,2.87%,0.028666145455032304
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,13,5-1,2.78%,0.027768516394483946
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,14,1-2,2.70%,0.02695013034552971
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,15,4-2,2.58%,0.025827211196109548
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,16,0-1,2.03%,0.02031550373691537
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,17,5-2,1.34%,0.01344949749104408
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,18,3-3,1.31%,0.013142048901270234
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,19,6-0,1.24%,0.012439891672387174
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,20,6-1,1.21%,0.012050358719911067
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,21,2-3,1.13%,0.011328999175052434
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,22,0-2,1.04%,0.010350523633469121
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,23,1-3,0.87%,0.008702078409381997
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,24,4-3,0.83%,0.008339492760987475
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,25,6-2,0.58%,0.005836511647479287
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,26,7-0,0.46%,0.00462718759700549
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,27,7-1,0.45%,0.004482295495547464
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,28,5-3,0.43%,0.004342783512854717
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,29,0-3,0.33%,0.003342138501068513
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,30,2-4,0.27%,0.002743562958429703
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,31,3-4,0.24%,0.002381179991762595
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,32,7-2,0.22%,0.0021709702155156907
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,33,1-4,0.21%,0.002107397098051322
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,34,4-4,0.21%,0.0020716912022146097
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,35,6-3,0.19%,0.001884583908962825
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,36,8-0,0.15%,0.001506002416984971
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,37,8-1,0.15%,0.0014588446455691263
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,38,5-4,0.11%,0.0010516992541216492
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,39,0-4,0.08%,0.0008093713532670378
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,40,8-2,0.07%,0.0007065817676994295
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,41,7-3,0.07%,0.0007009967223770452
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,42,2-5,0.05%,0.0005315306385364065
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,43,3-5,0.05%,0.0004613235200609727
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,44,6-4,0.05%,0.0004563928838541143
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,45,9-0,0.04%,0.0004356941292772121
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,46,9-1,0.04%,0.00042205114708544745
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,47,1-5,0.04%,0.0004082815456212865
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,48,4-5,0.03%,0.00030029227112963954
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,49,8-3,0.02%,0.00022815214124484098
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,50,5-5,0.02%,0.0002090099390535594
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,51,9-2,0.02%,0.0002044176852367086
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,52,7-4,0.02%,0.00016976156602865934
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,53,0-5,0.02%,0.00015680546746459033
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,54,10-0,0.01%,0.00011344366710911439
-2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,55,10-1,0.01%,0.00010989138162685262
-2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",1,2-0,11.43%,0.11425935977343395
-2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",2,3-0,10.22%,0.10221605327410895
-2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",3,2-1,9.07%,0.09065217518896071
-2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",4,3-1,8.11%,0.0810971423864314
-2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",5,1-0,7.88%,0.07884280732999739
-2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",6,4-0,6.86%,0.06858161270761423
-2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",7,1-1,6.22%,0.06216857353069165
-2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",8,4-1,5.44%,0.05441193073582765
-2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",9,5-0,3.68%,0.03681173319391751
-2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",10,3-2,3.22%,0.03217081022297209
-2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",11,0-0,3.20%,0.03201141392529188
-2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",12,2-2,3.03%,0.03026875883730706
-2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",13,5-1,2.92%,0.029206042228149962
-2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",14,1-2,2.61%,0.026144677855314536
-2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",15,4-2,2.16%,0.02158492699072823
-2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",16,0-1,1.84%,0.01840612484967171
-2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",17,6-0,1.65%,0.0164658286582515
-2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",18,6-1,1.31%,0.013063815403123579
-2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",19,5-2,1.16%,0.011585883475508573
-2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",20,0-2,0.97%,0.009741699265248337
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,1,1-1,13.24%,0.1324414398227718
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,2,1-0,11.38%,0.1137867502991391
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,3,2-1,9.15%,0.09145933092046984
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,4,0-0,8.50%,0.08501337914592767
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,5,2-0,8.44%,0.08440842898219685
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,6,0-1,7.85%,0.07853574787186353
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,7,1-2,6.36%,0.06358013330349206
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,8,2-2,5.12%,0.0511637673461274
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,9,3-1,4.43%,0.044301480670817475
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,10,0-2,4.38%,0.043753213690380904
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,11,3-0,4.09%,0.040886133184820074
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,12,3-2,2.40%,0.0240010614449043
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,13,1-3,2.30%,0.022963727366604382
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,14,2-3,1.67%,0.016684909792520485
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,15,4-1,1.61%,0.016094212339034988
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,16,0-3,1.58%,0.015802685813864206
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,17,4-0,1.49%,0.014853456345806074
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,18,3-3,0.90%,0.008951043860831863
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,19,4-2,0.87%,0.008719306294224315
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,20,1-4,0.62%,0.006220489960880261
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,21,5-1,0.47%,0.0046774720283256225
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,22,2-4,0.45%,0.004519663215193165
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,23,5-0,0.43%,0.004316870258568333
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,24,0-4,0.43%,0.004280683483598716
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,25,4-3,0.31%,0.0031492191375365906
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,26,5-2,0.25%,0.002534097999857955
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,27,3-4,0.22%,0.002189254727225115
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,28,1-5,0.13%,0.001348021416059298
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,29,6-1,0.11%,0.0011328474337481637
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,30,6-0,0.10%,0.0010455124829455136
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,31,2-5,0.10%,0.0009794409838728597
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,32,0-5,0.09%,0.0009276524916127048
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,33,5-3,0.09%,0.0009152597291864973
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,34,4-4,0.09%,0.0008808609993823599
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,35,6-2,0.06%,0.0006137388740372798
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,36,3-5,0.05%,0.0004744260140387549
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,37,5-4,0.02%,0.00024792856430103425
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,38,1-6,0.02%,0.00024343764847870714
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,39,7-1,0.02%,0.00023517159336951786
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,40,6-3,0.02%,0.0002216688051030676
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,41,7-0,0.02%,0.0002170414383943215
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,42,2-6,0.02%,0.00017687612904155218
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,43,4-5,0.02%,0.0001723534494442174
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,44,0-6,0.02%,0.00016752370435165002
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,45,7-2,0.01%,0.00012740810864761767
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",1,1-1,13.00%,0.1300154327446308
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",2,1-0,9.93%,0.09933071964807406
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",3,0-0,8.99%,0.08990408588471246
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",4,0-1,8.95%,0.08949075208723879
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",5,2-1,8.30%,0.08299285281477492
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",6,2-0,7.99%,0.07987329459418313
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",7,1-2,7.81%,0.07810706808152346
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",8,0-2,5.38%,0.05378270952895243
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",9,2-2,4.49%,0.04486114456385816
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",10,3-1,4.02%,0.04017603713075542
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",11,3-0,3.87%,0.03866588917642776
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",12,1-3,2.71%,0.027052547988739007
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",13,3-2,2.09%,0.0208725829653992
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",14,2-3,1.96%,0.019643815140976167
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",15,0-3,1.86%,0.01862775503207722
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",16,4-1,1.46%,0.014586623168029752
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",17,4-0,1.40%,0.01403833715699145
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",18,4-2,0.76%,0.007578161610833576
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",19,3-3,0.75%,0.007521675502360838
-2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",20,1-4,0.70%,0.007027280347271282
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,1,1-1,13.54%,0.13540644161731832
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,2,0-1,13.08%,0.13078645928405905
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,3,0-0,10.15%,0.10149770643962605
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,4,0-2,9.23%,0.09231195617907632
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,5,1-2,8.94%,0.0894385741142928
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,6,1-0,8.35%,0.08346377917855363
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,7,2-1,5.75%,0.05754001834062706
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,8,2-2,4.46%,0.04460323159814516
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,9,0-3,4.26%,0.04263947455315014
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,10,2-0,4.15%,0.041523585888957264
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,11,1-3,4.13%,0.04131224126177521
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,12,2-3,2.00%,0.020013160292860984
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,13,3-1,1.86%,0.01858299259708974
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,14,0-4,1.48%,0.014771581592110488
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,15,1-4,1.43%,0.014311788523345716
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,16,3-0,1.34%,0.013410362238871395
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,17,3-2,1.29%,0.012875402159627061
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,18,2-4,0.69%,0.006933153686344885
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,19,3-3,0.67%,0.006653740718276429
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,20,4-1,0.45%,0.004501140560373279
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,21,0-5,0.41%,0.004093852000176812
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,22,1-5,0.40%,0.003966423209800334
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,23,4-0,0.32%,0.00324823491627153
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,24,4-2,0.31%,0.003118657804388901
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,25,3-4,0.22%,0.0022391154424930677
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,26,2-5,0.19%,0.0019214804392737332
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,27,4-3,0.14%,0.0014405277018749256
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,28,0-6,0.09%,0.0009454880245808726
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,29,1-6,0.09%,0.000916057943746836
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,30,5-1,0.09%,0.0008722068305579767
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,31,5-0,0.06%,0.0006294255074304979
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,32,3-5,0.06%,0.000620556923828179
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,33,5-2,0.06%,0.000604316750982636
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,34,4-4,0.06%,0.000558326122959408
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,35,2-6,0.04%,0.0004437719645754768
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,36,5-3,0.03%,0.0002791377172809504
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,37,0-7,0.02%,0.0001871686626511934
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,38,1-7,0.02%,0.00018134268841543832
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,39,4-5,0.02%,0.0001503102326102702
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,40,3-6,0.01%,0.00014331957775340855
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,41,6-1,0.01%,0.00014084296062820254
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,42,6-0,0.01%,0.00010163891046887106
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",1,0-1,16.72%,0.1672346108555024
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",2,0-2,13.14%,0.13139992162602224
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",3,1-1,10.63%,0.106333380217238
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",4,1-2,10.18%,0.10180897465983299
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",5,0-0,9.52%,0.09518161590943877
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",6,0-3,6.39%,0.06385200453559403
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",7,1-0,6.31%,0.06308494448851898
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",8,1-3,4.95%,0.04947268637073862
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",9,2-1,4.12%,0.041238470136555155
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",10,2-0,2.83%,0.02828797510394921
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",11,2-2,2.75%,0.027463124930054525
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",12,0-4,2.33%,0.023271009788826045
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",13,2-3,1.92%,0.019165778071799547
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",14,1-4,1.80%,0.01803043423908804
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",15,3-1,1.07%,0.010650555213906536
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",16,3-2,0.78%,0.007763238646676752
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",17,3-0,0.73%,0.007305863668961801
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",18,2-4,0.70%,0.006985011862402694
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",19,0-5,0.68%,0.006784938396598142
-2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",20,1-5,0.53%,0.005256986554784897
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,1,2-1,8.38%,0.08377068722679379
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,2,3-1,8.37%,0.08372452133269744
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,3,2-0,7.43%,0.07431586943702749
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,4,3-0,7.43%,0.0742749140781581
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,5,4-1,6.28%,0.0627587856604146
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,6,1-1,5.85%,0.05847509961356738
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,7,4-0,5.57%,0.05567548596729198
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,8,1-0,4.85%,0.04851205760287172
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,9,2-2,4.85%,0.048489563871290636
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,10,3-2,4.72%,0.047188176246242663
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,11,5-1,3.76%,0.03763451963535249
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,12,4-2,3.54%,0.03537162818734742
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,13,5-0,3.34%,0.033386881976677184
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,14,1-2,2.39%,0.023857328864524702
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,15,5-2,2.12%,0.021211280963181086
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,16,6-1,1.88%,0.01880688965535949
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,17,3-3,1.82%,0.018209504715073727
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,18,0-0,1.81%,0.01806723170727957
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,19,6-0,1.67%,0.016684241259241395
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,20,2-3,1.34%,0.013438875536211248
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,21,0-1,1.33%,0.013315195332716984
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,22,4-3,1.33%,0.013290591561091126
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,23,6-2,1.06%,0.010599795729786457
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,24,1-3,0.90%,0.008964190508777536
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,25,7-1,0.81%,0.008055653660581249
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,26,5-3,0.80%,0.007969960282179715
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,27,0-2,0.80%,0.00795682795022185
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,28,7-0,0.71%,0.0071464485429001984
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,29,7-2,0.45%,0.00454026608529254
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,30,6-3,0.40%,0.003982784024795957
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,31,4-4,0.38%,0.003846542327174782
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,32,2-4,0.38%,0.003787158273703946
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,33,3-4,0.38%,0.0037850711767303162
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,34,8-1,0.30%,0.003019205325940229
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,35,0-3,0.30%,0.002989711128030575
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,36,8-0,0.27%,0.0026784413048767074
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,37,1-4,0.25%,0.0025261643476717725
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,38,5-4,0.22%,0.0022459841184196434
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,39,7-3,0.17%,0.0017059667651907005
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,40,8-2,0.17%,0.0017016614819202567
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,41,6-4,0.11%,0.0011223731800506208
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,42,9-1,0.10%,0.0010058471488764605
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,43,9-0,0.09%,0.0008923217400274675
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,44,2-5,0.09%,0.0008537957064302281
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,45,3-5,0.09%,0.0008533251809580391
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,46,0-4,0.08%,0.0008425190935057834
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,47,4-5,0.06%,0.000639641186093774
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,48,8-3,0.06%,0.0006393849785951626
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,49,1-5,0.06%,0.0005695109942341648
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,50,9-2,0.06%,0.0005669078996505014
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,51,5-5,0.05%,0.0005200233827337166
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,52,7-4,0.05%,0.00048075198940917993
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,53,10-1,0.03%,0.0003015878484279801
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,54,10-0,0.03%,0.00026754899487561033
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,55,6-5,0.03%,0.0002530333650942028
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,56,9-3,0.02%,0.00021301087151272236
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,57,0-5,0.02%,0.00018994167463647933
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,58,8-4,0.02%,0.00018018264290372004
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,59,10-2,0.02%,0.00016997864327934685
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,60,2-6,0.02%,0.00016040327505812234
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,61,3-6,0.02%,0.00016031487706528994
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,62,4-6,0.01%,0.00012016989584133938
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,63,7-5,0.01%,0.00010838310805898881
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,Research,64,1-6,0.01%,0.00010699448119587457
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",1,1-1,6.83%,0.06833301941753735
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",2,3-1,6.36%,0.06361734843583497
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",3,2-2,6.33%,0.06333989925764502
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",4,2-1,5.56%,0.05562602748045255
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",5,4-1,5.46%,0.05456753616949338
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",6,3-0,5.38%,0.05384389038449288
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",7,1-2,4.75%,0.04752710953949963
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",8,2-0,4.71%,0.047080266622605026
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",9,4-0,4.62%,0.046184390080725765
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",10,3-2,3.76%,0.037582416436721895
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",11,5-1,3.74%,0.03744407557774551
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",12,4-2,3.22%,0.03223617328716896
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",13,2-3,3.21%,0.03211057311929838
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",14,5-0,3.17%,0.03169158650160164
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",15,3-3,2.85%,0.028529408249850216
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",16,1-0,2.44%,0.02441789117826382
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",17,5-2,2.21%,0.02212036301497654
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",18,6-1,2.14%,0.0214116746313069
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",19,0-0,2.13%,0.0212508699283553
+2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,"Benchmark (70% Pinnacle blend), display only",20,1-3,1.87%,0.01871799298633908
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,1,2-0,9.74%,0.09743789131493734
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,2,2-1,9.44%,0.09438776327248634
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,3,3-0,8.46%,0.08456557022269441
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,4,3-1,8.19%,0.08191838837504538
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,5,1-1,7.58%,0.07578362242928316
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,6,1-0,7.35%,0.07347208588458606
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,7,4-0,5.50%,0.05504533891216158
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,8,4-1,5.33%,0.05332223787255129
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,9,2-2,4.69%,0.04689592223268865
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,10,3-2,3.97%,0.039677036034245744
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,11,0-0,3.09%,0.03089778062898759
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,12,5-0,2.87%,0.028664046873691763
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,13,5-1,2.78%,0.027766767468321723
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,14,1-2,2.70%,0.026951892223587372
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,15,4-2,2.58%,0.025826537795271512
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,16,0-1,2.03%,0.020317194409995597
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,17,5-2,1.34%,0.013448787936979636
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,18,3-3,1.31%,0.013142178122630709
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,19,6-0,1.24%,0.012438649051471132
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,20,6-1,1.20%,0.012049278224885083
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,21,2-3,1.13%,0.011329553343257383
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,22,0-2,1.04%,0.010351476526038371
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,23,1-3,0.87%,0.008702736305882895
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,24,4-3,0.83%,0.008339360600791606
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,25,6-2,0.58%,0.00583604799604498
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,26,7-0,0.46%,0.00462660192622201
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,27,7-1,0.45%,0.004481773994439128
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,28,5-3,0.43%,0.004342598808214368
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,29,0-3,0.33%,0.0033424803659539842
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,30,2-4,0.27%,0.002743725219509259
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,31,3-4,0.24%,0.002381257276722472
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,32,7-2,0.22%,0.0021707398277976465
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,33,1-4,0.21%,0.002107577973971969
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,34,4-4,0.21%,0.0020716774751620244
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,35,6-3,0.19%,0.0018844534683025503
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,36,8-0,0.15%,0.0015057716182241556
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,37,8-1,0.15%,0.0014586359898121288
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,38,5-4,0.11%,0.0010516652781726466
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,39,0-4,0.08%,0.0008094624207970547
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,40,8-2,0.07%,0.0007064879311792428
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,41,7-3,0.07%,0.0007009294988745714
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,42,2-5,0.05%,0.0005315675103574198
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,43,3-5,0.05%,0.0004613432107221924
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,44,6-4,0.05%,0.00045636596159816836
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,45,9-0,0.04%,0.00043561573361195513
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,46,9-1,0.04%,0.00042197952138597276
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,47,1-5,0.04%,0.0004083207635161053
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,48,4-5,0.03%,0.00030029707506439544
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,49,8-3,0.02%,0.0002281241746344192
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,50,5-5,0.02%,0.00020900511418042917
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,51,9-2,0.02%,0.00020438508383601651
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,52,7-4,0.02%,0.0001697470222252573
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,53,0-5,0.02%,0.00015682471433051912
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,54,10-0,0.01%,0.00011342022825126024
+2026-11-21,Super Lig,Galatasaray,Samsunspor,Research,55,10-1,0.01%,0.00010986980023910017
+2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",1,2-0,11.43%,0.11428092905228932
+2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",2,3-0,10.22%,0.1022313790103103
+2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",3,2-1,9.07%,0.09067098610337886
+2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",4,3-1,8.11%,0.08111082069810505
+2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",5,1-0,7.89%,0.07886066255661342
+2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",6,4-0,6.86%,0.06858923186716306
+2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",7,1-1,6.22%,0.06218818342926573
+2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",8,4-1,5.44%,0.05441899484929318
+2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",9,5-0,3.68%,0.036814393182766296
+2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",10,3-2,3.22%,0.03217683894128358
+2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",11,0-0,3.20%,0.03202203719676147
+2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",12,2-2,3.03%,0.030277709036040316
+2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",13,5-1,2.92%,0.029208699652342036
+2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",14,1-2,2.61%,0.026091046081691542
+2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",15,4-2,2.16%,0.021588133587374193
+2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",16,0-1,1.84%,0.018369001906744235
+2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",17,6-0,1.65%,0.01646637900878428
+2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",18,6-1,1.31%,0.013064496715767118
+2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",19,5-2,1.16%,0.011587154664552575
+2026-11-21,Super Lig,Galatasaray,Samsunspor,"Benchmark (70% Pinnacle blend), display only",20,0-2,0.97%,0.009722093206695665
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,1,1-1,13.24%,0.13244348875144385
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,2,1-0,11.38%,0.1137930412910225
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,3,2-1,9.15%,0.0914582566273666
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,4,0-0,8.50%,0.08502016135889913
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,5,2-0,8.44%,0.08441069173148608
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,6,0-1,7.85%,0.07853909154215587
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,7,1-2,6.36%,0.06357857984663227
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,8,2-2,5.12%,0.051161170672229625
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,9,3-1,4.43%,0.04429973447235535
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,10,0-2,4.38%,0.04375335534080499
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,11,3-0,4.09%,0.040886097857388636
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,12,3-2,2.40%,0.023999190154637674
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,13,1-3,2.30%,0.02296228101101177
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,14,2-3,1.67%,0.016683397254311696
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,15,4-1,1.61%,0.016093132648894993
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,16,0-3,1.58%,0.015802127743868345
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,17,4-0,1.49%,0.0148530325102798
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,18,3-3,0.89%,0.008949996853021978
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,19,4-2,0.87%,0.008718385227921756
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,20,1-4,0.62%,0.00621985836857994
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,21,5-1,0.47%,0.00467702881815779
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,22,2-4,0.45%,0.0045190792665071545
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,23,5-0,0.43%,0.004316627632618381
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,24,0-4,0.43%,0.00428036728763725
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,25,4-3,0.31%,0.0031487650722729593
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,26,5-2,0.25%,0.002533760197495858
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,27,3-4,0.22%,0.0021889113017040623
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,28,1-5,0.13%,0.0013478325818464248
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,29,6-1,0.11%,0.0011327087482550324
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,30,6-0,0.10%,0.0010454247926469143
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,31,2-5,0.10%,0.000979276683551818
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,32,0-5,0.09%,0.0009275482094079048
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,33,5-3,0.09%,0.0009151024418878772
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,34,4-4,0.09%,0.0008806996394304153
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,35,6-2,0.06%,0.0006136400807584527
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,36,3-5,0.05%,0.00047433330413312717
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,37,5-4,0.02%,0.00024787640124056905
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,38,1-6,0.02%,0.00024339416337084552
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,39,7-1,0.02%,0.00023513629667603172
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,40,6-3,0.02%,0.0002216245787179519
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,41,7-0,0.02%,0.00021701722934072134
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,42,2-6,0.02%,0.00017683964040634027
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,43,4-5,0.02%,0.00017231500084874456
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,44,0-6,0.02%,0.0001674984144586337
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,Research,45,7-2,0.01%,0.00012738407494760208
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",1,1-1,13.00%,0.13001573091494176
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",2,1-0,9.93%,0.09933968293087302
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",3,0-0,8.99%,0.08991230294607165
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",4,0-1,8.95%,0.0894986896748477
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",5,2-1,8.30%,0.08299131350739004
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",6,2-0,7.99%,0.07987663000381638
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",7,1-2,7.81%,0.07810547958619096
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",8,0-2,5.38%,0.0537838494195655
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",9,2-2,4.49%,0.04485669578663842
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",10,3-1,4.02%,0.04017362345101177
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",11,3-0,3.87%,0.03866589791982706
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",12,1-3,2.71%,0.027050366474202878
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",13,3-2,2.09%,0.020870070372219367
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",14,2-3,1.96%,0.019641415306369366
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",15,0-3,1.86%,0.018627026489058413
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",16,4-1,1.46%,0.014585141079614037
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",17,4-0,1.40%,0.014037757306565027
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",18,4-2,0.76%,0.007576934679329416
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",19,3-3,0.75%,0.0075201637229099375
+2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,"Benchmark (70% Pinnacle blend), display only",20,1-4,0.70%,0.007026289931244924
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,1,1-1,13.54%,0.13540607730514315
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,2,0-1,13.08%,0.13079765599262463
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,3,0-0,10.15%,0.10150565001898178
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,4,0-2,9.23%,0.09231970712120846
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,5,1-2,8.94%,0.0894386675450046
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,6,1-0,8.35%,0.08346236223006892
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,7,2-1,5.75%,0.057534265166253554
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,8,2-2,4.46%,0.044599409192428704
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,9,0-3,4.26%,0.04264305072758584
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,10,2-0,4.15%,0.04151943805579578
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,11,1-3,4.13%,0.04131228050931661
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,12,2-3,2.00%,0.020011519951788896
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,13,3-1,1.86%,0.018579593946265734
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,14,0-4,1.48%,0.014772819087543286
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,15,1-4,1.43%,0.014311800765773349
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,16,3-0,1.34%,0.01340791088101509
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,17,3-2,1.29%,0.012873046154300646
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,18,2-4,0.69%,0.006932584767517563
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,19,3-3,0.67%,0.00665261824212804
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,20,4-1,0.45%,0.004499944209906116
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,21,0-5,0.41%,0.004094194576976756
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,22,1-5,0.40%,0.0039664262274361475
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,23,4-0,0.32%,0.003247371880701818
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,24,4-2,0.31%,0.0031178286066656583
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,25,3-4,0.22%,0.0022387460690832476
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,26,2-5,0.19%,0.001921322585175056
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,27,4-3,0.14%,0.0014401445539618562
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,28,0-6,0.09%,0.000945567054309462
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,29,1-6,0.09%,0.0009160585540079676
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,30,5-1,0.09%,0.0008719027100734875
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,31,5-0,0.06%,0.0006292060993039345
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,32,3-5,0.06%,0.0006204544955808392
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,33,5-2,0.06%,0.0006041059810724073
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,34,4-4,0.06%,0.0005581855966422085
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,35,2-6,0.04%,0.0004437354656904798
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,36,5-3,0.03%,0.0002790403349296443
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,37,0-7,0.02%,0.00018718428965386973
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,38,1-7,0.02%,0.00018134279206518734
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,39,4-5,0.02%,0.00015027296199120521
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,40,3-6,0.01%,0.0001432959080690922
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,41,6-1,0.01%,0.00014078217795085224
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,Research,42,6-0,0.01%,0.00010159505643984308
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",1,0-1,16.72%,0.1672492597472947
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",2,0-2,13.14%,0.1314097762581856
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",3,1-1,10.63%,0.10632970219193587
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",4,1-2,10.18%,0.10180077538996034
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",5,0-0,9.52%,0.09519172383795828
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",6,0-3,6.39%,0.06385678464564158
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",7,1-0,6.31%,0.06308980768292635
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",8,1-3,4.95%,0.049468695373652595
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",9,2-1,4.12%,0.04123520054933469
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",10,2-0,2.83%,0.028285736110993526
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",11,2-2,2.75%,0.027457910527741377
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",12,0-4,2.33%,0.023272748771379043
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",13,2-3,1.92%,0.019161251506407188
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",14,1-4,1.80%,0.018028977278884577
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",15,3-1,1.06%,0.010648054527884507
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",16,3-2,0.78%,0.007761414838111961
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",17,3-0,0.73%,0.007304149281652288
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",18,2-4,0.70%,0.00698336120317419
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",19,0-5,0.68%,0.006785444502178735
+2026-11-21,Super Lig,Kocaelispor,Fenerbahce,"Benchmark (70% Pinnacle blend), display only",20,1-5,0.53%,0.005256561051669173
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,1,1-1,13.71%,0.13711381469100375
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,2,0-1,11.70%,0.11695619523146868
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,3,0-0,9.61%,0.09609281606308175
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,4,1-0,9.07%,0.09071840630447811
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,5,1-2,8.59%,0.08588757884866267
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,6,0-2,7.92%,0.07921670512741359
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,7,2-1,6.69%,0.06693392043159137
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,8,2-0,5.04%,0.050447663757963536
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,9,2-2,4.84%,0.04839326746142241
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,10,1-3,3.80%,0.03798519059475063
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,11,0-3,3.50%,0.035034887266470166
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,12,3-1,2.42%,0.024190151809823267
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,13,2-3,2.06%,0.020591970134586725
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,14,3-0,1.82%,0.01823196126698242
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,15,3-2,1.60%,0.016047737158207186
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,16,1-4,1.26%,0.01259968022030812
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,17,0-4,1.16%,0.011621065188838941
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,18,3-3,0.77%,0.007735016181533245
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,19,2-4,0.68%,0.006830352427869161
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,20,4-1,0.66%,0.006556803794053327
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,21,4-0,0.49%,0.004941820694148717
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,22,4-2,0.43%,0.004349781047764008
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,23,1-5,0.33%,0.0033434491530699344
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,24,0-5,0.31%,0.0030837640228970737
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,25,3-4,0.25%,0.0024685131407119285
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,26,4-3,0.19%,0.001923762019603404
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,27,2-5,0.18%,0.001812501241366414
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,28,5-1,0.14%,0.0014217910274131923
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,29,5-0,0.11%,0.0010715947194268494
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,30,5-2,0.09%,0.0009432156061359977
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,31,1-6,0.07%,0.0007393476159515499
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,32,4-4,0.07%,0.0006954405878701063
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,33,0-6,0.07%,0.0006819226116816085
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,34,3-5,0.07%,0.0006550442571036513
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,35,5-3,0.04%,0.000417152573763313
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,36,2-6,0.04%,0.0004008042025951076
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,37,6-1,0.03%,0.0002569201129502105
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,38,6-0,0.02%,0.00019363903066184227
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,39,4-5,0.02%,0.00017755145581624374
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,40,6-2,0.02%,0.00017044070147619313
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,41,3-6,0.01%,0.0001448520338308876
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,42,1-7,0.01%,0.0001401379761319638
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,43,5-4,0.01%,0.00013836942635276893
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Research,44,0-7,0.01%,0.0001292534832302023
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,1,1-1,14.28%,0.14282882794473037
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,2,0-1,9.18%,0.09181110726582908
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,3,0-0,9.11%,0.09109508424977905
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,4,1-2,8.88%,0.08884610801235211
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,5,1-0,8.05%,0.08049027595731256
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,6,2-1,7.94%,0.07936770519963174
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,7,0-2,6.76%,0.06759672414366383
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,8,2-0,5.40%,0.05397677079002561
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,9,2-2,5.38%,0.053785807866055114
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,10,1-3,3.77%,0.037700557201317784
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,11,3-1,3.01%,0.030104333612186233
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,12,0-3,2.83%,0.028305209675998356
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,13,2-3,2.48%,0.024775962294528654
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,14,3-2,2.21%,0.02213277897503349
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,15,3-0,2.02%,0.020203353324986843
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,16,1-4,1.18%,0.011839947016707205
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,17,3-3,1.00%,0.009999276107738084
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,18,0-4,0.97%,0.009681444389818874
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,19,4-1,0.85%,0.008450975479983698
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,20,2-4,0.79%,0.007884990163885755
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,21,4-2,0.63%,0.0062962563962881265
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,22,4-0,0.62%,0.006176935571184296
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,23,3-4,0.35%,0.0034545593574822854
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,24,1-5,0.32%,0.0032397651155462656
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,25,4-3,0.31%,0.003086015300086799
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,26,0-5,0.26%,0.002649133966391628
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,27,5-1,0.21%,0.002067028387370013
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,28,2-5,0.20%,0.0019810394900879936
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,29,5-0,0.15%,0.001510819810427161
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,30,5-2,0.14%,0.0014140026245040647
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,31,4-4,0.10%,0.0010456635074976642
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,32,3-5,0.09%,0.0008795352924902571
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,33,1-6,0.07%,0.0007387475347299293
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,34,5-3,0.07%,0.0007023191654019638
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,35,0-6,0.06%,0.0006040688497601631
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,36,2-6,0.05%,0.0004517265873635344
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,37,6-1,0.04%,0.00042131293642897816
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,38,6-0,0.03%,0.00030794348768283083
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,39,4-5,0.03%,0.0002890054532494301
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,40,6-2,0.03%,0.0002882096837605973
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,41,5-4,0.03%,0.0002581733756013011
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,42,3-6,0.02%,0.00018414672594537892
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,43,1-7,0.01%,0.0001443882240855937
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,44,6-3,0.01%,0.00013143804304932381
+2026-11-22,Super Lig,Erzurum BB,Goztepe,Cagey,45,0-7,0.01%,0.00011806527174968272
+2026-11-22,Super Lig,Erzurum BB,Goztepe,"Benchmark (70% Pinnacle blend), display only",1,1-1,14.11%,0.14109085049622086
+2026-11-22,Super Lig,Erzurum BB,Goztepe,"Benchmark (70% Pinnacle blend), display only",2,0-0,8.90%,0.08895686835197177
+2026-11-22,Super Lig,Erzurum BB,Goztepe,"Benchmark (70% Pinnacle blend), display only",3,0-1,8.76%,0.08755182061550533
+2026-11-22,Super Lig,Erzurum BB,Goztepe,"Benchmark (70% Pinnacle blend), display only",4,1-2,8.21%,0.08207374331499771
+2026-11-22,Super Lig,Erzurum BB,Goztepe,"Benchmark (70% Pinnacle blend), display only",5,1-0,7.87%,0.07870682957730597
+2026-11-22,Super Lig,Erzurum BB,Goztepe,"Benchmark (70% Pinnacle blend), display only",6,2-1,7.67%,0.07669400706950306
+2026-11-22,Super Lig,Erzurum BB,Goztepe,"Benchmark (70% Pinnacle blend), display only",7,0-2,7.29%,0.0728888450955552
+2026-11-22,Super Lig,Erzurum BB,Goztepe,"Benchmark (70% Pinnacle blend), display only",8,2-2,5.41%,0.05412973636198834
+2026-11-22,Super Lig,Erzurum BB,Goztepe,"Benchmark (70% Pinnacle blend), display only",9,2-0,5.15%,0.05147026373151996
+2026-11-22,Super Lig,Erzurum BB,Goztepe,"Benchmark (70% Pinnacle blend), display only",10,1-3,4.08%,0.040765054056939413
+2026-11-22,Super Lig,Erzurum BB,Goztepe,"Benchmark (70% Pinnacle blend), display only",11,0-3,3.62%,0.03620302413969741
+2026-11-22,Super Lig,Erzurum BB,Goztepe,"Benchmark (70% Pinnacle blend), display only",12,3-1,2.88%,0.02878613429242395
+2026-11-22,Super Lig,Erzurum BB,Goztepe,"Benchmark (70% Pinnacle blend), display only",13,2-3,2.30%,0.022950978153825064
+2026-11-22,Super Lig,Erzurum BB,Goztepe,"Benchmark (70% Pinnacle blend), display only",14,3-2,2.14%,0.021446596800463215
+2026-11-22,Super Lig,Erzurum BB,Goztepe,"Benchmark (70% Pinnacle blend), display only",15,3-0,1.93%,0.01931871837781668
+2026-11-22,Super Lig,Erzurum BB,Goztepe,"Benchmark (70% Pinnacle blend), display only",16,1-4,1.52%,0.015185638839640251
+2026-11-22,Super Lig,Erzurum BB,Goztepe,"Benchmark (70% Pinnacle blend), display only",17,0-4,1.35%,0.013486209259536992
+2026-11-22,Super Lig,Erzurum BB,Goztepe,"Benchmark (70% Pinnacle blend), display only",18,3-3,1.01%,0.010091172048761565
+2026-11-22,Super Lig,Erzurum BB,Goztepe,"Benchmark (70% Pinnacle blend), display only",19,2-4,0.85%,0.008549608808899186
+2026-11-22,Super Lig,Erzurum BB,Goztepe,"Benchmark (70% Pinnacle blend), display only",20,4-1,0.81%,0.008103386032012766

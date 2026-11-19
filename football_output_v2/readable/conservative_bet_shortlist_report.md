@@ -1,6 +1,6 @@
 # Main shortlist: team research and chance of positive return
 
-Generated (UTC): 2026-11-18T21:46:12.965167+00:00. Picks: 0.
+Generated (UTC): 2026-11-19T11:07:54.199872+00:00. Picks: 0.
 
 One pick per fixture and market group. Highest probability of a positive net return first; expected return then offered odds break ties. Pushes are not wins. No minimum edge or forced quota.
 
@@ -12,10 +12,10 @@ No candidate had a usable offered quote and team goal distribution.
 
 | Reason | Candidates |
 | --- | --- |
-| kickoff outside 20-minute to 24-hour window | 262 |
+| kickoff outside 20-minute to 24-hour window | 266 |
 | no offered quote at an allowed bookmaker | 110 |
 | offered quote stale or unavailable | 110 |
-| offered odds above 2.00 | 73 |
+| offered odds above 2.00 | 74 |
 | offered odds must be greater than 1.15 | 1 |
 
 ## Cagey tier (separate list, never merged with the picks above)

@@ -4,11 +4,11 @@
     "d_pow2_minus_d_log_loss": null,
     "eligible": false,
     "fallbacks": {
-      "domestic_fixtures": 38,
-      "domestic_records": 38,
+      "domestic_fixtures": 39,
+      "domestic_records": 77,
       "fallback_fixtures": 0,
       "fallback_records": 0,
-      "runs": 1
+      "runs": 2
     },
     "graded_fallbacks": 0,
     "interval_95": null,
