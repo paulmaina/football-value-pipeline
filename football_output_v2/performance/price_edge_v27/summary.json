@@ -834,7 +834,7 @@
     "correction_review": false,
     "excluded_by_reason": {
       "no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line)": 16,
-      "no usable market-implied fit (missing input: over_2_5)": 38
+      "no usable market-implied fit (missing input: over_2_5)": 47
     },
     "fair_price_returns": {
       "corrected": {
@@ -851,10 +851,10 @@
       }
     },
     "fixtures": {
-      "eligible": 113,
-      "excluded": 54,
+      "eligible": 116,
+      "excluded": 63,
       "graded": 106,
-      "pending": 7
+      "pending": 10
     },
     "log_loss": {
       "2plus": {
@@ -1247,7 +1247,7 @@
     }
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-19T11:08:17.271591+00:00",
+  "reviewed_at_utc": "2026-11-19T14:47:48.414045+00:00",
   "stop_review": false,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "tagged_candidates": {
@@ -1283,7 +1283,7 @@
       "positive_share": 0.054820415879017016,
       "standard_error": 0.0010473047909545074
     },
-    "frozen": 2416,
+    "frozen": 2444,
     "return_at_capture_fair": {
       "mean": 0.007539180316421201,
       "n": 1889,
@@ -1296,7 +1296,7 @@
       "positive_share": 0.7520435967302452,
       "standard_error": 0.01568164169883968
     },
-    "with_offered_price": 2416
+    "with_offered_price": 2444
   },
   "version": "price-edge-v27-tracking-v1"
 }
