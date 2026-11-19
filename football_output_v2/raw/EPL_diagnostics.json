@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "0ae870a4417bca19ac73ae133beacb01b58124067f86b58d68a96b4a053f8a3f",
-  "training_as_of_utc": "2026-11-19T11:03:20.177179+00:00",
+  "training_as_of_utc": "2026-11-19T14:43:27.224396+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 100,
     "bbs_added_results": 0,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_CHRONOLOGICAL_PARTITIONS",
-    "cutoff_utc": "2026-11-19T11:03:20.177179+00:00",
+    "cutoff_utc": "2026-11-19T14:43:27.224396+00:00",
     "observations": 1136,
     "observations_sha256": "d8165714967b29d9d289f20fa9133011acb6dfae79257a7ed27a0f7518dd82f0",
     "eligible_training_matches": 529,
@@ -146,10 +146,10 @@
   },
   "training_end": "2026-11-08",
   "fit_success": true,
-  "objective": 1870.0058733731812,
-  "base": 0.20886596716462297,
-  "home_adv": 0.18521229654912585,
-  "rho": -0.0515072616796453,
+  "objective": 1869.5932209185464,
+  "base": 0.20893885737335635,
+  "home_adv": 0.18518919453737565,
+  "rho": -0.05153701907646839,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -177,13 +177,13 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 7,
+  "live_odds_matched": 8,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261119T110320177179Z_1c6517e121e18749c0957d180d54178009c137a157062386c1feaabb85970ca9.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261119T144327224396Z_681cffa0b7fd482ed91a1d224c2da31499255c88ccaf072727c1ca27aa5f5b11.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
@@ -277,6 +277,19 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "230a356290e1a358e9dd2f7fa23de3b9",
+      "event_id": "230a356290e1a358e9dd2f7fa23de3b9",
+      "home_team": "Hull City",
+      "away_team": "Brighton and Hove Albion",
+      "kickoff_utc": "2026-11-22T14:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -284,15 +297,15 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 6,
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 7,
     "ANCHORED_MAIN": 1
   },
-  "shot_features_applied_fixtures": 7,
+  "shot_features_applied_fixtures": 8,
   "goal_rate_features_used": {
-    "shot_features": 7
+    "shot_features": 8
   },
   "legacy_comparison_status": {
-    "None": 7
+    "None": 8
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"

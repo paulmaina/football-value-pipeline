@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "4212daa07980e273b194bddb8e91d18ffccc501ffbaf41c9333976c8348e2d65",
-  "training_as_of_utc": "2026-11-19T11:07:21.585255+00:00",
+  "training_as_of_utc": "2026-11-19T14:46:50.109673+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -87,10 +87,10 @@
   },
   "training_end": "2026-11-08",
   "fit_success": true,
-  "objective": 1635.735161222961,
-  "base": 0.2973898419300692,
-  "home_adv": 0.18437830067041747,
-  "rho": -0.07645115842482345,
+  "objective": 1635.3752401671388,
+  "base": 0.2974128759774604,
+  "home_adv": 0.18436292610863222,
+  "rho": -0.07644680880956893,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -118,7 +118,7 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 5,
+  "live_odds_matched": 8,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
@@ -191,6 +191,45 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "f73ffb41e418d1a67544b0fbf261693a",
+      "event_id": "f73ffb41e418d1a67544b0fbf261693a",
+      "home_team": "FC Twente Enschede",
+      "away_team": "Willem II",
+      "kickoff_utc": "2026-11-22T11:15:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "b192dbcfd675d0ee75492948b7d2a35f",
+      "event_id": "b192dbcfd675d0ee75492948b7d2a35f",
+      "home_team": "Ajax",
+      "away_team": "ADO Den Haag",
+      "kickoff_utc": "2026-11-22T13:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "8e33c1a370f9763723426e4f0aa0fdd0",
+      "event_id": "8e33c1a370f9763723426e4f0aa0fdd0",
+      "home_team": "Sparta Rotterdam",
+      "away_team": "AZ Alkmaar",
+      "kickoff_utc": "2026-11-22T13:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -198,14 +237,14 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 5
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 8
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 5
+    "none": 8
   },
   "legacy_comparison_status": {
-    "None": 5
+    "None": 8
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"

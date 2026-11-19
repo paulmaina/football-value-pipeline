@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "7053819cb9ba005c25bb4db1ef3e408d591afce35f3acad0d2b6f10968790b68",
-  "training_as_of_utc": "2026-11-19T11:05:07.977573+00:00",
+  "training_as_of_utc": "2026-11-19T14:44:57.502146+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 81,
     "bbs_added_results": 0,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-19T11:05:07.977573+00:00",
+    "cutoff_utc": "2026-11-19T14:44:57.502146+00:00",
     "observations": 686,
     "observations_sha256": "9e2c102d7c1f3bcfbe299b2544c4190e6e5fe90f5b7e889a906331f08b2c3e01",
     "eligible_training_matches": 121,
@@ -184,10 +184,10 @@
   },
   "training_end": "2026-11-08",
   "fit_success": true,
-  "objective": 1579.9737708253708,
-  "base": 0.22363647066407766,
-  "home_adv": 0.2311850879763301,
-  "rho": -0.07631092465007006,
+  "objective": 1579.6255889365573,
+  "base": 0.2237817157964743,
+  "home_adv": 0.23116230884151925,
+  "rho": -0.07629872698021793,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -215,13 +215,13 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 7,
+  "live_odds_matched": 8,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261119T110507977573Z_b3a66c12707b3f2d67e89d0f5c5a0b8a278b0d11906f4910fa3492d08f9c62c6.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261119T144457502146Z_04c431db0be1a4757ca38d3567924679ea8fe3403a469e1cb1b9f8297b4a4e18.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
@@ -315,6 +315,19 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "4c2262eccc903b9b1792325d09451c0a",
+      "event_id": "4c2262eccc903b9b1792325d09451c0a",
+      "home_team": "Augsburg",
+      "away_team": "FSV Mainz 05",
+      "kickoff_utc": "2026-11-22T14:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -322,14 +335,14 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 7
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 8
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 7
+    "none": 8
   },
   "legacy_comparison_status": {
-    "None": 7
+    "None": 8
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
