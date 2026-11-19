@@ -2,7 +2,490 @@
 
 Fixtures in this report: **6**.
 
-> Probabilities are model estimates. They describe uncertainty; they are not guarantees. Market EV figures are only shown when bookmaker prices are available.
+> Each match shows the two models the shortlists use, side by side, and the master's verdict on them: **Research** (the value shortlist's model, independent of bookmaker odds) and **Cagey** (the cagey tier's market view, built from Pinnacle's prices). Probabilities are model estimates, not guarantees. No probability here is blended or averaged. The production model (70% Pinnacle blend) is kept only as a benchmark at the end of this report.
+
+## Quick reference
+
+- **Research:** The value shortlist's model: team form, goal rates and xG, never bookmaker odds. Live research v5 (C6 grid) for domestic leagues and v6 (CE3n) for UCL/UEL, exactly as the forecast carries it.
+- **Cagey:** The cagey tier's market view: Pinnacle's 1X2, O/U 2.5 and main AH line with the margin removed, plus the narrow-margin correction (D_pow2 for domestic leagues, D for UCL/UEL, D where D_pow2's power fit fails). Blank without Pinnacle 1X2 and O/U 2.5.
+- **No-loss:** The chance a bet does not lose: a win, a half win or a refund (push) on that exact line.
+- **Gap:** Research minus cagey no-loss on the same Pinnacle offer, in percentage points (the master's g). +4 or more: research too optimistic; -4 or less: research too pessimistic; -8 or less with cagey no-loss of 85% or more: flagged for inspection.
+- **Cagey tier:** The master's market classes from the cagey no-loss: safe (75% or more), risky (below 50%), in between otherwise; fair price when the Pinnacle price is within its 2.70% margin of the cagey fair odds.
+- **Best offer:** The fixture's master pick, or else the Pinnacle offer the master's own rule would choose for it (safe first, then chance of profit), shown with both views and the master's labels.
+- **Expected goals:** A view's average goal expectation for each team, from its score grid. It is not a prediction that the team will score exactly that many goals.
+- **Fixture source:** Football-Data may include bookmaker prices. A schedule fallback may supply fixtures without betting prices, so EV fields can legitimately be blank.
+
+---
+
+## 2026-11-20 — Troyes vs Le Havre
+
+Research leans **Le Havre win** at **37.1%**. Cagey leans **Troyes win** at **44.2%**. The two views lean differently.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** cagey D_pow2 (fit B)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Troyes win | 35.0% | 44.2% |
+| Draw | 27.9% | 28.0% |
+| Le Havre win | 37.1% | 27.8% |
+| Troyes expected goals | 1.29 | 1.52 |
+| Le Havre expected goals | 1.33 | 1.17 |
+| Expected total goals | 2.62 | 2.69 |
+| Most likely score | 1-1 | 1-1 |
+| Most likely score probability | 13.3% | 13.3% |
+| Over 1.5 | 73.9% | 76.4% |
+| Under 1.5 | 26.1% | 23.6% |
+| Over 2.5 | 48.4% | 50.5% |
+| Under 2.5 | 51.6% | 49.5% |
+| Over 3.5 | 26.9% | 28.2% |
+| Under 3.5 | 73.1% | 71.8% |
+| BTTS Yes | 53.9% | 55.8% |
+| BTTS No | 46.1% | 44.2% |
+| Double Chance 1X | 62.9% | 72.2% |
+| Double Chance X2 | 65.0% | 55.8% |
+
+_Cagey Over/Under 1.5 come from the uncorrected Pinnacle grid, as the cagey tier prices Over 1.5; its other figures from the corrected grid._
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (13.26%) | 1-1 (13.32%) |
+| 2 | 0-1 (9.30%) | 2-1 (9.63%) |
+| 3 | 1-0 (8.95%) | 1-0 (9.60%) |
+| 4 | 1-2 (8.21%) | 0-0 (7.85%) |
+| 5 | 2-1 (7.91%) | 2-0 (7.42%) |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Troyes -0.25 | 1.89 | 35.0% | 44.2% |
+| Le Havre +0.25 | 2.02 | 65.0% | 55.8% |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Asian Handicap Away +0.25 | 2.02 | 65.0% | 55.8% | +9.2 | research too optimistic | in between, fair price | research too optimistic | offered odds outside (1.15, 2.00] |
+| **best** Asian Handicap Home -0.25 | 1.89 | 35.0% | 44.2% | -9.2 | research too pessimistic | risky, below fair price | none | eligible |
+| Home win | 2.19 | 35.0% | 44.2% | -9.2 | research too pessimistic | risky, below fair price | none | offered odds outside (1.15, 2.00] |
+| Away win | 3.44 | 37.1% | 27.8% | +9.3 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.15, 2.00] |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (risky fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+### Safest Asian handicap (cagey tier)
+
+_No quoted Pinnacle line has cagey EV >= 0 at odds >= 1.20 (2 lines checked)._
+
+
+---
+
+## 2026-11-21 — AS Monaco vs Auxerre
+
+Research leans **AS Monaco win** at **67.3%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| AS Monaco win | 67.3% | — |
+| Draw | 19.7% | — |
+| Auxerre win | 13.0% | — |
+| AS Monaco expected goals | 2.37 | — |
+| Auxerre expected goals | 1.02 | — |
+| Expected total goals | 3.40 | — |
+| Most likely score | 2-1 | — |
+| Most likely score probability | 9.9% | — |
+| Over 1.5 | 85.6% | — |
+| Under 1.5 | 14.4% | — |
+| Over 2.5 | 65.7% | — |
+| Under 2.5 | 34.3% | — |
+| Over 3.5 | 44.3% | — |
+| Under 3.5 | 55.7% | — |
+| BTTS Yes | 59.2% | — |
+| BTTS No | 40.8% | — |
+| Double Chance 1X | 87.0% | — |
+| Double Chance X2 | 32.7% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 2-1 (9.95%) | — |
+| 2 | 2-0 (9.39%) | — |
+| 3 | 1-1 (8.88%) | — |
+| 4 | 1-0 (7.89%) | — |
+| 5 | 3-1 (7.73%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| AS Monaco -1.25 | 1.88 | 44.4% | — |
+| Auxerre +1.25 | 2.02 | 55.6% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Home win | 1.42 | 67.3% | — | — | one view missing (no cagey view) | in between, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Away win | 7.22 | 13.0% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away +1.25 | 2.02 | 55.6% | — | — | one view missing (no cagey view) | no market view | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Home -1.25 | 1.88 | 44.4% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — Lille vs Lyon
+
+Research leans **Lille win** at **49.6%**. Cagey leans **Lille win** at **40.4%**. The two views agree on the lean.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** cagey D_pow2 (fit B)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Lille win | 49.6% | 40.4% |
+| Draw | 27.8% | 29.8% |
+| Lyon win | 22.6% | 29.8% |
+| Lille expected goals | 1.51 | 1.37 |
+| Lyon expected goals | 0.95 | 1.15 |
+| Expected total goals | 2.46 | 2.51 |
+| Most likely score | 1-1 | 1-1 |
+| Most likely score probability | 13.1% | 14.2% |
+| Over 1.5 | 70.8% | 73.5% |
+| Under 1.5 | 29.2% | 26.5% |
+| Over 2.5 | 44.4% | 46.2% |
+| Under 2.5 | 55.6% | 53.8% |
+| Over 3.5 | 23.5% | 24.5% |
+| Under 3.5 | 76.5% | 75.5% |
+| BTTS Yes | 48.7% | 53.4% |
+| BTTS No | 51.3% | 46.6% |
+| Double Chance 1X | 77.4% | 70.2% |
+| Double Chance X2 | 50.4% | 59.6% |
+
+_Cagey Over/Under 1.5 come from the uncorrected Pinnacle grid, as the cagey tier prices Over 1.5; its other figures from the corrected grid._
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (13.14%) | 1-1 (14.24%) |
+| 2 | 1-0 (12.63%) | 1-0 (10.05%) |
+| 3 | 2-0 (9.57%) | 0-0 (9.36%) |
+| 4 | 2-1 (9.34%) | 2-1 (9.17%) |
+| 5 | 0-0 (9.13%) | 0-1 (8.10%) |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Lille -0.25 | 2.05 | 49.6% | 40.4% |
+| Lyon +0.25 | 1.86 | 50.4% | 59.6% |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Asian Handicap Away +0.25 | 1.86 | 50.4% | 59.6% | -9.2 | research too pessimistic | in between, fair price | none | eligible |
+| Asian Handicap Home -0.25 | 2.05 | 49.6% | 40.4% | +9.2 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.15, 2.00] |
+| Home win | 2.39 | 49.6% | 40.4% | +9.2 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.15, 2.00] |
+| Away win | 3.21 | 22.6% | 29.8% | -7.2 | research too pessimistic | risky, below fair price | none | offered odds outside (1.15, 2.00] |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+### Safest Asian handicap (cagey tier)
+
+_No quoted Pinnacle line has cagey EV >= 0 at odds >= 1.20 (2 lines checked)._
+
+
+---
+
+## 2026-11-21 — Nice vs Paris Saint Germain
+
+Research leans **Paris Saint Germain win** at **59.5%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Nice win | 18.5% | — |
+| Draw | 21.9% | — |
+| Paris Saint Germain win | 59.5% | — |
+| Nice expected goals | 1.17 | — |
+| Paris Saint Germain expected goals | 2.16 | — |
+| Expected total goals | 3.33 | — |
+| Most likely score | 1-2 | — |
+| Most likely score probability | 10.0% | — |
+| Over 1.5 | 84.8% | — |
+| Under 1.5 | 15.2% | — |
+| Over 2.5 | 64.5% | — |
+| Under 2.5 | 35.5% | — |
+| Over 3.5 | 42.8% | — |
+| Under 3.5 | 57.2% | — |
+| BTTS Yes | 62.0% | — |
+| BTTS No | 38.0% | — |
+| Double Chance 1X | 40.5% | — |
+| Double Chance X2 | 81.5% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-2 (9.98%) | — |
+| 2 | 1-1 (9.79%) | — |
+| 3 | 0-2 (8.25%) | — |
+| 4 | 0-1 (7.60%) | — |
+| 5 | 1-3 (7.06%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Nice +1.25 | 1.93 | 63.3% | — |
+| Paris Saint Germain -1.25 | 1.98 | 36.7% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Away win | 1.47 | 59.5% | — | — | one view missing (no cagey view) | in between, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Home win | 6.09 | 18.5% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away -1.25 | 1.98 | 36.7% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+| Asian Handicap Home +1.25 | 1.93 | 63.3% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — RC Lens vs Toulouse
+
+Research leans **RC Lens win** at **50.1%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| RC Lens win | 50.1% | — |
+| Draw | 25.7% | — |
+| Toulouse win | 24.2% | — |
+| RC Lens expected goals | 1.70 | — |
+| Toulouse expected goals | 1.13 | — |
+| Expected total goals | 2.83 | — |
+| Most likely score | 1-1 | — |
+| Most likely score probability | 12.1% | — |
+| Over 1.5 | 77.8% | — |
+| Under 1.5 | 22.2% | — |
+| Over 2.5 | 53.6% | — |
+| Under 2.5 | 46.4% | — |
+| Over 3.5 | 31.7% | — |
+| Under 3.5 | 68.3% | — |
+| BTTS Yes | 56.3% | — |
+| BTTS No | 43.7% | — |
+| Double Chance 1X | 75.8% | — |
+| Double Chance X2 | 49.9% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (12.13%) | — |
+| 2 | 1-0 (9.76%) | — |
+| 3 | 2-1 (9.72%) | — |
+| 4 | 2-0 (8.38%) | — |
+| 5 | 0-0 (6.34%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| RC Lens -0.50 | 1.87 | 50.1% | — |
+| Toulouse +0.50 | 2.05 | 49.9% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **best** Asian Handicap Home -0.50 | 1.87 | 50.1% | — | — | one view missing (no cagey view) | in between, fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Home win | 1.86 | 50.1% | — | — | one view missing (no cagey view) | in between, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Asian Handicap Away +0.50 | 2.05 | 49.9% | — | — | one view missing (no cagey view) | risky, fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Away win | 3.94 | 24.2% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## 2026-11-21 — Strasbourg vs Brest
+
+Research leans **Strasbourg win** at **47.7%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Strasbourg win | 47.7% | — |
+| Draw | 24.2% | — |
+| Brest win | 28.1% | — |
+| Strasbourg expected goals | 1.85 | — |
+| Brest expected goals | 1.40 | — |
+| Expected total goals | 3.24 | — |
+| Most likely score | 1-1 | — |
+| Most likely score probability | 10.7% | — |
+| Over 1.5 | 83.7% | — |
+| Under 1.5 | 16.3% | — |
+| Over 2.5 | 62.7% | — |
+| Under 2.5 | 37.3% | — |
+| Over 3.5 | 40.9% | — |
+| Under 3.5 | 59.1% | — |
+| BTTS Yes | 64.1% | — |
+| BTTS No | 35.9% | — |
+| Double Chance 1X | 71.9% | — |
+| Double Chance X2 | 52.3% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (10.73%) | — |
+| 2 | 2-1 (9.33%) | — |
+| 3 | 1-0 (7.00%) | — |
+| 4 | 2-2 (6.84%) | — |
+| 5 | 1-2 (6.76%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Strasbourg -0.25 | 1.97 | 47.7% | — |
+| Brest +0.25 | 1.93 | 52.3% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Home win | 2.26 | 47.7% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Away win | 3.10 | 28.1% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.15, 2.00] |
+| Asian Handicap Away +0.25 | 1.93 | 52.3% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+| Asian Handicap Home -0.25 | 1.97 | 47.7% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+
+_Best offer: none (no offer passes the master checks with a market view). Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
+
+
+---
+
+## Benchmark (70% Pinnacle blend), display only
+
+The production forecasting model blends 70% of Pinnacle's prices into its score grid, so it is neither independent research nor the cagey tier's market view. It is shown for comparison only: no list, probability or stake reads it, and its EV is not a recommendation.
+
+- **Benchmark EV:** Model-estimated return per unit staked at the available decimal price. +5% EV means +0.05 expected units per 1 unit staked under the model; it is not a guaranteed return.
+- **Fair odds:** Decimal odds implied by the model probability, before any bookmaker margin.
+- **Probability edge:** Model probability minus the de-vigged market probability.
 
 ### Model context
 
@@ -64,33 +547,17 @@ Fixtures in this report: **6**.
 
 </details>
 
-## Quick reference
-
-- **Expected goals:** The model's average goal expectation for each team. It is not a prediction that the team will score exactly that many goals.
-- **Fair odds:** Decimal odds implied by the model probability, before any bookmaker margin.
-- **Expected value:** Model-estimated return per unit staked at the available decimal price. +5% EV means +0.05 expected units per 1 unit staked under the model; it is not a guaranteed return.
-- **Probability edge:** Model probability minus the de-vigged market probability.
-- **Fixture source:** Football-Data may include bookmaker prices. A schedule fallback may supply fixtures without betting prices, so EV fields can legitimately be blank.
-
----
-
-## 2026-11-20 — Troyes vs Le Havre
+### 2026-11-20 — Troyes vs Le Havre
 
 The model's most likely 1X2 outcome is **Troyes win** at **41.6%**. Expected goals are 1.12 for Troyes and 1.13 for Le Havre (2.25 combined). The most likely exact score is 1-1 at 13.4%. Goal-market probabilities: at least one goal: 92.5%; Over 2.5 goals: 50.9%; Under 3.5 goals: 70.8%; Double Chance 1X: 69.8%; Double Chance X2: 58.4%; Double Chance 12 (either team wins): 71.9%; Under 4.5 goals: 86.0%; BTTS Yes (both teams score): 56.4%; BTTS No (at least one team does not score): 43.6%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Troyes win | 41.6% | 2.40 |
 | Draw | 28.1% | 3.55 |
 | Le Havre win | 30.2% | 3.31 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Troyes expected goals | 1.12 |
 | Le Havre expected goals | 1.13 |
@@ -106,9 +573,7 @@ The model's most likely 1X2 outcome is **Troyes win** at **41.6%**. Expected goa
 | Over 4.5 | 14.0% |
 | Under 4.5 | 86.0% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-1 | 13.36% |
 | 2 | 2-1 | 9.48% |
@@ -116,9 +581,7 @@ The model's most likely 1X2 outcome is **Troyes win** at **41.6%**. Expected goa
 | 4 | 0-0 | 7.46% |
 | 5 | 2-0 | 6.91% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Troyes win | 41.6% | 44.6% | 2.19 | -8.8% |
 | Draw | 28.1% | 27.3% | 3.53 | -0.7% |
@@ -126,10 +589,8 @@ The model's most likely 1X2 outcome is **Troyes win** at **41.6%**. Expected goa
 | Over 2.5 | 50.9% | 50.9% | 1.91 | -2.7% |
 | Under 2.5 | 49.1% | 49.1% | 1.98 | -2.9% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -262,25 +723,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — AS Monaco vs Auxerre
+### 2026-11-21 — AS Monaco vs Auxerre
 
 The model's most likely 1X2 outcome is **AS Monaco win** at **67.2%**. Expected goals are 2.12 for AS Monaco and 1.01 for Auxerre (3.13 combined). The most likely exact score is 2-1 at 10.7%. Goal-market probabilities: at least one goal: 95.7%; Over 2.5 goals: 61.5%; Under 3.5 goals: 61.2%; Double Chance 1X: 86.1%; Double Chance X2: 32.8%; Double Chance 12 (either team wins): 81.2%; Under 4.5 goals: 78.7%; BTTS Yes (both teams score): 55.6%; BTTS No (at least one team does not score): 44.4%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | AS Monaco win | 67.2% | 1.49 |
 | Draw | 18.8% | 5.31 |
 | Auxerre win | 13.9% | 7.19 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | AS Monaco expected goals | 2.12 |
 | Auxerre expected goals | 1.01 |
@@ -296,9 +749,7 @@ The model's most likely 1X2 outcome is **AS Monaco win** at **67.2%**. Expected 
 | Over 4.5 | 21.3% |
 | Under 4.5 | 78.7% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 2-1 | 10.72% |
 | 2 | 2-0 | 10.61% |
@@ -306,18 +757,14 @@ The model's most likely 1X2 outcome is **AS Monaco win** at **67.2%**. Expected 
 | 4 | 1-1 | 8.80% |
 | 5 | 3-1 | 7.56% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | AS Monaco win | 67.2% | 69.4% | 1.42 | -4.5% |
 | Draw | 18.8% | 17.9% | 5.21 | -1.8% |
 | Auxerre win | 13.9% | 12.7% | 7.22 | +0.4% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -434,25 +881,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Lille vs Lyon
+### 2026-11-21 — Lille vs Lyon
 
 The model's most likely 1X2 outcome is **Lille win** at **42.1%**. Expected goals are 1.43 for Lille and 1.05 for Lyon (2.48 combined). The most likely exact score is 1-1 at 13.7%. Goal-market probabilities: at least one goal: 91.3%; Over 2.5 goals: 46.8%; Under 3.5 goals: 74.5%; Double Chance 1X: 70.8%; Double Chance X2: 57.9%; Double Chance 12 (either team wins): 71.3%; Under 4.5 goals: 88.4%; BTTS Yes (both teams score): 52.3%; BTTS No (at least one team does not score): 47.7%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Lille win | 42.1% | 2.38 |
 | Draw | 28.7% | 3.48 |
 | Lyon win | 29.2% | 3.42 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Lille expected goals | 1.43 |
 | Lyon expected goals | 1.05 |
@@ -468,9 +907,7 @@ The model's most likely 1X2 outcome is **Lille win** at **42.1%**. Expected goal
 | Over 4.5 | 11.6% |
 | Under 4.5 | 88.4% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-1 | 13.68% |
 | 2 | 1-0 | 9.90% |
@@ -478,9 +915,7 @@ The model's most likely 1X2 outcome is **Lille win** at **42.1%**. Expected goal
 | 4 | 2-1 | 8.44% |
 | 5 | 0-1 | 8.28% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Lille win | 42.1% | 40.8% | 2.39 | +0.6% |
 | Draw | 28.7% | 29.1% | 3.32 | -4.7% |
@@ -488,10 +923,8 @@ The model's most likely 1X2 outcome is **Lille win** at **42.1%**. Expected goal
 | Over 2.5 | 46.8% | 46.8% | 2.07 | -3.1% |
 | Under 2.5 | 53.2% | 53.2% | 1.83 | -2.6% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -624,25 +1057,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Nice vs Paris Saint Germain
+### 2026-11-21 — Nice vs Paris Saint Germain
 
 The model's most likely 1X2 outcome is **Paris Saint Germain win** at **64.2%**. Expected goals are 1.03 for Nice and 1.94 for Paris Saint Germain (2.97 combined). The most likely exact score is 1-2 at 11.0%. Goal-market probabilities: at least one goal: 95.2%; Over 2.5 goals: 58.5%; Under 3.5 goals: 64.7%; Double Chance 1X: 35.8%; Double Chance X2: 83.6%; Double Chance 12 (either team wins): 80.6%; Under 4.5 goals: 81.3%; BTTS Yes (both teams score): 54.6%; BTTS No (at least one team does not score): 45.4%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Nice win | 16.4% | 6.09 |
 | Draw | 19.4% | 5.16 |
 | Paris Saint Germain win | 64.2% | 1.56 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Nice expected goals | 1.03 |
 | Paris Saint Germain expected goals | 1.94 |
@@ -658,9 +1083,7 @@ The model's most likely 1X2 outcome is **Paris Saint Germain win** at **64.2%**.
 | Over 4.5 | 18.7% |
 | Under 4.5 | 81.3% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-2 | 11.03% |
 | 2 | 0-2 | 10.66% |
@@ -668,18 +1091,14 @@ The model's most likely 1X2 outcome is **Paris Saint Germain win** at **64.2%**.
 | 4 | 1-1 | 9.14% |
 | 5 | 1-3 | 7.12% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Nice win | 16.4% | 15.2% | 6.09 | +0.0% |
 | Draw | 19.4% | 17.9% | 5.21 | +1.0% |
 | Paris Saint Germain win | 64.2% | 66.9% | 1.47 | -5.6% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -796,25 +1215,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — RC Lens vs Toulouse
+### 2026-11-21 — RC Lens vs Toulouse
 
 The model's most likely 1X2 outcome is **RC Lens win** at **53.0%**. Expected goals are 1.70 for RC Lens and 0.98 for Toulouse (2.69 combined). The most likely exact score is 1-1 at 11.3%. Goal-market probabilities: at least one goal: 93.0%; Over 2.5 goals: 50.7%; Under 3.5 goals: 71.7%; Double Chance 1X: 76.7%; Double Chance X2: 47.0%; Double Chance 12 (either team wins): 76.3%; Under 4.5 goals: 86.4%; BTTS Yes (both teams score): 51.5%; BTTS No (at least one team does not score): 48.5%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | RC Lens win | 53.0% | 1.89 |
 | Draw | 23.7% | 4.22 |
 | Toulouse win | 23.3% | 4.29 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | RC Lens expected goals | 1.70 |
 | Toulouse expected goals | 0.98 |
@@ -830,9 +1241,7 @@ The model's most likely 1X2 outcome is **RC Lens win** at **53.0%**. Expected go
 | Over 4.5 | 13.6% |
 | Under 4.5 | 86.4% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-1 | 11.28% |
 | 2 | 1-0 | 10.88% |
@@ -840,18 +1249,14 @@ The model's most likely 1X2 outcome is **RC Lens win** at **53.0%**. Expected go
 | 4 | 2-1 | 9.58% |
 | 5 | 0-0 | 6.95% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | RC Lens win | 53.0% | 52.7% | 1.86 | -1.4% |
 | Draw | 23.7% | 23.1% | 4.14 | -2.0% |
 | Toulouse win | 23.3% | 24.3% | 3.94 | -8.1% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -968,25 +1373,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 </details>
 
 
----
-
-## 2026-11-21 — Strasbourg vs Brest
+### 2026-11-21 — Strasbourg vs Brest
 
 The model's most likely 1X2 outcome is **Strasbourg win** at **44.9%**. Expected goals are 1.86 for Strasbourg and 1.36 for Brest (3.23 combined). The most likely exact score is 1-1 at 11.2%. Goal-market probabilities: at least one goal: 95.3%; Over 2.5 goals: 62.0%; Under 3.5 goals: 59.9%; Double Chance 1X: 69.8%; Double Chance X2: 55.1%; Double Chance 12 (either team wins): 75.1%; Under 4.5 goals: 77.9%; BTTS Yes (both teams score): 63.8%; BTTS No (at least one team does not score): 36.2%.
 
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
+| Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Strasbourg win | 44.9% | 2.23 |
 | Draw | 24.9% | 4.01 |
 | Brest win | 30.2% | 3.31 |
 
-### Goals outlook
-
-| Measure | Model estimate |
+| Measure | Benchmark estimate |
 | --- | --- |
 | Strasbourg expected goals | 1.86 |
 | Brest expected goals | 1.36 |
@@ -1002,9 +1399,7 @@ The model's most likely 1X2 outcome is **Strasbourg win** at **44.9%**. Expected
 | Over 4.5 | 22.1% |
 | Under 4.5 | 77.9% |
 
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
+| Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-1 | 11.18% |
 | 2 | 2-1 | 8.65% |
@@ -1012,18 +1407,14 @@ The model's most likely 1X2 outcome is **Strasbourg win** at **44.9%**. Expected
 | 4 | 2-2 | 6.77% |
 | 5 | 1-0 | 6.35% |
 
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
 | Strasbourg win | 44.9% | 43.3% | 2.26 | +1.5% |
 | Draw | 24.9% | 25.5% | 3.78 | -5.8% |
 | Brest win | 30.2% | 31.3% | 3.10 | -6.4% |
 
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
 <details>
-<summary>Additional technical details</summary>
+<summary>Additional technical details (forecast row)</summary>
 
 | Field | Value |
 | --- | --- |
@@ -1138,6 +1529,3 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Team research json | {"base_rates": [1.8630990247947818, 1.3635182878744725], "c6_fit": {"candidate_version": "research-low-score-then-sharpen-walk-forward-v1", "delta": 0.05820390771129642, "end_exclusive": "2026-11-16", "expected_origin": "2026-11-16", "fits_version": "research-c6-live-fits-v1", "low_score_status": "fitted", "origin": "2026-11-02", "rho": -0.018955143658940854, "slope": 1.1447833796793323, "slope_status": "fitted", "stale": true}, "coverage": {"form": "last ten, exponential rank half-life five matches", "h2h": "last four years; descriptive only", "motivation": "standings context; urgency not inferred", "rotation": "schedule congestion only; rotation unconfirmed", "team_news": "dated news leads; absences and tactics require confirmation", "training_cache": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED", "travel": "previous fixture venue; itinerary and fatigue unverified", "venue_splits": "home team home matches / away team away matches", "weather": "Open-Meteo match-window forecast with units and observation time", "xg": "verified supplied xG; no goals-to-xG substitution"}, "evidence": {"coverage": {"motivation": "standings context; urgency not inferred", "weather": "Open-Meteo match-window forecast with units and observation time"}, "errors": ["TheSportsDB venue: exact fixture identity/time unavailable"], "news": [{"headline": "Strasbourg appoint Swansea boss Matos", "published_at_utc": "2026-11-18T20:57:54+00:00", "source": "news search", "url": "https://www.bbc.co.uk/sport/football/articles/c6174epxv1p4o?at_medium=RSS&at_campaign=rss"}], "quality_review": {"absence_note": "Reported absences only; not proof of complete coverage or a fitted player-value effect", "assessed_at_utc": "2026-11-18T21:46:07.143980+00:00", "availability": "UNAVAILABLE_OR_STALE", "form": {"away": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 10.0}, "home": {"matches": 10.0, "venue_matches": 4.0, "xg_matches": 10.0}}, "lineups": "UNCONFIRMED_OR_STALE", "probability_effect": "NONE; factual coverage/freshness review, not a calibrated confidence score", "status": "REVIEW_REQUIRED", "summary_max_age_minutes": 180, "training": {"cutoff": "2026-11-08", "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}, "version": "pre-match-research-quality-v1", "warnings": ["Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"], "weather": "FRESH_COMPLETE_WINDOW", "weather_max_age_minutes": 180}, "recent": {"away": [{"away": "Lyon", "away_goals": 0.0, "away_xg": null, "competition": "fra.1", "date": "2026-11-08T16:15:00+00:00", "home": "Brest", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/6997/schedule"}, {"away": "Brest", "away_goals": 2.0, "away_xg": null, "competition": "fra.1", "date": "2026-11-02T19:45:00+00:00", "home": "Lorient", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/6997/schedule"}, {"away": "Nice", "away_goals": 2.0, "away_xg": null, "competition": "fra.1", "date": "2026-10-23T18:45:00+00:00", "home": "Brest", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/6997/schedule"}, {"away": "Brest", "away_goals": 1.0, "away_xg": null, "competition": "fra.1", "date": "2026-10-17T18:45:00+00:00", "home": "Lille", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/6997/schedule"}, {"away": "Angers", "away_goals": 1.0, "away_xg": null, "competition": "fra.1", "date": "2026-10-10T18:45:00+00:00", "home": "Brest", "home_goals": 5.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/6997/schedule"}, {"away": "Monza", "away_goals": 2.0, "away_xg": null, "competition": "club.friendly", "date": "2026-10-03T16:00:00+00:00", "home": "Brest", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/6997/schedule"}, {"away": "Brest", "away_goals": 1.0, "away_xg": null, "competition": "fra.1", "date": "2026-09-20T13:00:00+00:00", "home": "AJ Auxerre", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/6997/schedule"}, {"away": "Paris Saint-Germain", "away_goals": 1.0, "away_xg": null, "competition": "fra.1", "date": "2026-09-13T18:45:00+00:00", "home": "Brest", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/6997/schedule"}, {"away": "Brest", "away_goals": 2.0, "away_xg": null, "competition": "fra.1", "date": "2026-09-05T18:45:00+00:00", "home": "Le Havre AC", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/6997/schedule"}, {"away": "Toulouse", "away_goals": 2.0, "away_xg": null, "competition": "fra.1", "date": "2026-08-29T18:45:00+00:00", "home": "Brest", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/6997/schedule"}, {"away": "Brest", "away_goals": 2.0, "away_xg": null, "competition": "fra.1", "date": "2026-08-22T18:45:00+00:00", "home": "Le Mans", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/6997/schedule"}, {"away": "Brest", "away_goals": 0.0, "away_xg": null, "competition": "club.friendly", "date": "2026-08-16T13:00:00+00:00", "home": "Nottingham Forest", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/6997/schedule"}, {"away": "Venezia", "away_goals": 2.0, "away_xg": null, "competition": "club.friendly", "date": "2026-08-08T16:30:00+00:00", "home": "Brest", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/6997/schedule"}], "home": [{"away": "Strasbourg", "away_goals": 1.0, "away_xg": null, "competition": "fra.1", "date": "2026-11-06T19:45:00+00:00", "home": "Toulouse", "home_goals": 3.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/180/schedule"}, {"away": "AJ Auxerre", "away_goals": 1.0, "away_xg": null, "competition": "fra.1", "date": "2026-11-01T14:00:00+00:00", "home": "Strasbourg", "home_goals": 5.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/180/schedule"}, {"away": "Strasbourg", "away_goals": 0.0, "away_xg": null, "competition": "fra.1", "date": "2026-10-25T16:15:00+00:00", "home": "Stade Rennais", "home_goals": 3.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/180/schedule"}, {"away": "Paris Saint-Germain", "away_goals": 3.0, "away_xg": null, "competition": "fra.1", "date": "2026-10-17T15:15:00+00:00", "home": "Strasbourg", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/180/schedule"}, {"away": "Strasbourg", "away_goals": 1.0, "away_xg": null, "competition": "fra.1", "date": "2026-10-11T13:00:00+00:00", "home": "Nice", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/180/schedule"}, {"away": "Strasbourg", "away_goals": 1.0, "away_xg": null, "competition": "fra.1", "date": "2026-09-19T15:15:00+00:00", "home": "Paris FC", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/180/schedule"}, {"away": "AS Monaco", "away_goals": 1.0, "away_xg": null, "competition": "fra.1", "date": "2026-09-12T15:15:00+00:00", "home": "Strasbourg", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/180/schedule"}, {"away": "Strasbourg", "away_goals": 6.0, "away_xg": null, "competition": "fra.1", "date": "2026-09-06T13:00:00+00:00", "home": "Troyes", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/180/schedule"}, {"away": "Lens", "away_goals": 1.0, "away_xg": null, "competition": "fra.1", "date": "2026-08-29T15:15:00+00:00", "home": "Strasbourg", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/180/schedule"}, {"away": "Strasbourg", "away_goals": 0.0, "away_xg": null, "competition": "fra.1", "date": "2026-08-21T18:45:00+00:00", "home": "Marseille", "home_goals": 4.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/180/schedule"}, {"away": "Strasbourg", "away_goals": 1.0, "away_xg": null, "competition": "club.friendly", "date": "2026-08-16T15:00:00+00:00", "home": "Newcastle United", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/180/schedule"}, {"away": "Strasbourg", "away_goals": 0.0, "away_xg": null, "competition": "club.friendly", "date": "2026-08-08T13:30:00+00:00", "home": "SC Freiburg", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/180/schedule"}, {"away": "Strasbourg", "away_goals": 3.0, "away_xg": null, "competition": "club.friendly", "date": "2026-08-01T12:15:00+00:00", "home": "Brighton & Hove Albion", "home_goals": 4.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/180/schedule"}]}, "rest_and_travel": {"away": {"completed_matches_last_14_days": 1, "days_between_kickoffs": 13.145833333333334, "note": "schedule-derived travel context; actual itinerary and fatigue unverified", "previous_fixture": {"completed": true, "date": "2026-11-08T16:15Z", "home_away": "home", "name": "Lyon at Brest", "venue": {"address": {"city": "Brest", "country": "France"}, "fullName": "Stade Francis-Le Bl\u00e9"}}}}, "review_links": [{"label": "Sofascore", "status": "reference only; no authorized public bulk API", "url": "https://www.sofascore.com/football"}, {"label": "Sports Mole previews", "status": "reference only; article reproduction requires permission", "url": "https://www.sportsmole.co.uk/football/"}], "schedules": {"away": [{"completed": true, "date": "2026-11-08T16:15Z", "home_away": "home", "name": "Lyon at Brest", "venue": {"address": {"city": "Brest", "country": "France"}, "fullName": "Stade Francis-Le Bl\u00e9"}}], "home": []}, "sources": [{"observed_at_utc": "2026-11-18T21:46:03.777336+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20261121"}, {"observed_at_utc": "2026-11-18T21:46:06.482824+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876396"}, {"observed_at_utc": "2026-11-18T21:46:06.556282+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/180/schedule"}, {"observed_at_utc": "2026-11-18T21:46:06.663706+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/6997/schedule"}, {"observed_at_utc": "2026-11-18T21:46:02.850360+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/v2/sports/soccer/fra.1/standings"}, {"observed_at_utc": "2026-11-18T21:46:02.925700+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/news?limit=20"}, {"observed_at_utc": "2026-11-18T21:46:06.909916+00:00", "reason": null, "status": "available", "url": "https://www.bing.com/news/search?q=%22Strasbourg%22+%22Brest%22+injury+suspension+lineup+preview&format=rss"}, {"observed_at_utc": "2026-11-18T21:46:03.300165+00:00", "reason": "no match data (maintenance page)", "status": "unavailable", "url": "https://understat.com/league/Ligue_1/2026"}, {"observed_at_utc": "2026-11-18T21:46:03.439191+00:00", "reason": "no match data (maintenance page)", "status": "unavailable", "url": "https://understat.com/league/Ligue_1/2025"}, {"observed_at_utc": "2026-11-18T21:45:46.684732+00:00", "reason": null, "status": "available", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"}, {"observed_at_utc": "2026-11-18T21:45:46.820635+00:00", "reason": null, "status": "available", "url": "https://www.theguardian.com/football/rss"}, {"observed_at_utc": "2026-11-18T21:46:06.948274+00:00", "reason": "TheSportsDB free source limit: 30 requests per minute", "status": "unavailable", "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=Strasbourg_vs_Brest&d=2026-11-21"}, {"observed_at_utc": "2026-11-18T21:46:07.079268+00:00", "reason": null, "status": "available", "url": "https://geocoding-api.open-meteo.com/v1/search?name=Strasbourg&count=10&language=en&format=json"}, {"observed_at_utc": "2026-11-18T21:46:07.113474+00:00", "reason": null, "status": "available", "url": "https://api.open-meteo.com/v1/forecast?latitude=48.58392&longitude=7.74553&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m%2Cwind_gusts_10m%2Crelative_humidity_2m&timezone=UTC&forecast_days=7&wind_speed_unit=kmh&temperature_unit=celsius&precipitation_unit=mm"}], "standings": {"abbreviation": "Ligue 1", "children": [{"abbreviation": "2026-27", "id": "1", "name": "French Ligue 1 2026-27", "standings": {"displayName": "Standings", "entries": [{"note": {"color": "#81D6AC", "description": "Champions League", "rank": 1}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "1", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 1.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+12", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 12.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "23", "name": "points", "shortDisplayName": "P", "type": "points", "value": 23.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "10", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 10.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "22", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 22.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "2", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 2.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "7", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 7.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "1", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 1.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "7-2-1", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "7-2-1", "type": "total"}], "team": {"abbreviation": "PSG", "displayName": "Paris Saint-Germain", "id": "160", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/160/paris-saint-germain", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Paris Saint-Germain", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Paris Saint-Germain", "shortDisplayName": "PSG", "uid": "s:600~t:160"}}, {"note": {"color": "#81D6AC", "description": "Champions League", "rank": 2}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "1", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 1.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+7", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 7.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "21", "name": "points", "shortDisplayName": "P", "type": "points", "value": 21.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "7", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 7.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "14", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 14.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "6", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 6.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "2", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 2.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "6-3-1", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "6-3-1", "type": "total"}], "team": {"abbreviation": "LILL", "displayName": "Lille", "id": "166", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/166/lille", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Lille", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/166.png", "lastUpdated": "2021-08-30T14:53Z", "rel": ["full", "default"], "width": 500}], "name": "Lille", "shortDisplayName": "Lille", "uid": "s:600~t:166"}}, {"note": {"color": "#81D6AC", "description": "Champions League", "rank": 3}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "2", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 2.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+7", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 7.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "20", "name": "points", "shortDisplayName": "P", "type": "points", "value": 20.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "10", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 10.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "17", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 17.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "2", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 2.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "6", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 6.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "3", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 3.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "6-2-2", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "6-2-2", "type": "total"}], "team": {"abbreviation": "PAR", "displayName": "Paris FC", "id": "6851", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/6851/paris-fc", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Paris FC", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/6851.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Paris FC", "shortDisplayName": "Paris FC", "uid": "s:600~t:6851"}}, {"note": {"color": "#B5E7CE", "description": "Champions League qualifying", "rank": 4}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "4", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 4.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+8", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 8.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "18", "name": "points", "shortDisplayName": "P", "type": "points", "value": 18.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "14", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 14.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "22", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 22.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "0", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 0.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "6", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 6.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "4", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 4.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "6-0-4", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "6-0-4", "type": "total"}], "team": {"abbreviation": "OLM", "displayName": "Marseille", "id": "176", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/176/marseille", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Marseille", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/176.png", "lastUpdated": "2026-08-20T19:45Z", "rel": ["full", "default"], "width": 500}], "name": "Marseille", "shortDisplayName": "Marseille", "uid": "s:600~t:176"}}, {"note": {"color": "#B2BFD0", "description": "Europa League", "rank": 5}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "3", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 3.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+6", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 6.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "17", "name": "points", "shortDisplayName": "P", "type": "points", "value": 17.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "9", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 9.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "15", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 15.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "2", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 2.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "5", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 5.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "5", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 5.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "5-2-3", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "5-2-3", "type": "total"}], "team": {"abbreviation": "LYON", "displayName": "Lyon", "id": "167", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/167/lyon", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Lyon", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/167.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Lyon", "shortDisplayName": "Lyon", "uid": "s:600~t:167"}}, {"note": {"color": "#B2BFD0", "description": "Europa League", "rank": 6}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "3", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 3.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+3", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 3.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "17", "name": "points", "shortDisplayName": "P", "type": "points", "value": 17.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "12", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 12.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "15", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 15.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "2", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 2.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "5", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 5.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "6", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 6.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "5-2-3", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "5-2-3", "type": "total"}], "team": {"abbreviation": "NICE", "displayName": "Nice", "id": "2502", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/2502/nice", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Nice", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/2502.png", "lastUpdated": "2022-10-26T21:13Z", "rel": ["full", "default"], "width": 500}], "name": "Nice", "shortDisplayName": "Nice", "uid": "s:600~t:2502"}}, {"note": {"color": "#B2BFD0", "description": "Conference League qualifying", "rank": 7}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "2", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 2.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+2", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 2.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "16", "name": "points", "shortDisplayName": "P", "type": "points", "value": 16.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "11", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 11.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "13", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 13.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "4", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 4.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "4", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 4.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "7", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 7.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "4-4-2", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "4-4-2", "type": "total"}], "team": {"abbreviation": "MON", "displayName": "AS Monaco", "id": "174", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/174/as-monaco", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "AS Monaco", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/174.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "AS Monaco", "shortDisplayName": "Monaco", "uid": "s:600~t:174"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "4", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 4.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "0", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 0.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "16", "name": "points", "shortDisplayName": "P", "type": "points", "value": 16.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "21", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 21.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "21", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 21.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "1", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 1.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "5", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 5.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "8", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 8.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "5-1-4", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "5-1-4", "type": "total"}], "team": {"abbreviation": "REN", "displayName": "Stade Rennais", "id": "169", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/169/stade-rennais", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Stade Rennais", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/169.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Stade Rennais", "shortDisplayName": "Rennes", "uid": "s:600~t:169"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "3", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 3.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+6", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 6.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "15", "name": "points", "shortDisplayName": "P", "type": "points", "value": 15.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "12", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 12.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "18", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 18.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "4", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 4.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "9", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 9.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "4-3-3", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "4-3-3", "type": "total"}], "team": {"abbreviation": "BRE", "displayName": "Brest", "id": "6997", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/6997/brest", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Brest", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/6997.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Brest", "shortDisplayName": "Brest", "uid": "s:600~t:6997"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "3", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 3.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+1", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 1.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "15", "name": "points", "shortDisplayName": "P", "type": "points", "value": 15.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "8", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 8.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "9", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 9.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "3", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 3.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "4", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 4.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "10", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 10.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "4-3-3", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "4-3-3", "type": "total"}], "team": {"abbreviation": "LOR", "displayName": "Lorient", "id": "273", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/273/lorient", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Lorient", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/273.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Lorient", "shortDisplayName": "Lorient", "uid": "s:600~t:273"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "5", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 5.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+2", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 2.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "13", "name": "points", "shortDisplayName": "P", "type": "points", "value": 13.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "15", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 15.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "17", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 17.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "1", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 1.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "4", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 4.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "11", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 11.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "4-1-5", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "4-1-5", "type": "total"}], "team": {"abbreviation": "RCL", "displayName": "Lens", "id": "175", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/175/lens", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Lens", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/175.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Lens", "shortDisplayName": "Lens", "uid": "s:600~t:175"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "3", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 3.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "+1", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": 1.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "13", "name": "points", "shortDisplayName": "P", "type": "points", "value": 13.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "14", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 14.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "15", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 15.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "4", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 4.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "3", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 3.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "12", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 12.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "3-4-3", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "3-4-3", "type": "total"}], "team": {"abbreviation": "TOU", "displayName": "Toulouse", "id": "179", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/179/toulouse", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Toulouse", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/179.png", "lastUpdated": "2023-02-17T20:20Z", "rel": ["full", "default"], "width": 500}], "name": "Toulouse", "shortDisplayName": "Toulouse", "uid": "s:600~t:179"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "6", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 6.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-4", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -4.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "10", "name": "points", "shortDisplayName": "P", "type": "points", "value": 10.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "22", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 22.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "18", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 18.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "1", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 1.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "3", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 3.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "13", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 13.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "3-1-6", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "3-1-6", "type": "total"}], "team": {"abbreviation": "STR", "displayName": "Strasbourg", "id": "180", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/180/strasbourg", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Strasbourg", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/180.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Strasbourg", "shortDisplayName": "Strasbourg", "uid": "s:600~t:180"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "6", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 6.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-11", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -11.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "10", "name": "points", "shortDisplayName": "P", "type": "points", "value": 10.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "24", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 24.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "13", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 13.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "1", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 1.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "3", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 3.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "14", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 14.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "3-1-6", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "3-1-6", "type": "total"}], "team": {"abbreviation": "AUX", "displayName": "AJ Auxerre", "id": "172", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/172/aj-auxerre", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "AJ Auxerre", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/172.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "AJ Auxerre", "shortDisplayName": "Auxerre", "uid": "s:600~t:172"}}, {"stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "4", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 4.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-7", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -7.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "8", "name": "points", "shortDisplayName": "P", "type": "points", "value": 8.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "19", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 19.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "12", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 12.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "5", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 5.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "1", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 1.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "15", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 15.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "1-5-4", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "1-5-4", "type": "total"}], "team": {"abbreviation": "MNS", "displayName": "Le Mans", "id": "2697", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/2697/le-mans", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Le Mans", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/2697.png", "lastUpdated": "2019-07-16T20:44Z", "rel": ["full", "default"], "width": 500}], "name": "Le Mans", "shortDisplayName": "Le Mans", "uid": "s:600~t:2697"}}, {"note": {"color": "#FEB4B5", "description": "Relegation playoff", "rank": 16}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "6", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 6.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-10", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -10.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "8", "name": "points", "shortDisplayName": "P", "type": "points", "value": 8.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "19", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 19.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "9", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 9.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "2", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 2.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "2", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 2.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "16", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 16.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "2-2-6", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "2-2-6", "type": "total"}], "team": {"abbreviation": "ANG", "displayName": "Angers", "id": "7868", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/7868/angers", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Angers", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/7868.png", "lastUpdated": "2023-06-19T15:51Z", "rel": ["full", "default"], "width": 500}], "name": "Angers", "shortDisplayName": "Angers", "uid": "s:600~t:7868"}}, {"note": {"color": "#FF7F84", "description": "Relegation", "rank": 17}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "6", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 6.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-10", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -10.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "8", "name": "points", "shortDisplayName": "P", "type": "points", "value": 8.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "17", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 17.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "7", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 7.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "2", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 2.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "2", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 2.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "17", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 17.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "2-2-6", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "2-2-6", "type": "total"}], "team": {"abbreviation": "TRY", "displayName": "Troyes", "id": "170", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/170/troyes", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Troyes", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/170.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Troyes", "shortDisplayName": "Troyes", "uid": "s:600~t:170"}}, {"note": {"color": "#FF7F84", "description": "Relegation", "rank": 18}, "stats": [{"abbreviation": "GP", "description": "Number of Games Played", "displayName": "Games Played", "displayValue": "10", "name": "gamesPlayed", "shortDisplayName": "GP", "type": "gamesplayed", "value": 10.0}, {"abbreviation": "L", "description": "Losses", "displayName": "Losses", "displayValue": "8", "name": "losses", "shortDisplayName": "L", "type": "losses", "value": 8.0}, {"abbreviation": "GD", "description": "Goal Difference", "displayName": "Goal Difference", "displayValue": "-13", "name": "pointDifferential", "shortDisplayName": "GD", "type": "pointdifferential", "value": -13.0}, {"abbreviation": "P", "description": "Points", "displayName": "Points", "displayValue": "2", "name": "points", "shortDisplayName": "P", "type": "points", "value": 2.0}, {"abbreviation": "A", "description": "Goals Against", "displayName": "Goals Against", "displayValue": "22", "name": "pointsAgainst", "shortDisplayName": "A", "type": "pointsagainst", "value": 22.0}, {"abbreviation": "F", "description": "Goals For", "displayName": "Goals For", "displayValue": "9", "name": "pointsFor", "shortDisplayName": "F", "type": "pointsfor", "value": 9.0}, {"abbreviation": "D", "description": "Draws", "displayName": "Draws", "displayValue": "2", "name": "ties", "shortDisplayName": "D", "type": "ties", "value": 2.0}, {"abbreviation": "W", "description": "Wins", "displayName": "Wins", "displayValue": "0", "name": "wins", "shortDisplayName": "W", "type": "wins", "value": 0.0}, {"abbreviation": "ADV", "description": "Advanced", "displayName": "Advanced", "displayValue": "0", "name": "advanced", "shortDisplayName": "ADV", "type": "advanced", "value": 0.0}, {"abbreviation": "PD", "description": "Point Deductions", "displayName": "Point Deductions", "displayValue": "", "name": "deductions", "shortDisplayName": "Deductions", "type": "deductions", "value": 0.0}, {"abbreviation": "PPG", "description": "Points Per Game", "displayName": "Points Per Game", "displayValue": "0", "name": "ppg", "shortDisplayName": "PPG", "type": "ppg", "value": 0.0}, {"abbreviation": "R", "description": "Rank", "displayName": "Rank", "displayValue": "18", "name": "rank", "shortDisplayName": "Rank", "type": "rank", "value": 18.0}, {"abbreviation": "RC", "description": "Rank Change", "displayName": "Rank Change", "displayValue": "0", "name": "rankChange", "shortDisplayName": "Rank Change", "type": "rankchange", "value": 0.0}, {"abbreviation": "Total", "description": "Overall Record", "displayName": "Overall", "displayValue": "0-2-8", "id": "0", "name": "overall", "shortDisplayName": "OVER", "summary": "0-2-8", "type": "total"}], "team": {"abbreviation": "HAC", "displayName": "Le Havre AC", "id": "3236", "isActive": true, "isNational": false, "links": [{"href": "https://www.espn.com/soccer/club/_/id/3236/le-havre-ac", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["clubhouse", "desktop", "team"], "shortText": "Clubhouse", "text": "Clubhouse"}], "location": "Le Havre AC", "logos": [{"alt": "", "height": 500, "href": "https://a.espncdn.com/i/teamlogos/soccer/500/3236.png", "lastUpdated": "2019-05-08T16:07Z", "rel": ["full", "default"], "width": 500}], "name": "Le Havre AC", "shortDisplayName": "Le Havre AC", "uid": "s:600~t:3236"}}], "id": "0", "links": [{"href": "https://www.espn.com/soccer/table/_/league/fra.1", "isExternal": false, "isPremium": false, "language": "en-US", "rel": ["standings", "desktop"], "shortText": "Standings", "text": "Full Table"}], "name": "overall", "season": 2026, "seasonDisplayName": "2026-27 French Ligue 1", "seasonType": 1}, "uid": "s:600~l:710~g:1"}], "id": "9", "name": "French Ligue 1", "season": {"displayName": "2026-27 French Ligue 1", "endDate": "2027-06-01T03:59Z", "startDate": "2026-06-01T04:00Z", "year": 2026}, "seasons": [{"displayName": "2026-27 French Ligue 1", "endDate": "2027-06-01T03:59Z", "seasonYears": "2026-27", "startDate": "2026-06-01T04:00Z", "types": [{"abbreviation": "2026-27 Ligue 1", "endDate": "2027-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2026-27 Ligue 1", "startDate": "2026-07-01T04:00Z"}], "year": 2026}, {"displayName": "2025-26 French Ligue 1", "endDate": "2026-06-01T03:59Z", "seasonYears": "2025-26", "startDate": "2025-06-01T04:00Z", "types": [{"abbreviation": "2025-26 Ligue 1", "endDate": "2026-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2025-26 Ligue 1", "startDate": "2025-06-01T04:00Z"}], "year": 2025}, {"displayName": "2024-25 French Ligue 1", "endDate": "2025-06-01T03:59Z", "seasonYears": "2024-25", "startDate": "2024-06-01T04:00Z", "types": [{"abbreviation": "2024-25 Ligue 1", "endDate": "2025-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2024-25 Ligue 1", "startDate": "2024-06-01T04:00Z"}], "year": 2024}, {"displayName": "2023-24 French Ligue 1", "endDate": "2024-06-01T03:59Z", "seasonYears": "2023-24", "startDate": "2023-07-01T04:00Z", "types": [{"abbreviation": "2023-24 Ligue 1", "endDate": "2024-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2023-24 Ligue 1", "startDate": "2023-07-01T04:00Z"}], "year": 2023}, {"displayName": "2022-23 French Ligue 1", "endDate": "2023-07-01T03:59Z", "seasonYears": "2022-23", "startDate": "2022-07-01T04:00Z", "types": [{"abbreviation": "2022-23 Ligue 1", "endDate": "2023-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2022-23 Ligue 1", "startDate": "2022-07-01T04:00Z"}], "year": 2022}, {"displayName": "2021-22 French Ligue 1", "endDate": "2022-07-01T03:59Z", "seasonYears": "2021-22", "startDate": "2021-07-01T04:00Z", "types": [{"abbreviation": "2021-22 Ligue 1", "endDate": "2022-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2021-22 Ligue 1", "startDate": "2021-07-01T04:00Z"}], "year": 2021}, {"displayName": "2020-21 French Ligue 1", "endDate": "2021-07-01T03:59Z", "seasonYears": "2020-21", "startDate": "2020-06-01T04:00Z", "types": [{"abbreviation": "2020-21 Ligue 1", "endDate": "2021-05-31T03:59Z", "hasStandings": true, "id": "1", "name": "2020-21 Ligue 1", "startDate": "2020-07-01T04:00Z"}], "year": 2020}, {"displayName": "2019-20 French Ligue 1", "endDate": "2020-05-31T03:59Z", "seasonYears": "2019-20", "startDate": "2019-06-01T04:00Z", "types": [{"abbreviation": "2019-20", "endDate": "2020-05-31T03:59Z", "hasStandings": true, "id": "1", "name": "Regular Season", "startDate": "2019-07-01T04:00Z"}], "year": 2019}, {"displayName": "2018-19 French Ligue 1", "endDate": "2019-05-31T03:59Z", "seasonYears": "2018-19", "startDate": "2018-06-01T04:00Z", "types": [{"abbreviation": "2018-19", "endDate": "2019-05-31T03:59Z", "hasStandings": true, "id": "1", "name": "Regular Season", "startDate": "2018-07-01T04:00Z"}, {"abbreviation": "Quarterfinals", "endDate": "2019-05-23T03:59Z", "hasStandings": false, "id": "2", "name": "Promotion Playoff Quarterfinals", "startDate": "2019-05-20T04:00Z"}, {"abbreviation": "Semifinals", "endDate": "2019-05-27T03:59Z", "hasStandings": false, "id": "3", "name": "Promotion Playoff Semifinals", "startDate": "2019-05-23T04:00Z"}, {"abbreviation": "Finals", "endDate": "2019-07-01T03:59Z", "hasStandings": false, "id": "4", "name": "Promotion Playoff Finals", "startDate": "2019-05-27T04:00Z"}], "year": 2018}, {"displayName": "2017-18 French Ligue 1", "endDate": "2018-05-31T03:59Z", "seasonYears": "2017-18", "startDate": "2017-06-01T04:00Z", "types": [{"abbreviation": "2017-18", "endDate": "2018-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "Regular Season", "startDate": "2017-07-01T04:00Z"}, {"abbreviation": "QUARTERFINALS", "endDate": "2018-05-17T03:59Z", "hasStandings": false, "id": "2", "name": "PROMOTION/RELEGATION PLAYOFF QUARTERFINALS", "startDate": "2018-05-15T04:00Z"}, {"abbreviation": "SEMIFINALS", "endDate": "2018-05-21T03:59Z", "hasStandings": false, "id": "3", "name": "PROMOTION/RELEGATION PLAYOFF SEMIFINALS", "startDate": "2018-05-17T04:00Z"}, {"abbreviation": "FINAL", "endDate": "2018-07-01T03:59Z", "hasStandings": false, "id": "4", "name": "PROMOTION/RELEGATION PLAYOFF FINAL", "startDate": "2018-05-21T04:00Z"}], "year": 2017}, {"displayName": "2016-17 French Ligue 1", "endDate": "2017-05-31T03:59Z", "seasonYears": "2016-17", "startDate": "2016-06-01T04:00Z", "types": [{"abbreviation": "2016-17", "endDate": "2017-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "Regular Season", "startDate": "2016-06-01T04:00Z"}, {"abbreviation": "Promotion/Relegation Playoff", "endDate": "2017-07-01T03:59Z", "hasStandings": false, "id": "2", "name": "Promotion/Relegation Playoffs", "startDate": "2016-12-31T05:00Z"}], "year": 2016}, {"displayName": "2015-16 French Ligue 1", "endDate": "2016-06-01T03:59Z", "seasonYears": "2015-16", "startDate": "2015-06-17T04:00Z", "types": [{"abbreviation": "2015-16", "endDate": "2016-06-01T03:59Z", "hasStandings": true, "id": "1", "name": "2015/2016 French Ligue 1", "startDate": "2015-06-18T04:00Z"}], "year": 2015}, {"displayName": "2014-15 French Ligue 1", "endDate": "2015-06-18T03:59Z", "seasonYears": "2014-15", "startDate": "2014-07-01T04:00Z", "types": [{"abbreviation": "2014-15", "endDate": "2015-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2014/2015 French Ligue 1", "startDate": "2014-07-01T04:00Z"}], "year": 2014}, {"displayName": "2013-14 French Ligue 1", "endDate": "2014-07-01T03:59Z", "seasonYears": "2013-14", "startDate": "2013-07-01T04:00Z", "types": [{"abbreviation": "2013-14", "endDate": "2014-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2013/2014 French Ligue 1", "startDate": "2013-07-01T04:00Z"}], "year": 2013}, {"displayName": "2012-13 French Ligue 1", "endDate": "2013-07-01T03:59Z", "seasonYears": "2012-13", "startDate": "2012-07-01T04:00Z", "types": [{"abbreviation": "2012-13", "endDate": "2013-05-31T03:59Z", "hasStandings": true, "id": "1", "name": "2012/2013 French Ligue 1", "startDate": "2012-07-01T04:00Z"}], "year": 2012}, {"displayName": "2011-12 French Ligue 1", "endDate": "2012-07-01T03:59Z", "seasonYears": "2011-12", "startDate": "2011-07-01T04:00Z", "types": [{"abbreviation": "2011-12", "endDate": "2012-07-05T03:59Z", "hasStandings": true, "id": "1", "name": "2011/2012 French Ligue 1", "startDate": "2011-08-06T04:00Z"}], "year": 2011}, {"displayName": "2010-11 French Ligue 1", "endDate": "2011-07-01T03:59Z", "seasonYears": "2010-11", "startDate": "2010-07-01T04:00Z", "types": [{"abbreviation": "2010-11", "endDate": "2011-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2010/2011 French Ligue 1", "startDate": "2010-07-01T04:00Z"}], "year": 2010}, {"displayName": "2009/10 French Ligue 1", "endDate": "2010-07-01T03:59Z", "seasonYears": "2009-10", "startDate": "2009-07-01T04:00Z", "types": [{"abbreviation": "2009-10", "endDate": "2010-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2009/2010 French Ligue 1", "startDate": "2009-07-01T04:00Z"}], "year": 2009}, {"displayName": "2008/09 French Ligue 1", "endDate": "2009-07-01T03:59Z", "seasonYears": "2008-09", "startDate": "2008-07-01T04:00Z", "types": [{"abbreviation": "2008-09", "endDate": "2009-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2008/2009 French Ligue 1", "startDate": "2008-07-01T04:00Z"}], "year": 2008}, {"displayName": "2007/08 French Ligue 1", "endDate": "2008-07-01T03:59Z", "seasonYears": "2007-08", "startDate": "2007-07-01T04:00Z", "types": [{"abbreviation": "2007-08", "endDate": "2008-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2007/2008 French Ligue 1", "startDate": "2007-07-01T04:00Z"}], "year": 2007}, {"displayName": "2006/07 French Ligue 1", "endDate": "2007-07-01T03:59Z", "seasonYears": "2006-07", "startDate": "2006-07-01T04:00Z", "types": [{"abbreviation": "2006-07", "endDate": "2007-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2006/2007 French Ligue 1", "startDate": "2006-07-01T04:00Z"}], "year": 2006}, {"displayName": "2005/06 French Ligue 1", "endDate": "2006-07-01T03:59Z", "seasonYears": "2005-06", "startDate": "2005-07-01T04:00Z", "types": [{"abbreviation": "2005-06", "endDate": "2006-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2005/2006 French Ligue 1", "startDate": "2005-07-01T04:00Z"}], "year": 2005}, {"displayName": "2004/05 French Ligue 1", "endDate": "2005-07-01T03:59Z", "seasonYears": "2004-05", "startDate": "2004-07-01T04:00Z", "types": [{"abbreviation": "2004-05", "endDate": "2005-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2004/2005 French Ligue 1", "startDate": "2004-07-01T04:00Z"}], "year": 2004}, {"displayName": "2003/04 French Ligue 1", "endDate": "2004-07-01T03:59Z", "seasonYears": "2003-04", "startDate": "2003-07-01T04:00Z", "types": [{"abbreviation": "2003-04", "endDate": "2004-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2003/2004 French Ligue 1", "startDate": "2003-07-01T04:00Z"}], "year": 2003}, {"displayName": "2002/03 French Ligue 1", "endDate": "2003-07-01T03:59Z", "seasonYears": "2002-03", "startDate": "2002-07-01T04:00Z", "types": [{"abbreviation": "2002-03", "endDate": "2003-07-01T03:59Z", "hasStandings": true, "id": "1", "name": "2003/2003 French Ligue 1", "startDate": "2002-07-01T04:00Z"}], "year": 2002}], "uid": "s:600~l:710"}, "summary_identity_verified": true, "venue": {"address": {"city": "Strasbourg", "country": "France"}, "fullName": "Stade de la Meinau", "guid": "fde3f619-58cd-3f42-acef-b2c726be559f", "id": "2980", "images": []}, "weather": {"complete_match_window": true, "effect_on_probabilities": "context only; no validated coefficient", "hours": [{"precipitation": 0.0, "rain": 0.0, "relative_humidity_2m": 83.0, "snowfall": 0.0, "temperature_2m": 5.5, "time": "2026-11-21T19:00:00+00:00", "wind_gusts_10m": 13.0, "wind_speed_10m": 4.0}, {"precipitation": 0.0, "rain": 0.0, "relative_humidity_2m": 85.0, "snowfall": 0.0, "temperature_2m": 4.9, "time": "2026-11-21T20:00:00+00:00", "wind_gusts_10m": 13.0, "wind_speed_10m": 4.3}, {"precipitation": 0.0, "rain": 0.0, "relative_humidity_2m": 87.0, "snowfall": 0.0, "temperature_2m": 4.4, "time": "2026-11-21T21:00:00+00:00", "wind_gusts_10m": 13.0, "wind_speed_10m": 4.7}], "latitude": 48.58392, "location_precision": "venue city centre; stadium coordinates unavailable", "longitude": 7.74553, "missing_fields": [], "observed_at_utc": "2026-11-18T21:46:07.113474+00:00", "precipitation": 0.0, "rain": 0.0, "relative_humidity_2m": 83.0, "roof_status": "unverified", "snowfall": 0.0, "source": "https://api.open-meteo.com/v1/forecast?latitude=48.58392&longitude=7.74553&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m%2Cwind_gusts_10m%2Crelative_humidity_2m&timezone=UTC&forecast_days=7&wind_speed_unit=kmh&temperature_unit=celsius&precipitation_unit=mm", "temperature_2m": 5.5, "time": "2026-11-21T19:00:00+00:00", "units": {"precipitation": "mm", "rain": "mm", "relative_humidity_2m": "%", "snowfall": "cm", "temperature_2m": "\u00b0C", "time": "iso8601", "wind_gusts_10m": "km/h", "wind_speed_10m": "km/h"}, "wind_gusts_10m": 13.0, "wind_speed_10m": 4.0}, "weather_location_precision": "venue city centre; stadium coordinates unavailable"}, "evidence_quality_version": "pre-match-research-quality-v1", "form": {"away": {"all": {"goals_against": 1.0007524095588165, "goals_for": 1.8161619044613437, "last_match": "2026-11-08T00:00:00+00:00", "matches": 10, "points_per_game": 1.6825479068189824, "results": "WWLDWLLWDD", "xg_against": 1.2167209563049157, "xg_for": 1.8727159181800046, "xg_matches": 10}, "venue": {"goals_against": 1.0860081373267871, "goals_for": 1.578406784180646, "last_match": "2026-11-02T00:00:00+00:00", "matches": 5, "points_per_game": 1.663208202629718, "results": "WDLWD", "xg_against": 1.570883949572597, "xg_for": 1.3924335803094414, "xg_matches": 5}}, "home": {"all": {"goals_against": 2.234089214604963, "goals_for": 1.8046045495487129, "last_match": "2026-11-06T00:00:00+00:00", "matches": 10, "points_per_game": 0.8929155183710137, "results": "LWLLLLDWWL", "xg_against": 1.5736222924264205, "xg_for": 1.292898292408946, "xg_matches": 10}, "venue": {"goals_against": 1.5295057548750897, "goals_for": 2.417129940354649, "last_match": "2026-11-01T00:00:00+00:00", "matches": 4, "points_per_game": 1.7447798345123173, "results": "WLDW", "xg_against": 1.6749850709799903, "xg_for": 1.8126650409651333, "xg_matches": 4}}}, "form_friendlies_excluded": {"away": 3, "home": 3}, "goal_rates": [1.8312333145221922, 1.4179291397754425], "h2h": [{"away": "Strasbourg", "away_goals": 2.0, "away_xg": null, "date": "2026-05-13T00:00:00+00:00", "home": "Brest", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Brest", "away_goals": 2.0, "away_xg": null, "date": "2025-11-30T00:00:00+00:00", "home": "Strasbourg", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Brest", "away_goals": 0.0, "away_xg": null, "date": "2025-02-23T00:00:00+00:00", "home": "Strasbourg", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Strasbourg", "away_goals": 1.0, "away_xg": null, "date": "2024-11-30T00:00:00+00:00", "home": "Brest", "home_goals": 3.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Brest", "away_goals": 3.0, "away_xg": null, "date": "2024-02-24T00:00:00+00:00", "home": "Strasbourg", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Strasbourg", "away_goals": 1.0, "away_xg": null, "date": "2023-12-07T00:00:00+00:00", "home": "Brest", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Brest", "away_goals": 1.0, "away_xg": null, "date": "2023-03-05T00:00:00+00:00", "home": "Strasbourg", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}], "margin_distribution": {"-1": 0.1543408864409904, "-10": 4.1998042736852905e-07, "-11": 5.310876036940332e-08, "-12": 6.174028809000534e-09, "-13": 6.64032907710575e-10, "-14": 6.640128892393305e-11, "-15": 6.145352307616001e-12, "-16": 4.685637850757741e-13, "-2": 0.08123895707384736, "-3": 0.03218006871819459, "-4": 0.010184872794462622, "-5": 0.002670094487075008, "-6": 0.0005957490376283947, "-7": 0.00011550169589516379, "-8": 1.977795450368575e-05, "-9": 3.030517318200076e-06, "0": 0.2415794789318846, "1": 0.2136590180490024, "10": 5.795959833033947e-06, "11": 9.465675963473999e-07, "12": 1.4211609748385003e-07, "13": 1.9740283105118686e-08, "14": 2.549349841776746e-09, "15": 3.0471151450381747e-10, "16": 3.0005436722235546e-11, "2": 0.14485965037036747, "3": 0.07410699671577581, "4": 0.030291236942721036, "5": 0.010255980391611236, "6": 0.0029553100729727395, "7": 0.0007399752913848096, "8": 0.00016364373519629817, "9": 3.238351102686839e-05}, "model_note": "Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient", "observed_at_utc": "2026-11-18T21:46:07.143980+00:00", "p_over_1_5": 0.8372148791468098, "shadow_v4": {"grid": "independent Poisson (C)", "margin_distribution": {"-1": 0.16501669217261644, "-10": 4.4383327358662584e-07, "-11": 5.6125079729480375e-08, "-12": 6.524683625583123e-09, "-13": 7.017467481640906e-10, "-14": 7.017255927410147e-11, "-15": 6.4943784383527185e-12, "-16": 4.951759297864477e-13, "-2": 0.08585293483024566, "-3": 0.03400774015334301, "-4": 0.010763324047630233, "-5": 0.0028217428712319715, "-6": 0.0006295846862755633, "-7": 0.00012206163062207235, "-8": 2.090124615382488e-05, "-9": 3.2026359666933658e-06, "0": 0.22725638224368325, "1": 0.2131164778845053, "10": 5.72942958010803e-06, "11": 9.357022033131791e-07, "12": 1.404847852969442e-07, "13": 1.951368974256164e-08, "14": 2.520086545505545e-09, "15": 3.0121381356844605e-10, "16": 2.966101244191096e-11, "2": 0.14319684568304517, "3": 0.07325634257442369, "4": 0.02994353203908246, "5": 0.010138254770814455, "6": 0.0029213868691732986, "7": 0.000731481315457963, "8": 0.00016176531308745266, "9": 3.2011789475768703e-05}, "p_over_1_5": 0.8351040418024199, "version": "team-form-research-v4"}, "version": "team-form-research-v5", "warnings": ["availability unavailable or unconfirmed", "lineups unavailable or unconfirmed", "tactics unavailable or unconfirmed", "rivalry unavailable or unconfirmed", "TheSportsDB venue: exact fixture identity/time unavailable", "C6 fit is stale (fortnightly refresh missed): using the window from 2026-11-02, the window for this day opened 2026-11-16", "Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"]} |
 
 </details>
-
-
----

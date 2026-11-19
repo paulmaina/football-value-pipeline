@@ -20,11 +20,11 @@ class UnderThreePointFiveReportingTests(OfflineQuotePolicyTestCase):
         row = fixture()
         row["p_under_3_5"] = 0.79123
         frame = readable_predictions_frame(pd.DataFrame([row]), {})
-        self.assertIn("Under 3.5", frame.columns)
-        self.assertEqual(frame.iloc[0]["Under 3.5"], "79.1%")
+        self.assertIn("Benchmark Under 3.5", frame.columns)
+        self.assertEqual(frame.iloc[0]["Benchmark Under 3.5"], "79.1%")
         self.assertEqual(
-            list(frame.columns).index("Under 3.5"),
-            list(frame.columns).index("Over 3.5") + 1,
+            list(frame.columns).index("Benchmark Under 3.5"),
+            list(frame.columns).index("Benchmark Over 3.5") + 1,
         )
         # Formatter must not alter the raw probabilities.
         self.assertEqual(row["p_under_3_5"], 0.79123)
@@ -33,7 +33,7 @@ class UnderThreePointFiveReportingTests(OfflineQuotePolicyTestCase):
         row = fixture()
         row.pop("p_under_3_5")
         frame = readable_predictions_frame(pd.DataFrame([row]), {})
-        self.assertEqual(frame.iloc[0]["Under 3.5"], "—")
+        self.assertEqual(frame.iloc[0]["Benchmark Under 3.5"], "—")
 
     def test_match_narrative_includes_correct_market_probability(self):
         row = fixture()
@@ -61,7 +61,7 @@ class UnderThreePointFiveReportingTests(OfflineQuotePolicyTestCase):
             )
             self.assertEqual((league, count), ("EPL", 1))
             csv_out = pd.read_csv(readable / "EPL_predictions_readable.csv")
-            self.assertEqual(csv_out.iloc[0]["Under 3.5"], "82.4%")
+            self.assertEqual(csv_out.iloc[0]["Benchmark Under 3.5"], "82.4%")
             report = (readable / "EPL_report.md").read_text(encoding="utf-8")
             self.assertIn("Under 3.5 goals: 82.4%", report)
             self.assertEqual(source.read_bytes(), original_bytes)

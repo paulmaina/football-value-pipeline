@@ -29,11 +29,14 @@ MASTER = ['Rank', 'Kickoff (EAT)', 'League', 'Match', 'Bet', 'Price', 'Tier', 'C
 TAIL = ['Quote time (EAT)', 'Re-check price before betting']
 LISTS = ['Kickoff (EAT)', 'League', 'Match', 'Bet', 'Price', 'Chance of no loss', 'Chance of profit',
          'Expected return', 'Probability basis', 'Price check status']
-LEAGUE = ['Kickoff (EAT)', 'Match', 'Model lean', 'Lean chance', 'Home win', 'Draw', 'Away win', 'Expected home goals',
-          'Expected away goals', 'Expected total goals', 'Most likely score', 'Score chance', 'Double chance 1X',
-          'Double chance X2', 'Double chance 12', 'Over 1.5', 'Under 1.5', 'Over 2.5', 'Under 2.5', 'Over 3.5',
-          'Under 3.5', 'Home odds', 'Draw odds', 'Away odds', 'Safest AH line', 'Safest AH odds (bookmaker)',
-          'Safest AH no-loss chance']
+LEAGUE = ['Kickoff (EAT)', 'Match', 'Research lean', 'Research lean chance', 'Cagey lean', 'Cagey lean chance',
+          'Views agree', 'Research home win', 'Research draw', 'Research away win', 'Cagey home win', 'Cagey draw',
+          'Cagey away win', 'Research expected goals', 'Cagey expected goals', 'Research most likely score',
+          'Cagey most likely score', 'Research Over 2.5', 'Cagey Over 2.5', 'Research BTTS Yes', 'Cagey BTTS Yes',
+          'On value shortlist', 'On cagey tier', 'On master', 'Best offer', 'Research no-loss', 'Cagey no-loss',
+          'Gap (points)', 'Gap label', 'Cagey tier', 'Master check', 'Safest AH line (cagey)',
+          'Safest AH odds (Pinnacle)', 'Safest AH cagey no-loss', 'Safest AH research no-loss', 'Benchmark home win',
+          'Benchmark draw', 'Benchmark away win']
 KICKOFF = '2026-11-17T19:00:00+00:00'  # 22:00 in Nairobi
 
 
@@ -188,19 +191,21 @@ class TabsAndColumnsTests(WorkbookCase):
         self.assertEqual(lazio['Quote time (EAT)'], 'not recorded')
         self.assertEqual(lazio['Re-check price before betting'], 'yes: re-check at Pinnacle before betting')
 
-    def test_league_tab_columns_drop_btts_and_diagnostics(self):
+    def test_league_tab_shows_both_views_and_the_benchmark_last(self):
         headers, rows = table(self.book, 'EPL')
         self.assertEqual(headers, LEAGUE)
         self.assertEqual(len(rows), 3)
-        for dropped in ('BTTS Yes', 'BTTS No', 'Over 0.5', 'Under 4.5', 'Fixture source', 'Research home win',
-                        'Training status', 'Best model-estimated value'):
+        for dropped in ('Model lean', 'Benchmark BTTS Yes', 'Benchmark Over 0.5', 'Fixture source', 'Training status',
+                        'Benchmark best EV (display only)', 'Best model-estimated value'):
             self.assertNotIn(dropped, headers)
         csv = pd.read_csv(self.readable / 'EPL_predictions_readable.csv', dtype=str, keep_default_na=False,
                           encoding='utf-8-sig')
-        self.assertIn('BTTS Yes', csv.columns)  # full detail stays in the CSV
+        for kept in ('Research BTTS No', 'Cagey Under 3.5', 'Benchmark BTTS Yes'):
+            self.assertIn(kept, csv.columns)  # full detail stays in the CSV
         row = rows[0]
-        self.assertAlmostEqual(row['Under 1.5'], 0.22)  # from the run's raw forecast
-        self.assertAlmostEqual(row['Home win'], xb.number(csv.loc[0, 'Home win']))
+        self.assertAlmostEqual(row['Benchmark home win'], xb.number(csv.loc[0, 'Benchmark home win']))
+        self.assertEqual(row['Research home win'], xb.number(csv.loc[0, 'Research home win'])
+                         if xb.number(csv.loc[0, 'Research home win']) is not None else 'no research view')
         self.assertIsInstance(row['Kickoff (EAT)'], float)
 
     def test_titles_name_the_run_time_in_eat_and_the_csv_with_full_columns(self):
@@ -297,7 +302,7 @@ class OpenpyxlTests(WorkbookCase):
         self.assertTrue(master.conditional_formatting)
         epl = book['EPL']
         self.assertEqual(epl.freeze_panes, 'C5')
-        self.assertEqual(epl['E5'].number_format, '0.0%')
+        self.assertEqual(epl['D5'].number_format, '0.0%')  # research lean chance
 
 
 if __name__ == "__main__":
