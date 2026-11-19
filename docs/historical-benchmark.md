@@ -52,7 +52,14 @@ To reconcile an existing run:
 py historical_benchmark.py --validate-only
 ```
 
-The Historical model benchmark workflow runs on benchmark-code/config pushes to main, weekly on Monday at 11:15 EAT, and on manual dispatch. It has read-only repository permissions, uses no API secrets and uploads a 90-day artifact containing the full prediction ledger, folds, report, summary, integrity manifest and pinned inputs. It does not publish forecasts, modify production settings or repeatedly download live data. The weekly rerun checks reproducibility and software changes against a fixed dataset; it does not accumulate fresh prospective evidence.
+The Historical model benchmark workflow (`.github/workflows/historical-benchmark.yml`) has two parts (since 19 Nov 2026):
+
+- **Weekly, Monday at 11:15 EAT:** the offline regression checks only (`run_offline_tests.py`, the whole suite). No benchmark is run and no artifact is uploaded.
+- **On a push to main that changes `historical_benchmark.py`, `historical_benchmark_config.json`, `historical_benchmark_inputs.json`, `benchmark_promotion_rules.json` or the workflow itself, and on manual dispatch:** the offline regression checks, then the benchmark: the pinned replay (`--materialize-pinned-data`), the retained promotion rules and dependency list, `--validate-only`, the job summary and the 90-day artifact (full prediction ledger, folds, report, summary, integrity manifest and pinned inputs).
+
+Why: the benchmark reads hash-pinned data through a fixed window, so a weekly rerun on unchanged benchmark code gives the same answer; it took about 8–15 runner minutes a week (replay 7.5–13 min and validation 1–1.5 min on the last three scheduled runs). A change to the benchmark's code, config, inputs or rules still reruns it on push, and anyone can rerun it by hand (Actions, Historical model benchmark, Run workflow) to check the software against the fixed dataset. `historical_benchmark.py` and its inputs are unchanged: the evaluation harness and the C6/CE3n fit builders read its history loader.
+
+The workflow has read-only repository permissions and uses no API secrets. It does not publish forecasts, modify production settings or repeatedly download live data. A benchmark rerun checks reproducibility and software changes against a fixed dataset; it does not accumulate fresh prospective evidence.
 
 The normal self-test workflow covers temporal separation, opening/closing independence, unknown-team exclusion, malformed inputs, pinned bytes, fitted-correlation totals matching, paired cohorts, development-only selection and report tampering. Coverage floors and CLI smoke checks include the new module.
 
