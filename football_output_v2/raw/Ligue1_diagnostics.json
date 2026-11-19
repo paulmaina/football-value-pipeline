@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "0eb3ad2a911931f3a6db230d0c1973e8ad665898b2cfa9d886ccf49ea274bf4b",
-  "training_as_of_utc": "2026-11-19T11:06:33.995464+00:00",
+  "training_as_of_utc": "2026-11-19T14:46:11.284540+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 90,
     "bbs_added_results": 0,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-19T11:06:33.995464+00:00",
+    "cutoff_utc": "2026-11-19T14:46:11.284540+00:00",
     "observations": 909,
     "observations_sha256": "324eb7c2b523d99132906e5311af549eade2065ab409bb2082f2272b8bb0c776",
     "eligible_training_matches": 336,
@@ -186,10 +186,10 @@
   },
   "training_end": "2026-11-08",
   "fit_success": true,
-  "objective": 1588.6483843281608,
-  "base": 0.1939653252233755,
-  "home_adv": 0.1986175914148813,
-  "rho": -0.04982370533377692,
+  "objective": 1588.298596363549,
+  "base": 0.19399307149477227,
+  "home_adv": 0.19861304855240478,
+  "rho": -0.04982687393033223,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -217,13 +217,13 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 6,
+  "live_odds_matched": 7,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261119T110633995464Z_e48dc0291756ec0638bb39f4b4703c62ff8644728cf39080f658ade263db6e0c.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261119T144611284540Z_120e9076b45e5a49f208825b89a470a45e718800bf92afecf97885e1d0b98e2b.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
@@ -304,6 +304,19 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "9e5d4a91e379ddffa179b02bf9e09530",
+      "event_id": "9e5d4a91e379ddffa179b02bf9e09530",
+      "home_team": "Paris FC",
+      "away_team": "Angers",
+      "kickoff_utc": "2026-11-22T14:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -312,14 +325,14 @@
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
     "ANCHORED_MAIN": 2,
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 4
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 5
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 6
+    "none": 7
   },
   "legacy_comparison_status": {
-    "None": 6
+    "None": 7
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"

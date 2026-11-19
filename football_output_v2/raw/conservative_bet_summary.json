@@ -1,21 +1,21 @@
 {
-  "generated_at_utc": "2026-11-19T11:07:54.199872+00:00",
+  "generated_at_utc": "2026-11-19T14:47:26.685676+00:00",
   "selection_policy_version": "48h-ah-price-edge-cagey-v28",
   "selection_objective": "TEAM_RESEARCH_PROFIT_PROBABILITY",
   "status": "NO BET",
-  "n_fixtures": 39,
-  "n_markets_evaluated": 266,
+  "n_fixtures": 51,
+  "n_markets_evaluated": 334,
   "n_shortlisted": 0,
   "n_strict_qualified": 0,
   "n_provisional_watchlist": 0,
   "n_total_candidates": 0,
   "target_distinct_matches": null,
   "shortfall": null,
-  "usable_distinct_fixtures": 39,
+  "usable_distinct_fixtures": 51,
   "shortlist_lookahead_hours": 24,
   "selected_matches_within_48_hours": false,
-  "shortlist_window_start_utc": "2026-11-19T11:07:54.199872+00:00",
-  "shortlist_window_end_utc": "2026-11-20T11:07:54.199872+00:00",
+  "shortlist_window_start_utc": "2026-11-19T14:47:26.685676+00:00",
+  "shortlist_window_end_utc": "2026-11-20T14:47:26.685676+00:00",
   "eligible_markets": [
     "Home win",
     "Away win",
@@ -108,18 +108,18 @@
     "use": "tracking only; never changes a decision"
   },
   "tagged_candidates": {
-    "balanced": 154,
+    "balanced": 182,
     "low_total": 0,
-    "high_draw": 70,
-    "even_odds": 28
+    "high_draw": 84,
+    "even_odds": 42
   },
-  "tagged_fixtures": 11,
+  "tagged_fixtures": 13,
   "rejection_counts": {
-    "kickoff outside 20-minute to 24-hour window": 266,
-    "no offered quote at an allowed bookmaker": 110,
-    "offered quote stale or unavailable": 110,
-    "offered odds above 2.00": 74,
-    "offered odds must be greater than 1.15": 1
+    "kickoff outside 20-minute to 24-hour window": 334,
+    "no offered quote at an allowed bookmaker": 130,
+    "offered quote stale or unavailable": 130,
+    "offered odds above 2.00": 94,
+    "offered odds must be greater than 1.15": 2
   },
   "reference_type_counts": {},
   "selection_method": "Highest positive-return probability per fixture and market group; expected return then odds break ties; no cap; configured excluded markets are rejected before selection",
@@ -233,7 +233,7 @@
   "master_shortlist": {
     "version": "master-new-fill-rule-v4-live-v10",
     "status": "live master: released by Paul on 14 Nov 2026 as a deliberate exception, without waiting for the live comparison verdict; graded beside the old master with the rollback rule in master_shortlist_config.json",
-    "generated_at_utc": "2026-11-19T11:07:54.199872+00:00",
+    "generated_at_utc": "2026-11-19T14:47:26.685676+00:00",
     "config_sha256": "2bb4675405bdc2164b2f37894463dacc32643c7fc0f85c51f5fb319912ee4162",
     "target_fixtures": 15,
     "ranked_fixtures": 0,

@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "d3940104e7f560742ff3d7d642917c05e86e55643e4a8ba9b953b78a221dd330",
-  "training_as_of_utc": "2026-11-19T11:04:18.865884+00:00",
+  "training_as_of_utc": "2026-11-19T14:44:16.742504+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 119,
     "bbs_added_results": 0,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_utc": "2026-11-19T11:04:18.865884+00:00",
+    "cutoff_utc": "2026-11-19T14:44:16.742504+00:00",
     "observations": 1014,
     "observations_sha256": "22994e5f369be51804e2004050bcabcc410e87d0764b16a44ff5da6d7ab30e47",
     "eligible_training_matches": 291,
@@ -209,10 +209,10 @@
   },
   "training_end": "2026-11-08",
   "fit_success": true,
-  "objective": 1834.0012690928495,
-  "base": 0.08031525223487146,
-  "home_adv": 0.28511883312632186,
-  "rho": -0.03347308876543369,
+  "objective": 1833.5968285989688,
+  "base": 0.08031173752737145,
+  "home_adv": 0.2851543860925737,
+  "rho": -0.03342821236194658,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -240,13 +240,13 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 5,
+  "live_odds_matched": 6,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261119T110418865884Z_6639ef7098ec2285f426ac079e0b5e24a85d2562bc287680a69839cbd49c6249.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261119T144416742504Z_2d7c24c592d6a48e72f541966cbe36165ef7e8e4342cbff523970dcd244a31ca.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
@@ -314,6 +314,19 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "214a79b6e08dbe3f508844936158c038",
+      "event_id": "214a79b6e08dbe3f508844936158c038",
+      "home_team": "Barcelona",
+      "away_team": "Villarreal",
+      "kickoff_utc": "2026-11-22T13:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -322,14 +335,14 @@
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
     "ANCHORED_MAIN": 1,
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 4
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 5
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 5
+    "none": 6
   },
   "legacy_comparison_status": {
-    "None": 5
+    "None": 6
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"

@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "1f9faae9d9354207099ce573e263675aebfde094acdbdf64adec994e530140ee",
-  "training_as_of_utc": "2026-11-19T11:05:41.408430+00:00",
+  "training_as_of_utc": "2026-11-19T14:45:24.386337+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 110,
     "bbs_added_results": 0,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-19T11:05:41.408430+00:00",
+    "cutoff_utc": "2026-11-19T14:45:24.386337+00:00",
     "observations": 1175,
     "observations_sha256": "a135bbf0928d1ce8021a858bb4eb4a0daf3b562171cbc2679e68c511dae61dd2",
     "eligible_training_matches": 430,
@@ -186,10 +186,10 @@
   },
   "training_end": "2026-11-08",
   "fit_success": true,
-  "objective": 1813.8984682020025,
-  "base": 0.14800079409827452,
-  "home_adv": 0.11091787301009644,
-  "rho": -0.019629874161642857,
+  "objective": 1813.4989124869005,
+  "base": 0.14800091849246788,
+  "home_adv": 0.11091801687213253,
+  "rho": -0.019629765200024706,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -217,13 +217,13 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 4,
+  "live_odds_matched": 7,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261119T110541408430Z_ce3fe3a281bcc91464abc59d526cafac394b9f5d9d8748d99c5ad14dc39ef7cb.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261119T144524386337Z_df0265b31db8a8cc2b822bf240d80f86815a6a519d459a285ad4550360609276.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
@@ -278,6 +278,45 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "be2fcabc408be29ca01ce92ab266f8b7",
+      "event_id": "be2fcabc408be29ca01ce92ab266f8b7",
+      "home_team": "Juventus",
+      "away_team": "Venezia",
+      "kickoff_utc": "2026-11-22T11:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "5bc13c44b33981f3185400163388267e",
+      "event_id": "5bc13c44b33981f3185400163388267e",
+      "home_team": "Bologna",
+      "away_team": "Udinese",
+      "kickoff_utc": "2026-11-22T14:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "76d4698a8417f32cb059f14a469939f3",
+      "event_id": "76d4698a8417f32cb059f14a469939f3",
+      "home_team": "Sassuolo",
+      "away_team": "Genoa",
+      "kickoff_utc": "2026-11-22T14:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -285,14 +324,15 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 4
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 5,
+    "ANCHORED_MAIN": 2
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 4
+    "none": 7
   },
   "legacy_comparison_status": {
-    "None": 4
+    "None": 7
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"

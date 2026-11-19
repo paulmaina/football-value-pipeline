@@ -9,7 +9,7 @@
     "2026"
   ],
   "training_sha256": "312c9953d8604788697cd71eeaccb4d9ab6023ee5d95364829a0a196b3b43d11",
-  "training_as_of_utc": "2026-11-19T11:07:16.299808+00:00",
+  "training_as_of_utc": "2026-11-19T14:46:46.265408+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 72,
     "bbs_added_results": 0,
@@ -33,7 +33,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-11-19T11:07:16.299808+00:00",
+    "cutoff_utc": "2026-11-19T14:46:46.265408+00:00",
     "observations": 728,
     "observations_sha256": "c478fb8b9c3ef27265c2fb684bcad0ef67627285dcc7cace76f4f49f92611694",
     "eligible_training_matches": 82,
@@ -107,9 +107,9 @@
   },
   "training_end": "2026-11-04",
   "fit_success": true,
-  "objective": 847.3269074505967,
-  "base": 0.2246124900977061,
-  "home_adv": 0.29205816996761996,
+  "objective": 847.1407659113605,
+  "base": 0.2246040470471503,
+  "home_adv": 0.29212444964258794,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -135,7 +135,7 @@
     "source_schedule_matches": 144,
     "provider": "football-data.org",
     "season_start": 2026,
-    "checked_at_utc": "2026-11-19T11:07:16.299808+00:00",
+    "checked_at_utc": "2026-11-19T14:46:46.265408+00:00",
     "download_status": "VERIFIED_LIVE",
     "added_matches": 0,
     "corrected_scores": 0,
@@ -160,6 +160,6 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261119T110716299808Z_f490ed96b6ca4bf6b17bc7f702ddd5879d6245854b769d76e366a29d485bb14a.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261119T144646265408Z_33390dd2dba45983b131a7f43f36ba13963d954694b4ce0cc298e7c5c79ec63c.json",
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }
