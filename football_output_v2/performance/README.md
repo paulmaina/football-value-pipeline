@@ -76,7 +76,7 @@ Fallbacks to D: where D_pow2's power grid failed its fit check, the run priced t
 
 | D_pow2 runs | Domestic fixture forecasts | Priced by D (fallback) | Domestic fixtures | Fixtures with a fallback | Graded matches left out |
 |---|---|---|---|---|---|
-| 1 | 38 | 0 | 38 | 0 | 0 |
+| 2 | 77 | 0 | 39 | 0 | 0 |
 
 ## Cumulative shortlist — latest prediction per match
 
@@ -310,16 +310,16 @@ A missing, ambiguous or unverified result is **never called a win**.
 
 | League | Model training end | Matches | Days since result | Source check |
 |---|---|---:|---:|---|
-| Bundesliga | 2026-11-08 | 1613 | 10 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| EPL | 2026-11-08 | 2000 | 10 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Eredivisie | 2026-11-08 | 1638 | 10 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| LaLiga | 2026-11-08 | 2019 | 10 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Ligue1 | 2026-11-08 | 1770 | 10 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| PrimeiraLiga | 2026-11-08 | 1628 | 10 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SerieA | 2026-11-08 | 2010 | 10 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SuperLig | 2026-11-08 | 1849 | 10 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| UCL | 2026-11-04 | 575 | 14 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
-| UEL | 2026-11-05 | 732 | 13 | VERIFIED_WITHIN_24_HOURS |
+| Bundesliga | 2026-11-08 | 1613 | 11 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| EPL | 2026-11-08 | 2000 | 11 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Eredivisie | 2026-11-08 | 1638 | 11 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| LaLiga | 2026-11-08 | 2019 | 11 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Ligue1 | 2026-11-08 | 1770 | 11 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| PrimeiraLiga | 2026-11-08 | 1628 | 11 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SerieA | 2026-11-08 | 2010 | 11 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SuperLig | 2026-11-08 | 1849 | 11 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| UCL | 2026-11-04 | 575 | 15 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
+| UEL | 2026-11-05 | 732 | 14 | VERIFIED_WITHIN_24_HOURS |
 
 Latest shortlist audit: {"selected_quotes": 0, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 0, "bookmakers": {}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 0, "unknown_kickoff_count": 0}.
 
