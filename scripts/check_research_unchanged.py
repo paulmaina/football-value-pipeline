@@ -15,6 +15,7 @@ import argparse
 import copy
 import importlib.util
 import json
+import re
 from pathlib import Path
 import subprocess
 import sys
@@ -26,9 +27,20 @@ sys.path.insert(0, str(REPO))
 DERIVED_EVIDENCE = ('quality_review', 'rest_and_travel')
 
 
+def git_show(ref: str, name: str) -> bytes:
+    return subprocess.run(['git', '-C', str(REPO), 'show', f'{ref}:{name}'], check=True,
+                          capture_output=True, stdin=subprocess.DEVNULL).stdout
+
+
 def load_base(ref: str, folder: Path):
-    source = subprocess.run(['git', '-C', str(REPO), 'show', f'{ref}:team_research.py'],
-                            check=True, capture_output=True, text=True, encoding='utf-8').stdout
+    """The ref's team_research.py, with the files it reads beside itself (Path(__file__).with_name) taken from the
+    same ref: research_config.json (the live research switch, since PR #178) and bbs_team_aliases.json."""
+    source = git_show(ref, 'team_research.py').decode('utf-8')
+    for name in sorted(set(re.findall(r"with_name\(['\"]([^'\"]+)['\"]\)", source))):
+        try:
+            (folder / name).write_bytes(git_show(ref, name))
+        except subprocess.CalledProcessError:
+            pass  # not in that ref; the base module fails loudly if it needs it
     path = folder / 'team_research_base.py'
     path.write_text(source, encoding='utf-8')
     spec = importlib.util.spec_from_file_location('team_research_base', path)
