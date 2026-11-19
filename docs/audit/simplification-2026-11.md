@@ -11,6 +11,44 @@ Audit only: no code, config or output was changed. Taken on branch `audit/simpli
 - **T**: the full suite passes, and no test is deleted unless the code it tests is removed (each proposal says which).
 - **L**: the live outputs of a scheduled run are unchanged, except files that only the removed code wrote.
 
+## Status (19 Nov 2026)
+
+Worked through with Paul's agreement on 18–19 Nov 2026 (plan "Open items", items 2 and 3). Each PR ran the behaviour checks listed below for its items and states the results in its description. No PR changed a live probability, pick or stake. No `--declaration` was run, and no holdout score was read.
+
+| # | Item | Status | PR |
+| --- | --- | --- | --- |
+| 1 | Stale docs | Done: README quick start is the production command; ten leagues, live markets, v22 text under History; three docs moved to `docs/archive/`; CLAUDE.md bullets merged; note on the earlier audit | #197 |
+| 2 | UCL refresh health step | Done: step removed | #200 |
+| 3 | Full suite before reports | Done for `forward-performance.yml`; `historical-benchmark.yml` keeps its suite (Paul) | #200 |
+| 4 | Experiment review queue | Done: module, notify jobs, CLI entry, floor and health entry removed (#200); last queue files deleted here | #200, this PR |
+| 5 | Dead modules | Done; the pipeline docstring pointer went in #203 (fingerprinted file) | #198 |
+| 6 | Stale tracked files | Done: market-led files removed; `Commands.txt` and `.football_cache/match_research/` untracked | #198 |
+| 7 | Branch-only Europa workflows | Done (branch last pushed 22 Oct 2026); the branch itself is not deleted | #198 |
+| 8 | Dead branches | Done: `LIVE_SIDECARS` loop and the recency path; live code no longer imports `archive/` | #198 |
+| 9 | Legacy comparison default | Done: opt-in `--legacy-comparison`; `--no-legacy-comparison` kept as a no-op | #203 |
+| 10 | Harness `devig_method` | Done, docs only (plan, data and periods); key unchanged | #197 |
+| 11 | Price check | Done, option (a): retired | #203 |
+| 12 | bet365 vs Pinnacle list | Done: no longer computed or written; column stays `[]` | #203 |
+| 13 | Margin removal core | Follow-up, after 2g-4 is scored (fingerprinted files; plan open item 6) | — |
+| 14 | Retired sidecars in the checkout | No change (Paul) | — |
+| 15 | Fixture identity | No change (Paul) | — |
+| 16 | Historical file loaders | Follow-up, after 2g-4 is scored (plan open item 6) | — |
+| 17 | Score-grid builders | No change (as recommended) | — |
+| 18 | AH settlement copies | No change (Paul) | — |
+| 19 | Version forks | Follow-up, after the master rollback window (plan open item 7) | — |
+| 20 | Dormant per-run work | Partly done: BTTS parsing removed (#203). `count_model` declined: kept for the shadow corner list (Paul, 18 Nov 2026) | #203 |
+| 21 | 1xBet monitoring columns | No change (as recommended) | — |
+| 22 | Understat fetch | Done: `research_config.json` `understat_live`, off by default | #206 |
+
+Section 6 ("Looks like a bug"):
+
+| Bug | Status | PR |
+| --- | --- | --- |
+| 1. Two fair-close methods | Done: `price_edge_tracking` reads `clv_report.fair_closing_prices` (power). Every graded pick was recomputed both ways first; no trigger changes state | #205 |
+| 2. README runs a non-production model | Done with item 1 | #197 |
+| 3. Price-check refresh drift | Gone with item 11 (retired) | #203 |
+| 4. Silent cagey rule fallback | Done | #194 |
+
 ## 1. What is live
 
 Built from an AST import graph of every tracked `.py` file, starting from the scripts the workflows run (helper at the end of this section).
