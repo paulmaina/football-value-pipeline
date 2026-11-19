@@ -34,9 +34,12 @@ python format_football_output.py --no-technical
 
 ## Main outputs
 
-- `EPL_report.md` — natural-language match report with tables and explanations.
-- `EPL_predictions_readable.csv` — compact human-friendly fixture summary.
-- `EPL_scorelines_readable.csv` — complete available scoreline distribution in tabular form.
+- `EPL_report.md` — per match: the research and cagey views side by side, each view's no-loss on the
+  quoted Pinnacle AH lines, the lists, the master's verdict on every Pinnacle offer; the production model
+  last, as a labelled benchmark (display only).
+- `EPL_predictions_readable.csv` — one row per fixture: both views, the lists, the best offer's verdict, the
+  cagey tier's safest AH line, then the benchmark columns.
+- `EPL_scorelines_readable.csv` — ranked scorelines per fixture with a Model column (research, cagey, benchmark).
 - `EPL_backtest_bets_readable.csv` — generated when a V2 backtest bet file exists.
 - `README.md` — definitions for common model terms.
 

@@ -8,8 +8,9 @@ are shown with a short reason, never as a silent blank.
 Sources: the master tabs read the run bundle's raw master files (master_shortlist.csv, and
 master_shortlist_old.csv or master_shortlist_new.csv), so both lists, their overlap and the inspection details are
 shown as the pipeline wrote them; the value and cagey tabs read their readable CSVs; league tabs read the readable
-league CSVs plus the raw forecasts for kickoff times and Under 1.5. Nothing here selects, ranks or recomputes a
-pick, and no CSV is written.
+league CSVs (the research and cagey views, the lists, the master's verdict on the best offer, the cagey tier's safest
+AH line, then the benchmark's 1X2; readable_views.py) plus the raw forecasts for kickoff times when a CSV lacks them.
+Nothing here selects, ranks or recomputes a pick, and no CSV is written.
 """
 from __future__ import annotations
 
@@ -37,13 +38,37 @@ IN_OLD, IN_NEW = 'In old master (shadow)', 'In new master (live)'
 LIST_COLUMNS = ['Kickoff (EAT)', 'League', 'Match', 'Bet', 'Price', 'Chance of no loss', 'Chance of profit',
                 'Expected return', 'Probability basis', 'Price check status']
 LIST_KINDS = ['datetime', 'text', 'text', 'text', 'odds', 'pct', 'pct', 'signed_pct', 'text', 'wrap']
-LEAGUE_COLUMNS = ['Kickoff (EAT)', 'Match', 'Model lean', 'Lean chance', 'Home win', 'Draw', 'Away win',
-                  'Expected home goals', 'Expected away goals', 'Expected total goals', 'Most likely score',
-                  'Score chance', 'Double chance 1X', 'Double chance X2', 'Double chance 12', 'Over 1.5', 'Under 1.5',
-                  'Over 2.5', 'Under 2.5', 'Over 3.5', 'Under 3.5', 'Home odds', 'Draw odds', 'Away odds',
-                  'Safest AH line', 'Safest AH odds (bookmaker)', 'Safest AH no-loss chance']
-LEAGUE_KINDS = ['datetime', 'text', 'text', 'pct', 'pct', 'pct', 'pct', 'odds', 'odds', 'odds', 'text', 'pct', 'pct',
-                'pct', 'pct', 'pct', 'pct', 'pct', 'pct', 'pct', 'pct', 'odds', 'odds', 'odds', 'wrap', 'text', 'pct']
+# League tabs: the two shortlist models side by side, the lists and the master's verdict, the benchmark last.
+# (column, readable CSV column, kind); kind 'reason' columns are text with the reason when blank.
+LEAGUE_FIELDS = [
+    ('Kickoff (EAT)', None, 'datetime'), ('Match', None, 'text'),
+    ('Research lean', 'Research lean', 'text'), ('Research lean chance', 'Research lean probability', 'pct'),
+    ('Cagey lean', 'Cagey lean', 'text'), ('Cagey lean chance', 'Cagey lean probability', 'pct'),
+    ('Views agree', 'Views agree on the lean', 'text'),
+    ('Research home win', 'Research home win', 'pct'), ('Research draw', 'Research draw', 'pct'),
+    ('Research away win', 'Research away win', 'pct'),
+    ('Cagey home win', 'Cagey home win', 'pct'), ('Cagey draw', 'Cagey draw', 'pct'),
+    ('Cagey away win', 'Cagey away win', 'pct'),
+    ('Research expected goals', 'Research expected total goals', 'odds'),
+    ('Cagey expected goals', 'Cagey expected total goals', 'odds'),
+    ('Research most likely score', 'Research most likely score', 'text'),
+    ('Cagey most likely score', 'Cagey most likely score', 'text'),
+    ('Research Over 2.5', 'Research Over 2.5', 'pct'), ('Cagey Over 2.5', 'Cagey Over 2.5', 'pct'),
+    ('Research BTTS Yes', 'Research BTTS Yes', 'pct'), ('Cagey BTTS Yes', 'Cagey BTTS Yes', 'pct'),
+    ('On value shortlist', 'On value shortlist', 'wrap'), ('On cagey tier', 'On cagey tier', 'wrap'),
+    ('On master', 'On master', 'wrap'),
+    ('Best offer', 'Best offer', 'wrap'), ('Research no-loss', 'Best offer research no-loss', 'pct'),
+    ('Cagey no-loss', 'Best offer cagey no-loss', 'pct'), ('Gap (points)', 'Best offer gap (points)', 'points'),
+    ('Gap label', 'Best offer gap label', 'wrap'), ('Cagey tier', 'Best offer cagey tier', 'wrap'),
+    ('Master check', 'Best offer master check', 'wrap'),
+    ('Safest AH line (cagey)', 'Safest AH line', 'wrap'), ('Safest AH odds (Pinnacle)', 'Safest AH Pinnacle odds', 'odds'),
+    ('Safest AH cagey no-loss', 'Safest AH cagey no-loss probability', 'pct'),
+    ('Safest AH research no-loss', 'Safest AH research no-loss probability', 'pct'),
+    ('Benchmark home win', 'Benchmark home win', 'pct'), ('Benchmark draw', 'Benchmark draw', 'pct'),
+    ('Benchmark away win', 'Benchmark away win', 'pct'),
+]
+LEAGUE_COLUMNS = [name for name, _, _ in LEAGUE_FIELDS]
+LEAGUE_KINDS = [kind for _, _, kind in LEAGUE_FIELDS]
 RECHECK = 'yes: re-check at Pinnacle before betting'
 
 
@@ -112,11 +137,11 @@ class MasterFiles:
 
 
 def raw_forecasts(input_dir: Optional[Path]) -> Dict[Tuple[str, str, str], dict]:
-    """(home, away, date) -> kickoff and Under 1.5 from the raw forecast files (display only)."""
+    """(home, away, date) -> kickoff from the raw forecast files (display only), for CSVs without a kickoff."""
     out: Dict[Tuple[str, str, str], dict] = {}
     if input_dir is None or not Path(input_dir).exists():
         return out
-    wanted = {'home_team', 'away_team', 'date', 'kickoff_utc', 'p_under_1_5'}
+    wanted = {'home_team', 'away_team', 'date', 'kickoff_utc'}
     for path in sorted(Path(input_dir).glob('*_predictions.csv')):
         try:
             frame = pd.read_csv(path, dtype=str, keep_default_na=False, usecols=lambda c: c in wanted)
@@ -325,44 +350,76 @@ def list_tab(book: xb.Book, name: str, frame: Optional[pd.DataFrame], message: s
 
 # --- league tabs -------------------------------------------------------------------------------------------------
 
+def _view_reason(row: Mapping, view: str) -> str:
+    """Why a view's cells are blank: its model column says (readable_views), else 'not in this run'."""
+    text = str(row.get(f'{view} model') or '').strip()
+    return f'no {view.lower()} view' if text.startswith('unavailable') else 'not in this run'
+
+
 def league_rows(frame: pd.DataFrame, raw: Dict[Tuple[str, str, str], dict]) -> List[List[Any]]:
     rows = []
     for r in frame.to_dict('records'):
         home, away, day = str(r.get('Home team', '')), str(r.get('Away team', '')), str(r.get('Match date', ''))
-        source = raw.get((home, away, day), {})
-        kickoff = xb.excel_time(source.get('kickoff_utc'))
+        kickoff = xb.excel_time(r.get('Kickoff (UTC)')) or xb.excel_time(raw.get((home, away, day), {}).get('kickoff_utc'))
         if kickoff is None:
             kickoff = f'{day} (time not recorded)' if day else 'not recorded'
-        p = lambda name, reason='not in this run': _number_or(r.get(name), reason)
-        line = r.get('Safest AH line')
-        reason = str(r.get('Safest AH reason') or '').strip()
-        no_line = not xb.present(line)
-        ah_line = (f'none: {reason}' if reason else 'none quoted') if no_line else str(line)
-        odds = r.get('Safest AH odds and bookmaker')
-        rows.append([kickoff, f'{home} v {away}', r.get('Model lean') or 'no lean', p('Model lean probability'),
-                     p('Home win'), p('Draw'), p('Away win'), p('Expected home goals'), p('Expected away goals'),
-                     p('Expected total goals'), r.get('Most likely score') if xb.present(r.get('Most likely score'))
-                     else 'not in this run', p('Most likely score probability'), p('Double Chance 1X'),
-                     p('Double Chance X2'), p('Double Chance 12'), p('Over 1.5'),
-                     _number_or(source.get('p_under_1_5'), 'not in this run'), p('Over 2.5'), p('Under 2.5'),
-                     p('Over 3.5'), p('Under 3.5'), p('Home market odds', 'no odds'), p('Draw market odds', 'no odds'),
-                     p('Away market odds', 'no odds'), ah_line,
-                     'no line' if no_line else (odds if xb.present(odds) else 'not recorded'),
-                     'no line' if no_line else p('Safest AH model no-loss probability', 'not recorded')])
+        reasons = {'Research': _view_reason(r, 'Research'), 'Cagey': _view_reason(r, 'Cagey')}
+        best_note = str(r.get('Best offer note') or '').strip() or 'no best offer'
+        safest = str(r.get('Safest AH reason') or '').strip() or 'none quoted'
+        out = []
+        for name, column, kind in LEAGUE_FIELDS:
+            if name == 'Kickoff (EAT)':
+                out.append(kickoff)
+                continue
+            if name == 'Match':
+                out.append(f'{home} v {away}')
+                continue
+            value = r.get(column)
+            view = name.split(' ')[0]
+            if name in ('Research lean', 'Cagey lean') and not xb.present(value):
+                model = str(r.get(f'{view} model') or '').strip()
+                out.append(model or 'not in this run')
+                continue
+            if name.startswith('Safest AH'):
+                reason = f'none: {safest}' if name == 'Safest AH line (cagey)' else 'no line'
+            elif name in ('Research no-loss', 'Cagey no-loss', 'Gap (points)') and xb.present(r.get('Best offer')):
+                reason = f'no {view.lower()} view' if view in reasons else 'one view missing'
+            elif column and column.startswith('Best offer'):
+                reason = best_note if name == 'Best offer' else 'no best offer'
+            elif view in reasons:
+                reason = reasons[view]
+            else:
+                reason = 'not in this run'
+            if kind in ('pct', 'odds', 'points'):
+                out.append(_number_or(value, reason))
+            else:
+                out.append(str(value) if xb.present(value) else reason)
+        rows.append(out)
     return rows
 
 
 def league_tab(book: xb.Book, key: str, frame: pd.DataFrame, raw: Dict, run: str) -> None:
     s = book.sheet(key, '5B6B7B')
     league = next((str(v) for v in frame.get('League', []) if xb.present(v)), key)
-    s.title(f'{league}: the model view of each match',
-            f'Run {run}. Probabilities from the forecasting model; odds are the best quoted 1X2 prices; the safest AH '
-            f'line is the model\'s lowest-risk quoted line. Full columns (BTTS, research and diagnostics included): '
-            f'readable/{key}_predictions_readable.csv.', span=12)
+    s.title(f'{league}: research and cagey views of each match, and the master\'s verdict',
+            f'Run {run}. Research is the value shortlist\'s model (v5 domestic, v6 UCL/UEL); cagey is the cagey tier\'s '
+            f'Pinnacle market view (D_pow2 domestic, D UCL/UEL; blank without Pinnacle 1X2 and O/U 2.5). Best offer: the '
+            f'master pick, else the master\'s own rule over every Pinnacle offer; gap = research minus cagey no-loss. '
+            f'Safest AH: the quoted Pinnacle line with the highest cagey no-loss. The benchmark (70% Pinnacle blend) is '
+            f'display only. Full columns: readable/{key}_predictions_readable.csv.', span=12)
     table = s.table(4, LEAGUE_COLUMNS, league_rows(frame, raw), LEAGUE_KINDS, freeze_columns=2,
                     empty='No fixtures for this league in this run.',
-                    widths={'Safest AH line': 30, 'Match': 32, 'Model lean': 24})
-    s.highlight(table.column_range('Safest AH line'), 'muted', 'begins', 'none')
+                    widths={'Match': 32, 'Research lean': 24, 'Cagey lean': 24, 'On value shortlist': 24,
+                            'On cagey tier': 28, 'On master': 28, 'Best offer': 26, 'Gap label': 26,
+                            'Cagey tier': 24, 'Master check': 24, 'Safest AH line (cagey)': 30})
+    s.highlight(table.column_range('Safest AH line (cagey)'), 'muted', 'begins', 'none')
+    s.highlight(table.column_range('Views agree'), 'warn', 'equals', 'no')
+    s.highlight(table.column_range('On master'), 'info', 'begins', 'yes')
+    s.highlight(table.column_range('Gap label'), 'bad', 'contains', 'flagged for inspection')
+    s.highlight(table.column_range('Gap (points)'), 'bad', 'below', -4)
+    s.highlight(table.column_range('Gap (points)'), 'good', 'above', 4)
+    s.highlight(table.column_range('Cagey tier'), 'good', 'begins', 'safe')
+    s.highlight(table.column_range('Cagey tier'), 'warn', 'begins', 'risky')
 
 
 # --- workbook ----------------------------------------------------------------------------------------------------

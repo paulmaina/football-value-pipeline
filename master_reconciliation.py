@@ -480,6 +480,41 @@ def pinnacle_profit(row: Mapping, line_kind: Optional[str]) -> Optional[float]:
     return None
 
 
+def offer_row(record: Mapping, config: Mapping, clock, by_fixture: Mapping, fits: Dict) -> Dict[str, object]:
+    """One decision row as the new master sees it, before selection: its identity, both lists' nominations, both
+    views (classify on its exact line and price), its timing check and whether it is executable. `clock` is
+    run_clock(), `by_fixture` forecasts() and `fits` a cache shared across a run's rows. reconcile builds every
+    nominated row with this function; the readable league reports call it on every Pinnacle offer (display only),
+    so the two can't differ."""
+    from master_selection import identity
+    from cagey_sharpen import offer_line_type
+    from performance_tracking import fixture_key
+    price = _number(record.get('offered_decimal_odds'))
+    cost = _number(record.get('per_stake_cost')) or 0.
+    research, research_reason = research_view(record)
+    cagey, cagey_reason = cagey_view(record)
+    blocked = executable(record, config)
+    if price is None or price <= 1:
+        research = cagey = None
+        research_reason = cagey_reason = 'no valid offered price'
+    kind = offer_line_type(record.get('market'), record.get('handicap_line'))
+    row = {k: record.get(k) for k in IDENTITY_COLUMNS}
+    row.update(in_value_shortlist=record.get('decision') == 'SHORTLISTED',
+               in_cagey_tier=record.get('cagey_tier_decision') == 'SHORTLISTED')
+    row.update(classify(research, cagey, price or 0., cost, *pinnacle_reference(record),
+                        european=record.get('league') in set(config['european']['leagues']), config=config,
+                        research_reason=research_reason, cagey_reason=cagey_reason,
+                        pinnacle_profit=pinnacle_profit(record, kind), line_kind=kind))
+    late = timing(record, clock, by_fixture.get(identity(record)), row.get('probability_source'), fits)
+    row['timing_check'] = late or 'ok'
+    if blocked is None and late is not None:
+        blocked = f'timing: {late}'
+    row.update(new_master_executable=blocked is None, _match=fixture_key(record))
+    if blocked is not None:
+        row['new_master_reason'] = blocked
+    return row
+
+
 def reconcile(decisions: pd.DataFrame, live_master: Optional[pd.DataFrame] = None,
               config: Optional[Mapping] = None, predictions: Optional[pd.DataFrame] = None,
               generated_at_utc=None, version: Optional[str] = None) -> pd.DataFrame:
@@ -493,40 +528,11 @@ def reconcile(decisions: pd.DataFrame, live_master: Optional[pd.DataFrame] = Non
     `version` (default: the rule's) is what each row records in new_master_version; since the release the live
     master_shortlist.csv records master_shortlist.VERSION_NEW_LIVE, with the old master as `live_master`.
     """
-    from master_selection import identity
-    from cagey_sharpen import offer_line_type
-    from performance_tracking import fixture_key
     config = config or load_config()
-    european = set(config['european']['leagues'])
     records = pool(decisions)
     clock = run_clock(_records(decisions), generated_at_utc)
     by_fixture, fits = forecasts(predictions), {}
-    rows = []
-    for record in records:
-        price = _number(record.get('offered_decimal_odds'))
-        cost = _number(record.get('per_stake_cost')) or 0.
-        research, research_reason = research_view(record)
-        cagey, cagey_reason = cagey_view(record)
-        blocked = executable(record, config)
-        if price is None or price <= 1:
-            research = cagey = None
-            research_reason = cagey_reason = 'no valid offered price'
-        kind = offer_line_type(record.get('market'), record.get('handicap_line'))
-        row = {k: record.get(k) for k in IDENTITY_COLUMNS}
-        row.update(in_value_shortlist=record.get('decision') == 'SHORTLISTED',
-                   in_cagey_tier=record.get('cagey_tier_decision') == 'SHORTLISTED')
-        row.update(classify(research, cagey, price or 0., cost, *pinnacle_reference(record),
-                            european=record.get('league') in european, config=config,
-                            research_reason=research_reason, cagey_reason=cagey_reason,
-                            pinnacle_profit=pinnacle_profit(record, kind), line_kind=kind))
-        late = timing(record, clock, by_fixture.get(identity(record)), row.get('probability_source'), fits)
-        row['timing_check'] = late or 'ok'
-        if blocked is None and late is not None:
-            blocked = f'timing: {late}'
-        row.update(new_master_executable=blocked is None, _match=fixture_key(record))
-        if blocked is not None:
-            row['new_master_reason'] = blocked
-        rows.append(row)
+    rows = [offer_row(record, config, clock, by_fixture, fits) for record in records]
     select(rows, int(config['target_fixtures']), fill_min_no_loss=float(config['fill']['step_2_min_no_loss']))
     frame = pd.DataFrame(rows, columns=[*COLUMNS, '_match'])
     frame['new_master_version'] = version or config['version']

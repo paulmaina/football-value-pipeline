@@ -46,7 +46,7 @@ class DoubleChanceTests(OfflineQuotePolicyTestCase):
         self.assertAlmostEqual(pred['p_home_away'], 1-pred['p_draw'])
         self.assertAlmostEqual(pred['raw_p_home_away'], 1-pred['raw_p_draw'])
         frame = readable_predictions_frame(pd.DataFrame([{**fixture(), **pred}]), {})
-        self.assertNotEqual(frame.iloc[0]['Double Chance 12'], '—')
+        self.assertNotEqual(frame.iloc[0]['Benchmark Double Chance 12'], '—')
         self.assertIn('Double Chance 12 (either team wins)', build_match_summary(pred, []))
 
     def test_documented_labels_complete_books_and_overlap_reference(self):
