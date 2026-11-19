@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "2e87e65e07dec1a098d42a4d2b7826f017f465f18e55092757959b8aa0fb2432",
-  "training_as_of_utc": "2026-11-18T21:43:55.421449+00:00",
+  "training_sha256": "7053819cb9ba005c25bb4db1ef3e408d591afce35f3acad0d2b6f10968790b68",
+  "training_as_of_utc": "2026-11-19T11:05:07.977573+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 81,
     "bbs_added_results": 0,
@@ -27,7 +27,7 @@
       "unmapped": 668,
       "ambiguous": 0,
       "excluded_phase": 0,
-      "statistics_observations": 123,
+      "statistics_observations": 128,
       "source": "api-football",
       "usage": "supplementary_cached_observations"
     }
@@ -35,9 +35,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-18T21:43:55.421449+00:00",
-    "observations": 681,
-    "observations_sha256": "a64d53814419dd0e34d43fca88ae7c6893a0d044a1bf0414a60a843239be9482",
+    "cutoff_utc": "2026-11-19T11:05:07.977573+00:00",
+    "observations": 686,
+    "observations_sha256": "9e2c102d7c1f3bcfbe299b2544c4190e6e5fe90f5b7e889a906331f08b2c3e01",
     "eligible_training_matches": 121,
     "required_training_matches": 120,
     "feature_fields": [
@@ -71,7 +71,7 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:27.947476+00:00",
-    "retrospective_inputs_sha256": "b4aa692bf19ce57d93ba3f9d777adb3955d2b3298e8b8a30a1e042e57d907cec",
+    "retrospective_inputs_sha256": "bfd491b98f5327bb38c263f8b327cbc5085d056cabacfa8fdadaa54396a73478",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "training_matches": 60,
@@ -123,7 +123,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-11-18",
+    "cutoff_date": "2026-11-19",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -145,8 +145,8 @@
     },
     "bbs_shot_source_enabled": false,
     "shot_matches": 1610,
-    "tune_start_date": "2025-11-19",
-    "audit_start_date": "2026-05-20",
+    "tune_start_date": "2025-11-20",
+    "audit_start_date": "2026-05-21",
     "training_shot_matches": 1313,
     "tuning_matches": 216,
     "audit_matches": 73,
@@ -154,21 +154,21 @@
     "selected_shrinkage": 15.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.2,
-    "audit_baseline_poisson_score": 0.653323506825139,
-    "audit_candidate_poisson_score": 0.651671580526737,
-    "audit_gain": 0.00165192629840194,
-    "audit_gain_lower95": -0.009122112118209992,
+    "audit_baseline_poisson_score": 0.6528243341010915,
+    "audit_candidate_poisson_score": 0.6513197913875279,
+    "audit_gain": 0.0015045427135635947,
+    "audit_gain_lower95": -0.009277321674545714,
     "audit_baseline_briers": [
-      0.5583331999795873,
-      0.13529094043608636,
-      0.2637106627673682,
-      0.22873122737918375
+      0.5581943074917559,
+      0.13523799146288906,
+      0.2635113390335971,
+      0.22866455377319858
     ],
     "audit_candidate_briers": [
-      0.5587452825037523,
-      0.13487134539186565,
-      0.26121107227615237,
-      0.22932330683098665
+      0.5586384512224458,
+      0.1348401018993273,
+      0.2610529629690649,
+      0.22928666799682068
     ],
     "audit_brier_order": [
       "1x2",
@@ -184,10 +184,10 @@
   },
   "training_end": "2026-11-08",
   "fit_success": true,
-  "objective": 1581.2434602777448,
-  "base": 0.2237504211958348,
-  "home_adv": 0.23112968559033406,
-  "rho": -0.07628679932777598,
+  "objective": 1579.9737708253708,
+  "base": 0.22363647066407766,
+  "home_adv": 0.2311850879763301,
+  "rho": -0.07631092465007006,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -205,7 +205,7 @@
   },
   "training_data_health": {
     "training_end": "2026-11-08",
-    "days_since_latest_result": 10,
+    "days_since_latest_result": 11,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -221,7 +221,7 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261118T214355421449Z_a7c03633d7870b76d1c342804f694f2ce0c741faf2523ac96c7950a953cb9704.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261119T110507977573Z_b3a66c12707b3f2d67e89d0f5c5a0b8a278b0d11906f4910fa3492d08f9c62c6.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
