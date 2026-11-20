@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "4212daa07980e273b194bddb8e91d18ffccc501ffbaf41c9333976c8348e2d65",
-  "training_as_of_utc": "2026-11-19T14:46:50.109673+00:00",
+  "training_as_of_utc": "2026-11-20T14:28:09.533421+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -28,7 +28,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-11-19",
+    "cutoff_date": "2026-11-20",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -50,8 +50,8 @@
     },
     "bbs_shot_source_enabled": false,
     "shot_matches": 1638,
-    "tune_start_date": "2025-11-20",
-    "audit_start_date": "2026-05-21",
+    "tune_start_date": "2025-11-21",
+    "audit_start_date": "2026-05-22",
     "training_shot_matches": 1332,
     "tuning_matches": 198,
     "audit_matches": 103,
@@ -59,21 +59,21 @@
     "selected_shrinkage": 40.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.6391072699819159,
-    "audit_candidate_poisson_score": 0.6286986380248123,
-    "audit_gain": 0.01040863195710362,
-    "audit_gain_lower95": -0.0019722989889040922,
+    "audit_baseline_poisson_score": 0.6391129582271886,
+    "audit_candidate_poisson_score": 0.6287081697829882,
+    "audit_gain": 0.010404788444200452,
+    "audit_gain_lower95": -0.001982935584301892,
     "audit_baseline_briers": [
-      0.6244979776137398,
-      0.10545762056616034,
-      0.299669028912374,
-      0.22948449220796913
+      0.624506909279452,
+      0.1054559080952159,
+      0.29967003989228785,
+      0.22947903477087198
     ],
     "audit_candidate_briers": [
-      0.6210496236539681,
-      0.10476076946310174,
-      0.29445614212953536,
-      0.22276200379246797
+      0.6210598966609551,
+      0.10475942322709111,
+      0.2944565233382554,
+      0.22275749520622157
     ],
     "audit_brier_order": [
       "1x2",
@@ -87,10 +87,10 @@
   },
   "training_end": "2026-11-08",
   "fit_success": true,
-  "objective": 1635.3752401671388,
-  "base": 0.2974128759774604,
-  "home_adv": 0.18436292610863222,
-  "rho": -0.07644680880956893,
+  "objective": 1633.0463027014705,
+  "base": 0.29742411506713307,
+  "home_adv": 0.1843764299971755,
+  "rho": -0.07642261869716117,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -108,7 +108,7 @@
   },
   "training_data_health": {
     "training_end": "2026-11-08",
-    "days_since_latest_result": 11,
+    "days_since_latest_result": 12,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -118,10 +118,10 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 8,
+  "live_odds_matched": 9,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 0,
+  "additional_event_odds_calls_used_before_this_league": 7,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "over_1_5_in_window_quote_fixtures": 0,
@@ -230,6 +230,19 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "f0c241457472f32fc55b90b2b95b665b",
+      "event_id": "f0c241457472f32fc55b90b2b95b665b",
+      "home_team": "Go Ahead Eagles",
+      "away_team": "Fortuna Sittard",
+      "kickoff_utc": "2026-11-22T15:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -237,14 +250,14 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 8
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 9
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 8
+    "none": 9
   },
   "legacy_comparison_status": {
-    "None": 8
+    "None": 9
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
