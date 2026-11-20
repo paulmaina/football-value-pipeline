@@ -1,0 +1,26 @@
+{
+  "archive_id": "a70d2da9d08a65b4f2824b48d0dc29a1b9fcb894",
+  "captured_at_utc": "2026-11-20T16:54:04Z",
+  "data_origin": "immutable prediction generation received at actual capture time",
+  "generated_at_utc": "2026-11-20T16:53:14.319920Z",
+  "git_commit_sha": "59fb01dd9329c928554606c9875731492dbd41d4",
+  "n_all_forecasts": 62,
+  "n_pre_kickoff_forecasts": 62,
+  "n_shortlist": 49,
+  "prediction_run_id": "d41bbc3182e25a03950f55a8676cc4c5a51e9db24403c4d93ae5a503a72b93a4",
+  "schema_version": 1,
+  "selection_policy_version": "48h-ah-price-edge-cagey-v28",
+  "sha256": {
+    "cagey_correction_monitoring.csv": "3a1c594225df562b1c5a66f2e61e86a158b7253321bdda6662bf14a31fe9b267",
+    "cagey_tier_shortlist.csv": "4f5ce08c9b50e0f708a7b0d736615a23b0031ea39b871d548bb026507c8d58d0",
+    "corners_shadow.csv": "c09269dc6d5ca2cf9e28281ea2bcf238bd4933670ca348db4db4b0ddc61e5030",
+    "master_shortlist.csv": "f64306c8ac28e31dd58346d4e4e45f2d75da0417ca46e17cbbbbdf2e7b119eb2",
+    "master_shortlist_old.csv": "d22a55d5df203e81207271616aa9ce2a7357762d18be15679a29641ee23e3182",
+    "pipeline_health.json": "42ae16ae180b5d569f8207a91efb72a179892975f7906497110c62f68b7c2aa8",
+    "predictions.csv": "9d0caf09f65b75982a0e2f49b08a631efc8c269ad11697de86267bdfd0053766",
+    "price_edge_tagged_candidates.csv": "eb03cc75324d1a6daeb31a8f18b4c4aaf267df93a15884f7b2ece50ef08c2b1e",
+    "run_manifest.json": "bb2c8d3dbb304c223574f035e6ee49af66e2d0e1a86d9feb8225aae24bb0a060",
+    "selection_summary.json": "c451e4d16a7e2674a8b352b5d32442883e204dabbe9c2fb639ba31372d4914ea",
+    "shortlist.csv": "59eafd57df50e569ae4437cc653531421c3a1a4ff7424e7324bd9d40fb7d73b2"
+  }
+}
