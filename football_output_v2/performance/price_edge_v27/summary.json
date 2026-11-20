@@ -12,10 +12,10 @@
         "standard_error": 0.00559492795460548
       },
       "yes": {
-        "mean": -0.030008206893583463,
+        "mean": -0.03000820689358347,
         "n": 34,
         "positive_share": 0.17647058823529413,
-        "standard_error": 0.0063738245139238125
+        "standard_error": 0.006373824513923815
       }
     },
     "bookmaker": {
@@ -26,18 +26,18 @@
         "standard_error": 0.006283538719922999
       },
       "Pinnacle": {
-        "mean": -0.02422126087126067,
+        "mean": -0.024221260871260676,
         "n": 36,
         "positive_share": 0.19444444444444445,
-        "standard_error": 0.005581433960417402
+        "standard_error": 0.0055814339604174056
       }
     },
     "cagey_tier_rule": {
       "n/a": {
-        "mean": -0.017301579825919962,
+        "mean": -0.017301579825919965,
         "n": 49,
         "positive_share": 0.2857142857142857,
-        "standard_error": 0.006562217102278668
+        "standard_error": 0.006562217102278669
       },
       "narrow-63-flagged-v2": {
         "mean": -0.06390084682200947,
@@ -60,22 +60,22 @@
         "standard_error": 0.007693166412025447
       },
       "Q2": {
-        "mean": -0.025756942383461132,
+        "mean": -0.025756942383461143,
         "n": 23,
         "positive_share": 0.17391304347826086,
-        "standard_error": 0.007441083059650386
+        "standard_error": 0.00744108305965039
       },
       "Q3": {
-        "mean": -0.019935752288390004,
-        "n": 22,
-        "positive_share": 0.22727272727272727,
-        "standard_error": 0.005648187994067958
+        "mean": -0.016782010850062846,
+        "n": 26,
+        "positive_share": 0.2692307692307692,
+        "standard_error": 0.005177100725600217
       },
       "Q4": {
-        "mean": 0.0153892150290696,
-        "n": 21,
-        "positive_share": 0.5238095238095238,
-        "standard_error": 0.011338118208434727
+        "mean": 0.018877602786324443,
+        "n": 17,
+        "positive_share": 0.5294117647058824,
+        "standard_error": 0.013779466245065434
       },
       "Q5 most open": {
         "mean": 0.022365301326228455,
@@ -98,18 +98,18 @@
         "standard_error": 0.0045083957187549584
       },
       "yes": {
-        "mean": -0.04032173000854694,
+        "mean": -0.040321730008546976,
         "n": 6,
         "positive_share": 0.3333333333333333,
-        "standard_error": 0.02058800973612472
+        "standard_error": 0.02058800973612474
       }
     },
     "high_draw": {
       "no": {
-        "mean": -0.005188539312513146,
+        "mean": -0.00518853931251315,
         "n": 65,
         "positive_share": 0.4,
-        "standard_error": 0.005490273471718879
+        "standard_error": 0.00549027347171888
       },
       "yes": {
         "mean": -0.03185429452270969,
@@ -120,10 +120,10 @@
     },
     "low_total": {
       "no": {
-        "mean": -0.009137721418067575,
+        "mean": -0.009137721418067579,
         "n": 80,
         "positive_share": 0.35,
-        "standard_error": 0.004758678820148719
+        "standard_error": 0.0047586788201487195
       },
       "yes": {
         "mean": -0.042360764486283925,
@@ -137,7 +137,7 @@
         "mean": -0.012157998060632698,
         "n": 88,
         "positive_share": 0.3181818181818182,
-        "standard_error": 0.004467843993353489
+        "standard_error": 0.00446784399335349
       }
     },
     "price_flag": {
@@ -148,10 +148,10 @@
         "standard_error": 0.005395586581972339
       },
       "n/a": {
-        "mean": -0.017301579825919962,
+        "mean": -0.017301579825919965,
         "n": 49,
         "positive_share": 0.2857142857142857,
-        "standard_error": 0.006562217102278668
+        "standard_error": 0.006562217102278669
       },
       "value": {
         "mean": 0.030866631045502118,
@@ -165,7 +165,7 @@
         "mean": -0.012157998060632698,
         "n": 88,
         "positive_share": 0.3181818181818182,
-        "standard_error": 0.004467843993353489
+        "standard_error": 0.00446784399335349
       }
     },
     "reference_type": {
@@ -176,10 +176,10 @@
         "standard_error": 0.0028016275433964738
       },
       "a": {
-        "mean": -0.0072398826263838385,
+        "mean": -0.007239882626383842,
         "n": 60,
         "positive_share": 0.4166666666666667,
-        "standard_error": 0.005980805560555567
+        "standard_error": 0.005980805560555568
       },
       "b": {
         "mean": 0.007281539420219775,
@@ -202,10 +202,10 @@
         "standard_error": 0.0057276027703963665
       },
       "value": {
-        "mean": -0.017301579825919962,
+        "mean": -0.017301579825919965,
         "n": 49,
         "positive_share": 0.2857142857142857,
-        "standard_error": 0.006562217102278668
+        "standard_error": 0.006562217102278669
       }
     }
   },
@@ -260,34 +260,34 @@
     },
     "corrected_cagey_quintile": {
       "Q1 cagiest": {
-        "mean": 0.038478260869565246,
-        "n": 92,
-        "positive_share": 0.6630434782608695,
-        "standard_error": 0.07245637842556514
+        "mean": 0.06155555555555556,
+        "n": 90,
+        "positive_share": 0.6777777777777778,
+        "standard_error": 0.07219371760548596
       },
       "Q2": {
-        "mean": -0.07635416666666667,
-        "n": 96,
-        "positive_share": 0.65625,
-        "standard_error": 0.06690025466602244
+        "mean": -0.09633663366336633,
+        "n": 101,
+        "positive_share": 0.6435643564356436,
+        "standard_error": 0.06571796516924187
       },
       "Q3": {
-        "mean": 0.1261340206185567,
-        "n": 97,
-        "positive_share": 0.7938144329896907,
-        "standard_error": 0.06026437607228559
+        "mean": 0.12774038461538462,
+        "n": 104,
+        "positive_share": 0.7884615384615384,
+        "standard_error": 0.059528890123798125
       },
       "Q4": {
-        "mean": 0.0172680412371134,
+        "mean": 0.05190721649484535,
         "n": 97,
-        "positive_share": 0.711340206185567,
-        "standard_error": 0.06667865364012258
+        "positive_share": 0.7422680412371134,
+        "standard_error": 0.06400047835019472
       },
       "Q5 most open": {
-        "mean": 0.09963917525773194,
-        "n": 97,
-        "positive_share": 0.7938144329896907,
-        "standard_error": 0.053782019523702325
+        "mean": 0.06499999999999999,
+        "n": 87,
+        "positive_share": 0.7701149425287356,
+        "standard_error": 0.05789955953995802
       },
       "n/a": {
         "mean": 0.09555555555555552,
@@ -432,7 +432,7 @@
     }
   },
   "cagey_tier_active_rule": "no-loss-market-reference-v5",
-  "cagey_tier_picks": 202,
+  "cagey_tier_picks": 219,
   "cagey_tier_review": false,
   "cagey_tier_review_rule": ">= 50 graded value-priced cagey-tier picks made under the active rule (no-loss-market-reference-v5) with realised ROI 95% interval entirely below 0; recommends cagey_tier_enabled = false",
   "cagey_tier_roi": {
@@ -484,10 +484,10 @@
     }
   },
   "clv": {
-    "mean": -0.017301579825919962,
+    "mean": -0.017301579825919965,
     "n": 49,
     "positive_share": 0.2857142857142857,
-    "standard_error": 0.006562217102278668
+    "standard_error": 0.006562217102278669
   },
   "clv_by": {
     "balanced": {
@@ -498,10 +498,10 @@
         "standard_error": 0.008268102202883558
       },
       "yes": {
-        "mean": -0.03921120213651776,
+        "mean": -0.03921120213651777,
         "n": 19,
         "positive_share": 0.15789473684210525,
-        "standard_error": 0.00887073484166664
+        "standard_error": 0.008870734841666644
       }
     },
     "bookmaker": {
@@ -512,42 +512,42 @@
         "standard_error": 0.010434719238099608
       },
       "Pinnacle": {
-        "mean": -0.03115841979758184,
+        "mean": -0.03115841979758185,
         "n": 23,
         "positive_share": 0.13043478260869565,
-        "standard_error": 0.0066216623646788856
+        "standard_error": 0.00662166236467889
       }
     },
     "cagey_quintile": {
       "Q1 cagiest": {
-        "mean": -0.03846785663988511,
-        "n": 12,
-        "positive_share": 0.16666666666666666,
-        "standard_error": 0.010812053235208795
+        "mean": -0.0426150257336428,
+        "n": 11,
+        "positive_share": 0.09090909090909091,
+        "standard_error": 0.01093808851685357
       },
       "Q2": {
-        "mean": -0.03256489927450131,
-        "n": 10,
-        "positive_share": 0.1,
-        "standard_error": 0.009353906608286512
+        "mean": -0.02954968492297107,
+        "n": 13,
+        "positive_share": 0.15384615384615385,
+        "standard_error": 0.00773518807719981
       },
       "Q3": {
-        "mean": -0.02220287940623623,
-        "n": 11,
-        "positive_share": 0.2727272727272727,
-        "standard_error": 0.010489852663015414
+        "mean": -0.01696562337200133,
+        "n": 12,
+        "positive_share": 0.3333333333333333,
+        "standard_error": 0.009807492716205565
       },
       "Q4": {
-        "mean": 0.005282407036693674,
-        "n": 12,
-        "positive_share": 0.4166666666666667,
-        "standard_error": 0.017288531754197863
+        "mean": 0.009985577161155607,
+        "n": 11,
+        "positive_share": 0.45454545454545453,
+        "standard_error": 0.019009701979047937
       },
       "Q5 most open": {
-        "mean": 0.027298279419547617,
-        "n": 3,
-        "positive_share": 0.6666666666666666,
-        "standard_error": 0.023293808714687086
+        "mean": 0.06044609556673275,
+        "n": 1,
+        "positive_share": 1.0,
+        "standard_error": null
       },
       "n/a": {
         "mean": 0.03843381172318794,
@@ -564,18 +564,18 @@
         "standard_error": 0.006572320344284421
       },
       "yes": {
-        "mean": -0.05585875931515155,
+        "mean": -0.05585875931515161,
         "n": 4,
         "positive_share": 0.25,
-        "standard_error": 0.02781090901251084
+        "standard_error": 0.027810909012510866
       }
     },
     "high_draw": {
       "no": {
-        "mean": -0.011149581066421992,
+        "mean": -0.011149581066421997,
         "n": 37,
         "positive_share": 0.35135135135135137,
-        "standard_error": 0.008011114743707033
+        "standard_error": 0.008011114743707035
       },
       "yes": {
         "mean": -0.03627024266770537,
@@ -586,10 +586,10 @@
     },
     "low_total": {
       "no": {
-        "mean": -0.014811639426440452,
+        "mean": -0.014811639426440457,
         "n": 45,
         "positive_share": 0.3111111111111111,
-        "standard_error": 0.007007117813639302
+        "standard_error": 0.007007117813639304
       },
       "yes": {
         "mean": -0.045313409320064446,
@@ -600,10 +600,10 @@
     },
     "odds_band": {
       "1.70-1.90": {
-        "mean": 0.011722857333923531,
+        "mean": 0.011722857333923456,
         "n": 3,
         "positive_share": 0.6666666666666666,
-        "standard_error": 0.06398438777358068
+        "standard_error": 0.06398438777358073
       },
       "1.90-2.10": {
         "mean": -0.0040436707448611026,
@@ -638,10 +638,10 @@
         "standard_error": 0.0036156323915641875
       },
       "a": {
-        "mean": -0.013551199651120897,
+        "mean": -0.013551199651120904,
         "n": 34,
         "positive_share": 0.38235294117647056,
-        "standard_error": 0.009109424218881543
+        "standard_error": 0.009109424218881544
       },
       "b": {
         "mean": 0.013919123286105672,
@@ -670,18 +670,18 @@
         "standard_error": 0.01190250968229966
       },
       "underdog": {
-        "mean": -0.03754766028706978,
+        "mean": -0.03754766028706981,
         "n": 10,
         "positive_share": 0.2,
-        "standard_error": 0.014673217247566908
+        "standard_error": 0.014673217247566917
       }
     },
     "tagged": {
       "any tag": {
-        "mean": -0.04027245555974327,
+        "mean": -0.04027245555974328,
         "n": 23,
         "positive_share": 0.13043478260869565,
-        "standard_error": 0.0073966407719573465
+        "standard_error": 0.007396640771957351
       },
       "no tag": {
         "mean": 0.00301881024630835,
@@ -692,10 +692,10 @@
     },
     "value_market_group": {
       "asian_handicap": {
-        "mean": -0.029462565346711822,
+        "mean": -0.02946256534671184,
         "n": 12,
         "positive_share": 0.16666666666666666,
-        "standard_error": 0.010369528798512674
+        "standard_error": 0.010369528798512686
       },
       "double_chance": {
         "mean": -0.027729051207173536,
@@ -834,7 +834,7 @@
     "correction_review": false,
     "excluded_by_reason": {
       "no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line)": 16,
-      "no usable market-implied fit (missing input: over_2_5)": 47
+      "no usable market-implied fit (missing input: over_2_5)": 49
     },
     "fair_price_returns": {
       "corrected": {
@@ -851,10 +851,10 @@
       }
     },
     "fixtures": {
-      "eligible": 116,
-      "excluded": 63,
+      "eligible": 125,
+      "excluded": 65,
       "graded": 106,
-      "pending": 10
+      "pending": 19
     },
     "log_loss": {
       "2plus": {
@@ -891,11 +891,11 @@
     "positive_share": null,
     "standard_error": null
   },
-  "frozen_picks": 311,
+  "frozen_picks": 329,
   "headline": {
     "cagey tier": {
       "definition": "CLV = frozen offered odds x Pinnacle fair close probability - 1 (clv_report). Return = flat-stake profit per unit at the frozen price. Per fixture: a match's picks averaged first, so each match counts once.",
-      "fixtures_with_picks": 81,
+      "fixtures_with_picks": 90,
       "per_fixture": {
         "clv": {
           "independent_fixtures": 15,
@@ -936,11 +936,11 @@
           "t_stat": 1.2729309088984737
         }
       },
-      "picks": 202
+      "picks": 219
     },
     "new master (live)": {
       "definition": "CLV = frozen offered odds x Pinnacle fair close probability - 1 (clv_report). Return = flat-stake profit per unit at the frozen price. Per fixture: a match's picks averaged first, so each match counts once.",
-      "fixtures_with_picks": 0,
+      "fixtures_with_picks": 9,
       "per_fixture": {
         "clv": {
           "independent_fixtures": 0,
@@ -981,11 +981,11 @@
           "t_stat": null
         }
       },
-      "picks": 0
+      "picks": 9
     },
     "old master (shadow)": {
       "definition": "CLV = frozen offered odds x Pinnacle fair close probability - 1 (clv_report). Return = flat-stake profit per unit at the frozen price. Per fixture: a match's picks averaged first, so each match counts once.",
-      "fixtures_with_picks": 61,
+      "fixtures_with_picks": 70,
       "per_fixture": {
         "clv": {
           "independent_fixtures": 10,
@@ -1026,20 +1026,20 @@
           "t_stat": 0.10481791293173195
         }
       },
-      "picks": 61
+      "picks": 70
     },
     "value shortlist": {
       "definition": "CLV = frozen offered odds x Pinnacle fair close probability - 1 (clv_report). Return = flat-stake profit per unit at the frozen price. Per fixture: a match's picks averaged first, so each match counts once.",
-      "fixtures_with_picks": 98,
+      "fixtures_with_picks": 108,
       "per_fixture": {
         "clv": {
           "independent_fixtures": 19,
-          "mean": -0.002345449709126475,
+          "mean": -0.002345449709126478,
           "median": -0.00706421580953102,
           "n": 19,
           "positive_share": 0.3684210526315789,
-          "standard_error": 0.010017396336900321,
-          "t_stat": -0.23413765715615345
+          "standard_error": 0.010017396336900323,
+          "t_stat": -0.2341376571561537
         },
         "return": {
           "independent_fixtures": 96,
@@ -1054,11 +1054,11 @@
       "per_pick": {
         "clv": {
           "independent_fixtures": 19,
-          "mean": -0.01616088062477144,
+          "mean": -0.016160880624771442,
           "median": -0.019746453302053157,
           "n": 49,
           "positive_share": 0.2653061224489796,
-          "standard_error": 0.006626657062396353,
+          "standard_error": 0.006626657062396354,
           "t_stat": -2.4387682164025084
         },
         "return": {
@@ -1071,7 +1071,7 @@
           "t_stat": 0.9636755361913577
         }
       },
-      "picks": 311
+      "picks": 329
     }
   },
   "live_master_list": "new",
@@ -1149,15 +1149,15 @@
       "weeks": 0
     },
     "new_master_offers": {
-      "both_agree": 0,
-      "fixtures": 0,
-      "included": 0,
+      "both_agree": 2,
+      "fixtures": 10,
+      "included": 13,
       "inspection_flag": 0,
       "no_research_check": 0,
       "no_view": 0,
-      "offers": 0,
-      "one_view_missing": 0,
-      "research_too_optimistic": 0,
+      "offers": 27,
+      "one_view_missing": 1,
+      "research_too_optimistic": 12,
       "risky_fill": 0,
       "unvalidated_view": 0
     },
@@ -1165,7 +1165,7 @@
     "status": "WAITING",
     "verdict": "not yet comparable"
   },
-  "master_picks": 61,
+  "master_picks": 70,
   "master_release_incidents": {
     "baseline_missing": {
       "details": [],
@@ -1203,8 +1203,80 @@
     "triggered": false
   },
   "new_master": {
-    "by_labels": {},
-    "by_tier": {},
+    "by_labels": {
+      "": {
+        "clv": {
+          "mean": null,
+          "n": 0,
+          "positive_share": null,
+          "standard_error": null
+        },
+        "profit": {
+          "mean": null,
+          "n": 0,
+          "positive_share": null,
+          "standard_error": null
+        }
+      },
+      "both agree": {
+        "clv": {
+          "mean": null,
+          "n": 0,
+          "positive_share": null,
+          "standard_error": null
+        },
+        "profit": {
+          "mean": null,
+          "n": 0,
+          "positive_share": null,
+          "standard_error": null
+        }
+      },
+      "research too optimistic": {
+        "clv": {
+          "mean": null,
+          "n": 0,
+          "positive_share": null,
+          "standard_error": null
+        },
+        "profit": {
+          "mean": null,
+          "n": 0,
+          "positive_share": null,
+          "standard_error": null
+        }
+      }
+    },
+    "by_tier": {
+      "fill": {
+        "clv": {
+          "mean": null,
+          "n": 0,
+          "positive_share": null,
+          "standard_error": null
+        },
+        "profit": {
+          "mean": null,
+          "n": 0,
+          "positive_share": null,
+          "standard_error": null
+        }
+      },
+      "safe": {
+        "clv": {
+          "mean": null,
+          "n": 0,
+          "positive_share": null,
+          "standard_error": null
+        },
+        "profit": {
+          "mean": null,
+          "n": 0,
+          "positive_share": null,
+          "standard_error": null
+        }
+      }
+    },
     "clv": {
       "mean": null,
       "n": 0,
@@ -1218,7 +1290,7 @@
       "standard_error": null
     }
   },
-  "new_master_picks": 0,
+  "new_master_picks": 9,
   "note": "CLV = entry odds x Pinnacle near-kickoff fair win-share on the same AH line - 1 (power method, as clv_report). Near-kickoff feed quotes, not verified official closes or executed bets. Tagged candidates are tracked for the narrow-margin hypothesis only; they never change a decision.",
   "policy": "48h-ah-price-edge-pinnacle-ref-v27",
   "profit": {
@@ -1229,25 +1301,25 @@
   },
   "recommendation_history": {
     "cagey": {
-      "distinct_fixtures": 81,
+      "distinct_fixtures": 90,
       "graded": 875,
       "no_loss_share": 0.8274285714285714,
       "positive_return_share": 0.7451428571428571,
-      "recommendations": 892,
+      "recommendations": 909,
       "simulated_mean_unit_return": 0.08200571428571429
     },
     "note": "Every captured generation is graded at its own offered odds; re-uploads deduplicate. Repeated fixtures and overlapping lists are correlated recommendations, not independent bets. Unit returns are hypothetical, not actual betting ROI. Latest-view reports remain separate.",
     "value": {
-      "distinct_fixtures": 98,
+      "distinct_fixtures": 108,
       "graded": 1102,
       "no_loss_share": 0.7413793103448276,
       "positive_return_share": 0.7413793103448276,
-      "recommendations": 1120,
+      "recommendations": 1138,
       "simulated_mean_unit_return": 0.01869328493647913
     }
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-19T16:41:22.386207+00:00",
+  "reviewed_at_utc": "2026-11-20T14:29:49.047691+00:00",
   "stop_review": false,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "tagged_candidates": {
@@ -1283,7 +1355,7 @@
       "positive_share": 0.054820415879017016,
       "standard_error": 0.0010473047909545074
     },
-    "frozen": 2444,
+    "frozen": 2523,
     "return_at_capture_fair": {
       "mean": 0.007539180316421201,
       "n": 1889,
@@ -1296,7 +1368,7 @@
       "positive_share": 0.7520435967302452,
       "standard_error": 0.01568164169883968
     },
-    "with_offered_price": 2444
+    "with_offered_price": 2523
   },
   "version": "price-edge-v27-tracking-v1"
 }

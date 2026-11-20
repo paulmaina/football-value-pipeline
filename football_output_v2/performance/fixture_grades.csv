@@ -2,6 +2,7 @@ fixture_key,league,home_team,away_team,kickoff_utc,week,picks,picks_with_close,m
 Bundesliga|1 koln|bayer leverkusen|2026-11-08,Bundesliga,1. FC Köln,Bayer Leverkusen,2026-11-08T14:30:00+00:00,2026-W45,3,0,,3,0.46
 Bundesliga|augsburg|union berlin|2026-10-24,Bundesliga,Augsburg,Union Berlin,2026-10-24T13:30:00+00:00,2026-W43,1,0,,1,0.16
 Bundesliga|bayer leverkusen|freiburg|2026-10-18,Bundesliga,Bayer Leverkusen,SC Freiburg,2026-10-18T13:30:00+00:00,2026-W42,1,1,-0.0278894625108006,1,0.2
+Bundesliga|bayern munich|1 koln|2026-11-20,Bundesliga,Bayern Munich,1. FC Köln,2026-11-20T19:30:00+00:00,2026-W47,1,0,,0,
 Bundesliga|borussia dortmund|elversberg|2026-11-07,Bundesliga,Borussia Dortmund,Elversberg,2026-11-07T14:30:00+00:00,2026-W45,3,0,,3,0.32666666666666666
 Bundesliga|freiburg|bayern munich|2026-10-25,Bundesliga,SC Freiburg,Bayern Munich,2026-10-25T16:30:00+00:00,2026-W43,1,0,,1,0.18
 Bundesliga|freiburg|union berlin|2026-11-08,Bundesliga,SC Freiburg,Union Berlin,2026-11-08T16:30:00+00:00,2026-W45,4,0,,4,0.2625
@@ -29,7 +30,9 @@ Eredivisie|sparta rotterdam|ajax|2026-10-25,Eredivisie,Sparta Rotterdam,Ajax,202
 Eredivisie|twente enschede|ajax|2026-11-08,Eredivisie,FC Twente Enschede,Ajax,2026-11-08T13:30:00+00:00,2026-W45,3,3,-0.015669678681929772,3,-0.5233333333333333
 Eredivisie|utrecht|nec nijmegen|2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,2026-11-08T19:00:00+00:00,2026-W45,2,0,,2,-0.365
 Eredivisie|willem ii|zwolle|2026-11-06,Eredivisie,Willem II,FC Zwolle,2026-11-06T19:00:00+00:00,2026-W45,4,3,-0.04197700964987446,4,-0.3675
+La Liga|alaves|deportivo la coruna|2026-11-21,La Liga,Alavés,Deportivo La Coruña,2026-11-21T13:00:00+00:00,2026-W47,2,0,,0,
 La Liga|alaves|malaga|2026-10-23,La Liga,Alavés,Málaga,2026-10-23T19:00:00+00:00,2026-W43,1,1,0.0216590900732212,1,0.2
+La Liga|ath bilbao|espanyol|2026-11-20,La Liga,Athletic Bilbao,Espanyol,2026-11-20T20:00:00+00:00,2026-W47,2,0,,0,
 La Liga|ath bilbao|getafe|2026-10-25,La Liga,Athletic Bilbao,Getafe,2026-10-25T13:00:00+00:00,2026-W43,1,1,-0.007664142148536279,1,0.15
 La Liga|ath madrid|barcelona|2026-11-08,La Liga,Atlético Madrid,Barcelona,2026-11-08T20:00:00+00:00,2026-W45,3,0,,3,0.435
 La Liga|ca osasuna|ath bilbao|2026-11-07,La Liga,CA Osasuna,Athletic Bilbao,2026-11-07T17:30:00+00:00,2026-W45,3,0,,3,-0.10333333333333332
@@ -69,6 +72,7 @@ Ligue 1|rc lens|marseille|2026-11-08,Ligue 1,RC Lens,Marseille,2026-11-08T19:45:
 Ligue 1|rennes|lille|2026-11-08,Ligue 1,Rennes,Lille,2026-11-08T14:00:00+00:00,2026-W45,2,2,-0.03225657406039317,2,0.30000000000000004
 Ligue 1|toulouse|strasbourg|2026-11-06,Ligue 1,Toulouse,Strasbourg,2026-11-06T19:45:00+00:00,2026-W45,4,3,-0.0472340283741588,4,0.15250000000000002
 Ligue 1|toulouse|troyes|2026-10-25,Ligue 1,Toulouse,Troyes,2026-10-25T16:15:00+00:00,2026-W43,1,0,,1,-1.0
+Ligue 1|troyes|le havre|2026-11-20,Ligue 1,Troyes,Le Havre,2026-11-20T19:45:00+00:00,2026-W47,2,0,,0,
 Premier League|arsenal|hull city|2026-11-07,Premier League,Arsenal,Hull City,2026-11-07T15:00:00+00:00,2026-W45,2,0,,2,0.51
 Premier League|aston villa|man city|2026-10-24,Premier League,Aston Villa,Manchester City,2026-10-24T11:30:00+00:00,2026-W43,1,0,,1,0.26
 Premier League|brighton|brentford|2026-11-08,Premier League,Brighton and Hove Albion,Brentford,2026-11-08T14:00:00+00:00,2026-W45,4,3,-0.008891356271816586,4,0.4275
@@ -84,6 +88,7 @@ Premier League|hull city|everton|2026-10-11,Premier League,Hull City,Everton,202
 Premier League|hull city|ipswich town|2026-10-31,Premier League,Hull City,Ipswich Town,2026-10-31T15:00:00+00:00,2026-W44,1,1,-0.0538578619460246,1,0.25
 Premier League|ipswich town|bournemouth|2026-11-08,Premier League,Ipswich Town,Bournemouth,2026-11-08T14:00:00+00:00,2026-W45,4,3,-0.026497218253085486,4,0.45999999999999996
 Premier League|leeds|tottenham|2026-11-07,Premier League,Leeds United,Tottenham Hotspur,2026-11-07T12:30:00+00:00,2026-W45,4,0,,4,0.4525
+Premier League|man city|fulham|2026-11-21,Premier League,Manchester City,Fulham,2026-11-21T12:30:00+00:00,2026-W47,2,0,,0,
 Premier League|man city|ipswich town|2026-10-17,Premier League,Manchester City,Ipswich Town,2026-10-17T14:00:00+00:00,2026-W42,1,1,0.013177555414107589,1,0.28
 Premier League|man united|aston villa|2026-11-08,Premier League,Manchester United,Aston Villa,2026-11-08T16:30:00+00:00,2026-W45,3,0,,3,-0.16
 Premier League|nott m forest|arsenal|2026-10-18,Premier League,Nottingham Forest,Arsenal,2026-10-18T15:30:00+00:00,2026-W42,1,1,0.007917112407623605,1,0.16
@@ -112,6 +117,7 @@ Serie A|as roma|sassuolo|2026-11-07,Serie A,AS Roma,Sassuolo,2026-11-07T19:45:00
 Serie A|atalanta bc|frosinone|2026-10-25,Serie A,Atalanta BC,Frosinone,2026-10-25T14:00:00+00:00,2026-W43,1,1,-0.0396019943267093,1,-1.0
 Serie A|atalanta bc|venezia|2026-10-12,Serie A,Atalanta BC,Venezia,2026-10-12T16:30:00+00:00,2026-W42,1,0,,1,0.63
 Serie A|cagliari|frosinone|2026-11-07,Serie A,Cagliari,Frosinone,2026-11-07T14:00:00+00:00,2026-W45,3,0,,3,-0.12333333333333334
+Serie A|como|cagliari|2026-11-21,Serie A,Como,Cagliari,2026-11-21T14:00:00+00:00,2026-W47,2,0,,0,
 Serie A|como|sassuolo|2026-10-24,Serie A,Como,Sassuolo,2026-10-24T13:00:00+00:00,2026-W43,1,1,0.01151968015733651,1,0.165
 Serie A|fiorentina|atalanta bc|2026-10-29,Serie A,Fiorentina,Atalanta BC,2026-10-29T19:45:00+00:00,2026-W44,1,1,-0.017792390650828827,1,0.34
 Serie A|fiorentina|juventus|2026-11-08,Serie A,Fiorentina,Juventus,2026-11-08T19:45:00+00:00,2026-W45,2,0,,2,-0.355
@@ -120,6 +126,7 @@ Serie A|inter|como|2026-11-08,Serie A,Inter Milan,Como,2026-11-08T17:00:00+00:00
 Serie A|inter|fiorentina|2026-10-25,Serie A,Inter Milan,Fiorentina,2026-10-25T11:30:00+00:00,2026-W43,1,1,-0.031046744907265333,1,0.1
 Serie A|juventus|napoli|2026-11-01,Serie A,Juventus,Napoli,2026-11-01T19:45:00+00:00,2026-W44,1,1,-0.032436554760563174,1,-1.0
 Serie A|lazio|cagliari|2026-11-01,Serie A,Lazio,Cagliari,2026-11-01T14:00:00+00:00,2026-W44,1,1,0.0238590061764985,1,0.32
+Serie A|lazio|lecce|2026-11-21,Serie A,Lazio,Lecce,2026-11-21T14:00:00+00:00,2026-W47,2,0,,0,
 Serie A|lazio|parma|2026-10-24,Serie A,Lazio,Parma,2026-10-24T18:45:00+00:00,2026-W43,1,1,0.029356182426063082,1,0.39
 Serie A|lecce|bologna|2026-10-11,Serie A,Lecce,Bologna,2026-10-11T13:00:00+00:00,2026-W41,1,0,,1,0.28
 Serie A|lecce|juventus|2026-10-25,Serie A,Lecce,Juventus,2026-10-25T17:00:00+00:00,2026-W43,1,0,,1,0.53
@@ -134,12 +141,15 @@ Serie A|udinese|milan|2026-10-25,Serie A,Udinese,AC Milan,2026-10-25T19:45:00+00
 Serie A|venezia|napoli|2026-10-17,Serie A,Venezia,Napoli,2026-10-17T13:00:00+00:00,2026-W42,1,1,-0.06427629958935754,1,-1.0
 Serie A|venezia|udinese|2026-11-06,Serie A,Venezia,Udinese,2026-11-06T19:45:00+00:00,2026-W45,4,4,-0.03927205844334089,4,0.5175000000000001
 Super Lig|alanyaspor|trabzonspor|2026-11-08,Super Lig,Alanyaspor,Trabzonspor,2026-11-08T15:30:00+00:00,2026-W45,4,0,,4,0.03
+Super Lig|amed sk|caykur rizespor|2026-11-21,Super Lig,Amed SK,Çaykur Rizespor,2026-11-21T13:00:00+00:00,2026-W47,2,0,,0,
 Super Lig|besiktas jk|genclerbirligi sk|2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,2026-11-08T18:00:00+00:00,2026-W45,2,0,,2,-0.405
 Super Lig|caykur rizespor|erzurum bb|2026-11-08,Super Lig,Çaykur Rizespor,Erzurum BB,2026-11-08T10:30:00+00:00,2026-W45,4,0,,4,0.45
 Super Lig|corum fk|fenerbahce|2026-11-08,Super Lig,Çorum FK,Fenerbahce,2026-11-08T13:00:00+00:00,2026-W45,4,4,-0.005347792251476857,4,0.12
 Super Lig|eyupspor|kocaelispor|2026-11-07,Super Lig,Eyüpspor,Kocaelispor,2026-11-07T10:30:00+00:00,2026-W45,4,0,,4,0.1825
 Super Lig|galatasaray|amed sk|2026-11-07,Super Lig,Galatasaray,Amed SK,2026-11-07T16:00:00+00:00,2026-W45,3,0,,3,0.33
-Super Lig|gazisehir gaziantep|kasimpasa sk|2026-11-06,Super Lig,Gazişehir Gaziantep,Kasimpasa SK,2026-11-06T17:00:00+00:00,2026-W45,4,4,-0.05126384422942859,4,0.7625
+Super Lig|galatasaray|samsunspor|2026-11-21,Super Lig,Galatasaray,Samsunspor,2026-11-21T13:00:00+00:00,2026-W47,2,0,,0,
+Super Lig|gazisehir gaziantep|kasimpasa sk|2026-11-06,Super Lig,Gazişehir Gaziantep,Kasimpasa SK,2026-11-06T17:00:00+00:00,2026-W45,4,4,-0.051263844229428646,4,0.7625
+Super Lig|genclerbirligi sk|gazisehir gaziantep|2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,2026-11-21T10:30:00+00:00,2026-W47,1,0,,0,
 Super Lig|goztepe|basaksehir|2026-11-07,Super Lig,Goztepe,Basaksehir,2026-11-07T16:00:00+00:00,2026-W45,4,0,,4,-0.024999999999999994
 Super Lig|kasimpasa sk|besiktas jk|2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,2026-11-01T16:00:00+00:00,2026-W44,1,1,-0.04712417757098564,1,0.24
 Super Lig|kocaelispor|caykur rizespor|2026-10-31,Super Lig,Kocaelispor,Çaykur Rizespor,2026-10-31T13:00:00+00:00,2026-W44,1,1,0.0524836543538485,1,0.29

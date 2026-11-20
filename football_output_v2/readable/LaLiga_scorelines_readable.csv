@@ -1,451 +1,792 @@
 ﻿Match date,League,Home team,Away team,Model,Rank,Score,Probability,Probability (decimal)
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,1,1-0,14.74%,0.1473896102602883
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,2,1-1,12.54%,0.125431991105071
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,3,2-0,11.68%,0.11684033139099585
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,4,0-0,10.02%,0.10022726149181581
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,5,2-1,9.41%,0.0941056952690828
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,6,0-1,6.43%,0.06427430675901542
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,7,3-0,6.08%,0.06080593584476187
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,8,3-1,4.90%,0.04897439780455407
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,9,1-2,4.16%,0.04164390493826009
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,10,2-2,3.87%,0.038698206541493786
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,11,0-2,2.67%,0.026673315062658708
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,12,4-0,2.37%,0.02373342614193982
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,13,3-2,1.97%,0.019722512341904273
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,14,4-1,1.91%,0.019115407681707323
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,15,1-3,1.12%,0.011180296453229
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,16,2-3,0.87%,0.008727659115226346
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,17,4-2,0.77%,0.007697978552539695
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,18,5-0,0.74%,0.00741079644425453
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,19,0-3,0.72%,0.00716108564345797
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,20,5-1,0.60%,0.005968813538797982
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,21,3-3,0.54%,0.00540686975385729
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,22,5-2,0.24%,0.0024037048736211693
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,23,1-4,0.23%,0.002251212313675995
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,24,4-3,0.21%,0.002066705378268217
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,25,6-0,0.19%,0.0019283598727564736
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,26,2-4,0.18%,0.0017573607061277497
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,27,6-1,0.16%,0.0015531421761161887
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,28,0-4,0.14%,0.0014419227832894357
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,29,3-4,0.09%,0.0009145640129632858
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,30,5-3,0.06%,0.0006453317265275374
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,31,6-2,0.06%,0.0006254669196633832
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,32,7-0,0.04%,0.0004300951024818063
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,33,4-4,0.04%,0.00042493597948537305
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,34,1-5,0.04%,0.00036263488378487425
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,35,7-1,0.03%,0.000346407770065576
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,36,2-5,0.03%,0.0002830831599326714
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,37,0-5,0.02%,0.0002322710735759523
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,38,6-3,0.02%,0.00016792146639206984
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,39,3-5,0.01%,0.00014732187299260768
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,40,7-2,0.01%,0.000139502103685174
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,41,5-4,0.01%,0.0001299409845921395
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,1,1-0,13.33%,0.13333143526230154
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,2,2-0,11.53%,0.11530015515627132
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,3,2-1,10.87%,0.1086914883085291
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,4,1-1,10.14%,0.10144922453186259
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,5,3-0,7.30%,0.07295125433813711
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,6,0-0,6.43%,0.06432385483494517
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,7,3-1,6.15%,0.061460682907590276
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,8,0-1,4.82%,0.04818002736275439
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,9,1-2,4.04%,0.04043792330616993
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,10,2-2,3.96%,0.039614478515038305
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,11,4-0,3.62%,0.036247825909908694
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,12,4-1,2.92%,0.029164968844862017
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,13,3-2,2.90%,0.02896896837922951
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,14,0-2,1.74%,0.017365750730181102
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,15,5-0,1.44%,0.014408578935243046
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,16,4-2,1.23%,0.012285593431165582
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,17,5-1,1.16%,0.011593129938042039
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,18,2-3,1.08%,0.010777706146160306
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,19,1-3,0.93%,0.009256803667205318
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,20,3-3,0.70%,0.007038825169727416
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,21,6-0,0.48%,0.004772864342473983
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,22,5-2,0.47%,0.004663911075629595
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,23,0-3,0.44%,0.004448020674375703
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,24,4-3,0.39%,0.0038604730785112757
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,25,6-1,0.38%,0.003840242451919154
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,26,2-4,0.19%,0.001850375247186886
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,27,1-4,0.18%,0.0017782611905228314
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,28,6-2,0.15%,0.001544927849539276
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,29,3-4,0.14%,0.0014362625510402796
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,30,7-0,0.14%,0.0013551589627287767
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,31,5-3,0.13%,0.0013097657348007006
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,32,7-1,0.11%,0.0010903597094637407
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,33,0-4,0.09%,0.0008947183805719469
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,34,4-4,0.07%,0.0007035078376719961
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,35,7-2,0.04%,0.0004386512315971732
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,36,6-3,0.04%,0.0004143491962925853
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,37,8-0,0.03%,0.00033667389688435856
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,38,5-4,0.03%,0.0003086734507383254
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,39,1-5,0.03%,0.0002861574779603451
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,40,2-5,0.03%,0.00028437033846867257
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,41,8-1,0.03%,0.00027088752130721466
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,42,3-5,0.02%,0.00019726829712114503
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,43,0-5,0.01%,0.0001439779244093814
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,44,7-3,0.01%,0.00011764613170721452
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,45,4-5,0.01%,0.0001148398418482944
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,46,8-2,0.01%,0.00010897793069055695
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",1,1-0,11.94%,0.11939326311225876
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",2,2-0,11.11%,0.11110773519103677
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",3,1-1,10.80%,0.10796314541067324
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",4,2-1,10.73%,0.10733331779969048
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",5,3-0,6.67%,0.06670548680204612
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",6,3-1,6.44%,0.06443944880702293
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",7,0-0,6.35%,0.06353583514442744
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",8,2-2,4.54%,0.04544268674604407
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",9,0-1,4.53%,0.045301727646107126
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",10,1-2,4.19%,0.041935482068547476
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",11,3-2,3.11%,0.031125194954919055
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",12,4-0,3.00%,0.030035860882102455
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",13,4-1,2.90%,0.029015518999671478
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",14,0-2,2.33%,0.023283224315103487
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",15,4-2,1.40%,0.014014919467847883
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",16,1-3,1.35%,0.013503633556528283
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",17,2-3,1.22%,0.01216071655725726
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",18,5-0,1.08%,0.01081953502992909
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",19,5-1,1.05%,0.010451986891961655
-2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",20,3-3,0.88%,0.008785171981021888
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,1,1-1,14.13%,0.1412947599072318
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,2,1-0,11.85%,0.1184637644265469
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,3,0-0,11.15%,0.11153644276788706
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,4,0-1,10.86%,0.10856408913855177
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,5,2-1,7.70%,0.07700721351036577
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,6,1-2,7.07%,0.07067958234271639
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,7,2-0,7.07%,0.0706667010970411
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,8,0-2,6.05%,0.06049219860806262
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,9,2-2,4.41%,0.04413897001711103
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,10,3-1,3.00%,0.029991953858127196
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,11,3-0,2.75%,0.027522518242050542
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,12,1-3,2.57%,0.025673750171785588
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,13,0-3,2.20%,0.021973270680559986
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,14,3-2,1.63%,0.01634147879051442
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,15,2-3,1.50%,0.014998710421075612
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,16,4-1,0.88%,0.008760711385566639
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,17,4-0,0.80%,0.008039384164938627
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,18,1-4,0.70%,0.006994326643235874
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,19,3-3,0.62%,0.006244402392014699
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,20,0-4,0.60%,0.005986201140531918
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,21,4-2,0.48%,0.004773379552871686
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,22,2-4,0.41%,0.004086114385719778
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,23,5-1,0.20%,0.002047217446232484
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,24,5-0,0.19%,0.0018786565148742203
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,25,4-3,0.17%,0.0017338890532955483
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,26,3-4,0.16%,0.001591416550853915
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,27,1-5,0.15%,0.0015243773851485402
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,28,0-5,0.13%,0.001304661636070736
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,29,5-2,0.11%,0.0011154511851889151
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,30,2-5,0.09%,0.0008905475366588896
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,31,4-4,0.05%,0.000496914986581792
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,32,5-3,0.04%,0.0004051780458817823
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,33,6-1,0.04%,0.0003986642834225696
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,34,6-0,0.04%,0.0003658396203479898
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,35,3-5,0.03%,0.0003468410219043568
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,36,1-6,0.03%,0.00027685848484542206
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,37,0-6,0.02%,0.00023695355711623615
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,38,6-2,0.02%,0.0002172170563779454
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,39,2-6,0.02%,0.0001617418652915649
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,40,5-4,0.01%,0.00011038307931653827
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,41,4-5,0.01%,0.00010131297560514473
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",1,1-0,13.83%,0.1382884339383642
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",2,1-1,13.24%,0.1324205436062308
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",3,0-0,11.11%,0.111111288084643
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",4,0-1,10.10%,0.10096191091597245
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",5,2-1,8.59%,0.08591944261060687
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",6,2-0,8.27%,0.08273066287537864
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",7,1-2,6.30%,0.06298215367799796
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",8,0-2,5.45%,0.054532079744860254
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",9,2-2,3.84%,0.03842425488777389
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",10,3-1,3.31%,0.033077725770149106
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",11,3-0,3.19%,0.031850092321672026
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",12,1-3,2.18%,0.02180324823691477
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",13,0-3,1.89%,0.018877990067331946
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",14,3-2,1.72%,0.017176338628392202
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",15,2-3,1.26%,0.012590896382109215
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",16,4-1,0.96%,0.0095508296103935
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",17,4-0,0.92%,0.009196363950574606
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",18,1-4,0.57%,0.005660908756522039
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",19,3-3,0.51%,0.005120983046776128
-2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",20,4-2,0.50%,0.004959478916722829
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,1,1-1,13.71%,0.1370654661453681
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,2,1-0,10.14%,0.10143111689690937
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,3,0-1,9.93%,0.09933805291931527
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,4,0-0,9.08%,0.09078951289466163
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,5,2-1,7.91%,0.07914966703687128
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,6,1-2,7.75%,0.07754711395384152
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,7,2-0,6.46%,0.06463766733490463
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,8,0-2,6.23%,0.0622902876612582
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,9,2-2,5.13%,0.05126508835738514
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,10,3-1,3.28%,0.032845293006699486
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,11,1-3,3.17%,0.0316524842876068
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,12,3-0,2.68%,0.02682314660774893
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,13,0-3,2.54%,0.025425089999378526
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,14,3-2,2.01%,0.020109744924264112
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,15,2-3,1.97%,0.019702580435343283
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,16,4-1,1.02%,0.010222531373948025
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,17,1-4,0.97%,0.009689720002090065
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,18,3-3,0.87%,0.008683362284658568
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,19,4-0,0.83%,0.008348242096357369
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,20,0-4,0.78%,0.007783338612014689
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,21,4-2,0.63%,0.00625881152494061
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,22,2-4,0.60%,0.006031516705053197
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,23,4-3,0.26%,0.0025546654588614924
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,24,5-1,0.25%,0.002545269367395487
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,25,3-4,0.25%,0.0025029408318292513
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,26,1-5,0.24%,0.002373037714595219
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,27,5-0,0.21%,0.002078597179325999
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,28,0-5,0.19%,0.0019061599373141908
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,29,5-2,0.16%,0.0015583577753873628
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,30,2-5,0.15%,0.0014771341807828314
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,31,4-4,0.08%,0.0008273259722689993
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,32,5-3,0.06%,0.0006360764764150825
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,33,3-5,0.06%,0.0006129767413351452
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,34,6-1,0.05%,0.0005281141493250809
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,35,1-6,0.05%,0.000484302607443475
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,36,6-0,0.04%,0.0004312850322292412
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,37,0-6,0.04%,0.0003890196191015957
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,38,6-2,0.03%,0.0003233413333123831
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,39,2-6,0.03%,0.00030146167964255566
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,40,5-4,0.02%,0.000194720986206805
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,41,4-5,0.02%,0.0001907784463521403
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,42,6-3,0.01%,0.0001319785605212332
-2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,43,3-6,0.01%,0.0001250996696364993
-2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",1,1-0,15.22%,0.15220796854669194
-2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",2,1-1,12.60%,0.12597214221230707
-2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",3,0-0,10.91%,0.10910348353517131
-2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",4,2-0,10.00%,0.10004421285280801
-2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",5,2-1,9.11%,0.09110010558139851
-2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",6,0-1,8.95%,0.08949240973124764
-2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",7,1-2,5.42%,0.054244024784506815
-2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",8,0-2,4.26%,0.04255910576448951
-2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",9,3-0,4.25%,0.04250403185603124
-2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",10,3-1,3.87%,0.03870410570790842
-2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",11,2-2,3.54%,0.035368816699030664
-2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",12,3-2,1.76%,0.01762194941556333
-2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",13,1-3,1.65%,0.016464841707199494
-2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",14,4-0,1.35%,0.013543457481217595
-2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",15,0-3,1.29%,0.012918085307940195
-2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",16,4-1,1.23%,0.012332651447729135
-2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",17,2-3,1.05%,0.010492693227397556
-2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",18,4-2,0.56%,0.005615046672613096
-2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",19,3-3,0.46%,0.004561044832904586
-2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",20,1-4,0.37%,0.0037482148520517527
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,1,2-0,11.35%,0.11352156759902338
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,2,2-1,9.92%,0.09924514193210904
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,3,1-0,9.79%,0.09787557031208027
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,4,1-1,9.08%,0.09079452617966637
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,5,3-0,8.63%,0.08632449564550432
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,6,3-1,7.55%,0.07546836256540125
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,7,4-0,4.92%,0.04923239723995938
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,8,0-0,4.64%,0.04636732418581423
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,9,2-2,4.44%,0.044427554840562634
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,10,4-1,4.30%,0.043040951204938935
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,11,3-2,3.30%,0.032988746158978975
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,12,1-2,2.98%,0.029776012835835926
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,13,0-1,2.86%,0.0285687289402424
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,14,5-0,2.25%,0.022462490349869923
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,15,5-1,1.96%,0.019637616798912565
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,16,4-2,1.88%,0.01881406943883627
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,17,0-2,1.31%,0.013052377268262187
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,18,2-3,0.99%,0.009897444952417307
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,19,3-3,0.98%,0.009845044976958995
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,20,1-3,0.87%,0.008677131234664934
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,21,5-2,0.86%,0.008583999092139088
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,22,6-0,0.85%,0.008540505524217272
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,23,6-1,0.75%,0.007466455060916513
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,24,4-3,0.55%,0.005482673267201326
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,25,0-3,0.38%,0.0038036385564947594
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,26,6-2,0.33%,0.003263738371142559
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,27,7-0,0.28%,0.002783315657337604
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,28,5-3,0.25%,0.002501492965206282
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,29,7-1,0.24%,0.002433287024629743
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,30,2-4,0.22%,0.002163186586132777
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,31,1-4,0.19%,0.0018964746945479669
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,32,3-4,0.16%,0.0016449384463630213
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,33,4-4,0.12%,0.0012271722449553307
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,34,7-2,0.11%,0.001063638924428558
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,35,6-3,0.10%,0.0009510973251573866
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,36,0-4,0.08%,0.0008313236338735421
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,37,8-0,0.08%,0.0007936872440527249
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,38,8-1,0.07%,0.0006938734625647892
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,39,5-4,0.05%,0.0005467265595973969
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,40,2-5,0.04%,0.0003782290260907724
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,41,1-5,0.03%,0.00033159496333925797
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,42,7-3,0.03%,0.00030995871020235454
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,43,8-2,0.03%,0.00030330611059919363
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,44,3-5,0.03%,0.00028761433273281466
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,45,6-4,0.02%,0.00020787192914720206
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,46,9-0,0.02%,0.00020117954233192278
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,47,9-1,0.02%,0.0001758792858031339
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,48,4-5,0.02%,0.00016403157614909523
-2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,49,0-5,0.01%,0.000145355343095185
-2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",1,2-0,14.06%,0.14058495817536398
-2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",2,1-0,11.71%,0.11713107989865115
-2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",3,3-0,10.97%,0.10973554635253095
-2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",4,2-1,10.30%,0.10298233827799676
-2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",5,3-1,8.04%,0.08038429788128987
-2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",6,4-0,6.42%,0.06424170634742213
-2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",7,1-1,6.08%,0.060831197268439
-2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",8,4-1,4.71%,0.04705881212678199
-2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",9,0-0,3.63%,0.03628336721514313
-2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",10,5-0,3.01%,0.03008685496435389
-2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",11,3-2,2.94%,0.029441851618023644
-2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",12,2-2,2.52%,0.025242925227404532
-2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",13,5-1,2.20%,0.02203944658001885
-2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",14,0-1,1.97%,0.019707983268712145
-2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",15,1-2,1.83%,0.018338597794588542
-2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",16,4-2,1.72%,0.017235935381350806
-2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",17,6-0,1.17%,0.011742356758481802
-2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",18,6-1,0.86%,0.008601598432561213
-2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",19,5-2,0.81%,0.008072249594199745
-2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",20,0-2,0.78%,0.007831345720509671
-2026-11-21,La Liga,Sevilla,Real Betis,Research,1,1-1,13.69%,0.13694794079528239
-2026-11-21,La Liga,Sevilla,Real Betis,Research,2,0-1,10.42%,0.10424839758508056
-2026-11-21,La Liga,Sevilla,Real Betis,Research,3,1-0,9.65%,0.09650111567203458
-2026-11-21,La Liga,Sevilla,Real Betis,Research,4,0-0,9.08%,0.09078759324806036
-2026-11-21,La Liga,Sevilla,Real Betis,Research,5,1-2,8.12%,0.08123459272819976
-2026-11-21,La Liga,Sevilla,Real Betis,Research,6,2-1,7.53%,0.07530801375242419
-2026-11-21,La Liga,Sevilla,Real Betis,Research,7,0-2,6.79%,0.06786920438047747
-2026-11-21,La Liga,Sevilla,Real Betis,Research,8,2-0,5.92%,0.0591799475317462
-2026-11-21,La Liga,Sevilla,Real Betis,Research,9,2-2,5.12%,0.05117705798529232
-2026-11-21,La Liga,Sevilla,Real Betis,Research,10,1-3,3.45%,0.0344577067148527
-2026-11-21,La Liga,Sevilla,Real Betis,Research,11,3-1,3.00%,0.03004610550637098
-2026-11-21,La Liga,Sevilla,Real Betis,Research,12,0-3,2.88%,0.028788439271648633
-2026-11-21,La Liga,Sevilla,Real Betis,Research,13,3-0,2.36%,0.02361139085736552
-2026-11-21,La Liga,Sevilla,Real Betis,Research,14,2-3,2.06%,0.02062170756884538
-2026-11-21,La Liga,Sevilla,Real Betis,Research,15,3-2,1.91%,0.019117223156262308
-2026-11-21,La Liga,Sevilla,Real Betis,Research,16,1-4,1.10%,0.010962080735907662
-2026-11-21,La Liga,Sevilla,Real Betis,Research,17,0-4,0.92%,0.009158508375734668
-2026-11-21,La Liga,Sevilla,Real Betis,Research,18,4-1,0.90%,0.008990760854493882
-2026-11-21,La Liga,Sevilla,Real Betis,Research,19,3-3,0.87%,0.008660992717208799
-2026-11-21,La Liga,Sevilla,Real Betis,Research,20,4-0,0.71%,0.007065287333013721
-2026-11-21,La Liga,Sevilla,Real Betis,Research,21,2-4,0.66%,0.006560414050553209
-2026-11-21,La Liga,Sevilla,Real Betis,Research,22,4-2,0.57%,0.005720487853692124
-2026-11-21,La Liga,Sevilla,Real Betis,Research,23,1-5,0.28%,0.0027899062477947426
-2026-11-21,La Liga,Sevilla,Real Betis,Research,24,3-4,0.26%,0.0026174490987960104
-2026-11-21,La Liga,Sevilla,Real Betis,Research,25,4-3,0.24%,0.0024264895792353
-2026-11-21,La Liga,Sevilla,Real Betis,Research,26,0-5,0.23%,0.002330887753293578
-2026-11-21,La Liga,Sevilla,Real Betis,Research,27,5-1,0.22%,0.0021522597855634794
-2026-11-21,La Liga,Sevilla,Real Betis,Research,28,5-0,0.17%,0.001691328914915565
-2026-11-21,La Liga,Sevilla,Real Betis,Research,29,2-5,0.17%,0.0016696593090949647
-2026-11-21,La Liga,Sevilla,Real Betis,Research,30,5-2,0.14%,0.0013694031195537759
-2026-11-21,La Liga,Sevilla,Real Betis,Research,31,4-4,0.08%,0.0008244846179682638
-2026-11-21,La Liga,Sevilla,Real Betis,Research,32,3-5,0.07%,0.0006661543341945717
-2026-11-21,La Liga,Sevilla,Real Betis,Research,33,1-6,0.06%,0.0005917046421965663
-2026-11-21,La Liga,Sevilla,Real Betis,Research,34,5-3,0.06%,0.0005808669617618219
-2026-11-21,La Liga,Sevilla,Real Betis,Research,35,0-6,0.05%,0.0004943524912900243
-2026-11-21,La Liga,Sevilla,Real Betis,Research,36,6-1,0.04%,0.00042935022032816554
-2026-11-21,La Liga,Sevilla,Real Betis,Research,37,2-6,0.04%,0.0003541141086225082
-2026-11-21,La Liga,Sevilla,Real Betis,Research,38,6-0,0.03%,0.00033739999564052483
-2026-11-21,La Liga,Sevilla,Real Betis,Research,39,6-2,0.03%,0.0002731796296349791
-2026-11-21,La Liga,Sevilla,Real Betis,Research,40,4-5,0.02%,0.00019933479597407508
-2026-11-21,La Liga,Sevilla,Real Betis,Research,41,5-4,0.02%,0.00018479205782170698
-2026-11-21,La Liga,Sevilla,Real Betis,Research,42,3-6,0.01%,0.00014128310306980974
-2026-11-21,La Liga,Sevilla,Real Betis,Research,43,6-3,0.01%,0.00011587604790399245
-2026-11-21,La Liga,Sevilla,Real Betis,Research,44,1-7,0.01%,0.00010756563713218806
-2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",1,1-1,12.91%,0.12906784596064064
-2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",2,1-2,8.79%,0.08785924002459874
-2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",3,0-1,8.79%,0.08785323362094952
-2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",4,2-1,7.59%,0.0759220213218404
-2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",5,1-0,7.57%,0.07567514906459445
-2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",6,0-0,6.95%,0.06953969544435887
-2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",7,0-2,6.57%,0.06568701310426933
-2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",8,2-2,5.97%,0.05965844200829546
-2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",9,2-0,5.31%,0.05314734082804763
-2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",10,1-3,4.18%,0.04183621726908085
-2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",11,3-1,3.38%,0.03384966971517811
-2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",12,0-3,3.13%,0.03127839657180922
-2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",13,2-3,2.80%,0.027978881068399006
-2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",14,3-2,2.42%,0.024177459359328538
-2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",15,3-0,2.37%,0.023695627460222683
-2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",16,1-4,1.49%,0.014940964731447437
-2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",17,3-3,1.27%,0.012665535260026861
-2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",18,4-1,1.13%,0.011318851762746416
-2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",19,0-4,1.12%,0.011170451119657246
-2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",20,2-4,1.00%,0.009992095427261755
-2026-11-22,La Liga,Barcelona,Villarreal,Research,1,2-1,8.50%,0.08498486254231075
-2026-11-22,La Liga,Barcelona,Villarreal,Research,2,3-1,8.03%,0.0803463803786329
-2026-11-22,La Liga,Barcelona,Villarreal,Research,3,2-0,6.34%,0.06336473976129016
-2026-11-22,La Liga,Barcelona,Villarreal,Research,4,1-1,6.24%,0.06240868413615847
-2026-11-22,La Liga,Barcelona,Villarreal,Research,5,3-0,5.99%,0.059906286027338405
-2026-11-22,La Liga,Barcelona,Villarreal,Research,6,2-2,5.82%,0.05824650672259838
-2026-11-22,La Liga,Barcelona,Villarreal,Research,7,4-1,5.70%,0.056970800271054105
-2026-11-22,La Liga,Barcelona,Villarreal,Research,8,3-2,5.39%,0.053880329328060514
-2026-11-22,La Liga,Barcelona,Villarreal,Research,9,1-0,4.35%,0.04354596963122111
-2026-11-22,La Liga,Barcelona,Villarreal,Research,10,4-0,4.25%,0.04247744627898328
-2026-11-22,La Liga,Barcelona,Villarreal,Research,11,4-2,3.82%,0.03820465173691728
-2026-11-22,La Liga,Barcelona,Villarreal,Research,12,1-2,3.24%,0.03243094106784779
-2026-11-22,La Liga,Barcelona,Villarreal,Research,13,5-1,3.23%,0.03231679703034871
-2026-11-22,La Liga,Barcelona,Villarreal,Research,14,3-3,2.46%,0.02461882324718108
-2026-11-22,La Liga,Barcelona,Villarreal,Research,15,5-0,2.41%,0.024095413847695358
-2026-11-22,La Liga,Barcelona,Villarreal,Research,16,5-2,2.17%,0.02167166285049397
-2026-11-22,La Liga,Barcelona,Villarreal,Research,17,2-3,2.06%,0.02056118857972621
-2026-11-22,La Liga,Barcelona,Villarreal,Research,18,0-0,1.73%,0.01726185539671649
-2026-11-22,La Liga,Barcelona,Villarreal,Research,19,4-3,1.71%,0.017080041089993635
-2026-11-22,La Liga,Barcelona,Villarreal,Research,20,0-1,1.61%,0.01613430078303466
-2026-11-22,La Liga,Barcelona,Villarreal,Research,21,6-1,1.53%,0.015276471533543714
-2026-11-22,La Liga,Barcelona,Villarreal,Research,22,1-3,1.45%,0.01449880527220579
-2026-11-22,La Liga,Barcelona,Villarreal,Research,23,0-2,1.14%,0.011434404619019551
-2026-11-22,La Liga,Barcelona,Villarreal,Research,24,6-0,1.14%,0.011390141893938225
-2026-11-22,La Liga,Barcelona,Villarreal,Research,25,6-2,1.02%,0.010244410679351158
-2026-11-22,La Liga,Barcelona,Villarreal,Research,26,5-3,0.97%,0.00968868645954036
-2026-11-22,La Liga,Barcelona,Villarreal,Research,27,2-4,0.69%,0.006894172499316606
-2026-11-22,La Liga,Barcelona,Villarreal,Research,28,3-4,0.65%,0.00651788788562464
-2026-11-22,La Liga,Barcelona,Villarreal,Research,29,7-1,0.62%,0.006189720091452655
-2026-11-22,La Liga,Barcelona,Villarreal,Research,30,4-4,0.59%,0.005853117239998307
-2026-11-22,La Liga,Barcelona,Villarreal,Research,31,0-3,0.51%,0.0051119455839391354
-2026-11-22,La Liga,Barcelona,Villarreal,Research,32,1-4,0.49%,0.004861453616506774
-2026-11-22,La Liga,Barcelona,Villarreal,Research,33,7-0,0.46%,0.004615057212040087
-2026-11-22,La Liga,Barcelona,Villarreal,Research,34,6-3,0.46%,0.004579938499400283
-2026-11-22,La Liga,Barcelona,Villarreal,Research,35,7-2,0.42%,0.0041508298868516685
-2026-11-22,La Liga,Barcelona,Villarreal,Research,36,5-4,0.32%,0.003248619382331143
-2026-11-22,La Liga,Barcelona,Villarreal,Research,37,8-1,0.22%,0.002194456709823721
-2026-11-22,La Liga,Barcelona,Villarreal,Research,38,7-3,0.19%,0.001855699287961124
-2026-11-22,La Liga,Barcelona,Villarreal,Research,39,2-5,0.18%,0.0018492944322177434
-2026-11-22,La Liga,Barcelona,Villarreal,Research,40,3-5,0.17%,0.0017483597600582148
-2026-11-22,La Liga,Barcelona,Villarreal,Research,41,0-4,0.17%,0.0017140368381984579
-2026-11-22,La Liga,Barcelona,Villarreal,Research,42,8-0,0.16%,0.0016361876006585154
-2026-11-22,La Liga,Barcelona,Villarreal,Research,43,6-4,0.15%,0.0015356547083207209
-2026-11-22,La Liga,Barcelona,Villarreal,Research,44,8-2,0.15%,0.001471603943628531
-2026-11-22,La Liga,Barcelona,Villarreal,Research,45,1-5,0.13%,0.001304037447044147
-2026-11-22,La Liga,Barcelona,Villarreal,Research,46,4-5,0.12%,0.001239700584181057
-2026-11-22,La Liga,Barcelona,Villarreal,Research,47,5-5,0.09%,0.0008906091039349914
-2026-11-22,La Liga,Barcelona,Villarreal,Research,48,9-1,0.07%,0.0006915610155246126
-2026-11-22,La Liga,Barcelona,Villarreal,Research,49,8-3,0.07%,0.0006579056393042291
-2026-11-22,La Liga,Barcelona,Villarreal,Research,50,7-4,0.06%,0.0006222165099286954
-2026-11-22,La Liga,Barcelona,Villarreal,Research,51,9-0,0.05%,0.0005156281067814168
-2026-11-22,La Liga,Barcelona,Villarreal,Research,52,9-2,0.05%,0.0004637612185056606
-2026-11-22,La Liga,Barcelona,Villarreal,Research,53,0-5,0.05%,0.0004597736395210187
-2026-11-22,La Liga,Barcelona,Villarreal,Research,54,2-6,0.04%,0.00041337930662581855
-2026-11-22,La Liga,Barcelona,Villarreal,Research,55,6-5,0.04%,0.0004119243755777766
-2026-11-22,La Liga,Barcelona,Villarreal,Research,56,3-6,0.04%,0.00039081702337610764
-2026-11-22,La Liga,Barcelona,Villarreal,Research,57,1-6,0.03%,0.0002914960896879728
-2026-11-22,La Liga,Barcelona,Villarreal,Research,58,4-6,0.03%,0.00027711464382543916
-2026-11-22,La Liga,Barcelona,Villarreal,Research,59,8-4,0.02%,0.0002205959518365997
-2026-11-22,La Liga,Barcelona,Villarreal,Research,60,9-3,0.02%,0.00020733236158171944
-2026-11-22,La Liga,Barcelona,Villarreal,Research,61,10-1,0.02%,0.00019614466416549418
-2026-11-22,La Liga,Barcelona,Villarreal,Research,62,7-5,0.02%,0.0001669035011176691
-2026-11-22,La Liga,Barcelona,Villarreal,Research,63,5-6,0.02%,0.00015719381957136043
-2026-11-22,La Liga,Barcelona,Villarreal,Research,64,10-0,0.01%,0.00014624552218607688
-2026-11-22,La Liga,Barcelona,Villarreal,Research,65,10-2,0.01%,0.00013153472566374846
-2026-11-22,La Liga,Barcelona,Villarreal,Research,66,0-6,0.01%,0.00010277482319681218
-2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",1,2-1,8.99%,0.08994156282586711
-2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",2,3-1,8.75%,0.08747097026254243
-2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",3,2-0,7.85%,0.07846037026095955
-2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",4,3-0,7.63%,0.07630515301553853
-2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",5,4-1,6.38%,0.06380118155288025
-2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",6,4-0,5.57%,0.05565685285475164
-2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",7,1-1,5.30%,0.05302604009208055
-2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",8,1-0,5.17%,0.051723303457590415
-2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",9,3-2,5.01%,0.05013534693464625
-2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",10,2-2,4.29%,0.0429026122600783
-2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",11,5-1,3.72%,0.03722918134165691
-2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",12,4-2,3.66%,0.03656863942852337
-2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",13,5-0,3.25%,0.032476813397540015
-2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",14,1-2,2.24%,0.02244518282917564
-2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",15,5-2,2.13%,0.021338484265746346
-2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",16,6-1,1.81%,0.018103269010010532
-2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",17,0-0,1.71%,0.01705694816064725
-2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",18,3-3,1.59%,0.01594322122410371
-2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",19,6-0,1.58%,0.015792356112481053
-2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",20,4-3,1.40%,0.013973256263757323
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,1,1-0,14.74%,0.14739077444281157
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,2,1-1,12.54%,0.12543274714439345
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,3,2-0,11.68%,0.11683989060712917
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,4,0-0,10.02%,0.1002291943914966
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,5,2-1,9.41%,0.09410515841369542
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,6,0-1,6.43%,0.0642756298633016
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,7,3-0,6.08%,0.060804998603666484
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,8,3-1,4.90%,0.04897354829938041
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,9,1-2,4.16%,0.041644182143312614
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,10,2-2,3.87%,0.03869791452403032
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,11,0-2,2.67%,0.02667380312904412
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,12,4-0,2.37%,0.02373278404306138
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,13,3-2,1.97%,0.019722132128189244
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,14,4-1,1.91%,0.019114853586092297
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,15,1-3,1.12%,0.011180349271815389
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,16,2-3,0.87%,0.008727598746396267
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,17,4-2,0.77%,0.007697740538042117
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,18,5-0,0.74%,0.0074105096800462875
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,19,0-3,0.72%,0.007161202838947939
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,20,5-1,0.60%,0.005968571039764635
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,21,3-3,0.54%,0.005406755564331372
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,22,5-2,0.24%,0.002403602572211645
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,23,1-4,0.23%,0.0022512185989680177
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,24,4-3,0.21%,0.002066637484269658
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,25,6-0,0.19%,0.0019282628065049614
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,26,2-4,0.18%,0.0017573451548376332
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,27,6-1,0.16%,0.0015530609959190963
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,28,0-4,0.14%,0.0014419435949700426
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,29,3-4,0.09%,0.0009145452732865056
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,30,5-3,0.06%,0.0006453030143677693
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,31,6-2,0.06%,0.0006254330190128599
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,32,7-0,0.04%,0.00043006844658881815
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,33,4-4,0.04%,0.0004249212374036306
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,34,1-5,0.04%,0.00036263519552938775
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,35,7-1,0.03%,0.0003463856315225205
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,36,2-5,0.03%,0.00028308010787104414
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,37,0-5,0.02%,0.0002322739771890709
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,38,6-3,0.02%,0.0001679120405012593
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,39,3-5,0.01%,0.00014731856966300805
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,40,7-2,0.01%,0.00013949291871669117
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Research,41,5-4,0.01%,0.00012993495217336498
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,1,1-0,10.90%,0.10903885496028298
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,2,2-1,10.77%,0.10773701574497349
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,3,2-0,10.59%,0.1058571737137393
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,4,1-1,9.91%,0.09910355049025095
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,5,3-0,7.51%,0.07510651990411078
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,6,3-1,6.64%,0.06636084902926577
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,7,0-0,5.51%,0.05509491948988999
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,8,2-2,4.42%,0.044186521988161455
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,9,1-2,4.14%,0.04140737516683572
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,10,4-0,3.99%,0.039854199424478015
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,11,0-1,3.89%,0.03893951037977072
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,12,4-1,3.53%,0.03531266885569141
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,13,3-2,3.38%,0.033769652003224945
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,14,0-2,1.70%,0.01698372951686786
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,15,5-0,1.69%,0.016918448239049668
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,16,4-2,1.56%,0.01560036791576023
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,17,5-1,1.50%,0.014990529701890782
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,18,2-3,1.30%,0.012978943588534098
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,19,1-3,1.06%,0.010646937480784744
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,20,3-3,0.92%,0.009233369239935084
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,21,5-2,0.66%,0.006641152237136036
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,22,6-0,0.60%,0.005985021548352424
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,23,6-1,0.53%,0.005303006636267784
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,24,4-3,0.53%,0.005292467906844355
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,25,0-3,0.50%,0.005030259845707205
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,26,2-4,0.25%,0.002502923701339165
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,27,1-4,0.24%,0.0023650663140340456
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,28,6-2,0.23%,0.002349354898483334
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,29,3-4,0.20%,0.0020340938781513115
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,30,5-3,0.20%,0.0019559442666744827
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,31,7-0,0.18%,0.0018147805669096334
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,32,7-1,0.16%,0.0016079797394114423
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,33,0-4,0.11%,0.0011142608730991123
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,34,4-4,0.11%,0.0010853082755279842
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,35,7-2,0.07%,0.0007123723081189571
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,36,6-3,0.07%,0.0006938791290308726
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,37,5-4,0.05%,0.000497669621392057
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,38,8-0,0.05%,0.00048149366205240177
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,39,2-5,0.04%,0.0004447912307792277
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,40,8-1,0.04%,0.0004266257129663406
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,41,1-5,0.04%,0.00041911168597174176
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,42,3-5,0.03%,0.00031381178251650536
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,43,7-3,0.02%,0.0002103982999854122
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,44,0-5,0.02%,0.00019745736107515803
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,45,4-5,0.02%,0.0001912730975479933
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,46,8-2,0.02%,0.00018900508283765322
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,47,6-4,0.02%,0.00015327034252473704
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,48,9-0,0.01%,0.00011355454125425614
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,Cagey,49,9-1,0.01%,0.00010061458943542721
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",1,2-1,10.63%,0.10632386441731642
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",2,1-1,10.51%,0.10508852067813969
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",3,2-0,10.14%,0.10135546896205574
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",4,1-0,10.00%,0.10001378628839547
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",5,3-1,6.93%,0.06931621193260587
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",6,3-0,6.61%,0.0660771427525192
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",7,0-0,5.30%,0.052962106519499945
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",8,2-2,5.22%,0.05215950457206777
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",9,1-2,4.23%,0.042251386834267726
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",10,0-1,3.85%,0.03849624305381162
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",11,3-2,3.64%,0.03635702934887231
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",12,4-1,3.39%,0.03389223056613768
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",13,4-0,3.23%,0.03230848447831189
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",14,0-2,2.16%,0.02160307860628636
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",15,4-2,1.78%,0.017776805555818124
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",16,1-3,1.48%,0.0147741763755312
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",17,2-3,1.44%,0.01444769638107555
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",18,5-1,1.33%,0.013257311797304439
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",19,5-0,1.26%,0.012637812421095034
+2026-11-20,La Liga,Athletic Bilbao,Espanyol,"Benchmark (70% Pinnacle blend), display only",20,3-3,1.19%,0.011890492311341391
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,1,1-1,14.13%,0.14129558483491664
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,2,1-0,11.85%,0.11847070006920593
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,3,0-0,11.15%,0.11154348916970033
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,4,0-1,10.86%,0.10856540387996066
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,5,2-1,7.70%,0.07700712214336128
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,6,1-2,7.07%,0.07067627093894362
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,7,2-0,7.07%,0.07067000848034952
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,8,0-2,6.05%,0.06049001362127101
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,9,2-2,4.41%,0.04413663597261746
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,10,3-1,3.00%,0.029991596425092512
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,11,3-0,2.75%,0.027523511004017297
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,12,1-3,2.57%,0.0256713153894974
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,13,0-3,2.20%,0.021971422614078463
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,14,3-2,1.63%,0.016340499872896545
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,15,2-3,1.50%,0.014997127072799859
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,16,4-1,0.88%,0.008760512967077224
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,17,4-0,0.80%,0.008039587877638043
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,18,1-4,0.70%,0.006993327729433716
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,19,3-3,0.62%,0.006243705555424495
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,20,0-4,0.60%,0.005985410435376612
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,21,4-2,0.48%,0.004773042388142643
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,22,2-4,0.41%,0.004085486973642207
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,23,5-1,0.20%,0.002047149110932105
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,24,5-0,0.19%,0.001878683958099113
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,25,4-3,0.17%,0.001733683383200878
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,26,3-4,0.16%,0.001591155117903765
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,27,1-5,0.15%,0.0015240865374985862
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,28,0-5,0.13%,0.0013044267076983854
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,29,5-2,0.11%,0.0011153604267293731
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,30,2-5,0.09%,0.0008903680674719545
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,31,4-4,0.05%,0.0004968303596234938
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,32,5-3,0.04%,0.00040512563703692933
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,33,6-1,0.04%,0.00039864669817657575
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,34,6-0,0.04%,0.0003658410385516616
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,35,3-5,0.03%,0.00034676740288639
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,36,1-6,0.03%,0.00027679237787469815
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,37,0-6,0.02%,0.00023689952066611883
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,38,6-2,0.02%,0.000217197051752635
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,39,2-6,0.02%,0.00016170151006237766
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,40,5-4,0.01%,0.00011036350527460548
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Research,41,4-5,0.01%,0.00010129038436261037
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,1,1-1,13.81%,0.13814688267337777
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,2,1-0,12.40%,0.12402545660688505
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,3,0-0,9.89%,0.09887140983564877
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,4,2-1,9.40%,0.09401352753252153
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,5,0-1,9.08%,0.09082127727892081
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,6,2-0,7.71%,0.07707373527341113
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,7,1-2,7.02%,0.07018083106364335
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,8,2-2,4.68%,0.04675547504668421
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,9,0-2,4.39%,0.04388082906947474
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,10,3-1,3.67%,0.03670239114768719
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,11,3-0,3.38%,0.03378778844879387
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,12,3-2,2.24%,0.02238454674885092
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,13,1-3,2.09%,0.02089598157763433
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,14,2-3,1.67%,0.01671000051853069
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,15,0-3,1.47%,0.014671294768438726
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,16,4-1,1.21%,0.012067268667437469
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,17,4-0,1.16%,0.011560703129937039
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,18,3-3,0.74%,0.007421627819005031
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,19,4-2,0.66%,0.006554107786423205
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,20,1-4,0.52%,0.0052398355677593855
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,21,0-4,0.38%,0.003828539961627833
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,22,2-4,0.37%,0.0037314875483680657
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,23,5-1,0.33%,0.003303113155567675
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,24,5-0,0.32%,0.003164453502154143
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,25,4-3,0.27%,0.0026648714621316637
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,26,3-4,0.20%,0.0019893189714160118
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,27,5-2,0.17%,0.0017239242907277806
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,28,1-5,0.11%,0.001093886813953531
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,29,0-5,0.08%,0.0007992596955689733
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,30,6-1,0.08%,0.0007534538827833144
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,31,2-5,0.07%,0.000748560429341796
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,32,6-0,0.07%,0.0007218250377121984
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,33,4-4,0.07%,0.0006626563986082569
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,34,5-3,0.06%,0.0006242111576611034
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,35,6-2,0.04%,0.0003932343184440763
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,36,3-5,0.04%,0.00035538569676712045
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,37,5-4,0.02%,0.0001903511379353251
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,38,1-6,0.02%,0.00019030310306936504
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,39,7-1,0.01%,0.00014731369038266883
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,40,4-5,0.01%,0.00014209658338359998
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,41,7-0,0.01%,0.0001411296862963727
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,42,0-6,0.01%,0.00013904692723676343
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,43,6-3,0.01%,0.00013682167127110754
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,Cagey,44,2-6,0.01%,0.00013022679377935293
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",1,1-1,13.72%,0.13717735695412975
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",2,1-0,11.74%,0.11741965879233197
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",3,0-0,9.54%,0.09542359199794065
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",4,2-1,8.91%,0.08905835714255399
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",5,0-1,8.68%,0.08677884882304286
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",6,2-0,7.78%,0.07775834459933685
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",7,1-2,6.61%,0.0661134527462676
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",8,0-2,5.19%,0.05190341531702499
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",9,2-2,4.84%,0.04841425993685631
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",10,3-1,3.78%,0.03781353918389222
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",11,3-0,3.30%,0.033015634969271984
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",12,1-3,2.52%,0.02524040138690007
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",13,3-2,2.17%,0.021654342661326098
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",14,0-3,1.98%,0.01981537768085553
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",15,2-3,1.61%,0.016075339880786993
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",16,4-1,1.20%,0.012041517984575522
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",17,4-0,1.05%,0.010513651216864161
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",18,3-3,0.78%,0.00784788018406911
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",19,1-4,0.72%,0.007227097917009704
+2026-11-21,La Liga,Alavés,Deportivo La Coruña,"Benchmark (70% Pinnacle blend), display only",20,4-2,0.69%,0.0068957088447196635
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,1,1-1,13.71%,0.1370662478311
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,2,1-0,10.14%,0.1014329749074978
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,3,0-1,9.93%,0.099339888938325
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,4,0-0,9.08%,0.0907922189279599
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,5,2-1,7.91%,0.07914913087264658
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,6,1-2,7.75%,0.07754660080702616
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,7,2-0,6.46%,0.0646380272741146
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,8,0-2,6.23%,0.062290651356512634
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,9,2-2,5.13%,0.05126410942998043
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,10,3-1,3.28%,0.0328446613969705
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,11,1-3,3.17%,0.03165188416603673
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,12,3-0,2.68%,0.026822961866788324
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,13,0-3,2.54%,0.025424924636860115
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,14,3-2,2.01%,0.020109110016246167
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,15,2-3,1.97%,0.019701961472243134
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,16,4-1,1.02%,0.010222207468242022
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,17,1-4,0.97%,0.009689416694291459
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,18,3-3,0.87%,0.008682981144131317
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,19,4-0,0.83%,0.008348080615023333
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,20,0-4,0.78%,0.0077831919242216
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,21,4-2,0.63%,0.0062585359642871
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,22,2-4,0.60%,0.0060312527809728575
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,23,4-3,0.26%,0.002554521453281312
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,24,5-1,0.25%,0.002545157016803253
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,25,3-4,0.25%,0.0025028001344617455
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,26,1-5,0.24%,0.0023729341452943865
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,27,5-0,0.21%,0.0020785310824668543
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,28,0-5,0.19%,0.0019061004866522057
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,29,5-2,0.16%,0.0015582697547382326
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,30,2-5,0.15%,0.0014770513142761243
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,31,4-4,0.08%,0.0008272691429357377
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,32,5-3,0.06%,0.0006360326985724449
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,33,3-5,0.06%,0.0006129347189094078
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,34,6-1,0.05%,0.0005280842600377569
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,35,1-6,0.05%,0.0004842754931798769
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,36,6-0,0.04%,0.0004312659460313512
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,37,0-6,0.04%,0.00038900268473712036
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,38,6-2,0.03%,0.0003233190427692062
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,39,2-6,0.03%,0.000301441047191099
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,40,5-4,0.02%,0.00019470518138303821
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,41,4-5,0.02%,0.00019076299144793403
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,42,6-3,0.01%,0.00013196783332735792
+2026-11-21,La Liga,Rayo Vallecano,Valencia,Research,43,3-6,0.01%,0.00012508954952481332
+2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",1,1-0,15.23%,0.15225642811188791
+2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",2,1-1,12.60%,0.12603207699952332
+2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",3,0-0,10.92%,0.10915955362722171
+2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",4,2-0,10.01%,0.10007201412703802
+2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",5,2-1,9.11%,0.09112315270337525
+2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",6,0-1,8.94%,0.08939684432641407
+2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",7,1-2,5.42%,0.054182070883013744
+2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",8,3-0,4.25%,0.04251506740304831
+2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",9,0-2,4.25%,0.04251127340678884
+2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",10,3-1,3.87%,0.038713190825201284
+2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",11,2-2,3.54%,0.03538489950899842
+2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",12,3-2,1.76%,0.017625647040147845
+2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",13,1-3,1.64%,0.016445627221313854
+2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",14,4-0,1.35%,0.013546726615228861
+2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",15,0-3,1.29%,0.012903245368027822
+2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",16,4-1,1.23%,0.012335321206019921
+2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",17,2-3,1.05%,0.010480256981416957
+2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",18,4-2,0.56%,0.0056161223879955795
+2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",19,3-3,0.46%,0.004562921941671036
+2026-11-21,La Liga,Rayo Vallecano,Valencia,"Benchmark (70% Pinnacle blend), display only",20,1-4,0.37%,0.00374374747441421
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,1,2-0,11.35%,0.11352280351138759
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,2,2-1,9.92%,0.09924408339582305
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,3,1-0,9.79%,0.09787412167052068
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,4,1-1,9.08%,0.09079128463483557
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,5,3-0,8.63%,0.08632768436459008
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,6,3-1,7.55%,0.07546952366788802
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,7,4-0,4.92%,0.04923549844550428
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,8,0-0,4.64%,0.04636546781583214
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,9,2-2,4.44%,0.04442616852608273
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,10,4-1,4.30%,0.04304273469841142
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,11,3-2,3.30%,0.032988542693924934
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,12,1-2,2.98%,0.029773889947502654
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,13,0-1,2.86%,0.028566529992048048
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,14,5-0,2.25%,0.02246449050517184
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,15,5-1,1.96%,0.01963894213479593
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,16,4-2,1.88%,0.018814443529686645
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,17,0-2,1.31%,0.013051106695603817
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,18,2-3,0.99%,0.009896783829218696
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,19,3-3,0.98%,0.009844782056545015
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,20,1-3,0.87%,0.008676325594418582
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,21,5-2,0.86%,0.008584393402669619
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,22,6-0,0.85%,0.008541488519296793
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,23,6-1,0.75%,0.007467153494394833
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,24,4-3,0.55%,0.005482664113731481
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,25,0-3,0.38%,0.003803186323930541
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,26,6-2,0.33%,0.0032639733216806733
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,27,7-0,0.28%,0.002783708529123805
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,28,5-3,0.25%,0.002501553956284025
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,29,7-1,0.24%,0.002433578037793211
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,30,2-4,0.22%,0.002162995471651844
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,31,1-4,0.19%,0.0018962577434396624
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,32,3-4,0.16%,0.001644835967604229
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,33,4-4,0.12%,0.00122714499219604
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,34,7-2,0.11%,0.0010637432051647923
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,35,6-3,0.10%,0.0009511452927491187
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,36,0-4,0.08%,0.0008312068787663323
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,37,8-0,0.08%,0.0007938199545557966
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,38,8-1,0.07%,0.0006939745261250641
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,39,5-4,0.05%,0.0005467281061106357
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,40,2-5,0.04%,0.00037818745896610946
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,41,1-5,0.03%,0.00033154988391565426
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,42,7-3,0.03%,0.0003099824179216555
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,43,8-2,0.03%,0.00030334374951559366
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,44,3-5,0.03%,0.0002875902160485113
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,45,6-4,0.02%,0.00020787793252848355
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,46,9-0,0.02%,0.0002012184229644866
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,47,9-1,0.02%,0.00017590948542299103
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,48,4-5,0.02%,0.00016402209487512595
+2026-11-21,La Liga,Real Madrid,Celta Vigo,Research,49,0-5,0.01%,0.0001453317963332234
+2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",1,2-0,14.06%,0.14062188120178407
+2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",2,1-0,11.72%,0.11716008469416346
+2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",3,3-0,10.98%,0.10976798859469818
+2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",4,2-1,10.30%,0.10300594089206282
+2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",5,3-1,8.04%,0.08040537396027002
+2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",6,4-0,6.43%,0.06426281893588902
+2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",7,1-1,6.08%,0.06076536068037473
+2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",8,4-1,4.71%,0.0470727035671568
+2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",9,0-0,3.62%,0.03624357184812014
+2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",10,5-0,3.01%,0.03009773578222474
+2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",11,3-2,2.94%,0.02944858626116397
+2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",12,2-2,2.52%,0.025216151108686448
+2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",13,5-1,2.20%,0.022046679837258745
+2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",14,0-1,1.97%,0.01968081230047013
+2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",15,1-2,1.83%,0.018312295567549233
+2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",16,4-2,1.72%,0.017240446791884596
+2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",17,6-0,1.17%,0.011746990901539618
+2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",18,6-1,0.86%,0.008604705328378431
+2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",19,5-2,0.81%,0.008074628858521117
+2026-11-21,La Liga,Real Madrid,Celta Vigo,"Benchmark (70% Pinnacle blend), display only",20,0-2,0.78%,0.007819855572344409
+2026-11-21,La Liga,Sevilla,Real Betis,Research,1,1-1,13.69%,0.13694796230786005
+2026-11-21,La Liga,Sevilla,Real Betis,Research,2,0-1,10.42%,0.1042471575086938
+2026-11-21,La Liga,Sevilla,Real Betis,Research,3,1-0,9.65%,0.0965021230315388
+2026-11-21,La Liga,Sevilla,Real Betis,Research,4,0-0,9.08%,0.09078741500726284
+2026-11-21,La Liga,Sevilla,Real Betis,Research,5,1-2,8.12%,0.08123382239163073
+2026-11-21,La Liga,Sevilla,Real Betis,Research,6,2-1,7.53%,0.07530894971266257
+2026-11-21,La Liga,Sevilla,Real Betis,Research,7,0-2,6.79%,0.06786788550363342
+2026-11-21,La Liga,Sevilla,Real Betis,Research,8,2-0,5.92%,0.05918114278224411
+2026-11-21,La Liga,Sevilla,Real Betis,Research,9,2-2,5.12%,0.05117717767133231
+2026-11-21,La Liga,Sevilla,Real Betis,Research,10,1-3,3.45%,0.034457112281910444
+2026-11-21,La Liga,Sevilla,Real Betis,Research,11,3-1,3.00%,0.030046777893358544
+2026-11-21,La Liga,Sevilla,Real Betis,Research,12,0-3,2.88%,0.02878765620384583
+2026-11-21,La Liga,Sevilla,Real Betis,Research,13,3-0,2.36%,0.023612102670902583
+2026-11-21,La Liga,Sevilla,Real Betis,Research,14,2-3,2.06%,0.02062155700347654
+2026-11-21,La Liga,Sevilla,Real Betis,Research,15,3-2,1.91%,0.019117502459561977
+2026-11-21,La Liga,Sevilla,Real Betis,Research,16,1-4,1.10%,0.010961806472840318
+2026-11-21,La Liga,Sevilla,Real Betis,Research,17,0-4,0.92%,0.009158188113136994
+2026-11-21,La Liga,Sevilla,Real Betis,Research,18,4-1,0.90%,0.008991051513971183
+2026-11-21,La Liga,Sevilla,Real Betis,Research,19,3-3,0.87%,0.008661031867067532
+2026-11-21,La Liga,Sevilla,Real Betis,Research,20,4-0,0.71%,0.007065570631924142
+2026-11-21,La Liga,Sevilla,Real Betis,Research,21,2-4,0.66%,0.006560315188090439
+2026-11-21,La Liga,Sevilla,Real Betis,Research,22,4-2,0.57%,0.00572062834965029
+2026-11-21,La Liga,Sevilla,Real Betis,Research,23,1-5,0.28%,0.0027898147741437294
+2026-11-21,La Liga,Sevilla,Real Betis,Research,24,3-4,0.26%,0.002617435698135047
+2026-11-21,La Liga,Sevilla,Real Betis,Research,25,4-3,0.24%,0.002426530323990865
+2026-11-21,La Liga,Sevilla,Real Betis,Research,26,0-5,0.23%,0.00233078813840771
+2026-11-21,La Liga,Sevilla,Real Betis,Research,27,5-1,0.22%,0.00215235078087363
+2026-11-21,La Liga,Sevilla,Real Betis,Research,28,5-0,0.17%,0.0016914135619519773
+2026-11-21,La Liga,Sevilla,Real Betis,Research,29,2-5,0.17%,0.00166962117787069
+2026-11-21,La Liga,Sevilla,Real Betis,Research,30,5-2,0.14%,0.0013694503781148163
+2026-11-21,La Liga,Sevilla,Real Betis,Research,31,4-4,0.08%,0.0008244901435325406
+2026-11-21,La Liga,Sevilla,Real Betis,Research,32,3-5,0.07%,0.0006661457487979439
+2026-11-21,La Liga,Sevilla,Real Betis,Research,33,1-6,0.06%,0.0005916806453779955
+2026-11-21,La Liga,Sevilla,Real Betis,Research,34,5-3,0.06%,0.000580882495171968
+2026-11-21,La Liga,Sevilla,Real Betis,Research,35,0-6,0.05%,0.0004943275240900997
+2026-11-21,La Liga,Sevilla,Real Betis,Research,36,6-1,0.04%,0.00042937264500604816
+2026-11-21,La Liga,Sevilla,Real Betis,Research,37,2-6,0.04%,0.0003541032706597903
+2026-11-21,La Liga,Sevilla,Real Betis,Research,38,6-0,0.03%,0.0003374202390000951
+2026-11-21,La Liga,Sevilla,Real Betis,Research,39,6-2,0.03%,0.00027319177537456175
+2026-11-21,La Liga,Sevilla,Real Betis,Research,40,4-5,0.02%,0.00019933421029411243
+2026-11-21,La Liga,Sevilla,Real Betis,Research,41,5-4,0.02%,0.00018479556393002154
+2026-11-21,La Liga,Sevilla,Real Betis,Research,42,3-6,0.01%,0.00014128018469812195
+2026-11-21,La Liga,Sevilla,Real Betis,Research,43,6-3,0.01%,0.00011588029962684072
+2026-11-21,La Liga,Sevilla,Real Betis,Research,44,1-7,0.01%,0.0001075604391966557
+2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",1,1-1,12.96%,0.12955339469793598
+2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",2,1-2,8.77%,0.0876985436901499
+2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",3,0-1,8.77%,0.08769505712532015
+2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",4,2-1,7.59%,0.07585246424672838
+2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",5,1-0,7.56%,0.07560823465926213
+2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",6,0-0,6.98%,0.06979979888430807
+2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",7,0-2,6.56%,0.06556605290995159
+2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",8,2-2,5.99%,0.05988436443936939
+2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",9,2-0,5.31%,0.053099163535953314
+2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",10,1-3,4.18%,0.04175929340985501
+2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",11,3-1,3.38%,0.03381907940929587
+2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",12,0-3,3.12%,0.031220496099301477
+2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",13,2-3,2.79%,0.027927784692206976
+2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",14,3-2,2.42%,0.024155375912974147
+2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",15,3-0,2.37%,0.02367444282823081
+2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",16,1-4,1.49%,0.01491334843812995
+2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",17,3-3,1.27%,0.012713534084072511
+2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",18,4-1,1.13%,0.011308763763811314
+2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",19,0-4,1.11%,0.01114966510976165
+2026-11-21,La Liga,Sevilla,Real Betis,"Benchmark (70% Pinnacle blend), display only",20,2-4,1.00%,0.009973750756081116
+2026-11-22,La Liga,Barcelona,Villarreal,Research,1,2-1,8.50%,0.08498368067917678
+2026-11-22,La Liga,Barcelona,Villarreal,Research,2,3-1,8.03%,0.08034565644383873
+2026-11-22,La Liga,Barcelona,Villarreal,Research,3,2-0,6.34%,0.0633619849283623
+2026-11-22,La Liga,Barcelona,Villarreal,Research,4,1-1,6.24%,0.0624074909613857
+2026-11-22,La Liga,Barcelona,Villarreal,Research,5,3-0,5.99%,0.059903974880453466
+2026-11-22,La Liga,Barcelona,Villarreal,Research,6,2-2,5.82%,0.0582474006748007
+2026-11-22,La Liga,Barcelona,Villarreal,Research,7,4-1,5.70%,0.056970565917484846
+2026-11-22,La Liga,Barcelona,Villarreal,Research,8,3-2,5.39%,0.05388143710224606
+2026-11-22,La Liga,Barcelona,Villarreal,Research,9,1-0,4.35%,0.043543829628151606
+2026-11-22,La Liga,Barcelona,Villarreal,Research,10,4-0,4.25%,0.04247601551468731
+2026-11-22,La Liga,Barcelona,Villarreal,Research,11,4-2,3.82%,0.03820562429915548
+2026-11-22,La Liga,Barcelona,Villarreal,Research,12,1-2,3.24%,0.032431481011654946
+2026-11-22,La Liga,Barcelona,Villarreal,Research,13,5-1,3.23%,0.0323168223360244
+2026-11-22,La Liga,Barcelona,Villarreal,Research,14,3-3,2.46%,0.024620049643622154
+2026-11-22,La Liga,Barcelona,Villarreal,Research,15,5-0,2.41%,0.024094720226556027
+2026-11-22,La Liga,Barcelona,Villarreal,Research,16,5-2,2.17%,0.021672320659426113
+2026-11-22,La Liga,Barcelona,Villarreal,Research,17,2-3,2.06%,0.02056223960055363
+2026-11-22,La Liga,Barcelona,Villarreal,Research,18,0-0,1.73%,0.017260970450057766
+2026-11-22,La Liga,Barcelona,Villarreal,Research,19,4-3,1.71%,0.0170809809660001
+2026-11-22,La Liga,Barcelona,Villarreal,Research,20,0-1,1.61%,0.016134008821809258
+2026-11-22,La Liga,Barcelona,Villarreal,Research,21,6-1,1.53%,0.015276558299286518
+2026-11-22,La Liga,Barcelona,Villarreal,Research,22,1-3,1.45%,0.014499475405026089
+2026-11-22,La Liga,Barcelona,Villarreal,Research,23,0-2,1.14%,0.011434538999934631
+2026-11-22,La Liga,Barcelona,Villarreal,Research,24,6-0,1.14%,0.011389869784185687
+2026-11-22,La Liga,Barcelona,Villarreal,Research,25,6-2,1.02%,0.010244771796931687
+2026-11-22,La Liga,Barcelona,Villarreal,Research,26,5-3,0.97%,0.009689267050686332
+2026-11-22,La Liga,Barcelona,Villarreal,Research,27,2-4,0.69%,0.0068947287803478
+2026-11-22,La Liga,Barcelona,Villarreal,Research,28,3-4,0.65%,0.006518445723132895
+2026-11-22,La Liga,Barcelona,Villarreal,Research,29,7-1,0.62%,0.006189785556219289
+2026-11-22,La Liga,Barcelona,Villarreal,Research,30,4-4,0.59%,0.0058536105655461095
+2026-11-22,La Liga,Barcelona,Villarreal,Research,31,0-3,0.51%,0.005112156824962197
+2026-11-22,La Liga,Barcelona,Villarreal,Research,32,1-4,0.49%,0.00486182207371452
+2026-11-22,La Liga,Barcelona,Villarreal,Research,33,7-0,0.46%,0.004614969556373424
+2026-11-22,La Liga,Barcelona,Villarreal,Research,34,6-3,0.46%,0.004580235378283635
+2026-11-22,La Liga,Barcelona,Villarreal,Research,35,7-2,0.42%,0.004150996530309588
+2026-11-22,La Liga,Barcelona,Villarreal,Research,36,5-4,0.32%,0.0032489101232457194
+2026-11-22,La Liga,Barcelona,Villarreal,Research,37,8-1,0.22%,0.0021944906647951615
+2026-11-22,La Liga,Barcelona,Villarreal,Research,38,7-3,0.19%,0.0018558286646219732
+2026-11-22,La Liga,Barcelona,Villarreal,Research,39,2-5,0.18%,0.001849498337847456
+2026-11-22,La Liga,Barcelona,Villarreal,Research,40,3-5,0.17%,0.0017485610985375117
+2026-11-22,La Liga,Barcelona,Villarreal,Research,41,0-4,0.17%,0.0017141583541205934
+2026-11-22,La Liga,Barcelona,Villarreal,Research,42,8-0,0.16%,0.0016361645355548004
+2026-11-22,La Liga,Barcelona,Villarreal,Research,43,6-4,0.15%,0.0015357996646712113
+2026-11-22,La Liga,Barcelona,Villarreal,Research,44,8-2,0.15%,0.0014716702303537404
+2026-11-22,La Liga,Barcelona,Villarreal,Research,45,1-5,0.13%,0.0013041748458438244
+2026-11-22,La Liga,Barcelona,Villarreal,Research,46,4-5,0.12%,0.0012398494173062428
+2026-11-22,La Liga,Barcelona,Villarreal,Research,47,5-5,0.09%,0.000890714867573292
+2026-11-22,La Liga,Barcelona,Villarreal,Research,48,9-1,0.07%,0.0006915751024735499
+2026-11-22,La Liga,Barcelona,Villarreal,Research,49,8-3,0.07%,0.0006579547292846326
+2026-11-22,La Liga,Barcelona,Villarreal,Research,50,7-4,0.06%,0.0006222782903968806
+2026-11-22,La Liga,Barcelona,Villarreal,Research,51,9-0,0.05%,0.0005156233628569657
+2026-11-22,La Liga,Barcelona,Villarreal,Research,52,9-2,0.05%,0.0004637843790778493
+2026-11-22,La Liga,Barcelona,Villarreal,Research,53,0-5,0.05%,0.00045981983160669614
+2026-11-22,La Liga,Barcelona,Villarreal,Research,54,2-6,0.04%,0.00041343711148464953
+2026-11-22,La Liga,Barcelona,Villarreal,Research,55,6-5,0.04%,0.00041197544059634497
+2026-11-22,La Liga,Barcelona,Villarreal,Research,56,3-6,0.04%,0.0003908735871994063
+2026-11-22,La Liga,Barcelona,Villarreal,Research,57,1-6,0.03%,0.0002915354234728061
+2026-11-22,La Liga,Barcelona,Villarreal,Research,58,4-6,0.03%,0.00027715610837672326
+2026-11-22,La Liga,Barcelona,Villarreal,Research,59,8-4,0.02%,0.0002206189353052068
+2026-11-22,La Liga,Barcelona,Villarreal,Research,60,9-3,0.02%,0.00020734884710500677
+2026-11-22,La Liga,Barcelona,Villarreal,Research,61,10-1,0.02%,0.00019614962006017455
+2026-11-22,La Liga,Barcelona,Villarreal,Research,62,7-5,0.02%,0.0001669250090080454
+2026-11-22,La Liga,Barcelona,Villarreal,Research,63,5-6,0.02%,0.0001572181102558708
+2026-11-22,La Liga,Barcelona,Villarreal,Research,64,10-0,0.01%,0.0001462448927915411
+2026-11-22,La Liga,Barcelona,Villarreal,Research,65,10-2,0.01%,0.00013154193871437616
+2026-11-22,La Liga,Barcelona,Villarreal,Research,66,0-6,0.01%,0.00010278818806838539
+2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",1,2-1,9.04%,0.09038529957894732
+2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",2,3-1,8.79%,0.08790310387069643
+2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",3,2-0,7.88%,0.07884364439718564
+2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",4,3-0,7.67%,0.0766784100431786
+2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",5,4-1,6.41%,0.06411680637861894
+2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",6,4-0,5.59%,0.055929478638100355
+2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",7,1-1,5.21%,0.052137525198628354
+2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",8,1-0,5.20%,0.0519769366815673
+2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",9,3-2,5.04%,0.05038547138465244
+2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",10,2-2,4.22%,0.04218698399981445
+2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",11,5-1,3.74%,0.037413603653772706
+2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",12,4-2,3.68%,0.03675132470654601
+2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",13,5-0,3.26%,0.03263611312721011
+2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",14,1-2,2.20%,0.02197924696540216
+2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",15,5-2,2.14%,0.02144522745256911
+2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",16,6-1,1.82%,0.018193068471726758
+2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",17,0-0,1.68%,0.016769525962394713
+2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",18,6-0,1.59%,0.01586992384558715
+2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",19,3-3,1.57%,0.015678147405455166
+2026-11-22,La Liga,Barcelona,Villarreal,"Benchmark (70% Pinnacle blend), display only",20,4-3,1.40%,0.014043742392180696
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,1,1-0,14.17%,0.1417140996780022
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,2,2-0,12.53%,0.12532426375911415
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,3,1-1,11.60%,0.11599579489143909
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,4,2-1,9.71%,0.09714717740196219
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,5,0-0,8.64%,0.08642697512464433
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,6,3-0,7.28%,0.07280100884868926
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,7,3-1,5.64%,0.05643290700082887
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,8,0-1,5.11%,0.051101790190542805
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,9,2-2,3.84%,0.03844551680456365
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,10,1-2,3.57%,0.03569546701112146
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,11,4-0,3.17%,0.03171764228099141
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,12,4-1,2.46%,0.024586455399937392
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,13,3-2,2.19%,0.021872450965502922
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,14,0-2,2.05%,0.02048281195298796
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,15,5-0,1.11%,0.01105488891183735
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,16,4-2,0.95%,0.009529298927357344
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,17,1-3,0.92%,0.009223310693292408
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,18,5-1,0.86%,0.008569380118932839
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,19,2-3,0.80%,0.008036747672667965
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,20,3-3,0.58%,0.005770609801469142
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,21,0-3,0.53%,0.005292530237966371
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,22,5-2,0.33%,0.003321348419165455
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,23,6-0,0.32%,0.00321089883695175
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,24,6-1,0.25%,0.002488981379796224
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,25,4-3,0.25%,0.0024622645970394747
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,26,1-4,0.18%,0.0017874004867025005
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,27,2-4,0.16%,0.0015574544953883727
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,28,0-4,0.10%,0.0010256481037886347
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,29,6-2,0.10%,0.0009646875569043982
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,30,3-4,0.09%,0.0009047271063019029
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,31,5-3,0.09%,0.0008581994005315615
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,32,7-0,0.08%,0.0007993777819563473
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,33,7-1,0.06%,0.0006196509188688752
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,34,4-4,0.05%,0.0004872145412474498
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,35,1-5,0.03%,0.0002771066144123484
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,36,6-3,0.02%,0.0002492645090344463
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,37,2-5,0.02%,0.00024145732617236208
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,38,7-2,0.02%,0.0002401663330667909
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,39,8-0,0.02%,0.00017413480208880574
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,40,5-4,0.02%,0.0001663118675285936
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,41,0-5,0.02%,0.00015900962080616165
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,42,3-5,0.01%,0.00014026283827242198
+2026-11-22,La Liga,CA Osasuna,Málaga,Research,43,8-1,0.01%,0.0001349834740931924
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,1,1-0,13.03%,0.1303067090334327
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,2,1-1,12.75%,0.12745500950256194
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,3,2-1,10.39%,0.10385779312904066
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,4,2-0,9.32%,0.09324950853691
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,5,0-0,8.72%,0.08715622710811678
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,6,0-1,6.94%,0.06940372099795374
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,7,1-2,5.78%,0.05783506092486847
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,8,3-0,4.98%,0.04984197300768133
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,9,3-1,4.68%,0.04676002330346909
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,10,2-2,4.52%,0.045206112979243714
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,11,0-2,3.00%,0.03001045545502791
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,12,3-2,2.60%,0.02603977706240971
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,13,4-0,2.01%,0.020103560514812886
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,14,4-1,1.87%,0.018744965972723224
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,15,1-3,1.50%,0.015048761311909504
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,16,2-3,1.45%,0.014500713403406092
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,17,0-3,0.93%,0.009270329873430658
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,18,4-2,0.88%,0.008792940897144963
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,19,3-3,0.76%,0.007556211035442951
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,20,5-0,0.65%,0.006486952598131839
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,21,5-1,0.60%,0.006048565657265191
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,22,1-4,0.35%,0.0034864594546968795
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,23,4-3,0.33%,0.003264415548564149
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,24,2-4,0.28%,0.002829828974465994
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,25,5-2,0.28%,0.002819902408473278
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,26,0-4,0.22%,0.0021609607152093375
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,27,3-4,0.18%,0.0018178479095999954
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,28,6-0,0.17%,0.0017443242611759914
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,29,6-1,0.16%,0.0016264431813980023
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,30,5-3,0.09%,0.0008818451222051866
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,31,6-2,0.08%,0.0007582642405410991
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,32,4-4,0.07%,0.0007104499992419287
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,33,1-5,0.07%,0.0006501690463778071
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,34,2-5,0.05%,0.0005244861701883296
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,35,0-5,0.04%,0.0004029846856743993
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,36,7-0,0.04%,0.0004020378376571834
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,37,7-1,0.04%,0.00037486820213157004
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,38,3-5,0.03%,0.0002838038953062921
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,39,5-4,0.02%,0.0002455414771370834
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,40,6-3,0.02%,0.00023567363232005097
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,41,7-2,0.02%,0.00017476734253205035
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,42,4-5,0.01%,0.00013673414254201563
+2026-11-22,La Liga,CA Osasuna,Málaga,Cagey,43,1-6,0.01%,0.00010103845901567088
+2026-11-22,La Liga,CA Osasuna,Málaga,"Benchmark (70% Pinnacle blend), display only",1,1-1,11.90%,0.11899717945260341
+2026-11-22,La Liga,CA Osasuna,Málaga,"Benchmark (70% Pinnacle blend), display only",2,1-0,11.57%,0.11566811829083726
+2026-11-22,La Liga,CA Osasuna,Málaga,"Benchmark (70% Pinnacle blend), display only",3,2-0,11.30%,0.11296004588045275
+2026-11-22,La Liga,CA Osasuna,Málaga,"Benchmark (70% Pinnacle blend), display only",4,0-0,8.76%,0.08764655786175078
+2026-11-22,La Liga,CA Osasuna,Málaga,"Benchmark (70% Pinnacle blend), display only",5,2-1,8.14%,0.08143151811346079
+2026-11-22,La Liga,CA Osasuna,Málaga,"Benchmark (70% Pinnacle blend), display only",6,3-0,7.18%,0.071772542011735
+2026-11-22,La Liga,CA Osasuna,Málaga,"Benchmark (70% Pinnacle blend), display only",7,0-1,6.99%,0.06992760779337844
+2026-11-22,La Liga,CA Osasuna,Málaga,"Benchmark (70% Pinnacle blend), display only",8,3-1,5.17%,0.05173994937168397
+2026-11-22,La Liga,CA Osasuna,Málaga,"Benchmark (70% Pinnacle blend), display only",9,1-2,5.13%,0.05131148671075159
+2026-11-22,La Liga,CA Osasuna,Málaga,"Benchmark (70% Pinnacle blend), display only",10,2-2,3.96%,0.03955745589645105
+2026-11-22,La Liga,CA Osasuna,Málaga,"Benchmark (70% Pinnacle blend), display only",11,4-0,3.42%,0.03420212261783664
+2026-11-22,La Liga,CA Osasuna,Málaga,"Benchmark (70% Pinnacle blend), display only",12,0-2,2.69%,0.026919059065294806
+2026-11-22,La Liga,CA Osasuna,Málaga,"Benchmark (70% Pinnacle blend), display only",13,4-1,2.47%,0.024655892672181764
+2026-11-22,La Liga,CA Osasuna,Málaga,"Benchmark (70% Pinnacle blend), display only",14,3-2,1.86%,0.018649348942850037
+2026-11-22,La Liga,CA Osasuna,Málaga,"Benchmark (70% Pinnacle blend), display only",15,5-0,1.30%,0.013038804632270327
+2026-11-22,La Liga,CA Osasuna,Málaga,"Benchmark (70% Pinnacle blend), display only",16,1-3,1.23%,0.012329941461299818
+2026-11-22,La Liga,CA Osasuna,Málaga,"Benchmark (70% Pinnacle blend), display only",17,2-3,1.18%,0.011751295353623499
+2026-11-22,La Liga,CA Osasuna,Málaga,"Benchmark (70% Pinnacle blend), display only",18,5-1,0.94%,0.009399515087965559
+2026-11-22,La Liga,CA Osasuna,Málaga,"Benchmark (70% Pinnacle blend), display only",19,4-2,0.89%,0.008887066020065018
+2026-11-22,La Liga,CA Osasuna,Málaga,"Benchmark (70% Pinnacle blend), display only",20,0-3,0.65%,0.006468540355093825
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,1,0-1,15.89%,0.1588812157717211
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,2,1-1,13.31%,0.13305293778359695
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,3,0-0,12.42%,0.12415004343886629
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,4,0-2,10.94%,0.10941249016666937
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,5,1-2,8.66%,0.08655102884972092
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,6,1-0,8.12%,0.08116614435370985
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,7,0-3,4.95%,0.04947760173274464
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,8,2-1,4.47%,0.04470203793934254
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,9,1-3,3.91%,0.03913938279315686
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,10,2-2,3.50%,0.03503303281697096
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,11,2-0,3.30%,0.03295067609843022
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,12,0-4,1.68%,0.01678076060714122
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,13,2-3,1.55%,0.015480654192818796
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,14,1-4,1.33%,0.013274463392767076
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,15,3-1,1.18%,0.011787220299485151
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,16,3-0,0.87%,0.008688572067255719
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,17,3-2,0.80%,0.007995477353074343
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,18,2-4,0.53%,0.005250399028126432
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,19,0-5,0.46%,0.004553073175619532
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,20,3-3,0.42%,0.004177375848467058
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,21,1-5,0.36%,0.003601720125167064
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,22,4-1,0.23%,0.0023310776554045128
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,23,4-0,0.17%,0.0017182792625192777
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,24,4-2,0.16%,0.0015812106780475211
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,25,2-5,0.14%,0.0014245749364953171
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,26,3-4,0.14%,0.001384447171932207
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,27,0-6,0.10%,0.0010294763463484919
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,28,1-6,0.08%,0.0008143698842534622
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,29,4-3,0.07%,0.0007150418756105705
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,30,3-5,0.04%,0.00037563787656349384
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,31,5-1,0.04%,0.0003688009825871191
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,32,2-6,0.03%,0.00032210468493585763
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,33,4-4,0.03%,0.0002801895243318073
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,34,5-0,0.03%,0.0002718498368799357
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,35,5-2,0.03%,0.0002501641463505753
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,36,0-7,0.02%,0.00019951765201442316
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,37,1-7,0.02%,0.00015782894648703878
+2026-11-22,La Liga,Getafe,Atlético Madrid,Research,38,5-3,0.01%,0.00011312713916017247
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,1,0-1,15.28%,0.15276475392233524
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,2,0-2,11.78%,0.11778535597071552
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,3,1-2,10.83%,0.10826292275611583
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,4,1-1,10.82%,0.10822881976186435
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,5,0-0,7.87%,0.07871213559612797
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,6,0-3,6.80%,0.06799471335773696
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,7,1-0,5.56%,0.05558892733816999
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,8,1-3,5.45%,0.05452737628382924
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,9,2-1,4.06%,0.04057009542005168
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,10,2-2,3.66%,0.036606070658273364
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,11,0-4,3.11%,0.03108485067674348
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,12,2-3,2.51%,0.025059537656691288
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,13,1-4,2.36%,0.02360802807369088
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,14,2-0,1.83%,0.018331368105488303
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,15,0-5,1.14%,0.011368741996298034
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,16,2-4,0.95%,0.009466058216325061
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,17,3-2,0.94%,0.009390729605597236
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,18,1-5,0.86%,0.008634224529569787
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,19,3-1,0.85%,0.008486296095533839
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,20,3-3,0.56%,0.005648786508322754
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,21,3-0,0.44%,0.004394971112170226
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,22,0-6,0.35%,0.0034649325894700613
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,23,2-5,0.33%,0.0032787195474793963
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,24,3-4,0.29%,0.0029002562076666906
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,25,1-6,0.26%,0.0026315141962980526
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,26,4-1,0.15%,0.001525951008180387
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,27,4-2,0.15%,0.001473237451645345
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,28,4-3,0.11%,0.0010868325747374855
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,29,2-6,0.10%,0.0009992787430212755
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,30,0-7,0.09%,0.000905170474331995
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,31,3-5,0.09%,0.0008764405626358516
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,32,4-0,0.08%,0.0008344627619266802
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,33,1-7,0.07%,0.0006874503014902218
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,34,4-4,0.05%,0.0004903201436012654
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,35,2-7,0.03%,0.00026104912302169425
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,36,3-6,0.03%,0.0002529742527854435
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,37,5-1,0.02%,0.0002317829647298376
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,38,5-2,0.02%,0.00021192644228479763
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,39,0-8,0.02%,0.00020690644641423034
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,40,4-5,0.02%,0.00020139603975167136
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,41,1-8,0.02%,0.0001571393488864105
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,42,5-3,0.01%,0.00013640366787407432
+2026-11-22,La Liga,Getafe,Atlético Madrid,Cagey,43,5-0,0.01%,0.00012674997550979732
+2026-11-22,La Liga,Getafe,Atlético Madrid,"Benchmark (70% Pinnacle blend), display only",1,0-1,13.35%,0.13351044959743552
+2026-11-22,La Liga,Getafe,Atlético Madrid,"Benchmark (70% Pinnacle blend), display only",2,1-1,11.81%,0.11813306631737357
+2026-11-22,La Liga,Getafe,Atlético Madrid,"Benchmark (70% Pinnacle blend), display only",3,0-2,11.22%,0.11221379107287838
+2026-11-22,La Liga,Getafe,Atlético Madrid,"Benchmark (70% Pinnacle blend), display only",4,1-2,10.59%,0.10588901398202902
+2026-11-22,La Liga,Getafe,Atlético Madrid,"Benchmark (70% Pinnacle blend), display only",5,0-0,7.82%,0.07823116287350416
+2026-11-22,La Liga,Getafe,Atlético Madrid,"Benchmark (70% Pinnacle blend), display only",6,0-3,6.09%,0.06089413621757707
+2026-11-22,La Liga,Getafe,Atlético Madrid,"Benchmark (70% Pinnacle blend), display only",7,1-3,5.75%,0.05746192138877892
+2026-11-22,La Liga,Getafe,Atlético Madrid,"Benchmark (70% Pinnacle blend), display only",8,1-0,5.21%,0.052066353503261616
+2026-11-22,La Liga,Getafe,Atlético Madrid,"Benchmark (70% Pinnacle blend), display only",9,2-2,4.39%,0.04390317524276549
+2026-11-22,La Liga,Getafe,Atlético Madrid,"Benchmark (70% Pinnacle blend), display only",10,2-1,4.23%,0.04229288135359922
+2026-11-22,La Liga,Getafe,Atlético Madrid,"Benchmark (70% Pinnacle blend), display only",11,2-3,2.71%,0.02711157933082827
+2026-11-22,La Liga,Getafe,Atlético Madrid,"Benchmark (70% Pinnacle blend), display only",12,2-0,2.60%,0.02597866202379888
+2026-11-22,La Liga,Getafe,Atlético Madrid,"Benchmark (70% Pinnacle blend), display only",13,0-4,2.48%,0.024783690513204636
+2026-11-22,La Liga,Getafe,Atlético Madrid,"Benchmark (70% Pinnacle blend), display only",14,1-4,2.34%,0.02338679164287939
+2026-11-22,La Liga,Getafe,Atlético Madrid,"Benchmark (70% Pinnacle blend), display only",15,3-1,1.33%,0.013303033617567416
+2026-11-22,La Liga,Getafe,Atlético Madrid,"Benchmark (70% Pinnacle blend), display only",16,2-4,1.10%,0.011034313534863685
+2026-11-22,La Liga,Getafe,Atlético Madrid,"Benchmark (70% Pinnacle blend), display only",17,3-2,1.08%,0.010828571962545734
+2026-11-22,La Liga,Getafe,Atlético Madrid,"Benchmark (70% Pinnacle blend), display only",18,3-0,0.82%,0.008171470072057591
+2026-11-22,La Liga,Getafe,Atlético Madrid,"Benchmark (70% Pinnacle blend), display only",19,0-5,0.81%,0.008069497046607418
+2026-11-22,La Liga,Getafe,Atlético Madrid,"Benchmark (70% Pinnacle blend), display only",20,1-5,0.76%,0.007614670865555285
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,1,1-2,8.29%,0.08289361384458091
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,2,1-1,7.58%,0.07582927879928265
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,3,2-2,7.37%,0.0736804593171114
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,4,1-3,6.34%,0.06340379292770844
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,5,2-1,5.75%,0.05751774150027047
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,6,2-3,5.47%,0.0547142284705331
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,7,0-2,4.80%,0.04802927569436331
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,8,0-1,4.05%,0.04049255946564574
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,9,3-2,3.80%,0.03796479250446622
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,10,0-3,3.67%,0.03673670514960075
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,11,1-4,3.64%,0.036372291885690335
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,12,3-1,3.31%,0.033089911546701364
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,13,3-3,3.24%,0.03242203508743756
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,14,2-4,3.14%,0.03138742646673558
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,15,1-0,2.78%,0.027783596597110796
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,16,2-0,2.51%,0.02506607903080311
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,17,0-4,2.11%,0.0210744200136942
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,18,0-0,2.02%,0.020201681798748147
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,19,3-4,1.81%,0.01805716181428977
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,20,1-5,1.67%,0.0166922962293596
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,21,4-2,1.64%,0.016380836500539796
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,22,3-0,1.44%,0.014420495595224314
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,23,2-5,1.44%,0.014404597381616114
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,24,4-1,1.43%,0.014277450108546565
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,25,4-3,1.25%,0.012529399036820632
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,26,0-5,0.97%,0.009671660582624059
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,27,3-5,0.83%,0.008286953569296212
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,28,4-4,0.80%,0.008025105401574018
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,29,1-6,0.64%,0.006383814413005426
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,30,4-0,0.62%,0.0062220748493313814
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,31,5-2,0.57%,0.0056543294301076505
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,32,2-6,0.55%,0.00550890513292964
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,33,5-1,0.49%,0.004928283505728675
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,34,5-3,0.43%,0.0043248920598849
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,35,0-6,0.37%,0.0036988371987105974
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,36,4-5,0.36%,0.0035756084137753817
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,37,3-6,0.32%,0.0031692687997311878
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,38,5-4,0.25%,0.002481022492701582
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,39,5-0,0.21%,0.002147732866740213
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,40,1-7,0.21%,0.0020926549879946446
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,41,2-7,0.18%,0.00180585415849944
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,42,6-2,0.16%,0.001626465641886275
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,43,6-1,0.14%,0.001417618816629494
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,44,4-6,0.14%,0.0013674583899951837
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,45,5-5,0.13%,0.0012712799360348856
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,46,6-3,0.12%,0.0012440535039953669
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,47,0-7,0.12%,0.0012125023712927434
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,48,3-7,0.10%,0.0010389064801980849
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,49,6-4,0.07%,0.0007136651465051512
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,50,6-0,0.06%,0.0006177945163758107
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,51,1-8,0.06%,0.0006002374189677518
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,52,2-8,0.05%,0.0005179741741225138
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,53,5-6,0.05%,0.0004720186431714032
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,54,4-7,0.04%,0.00044826156206369575
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,55,7-2,0.04%,0.00040101617458709974
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,56,7-1,0.03%,0.00034952356829877666
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,57,0-8,0.03%,0.0003477827439364302
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,58,6-5,0.03%,0.00032752156700689033
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,59,7-3,0.03%,0.00030672985909208783
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,60,3-8,0.03%,0.0002979901358802324
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,61,7-4,0.02%,0.0001759589994509388
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,62,5-7,0.02%,0.00015473071492284649
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,63,1-9,0.02%,0.00015303683542718617
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,64,7-0,0.02%,0.00015232144304665106
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,65,6-6,0.01%,0.00013985215033297894
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,66,2-9,0.01%,0.00013206295698299115
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,Research,67,4-8,0.01%,0.00012857511848783263
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,"Benchmark (70% Pinnacle blend), display only",1,1-1,8.08%,0.0808311044646439
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,"Benchmark (70% Pinnacle blend), display only",2,1-2,8.05%,0.08047171351214548
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,"Benchmark (70% Pinnacle blend), display only",3,2-2,7.45%,0.07454820828677192
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,"Benchmark (70% Pinnacle blend), display only",4,2-1,6.31%,0.06307496955754553
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,"Benchmark (70% Pinnacle blend), display only",5,1-3,6.05%,0.06050691577022615
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,"Benchmark (70% Pinnacle blend), display only",6,2-3,5.11%,0.051130660705671606
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,"Benchmark (70% Pinnacle blend), display only",7,0-2,4.76%,0.04761424088956725
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,"Benchmark (70% Pinnacle blend), display only",8,3-2,4.01%,0.040077000062645245
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,"Benchmark (70% Pinnacle blend), display only",9,0-1,3.98%,0.03983320368820368
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,"Benchmark (70% Pinnacle blend), display only",10,0-3,3.58%,0.03580128640523455
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,"Benchmark (70% Pinnacle blend), display only",11,3-1,3.55%,0.03553384299313869
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,"Benchmark (70% Pinnacle blend), display only",12,1-4,3.41%,0.03412149464922862
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,"Benchmark (70% Pinnacle blend), display only",13,3-3,3.16%,0.031577962638605725
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,"Benchmark (70% Pinnacle blend), display only",14,1-0,3.06%,0.030596637113356494
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,"Benchmark (70% Pinnacle blend), display only",15,2-4,2.88%,0.02883396953011768
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,"Benchmark (70% Pinnacle blend), display only",16,2-0,2.80%,0.027962373200980686
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,"Benchmark (70% Pinnacle blend), display only",17,0-0,2.31%,0.023130122519210646
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,"Benchmark (70% Pinnacle blend), display only",18,0-4,2.02%,0.020189318641701877
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,"Benchmark (70% Pinnacle blend), display only",19,4-2,1.69%,0.016933299823824702
+2026-11-22,La Liga,Real Racing Club de Santander,Real Sociedad,"Benchmark (70% Pinnacle blend), display only",20,3-4,1.62%,0.01624387222600852
