@@ -1,0 +1,374 @@
+{
+  "fixture": {
+    "away_team": "1. FC K\u00f6ln",
+    "home_team": "Bayern Munich",
+    "kickoff_utc": "2026-11-20T19:30:00+00:00",
+    "league": "Bundesliga",
+    "odds_event_id": "cae480fb1195f0032554a268cb80eb44"
+  },
+  "observed_at_utc": "2026-11-20T19:25:03.895770+00:00",
+  "payload": {
+    "away_team": "1. FC K\u00f6ln",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-20T19:24:47Z",
+            "outcomes": [
+              {
+                "name": "1. FC K\u00f6ln",
+                "price": 31.0
+              },
+              {
+                "name": "Bayern Munich",
+                "price": 1.08
+              },
+              {
+                "name": "Draw",
+                "price": 13.0
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-20T19:24:47Z",
+            "outcomes": [
+              {
+                "name": "1. FC K\u00f6ln",
+                "point": 3.0,
+                "price": 1.83
+              },
+              {
+                "name": "Bayern Munich",
+                "point": -3.0,
+                "price": 2.07
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-20T19:24:47Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 4.5,
+                "price": 1.93
+              },
+              {
+                "name": "Under",
+                "point": 4.5,
+                "price": 1.93
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-20T19:24:47Z",
+            "outcomes": [
+              {
+                "name": "1. FC K\u00f6ln",
+                "point": 3.0,
+                "price": 1.83
+              },
+              {
+                "name": "1. FC K\u00f6ln",
+                "point": 4.0,
+                "price": 1.29
+              },
+              {
+                "name": "1. FC K\u00f6ln",
+                "point": 3.75,
+                "price": 1.41
+              },
+              {
+                "name": "1. FC K\u00f6ln",
+                "point": 3.5,
+                "price": 1.54
+              },
+              {
+                "name": "1. FC K\u00f6ln",
+                "point": 3.25,
+                "price": 1.66
+              },
+              {
+                "name": "1. FC K\u00f6ln",
+                "point": 2.75,
+                "price": 2.04
+              },
+              {
+                "name": "1. FC K\u00f6ln",
+                "point": 2.5,
+                "price": 2.23
+              },
+              {
+                "name": "1. FC K\u00f6ln",
+                "point": 2.25,
+                "price": 2.56
+              },
+              {
+                "name": "1. FC K\u00f6ln",
+                "point": 2.0,
+                "price": 3.15
+              },
+              {
+                "name": "Bayern Munich",
+                "point": -3.0,
+                "price": 2.07
+              },
+              {
+                "name": "Bayern Munich",
+                "point": -4.0,
+                "price": 3.55
+              },
+              {
+                "name": "Bayern Munich",
+                "point": -3.75,
+                "price": 2.88
+              },
+              {
+                "name": "Bayern Munich",
+                "point": -3.5,
+                "price": 2.51
+              },
+              {
+                "name": "Bayern Munich",
+                "point": -3.25,
+                "price": 2.29
+              },
+              {
+                "name": "Bayern Munich",
+                "point": -2.75,
+                "price": 1.83
+              },
+              {
+                "name": "Bayern Munich",
+                "point": -2.5,
+                "price": 1.67
+              },
+              {
+                "name": "Bayern Munich",
+                "point": -2.25,
+                "price": 1.5
+              },
+              {
+                "name": "Bayern Munich",
+                "point": -2.0,
+                "price": 1.35
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-20T19:24:38Z",
+            "outcomes": [
+              {
+                "name": "1. FC K\u00f6ln",
+                "price": 19.6
+              },
+              {
+                "name": "Bayern Munich",
+                "price": 1.03
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-20T19:30:00Z",
+    "home_team": "Bayern Munich",
+    "id": "cae480fb1195f0032554a268cb80eb44",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 19.6,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-20T19:24:38+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.03,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-20T19:24:38+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.08,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.9185380447925553,
+      "selection": "home",
+      "updated_at_utc": "2026-11-20T19:24:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 13.0,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.05889870198750902,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-20T19:24:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 31.0,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.02256325321993579,
+      "selection": "away",
+      "updated_at_utc": "2026-11-20T19:24:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.83,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +3.00",
+      "updated_at_utc": "2026-11-20T19:24:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.07,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -3.00",
+      "updated_at_utc": "2026-11-20T19:24:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.15,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.00",
+      "updated_at_utc": "2026-11-20T19:24:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.56,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.25",
+      "updated_at_utc": "2026-11-20T19:24:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.23,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.50",
+      "updated_at_utc": "2026-11-20T19:24:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.04,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.75",
+      "updated_at_utc": "2026-11-20T19:24:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.66,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +3.25",
+      "updated_at_utc": "2026-11-20T19:24:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.54,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +3.50",
+      "updated_at_utc": "2026-11-20T19:24:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.41,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +3.75",
+      "updated_at_utc": "2026-11-20T19:24:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.29,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +4.00",
+      "updated_at_utc": "2026-11-20T19:24:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.55,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -4.00",
+      "updated_at_utc": "2026-11-20T19:24:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.88,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -3.75",
+      "updated_at_utc": "2026-11-20T19:24:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.51,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -3.50",
+      "updated_at_utc": "2026-11-20T19:24:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.29,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -3.25",
+      "updated_at_utc": "2026-11-20T19:24:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.83,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.75",
+      "updated_at_utc": "2026-11-20T19:24:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.67,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.50",
+      "updated_at_utc": "2026-11-20T19:24:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.25",
+      "updated_at_utc": "2026-11-20T19:24:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.35,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.00",
+      "updated_at_utc": "2026-11-20T19:24:47+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

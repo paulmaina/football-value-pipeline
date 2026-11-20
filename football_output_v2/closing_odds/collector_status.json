@@ -1,49 +1,36 @@
 {
   "already_complete_fixtures": 0,
-  "checked_at_utc": "2026-11-08T18:26:42.929636+00:00",
-  "coverage_checks": [],
-  "daily_request_cap": 100,
-  "daily_requests": 46,
-  "eligible_fixtures": 1,
-  "errors": [
+  "checked_at_utc": "2026-11-20T19:25:00.707648+00:00",
+  "coverage_checks": [
     {
-      "at_utc": "2026-11-08T18:26:45.939683+00:00",
-      "attempts": [
+      "event_id": "cae480fb1195f0032554a268cb80eb44",
+      "missing_required_quotes": [
         {
-          "credential": "THE_ODDS_API_KEY",
-          "error_code": "OUT_OF_USAGE_CREDITS",
-          "http_status": 401,
-          "x-requests-last": 0,
-          "x-requests-remaining": 0,
-          "x-requests-used": 500
-        },
-        {
-          "credential": "THE_ODDS_API_KEY_FALLBACK_1",
-          "error_code": "OUT_OF_USAGE_CREDITS",
-          "http_status": 401,
-          "x-requests-last": 0,
-          "x-requests-remaining": 0,
-          "x-requests-used": 500
-        },
-        {
-          "credential": "THE_ODDS_API_KEY_FALLBACK_2",
-          "error_code": "OUT_OF_USAGE_CREDITS",
-          "http_status": 401,
-          "x-requests-last": 0,
-          "x-requests-remaining": 1,
-          "x-requests-used": 499
+          "bookmaker": "pinnacle",
+          "selection": "Asian Handicap Home -1.75"
         }
       ],
-      "category": "CREDITS_EXHAUSTED",
-      "error": "OddsProviderError",
-      "event_id": "8963081c3457212ee238b498bbc33a03"
+      "requested_markets": [
+        "alternate_spreads",
+        "draw_no_bet",
+        "h2h",
+        "spreads",
+        "totals"
+      ],
+      "returned_bookmakers": [
+        "pinnacle"
+      ]
     }
   ],
+  "daily_request_cap": 100,
+  "daily_requests": 10,
+  "eligible_fixtures": 1,
+  "errors": [],
   "reason": "CHECKED_ELIGIBLE_FIXTURES",
-  "request_limit": 10,
+  "request_limit": 9,
   "requests": 1,
   "reservation_allowance": 10,
-  "reservation_id": "actions-42509814197-1-1",
-  "reservation_used": 1,
-  "written": 0
+  "reservation_id": "actions-44762272510-1-1",
+  "reservation_used": 2,
+  "written": 1
 }
