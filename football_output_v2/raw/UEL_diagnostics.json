@@ -10,7 +10,7 @@
     "2026"
   ],
   "training_sha256": "7423d6cb39c84355e5fbdd4ed6b7bfedf9856d0b77390f595fb8f318aaee7986",
-  "training_as_of_utc": "2026-11-20T14:28:09.001231+00:00",
+  "training_as_of_utc": "2026-11-20T16:52:21.927874+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -52,9 +52,9 @@
   },
   "training_end": "2026-11-05",
   "fit_success": true,
-  "objective": 823.7095902426404,
-  "base": 0.12759224871650993,
-  "home_adv": 0.23246232210399,
+  "objective": 823.590924483843,
+  "base": 0.1275645992036516,
+  "home_adv": 0.23248755838666116,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -92,7 +92,7 @@
   "live_odds_matched": 0,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 7,
+  "additional_event_odds_calls_used_before_this_league": 13,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"

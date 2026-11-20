@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "96734a2d2873ac25cde716800a3fbed4b7e2322a8ac8423688a7fc486bdfc34c",
-  "training_as_of_utc": "2026-11-20T14:27:24.884734+00:00",
+  "training_sha256": "990a572c9d507420cdc30894831bce7e0c59b371a96cb4526bb7388e9cd3a5be",
+  "training_as_of_utc": "2026-11-20T16:51:29.691051+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 90,
     "bbs_added_results": 0,
@@ -35,9 +35,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-20T14:27:24.884734+00:00",
-    "observations": 928,
-    "observations_sha256": "404f03b32e7a8c5dfab39eecb564a7db7a4a8c50a5e5e9703f5c5e7a380c2be1",
+    "cutoff_utc": "2026-11-20T16:51:29.691051+00:00",
+    "observations": 930,
+    "observations_sha256": "5fb604d8ffc04853ea9063649beba6c661daa5c3a151c3941959f0493326e809",
     "eligible_training_matches": 348,
     "required_training_matches": 120,
     "feature_fields": [
@@ -71,7 +71,7 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:29.253586+00:00",
-    "retrospective_inputs_sha256": "162fcb8ef50131dffa824ba78df351d3b6e3e8a7949b78576577e4f558e963dd",
+    "retrospective_inputs_sha256": "9fb61c2b9f25e8cd734fd900f186df8e0237a33e04300481854a37c70c0c566c",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "training_matches": 288,
@@ -186,10 +186,10 @@
   },
   "training_end": "2026-11-08",
   "fit_success": true,
-  "objective": 1586.0369014622622,
-  "base": 0.19400635084907517,
-  "home_adv": 0.19860970300666783,
-  "rho": -0.049829570546238044,
+  "objective": 1585.807795314901,
+  "base": 0.19400532843556095,
+  "home_adv": 0.1986468930509375,
+  "rho": -0.04981713269846439,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -220,11 +220,11 @@
   "live_odds_matched": 9,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 6,
+  "additional_event_odds_calls_used_before_this_league": 13,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261120T142724884734Z_013ba74eb0f5fd0faffdd4639228011a8b534d88716aeee7c094c66d5c56249f.json",
-  "over_1_5_in_window_quote_fixtures": 1,
+  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261120T165129691051Z_f91dd1991e1ce599c2a1d435178a80152db757f562fdc7fe31338405f980fb7f.json",
+  "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -233,20 +233,12 @@
       "home_team": "Troyes",
       "away_team": "Le Havre",
       "kickoff_utc": "2026-11-20T19:45:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "count_market_quotes": 4,
-      "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 20,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "status": "NOT_REQUESTED_LOW_CREDITS",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "651c1847b5cdcc85e60a140edd2282c4",
@@ -254,7 +246,7 @@
       "home_team": "Nice",
       "away_team": "Paris Saint Germain",
       "kickoff_utc": "2026-11-21T16:15:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "NOT_REQUESTED_LOW_CREDITS",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
@@ -353,10 +345,10 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 1,
-  "additional_odds_unrequested_linked_fixtures": 0,
+  "additional_odds_in_window_linked_fixtures": 2,
+  "additional_odds_unrequested_linked_fixtures": 2,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 1,
+  "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
     "ANCHORED_MAIN": 2,
     "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 7

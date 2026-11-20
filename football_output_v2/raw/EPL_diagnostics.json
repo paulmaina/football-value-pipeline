@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "93cac8c67726cd880b33cb803b821b6b6d740ddb55b761e48bfa8671ec4d98fd",
-  "training_as_of_utc": "2026-11-20T14:24:13.241530+00:00",
+  "training_sha256": "11eda0ac334280668c142a9f6d2c925c2a089ebc7931731bfe3decdb7f68890e",
+  "training_as_of_utc": "2026-11-20T16:47:29.840486+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 100,
     "bbs_added_results": 0,
@@ -35,9 +35,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_CHRONOLOGICAL_PARTITIONS",
-    "cutoff_utc": "2026-11-20T14:24:13.241530+00:00",
-    "observations": 1150,
-    "observations_sha256": "59139797dfed678eda2db636bfd9673e81059e3e3b80724d880e426bc09c3517",
+    "cutoff_utc": "2026-11-20T16:47:29.840486+00:00",
+    "observations": 1152,
+    "observations_sha256": "643c36313e138a528acaad984409d3312a4cdb027628b4562ea5eee3df20d3ef",
     "eligible_training_matches": 543,
     "required_training_matches": 120,
     "feature_fields": [
@@ -71,7 +71,7 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:26.478110+00:00",
-    "retrospective_inputs_sha256": "f97686d67b6d1826b3c2f46d1d5378912710c254bf7f4e113f2964dcb4452e19",
+    "retrospective_inputs_sha256": "53213e823e22431155f9d2e39752750450ef32098c0f0e6484d6b8a727813f71",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "training_matches": 483,
@@ -146,10 +146,10 @@
   },
   "training_end": "2026-11-08",
   "fit_success": true,
-  "objective": 1866.9318413547703,
-  "base": 0.2088457356300055,
-  "home_adv": 0.1851813916346091,
-  "rho": -0.05154864209374039,
+  "objective": 1866.6636572352534,
+  "base": 0.20892492098922436,
+  "home_adv": 0.1852557439809355,
+  "rho": -0.05155749813135922,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -183,8 +183,8 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261120T142413241530Z_99bdcb8cd8a65162712a8f5e520910d7f8c0abd7fd6d82adfdc4d10c83677eb1.json",
-  "over_1_5_in_window_quote_fixtures": 0,
+  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261120T164729840486Z_ec2da3fe663c0d42d3fc954d04d77d7ca8a0d098e4a8094c52106d626e7312ab.json",
+  "over_1_5_in_window_quote_fixtures": 1,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -214,10 +214,18 @@
       "home_team": "Aston Villa",
       "away_team": "Sunderland",
       "kickoff_utc": "2026-11-21T15:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "count_market_quotes": 6,
+      "count_market_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -227,12 +235,20 @@
       "home_team": "Bournemouth",
       "away_team": "Nottingham Forest",
       "kickoff_utc": "2026-11-21T15:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "count_market_quotes": 6,
+      "count_market_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "ac6cf70520a83c0949b4003bde53c709",
@@ -240,10 +256,18 @@
       "home_team": "Chelsea",
       "away_team": "Leeds United",
       "kickoff_utc": "2026-11-21T15:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "count_market_quotes": 4,
+      "count_market_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -253,10 +277,18 @@
       "home_team": "Coventry City",
       "away_team": "Crystal Palace",
       "kickoff_utc": "2026-11-21T15:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "count_market_quotes": 6,
+      "count_market_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -266,10 +298,18 @@
       "home_team": "Tottenham Hotspur",
       "away_team": "Ipswich Town",
       "kickoff_utc": "2026-11-21T15:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "count_market_quotes": 4,
+      "count_market_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -313,14 +353,14 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 1,
+  "additional_odds_in_window_linked_fixtures": 6,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 1,
+  "additional_event_odds_calls_this_league": 6,
   "totals_anchor_fixtures": {
-    "ANCHORED_ALTERNATE": 1,
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 7,
-    "ANCHORED_MAIN": 1
+    "ANCHORED_ALTERNATE": 5,
+    "ANCHORED_MAIN": 1,
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 3
   },
   "shot_features_applied_fixtures": 9,
   "goal_rate_features_used": {
