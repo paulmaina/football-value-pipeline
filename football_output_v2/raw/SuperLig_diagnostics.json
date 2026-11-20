@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "e6ea3db17392208710a2c0b99ab1ffa6d54c685fc51b8d1359be69faa1b14d80",
-  "training_as_of_utc": "2026-11-20T14:28:14.310305+00:00",
+  "training_as_of_utc": "2026-11-20T16:52:28.743553+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -89,10 +89,10 @@
   },
   "training_end": "2026-11-08",
   "fit_success": true,
-  "objective": 1661.7980132476885,
-  "base": 0.1432901801508769,
-  "home_adv": 0.23646766743741918,
-  "rho": -0.09333078406477983,
+  "objective": 1661.5577111191833,
+  "base": 0.14328769464474284,
+  "home_adv": 0.23644960395822043,
+  "rho": -0.09334676470086746,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -123,10 +123,10 @@
   "live_odds_matched": 8,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 7,
+  "additional_event_odds_calls_used_before_this_league": 13,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 2,
+  "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -135,18 +135,12 @@
       "home_team": "Genclerbirligi SK",
       "away_team": "Gazi\u015fehir Gaziantep",
       "kickoff_utc": "2026-11-21T10:30:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "status": "NOT_REQUESTED_LOW_CREDITS",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "2b342de9e162348410f74cd7a2c970cd",
@@ -154,18 +148,12 @@
       "home_team": "Amed SK",
       "away_team": "\u00c7aykur Rizespor",
       "kickoff_utc": "2026-11-21T13:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "status": "NOT_REQUESTED_LOW_CREDITS",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "acdf116ff7e38fd5643038ad39e76964",
@@ -173,16 +161,10 @@
       "home_team": "Galatasaray",
       "away_team": "Samsunspor",
       "kickoff_utc": "2026-11-21T13:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "status": "NOT_REQUESTED_LOW_CREDITS",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -192,7 +174,7 @@
       "home_team": "Kocaelispor",
       "away_team": "Fenerbahce",
       "kickoff_utc": "2026-11-21T16:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "NOT_REQUESTED_LOW_CREDITS",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
@@ -252,13 +234,12 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 3,
-  "additional_odds_unrequested_linked_fixtures": 0,
+  "additional_odds_in_window_linked_fixtures": 4,
+  "additional_odds_unrequested_linked_fixtures": 4,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 3,
+  "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "ANCHORED_ALTERNATE": 3,
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 3,
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 6,
     "ANCHORED_MAIN": 2
   },
   "shot_features_applied_fixtures": 0,
