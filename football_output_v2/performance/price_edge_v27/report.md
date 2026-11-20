@@ -24,7 +24,7 @@ value: 1138 captured recommendations; 1102 graded; 108 distinct fixtures.
 cagey: 909 captured recommendations; 875 graded; 90 distinct fixtures.
 Actual placed bets: NOT_RECORDED
 
-Reviewed 2026-11-20T14:29:49.047691+00:00. Frozen v27 picks: 329.
+Reviewed 2026-11-20T16:17:15.395546+00:00. Frozen v27 picks: 329.
 
 **Mean CLV vs Pinnacle close:** -1.73% ± 1.29% (n=49). **Flat-stake profit per bet:** +3.67% ± 7.46% (n=307).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
