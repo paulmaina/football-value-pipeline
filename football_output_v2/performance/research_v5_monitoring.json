@@ -5,10 +5,10 @@
     "eligible": false,
     "fallbacks": {
       "domestic_fixtures": 62,
-      "domestic_records": 190,
+      "domestic_records": 252,
       "fallback_fixtures": 0,
       "fallback_records": 0,
-      "runs": 4
+      "runs": 5
     },
     "graded_fallbacks": 0,
     "interval_95": null,
@@ -117,12 +117,12 @@
         "kickoff_utc": "2026-11-21T13:00:00+00:00",
         "league": "Super Lig",
         "markets": [
-          "Asian Handicap Home +0.25",
+          "Asian Handicap Home -0.75",
           "Home win"
         ],
         "picks": 2,
-        "v4_p_home": 0.7505284363388416,
-        "v5_p_home": 0.7670563005683159
+        "v4_p_home": 0.7505398944755536,
+        "v5_p_home": 0.7670680721065835
       },
       {
         "fixture": "Galatasaray v Samsunspor",
@@ -131,12 +131,12 @@
         "kickoff_utc": "2026-11-21T13:00:00+00:00",
         "league": "Super Lig",
         "markets": [
-          "Asian Handicap Home -0.75",
+          "Asian Handicap Home -1.75",
           "Home win"
         ],
         "picks": 2,
-        "v4_p_home": 0.7241473210238002,
-        "v5_p_home": 0.7397184207537699
+        "v4_p_home": 0.7241399629522755,
+        "v5_p_home": 0.7397110666703054
       }
     ],
     "leagues": [
