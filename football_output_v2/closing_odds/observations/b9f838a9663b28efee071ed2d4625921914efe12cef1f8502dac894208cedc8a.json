@@ -1,0 +1,374 @@
+{
+  "fixture": {
+    "away_team": "Espanyol",
+    "home_team": "Athletic Bilbao",
+    "kickoff_utc": "2026-11-20T20:00:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "dcee36f9b8a9989972b6d4ddde76c4c7"
+  },
+  "observed_at_utc": "2026-11-20T19:54:28.863791+00:00",
+  "payload": {
+    "away_team": "Espanyol",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-20T19:54:01Z",
+            "outcomes": [
+              {
+                "name": "Athletic Bilbao",
+                "price": 1.44
+              },
+              {
+                "name": "Espanyol",
+                "price": 7.95
+              },
+              {
+                "name": "Draw",
+                "price": 4.84
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-20T19:54:01Z",
+            "outcomes": [
+              {
+                "name": "Athletic Bilbao",
+                "point": -1.25,
+                "price": 1.97
+              },
+              {
+                "name": "Espanyol",
+                "point": 1.25,
+                "price": 1.95
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-20T19:54:01Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.96
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.94
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-20T19:54:01Z",
+            "outcomes": [
+              {
+                "name": "Athletic Bilbao",
+                "point": -1.25,
+                "price": 1.97
+              },
+              {
+                "name": "Athletic Bilbao",
+                "point": -2.25,
+                "price": 3.76
+              },
+              {
+                "name": "Athletic Bilbao",
+                "point": -2.0,
+                "price": 3.34
+              },
+              {
+                "name": "Athletic Bilbao",
+                "point": -1.75,
+                "price": 2.62
+              },
+              {
+                "name": "Athletic Bilbao",
+                "point": -1.5,
+                "price": 2.23
+              },
+              {
+                "name": "Athletic Bilbao",
+                "point": -1.0,
+                "price": 1.68
+              },
+              {
+                "name": "Athletic Bilbao",
+                "point": -0.75,
+                "price": 1.53
+              },
+              {
+                "name": "Athletic Bilbao",
+                "point": -0.5,
+                "price": 1.42
+              },
+              {
+                "name": "Athletic Bilbao",
+                "point": -0.25,
+                "price": 1.29
+              },
+              {
+                "name": "Espanyol",
+                "point": 1.25,
+                "price": 1.95
+              },
+              {
+                "name": "Espanyol",
+                "point": 2.25,
+                "price": 1.31
+              },
+              {
+                "name": "Espanyol",
+                "point": 2.0,
+                "price": 1.37
+              },
+              {
+                "name": "Espanyol",
+                "point": 1.75,
+                "price": 1.55
+              },
+              {
+                "name": "Espanyol",
+                "point": 1.5,
+                "price": 1.73
+              },
+              {
+                "name": "Espanyol",
+                "point": 1.0,
+                "price": 2.31
+              },
+              {
+                "name": "Espanyol",
+                "point": 0.75,
+                "price": 2.68
+              },
+              {
+                "name": "Espanyol",
+                "point": 0.5,
+                "price": 3.04
+              },
+              {
+                "name": "Espanyol",
+                "point": 0.25,
+                "price": 3.95
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-20T19:53:54Z",
+            "outcomes": [
+              {
+                "name": "Athletic Bilbao",
+                "price": 1.15
+              },
+              {
+                "name": "Espanyol",
+                "price": 6.26
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-20T20:00:00Z",
+    "home_team": "Athletic Bilbao",
+    "id": "dcee36f9b8a9989972b6d4ddde76c4c7",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.26,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-20T19:53:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.15,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-20T19:53:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.44,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.686218714510496,
+      "selection": "home",
+      "updated_at_utc": "2026-11-20T19:54:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.84,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1962344923398022,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-20T19:54:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 7.95,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.11754679314970182,
+      "selection": "away",
+      "updated_at_utc": "2026-11-20T19:54:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.95,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-20T19:54:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.97,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-20T19:54:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.95,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-20T19:54:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.04,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-20T19:54:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.68,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-20T19:54:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.31,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-20T19:54:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.73,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-20T19:54:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.55,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-11-20T19:54:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.37,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.00",
+      "updated_at_utc": "2026-11-20T19:54:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.31,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.25",
+      "updated_at_utc": "2026-11-20T19:54:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.76,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.25",
+      "updated_at_utc": "2026-11-20T19:54:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.34,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.00",
+      "updated_at_utc": "2026-11-20T19:54:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.62,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-11-20T19:54:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.23,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-20T19:54:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.68,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-20T19:54:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.53,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-20T19:54:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.42,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-20T19:54:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.29,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-20T19:54:01+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
