@@ -3,8 +3,8 @@
     "graded": 0,
     "mean_clv_vs_pinnacle_fair": null,
     "mean_odds": null,
-    "pending": 0,
-    "picks": 0,
+    "pending": 7,
+    "picks": 7,
     "positive_clv_share": null,
     "return_per_unit": null,
     "units_returned": 0,
@@ -29,8 +29,8 @@
     "graded": 0,
     "mean_clv_vs_pinnacle_fair": null,
     "mean_odds": null,
-    "pending": 0,
-    "picks": 0,
+    "pending": 4,
+    "picks": 4,
     "positive_clv_share": null,
     "return_per_unit": null,
     "units_returned": 0,
@@ -39,8 +39,22 @@
     "won": 0
   },
   "rejected_closing_observations": [],
-  "reviewed_at_utc": "2026-11-19T16:41:22.386207+00:00",
+  "reviewed_at_utc": "2026-11-20T14:29:49.047691+00:00",
   "stake": 0,
   "status": "unvalidated, not bet",
-  "weeks": {}
+  "weeks": {
+    "2026-W47": {
+      "graded": 0,
+      "mean_clv_vs_pinnacle_fair": null,
+      "mean_odds": null,
+      "pending": 7,
+      "picks": 7,
+      "positive_clv_share": null,
+      "return_per_unit": null,
+      "units_returned": 0,
+      "win_rate": null,
+      "with_close": 0,
+      "won": 0
+    }
+  }
 }

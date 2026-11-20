@@ -4,11 +4,11 @@
     "d_pow2_minus_d_log_loss": null,
     "eligible": false,
     "fallbacks": {
-      "domestic_fixtures": 51,
-      "domestic_records": 128,
+      "domestic_fixtures": 62,
+      "domestic_records": 190,
       "fallback_fixtures": 0,
       "fallback_records": 0,
-      "runs": 3
+      "runs": 4
     },
     "graded_fallbacks": 0,
     "interval_95": null,
@@ -93,14 +93,52 @@
   "home_favourites": {
     "all": {
       "actual_home_win": null,
-      "fixtures": 0,
+      "fixtures": 2,
       "graded": 0,
-      "picks": 0,
+      "picks": 4,
       "v4_predicted_home_win": null,
       "v5_predicted_home_win": null
     },
-    "by_league": {},
-    "fixtures": [],
+    "by_league": {
+      "Super Lig": {
+        "actual_home_win": null,
+        "fixtures": 2,
+        "graded": 0,
+        "picks": 4,
+        "v4_predicted_home_win": null,
+        "v5_predicted_home_win": null
+      }
+    },
+    "fixtures": [
+      {
+        "fixture": "Amed SK v Çaykur Rizespor",
+        "graded": false,
+        "home_won": null,
+        "kickoff_utc": "2026-11-21T13:00:00+00:00",
+        "league": "Super Lig",
+        "markets": [
+          "Asian Handicap Home +0.25",
+          "Home win"
+        ],
+        "picks": 2,
+        "v4_p_home": 0.7505284363388416,
+        "v5_p_home": 0.7670563005683159
+      },
+      {
+        "fixture": "Galatasaray v Samsunspor",
+        "graded": false,
+        "home_won": null,
+        "kickoff_utc": "2026-11-21T13:00:00+00:00",
+        "league": "Super Lig",
+        "markets": [
+          "Asian Handicap Home -0.75",
+          "Home win"
+        ],
+        "picks": 2,
+        "v4_p_home": 0.7241473210238002,
+        "v5_p_home": 0.7397184207537699
+      }
+    ],
     "leagues": [
       "Eredivisie",
       "Primeira Liga",

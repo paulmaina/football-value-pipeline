@@ -1,552 +1,807 @@
 ﻿Match date,League,Home team,Away team,Model,Rank,Score,Probability,Probability (decimal)
-2026-11-21,Serie A,Como,Cagliari,Research,1,1-0,13.78%,0.13783150553863996
-2026-11-21,Serie A,Como,Cagliari,Research,2,2-0,13.41%,0.13405012072701739
-2026-11-21,Serie A,Como,Cagliari,Research,3,1-1,10.54%,0.10541597242801015
-2026-11-21,Serie A,Como,Cagliari,Research,4,2-1,9.70%,0.09698686188000596
-2026-11-21,Serie A,Como,Cagliari,Research,5,3-0,8.57%,0.08572300925990413
-2026-11-21,Serie A,Como,Cagliari,Research,6,0-0,7.65%,0.0764949647895277
-2026-11-21,Serie A,Como,Cagliari,Research,7,3-1,6.20%,0.06202162007716217
-2026-11-21,Serie A,Como,Cagliari,Research,8,4-0,4.11%,0.041113918492125714
-2026-11-21,Serie A,Como,Cagliari,Research,9,0-1,4.02%,0.04023745763076486
-2026-11-21,Serie A,Como,Cagliari,Research,10,2-2,3.59%,0.035899509405476614
-2026-11-21,Serie A,Como,Cagliari,Research,11,4-1,2.97%,0.029746410615040568
-2026-11-21,Serie A,Como,Cagliari,Research,12,1-2,2.90%,0.028979102561655926
-2026-11-21,Serie A,Como,Cagliari,Research,13,3-2,2.24%,0.022436691094995676
-2026-11-21,Serie A,Como,Cagliari,Research,14,5-0,1.58%,0.015775034575859687
-2026-11-21,Serie A,Como,Cagliari,Research,15,0-2,1.51%,0.015105443413964054
-2026-11-21,Serie A,Como,Cagliari,Research,16,5-1,1.14%,0.011413425748991965
-2026-11-21,Serie A,Como,Cagliari,Research,17,4-2,1.08%,0.010760941512398871
-2026-11-21,Serie A,Como,Cagliari,Research,18,1-3,0.70%,0.0069889088307932236
-2026-11-21,Serie A,Como,Cagliari,Research,19,2-3,0.67%,0.006703951027825868
-2026-11-21,Serie A,Como,Cagliari,Research,20,3-3,0.55%,0.005536600094619747
-2026-11-21,Serie A,Como,Cagliari,Research,21,6-0,0.50%,0.005043947098621218
-2026-11-21,Serie A,Como,Cagliari,Research,22,5-2,0.41%,0.0041288748592379475
-2026-11-21,Serie A,Como,Cagliari,Research,23,6-1,0.36%,0.0036493559120341526
-2026-11-21,Serie A,Como,Cagliari,Research,24,0-3,0.36%,0.0036429895178530392
-2026-11-21,Serie A,Como,Cagliari,Research,25,4-3,0.26%,0.0025952231958751306
-2026-11-21,Serie A,Como,Cagliari,Research,26,7-0,0.14%,0.0013823688424360304
-2026-11-21,Serie A,Como,Cagliari,Research,27,6-2,0.13%,0.0013201762738886673
-2026-11-21,Serie A,Como,Cagliari,Research,28,1-4,0.13%,0.001264139733309992
-2026-11-21,Serie A,Como,Cagliari,Research,29,2-4,0.12%,0.0012125971406436533
-2026-11-21,Serie A,Como,Cagliari,Research,30,7-1,0.10%,0.0010001603524221615
-2026-11-21,Serie A,Como,Cagliari,Research,31,5-3,0.10%,0.0009957634092903154
-2026-11-21,Serie A,Como,Cagliari,Research,32,3-4,0.08%,0.0007754373912695693
-2026-11-21,Serie A,Como,Cagliari,Research,33,0-4,0.07%,0.0006589365964053011
-2026-11-21,Serie A,Como,Cagliari,Research,34,4-4,0.05%,0.00048030855789982447
-2026-11-21,Serie A,Como,Cagliari,Research,35,7-2,0.04%,0.00036181397462432775
-2026-11-21,Serie A,Como,Cagliari,Research,36,8-0,0.03%,0.0003315014277068364
-2026-11-21,Serie A,Como,Cagliari,Research,37,6-3,0.03%,0.0003183877623247203
-2026-11-21,Serie A,Como,Cagliari,Research,38,8-1,0.02%,0.0002398452385395557
-2026-11-21,Serie A,Como,Cagliari,Research,39,1-5,0.02%,0.00018292403624348724
-2026-11-21,Serie A,Como,Cagliari,Research,40,5-4,0.02%,0.0001801116771067164
-2026-11-21,Serie A,Como,Cagliari,Research,41,2-5,0.02%,0.0001754657000797361
-2026-11-21,Serie A,Como,Cagliari,Research,42,3-5,0.01%,0.00011220764107599362
-2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",1,1-0,15.38%,0.15378337392032382
-2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",2,2-0,14.54%,0.14542526770516767
-2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",3,2-1,10.63%,0.10634160169750476
-2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",4,3-0,9.04%,0.09036494400590597
-2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",5,1-1,8.20%,0.08195159050417011
-2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",6,3-1,6.61%,0.06607897674546896
-2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",7,0-0,6.05%,0.06053944641147794
-2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",8,4-0,4.21%,0.04211350218250458
-2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",9,0-1,4.05%,0.04048368603855943
-2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",10,4-1,3.08%,0.030795317387748277
-2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",11,1-2,2.86%,0.02864078309425282
-2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",12,2-2,2.74%,0.02739047617257154
-2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",13,3-2,2.42%,0.024159983806568017
-2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",14,5-0,1.57%,0.01570119550749596
-2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",15,0-2,1.54%,0.015363972517540058
-2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",16,5-1,1.15%,0.011481431701524412
-2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",17,4-2,1.13%,0.01125947171173679
-2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",18,1-3,0.70%,0.006981149828534766
-2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",19,2-3,0.65%,0.00650696288864353
-2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",20,6-0,0.49%,0.0048782363452037
-2026-11-21,Serie A,Lazio,Lecce,Research,1,1-0,14.05%,0.1404761720207245
-2026-11-21,Serie A,Lazio,Lecce,Research,2,2-0,12.01%,0.12006803496599881
-2026-11-21,Serie A,Lazio,Lecce,Research,3,1-1,11.99%,0.11987383574234255
-2026-11-21,Serie A,Lazio,Lecce,Research,4,2-1,9.70%,0.09699542330490309
-2026-11-21,Serie A,Lazio,Lecce,Research,5,0-0,8.87%,0.08874515583329837
-2026-11-21,Serie A,Lazio,Lecce,Research,6,3-0,6.74%,0.06736886532863816
-2026-11-21,Serie A,Lazio,Lecce,Research,7,0-1,5.58%,0.055759564260197424
-2026-11-21,Serie A,Lazio,Lecce,Research,8,3-1,5.44%,0.05442307448416822
-2026-11-21,Serie A,Lazio,Lecce,Research,9,2-2,4.00%,0.03999321049974884
-2026-11-21,Serie A,Lazio,Lecce,Research,10,1-2,3.92%,0.03916057215444615
-2026-11-21,Serie A,Lazio,Lecce,Research,11,4-0,2.83%,0.028349951864499744
-2026-11-21,Serie A,Lazio,Lecce,Research,12,0-2,2.33%,0.023264618968973454
-2026-11-21,Serie A,Lazio,Lecce,Research,13,4-1,2.29%,0.02290214529245423
-2026-11-21,Serie A,Lazio,Lecce,Research,14,3-2,2.20%,0.02198249162918769
-2026-11-21,Serie A,Lazio,Lecce,Research,15,1-3,1.05%,0.010545122116413261
-2026-11-21,Serie A,Lazio,Lecce,Research,16,5-0,0.95%,0.009544109336545953
-2026-11-21,Serie A,Lazio,Lecce,Research,17,4-2,0.93%,0.009250602285033877
-2026-11-21,Serie A,Lazio,Lecce,Research,18,2-3,0.89%,0.008875129570528899
-2026-11-21,Serie A,Lazio,Lecce,Research,19,5-1,0.77%,0.0077100864141626405
-2026-11-21,Serie A,Lazio,Lecce,Research,20,0-3,0.63%,0.00626467476144359
-2026-11-21,Serie A,Lazio,Lecce,Research,21,3-3,0.60%,0.006042555996148938
-2026-11-21,Serie A,Lazio,Lecce,Research,22,5-2,0.31%,0.003114247250198039
-2026-11-21,Serie A,Lazio,Lecce,Research,23,6-0,0.27%,0.002677547845093166
-2026-11-21,Serie A,Lazio,Lecce,Research,24,4-3,0.25%,0.0024909935013546127
-2026-11-21,Serie A,Lazio,Lecce,Research,25,6-1,0.22%,0.0021630227123104672
-2026-11-21,Serie A,Lazio,Lecce,Research,26,1-4,0.21%,0.0021296854399529557
-2026-11-21,Serie A,Lazio,Lecce,Research,27,2-4,0.18%,0.0017924149208885826
-2026-11-21,Serie A,Lazio,Lecce,Research,28,0-4,0.13%,0.0012652093051365384
-2026-11-21,Serie A,Lazio,Lecce,Research,29,3-4,0.10%,0.0010057044695749348
-2026-11-21,Serie A,Lazio,Lecce,Research,30,6-2,0.09%,0.0008736850888668494
-2026-11-21,Serie A,Lazio,Lecce,Research,31,5-3,0.08%,0.0008386015767217021
-2026-11-21,Serie A,Lazio,Lecce,Research,32,7-0,0.06%,0.0006438612440669817
-2026-11-21,Serie A,Lazio,Lecce,Research,33,7-1,0.05%,0.0005201350545595554
-2026-11-21,Serie A,Lazio,Lecce,Research,34,4-4,0.05%,0.0005135439593887804
-2026-11-21,Serie A,Lazio,Lecce,Research,35,1-5,0.03%,0.0003440878178992815
-2026-11-21,Serie A,Lazio,Lecce,Research,36,2-5,0.03%,0.0002895958845980041
-2026-11-21,Serie A,Lazio,Lecce,Research,37,6-3,0.02%,0.00023526510075119717
-2026-11-21,Serie A,Lazio,Lecce,Research,38,7-2,0.02%,0.0002100922189948795
-2026-11-21,Serie A,Lazio,Lecce,Research,39,0-5,0.02%,0.0002044166245508606
-2026-11-21,Serie A,Lazio,Lecce,Research,40,5-4,0.02%,0.00016936338414573645
-2026-11-21,Serie A,Lazio,Lecce,Research,41,3-5,0.02%,0.0001624890934105451
-2026-11-21,Serie A,Lazio,Lecce,Research,42,8-0,0.01%,0.00013547382153218773
-2026-11-21,Serie A,Lazio,Lecce,Research,43,8-1,0.01%,0.00010944079054819677
-2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",1,1-0,17.29%,0.1728961968761588
-2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",2,2-0,15.12%,0.15121472571776912
-2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",3,2-1,9.81%,0.09805726073299122
-2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",4,1-1,8.79%,0.08785534269118889
-2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",5,3-0,8.70%,0.08704578962118487
-2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",6,0-0,7.86%,0.07863366049783305
-2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",7,3-1,5.64%,0.056446034922051434
-2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",8,0-1,5.09%,0.05085093243925277
-2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",9,4-0,3.76%,0.037580514008192976
-2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",10,1-2,2.95%,0.02947183065558438
-2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",11,4-1,2.44%,0.024369599211250505
-2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",12,2-2,2.41%,0.024122720761795148
-2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",13,3-2,1.83%,0.0183016023651879
-2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",14,0-2,1.71%,0.017066017048342517
-2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",15,5-0,1.30%,0.012979789504040707
-2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",16,5-1,0.84%,0.008416922344141126
-2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",17,4-2,0.79%,0.00790140025210285
-2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",18,1-3,0.64%,0.006370470797196104
-2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",19,2-3,0.55%,0.0055006811489604086
-2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",20,6-0,0.37%,0.0037358664016781816
-2026-11-21,Serie A,Napoli,Torino,Research,1,1-1,11.82%,0.11816059400592742
-2026-11-21,Serie A,Napoli,Torino,Research,2,1-0,10.85%,0.10854900145585787
-2026-11-21,Serie A,Napoli,Torino,Research,3,2-1,10.03%,0.10029603060859099
-2026-11-21,Serie A,Napoli,Torino,Research,4,2-0,9.79%,0.09786761993043497
-2026-11-21,Serie A,Napoli,Torino,Research,5,0-0,6.62%,0.06619353463913201
-2026-11-21,Serie A,Napoli,Torino,Research,6,3-1,5.91%,0.05911344687217919
-2026-11-21,Serie A,Napoli,Torino,Research,7,3-0,5.77%,0.057682166643680165
-2026-11-21,Serie A,Napoli,Torino,Research,8,0-1,5.42%,0.054217897895630196
-2026-11-21,Serie A,Napoli,Torino,Research,9,2-2,5.25%,0.05253226420401366
-2026-11-21,Serie A,Napoli,Torino,Research,10,1-2,5.08%,0.050826063782600774
-2026-11-21,Serie A,Napoli,Torino,Research,11,3-2,3.03%,0.0302901208851593
-2026-11-21,Serie A,Napoli,Torino,Research,12,0-2,2.87%,0.028745024573267077
-2026-11-21,Serie A,Napoli,Torino,Research,13,4-1,2.61%,0.026130642308868954
-2026-11-21,Serie A,Napoli,Torino,Research,14,4-0,2.55%,0.025497955946059917
-2026-11-21,Serie A,Napoli,Torino,Research,15,1-3,1.74%,0.017362407343298275
-2026-11-21,Serie A,Napoli,Torino,Research,16,2-3,1.53%,0.015349835948142942
-2026-11-21,Serie A,Napoli,Torino,Research,17,4-2,1.34%,0.01338951382845188
-2026-11-21,Serie A,Napoli,Torino,Research,18,3-3,1.06%,0.010576747145128483
-2026-11-21,Serie A,Napoli,Torino,Research,19,0-3,0.98%,0.009819427053586472
-2026-11-21,Serie A,Napoli,Torino,Research,20,5-1,0.92%,0.009240678777544356
-2026-11-21,Serie A,Napoli,Torino,Research,21,5-0,0.90%,0.009016939484168209
-2026-11-21,Serie A,Napoli,Torino,Research,22,5-2,0.47%,0.004734984881493616
-2026-11-21,Serie A,Napoli,Torino,Research,23,4-3,0.46%,0.004573916922086917
-2026-11-21,Serie A,Napoli,Torino,Research,24,1-4,0.44%,0.0044483061394055955
-2026-11-21,Serie A,Napoli,Torino,Research,25,2-4,0.39%,0.003932678696963569
-2026-11-21,Serie A,Napoli,Torino,Research,26,6-1,0.27%,0.002723180422318985
-2026-11-21,Serie A,Napoli,Torino,Research,27,6-0,0.27%,0.0026572456053977423
-2026-11-21,Serie A,Napoli,Torino,Research,28,0-4,0.25%,0.002515769661675062
-2026-11-21,Serie A,Napoli,Torino,Research,29,3-4,0.23%,0.0023178802970333493
-2026-11-21,Serie A,Napoli,Torino,Research,30,5-3,0.16%,0.0016174916993079089
-2026-11-21,Serie A,Napoli,Torino,Research,31,6-2,0.14%,0.0013953756471433525
-2026-11-21,Serie A,Napoli,Torino,Research,32,4-4,0.12%,0.001197845072932017
-2026-11-21,Serie A,Napoli,Torino,Research,33,1-5,0.09%,0.0009117365866899226
-2026-11-21,Serie A,Napoli,Torino,Research,34,2-5,0.08%,0.0008060522228797988
-2026-11-21,Serie A,Napoli,Torino,Research,35,7-1,0.07%,0.0006878633477373267
-2026-11-21,Serie A,Napoli,Torino,Research,36,7-0,0.07%,0.0006712085041844813
-2026-11-21,Serie A,Napoli,Torino,Research,37,0-5,0.05%,0.0005156388010066636
-2026-11-21,Serie A,Napoli,Torino,Research,38,6-3,0.05%,0.0004766664695154881
-2026-11-21,Serie A,Napoli,Torino,Research,39,3-5,0.05%,0.00047507887365310665
-2026-11-21,Serie A,Napoli,Torino,Research,40,5-4,0.04%,0.00041440671873455384
-2026-11-21,Serie A,Napoli,Torino,Research,41,7-2,0.04%,0.0003524657257846332
-2026-11-21,Serie A,Napoli,Torino,Research,42,4-5,0.02%,0.00021000494426881718
-2026-11-21,Serie A,Napoli,Torino,Research,43,1-6,0.02%,0.0001557266177015842
-2026-11-21,Serie A,Napoli,Torino,Research,44,8-1,0.02%,0.00015203233822560724
-2026-11-21,Serie A,Napoli,Torino,Research,45,8-0,0.01%,0.00014835126579101714
-2026-11-21,Serie A,Napoli,Torino,Research,46,2-6,0.01%,0.00013767549552402098
-2026-11-21,Serie A,Napoli,Torino,Research,47,6-4,0.01%,0.00012212352474341492
-2026-11-21,Serie A,Napoli,Torino,Research,48,7-3,0.01%,0.00012040384499967919
-2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",1,1-0,14.53%,0.14525624449811078
-2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",2,2-0,12.86%,0.12859738112611238
-2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",3,2-1,10.18%,0.10179358938262105
-2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",4,1-1,9.98%,0.09983923174343662
-2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",5,3-0,7.47%,0.07472002426288088
-2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",6,0-0,7.29%,0.0728871034985374
-2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",7,3-1,5.91%,0.05914599039164053
-2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",8,0-1,5.49%,0.054883274605301124
-2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",9,1-2,3.92%,0.03920530869354146
-2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",10,2-2,3.38%,0.033776385519654166
-2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",11,4-0,3.26%,0.03256140586002862
-2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",12,4-1,2.58%,0.025774571370050924
-2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",13,3-2,2.34%,0.023409040708421452
-2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",14,0-2,2.25%,0.02249151671619944
-2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",15,5-0,1.14%,0.011351657465756051
-2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",16,1-3,1.03%,0.01034455771914342
-2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",17,4-2,1.02%,0.010201164718832954
-2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",18,2-3,0.90%,0.009015878826550429
-2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",19,5-1,0.90%,0.00898561035040161
-2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",20,0-3,0.59%,0.005934522660706215
-2026-11-21,Serie A,Parma,AS Roma,Research,1,0-1,12.37%,0.12371151329917617
-2026-11-21,Serie A,Parma,AS Roma,Research,2,1-1,11.69%,0.11685784785002665
-2026-11-21,Serie A,Parma,AS Roma,Research,3,0-2,11.20%,0.11202794973300813
-2026-11-21,Serie A,Parma,AS Roma,Research,4,1-2,10.00%,0.10001220452074586
-2026-11-21,Serie A,Parma,AS Roma,Research,5,0-0,7.43%,0.07432479242790205
-2026-11-21,Serie A,Parma,AS Roma,Research,6,0-3,6.65%,0.06648739845294795
-2026-11-21,Serie A,Parma,AS Roma,Research,7,1-3,5.94%,0.059356181274192454
-2026-11-21,Serie A,Parma,AS Roma,Research,8,1-0,5.16%,0.05160053032795245
-2026-11-21,Serie A,Parma,AS Roma,Research,9,2-2,4.56%,0.045572583128628885
-2026-11-21,Serie A,Parma,AS Roma,Research,10,2-1,4.24%,0.04244192227167857
-2026-11-21,Serie A,Parma,AS Roma,Research,11,0-4,2.96%,0.029594673674581535
-2026-11-21,Serie A,Parma,AS Roma,Research,12,2-3,2.65%,0.026494917363536766
-2026-11-21,Serie A,Parma,AS Roma,Research,13,1-4,2.64%,0.0264204474269236
-2026-11-21,Serie A,Parma,AS Roma,Research,14,2-0,2.38%,0.023837507284374886
-2026-11-21,Serie A,Parma,AS Roma,Research,15,3-1,1.26%,0.012629914292534352
-2026-11-21,Serie A,Parma,AS Roma,Research,16,2-4,1.18%,0.011793339063548645
-2026-11-21,Serie A,Parma,AS Roma,Research,17,3-2,1.12%,0.011243580008323052
-2026-11-21,Serie A,Parma,AS Roma,Research,18,0-5,1.05%,0.010538474721940463
-2026-11-21,Serie A,Parma,AS Roma,Research,19,1-5,0.94%,0.009408152980924138
-2026-11-21,Serie A,Parma,AS Roma,Research,20,3-3,0.80%,0.008048629863538099
-2026-11-21,Serie A,Parma,AS Roma,Research,21,3-0,0.71%,0.0070935918505797444
-2026-11-21,Serie A,Parma,AS Roma,Research,22,2-5,0.42%,0.004199532894840673
-2026-11-21,Serie A,Parma,AS Roma,Research,23,3-4,0.35%,0.0035094749159090294
-2026-11-21,Serie A,Parma,AS Roma,Research,24,0-6,0.31%,0.0031272364155278585
-2026-11-21,Serie A,Parma,AS Roma,Research,25,4-1,0.28%,0.0028188179251580556
-2026-11-21,Serie A,Parma,AS Roma,Research,26,1-6,0.28%,0.0027918194407724984
-2026-11-21,Serie A,Parma,AS Roma,Research,27,4-2,0.25%,0.0025094077549793147
-2026-11-21,Serie A,Parma,AS Roma,Research,28,4-0,0.16%,0.0015831891966193964
-2026-11-21,Serie A,Parma,AS Roma,Research,29,4-3,0.15%,0.0014893068531902983
-2026-11-21,Serie A,Parma,AS Roma,Research,30,3-5,0.12%,0.0012497016556177454
-2026-11-21,Serie A,Parma,AS Roma,Research,31,2-6,0.12%,0.0012461890874597733
-2026-11-21,Serie A,Parma,AS Roma,Research,32,4-4,0.08%,0.000799581601613061
-2026-11-21,Serie A,Parma,AS Roma,Research,33,0-7,0.08%,0.0007954206865772647
-2026-11-21,Serie A,Parma,AS Roma,Research,34,1-7,0.07%,0.0007101065098092945
-2026-11-21,Serie A,Parma,AS Roma,Research,35,5-1,0.05%,0.000503296178336803
-2026-11-21,Serie A,Parma,AS Roma,Research,36,5-2,0.04%,0.00044805140541278774
-2026-11-21,Serie A,Parma,AS Roma,Research,37,3-6,0.04%,0.00037084233051836384
-2026-11-21,Serie A,Parma,AS Roma,Research,38,2-7,0.03%,0.00031697142391616463
-2026-11-21,Serie A,Parma,AS Roma,Research,39,5-0,0.03%,0.0002826763180165235
-2026-11-21,Serie A,Parma,AS Roma,Research,40,4-5,0.03%,0.0002789157033343676
-2026-11-21,Serie A,Parma,AS Roma,Research,41,5-3,0.03%,0.0002659137508994867
-2026-11-21,Serie A,Parma,AS Roma,Research,42,0-8,0.02%,0.00017702764885532975
-2026-11-21,Serie A,Parma,AS Roma,Research,43,1-8,0.02%,0.00015804025214548228
-2026-11-21,Serie A,Parma,AS Roma,Research,44,5-4,0.01%,0.00011836274040746952
-2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",1,0-1,18.17%,0.18173288956710903
-2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",2,0-2,15.38%,0.15379709288142154
-2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",3,1-2,10.62%,0.10619828109291315
-2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",4,0-3,8.56%,0.08559424085342138
-2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",5,1-1,8.29%,0.08287924627888209
-2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",6,0-0,7.21%,0.07209998465612286
-2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",7,1-3,5.91%,0.05910359604192629
-2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",8,1-0,4.57%,0.045746145045072725
-2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",9,0-4,3.57%,0.03572746693392729
-2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",10,2-1,2.73%,0.027263630757104026
-2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",11,1-4,2.47%,0.024670138460369452
-2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",12,2-2,2.34%,0.023427736480923722
-2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",13,2-3,2.04%,0.02040578332290667
-2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",14,2-0,1.63%,0.016329241741920707
-2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",15,0-5,1.19%,0.01193025961361835
-2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",16,2-4,0.85%,0.00851747666269408
-2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",17,1-5,0.82%,0.008237951967891323
-2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",18,3-1,0.63%,0.006275261056654389
-2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",19,3-2,0.52%,0.005238651097737253
-2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",20,3-0,0.38%,0.003758496280289808
-2026-11-22,Serie A,Bologna,Udinese,Research,1,1-1,12.10%,0.12104084017169214
-2026-11-22,Serie A,Bologna,Udinese,Research,2,1-0,10.10%,0.10096986225595293
-2026-11-22,Serie A,Bologna,Udinese,Research,3,2-1,9.81%,0.09810084300563574
-2026-11-22,Serie A,Bologna,Udinese,Research,4,2-0,8.74%,0.08740732354954985
-2026-11-22,Serie A,Bologna,Udinese,Research,5,0-0,6.47%,0.06471207555749375
-2026-11-22,Serie A,Bologna,Udinese,Research,6,0-1,5.97%,0.05972506541294212
-2026-11-22,Serie A,Bologna,Udinese,Research,7,1-2,5.87%,0.058678244611404806
-2026-11-22,Serie A,Bologna,Udinese,Research,8,2-2,5.65%,0.056479248222781296
-2026-11-22,Serie A,Bologna,Udinese,Research,9,3-1,5.54%,0.055411333589058434
-2026-11-22,Serie A,Bologna,Udinese,Research,10,3-0,4.94%,0.04937120023578825
-2026-11-22,Serie A,Bologna,Udinese,Research,11,0-2,3.46%,0.03462820623881883
-2026-11-22,Serie A,Bologna,Udinese,Research,12,3-2,3.11%,0.03109521214244483
-2026-11-22,Serie A,Bologna,Udinese,Research,13,4-1,2.35%,0.02347392588110729
-2026-11-22,Serie A,Bologna,Udinese,Research,14,1-3,2.20%,0.02195233773977955
-2026-11-22,Serie A,Bologna,Udinese,Research,15,4-0,2.09%,0.02091514172156731
-2026-11-22,Serie A,Bologna,Udinese,Research,16,2-3,1.86%,0.018599355606282415
-2026-11-22,Serie A,Bologna,Udinese,Research,17,4-2,1.32%,0.013172877420751867
-2026-11-22,Serie A,Bologna,Udinese,Research,18,0-3,1.30%,0.012954887858549613
-2026-11-22,Serie A,Bologna,Udinese,Research,19,3-3,1.19%,0.011934890338861425
-2026-11-22,Serie A,Bologna,Udinese,Research,20,5-1,0.80%,0.007955415047155986
-2026-11-22,Serie A,Bologna,Udinese,Research,21,5-0,0.71%,0.007088232024242372
-2026-11-22,Serie A,Bologna,Udinese,Research,22,1-4,0.62%,0.006159503433931357
-2026-11-22,Serie A,Bologna,Udinese,Research,23,2-4,0.52%,0.0052187059111344315
-2026-11-22,Serie A,Bologna,Udinese,Research,24,4-3,0.49%,0.004928154481445692
-2026-11-22,Serie A,Bologna,Udinese,Research,25,5-2,0.45%,0.004464345153774823
-2026-11-22,Serie A,Bologna,Udinese,Research,26,0-4,0.36%,0.0036349511927531645
-2026-11-22,Serie A,Bologna,Udinese,Research,27,3-4,0.29%,0.002947736688954329
-2026-11-22,Serie A,Bologna,Udinese,Research,28,6-1,0.22%,0.0022467704838787694
-2026-11-22,Serie A,Bologna,Udinese,Research,29,6-0,0.20%,0.00200186041841341
-2026-11-22,Serie A,Bologna,Udinese,Research,30,5-3,0.17%,0.0016701728767047166
-2026-11-22,Serie A,Bologna,Udinese,Research,31,4-4,0.14%,0.0014186343955361993
-2026-11-22,Serie A,Bologna,Udinese,Research,32,1-5,0.14%,0.0013826129317922266
-2026-11-22,Serie A,Bologna,Udinese,Research,33,6-2,0.13%,0.0012608215739710895
-2026-11-22,Serie A,Bologna,Udinese,Research,34,2-5,0.12%,0.0011714337620475478
-2026-11-22,Serie A,Bologna,Udinese,Research,35,0-5,0.08%,0.000815931118383416
-2026-11-22,Serie A,Bologna,Udinese,Research,36,3-5,0.07%,0.0006616732841181941
-2026-11-22,Serie A,Bologna,Udinese,Research,37,7-1,0.05%,0.0005438858844454779
-2026-11-22,Serie A,Bologna,Udinese,Research,38,7-0,0.05%,0.0004845993981216643
-2026-11-22,Serie A,Bologna,Udinese,Research,39,6-3,0.05%,0.0004716906786273267
-2026-11-22,Serie A,Bologna,Udinese,Research,40,5-4,0.05%,0.0004686259701024909
-2026-11-22,Serie A,Bologna,Udinese,Research,41,7-2,0.03%,0.0003052127762081669
-2026-11-22,Serie A,Bologna,Udinese,Research,42,4-5,0.03%,0.0002803049236116257
-2026-11-22,Serie A,Bologna,Udinese,Research,43,1-6,0.03%,0.00025862724969954656
-2026-11-22,Serie A,Bologna,Udinese,Research,44,2-6,0.02%,0.00021912473485318062
-2026-11-22,Serie A,Bologna,Udinese,Research,45,0-6,0.02%,0.0001526255224723224
-2026-11-22,Serie A,Bologna,Udinese,Research,46,6-4,0.01%,0.00013234947408328308
-2026-11-22,Serie A,Bologna,Udinese,Research,47,3-6,0.01%,0.00012377053456988168
-2026-11-22,Serie A,Bologna,Udinese,Research,48,8-1,0.01%,0.00011520329968898858
-2026-11-22,Serie A,Bologna,Udinese,Research,49,7-3,0.01%,0.00011418429419947545
-2026-11-22,Serie A,Bologna,Udinese,Research,50,5-5,0.01%,0.0001079201428984244
-2026-11-22,Serie A,Bologna,Udinese,Research,51,8-0,0.01%,0.00010264552048051919
-2026-11-22,Serie A,Bologna,Udinese,Cagey,1,1-0,12.44%,0.12442163706808484
-2026-11-22,Serie A,Bologna,Udinese,Cagey,2,1-1,12.14%,0.12136318792269384
-2026-11-22,Serie A,Bologna,Udinese,Cagey,3,2-1,10.66%,0.10656154142928466
-2026-11-22,Serie A,Bologna,Udinese,Cagey,4,2-0,9.63%,0.09625589077494744
-2026-11-22,Serie A,Bologna,Udinese,Cagey,5,0-0,7.79%,0.0778972000709143
-2026-11-22,Serie A,Bologna,Udinese,Cagey,6,0-1,6.06%,0.060579215909770535
-2026-11-22,Serie A,Bologna,Udinese,Cagey,7,3-0,5.57%,0.0557103521790756
-2026-11-22,Serie A,Bologna,Udinese,Cagey,8,1-2,5.47%,0.05474005377500903
-2026-11-22,Serie A,Bologna,Udinese,Cagey,9,3-1,5.18%,0.05177864521134623
-2026-11-22,Serie A,Bologna,Udinese,Cagey,10,2-2,4.61%,0.046106834288323115
-2026-11-22,Serie A,Bologna,Udinese,Cagey,11,3-2,2.87%,0.02866116661754055
-2026-11-22,Serie A,Bologna,Udinese,Cagey,12,0-2,2.67%,0.026733821695235603
-2026-11-22,Serie A,Bologna,Udinese,Cagey,13,4-0,2.41%,0.024062110711675105
-2026-11-22,Serie A,Bologna,Udinese,Cagey,14,4-1,2.25%,0.02247607811471951
-2026-11-22,Serie A,Bologna,Udinese,Cagey,15,2-3,1.47%,0.014723077208298553
-2026-11-22,Serie A,Bologna,Udinese,Cagey,16,1-3,1.44%,0.014380845240292262
-2026-11-22,Serie A,Bologna,Udinese,Cagey,17,4-2,1.04%,0.010444924766439306
-2026-11-22,Serie A,Bologna,Udinese,Cagey,18,0-3,0.84%,0.00836562971469275
-2026-11-22,Serie A,Bologna,Udinese,Cagey,19,5-0,0.83%,0.00831422023741395
-2026-11-22,Serie A,Bologna,Udinese,Cagey,20,3-3,0.83%,0.0082673707732347
-2026-11-22,Serie A,Bologna,Udinese,Cagey,21,5-1,0.78%,0.007766195815416411
-2026-11-22,Serie A,Bologna,Udinese,Cagey,22,4-3,0.39%,0.0038544040413658557
-2026-11-22,Serie A,Bologna,Udinese,Cagey,23,5-2,0.36%,0.003627146967552029
-2026-11-22,Serie A,Bologna,Udinese,Cagey,24,1-4,0.34%,0.0033750737446760284
-2026-11-22,Serie A,Bologna,Udinese,Cagey,25,2-4,0.29%,0.0029009420003083585
-2026-11-22,Serie A,Bologna,Udinese,Cagey,26,6-0,0.24%,0.002394021697449671
-2026-11-22,Serie A,Bologna,Udinese,Cagey,27,6-1,0.22%,0.002236221889466416
-2026-11-22,Serie A,Bologna,Udinese,Cagey,28,3-4,0.20%,0.0019799852898617696
-2026-11-22,Serie A,Bologna,Udinese,Cagey,29,0-4,0.20%,0.001953554170696891
-2026-11-22,Serie A,Bologna,Udinese,Cagey,30,5-3,0.11%,0.0011237214665752694
-2026-11-22,Serie A,Bologna,Udinese,Cagey,31,6-2,0.10%,0.0010444116576420197
-2026-11-22,Serie A,Bologna,Udinese,Cagey,32,4-4,0.08%,0.0008338579098606202
-2026-11-22,Serie A,Bologna,Udinese,Cagey,33,1-5,0.06%,0.000630521752952207
-2026-11-22,Serie A,Bologna,Udinese,Cagey,34,7-0,0.06%,0.0005908644354440362
-2026-11-22,Serie A,Bologna,Udinese,Cagey,35,7-1,0.06%,0.0005519181324274304
-2026-11-22,Serie A,Bologna,Udinese,Cagey,36,2-5,0.05%,0.0005446630161980506
-2026-11-22,Serie A,Bologna,Udinese,Cagey,37,0-5,0.04%,0.00036495747748857966
-2026-11-22,Serie A,Bologna,Udinese,Cagey,38,6-3,0.03%,0.0003251900644733802
-2026-11-22,Serie A,Bologna,Udinese,Cagey,39,3-5,0.03%,0.00031209902147984474
-2026-11-22,Serie A,Bologna,Udinese,Cagey,40,5-4,0.03%,0.00031100821635792115
-2026-11-22,Serie A,Bologna,Udinese,Cagey,41,7-2,0.03%,0.0002577694701435743
-2026-11-22,Serie A,Bologna,Udinese,Cagey,42,4-5,0.02%,0.00015976314024323634
-2026-11-22,Serie A,Bologna,Udinese,Cagey,43,8-0,0.01%,0.0001276014681754766
-2026-11-22,Serie A,Bologna,Udinese,Cagey,44,8-1,0.01%,0.00011919073104727023
-2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",1,1-1,11.88%,0.11877168750083968
-2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",2,1-0,11.86%,0.1185756720160453
-2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",3,2-0,10.04%,0.10036512010813438
-2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",4,2-1,10.03%,0.10032385356275275
-2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",5,0-0,7.25%,0.07250290482709415
-2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",6,0-1,6.10%,0.060977828750640034
-2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",7,3-0,5.55%,0.055522940212752586
-2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",8,3-1,5.55%,0.055500111166869495
-2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",9,1-2,5.23%,0.05228274169325983
-2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",10,2-2,4.83%,0.048310633195516164
-2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",11,0-2,3.15%,0.031502676368360905
-2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",12,3-2,2.77%,0.027738645753736517
-2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",13,4-0,2.30%,0.023036864449627492
-2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",14,4-1,2.30%,0.023027392515441225
-2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",15,1-3,1.74%,0.017420414967014415
-2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",16,2-3,1.45%,0.014455709179435675
-2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",17,4-2,1.15%,0.011508962237887655
-2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",18,0-3,1.05%,0.010496574531766651
-2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",19,3-3,0.89%,0.008904971202492805
-2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",20,5-0,0.76%,0.007646527675040084
-2026-11-22,Serie A,Juventus,Venezia,Research,1,1-0,14.95%,0.1494584496102411
-2026-11-22,Serie A,Juventus,Venezia,Research,2,2-0,13.90%,0.1389860178196172
-2026-11-22,Serie A,Juventus,Venezia,Research,3,1-1,10.76%,0.1075801785679466
-2026-11-22,Serie A,Juventus,Venezia,Research,4,2-1,9.47%,0.09471810050831499
-2026-11-22,Serie A,Juventus,Venezia,Research,5,0-0,8.64%,0.08638939612584036
-2026-11-22,Serie A,Juventus,Venezia,Research,6,3-0,8.51%,0.08505185831249709
-2026-11-22,Serie A,Juventus,Venezia,Research,7,3-1,5.80%,0.05796230865839665
-2026-11-22,Serie A,Juventus,Venezia,Research,8,0-1,4.30%,0.042999127189229214
-2026-11-22,Serie A,Juventus,Venezia,Research,9,4-0,3.90%,0.03903532194762291
-2026-11-22,Serie A,Juventus,Venezia,Research,10,2-2,3.30%,0.033022733647147605
-2026-11-22,Serie A,Juventus,Venezia,Research,11,1-2,2.79%,0.027868108501890636
-2026-11-22,Serie A,Juventus,Venezia,Research,12,4-1,2.66%,0.0266023273823701
-2026-11-22,Serie A,Juventus,Venezia,Research,13,3-2,1.98%,0.01975047513169736
-2026-11-22,Serie A,Juventus,Venezia,Research,14,0-2,1.52%,0.015180061912390836
-2026-11-22,Serie A,Juventus,Venezia,Research,15,5-0,1.43%,0.014332492103403484
-2026-11-22,Serie A,Juventus,Venezia,Research,16,5-1,0.98%,0.009767503586919746
-2026-11-22,Serie A,Juventus,Venezia,Research,17,4-2,0.91%,0.009064659734436918
-2026-11-22,Serie A,Juventus,Venezia,Research,18,1-3,0.63%,0.006330647124241723
-2026-11-22,Serie A,Juventus,Venezia,Research,19,2-3,0.58%,0.005811015856316882
-2026-11-22,Serie A,Juventus,Venezia,Research,20,3-3,0.46%,0.004590566999538444
-2026-11-22,Serie A,Juventus,Venezia,Research,21,6-0,0.44%,0.004385351515091758
-2026-11-22,Serie A,Juventus,Venezia,Research,22,0-3,0.34%,0.0034483723674668754
-2026-11-22,Serie A,Juventus,Venezia,Research,23,5-2,0.33%,0.0033282462544610373
-2026-11-22,Serie A,Juventus,Venezia,Research,24,6-1,0.30%,0.0029885895868305462
-2026-11-22,Serie A,Juventus,Venezia,Research,25,4-3,0.21%,0.0020591696087357237
-2026-11-22,Serie A,Juventus,Venezia,Research,26,7-0,0.12%,0.001150112491982014
-2026-11-22,Serie A,Juventus,Venezia,Research,27,1-4,0.11%,0.001078574089687978
-2026-11-22,Serie A,Juventus,Venezia,Research,28,6-2,0.10%,0.0010183525411559956
-2026-11-22,Serie A,Juventus,Venezia,Research,29,2-4,0.10%,0.0009900427261834014
-2026-11-22,Serie A,Juventus,Venezia,Research,30,7-1,0.08%,0.000783794458754866
-2026-11-22,Serie A,Juventus,Venezia,Research,31,5-3,0.08%,0.0007560596578753317
-2026-11-22,Serie A,Juventus,Venezia,Research,32,3-4,0.06%,0.0006058521208943071
-2026-11-22,Serie A,Juventus,Venezia,Research,33,0-4,0.06%,0.0005875110417864678
-2026-11-22,Serie A,Juventus,Venezia,Research,34,4-4,0.04%,0.00035895678417670264
-2026-11-22,Serie A,Juventus,Venezia,Research,35,7-2,0.03%,0.00026707550689938984
-2026-11-22,Serie A,Juventus,Venezia,Research,36,8-0,0.03%,0.00026392728090400894
-2026-11-22,Serie A,Juventus,Venezia,Research,37,6-3,0.02%,0.0002313336258790613
-2026-11-22,Serie A,Juventus,Venezia,Research,38,8-1,0.02%,0.0001798647886436801
-2026-11-22,Serie A,Juventus,Venezia,Research,39,1-5,0.01%,0.00014700829714442087
-2026-11-22,Serie A,Juventus,Venezia,Research,40,2-5,0.01%,0.0001349415832143221
-2026-11-22,Serie A,Juventus,Venezia,Research,41,5-4,0.01%,0.0001288124801839062
-2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",1,1-0,16.56%,0.16556196157564415
-2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",2,2-0,15.79%,0.1578843198920969
-2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",3,3-0,9.92%,0.09924693359751297
-2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",4,2-1,9.04%,0.09040399235616581
-2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",5,1-1,8.12%,0.08115301920069798
-2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",6,0-0,7.53%,0.07527027647878054
-2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",7,3-1,5.68%,0.056828436366919914
-2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",8,0-1,4.87%,0.04865380847475475
-2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",9,4-0,4.68%,0.046790367633915045
-2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",10,1-2,2.73%,0.027278261894865503
-2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",11,4-1,2.68%,0.026791995815731308
-2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",12,2-2,2.15%,0.021485731599993563
-2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",13,5-0,1.76%,0.017647606219820075
-2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",14,3-2,1.63%,0.01626987889120029
-2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",15,0-2,1.45%,0.014464963537564539
-2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",16,5-1,1.01%,0.010104955697257296
-2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",17,4-2,0.77%,0.007670500105986272
-2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",18,6-0,0.55%,0.005546690145831293
-2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",19,1-3,0.52%,0.005206478138589683
-2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",20,2-3,0.49%,0.004909230287567447
-2026-11-22,Serie A,Sassuolo,Genoa,Research,1,1-1,12.10%,0.12101726017225897
-2026-11-22,Serie A,Sassuolo,Genoa,Research,2,1-2,8.35%,0.08353475747188324
-2026-11-22,Serie A,Sassuolo,Genoa,Research,3,2-1,8.20%,0.08195047968318574
-2026-11-22,Serie A,Sassuolo,Genoa,Research,4,0-1,7.45%,0.07447114154181346
-2026-11-22,Serie A,Sassuolo,Genoa,Research,5,1-0,7.30%,0.07302659636048608
-2026-11-22,Serie A,Sassuolo,Genoa,Research,6,2-2,6.48%,0.06475982713526619
-2026-11-22,Serie A,Sassuolo,Genoa,Research,7,0-2,5.70%,0.0569968052893763
-2026-11-22,Serie A,Sassuolo,Genoa,Research,8,0-0,5.67%,0.05670385320400299
-2026-11-22,Serie A,Sassuolo,Genoa,Research,9,2-0,5.51%,0.055067426446329795
-2026-11-22,Serie A,Sassuolo,Genoa,Research,10,1-3,4.14%,0.041438371627986116
-2026-11-22,Serie A,Sassuolo,Genoa,Research,11,3-1,4.00%,0.040035655859910674
-2026-11-22,Serie A,Sassuolo,Genoa,Research,12,2-3,3.04%,0.030366125841607396
-2026-11-22,Serie A,Sassuolo,Genoa,Research,13,3-2,2.98%,0.029790217319746373
-2026-11-22,Serie A,Sassuolo,Genoa,Research,14,0-3,2.83%,0.028273916997773183
-2026-11-22,Serie A,Sassuolo,Genoa,Research,15,3-0,2.69%,0.026902350575850834
-2026-11-22,Serie A,Sassuolo,Genoa,Research,16,3-3,1.57%,0.015694106419770922
-2026-11-22,Serie A,Sassuolo,Genoa,Research,17,1-4,1.54%,0.015416983557027617
-2026-11-22,Serie A,Sassuolo,Genoa,Research,18,4-1,1.47%,0.014669106388971509
-2026-11-22,Serie A,Sassuolo,Genoa,Research,19,2-4,1.13%,0.011297597960497962
-2026-11-22,Serie A,Sassuolo,Genoa,Research,20,4-2,1.09%,0.010915166938766771
-2026-11-22,Serie A,Sassuolo,Genoa,Research,21,0-4,1.05%,0.010519199870128131
-2026-11-22,Serie A,Sassuolo,Genoa,Research,22,4-0,0.99%,0.009857049528336242
-2026-11-22,Serie A,Sassuolo,Genoa,Research,23,3-4,0.55%,0.005519269023667808
-2026-11-22,Serie A,Sassuolo,Genoa,Research,24,4-3,0.54%,0.0054145933702191675
-2026-11-22,Serie A,Sassuolo,Genoa,Research,25,1-5,0.46%,0.004588662588027689
-2026-11-22,Serie A,Sassuolo,Genoa,Research,26,5-1,0.43%,0.0042998207998173115
-2026-11-22,Serie A,Sassuolo,Genoa,Research,27,2-5,0.34%,0.003362581590890002
-2026-11-22,Serie A,Sassuolo,Genoa,Research,28,5-2,0.32%,0.0031994629115290126
-2026-11-22,Serie A,Sassuolo,Genoa,Research,29,0-5,0.31%,0.0031309016268646086
-2026-11-22,Serie A,Sassuolo,Genoa,Research,30,5-0,0.29%,0.002889306646424918
-2026-11-22,Serie A,Sassuolo,Genoa,Research,31,4-4,0.21%,0.0021393903490176656
-2026-11-22,Serie A,Sassuolo,Genoa,Research,32,3-5,0.16%,0.0016427379057961087
-2026-11-22,Serie A,Sassuolo,Genoa,Research,33,5-3,0.16%,0.0015871301617476133
-2026-11-22,Serie A,Sassuolo,Genoa,Research,34,1-6,0.11%,0.0011381292730880852
-2026-11-22,Serie A,Sassuolo,Genoa,Research,35,6-1,0.11%,0.0010503059070933777
-2026-11-22,Serie A,Sassuolo,Genoa,Research,36,2-6,0.08%,0.0008340235239183208
-2026-11-22,Serie A,Sassuolo,Genoa,Research,37,6-2,0.08%,0.0007815243825156329
-2026-11-22,Serie A,Sassuolo,Genoa,Research,38,0-6,0.08%,0.0007765597762605024
-2026-11-22,Serie A,Sassuolo,Genoa,Research,39,6-0,0.07%,0.0007057633281538578
-2026-11-22,Serie A,Sassuolo,Genoa,Research,40,4-5,0.06%,0.000601900895382837
-2026-11-22,Serie A,Sassuolo,Genoa,Research,41,5-4,0.06%,0.0005904855486647582
-2026-11-22,Serie A,Sassuolo,Genoa,Research,42,3-6,0.04%,0.00040744946108613
-2026-11-22,Serie A,Sassuolo,Genoa,Research,43,6-3,0.04%,0.000387684106342388
-2026-11-22,Serie A,Sassuolo,Genoa,Research,44,1-7,0.02%,0.00024196373140052146
-2026-11-22,Serie A,Sassuolo,Genoa,Research,45,7-1,0.02%,0.00021990467905521902
-2026-11-22,Serie A,Sassuolo,Genoa,Research,46,5-5,0.02%,0.00018664804504005088
-2026-11-22,Serie A,Sassuolo,Genoa,Research,47,2-7,0.02%,0.00017731153103156357
-2026-11-22,Serie A,Sassuolo,Genoa,Research,48,0-7,0.02%,0.00016509486713202465
-2026-11-22,Serie A,Sassuolo,Genoa,Research,49,7-2,0.02%,0.00016362934584128648
-2026-11-22,Serie A,Sassuolo,Genoa,Research,50,4-6,0.01%,0.000149289910816385
-2026-11-22,Serie A,Sassuolo,Genoa,Research,51,7-0,0.01%,0.00014776710015477343
-2026-11-22,Serie A,Sassuolo,Genoa,Research,52,6-4,0.01%,0.00014423635046423793
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,1,1-1,13.70%,0.1369794252466419
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,2,1-2,8.65%,0.08651713471559992
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,3,0-1,8.53%,0.08526724549657508
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,4,2-1,8.24%,0.08242887639508947
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,5,0-0,8.09%,0.08085035329816412
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,6,1-0,8.08%,0.08075129977867412
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,7,0-2,6.37%,0.0637461330165738
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,8,2-0,5.80%,0.05798840008272457
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,9,2-2,5.68%,0.05682005524348572
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,10,1-3,3.83%,0.03827643137518667
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,11,3-1,3.48%,0.034819194691326466
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,12,2-3,2.60%,0.025974651425980967
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,13,0-3,2.59%,0.025925217973083465
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,14,3-2,2.47%,0.0247472519615431
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,15,3-0,2.25%,0.02251747703697265
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,16,1-4,1.17%,0.011675117920982175
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,17,3-3,1.14%,0.011372553608839497
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,18,4-1,1.01%,0.010140481748798051
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,19,0-4,0.89%,0.008902394495388162
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,20,2-4,0.86%,0.00861867102455331
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,21,4-2,0.78%,0.007840208023649703
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,22,4-0,0.74%,0.0073826822610999505
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,23,3-4,0.39%,0.003899126565616387
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,24,4-3,0.37%,0.0037148782467486302
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,25,1-5,0.32%,0.0032072711788397
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,26,5-1,0.27%,0.002659763510909719
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,27,0-5,0.24%,0.0024455764370830135
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,28,2-5,0.21%,0.0021031009823772318
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,29,5-0,0.19%,0.0019364157815324288
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,30,5-2,0.18%,0.0018266588202375483
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,31,4-4,0.13%,0.0012803740414424425
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,32,3-5,0.10%,0.0010350179827562371
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,33,5-3,0.09%,0.0009415322002556362
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,34,1-6,0.07%,0.0007342244481123563
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,35,6-1,0.06%,0.0005813614274954036
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,36,0-6,0.06%,0.0005598535046492257
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,37,2-6,0.05%,0.00048145232255325147
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,38,6-0,0.04%,0.00042325471357086084
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,39,6-2,0.04%,0.0003992644364525298
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,40,4-5,0.04%,0.0003511851857112179
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,41,5-4,0.03%,0.00033459037172155583
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,42,3-6,0.02%,0.0002104681926513101
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,43,6-3,0.02%,0.00018280319571312522
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,44,1-7,0.01%,0.0001440705492024052
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,45,0-7,0.01%,0.00010985523853785142
-2026-11-22,Serie A,Sassuolo,Genoa,Cagey,46,7-1,0.01%,0.00010891874129620121
-2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",1,1-1,13.06%,0.13063685240049708
-2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",2,0-1,8.94%,0.08943035374372042
-2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",3,1-0,8.41%,0.08413351322756658
-2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",4,1-2,8.39%,0.08385691698007373
-2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",5,2-1,7.88%,0.07880997448897227
-2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",6,0-0,7.27%,0.07273058511789146
-2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",7,0-2,6.09%,0.060930540870640135
-2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",8,2-0,5.94%,0.059442265068566445
-2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",9,2-2,5.84%,0.05844574603191377
-2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",10,1-3,3.71%,0.037059834335610047
-2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",11,3-1,3.62%,0.03615461908751883
-2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",12,3-0,2.73%,0.02726954887612693
-2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",13,0-3,2.69%,0.02692772202896046
-2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",14,2-3,2.55%,0.025502181720120077
-2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",15,3-2,2.40%,0.023967328673118012
-2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",16,4-1,1.24%,0.012439635558565828
-2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",17,1-4,1.23%,0.012283703334596878
-2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",18,3-3,1.18%,0.0118495018240656
-2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",19,4-0,0.94%,0.00938257015083926
-2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",20,0-4,0.89%,0.008925354222709172
+2026-11-21,Serie A,Como,Cagliari,Research,1,1-0,13.78%,0.1378277833401392
+2026-11-21,Serie A,Como,Cagliari,Research,2,2-0,13.40%,0.13404756979397292
+2026-11-21,Serie A,Como,Cagliari,Research,3,1-1,10.54%,0.10541604503151696
+2026-11-21,Serie A,Como,Cagliari,Research,4,2-1,9.70%,0.09698768888140326
+2026-11-21,Serie A,Como,Cagliari,Research,5,3-0,8.57%,0.08572202883900752
+2026-11-21,Serie A,Como,Cagliari,Research,6,0-0,7.65%,0.07649239768582021
+2026-11-21,Serie A,Como,Cagliari,Research,7,3-1,6.20%,0.062022619851286244
+2026-11-21,Serie A,Como,Cagliari,Research,8,4-0,4.11%,0.04111376043353322
+2026-11-21,Serie A,Como,Cagliari,Research,9,0-1,4.02%,0.0402373199535386
+2026-11-21,Serie A,Como,Cagliari,Research,10,2-2,3.59%,0.035900796004063394
+2026-11-21,Serie A,Como,Cagliari,Research,11,4-1,2.97%,0.029747115981295157
+2026-11-21,Serie A,Como,Cagliari,Research,12,1-2,2.90%,0.028980030325604075
+2026-11-21,Serie A,Como,Cagliari,Research,13,3-2,2.24%,0.022437671070768522
+2026-11-21,Serie A,Como,Cagliari,Research,14,5-0,1.58%,0.015775093705824927
+2026-11-21,Serie A,Como,Cagliari,Research,15,0-2,1.51%,0.015105812318863916
+2026-11-21,Serie A,Como,Cagliari,Research,16,5-1,1.14%,0.011413783053039157
+2026-11-21,Serie A,Como,Cagliari,Research,17,4-2,1.08%,0.010761493230900024
+2026-11-21,Serie A,Como,Cagliari,Research,18,1-3,0.70%,0.006989325180887383
+2026-11-21,Serie A,Como,Cagliari,Research,19,2-3,0.67%,0.006704401306663992
+2026-11-21,Serie A,Como,Cagliari,Research,20,3-3,0.55%,0.005536993139427823
+2026-11-21,Serie A,Como,Cagliari,Research,21,6-0,0.50%,0.005044004302603816
+2026-11-21,Serie A,Como,Cagliari,Research,22,5-2,0.41%,0.004129117899747888
+2026-11-21,Serie A,Como,Cagliari,Research,23,6-1,0.36%,0.0036494978668340943
+2026-11-21,Serie A,Como,Cagliari,Research,24,0-3,0.36%,0.0036431788797927577
+2026-11-21,Serie A,Como,Cagliari,Research,25,4-3,0.26%,0.002595427774836561
+2026-11-21,Serie A,Como,Cagliari,Research,26,7-0,0.14%,0.001382395016154471
+2026-11-21,Serie A,Como,Cagliari,Research,27,6-2,0.13%,0.0013202640086122808
+2026-11-21,Serie A,Como,Cagliari,Research,28,1-4,0.13%,0.0012642498800551592
+2026-11-21,Serie A,Como,Cagliari,Research,29,2-4,0.12%,0.001212712004153091
+2026-11-21,Serie A,Como,Cagliari,Research,30,7-1,0.10%,0.001000206851523396
+2026-11-21,Serie A,Como,Cagliari,Research,31,5-3,0.10%,0.0009958494655563882
+2026-11-21,Serie A,Como,Cagliari,Research,32,3-4,0.08%,0.0007755167330015704
+2026-11-21,Serie A,Como,Cagliari,Research,33,0-4,0.07%,0.0006589890071780445
+2026-11-21,Serie A,Como,Cagliari,Research,34,4-4,0.05%,0.00048035953924845885
+2026-11-21,Serie A,Como,Cagliari,Research,35,7-2,0.04%,0.00036184076698181513
+2026-11-21,Serie A,Como,Cagliari,Research,36,8-0,0.03%,0.0003315102214007705
+2026-11-21,Serie A,Como,Cagliari,Research,37,6-3,0.03%,0.00031841769581104754
+2026-11-21,Serie A,Como,Cagliari,Research,38,8-1,0.02%,0.00023985821051168888
+2026-11-21,Serie A,Como,Cagliari,Research,39,1-5,0.02%,0.00018294501604706356
+2026-11-21,Serie A,Como,Cagliari,Research,40,5-4,0.02%,0.00018013220658633192
+2026-11-21,Serie A,Como,Cagliari,Research,41,2-5,0.02%,0.0001754871568985825
+2026-11-21,Serie A,Como,Cagliari,Research,42,3-5,0.01%,0.0001122222144545891
+2026-11-21,Serie A,Como,Cagliari,Cagey,1,2-0,11.94%,0.11941076962172416
+2026-11-21,Serie A,Como,Cagliari,Cagey,2,1-0,10.83%,0.1083473351285504
+2026-11-21,Serie A,Como,Cagliari,Cagey,3,2-1,10.18%,0.10184019356891612
+2026-11-21,Serie A,Como,Cagliari,Cagey,4,3-0,9.05%,0.09049577796576282
+2026-11-21,Serie A,Como,Cagliari,Cagey,5,3-1,7.61%,0.07612817573392973
+2026-11-21,Serie A,Como,Cagliari,Cagey,6,1-1,7.47%,0.07474905153781539
+2026-11-21,Serie A,Como,Cagliari,Cagey,7,4-0,5.55%,0.05545145135413069
+2026-11-21,Serie A,Como,Cagliari,Cagey,8,4-1,4.33%,0.04327045946094624
+2026-11-21,Serie A,Como,Cagliari,Cagey,9,0-0,3.83%,0.03826902333514612
+2026-11-21,Serie A,Como,Cagliari,Cagey,10,2-2,3.66%,0.036556373469867814
+2026-11-21,Serie A,Como,Cagliari,Cagey,11,3-2,3.25%,0.0324631864334848
+2026-11-21,Serie A,Como,Cagliari,Cagey,12,0-1,3.15%,0.03154544424504789
+2026-11-21,Serie A,Como,Cagliari,Cagey,13,1-2,2.86%,0.028603472090445132
+2026-11-21,Serie A,Como,Cagliari,Cagey,14,5-0,2.72%,0.02718238155546072
+2026-11-21,Serie A,Como,Cagliari,Cagey,15,5-1,2.12%,0.02121124173352982
+2026-11-21,Serie A,Como,Cagliari,Cagey,16,4-2,1.82%,0.01820030290903214
+2026-11-21,Serie A,Como,Cagliari,Cagey,17,6-0,1.11%,0.011104035587032629
+2026-11-21,Serie A,Como,Cagliari,Cagey,18,0-2,1.07%,0.010677683248447107
+2026-11-21,Serie A,Como,Cagliari,Cagey,19,2-3,0.91%,0.009117813061585892
+2026-11-21,Serie A,Como,Cagliari,Cagey,20,6-1,0.87%,0.008664817781830843
+2026-11-21,Serie A,Como,Cagliari,Cagey,21,5-2,0.83%,0.008275889567664698
+2026-11-21,Serie A,Como,Cagliari,Cagey,22,3-3,0.78%,0.007768618169939238
+2026-11-21,Serie A,Como,Cagliari,Cagey,23,1-3,0.68%,0.0068073637691481274
+2026-11-21,Serie A,Como,Cagliari,Cagey,24,4-3,0.52%,0.005174079292681409
+2026-11-21,Serie A,Como,Cagliari,Cagey,25,7-0,0.39%,0.0038880102035372707
+2026-11-21,Serie A,Como,Cagliari,Cagey,26,6-2,0.34%,0.0033807108507473557
+2026-11-21,Serie A,Como,Cagliari,Cagey,27,7-1,0.30%,0.003033932995215869
+2026-11-21,Serie A,Como,Cagliari,Cagey,28,0-3,0.26%,0.0025762965500776744
+2026-11-21,Serie A,Como,Cagliari,Cagey,29,5-3,0.23%,0.0023206547661635364
+2026-11-21,Serie A,Como,Cagliari,Cagey,30,2-4,0.16%,0.0016274668533170589
+2026-11-21,Serie A,Como,Cagliari,Cagey,31,3-4,0.15%,0.0014532241883634313
+2026-11-21,Serie A,Como,Cagliari,Cagey,32,1-4,0.12%,0.0012318534404078712
+2026-11-21,Serie A,Como,Cagliari,Cagey,33,8-0,0.12%,0.0011911926363425312
+2026-11-21,Serie A,Como,Cagliari,Cagey,34,7-2,0.12%,0.0011837352447127262
+2026-11-21,Serie A,Como,Cagliari,Cagey,35,8-1,0.09%,0.0009295239605518021
+2026-11-21,Serie A,Como,Cagliari,Cagey,36,4-4,0.09%,0.0009286391176091725
+2026-11-21,Serie A,Como,Cagliari,Cagey,37,6-3,0.09%,0.0008793572770663976
+2026-11-21,Serie A,Como,Cagliari,Cagey,38,0-4,0.05%,0.0005025907018987679
+2026-11-21,Serie A,Como,Cagliari,Cagey,39,5-4,0.05%,0.0004947960961590819
+2026-11-21,Serie A,Como,Cagliari,Cagey,40,8-2,0.04%,0.00036266795431711297
+2026-11-21,Serie A,Como,Cagliari,Cagey,41,9-0,0.03%,0.00032440241725377163
+2026-11-21,Serie A,Como,Cagliari,Cagey,42,7-3,0.03%,0.0003079015767728247
+2026-11-21,Serie A,Como,Cagliari,Cagey,43,9-1,0.03%,0.0002531411045522912
+2026-11-21,Serie A,Como,Cagliari,Cagey,44,2-5,0.02%,0.000235603762090037
+2026-11-21,Serie A,Como,Cagliari,Cagey,45,3-5,0.02%,0.00020751240948023604
+2026-11-21,Serie A,Como,Cagliari,Cagey,46,1-5,0.02%,0.00019225056532636752
+2026-11-21,Serie A,Como,Cagliari,Cagey,47,6-4,0.02%,0.00018493643246745588
+2026-11-21,Serie A,Como,Cagliari,Cagey,48,4-5,0.01%,0.0001389715183266038
+2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",1,2-0,11.16%,0.11155129263761643
+2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",2,2-1,10.11%,0.10109741907231365
+2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",3,1-0,9.49%,0.09485228827870239
+2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",4,3-0,8.59%,0.08590630280562563
+2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",5,1-1,8.22%,0.08222358532654475
+2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",6,3-1,7.79%,0.07785571363934833
+2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",7,4-0,4.96%,0.04961770962421317
+2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",8,4-1,4.50%,0.04496785527697166
+2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",9,2-2,4.22%,0.042212622835807415
+2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",10,0-0,4.01%,0.04009569702200779
+2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",11,3-2,3.53%,0.03527978709552419
+2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",12,1-2,3.16%,0.031593388807978864
+2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",13,0-1,2.88%,0.028811153406079374
+2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",14,5-0,2.29%,0.022926533005832188
+2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",15,5-1,2.08%,0.020778004990900965
+2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",16,4-2,2.04%,0.020376877767287055
+2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",17,0-2,1.37%,0.013674911871937973
+2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",18,2-3,1.10%,0.011025088879611723
+2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",19,3-3,0.98%,0.009820576100798414
+2026-11-21,Serie A,Como,Cagliari,"Benchmark (70% Pinnacle blend), display only",20,1-3,0.95%,0.00954421950271429
+2026-11-21,Serie A,Lazio,Lecce,Research,1,1-0,14.05%,0.14047902304623458
+2026-11-21,Serie A,Lazio,Lecce,Research,2,2-0,12.01%,0.1200721022262614
+2026-11-21,Serie A,Lazio,Lecce,Research,3,1-1,11.99%,0.11987186872829449
+2026-11-21,Serie A,Lazio,Lecce,Research,4,2-1,9.70%,0.09699520322532709
+2026-11-21,Serie A,Lazio,Lecce,Research,5,0-0,8.87%,0.08874560312194538
+2026-11-21,Serie A,Lazio,Lecce,Research,6,3-0,6.74%,0.06737210011714437
+2026-11-21,Serie A,Lazio,Lecce,Research,7,0-1,5.58%,0.055757194005554074
+2026-11-21,Serie A,Lazio,Lecce,Research,8,3-1,5.44%,0.05442372059302764
+2026-11-21,Serie A,Lazio,Lecce,Research,9,2-2,4.00%,0.03999167433678028
+2026-11-21,Serie A,Lazio,Lecce,Research,10,1-2,3.92%,0.03915806417671404
+2026-11-21,Serie A,Lazio,Lecce,Research,11,4-0,2.84%,0.028351714032881656
+2026-11-21,Serie A,Lazio,Lecce,Research,12,0-2,2.33%,0.023262800064287714
+2026-11-21,Serie A,Lazio,Lecce,Research,13,4-1,2.29%,0.02290274104823873
+2026-11-21,Serie A,Lazio,Lecce,Research,14,3-2,2.20%,0.021981958095694032
+2026-11-21,Serie A,Lazio,Lecce,Research,15,1-3,1.05%,0.010544065669180548
+2026-11-21,Serie A,Lazio,Lecce,Research,16,5-0,0.95%,0.009544837547942168
+2026-11-21,Serie A,Lazio,Lecce,Research,17,4-2,0.93%,0.009250508574443424
+2026-11-21,Serie A,Lazio,Lecce,Research,18,2-3,0.89%,0.008874365919326863
+2026-11-21,Serie A,Lazio,Lecce,Research,19,5-1,0.77%,0.007710396008315224
+2026-11-21,Serie A,Lazio,Lecce,Research,20,0-3,0.63%,0.006263958565978585
+2026-11-21,Serie A,Lazio,Lecce,Research,21,3-3,0.60%,0.006042190955261589
+2026-11-21,Serie A,Lazio,Lecce,Research,22,5-2,0.31%,0.003114259740222639
+2026-11-21,Serie A,Lazio,Lecce,Research,23,6-0,0.27%,0.002677790006833051
+2026-11-21,Serie A,Lazio,Lecce,Research,24,4-3,0.25%,0.0024908782375470872
+2026-11-21,Serie A,Lazio,Lecce,Research,25,6-1,0.22%,0.0021631401557214904
+2026-11-21,Serie A,Lazio,Lecce,Research,26,1-4,0.21%,0.0021293951164362934
+2026-11-21,Serie A,Lazio,Lecce,Research,27,2-4,0.18%,0.0017921959178723436
+2026-11-21,Serie A,Lazio,Lecce,Research,28,0-4,0.13%,0.0012650189403638934
+2026-11-21,Serie A,Lazio,Lecce,Research,29,3-4,0.10%,0.0010055958092655486
+2026-11-21,Serie A,Lazio,Lecce,Research,30,6-2,0.09%,0.000873700947676014
+2026-11-21,Serie A,Lazio,Lecce,Research,31,5-3,0.08%,0.0008385746308501041
+2026-11-21,Serie A,Lazio,Lecce,Research,32,7-0,0.06%,0.0006439285815585109
+2026-11-21,Serie A,Lazio,Lecce,Research,33,7-1,0.05%,0.000520170651407184
+2026-11-21,Serie A,Lazio,Lecce,Research,34,4-4,0.05%,0.0005135016370713953
+2026-11-21,Serie A,Lazio,Lecce,Research,35,1-5,0.03%,0.00034402847661741716
+2026-11-21,Serie A,Lazio,Lecce,Research,36,2-5,0.03%,0.0002895500354379734
+2026-11-21,Serie A,Lazio,Lecce,Research,37,6-3,0.02%,0.0002352608680027509
+2026-11-21,Serie A,Lazio,Lecce,Research,38,7-2,0.02%,0.0002100990034721638
+2026-11-21,Serie A,Lazio,Lecce,Research,39,0-5,0.02%,0.00020437848081191932
+2026-11-21,Serie A,Lazio,Lecce,Research,40,5-4,0.02%,0.00016935182117832492
+2026-11-21,Serie A,Lazio,Lecce,Research,41,3-5,0.02%,0.00016246566533573416
+2026-11-21,Serie A,Lazio,Lecce,Research,42,8-0,0.01%,0.00013548990583789317
+2026-11-21,Serie A,Lazio,Lecce,Research,43,8-1,0.01%,0.00010944982812879056
+2026-11-21,Serie A,Lazio,Lecce,Cagey,1,2-0,11.35%,0.11354687437661481
+2026-11-21,Serie A,Lazio,Lecce,Cagey,2,1-0,10.94%,0.10940471864430124
+2026-11-21,Serie A,Lazio,Lecce,Cagey,3,2-1,10.60%,0.1060304619186841
+2026-11-21,Serie A,Lazio,Lecce,Cagey,4,1-1,8.73%,0.0872903172298995
+2026-11-21,Serie A,Lazio,Lecce,Cagey,5,3-0,8.43%,0.08426603140999066
+2026-11-21,Serie A,Lazio,Lecce,Cagey,6,3-1,7.15%,0.07146831840910721
+2026-11-21,Serie A,Lazio,Lecce,Cagey,7,4-0,4.82%,0.04817029487580828
+2026-11-21,Serie A,Lazio,Lecce,Cagey,8,0-0,4.75%,0.04747353599485683
+2026-11-21,Serie A,Lazio,Lecce,Cagey,9,2-2,4.00%,0.039956727378464126
+2026-11-21,Serie A,Lazio,Lecce,Cagey,10,4-1,3.98%,0.039778846381358576
+2026-11-21,Serie A,Lazio,Lecce,Cagey,11,1-2,3.37%,0.033722148988056255
+2026-11-21,Serie A,Lazio,Lecce,Cagey,12,3-2,3.34%,0.03336868079844696
+2026-11-21,Serie A,Lazio,Lecce,Cagey,13,0-1,3.32%,0.03316333236655901
+2026-11-21,Serie A,Lazio,Lecce,Cagey,14,5-0,2.20%,0.022029064567027558
+2026-11-21,Serie A,Lazio,Lecce,Cagey,15,5-1,1.82%,0.01819151777243746
+2026-11-21,Serie A,Lazio,Lecce,Cagey,16,4-2,1.69%,0.016868762012167318
+2026-11-21,Serie A,Lazio,Lecce,Cagey,17,0-2,1.30%,0.01304205108979152
+2026-11-21,Serie A,Lazio,Lecce,Cagey,18,2-3,1.06%,0.01061264475376045
+2026-11-21,Serie A,Lazio,Lecce,Cagey,19,6-0,0.84%,0.008395209934348674
+2026-11-21,Serie A,Lazio,Lecce,Cagey,20,3-3,0.84%,0.008383146110502093
+2026-11-21,Serie A,Lazio,Lecce,Cagey,21,1-3,0.82%,0.008208886991476975
+2026-11-21,Serie A,Lazio,Lecce,Cagey,22,5-2,0.75%,0.00751124310925657
+2026-11-21,Serie A,Lazio,Lecce,Cagey,23,6-1,0.69%,0.0069327324480512225
+2026-11-21,Serie A,Lazio,Lecce,Cagey,24,4-3,0.53%,0.005250702666383616
+2026-11-21,Serie A,Lazio,Lecce,Cagey,25,0-3,0.35%,0.003495500576597683
+2026-11-21,Serie A,Lazio,Lecce,Cagey,26,6-2,0.29%,0.0028625120498544836
+2026-11-21,Serie A,Lazio,Lecce,Cagey,27,7-0,0.27%,0.0027423335447458288
+2026-11-21,Serie A,Lazio,Lecce,Cagey,28,7-1,0.23%,0.002264608615831323
+2026-11-21,Serie A,Lazio,Lecce,Cagey,29,5-3,0.21%,0.0021234966814750425
+2026-11-21,Serie A,Lazio,Lecce,Cagey,30,2-4,0.19%,0.0019375544874490227
+2026-11-21,Serie A,Lazio,Lecce,Cagey,31,3-4,0.17%,0.0016699444141209684
+2026-11-21,Serie A,Lazio,Lecce,Cagey,32,1-4,0.17%,0.001650095277252418
+2026-11-21,Serie A,Lazio,Lecce,Cagey,33,4-4,0.10%,0.000989342549252324
+2026-11-21,Serie A,Lazio,Lecce,Cagey,34,7-2,0.09%,0.0009350525928407428
+2026-11-21,Serie A,Lazio,Lecce,Cagey,35,6-3,0.08%,0.000787950522824077
+2026-11-21,Serie A,Lazio,Lecce,Cagey,36,8-0,0.08%,0.0007838212698988297
+2026-11-21,Serie A,Lazio,Lecce,Cagey,37,0-4,0.07%,0.0007216427718623987
+2026-11-21,Serie A,Lazio,Lecce,Cagey,38,8-1,0.06%,0.0006472766248604739
+2026-11-21,Serie A,Lazio,Lecce,Cagey,39,5-4,0.05%,0.0004957321266122907
+2026-11-21,Serie A,Lazio,Lecce,Cagey,40,2-5,0.03%,0.00031157934199638643
+2026-11-21,Serie A,Lazio,Lecce,Cagey,41,1-5,0.03%,0.00027252848137076266
+2026-11-21,Serie A,Lazio,Lecce,Cagey,42,8-2,0.03%,0.0002672592880420583
+2026-11-21,Serie A,Lazio,Lecce,Cagey,43,7-3,0.03%,0.00025738762547194413
+2026-11-21,Serie A,Lazio,Lecce,Cagey,44,3-5,0.02%,0.0002439058966690858
+2026-11-21,Serie A,Lazio,Lecce,Cagey,45,9-0,0.02%,0.0001991412781596341
+2026-11-21,Serie A,Lazio,Lecce,Cagey,46,6-4,0.02%,0.00016707057966757716
+2026-11-21,Serie A,Lazio,Lecce,Cagey,47,9-1,0.02%,0.00016445011043679156
+2026-11-21,Serie A,Lazio,Lecce,Cagey,48,4-5,0.02%,0.00015766367824188306
+2026-11-21,Serie A,Lazio,Lecce,Cagey,49,0-5,0.01%,0.00011918597151269986
+2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",1,2-0,11.10%,0.11102117691731014
+2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",2,2-1,9.55%,0.09546758693730588
+2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",3,1-0,9.53%,0.09531798352464085
+2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",4,1-1,9.32%,0.09315004180317345
+2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",5,3-0,8.48%,0.08475440297459091
+2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",6,3-1,7.29%,0.07288067519156916
+2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",7,4-0,4.85%,0.048526612375017104
+2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",8,0-0,4.82%,0.04818089936890765
+2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",9,2-2,4.50%,0.04498002156171859
+2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",10,4-1,4.17%,0.0417282424337421
+2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",11,1-2,3.43%,0.03429525472672232
+2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",12,0-1,3.33%,0.0332649554852569
+2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",13,3-2,3.13%,0.03133520283289236
+2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",14,5-0,2.22%,0.02222734891355331
+2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",15,5-1,1.91%,0.019113392811273888
+2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",16,4-2,1.79%,0.017941147458972413
+2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",17,0-2,1.50%,0.014974638126199109
+2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",18,2-3,1.13%,0.011256687191363518
+2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",19,3-3,0.98%,0.009842489611962383
+2026-11-21,Serie A,Lazio,Lecce,"Benchmark (70% Pinnacle blend), display only",20,1-3,0.98%,0.009830212286433094
+2026-11-21,Serie A,Napoli,Torino,Research,1,1-1,11.82%,0.11816288604596172
+2026-11-21,Serie A,Napoli,Torino,Research,2,1-0,10.86%,0.10855066547622633
+2026-11-21,Serie A,Napoli,Torino,Research,3,2-1,10.03%,0.10029534020471904
+2026-11-21,Serie A,Napoli,Torino,Research,4,2-0,9.79%,0.09786661160259197
+2026-11-21,Serie A,Napoli,Torino,Research,5,0-0,6.62%,0.0661962445639453
+2026-11-21,Serie A,Napoli,Torino,Research,6,3-1,5.91%,0.05911152075067104
+2026-11-21,Serie A,Napoli,Torino,Research,7,3-0,5.77%,0.05768008992976407
+2026-11-21,Serie A,Napoli,Torino,Research,8,0-1,5.42%,0.05422078431686863
+2026-11-21,Serie A,Napoli,Torino,Research,9,2-2,5.25%,0.052532112727702404
+2026-11-21,Serie A,Napoli,Torino,Research,10,1-2,5.08%,0.050827591830365976
+2026-11-21,Serie A,Napoli,Torino,Research,11,3-2,3.03%,0.03028923749695777
+2026-11-21,Serie A,Napoli,Torino,Research,12,0-2,2.87%,0.02874662755909154
+2026-11-21,Serie A,Napoli,Torino,Research,13,4-1,2.61%,0.026129119346358767
+2026-11-21,Serie A,Napoli,Torino,Research,14,4-0,2.55%,0.025496382677084192
+2026-11-21,Serie A,Napoli,Torino,Research,15,1-3,1.74%,0.017362988701103116
+2026-11-21,Serie A,Napoli,Torino,Research,16,2-3,1.53%,0.015349955413740627
+2026-11-21,Serie A,Napoli,Torino,Research,17,4-2,1.34%,0.01338877923317901
+2026-11-21,Serie A,Napoli,Torino,Research,18,3-3,1.06%,0.010576480990233615
+2026-11-21,Serie A,Napoli,Torino,Research,19,0-3,0.98%,0.009820008218550537
+2026-11-21,Serie A,Napoli,Torino,Research,20,5-1,0.92%,0.009239902734980947
+2026-11-21,Serie A,Napoli,Torino,Research,21,5-0,0.90%,0.009016151402092356
+2026-11-21,Serie A,Napoli,Torino,Research,22,5-2,0.47%,0.004734603421371973
+2026-11-21,Serie A,Napoli,Torino,Research,23,4-3,0.46%,0.004573681620075632
+2026-11-21,Serie A,Napoli,Torino,Research,24,1-4,0.44%,0.00444847029602716
+2026-11-21,Serie A,Napoli,Torino,Research,25,2-4,0.39%,0.00393272275175922
+2026-11-21,Serie A,Napoli,Torino,Research,26,6-1,0.27%,0.002722881746739962
+2026-11-21,Serie A,Napoli,Torino,Research,27,6-0,0.27%,0.0026569450764518045
+2026-11-21,Serie A,Napoli,Torino,Research,28,0-4,0.25%,0.0025159271608688706
+2026-11-21,Serie A,Napoli,Torino,Research,29,3-4,0.23%,0.0023178466923063803
+2026-11-21,Serie A,Napoli,Torino,Research,30,5-3,0.16%,0.0016173669211763206
+2026-11-21,Serie A,Napoli,Torino,Research,31,6-2,0.14%,0.001395227374558819
+2026-11-21,Serie A,Napoli,Torino,Research,32,4-4,0.12%,0.0011977882419861854
+2026-11-21,Serie A,Napoli,Torino,Research,33,1-5,0.09%,0.0009117733503278151
+2026-11-21,Serie A,Napoli,Torino,Research,34,2-5,0.08%,0.0008060640086737885
+2026-11-21,Serie A,Napoli,Torino,Research,35,7-1,0.07%,0.0006877702274623985
+2026-11-21,Serie A,Napoli,Torino,Research,36,7-0,0.07%,0.0006711153437986132
+2026-11-21,Serie A,Napoli,Torino,Research,37,0-5,0.05%,0.0005156728457184134
+2026-11-21,Serie A,Napoli,Torino,Research,38,6-3,0.05%,0.0004766174486642035
+2026-11-21,Serie A,Napoli,Torino,Research,39,3-5,0.05%,0.00047507361037744245
+2026-11-21,Serie A,Napoli,Torino,Research,40,5-4,0.04%,0.00041437616705772886
+2026-11-21,Serie A,Napoli,Torino,Research,41,7-2,0.04%,0.0003524192153812719
+2026-11-21,Serie A,Napoli,Torino,Research,42,4-5,0.02%,0.00020999722061315466
+2026-11-21,Serie A,Napoli,Torino,Research,43,1-6,0.02%,0.00015573342951741794
+2026-11-21,Serie A,Napoli,Torino,Research,44,8-1,0.02%,0.00015200784997595687
+2026-11-21,Serie A,Napoli,Torino,Research,45,8-0,0.01%,0.00014832686327975657
+2026-11-21,Serie A,Napoli,Torino,Research,46,2-6,0.01%,0.0001376779793313699
+2026-11-21,Serie A,Napoli,Torino,Research,47,6-4,0.01%,0.0001221113829796051
+2026-11-21,Serie A,Napoli,Torino,Research,48,7-3,0.01%,0.00012038836848967016
+2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",1,1-0,14.52%,0.14521964172284674
+2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",2,2-0,12.86%,0.12855755751234482
+2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",3,2-1,10.18%,0.10176269696617511
+2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",4,1-1,10.00%,0.10002640323038912
+2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",5,3-0,7.47%,0.07469415899007874
+2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",6,0-0,7.30%,0.0730251996839715
+2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",7,3-1,5.91%,0.05912588270604619
+2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",8,0-1,5.48%,0.05481356548782986
+2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",9,1-2,3.92%,0.03915240330706614
+2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",10,2-2,3.38%,0.0338395611437183
+2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",11,4-0,3.25%,0.0325489463349874
+2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",12,4-1,2.58%,0.02576486848808991
+2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",13,3-2,2.34%,0.023401227438905027
+2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",14,0-2,2.25%,0.022461985461554985
+2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",15,5-0,1.13%,0.011346899643476651
+2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",16,1-3,1.03%,0.010330662338674915
+2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",17,4-2,1.02%,0.01019738767234698
+2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",18,2-3,0.90%,0.009003439589193798
+2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",19,5-1,0.90%,0.008981899876355653
+2026-11-21,Serie A,Napoli,Torino,"Benchmark (70% Pinnacle blend), display only",20,0-3,0.59%,0.005926767392531181
+2026-11-21,Serie A,Parma,AS Roma,Research,1,0-1,12.37%,0.12371315349073564
+2026-11-21,Serie A,Parma,AS Roma,Research,2,1-1,11.69%,0.11685981364402727
+2026-11-21,Serie A,Parma,AS Roma,Research,3,0-2,11.20%,0.11202704472934985
+2026-11-21,Serie A,Parma,AS Roma,Research,4,1-2,10.00%,0.1000117404363699
+2026-11-21,Serie A,Parma,AS Roma,Research,5,0-0,7.43%,0.07432733841635371
+2026-11-21,Serie A,Parma,AS Roma,Research,6,0-3,6.65%,0.06648543882537786
+2026-11-21,Serie A,Parma,AS Roma,Research,7,1-3,5.94%,0.05935463589766367
+2026-11-21,Serie A,Parma,AS Roma,Research,8,1-0,5.16%,0.05160288268326527
+2026-11-21,Serie A,Parma,AS Roma,Research,9,2-2,4.56%,0.0455725313753628
+2026-11-21,Serie A,Parma,AS Roma,Research,10,2-1,4.24%,0.04244306320646188
+2026-11-21,Serie A,Parma,AS Roma,Research,11,0-4,2.96%,0.029593168237738422
+2026-11-21,Serie A,Parma,AS Roma,Research,12,2-3,2.65%,0.02649431864168944
+2026-11-21,Serie A,Parma,AS Roma,Research,13,1-4,2.64%,0.026419194290386576
+2026-11-21,Serie A,Parma,AS Roma,Research,14,2-0,2.38%,0.023838658129685605
+2026-11-21,Serie A,Parma,AS Roma,Research,15,3-1,1.26%,0.012630297237553314
+2026-11-21,Serie A,Parma,AS Roma,Research,16,2-4,1.18%,0.01179282024394924
+2026-11-21,Serie A,Parma,AS Roma,Research,17,3-2,1.12%,0.011243680350076527
+2026-11-21,Serie A,Parma,AS Roma,Research,18,0-5,1.05%,0.010537713181344726
+2026-11-21,Serie A,Parma,AS Roma,Research,19,1-5,0.94%,0.00940750546470011
+2026-11-21,Serie A,Parma,AS Roma,Research,20,3-3,0.80%,0.008048476190889072
+2026-11-21,Serie A,Parma,AS Roma,Research,21,3-0,0.71%,0.007093958710230548
+2026-11-21,Serie A,Parma,AS Roma,Research,22,2-5,0.42%,0.004199258299468572
+2026-11-21,Serie A,Parma,AS Roma,Research,23,3-4,0.35%,0.00350933259047707
+2026-11-21,Serie A,Parma,AS Roma,Research,24,0-6,0.31%,0.003126943528548341
+2026-11-21,Serie A,Parma,AS Roma,Research,25,4-1,0.28%,0.0028189130848005036
+2026-11-21,Serie A,Parma,AS Roma,Research,26,1-6,0.28%,0.002791567565599016
+2026-11-21,Serie A,Parma,AS Roma,Research,27,4-2,0.25%,0.002509438777569485
+2026-11-21,Serie A,Parma,AS Roma,Research,28,4-0,0.16%,0.0015832765179782245
+2026-11-21,Serie A,Parma,AS Roma,Research,29,4-3,0.15%,0.0014892933999571666
+2026-11-21,Serie A,Parma,AS Roma,Research,30,3-5,0.12%,0.0012496242375709542
+2026-11-21,Serie A,Parma,AS Roma,Research,31,2-6,0.12%,0.0012460809416859199
+2026-11-21,Serie A,Parma,AS Roma,Research,32,4-4,0.08%,0.0007995519770393894
+2026-11-21,Serie A,Parma,AS Roma,Research,33,0-7,0.08%,0.0007953291732110985
+2026-11-21,Serie A,Parma,AS Roma,Research,34,1-7,0.07%,0.0007100272530158233
+2026-11-21,Serie A,Parma,AS Roma,Research,35,5-1,0.05%,0.0005033148994171291
+2026-11-21,Serie A,Parma,AS Roma,Research,36,5-2,0.04%,0.00044805848493027057
+2026-11-21,Serie A,Parma,AS Roma,Research,37,3-6,0.04%,0.000370811423270396
+2026-11-21,Serie A,Parma,AS Roma,Research,38,2-7,0.03%,0.0003169371355949156
+2026-11-21,Serie A,Parma,AS Roma,Research,39,5-0,0.03%,0.00028269288105848384
+2026-11-21,Serie A,Parma,AS Roma,Research,40,4-5,0.03%,0.0002788993836106263
+2026-11-21,Serie A,Parma,AS Roma,Research,41,5-3,0.03%,0.00026591226307890375
+2026-11-21,Serie A,Parma,AS Roma,Research,42,0-8,0.02%,0.00017700349462259615
+2026-11-21,Serie A,Parma,AS Roma,Research,43,1-8,0.02%,0.0001580192319032731
+2026-11-21,Serie A,Parma,AS Roma,Research,44,5-4,0.01%,0.00011835954574113522
+2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",1,0-1,18.27%,0.18267866290855772
+2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",2,0-2,15.46%,0.1545896905696968
+2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",3,1-2,10.67%,0.10674624124062684
+2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",4,0-3,8.60%,0.08603260503763266
+2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",5,1-1,8.20%,0.08199305783002361
+2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",6,0-0,7.13%,0.07133057063785748
+2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",7,1-3,5.94%,0.05940666015995582
+2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",8,1-0,4.50%,0.04502261520846052
+2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",9,0-4,3.59%,0.03590929528814993
+2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",10,2-1,2.68%,0.02683047759964897
+2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",11,1-4,2.48%,0.024795846886578547
+2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",12,2-2,2.32%,0.02317724101752254
+2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",13,2-3,2.05%,0.020510545216065167
+2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",14,2-0,1.61%,0.016070322905107157
+2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",15,0-5,1.20%,0.011990593450262264
+2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",16,2-4,0.86%,0.008560931339490005
+2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",17,1-5,0.83%,0.008279664551646861
+2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",18,3-1,0.62%,0.006175600765912878
+2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",19,3-2,0.52%,0.005155289006717556
+2026-11-21,Serie A,Parma,AS Roma,"Benchmark (70% Pinnacle blend), display only",20,3-0,0.37%,0.0036989240341567925
+2026-11-22,Serie A,AC Milan,Frosinone,Research,1,1-1,9.39%,0.0938865102834797
+2026-11-22,Serie A,AC Milan,Frosinone,Research,2,2-1,9.34%,0.0933748986576571
+2026-11-22,Serie A,AC Milan,Frosinone,Research,3,2-2,7.00%,0.06998521695384494
+2026-11-22,Serie A,AC Milan,Frosinone,Research,4,3-1,6.48%,0.06478759182976082
+2026-11-22,Serie A,AC Milan,Frosinone,Research,5,2-0,6.40%,0.06397273501642654
+2026-11-22,Serie A,AC Milan,Frosinone,Research,6,1-0,5.98%,0.059766384471368325
+2026-11-22,Serie A,AC Milan,Frosinone,Research,7,1-2,5.95%,0.05950360295779464
+2026-11-22,Serie A,AC Milan,Frosinone,Research,8,3-2,4.73%,0.047282133707619405
+2026-11-22,Serie A,AC Milan,Frosinone,Research,9,3-0,4.44%,0.04438708372443106
+2026-11-22,Serie A,AC Milan,Frosinone,Research,10,0-1,3.76%,0.03762465037577587
+2026-11-22,Serie A,AC Milan,Frosinone,Research,11,4-1,3.37%,0.03371435028665076
+2026-11-22,Serie A,AC Milan,Frosinone,Research,12,0-0,3.21%,0.03207356195579596
+2026-11-22,Serie A,AC Milan,Frosinone,Research,13,2-3,3.01%,0.030130766957516035
+2026-11-22,Serie A,AC Milan,Frosinone,Research,14,1-3,2.90%,0.02895057764073433
+2026-11-22,Serie A,AC Milan,Frosinone,Research,15,0-2,2.86%,0.02858645582706199
+2026-11-22,Serie A,AC Milan,Frosinone,Research,16,4-2,2.46%,0.02460481047524718
+2026-11-22,Serie A,AC Milan,Frosinone,Research,17,3-3,2.36%,0.02362555271376525
+2026-11-22,Serie A,AC Milan,Frosinone,Research,18,4-0,2.31%,0.02309827617641037
+2026-11-22,Serie A,AC Milan,Frosinone,Research,19,5-1,1.40%,0.014035495169973012
+2026-11-22,Serie A,AC Milan,Frosinone,Research,20,0-3,1.39%,0.01390830752688683
+2026-11-22,Serie A,AC Milan,Frosinone,Research,21,4-3,1.20%,0.011971098229202046
+2026-11-22,Serie A,AC Milan,Frosinone,Research,22,2-4,1.10%,0.01099475155475657
+2026-11-22,Serie A,AC Milan,Frosinone,Research,23,1-4,1.06%,0.010564099114216685
+2026-11-22,Serie A,AC Milan,Frosinone,Research,24,5-2,1.02%,0.010243136695419914
+2026-11-22,Serie A,AC Milan,Frosinone,Research,25,5-0,0.96%,0.009615957031717625
+2026-11-22,Serie A,AC Milan,Frosinone,Research,26,3-4,0.76%,0.007628639883303192
+2026-11-22,Serie A,AC Milan,Frosinone,Research,27,0-4,0.51%,0.005075157430306512
+2026-11-22,Serie A,AC Milan,Frosinone,Research,28,5-3,0.50%,0.00498364316520036
+2026-11-22,Serie A,AC Milan,Frosinone,Research,29,6-1,0.49%,0.004869220450426817
+2026-11-22,Serie A,AC Milan,Frosinone,Research,30,4-4,0.45%,0.004486215882376173
+2026-11-22,Serie A,AC Milan,Frosinone,Research,31,6-2,0.36%,0.003553568297366448
+2026-11-22,Serie A,AC Milan,Frosinone,Research,32,6-0,0.33%,0.003335985945792251
+2026-11-22,Serie A,AC Milan,Frosinone,Research,33,2-5,0.32%,0.0032095980011731555
+2026-11-22,Serie A,AC Milan,Frosinone,Research,34,1-5,0.31%,0.0030838815440551075
+2026-11-22,Serie A,AC Milan,Frosinone,Research,35,3-5,0.22%,0.0022269595815038734
+2026-11-22,Serie A,AC Milan,Frosinone,Research,36,5-4,0.18%,0.0018185371290481002
+2026-11-22,Serie A,AC Milan,Frosinone,Research,37,6-3,0.17%,0.0017289348842880956
+2026-11-22,Serie A,AC Milan,Frosinone,Research,38,0-5,0.15%,0.0014815446318024168
+2026-11-22,Serie A,AC Milan,Frosinone,Research,39,7-1,0.14%,0.0014479192631292287
+2026-11-22,Serie A,AC Milan,Frosinone,Research,40,4-5,0.12%,0.001158871525929226
+2026-11-22,Serie A,AC Milan,Frosinone,Research,41,7-2,0.11%,0.0010566948124419381
+2026-11-22,Serie A,AC Milan,Frosinone,Research,42,7-0,0.10%,0.000991994172705321
+2026-11-22,Serie A,AC Milan,Frosinone,Research,43,2-6,0.08%,0.0007807906707297728
+2026-11-22,Serie A,AC Milan,Frosinone,Research,44,1-6,0.08%,0.0007502079507632555
+2026-11-22,Serie A,AC Milan,Frosinone,Research,45,6-4,0.06%,0.0006308903299375727
+2026-11-22,Serie A,AC Milan,Frosinone,Research,46,5-5,0.05%,0.0005452031213727779
+2026-11-22,Serie A,AC Milan,Frosinone,Research,47,3-6,0.05%,0.0005417467435781521
+2026-11-22,Serie A,AC Milan,Frosinone,Research,48,7-3,0.05%,0.000514118871622952
+2026-11-22,Serie A,AC Milan,Frosinone,Research,49,8-1,0.04%,0.00037673616077750347
+2026-11-22,Serie A,AC Milan,Frosinone,Research,50,0-6,0.04%,0.00036041156131025895
+2026-11-22,Serie A,AC Milan,Frosinone,Research,51,4-6,0.03%,0.0002819157027419585
+2026-11-22,Serie A,AC Milan,Frosinone,Research,52,8-2,0.03%,0.00027494291766829636
+2026-11-22,Serie A,AC Milan,Frosinone,Research,53,8-0,0.03%,0.00025810836671305706
+2026-11-22,Serie A,AC Milan,Frosinone,Research,54,7-4,0.02%,0.00018760256820134197
+2026-11-22,Serie A,AC Milan,Frosinone,Research,55,6-5,0.02%,0.0001841700862309243
+2026-11-22,Serie A,AC Milan,Frosinone,Research,56,2-7,0.02%,0.00016280652270626639
+2026-11-22,Serie A,AC Milan,Frosinone,Research,57,1-7,0.02%,0.00015642956857591742
+2026-11-22,Serie A,AC Milan,Frosinone,Research,58,8-3,0.01%,0.00013376931629454142
+2026-11-22,Serie A,AC Milan,Frosinone,Research,59,5-6,0.01%,0.00011736327262818458
+2026-11-22,Serie A,AC Milan,Frosinone,Research,60,3-7,0.01%,0.00011296229170741177
+2026-11-22,Serie A,AC Milan,Frosinone,"Benchmark (70% Pinnacle blend), display only",1,2-1,10.46%,0.10458022376146536
+2026-11-22,Serie A,AC Milan,Frosinone,"Benchmark (70% Pinnacle blend), display only",2,1-1,8.66%,0.08660597963470619
+2026-11-22,Serie A,AC Milan,Frosinone,"Benchmark (70% Pinnacle blend), display only",3,2-0,7.79%,0.0779061548804058
+2026-11-22,Serie A,AC Milan,Frosinone,"Benchmark (70% Pinnacle blend), display only",4,3-1,7.44%,0.0744456111403982
+2026-11-22,Serie A,AC Milan,Frosinone,"Benchmark (70% Pinnacle blend), display only",5,1-0,7.10%,0.07104105123821655
+2026-11-22,Serie A,AC Milan,Frosinone,"Benchmark (70% Pinnacle blend), display only",6,2-2,6.09%,0.06087588006157303
+2026-11-22,Serie A,AC Milan,Frosinone,"Benchmark (70% Pinnacle blend), display only",7,3-0,5.55%,0.05545762958873456
+2026-11-22,Serie A,AC Milan,Frosinone,"Benchmark (70% Pinnacle blend), display only",8,3-2,5.00%,0.049967417099929454
+2026-11-22,Serie A,AC Milan,Frosinone,"Benchmark (70% Pinnacle blend), display only",9,1-2,4.66%,0.04659745033284789
+2026-11-22,Serie A,AC Milan,Frosinone,"Benchmark (70% Pinnacle blend), display only",10,4-1,3.97%,0.039745676706824155
+2026-11-22,Serie A,AC Milan,Frosinone,"Benchmark (70% Pinnacle blend), display only",11,0-0,3.13%,0.03129487448980921
+2026-11-22,Serie A,AC Milan,Frosinone,"Benchmark (70% Pinnacle blend), display only",12,0-1,3.11%,0.031148044564480677
+2026-11-22,Serie A,AC Milan,Frosinone,"Benchmark (70% Pinnacle blend), display only",13,4-0,2.96%,0.029608206350858094
+2026-11-22,Serie A,AC Milan,Frosinone,"Benchmark (70% Pinnacle blend), display only",14,4-2,2.67%,0.026677043488613782
+2026-11-22,Serie A,AC Milan,Frosinone,"Benchmark (70% Pinnacle blend), display only",15,2-3,2.23%,0.022263810047732792
+2026-11-22,Serie A,AC Milan,Frosinone,"Benchmark (70% Pinnacle blend), display only",16,0-2,2.18%,0.021819830199403825
+2026-11-22,Serie A,AC Milan,Frosinone,"Benchmark (70% Pinnacle blend), display only",17,1-3,2.09%,0.020850606690420617
+2026-11-22,Serie A,AC Milan,Frosinone,"Benchmark (70% Pinnacle blend), display only",18,3-3,1.94%,0.019390603570198856
+2026-11-22,Serie A,AC Milan,Frosinone,"Benchmark (70% Pinnacle blend), display only",19,5-1,1.70%,0.01697581676270122
+2026-11-22,Serie A,AC Milan,Frosinone,"Benchmark (70% Pinnacle blend), display only",20,5-0,1.26%,0.012645991396546413
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,1,1-1,10.30%,0.1030005917938034
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,2,1-2,9.50%,0.09499438372073515
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,3,0-1,6.85%,0.06852722975499001
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,4,2-2,6.82%,0.06820947297560628
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,5,0-2,6.81%,0.06805964525257614
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,6,2-1,6.29%,0.06292215175597154
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,7,1-3,6.12%,0.06123341173337901
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,8,1-0,4.49%,0.04491538878708652
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,9,0-3,4.39%,0.04387127024720127
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,10,2-3,4.27%,0.042733327430252786
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,11,0-0,3.94%,0.039367175446683694
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,12,2-0,3.25%,0.03253806954536023
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,13,1-4,2.96%,0.029603308366621988
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,14,3-1,2.93%,0.02927457235614886
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,15,3-2,2.83%,0.02830559879738519
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,16,0-4,2.12%,0.02120957668042777
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,17,2-4,2.07%,0.02065943793819359
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,18,3-3,2.05%,0.020456070687859863
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,19,3-0,1.51%,0.015138358187896082
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,20,1-5,1.14%,0.011449381524780861
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,21,4-1,1.02%,0.010215010485803146
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,22,4-2,0.99%,0.009876898798198667
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,23,3-4,0.96%,0.00961181704504595
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,24,0-5,0.82%,0.008203020162000313
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,25,2-5,0.80%,0.007990248390906509
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,26,4-3,0.64%,0.006366652291118575
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,27,4-0,0.53%,0.005282348303705347
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,28,3-5,0.37%,0.0037174683022659916
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,29,1-6,0.37%,0.003690137593083926
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,30,4-4,0.35%,0.0034508196658652943
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,31,5-1,0.29%,0.0028515241952807202
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,32,5-2,0.28%,0.0027571401846865737
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,33,0-6,0.26%,0.0026438347792940822
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,34,2-6,0.26%,0.002575258401647752
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,35,5-3,0.18%,0.0017772534914472636
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,36,5-0,0.15%,0.0014745696068398679
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,37,4-5,0.13%,0.0012971659235975765
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,38,3-6,0.12%,0.001198140659702767
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,39,1-7,0.10%,0.0010194274007416465
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,40,5-4,0.09%,0.000859213649274571
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,41,0-7,0.07%,0.0007303786238479247
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,42,2-7,0.07%,0.000711433899795548
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,43,6-1,0.07%,0.0006633367506550047
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,44,6-2,0.06%,0.0006413806392515224
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,45,4-6,0.04%,0.0004180767955696599
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,46,6-3,0.04%,0.00041343417603048973
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,47,5-5,0.04%,0.00037256520036223293
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,48,6-0,0.03%,0.0003430222381541084
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,49,3-7,0.03%,0.0003309950882950435
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,50,1-8,0.02%,0.00024642121716932086
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,51,6-4,0.02%,0.00019987485681218766
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,52,0-8,0.02%,0.0001765508650759444
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,53,2-8,0.02%,0.00017197144926219714
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,54,7-1,0.01%,0.0001322647963392754
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,55,7-2,0.01%,0.00012788689838576011
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,56,5-6,0.01%,0.00011670630193764159
+2026-11-22,Serie A,Atalanta BC,Inter Milan,Research,57,4-7,0.01%,0.00011549676137192261
+2026-11-22,Serie A,Atalanta BC,Inter Milan,"Benchmark (70% Pinnacle blend), display only",1,1-2,10.84%,0.10835355456481459
+2026-11-22,Serie A,Atalanta BC,Inter Milan,"Benchmark (70% Pinnacle blend), display only",2,1-1,9.60%,0.0960388338415125
+2026-11-22,Serie A,Atalanta BC,Inter Milan,"Benchmark (70% Pinnacle blend), display only",3,0-1,8.86%,0.08857637377560777
+2026-11-22,Serie A,Atalanta BC,Inter Milan,"Benchmark (70% Pinnacle blend), display only",4,0-2,8.58%,0.08584556122017636
+2026-11-22,Serie A,Atalanta BC,Inter Milan,"Benchmark (70% Pinnacle blend), display only",5,1-3,6.83%,0.06827644354814684
+2026-11-22,Serie A,Atalanta BC,Inter Milan,"Benchmark (70% Pinnacle blend), display only",6,2-2,5.62%,0.056186239935616666
+2026-11-22,Serie A,Atalanta BC,Inter Milan,"Benchmark (70% Pinnacle blend), display only",7,0-3,5.41%,0.05409356101005715
+2026-11-22,Serie A,Atalanta BC,Inter Milan,"Benchmark (70% Pinnacle blend), display only",8,2-1,5.24%,0.05240648275551462
+2026-11-22,Serie A,Atalanta BC,Inter Milan,"Benchmark (70% Pinnacle blend), display only",9,2-3,4.31%,0.04308898006101481
+2026-11-22,Serie A,Atalanta BC,Inter Milan,"Benchmark (70% Pinnacle blend), display only",10,1-0,4.23%,0.04230006264323933
+2026-11-22,Serie A,Atalanta BC,Inter Milan,"Benchmark (70% Pinnacle blend), display only",11,0-0,4.13%,0.04132322492614405
+2026-11-22,Serie A,Atalanta BC,Inter Milan,"Benchmark (70% Pinnacle blend), display only",12,1-4,3.23%,0.0322670960978588
+2026-11-22,Serie A,Atalanta BC,Inter Milan,"Benchmark (70% Pinnacle blend), display only",13,2-0,2.77%,0.027722732242174582
+2026-11-22,Serie A,Atalanta BC,Inter Milan,"Benchmark (70% Pinnacle blend), display only",14,0-4,2.56%,0.02556433874819593
+2026-11-22,Serie A,Atalanta BC,Inter Milan,"Benchmark (70% Pinnacle blend), display only",15,3-1,2.20%,0.022049009127898315
+2026-11-22,Serie A,Atalanta BC,Inter Milan,"Benchmark (70% Pinnacle blend), display only",16,3-2,2.08%,0.020840496646277688
+2026-11-22,Serie A,Atalanta BC,Inter Milan,"Benchmark (70% Pinnacle blend), display only",17,2-4,2.04%,0.02036363038457096
+2026-11-22,Serie A,Atalanta BC,Inter Milan,"Benchmark (70% Pinnacle blend), display only",18,3-3,1.49%,0.014895728968085305
+2026-11-22,Serie A,Atalanta BC,Inter Milan,"Benchmark (70% Pinnacle blend), display only",19,1-5,1.22%,0.012199410941540936
+2026-11-22,Serie A,Atalanta BC,Inter Milan,"Benchmark (70% Pinnacle blend), display only",20,3-0,1.17%,0.011663800814674344
+2026-11-22,Serie A,Bologna,Udinese,Research,1,1-1,12.10%,0.12103914879771371
+2026-11-22,Serie A,Bologna,Udinese,Research,2,1-0,10.10%,0.10096971118755911
+2026-11-22,Serie A,Bologna,Udinese,Research,3,2-1,9.81%,0.09810179131380568
+2026-11-22,Serie A,Bologna,Udinese,Research,4,2-0,8.74%,0.08740912262192754
+2026-11-22,Serie A,Bologna,Udinese,Research,5,0-0,6.47%,0.06471045925934674
+2026-11-22,Serie A,Bologna,Udinese,Research,6,0-1,5.97%,0.05972242457449221
+2026-11-22,Serie A,Bologna,Udinese,Research,7,1-2,5.87%,0.058676362424287115
+2026-11-22,Serie A,Bologna,Udinese,Research,8,2-2,5.65%,0.05647910286720704
+2026-11-22,Serie A,Bologna,Udinese,Research,9,3-1,5.54%,0.05541310580930096
+2026-11-22,Serie A,Bologna,Udinese,Research,10,3-0,4.94%,0.049373318220596034
+2026-11-22,Serie A,Bologna,Udinese,Research,11,0-2,3.46%,0.034626322765654416
+2026-11-22,Serie A,Bologna,Udinese,Research,12,3-2,3.11%,0.031095867222388548
+2026-11-22,Serie A,Bologna,Udinese,Research,13,4-1,2.35%,0.023475200510946176
+2026-11-22,Serie A,Bologna,Udinese,Research,14,1-3,2.20%,0.021951393969476523
+2026-11-22,Serie A,Bologna,Udinese,Research,15,4-0,2.09%,0.020916505728951592
+2026-11-22,Serie A,Bologna,Udinese,Research,16,2-3,1.86%,0.018598971034095777
+2026-11-22,Serie A,Bologna,Udinese,Research,17,4-2,1.32%,0.013173448906103447
+2026-11-22,Serie A,Bologna,Udinese,Research,18,0-3,1.30%,0.012954041820910795
+2026-11-22,Serie A,Bologna,Udinese,Research,19,3-3,1.19%,0.011934995682055659
+2026-11-22,Serie A,Bologna,Udinese,Research,20,5-1,0.80%,0.007956024568276482
+2026-11-22,Serie A,Bologna,Udinese,Research,21,5-0,0.71%,0.007088852484324417
+2026-11-22,Serie A,Bologna,Udinese,Research,22,1-4,0.62%,0.006159171393228513
+2026-11-22,Serie A,Bologna,Udinese,Research,23,2-4,0.52%,0.005218541040991587
+2026-11-22,Serie A,Bologna,Udinese,Research,24,4-3,0.49%,0.00492831448520319
+2026-11-22,Serie A,Bologna,Udinese,Research,25,5-2,0.45%,0.004464638463770446
+2026-11-22,Serie A,Bologna,Udinese,Research,26,0-4,0.36%,0.003634674131446161
+2026-11-22,Serie A,Bologna,Udinese,Research,27,3-4,0.29%,0.0029477093435494807
+2026-11-22,Serie A,Bologna,Udinese,Research,28,6-1,0.22%,0.0022469927680171717
+2026-11-22,Serie A,Bologna,Udinese,Research,29,6-0,0.20%,0.0020020803265654256
+2026-11-22,Serie A,Bologna,Udinese,Research,30,5-3,0.17%,0.0016702643756412827
+2026-11-22,Serie A,Bologna,Udinese,Research,31,4-4,0.14%,0.0014186630898582076
+2026-11-22,Serie A,Bologna,Udinese,Research,32,1-5,0.14%,0.0013825233077740325
+2026-11-22,Serie A,Bologna,Udinese,Research,33,6-2,0.13%,0.0012609325491407743
+2026-11-22,Serie A,Bologna,Udinese,Research,34,2-5,0.12%,0.0011713839672781701
+2026-11-22,Serie A,Bologna,Udinese,Research,35,0-5,0.08%,0.0008158600211080729
+2026-11-22,Serie A,Bologna,Udinese,Research,36,3-5,0.07%,0.0006616599233593127
+2026-11-22,Serie A,Bologna,Udinese,Research,37,7-1,0.05%,0.0005439518323891361
+2026-11-22,Serie A,Bologna,Udinese,Research,38,7-0,0.05%,0.0004846634478430065
+2026-11-22,Serie A,Bologna,Udinese,Research,39,6-3,0.05%,0.0004717270466593983
+2026-11-22,Serie A,Bologna,Udinese,Research,40,5-4,0.05%,0.00046864652768216877
+2026-11-22,Serie A,Bologna,Udinese,Research,41,7-2,0.03%,0.0003052464522302311
+2026-11-22,Serie A,Bologna,Udinese,Research,42,4-5,0.03%,0.0002803055187769323
+2026-11-22,Serie A,Bologna,Udinese,Research,43,1-6,0.03%,0.0002586076619873248
+2026-11-22,Serie A,Bologna,Udinese,Research,44,2-6,0.02%,0.00021911302859333568
+2026-11-22,Serie A,Bologna,Udinese,Research,45,0-6,0.02%,0.0001526105573636906
+2026-11-22,Serie A,Bologna,Udinese,Research,46,6-4,0.01%,0.0001323582336154493
+2026-11-22,Serie A,Bologna,Udinese,Research,47,3-6,0.01%,0.00012376668432893546
+2026-11-22,Serie A,Bologna,Udinese,Research,48,8-1,0.01%,0.00011521983966731793
+2026-11-22,Serie A,Bologna,Udinese,Research,49,7-3,0.01%,0.0001141956463190247
+2026-11-22,Serie A,Bologna,Udinese,Research,50,5-5,0.01%,0.00010792355609757652
+2026-11-22,Serie A,Bologna,Udinese,Research,51,8-0,0.01%,0.00010266137813675287
+2026-11-22,Serie A,Bologna,Udinese,Cagey,1,1-0,12.26%,0.12259677338806184
+2026-11-22,Serie A,Bologna,Udinese,Cagey,2,1-1,12.00%,0.12003798936503889
+2026-11-22,Serie A,Bologna,Udinese,Cagey,3,2-1,10.68%,0.10683342970732147
+2026-11-22,Serie A,Bologna,Udinese,Cagey,4,2-0,9.59%,0.09592636193273119
+2026-11-22,Serie A,Bologna,Udinese,Cagey,5,0-0,7.56%,0.07556783737462226
+2026-11-22,Serie A,Bologna,Udinese,Cagey,6,0-1,5.96%,0.05959916114806904
+2026-11-22,Serie A,Bologna,Udinese,Cagey,7,3-0,5.63%,0.05630569883055816
+2026-11-22,Serie A,Bologna,Udinese,Cagey,8,1-2,5.47%,0.05468963235122393
+2026-11-22,Serie A,Bologna,Udinese,Cagey,9,3-1,5.26%,0.05262332138223291
+2026-11-22,Serie A,Bologna,Udinese,Cagey,10,2-2,4.66%,0.04663083710864888
+2026-11-22,Serie A,Bologna,Udinese,Cagey,11,3-2,2.93%,0.02930336245732414
+2026-11-22,Serie A,Bologna,Udinese,Cagey,12,0-2,2.65%,0.02649547095917049
+2026-11-22,Serie A,Bologna,Udinese,Cagey,13,4-0,2.46%,0.024584150819265446
+2026-11-22,Serie A,Bologna,Udinese,Cagey,14,4-1,2.32%,0.023166151818278233
+2026-11-22,Serie A,Bologna,Udinese,Cagey,15,2-3,1.50%,0.015000830019556011
+2026-11-22,Serie A,Bologna,Udinese,Cagey,16,1-3,1.45%,0.01453489588644874
+2026-11-22,Serie A,Bologna,Udinese,Cagey,17,4-2,1.08%,0.01082554588294389
+2026-11-22,Serie A,Bologna,Udinese,Cagey,18,5-0,0.86%,0.00858713038370293
+2026-11-22,Serie A,Bologna,Udinese,Cagey,19,3-3,0.85%,0.008526920991095826
+2026-11-22,Serie A,Bologna,Udinese,Cagey,20,0-3,0.84%,0.008391157241184987
+2026-11-22,Serie A,Bologna,Udinese,Cagey,21,5-1,0.81%,0.00809182987912355
+2026-11-22,Serie A,Bologna,Udinese,Cagey,22,4-3,0.40%,0.0040188125273978095
+2026-11-22,Serie A,Bologna,Udinese,Cagey,23,5-2,0.38%,0.0038125490045512423
+2026-11-22,Serie A,Bologna,Udinese,Cagey,24,1-4,0.35%,0.0034524182563708205
+2026-11-22,Serie A,Bologna,Udinese,Cagey,25,2-4,0.30%,0.0029900845896756404
+2026-11-22,Serie A,Bologna,Udinese,Cagey,26,6-0,0.25%,0.0024995374990719743
+2026-11-22,Serie A,Bologna,Udinese,Cagey,27,6-1,0.24%,0.002355365682739127
+2026-11-22,Serie A,Bologna,Udinese,Cagey,28,3-4,0.21%,0.002057290308979165
+2026-11-22,Serie A,Bologna,Udinese,Cagey,29,0-4,0.20%,0.001976790087335466
+2026-11-22,Serie A,Bologna,Udinese,Cagey,30,5-3,0.12%,0.0011877364442023828
+2026-11-22,Serie A,Bologna,Udinese,Cagey,31,6-2,0.11%,0.001109754804935896
+2026-11-22,Serie A,Bologna,Udinese,Cagey,32,4-4,0.09%,0.0008770690637222982
+2026-11-22,Serie A,Bologna,Udinese,Cagey,33,1-5,0.07%,0.0006506569704624968
+2026-11-22,Serie A,Bologna,Udinese,Cagey,34,7-0,0.06%,0.0006236263634497377
+2026-11-22,Serie A,Bologna,Udinese,Cagey,35,7-1,0.06%,0.0005876559707010883
+2026-11-22,Serie A,Bologna,Udinese,Cagey,36,2-5,0.06%,0.0005681786897483679
+2026-11-22,Serie A,Bologna,Udinese,Cagey,37,0-5,0.04%,0.000372554005324388
+2026-11-22,Serie A,Bologna,Udinese,Cagey,38,6-3,0.03%,0.00034858160556654227
+2026-11-22,Serie A,Bologna,Udinese,Cagey,39,5-4,0.03%,0.0003306962636910523
+2026-11-22,Serie A,Bologna,Udinese,Cagey,40,3-5,0.03%,0.0003280603561988608
+2026-11-22,Serie A,Bologna,Udinese,Cagey,41,7-2,0.03%,0.0002768801642623879
+2026-11-22,Serie A,Bologna,Udinese,Cagey,42,4-5,0.02%,0.00016928836910631918
+2026-11-22,Serie A,Bologna,Udinese,Cagey,43,8-0,0.01%,0.0001361436310386207
+2026-11-22,Serie A,Bologna,Udinese,Cagey,44,8-1,0.01%,0.0001282909484618342
+2026-11-22,Serie A,Bologna,Udinese,Cagey,45,1-6,0.01%,0.0001021879114323729
+2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",1,1-1,11.78%,0.11784762452215858
+2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",2,1-0,11.67%,0.1167037171866536
+2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",3,2-1,10.08%,0.10075317481676341
+2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",4,2-0,9.98%,0.09979366289679321
+2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",5,0-0,7.06%,0.0705573704033455
+2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",6,0-1,5.98%,0.05984361149015358
+2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",7,3-1,5.63%,0.056299444230486585
+2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",8,3-0,5.58%,0.05576328258669626
+2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",9,1-2,5.24%,0.05236267056207022
+2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",10,2-2,4.89%,0.048904860170386276
+2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",11,0-2,3.12%,0.031235982125711156
+2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",12,3-2,2.84%,0.0284203805230959
+2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",13,4-1,2.36%,0.02359449783909665
+2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",14,4-0,2.34%,0.023369798200961196
+2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",15,1-3,1.76%,0.017622045154206487
+2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",16,2-3,1.48%,0.014770423118537244
+2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",17,4-2,1.19%,0.011910678977455603
+2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",18,0-3,1.05%,0.010512104931752479
+2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",19,3-3,0.92%,0.009196697692150022
+2026-11-22,Serie A,Bologna,Udinese,"Benchmark (70% Pinnacle blend), display only",20,5-1,0.79%,0.00791056232811164
+2026-11-22,Serie A,Juventus,Venezia,Research,1,1-0,14.95%,0.14945517624867208
+2026-11-22,Serie A,Juventus,Venezia,Research,2,2-0,13.90%,0.13898998328186107
+2026-11-22,Serie A,Juventus,Venezia,Research,3,1-1,10.76%,0.10757463522853794
+2026-11-22,Serie A,Juventus,Venezia,Research,4,2-1,9.47%,0.09471789767241874
+2026-11-22,Serie A,Juventus,Venezia,Research,5,0-0,8.64%,0.08638324339561583
+2026-11-22,Serie A,Juventus,Venezia,Research,6,3-0,8.51%,0.08505860872608208
+2026-11-22,Serie A,Juventus,Venezia,Research,7,3-1,5.80%,0.05796513106370572
+2026-11-22,Serie A,Juventus,Venezia,Research,8,0-1,4.30%,0.04299368829091272
+2026-11-22,Serie A,Juventus,Venezia,Research,9,4-0,3.90%,0.03904040464418629
+2026-11-22,Serie A,Juventus,Venezia,Research,10,2-2,3.30%,0.033021697832914455
+2026-11-22,Serie A,Juventus,Venezia,Research,11,1-2,2.79%,0.027865196376852194
+2026-11-22,Serie A,Juventus,Venezia,Research,12,4-1,2.66%,0.026604975156223672
+2026-11-22,Serie A,Juventus,Venezia,Research,13,3-2,1.98%,0.019750831041998314
+2026-11-22,Serie A,Juventus,Venezia,Research,14,0-2,1.52%,0.015177704081808654
+2026-11-22,Serie A,Juventus,Venezia,Research,15,5-0,1.43%,0.014335086995745245
+2026-11-22,Serie A,Juventus,Venezia,Research,16,5-1,0.98%,0.009768972346983634
+2026-11-22,Serie A,Juventus,Venezia,Research,17,4-2,0.91%,0.00906528389644502
+2026-11-22,Serie A,Juventus,Venezia,Research,18,1-3,0.63%,0.0063297914394597615
+2026-11-22,Serie A,Juventus,Venezia,Research,19,2-3,0.58%,0.005810525773014209
+2026-11-22,Serie A,Juventus,Venezia,Research,20,3-3,0.46%,0.004590515560029747
+2026-11-22,Serie A,Juventus,Venezia,Research,21,6-0,0.44%,0.0043863684527278065
+2026-11-22,Serie A,Juventus,Venezia,Research,22,0-3,0.34%,0.0034477309999327074
+2026-11-22,Serie A,Juventus,Venezia,Research,23,5-2,0.33%,0.0033286446306344717
+2026-11-22,Serie A,Juventus,Venezia,Research,24,6-1,0.30%,0.002989190936273886
+2026-11-22,Serie A,Juventus,Venezia,Research,25,4-3,0.21%,0.0020592482330990206
+2026-11-22,Serie A,Juventus,Venezia,Research,26,7-0,0.12%,0.001150437676378828
+2026-11-22,Serie A,Juventus,Venezia,Research,27,1-4,0.11%,0.0010783952262133005
+2026-11-22,Serie A,Juventus,Venezia,Research,28,6-2,0.10%,0.0010185262079323572
+2026-11-22,Serie A,Juventus,Venezia,Research,29,2-4,0.10%,0.0009899288650089659
+2026-11-22,Serie A,Juventus,Venezia,Research,30,7-1,0.08%,0.0007839920225673252
+2026-11-22,Serie A,Juventus,Venezia,Research,31,5-3,0.08%,0.0007561269622164392
+2026-11-22,Serie A,Juventus,Venezia,Research,32,3-4,0.06%,0.0006058132392511839
+2026-11-22,Serie A,Juventus,Venezia,Research,33,0-4,0.06%,0.0005873837530281042
+2026-11-22,Serie A,Juventus,Venezia,Research,34,4-4,0.04%,0.00035895999904651604
+2026-11-22,Serie A,Juventus,Venezia,Research,35,7-2,0.03%,0.00026713463235309115
+2026-11-22,Serie A,Juventus,Venezia,Research,36,8-0,0.03%,0.000264015324706191
+2026-11-22,Serie A,Juventus,Venezia,Research,37,6-3,0.02%,0.00023136598015118464
+2026-11-22,Serie A,Juventus,Venezia,Research,38,8-1,0.02%,0.0001799192712956815
+2026-11-22,Serie A,Juventus,Venezia,Research,39,1-5,0.01%,0.0001469794099906571
+2026-11-22,Serie A,Juventus,Venezia,Research,40,2-5,0.01%,0.0001349219256307796
+2026-11-22,Serie A,Juventus,Venezia,Research,41,5-4,0.01%,0.0001288199957714509
+2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",1,1-0,16.55%,0.16551466434269846
+2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",2,2-0,15.78%,0.15784763790486298
+2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",3,3-0,9.92%,0.09923074966290953
+2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",4,2-1,9.04%,0.09037836915180904
+2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",5,1-1,8.13%,0.08125792120606597
+2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",6,0-0,7.54%,0.07536607991390563
+2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",7,3-1,5.68%,0.056816265629838054
+2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",8,0-1,4.86%,0.048618826458468586
+2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",9,4-0,4.68%,0.04678597891625303
+2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",10,1-2,2.73%,0.02725780231950221
+2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",11,4-1,2.68%,0.026788113713620554
+2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",12,2-2,2.15%,0.02151445506556792
+2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",13,5-0,1.76%,0.017647173527060456
+2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",14,3-2,1.63%,0.016265563099574717
+2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",15,0-2,1.45%,0.01445311298909239
+2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",16,5-1,1.01%,0.010104191514579296
+2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",17,4-2,0.77%,0.00766899670538449
+2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",18,6-0,0.55%,0.005546938433051169
+2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",19,1-3,0.52%,0.005202307222748989
+2026-11-22,Serie A,Juventus,Venezia,"Benchmark (70% Pinnacle blend), display only",20,2-3,0.49%,0.0049056373526598735
+2026-11-22,Serie A,Sassuolo,Genoa,Research,1,1-1,12.10%,0.12101458226992531
+2026-11-22,Serie A,Sassuolo,Genoa,Research,2,1-2,8.35%,0.08353385877557377
+2026-11-22,Serie A,Sassuolo,Genoa,Research,3,2-1,8.20%,0.08195162081112188
+2026-11-22,Serie A,Sassuolo,Genoa,Research,4,0-1,7.45%,0.0744667480414112
+2026-11-22,Serie A,Sassuolo,Genoa,Research,5,1-0,7.30%,0.07302413123341532
+2026-11-22,Serie A,Sassuolo,Genoa,Research,6,2-2,6.48%,0.06476145608051184
+2026-11-22,Serie A,Sassuolo,Genoa,Research,7,0-2,5.70%,0.05699428226904642
+2026-11-22,Serie A,Sassuolo,Genoa,Research,8,0-0,5.67%,0.0567000239437613
+2026-11-22,Serie A,Sassuolo,Genoa,Research,9,2-0,5.51%,0.05506743477461908
+2026-11-22,Serie A,Sassuolo,Genoa,Research,10,1-3,4.14%,0.04143849655901573
+2026-11-22,Serie A,Sassuolo,Genoa,Research,11,3-1,4.00%,0.04003755491910426
+2026-11-22,Serie A,Sassuolo,Genoa,Research,12,2-3,3.04%,0.030367234936765488
+2026-11-22,Serie A,Sassuolo,Genoa,Research,13,3-2,2.98%,0.0297920407257394
+2026-11-22,Serie A,Sassuolo,Genoa,Research,14,0-3,2.83%,0.028273054834383575
+2026-11-22,Serie A,Sassuolo,Genoa,Research,15,3-0,2.69%,0.02690325611892948
+2026-11-22,Serie A,Sassuolo,Genoa,Research,16,3-3,1.57%,0.015695243265987587
+2026-11-22,Serie A,Sassuolo,Genoa,Research,17,1-4,1.54%,0.015417242381483919
+2026-11-22,Serie A,Sassuolo,Genoa,Research,18,4-1,1.47%,0.014670293778522267
+2026-11-22,Serie A,Sassuolo,Genoa,Research,19,2-4,1.13%,0.01129816620660478
+2026-11-22,Serie A,Sassuolo,Genoa,Research,20,4-2,1.09%,0.010916200816742454
+2026-11-22,Serie A,Sassuolo,Genoa,Research,21,0-4,1.05%,0.010519023985966512
+2026-11-22,Serie A,Sassuolo,Genoa,Research,22,4-0,0.99%,0.009857711632515252
+2026-11-22,Serie A,Sassuolo,Genoa,Research,23,3-4,0.55%,0.005519731586818318
+2026-11-22,Serie A,Sassuolo,Genoa,Research,24,4-3,0.54%,0.0054151808214369145
+2026-11-22,Serie A,Sassuolo,Genoa,Research,25,1-5,0.46%,0.004588802826104652
+2026-11-22,Serie A,Sassuolo,Genoa,Research,26,5-1,0.43%,0.004300312943345223
+2026-11-22,Serie A,Sassuolo,Genoa,Research,27,2-5,0.34%,0.003362797038265022
+2026-11-22,Serie A,Sassuolo,Genoa,Research,28,5-2,0.32%,0.003199873184074834
+2026-11-22,Serie A,Sassuolo,Genoa,Research,29,0-5,0.31%,0.003130892399579682
+2026-11-22,Serie A,Sassuolo,Genoa,Research,30,5-0,0.29%,0.002889597547605496
+2026-11-22,Serie A,Sassuolo,Genoa,Research,31,4-4,0.21%,0.0021396464857222387
+2026-11-22,Serie A,Sassuolo,Genoa,Research,32,3-5,0.16%,0.001642898209562499
+2026-11-22,Serie A,Sassuolo,Genoa,Research,33,5-3,0.16%,0.0015873555450588717
+2026-11-22,Serie A,Sassuolo,Genoa,Research,34,1-6,0.11%,0.0011381797327860424
+2026-11-22,Serie A,Sassuolo,Genoa,Research,35,6-1,0.11%,0.0010504613205597087
+2026-11-22,Serie A,Sassuolo,Genoa,Research,36,2-6,0.08%,0.0008340884495303631
+2026-11-22,Serie A,Sassuolo,Genoa,Research,37,6-2,0.08%,0.0007816507902683133
+2026-11-22,Serie A,Sassuolo,Genoa,Research,38,0-6,0.08%,0.0007765681834188672
+2026-11-22,Serie A,Sassuolo,Genoa,Research,39,6-0,0.07%,0.0007058580377135327
+2026-11-22,Serie A,Sassuolo,Genoa,Research,40,4-5,0.06%,0.0006019798019930962
+2026-11-22,Serie A,Sassuolo,Genoa,Research,41,5-4,0.06%,0.0005905775357682627
+2026-11-22,Serie A,Sassuolo,Genoa,Research,42,3-6,0.04%,0.0004074948338414112
+2026-11-22,Serie A,Sassuolo,Genoa,Research,43,6-3,0.04%,0.00038775215293127035
+2026-11-22,Serie A,Sassuolo,Genoa,Research,44,1-7,0.02%,0.00024197779182131372
+2026-11-22,Serie A,Sassuolo,Genoa,Research,45,7-1,0.02%,0.00021994458819222382
+2026-11-22,Serie A,Sassuolo,Genoa,Research,46,5-5,0.02%,0.00018667921764692035
+2026-11-22,Serie A,Sassuolo,Genoa,Research,47,2-7,0.02%,0.0001773277764373627
+2026-11-22,Serie A,Sassuolo,Genoa,Research,48,0-7,0.02%,0.00016509892841125697
+2026-11-22,Serie A,Sassuolo,Genoa,Research,49,7-2,0.02%,0.00016366129605237416
+2026-11-22,Serie A,Sassuolo,Genoa,Research,50,4-6,0.01%,0.00014931153857327916
+2026-11-22,Serie A,Sassuolo,Genoa,Research,51,7-0,0.01%,0.00014779188189847266
+2026-11-22,Serie A,Sassuolo,Genoa,Research,52,6-4,0.01%,0.00014426365389897265
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,1,1-1,13.66%,0.13663135511472885
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,2,1-2,8.65%,0.08654772781336886
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,3,0-1,8.40%,0.08398136788336354
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,4,2-1,8.25%,0.0824769716427009
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,5,0-0,7.99%,0.07989690141988443
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,6,1-0,7.95%,0.07953862879860839
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,7,0-2,6.36%,0.06358352028668052
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,8,2-0,5.79%,0.057861792441662584
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,9,2-2,5.73%,0.05727230649111774
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,10,1-3,3.86%,0.038644093850412835
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,11,3-1,3.52%,0.03516660492195364
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,12,2-3,2.63%,0.0263005138837872
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,13,0-3,2.60%,0.02604751820054602
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,14,3-2,2.51%,0.025063474138329826
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,15,3-0,2.26%,0.022635179501891808
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,16,1-4,1.19%,0.011873155969194147
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,17,3-3,1.16%,0.011602777874379461
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,18,4-1,1.03%,0.010317720657587792
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,19,0-4,0.90%,0.008998106448278333
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,20,2-4,0.88%,0.008807506151670717
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,21,4-2,0.80%,0.008014939886607574
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,22,4-0,0.75%,0.007466877007997879
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,23,3-4,0.40%,0.00399615939105241
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,24,4-3,0.38%,0.0038082007824199755
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,25,1-5,0.33%,0.0032812622059503744
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,26,5-1,0.27%,0.0027228819156180518
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,27,0-5,0.25%,0.002486714289819777
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,28,2-5,0.22%,0.0021648409124191423
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,29,5-0,0.20%,0.001970534485857556
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,30,5-2,0.19%,0.001881237293640486
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,31,4-4,0.13%,0.0013222141771604026
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,32,3-5,0.11%,0.001070585877531383
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,33,5-3,0.10%,0.0009742464329970815
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,34,1-6,0.08%,0.0007556739542076636
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,35,6-1,0.06%,0.0005988149072559781
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,36,0-6,0.06%,0.0005726897463314861
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,37,2-6,0.05%,0.0004985623793038135
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,38,6-0,0.04%,0.00043335901517626424
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,39,6-2,0.04%,0.0004137208187605573
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,40,4-5,0.04%,0.00036431128188427994
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,41,5-4,0.03%,0.00034717596896223095
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,42,3-6,0.02%,0.00021928720684632978
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,43,6-3,0.02%,0.00019055962457609872
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,44,1-7,0.01%,0.00014916989409893014
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,45,0-7,0.01%,0.00011304884644513607
+2026-11-22,Serie A,Sassuolo,Genoa,Cagey,46,7-1,0.01%,0.00011287807895069689
+2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",1,1-1,13.03%,0.13034302396716496
+2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",2,0-1,8.84%,0.08839097890096925
+2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",3,1-2,8.40%,0.08395113851879663
+2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",4,1-0,8.31%,0.08314571066590681
+2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",5,2-1,7.89%,0.07888857881057364
+2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",6,0-0,7.17%,0.07168316521261557
+2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",7,0-2,6.06%,0.060612870273676234
+2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",8,2-0,5.91%,0.059126465145019416
+2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",9,2-2,5.91%,0.059059605145018165
+2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",10,1-3,3.73%,0.03733683943974309
+2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",11,3-1,3.64%,0.03642123076817732
+2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",12,3-0,2.73%,0.027297470229806088
+2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",13,0-3,2.70%,0.026957264014752114
+2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",14,2-3,2.59%,0.025856473761326066
+2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",15,3-2,2.43%,0.024297234130150554
+2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",16,4-1,1.26%,0.01261119864246145
+2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",17,1-4,1.25%,0.012454026270028163
+2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",18,3-3,1.21%,0.012126681922600567
+2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",19,4-0,0.95%,0.009452009507749824
+2026-11-22,Serie A,Sassuolo,Genoa,"Benchmark (70% Pinnacle blend), display only",20,0-4,0.90%,0.008991828961570988
