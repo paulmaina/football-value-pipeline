@@ -5466,6 +5466,36 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "SA:558525": {
+    "away_goals": 0,
+    "away_short_name": "Cagliari",
+    "away_team": "Cagliari Calcio",
+    "first_verified_at_utc": "2026-11-21T16:20:10Z",
+    "home_goals": 2,
+    "home_short_name": "Como 1907",
+    "home_team": "Como 1907",
+    "kickoff_utc": "2026-11-21T14:00:00Z",
+    "league_code": "SA",
+    "match_id": 558525,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "SA:558528": {
+    "away_goals": 0,
+    "away_short_name": "Lecce",
+    "away_team": "US Lecce",
+    "first_verified_at_utc": "2026-11-21T16:20:10Z",
+    "home_goals": 3,
+    "home_short_name": "Lazio",
+    "home_team": "SS Lazio",
+    "kickoff_utc": "2026-11-21T14:00:00Z",
+    "league_code": "SA",
+    "match_id": 558528,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "SA:558529": {
     "away_goals": 2,
     "away_short_name": "Juventus",
