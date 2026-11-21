@@ -9,10 +9,10 @@
     "eligible": false,
     "fallbacks": {
       "domestic_fixtures": 66,
-      "domestic_records": 378,
+      "domestic_records": 441,
       "fallback_fixtures": 0,
       "fallback_records": 0,
-      "runs": 7
+      "runs": 8
     },
     "graded_fallbacks": 0,
     "interval_95": null,
@@ -135,8 +135,8 @@
           "Home win"
         ],
         "picks": 1,
-        "v4_p_home": 0.698755345006769,
-        "v5_p_home": 0.7150057056982924
+        "v4_p_home": 0.6987481750400489,
+        "v5_p_home": 0.7149984803444672
       },
       {
         "fixture": "FC Utrecht v SC Cambuur",
@@ -148,8 +148,8 @@
           "Home win"
         ],
         "picks": 1,
-        "v4_p_home": 0.4329702861983588,
-        "v5_p_home": 0.43141681672830584
+        "v4_p_home": 0.43299027622212727,
+        "v5_p_home": 0.4314393021020776
       },
       {
         "fixture": "Amed SK v Çaykur Rizespor",
@@ -162,8 +162,8 @@
           "Home win"
         ],
         "picks": 2,
-        "v4_p_home": 0.7505185077679177,
-        "v5_p_home": 0.7670465902448423
+        "v4_p_home": 0.7505861116047594,
+        "v5_p_home": 0.7671149157373189
       },
       {
         "fixture": "Galatasaray v Samsunspor",
@@ -175,8 +175,8 @@
           "Home win"
         ],
         "picks": 1,
-        "v4_p_home": 0.7241389840100068,
-        "v5_p_home": 0.739710111164451
+        "v4_p_home": 0.7241588559893607,
+        "v5_p_home": 0.7397302026774677
       }
     ],
     "leagues": [
