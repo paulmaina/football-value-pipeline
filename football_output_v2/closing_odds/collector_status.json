@@ -1,15 +1,10 @@
 {
   "already_complete_fixtures": 0,
-  "checked_at_utc": "2026-11-21T13:55:07.518093+00:00",
+  "checked_at_utc": "2026-11-21T14:24:10.126803+00:00",
   "coverage_checks": [
     {
-      "event_id": "9e8d72c6c27c1667be7b88416a36ca80",
-      "missing_required_quotes": [
-        {
-          "bookmaker": "pinnacle",
-          "selection": "Asian Handicap Home -0.50"
-        }
-      ],
+      "event_id": "c24cf629b4eaf0ebc4ca2c5beb73747c",
+      "missing_required_quotes": [],
       "requested_markets": [
         "alternate_spreads",
         "draw_no_bet",
@@ -22,13 +17,52 @@
       ]
     },
     {
-      "event_id": "bf921a2780e2a25201da8a3bfece84c4",
-      "missing_required_quotes": [
-        {
-          "bookmaker": "pinnacle",
-          "selection": "Asian Handicap Away +2.25"
-        }
+      "event_id": "d0128b7d64e40ca3f1ae1b288b47117a",
+      "missing_required_quotes": [],
+      "requested_markets": [
+        "alternate_spreads",
+        "double_chance",
+        "draw_no_bet",
+        "h2h",
+        "spreads",
+        "totals"
       ],
+      "returned_bookmakers": [
+        "pinnacle"
+      ]
+    },
+    {
+      "event_id": "c8bcd407a7b987234c72c62ec37246ef",
+      "missing_required_quotes": [],
+      "requested_markets": [
+        "alternate_spreads",
+        "draw_no_bet",
+        "h2h",
+        "spreads",
+        "totals"
+      ],
+      "returned_bookmakers": [
+        "pinnacle"
+      ]
+    },
+    {
+      "event_id": "577976c4b042018534e14db9ce579cf6",
+      "missing_required_quotes": [],
+      "requested_markets": [
+        "alternate_spreads",
+        "double_chance",
+        "draw_no_bet",
+        "h2h",
+        "spreads",
+        "totals"
+      ],
+      "returned_bookmakers": [
+        "pinnacle"
+      ]
+    },
+    {
+      "event_id": "ca93df81e976fbe345a6175bb24e3f19",
+      "missing_required_quotes": [],
       "requested_markets": [
         "alternate_spreads",
         "draw_no_bet",
@@ -42,14 +76,14 @@
     }
   ],
   "daily_request_cap": 100,
-  "daily_requests": 10,
-  "eligible_fixtures": 2,
+  "daily_requests": 19,
+  "eligible_fixtures": 5,
   "errors": [],
   "reason": "CHECKED_ELIGIBLE_FIXTURES",
-  "request_limit": 8,
-  "requests": 2,
-  "reservation_allowance": 10,
-  "reservation_id": "actions-44910342079-1-1",
-  "reservation_used": 4,
-  "written": 2
+  "request_limit": 15,
+  "requests": 5,
+  "reservation_allowance": 15,
+  "reservation_id": "actions-44910342079-1-2",
+  "reservation_used": 5,
+  "written": 5
 }
