@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "bf15522a6e04597eecd6da0db6bdc2e7b65cd15f79ec7b747403e31df72a3c2f",
-  "training_as_of_utc": "2026-11-21T14:03:35.772121+00:00",
+  "training_sha256": "138fae1db91912cbf3854d3059fe8581ea82eacdaa39d8970291a1ddd77c8735",
+  "training_as_of_utc": "2026-11-21T16:17:07.044711+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 82,
     "bbs_added_results": 1,
@@ -35,9 +35,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-21T14:03:35.772121+00:00",
-    "observations": 757,
-    "observations_sha256": "d7ee0f5569d137e21e8e9dc6a96a118e317f7d199ee14252b0a473fcd98062e1",
+    "cutoff_utc": "2026-11-21T16:17:07.044711+00:00",
+    "observations": 765,
+    "observations_sha256": "3ca405e82e923c097df18eadf48f97ca908d4b9b303c039daeeeda539cb4af24",
     "eligible_training_matches": 122,
     "required_training_matches": 120,
     "feature_fields": [
@@ -71,7 +71,7 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:27.947476+00:00",
-    "retrospective_inputs_sha256": "8058deff04dc503e55d1ebfa718d7f450497384c3163b5dedddb628b936e8d12",
+    "retrospective_inputs_sha256": "65c58ae2c4861d46d7d3ed8c97716e259e602ce58c6ea93b8c4603c9014d00d6",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "training_matches": 60,
@@ -184,10 +184,10 @@
   },
   "training_end": "2026-11-20",
   "fit_success": true,
-  "objective": 1578.4565159330077,
-  "base": 0.2253713607971176,
-  "home_adv": 0.22798230809118772,
-  "rho": -0.07961463441929327,
+  "objective": 1578.24522855046,
+  "base": 0.22540285653641762,
+  "home_adv": 0.22799999893113598,
+  "rho": -0.07960910036734571,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -215,81 +215,16 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 8,
+  "live_odds_matched": 3,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261121T140335772121Z_e96fc05264aaa14831f8f74420452c6dff28d0d7456acdd59b77c449587b2df7.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261121T161707044711Z_3823344aa08c9173c2975d74558c501ab42c2551a7dcd5fcc03d96360d7f8493.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
-    {
-      "fixture_id": "c24cf629b4eaf0ebc4ca2c5beb73747c",
-      "event_id": "c24cf629b4eaf0ebc4ca2c5beb73747c",
-      "home_team": "Bayer Leverkusen",
-      "away_team": "SC Paderborn",
-      "kickoff_utc": "2026-11-21T14:30:00+00:00",
-      "status": "NOT_REQUESTED_LOW_CREDITS",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "577976c4b042018534e14db9ce579cf6",
-      "event_id": "577976c4b042018534e14db9ce579cf6",
-      "home_team": "Borussia Monchengladbach",
-      "away_team": "Borussia Dortmund",
-      "kickoff_utc": "2026-11-21T14:30:00+00:00",
-      "status": "NOT_REQUESTED_LOW_CREDITS",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "d0128b7d64e40ca3f1ae1b288b47117a",
-      "event_id": "d0128b7d64e40ca3f1ae1b288b47117a",
-      "home_team": "Eintracht Frankfurt",
-      "away_team": "TSG Hoffenheim",
-      "kickoff_utc": "2026-11-21T14:30:00+00:00",
-      "status": "NOT_REQUESTED_LOW_CREDITS",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "c8bcd407a7b987234c72c62ec37246ef",
-      "event_id": "c8bcd407a7b987234c72c62ec37246ef",
-      "home_team": "Elversberg",
-      "away_team": "SC Freiburg",
-      "kickoff_utc": "2026-11-21T14:30:00+00:00",
-      "status": "NOT_REQUESTED_LOW_CREDITS",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "ca93df81e976fbe345a6175bb24e3f19",
-      "event_id": "ca93df81e976fbe345a6175bb24e3f19",
-      "home_team": "Union Berlin",
-      "away_team": "RB Leipzig",
-      "kickoff_utc": "2026-11-21T14:30:00+00:00",
-      "status": "NOT_REQUESTED_LOW_CREDITS",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
     {
       "fixture_id": "67846fc0359aeff2d0b6f3f8a2a674f4",
       "event_id": "67846fc0359aeff2d0b6f3f8a2a674f4",
@@ -309,7 +244,7 @@
       "home_team": "Augsburg",
       "away_team": "FSV Mainz 05",
       "kickoff_utc": "2026-11-22T14:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "NOT_REQUESTED_LOW_CREDITS",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
@@ -330,19 +265,19 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 6,
-  "additional_odds_unrequested_linked_fixtures": 6,
+  "additional_odds_in_window_linked_fixtures": 2,
+  "additional_odds_unrequested_linked_fixtures": 2,
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 8
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 3
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 8
+    "none": 3
   },
   "legacy_comparison_status": {
-    "None": 8
+    "None": 3
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
