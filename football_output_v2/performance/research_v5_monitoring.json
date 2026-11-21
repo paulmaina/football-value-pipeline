@@ -5,20 +5,20 @@
       "not_replayed:no corrected D distribution": 1,
       "offer_out_of_scope:pinnacle draw_no_bet": 2
     },
-    "d_pow2_minus_d_log_loss": 0.014248105752739548,
+    "d_pow2_minus_d_log_loss": 0.01424810575217561,
     "eligible": false,
     "fallbacks": {
       "domestic_fixtures": 66,
-      "domestic_records": 315,
+      "domestic_records": 378,
       "fallback_fixtures": 0,
       "fallback_records": 0,
-      "runs": 6
+      "runs": 7
     },
     "graded_fallbacks": 0,
     "interval_95": null,
     "log_loss": {
-      "D": 0.8820181419794784,
-      "D_pow2": 0.896266247732218
+      "D": 0.8820181419771234,
+      "D_pow2": 0.8962662477292991
     },
     "matches": 2,
     "rule": "After at least 150 graded domestic matches across at least 3 weeks, roll back the cagey correction D_pow2 if its log loss on AH all lines minus D's, on the same frozen Pinnacle quotes, matches and offers, has a week-resampled 95% interval entirely above zero. Rolling back is setting cagey_correction_config.json cagey_correction_live.domestic to \"D\".",
@@ -135,8 +135,8 @@
           "Home win"
         ],
         "picks": 1,
-        "v4_p_home": 0.6987481750318345,
-        "v5_p_home": 0.7149984792309441
+        "v4_p_home": 0.698755345006769,
+        "v5_p_home": 0.7150057056982924
       },
       {
         "fixture": "FC Utrecht v SC Cambuur",
@@ -148,8 +148,8 @@
           "Home win"
         ],
         "picks": 1,
-        "v4_p_home": 0.4329901780269161,
-        "v5_p_home": 0.4314391918507333
+        "v4_p_home": 0.4329702861983588,
+        "v5_p_home": 0.43141681672830584
       },
       {
         "fixture": "Amed SK v Çaykur Rizespor",
@@ -162,8 +162,8 @@
           "Home win"
         ],
         "picks": 2,
-        "v4_p_home": 0.7504973853686797,
-        "v5_p_home": 0.7670255190766325
+        "v4_p_home": 0.7505185077679177,
+        "v5_p_home": 0.7670465902448423
       },
       {
         "fixture": "Galatasaray v Samsunspor",
@@ -175,8 +175,8 @@
           "Home win"
         ],
         "picks": 1,
-        "v4_p_home": 0.7241500633962038,
-        "v5_p_home": 0.7397210686864933
+        "v4_p_home": 0.7241389840100068,
+        "v5_p_home": 0.739710111164451
       }
     ],
     "leagues": [
@@ -193,13 +193,13 @@
     "eligible": false,
     "interval_95": null,
     "log_loss": {
-      "v4": 0.8709165163530561,
+      "v4": 0.870916516353056,
       "v5": 0.8961088435962944
     },
     "matches": 3,
     "rule": "After at least 150 graded matches across at least 3 weeks, roll back research v5 if its research log loss on AH all lines minus v4's, on the same frozen inputs, matches and offers, has a week-resampled 95% interval entirely above zero.",
     "triggered": false,
-    "v5_minus_v4_log_loss": 0.025192327243238277,
+    "v5_minus_v4_log_loss": 0.02519232724323835,
     "weeks": 1
   },
   "ucl_live_check": {

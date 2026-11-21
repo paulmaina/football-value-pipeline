@@ -1,21 +1,21 @@
 # Narrow-margin report
 
-Run 2026-11-21T06:14:27.791363+00:00. Narrow = draw or one-goal win. P(narrow) = 1 - corrected P(margin 2+); draw and one-goal split from the corrected scoreline matrix. Quotes are the Pinnacle prices that fed the fit. Uncertain probabilities, not predictions or betting advice.
+Run 2026-11-21T06:34:39.298501+00:00. Narrow = draw or one-goal win. P(narrow) = 1 - corrected P(margin 2+); draw and one-goal split from the corrected scoreline matrix. Quotes are the Pinnacle prices that fed the fit. Uncertain probabilities, not predictions or betting advice.
 
 Out of domain = competition not in the training data (eight domestic leagues); treat those figures as less certain.
 
 | Kick-off (UTC) | League | Match | Pinnacle 1X2 | O/U 2.5 | Main AH (home) | P(narrow) | P(draw) | P(margin 3+) | Quintile | Quote age at kick-off (h) | Out of domain |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 2026-11-21T19:45:00+00:00 | Ligue 1 | Lille v Lyon | 2.31 / 3.32 / 3.37 | 2.10 / 1.81 | -0.25 @ 1.98 / 1.93 | 70% | 30% | 10% | Q2 | 13.6 | no |
-| 2026-11-22T10:30:00+00:00 | Super Lig | Erzurum BB v Goztepe | 2.97 / 3.26 / 2.48 | 2.01 / 1.85 | +0.00 @ 2.13 / 1.78 | 69% | 30% | 10% | Q2 | 28.3 | no |
-| 2026-11-22T14:00:00+00:00 | Serie A | Sassuolo v Genoa | 2.75 / 3.40 / 2.69 | 1.99 / 1.90 | -0.00 @ 1.97 / 1.93 | 69% | 29% | 10% | Q2 | 31.8 | no |
-| 2026-11-21T17:30:00+00:00 | La Liga | Sevilla v Real Betis | 3.10 / 3.30 / 2.47 | 1.98 / 1.91 | +0.25 @ 1.81 / 2.11 | 69% | 30% | 11% | Q2 | 11.3 | no |
-| 2026-11-21T15:00:00+00:00 | Premier League | Bournemouth v Nottingham Forest | 1.96 / 3.55 / 4.16 | 2.04 / 1.86 | -0.50 @ 1.97 / 1.93 | 68% | 28% | 12% | Q2 | 8.9 | no |
-| 2026-11-22T17:30:00+00:00 | La Liga | CA Osasuna v Málaga | 1.85 / 3.65 / 4.55 | 2.07 / 1.83 | -0.50 @ 1.86 / 2.05 | 67% | 27% | 13% | Q2 | 35.4 | no |
-| 2026-11-21T15:00:00+00:00 | Premier League | Chelsea v Leeds United | 2.04 / 3.52 / 3.88 | 1.94 / 1.94 | -0.50 @ 2.05 / 1.87 | 67% | 28% | 13% | Q2 | 8.9 | no |
-| 2026-11-22T13:00:00+00:00 | Super Lig | Kasimpasa SK v Alanyaspor | 1.95 / 3.59 / 3.87 | 1.89 / 1.96 | -0.50 @ 1.97 / 1.90 | 66% | 27% | 13% | Q3 | 30.8 | no |
-| 2026-11-22T14:00:00+00:00 | Serie A | Bologna v Udinese | 1.76 / 3.86 / 4.89 | 1.93 / 1.96 | -0.75 @ 1.99 / 1.92 | 65% | 25% | 15% | Q3 | 31.8 | no |
-| 2026-11-22T20:00:00+00:00 | La Liga | Getafe v Atlético Madrid | 6.51 / 4.15 / 1.56 | 2.06 / 1.84 | +1.00 @ 1.90 / 2.01 | 63% | 23% | 16% | Q3 | 37.9 | no |
+| 2026-11-21T19:45:00+00:00 | Ligue 1 | Lille v Lyon | 2.31 / 3.32 / 3.37 | 2.10 / 1.81 | -0.25 @ 1.98 / 1.93 | 70% | 30% | 10% | Q2 | 13.2 | no |
+| 2026-11-22T10:30:00+00:00 | Super Lig | Erzurum BB v Goztepe | 2.98 / 3.23 / 2.49 | 2.04 / 1.83 | +0.00 @ 2.13 / 1.78 | 70% | 30% | 10% | Q2 | 27.9 | no |
+| 2026-11-22T14:00:00+00:00 | Serie A | Sassuolo v Genoa | 2.75 / 3.38 / 2.69 | 2.00 / 1.88 | -0.00 @ 1.97 / 1.93 | 69% | 29% | 10% | Q2 | 31.4 | no |
+| 2026-11-21T17:30:00+00:00 | La Liga | Sevilla v Real Betis | 3.10 / 3.31 / 2.47 | 1.97 / 1.92 | +0.25 @ 1.81 / 2.11 | 69% | 30% | 11% | Q2 | 11.0 | no |
+| 2026-11-21T15:00:00+00:00 | Premier League | Bournemouth v Nottingham Forest | 1.96 / 3.56 / 4.17 | 2.04 / 1.86 | -0.50 @ 1.96 / 1.94 | 68% | 28% | 12% | Q2 | 8.5 | no |
+| 2026-11-22T17:30:00+00:00 | La Liga | CA Osasuna v Málaga | 1.85 / 3.65 / 4.55 | 2.07 / 1.83 | -0.50 @ 1.86 / 2.05 | 67% | 27% | 13% | Q2 | 35.0 | no |
+| 2026-11-21T15:00:00+00:00 | Premier League | Chelsea v Leeds United | 2.04 / 3.53 / 3.88 | 1.93 / 1.95 | -0.50 @ 2.04 / 1.87 | 67% | 28% | 13% | Q2 | 8.5 | no |
+| 2026-11-22T13:00:00+00:00 | Super Lig | Kasimpasa SK v Alanyaspor | 1.96 / 3.55 / 3.88 | 1.93 / 1.93 | -0.50 @ 1.97 / 1.89 | 67% | 27% | 13% | Q2 | 30.4 | no |
+| 2026-11-22T14:00:00+00:00 | Serie A | Bologna v Udinese | 1.76 / 3.86 / 4.89 | 1.93 / 1.96 | -0.75 @ 1.99 / 1.92 | 65% | 25% | 15% | Q3 | 31.4 | no |
+| 2026-11-22T20:00:00+00:00 | La Liga | Getafe v Atlético Madrid | 6.51 / 4.15 / 1.56 | 2.06 / 1.84 | +1.00 @ 1.90 / 2.01 | 63% | 23% | 16% | Q3 | 37.5 | no |
 
 ## Not scored (53)
 
@@ -47,7 +47,7 @@ Out of domain = competition not in the training data (eight domestic leagues); t
 - 2026-11-21T19:45:00+00:00 AS Monaco v Auxerre [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
 - 2026-11-21T19:45:00+00:00 RC Lens v Toulouse [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
 - 2026-11-21T19:45:00+00:00 Strasbourg v Brest [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-21T20:00:00+00:00 Real Madrid v Celta Vigo [UNUSABLE]: no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line)
+- 2026-11-21T20:00:00+00:00 Real Madrid v Celta Vigo [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
 - 2026-11-21T20:00:00+00:00 Groningen v Heerenveen [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
 - 2026-11-21T20:00:00+00:00 SC Telstar v FC Zwolle [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
 - 2026-11-22T11:15:00+00:00 FC Twente Enschede v Willem II [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
