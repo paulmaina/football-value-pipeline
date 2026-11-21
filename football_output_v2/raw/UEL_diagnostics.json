@@ -10,7 +10,7 @@
     "2026"
   ],
   "training_sha256": "7423d6cb39c84355e5fbdd4ed6b7bfedf9856d0b77390f595fb8f318aaee7986",
-  "training_as_of_utc": "2026-11-21T10:00:18.240894+00:00",
+  "training_as_of_utc": "2026-11-21T14:06:06.481844+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -52,9 +52,9 @@
   },
   "training_end": "2026-11-05",
   "fit_success": true,
-  "objective": 822.745557347767,
-  "base": 0.1275250648255573,
-  "home_adv": 0.2325313669567325,
+  "objective": 822.5435345155687,
+  "base": 0.12754515029975083,
+  "home_adv": 0.2324929457355321,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -73,7 +73,7 @@
   },
   "training_data_health": {
     "training_end": "2026-11-05",
-    "verified_at_utc": "2026-11-21T01:30:11.066178+00:00",
+    "verified_at_utc": "2026-11-21T12:37:40.734464+00:00",
     "official_source_health": {
       "2025": {
         "status": "REVIEWED_HISTORICAL_FACTS",

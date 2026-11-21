@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "8484e4a67aa818433f20c614ac9656d72a60dbc2c6a86dbc3ad0cc023da9b020",
-  "training_as_of_utc": "2026-11-21T09:54:09.416837+00:00",
+  "training_as_of_utc": "2026-11-21T14:01:33.045761+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 100,
     "bbs_added_results": 0,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_CHRONOLOGICAL_PARTITIONS",
-    "cutoff_utc": "2026-11-21T09:54:09.416837+00:00",
+    "cutoff_utc": "2026-11-21T14:01:33.045761+00:00",
     "observations": 1241,
     "observations_sha256": "9939a02e831ab671cfde5c68fe59bbfbce24290b98220a82a96dd54480aa47b4",
     "eligible_training_matches": 557,
@@ -120,21 +120,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.971838773696186,
-    "audit_candidate_poisson_score": 0.954372486167735,
-    "audit_gain": 0.01746628752845103,
-    "audit_gain_lower95": 0.005344851529776618,
+    "audit_baseline_poisson_score": 0.9718114127195772,
+    "audit_candidate_poisson_score": 0.95436181385585,
+    "audit_gain": 0.01744959886372721,
+    "audit_gain_lower95": 0.005330180191245704,
     "audit_baseline_briers": [
-      0.6408038748208679,
-      0.17446769375974852,
-      0.2236473082475534,
-      0.27381426829465094
+      0.6407925052041922,
+      0.17446606207627244,
+      0.22364188214396205,
+      0.27381240972246473
     ],
     "audit_candidate_briers": [
-      0.6393145070760883,
-      0.17267624545335,
-      0.2218880700403977,
-      0.26839709564428843
+      0.6393072985926302,
+      0.17267657328573213,
+      0.22188413581850394,
+      0.26840137452629764
     ],
     "audit_brier_order": [
       "1x2",
@@ -146,10 +146,10 @@
   },
   "training_end": "2026-11-08",
   "fit_success": true,
-  "objective": 1864.7431505477334,
-  "base": 0.20890052482563917,
-  "home_adv": 0.18522633531994476,
-  "rho": -0.05157478491002298,
+  "objective": 1864.2806709126141,
+  "base": 0.20889714824076647,
+  "home_adv": 0.1851651556521026,
+  "rho": -0.05148389979955133,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -177,29 +177,16 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 10,
+  "live_odds_matched": 9,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261121T095409416837Z_8c2c50c1cdedf4928595ce1b49d1d2986e3f0a14b4efcb597cc56c9c40a82187.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261121T140133045761Z_9823a86a84491af444f330555cf1f4a8ae1eadf574c42aa82224d4ca3ead12dc.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
-    {
-      "fixture_id": "6ef39b0fd8839f6e93a3de32523e9807",
-      "event_id": "6ef39b0fd8839f6e93a3de32523e9807",
-      "home_team": "Manchester City",
-      "away_team": "Fulham",
-      "kickoff_utc": "2026-11-21T12:30:00+00:00",
-      "status": "NOT_REQUESTED_LOW_CREDITS",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
     {
       "fixture_id": "b8d6ab6ecc8bb356c6335d3f417d0ecf",
       "event_id": "b8d6ab6ecc8bb356c6335d3f417d0ecf",
@@ -284,7 +271,7 @@
       "home_team": "Hull City",
       "away_team": "Brighton and Hove Albion",
       "kickoff_utc": "2026-11-22T14:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "NOT_REQUESTED_LOW_CREDITS",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
@@ -323,15 +310,15 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 8,
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 7,
     "ANCHORED_MAIN": 2
   },
-  "shot_features_applied_fixtures": 10,
+  "shot_features_applied_fixtures": 9,
   "goal_rate_features_used": {
-    "shot_features": 10
+    "shot_features": 9
   },
   "legacy_comparison_status": {
-    "None": 10
+    "None": 9
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
