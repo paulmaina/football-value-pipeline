@@ -38690,7 +38690,7 @@
         "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
         "observations": 483,
         "rejected_files": [],
-        "reviewed_at_utc": "2026-11-21T07:02:09.347939+00:00",
+        "reviewed_at_utc": "2026-11-21T10:02:29.365584+00:00",
         "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
         "version": "local-closing-quotes-v4"
       },
@@ -38723,8 +38723,8 @@
       },
       "experiment_capture_counts": {},
       "forecast_freshness": {
-        "age_hours": 0.00995572361111111,
-        "generated_at_utc": "2026-11-21T07:01:33.507334+00:00",
+        "age_hours": 0.016853736666666667,
+        "generated_at_utc": "2026-11-21T10:01:28.692132+00:00",
         "status": "WITHIN_24_HOURS",
         "upcoming_fixture_count": 63
       },
@@ -38742,7 +38742,7 @@
         "unknown_kickoff_count": 0,
         "upcoming_kickoff_count": 58
       },
-      "reviewed_at_utc": "2026-11-21T07:02:09.347939+00:00",
+      "reviewed_at_utc": "2026-11-21T10:02:29.365584+00:00",
       "selection_policy_groups": {
         "48h-ah-price-edge-cagey-v28": {
           "brier": 0.199472,
@@ -38962,7 +38962,7 @@
           "bbs_statistics_model": {
             "audit_matches": 41,
             "audit_origin_utc": "2026-09-19T00:00:00+00:00",
-            "cutoff_utc": "2026-11-21T06:58:23.267009+00:00",
+            "cutoff_utc": "2026-11-21T09:56:56.231783+00:00",
             "eligible_training_matches": 122,
             "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
             "feature_fields": [
@@ -39045,9 +39045,9 @@
             "validation_policy": "auto",
             "version": "bbs-lagged-poisson-v2"
           },
-          "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261121T065823267009Z_d0c4aa62a2309b28e1b38b11c1d5250c00108c1037cad6112b640a9c01a5e1cf.json",
+          "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261121T095656231783Z_1a604a58e60bc81b79e1c04445004bf994bd76798efceeffbf0b8f22a309edff.json",
           "days_since_latest_result": 1,
-          "diagnostics_sha256": "8ffa0b6bd2c9636f2fda61c0e98a2473ec0089fa275462e5f257a953bdbf743a",
+          "diagnostics_sha256": "dfe5cde94430535dcebc7a0e98f404d730f0e9eb1aa4c6d6469ddc967334eec5",
           "forecast_training_health": {
             "days_since_latest_result": 1,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -39075,7 +39075,7 @@
           "bbs_statistics_model": {
             "audit_matches": 41,
             "audit_origin_utc": "2026-10-11T00:00:00+00:00",
-            "cutoff_utc": "2026-11-21T06:56:32.480210+00:00",
+            "cutoff_utc": "2026-11-21T09:54:09.416837+00:00",
             "eligible_training_matches": 557,
             "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
             "feature_fields": [
@@ -39124,9 +39124,9 @@
             "validation_policy": "auto",
             "version": "bbs-lagged-poisson-v2"
           },
-          "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261121T065632480210Z_c6248b6a2d6c894121bbeacbedc31a4243a5fd8ef142f2a3d7b829b660cb323d.json",
+          "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261121T095409416837Z_8c2c50c1cdedf4928595ce1b49d1d2986e3f0a14b4efcb597cc56c9c40a82187.json",
           "days_since_latest_result": 13,
-          "diagnostics_sha256": "aeae38aa1ec45098aaa1b6bdcd6bb8237023e7e773b781181b46da6fb7ec0c8e",
+          "diagnostics_sha256": "2e4a9469535755d9ffbb28427cdf6e9e929689a969848491ccc71e948d89092f",
           "forecast_training_health": {
             "days_since_latest_result": 13,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -39147,7 +39147,7 @@
           },
           "bbs_statistics_model_artifact": null,
           "days_since_latest_result": 13,
-          "diagnostics_sha256": "4e4cbdddaf664c81e4b992181014b46ac94ed03b764bbcd45c544eb0d766afb3",
+          "diagnostics_sha256": "2192292e271d0e01e0fd35c987b1d425d834e162bd8358700f5b3cbce5cb8194",
           "forecast_training_health": {
             "days_since_latest_result": 13,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -39175,7 +39175,7 @@
           "bbs_statistics_model": {
             "audit_matches": 41,
             "audit_origin_utc": "2026-10-17T00:00:00+00:00",
-            "cutoff_utc": "2026-11-21T06:57:31.521401+00:00",
+            "cutoff_utc": "2026-11-21T09:55:38.202077+00:00",
             "eligible_training_matches": 309,
             "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
             "feature_fields": [
@@ -39224,9 +39224,9 @@
             "validation_policy": "auto",
             "version": "bbs-lagged-poisson-v2"
           },
-          "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261121T065731521401Z_2e984e03cfdb786622f736fb816a352ef7f87275d322992573079c00bb9c3326.json",
+          "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261121T095538202077Z_b479022f6a54b4949b4876c640f05defbce2043e047e90b969f2e1a462d922ee.json",
           "days_since_latest_result": 1,
-          "diagnostics_sha256": "3f2cac7bf0eca137ec4d643374d13f1b480fe2066e786bbda6c970f47e55ab67",
+          "diagnostics_sha256": "6066e6a74d32c55a1d81d152e1c1fad92dce4e20f5ac8931fee65496c01c24a9",
           "forecast_training_health": {
             "days_since_latest_result": 1,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -39254,7 +39254,7 @@
           "bbs_statistics_model": {
             "audit_matches": 40,
             "audit_origin_utc": "2026-10-10T00:00:00+00:00",
-            "cutoff_utc": "2026-11-21T06:59:52.026052+00:00",
+            "cutoff_utc": "2026-11-21T09:59:09.736671+00:00",
             "eligible_training_matches": 361,
             "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
             "feature_fields": [
@@ -39339,9 +39339,9 @@
             "validation_policy": "auto",
             "version": "bbs-lagged-poisson-v2"
           },
-          "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261121T065952026052Z_9fda09204420525783d08c25164a45a19fe3d6c7c7e77b8c290f6ee4dd2a72f5.json",
+          "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261121T095909736671Z_b3e4dc2b479afdf73f40d8490d614f060567840d846f14a9d49f786a1ecac22f.json",
           "days_since_latest_result": 1,
-          "diagnostics_sha256": "5383d19500b1d19d142ad678b14758f7fcd155cc3dc3d7273eaee6ce061679f9",
+          "diagnostics_sha256": "33f284c6dba066968105c45ff53891efa0cf686a3f4c29e981fe874ca95037ac",
           "forecast_training_health": {
             "days_since_latest_result": 1,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -39362,7 +39362,7 @@
           },
           "bbs_statistics_model_artifact": null,
           "days_since_latest_result": 13,
-          "diagnostics_sha256": "74f9f184baa40941a53a99cd3aa34539a8133d2920c67cc6e9daa631b3a4f7d6",
+          "diagnostics_sha256": "5cf48876dc389d74546049120f4a32029e14eae34dffb0a84c71822ffcc94d05",
           "forecast_training_health": {
             "days_since_latest_result": 13,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -39390,7 +39390,7 @@
           "bbs_statistics_model": {
             "audit_matches": 40,
             "audit_origin_utc": "2026-10-19T00:00:00+00:00",
-            "cutoff_utc": "2026-11-21T06:58:53.146642+00:00",
+            "cutoff_utc": "2026-11-21T09:57:41.738540+00:00",
             "eligible_training_matches": 460,
             "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
             "feature_fields": [
@@ -39475,9 +39475,9 @@
             "validation_policy": "auto",
             "version": "bbs-lagged-poisson-v2"
           },
-          "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261121T065853146642Z_c735b4cf478ea5e51d0fd63a6c285e6146e254f2df0f9190d6b892d57a2950a7.json",
+          "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261121T095741738540Z_e1bc834330935ae5c508efffdc08e247aeb0fb13899543616c74defdaee4ef30.json",
           "days_since_latest_result": 13,
-          "diagnostics_sha256": "3934b3c1b2975da84bc8abf5f7296de4bd2107fd3d45e937c0f32c1841d54288",
+          "diagnostics_sha256": "b9768520fa93b964a249f1b6c1844f884419ef479e737c521d2b3739d2786bf7",
           "forecast_training_health": {
             "days_since_latest_result": 13,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -39498,7 +39498,7 @@
           },
           "bbs_statistics_model_artifact": null,
           "days_since_latest_result": 13,
-          "diagnostics_sha256": "57e2640611455ffc2b960edd65a26cab2ded36d100096c2a6a0f67511df9fb06",
+          "diagnostics_sha256": "1c3ec73ca5c167d851a4b03ca1c529edc8f4539648f8f08664bac61a8dc79744",
           "forecast_training_health": {
             "days_since_latest_result": 13,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -39524,7 +39524,7 @@
             "usage": "supplementary_cached_observations"
           },
           "bbs_statistics_model": {
-            "cutoff_utc": "2026-11-21T07:00:33.815468+00:00",
+            "cutoff_utc": "2026-11-21T10:00:11.835303+00:00",
             "eligible_training_matches": 83,
             "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
             "feature_fields": [
@@ -39570,15 +39570,15 @@
             "validation_policy": "auto",
             "version": "bbs-lagged-poisson-v2"
           },
-          "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261121T070033815468Z_c2f53ff66760729437ca0207f9b21e563a5faa4d8566d64db2369790671c0a91.json",
+          "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261121T100011835303Z_94f1ff95055d4ae3c61e249b90a605faa7b3fd746e372d277c8cd8ef4b497d66.json",
           "current_source_health": {
             "added_matches": 0,
             "cache_hash_verified": true,
-            "checked_at_utc": "2026-11-21T07:00:33.815468+00:00",
+            "checked_at_utc": "2026-11-21T10:00:11.835303+00:00",
             "completed_matches": 72,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 0.0265367975,
+            "download_age_hours": 0.038202855833333334,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-11-04",
             "latest_completed_utc": "2026-11-04T20:00:00+00:00",
@@ -39593,11 +39593,11 @@
             "training_end": "2026-11-04"
           },
           "days_since_latest_result": 17,
-          "diagnostics_sha256": "5bcca3926835c05e22ef0e83bdad2730451cc8f94dd30c69b828b8ac8ec04de4",
+          "diagnostics_sha256": "001b8245d12c9cbe1e7fd547413d4800ce770ab3c1f15511ae898530fd4bb2ab",
           "forecast_training_health": {
             "added_matches": 0,
             "cache_hash_verified": true,
-            "checked_at_utc": "2026-11-21T07:00:33.815468+00:00",
+            "checked_at_utc": "2026-11-21T10:00:11.835303+00:00",
             "completed_matches": 72,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
@@ -39640,10 +39640,10 @@
               }
             },
             "status": "VERIFIED_WITHIN_24_HOURS",
-            "verified_at_utc": "2026-11-21T07:02:09.347939+00:00"
+            "verified_at_utc": "2026-11-21T10:02:29.365584+00:00"
           },
           "days_since_latest_result": 16,
-          "diagnostics_sha256": "bf92eb998ee4ec3e3544c9db53ad4364aad18bde1f165bcb413aa379c76fa1c2",
+          "diagnostics_sha256": "6a112374b7a7c3c6ecf333285162417124717412beb90a379b456f16bf5efcf4",
           "forecast_training_health": {
             "official_source_health": {
               "2025": {

@@ -1,20 +1,20 @@
 {
   "version": "candidate-clv-v2-validated-fixture-clustered",
-  "generated_at_utc": "2026-11-21T07:02:09.347939+00:00",
+  "generated_at_utc": "2026-11-21T10:02:29.365584+00:00",
   "status": "OK",
   "candidates": 2583,
   "fixtures": 209,
   "uncertainty_method": "fixture-cluster-robust",
   "rejected_observation_files": [],
-  "entry_files": 110,
+  "entry_files": 111,
   "overall_pinnacle_fair": {
     "n": 2583,
     "independent_fixtures": 209,
     "mean": -0.03426282049101691,
     "median": -0.02809075997754351,
     "positive_share": 0.26480836236933797,
-    "standard_error": 0.0016311439546432293,
-    "t_stat": -21.00539341943674
+    "standard_error": 0.0016311439546432297,
+    "t_stat": -21.005393419436732
   },
   "overall_same_book": {
     "n": 1651,

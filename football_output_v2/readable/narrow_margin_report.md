@@ -1,21 +1,21 @@
 # Narrow-margin report
 
-Run 2026-11-21T07:01:33.507334+00:00. Narrow = draw or one-goal win. P(narrow) = 1 - corrected P(margin 2+); draw and one-goal split from the corrected scoreline matrix. Quotes are the Pinnacle prices that fed the fit. Uncertain probabilities, not predictions or betting advice.
+Run 2026-11-21T10:01:28.692132+00:00. Narrow = draw or one-goal win. P(narrow) = 1 - corrected P(margin 2+); draw and one-goal split from the corrected scoreline matrix. Quotes are the Pinnacle prices that fed the fit. Uncertain probabilities, not predictions or betting advice.
 
 Out of domain = competition not in the training data (eight domestic leagues); treat those figures as less certain.
 
 | Kick-off (UTC) | League | Match | Pinnacle 1X2 | O/U 2.5 | Main AH (home) | P(narrow) | P(draw) | P(margin 3+) | Quintile | Quote age at kick-off (h) | Out of domain |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 2026-11-21T19:45:00+00:00 | Ligue 1 | Lille v Lyon | 2.31 / 3.32 / 3.37 | 2.10 / 1.81 | -0.25 @ 1.98 / 1.93 | 70% | 30% | 10% | Q2 | 12.8 | no |
-| 2026-11-22T10:30:00+00:00 | Super Lig | Erzurum BB v Goztepe | 3.03 / 3.23 / 2.46 | 2.04 / 1.83 | +0.25 @ 1.78 / 2.11 | 70% | 30% | 10% | Q2 | 27.5 | no |
-| 2026-11-22T14:00:00+00:00 | Serie A | Sassuolo v Genoa | 2.75 / 3.38 / 2.69 | 2.00 / 1.88 | -0.00 @ 1.97 / 1.93 | 69% | 29% | 10% | Q2 | 31.0 | no |
-| 2026-11-21T17:30:00+00:00 | La Liga | Sevilla v Real Betis | 3.10 / 3.31 / 2.47 | 1.97 / 1.92 | +0.25 @ 1.81 / 2.11 | 69% | 30% | 11% | Q2 | 10.5 | no |
-| 2026-11-21T15:00:00+00:00 | Premier League | Bournemouth v Nottingham Forest | 1.96 / 3.56 / 4.17 | 2.04 / 1.86 | -0.50 @ 1.96 / 1.94 | 68% | 28% | 12% | Q2 | 8.1 | no |
-| 2026-11-22T17:30:00+00:00 | La Liga | CA Osasuna v Málaga | 1.85 / 3.65 / 4.55 | 2.07 / 1.83 | -0.50 @ 1.86 / 2.05 | 67% | 27% | 13% | Q2 | 34.5 | no |
-| 2026-11-21T15:00:00+00:00 | Premier League | Chelsea v Leeds United | 2.07 / 3.50 / 3.80 | 1.94 / 1.94 | -0.50 @ 2.08 / 1.84 | 67% | 28% | 12% | Q2 | 8.1 | no |
-| 2026-11-22T13:00:00+00:00 | Super Lig | Kasimpasa SK v Alanyaspor | 1.96 / 3.55 / 3.88 | 1.93 / 1.93 | -0.50 @ 1.97 / 1.89 | 67% | 27% | 13% | Q2 | 30.0 | no |
-| 2026-11-22T14:00:00+00:00 | Serie A | Bologna v Udinese | 1.76 / 3.86 / 4.89 | 1.93 / 1.96 | -0.75 @ 1.99 / 1.92 | 65% | 25% | 15% | Q3 | 31.0 | no |
-| 2026-11-22T20:00:00+00:00 | La Liga | Getafe v Atlético Madrid | 6.51 / 4.15 / 1.56 | 2.06 / 1.84 | +1.00 @ 1.90 / 2.01 | 63% | 23% | 16% | Q3 | 37.0 | no |
+| 2026-11-21T19:45:00+00:00 | Ligue 1 | Lille v Lyon | 2.31 / 3.34 / 3.41 | 2.11 / 1.82 | -0.25 @ 1.98 / 1.94 | 70% | 30% | 10% | Q2 | 9.8 | no |
+| 2026-11-22T10:30:00+00:00 | Super Lig | Erzurum BB v Goztepe | 3.03 / 3.23 / 2.46 | 2.04 / 1.83 | +0.25 @ 1.78 / 2.11 | 70% | 30% | 10% | Q2 | 24.5 | no |
+| 2026-11-22T14:00:00+00:00 | Serie A | Sassuolo v Genoa | 2.75 / 3.38 / 2.69 | 2.00 / 1.88 | -0.00 @ 1.97 / 1.93 | 69% | 29% | 10% | Q2 | 28.0 | no |
+| 2026-11-21T15:00:00+00:00 | Premier League | Chelsea v Leeds United | 2.13 / 3.44 / 3.78 | 2.03 / 1.88 | -0.50 @ 2.13 / 1.81 | 69% | 29% | 12% | Q2 | 5.1 | no |
+| 2026-11-21T15:00:00+00:00 | Premier League | Bournemouth v Nottingham Forest | 1.98 / 3.55 / 4.20 | 2.08 / 1.83 | -0.50 @ 1.98 / 1.94 | 68% | 28% | 12% | Q2 | 5.1 | no |
+| 2026-11-21T17:30:00+00:00 | La Liga | Sevilla v Real Betis | 3.05 / 3.39 / 2.49 | 1.91 / 2.00 | +0.25 @ 1.81 / 2.14 | 68% | 29% | 11% | Q2 | 7.6 | no |
+| 2026-11-22T17:30:00+00:00 | La Liga | CA Osasuna v Málaga | 1.85 / 3.65 / 4.55 | 2.07 / 1.83 | -0.50 @ 1.86 / 2.05 | 67% | 27% | 13% | Q2 | 31.6 | no |
+| 2026-11-22T13:00:00+00:00 | Super Lig | Kasimpasa SK v Alanyaspor | 1.96 / 3.55 / 3.88 | 1.93 / 1.93 | -0.50 @ 1.97 / 1.89 | 67% | 27% | 13% | Q2 | 27.0 | no |
+| 2026-11-22T14:00:00+00:00 | Serie A | Bologna v Udinese | 1.76 / 3.86 / 4.89 | 1.93 / 1.96 | -0.75 @ 1.99 / 1.92 | 65% | 25% | 15% | Q3 | 28.0 | no |
+| 2026-11-22T20:00:00+00:00 | La Liga | Getafe v Atlético Madrid | 6.51 / 4.15 / 1.56 | 2.06 / 1.84 | +1.00 @ 1.90 / 2.01 | 63% | 23% | 16% | Q3 | 34.1 | no |
 
 ## Not scored (53)
 
