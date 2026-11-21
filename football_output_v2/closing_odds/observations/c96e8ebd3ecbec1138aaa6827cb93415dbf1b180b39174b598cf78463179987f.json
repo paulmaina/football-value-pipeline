@@ -1,0 +1,390 @@
+{
+  "fixture": {
+    "away_team": "Paris Saint Germain",
+    "home_team": "Nice",
+    "kickoff_utc": "2026-11-21T16:15:00+00:00",
+    "league": "Ligue 1",
+    "odds_event_id": "651c1847b5cdcc85e60a140edd2282c4"
+  },
+  "observed_at_utc": "2026-11-21T16:09:03.517196+00:00",
+  "payload": {
+    "away_team": "Paris Saint Germain",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-21T16:08:58Z",
+            "outcomes": [
+              {
+                "name": "Nice",
+                "price": 6.6
+              },
+              {
+                "name": "Paris Saint Germain",
+                "price": 1.45
+              },
+              {
+                "name": "Draw",
+                "price": 5.2
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-21T16:08:58Z",
+            "outcomes": [
+              {
+                "name": "Nice",
+                "point": 1.25,
+                "price": 1.98
+              },
+              {
+                "name": "Paris Saint Germain",
+                "point": -1.25,
+                "price": 1.94
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-21T16:08:58Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.88
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.02
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-21T16:08:58Z",
+            "outcomes": [
+              {
+                "name": "Nice",
+                "point": 1.25,
+                "price": 1.98
+              },
+              {
+                "name": "Nice",
+                "point": 0.25,
+                "price": 3.57
+              },
+              {
+                "name": "Nice",
+                "point": 0.5,
+                "price": 2.88
+              },
+              {
+                "name": "Nice",
+                "point": 0.75,
+                "price": 2.59
+              },
+              {
+                "name": "Nice",
+                "point": 1.0,
+                "price": 2.28
+              },
+              {
+                "name": "Nice",
+                "point": 1.5,
+                "price": 1.77
+              },
+              {
+                "name": "Nice",
+                "point": 1.75,
+                "price": 1.6
+              },
+              {
+                "name": "Nice",
+                "point": 2.0,
+                "price": 1.42
+              },
+              {
+                "name": "Nice",
+                "point": 2.25,
+                "price": 1.36
+              },
+              {
+                "name": "Paris Saint Germain",
+                "point": -1.25,
+                "price": 1.94
+              },
+              {
+                "name": "Paris Saint Germain",
+                "point": -0.25,
+                "price": 1.33
+              },
+              {
+                "name": "Paris Saint Germain",
+                "point": -0.5,
+                "price": 1.46
+              },
+              {
+                "name": "Paris Saint Germain",
+                "point": -0.75,
+                "price": 1.56
+              },
+              {
+                "name": "Paris Saint Germain",
+                "point": -1.0,
+                "price": 1.69
+              },
+              {
+                "name": "Paris Saint Germain",
+                "point": -1.5,
+                "price": 2.16
+              },
+              {
+                "name": "Paris Saint Germain",
+                "point": -1.75,
+                "price": 2.48
+              },
+              {
+                "name": "Paris Saint Germain",
+                "point": -2.0,
+                "price": 3.02
+              },
+              {
+                "name": "Paris Saint Germain",
+                "point": -2.25,
+                "price": 3.37
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-21T16:09:03Z",
+            "outcomes": [
+              {
+                "name": "Nice",
+                "price": 5.05
+              },
+              {
+                "name": "Paris Saint Germain",
+                "price": 1.2
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-21T16:15:00Z",
+    "home_team": "Nice",
+    "id": "651c1847b5cdcc85e60a140edd2282c4",
+    "sport_key": "soccer_france_ligue_one",
+    "sport_title": "Ligue 1 - France"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.6,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.14049442802581696,
+      "selection": "home",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.2,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.18002931844152006,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.45,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.679476253532663,
+      "selection": "away",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.94,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.25",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.98,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.25",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.88,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5186652710359881,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.02,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.48133472896401197,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.37,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -2.25",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.02,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -2.00",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.48,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.75",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.16,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.50",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.69,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.00",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.56,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.46,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.33,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.57,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.88,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.59,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.28,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.00",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.77,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.50",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.75",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.42,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +2.00",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.36,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +2.25",
+      "updated_at_utc": "2026-11-21T16:08:58+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-21T16:09:03+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.05,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-21T16:09:03+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
