@@ -5,20 +5,20 @@
       "not_replayed:no corrected D distribution": 1,
       "offer_out_of_scope:pinnacle draw_no_bet": 2
     },
-    "d_pow2_minus_d_log_loss": 0.014248105752739548,
+    "d_pow2_minus_d_log_loss": 0.01424810575217561,
     "eligible": false,
     "fallbacks": {
       "domestic_fixtures": 66,
-      "domestic_records": 504,
+      "domestic_records": 560,
       "fallback_fixtures": 0,
       "fallback_records": 0,
-      "runs": 9
+      "runs": 10
     },
     "graded_fallbacks": 0,
     "interval_95": null,
     "log_loss": {
-      "D": 0.8820181419794784,
-      "D_pow2": 0.896266247732218
+      "D": 0.8820181419771234,
+      "D_pow2": 0.8962662477292991
     },
     "matches": 2,
     "rule": "After at least 150 graded domestic matches across at least 3 weeks, roll back the cagey correction D_pow2 if its log loss on AH all lines minus D's, on the same frozen Pinnacle quotes, matches and offers, has a week-resampled 95% interval entirely above zero. Rolling back is setting cagey_correction_config.json cagey_correction_live.domestic to \"D\".",
@@ -100,26 +100,26 @@
   "home_favourites": {
     "all": {
       "actual_home_win": null,
-      "fixtures": 5,
+      "fixtures": 7,
       "graded": 0,
-      "picks": 7,
+      "picks": 11,
       "v4_predicted_home_win": null,
       "v5_predicted_home_win": null
     },
     "by_league": {
       "Eredivisie": {
         "actual_home_win": null,
-        "fixtures": 2,
+        "fixtures": 3,
         "graded": 0,
-        "picks": 2,
+        "picks": 4,
         "v4_predicted_home_win": null,
         "v5_predicted_home_win": null
       },
       "Super Lig": {
         "actual_home_win": null,
-        "fixtures": 3,
+        "fixtures": 4,
         "graded": 0,
-        "picks": 5,
+        "picks": 7,
         "v4_predicted_home_win": null,
         "v5_predicted_home_win": null
       }
@@ -132,11 +132,25 @@
         "kickoff_utc": "2026-11-21T17:45:00+00:00",
         "league": "Eredivisie",
         "markets": [
+          "Asian Handicap Home -2.00",
           "Home win"
         ],
+        "picks": 2,
+        "v4_p_home": 0.6987337561263675,
+        "v5_p_home": 0.7149841808081194
+      },
+      {
+        "fixture": "SC Telstar v FC Zwolle",
+        "graded": false,
+        "home_won": null,
+        "kickoff_utc": "2026-11-21T20:00:00+00:00",
+        "league": "Eredivisie",
+        "markets": [
+          "Asian Handicap Home -0.25"
+        ],
         "picks": 1,
-        "v4_p_home": 0.6987482006356805,
-        "v5_p_home": 0.7149985105258273
+        "v4_p_home": 0.5084582272013427,
+        "v5_p_home": 0.5155574912737193
       },
       {
         "fixture": "FC Utrecht v SC Cambuur",
@@ -148,8 +162,8 @@
           "Home win"
         ],
         "picks": 1,
-        "v4_p_home": 0.43299063840856805,
-        "v5_p_home": 0.431439708949016
+        "v4_p_home": 0.43299453550172007,
+        "v5_p_home": 0.4314440914881529
       },
       {
         "fixture": "Amed SK v Çaykur Rizespor",
@@ -191,6 +205,20 @@
         "picks": 1,
         "v4_p_home": 0.45586085636297846,
         "v5_p_home": 0.458179255862647
+      },
+      {
+        "fixture": "Kasimpasa SK v Alanyaspor",
+        "graded": false,
+        "home_won": null,
+        "kickoff_utc": "2026-11-22T13:00:00+00:00",
+        "league": "Super Lig",
+        "markets": [
+          "Asian Handicap Home -0.50",
+          "Home win"
+        ],
+        "picks": 2,
+        "v4_p_home": 0.5337848469127526,
+        "v5_p_home": 0.5429406610483465
       }
     ],
     "leagues": [
@@ -207,13 +235,13 @@
     "eligible": false,
     "interval_95": null,
     "log_loss": {
-      "v4": 0.8709165163530561,
+      "v4": 0.870916516353056,
       "v5": 0.8961088435962944
     },
     "matches": 3,
     "rule": "After at least 150 graded matches across at least 3 weeks, roll back research v5 if its research log loss on AH all lines minus v4's, on the same frozen inputs, matches and offers, has a week-resampled 95% interval entirely above zero.",
     "triggered": false,
-    "v5_minus_v4_log_loss": 0.025192327243238277,
+    "v5_minus_v4_log_loss": 0.02519232724323835,
     "weeks": 1
   },
   "ucl_live_check": {
