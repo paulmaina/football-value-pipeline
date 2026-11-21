@@ -1,12 +1,12 @@
 {
   "version": "candidate-clv-v2-validated-fixture-clustered",
-  "generated_at_utc": "2026-11-21T06:35:07.779470+00:00",
+  "generated_at_utc": "2026-11-21T07:02:09.347939+00:00",
   "status": "OK",
   "candidates": 2583,
   "fixtures": 209,
   "uncertainty_method": "fixture-cluster-robust",
   "rejected_observation_files": [],
-  "entry_files": 109,
+  "entry_files": 110,
   "overall_pinnacle_fair": {
     "n": 2583,
     "independent_fixtures": 209,
