@@ -20,11 +20,11 @@ Closing-line value (CLV) leads because it is the less noisy measure: it compares
 Every captured generation is graded at its own offered odds; re-uploads deduplicate. Repeated fixtures and overlapping lists are correlated recommendations, not independent bets. Unit returns are hypothetical, not actual betting ROI. Latest-view reports remain separate.
 
 Latest-view tables below are simulated recommendations, not executed-bet ROI.
-value: 1243 captured recommendations; 1111 graded; 135 distinct fixtures.
-cagey: 944 captured recommendations; 882 graded; 101 distinct fixtures.
+value: 1301 captured recommendations; 1111 graded; 136 distinct fixtures.
+cagey: 949 captured recommendations; 882 graded; 101 distinct fixtures.
 Actual placed bets: NOT_RECORDED
 
-Reviewed 2026-11-21T06:15:28.525464+00:00. Frozen v27 picks: 381.
+Reviewed 2026-11-21T06:35:07.779470+00:00. Frozen v27 picks: 383.
 
 **Mean CLV vs Pinnacle close:** -1.80% ± 1.22% (n=53). **Flat-stake profit per bet:** +2.42% ± 7.46% (n=312).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -121,7 +121,7 @@ STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
 
 ## Master shortlist: new master (live since 14 Nov 2026) beside the old master (shadow)
 
-Frozen picks: 27; CLV -3.42% ± 0.62% (n=2); realised profit per bet -33.00% ± 131.32% (n=2). Old master: 87 frozen picks, realised profit per bet -0.25% ± 16.65% (n=63).
+Frozen picks: 28; CLV -3.42% ± 0.62% (n=2); realised profit per bet -33.00% ± 131.32% (n=2). Old master: 88 frozen picks, realised profit per bet -0.25% ± 16.65% (n=63).
 
 Comparison rule (decided 13 Nov 2026, before any live result of the new master): After at least 150 graded matches over at least 3 calendar weeks (on each list), compare flat-stake return per bet at Pinnacle prices: new master minus live master, whole kickoff weeks resampled (the same weeks for both lists), 95% interval. Hit rate, average price, vetoed, ignored and missing-view counts are context only. The new master is better only if the interval is entirely above zero.
 
@@ -137,7 +137,7 @@ Release incidents: new master failed (old master published) in 0 runs; compariso
 | old master | 63 | 2 | -0.25% | 66.7% | 1.56 |
 
 **Status:** waiting for at least 150 graded matches over at least 3 weeks on each list (not yet comparable).
-Context, new master offers (newest pre-kickoff generation per fixture): 61 offers on 37 fixtures; included (cagey safe) 7; labels: both agree 1, research too optimistic 5, research strongly disagrees 0, one view missing 51, no research check 0, unvalidated view 0; no view 0.
+Context, new master offers (newest pre-kickoff generation per fixture): 62 offers on 38 fixtures; included (cagey safe) 7; labels: both agree 1, research too optimistic 5, research strongly disagrees 0, one view missing 52, no research check 0, unvalidated view 0; no view 0.
 
 By tier (context only; the comparison rule never reads it):
 
@@ -155,7 +155,7 @@ By tier (context only; the comparison rule never reads it):
 
 ## Old master (shadow since 14 Nov 2026; master_shortlist_old.csv)
 
-Frozen picks: 87; CLV -0.01% ± 3.90% (n=12); realised profit per bet -0.25% ± 16.65% (n=63).
+Frozen picks: 88; CLV -0.01% ± 3.90% (n=12); realised profit per bet -0.25% ± 16.65% (n=63).
 
 | price flag | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|

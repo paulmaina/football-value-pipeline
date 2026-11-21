@@ -20,7 +20,7 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 | per pick | 109 | -1.9% | -2.9% to -0.9% | 28% | 395 | +2.6% | -3.9% to +9.1% |
 | per fixture (a match's picks averaged) | 77 | -1.6% | -2.9% to -0.3% | 31% | 182 | +1.7% | -5.8% to +9.2% |
 
-464 picks on 218 matches. A match can hold several picks (one per market group); the per-fixture row averages them, so each match counts once. Closing-line value (CLV) leads because it is the less noisy measure: it compares the frozen price with the Pinnacle fair close and does not wait for results. Returns come second: with few matches they are mostly luck. Intervals are mean ± 1.96 standard errors, clustered by fixture. Near-kickoff feed quotes are not verified official closing prices.
+466 picks on 219 matches. A match can hold several picks (one per market group); the per-fixture row averages them, so each match counts once. Closing-line value (CLV) leads because it is the less noisy measure: it compares the frozen price with the Pinnacle fair close and does not wait for results. Returns come second: with few matches they are mostly luck. Intervals are mean ± 1.96 standard errors, clustered by fixture. Near-kickoff feed quotes are not verified official closing prices.
 
 ## Research v5 (C6) rollback check
 
@@ -78,7 +78,7 @@ Fallbacks to D: where D_pow2's power grid failed its fit check, the run priced t
 
 | D_pow2 runs | Domestic fixture forecasts | Priced by D (fallback) | Domestic fixtures | Fixtures with a fallback | Graded matches left out |
 |---|---|---|---|---|---|
-| 6 | 315 | 0 | 66 | 0 | 0 |
+| 7 | 378 | 0 | 66 | 0 | 0 |
 
 ## Cumulative shortlist — latest prediction per match
 
@@ -86,7 +86,7 @@ Fallbacks to D: where D_pow2's power grid failed its fit check, the run priced t
 |---|---:|---:|---:|---:|
 | All selections | 395 | 289-103 | 73.2% | +2.6% |
 
-Unsettled / unverified entries: **69**.
+Unsettled / unverified entries: **71**.
 Whole-fixture 1X2 multiclass Brier (n=380): 0.5451
 
 ## First-prediction reference — historical comparison
@@ -141,7 +141,7 @@ Whole-fixture 1X2 multiclass Brier (n=380): 0.5451
 | 2026-11-08T12:20:11.356382+00:00 | 84 | 64-20 | 76.2% | +5.5% |
 | 2026-11-20T14:29:07.564363+00:00 | 1 | 0-1 | 0.0% | -100.0% |
 | 2026-11-20T16:53:14.319920+00:00 | 4 | 1-3 | 25.0% | -67.8% |
-| 2026-11-21T06:14:27.791363+00:00 | 0 | 0-0 | — | — |
+| 2026-11-21T06:34:39.298501+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
@@ -329,7 +329,7 @@ A missing, ambiguous or unverified result is **never called a win**.
 | UCL | 2026-11-04 | 575 | 17 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 | UEL | 2026-11-05 | 732 | 16 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 56, "exchange_quotes": 0, "missing_quote_age": 56, "quote_age_over_24h": 0, "costs_recorded": 56, "bookmakers": {"Pinnacle": 56}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 56, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 58, "exchange_quotes": 0, "missing_quote_age": 58, "quote_age_over_24h": 0, "costs_recorded": 58, "bookmakers": {"Pinnacle": 58}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 58, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
