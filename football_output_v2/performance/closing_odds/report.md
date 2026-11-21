@@ -9,24 +9,24 @@ Last observed live quote within 6 minutes of scheduled kickoff, market age <=120
 {
   "1xbet": {
     "covered_selections": 37,
-    "missing_selections": 375,
-    "pending_selections": 74,
+    "missing_selections": 385,
+    "pending_selections": 64,
     "mean_fair_close_ev": -0.019197941154740654,
     "mean_same_book_offered_price_clv": 0.019371207678824987,
     "positive_fair_close_ev": 11
   },
   "pinnacle": {
-    "covered_selections": 113,
+    "covered_selections": 123,
     "missing_selections": 299,
-    "pending_selections": 74,
-    "mean_fair_close_ev": -0.02125829557394177,
-    "mean_same_book_offered_price_clv": 0.002139828628886257,
+    "pending_selections": 64,
+    "mean_fair_close_ev": -0.022275804982920443,
+    "mean_same_book_offered_price_clv": 0.0016945247875493868,
     "positive_fair_close_ev": 21
   },
   "bet365": {
     "covered_selections": 0,
-    "missing_selections": 412,
-    "pending_selections": 74,
+    "missing_selections": 422,
+    "pending_selections": 64,
     "mean_fair_close_ev": null,
     "mean_same_book_offered_price_clv": null,
     "positive_fair_close_ev": 0
@@ -38,24 +38,24 @@ Last observed live quote within 6 minutes of scheduled kickoff, market age <=120
 {
   "1xbet": {
     "covered_selections": 35,
-    "missing_selections": 377,
-    "pending_selections": 74,
+    "missing_selections": 387,
+    "pending_selections": 64,
     "mean_fair_close_ev": -0.019700242598333494,
     "mean_same_book_offered_price_clv": 0.020653396437256083,
     "positive_fair_close_ev": 9
   },
   "pinnacle": {
-    "covered_selections": 106,
+    "covered_selections": 116,
     "missing_selections": 306,
-    "pending_selections": 74,
-    "mean_fair_close_ev": -0.02349186746875211,
-    "mean_same_book_offered_price_clv": -0.01576772307965687,
+    "pending_selections": 64,
+    "mean_fair_close_ev": -0.025278962599213296,
+    "mean_same_book_offered_price_clv": -0.012683769619042056,
     "positive_fair_close_ev": 21
   },
   "bet365": {
     "covered_selections": 0,
-    "missing_selections": 412,
-    "pending_selections": 74,
+    "missing_selections": 422,
+    "pending_selections": 64,
     "mean_fair_close_ev": null,
     "mean_same_book_offered_price_clv": null,
     "positive_fair_close_ev": 0

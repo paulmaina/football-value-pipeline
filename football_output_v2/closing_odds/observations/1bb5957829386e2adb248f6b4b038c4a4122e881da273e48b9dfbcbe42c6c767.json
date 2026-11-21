@@ -1,0 +1,400 @@
+{
+  "fixture": {
+    "away_team": "Ipswich Town",
+    "home_team": "Tottenham Hotspur",
+    "kickoff_utc": "2026-11-21T15:00:00+00:00",
+    "league": "Premier League",
+    "odds_event_id": "e67ee3a6f93bb90b8aefcf3dd204477c"
+  },
+  "observed_at_utc": "2026-11-21T14:54:21.835904+00:00",
+  "payload": {
+    "away_team": "Ipswich Town",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-21T14:54:11Z",
+            "outcomes": [
+              {
+                "name": "Ipswich Town",
+                "price": 6.15
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "price": 1.53
+              },
+              {
+                "name": "Draw",
+                "price": 4.7
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-21T14:54:11Z",
+            "outcomes": [
+              {
+                "name": "Ipswich Town",
+                "point": 1.0,
+                "price": 2.08
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "point": -1.0,
+                "price": 1.85
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-21T14:54:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.94
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.96
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-21T14:54:11Z",
+            "outcomes": [
+              {
+                "name": "Ipswich Town",
+                "point": 1.0,
+                "price": 2.08
+              },
+              {
+                "name": "Ipswich Town",
+                "point": 2.0,
+                "price": 1.32
+              },
+              {
+                "name": "Ipswich Town",
+                "point": 1.75,
+                "price": 1.48
+              },
+              {
+                "name": "Ipswich Town",
+                "point": 1.5,
+                "price": 1.64
+              },
+              {
+                "name": "Ipswich Town",
+                "point": 1.25,
+                "price": 1.8
+              },
+              {
+                "name": "Ipswich Town",
+                "point": 0.75,
+                "price": 2.38
+              },
+              {
+                "name": "Ipswich Town",
+                "point": 0.5,
+                "price": 2.69
+              },
+              {
+                "name": "Ipswich Town",
+                "point": 0.25,
+                "price": 3.36
+              },
+              {
+                "name": "Ipswich Town",
+                "point": -0.0,
+                "price": 4.98
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "point": -1.0,
+                "price": 1.85
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "point": -2.0,
+                "price": 3.65
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "point": -1.75,
+                "price": 2.83
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "point": -1.5,
+                "price": 2.4
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "point": -1.25,
+                "price": 2.12
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "point": -0.75,
+                "price": 1.65
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "point": -0.5,
+                "price": 1.53
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "point": -0.25,
+                "price": 1.36
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "point": 0.0,
+                "price": 1.21
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-11-21T14:53:50Z",
+            "outcomes": [
+              {
+                "name": "Ipswich Town or Draw",
+                "price": 2.66
+              },
+              {
+                "name": "Tottenham Hotspur or Draw",
+                "price": 1.15
+              },
+              {
+                "name": "Ipswich Town or Tottenham Hotspur",
+                "price": 1.24
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-21T14:53:50Z",
+            "outcomes": [
+              {
+                "name": "Ipswich Town",
+                "price": 4.92
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "price": 1.21
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-21T15:00:00Z",
+    "home_team": "Tottenham Hotspur",
+    "id": "e67ee3a6f93bb90b8aefcf3dd204477c",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.15,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8475473443482283,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-11-21T14:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.66,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.36642084436107614,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-11-21T14:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.24,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7860318112906954,
+      "selection": "home_away",
+      "updated_at_utc": "2026-11-21T14:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.98,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.21,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.53,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6445496001901532,
+      "selection": "home",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.7,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.202245051480541,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.15,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.15320534832930588,
+      "selection": "away",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.08,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.85,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.36,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.69,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.38,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.8,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.64,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.48,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.32,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.00",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.65,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.00",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.83,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.4,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.12,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.65,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.53,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.36,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

@@ -1,23 +1,9 @@
 {
   "already_complete_fixtures": 0,
-  "checked_at_utc": "2026-11-21T14:24:10.126803+00:00",
+  "checked_at_utc": "2026-11-21T14:54:19.312831+00:00",
   "coverage_checks": [
     {
-      "event_id": "c24cf629b4eaf0ebc4ca2c5beb73747c",
-      "missing_required_quotes": [],
-      "requested_markets": [
-        "alternate_spreads",
-        "draw_no_bet",
-        "h2h",
-        "spreads",
-        "totals"
-      ],
-      "returned_bookmakers": [
-        "pinnacle"
-      ]
-    },
-    {
-      "event_id": "d0128b7d64e40ca3f1ae1b288b47117a",
+      "event_id": "b8d6ab6ecc8bb356c6335d3f417d0ecf",
       "missing_required_quotes": [],
       "requested_markets": [
         "alternate_spreads",
@@ -32,21 +18,7 @@
       ]
     },
     {
-      "event_id": "c8bcd407a7b987234c72c62ec37246ef",
-      "missing_required_quotes": [],
-      "requested_markets": [
-        "alternate_spreads",
-        "draw_no_bet",
-        "h2h",
-        "spreads",
-        "totals"
-      ],
-      "returned_bookmakers": [
-        "pinnacle"
-      ]
-    },
-    {
-      "event_id": "577976c4b042018534e14db9ce579cf6",
+      "event_id": "cf68da11fa604c13fc9ef3219fad0314",
       "missing_required_quotes": [],
       "requested_markets": [
         "alternate_spreads",
@@ -61,10 +33,41 @@
       ]
     },
     {
-      "event_id": "ca93df81e976fbe345a6175bb24e3f19",
+      "event_id": "ac6cf70520a83c0949b4003bde53c709",
       "missing_required_quotes": [],
       "requested_markets": [
         "alternate_spreads",
+        "double_chance",
+        "draw_no_bet",
+        "h2h",
+        "spreads",
+        "totals"
+      ],
+      "returned_bookmakers": [
+        "pinnacle"
+      ]
+    },
+    {
+      "event_id": "9f38413bdad666e2d2dfcc574dd12e66",
+      "missing_required_quotes": [],
+      "requested_markets": [
+        "alternate_spreads",
+        "double_chance",
+        "draw_no_bet",
+        "h2h",
+        "spreads",
+        "totals"
+      ],
+      "returned_bookmakers": [
+        "pinnacle"
+      ]
+    },
+    {
+      "event_id": "e67ee3a6f93bb90b8aefcf3dd204477c",
+      "missing_required_quotes": [],
+      "requested_markets": [
+        "alternate_spreads",
+        "double_chance",
         "draw_no_bet",
         "h2h",
         "spreads",
@@ -76,14 +79,14 @@
     }
   ],
   "daily_request_cap": 100,
-  "daily_requests": 19,
+  "daily_requests": 24,
   "eligible_fixtures": 5,
   "errors": [],
   "reason": "CHECKED_ELIGIBLE_FIXTURES",
   "request_limit": 15,
   "requests": 5,
   "reservation_allowance": 15,
-  "reservation_id": "actions-44910342079-1-2",
+  "reservation_id": "actions-44910342079-1-3",
   "reservation_used": 5,
   "written": 5
 }

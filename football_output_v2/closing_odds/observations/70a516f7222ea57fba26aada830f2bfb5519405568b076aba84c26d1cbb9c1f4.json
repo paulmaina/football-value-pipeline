@@ -1,0 +1,416 @@
+{
+  "fixture": {
+    "away_team": "Leeds United",
+    "home_team": "Chelsea",
+    "kickoff_utc": "2026-11-21T15:00:00+00:00",
+    "league": "Premier League",
+    "odds_event_id": "ac6cf70520a83c0949b4003bde53c709"
+  },
+  "observed_at_utc": "2026-11-21T14:54:21.653128+00:00",
+  "payload": {
+    "away_team": "Leeds United",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-21T14:54:11Z",
+            "outcomes": [
+              {
+                "name": "Chelsea",
+                "price": 1.99
+              },
+              {
+                "name": "Leeds United",
+                "price": 3.9
+              },
+              {
+                "name": "Draw",
+                "price": 3.76
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-21T14:54:11Z",
+            "outcomes": [
+              {
+                "name": "Chelsea",
+                "point": -0.5,
+                "price": 1.99
+              },
+              {
+                "name": "Leeds United",
+                "point": 0.5,
+                "price": 1.93
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-21T14:54:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.85
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.07
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-21T14:54:11Z",
+            "outcomes": [
+              {
+                "name": "Chelsea",
+                "point": -0.5,
+                "price": 1.99
+              },
+              {
+                "name": "Chelsea",
+                "point": -1.5,
+                "price": 3.63
+              },
+              {
+                "name": "Chelsea",
+                "point": -1.25,
+                "price": 3.23
+              },
+              {
+                "name": "Chelsea",
+                "point": -1.0,
+                "price": 2.83
+              },
+              {
+                "name": "Chelsea",
+                "point": -0.75,
+                "price": 2.28
+              },
+              {
+                "name": "Chelsea",
+                "point": -0.25,
+                "price": 1.72
+              },
+              {
+                "name": "Chelsea",
+                "point": 0.0,
+                "price": 1.47
+              },
+              {
+                "name": "Chelsea",
+                "point": 0.25,
+                "price": 1.36
+              },
+              {
+                "name": "Chelsea",
+                "point": 0.5,
+                "price": 1.3
+              },
+              {
+                "name": "Leeds United",
+                "point": 0.5,
+                "price": 1.93
+              },
+              {
+                "name": "Leeds United",
+                "point": 1.5,
+                "price": 1.32
+              },
+              {
+                "name": "Leeds United",
+                "point": 1.25,
+                "price": 1.39
+              },
+              {
+                "name": "Leeds United",
+                "point": 1.0,
+                "price": 1.48
+              },
+              {
+                "name": "Leeds United",
+                "point": 0.75,
+                "price": 1.7
+              },
+              {
+                "name": "Leeds United",
+                "point": 0.25,
+                "price": 2.25
+              },
+              {
+                "name": "Leeds United",
+                "point": -0.0,
+                "price": 2.89
+              },
+              {
+                "name": "Leeds United",
+                "point": -0.25,
+                "price": 3.37
+              },
+              {
+                "name": "Leeds United",
+                "point": -0.5,
+                "price": 3.85
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-11-21T14:53:51Z",
+            "outcomes": [
+              {
+                "name": "Chelsea or Draw",
+                "price": 1.29
+              },
+              {
+                "name": "Leeds United or Draw",
+                "price": 1.91
+              },
+              {
+                "name": "Chelsea or Leeds United",
+                "price": 1.31
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-21T14:53:51Z",
+            "outcomes": [
+              {
+                "name": "Chelsea",
+                "price": 1.45
+              },
+              {
+                "name": "Leeds United",
+                "price": 2.89
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-21T15:00:00Z",
+    "home_team": "Chelsea",
+    "id": "ac6cf70520a83c0949b4003bde53c709",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.29,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7518442284289127,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-11-21T14:53:51+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.91,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.507790080980784,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-11-21T14:53:51+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.31,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7403656905903033,
+      "selection": "home_away",
+      "updated_at_utc": "2026-11-21T14:53:51+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.89,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.47,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.99,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4942520421978358,
+      "selection": "home",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.76,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.25760699379405316,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.9,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.248140964008111,
+      "selection": "away",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.93,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.99,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.85,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5290400143772362,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.07,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4709599856227638,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.85,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.37,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.25,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.48,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.39,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.32,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.63,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.23,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.83,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.28,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.72,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.36,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-21T14:54:11+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
