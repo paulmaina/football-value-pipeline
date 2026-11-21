@@ -1,0 +1,416 @@
+{
+  "fixture": {
+    "away_team": "TSG Hoffenheim",
+    "home_team": "Eintracht Frankfurt",
+    "kickoff_utc": "2026-11-21T14:30:00+00:00",
+    "league": "Bundesliga",
+    "odds_event_id": "d0128b7d64e40ca3f1ae1b288b47117a"
+  },
+  "observed_at_utc": "2026-11-21T14:24:12.329602+00:00",
+  "payload": {
+    "away_team": "TSG Hoffenheim",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-21T14:24:06Z",
+            "outcomes": [
+              {
+                "name": "Eintracht Frankfurt",
+                "price": 2.58
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "price": 2.54
+              },
+              {
+                "name": "Draw",
+                "price": 4.1
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-21T14:24:06Z",
+            "outcomes": [
+              {
+                "name": "Eintracht Frankfurt",
+                "point": 0.0,
+                "price": 1.98
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "point": -0.0,
+                "price": 1.94
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-21T14:24:06Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.86
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.05
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-21T14:24:06Z",
+            "outcomes": [
+              {
+                "name": "Eintracht Frankfurt",
+                "point": 0.0,
+                "price": 1.98
+              },
+              {
+                "name": "Eintracht Frankfurt",
+                "point": -1.0,
+                "price": 3.88
+              },
+              {
+                "name": "Eintracht Frankfurt",
+                "point": -0.75,
+                "price": 3.03
+              },
+              {
+                "name": "Eintracht Frankfurt",
+                "point": -0.5,
+                "price": 2.57
+              },
+              {
+                "name": "Eintracht Frankfurt",
+                "point": -0.25,
+                "price": 2.27
+              },
+              {
+                "name": "Eintracht Frankfurt",
+                "point": 0.25,
+                "price": 1.73
+              },
+              {
+                "name": "Eintracht Frankfurt",
+                "point": 0.5,
+                "price": 1.58
+              },
+              {
+                "name": "Eintracht Frankfurt",
+                "point": 0.75,
+                "price": 1.44
+              },
+              {
+                "name": "Eintracht Frankfurt",
+                "point": 1.0,
+                "price": 1.31
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "point": -0.0,
+                "price": 1.94
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "point": 1.0,
+                "price": 1.29
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "point": 0.75,
+                "price": 1.43
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "point": 0.5,
+                "price": 1.57
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "point": 0.25,
+                "price": 1.7
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "point": -0.25,
+                "price": 2.23
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "point": -0.5,
+                "price": 2.52
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "point": -0.75,
+                "price": 2.96
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "point": -1.0,
+                "price": 3.77
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-11-21T14:22:52Z",
+            "outcomes": [
+              {
+                "name": "Eintracht Frankfurt or Draw",
+                "price": 1.58
+              },
+              {
+                "name": "TSG Hoffenheim or Draw",
+                "price": 1.57
+              },
+              {
+                "name": "Eintracht Frankfurt or TSG Hoffenheim",
+                "price": 1.27
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-21T14:22:52Z",
+            "outcomes": [
+              {
+                "name": "Eintracht Frankfurt",
+                "price": 1.95
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "price": 1.92
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-21T14:30:00Z",
+    "home_team": "Eintracht Frankfurt",
+    "id": "d0128b7d64e40ca3f1ae1b288b47117a",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.58,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.6152967860394069,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-11-21T14:22:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.57,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.619215873848575,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-11-21T14:22:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.27,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7654873401120179,
+      "selection": "home_away",
+      "updated_at_utc": "2026-11-21T14:22:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.94,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.98,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.58,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.37899878338763754,
+      "selection": "home",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.1,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.23589154966942275,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.54,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.38510966694293974,
+      "selection": "away",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.86,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5252105059404603,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.05,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4747894940595398,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.77,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.00",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.96,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.52,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.23,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.57,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.43,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.29,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.88,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.03,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.57,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.27,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.73,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.58,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.44,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.31,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.00",
+      "updated_at_utc": "2026-11-21T14:24:06+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
