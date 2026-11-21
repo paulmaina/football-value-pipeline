@@ -17,10 +17,10 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 
 | View | With a close | Mean CLV | 95% interval | Beat the close | Settled | Return per unit | 95% interval |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| per pick | 109 | -1.9% | -2.9% to -0.9% | 28% | 395 | +2.6% | -3.9% to +9.1% |
-| per fixture (a match's picks averaged) | 77 | -1.6% | -2.9% to -0.3% | 31% | 182 | +1.7% | -5.8% to +9.2% |
+| per pick | 113 | -1.8% | -2.8% to -0.8% | 28% | 395 | +2.6% | -3.9% to +9.1% |
+| per fixture (a match's picks averaged) | 79 | -1.6% | -2.9% to -0.3% | 32% | 182 | +1.7% | -5.8% to +9.2% |
 
-466 picks on 219 matches. A match can hold several picks (one per market group); the per-fixture row averages them, so each match counts once. Closing-line value (CLV) leads because it is the less noisy measure: it compares the frozen price with the Pinnacle fair close and does not wait for results. Returns come second: with few matches they are mostly luck. Intervals are mean ± 1.96 standard errors, clustered by fixture. Near-kickoff feed quotes are not verified official closing prices.
+486 picks on 231 matches. A match can hold several picks (one per market group); the per-fixture row averages them, so each match counts once. Closing-line value (CLV) leads because it is the less noisy measure: it compares the frozen price with the Pinnacle fair close and does not wait for results. Returns come second: with few matches they are mostly luck. Intervals are mean ± 1.96 standard errors, clustered by fixture. Near-kickoff feed quotes are not verified official closing prices.
 
 ## Research v5 (C6) rollback check
 
@@ -36,9 +36,9 @@ C6 was too confident on these leagues' home sides in the holdout (home slope 0.7
 
 | League | Matches | Picks | Graded | v5 predicted home win | v4 on the same forecasts | Actual home win |
 |---|---|---|---|---|---|---|
-| Eredivisie | 2 | 2 | 0 | — | — | — |
-| Super Lig | 3 | 5 | 0 | — | — | — |
-| All three | 5 | 7 | 0 | — | — | — |
+| Eredivisie | 3 | 4 | 0 | — | — | — |
+| Super Lig | 4 | 7 | 0 | — | — | — |
+| All three | 7 | 11 | 0 | — | — | — |
 
 ## Research v6 (CE3n, UCL/UEL) rollback check
 
@@ -78,7 +78,7 @@ Fallbacks to D: where D_pow2's power grid failed its fit check, the run priced t
 
 | D_pow2 runs | Domestic fixture forecasts | Priced by D (fallback) | Domestic fixtures | Fixtures with a fallback | Graded matches left out |
 |---|---|---|---|---|---|
-| 9 | 504 | 0 | 66 | 0 | 0 |
+| 10 | 560 | 0 | 66 | 0 | 0 |
 
 ## Cumulative shortlist — latest prediction per match
 
@@ -86,7 +86,7 @@ Fallbacks to D: where D_pow2's power grid failed its fit check, the run priced t
 |---|---:|---:|---:|---:|
 | All selections | 395 | 289-103 | 73.2% | +2.6% |
 
-Unsettled / unverified entries: **71**.
+Unsettled / unverified entries: **91**.
 Whole-fixture 1X2 multiclass Brier (n=380): 0.5451
 
 ## First-prediction reference — historical comparison
@@ -142,6 +142,7 @@ Whole-fixture 1X2 multiclass Brier (n=380): 0.5451
 | 2026-11-20T14:29:07.564363+00:00 | 1 | 0-1 | 0.0% | -100.0% |
 | 2026-11-20T16:53:14.319920+00:00 | 4 | 1-3 | 25.0% | -67.8% |
 | 2026-11-21T10:01:28.692132+00:00 | 0 | 0-0 | — | — |
+| 2026-11-21T14:06:56.472831+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
@@ -285,8 +286,8 @@ Whole-fixture 1X2 multiclass Brier (n=380): 0.5451
 | 2026-W44 | per fixture (a match's picks averaged) | 12 | -0.1% | -2.7% to +2.5% | 42% | 13 | +2.6% | -23.3% to +28.5% |
 | 2026-W45 | per pick | 49 | -1.6% | -2.9% to -0.3% | 27% | 307 | +3.7% | -3.8% to +11.1% |
 | 2026-W45 | per fixture (a match's picks averaged) | 19 | -0.2% | -2.2% to +1.7% | 37% | 96 | +2.8% | -5.3% to +10.9% |
-| 2026-W47 | per pick | 4 | -2.9% | -8.0% to +2.1% | 25% | 5 | -74.2% | -120.5% to -27.9% |
-| 2026-W47 | per fixture (a match's picks averaged) | 2 | -2.9% | -8.0% to +2.1% | 0% | 3 | -78.5% | -120.6% to -36.4% |
+| 2026-W47 | per pick | 8 | -1.7% | -4.2% to +0.8% | 25% | 5 | -74.2% | -120.5% to -27.9% |
+| 2026-W47 | per fixture (a match's picks averaged) | 4 | -1.7% | -4.2% to +0.8% | 25% | 3 | -78.5% | -120.6% to -36.4% |
 
 ## Confidence calibration of shortlisted markets
 
@@ -329,7 +330,7 @@ A missing, ambiguous or unverified result is **never called a win**.
 | UCL | 2026-11-04 | 575 | 17 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 | UEL | 2026-11-05 | 732 | 16 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 58, "exchange_quotes": 0, "missing_quote_age": 58, "quote_age_over_24h": 0, "costs_recorded": 58, "bookmakers": {"Pinnacle": 58}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 58, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 65, "exchange_quotes": 0, "missing_quote_age": 65, "quote_age_over_24h": 0, "costs_recorded": 65, "bookmakers": {"Pinnacle": 65}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 65, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
