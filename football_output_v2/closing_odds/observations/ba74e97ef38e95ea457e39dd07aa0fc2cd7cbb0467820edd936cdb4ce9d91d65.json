@@ -1,0 +1,358 @@
+{
+  "fixture": {
+    "away_team": "Lecce",
+    "home_team": "Lazio",
+    "kickoff_utc": "2026-11-21T14:00:00+00:00",
+    "league": "Serie A",
+    "odds_event_id": "bf921a2780e2a25201da8a3bfece84c4"
+  },
+  "observed_at_utc": "2026-11-21T13:55:09.622840+00:00",
+  "payload": {
+    "away_team": "Lecce",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-21T13:55:00Z",
+            "outcomes": [
+              {
+                "name": "Lazio",
+                "price": 1.53
+              },
+              {
+                "name": "Lecce",
+                "price": 6.5
+              },
+              {
+                "name": "Draw",
+                "price": 4.5
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-21T13:55:00Z",
+            "outcomes": [
+              {
+                "name": "Lazio",
+                "point": -1.0,
+                "price": 1.93
+              },
+              {
+                "name": "Lecce",
+                "point": 1.0,
+                "price": 2.0
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-21T13:55:00Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 2.06
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.85
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-21T13:55:00Z",
+            "outcomes": [
+              {
+                "name": "Lazio",
+                "point": -1.0,
+                "price": 1.93
+              },
+              {
+                "name": "Lazio",
+                "point": -2.0,
+                "price": 4.06
+              },
+              {
+                "name": "Lazio",
+                "point": -1.75,
+                "price": 3.05
+              },
+              {
+                "name": "Lazio",
+                "point": -1.5,
+                "price": 2.58
+              },
+              {
+                "name": "Lazio",
+                "point": -1.25,
+                "price": 2.26
+              },
+              {
+                "name": "Lazio",
+                "point": -0.75,
+                "price": 1.67
+              },
+              {
+                "name": "Lazio",
+                "point": -0.5,
+                "price": 1.53
+              },
+              {
+                "name": "Lazio",
+                "point": -0.25,
+                "price": 1.37
+              },
+              {
+                "name": "Lazio",
+                "point": 0.0,
+                "price": 1.21
+              },
+              {
+                "name": "Lecce",
+                "point": 1.0,
+                "price": 2.0
+              },
+              {
+                "name": "Lecce",
+                "point": 2.0,
+                "price": 1.27
+              },
+              {
+                "name": "Lecce",
+                "point": 1.75,
+                "price": 1.42
+              },
+              {
+                "name": "Lecce",
+                "point": 1.5,
+                "price": 1.56
+              },
+              {
+                "name": "Lecce",
+                "point": 1.25,
+                "price": 1.71
+              },
+              {
+                "name": "Lecce",
+                "point": 0.75,
+                "price": 2.34
+              },
+              {
+                "name": "Lecce",
+                "point": 0.5,
+                "price": 2.68
+              },
+              {
+                "name": "Lecce",
+                "point": 0.25,
+                "price": 3.29
+              },
+              {
+                "name": "Lecce",
+                "point": -0.0,
+                "price": 4.84
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-21T13:54:39Z",
+            "outcomes": [
+              {
+                "name": "Lazio",
+                "price": 1.21
+              },
+              {
+                "name": "Lecce",
+                "price": 4.82
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-21T14:00:00Z",
+    "home_team": "Lazio",
+    "id": "bf921a2780e2a25201da8a3bfece84c4",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.84,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-21T13:55:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.21,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-21T13:55:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.53,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6443025270392159,
+      "selection": "home",
+      "updated_at_utc": "2026-11-21T13:55:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.5,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.21124829163534756,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-21T13:55:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.5,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.14444918132543663,
+      "selection": "away",
+      "updated_at_utc": "2026-11-21T13:55:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.0,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-21T13:55:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.93,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-21T13:55:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.29,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-21T13:55:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.68,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-21T13:55:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.34,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-21T13:55:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.71,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-21T13:55:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.56,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-21T13:55:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.42,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-11-21T13:55:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.27,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.00",
+      "updated_at_utc": "2026-11-21T13:55:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.06,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.00",
+      "updated_at_utc": "2026-11-21T13:55:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.05,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-11-21T13:55:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.58,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-21T13:55:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.26,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-21T13:55:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.67,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-21T13:55:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.53,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-21T13:55:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.37,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-21T13:55:00+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
