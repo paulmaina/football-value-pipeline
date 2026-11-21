@@ -674,6 +674,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "BL1:565859": {
+    "away_goals": 1,
+    "away_short_name": "1. FC Köln",
+    "away_team": "1. FC Köln",
+    "first_verified_at_utc": "2026-11-21T06:15:28Z",
+    "home_goals": 1,
+    "home_short_name": "Bayern",
+    "home_team": "FC Bayern München",
+    "kickoff_utc": "2026-11-20T19:30:00Z",
+    "league_code": "BL1",
+    "match_id": 565859,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "CL:575341": {
     "away_goals": 2,
     "away_short_name": "Sporting CP",
@@ -2826,6 +2841,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "FL1:559622": {
+    "away_goals": 1,
+    "away_short_name": "Le Havre",
+    "away_team": "Le Havre AC",
+    "first_verified_at_utc": "2026-11-21T06:15:28Z",
+    "home_goals": 3,
+    "home_short_name": "Troyes",
+    "home_team": "ES Troyes AC",
+    "kickoff_utc": "2026-11-20T19:45:00Z",
+    "league_code": "FL1",
+    "match_id": 559622,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "FL1:559630": {
     "away_goals": 2,
     "away_short_name": "Marseille",
@@ -4247,6 +4277,21 @@
     "kickoff_utc": "2026-11-08T17:30:00Z",
     "league_code": "PD",
     "match_id": 564747,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "PD:564748": {
+    "away_goals": 1,
+    "away_short_name": "Espanyol",
+    "away_team": "RCD Espanyol de Barcelona",
+    "first_verified_at_utc": "2026-11-21T06:15:28Z",
+    "home_goals": 0,
+    "home_short_name": "Athletic",
+    "home_team": "Athletic Club",
+    "kickoff_utc": "2026-11-20T20:00:00Z",
+    "league_code": "PD",
+    "match_id": 564748,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
