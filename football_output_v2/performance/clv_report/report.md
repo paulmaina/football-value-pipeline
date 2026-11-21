@@ -1,10 +1,10 @@
 # Candidate closing-line value
 
-Generated 2026-11-21T14:07:38.162961+00:00; 2629 priced candidates on 211 fixtures with a Pinnacle near-kickoff quote. CLV = entry odds × Pinnacle fair close probability − 1 (EV at the sharp close). Uncertainty is clustered by fixture. The descriptive t-ratio is not a proof of edge; independent fixture coverage matters.
+Generated 2026-11-21T15:29:38.346331+00:00; 2850 priced candidates on 223 fixtures with a Pinnacle near-kickoff quote. CLV = entry odds × Pinnacle fair close probability − 1 (EV at the sharp close). Uncertainty is clustered by fixture. The descriptive t-ratio is not a proof of edge; independent fixture coverage matters.
 
-**Overall:** mean -3.4%, 27% positive, t = -21.06 (n = 2629).
+**Overall:** mean -3.4%, 26% positive, t = -22.86 (n = 2850).
 
-**Shortlisted picks:** mean -2.3%, n = 122.
+**Shortlisted picks:** mean -2.3%, n = 158.
 
 **Does the market move towards the model?** correlation -0.08, sign agreement 62% (independent fixtures = 173; descriptive only).
 
@@ -25,13 +25,13 @@ Generated 2026-11-21T14:07:38.162961+00:00; 2629 priced candidates on 211 fixtur
 | Goal totals | Coolbet | 1 | 1 | -2.4% | 0% | — | — (0) |
 | 1X2 | 1xBet | 338 | 144 | -2.4% | 39% | -7.93 | +2.9% (239) |
 | Goal totals | Pinnacle | 12 | 12 | -3.2% | 17% | -3.11 | -1.3% (12) |
-| Double chance | Pinnacle | 387 | 146 | -3.2% | 13% | -19.80 | -0.4% (79) |
+| Double chance | Pinnacle | 414 | 155 | -3.2% | 13% | -21.01 | -0.3% (103) |
 | 1X2 | Matchbook | 14 | 14 | -3.3% | 29% | -1.20 | — (0) |
-| Asian handicap | Pinnacle | 898 | 50 | -3.7% | 27% | -29.93 | +0.1% (898) |
+| Asian handicap | Pinnacle | 1068 | 62 | -3.7% | 26% | -35.06 | +0.1% (1068) |
 | Goal totals | 1xBet | 7 | 7 | -3.7% | 14% | -2.77 | +0.5% (4) |
 | 1X2 | Unibet (SE) | 17 | 15 | -3.7% | 53% | -1.82 | — (0) |
 | Double chance | 1xBet | 255 | 97 | -3.7% | 16% | -20.22 | +2.6% (60) |
-| 1X2 | Pinnacle | 396 | 168 | -3.9% | 29% | -12.59 | -0.1% (396) |
+| 1X2 | Pinnacle | 420 | 180 | -3.8% | 29% | -13.13 | -0.1% (420) |
 | Goal totals | Codere (IT) | 1 | 1 | -3.9% | 0% | — | — (0) |
 | Asian handicap | 1xBet | 194 | 43 | -5.0% | 26% | -12.17 | — (0) |
 | 1X2 | BetOnline.ag | 6 | 6 | -7.3% | 33% | -1.64 | — (0) |
@@ -44,16 +44,16 @@ Generated 2026-11-21T14:07:38.162961+00:00; 2629 priced candidates on 211 fixtur
 | hours_bucket | n | Fixtures | Mean CLV vs Pinnacle fair | Positive | t | Same-book CLV (n) |
 |---|---:|---:|---:|---:|---:|---:|
 | 48h+ | 344 | 106 | -2.1% | 41% | -2.88 | +2.1% (189) |
-| 6-24h | 774 | 69 | -3.6% | 24% | -16.03 | +0.4% (510) |
-| <6h | 1435 | 162 | -3.6% | 25% | -24.01 | +0.4% (968) |
-| 24-48h | 76 | 29 | -4.3% | 25% | -2.33 | -4.1% (24) |
+| <6h | 1483 | 174 | -3.6% | 25% | -24.38 | +0.4% (1016) |
+| 6-24h | 945 | 78 | -3.6% | 23% | -19.69 | +0.2% (678) |
+| 24-48h | 78 | 30 | -4.2% | 26% | -2.38 | -3.8% (26) |
 
 ## Shortlisted vs not selected
 
 | decision_group | n | Fixtures | Mean CLV vs Pinnacle fair | Positive | t | Same-book CLV (n) |
 |---|---:|---:|---:|---:|---:|---:|
-| shortlisted | 122 | 79 | -2.3% | 23% | -4.49 | +0.1% (91) |
-| not selected | 2507 | 211 | -3.5% | 27% | -20.30 | +0.5% (1600) |
+| shortlisted | 158 | 91 | -2.3% | 22% | -5.60 | -0.0% (127) |
+| not selected | 2692 | 223 | -3.5% | 27% | -21.89 | +0.5% (1782) |
 
 ## By league
 
@@ -63,11 +63,11 @@ Generated 2026-11-21T14:07:38.162961+00:00; 2629 priced candidates on 211 fixtur
 | Super Lig | 104 | 6 | -3.1% | 40% | -13.32 | +0.8% (84) |
 | UEFA Europa League | 118 | 19 | -3.2% | 30% | -5.65 | +1.1% (56) |
 | Ligue 1 | 188 | 16 | -3.2% | 24% | -4.82 | +1.0% (122) |
-| Premier League | 422 | 29 | -3.3% | 19% | -8.38 | +0.4% (258) |
-| La Liga | 353 | 23 | -3.4% | 30% | -12.36 | +0.2% (232) |
-| Bundesliga | 304 | 25 | -3.7% | 22% | -7.30 | +0.7% (192) |
+| Premier League | 537 | 34 | -3.4% | 19% | -10.86 | +0.2% (373) |
+| La Liga | 376 | 24 | -3.4% | 29% | -13.22 | +0.1% (255) |
+| Bundesliga | 383 | 30 | -3.6% | 24% | -8.90 | +0.5% (268) |
 | UEFA Champions League | 519 | 41 | -3.7% | 29% | -8.00 | +0.2% (298) |
-| Eredivisie | 96 | 10 | -3.8% | 29% | -13.09 | +0.4% (71) |
+| Eredivisie | 100 | 11 | -3.7% | 28% | -13.70 | +0.3% (75) |
 | Primeira Liga | 55 | 8 | -3.9% | 27% | -7.63 | +0.2% (55) |
 
 Near-kickoff feed quotes are not guaranteed official closing prices. Candidate rows within one fixture are dependent; standard errors are clustered by fixture. Market-movement figures use one averaged row per fixture and remain descriptive.

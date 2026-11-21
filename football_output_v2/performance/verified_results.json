@@ -4296,6 +4296,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PD:564755": {
+    "away_goals": 1,
+    "away_short_name": "Deportivo",
+    "away_team": "RC Deportivo La Coruña",
+    "first_verified_at_utc": "2026-11-21T15:29:38Z",
+    "home_goals": 3,
+    "home_short_name": "Alavés",
+    "home_team": "Deportivo Alavés",
+    "kickoff_utc": "2026-11-21T13:00:00Z",
+    "league_code": "PD",
+    "match_id": 564755,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PL:560592": {
     "away_goals": 2,
     "away_short_name": "Brighton Hove",
@@ -5042,6 +5057,21 @@
     "kickoff_utc": "2026-11-07T17:30:00Z",
     "league_code": "PL",
     "match_id": 560641,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "PL:560643": {
+    "away_goals": 1,
+    "away_short_name": "Fulham",
+    "away_team": "Fulham FC",
+    "first_verified_at_utc": "2026-11-21T15:29:38Z",
+    "home_goals": 1,
+    "home_short_name": "Man City",
+    "home_team": "Manchester City FC",
+    "kickoff_utc": "2026-11-21T12:30:00Z",
+    "league_code": "PL",
+    "match_id": 560643,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
