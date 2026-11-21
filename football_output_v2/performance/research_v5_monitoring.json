@@ -5,20 +5,20 @@
       "not_replayed:no corrected D distribution": 1,
       "offer_out_of_scope:pinnacle draw_no_bet": 2
     },
-    "d_pow2_minus_d_log_loss": 0.01424810575217561,
+    "d_pow2_minus_d_log_loss": 0.014248105752739548,
     "eligible": false,
     "fallbacks": {
       "domestic_fixtures": 66,
-      "domestic_records": 441,
+      "domestic_records": 504,
       "fallback_fixtures": 0,
       "fallback_records": 0,
-      "runs": 8
+      "runs": 9
     },
     "graded_fallbacks": 0,
     "interval_95": null,
     "log_loss": {
-      "D": 0.8820181419771234,
-      "D_pow2": 0.8962662477292991
+      "D": 0.8820181419794784,
+      "D_pow2": 0.896266247732218
     },
     "matches": 2,
     "rule": "After at least 150 graded domestic matches across at least 3 weeks, roll back the cagey correction D_pow2 if its log loss on AH all lines minus D's, on the same frozen Pinnacle quotes, matches and offers, has a week-resampled 95% interval entirely above zero. Rolling back is setting cagey_correction_config.json cagey_correction_live.domestic to \"D\".",
@@ -100,9 +100,9 @@
   "home_favourites": {
     "all": {
       "actual_home_win": null,
-      "fixtures": 4,
+      "fixtures": 5,
       "graded": 0,
-      "picks": 5,
+      "picks": 7,
       "v4_predicted_home_win": null,
       "v5_predicted_home_win": null
     },
@@ -117,9 +117,9 @@
       },
       "Super Lig": {
         "actual_home_win": null,
-        "fixtures": 2,
+        "fixtures": 3,
         "graded": 0,
-        "picks": 3,
+        "picks": 5,
         "v4_predicted_home_win": null,
         "v5_predicted_home_win": null
       }
@@ -135,8 +135,8 @@
           "Home win"
         ],
         "picks": 1,
-        "v4_p_home": 0.6987481750400489,
-        "v5_p_home": 0.7149984803444672
+        "v4_p_home": 0.6987482006356805,
+        "v5_p_home": 0.7149985105258273
       },
       {
         "fixture": "FC Utrecht v SC Cambuur",
@@ -148,8 +148,8 @@
           "Home win"
         ],
         "picks": 1,
-        "v4_p_home": 0.43299027622212727,
-        "v5_p_home": 0.4314393021020776
+        "v4_p_home": 0.43299063840856805,
+        "v5_p_home": 0.431439708949016
       },
       {
         "fixture": "Amed SK v Çaykur Rizespor",
@@ -162,8 +162,8 @@
           "Home win"
         ],
         "picks": 2,
-        "v4_p_home": 0.7505861116047594,
-        "v5_p_home": 0.7671149157373189
+        "v4_p_home": 0.7504549550685575,
+        "v5_p_home": 0.7669838840165893
       },
       {
         "fixture": "Galatasaray v Samsunspor",
@@ -172,11 +172,25 @@
         "kickoff_utc": "2026-11-21T13:00:00+00:00",
         "league": "Super Lig",
         "markets": [
+          "Asian Handicap Home -2.00",
           "Home win"
         ],
+        "picks": 2,
+        "v4_p_home": 0.7241470520555653,
+        "v5_p_home": 0.7397181058425233
+      },
+      {
+        "fixture": "Genclerbirligi SK v Gazişehir Gaziantep",
+        "graded": false,
+        "home_won": null,
+        "kickoff_utc": "2026-11-21T10:30:00+00:00",
+        "league": "Super Lig",
+        "markets": [
+          "Asian Handicap Home +0.00"
+        ],
         "picks": 1,
-        "v4_p_home": 0.7241588559893607,
-        "v5_p_home": 0.7397302026774677
+        "v4_p_home": 0.45586085636297846,
+        "v5_p_home": 0.458179255862647
       }
     ],
     "leagues": [
@@ -193,13 +207,13 @@
     "eligible": false,
     "interval_95": null,
     "log_loss": {
-      "v4": 0.870916516353056,
+      "v4": 0.8709165163530561,
       "v5": 0.8961088435962944
     },
     "matches": 3,
     "rule": "After at least 150 graded matches across at least 3 weeks, roll back research v5 if its research log loss on AH all lines minus v4's, on the same frozen inputs, matches and offers, has a week-resampled 95% interval entirely above zero.",
     "triggered": false,
-    "v5_minus_v4_log_loss": 0.02519232724323835,
+    "v5_minus_v4_log_loss": 0.025192327243238277,
     "weeks": 1
   },
   "ucl_live_check": {

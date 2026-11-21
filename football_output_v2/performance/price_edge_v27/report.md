@@ -20,11 +20,11 @@ Closing-line value (CLV) leads because it is the less noisy measure: it compares
 Every captured generation is graded at its own offered odds; re-uploads deduplicate. Repeated fixtures and overlapping lists are correlated recommendations, not independent bets. Unit returns are hypothetical, not actual betting ROI. Latest-view reports remain separate.
 
 Latest-view tables below are simulated recommendations, not executed-bet ROI.
-value: 1359 captured recommendations; 1111 graded; 136 distinct fixtures.
-cagey: 954 captured recommendations; 882 graded; 101 distinct fixtures.
+value: 1417 captured recommendations; 1111 graded; 136 distinct fixtures.
+cagey: 959 captured recommendations; 882 graded; 101 distinct fixtures.
 Actual placed bets: NOT_RECORDED
 
-Reviewed 2026-11-21T07:02:09.347939+00:00. Frozen v27 picks: 383.
+Reviewed 2026-11-21T10:02:29.365584+00:00. Frozen v27 picks: 383.
 
 **Mean CLV vs Pinnacle close:** -1.80% ± 1.22% (n=53). **Flat-stake profit per bet:** +2.42% ± 7.46% (n=312).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -137,7 +137,7 @@ Release incidents: new master failed (old master published) in 0 runs; compariso
 | old master | 63 | 2 | -0.25% | 66.7% | 1.56 |
 
 **Status:** waiting for at least 150 graded matches over at least 3 weeks on each list (not yet comparable).
-Context, new master offers (newest pre-kickoff generation per fixture): 62 offers on 38 fixtures; included (cagey safe) 7; labels: both agree 1, research too optimistic 5, research strongly disagrees 0, one view missing 52, no research check 0, unvalidated view 0; no view 0.
+Context, new master offers (newest pre-kickoff generation per fixture): 62 offers on 38 fixtures; included (cagey safe) 8; labels: both agree 1, research too optimistic 5, research strongly disagrees 0, one view missing 52, no research check 0, unvalidated view 0; no view 0.
 
 By tier (context only; the comparison rule never reads it):
 
@@ -269,7 +269,7 @@ Only the active rule's value-priced picks count toward CAGEY TIER REVIEW.
 
 ## Tagged candidates (narrow-margin hypothesis)
 
-Frozen tagged candidates: 2622 (2622 with an offered price).
+Frozen tagged candidates: 2624 (2624 with an offered price).
 1xBet edge vs fair at capture: -3.80% ± 0.21% (n=529).
 Return at the capture fair price, all tagged lines: +0.79% ± 3.93% (n=1918); plus lines only: +2.17% ± 3.06% (n=1119).
 
