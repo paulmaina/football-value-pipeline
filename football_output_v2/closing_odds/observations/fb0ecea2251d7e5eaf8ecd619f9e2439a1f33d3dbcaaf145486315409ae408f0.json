@@ -1,0 +1,344 @@
+{
+  "fixture": {
+    "away_team": "Fenerbahce",
+    "home_team": "Kocaelispor",
+    "kickoff_utc": "2026-11-21T16:00:00+00:00",
+    "league": "Super Lig",
+    "odds_event_id": "49cb48a9c205920205e9b82f6dd672c6"
+  },
+  "observed_at_utc": "2026-11-21T15:54:27.626875+00:00",
+  "payload": {
+    "away_team": "Fenerbahce",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-21T15:54:26Z",
+            "outcomes": [
+              {
+                "name": "Fenerbahce",
+                "price": 1.6
+              },
+              {
+                "name": "Kocaelispor",
+                "price": 5.53
+              },
+              {
+                "name": "Draw",
+                "price": 4.37
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-21T15:54:26Z",
+            "outcomes": [
+              {
+                "name": "Fenerbahce",
+                "point": -1.0,
+                "price": 2.08
+              },
+              {
+                "name": "Kocaelispor",
+                "point": 1.0,
+                "price": 1.84
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-21T15:54:26Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.88
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.01
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-21T15:54:26Z",
+            "outcomes": [
+              {
+                "name": "Fenerbahce",
+                "point": -1.0,
+                "price": 2.08
+              },
+              {
+                "name": "Fenerbahce",
+                "point": -0.0,
+                "price": 1.25
+              },
+              {
+                "name": "Fenerbahce",
+                "point": -0.25,
+                "price": 1.41
+              },
+              {
+                "name": "Fenerbahce",
+                "point": -0.5,
+                "price": 1.6
+              },
+              {
+                "name": "Fenerbahce",
+                "point": -0.75,
+                "price": 1.77
+              },
+              {
+                "name": "Fenerbahce",
+                "point": -1.25,
+                "price": 2.43
+              },
+              {
+                "name": "Fenerbahce",
+                "point": -1.5,
+                "price": 2.79
+              },
+              {
+                "name": "Fenerbahce",
+                "point": -1.75,
+                "price": 3.4
+              },
+              {
+                "name": "Fenerbahce",
+                "point": -2.0,
+                "price": 4.65
+              },
+              {
+                "name": "Kocaelispor",
+                "point": 1.0,
+                "price": 1.84
+              },
+              {
+                "name": "Kocaelispor",
+                "point": 0.0,
+                "price": 4.3
+              },
+              {
+                "name": "Kocaelispor",
+                "point": 0.25,
+                "price": 3.03
+              },
+              {
+                "name": "Kocaelispor",
+                "point": 0.5,
+                "price": 2.47
+              },
+              {
+                "name": "Kocaelispor",
+                "point": 0.75,
+                "price": 2.16
+              },
+              {
+                "name": "Kocaelispor",
+                "point": 1.25,
+                "price": 1.62
+              },
+              {
+                "name": "Kocaelispor",
+                "point": 1.5,
+                "price": 1.49
+              },
+              {
+                "name": "Kocaelispor",
+                "point": 1.75,
+                "price": 1.35
+              },
+              {
+                "name": "Kocaelispor",
+                "point": 2.0,
+                "price": 1.22
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-21T16:00:00Z",
+    "home_team": "Kocaelispor",
+    "id": "49cb48a9c205920205e9b82f6dd672c6",
+    "sport_key": "soccer_turkey_super_league",
+    "sport_title": "Turkey Super League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.53,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.16953390652430927,
+      "selection": "home",
+      "updated_at_utc": "2026-11-21T15:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.37,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.21644983975821394,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-21T15:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6140162537174768,
+      "selection": "away",
+      "updated_at_utc": "2026-11-21T15:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.08,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.00",
+      "updated_at_utc": "2026-11-21T15:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.84,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.00",
+      "updated_at_utc": "2026-11-21T15:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.65,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -2.00",
+      "updated_at_utc": "2026-11-21T15:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.4,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.75",
+      "updated_at_utc": "2026-11-21T15:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.79,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.50",
+      "updated_at_utc": "2026-11-21T15:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.43,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.25",
+      "updated_at_utc": "2026-11-21T15:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.77,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-21T15:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-21T15:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.41,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-21T15:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.25,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-21T15:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.3,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-21T15:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.03,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-21T15:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.47,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-21T15:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.16,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-21T15:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.62,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.25",
+      "updated_at_utc": "2026-11-21T15:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.49,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.50",
+      "updated_at_utc": "2026-11-21T15:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.35,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.75",
+      "updated_at_utc": "2026-11-21T15:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.22,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +2.00",
+      "updated_at_utc": "2026-11-21T15:54:26+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
