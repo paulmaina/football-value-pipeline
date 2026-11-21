@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "e6ea3db17392208710a2c0b99ab1ffa6d54c685fc51b8d1359be69faa1b14d80",
-  "training_as_of_utc": "2026-11-21T06:13:16.827224+00:00",
+  "training_as_of_utc": "2026-11-21T06:34:02.079548+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -59,21 +59,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8014767288338657,
-    "audit_candidate_poisson_score": 0.7974712390996547,
-    "audit_gain": 0.0040054897342109985,
-    "audit_gain_lower95": -0.007453943126243277,
+    "audit_baseline_poisson_score": 0.801479000219067,
+    "audit_candidate_poisson_score": 0.7974725132716898,
+    "audit_gain": 0.0040064869473772635,
+    "audit_gain_lower95": -0.007453537771536357,
     "audit_baseline_briers": [
-      0.5804747186012525,
-      0.16552826950414476,
-      0.20900450470845586,
-      0.2498240617525706
+      0.5804777675309893,
+      0.16552826506546392,
+      0.20900488126735334,
+      0.2498244021619246
     ],
     "audit_candidate_briers": [
-      0.5791756212874885,
-      0.16376510534765307,
-      0.20716449998322234,
-      0.2503162452087421
+      0.5791776256767485,
+      0.16376510386102414,
+      0.20716477433607788,
+      0.2503164323352068
     ],
     "audit_brier_order": [
       "1x2",
@@ -89,10 +89,10 @@
   },
   "training_end": "2026-11-08",
   "fit_success": true,
-  "objective": 1660.2241977206406,
-  "base": 0.1432743812034548,
-  "home_adv": 0.23646708368225253,
-  "rho": -0.09333738174020831,
+  "objective": 1660.1896554513942,
+  "base": 0.1432996656008065,
+  "home_adv": 0.23646080294162172,
+  "rho": -0.09335689917015663,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
