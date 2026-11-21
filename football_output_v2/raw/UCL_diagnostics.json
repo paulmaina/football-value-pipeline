@@ -8,8 +8,8 @@
     "2025",
     "2026"
   ],
-  "training_sha256": "7c0e061d169201c7e62049d3cac2c8b002739ead9baa2d6d00d084f721c41ba2",
-  "training_as_of_utc": "2026-11-21T14:06:01.050810+00:00",
+  "training_sha256": "e74d92243b7bd7a9d71ed4c0d6325b73cf2f84f2baa713474beec0a6561448d2",
+  "training_as_of_utc": "2026-11-21T16:19:03.389005+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 72,
     "bbs_added_results": 0,
@@ -33,7 +33,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-11-21T14:06:01.050810+00:00",
+    "cutoff_utc": "2026-11-21T16:19:03.389005+00:00",
     "observations": 748,
     "observations_sha256": "a377b84ff288425083e040dbb835f2890aa50a39e41fc1146b8af2a40e446206",
     "eligible_training_matches": 83,
@@ -107,9 +107,9 @@
   },
   "training_end": "2026-11-04",
   "fit_success": true,
-  "objective": 844.7366891132922,
-  "base": 0.2246141571702229,
-  "home_adv": 0.29208023947356915,
+  "objective": 844.62420593908,
+  "base": 0.22462736486375928,
+  "home_adv": 0.2920681668810242,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -135,7 +135,7 @@
     "source_schedule_matches": 144,
     "provider": "football-data.org",
     "season_start": 2026,
-    "checked_at_utc": "2026-11-21T14:06:01.050810+00:00",
+    "checked_at_utc": "2026-11-21T16:19:03.389005+00:00",
     "download_status": "VERIFIED_LIVE",
     "added_matches": 0,
     "corrected_scores": 0,
@@ -160,6 +160,6 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261121T140601050810Z_0ff39f5ab0ee82415837e49ae703133faff435873c1513f281589bedd642249e.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261121T161903389005Z_f9c66cff4c642b59e1cf330fa805476e9ae64eeb54e09f6e95f14283f0a5eef3.json",
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }

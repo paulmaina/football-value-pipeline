@@ -10,7 +10,7 @@
     "requests": "2.34.2",
     "scipy": "1.18.1"
   },
-  "generated_at_utc": "2026-11-21T14:06:56.472831+00:00",
+  "generated_at_utc": "2026-11-21T16:19:45.112160+00:00",
   "model_code_sha256": "1345e46da314ea399898e53667a9cfc54ced8f20b25ce367e3f3acffd882c201",
   "model_component_sha256": {
     "api_football_data.py": "c5ae292a50d10b4e1a0d9901a0989c8eebc99082aa19d75d3d0e87cc59b00de5",
@@ -57,6 +57,6 @@
     "ucl_training.py": "1acf2d45aa2b85afda071d0871e24b2ca3f9b0f951959d6c60ca5ed97f379d47",
     "win_first_shortlist.py": "13a189d481338e75ee2f386a6de316df0ca9b73d8a96e8d5b9cdc3de91c59bb8"
   },
-  "predictions_sha256": "543ae943fde0e468afac6f8f10a2b29d6c0815e49eef5590f155009721945dca",
+  "predictions_sha256": "ae98aa0dc1794ed8f02f9be0eee20a887b3d0f8f958e95818bfb471b11f28a56",
   "selection_policy_version": "48h-ah-price-edge-cagey-v28"
 }

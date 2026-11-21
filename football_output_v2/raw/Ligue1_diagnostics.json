@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "17747d9680735b2fdc04c03c79b224311730363a0b020ad039aace6d831b87b9",
-  "training_as_of_utc": "2026-11-21T14:05:13.362699+00:00",
+  "training_sha256": "ade5bc543f6eb16e01872899fe85c55f976618808769928187dff7d0241017a4",
+  "training_as_of_utc": "2026-11-21T16:18:27.282543+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 91,
     "bbs_added_results": 1,
@@ -35,9 +35,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-21T14:05:13.362699+00:00",
-    "observations": 1000,
-    "observations_sha256": "91ea4ab0b9bebded67f10be70848ae8bb476a2a4996fbf156b6a56c3cc87d2af",
+    "cutoff_utc": "2026-11-21T16:18:27.282543+00:00",
+    "observations": 1003,
+    "observations_sha256": "fa89582486874ae7e7b479f19e7d88548c5ea2bf7f920554f21b8be70e1161a1",
     "eligible_training_matches": 361,
     "required_training_matches": 120,
     "feature_fields": [
@@ -71,7 +71,7 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:29.253586+00:00",
-    "retrospective_inputs_sha256": "96ad67de2dd7ad4728c03f571ead3c7ec206f56d5699698247c92d83c7dec1fa",
+    "retrospective_inputs_sha256": "aa00b713ab81194eecd5e9440f66a82bc1139912a088d34abe34fddcee6a8518",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "training_matches": 301,
@@ -186,10 +186,10 @@
   },
   "training_end": "2026-11-20",
   "fit_success": true,
-  "objective": 1587.2327587877821,
-  "base": 0.19623161264341538,
-  "home_adv": 0.2007946442335705,
-  "rho": -0.05057210143446091,
+  "objective": 1587.020736994324,
+  "base": 0.19622580613077653,
+  "home_adv": 0.20084118273501705,
+  "rho": -0.05057757571586659,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -217,29 +217,16 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 8,
+  "live_odds_matched": 7,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261121T140513362699Z_434a3986b5ec622be6179128f0cdc84480da5f99a3e85beeea2c7a37d31e043f.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261121T161827282543Z_2658ddd7ab92668be5279892df3394525de29fe25211f780156f3aa037ba2749.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
-    {
-      "fixture_id": "651c1847b5cdcc85e60a140edd2282c4",
-      "event_id": "651c1847b5cdcc85e60a140edd2282c4",
-      "home_team": "Nice",
-      "away_team": "Paris Saint Germain",
-      "kickoff_utc": "2026-11-21T16:15:00+00:00",
-      "status": "NOT_REQUESTED_LOW_CREDITS",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
     {
       "fixture_id": "9130b46991ab991f808daf307f004469",
       "event_id": "9130b46991ab991f808daf307f004469",
@@ -311,7 +298,7 @@
       "home_team": "Lorient",
       "away_team": "Rennes",
       "kickoff_utc": "2026-11-22T16:15:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "NOT_REQUESTED_LOW_CREDITS",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
@@ -337,14 +324,15 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 8
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 6,
+    "ANCHORED_MAIN": 1
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 8
+    "none": 7
   },
   "legacy_comparison_status": {
-    "None": 8
+    "None": 7
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
