@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "70982c20409b8f889d9337891b0a62cc24c087bfdeb8eb52c05c5d4179cc1b66",
-  "training_as_of_utc": "2026-11-21T09:57:41.738540+00:00",
+  "training_as_of_utc": "2026-11-21T14:04:09.961313+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 110,
     "bbs_added_results": 0,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-21T09:57:41.738540+00:00",
+    "cutoff_utc": "2026-11-21T14:04:09.961313+00:00",
     "observations": 1277,
     "observations_sha256": "9f901593bd369328d11376a2f1abde708c2ed51443c3dc8649d432c54ecdb3d4",
     "eligible_training_matches": 460,
@@ -156,21 +156,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.821768567698527,
-    "audit_candidate_poisson_score": 0.8212852694771281,
-    "audit_gain": 0.0004832982213989201,
-    "audit_gain_lower95": -0.004699577198861645,
+    "audit_baseline_poisson_score": 0.8217692509777276,
+    "audit_candidate_poisson_score": 0.8212856580595083,
+    "audit_gain": 0.00048359291821931105,
+    "audit_gain_lower95": -0.00470003113183574,
     "audit_baseline_briers": [
-      0.532830703745905,
-      0.15140694979595212,
-      0.21212988774681965,
-      0.24558459883721553
+      0.532830507546559,
+      0.15140684459308681,
+      0.2121304006793454,
+      0.24558511113853776
     ],
     "audit_candidate_briers": [
-      0.5390317087691922,
-      0.1492796282008363,
-      0.21220136759965125,
-      0.24575412220852696
+      0.539031367361546,
+      0.14927962353030585,
+      0.2122017673863349,
+      0.2457545424941014
     ],
     "audit_brier_order": [
       "1x2",
@@ -186,10 +186,10 @@
   },
   "training_end": "2026-11-08",
   "fit_success": true,
-  "objective": 1808.7914580036656,
-  "base": 0.14802992877289917,
-  "home_adv": 0.11090330575403015,
-  "rho": -0.019620013512058006,
+  "objective": 1808.344517899771,
+  "base": 0.148031727858871,
+  "home_adv": 0.11090109042793087,
+  "rho": -0.019621839112437544,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -217,42 +217,16 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 10,
+  "live_odds_matched": 8,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261121T095741738540Z_e1bc834330935ae5c508efffdc08e247aeb0fb13899543616c74defdaee4ef30.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261121T140409961313Z_74bd4f862020dfe69d69a66928cd4fadd70a255aa0bf776fa5bc09a65e924fe7.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
-    {
-      "fixture_id": "9e8d72c6c27c1667be7b88416a36ca80",
-      "event_id": "9e8d72c6c27c1667be7b88416a36ca80",
-      "home_team": "Como",
-      "away_team": "Cagliari",
-      "kickoff_utc": "2026-11-21T14:00:00+00:00",
-      "status": "NOT_REQUESTED_LOW_CREDITS",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "bf921a2780e2a25201da8a3bfece84c4",
-      "event_id": "bf921a2780e2a25201da8a3bfece84c4",
-      "home_team": "Lazio",
-      "away_team": "Lecce",
-      "kickoff_utc": "2026-11-21T14:00:00+00:00",
-      "status": "NOT_REQUESTED_LOW_CREDITS",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
     {
       "fixture_id": "cb513fd9869c9aa6ce506bb499bcd48b",
       "event_id": "cb513fd9869c9aa6ce506bb499bcd48b",
@@ -285,7 +259,7 @@
       "home_team": "Juventus",
       "away_team": "Venezia",
       "kickoff_utc": "2026-11-22T11:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "NOT_REQUESTED_LOW_CREDITS",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
@@ -298,7 +272,7 @@
       "home_team": "Bologna",
       "away_team": "Udinese",
       "kickoff_utc": "2026-11-22T14:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "NOT_REQUESTED_LOW_CREDITS",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
@@ -311,7 +285,7 @@
       "home_team": "Sassuolo",
       "away_team": "Genoa",
       "kickoff_utc": "2026-11-22T14:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "NOT_REQUESTED_LOW_CREDITS",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
@@ -358,20 +332,20 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 4,
-  "additional_odds_unrequested_linked_fixtures": 4,
+  "additional_odds_in_window_linked_fixtures": 5,
+  "additional_odds_unrequested_linked_fixtures": 5,
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 8,
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 6,
     "ANCHORED_MAIN": 2
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 10
+    "none": 8
   },
   "legacy_comparison_status": {
-    "None": 10
+    "None": 8
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
