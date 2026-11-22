@@ -1,0 +1,358 @@
+{
+  "fixture": {
+    "away_team": "Hamburger SV",
+    "home_team": "Werder Bremen",
+    "kickoff_utc": "2026-11-22T16:30:00+00:00",
+    "league": "Bundesliga",
+    "odds_event_id": "9a214142c9b31ad8233dccad53f75d6d"
+  },
+  "observed_at_utc": "2026-11-22T16:24:25.629072+00:00",
+  "payload": {
+    "away_team": "Hamburger SV",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-22T16:24:13Z",
+            "outcomes": [
+              {
+                "name": "Hamburger SV",
+                "price": 5.55
+              },
+              {
+                "name": "Werder Bremen",
+                "price": 1.61
+              },
+              {
+                "name": "Draw",
+                "price": 4.39
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-22T16:24:13Z",
+            "outcomes": [
+              {
+                "name": "Hamburger SV",
+                "point": 1.0,
+                "price": 1.91
+              },
+              {
+                "name": "Werder Bremen",
+                "point": -1.0,
+                "price": 2.02
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-22T16:24:13Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.83
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.1
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-22T16:24:13Z",
+            "outcomes": [
+              {
+                "name": "Hamburger SV",
+                "point": 1.0,
+                "price": 1.91
+              },
+              {
+                "name": "Hamburger SV",
+                "point": 2.0,
+                "price": 1.26
+              },
+              {
+                "name": "Hamburger SV",
+                "point": 1.75,
+                "price": 1.4
+              },
+              {
+                "name": "Hamburger SV",
+                "point": 1.5,
+                "price": 1.55
+              },
+              {
+                "name": "Hamburger SV",
+                "point": 1.25,
+                "price": 1.68
+              },
+              {
+                "name": "Hamburger SV",
+                "point": 0.75,
+                "price": 2.18
+              },
+              {
+                "name": "Hamburger SV",
+                "point": 0.5,
+                "price": 2.47
+              },
+              {
+                "name": "Hamburger SV",
+                "point": 0.25,
+                "price": 3.03
+              },
+              {
+                "name": "Hamburger SV",
+                "point": -0.0,
+                "price": 4.3
+              },
+              {
+                "name": "Werder Bremen",
+                "point": -1.0,
+                "price": 2.02
+              },
+              {
+                "name": "Werder Bremen",
+                "point": -2.0,
+                "price": 4.19
+              },
+              {
+                "name": "Werder Bremen",
+                "point": -1.75,
+                "price": 3.14
+              },
+              {
+                "name": "Werder Bremen",
+                "point": -1.5,
+                "price": 2.62
+              },
+              {
+                "name": "Werder Bremen",
+                "point": -1.25,
+                "price": 2.31
+              },
+              {
+                "name": "Werder Bremen",
+                "point": -0.75,
+                "price": 1.76
+              },
+              {
+                "name": "Werder Bremen",
+                "point": -0.5,
+                "price": 1.61
+              },
+              {
+                "name": "Werder Bremen",
+                "point": -0.25,
+                "price": 1.43
+              },
+              {
+                "name": "Werder Bremen",
+                "point": 0.0,
+                "price": 1.25
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-22T16:24:12Z",
+            "outcomes": [
+              {
+                "name": "Hamburger SV",
+                "price": 4.03
+              },
+              {
+                "name": "Werder Bremen",
+                "price": 1.27
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-22T16:30:00Z",
+    "home_team": "Werder Bremen",
+    "id": "9a214142c9b31ad8233dccad53f75d6d",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.3,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-22T16:24:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.25,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-22T16:24:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.61,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6118698583616211,
+      "selection": "home",
+      "updated_at_utc": "2026-11-22T16:24:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.39,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2174191005095329,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-22T16:24:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.55,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.170711041128846,
+      "selection": "away",
+      "updated_at_utc": "2026-11-22T16:24:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.91,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-22T16:24:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.02,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-22T16:24:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.03,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-22T16:24:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.47,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-22T16:24:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.18,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-22T16:24:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.68,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-22T16:24:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.55,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-22T16:24:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-11-22T16:24:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.26,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.00",
+      "updated_at_utc": "2026-11-22T16:24:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.19,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.00",
+      "updated_at_utc": "2026-11-22T16:24:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.14,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-11-22T16:24:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.62,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-22T16:24:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.31,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-22T16:24:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.76,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-22T16:24:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.61,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-22T16:24:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.43,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-22T16:24:13+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
