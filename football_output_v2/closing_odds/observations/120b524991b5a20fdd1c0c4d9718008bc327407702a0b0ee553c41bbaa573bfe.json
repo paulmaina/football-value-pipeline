@@ -1,0 +1,374 @@
+{
+  "fixture": {
+    "away_team": "Brighton and Hove Albion",
+    "home_team": "Hull City",
+    "kickoff_utc": "2026-11-22T14:00:00+00:00",
+    "league": "Premier League",
+    "odds_event_id": "230a356290e1a358e9dd2f7fa23de3b9"
+  },
+  "observed_at_utc": "2026-11-22T13:54:16.155019+00:00",
+  "payload": {
+    "away_team": "Brighton and Hove Albion",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-22T13:54:04Z",
+            "outcomes": [
+              {
+                "name": "Brighton and Hove Albion",
+                "price": 1.5
+              },
+              {
+                "name": "Hull City",
+                "price": 7.0
+              },
+              {
+                "name": "Draw",
+                "price": 4.5
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-22T13:54:04Z",
+            "outcomes": [
+              {
+                "name": "Brighton and Hove Albion",
+                "point": -1.25,
+                "price": 2.1
+              },
+              {
+                "name": "Hull City",
+                "point": 1.25,
+                "price": 1.84
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-22T13:54:04Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.85
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.06
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-22T13:54:04Z",
+            "outcomes": [
+              {
+                "name": "Brighton and Hove Albion",
+                "point": -1.25,
+                "price": 2.1
+              },
+              {
+                "name": "Brighton and Hove Albion",
+                "point": -0.25,
+                "price": 1.34
+              },
+              {
+                "name": "Brighton and Hove Albion",
+                "point": -0.5,
+                "price": 1.5
+              },
+              {
+                "name": "Brighton and Hove Albion",
+                "point": -0.75,
+                "price": 1.62
+              },
+              {
+                "name": "Brighton and Hove Albion",
+                "point": -1.0,
+                "price": 1.81
+              },
+              {
+                "name": "Brighton and Hove Albion",
+                "point": -1.5,
+                "price": 2.37
+              },
+              {
+                "name": "Brighton and Hove Albion",
+                "point": -1.75,
+                "price": 2.81
+              },
+              {
+                "name": "Brighton and Hove Albion",
+                "point": -2.0,
+                "price": 3.62
+              },
+              {
+                "name": "Brighton and Hove Albion",
+                "point": -2.25,
+                "price": 4.05
+              },
+              {
+                "name": "Hull City",
+                "point": 1.25,
+                "price": 1.84
+              },
+              {
+                "name": "Hull City",
+                "point": 0.25,
+                "price": 3.53
+              },
+              {
+                "name": "Hull City",
+                "point": 0.5,
+                "price": 2.76
+              },
+              {
+                "name": "Hull City",
+                "point": 0.75,
+                "price": 2.44
+              },
+              {
+                "name": "Hull City",
+                "point": 1.0,
+                "price": 2.11
+              },
+              {
+                "name": "Hull City",
+                "point": 1.5,
+                "price": 1.65
+              },
+              {
+                "name": "Hull City",
+                "point": 1.75,
+                "price": 1.49
+              },
+              {
+                "name": "Hull City",
+                "point": 2.0,
+                "price": 1.32
+              },
+              {
+                "name": "Hull City",
+                "point": 2.25,
+                "price": 1.28
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-22T13:54:04Z",
+            "outcomes": [
+              {
+                "name": "Brighton and Hove Albion",
+                "price": 1.17
+              },
+              {
+                "name": "Hull City",
+                "price": 5.6
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-22T14:00:00Z",
+    "home_team": "Hull City",
+    "id": "230a356290e1a358e9dd2f7fa23de3b9",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 7.0,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.13297431713015817,
+      "selection": "home",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.5,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.21024347915949945,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6567822037103423,
+      "selection": "away",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.1,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.25",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.84,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.25",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.05,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -2.25",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.62,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -2.00",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.81,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.75",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.37,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.50",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.81,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.00",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.62,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.34,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.53,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.76,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.44,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.11,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.00",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.65,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.50",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.49,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.75",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.32,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +2.00",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.28,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +2.25",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.17,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.6,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-22T13:54:04+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
