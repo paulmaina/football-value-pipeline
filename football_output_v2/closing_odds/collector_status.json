@@ -1,9 +1,9 @@
 {
   "already_complete_fixtures": 0,
-  "checked_at_utc": "2026-11-22T15:54:07.880410+00:00",
+  "checked_at_utc": "2026-11-22T16:09:33.447272+00:00",
   "coverage_checks": [
     {
-      "event_id": "2f3dfa781742b66f1412e15c132ff871",
+      "event_id": "8e6ee05b6ac28dc2357f72b9f5a0643e",
       "missing_required_quotes": [],
       "requested_markets": [
         "alternate_spreads",
@@ -18,14 +18,14 @@
     }
   ],
   "daily_request_cap": 100,
-  "daily_requests": 17,
+  "daily_requests": 18,
   "eligible_fixtures": 1,
   "errors": [],
   "reason": "CHECKED_ELIGIBLE_FIXTURES",
   "request_limit": 10,
   "requests": 1,
   "reservation_allowance": 10,
-  "reservation_id": "actions-45028535795-1-5",
+  "reservation_id": "actions-45028535795-1-6",
   "reservation_used": 1,
   "written": 1
 }
