@@ -1,0 +1,358 @@
+{
+  "fixture": {
+    "away_team": "FSV Mainz 05",
+    "home_team": "Augsburg",
+    "kickoff_utc": "2026-11-22T14:30:00+00:00",
+    "league": "Bundesliga",
+    "odds_event_id": "4c2262eccc903b9b1792325d09451c0a"
+  },
+  "observed_at_utc": "2026-11-22T14:24:22.054742+00:00",
+  "payload": {
+    "away_team": "FSV Mainz 05",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-22T14:24:06Z",
+            "outcomes": [
+              {
+                "name": "Augsburg",
+                "price": 2.98
+              },
+              {
+                "name": "FSV Mainz 05",
+                "price": 2.29
+              },
+              {
+                "name": "Draw",
+                "price": 3.94
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-22T14:24:06Z",
+            "outcomes": [
+              {
+                "name": "Augsburg",
+                "point": 0.25,
+                "price": 1.91
+              },
+              {
+                "name": "FSV Mainz 05",
+                "point": -0.25,
+                "price": 2.02
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-22T14:24:06Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 1.88
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 2.03
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-22T14:24:06Z",
+            "outcomes": [
+              {
+                "name": "Augsburg",
+                "point": 0.25,
+                "price": 1.91
+              },
+              {
+                "name": "Augsburg",
+                "point": -0.75,
+                "price": 3.62
+              },
+              {
+                "name": "Augsburg",
+                "point": -0.5,
+                "price": 2.95
+              },
+              {
+                "name": "Augsburg",
+                "point": -0.25,
+                "price": 2.6
+              },
+              {
+                "name": "Augsburg",
+                "point": 0.0,
+                "price": 2.24
+              },
+              {
+                "name": "Augsburg",
+                "point": 0.5,
+                "price": 1.7
+              },
+              {
+                "name": "Augsburg",
+                "point": 0.75,
+                "price": 1.53
+              },
+              {
+                "name": "Augsburg",
+                "point": 1.0,
+                "price": 1.37
+              },
+              {
+                "name": "Augsburg",
+                "point": 1.25,
+                "price": 1.31
+              },
+              {
+                "name": "FSV Mainz 05",
+                "point": -0.25,
+                "price": 2.02
+              },
+              {
+                "name": "FSV Mainz 05",
+                "point": 0.75,
+                "price": 1.32
+              },
+              {
+                "name": "FSV Mainz 05",
+                "point": 0.5,
+                "price": 1.44
+              },
+              {
+                "name": "FSV Mainz 05",
+                "point": 0.25,
+                "price": 1.56
+              },
+              {
+                "name": "FSV Mainz 05",
+                "point": -0.0,
+                "price": 1.72
+              },
+              {
+                "name": "FSV Mainz 05",
+                "point": -0.5,
+                "price": 2.28
+              },
+              {
+                "name": "FSV Mainz 05",
+                "point": -0.75,
+                "price": 2.66
+              },
+              {
+                "name": "FSV Mainz 05",
+                "point": -1.0,
+                "price": 3.33
+              },
+              {
+                "name": "FSV Mainz 05",
+                "point": -1.25,
+                "price": 3.71
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-22T14:23:15Z",
+            "outcomes": [
+              {
+                "name": "Augsburg",
+                "price": 2.22
+              },
+              {
+                "name": "FSV Mainz 05",
+                "price": 1.71
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-22T14:30:00Z",
+    "home_team": "Augsburg",
+    "id": "4c2262eccc903b9b1792325d09451c0a",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.72,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-22T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.24,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-22T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.98,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.326698376572686,
+      "selection": "home",
+      "updated_at_utc": "2026-11-22T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.94,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24540925570766844,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-22T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.29,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4278923677196456,
+      "selection": "away",
+      "updated_at_utc": "2026-11-22T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.02,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-22T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.91,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-22T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.71,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.25",
+      "updated_at_utc": "2026-11-22T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.33,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.00",
+      "updated_at_utc": "2026-11-22T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.66,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-22T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.28,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-22T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.56,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-22T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.44,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-22T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.32,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-22T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.62,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-22T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.95,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-22T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.6,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-22T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-22T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.53,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-22T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.37,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.00",
+      "updated_at_utc": "2026-11-22T14:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.31,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.25",
+      "updated_at_utc": "2026-11-22T14:24:06+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
