@@ -81201,13 +81201,25 @@
     "chance_of_positive_return": "0.5277311319342702",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "pinnacle",
+        "decimal_odds": 1.68,
+        "devig_method": "power_complete_1x2",
+        "fair_close_ev": -0.03260631168697192,
+        "fair_probability": 0.5862992050381989,
+        "observation_sha256": "5b29d13c6bf8a284cd88fb584e2af17cf10ecce23d4ab09d9c72ab4a3b550488",
+        "observed_at_utc": "2026-11-22T16:54:31.705332+00:00",
+        "offered_price_clv": null,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 328.294668,
+        "selection": "home",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-11-22T16:54:19+00:00"
       }
     },
     "corrected_cagey_score": "",
@@ -81953,13 +81965,25 @@
     "chance_of_positive_return": "0.47226886806572976",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "pinnacle",
+        "decimal_odds": 1.81,
+        "devig_method": "split_settlement_fair_probability_unavailable",
+        "fair_close_ev": null,
+        "fair_probability": null,
+        "observation_sha256": "5b29d13c6bf8a284cd88fb584e2af17cf10ecce23d4ab09d9c72ab4a3b550488",
+        "observed_at_utc": "2026-11-22T16:54:31.705332+00:00",
+        "offered_price_clv": 0.03314917127071837,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 328.294668,
+        "selection": "Asian Handicap Away +1.00",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-11-22T16:54:19+00:00"
       }
     },
     "corrected_cagey_score": "",

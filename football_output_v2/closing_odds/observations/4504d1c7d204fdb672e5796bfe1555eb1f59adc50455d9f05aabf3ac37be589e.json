@@ -1,0 +1,374 @@
+{
+  "fixture": {
+    "away_team": "M\u00e1laga",
+    "home_team": "CA Osasuna",
+    "kickoff_utc": "2026-11-22T17:30:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "893268e5503c4e58fbf137e4b5db7e93"
+  },
+  "observed_at_utc": "2026-11-22T17:24:09.820557+00:00",
+  "payload": {
+    "away_team": "M\u00e1laga",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-22T17:24:02Z",
+            "outcomes": [
+              {
+                "name": "CA Osasuna",
+                "price": 1.79
+              },
+              {
+                "name": "M\u00e1laga",
+                "price": 4.97
+              },
+              {
+                "name": "Draw",
+                "price": 3.76
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-22T17:24:02Z",
+            "outcomes": [
+              {
+                "name": "CA Osasuna",
+                "point": -0.5,
+                "price": 1.79
+              },
+              {
+                "name": "M\u00e1laga",
+                "point": 0.5,
+                "price": 2.17
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-22T17:24:02Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 2.0
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.91
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-22T17:24:02Z",
+            "outcomes": [
+              {
+                "name": "CA Osasuna",
+                "point": -0.5,
+                "price": 1.79
+              },
+              {
+                "name": "CA Osasuna",
+                "point": -1.5,
+                "price": 3.19
+              },
+              {
+                "name": "CA Osasuna",
+                "point": -1.25,
+                "price": 2.81
+              },
+              {
+                "name": "CA Osasuna",
+                "point": -1.0,
+                "price": 2.43
+              },
+              {
+                "name": "CA Osasuna",
+                "point": -0.75,
+                "price": 2.01
+              },
+              {
+                "name": "CA Osasuna",
+                "point": -0.25,
+                "price": 1.55
+              },
+              {
+                "name": "CA Osasuna",
+                "point": 0.0,
+                "price": 1.32
+              },
+              {
+                "name": "CA Osasuna",
+                "point": 0.25,
+                "price": 1.25
+              },
+              {
+                "name": "CA Osasuna",
+                "point": 0.5,
+                "price": 1.21
+              },
+              {
+                "name": "M\u00e1laga",
+                "point": 0.5,
+                "price": 2.17
+              },
+              {
+                "name": "M\u00e1laga",
+                "point": 1.5,
+                "price": 1.39
+              },
+              {
+                "name": "M\u00e1laga",
+                "point": 1.25,
+                "price": 1.48
+              },
+              {
+                "name": "M\u00e1laga",
+                "point": 1.0,
+                "price": 1.62
+              },
+              {
+                "name": "M\u00e1laga",
+                "point": 0.75,
+                "price": 1.89
+              },
+              {
+                "name": "M\u00e1laga",
+                "point": 0.25,
+                "price": 2.63
+              },
+              {
+                "name": "M\u00e1laga",
+                "point": -0.0,
+                "price": 3.69
+              },
+              {
+                "name": "M\u00e1laga",
+                "point": -0.25,
+                "price": 4.28
+              },
+              {
+                "name": "M\u00e1laga",
+                "point": -0.5,
+                "price": 4.89
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-22T17:24:05Z",
+            "outcomes": [
+              {
+                "name": "CA Osasuna",
+                "price": 1.31
+              },
+              {
+                "name": "M\u00e1laga",
+                "price": 3.7
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-22T17:30:00Z",
+    "home_team": "CA Osasuna",
+    "id": "893268e5503c4e58fbf137e4b5db7e93",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.79,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5501958517931069,
+      "selection": "home",
+      "updated_at_utc": "2026-11-22T17:24:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.76,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2568804592949042,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-22T17:24:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.97,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.19292368891198894,
+      "selection": "away",
+      "updated_at_utc": "2026-11-22T17:24:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.17,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-22T17:24:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.79,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-22T17:24:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.0,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4880909376452514,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-11-22T17:24:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.91,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5119090623547486,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-11-22T17:24:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.89,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-22T17:24:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.28,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-22T17:24:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.7,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-22T17:24:05+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.63,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-22T17:24:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.89,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-22T17:24:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.62,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-22T17:24:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.48,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-22T17:24:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.39,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-22T17:24:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.19,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-22T17:24:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.81,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-22T17:24:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.43,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-22T17:24:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.01,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-22T17:24:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.55,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-22T17:24:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.31,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-22T17:24:05+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.25,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-22T17:24:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.21,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-22T17:24:02+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
