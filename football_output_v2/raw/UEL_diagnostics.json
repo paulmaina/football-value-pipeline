@@ -10,7 +10,7 @@
     "2026"
   ],
   "training_sha256": "7423d6cb39c84355e5fbdd4ed6b7bfedf9856d0b77390f595fb8f318aaee7986",
-  "training_as_of_utc": "2026-11-21T16:19:07.224683+00:00",
+  "training_as_of_utc": "2026-11-22T12:25:05.018718+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -27,7 +27,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "NO_SHOT_DATA",
-    "cutoff_date": "2026-11-21",
+    "cutoff_date": "2026-11-22",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -52,9 +52,9 @@
   },
   "training_end": "2026-11-05",
   "fit_success": true,
-  "objective": 822.4342366270253,
-  "base": 0.12764433704693806,
-  "home_adv": 0.23239678781010178,
+  "objective": 821.4439641250617,
+  "base": 0.12763370736927424,
+  "home_adv": 0.23245753562091392,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -73,7 +73,7 @@
   },
   "training_data_health": {
     "training_end": "2026-11-05",
-    "verified_at_utc": "2026-11-21T12:37:40.734464+00:00",
+    "verified_at_utc": "2026-11-22T06:43:54.638681+00:00",
     "official_source_health": {
       "2025": {
         "status": "REVIEWED_HISTORICAL_FACTS",
