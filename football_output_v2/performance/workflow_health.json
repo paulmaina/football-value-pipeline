@@ -8,32 +8,32 @@
           "covered_selections": 37,
           "mean_fair_close_ev": -0.019197941154740654,
           "mean_same_book_offered_price_clv": 0.019371207678824987,
-          "missing_selections": 443,
-          "pending_selections": 27,
+          "missing_selections": 452,
+          "pending_selections": 18,
           "positive_fair_close_ev": 11
         },
         "bet365": {
           "covered_selections": 0,
           "mean_fair_close_ev": null,
           "mean_same_book_offered_price_clv": null,
-          "missing_selections": 480,
-          "pending_selections": 27,
+          "missing_selections": 489,
+          "pending_selections": 18,
           "positive_fair_close_ev": 0
         },
         "pinnacle": {
-          "covered_selections": 145,
-          "mean_fair_close_ev": -0.022146365935741995,
-          "mean_same_book_offered_price_clv": -0.00023917369543761483,
+          "covered_selections": 154,
+          "mean_fair_close_ev": -0.02184333441045369,
+          "mean_same_book_offered_price_clv": -0.00027151558201748353,
           "missing_selections": 335,
-          "pending_selections": 27,
-          "positive_fair_close_ev": 24
+          "pending_selections": 18,
+          "positive_fair_close_ev": 26
         }
       },
       "frozen_selections": 507,
       "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
-      "observations": 501,
+      "observations": 507,
       "rejected_files": [],
-      "reviewed_at_utc": "2026-11-22T13:51:09.621583+00:00",
+      "reviewed_at_utc": "2026-11-22T15:30:05.081569+00:00",
       "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
       "version": "local-closing-quotes-v4"
     },
@@ -50,9 +50,9 @@
     },
     "evidence": {
       "assessment": "Forward evidence collection; improvements are not assumed from software or data changes.",
-      "graded_selections": 458,
+      "graded_selections": 464,
       "model_improvement_established": false,
-      "prediction_fixtures_graded": 413
+      "prediction_fixtures_graded": 416
     },
     "execution_policy": {
       "account_availability": "USER_ALLOWLIST",
@@ -67,10 +67,10 @@
     "experiment_capture_counts": {},
     "experimental_reports": {},
     "forecast_freshness": {
-      "age_hours": 0.006247279166666666,
+      "age_hours": 1.6549861641666666,
       "generated_at_utc": "2026-11-22T13:50:47.131378+00:00",
       "status": "WITHIN_24_HOURS",
-      "upcoming_fixture_count": 29
+      "upcoming_fixture_count": 23
     },
     "quote_audit": {
       "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
@@ -80,29 +80,29 @@
       "costs_recorded": 20,
       "exchange_quotes": 0,
       "missing_quote_age": 20,
-      "past_kickoff_count": 0,
+      "past_kickoff_count": 2,
       "quote_age_over_24h": 0,
       "selected_quotes": 20,
       "unknown_kickoff_count": 0,
-      "upcoming_kickoff_count": 20
+      "upcoming_kickoff_count": 18
     },
-    "reviewed_at_utc": "2026-11-22T13:51:09.621583+00:00",
+    "reviewed_at_utc": "2026-11-22T15:30:05.081569+00:00",
     "selection_policy_groups": {
       "48h-ah-price-edge-cagey-v28": {
-        "brier": 0.206256,
-        "flat_stake_roi": 0.033587,
-        "graded": 375,
+        "brier": 0.205686,
+        "flat_stake_roi": 0.038045,
+        "graded": 381,
         "half_losses": 1,
         "half_wins": 13,
-        "losses": 105,
-        "no_loss_rate": 0.72,
-        "pending": 49,
-        "profit_per_unit_staked": 12.595,
+        "losses": 106,
+        "no_loss_rate": 0.721785,
+        "pending": 43,
+        "profit_per_unit_staked": 14.495,
         "refunds": 2,
-        "settled_with_odds": 375,
+        "settled_with_odds": 381,
         "total": 424,
-        "win_rate": 0.714667,
-        "wins": 268
+        "win_rate": 0.716535,
+        "wins": 273
       },
       "48h-top-ten-probability-ev-no-under35-v14": {
         "brier": 0.164736,
@@ -53014,7 +53014,7 @@
           "completed_matches": 72,
           "corrected_scores": 0,
           "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-          "download_age_hours": 0.01915493388888889,
+          "download_age_hours": 1.6678938188888888,
           "download_status": "VERIFIED_LIVE",
           "latest_completed_date": "2026-11-04",
           "latest_completed_utc": "2026-11-04T20:00:00+00:00",
@@ -53076,7 +53076,7 @@
             }
           },
           "status": "VERIFIED_WITHIN_24_HOURS",
-          "verified_at_utc": "2026-11-22T13:51:09.621583+00:00"
+          "verified_at_utc": "2026-11-22T15:30:05.081569+00:00"
         },
         "days_since_latest_result": 17,
         "diagnostics_sha256": "ce8a0fdb655e4b78edb0fd05185794706d26ebc0ef08af0975819184c232aaae",
@@ -53174,57 +53174,57 @@
         "wins": 227
       },
       "2026-W47": {
-        "brier": 0.247629,
-        "flat_stake_roi": 0.019559,
-        "graded": 68,
+        "brier": 0.241341,
+        "flat_stake_roi": 0.043649,
+        "graded": 74,
         "half_losses": 1,
         "half_wins": 2,
-        "losses": 25,
-        "no_loss_rate": 0.632353,
-        "pending": 45,
-        "profit_per_unit_staked": 1.33,
+        "losses": 26,
+        "no_loss_rate": 0.648649,
+        "pending": 39,
+        "profit_per_unit_staked": 3.23,
         "refunds": 2,
-        "settled_with_odds": 68,
+        "settled_with_odds": 74,
         "total": 113,
-        "win_rate": 0.602941,
-        "wins": 41
+        "win_rate": 0.621622,
+        "wins": 46
       }
     }
   },
-  "reviewed_at_utc": "2026-11-22T13:51:09Z",
+  "reviewed_at_utc": "2026-11-22T15:30:05Z",
   "snapshots": 95,
   "shortlist": {
-    "brier": 0.196182,
-    "flat_stake_roi": 0.033428,
-    "graded": 458,
+    "brier": 0.195845,
+    "flat_stake_roi": 0.037091,
+    "graded": 464,
     "half_losses": 1,
     "half_wins": 15,
-    "losses": 124,
-    "no_loss_rate": 0.729258,
-    "pending": 49,
-    "profit_per_unit_staked": 15.31,
+    "losses": 125,
+    "no_loss_rate": 0.730603,
+    "pending": 43,
+    "profit_per_unit_staked": 17.21,
     "refunds": 5,
-    "settled_with_odds": 458,
+    "settled_with_odds": 464,
     "total": 507,
-    "win_rate": 0.718341,
-    "wins": 329
+    "win_rate": 0.719828,
+    "wins": 334
   },
   "policy_groups": {
     "48h-ah-price-edge-cagey-v28": {
-      "brier": 0.206256,
-      "flat_stake_roi": 0.033587,
-      "graded": 375,
+      "brier": 0.205686,
+      "flat_stake_roi": 0.038045,
+      "graded": 381,
       "half_losses": 1,
       "half_wins": 13,
-      "losses": 105,
-      "no_loss_rate": 0.72,
-      "pending": 49,
-      "profit_per_unit_staked": 12.595,
+      "losses": 106,
+      "no_loss_rate": 0.721785,
+      "pending": 43,
+      "profit_per_unit_staked": 14.495,
       "refunds": 2,
-      "settled_with_odds": 375,
+      "settled_with_odds": 381,
       "total": 424,
-      "win_rate": 0.714667,
-      "wins": 268
+      "win_rate": 0.716535,
+      "wins": 273
     },
     "48h-top-ten-probability-ev-no-under35-v14": {
       "brier": 0.164736,
@@ -53421,17 +53421,17 @@
     "min_graded_matches": 150,
     "min_weeks": 3,
     "new_master": {
-      "average_price": 1.4034615384615383,
-      "flat_stake_return_per_bet": -0.04269230769230769,
-      "graded_matches": 26,
-      "hit_rate": 0.6923076923076923,
+      "average_price": 1.399655172413793,
+      "flat_stake_return_per_bet": -0.00034482758620689685,
+      "graded_matches": 29,
+      "hit_rate": 0.7241379310344828,
       "weeks": 1
     },
     "old_master": {
-      "average_price": 1.521627906976744,
-      "flat_stake_return_per_bet": -0.006337209302325578,
-      "graded_matches": 86,
-      "hit_rate": 0.6744186046511628,
+      "average_price": 1.5164044943820223,
+      "flat_stake_return_per_bet": 0.00623595505617977,
+      "graded_matches": 89,
+      "hit_rate": 0.6853932584269663,
       "weeks": 2
     },
     "rule": "After at least 150 graded matches over at least 3 calendar weeks on each list, compare flat-stake return per bet at Pinnacle prices, new master minus old master, whole kickoff weeks resampled (the same weeks for both), 95% interval. If the interval is entirely below zero, the weekly report says ROLLBACK TRIGGERED at the top and in the run summary. Nothing switches automatically: Paul decides, and rolling back is setting live to \"old\".",
