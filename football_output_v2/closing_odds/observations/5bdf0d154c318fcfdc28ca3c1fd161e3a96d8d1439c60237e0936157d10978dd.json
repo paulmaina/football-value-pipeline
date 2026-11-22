@@ -1,0 +1,374 @@
+{
+  "fixture": {
+    "away_team": "Real Sociedad",
+    "home_team": "Real Racing Club de Santander",
+    "kickoff_utc": "2026-11-22T15:15:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "9718f9ea901236855faf57f77a0bd5b3"
+  },
+  "observed_at_utc": "2026-11-22T15:09:05.833441+00:00",
+  "payload": {
+    "away_team": "Real Sociedad",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-22T15:09:02Z",
+            "outcomes": [
+              {
+                "name": "Real Racing Club de Santander",
+                "price": 3.21
+              },
+              {
+                "name": "Real Sociedad",
+                "price": 2.15
+              },
+              {
+                "name": "Draw",
+                "price": 4.03
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-22T15:09:02Z",
+            "outcomes": [
+              {
+                "name": "Real Racing Club de Santander",
+                "point": 0.25,
+                "price": 2.04
+              },
+              {
+                "name": "Real Sociedad",
+                "point": -0.25,
+                "price": 1.89
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-22T15:09:02Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.0
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.9
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-22T15:09:02Z",
+            "outcomes": [
+              {
+                "name": "Real Racing Club de Santander",
+                "point": 0.25,
+                "price": 2.04
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "point": -0.75,
+                "price": 3.93
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "point": -0.5,
+                "price": 3.18
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "point": -0.25,
+                "price": 2.82
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "point": 0.0,
+                "price": 2.43
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "point": 0.5,
+                "price": 1.79
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "point": 0.75,
+                "price": 1.61
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "point": 1.0,
+                "price": 1.43
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "point": 1.25,
+                "price": 1.36
+              },
+              {
+                "name": "Real Sociedad",
+                "point": -0.25,
+                "price": 1.89
+              },
+              {
+                "name": "Real Sociedad",
+                "point": 0.75,
+                "price": 1.29
+              },
+              {
+                "name": "Real Sociedad",
+                "point": 0.5,
+                "price": 1.4
+              },
+              {
+                "name": "Real Sociedad",
+                "point": 0.25,
+                "price": 1.49
+              },
+              {
+                "name": "Real Sociedad",
+                "point": -0.0,
+                "price": 1.62
+              },
+              {
+                "name": "Real Sociedad",
+                "point": -0.5,
+                "price": 2.14
+              },
+              {
+                "name": "Real Sociedad",
+                "point": -0.75,
+                "price": 2.46
+              },
+              {
+                "name": "Real Sociedad",
+                "point": -1.0,
+                "price": 3.0
+              },
+              {
+                "name": "Real Sociedad",
+                "point": -1.25,
+                "price": 3.35
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-22T15:08:40Z",
+            "outcomes": [
+              {
+                "name": "Real Racing Club de Santander",
+                "price": 2.41
+              },
+              {
+                "name": "Real Sociedad",
+                "price": 1.62
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-22T15:15:00Z",
+    "home_team": "Real Racing Club de Santander",
+    "id": "9718f9ea901236855faf57f77a0bd5b3",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.62,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.43,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.21,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3030798336567907,
+      "selection": "home",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.03,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24012002917360015,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.15,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.456800137169609,
+      "selection": "away",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.89,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.04,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.0,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4866803129183502,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5133196870816498,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.35,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.25",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.0,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.00",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.46,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.14,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.49,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.29,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.93,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.18,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.82,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.79,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.61,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.43,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.00",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.36,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.25",
+      "updated_at_utc": "2026-11-22T15:09:02+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
