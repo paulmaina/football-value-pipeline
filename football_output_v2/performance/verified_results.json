@@ -1590,6 +1590,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "DED:558828": {
+    "away_goals": 1,
+    "away_short_name": "Willem II",
+    "away_team": "Willem II Tilburg",
+    "first_verified_at_utc": "2026-11-22T13:51:09Z",
+    "home_goals": 2,
+    "home_short_name": "Twente",
+    "home_team": "FC Twente '65",
+    "kickoff_utc": "2026-11-22T11:15:00Z",
+    "league_code": "DED",
+    "match_id": 558828,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "DED:558831": {
     "away_goals": 3,
     "away_short_name": "Excelsior",
@@ -5837,6 +5852,21 @@
     "kickoff_utc": "2026-11-08T20:30:00Z",
     "league_code": "PPL",
     "match_id": 567355,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "SA:558521": {
+    "away_goals": 0,
+    "away_short_name": "Venezia FC",
+    "away_team": "Venezia FC",
+    "first_verified_at_utc": "2026-11-22T13:51:09Z",
+    "home_goals": 4,
+    "home_short_name": "Juventus",
+    "home_team": "Juventus FC",
+    "kickoff_utc": "2026-11-22T11:30:00Z",
+    "league_code": "SA",
+    "match_id": 558521,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"

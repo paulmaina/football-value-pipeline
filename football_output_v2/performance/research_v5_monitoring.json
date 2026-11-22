@@ -2,23 +2,23 @@
   "cagey": {
     "coverage": {
       "matches_scored": 7,
-      "not_replayed:no corrected D distribution": 27,
+      "not_replayed:no corrected D distribution": 29,
       "offer_out_of_scope:pinnacle draw_no_bet": 2
     },
-    "d_pow2_minus_d_log_loss": 0.014283756358602573,
+    "d_pow2_minus_d_log_loss": 0.014283756346693417,
     "eligible": false,
     "fallbacks": {
       "domestic_fixtures": 66,
-      "domestic_records": 627,
+      "domestic_records": 647,
       "fallback_fixtures": 0,
       "fallback_records": 0,
-      "runs": 12
+      "runs": 13
     },
     "graded_fallbacks": 0,
     "interval_95": null,
     "log_loss": {
-      "D": 0.9298055341951661,
-      "D_pow2": 0.9440892905537687
+      "D": 0.9298055342062412,
+      "D_pow2": 0.9440892905529347
     },
     "matches": 7,
     "rule": "After at least 150 graded domestic matches across at least 3 weeks, roll back the cagey correction D_pow2 if its log loss on AH all lines minus D's, on the same frozen Pinnacle quotes, matches and offers, has a week-resampled 95% interval entirely above zero. Rolling back is setting cagey_correction_config.json cagey_correction_live.domestic to \"D\".",
@@ -163,8 +163,8 @@
           "Home win"
         ],
         "picks": 2,
-        "v4_p_home": 0.4770835759655672,
-        "v5_p_home": 0.48103451395377805
+        "v4_p_home": 0.4770835081720191,
+        "v5_p_home": 0.48103443880280056
       },
       {
         "fixture": "SC Telstar v FC Zwolle",
@@ -269,19 +269,19 @@
   },
   "rollback": {
     "coverage": {
-      "matches_scored": 34,
+      "matches_scored": 36,
       "offer_out_of_scope:pinnacle draw_no_bet": 4
     },
     "eligible": false,
     "interval_95": null,
     "log_loss": {
-      "v4": 1.0358802822476996,
-      "v5": 1.0431435395278996
+      "v4": 1.0184565615091845,
+      "v5": 1.0249959931193826
     },
-    "matches": 34,
+    "matches": 36,
     "rule": "After at least 150 graded matches across at least 3 weeks, roll back research v5 if its research log loss on AH all lines minus v4's, on the same frozen inputs, matches and offers, has a week-resampled 95% interval entirely above zero.",
     "triggered": false,
-    "v5_minus_v4_log_loss": 0.007263257280200162,
+    "v5_minus_v4_log_loss": 0.006539431610198219,
     "weeks": 1
   },
   "ucl_live_check": {
@@ -304,6 +304,26 @@
           "mapping: home side has no European training name"
         ],
         "snapshot": "798f4423ef75c577030b9075276c80910985291f",
+        "status": "failed",
+        "ucl_fixtures": 9
+      },
+      {
+        "checks": {
+          "ce_shadow": true,
+          "competition": true,
+          "fit_window": false,
+          "frozen_replay": true,
+          "mapping": false,
+          "unvalidated_view": null
+        },
+        "domestic_used": 6,
+        "generated_at_utc": "2026-11-22T13:50:47.131378+00:00",
+        "problems": [
+          "fit window: origin 2026-11-02, expected 2026-11-16, stale True",
+          "mapping: away side has no European training name",
+          "mapping: home side has no European training name"
+        ],
+        "snapshot": "f7279a9615c4f889dfd30fa5db4214c6f54498c8",
         "status": "failed",
         "ucl_fixtures": 9
       }
