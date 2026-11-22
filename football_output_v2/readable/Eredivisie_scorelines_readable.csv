@@ -1,221 +1,76 @@
 ﻿Match date,League,Home team,Away team,Model,Rank,Score,Probability,Probability (decimal)
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,1,2-0,9.93%,0.09928472191221482
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,2,2-1,9.65%,0.0964527136059905
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,3,3-0,8.30%,0.08298457723540432
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,4,3-1,8.06%,0.08061751604519451
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,5,1-1,8.03%,0.08032218585794572
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,6,1-0,7.77%,0.07773280729457908
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,7,4-0,5.20%,0.05202039089932393
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,8,4-1,5.05%,0.050536555559077115
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,9,2-2,4.80%,0.04800524661479014
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,10,3-2,3.92%,0.03915898658410228
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,11,0-0,3.39%,0.033854471276747136
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,12,1-2,2.91%,0.029062535879834008
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,13,5-0,2.61%,0.026087942212606047
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,14,5-1,2.53%,0.02534380688528223
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,15,4-2,2.45%,0.024547522650477428
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,16,0-1,2.27%,0.022727244773200247
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,17,3-3,1.30%,0.012993149616188953
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,18,5-2,1.23%,0.012310448677859052
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,19,2-3,1.18%,0.011799143954284008
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,20,0-2,1.16%,0.011590369716964859
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,21,6-0,1.09%,0.0109024672364441
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,22,6-1,1.06%,0.01059148406423712
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,23,1-3,0.94%,0.009411184305409177
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,24,4-3,0.79%,0.00794910880661144
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,25,6-2,0.51%,0.005144685705085268
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,26,5-3,0.40%,0.003986434696154739
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,27,7-0,0.39%,0.00390537702513113
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,28,7-1,0.38%,0.0037939796221763424
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,29,0-3,0.38%,0.0037532549129643436
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,30,2-4,0.29%,0.0028656459692374785
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,31,3-4,0.24%,0.0023951763643330105
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,32,1-4,0.23%,0.0022856846628059773
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,33,4-4,0.20%,0.0019781658512378116
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,34,7-2,0.18%,0.001842879865485719
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,35,6-3,0.17%,0.0016659793751018664
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,36,8-0,0.12%,0.001224078293971743
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,37,8-1,0.12%,0.0011891625503484499
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,38,5-4,0.10%,0.0009681812988235102
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,39,0-4,0.09%,0.0009115491644588293
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,40,7-3,0.06%,0.0005967711193037445
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,41,8-2,0.06%,0.0005776213736144695
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,42,2-5,0.06%,0.0005567811938102808
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,43,3-5,0.05%,0.00046537121816005655
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,44,1-5,0.04%,0.00044409750851728374
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,45,6-4,0.04%,0.0004046146991333268
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,46,9-0,0.03%,0.0003410381032511541
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,47,9-1,0.03%,0.00033131029495855283
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,48,4-5,0.03%,0.000291726408550676
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,49,5-5,0.02%,0.00019274846826067426
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,50,8-3,0.02%,0.00018704841271615958
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,51,0-5,0.02%,0.0001771096072063643
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,52,9-2,0.02%,0.00016092998186875154
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,Research,53,7-4,0.01%,0.00014493718859741526
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,"Benchmark (70% Pinnacle blend), display only",1,2-0,10.13%,0.10131502019719033
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,"Benchmark (70% Pinnacle blend), display only",2,2-1,9.49%,0.09488894394968762
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,"Benchmark (70% Pinnacle blend), display only",3,3-0,9.25%,0.0924573976280526
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,"Benchmark (70% Pinnacle blend), display only",4,3-1,8.66%,0.08659313104993652
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,"Benchmark (70% Pinnacle blend), display only",5,1-0,6.87%,0.06871832671763212
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,"Benchmark (70% Pinnacle blend), display only",6,4-0,6.33%,0.06328062482379755
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,"Benchmark (70% Pinnacle blend), display only",7,4-1,5.93%,0.059266944331844075
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,"Benchmark (70% Pinnacle blend), display only",8,1-1,5.50%,0.054996082350385854
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,"Benchmark (70% Pinnacle blend), display only",9,3-2,4.06%,0.04055040774128597
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,"Benchmark (70% Pinnacle blend), display only",10,5-0,3.46%,0.03464893090934442
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,"Benchmark (70% Pinnacle blend), display only",11,2-2,3.28%,0.0327514181003209
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,"Benchmark (70% Pinnacle blend), display only",12,5-1,3.25%,0.032451263954488746
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,"Benchmark (70% Pinnacle blend), display only",13,4-2,2.78%,0.027753919151513765
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,"Benchmark (70% Pinnacle blend), display only",14,1-2,2.56%,0.025595382585373593
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,"Benchmark (70% Pinnacle blend), display only",15,0-0,2.38%,0.023829715633889494
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,"Benchmark (70% Pinnacle blend), display only",16,6-0,1.58%,0.015809847228165568
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,"Benchmark (70% Pinnacle blend), display only",17,0-1,1.58%,0.01578893187240325
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,"Benchmark (70% Pinnacle blend), display only",18,5-2,1.52%,0.015196493868731396
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,"Benchmark (70% Pinnacle blend), display only",19,6-1,1.48%,0.014807080969501995
-2026-11-22,Eredivisie,Ajax,ADO Den Haag,"Benchmark (70% Pinnacle blend), display only",20,2-3,1.09%,0.010938083584125777
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,1,1-1,10.72%,0.10721594574696458
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,2,2-1,9.37%,0.09369287556965744
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,3,1-0,7.03%,0.07034732206397912
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,4,2-2,6.82%,0.06819794933523685
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,5,1-2,6.70%,0.06699228466756185
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,6,2-0,6.65%,0.0664667497207194
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,7,3-1,5.74%,0.05743943767805516
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,8,0-1,4.99%,0.04987894054469708
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,9,0-0,4.26%,0.04258058798171287
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,10,3-0,4.07%,0.04074816473540444
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,11,3-2,4.05%,0.040483896909160204
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,12,0-2,3.64%,0.03642503040428712
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,13,1-3,3.15%,0.031477893422191996
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,14,2-3,2.89%,0.028946798032410993
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,15,4-1,2.64%,0.026410404585551488
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,16,3-3,1.96%,0.019645170339917056
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,17,4-0,1.87%,0.018735829602173973
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,18,4-2,1.86%,0.018614320400618528
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,19,0-3,1.71%,0.017115153344239308
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,20,1-4,1.11%,0.01109296890547746
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,21,2-4,1.02%,0.010200998083953446
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,22,5-1,0.97%,0.0097147116833841
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,23,4-3,0.87%,0.008746374251972935
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,24,5-0,0.69%,0.006891722621837772
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,25,5-2,0.68%,0.006847027098292663
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,26,3-4,0.63%,0.006253832963655577
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,27,0-4,0.60%,0.006031466633223778
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,28,5-3,0.32%,0.003217235989613564
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,29,4-4,0.32%,0.003183191808749664
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,30,1-5,0.31%,0.003127374694041921
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,31,6-1,0.30%,0.0029778548950776694
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,32,2-5,0.29%,0.0028759066696719456
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,33,6-0,0.21%,0.0021125228018921633
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,34,6-2,0.21%,0.0020988222631716466
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,35,3-5,0.18%,0.0017631059023021597
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,36,0-5,0.17%,0.0017004154863706781
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,37,5-4,0.11%,0.0011337702404572493
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,38,6-3,0.10%,0.0009861807794746065
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,39,4-5,0.08%,0.0008106684551468692
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,40,7-1,0.08%,0.0007824027308989314
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,41,1-6,0.07%,0.0007347351101609673
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,42,2-6,0.07%,0.0006756560407615018
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,43,7-0,0.06%,0.0005550450466941175
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,44,7-2,0.06%,0.0005514453619252464
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,45,3-6,0.04%,0.000414218293644626
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,46,0-6,0.04%,0.00039949001380556293
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,47,6-4,0.03%,0.00034753509630281804
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,48,5-5,0.03%,0.0003301032440146099
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,49,7-3,0.03%,0.00025910951413260323
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,50,4-6,0.02%,0.00019045577679934123
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,51,8-1,0.02%,0.00017987269293703135
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,52,1-7,0.01%,0.00014795678299347375
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,53,2-7,0.01%,0.0001360597755826287
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,54,8-0,0.01%,0.00012760365385678586
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,55,8-2,0.01%,0.00012677609412631646
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",1,1-1,11.24%,0.11240851637652476
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",2,2-1,9.96%,0.09960220934640086
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",3,2-0,7.99%,0.07991094919649615
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",4,1-0,7.92%,0.07922880476740586
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",5,1-2,6.17%,0.06173990154611582
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",6,3-1,6.06%,0.06059582426156523
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",7,2-2,5.94%,0.059391510610797206
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",8,0-0,5.39%,0.05388413054342903
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",9,3-0,4.86%,0.04861608859744358
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",10,0-1,4.67%,0.04671129886964401
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",11,3-2,3.78%,0.03776377351479873
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",12,0-2,3.38%,0.033827581761399106
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",13,4-1,2.76%,0.02764888908112743
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",14,1-3,2.57%,0.025651180723271234
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",15,2-3,2.34%,0.023408433147349045
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",16,4-0,2.22%,0.022182730535799805
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",17,4-2,1.72%,0.017230995665451446
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",18,3-3,1.50%,0.015012033502239825
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",19,0-3,1.41%,0.014054402282205648
-2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",20,5-1,1.01%,0.010092590725336446
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,1,1-1,11.50%,0.11496805970149868
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,2,1-2,9.64%,0.09637188430667087
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,3,0-1,8.40%,0.08398480690948064
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,4,0-2,7.57%,0.0756898506532881
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,5,2-1,6.43%,0.06425451941030626
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,6,2-2,6.32%,0.06317302755132291
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,7,1-3,5.65%,0.056504877772906
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,8,1-0,5.55%,0.055467327950268076
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,9,0-0,5.25%,0.05251805024304119
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,10,0-3,4.44%,0.04437856321459836
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,11,2-0,3.65%,0.03652976141091065
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,12,2-3,3.60%,0.03597233642616862
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,13,3-1,2.73%,0.02727062724766066
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,14,1-4,2.48%,0.024847505331308858
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,15,3-2,2.40%,0.023984019880467614
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,16,0-4,1.95%,0.019515068955680517
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,17,2-4,1.58%,0.01581850729278893
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,18,3-3,1.57%,0.0157202239116712
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,19,3-0,1.55%,0.01550380449539455
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,20,1-5,0.87%,0.00874117131863563
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,21,4-1,0.87%,0.008680561896338375
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,22,4-2,0.76%,0.007634396055678136
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,23,0-5,0.69%,0.006865259057682851
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,24,3-4,0.67%,0.006713622947537856
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,25,2-5,0.56%,0.0055648356005029796
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,26,4-0,0.49%,0.004935043603096672
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,27,4-3,0.45%,0.004476208171081579
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,28,1-6,0.26%,0.002562566979492734
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,29,3-5,0.24%,0.0023618036326249034
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,30,5-1,0.22%,0.0022105000857323693
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,31,4-4,0.22%,0.0022004337182221357
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,32,0-6,0.20%,0.0020126234260361632
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,33,5-2,0.19%,0.0019440945571403535
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,34,2-6,0.16%,0.0016313905123621784
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,35,5-0,0.13%,0.001256706010280252
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,36,5-3,0.11%,0.0011398638318684783
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,37,4-5,0.08%,0.0007517899179145568
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,38,3-6,0.07%,0.0006923877567880958
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,39,1-7,0.06%,0.0006439231361904833
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,40,0-7,0.05%,0.0005057330398911884
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,41,5-4,0.05%,0.0005012447377224285
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,42,6-1,0.05%,0.00046908547773886463
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,43,6-2,0.04%,0.0004125521324300554
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,44,2-7,0.04%,0.00040993663911161456
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,45,6-0,0.03%,0.0002666828845719335
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,46,6-3,0.02%,0.0002418880567254656
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,47,4-6,0.02%,0.0002203951791971167
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,48,5-5,0.02%,0.00019712323999432536
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,49,3-7,0.02%,0.00017398354828529792
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,50,1-8,0.01%,0.00014157966701343848
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,51,0-8,0.01%,0.00011119574893533181
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,Research,52,6-4,0.01%,0.00010636806973057256
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,"Benchmark (70% Pinnacle blend), display only",1,1-2,10.88%,0.10879472184442578
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,"Benchmark (70% Pinnacle blend), display only",2,1-1,10.84%,0.10838369251059209
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,"Benchmark (70% Pinnacle blend), display only",3,0-1,9.86%,0.09861865242605916
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,"Benchmark (70% Pinnacle blend), display only",4,0-2,9.11%,0.09113536833659257
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,"Benchmark (70% Pinnacle blend), display only",5,1-3,6.09%,0.060913350432192294
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,"Benchmark (70% Pinnacle blend), display only",6,0-0,5.79%,0.05790880489057195
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,"Benchmark (70% Pinnacle blend), display only",7,2-1,5.74%,0.05736425915894268
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,"Benchmark (70% Pinnacle blend), display only",8,0-3,5.10%,0.0510260105834189
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,"Benchmark (70% Pinnacle blend), display only",9,2-2,5.05%,0.050475220539274626
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,"Benchmark (70% Pinnacle blend), display only",10,1-0,4.99%,0.04987471670010941
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,"Benchmark (70% Pinnacle blend), display only",11,2-3,3.64%,0.03635828294678384
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,"Benchmark (70% Pinnacle blend), display only",12,2-0,3.42%,0.03415194739592167
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,"Benchmark (70% Pinnacle blend), display only",13,1-4,2.56%,0.025578696727913717
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,"Benchmark (70% Pinnacle blend), display only",14,3-1,2.28%,0.022826588377701112
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,"Benchmark (70% Pinnacle blend), display only",15,0-4,2.14%,0.02142681104697221
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,"Benchmark (70% Pinnacle blend), display only",16,3-2,1.92%,0.01917065396348854
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,"Benchmark (70% Pinnacle blend), display only",17,2-4,1.53%,0.015267547860115131
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,"Benchmark (70% Pinnacle blend), display only",18,3-0,1.36%,0.013589863391133427
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,"Benchmark (70% Pinnacle blend), display only",19,3-3,1.12%,0.011245596716799975
-2026-11-22,Eredivisie,Sparta Rotterdam,AZ Alkmaar,"Benchmark (70% Pinnacle blend), display only",20,1-5,0.86%,0.008592792504847103
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,1,1-1,10.72%,0.10721593776497562
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,2,2-1,9.37%,0.09369286611308661
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,3,1-0,7.03%,0.07034730083018542
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,4,2-2,6.82%,0.06819795757092377
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,5,1-2,6.70%,0.06699229635378418
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,6,2-0,6.65%,0.06646672920840477
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,7,3-1,5.74%,0.05743943116436948
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,8,0-1,4.99%,0.04987893953127833
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,9,0-0,4.26%,0.04258057688890083
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,10,3-0,4.07%,0.04074815165200391
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,11,3-2,4.05%,0.04048390072588836
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,12,0-2,3.64%,0.036425037212513625
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,13,1-3,3.15%,0.03147790545052441
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,14,2-3,2.89%,0.028946808732613613
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,15,4-1,2.64%,0.0264104012612667
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,16,3-3,1.96%,0.019645176547217705
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,17,4-0,1.87%,0.0187358233528597
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,18,4-2,1.86%,0.018614321923425246
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,19,0-3,1.71%,0.017115160097696376
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,20,1-4,1.11%,0.011092975448096244
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,21,2-4,1.02%,0.01020100397328918
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,22,5-1,0.97%,0.009714710339454664
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,23,4-3,0.87%,0.008746376783934588
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,24,5-0,0.69%,0.006891720237176453
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,25,5-2,0.68%,0.006847027573058678
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,26,3-4,0.63%,0.006253836496195755
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,27,0-4,0.60%,0.006031470265783501
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,28,5-3,0.32%,0.0032172368808447353
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,29,4-4,0.32%,0.0031831934359342275
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,30,1-5,0.31%,0.0031273771880527975
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,31,6-1,0.30%,0.0029778544459904974
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,32,2-5,0.29%,0.0028759089272820454
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,33,6-0,0.21%,0.0021125220445791103
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,34,6-2,0.21%,0.0020988223825309524
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,35,3-5,0.18%,0.0017631072643698284
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,36,0-5,0.17%,0.0017004168636168076
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,37,5-4,0.11%,0.0011337707899915501
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,38,6-3,0.10%,0.0009861810403670663
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,39,4-5,0.08%,0.000810669071311172
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,40,7-1,0.08%,0.0007824026031495495
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,41,1-6,0.07%,0.0007347358486845788
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,42,2-6,0.07%,0.0006756567114764212
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,43,7-0,0.06%,0.0005550448407963519
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,44,7-2,0.06%,0.0005514453864095937
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,45,3-6,0.04%,0.0004142186996686766
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,46,0-6,0.04%,0.0003994904203368426
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,47,6-4,0.03%,0.00034753526041827624
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,48,5-5,0.03%,0.0003301034771961005
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,49,7-3,0.03%,0.00025910957944866113
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,50,4-6,0.02%,0.00019045596111258
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,51,8-1,0.02%,0.0001798726613248316
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,52,1-7,0.01%,0.000147956962440658
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,53,2-7,0.01%,0.0001360599389041265
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,54,8-0,0.01%,0.00012760360493020272
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,Research,55,8-2,0.01%,0.00012677609817440046
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",1,1-1,11.24%,0.11240850615986635
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",2,2-1,9.96%,0.09960221318282837
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",3,2-0,7.99%,0.0799109278749727
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",4,1-0,7.92%,0.07922879233602559
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",5,1-2,6.17%,0.061739899646679815
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",6,3-1,6.06%,0.060595825605737084
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",7,2-2,5.94%,0.05939152741190292
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",8,0-0,5.39%,0.05388410741767719
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",9,3-0,4.86%,0.048616074831751795
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",10,0-1,4.67%,0.04671129309704149
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",11,3-2,3.78%,0.03776378588304671
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",12,0-2,3.38%,0.03382758127325974
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",13,4-1,2.76%,0.027648889242809054
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",14,1-3,2.57%,0.025651187766277016
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",15,2-3,2.34%,0.023408439192192262
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",16,4-0,2.22%,0.022182723892385715
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",17,4-2,1.72%,0.017231001027414983
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",18,3-3,1.50%,0.015012042087413328
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",19,0-3,1.41%,0.014054406370679043
+2026-11-22,Eredivisie,Go Ahead Eagles,Fortuna Sittard,"Benchmark (70% Pinnacle blend), display only",20,5-1,1.01%,0.010092590619493027
