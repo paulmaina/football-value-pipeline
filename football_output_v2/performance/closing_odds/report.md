@@ -9,24 +9,24 @@ Last observed live quote within 6 minutes of scheduled kickoff, market age <=120
 {
   "1xbet": {
     "covered_selections": 37,
-    "missing_selections": 462,
-    "pending_selections": 8,
+    "missing_selections": 464,
+    "pending_selections": 6,
     "mean_fair_close_ev": -0.019197941154740654,
     "mean_same_book_offered_price_clv": 0.019371207678824987,
     "positive_fair_close_ev": 11
   },
   "pinnacle": {
-    "covered_selections": 164,
+    "covered_selections": 166,
     "missing_selections": 335,
-    "pending_selections": 8,
-    "mean_fair_close_ev": -0.020956340472723496,
-    "mean_same_book_offered_price_clv": -0.002819818651281251,
-    "positive_fair_close_ev": 27
+    "pending_selections": 6,
+    "mean_fair_close_ev": -0.020579460217481055,
+    "mean_same_book_offered_price_clv": -0.0022240912459713,
+    "positive_fair_close_ev": 28
   },
   "bet365": {
     "covered_selections": 0,
-    "missing_selections": 499,
-    "pending_selections": 8,
+    "missing_selections": 501,
+    "pending_selections": 6,
     "mean_fair_close_ev": null,
     "mean_same_book_offered_price_clv": null,
     "positive_fair_close_ev": 0
@@ -38,24 +38,24 @@ Last observed live quote within 6 minutes of scheduled kickoff, market age <=120
 {
   "1xbet": {
     "covered_selections": 35,
-    "missing_selections": 464,
-    "pending_selections": 8,
+    "missing_selections": 466,
+    "pending_selections": 6,
     "mean_fair_close_ev": -0.019700242598333494,
     "mean_same_book_offered_price_clv": 0.020653396437256083,
     "positive_fair_close_ev": 9
   },
   "pinnacle": {
-    "covered_selections": 157,
+    "covered_selections": 159,
     "missing_selections": 342,
-    "pending_selections": 8,
-    "mean_fair_close_ev": -0.02581547923053805,
-    "mean_same_book_offered_price_clv": -0.006528315566040316,
-    "positive_fair_close_ev": 23
+    "pending_selections": 6,
+    "mean_fair_close_ev": -0.025365192580560875,
+    "mean_same_book_offered_price_clv": -0.0057802096510003636,
+    "positive_fair_close_ev": 24
   },
   "bet365": {
     "covered_selections": 0,
-    "missing_selections": 499,
-    "pending_selections": 8,
+    "missing_selections": 501,
+    "pending_selections": 6,
     "mean_fair_close_ev": null,
     "mean_same_book_offered_price_clv": null,
     "positive_fair_close_ev": 0
