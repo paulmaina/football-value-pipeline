@@ -2,10 +2,10 @@
   "cagey": {
     "coverage": {
       "matches_scored": 7,
-      "not_replayed:no corrected D distribution": 29,
+      "not_replayed:no corrected D distribution": 32,
       "offer_out_of_scope:pinnacle draw_no_bet": 2
     },
-    "d_pow2_minus_d_log_loss": 0.014283756346693417,
+    "d_pow2_minus_d_log_loss": 0.014283756358602573,
     "eligible": false,
     "fallbacks": {
       "domestic_fixtures": 66,
@@ -17,8 +17,8 @@
     "graded_fallbacks": 0,
     "interval_95": null,
     "log_loss": {
-      "D": 0.9298055342062412,
-      "D_pow2": 0.9440892905529347
+      "D": 0.9298055341951661,
+      "D_pow2": 0.9440892905537687
     },
     "matches": 7,
     "rule": "After at least 150 graded domestic matches across at least 3 weeks, roll back the cagey correction D_pow2 if its log loss on AH all lines minus D's, on the same frozen Pinnacle quotes, matches and offers, has a week-resampled 95% interval entirely above zero. Rolling back is setting cagey_correction_config.json cagey_correction_live.domestic to \"D\".",
@@ -99,21 +99,21 @@
   },
   "home_favourites": {
     "all": {
-      "actual_home_win": 0.0,
+      "actual_home_win": 0.25,
       "fixtures": 10,
-      "graded": 3,
+      "graded": 4,
       "picks": 15,
-      "v4_predicted_home_win": 0.5467381661739262,
-      "v5_predicted_home_win": 0.5540049160201397
+      "v4_predicted_home_win": 0.5870367414037448,
+      "v5_predicted_home_win": 0.5963816070863849
     },
     "by_league": {
       "Eredivisie": {
-        "actual_home_win": 0.0,
+        "actual_home_win": 0.25,
         "fixtures": 5,
-        "graded": 3,
+        "graded": 4,
         "picks": 7,
-        "v4_predicted_home_win": 0.5467381661739262,
-        "v5_predicted_home_win": 0.5540049160201397
+        "v4_predicted_home_win": 0.5870367414037448,
+        "v5_predicted_home_win": 0.5963816070863849
       },
       "Super Lig": {
         "actual_home_win": null,
@@ -127,8 +127,8 @@
     "fixtures": [
       {
         "fixture": "Ajax v ADO Den Haag",
-        "graded": false,
-        "home_won": null,
+        "graded": true,
+        "home_won": true,
         "kickoff_utc": "2026-11-22T13:30:00+00:00",
         "league": "Eredivisie",
         "markets": [
@@ -269,19 +269,19 @@
   },
   "rollback": {
     "coverage": {
-      "matches_scored": 36,
+      "matches_scored": 39,
       "offer_out_of_scope:pinnacle draw_no_bet": 4
     },
     "eligible": false,
     "interval_95": null,
     "log_loss": {
-      "v4": 1.0184565615091845,
-      "v5": 1.0249959931193826
+      "v4": 1.023277712561588,
+      "v5": 1.028990428576053
     },
-    "matches": 36,
+    "matches": 39,
     "rule": "After at least 150 graded matches across at least 3 weeks, roll back research v5 if its research log loss on AH all lines minus v4's, on the same frozen inputs, matches and offers, has a week-resampled 95% interval entirely above zero.",
     "triggered": false,
-    "v5_minus_v4_log_loss": 0.006539431610198219,
+    "v5_minus_v4_log_loss": 0.005712716014465074,
     "weeks": 1
   },
   "ucl_live_check": {

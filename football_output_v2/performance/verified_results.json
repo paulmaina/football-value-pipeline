@@ -1605,6 +1605,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "DED:558830": {
+    "away_goals": 5,
+    "away_short_name": "AZ",
+    "away_team": "AZ",
+    "first_verified_at_utc": "2026-11-22T15:30:05Z",
+    "home_goals": 1,
+    "home_short_name": "Sparta",
+    "home_team": "Sparta Rotterdam",
+    "kickoff_utc": "2026-11-22T13:30:00Z",
+    "league_code": "DED",
+    "match_id": 558830,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "DED:558831": {
     "away_goals": 3,
     "away_short_name": "Excelsior",
@@ -1676,6 +1691,21 @@
     "kickoff_utc": "2026-11-21T17:45:00Z",
     "league_code": "DED",
     "match_id": 558835,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "DED:558836": {
+    "away_goals": 0,
+    "away_short_name": "Den Haag",
+    "away_team": "ADO Den Haag",
+    "first_verified_at_utc": "2026-11-22T15:30:05Z",
+    "home_goals": 3,
+    "home_short_name": "Ajax",
+    "home_team": "AFC Ajax",
+    "kickoff_utc": "2026-11-22T13:30:00Z",
+    "league_code": "DED",
+    "match_id": 558836,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
@@ -4547,6 +4577,21 @@
     "kickoff_utc": "2026-11-20T20:00:00Z",
     "league_code": "PD",
     "match_id": 564748,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "PD:564749": {
+    "away_goals": 2,
+    "away_short_name": "Villarreal",
+    "away_team": "Villarreal CF",
+    "first_verified_at_utc": "2026-11-22T15:30:05Z",
+    "home_goals": 3,
+    "home_short_name": "Barça",
+    "home_team": "FC Barcelona",
+    "kickoff_utc": "2026-11-22T13:00:00Z",
+    "league_code": "PD",
+    "match_id": 564749,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
