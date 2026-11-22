@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "bee3ef17fed788c203767d831aef366392d7f09e9dae4a80cdfd41f9f1b691f7",
-  "training_as_of_utc": "2026-11-22T12:22:43.700859+00:00",
+  "training_as_of_utc": "2026-11-22T13:48:21.805085+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 114,
     "bbs_added_results": 4,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_CHRONOLOGICAL_PARTITIONS",
-    "cutoff_utc": "2026-11-22T12:22:43.700859+00:00",
+    "cutoff_utc": "2026-11-22T13:48:21.805085+00:00",
     "observations": 1320,
     "observations_sha256": "1fd9aaef30341ac9378e626a52a95613c18628c84d1d4209c7b849dc06e3d155",
     "eligible_training_matches": 484,
@@ -120,21 +120,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8231045170712171,
-    "audit_candidate_poisson_score": 0.8227835278662969,
-    "audit_gain": 0.0003209892049201857,
-    "audit_gain_lower95": -0.0052926965692662595,
+    "audit_baseline_poisson_score": 0.8231041435738006,
+    "audit_candidate_poisson_score": 0.8227826551652442,
+    "audit_gain": 0.0003214884085563918,
+    "audit_gain_lower95": -0.005291103592542977,
     "audit_baseline_briers": [
-      0.5324488251064864,
-      0.15198105696926117,
-      0.2099556092378394,
-      0.24366972143925417
+      0.532453710371518,
+      0.1519810054626303,
+      0.20995245190133782,
+      0.24366798778875992
     ],
     "audit_candidate_briers": [
-      0.5389433731764474,
-      0.14988232238843285,
-      0.20986726001674177,
-      0.24435613736801146
+      0.5389463959962293,
+      0.14988223789708346,
+      0.2098650024965302,
+      0.24435486854199537
     ],
     "audit_brier_order": [
       "1x2",
@@ -150,10 +150,10 @@
   },
   "training_end": "2026-11-21",
   "fit_success": true,
-  "objective": 1817.2371575593768,
-  "base": 0.14858942461751837,
-  "home_adv": 0.11043135952127613,
-  "rho": -0.01671530799172351,
+  "objective": 1817.0811290983154,
+  "base": 0.14855531844391104,
+  "home_adv": 0.11042992958243515,
+  "rho": -0.01668837600676546,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -187,7 +187,7 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261122T122243700859Z_42fcd19e95d4d7c33017e41a44591adacb9fb7e1fe67a0256e70ece8c9302a3e.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261122T134821805085Z_ce886cbeeee738ea8ac4d7d865a269793adfec36db551e084b92c9c98e49fd24.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
@@ -197,7 +197,7 @@
       "home_team": "Bologna",
       "away_team": "Udinese",
       "kickoff_utc": "2026-11-22T14:00:00+00:00",
-      "status": "NOT_REQUESTED_LOW_CREDITS",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
@@ -210,7 +210,7 @@
       "home_team": "Sassuolo",
       "away_team": "Genoa",
       "kickoff_utc": "2026-11-22T14:00:00+00:00",
-      "status": "NOT_REQUESTED_LOW_CREDITS",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
@@ -257,13 +257,12 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 4,
-  "additional_odds_unrequested_linked_fixtures": 4,
+  "additional_odds_in_window_linked_fixtures": 2,
+  "additional_odds_unrequested_linked_fixtures": 2,
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "ANCHORED_MAIN": 2,
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 3
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 5
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {

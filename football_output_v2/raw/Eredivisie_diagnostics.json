@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "4212daa07980e273b194bddb8e91d18ffccc501ffbaf41c9333976c8348e2d65",
-  "training_as_of_utc": "2026-11-22T12:25:05.835403+00:00",
+  "training_as_of_utc": "2026-11-22T13:50:10.956256+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -59,21 +59,21 @@
     "selected_shrinkage": 40.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.6336617100224139,
-    "audit_candidate_poisson_score": 0.6233544009558001,
-    "audit_gain": 0.010307309066613812,
-    "audit_gain_lower95": -0.00272431674277237,
+    "audit_baseline_poisson_score": 0.6336528982660465,
+    "audit_candidate_poisson_score": 0.6233504120886769,
+    "audit_gain": 0.010302486177369619,
+    "audit_gain_lower95": -0.0027327346502471705,
     "audit_baseline_briers": [
-      0.6301693842848839,
-      0.10638409194749697,
-      0.29567009354407336,
-      0.22767019832925617
+      0.6301662569654269,
+      0.10638454625491617,
+      0.29567173467531405,
+      0.22766725726425874
     ],
     "audit_candidate_briers": [
-      0.6257460462657672,
-      0.1056859456470504,
-      0.29186708720652044,
-      0.22096862091684136
+      0.6257446827038224,
+      0.10568613741857892,
+      0.29186796930403763,
+      0.220967494836461
     ],
     "audit_brier_order": [
       "1x2",
@@ -87,10 +87,10 @@
   },
   "training_end": "2026-11-08",
   "fit_success": true,
-  "objective": 1628.5383267764182,
-  "base": 0.29741962334058714,
-  "home_adv": 0.18435363623983936,
-  "rho": -0.07639709166575288,
+  "objective": 1628.3993985224633,
+  "base": 0.29741970748478697,
+  "home_adv": 0.18435362030452468,
+  "rho": -0.07639700041174048,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -118,7 +118,7 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 3,
+  "live_odds_matched": 1,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
@@ -127,32 +127,6 @@
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
-    {
-      "fixture_id": "b192dbcfd675d0ee75492948b7d2a35f",
-      "event_id": "b192dbcfd675d0ee75492948b7d2a35f",
-      "home_team": "Ajax",
-      "away_team": "ADO Den Haag",
-      "kickoff_utc": "2026-11-22T13:30:00+00:00",
-      "status": "NOT_REQUESTED_LOW_CREDITS",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "8e33c1a370f9763723426e4f0aa0fdd0",
-      "event_id": "8e33c1a370f9763723426e4f0aa0fdd0",
-      "home_team": "Sparta Rotterdam",
-      "away_team": "AZ Alkmaar",
-      "kickoff_utc": "2026-11-22T13:30:00+00:00",
-      "status": "NOT_REQUESTED_LOW_CREDITS",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
     {
       "fixture_id": "f0c241457472f32fc55b90b2b95b665b",
       "event_id": "f0c241457472f32fc55b90b2b95b665b",
@@ -167,19 +141,19 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 3,
-  "additional_odds_unrequested_linked_fixtures": 3,
+  "additional_odds_in_window_linked_fixtures": 1,
+  "additional_odds_unrequested_linked_fixtures": 1,
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 3
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 3
+    "none": 1
   },
   "legacy_comparison_status": {
-    "None": 3
+    "None": 1
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
