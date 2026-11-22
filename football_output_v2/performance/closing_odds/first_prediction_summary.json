@@ -5,32 +5,32 @@
       "covered_selections": 35,
       "mean_fair_close_ev": -0.019700242598333494,
       "mean_same_book_offered_price_clv": 0.020653396437256083,
-      "missing_selections": 458,
-      "pending_selections": 14,
+      "missing_selections": 462,
+      "pending_selections": 10,
       "positive_fair_close_ev": 9
     },
     "bet365": {
       "covered_selections": 0,
       "mean_fair_close_ev": null,
       "mean_same_book_offered_price_clv": null,
-      "missing_selections": 493,
-      "pending_selections": 14,
+      "missing_selections": 497,
+      "pending_selections": 10,
       "positive_fair_close_ev": 0
     },
     "pinnacle": {
-      "covered_selections": 151,
-      "mean_fair_close_ev": -0.025481344063765135,
-      "mean_same_book_offered_price_clv": -0.006396187557287611,
+      "covered_selections": 155,
+      "mean_fair_close_ev": -0.025743996783628216,
+      "mean_same_book_offered_price_clv": -0.0071071736161810875,
       "missing_selections": 342,
-      "pending_selections": 14,
+      "pending_selections": 10,
       "positive_fair_close_ev": 23
     }
   },
   "frozen_selections": 507,
   "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
-  "observations": 512,
+  "observations": 513,
   "rejected_files": [],
-  "reviewed_at_utc": "2026-11-22T16:24:39.551636+00:00",
+  "reviewed_at_utc": "2026-11-22T16:54:45.407455+00:00",
   "tracking_basis": "FIRST_PREMATCH_PER_FIXTURE",
   "version": "local-closing-quotes-v4"
 }
