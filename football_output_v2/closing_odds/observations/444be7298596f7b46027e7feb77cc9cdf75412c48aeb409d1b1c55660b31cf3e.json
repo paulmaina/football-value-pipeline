@@ -1,0 +1,358 @@
+{
+  "fixture": {
+    "away_team": "Inter Milan",
+    "home_team": "Atalanta BC",
+    "kickoff_utc": "2026-11-22T19:45:00+00:00",
+    "league": "Serie A",
+    "odds_event_id": "e22f82b10fe71d230248b88fef87e58f"
+  },
+  "observed_at_utc": "2026-11-22T19:39:34.713401+00:00",
+  "payload": {
+    "away_team": "Inter Milan",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-22T19:39:30Z",
+            "outcomes": [
+              {
+                "name": "Atalanta BC",
+                "price": 5.4
+              },
+              {
+                "name": "Inter Milan",
+                "price": 1.58
+              },
+              {
+                "name": "Draw",
+                "price": 4.7
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-22T19:39:30Z",
+            "outcomes": [
+              {
+                "name": "Atalanta BC",
+                "point": 1.0,
+                "price": 1.97
+              },
+              {
+                "name": "Inter Milan",
+                "point": -1.0,
+                "price": 1.95
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-22T19:39:30Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 1.88
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 2.02
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-22T19:39:30Z",
+            "outcomes": [
+              {
+                "name": "Atalanta BC",
+                "point": 1.0,
+                "price": 1.97
+              },
+              {
+                "name": "Atalanta BC",
+                "point": 0.0,
+                "price": 4.24
+              },
+              {
+                "name": "Atalanta BC",
+                "point": 0.25,
+                "price": 3.06
+              },
+              {
+                "name": "Atalanta BC",
+                "point": 0.5,
+                "price": 2.51
+              },
+              {
+                "name": "Atalanta BC",
+                "point": 0.75,
+                "price": 2.24
+              },
+              {
+                "name": "Atalanta BC",
+                "point": 1.25,
+                "price": 1.74
+              },
+              {
+                "name": "Atalanta BC",
+                "point": 1.5,
+                "price": 1.6
+              },
+              {
+                "name": "Atalanta BC",
+                "point": 1.75,
+                "price": 1.45
+              },
+              {
+                "name": "Atalanta BC",
+                "point": 2.0,
+                "price": 1.31
+              },
+              {
+                "name": "Inter Milan",
+                "point": -1.0,
+                "price": 1.95
+              },
+              {
+                "name": "Inter Milan",
+                "point": -0.0,
+                "price": 1.26
+              },
+              {
+                "name": "Inter Milan",
+                "point": -0.25,
+                "price": 1.42
+              },
+              {
+                "name": "Inter Milan",
+                "point": -0.5,
+                "price": 1.59
+              },
+              {
+                "name": "Inter Milan",
+                "point": -0.75,
+                "price": 1.72
+              },
+              {
+                "name": "Inter Milan",
+                "point": -1.25,
+                "price": 2.21
+              },
+              {
+                "name": "Inter Milan",
+                "point": -1.5,
+                "price": 2.49
+              },
+              {
+                "name": "Inter Milan",
+                "point": -1.75,
+                "price": 2.93
+              },
+              {
+                "name": "Inter Milan",
+                "point": -2.0,
+                "price": 3.76
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-22T19:39:32Z",
+            "outcomes": [
+              {
+                "name": "Atalanta BC",
+                "price": 4.26
+              },
+              {
+                "name": "Inter Milan",
+                "price": 1.25
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-22T19:45:00Z",
+    "home_team": "Atalanta BC",
+    "id": "e22f82b10fe71d230248b88fef87e58f",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.4,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.17490866522432877,
+      "selection": "home",
+      "updated_at_utc": "2026-11-22T19:39:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.7,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.20190567341014856,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-22T19:39:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.58,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6231856613655227,
+      "selection": "away",
+      "updated_at_utc": "2026-11-22T19:39:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.95,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.00",
+      "updated_at_utc": "2026-11-22T19:39:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.97,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.00",
+      "updated_at_utc": "2026-11-22T19:39:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.76,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -2.00",
+      "updated_at_utc": "2026-11-22T19:39:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.93,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.75",
+      "updated_at_utc": "2026-11-22T19:39:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.49,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.50",
+      "updated_at_utc": "2026-11-22T19:39:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.21,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.25",
+      "updated_at_utc": "2026-11-22T19:39:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.72,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-22T19:39:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.59,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-22T19:39:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.42,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-22T19:39:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.25,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-22T19:39:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.26,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-22T19:39:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.06,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-22T19:39:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.51,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-22T19:39:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.24,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-22T19:39:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.74,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.25",
+      "updated_at_utc": "2026-11-22T19:39:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.50",
+      "updated_at_utc": "2026-11-22T19:39:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.45,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.75",
+      "updated_at_utc": "2026-11-22T19:39:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.31,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +2.00",
+      "updated_at_utc": "2026-11-22T19:39:30+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
