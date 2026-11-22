@@ -1,0 +1,358 @@
+{
+  "fixture": {
+    "away_team": "Atl\u00e9tico Madrid",
+    "home_team": "Getafe",
+    "kickoff_utc": "2026-11-22T20:00:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "7a62fe738bd20cfff6027c52fec05d51"
+  },
+  "observed_at_utc": "2026-11-22T19:54:37.881132+00:00",
+  "payload": {
+    "away_team": "Atl\u00e9tico Madrid",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-22T19:54:32Z",
+            "outcomes": [
+              {
+                "name": "Atl\u00e9tico Madrid",
+                "price": 1.54
+              },
+              {
+                "name": "Getafe",
+                "price": 7.15
+              },
+              {
+                "name": "Draw",
+                "price": 4.1
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-22T19:54:32Z",
+            "outcomes": [
+              {
+                "name": "Atl\u00e9tico Madrid",
+                "point": -1.0,
+                "price": 2.0
+              },
+              {
+                "name": "Getafe",
+                "point": 1.0,
+                "price": 1.93
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-22T19:54:32Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 1.93
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 1.98
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-22T19:54:32Z",
+            "outcomes": [
+              {
+                "name": "Atl\u00e9tico Madrid",
+                "point": -1.0,
+                "price": 2.0
+              },
+              {
+                "name": "Atl\u00e9tico Madrid",
+                "point": -0.0,
+                "price": 1.18
+              },
+              {
+                "name": "Atl\u00e9tico Madrid",
+                "point": -0.25,
+                "price": 1.36
+              },
+              {
+                "name": "Atl\u00e9tico Madrid",
+                "point": -0.5,
+                "price": 1.54
+              },
+              {
+                "name": "Atl\u00e9tico Madrid",
+                "point": -0.75,
+                "price": 1.7
+              },
+              {
+                "name": "Atl\u00e9tico Madrid",
+                "point": -1.25,
+                "price": 2.36
+              },
+              {
+                "name": "Atl\u00e9tico Madrid",
+                "point": -1.5,
+                "price": 2.74
+              },
+              {
+                "name": "Atl\u00e9tico Madrid",
+                "point": -1.75,
+                "price": 3.38
+              },
+              {
+                "name": "Atl\u00e9tico Madrid",
+                "point": -2.0,
+                "price": 4.81
+              },
+              {
+                "name": "Getafe",
+                "point": 1.0,
+                "price": 1.93
+              },
+              {
+                "name": "Getafe",
+                "point": 0.0,
+                "price": 5.46
+              },
+              {
+                "name": "Getafe",
+                "point": 0.25,
+                "price": 3.4
+              },
+              {
+                "name": "Getafe",
+                "point": 0.5,
+                "price": 2.65
+              },
+              {
+                "name": "Getafe",
+                "point": 0.75,
+                "price": 2.28
+              },
+              {
+                "name": "Getafe",
+                "point": 1.25,
+                "price": 1.66
+              },
+              {
+                "name": "Getafe",
+                "point": 1.5,
+                "price": 1.51
+              },
+              {
+                "name": "Getafe",
+                "point": 1.75,
+                "price": 1.36
+              },
+              {
+                "name": "Getafe",
+                "point": 2.0,
+                "price": 1.22
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-22T19:47:15Z",
+            "outcomes": [
+              {
+                "name": "Atl\u00e9tico Madrid",
+                "price": 1.18
+              },
+              {
+                "name": "Getafe",
+                "price": 5.43
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-22T20:00:00Z",
+    "home_team": "Getafe",
+    "id": "7a62fe738bd20cfff6027c52fec05d51",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 7.15,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.12986437003572507,
+      "selection": "home",
+      "updated_at_utc": "2026-11-22T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.1,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.23126857553632252,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-22T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.54,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6388670544279524,
+      "selection": "away",
+      "updated_at_utc": "2026-11-22T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.0,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.00",
+      "updated_at_utc": "2026-11-22T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.93,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.00",
+      "updated_at_utc": "2026-11-22T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.81,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -2.00",
+      "updated_at_utc": "2026-11-22T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.38,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.75",
+      "updated_at_utc": "2026-11-22T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.74,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.50",
+      "updated_at_utc": "2026-11-22T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.36,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.25",
+      "updated_at_utc": "2026-11-22T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-22T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.54,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-22T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.36,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-22T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.18,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-22T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.46,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-22T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.4,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-22T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.65,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-22T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.28,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-22T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.66,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.25",
+      "updated_at_utc": "2026-11-22T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.51,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.50",
+      "updated_at_utc": "2026-11-22T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.36,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.75",
+      "updated_at_utc": "2026-11-22T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.22,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +2.00",
+      "updated_at_utc": "2026-11-22T19:54:32+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
