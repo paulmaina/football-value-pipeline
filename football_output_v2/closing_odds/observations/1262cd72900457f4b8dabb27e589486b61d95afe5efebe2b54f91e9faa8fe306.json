@@ -1,0 +1,344 @@
+{
+  "fixture": {
+    "away_team": "Fortuna Sittard",
+    "home_team": "Go Ahead Eagles",
+    "kickoff_utc": "2026-11-22T15:45:00+00:00",
+    "league": "Eredivisie",
+    "odds_event_id": "f0c241457472f32fc55b90b2b95b665b"
+  },
+  "observed_at_utc": "2026-11-22T15:39:18.317619+00:00",
+  "payload": {
+    "away_team": "Fortuna Sittard",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-22T15:39:07Z",
+            "outcomes": [
+              {
+                "name": "Fortuna Sittard",
+                "price": 4.8
+              },
+              {
+                "name": "Go Ahead Eagles",
+                "price": 1.71
+              },
+              {
+                "name": "Draw",
+                "price": 4.17
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-22T15:39:07Z",
+            "outcomes": [
+              {
+                "name": "Fortuna Sittard",
+                "point": 0.75,
+                "price": 2.0
+              },
+              {
+                "name": "Go Ahead Eagles",
+                "point": -0.75,
+                "price": 1.9
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-22T15:39:07Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.88
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 2.02
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-22T15:39:07Z",
+            "outcomes": [
+              {
+                "name": "Fortuna Sittard",
+                "point": 0.75,
+                "price": 2.0
+              },
+              {
+                "name": "Fortuna Sittard",
+                "point": 1.75,
+                "price": 1.33
+              },
+              {
+                "name": "Fortuna Sittard",
+                "point": 1.5,
+                "price": 1.45
+              },
+              {
+                "name": "Fortuna Sittard",
+                "point": 1.25,
+                "price": 1.56
+              },
+              {
+                "name": "Fortuna Sittard",
+                "point": 1.0,
+                "price": 1.73
+              },
+              {
+                "name": "Fortuna Sittard",
+                "point": 0.5,
+                "price": 2.26
+              },
+              {
+                "name": "Fortuna Sittard",
+                "point": 0.25,
+                "price": 2.72
+              },
+              {
+                "name": "Fortuna Sittard",
+                "point": -0.0,
+                "price": 3.68
+              },
+              {
+                "name": "Fortuna Sittard",
+                "point": -0.25,
+                "price": 4.21
+              },
+              {
+                "name": "Go Ahead Eagles",
+                "point": -0.75,
+                "price": 1.9
+              },
+              {
+                "name": "Go Ahead Eagles",
+                "point": -1.75,
+                "price": 3.5
+              },
+              {
+                "name": "Go Ahead Eagles",
+                "point": -1.5,
+                "price": 2.87
+              },
+              {
+                "name": "Go Ahead Eagles",
+                "point": -1.25,
+                "price": 2.55
+              },
+              {
+                "name": "Go Ahead Eagles",
+                "point": -1.0,
+                "price": 2.22
+              },
+              {
+                "name": "Go Ahead Eagles",
+                "point": -0.5,
+                "price": 1.7
+              },
+              {
+                "name": "Go Ahead Eagles",
+                "point": -0.25,
+                "price": 1.51
+              },
+              {
+                "name": "Go Ahead Eagles",
+                "point": 0.0,
+                "price": 1.31
+              },
+              {
+                "name": "Go Ahead Eagles",
+                "point": 0.25,
+                "price": 1.25
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-22T15:45:00Z",
+    "home_team": "Go Ahead Eagles",
+    "id": "f0c241457472f32fc55b90b2b95b665b",
+    "sport_key": "soccer_netherlands_eredivisie",
+    "sport_title": "Dutch Eredivisie"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.71,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5741654861453407,
+      "selection": "home",
+      "updated_at_utc": "2026-11-22T15:39:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.17,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2283808636347603,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-22T15:39:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.8,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.19745365021989902,
+      "selection": "away",
+      "updated_at_utc": "2026-11-22T15:39:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.0,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-22T15:39:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-22T15:39:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.21,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-22T15:39:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.68,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-22T15:39:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.72,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-22T15:39:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.26,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-22T15:39:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.73,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-22T15:39:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.56,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-22T15:39:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.45,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-22T15:39:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.33,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-11-22T15:39:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.5,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-11-22T15:39:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.87,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-22T15:39:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.55,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-22T15:39:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.22,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-22T15:39:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-22T15:39:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.51,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-22T15:39:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.31,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-22T15:39:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.25,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-22T15:39:07+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
