@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "9bfb0165e77d1ec7f9d297bfa1c0d67a0ea65d74e20989c0706486606788e32e",
-  "training_as_of_utc": "2026-11-22T12:19:31.261326+00:00",
+  "training_as_of_utc": "2026-11-22T13:46:08.917846+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 107,
     "bbs_added_results": 7,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-22T12:19:31.261326+00:00",
+    "cutoff_utc": "2026-11-22T13:46:08.917846+00:00",
     "observations": 1286,
     "observations_sha256": "654562ad36d24076373e2f701f8069f4f5870ea462c8a98be5f8b5d6ffbae371",
     "eligible_training_matches": 585,
@@ -154,21 +154,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.9581226528599249,
-    "audit_candidate_poisson_score": 0.9428766716186872,
-    "audit_gain": 0.015245981241237772,
-    "audit_gain_lower95": 0.004031200328550729,
+    "audit_baseline_poisson_score": 0.9580989823048095,
+    "audit_candidate_poisson_score": 0.942860880078589,
+    "audit_gain": 0.015238102226220462,
+    "audit_gain_lower95": 0.004022420957729827,
     "audit_baseline_briers": [
-      0.6401824421807938,
-      0.1688562618511259,
-      0.21821697118089006,
-      0.26675730596250047
+      0.6401705087130807,
+      0.1688646176312766,
+      0.21821366231670683,
+      0.26674906493550843
     ],
     "audit_candidate_briers": [
-      0.6374043099995069,
-      0.1680959568651413,
-      0.21648687540273487,
-      0.2619892063731137
+      0.637398791337325,
+      0.16810198761585565,
+      0.21648271592237023,
+      0.2619832716602162
     ],
     "audit_brier_order": [
       "1x2",
@@ -180,10 +180,10 @@
   },
   "training_end": "2026-11-21",
   "fit_success": true,
-  "objective": 1883.0229506256014,
-  "base": 0.2133953376573822,
-  "home_adv": 0.1832982904755412,
-  "rho": -0.057734406889261645,
+  "objective": 1882.8594166612038,
+  "base": 0.21331871531785795,
+  "home_adv": 0.18326548679181434,
+  "rho": -0.057809983908047334,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -217,7 +217,7 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261122T121931261326Z_a1e36169a4a8c45db046459fb47401c605b7412515f64d9fa556dc280a98012e.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261122T134608917846Z_45bc6b10b9cb0679903f001d862cda9982683c14278b98c1d19dfa61a8d33623.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
@@ -227,7 +227,7 @@
       "home_team": "Hull City",
       "away_team": "Brighton and Hove Albion",
       "kickoff_utc": "2026-11-22T14:00:00+00:00",
-      "status": "NOT_REQUESTED_LOW_CREDITS",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
@@ -261,8 +261,8 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 2,
-  "additional_odds_unrequested_linked_fixtures": 2,
+  "additional_odds_in_window_linked_fixtures": 1,
+  "additional_odds_unrequested_linked_fixtures": 1,
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {

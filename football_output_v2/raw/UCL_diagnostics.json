@@ -9,7 +9,7 @@
     "2026"
   ],
   "training_sha256": "2e53e07ec93fbc85a77bab876d560e3a76dccc9dff8eb6e9d365dbf5860738bf",
-  "training_as_of_utc": "2026-11-22T12:24:53.265627+00:00",
+  "training_as_of_utc": "2026-11-22T13:50:00.663821+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 72,
     "bbs_added_results": 0,
@@ -33,7 +33,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-11-22T12:24:53.265627+00:00",
+    "cutoff_utc": "2026-11-22T13:50:00.663821+00:00",
     "observations": 752,
     "observations_sha256": "1cf59593a904cb21d7b598a2bd8c803546e79e04d5ed8a3e9b5fb5925992d840",
     "eligible_training_matches": 83,
@@ -107,9 +107,9 @@
   },
   "training_end": "2026-11-04",
   "fit_success": true,
-  "objective": 843.6054041553532,
-  "base": 0.2246902563765018,
-  "home_adv": 0.2920358300810691,
+  "objective": 843.5335374622734,
+  "base": 0.2246249300926809,
+  "home_adv": 0.29207982767100354,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -135,7 +135,7 @@
     "source_schedule_matches": 144,
     "provider": "football-data.org",
     "season_start": 2026,
-    "checked_at_utc": "2026-11-22T12:24:53.265627+00:00",
+    "checked_at_utc": "2026-11-22T13:50:00.663821+00:00",
     "download_status": "VERIFIED_LIVE",
     "added_matches": 0,
     "corrected_scores": 0,
@@ -162,7 +162,7 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261122T122453265627Z_0dc12c13f44f92843c60907955bbb3fa57cbab4ce132d025b499ece67c27435a.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261122T135000663821Z_5fa0747be9949b5fcc573155e25d68b2242dd3a7b6f6d2f5c63b4307212c02da.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
