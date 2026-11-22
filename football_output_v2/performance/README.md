@@ -17,10 +17,10 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 
 | View | With a close | Mean CLV | 95% interval | Beat the close | Settled | Return per unit | 95% interval |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| per pick | 145 | -2.0% | -2.8% to -1.2% | 26% | 403 | +2.5% | -3.9% to +8.9% |
-| per fixture (a match's picks averaged) | 93 | -1.7% | -2.8% to -0.6% | 27% | 186 | +1.6% | -5.8% to +9.0% |
+| per pick | 145 | -2.0% | -2.8% to -1.2% | 26% | 455 | +3.3% | -2.7% to +9.3% |
+| per fixture (a match's picks averaged) | 93 | -1.7% | -2.8% to -0.6% | 27% | 213 | +2.7% | -4.3% to +9.7% |
 
-492 picks on 236 matches. A match can hold several picks (one per market group); the per-fixture row averages them, so each match counts once. Closing-line value (CLV) leads because it is the less noisy measure: it compares the frozen price with the Pinnacle fair close and does not wait for results. Returns come second: with few matches they are mostly luck. Intervals are mean ± 1.96 standard errors, clustered by fixture. Near-kickoff feed quotes are not verified official closing prices.
+507 picks on 243 matches. A match can hold several picks (one per market group); the per-fixture row averages them, so each match counts once. Closing-line value (CLV) leads because it is the less noisy measure: it compares the frozen price with the Pinnacle fair close and does not wait for results. Returns come second: with few matches they are mostly luck. Intervals are mean ± 1.96 standard errors, clustered by fixture. Near-kickoff feed quotes are not verified official closing prices.
 
 ## Research v5 (C6) rollback check
 
@@ -28,7 +28,7 @@ Released on 14 Nov 2026 without holdout proof (Paul's exception). After at least
 
 | Graded matches | Weeks | v5 − v4 log loss (AH all) | 95% interval | Status |
 |---|---|---|---|---|
-| 7 | 1 | +0.00881 | — | not yet eligible (needs 150 matches and 3 weeks) |
+| 34 | 1 | +0.00726 | — | not yet eligible (needs 150 matches and 3 weeks) |
 
 ## Home favourites in Eredivisie, Primeira Liga and Süper Lig (v5 value picks)
 
@@ -36,9 +36,9 @@ C6 was too confident on these leagues' home sides in the holdout (home slope 0.7
 
 | League | Matches | Picks | Graded | v5 predicted home win | v4 on the same forecasts | Actual home win |
 |---|---|---|---|---|---|---|
-| Eredivisie | 4 | 5 | 0 | — | — | — |
+| Eredivisie | 5 | 7 | 3 | 55.4% | 54.7% | 0.0% |
 | Super Lig | 5 | 8 | 0 | — | — | — |
-| All three | 9 | 13 | 0 | — | — | — |
+| All three | 10 | 15 | 3 | 55.4% | 54.7% | 0.0% |
 
 ## Research v6 (CE3n, UCL/UEL) rollback check
 
@@ -64,7 +64,9 @@ By competition (reported; a competition whose interval is entirely above zero be
 
 ### UCL live check of research v6 (until a run passes)
 
-Competition, reviewed team mapping, fit window, CE shadow, frozen replay and "unvalidated view" on the first runs with UCL fixtures (research_live_check). Status: **pending: no UCL forecast under research v6 yet**.
+Competition, reviewed team mapping, fit window, CE shadow, frozen replay and "unvalidated view" on the first runs with UCL fixtures (research_live_check). Status: **failed**.
+
+- 2026-11-22T12:26 UTC, 9 UCL fixtures: failed (fit window: origin 2026-11-02, expected 2026-11-16, stale True; mapping: away side has no European training name; mapping: home side has no European training name)
 
 ## Cagey correction D_pow2 rollback check
 
@@ -72,28 +74,28 @@ Released for domestic leagues on 17 Nov 2026 after passing its declared holdout 
 
 | Graded domestic matches | Weeks | D_pow2 − D log loss (AH all) | 95% interval | Status |
 |---|---|---|---|---|
-| 2 | 1 | +0.01425 | — | not yet eligible (needs 150 matches and 3 weeks) |
+| 7 | 1 | +0.01428 | — | not yet eligible (needs 150 matches and 3 weeks) |
 
 Fallbacks to D: where D_pow2's power grid failed its fit check, the run priced the fixture with D (flagged in cagey_correction_fallback) and the match is left out of the comparison above.
 
 | D_pow2 runs | Domestic fixture forecasts | Priced by D (fallback) | Domestic fixtures | Fixtures with a fallback | Graded matches left out |
 |---|---|---|---|---|---|
-| 11 | 602 | 0 | 66 | 0 | 0 |
+| 12 | 627 | 0 | 66 | 0 | 0 |
 
 ## Cumulative shortlist — latest prediction per match
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| All selections | 403 | 294-106 | 73.0% | +2.5% |
+| All selections | 455 | 327-123 | 71.9% | +3.3% |
 
-Unsettled / unverified entries: **89**.
-Whole-fixture 1X2 multiclass Brier (n=384): 0.5444
+Unsettled / unverified entries: **52**.
+Whole-fixture 1X2 multiclass Brier (n=411): 0.5487
 
 ## First-prediction reference — historical comparison
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| Unique fixtures | 186 | 143-40 | 76.9% | +2.5% |
+| Unique fixtures | 213 | 162-48 | 76.1% | +3.6% |
 
 ## Latest selections by prediction run (generation UTC)
 
@@ -140,23 +142,24 @@ Whole-fixture 1X2 multiclass Brier (n=384): 0.5444
 | 2026-11-08T09:01:04.075316+00:00 | 9 | 7-2 | 77.8% | +13.6% |
 | 2026-11-08T12:20:11.356382+00:00 | 84 | 64-20 | 76.2% | +5.5% |
 | 2026-11-20T14:29:07.564363+00:00 | 1 | 0-1 | 0.0% | -100.0% |
-| 2026-11-20T16:53:14.319920+00:00 | 5 | 2-3 | 40.0% | -47.4% |
-| 2026-11-21T10:01:28.692132+00:00 | 7 | 4-3 | 57.1% | -7.7% |
-| 2026-11-21T14:06:56.472831+00:00 | 0 | 0-0 | — | — |
-| 2026-11-21T16:19:45.112160+00:00 | 0 | 0-0 | — | — |
+| 2026-11-20T16:53:14.319920+00:00 | 13 | 8-5 | 61.5% | -19.4% |
+| 2026-11-21T10:01:28.692132+00:00 | 8 | 5-3 | 62.5% | +5.5% |
+| 2026-11-21T14:06:56.472831+00:00 | 21 | 13-7 | 61.9% | +10.2% |
+| 2026-11-21T16:19:45.112160+00:00 | 22 | 13-8 | 59.1% | +8.8% |
+| 2026-11-22T12:26:43.290856+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | PROVISIONAL | 29 | 20-9 | 69.0% | -9.0% |
-| STRICT | 374 | 274-97 | 73.3% | +3.4% |
+| STRICT | 426 | 307-114 | 72.1% | +4.1% |
 
 ## By policy
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| 48h-ah-price-edge-cagey-v28 | 320 | 233-87 | 72.8% | +2.3% |
+| 48h-ah-price-edge-cagey-v28 | 372 | 266-104 | 71.5% | +3.3% |
 | 48h-top-ten-probability-ev-no-under35-v14 | 9 | 7-2 | 77.8% | +3.6% |
 | 48h-top-twelve-probability-ev-no-under35-v15 | 12 | 8-4 | 66.7% | -11.4% |
 | 48h-top-twelve-profitable-win-probability-v23 | 1 | 1-0 | 100.0% | +15.0% |
@@ -175,37 +178,37 @@ Whole-fixture 1X2 multiclass Brier (n=384): 0.5444
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| Asian Handicap Away +0.00 | 0 | 0-0 | — | — |
-| Asian Handicap Away +0.25 | 14 | 9-5 | 64.3% | -10.3% |
-| Asian Handicap Away +0.50 | 0 | 0-0 | — | — |
-| Asian Handicap Away +0.75 | 0 | 0-0 | — | — |
-| Asian Handicap Away +1.00 | 3 | 2-1 | 66.7% | -2.7% |
-| Asian Handicap Away +1.25 | 25 | 18-7 | 72.0% | -5.3% |
+| Asian Handicap Away +0.00 | 1 | 1-0 | 100.0% | +89.0% |
+| Asian Handicap Away +0.25 | 16 | 11-5 | 68.8% | +2.4% |
+| Asian Handicap Away +0.50 | 4 | 3-1 | 75.0% | +44.5% |
+| Asian Handicap Away +0.75 | 1 | 1-0 | 100.0% | +84.0% |
+| Asian Handicap Away +1.00 | 4 | 2-2 | 50.0% | -27.0% |
+| Asian Handicap Away +1.25 | 26 | 19-7 | 73.1% | -1.3% |
 | Asian Handicap Away +1.50 | 4 | 3-1 | 75.0% | +12.8% |
-| Asian Handicap Away +1.75 | 0 | 0-0 | — | — |
+| Asian Handicap Away +1.75 | 1 | 0-1 | 0.0% | -100.0% |
 | Asian Handicap Away +2.00 | 6 | 4-0 | 66.7% | +24.8% |
-| Asian Handicap Away +2.25 | 11 | 9-2 | 81.8% | +17.0% |
+| Asian Handicap Away +2.25 | 12 | 10-2 | 83.3% | +22.5% |
 | Asian Handicap Away +2.50 | 2 | 1-1 | 50.0% | -40.0% |
 | Asian Handicap Away +2.75 | 0 | 0-0 | — | — |
 | Asian Handicap Away +3.00 | 0 | 0-0 | — | — |
 | Asian Handicap Away -0.25 | 0 | 0-0 | — | — |
 | Asian Handicap Away -0.50 | 0 | 0-0 | — | — |
-| Asian Handicap Away -0.75 | 1 | 1-0 | 100.0% | +50.0% |
+| Asian Handicap Away -0.75 | 2 | 2-0 | 100.0% | +69.5% |
 | Asian Handicap Away -1.00 | 0 | 0-0 | — | — |
 | Asian Handicap Away -1.25 | 0 | 0-0 | — | — |
 | Asian Handicap Away -1.50 | 0 | 0-0 | — | — |
-| Asian Handicap Away -1.75 | 0 | 0-0 | — | — |
+| Asian Handicap Away -1.75 | 1 | 1-0 | 100.0% | +84.0% |
 | Asian Handicap Away -2.00 | 0 | 0-0 | — | — |
 | Asian Handicap Away -2.25 | 0 | 0-0 | — | — |
 | Asian Handicap Away -2.50 | 0 | 0-0 | — | — |
 | Asian Handicap Away -2.75 | 0 | 0-0 | — | — |
 | Asian Handicap Away -3.00 | 0 | 0-0 | — | — |
-| Asian Handicap Home +0.00 | 3 | 2-1 | 66.7% | -14.3% |
-| Asian Handicap Home +0.25 | 10 | 9-1 | 90.0% | +17.4% |
-| Asian Handicap Home +0.50 | 4 | 4-0 | 100.0% | +34.8% |
-| Asian Handicap Home +0.75 | 1 | 1-0 | 100.0% | +28.0% |
-| Asian Handicap Home +1.00 | 3 | 3-0 | 100.0% | +27.0% |
-| Asian Handicap Home +1.25 | 15 | 12-3 | 80.0% | +6.5% |
+| Asian Handicap Home +0.00 | 5 | 4-1 | 80.0% | +27.8% |
+| Asian Handicap Home +0.25 | 11 | 10-1 | 90.9% | +19.5% |
+| Asian Handicap Home +0.50 | 5 | 4-1 | 80.0% | +7.8% |
+| Asian Handicap Home +0.75 | 2 | 2-0 | 100.0% | +55.0% |
+| Asian Handicap Home +1.00 | 5 | 4-0 | 80.0% | +34.8% |
+| Asian Handicap Home +1.25 | 17 | 13-4 | 76.5% | +2.6% |
 | Asian Handicap Home +1.50 | 4 | 1-3 | 25.0% | -63.2% |
 | Asian Handicap Home +1.75 | 0 | 0-0 | — | — |
 | Asian Handicap Home +2.00 | 5 | 3-1 | 60.0% | -0.8% |
@@ -213,19 +216,19 @@ Whole-fixture 1X2 multiclass Brier (n=384): 0.5444
 | Asian Handicap Home +2.50 | 3 | 2-1 | 66.7% | -20.3% |
 | Asian Handicap Home +2.75 | 0 | 0-0 | — | — |
 | Asian Handicap Home +3.00 | 0 | 0-0 | — | — |
-| Asian Handicap Home -0.25 | 0 | 0-0 | — | — |
+| Asian Handicap Home -0.25 | 2 | 0-2 | 0.0% | -75.0% |
 | Asian Handicap Home -0.50 | 3 | 3-0 | 100.0% | +109.3% |
 | Asian Handicap Home -0.75 | 2 | 0-2 | 0.0% | -100.0% |
-| Asian Handicap Home -1.00 | 0 | 0-0 | — | — |
+| Asian Handicap Home -1.00 | 1 | 0-0 | 0.0% | +0.0% |
 | Asian Handicap Home -1.25 | 0 | 0-0 | — | — |
 | Asian Handicap Home -1.50 | 2 | 1-1 | 50.0% | -9.5% |
 | Asian Handicap Home -1.75 | 1 | 0-1 | 0.0% | -100.0% |
-| Asian Handicap Home -2.00 | 0 | 0-0 | — | — |
+| Asian Handicap Home -2.00 | 1 | 0-1 | 0.0% | -100.0% |
 | Asian Handicap Home -2.25 | 0 | 0-0 | — | — |
 | Asian Handicap Home -2.50 | 0 | 0-0 | — | — |
 | Asian Handicap Home -2.75 | 0 | 0-0 | — | — |
 | Asian Handicap Home -3.00 | 0 | 0-0 | — | — |
-| Away win | 32 | 24-8 | 75.0% | +36.4% |
+| Away win | 39 | 29-10 | 74.4% | +31.5% |
 | Both Teams to Score - Yes | 3 | 2-1 | 66.7% | +0.7% |
 | Corners Over 10.5 | 0 | 0-0 | — | — |
 | Corners Over 11.5 | 0 | 0-0 | — | — |
@@ -240,10 +243,10 @@ Whole-fixture 1X2 multiclass Brier (n=384): 0.5444
 | Corners Under 8.5 | 0 | 0-0 | — | — |
 | Corners Under 9.5 | 0 | 0-0 | — | — |
 | Double Chance 12 | 66 | 52-14 | 78.8% | +0.3% |
-| Double Chance 1X | 24 | 20-4 | 83.3% | +1.4% |
-| Double Chance X2 | 16 | 12-4 | 75.0% | +6.5% |
+| Double Chance 1X | 31 | 25-6 | 80.6% | -0.0% |
+| Double Chance X2 | 17 | 13-4 | 76.5% | +7.2% |
 | Draw | 0 | 0-0 | — | — |
-| Home win | 56 | 34-22 | 60.7% | +0.1% |
+| Home win | 66 | 39-27 | 59.1% | -3.5% |
 | Over 1.5 | 73 | 55-18 | 75.3% | -6.9% |
 | Under 3.5 | 5 | 2-3 | 40.0% | -46.0% |
 
@@ -251,13 +254,13 @@ Whole-fixture 1X2 multiclass Brier (n=384): 0.5444
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| Bundesliga | 36 | 31-5 | 86.1% | +18.6% |
-| Eredivisie | 30 | 17-13 | 56.7% | -25.9% |
-| La Liga | 54 | 36-17 | 66.7% | -8.6% |
-| Ligue 1 | 36 | 25-11 | 69.4% | -6.3% |
-| Premier League | 49 | 34-14 | 69.4% | +3.7% |
+| Bundesliga | 48 | 38-9 | 79.2% | +13.8% |
+| Eredivisie | 38 | 21-17 | 55.3% | -21.8% |
+| La Liga | 60 | 40-19 | 66.7% | -7.2% |
+| Ligue 1 | 43 | 30-13 | 69.8% | +0.0% |
+| Premier League | 64 | 44-19 | 68.8% | +4.8% |
 | Primeira Liga | 25 | 20-5 | 80.0% | +17.5% |
-| Serie A | 52 | 39-12 | 75.0% | +7.1% |
+| Serie A | 56 | 42-12 | 75.0% | +9.5% |
 | Super Lig | 35 | 29-6 | 82.9% | +21.8% |
 | UEFA Champions League | 19 | 15-4 | 78.9% | +11.4% |
 | UEFA Europa League | 67 | 48-19 | 71.6% | -2.4% |
@@ -271,7 +274,7 @@ Whole-fixture 1X2 multiclass Brier (n=384): 0.5444
 | 2026-W43 | 41 | 30-11 | 73.2% | +0.5% |
 | 2026-W44 | 13 | 8-2 | 61.5% | +2.6% |
 | 2026-W45 | 307 | 227-80 | 73.9% | +3.7% |
-| 2026-W47 | 13 | 6-7 | 46.2% | -30.1% |
+| 2026-W47 | 65 | 39-24 | 60.0% | +1.5% |
 
 ## Gameweeks: closing-line value first, per pick and per fixture
 
@@ -287,18 +290,18 @@ Whole-fixture 1X2 multiclass Brier (n=384): 0.5444
 | 2026-W44 | per fixture (a match's picks averaged) | 12 | -0.1% | -2.7% to +2.5% | 42% | 13 | +2.6% | -23.3% to +28.5% |
 | 2026-W45 | per pick | 49 | -1.6% | -2.9% to -0.3% | 27% | 307 | +3.7% | -3.8% to +11.1% |
 | 2026-W45 | per fixture (a match's picks averaged) | 19 | -0.2% | -2.2% to +1.7% | 37% | 96 | +2.8% | -5.3% to +10.9% |
-| 2026-W47 | per pick | 40 | -2.3% | -3.1% to -1.6% | 20% | 13 | -30.1% | -68.5% to +8.4% |
-| 2026-W47 | per fixture (a match's picks averaged) | 18 | -2.2% | -3.0% to -1.4% | 6% | 7 | -35.1% | -75.0% to +4.9% |
+| 2026-W47 | per pick | 40 | -2.3% | -3.1% to -1.6% | 20% | 65 | +1.5% | -14.9% to +18.0% |
+| 2026-W47 | per fixture (a match's picks averaged) | 18 | -2.2% | -3.0% to -1.4% | 6% | 34 | +1.0% | -18.8% to +20.7% |
 
 ## Confidence calibration of shortlisted markets
 
 | Forecast bin | Samples | Average forecast | Observed event rate (frozen probability basis) | Binary Brier |
 |---|---:|---:|---:|---:|
-| 0%–50% | 39 | 42.1% | 59.0% | 0.2743 |
-| 50%–60% | 29 | 55.4% | 69.0% | 0.2351 |
-| 60%–70% | 54 | 65.8% | 70.4% | 0.2062 |
-| 70%–80% | 159 | 75.7% | 71.7% | 0.2023 |
-| 80%–90% | 99 | 83.6% | 79.8% | 0.1606 |
+| 0%–50% | 54 | 41.6% | 57.4% | 0.2677 |
+| 50%–60% | 46 | 55.1% | 69.6% | 0.2325 |
+| 60%–70% | 63 | 65.5% | 69.8% | 0.2103 |
+| 70%–80% | 166 | 75.6% | 71.1% | 0.2051 |
+| 80%–90% | 103 | 83.6% | 79.6% | 0.1617 |
 | 90%–100% | 23 | 93.6% | 100.0% | 0.0046 |
 
 Calibration bins report observed outcomes against the originally
@@ -320,18 +323,18 @@ A missing, ambiguous or unverified result is **never called a win**.
 
 | League | Model training end | Matches | Days since result | Source check |
 |---|---|---:|---:|---|
-| Bundesliga | 2026-11-20 | 1614 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| EPL | 2026-11-21 | 2001 | 0 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Eredivisie | 2026-11-08 | 1638 | 13 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| LaLiga | 2026-11-21 | 2021 | 0 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Ligue1 | 2026-11-20 | 1771 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| PrimeiraLiga | 2026-11-08 | 1628 | 13 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SerieA | 2026-11-08 | 2010 | 13 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SuperLig | 2026-11-08 | 1849 | 13 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| UCL | 2026-11-04 | 575 | 17 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
-| UEL | 2026-11-05 | 732 | 16 | VERIFIED_WITHIN_24_HOURS |
+| Bundesliga | 2026-11-21 | 1620 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| EPL | 2026-11-21 | 2007 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Eredivisie | 2026-11-08 | 1638 | 14 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| LaLiga | 2026-11-21 | 2024 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Ligue1 | 2026-11-21 | 1776 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| PrimeiraLiga | 2026-11-08 | 1628 | 14 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SerieA | 2026-11-21 | 2014 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SuperLig | 2026-11-08 | 1849 | 14 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| UCL | 2026-11-04 | 575 | 18 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
+| UEL | 2026-11-05 | 732 | 17 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 48, "exchange_quotes": 0, "missing_quote_age": 48, "quote_age_over_24h": 0, "costs_recorded": 48, "bookmakers": {"Pinnacle": 48}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 48, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 37, "exchange_quotes": 0, "missing_quote_age": 37, "quote_age_over_24h": 0, "costs_recorded": 37, "bookmakers": {"Pinnacle": 37}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 37, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 

@@ -1,26 +1,26 @@
 {
   "cagey": {
     "coverage": {
-      "matches_scored": 2,
-      "not_replayed:no corrected D distribution": 5,
+      "matches_scored": 7,
+      "not_replayed:no corrected D distribution": 27,
       "offer_out_of_scope:pinnacle draw_no_bet": 2
     },
-    "d_pow2_minus_d_log_loss": 0.01424810575217561,
+    "d_pow2_minus_d_log_loss": 0.014283756358602573,
     "eligible": false,
     "fallbacks": {
       "domestic_fixtures": 66,
-      "domestic_records": 602,
+      "domestic_records": 627,
       "fallback_fixtures": 0,
       "fallback_records": 0,
-      "runs": 11
+      "runs": 12
     },
     "graded_fallbacks": 0,
     "interval_95": null,
     "log_loss": {
-      "D": 0.8820181419771234,
-      "D_pow2": 0.8962662477292991
+      "D": 0.9298055341951661,
+      "D_pow2": 0.9440892905537687
     },
-    "matches": 2,
+    "matches": 7,
     "rule": "After at least 150 graded domestic matches across at least 3 weeks, roll back the cagey correction D_pow2 if its log loss on AH all lines minus D's, on the same frozen Pinnacle quotes, matches and offers, has a week-resampled 95% interval entirely above zero. Rolling back is setting cagey_correction_config.json cagey_correction_live.domestic to \"D\".",
     "triggered": false,
     "weeks": 1
@@ -99,21 +99,21 @@
   },
   "home_favourites": {
     "all": {
-      "actual_home_win": null,
-      "fixtures": 9,
-      "graded": 0,
-      "picks": 13,
-      "v4_predicted_home_win": null,
-      "v5_predicted_home_win": null
+      "actual_home_win": 0.0,
+      "fixtures": 10,
+      "graded": 3,
+      "picks": 15,
+      "v4_predicted_home_win": 0.5467381661739262,
+      "v5_predicted_home_win": 0.5540049160201397
     },
     "by_league": {
       "Eredivisie": {
-        "actual_home_win": null,
-        "fixtures": 4,
-        "graded": 0,
-        "picks": 5,
-        "v4_predicted_home_win": null,
-        "v5_predicted_home_win": null
+        "actual_home_win": 0.0,
+        "fixtures": 5,
+        "graded": 3,
+        "picks": 7,
+        "v4_predicted_home_win": 0.5467381661739262,
+        "v5_predicted_home_win": 0.5540049160201397
       },
       "Super Lig": {
         "actual_home_win": null,
@@ -126,9 +126,22 @@
     },
     "fixtures": [
       {
-        "fixture": "Feyenoord v Excelsior",
+        "fixture": "Ajax v ADO Den Haag",
         "graded": false,
         "home_won": null,
+        "kickoff_utc": "2026-11-22T13:30:00+00:00",
+        "league": "Eredivisie",
+        "markets": [
+          "Home win"
+        ],
+        "picks": 1,
+        "v4_p_home": 0.7079324670932009,
+        "v5_p_home": 0.7235116802851204
+      },
+      {
+        "fixture": "Feyenoord v Excelsior",
+        "graded": true,
+        "home_won": false,
         "kickoff_utc": "2026-11-21T17:45:00+00:00",
         "league": "Eredivisie",
         "markets": [
@@ -146,16 +159,17 @@
         "kickoff_utc": "2026-11-22T15:45:00+00:00",
         "league": "Eredivisie",
         "markets": [
+          "Asian Handicap Home -0.50",
           "Home win"
         ],
-        "picks": 1,
-        "v4_p_home": 0.477083483633898,
-        "v5_p_home": 0.48103441140650643
+        "picks": 2,
+        "v4_p_home": 0.4770835759655672,
+        "v5_p_home": 0.48103451395377805
       },
       {
         "fixture": "SC Telstar v FC Zwolle",
-        "graded": false,
-        "home_won": null,
+        "graded": true,
+        "home_won": false,
         "kickoff_utc": "2026-11-21T20:00:00+00:00",
         "league": "Eredivisie",
         "markets": [
@@ -167,8 +181,8 @@
       },
       {
         "fixture": "FC Utrecht v SC Cambuur",
-        "graded": false,
-        "home_won": null,
+        "graded": true,
+        "home_won": false,
         "kickoff_utc": "2026-11-21T17:45:00+00:00",
         "league": "Eredivisie",
         "markets": [
@@ -230,8 +244,8 @@
           "Home win"
         ],
         "picks": 2,
-        "v4_p_home": 0.5337669516097686,
-        "v5_p_home": 0.5429214734413884
+        "v4_p_home": 0.5337766610889291,
+        "v5_p_home": 0.5429318796089154
       },
       {
         "fixture": "Trabzonspor v Eyüpspor",
@@ -255,25 +269,46 @@
   },
   "rollback": {
     "coverage": {
-      "matches_scored": 7,
+      "matches_scored": 34,
       "offer_out_of_scope:pinnacle draw_no_bet": 4
     },
     "eligible": false,
     "interval_95": null,
     "log_loss": {
-      "v4": 0.8705461912782632,
-      "v5": 0.8793545032082458
+      "v4": 1.0358802822476996,
+      "v5": 1.0431435395278996
     },
-    "matches": 7,
+    "matches": 34,
     "rule": "After at least 150 graded matches across at least 3 weeks, roll back research v5 if its research log loss on AH all lines minus v4's, on the same frozen inputs, matches and offers, has a week-resampled 95% interval entirely above zero.",
     "triggered": false,
-    "v5_minus_v4_log_loss": 0.008808311929982668,
+    "v5_minus_v4_log_loss": 0.007263257280200162,
     "weeks": 1
   },
   "ucl_live_check": {
     "passed_on": null,
-    "runs": [],
-    "status": "pending: no UCL forecast under research v6 yet",
+    "runs": [
+      {
+        "checks": {
+          "ce_shadow": true,
+          "competition": true,
+          "fit_window": false,
+          "frozen_replay": true,
+          "mapping": false,
+          "unvalidated_view": null
+        },
+        "domestic_used": 6,
+        "generated_at_utc": "2026-11-22T12:26:43.290856+00:00",
+        "problems": [
+          "fit window: origin 2026-11-02, expected 2026-11-16, stale True",
+          "mapping: away side has no European training name",
+          "mapping: home side has no European training name"
+        ],
+        "snapshot": "798f4423ef75c577030b9075276c80910985291f",
+        "status": "failed",
+        "ucl_fixtures": 9
+      }
+    ],
+    "status": "failed",
     "version": "ce3n-ucl-live-check-v1"
   },
   "version": "research-v5-v6-monitoring-v1"
