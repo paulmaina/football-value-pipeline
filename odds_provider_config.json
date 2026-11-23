@@ -1,0 +1,46 @@
+{
+  "schema": "odds-provider-config-v1",
+  "enabled": false,
+  "note": "Off by default: with enabled false nothing reads this file beyond the switch, and every output is byte-identical to before. Order: pinnapi, then pinnodds, then The Odds API as the final fallback only (called for a request only when both kit providers failed for it). See docs/odds-providers.md, including the terms check before turning this on.",
+  "order": ["pinnapi", "pinnodds", "the-odds-api"],
+  "providers": {
+    "pinnapi": {
+      "api": "pinnacle-kit-v1",
+      "base_url": "https://pinnapi.com",
+      "key_env": "PINNAPI_API_KEY",
+      "plan": "free",
+      "daily_allowance": 100,
+      "timeout_seconds": 15
+    },
+    "pinnodds": {
+      "api": "pinnacle-kit-v1",
+      "base_url": "https://pinnodds.com",
+      "key_env": "PINNODDS_API_KEY",
+      "plan": "free",
+      "daily_allowance": 100,
+      "timeout_seconds": 15
+    },
+    "the-odds-api": {
+      "api": "the-odds-api-v4",
+      "key_env": ["THE_ODDS_API_KEY", "THE_ODDS_API_KEY_FALLBACK_1", "THE_ODDS_API_KEY_FALLBACK_2"]
+    }
+  },
+  "board_ttl_seconds": 60,
+  "leagues": {
+    "EPL": {"pinnacle_league_names": ["England - Premier League"], "pinnacle_league_ids": []},
+    "LaLiga": {"pinnacle_league_names": ["Spain - La Liga"], "pinnacle_league_ids": []},
+    "Bundesliga": {"pinnacle_league_names": ["Germany - Bundesliga"], "pinnacle_league_ids": []},
+    "SerieA": {"pinnacle_league_names": ["Italy - Serie A"], "pinnacle_league_ids": []},
+    "Ligue1": {"pinnacle_league_names": ["France - Ligue 1"], "pinnacle_league_ids": []},
+    "UCL": {"pinnacle_league_names": ["UEFA - Champions League"], "pinnacle_league_ids": []},
+    "UEL": {"pinnacle_league_names": ["UEFA - Europa League"], "pinnacle_league_ids": []},
+    "Eredivisie": {"pinnacle_league_names": ["Netherlands - Eredivisie"], "pinnacle_league_ids": []},
+    "PrimeiraLiga": {"pinnacle_league_names": ["Portugal - Primeira Liga", "Portugal - Liga Portugal"], "pinnacle_league_ids": []},
+    "SuperLig": {"pinnacle_league_names": ["Turkey - Super League"], "pinnacle_league_ids": []}
+  },
+  "leagues_verified": true,
+  "price_tolerance": {
+    "decimal_odds_relative": 0.02,
+    "note": "Cross-provider check (scripts/odds_provider_compare.py): for a fixture every provider quotes, each shared Pinnacle price must agree within 2% of the lower price. Quotes are fetched seconds apart, so a line that moved in between can differ; the report lists every difference."
+  }
+}
