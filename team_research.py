@@ -91,6 +91,8 @@ HISTORY_ALIASES = {
     'PrimeiraLiga': {'Braga': 'Sp Braga', 'CD Nacional': 'Nacional', 'CD Santa Clara': 'Santa Clara',
                      'CS Maritimo': 'Maritimo', 'CS Marítimo': 'Maritimo', 'Sport Lisboa e Benfica': 'Benfica'},
     'SerieA': {'Atalanta BC': 'Atalanta'},
+    # UCL live check, 22-23 Nov 2026: the fixture names against the UCL training names.
+    'UCL': {'LASK': 'LASK Linz', 'Club Brugge': 'Club Brugge KV'},
 }
 ESPN = 'https://site.api.espn.com/apis/site/v2/sports/soccer/'
 LEAGUES = {'Premier League': 'eng.1', 'La Liga': 'esp.1', 'Bundesliga': 'ger.1',
