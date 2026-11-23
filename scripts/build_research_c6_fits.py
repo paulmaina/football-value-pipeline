@@ -20,8 +20,9 @@ only: no odds, market fits or published grid reach the fits.
     python scripts/build_research_c6_fits.py --basis harness          # the locked harness fits (harness end)
     python scripts/build_research_c6_fits.py --scheduled --publish    # the fortnightly GitHub refresh
 
-The scheduled refresh (.github/workflows/research-c6-fits.yml) runs every Monday and builds only on fold
-origins (every second Monday). It publishes only if the training cache was checked at least 12 hours after
+The scheduled refresh (.github/workflows/research-c6-fits.yml) runs every day and builds whenever the committed
+fit lacks the window holding today (since 23 Nov 2026; before, only on the fold origin's own UTC day, so a run
+GitHub started after midnight missed the 16 Nov 2026 window). It publishes only if the training cache was checked at least 12 hours after
 the origin (so the weekend's results are in), the new file keeps every earlier window and it holds the
 window opening today. Any failure leaves the committed fit in place, and live forecasts warn that their fit
 is stale until a refresh succeeds.
@@ -322,6 +323,22 @@ def write_summary(lines):
             handle.write(text)
 
 
+def committed_origin(path) -> pd.Timestamp | None:
+    """The latest window origin in a committed fit file, or None (no file, unreadable, no windows)."""
+    import model_activity as ma
+    windows = (ma.committed(path) or {}).get('windows') or []
+    try:
+        return pd.Timestamp(windows[-1]['origin'])
+    except (KeyError, TypeError, ValueError, IndexError):
+        return None
+
+
+def current(path, origin) -> bool:
+    """True when the committed fit already holds the window opening at `origin` (or a later one)."""
+    latest = committed_origin(path)
+    return latest is not None and latest >= origin
+
+
 def main(argv=None):
     import evaluation_harness as eh
     import model_activity as ma
@@ -336,7 +353,8 @@ def main(argv=None):
                                                 'refresh status)')
     parser.add_argument('--output', type=Path)
     parser.add_argument('--workers', type=int)
-    parser.add_argument('--scheduled', action='store_true', help='live: build only on a fold origin (every second Monday)')
+    parser.add_argument('--scheduled', action='store_true',
+                        help='live: build only when the committed fit lacks the window holding today')
     parser.add_argument('--publish', action='store_true', help='live: validate and commit the file on latest main')
     args = parser.parse_args(argv)
     cfg = json.loads(eh.CONFIG.read_text(encoding='utf-8'))
@@ -353,11 +371,12 @@ def main(argv=None):
         return 0
     today = pd.Timestamp(args.today or datetime.now(timezone.utc).date().isoformat())
     origin = c6.expected_origin(today, fold_rule(cfg))
-    if args.scheduled and origin != today:
+    if args.scheduled and current(c6.FITS, origin):
         upcoming = origin + pd.Timedelta(days=int(cfg['step_days']))
-        text = f'Not a C6 fit day: the current window opened {origin.date()}; next refresh {upcoming.date()}.'
-        write_summary([text])
-        # Not a fit day: nothing is built, logged or committed (model_activity logs real outcomes only).
+        write_summary([f'C6 fit current: the committed file holds the window from {origin.date()}; '
+                       f'next window {upcoming.date()}.'])
+        # Nothing to do: nothing is built, logged or committed. A missing window is built whatever the day, and
+        # its outcome (published, skipped or failed) is logged (model_activity).
         return 0
     try:
         return _refresh(args, cfg, origin)

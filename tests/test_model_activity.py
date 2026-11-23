@@ -93,8 +93,9 @@ def live_c6(origins, rho=-.02):
 
 
 class RefitWorkflowTests(unittest.TestCase):
-    """Every refit run appends exactly one line: published (in the fit's own commit), not a fit day, skipped or
-    failed (in a commit of its own)."""
+    """Every refit run that builds appends exactly one line: published (in the fit's own commit), skipped or failed
+    (in a commit of its own). A run whose window is already published logs nothing; a missing window is built
+    whatever the day, so a late or failed fit day is never silent."""
 
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
@@ -105,18 +106,39 @@ class RefitWorkflowTests(unittest.TestCase):
         self.commit = patcher.start()
         self.addCleanup(patcher.stop)
 
-    def run_main(self, builder, argv):
-        with mock.patch.dict(os.environ, no_summary_env(), clear=True):
+    def run_main(self, builder, argv, committed='2026-11-02'):
+        """Run a build script with the committed fit's latest window at `committed`."""
+        fits = Path(self.tmp.name) / 'fits.json'
+        fits.write_text(json.dumps({'windows': [{'origin': committed}]}), encoding='utf-8')
+        import research_ce3n
+        import research_low_score_sharpen
+        with mock.patch.dict(os.environ, no_summary_env(), clear=True), \
+                mock.patch.object(research_low_score_sharpen, 'FITS', fits), \
+                mock.patch.object(research_ce3n, 'FITS', fits):
             return builder.main(argv)
 
-    def test_a_day_that_is_not_a_fit_day_logs_and_commits_nothing(self):
+    def test_a_day_whose_window_is_published_logs_and_commits_nothing(self):
         for name in ('build_research_c6_fits', 'build_research_ce3n_fits'):
             b = script(name)
-            with mock.patch.object(b, 'build', side_effect=AssertionError('built on a non-fit day')):
+            with mock.patch.object(b, 'build', side_effect=AssertionError('built with a current fit')):
                 self.assertEqual(self.run_main(b, ['--scheduled', '--publish', '--today', '2026-11-09']), 0)
+                self.assertEqual(self.run_main(b, ['--scheduled', '--publish', '--today', '2026-11-17'],
+                                               committed='2026-11-16'), 0)
         self.assertFalse(self.log.exists())
         self.commit.assert_not_called()
         self.assertFalse(hasattr(ma, 'NOT_FIT_DAY'))
+
+    def test_a_late_run_still_builds_and_logs_the_missing_window(self):
+        # 16 Nov 2026: the Monday cron started at 00:45 UTC on 17 Nov and stopped as "not a fit day", logging nothing.
+        late = ValueError('latest window 2026-11-02, expected 2026-11-16: the training cache was not checked 12 '
+                          'hours after 2026-11-16 for every league yet')
+        for name, fit in (('build_research_c6_fits', 'C6'), ('build_research_ce3n_fits', 'CE3n')):
+            b = script(name)
+            with mock.patch.object(b, '_refresh', side_effect=late), self.assertRaises(ValueError):
+                self.run_main(b, ['--scheduled', '--publish', '--today', '2026-11-17'])
+            item = ma.read(self.log)[-1]
+            self.assertEqual((item['key'], item['data']['outcome'], item['data']['origin']),
+                             (f'refit:{fit}', ma.SKIPPED, '2026-11-16'))
 
     def test_an_unchanged_window_is_skipped_with_its_reason_in_its_own_commit(self):
         b = script('build_research_c6_fits')
