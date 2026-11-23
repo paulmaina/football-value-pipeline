@@ -1,0 +1,235 @@
+{
+  "version": "master-strong-team-v1",
+  "rule": "Ranking only. A domestic league is 'trusted' when the cagey tier's no-loss events in it (rule cagey-events-v1's no-loss family: the tier's bettable lines -3.00 to +3.00, odds in (1.15, 2.00], one side per fixture by D's expected return; evaluation_harness.master_sharpen_events) on development have a logistic calibration slope between 0.90 and 1.10 and no failing band (tenths of probability with at least 30 events failing only when more than 5 points off AND Bonferroni-clear over that league's bands, as cagey-events-v1). Otherwise 'not trusted'. Validation is reported, never decides. UCL and UEL are 'unvalidated' (no historical European prices) and rank after the others. Computed on D, the cagey view of the offline master backtest; live domestic fixtures are priced by D_pow2, whose correction is close to D's.",
+  "source_commit": "880847bb22e2216b96c2dd2e37a89762b344b01b",
+  "leagues": {
+    "Bundesliga": {
+      "name": "Bundesliga",
+      "status": "trusted",
+      "development": {
+        "events": 4451,
+        "fixtures": 684,
+        "mean_forecast": 0.7015125265182255,
+        "observed_rate": 0.706133453156594,
+        "slope": 1.0395164677068003,
+        "failing_bands": [],
+        "band_z_threshold": 2.5758293035489,
+        "passes": true
+      },
+      "validation": {
+        "events": 928,
+        "fixtures": 141,
+        "mean_forecast": 0.7004511768632047,
+        "observed_rate": 0.7112068965517241,
+        "slope": 1.2393553965487658,
+        "failing_bands": [],
+        "band_z_threshold": 2.5758293035489,
+        "passes": false
+      }
+    },
+    "EPL": {
+      "name": "Premier League",
+      "status": "trusted",
+      "development": {
+        "events": 6343,
+        "fixtures": 989,
+        "mean_forecast": 0.7051023835587791,
+        "observed_rate": 0.7029796626202113,
+        "slope": 0.9838426964974909,
+        "failing_bands": [],
+        "band_z_threshold": 2.5758293035489,
+        "passes": true
+      },
+      "validation": {
+        "events": 1325,
+        "fixtures": 208,
+        "mean_forecast": 0.7101144863219104,
+        "observed_rate": 0.7124528301886792,
+        "slope": 0.9952615025390945,
+        "failing_bands": [],
+        "band_z_threshold": 2.5758293035489,
+        "passes": true
+      }
+    },
+    "Eredivisie": {
+      "name": "Eredivisie",
+      "status": "trusted",
+      "development": {
+        "events": 4447,
+        "fixtures": 709,
+        "mean_forecast": 0.6998739255036404,
+        "observed_rate": 0.6806836069260176,
+        "slope": 0.9551205460859001,
+        "failing_bands": [],
+        "band_z_threshold": 2.5758293035489,
+        "passes": true
+      },
+      "validation": {
+        "events": 926,
+        "fixtures": 141,
+        "mean_forecast": 0.697642726178685,
+        "observed_rate": 0.7105831533477321,
+        "slope": 0.9835756749008612,
+        "failing_bands": [
+          {
+            "band_lower": 0.7,
+            "n": 295,
+            "mean_forecast": 0.7536738755157752,
+            "observed_rate": 0.8305084745762712,
+            "observed_minus_forecast": 0.07683459906049595,
+            "z": 3.06281573455533
+          }
+        ],
+        "band_z_threshold": 2.5758293035489,
+        "passes": false
+      }
+    },
+    "LaLiga": {
+      "name": "La Liga",
+      "status": "not trusted",
+      "development": {
+        "events": 6096,
+        "fixtures": 1004,
+        "mean_forecast": 0.7199216029408552,
+        "observed_rate": 0.7086614173228346,
+        "slope": 1.1733858672858075,
+        "failing_bands": [],
+        "band_z_threshold": 2.5758293035489,
+        "passes": false
+      },
+      "validation": {
+        "events": 1126,
+        "fixtures": 186,
+        "mean_forecast": 0.7131313963758812,
+        "observed_rate": 0.6971580817051509,
+        "slope": 0.9388480153138409,
+        "failing_bands": [
+          {
+            "band_lower": 0.6,
+            "n": 260,
+            "mean_forecast": 0.6428510133427768,
+            "observed_rate": 0.5653846153846154,
+            "observed_minus_forecast": -0.07746639795816146,
+            "z": 2.606874710814596
+          }
+        ],
+        "band_z_threshold": 2.4977054744123737,
+        "passes": false
+      }
+    },
+    "Ligue1": {
+      "name": "Ligue 1",
+      "status": "trusted",
+      "development": {
+        "events": 5472,
+        "fixtures": 866,
+        "mean_forecast": 0.7094453646760073,
+        "observed_rate": 0.7028508771929824,
+        "slope": 1.0106994351862466,
+        "failing_bands": [],
+        "band_z_threshold": 2.5758293035489,
+        "passes": true
+      },
+      "validation": {
+        "events": 952,
+        "fixtures": 150,
+        "mean_forecast": 0.7071604133834815,
+        "observed_rate": 0.7058823529411765,
+        "slope": 0.9683641553545813,
+        "failing_bands": [],
+        "band_z_threshold": 2.5758293035489,
+        "passes": true
+      }
+    },
+    "PrimeiraLiga": {
+      "name": "Primeira Liga",
+      "status": "not trusted",
+      "development": {
+        "events": 4311,
+        "fixtures": 719,
+        "mean_forecast": 0.7144496927020783,
+        "observed_rate": 0.6965901183020181,
+        "slope": 1.1809441244373027,
+        "failing_bands": [],
+        "band_z_threshold": 2.5758293035489,
+        "passes": false
+      },
+      "validation": {
+        "events": 912,
+        "fixtures": 152,
+        "mean_forecast": 0.7196754085669665,
+        "observed_rate": 0.6589912280701754,
+        "slope": 0.7583993925343518,
+        "failing_bands": [
+          {
+            "band_lower": 0.8,
+            "n": 288,
+            "mean_forecast": 0.8369839343042321,
+            "observed_rate": 0.7291666666666666,
+            "observed_minus_forecast": -0.1078172676375655,
+            "z": 4.953484412537576
+          }
+        ],
+        "band_z_threshold": 2.4977054744123737,
+        "passes": false
+      }
+    },
+    "SerieA": {
+      "name": "Serie A",
+      "status": "not trusted",
+      "development": {
+        "events": 6199,
+        "fixtures": 1004,
+        "mean_forecast": 0.7187849381320027,
+        "observed_rate": 0.7201161477657687,
+        "slope": 1.1243150364265102,
+        "failing_bands": [],
+        "band_z_threshold": 2.5758293035489,
+        "passes": false
+      },
+      "validation": {
+        "events": 1210,
+        "fixtures": 199,
+        "mean_forecast": 0.727491434270792,
+        "observed_rate": 0.7132231404958678,
+        "slope": 1.2149679529021882,
+        "failing_bands": [],
+        "band_z_threshold": 2.4977054744123737,
+        "passes": false
+      }
+    },
+    "SuperLig": {
+      "name": "Super Lig",
+      "status": "not trusted",
+      "development": {
+        "events": 5775,
+        "fixtures": 900,
+        "mean_forecast": 0.7028609777658782,
+        "observed_rate": 0.6782683982683982,
+        "slope": 1.094986743687855,
+        "failing_bands": [
+          {
+            "band_lower": 0.4,
+            "n": 194,
+            "mean_forecast": 0.4727064286890453,
+            "observed_rate": 0.37628865979381443,
+            "observed_minus_forecast": -0.09641776889523085,
+            "z": 2.6898988551893086
+          }
+        ],
+        "band_z_threshold": 2.5758293035489,
+        "passes": false
+      },
+      "validation": {
+        "events": 813,
+        "fixtures": 128,
+        "mean_forecast": 0.7044297951637708,
+        "observed_rate": 0.7170971709717097,
+        "slope": 0.9872108751157443,
+        "failing_bands": [],
+        "band_z_threshold": 2.4977054744123737,
+        "passes": true
+      }
+    }
+  }
+}

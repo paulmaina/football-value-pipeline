@@ -30,6 +30,7 @@ LOCK_GUARD = '.prediction-run.guard'
 SIDECARS = frozenset({'bet365_vs_pinnacle.csv', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv',
                       'corners_shadow.csv',
                       'master_shortlist.csv', 'master_shortlist_new.csv', 'master_shortlist_old.csv',
+                      'master_shortlist_strong.csv',
                       'cagey_correction_monitoring.csv'})
 # An ownerless lock younger than this may belong to a writer that has created
 # the directory but not yet recorded itself; older ones are abandoned.
