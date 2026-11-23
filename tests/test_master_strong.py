@@ -158,6 +158,18 @@ class ShadowTest(unittest.TestCase):
             self.assertFalse((Path(tmp) / ms.load_config()['file']).exists())
 
 
+class EmptyRunTest(unittest.TestCase):
+    def test_no_nomination_writes_an_empty_list_and_summary(self):
+        import pandas as pd
+        cfg = config()
+        with mock.patch.object(ms, 'load_config', return_value=cfg):
+            frame = ms.reconcile(pd.DataFrame([{'decision': 'REJECTED', 'cagey_tier_decision': 'REJECTED'}]))
+            self.assertEqual(list(frame.columns), ms.columns())
+            self.assertEqual(len(frame), 0)
+            out = ms.summary(frame, cfg)
+        self.assertEqual((out['ranked_fixtures'], out['shortfall']), (0, 15))
+
+
 class GradingTest(unittest.TestCase):
     def test_capture_only_this_generation_and_rule(self):
         import pandas as pd

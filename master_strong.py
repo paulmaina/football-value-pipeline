@@ -328,6 +328,8 @@ def reconcile(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = Non
                  E=run['E'], G=run['G'])
         rows.append(row)
     select(rows, config, run)
+    if not rows:  # nothing nominated in this run: an empty list with the full schema
+        return pd.DataFrame(columns=columns())
     frame = pd.DataFrame(rows)
     frame = overlap(frame, live_master)
     frame['strong_master_version'] = config['version']
