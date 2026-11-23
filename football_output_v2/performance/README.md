@@ -17,8 +17,8 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 
 | View | With a close | Mean CLV | 95% interval | Beat the close | Settled | Return per unit | 95% interval |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| per pick | 172 | -2.0% | -2.8% to -1.2% | 28% | 503 | +2.9% | -3.1% to +8.9% |
-| per fixture (a match's picks averaged) | 109 | -1.9% | -3.0% to -0.9% | 28% | 241 | +3.7% | -3.2% to +10.6% |
+| per pick | 174 | -2.0% | -2.7% to -1.2% | 29% | 503 | +2.9% | -3.1% to +8.9% |
+| per fixture (a match's picks averaged) | 110 | -1.9% | -2.9% to -0.9% | 29% | 241 | +3.7% | -3.2% to +10.6% |
 
 513 picks on 247 matches. A match can hold several picks (one per market group); the per-fixture row averages them, so each match counts once. Closing-line value (CLV) leads because it is the less noisy measure: it compares the frozen price with the Pinnacle fair close and does not wait for results. Returns come second: with few matches they are mostly luck. Intervals are mean ± 1.96 standard errors, clustered by fixture. Near-kickoff feed quotes are not verified official closing prices.
 
@@ -297,8 +297,8 @@ Whole-fixture 1X2 multiclass Brier (n=439): 0.5457
 | 2026-W45 | per fixture (a match's picks averaged) | 19 | -0.2% | -2.2% to +1.7% | 37% | 96 | +2.8% | -5.3% to +10.9% |
 | 2026-W47 | per pick | 67 | -2.2% | -3.3% to -1.1% | 28% | 113 | +0.6% | -13.8% to +15.0% |
 | 2026-W47 | per fixture (a match's picks averaged) | 34 | -2.6% | -4.1% to -1.1% | 21% | 62 | +5.7% | -10.4% to +21.7% |
-| 2026-W48 | per pick | 0 | — | — | — | 0 | — | — |
-| 2026-W48 | per fixture (a match's picks averaged) | 0 | — | — | — | 0 | — | — |
+| 2026-W48 | per pick | 2 | +0.6% | — | 100% | 0 | — | — |
+| 2026-W48 | per fixture (a match's picks averaged) | 1 | +0.6% | — | 100% | 0 | — | — |
 
 ## Confidence calibration of shortlisted markets
 
@@ -341,7 +341,7 @@ A missing, ambiguous or unverified result is **never called a win**.
 | UCL | 2026-11-04 | 575 | 19 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 | UEL | 2026-11-05 | 732 | 18 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 6, "exchange_quotes": 0, "missing_quote_age": 6, "quote_age_over_24h": 0, "costs_recorded": 6, "bookmakers": {"Pinnacle": 6}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 6, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 6, "exchange_quotes": 0, "missing_quote_age": 6, "quote_age_over_24h": 0, "costs_recorded": 6, "bookmakers": {"Pinnacle": 6}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 2, "upcoming_kickoff_count": 4, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
