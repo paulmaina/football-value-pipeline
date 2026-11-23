@@ -4722,6 +4722,11 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     router = _active_router(pipe.odds_api)
     if router is not None:  # provider switch on: requests, failures and every switch this run
         selection_summary['odds_provider'] = router.summary()
+    if not all_predictions.empty:  # any forecast on a stale research fit: flagged at the top of every output
+        from model_activity import stale_warning
+        stale = stale_warning(all_predictions.astype(object).where(all_predictions.notna(), None).to_dict('records'))
+        if stale:
+            selection_summary['stale_fit_warning'] = stale
     (out_dir / "conservative_bet_summary.json").write_text(
         json.dumps(selection_summary, indent=2), encoding="utf-8"
     )
@@ -4807,6 +4812,10 @@ def run_outcome(staging: Path, lookahead_days: int, client=None) -> Dict[str, ob
     router = _active_router(client)
     if router is not None:  # provider switch on only
         outcome['odds_provider'] = router.summary()
+    from model_activity import stale_warning
+    stale = stale_warning(rows)
+    if stale:  # opens the GitHub run summary (publish_scheduled_forecasts.report)
+        outcome['stale_fit_warning'] = stale['text']
     return outcome
 
 
