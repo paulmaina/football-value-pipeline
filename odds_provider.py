@@ -1031,6 +1031,139 @@ def weekly_lines(records: Iterable[Mapping], week: str) -> List[str]:
 
 # --- the cross-provider check ------------------------------------------------------------------------------------
 
+# --- daily request projection (reporting only) -------------------------------------------------------------------
+
+WORKFLOWS = Path(__file__).with_name('.github') / 'workflows'
+FORECAST_WORKFLOW, CLOSING_WORKFLOW = 'scheduled-forecasts', 'closing-odds'
+CRON = re.compile(r"""^\s*-\s*cron:\s*['"]([^'"]+)['"]""", re.M)
+
+
+def _cron_values(field: str, low: int, high: int) -> set:
+    """Values of one cron field (lists, ranges and steps); an unreadable field counts every value."""
+    out = set()
+    for part in field.split(','):
+        body, _, step = part.partition('/')
+        try:
+            start, end = (low, high) if body == '*' else (
+                tuple(int(x) for x in body.split('-')) if '-' in body else (int(body), int(body) if not step else high))
+            out.update(range(start, end + 1, int(step) if step else 1))
+        except ValueError:
+            return set(range(low, high + 1))
+    return {v for v in out if low <= v <= high}
+
+
+def scheduled_runs_per_day(workflow: str, directory: Path | str = WORKFLOWS) -> int:
+    """Scheduled starts per day of a workflow from its cron lines (minute x hour; every day of the week)."""
+    try:
+        text = (Path(directory) / f'{workflow}.yml').read_text(encoding='utf-8')
+    except OSError:
+        return 0
+    total = 0
+    for line in CRON.findall(text):
+        fields = line.split()
+        if len(fields) == 5:
+            total += len(_cron_values(fields[0], 0, 59)) * len(_cron_values(fields[1], 0, 23))
+    return total
+
+
+def _kit_requests(block: Mapping) -> int:
+    """Kit requests a routed run made (pinnapi and pinnodds together: what pinnapi would have carried alone)."""
+    return sum(int((item or {}).get('requests') or 0) for name, item in (block.get('providers') or {}).items()
+               if name != THE_ODDS_API and isinstance(item, Mapping))
+
+
+def _median(values: Sequence[float]) -> float:
+    ordered = sorted(values)
+    if not ordered:
+        return 0.0
+    middle = len(ordered) // 2
+    return float(ordered[middle]) if len(ordered) % 2 else (ordered[middle - 1] + ordered[middle]) / 2.0
+
+
+def daily_projection(records: Iterable[Mapping], *, provider: str = 'pinnapi', allowance: Optional[int] = None,
+                     workflows_dir: Path | str = WORKFLOWS, config_path: Path | str | None = None) -> dict:
+    """Projected kit requests per UTC day against `provider`'s daily allowance: requests per run x runs per day,
+    for a normal day and a busy day, from the committed usage log. Reporting only; nothing reads it to decide.
+
+    Requests per run: kit requests of the routed runs (both kit keys, i.e. what pinnapi would carry alone), the
+    median for a normal day and the largest for a busy day. Until a workflow has a routed run, its Odds API calls
+    per run stand in as an upper bound (a routed request needs at most one board request; the board is cached for
+    board_ttl_seconds). Runs per day: forecast runs are the scheduled ones (cron); closing sessions are the ones
+    that called (one is started only for a kickoff group), the median day and the busiest day in the log. The busy
+    day is the busiest day of any weekday, so it is at least a busy Saturday."""
+    records = [r for r in records if isinstance(r, Mapping)]
+    if allowance is None:  # as the latest routed run recorded it, else the config
+        recorded = [((r.get('odds_provider') or {}).get('providers') or {}).get(provider) for r in records
+                    if isinstance(r.get('odds_provider'), Mapping)]
+        recorded = [item['daily_allowance'] for item in recorded if isinstance(item, Mapping) and 'daily_allowance' in item]
+        allowance = recorded[-1] if recorded else load_config(config_path)['providers'][provider]['daily_allowance']
+    parts = {}
+    for workflow in (FORECAST_WORKFLOW, CLOSING_WORKFLOW):
+        runs = [r for r in records if r.get('workflow') == workflow]
+        routed = [_kit_requests(r['odds_provider']) for r in runs if isinstance(r.get('odds_provider'), Mapping)]
+        if routed:
+            per_run, basis = {'normal': _median(routed), 'busy': float(max(routed))}, f'measured ({len(routed)} routed runs)'
+        else:
+            calls = [int(r.get('calls') or 0) for r in runs if int(r.get('calls') or 0) > 0]
+            per_run = {'normal': _median(calls), 'busy': float(max(calls or [0]))}
+            basis = f'upper bound: Odds API calls per run ({len(calls)} runs), no routed run yet'
+        if workflow == FORECAST_WORKFLOW:
+            scheduled = scheduled_runs_per_day(workflow, workflows_dir)
+            per_day = {'normal': float(scheduled), 'busy': float(scheduled)}
+            day_basis = f'scheduled (cron): {scheduled} a day; each manual run adds requests per run'
+        else:
+            days: Dict[str, int] = {}
+            for r in runs:
+                day = str(r.get('recorded_at_utc') or '')[:10]
+                if day and (int(r.get('calls') or 0) > 0 or isinstance(r.get('odds_provider'), Mapping)):
+                    days[day] = days.get(day, 0) + 1
+            busiest = max(days, key=lambda d: (days[d], d)) if days else None
+            per_day = {'normal': _median(list(days.values())), 'busy': float(days[busiest]) if busiest else 0.0}
+            day_basis = (f'sessions that called, over {len(days)} days in the log (busiest {busiest}); '
+                         f'{scheduled_runs_per_day(workflow, workflows_dir)} scheduled starts a day')
+        parts[workflow] = {'requests_per_run': per_run, 'requests_per_run_basis': basis,
+                           'runs_per_day': per_day, 'runs_per_day_basis': day_basis,
+                           'requests_per_day': {k: round(per_run[k] * per_day[k], 1) for k in ('normal', 'busy')}}
+    totals = {k: round(sum(p['requests_per_day'][k] for p in parts.values()), 1) for k in ('normal', 'busy')}
+    return {'provider': provider, 'daily_allowance': allowance, 'workflows': parts,
+            'normal_day': totals['normal'], 'busy_day': totals['busy'],
+            'share_of_allowance': {k: (round(v / allowance, 3) if allowance else None) for k, v in totals.items()},
+            'within_allowance': {k: (v <= allowance if allowance else True) for k, v in totals.items()}}
+
+
+def projection_markdown(projection: Optional[Mapping]) -> str:
+    """The run-summary block for daily_projection."""
+    if not projection or 'workflows' not in projection:
+        return ''
+    allowance = projection.get('daily_allowance')
+    lines = [f"### Projected {projection.get('provider')} requests per day", '',
+             '| Workflow | Requests per run (normal / busy) | Runs per day (normal / busy) | Requests per day '
+             '(normal / busy) |', '|---|---|---|---|']
+    for name, part in projection['workflows'].items():
+        per_run, per_day, total = part['requests_per_run'], part['runs_per_day'], part['requests_per_day']
+        lines.append(f"| {name} | {per_run['normal']:g} / {per_run['busy']:g} ({part['requests_per_run_basis']}) | "
+                     f"{per_day['normal']:g} / {per_day['busy']:g} ({part['runs_per_day_basis']}) | "
+                     f"{total['normal']:g} / {total['busy']:g} |")
+    lines += ['', f"Normal day: {projection['normal_day']:g} of {allowance} a day; busy day (the busiest in the log, "
+                  f"at least a busy Saturday): {projection['busy_day']:g} of {allowance}."]
+    over = [k for k, ok in (projection.get('within_allowance') or {}).items() if not ok]
+    if over:
+        lines.append(f"Over the allowance on a {' and a '.join(over)} day: pinnodds then The Odds API take the rest.")
+    return '\n'.join(lines) + '\n'
+
+
+def projection_for(record: Mapping, repo: Path | str) -> Optional[dict]:
+    """daily_projection over the committed usage log plus this run's record, for a routed record only. Never
+    raises: a reporting failure is recorded in the block instead."""
+    if not isinstance(record.get('odds_provider'), Mapping):
+        return None
+    try:
+        from odds_api_usage import read_log
+        return daily_projection([*read_log(repo), record], workflows_dir=Path(repo) / '.github' / 'workflows')
+    except Exception as exc:  # noqa: BLE001
+        return {'error': f'{type(exc).__name__}: {exc}'}
+
+
 def _prices(event: Mapping) -> Dict[str, float]:
     """Every Pinnacle price in a normalised event, keyed by market/line/side."""
     out: Dict[str, float] = {}
