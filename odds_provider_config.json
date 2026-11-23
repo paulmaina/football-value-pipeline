@@ -36,7 +36,7 @@
     "UEL": {"pinnacle_league_names": ["UEFA - Europa League"], "pinnacle_league_ids": []},
     "Eredivisie": {"pinnacle_league_names": ["Netherlands - Eredivisie"], "pinnacle_league_ids": []},
     "PrimeiraLiga": {"pinnacle_league_names": ["Portugal - Primeira Liga", "Portugal - Liga Portugal"], "pinnacle_league_ids": []},
-    "SuperLig": {"pinnacle_league_names": ["Turkey - Super Lig", "Turkey - Süper Lig"], "pinnacle_league_ids": []}
+    "SuperLig": {"pinnacle_league_names": ["Turkey - Super League"], "pinnacle_league_ids": []}
   },
   "leagues_verified": false,
   "price_tolerance": {
