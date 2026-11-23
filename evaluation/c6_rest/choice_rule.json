@@ -1,0 +1,6 @@
+{
+ "a_development_ah_all_positive_and_clear": false,
+ "b_validation_ah_all_not_negative": false,
+ "c_development_calibration_v3_against_c6": true,
+ "put_forward_for_declaration": false
+}
