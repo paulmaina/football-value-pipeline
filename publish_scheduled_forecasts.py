@@ -2,6 +2,7 @@
 import argparse
 from datetime import datetime,timezone
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -167,13 +168,26 @@ def publish(repo,attempts=3,runner=None):
     raise RuntimeError('Scheduled forecast push did not succeed after retries')
 
 
+def stale_alert(outcome,output=None):
+    """After everything is published: tell the workflow (GITHUB_OUTPUT stale_fit) whether a live forecast used a
+    stale research fit, so its last step can fail the job and GitHub emails the failure. Never fails itself."""
+    text=(outcome or {}).get('stale_fit_warning') if isinstance(outcome,dict) else None
+    output=output or os.environ.get('GITHUB_OUTPUT')
+    if output:
+        with open(output,'a',encoding='utf-8') as handle:
+            handle.write(f"stale_fit={'true' if text else 'false'}\n")
+            if text:handle.write('stale_fit_warning='+' '.join(str(text).split())+'\n')
+    return bool(text)
+
+
 def main(argv=None):
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--repo',type=Path,default=Path('.'));args=parser.parse_args(argv)
     try:
-        publish(args.repo)
+        outcome=publish(args.repo)
     except ForecastStopped as stop:
         print(f'::error::{stop}',flush=True)
         return 1
+    stale_alert(outcome)  # the forecast is published; the workflow's last step turns a stale fit into a red job
     return 0
 
 
