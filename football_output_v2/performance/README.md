@@ -20,7 +20,7 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 | per pick | 174 | -2.0% | -2.7% to -1.2% | 29% | 503 | +2.9% | -3.1% to +8.9% |
 | per fixture (a match's picks averaged) | 110 | -1.9% | -2.9% to -0.9% | 29% | 241 | +3.7% | -3.2% to +10.6% |
 
-513 picks on 247 matches. A match can hold several picks (one per market group); the per-fixture row averages them, so each match counts once. Closing-line value (CLV) leads because it is the less noisy measure: it compares the frozen price with the Pinnacle fair close and does not wait for results. Returns come second: with few matches they are mostly luck. Intervals are mean ± 1.96 standard errors, clustered by fixture. Near-kickoff feed quotes are not verified official closing prices.
+516 picks on 249 matches. A match can hold several picks (one per market group); the per-fixture row averages them, so each match counts once. Closing-line value (CLV) leads because it is the less noisy measure: it compares the frozen price with the Pinnacle fair close and does not wait for results. Returns come second: with few matches they are mostly luck. Intervals are mean ± 1.96 standard errors, clustered by fixture. Near-kickoff feed quotes are not verified official closing prices.
 
 ## Research v5 (C6) rollback check
 
@@ -62,13 +62,7 @@ By competition (reported; a competition whose interval is entirely above zero be
 | UCL | 0 | 0 | — | — | — / — | — / — | no |
 | UEL | 0 | 0 | — | — | — / — | — / — | no |
 
-### UCL live check of research v6 (until a run passes)
-
-Competition, reviewed team mapping, fit window, CE shadow, frozen replay and "unvalidated view" on the first runs with UCL fixtures (research_live_check). Status: **failed**.
-
-- 2026-11-22T12:26 UTC, 9 UCL fixtures: failed (fit window: origin 2026-11-02, expected 2026-11-16, stale True; mapping: away side has no European training name; mapping: home side has no European training name)
-- 2026-11-22T13:50 UTC, 9 UCL fixtures: failed (fit window: origin 2026-11-02, expected 2026-11-16, stale True; mapping: away side has no European training name; mapping: home side has no European training name)
-- 2026-11-23T06:15 UTC, 18 UCL fixtures: failed (fit window: origin 2026-11-02, expected 2026-11-16, stale True; mapping: away side has no European training name; mapping: home side has no European training name)
+UCL live check of research v6: passed on the run of 2026-11-23T18:16 UTC (18 UCL fixtures; snapshot 6ad0ac014ab6ed4951104a9b707d33aa10aca058).
 
 ## Cagey correction D_pow2 rollback check
 
@@ -82,7 +76,7 @@ Fallbacks to D: where D_pow2's power grid failed its fit check, the run priced t
 
 | D_pow2 runs | Domestic fixture forecasts | Priced by D (fallback) | Domestic fixtures | Fixtures with a fallback | Graded matches left out |
 |---|---|---|---|---|---|
-| 14 | 651 | 0 | 66 | 0 | 0 |
+| 15 | 654 | 0 | 66 | 0 | 0 |
 
 ## Cumulative shortlist — latest prediction per match
 
@@ -90,7 +84,7 @@ Fallbacks to D: where D_pow2's power grid failed its fit check, the run priced t
 |---|---:|---:|---:|---:|
 | All selections | 503 | 355-143 | 70.6% | +2.9% |
 
-Unsettled / unverified entries: **10**.
+Unsettled / unverified entries: **13**.
 Whole-fixture 1X2 multiclass Brier (n=439): 0.5457
 
 ## First-prediction reference — historical comparison
@@ -151,6 +145,7 @@ Whole-fixture 1X2 multiclass Brier (n=439): 0.5457
 | 2026-11-22T12:26:43.290856+00:00 | 17 | 11-6 | 64.7% | +7.1% |
 | 2026-11-22T13:50:47.131378+00:00 | 20 | 11-9 | 55.0% | -3.4% |
 | 2026-11-23T06:15:00.240474+00:00 | 0 | 0-0 | — | — |
+| 2026-11-23T18:16:57.482339+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
@@ -341,7 +336,7 @@ A missing, ambiguous or unverified result is **never called a win**.
 | UCL | 2026-11-04 | 575 | 19 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 | UEL | 2026-11-05 | 732 | 18 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 6, "exchange_quotes": 0, "missing_quote_age": 6, "quote_age_over_24h": 0, "costs_recorded": 6, "bookmakers": {"Pinnacle": 6}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 2, "upcoming_kickoff_count": 4, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 7, "exchange_quotes": 0, "missing_quote_age": 7, "quote_age_over_24h": 0, "costs_recorded": 7, "bookmakers": {"Pinnacle": 7}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 7, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 

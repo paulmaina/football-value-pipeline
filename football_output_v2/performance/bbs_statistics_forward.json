@@ -25,7 +25,7 @@
   "paired_matches": 0,
   "paired_rows": [],
   "pending_matches": 0,
-  "reviewed_at_utc": "2026-11-23T18:07:05.824432+00:00",
+  "reviewed_at_utc": "2026-11-23T18:17:35.237888+00:00",
   "status": "AWAITING_ELIGIBLE_FORWARD_RESULTS",
   "version": "bbs-lagged-poisson-v2"
 }
