@@ -170,6 +170,27 @@ class EmptyRunTest(unittest.TestCase):
         self.assertEqual((out['ranked_fixtures'], out['shortfall']), (0, 15))
 
 
+class RefreshIntegrationTest(unittest.TestCase):
+    def test_refresh_writes_the_strong_list_without_touching_the_live_master(self):
+        import pandas as pd
+        import master_shortlist
+        from test_master_reconciliation import production_run
+        predictions, decisions, summary = production_run()
+        with tempfile.TemporaryDirectory() as on, tempfile.TemporaryDirectory() as off:
+            master_shortlist.refresh(decisions, on, dict(summary), predictions)
+            with mock.patch.object(master_shortlist, 'strong_shadow', lambda *a, **k: None):
+                master_shortlist.refresh(decisions, off, dict(summary), predictions)
+            self.assertEqual((Path(on) / master_shortlist.FILE).read_bytes(),
+                             (Path(off) / master_shortlist.FILE).read_bytes())
+            frame = pd.read_csv(Path(on) / ms.load_config()['file'])
+            info = json.loads((Path(on) / ms.load_config()['summary_file']).read_text(encoding='utf-8'))
+        picks = frame.loc[frame.strong_decision.eq('SHORTLISTED')]
+        self.assertEqual(info['ranked_fixtures'], len(picks))
+        self.assertTrue(picks.groupby('strong_market_group').size().le(6).all())
+        self.assertTrue(frame.strong_master_version.eq(ms.VERSION).all())
+        self.assertGreater(len(frame), 0)
+
+
 class GradingTest(unittest.TestCase):
     def test_capture_only_this_generation_and_rule(self):
         import pandas as pd
