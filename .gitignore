@@ -51,3 +51,6 @@ football_output_v2/.prediction-prune-*/
 
 # Private, user-recorded financial data and actual-bet ROI reports.
 .football_bets/
+
+# Feature-source investigation caches (scripts/feature_sources; fetched data, never committed)
+data/feature_cache/
