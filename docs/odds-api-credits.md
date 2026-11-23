@@ -101,7 +101,7 @@ Each run that calls the API:
   total known remaining), committed by the scheduled forecast, closing odds and
   price check workflows.
 
-## Outcomes and the budget guard
+## Outcomes and the zero-credit guard
 
 - **No fixtures in the window** (an international break): the run finishes
   green with "No fixtures in the next 3 days; nothing to forecast" in the run
@@ -114,17 +114,25 @@ Each run that calls the API:
   annotation, with no traceback. No forecast is published; the usage line is
   committed. If credits run out mid-run after some leagues were priced, the
   priced forecasts are published and the summary notes the shortfall.
-- **Budget guard** (`FORECAST_RUN_CREDITS = 300`, the largest measured run of
-  288 plus margin): when the known credits on all keys fall below one forecast
-  run, optional calls are skipped first so the core forecast (one `/odds` per
-  league, 30 credits) can still run:
+- **Zero-credit guard** (`UsageLedger.allows_optional`): optional calls run
+  while any credits remain on any key, and are skipped only when the latest
+  known balances add up to zero:
   - per-event extra coverage (status `NOT_REQUESTED_LOW_CREDITS`; those
     fixtures fall back to the main line);
-  - price checks (`SKIPPED_LOW_CREDITS`, no request);
-  - closing quotes for fixtures without a pick (picks are still collected).
+  - closing quotes for fixtures without a pick (picks are still collected);
+  - the shadow corner list's closing requests (`LOW_CREDITS_SKIPPED`).
 
   Balances come from this run's headers, seeded from the committed log. An
-  unknown balance never blocks a call.
+  unknown balance never blocks a call. Until 23 Nov 2026 the floor was one
+  forecast run (`FORECAST_RUN_CREDITS = 300`, the largest measured run of 288
+  plus margin); it was removed so per-event requests keep running on the last
+  credits of a month (102 were left on 22 Nov). With the odds-provider switch on
+  (`docs/odds-providers.md`), the guard does not apply: the providers decide,
+  and The Odds API is only their final fallback.
+
+## Other providers
+
+Since 23 Nov 2026 an adapter (`odds_provider.py`, off by default) can take Pinnacle prices from pinnapi and pinnodds first, calling The Odds API only when both have failed for a request; see `docs/odds-providers.md`. With it on, the weekly report counts requests and switches per provider and the Odds API credits spent.
 
 ## Plan recommendation
 

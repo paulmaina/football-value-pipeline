@@ -1,4 +1,4 @@
-"""The Odds API credit usage: per-call header capture, per-run records and a budget guard.
+"""The Odds API credit usage: per-call header capture, per-run records and a zero-credit guard.
 
 Every live Odds API response carries three numeric headers: x-requests-remaining,
 x-requests-used and x-requests-last (the cost of that call). The client records
@@ -7,10 +7,10 @@ a slot is named only by its environment variable.
 
 Each workflow run that calls the API writes one record to the run summary and
 appends it to a committed log, so the credits left on each key are always
-visible. The budget guard reads the latest known balances: when the credits
-left on all keys fall below what one forecast run needs, optional calls (price
-checks, per-event extra coverage, closing quotes for fixtures without a pick)
-are skipped so the core forecast can still run.
+visible. Optional calls (per-event extra coverage, closing quotes for fixtures
+without a pick, the shadow corner closes) run while any credits remain on any
+key; they stop only when the latest known balances add up to zero. The earlier
+floor of one forecast run (300 credits) was removed on 23 Nov 2026.
 """
 from __future__ import annotations
 
@@ -23,16 +23,6 @@ from typing import Dict, Iterable, List, Mapping, Optional
 SLOTS = ('THE_ODDS_API_KEY', 'THE_ODDS_API_KEY_FALLBACK_1', 'THE_ODDS_API_KEY_FALLBACK_2')
 HEADERS = ('x-requests-remaining', 'x-requests-used', 'x-requests-last')
 LOG = Path('football_output_v2/odds_api_usage/usage_log.jsonl')
-
-# Credits one full forecast run needs: 3 per league for the main request
-# (h2h, totals, spreads; one bookmaker group) plus 4 per in-window fixture for
-# the per-event request (alternate totals and spreads, double chance, draw no
-# bet). The largest run measured from 17 Oct to 8 Nov 2026 used 288 credits
-# (10 leagues, 66 in-window fixtures); 300 keeps that with a small margin.
-FORECAST_RUN_CREDITS = 300
-# The core forecast: one main request per league, and nothing optional.
-CORE_CREDITS_PER_LEAGUE = 3
-EXTRA_EVENT_CREDITS = 4
 
 NO_FIXTURES = 'NO_FIXTURES'
 CREDITS_EXHAUSTED = 'CREDITS_EXHAUSTED'
@@ -94,13 +84,13 @@ class UsageLedger:
         values = [int(v['remaining']) for v in self.known.values() if v.get('remaining') is not None]
         return sum(values) if values else None
 
-    def allows_optional(self, cost: int = 0) -> bool:
-        """Optional calls run unless the known balance is below one forecast run.
+    def allows_optional(self) -> bool:
+        """Optional calls run while any credits remain on any key.
 
         An unknown balance (no call yet, no committed record) never blocks a call.
         """
         total = self.remaining_total()
-        return total is None or total - cost >= FORECAST_RUN_CREDITS
+        return total is None or total > 0
 
     def summary(self) -> Dict[str, object]:
         by_endpoint: Dict[str, Dict[str, int]] = {}

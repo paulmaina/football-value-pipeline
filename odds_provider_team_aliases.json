@@ -1,0 +1,4 @@
+{
+  "note": "Reviewed provider team names -> the canonical names our fixtures use, per league key ('*' for every league). Only reviewed entries; the adapter never fuzzy-matches. Fill from scripts/odds_provider_compare.py's unmatched-name list before turning the switch on.",
+  "aliases": {}
+}

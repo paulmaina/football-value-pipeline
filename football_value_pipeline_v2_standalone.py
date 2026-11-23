@@ -249,6 +249,12 @@ TEAM_ALIASES = {
 }
 
 
+def _active_router(client):
+    """The odds client's provider router when the switch is on (odds_provider.py), else None."""
+    from odds_provider import active_router
+    return active_router(client)
+
+
 def canonical_team_key(name: str) -> str:
     """Stable cross-provider key used only for strict fixture/odds matching."""
     normalized = normalize_team_name(name)
@@ -678,6 +684,11 @@ class TheOddsAPI:
         self.usage = UsageLedger()
         self._active_slot = None
         self.http._response_hook = self._record_usage
+        # Odds providers (odds_provider_config.json): None while the switch is off, so every request below
+        # goes to The Odds API exactly as before.
+        from odds_provider import router_for
+        self.router = None
+        router_for(self, repo=Path(__file__).resolve().parent)
 
         # The generic historical-data client retries 429 automatically.
         # Do not do that for this Odds API instance: quota/rate-limit
@@ -749,13 +760,27 @@ class TheOddsAPI:
             pass
         return "OUT_OF_USAGE_CREDITS" in response.text.upper()
 
-    def _get_json(self, url: str, cache_name: str, **kwargs):
+    def _provider_request(self, kind: str, league: LeagueConfig, **fields) -> Dict[str, object]:
+        """The provider_request argument for _get_json when the provider switch is on; nothing when it is off."""
+        from odds_provider import ProviderRequest, active_router
+        if active_router(self) is None:
+            return {}
+        return {'provider_request': ProviderRequest(kind, league.key, league.odds_api_sport_key, **fields)}
+
+    def _get_json(self, url: str, cache_name: str, provider_request=None, **kwargs):
         """One cached request; on confirmed quota/rate limits, try next key.
+
+        With the provider switch on (self.router) and a provider_request, the request goes through the providers
+        in order (odds_provider.py); The Odds API, below, answers only when every other provider failed.
 
         Do not log secrets or error URLs (which include apiKey). A cache
         hit makes no live request. Non-quota HTTP or network errors fail
         immediately without consuming other credentials.
         """
+        from odds_provider import active_router
+        router = active_router(self)
+        if router is not None and provider_request is not None:
+            return self._via_router(router, provider_request, url, cache_name, kwargs)
         keys = self._configured_keys()
         if not keys:
             raise RuntimeError(
@@ -828,6 +853,36 @@ class TheOddsAPI:
             self.http._request_guard = stop_exhausted_requests
         raise error from None
 
+    def _via_router(self, router, request, url: str, cache_name: str, kwargs: Mapping[str, object]):
+        """Ask the providers; the Odds API call keeps its own URL, cache and key failover."""
+        def odds_api(event_id=None):
+            if event_id is None:
+                return self._get_json(url, cache_name, **kwargs)
+            old = f"/events/{request.event_id}/"
+            return self._get_json(url.replace(old, f"/events/{event_id}/"),
+                                  cache_name.replace(str(request.event_id), str(event_id)), **kwargs)
+
+        def odds_api_events():
+            # The Odds API's own id for an event another provider scheduled: its events list costs no credits.
+            start = end = None
+            if request.identity and request.identity.get('kickoff_utc'):
+                kick = pd.Timestamp(request.identity['kickoff_utc'])
+                kick = kick.tz_localize('UTC') if kick.tzinfo is None else kick.tz_convert('UTC')
+                start = (kick - pd.Timedelta(hours=1)).strftime('%Y-%m-%dT%H:%M:%SZ')
+                end = (kick + pd.Timedelta(hours=1)).strftime('%Y-%m-%dT%H:%M:%SZ')
+            params = {"dateFormat": "iso", **({"commenceTimeFrom": start, "commenceTimeTo": end} if start else {})}
+            return self._get_json(f"{THE_ODDS_API_BASE}/sports/{request.sport_key}/events",
+                                  f"oddsapi_events_lookup_{request.league_key}.json", ttl=timedelta(minutes=10),
+                                  force_refresh=True, params=params, allow_stale=False,
+                                  request_key={"commenceTimeFrom": start, "commenceTimeTo": end})
+        return router.fetch(request, odds_api, odds_api_events)
+
+    def served_by(self) -> Optional[str]:
+        """The provider that answered the latest routed request (None while the switch is off)."""
+        from odds_provider import active_router
+        router = active_router(self)
+        return None if router is None else router.current
+
     @staticmethod
     def _window(now: datetime, lookahead_days: int) -> Tuple[str, str]:
         start = now.astimezone(timezone.utc)
@@ -859,7 +914,9 @@ class TheOddsAPI:
             allow_stale=False,
             # A schedule fetched for another window is a different response.
             request_key={"commenceTimeFrom": start, "commenceTimeTo": end},
+            **self._provider_request("events", league, window=(start, end)),
         )
+        provider = self.served_by()
         if not isinstance(payload, list):
             raise RuntimeError("The Odds API events response was not a list")
 
@@ -884,6 +941,8 @@ class TheOddsAPI:
                 "fixture_source": "The Odds API",
                 "fixture_id": str(event_id),
                 "kickoff_utc": dt.isoformat(),
+                # Which odds provider supplied the schedule (switch on only).
+                **({"odds_schedule_provider": provider} if provider else {}),
             })
 
         if not rows:
@@ -1212,12 +1271,15 @@ class TheOddsAPI:
                 "commenceTimeTo": end,
             },
             allow_stale=False,
+            **self._provider_request("odds", league, markets=("h2h", "totals", "spreads"), window=(start, end)),
         )
         if not isinstance(payload, list):
             raise RuntimeError("The Odds API odds response was not a list")
         clock = datetime.now(timezone.utc)
+        provider = self.served_by()
         rows = [
-            self.flatten_odds_event(event, as_of=clock)
+            # Which odds provider supplied these quotes (switch on only).
+            {**self.flatten_odds_event(event, as_of=clock), **({"odds_provider": provider} if provider else {})}
             for event in payload
             if isinstance(event, dict) and event.get("id")
         ]
@@ -1252,7 +1314,7 @@ class TheOddsAPI:
         return None
 
     def extra_markets_for_event(
-        self, league: LeagueConfig, event_id: str, *, main_over_1_5_offers=None
+        self, league: LeagueConfig, event_id: str, *, main_over_1_5_offers=None, identity=None
     ) -> Dict[str, object]:
         """Per-event real-price request: alternate totals and spreads, double chance, draw no bet.
 
@@ -1291,6 +1353,8 @@ class TheOddsAPI:
                 "dateFormat": "iso",
             },
             allow_stale=False,
+            **self._provider_request("event_odds", league, markets=tuple(markets), event_id=safe_id,
+                                     identity=identity),
         )
         if not isinstance(payload, dict) or str(payload.get("id")) != safe_id:
             raise RuntimeError("Event odds response missing/mismatched ID")
@@ -1371,6 +1435,9 @@ class TheOddsAPI:
             result['_count_market_identity'] = {k:payload.get(k) for k in ('home_team','away_team','commence_time')}
         for market, available in offers.items():
             result.update(self._goal_quote_fields(market, available, as_of=clock))
+        provider = self.served_by()
+        if provider:
+            result['odds_extra_markets_provider'] = provider  # switch on only
         return result
 
 
@@ -3520,11 +3587,12 @@ class FootballValuePipelineV2(FootballValuePipeline):
                     self.extra_event_odds_requests >= self.max_extra_event_odds_requests):
                 coverage_row["status"] = "NOT_REQUESTED_RANKING_OR_BUDGET"
                 continue
-            # Budget guard: extra coverage is optional. When the credits left on
-            # all keys fall below one forecast run, keep them for the main requests.
-            from odds_api_usage import EXTRA_EVENT_CREDITS, UsageLedger
+            # Zero-credit guard: extra coverage is optional and runs while any Odds API
+            # credits remain. With the provider switch on, the providers decide instead.
+            from odds_api_usage import UsageLedger
             usage = getattr(self.odds_api, 'usage', None)
-            if isinstance(usage, UsageLedger) and not usage.allows_optional(EXTRA_EVENT_CREDITS):
+            if (isinstance(usage, UsageLedger) and _active_router(self.odds_api) is None
+                    and not usage.allows_optional()):
                 coverage_row["status"] = "NOT_REQUESTED_LOW_CREDITS"
                 continue
             event_id = row["odds_event_id"]
@@ -4305,7 +4373,7 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     pipe.half_life_tuning = bool(args.tune_half_life)
     pipe.legacy_comparison = legacy_comparison
     if pipe.odds_api is not None and args.run_outcome_out is not None:
-        # Recorded runs start from the committed balances, so the budget guard
+        # Recorded runs start from the committed balances, so the zero-credit guard
         # knows the credits left on every key before the first call.
         from odds_api_usage import seeded_ledger
         pipe.odds_api.usage = seeded_ledger(Path(__file__).resolve().parent)
@@ -4648,6 +4716,9 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     best_per_match(decisions).to_csv(out_dir/'asian_handicap_best_per_match.csv',index=False)
     if not args.backtest:
         selection_summary['league_availability'] = availability
+    router = _active_router(pipe.odds_api)
+    if router is not None:  # provider switch on: requests, failures and every switch this run
+        selection_summary['odds_provider'] = router.summary()
     (out_dir / "conservative_bet_summary.json").write_text(
         json.dumps(selection_summary, indent=2), encoding="utf-8"
     )
@@ -4727,9 +4798,13 @@ def run_outcome(staging: Path, lookahead_days: int, client=None) -> Dict[str, ob
         status, message = usage_module.FORECASTS_PRODUCED, f'{len(rows)} forecasts produced; {priced} with Odds API prices'
         if exhausted:
             notes.append('Odds API credits ran out on all keys during this run; some fixtures have no Odds API prices.')
-    return {'status': status, 'message': message, 'notes': notes, 'forecast_rows': len(rows),
-            'odds_api_priced_rows': priced, 'lookahead_days': lookahead_days,
-            'odds_api': usage.summary() if usage is not None else None}
+    outcome = {'status': status, 'message': message, 'notes': notes, 'forecast_rows': len(rows),
+               'odds_api_priced_rows': priced, 'lookahead_days': lookahead_days,
+               'odds_api': usage.summary() if usage is not None else None}
+    router = _active_router(client)
+    if router is not None:  # provider switch on only
+        outcome['odds_provider'] = router.summary()
+    return outcome
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
