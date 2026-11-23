@@ -190,8 +190,16 @@ def ev_decimal(probability: float, decimal_odds: Optional[float]) -> Optional[fl
     return probability * decimal_odds - 1.0
 
 
+# Letters NFKD does not decompose: transliterated, not dropped, so "Bodø/Glimt" keys as "bodo glimt" like
+# "Bodo/Glimt" (23 Nov 2026; tests/test_team_name_transliteration.py checks that nothing else moves).
+TRANSLITERATE = str.maketrans({
+    "ø": "o", "Ø": "O", "ł": "l", "Ł": "L", "đ": "d", "Đ": "D", "ð": "d", "Ð": "D", "ı": "i", "ħ": "h", "Ħ": "H",
+    "ŧ": "t", "Ŧ": "T", "æ": "ae", "Æ": "AE", "œ": "oe", "Œ": "OE", "ß": "ss", "þ": "th", "Þ": "TH",
+})
+
+
 def normalize_team_name(name: str) -> str:
-    s = unicodedata.normalize("NFKD", str(name))
+    s = unicodedata.normalize("NFKD", str(name).translate(TRANSLITERATE))
     s = "".join(ch for ch in s if not unicodedata.combining(ch)).lower()
     s = s.replace("&", " and ")
     s = re.sub(r"[^a-z0-9]+", " ", s)
