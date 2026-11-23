@@ -509,6 +509,9 @@ class ClosingTests(Base):
         logged = odds_api_usage.read_log(root.parent)
         router = op.OddsProviderRouter(config(), clock=self.clock, aliases={}, seed=logged)
         self.assertEqual(router.state['pinnapi'].requests_today, 1)  # the next session starts from it
+        projection = logged[-1]['odds_provider_projection']  # reporting only; the router never reads it
+        self.assertEqual(projection['workflows']['closing-odds']['requests_per_run']['normal'], 1)
+        self.assertEqual(projection['daily_allowance'], 100)
         text = json.dumps(logged)
         for secret in KEYS.values():
             self.assertNotIn(secret, text)
@@ -625,6 +628,64 @@ class ReportTests(Base):
         import publish_scheduled_forecasts as publisher
         record = publisher.usage_record(outcome, 0)
         self.assertEqual(record['odds_provider'], outcome['odds_provider'])
+
+
+class ProjectionTests(Base):
+    """Projected kit requests per day against pinnapi's allowance (reporting only)."""
+
+    def routed(self, when, workflow, pinnapi, pinnodds=0):
+        providers = {'pinnapi': {'requests': pinnapi, 'daily_allowance': 100},
+                     'pinnodds': {'requests': pinnodds, 'daily_allowance': 100}, 'the-odds-api': {'requests': 0}}
+        return {'recorded_at_utc': when, 'workflow': workflow, 'calls': 0, 'odds_provider': {'providers': providers}}
+
+    def test_cron_counts_of_the_committed_workflows(self):
+        self.assertEqual(op._cron_values('7,22,37', 0, 59), {7, 22, 37})
+        self.assertEqual(op._cron_values('5-21', 0, 23), set(range(5, 22)))
+        self.assertEqual(op._cron_values('*/15', 0, 59), {0, 15, 30, 45})
+        self.assertEqual(op.scheduled_runs_per_day('scheduled-forecasts'), 1)
+        self.assertEqual(op.scheduled_runs_per_day('closing-odds'), 17 + 3 * 16)
+
+    def test_requests_per_run_times_runs_per_day(self):
+        records = [self.routed('2026-11-23T06:15:00+00:00', 'scheduled-forecasts', 4),
+                   self.routed('2026-11-24T06:15:00+00:00', 'scheduled-forecasts', 5, pinnodds=3),  # pinnapi failed
+                   # closing: no routed session yet, so Odds API calls per session are the upper bound
+                   *[{'recorded_at_utc': f'2026-11-21T1{i}:00:00+00:00', 'workflow': 'closing-odds', 'calls': c}
+                     for i, c in enumerate([4, 5, 1, 1])],
+                   {'recorded_at_utc': '2026-11-22T14:00:00+00:00', 'workflow': 'closing-odds', 'calls': 2},
+                   {'recorded_at_utc': '2026-11-22T15:00:00+00:00', 'workflow': 'closing-odds', 'calls': 0}]
+        result = op.daily_projection(records, workflows_dir=Path(op.__file__).with_name('.github') / 'workflows')
+        forecast, closing = result['workflows']['scheduled-forecasts'], result['workflows']['closing-odds']
+        self.assertEqual(forecast['requests_per_run'], {'normal': 6.0, 'busy': 8.0})  # both kit keys count
+        self.assertEqual(forecast['runs_per_day'], {'normal': 1.0, 'busy': 1.0})       # the cron schedule
+        self.assertIn('measured (2 routed runs)', forecast['requests_per_run_basis'])
+        self.assertEqual(closing['requests_per_run'], {'normal': 2.0, 'busy': 5.0})
+        self.assertIn('upper bound', closing['requests_per_run_basis'])
+        self.assertEqual(closing['runs_per_day'], {'normal': 2.5, 'busy': 4.0})        # 21 Nov: 4, 22 Nov: 1
+        self.assertEqual((result['normal_day'], result['busy_day']), (6.0 + 5.0, 8.0 + 20.0))
+        self.assertEqual(result['daily_allowance'], 100)
+        self.assertEqual(result['within_allowance'], {'normal': True, 'busy': True})
+        text = op.projection_markdown(result)
+        self.assertIn('Normal day: 11 of 100 a day', text)
+        self.assertNotIn('Over the allowance', text)
+        busy = op.daily_projection(records + [self.routed('2026-11-21T19:00:00+00:00', 'closing-odds', 60)],
+                                   workflows_dir=Path(self.tmp.name))  # no workflow files: no scheduled runs
+        self.assertEqual(busy['workflows']['closing-odds']['requests_per_run']['busy'], 60.0)
+        self.assertEqual(busy['workflows']['scheduled-forecasts']['requests_per_day'], {'normal': 0.0, 'busy': 0.0})
+        self.assertEqual(busy['within_allowance'], {'normal': False, 'busy': False})  # 60 x 3 and 60 x 5
+        self.assertIn('Over the allowance on a normal and a busy day', op.projection_markdown(busy))
+
+    def test_forecast_usage_record_carries_the_projection_when_routed(self):
+        import publish_scheduled_forecasts as publisher
+        api = self.client()
+        api.odds(EPL, 3, self.now)
+        from football_value_pipeline_v2_standalone import run_outcome
+        outcome = run_outcome(Path(self.tmp.name), 3, api)
+        record = publisher.usage_record(outcome, 0, Path(self.tmp.name))
+        projection = record['odds_provider_projection']
+        self.assertEqual(projection['workflows']['scheduled-forecasts']['requests_per_run']['normal'], 1.0)
+        self.assertNotIn('odds_provider_projection', publisher.usage_record({'status': 'NO_FIXTURES'}, 0,
+                                                                            Path(self.tmp.name)))  # switch off
+        self.assertNotIn('odds_provider_projection', publisher.usage_record(outcome, 0))  # no repo given
 
 
 class ComparisonTests(Base):
