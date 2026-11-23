@@ -535,19 +535,73 @@ class ReportTests(Base):
         out = Path(self.tmp.name) / 'run'
         out.mkdir()
         (out / 'conservative_bet_summary.json').write_text(json.dumps({'odds_provider': summary}), encoding='utf-8')
-        found = ma.forecast_events([], out, Path('master_shortlist_config.json'), Path('research_config.json'),
-                                   self.now, Path('cagey_correction_config.json'))
-        self.assertIn(events[0]['id'], [e['id'] for e in found])
+        found = [e for e in ma.forecast_events([], out, Path('master_shortlist_config.json'),
+                                               Path('research_config.json'), self.now,
+                                               Path('cagey_correction_config.json')) if e['event'] == ma.ODDS_SWITCH]
+        # The first request's switch is the run-start line: The Odds API (no earlier routed run) -> pinnodds.
+        self.assertEqual([(e['outcome'], e['data']['request'], e['data']['reasons']) for e in found],
+                         [('the-odds-api -> pinnodds', 'run start', {'pinnapi': 'error'})])
+        self.assertEqual(summary['first_served']['provider'], 'pinnodds')
 
     def test_closing_switches_reach_the_activity_log_from_the_usage_log(self):
         import model_activity as ma
         import odds_api_usage
         summary = self.switched_router().summary()
         repo = Path(self.tmp.name)
-        odds_api_usage.append_log({'workflow': 'closing-odds', 'odds_provider': summary}, repo)
-        odds_api_usage.append_log({'workflow': 'closing-odds'}, repo)
+        odds_api_usage.append_log({'workflow': 'closing-odds', 'recorded_at_utc': stamp(self.now),
+                                   'odds_provider': summary}, repo)
+        odds_api_usage.append_log({'workflow': 'closing-odds', 'recorded_at_utc': stamp(self.now)}, repo)  # off
         events = ma.closing_switch_events(repo)
-        self.assertEqual([(e['source'], e['outcome']) for e in events], [(ma.SOURCE_CLOSING, 'pinnapi -> pinnodds')])
+        self.assertEqual([(e['source'], e['outcome']) for e in events],
+                         [(ma.SOURCE_CLOSING, 'the-odds-api -> pinnodds'), (ma.SOURCE_CLOSING, 'pinnodds -> the-odds-api')])
+        self.assertTrue(events[1]['data']['switch_off'])
+
+    def test_provider_at_run_start_against_the_previous_run(self):
+        """Each workflow's runs form one chain: a line when a run starts on another provider than the previous
+        run ended on, plus the switches inside a run; nothing when a run starts where the last one ended."""
+        import model_activity as ma
+        import odds_api_usage
+        fail = response(500, {})
+        runs = [(None, 0),                                                    # switch off: The Odds API
+                (self.client(pinnapi=['board']), 1),                          # starts on pinnapi
+                (self.client(pinnapi=['board']), 1),                          # pinnapi again: no line
+                (self.client(config(board_ttl_seconds=0), pinnapi=[fail, 'board']), 2)]  # pinnodds, back mid-run
+        repo = Path(self.tmp.name)
+        for api, requests in runs:
+            block = None
+            for _ in range(requests):
+                api.odds(EPL, 3, self.now)
+                self.clock.advance(seconds=1)
+            if api is not None:
+                block = api.router.summary()
+            self.clock.advance(minutes=30)
+            odds_api_usage.append_log({'workflow': 'scheduled-forecasts', 'recorded_at_utc': stamp(self.clock.when),
+                                       **({'odds_provider': block} if block else {})}, repo)
+        records = odds_api_usage.read_log(repo)
+        events = ma.usage_log_switch_events(records)
+        self.assertEqual([(e['outcome'], e['data']['request']) for e in events],
+                         [('the-odds-api -> pinnapi', 'run start'), ('pinnapi -> pinnodds', 'run start'),
+                          ('pinnodds -> pinnapi', 'odds')])
+        self.assertEqual(events[1]['data']['reasons'], {'pinnapi': 'error'})
+        log = repo / 'activity.jsonl'
+        self.assertEqual(len(ma.append(log, events)), 3)
+        self.assertEqual(ma.append(log, ma.usage_log_switch_events(records)), [])  # read again: nothing new
+        # The run being published is compared with the last run in the usage log, and its run-start line has the
+        # id it gets when the usage log is read again on the next run.
+        api = self.client(config(board_ttl_seconds=0), pinnapi=[fail, 'board'])
+        api.odds(EPL, 3, self.now)
+        out = repo / 'run'
+        out.mkdir()
+        summary = api.router.summary()
+        (out / 'conservative_bet_summary.json').write_text(json.dumps({'odds_provider': summary}), encoding='utf-8')
+        found = [e for e in ma.forecast_events([], out, Path('master_shortlist_config.json'),
+                                               Path('research_config.json'), self.now,
+                                               Path('cagey_correction_config.json'), records)
+                 if e['event'] == ma.ODDS_SWITCH]
+        self.assertEqual([e['outcome'] for e in found], ['pinnapi -> pinnodds'])
+        odds_api_usage.append_log({'workflow': 'scheduled-forecasts', 'recorded_at_utc': stamp(self.clock.when),
+                                   'odds_provider': summary}, repo)
+        self.assertEqual(ma.append(log, found + ma.usage_log_switch_events(odds_api_usage.read_log(repo))), found)
 
     def test_weekly_lines_count_requests_switches_and_credits(self):
         summary = self.switched_router().summary()
