@@ -311,7 +311,9 @@ def normalise_kit_board(payload: Any, *, provider: str, fetched_at: datetime, le
     children = {str(e.get('parent_id')): e for e in events if is_corner_child(e)}
     out = []
     for event in events:
-        if is_corner_child(event) or event.get('event_type') not in (None, 'prematch'):
+        # A child event (parent_id set) is never a match: corner children attach above; the others are Pinnacle
+        # specials under the same teams and league (no draw, no lines; seen on the live board, 23 Nov 2026).
+        if event.get('parent_id') or event.get('event_type') not in (None, 'prematch'):
             continue
         key = league_of(event, leagues)
         if key is None:

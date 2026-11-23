@@ -244,6 +244,23 @@ class SwitchOffTests(Base):
 
 
 class NormalisationTests(Base):
+    def test_child_specials_are_not_matches(self):
+        """The live board lists Pinnacle specials as child events under the match's teams and league (parent_id
+        set, no draw, no lines). They are never a fixture and never replace the match's prices."""
+        board = kit_board(self.kickoff)
+        match = board['events'][0]
+        for offset, prices in ((1, {'home': 1.68, 'draw': None, 'away': 2.24}),
+                               (2, {'home': 1.67, 'draw': None, 'away': 2.26})):
+            board['events'].append({**match, 'event_id': match['event_id'] + 100 + offset,
+                                    'parent_id': match['event_id'],
+                                    'periods': {'num_0': {'number': 0, 'description': 'Game', 'money_line': prices,
+                                                          'spreads': None, 'totals': None}}})
+        events = op.normalise_kit_board(board, provider='pinnapi', fetched_at=self.now, leagues=config()['leagues'],
+                                        aliases={})
+        self.assertEqual([e['provider_event_id'] for e in events], [str(match['event_id'])])
+        self.assertEqual(events[0]['one_x_two']['draw'], SPEC['ml'][1])
+        self.assertTrue(events[0]['corners'])
+
     def test_kit_board_normalised(self):
         events = op.normalise_kit_board(kit_board(self.kickoff), provider='pinnapi', fetched_at=self.now,
                                         leagues=config()['leagues'], aliases={'EPL': {'Arsenal': 'Arsenal FC'}})
