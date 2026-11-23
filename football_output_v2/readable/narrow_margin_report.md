@@ -1,34 +1,18 @@
 # Narrow-margin report
 
-Run 2026-11-22T13:50:47.131378+00:00. Narrow = draw or one-goal win. P(narrow) = 1 - corrected P(margin 2+); draw and one-goal split from the corrected scoreline matrix. Quotes are the Pinnacle prices that fed the fit. Uncertain probabilities, not predictions or betting advice.
+Run 2026-11-23T06:15:00.240474+00:00. Narrow = draw or one-goal win. P(narrow) = 1 - corrected P(margin 2+); draw and one-goal split from the corrected scoreline matrix. Quotes are the Pinnacle prices that fed the fit. Uncertain probabilities, not predictions or betting advice.
 
 Out of domain = competition not in the training data (eight domestic leagues); treat those figures as less certain.
 
 | Kick-off (UTC) | League | Match | Pinnacle 1X2 | O/U 2.5 | Main AH (home) | P(narrow) | P(draw) | P(margin 3+) | Quintile | Quote age at kick-off (h) | Out of domain |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 2026-11-22T17:30:00+00:00 | La Liga | CA Osasuna v Málaga | 1.85 / 3.66 / 4.68 | 2.06 / 1.86 | -0.50 @ 1.85 / 2.08 | 67% | 27% | 13% | Q2 | 3.7 | no |
+| 2026-11-23T20:00:00+00:00 | Premier League | Brentford v Everton | 2.36 / 3.54 / 3.08 | 1.83 / 2.05 | -0.25 @ 2.04 / 1.87 | 67% | 28% | 12% | Q3 | 13.8 | no |
+| 2026-11-23T20:00:00+00:00 | La Liga | Levante v Elche | 2.20 / 3.60 / 3.36 | 1.70 / 2.24 | -0.25 @ 1.91 / 2.00 | 64% | 27% | 14% | Q3 | 13.8 | no |
+| 2026-11-23T17:00:00+00:00 | Super Lig | Basaksehir v Çorum FK | 1.98 / 3.92 / 3.69 | 1.61 / 2.41 | -0.50 @ 1.98 / 1.93 | 62% | 25% | 17% | Q4 | 10.8 | no |
+| 2026-11-23T19:45:00+00:00 | Serie A | Monza v Fiorentina | 3.78 / 3.73 / 2.00 | 1.61 / 2.40 | +0.50 @ 1.90 / 2.01 | 62% | 26% | 17% | Q4 | 13.5 | no |
 
-## Not scored (28)
+## Not scored (18)
 
-- 2026-11-22T14:00:00+00:00 Hull City v Brighton and Hove Albion [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-22T14:00:00+00:00 Bologna v Udinese [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-22T14:00:00+00:00 Sassuolo v Genoa [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-22T14:00:00+00:00 Paris FC v Angers [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-22T14:30:00+00:00 Augsburg v FSV Mainz 05 [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-22T15:15:00+00:00 Real Racing Club de Santander v Real Sociedad [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-22T15:45:00+00:00 Go Ahead Eagles v Fortuna Sittard [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-22T16:00:00+00:00 Trabzonspor v Eyüpspor [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-22T16:15:00+00:00 Lorient v Rennes [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-22T16:30:00+00:00 Liverpool v Manchester United [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-22T16:30:00+00:00 Werder Bremen v Hamburger SV [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-22T17:00:00+00:00 AC Milan v Frosinone [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-22T19:45:00+00:00 Atalanta BC v Inter Milan [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-22T19:45:00+00:00 Marseille v Le Mans FC [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-22T20:00:00+00:00 Getafe v Atlético Madrid [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-23T17:00:00+00:00 Basaksehir v Çorum FK [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-23T19:45:00+00:00 Monza v Fiorentina [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-23T20:00:00+00:00 Brentford v Everton [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-23T20:00:00+00:00 Levante v Elche CF [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
 - 2026-11-24T17:45:00+00:00 Bodø/Glimt v LASK [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
 - 2026-11-24T17:45:00+00:00 Galatasaray v Aston Villa [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
 - 2026-11-24T20:00:00+00:00 Arsenal v Borussia Dortmund [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
@@ -36,5 +20,14 @@ Out of domain = competition not in the training data (eight domestic leagues); t
 - 2026-11-24T20:00:00+00:00 Feyenoord v Porto [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
 - 2026-11-24T20:00:00+00:00 Manchester City v Napoli [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
 - 2026-11-24T20:00:00+00:00 RB Leipzig v RC Lens [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-24T20:00:00+00:00 Real Madrid v PSV Eindhoven [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
+- 2026-11-24T20:00:00+00:00 Real Madrid v PSV [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
 - 2026-11-24T20:00:00+00:00 ŠK Slovan Bratislava v Real Betis [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
+- 2026-11-25T17:45:00+00:00 Sabah FK v Barcelona [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
+- 2026-11-25T17:45:00+00:00 Slavia Prague v Villarreal [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
+- 2026-11-25T20:00:00+00:00 Atletico Madrid v Viking FK [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
+- 2026-11-25T20:00:00+00:00 Club Brugge v Liverpool [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
+- 2026-11-25T20:00:00+00:00 Inter Milan v VfB Stuttgart [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
+- 2026-11-25T20:00:00+00:00 Lille v Bayern Munich [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
+- 2026-11-25T20:00:00+00:00 Paris Saint-Germain v AS Roma [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
+- 2026-11-25T20:00:00+00:00 Shakhtar Donetsk v Fenerbahce [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
+- 2026-11-25T20:00:00+00:00 Sporting CP v Manchester United [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)

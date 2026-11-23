@@ -5,20 +5,20 @@
       "not_replayed:no corrected D distribution": 44,
       "offer_out_of_scope:pinnacle draw_no_bet": 2
     },
-    "d_pow2_minus_d_log_loss": 0.010895710743864917,
+    "d_pow2_minus_d_log_loss": 0.010895710754482878,
     "eligible": false,
     "fallbacks": {
       "domestic_fixtures": 66,
-      "domestic_records": 647,
+      "domestic_records": 651,
       "fallback_fixtures": 0,
       "fallback_records": 0,
-      "runs": 13
+      "runs": 14
     },
     "graded_fallbacks": 0,
     "interval_95": null,
     "log_loss": {
-      "D": 0.8985463717023745,
-      "D_pow2": 0.9094420824462393
+      "D": 0.8985463716923402,
+      "D_pow2": 0.9094420824468232
     },
     "matches": 10,
     "rule": "After at least 150 graded domestic matches across at least 3 weeks, roll back the cagey correction D_pow2 if its log loss on AH all lines minus D's, on the same frozen Pinnacle quotes, matches and offers, has a week-resampled 95% interval entirely above zero. Rolling back is setting cagey_correction_config.json cagey_correction_live.domestic to \"D\".",
@@ -100,9 +100,9 @@
   "home_favourites": {
     "all": {
       "actual_home_win": 0.2,
-      "fixtures": 10,
+      "fixtures": 11,
       "graded": 5,
-      "picks": 15,
+      "picks": 17,
       "v4_predicted_home_win": 0.5650460947573996,
       "v5_predicted_home_win": 0.573312173429668
     },
@@ -117,9 +117,9 @@
       },
       "Super Lig": {
         "actual_home_win": null,
-        "fixtures": 5,
+        "fixtures": 6,
         "graded": 0,
-        "picks": 8,
+        "picks": 10,
         "v4_predicted_home_win": null,
         "v5_predicted_home_win": null
       }
@@ -207,6 +207,20 @@
         "v5_p_home": 0.7669838840165893
       },
       {
+        "fixture": "Basaksehir v Çorum FK",
+        "graded": false,
+        "home_won": null,
+        "kickoff_utc": "2026-11-23T17:00:00+00:00",
+        "league": "Super Lig",
+        "markets": [
+          "Asian Handicap Home +0.50",
+          "Home win"
+        ],
+        "picks": 2,
+        "v4_p_home": 0.5544094744029388,
+        "v5_p_home": 0.5655573359549193
+      },
+      {
         "fixture": "Galatasaray v Samsunspor",
         "graded": false,
         "home_won": null,
@@ -276,12 +290,12 @@
     "interval_95": null,
     "log_loss": {
       "v4": 0.9997802407850378,
-      "v5": 1.0030034447313394
+      "v5": 1.0030034447313396
     },
     "matches": 54,
     "rule": "After at least 150 graded matches across at least 3 weeks, roll back research v5 if its research log loss on AH all lines minus v4's, on the same frozen inputs, matches and offers, has a week-resampled 95% interval entirely above zero.",
     "triggered": false,
-    "v5_minus_v4_log_loss": 0.0032232039463018104,
+    "v5_minus_v4_log_loss": 0.003223203946301801,
     "weeks": 1
   },
   "ucl_live_check": {
@@ -326,6 +340,26 @@
         "snapshot": "f7279a9615c4f889dfd30fa5db4214c6f54498c8",
         "status": "failed",
         "ucl_fixtures": 9
+      },
+      {
+        "checks": {
+          "ce_shadow": true,
+          "competition": true,
+          "fit_window": false,
+          "frozen_replay": true,
+          "mapping": false,
+          "unvalidated_view": null
+        },
+        "domestic_used": 10,
+        "generated_at_utc": "2026-11-23T06:15:00.240474+00:00",
+        "problems": [
+          "fit window: origin 2026-11-02, expected 2026-11-16, stale True",
+          "mapping: away side has no European training name",
+          "mapping: home side has no European training name"
+        ],
+        "snapshot": "878a28dde724b68bbaa2986bb24818b7a4987313",
+        "status": "failed",
+        "ucl_fixtures": 18
       }
     ],
     "status": "failed",
