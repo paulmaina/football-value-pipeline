@@ -71,6 +71,7 @@ FITS = {'C6': 'C6 live fit (research v5, domestic)', 'CE3n': 'CE3n live fit (res
 SOURCE_CLOSING = 'closing odds'
 SOURCE_REFIT, SOURCE_FORECAST, SOURCE_REVIEW, SOURCE_BACKFILL = ('refit workflow', 'forecast run', 'weekly report',
                                                                  'backfill')
+SOURCE_RELEASE = 'release PR'  # a release's own lines, written by its PR so the committed log matches the switches
 BOT = ('-c', 'user.name=github-actions[bot]', '-c',
        'user.email=41898282+github-actions[bot]@users.noreply.github.com')
 
@@ -380,6 +381,33 @@ CAGEY_RELEASES = {
 }
 
 
+# Releases of a master by its live switch (master_shortlist_config.json live): logged once, by the release PR
+# (SOURCE_RELEASE) or, failing that, by the first forecast run that finds it live.
+MASTER_RELEASES = {
+    'strong': ("The strong-team master (master-strong-team-v1: at most 6 picks per market group, proven picks first by "
+               "league trust and cagey chance of profit, today's fill labelled 'not proven') became the live master "
+               "shortlist (master_shortlist.csv, version master-strong-team-v1-live-v11); today's master "
+               "(master-new-fill-rule-v4) runs in shadow as master_shortlist_new.csv, the rollback baseline; the old "
+               "master (v9) is no longer written. Paul's exception of 23 Nov 2026: offline it showed no measurable "
+               "difference from today's master. Rollback rule: after 150 graded matches over 3 weeks on each list, "
+               "strong − today's master return per bet with a 95% interval entirely below zero; rolling back is "
+               'master_shortlist_config.json live "new". Takes effect with the merge of its PR.'),
+}
+
+
+def master_release_event(log: Sequence[Mapping], state: Mapping, when: Any = None,
+                         source: str = SOURCE_FORECAST) -> Optional[dict]:
+    """The release line of a master released by its live switch, the first time it is found live."""
+    name = state.get('master_live')
+    if name not in MASTER_RELEASES or last(log, f'release:master {name}') is not None:
+        return None
+    return event(RELEASE, 'master shortlist (strong-team master)', f'RELEASED ({EXCEPTION})', MASTER_RELEASES[name],
+                 key=f'release:master {name}', source=source, when=when,
+                 data={'decided': '2026-11-23', 'decision': EXCEPTION,
+                       'versions': {'before': 'master-new-fill-rule-v4-live-v10',
+                                    'after': 'master-strong-team-v1-live-v11'}})
+
+
 def switch_settings_text(state: Mapping) -> str:
     text = (f'master live "{state.get("master_live")}", research domestic "{state.get("research_domestic")}", '
             f'research UCL/UEL "{state.get("research_european")}"')
@@ -658,6 +686,9 @@ def forecast_events(log: Sequence[Mapping], out_dir: Path | str, master_config: 
     release = cagey_release_event(log, state, when)
     if release is not None:
         events.append(release)
+    master_release = master_release_event(log, state, when)
+    if master_release is not None:
+        events.append(master_release)
     events += stale_events(log, rows, when)
     events += master_events(summary, when)
     ucl = ucl_event(log, summary.get('ce3n_ucl_live_check'), when)

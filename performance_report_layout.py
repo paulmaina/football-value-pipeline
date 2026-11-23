@@ -103,12 +103,13 @@ def live_list(root: Path) -> str:
     if value is not None:
         return value
     recorded = load(root, TRACKING / 'summary.json').get('live_master_list')
-    return recorded if recorded in ('new', 'old') else 'new'
+    return recorded if recorded in ('new', 'old', 'strong') else 'new'
 
 
 def list_names(root: Path) -> Dict[str, str]:
     live = live_list(root)
-    return {'new': 'New master (live)' if live == 'new' else 'New master (shadow)',
+    return {**({'strong': 'Strong master (live)'} if live == 'strong' else {}),
+            'new': 'New master (live)' if live == 'new' else 'New master (shadow)',
             'old': 'Old master (live)' if live == 'old' else 'Old master (shadow)'}
 
 
@@ -205,7 +206,9 @@ def outcome(record: dict) -> str:
 # for research, the scope (European or domestic), its entry in research_v5_monitoring.json and its minimum sample.
 RELEASES = {
     'master': {'config': 'MASTER_CONFIG', 'path': ('live',), 'released': 'new', 'rolled': 'old',
-               'live': 'Live (new master)', 'back': 'Rolled back to the old master'},
+               'live': 'Live (new master)', 'back': 'Rolled back to the old master',
+               # Since 23 Nov 2026: the strong-team master live, today's master its shadow baseline.
+               'strong': 'strong', 'strong_live': "Live (strong-team master; today's master in shadow)"},
     'v5': {'config': 'RESEARCH_CONFIG', 'path': ('live', 'domestic'), 'released': 'v5', 'rolled': 'v4',
            'live': 'Live (research v5)', 'back': 'Rolled back to research v4', 'european': False,
            'figures': 'rollback', 'matches': 'domestic', 'minimum': ('MIN_MATCHES', 'MIN_WEEKS')},
@@ -238,7 +241,7 @@ def switch(key: str) -> Tuple[Optional[str], str]:
             value = value[part]
     except (OSError, ValueError, KeyError, TypeError) as exc:
         return None, f'{where} could not be read ({type(exc).__name__})'
-    if value not in (spec['released'], spec['rolled']):
+    if value not in (spec['released'], spec['rolled'], spec.get('strong')):
         return None, f'{where} is {value!r}, expected "{spec["released"]}" or "{spec["rolled"]}"'
     return value, ''
 
@@ -326,6 +329,9 @@ def release_status(root: Path, key: str, state: Optional[str] = None, missing: s
         date = rollback_date(root, key)
         return spec['back'] + (f' on {xb.eat_text(date)} (first forecast run after the switch)' if date else
                                ' (date not known: no archived forecast run since the switch)')
+    if key == 'master' and value == spec.get('strong'):
+        return (f"{spec['strong_live']} - its rollback check (strong vs today's master) is in the weekly report "
+                f"(performance/price_edge_v27/report.md)")
     if key == 'master':
         return f"{spec['live']} - {state}" if state else f"{spec['live']} - {NOT_AVAILABLE} ({missing})"
     figures, why = research_figures(root, key)

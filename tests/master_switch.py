@@ -34,3 +34,30 @@ class OldMasterLive:
         self._master_switch = switched('old')
         self._master_switch.__enter__()
         self.addCleanup(self._master_switch.__exit__, None, None, None)
+
+
+class NewMasterLive:
+    """Mixin for TestCase classes about the 14 Nov 2026 release (the new master live, the old master in shadow): every
+    test runs under live "new", the state before the strong-team release (23 Nov 2026) and its rollback state."""
+
+    def setUp(self):
+        super().setUp()
+        self._master_switch = switched('new')
+        self._master_switch.__enter__()
+        self.addCleanup(self._master_switch.__exit__, None, None, None)
+
+
+_MODULE_SWITCHES = []
+
+
+def pin_module(live: str) -> None:
+    """setUpModule helper: the whole test module runs under live `live` (undo with unpin_module in tearDownModule).
+    Classes inside may still switch again (e.g. OldMasterLive)."""
+    context = switched(live)
+    context.__enter__()
+    _MODULE_SWITCHES.append(context)
+
+
+def unpin_module() -> None:
+    if _MODULE_SWITCHES:
+        _MODULE_SWITCHES.pop().__exit__(None, None, None)

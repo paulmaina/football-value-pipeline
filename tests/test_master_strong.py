@@ -12,6 +12,7 @@ from pathlib import Path
 from unittest import mock
 
 import master_strong as ms
+from master_switch import NewMasterLive, switched
 
 RUN = {'E': .60, 'G': .50, 'R1': True, 'R2': True, 'R3': True, 'R4': True}
 
@@ -170,7 +171,7 @@ class EmptyRunTest(unittest.TestCase):
         self.assertEqual((out['ranked_fixtures'], out['shortfall']), (0, 15))
 
 
-class RefreshIntegrationTest(unittest.TestCase):
+class RefreshIntegrationTest(NewMasterLive, unittest.TestCase):
     def test_refresh_writes_the_strong_list_without_touching_the_live_master(self):
         import pandas as pd
         import master_shortlist
@@ -189,6 +190,192 @@ class RefreshIntegrationTest(unittest.TestCase):
         self.assertTrue(picks.groupby('strong_market_group').size().le(6).all())
         self.assertTrue(frame.strong_master_version.eq(ms.VERSION).all())
         self.assertGreater(len(frame), 0)
+
+
+class StrongLiveTest(unittest.TestCase):
+    """The strong release (Paul, 23 Nov 2026): live "strong" writes the strong master as master_shortlist.csv and
+    today's master (master-new-fill-rule-v4) in shadow as master_shortlist_new.csv; "new" rolls back."""
+
+    def run_refresh(self, out, *failing):
+        import contextlib
+        import warnings
+        import master_shortlist
+        from test_master_reconciliation import production_run
+        predictions, decisions, summary = production_run()
+        run = dict(summary)
+        with contextlib.ExitStack() as stack, warnings.catch_warnings():
+            warnings.simplefilter('ignore')
+            for target, name in failing:
+                stack.enter_context(mock.patch.object(target, name, side_effect=RuntimeError('boom')))
+            master_shortlist.refresh(decisions, out, run, predictions)
+        return run, predictions, decisions
+
+    def test_the_committed_switch_is_strong(self):
+        import master_shortlist
+        self.assertEqual(master_shortlist.configured_live(), master_shortlist.LIVE_STRONG)
+
+    def test_strong_is_the_live_file_and_todays_master_its_baseline(self):
+        import pandas as pd
+        import master_reconciliation as mr
+        import master_shortlist
+        with tempfile.TemporaryDirectory() as out:
+            run, predictions, decisions = self.run_refresh(out)
+            files = sorted(p.name for p in Path(out).iterdir())
+            self.assertEqual(files, sorted([master_shortlist.FILE, master_shortlist.SUMMARY_FILE,
+                                            mr.load_config()['file'], mr.load_config()['summary_file']]))
+            live = pd.read_csv(Path(out) / master_shortlist.FILE)
+            baseline = pd.read_csv(Path(out) / mr.load_config()['file'])
+        self.assertEqual(list(live.columns), master_shortlist.strong_live_columns())
+        self.assertTrue(live.new_master_version.eq(master_shortlist.VERSION_STRONG_LIVE).all())
+        self.assertTrue(live.strong_master_version.eq(ms.VERSION).all())
+        self.assertTrue((live.new_master_decision == live.strong_decision).all())
+        self.assertTrue(baseline.new_master_version.eq(mr.VERSION).all())
+        expected = mr.reconcile(decisions, None, mr.load_config(), predictions, run['generated_at_utc'])
+        self.assertEqual(list(baseline.new_master_rank.fillna(0)), list(expected.new_master_rank.fillna(0)))
+        info = run['master_shortlist']
+        self.assertEqual((info['version'], info['rule']), (master_shortlist.VERSION_STRONG_LIVE, ms.VERSION))
+        self.assertIn('strong', info)
+        self.assertNotIn(master_shortlist.OLD_SUMMARY_KEY, run)
+        self.assertNotIn(master_shortlist.RELEASE_STATUS_KEY, run)
+        picks = live.loc[live.new_master_decision.eq('SHORTLISTED')]
+        self.assertTrue(picks.groupby('strong_market_group').size().le(6).all())
+        base_picks = baseline.loc[baseline.new_master_decision.eq('SHORTLISTED')]
+        self.assertEqual(int(picks.in_old_master.sum()),
+                         len(set(picks.home_team + picks.kickoff_utc) & set(base_picks.home_team + base_picks.kickoff_utc)))
+
+    def test_new_rolls_back_to_the_files_before_the_release(self):
+        import master_shortlist
+        with tempfile.TemporaryDirectory() as out, switched('new'):
+            run, _, _ = self.run_refresh(out)
+            files = sorted(p.name for p in Path(out).iterdir())
+        self.assertEqual(run['master_shortlist']['version'], master_shortlist.VERSION_NEW_LIVE)
+        self.assertIn(master_shortlist.OLD_FILE, files)
+        self.assertIn(ms.load_config()['file'], files)  # the strong master back in shadow
+
+    def test_a_strong_failure_publishes_todays_master(self):
+        import pandas as pd
+        import master_shortlist
+        import master_reconciliation as mr
+        with tempfile.TemporaryDirectory() as out:
+            run, _, _ = self.run_refresh(out, (ms, 'live_frame'))
+            live = pd.read_csv(Path(out) / master_shortlist.FILE)
+            files = sorted(p.name for p in Path(out).iterdir())
+        self.assertEqual(run[master_shortlist.RELEASE_STATUS_KEY]['status'], master_shortlist.STRONG_FAILED)
+        self.assertEqual(run['master_shortlist']['version'], master_shortlist.VERSION_NEW_LIVE)
+        self.assertTrue(live.new_master_version.eq(master_shortlist.VERSION_NEW_LIVE).all())
+        self.assertNotIn(mr.load_config()['file'], files)
+
+    def test_a_baseline_failure_keeps_the_strong_master_live(self):
+        import master_shortlist
+        import master_reconciliation as mr
+        with tempfile.TemporaryDirectory() as out:
+            run, _, _ = self.run_refresh(out, (mr, 'write_shadow'))
+            files = sorted(p.name for p in Path(out).iterdir())
+        self.assertEqual(run[master_shortlist.RELEASE_STATUS_KEY]['status'], master_shortlist.BASELINE_MISSING)
+        self.assertEqual(run['master_shortlist']['version'], master_shortlist.VERSION_STRONG_LIVE)
+        self.assertEqual(files, sorted([master_shortlist.FILE, master_shortlist.SUMMARY_FILE]))
+
+    def test_both_failing_fails_the_run(self):
+        import master_reconciliation as mr
+        with tempfile.TemporaryDirectory() as out:
+            with self.assertRaises(RuntimeError):
+                self.run_refresh(out, (mr, 'write_shadow'), (ms, 'live_frame'))
+
+    def test_the_readable_report_shows_the_strong_section(self):
+        import format_football_output as fo
+        with tempfile.TemporaryDirectory() as out:
+            run, _, _ = self.run_refresh(out)
+            lines = fo.master_section(run, Path(out), Path(out))
+            self.assertTrue((Path(out) / fo.MASTER_READABLE).exists())
+        self.assertTrue(any('strong-team master, live since 23 Nov 2026' in line for line in lines))
+
+
+class StrongRawCheckTest(unittest.TestCase):
+    """workflow_checks raw check under live "strong": the live strong master and today's master (shadow) are bound
+    to the deterministic replay; a strong failure is accepted only when it replays."""
+
+    def pipeline_run(self, tmp, failing=()):
+        import contextlib
+        import warnings
+        import master_shortlist
+        import price_edge_cagey_shortlist as v28
+        from test_master_shortlist import run as run_v28, PipelineTests
+        from workflow_checks import raw_check
+        case = PipelineTests('test_raw_check_binds_the_master_shortlist_to_the_replay')
+        case.setUp()
+        self.addCleanup(case.tearDown)
+        monitoring = []
+        selected, decisions, summary = run_v28(*case.predictions.to_dict('records'), monitor=monitoring)
+        raw = Path(tmp) / 'raw'
+        raw.mkdir()
+        case.predictions.to_csv(raw / 'all_leagues_predictions.csv', index=False)
+        selected.to_csv(raw / 'conservative_bet_shortlist.csv', index=False)
+        v28.cagey_tier_list(decisions).to_csv(raw / v28.TIER_FILE, index=False)
+        v28.record_monitoring(summary, monitoring, raw)
+        with contextlib.ExitStack() as stack, warnings.catch_warnings():
+            warnings.simplefilter('ignore')
+            for target, name in failing:
+                stack.enter_context(mock.patch.object(target, name, side_effect=RuntimeError('boom')))
+            master_shortlist.refresh(decisions, raw, summary, case.predictions)
+        (raw / 'conservative_bet_summary.json').write_text(json.dumps(summary, default=str), encoding='utf-8')
+        settings = {'cagey_correction_enabled': False, 'cagey_tier_enabled': False, 'model_version': None}
+
+        def check(*during):
+            with mock.patch.object(v28, 'load_settings', return_value=settings), contextlib.ExitStack() as stack:
+                for target, name in during:
+                    stack.enter_context(mock.patch.object(target, name, side_effect=RuntimeError('boom')))
+                raw_check(Path(tmp), raw_dir=raw)
+        return raw, summary, check
+
+    def test_raw_check_replays_the_strong_master_and_its_baseline(self):
+        import pandas as pd
+        import master_shortlist
+        import master_reconciliation as mr
+        with tempfile.TemporaryDirectory() as tmp:
+            raw, summary, check = self.pipeline_run(tmp)
+            self.assertEqual(summary['master_shortlist']['version'], master_shortlist.VERSION_STRONG_LIVE)
+            check()
+            live = (raw / master_shortlist.FILE).read_bytes()
+            frame = pd.read_csv(raw / master_shortlist.FILE)
+            frame.assign(new_master_tier='tampered').to_csv(raw / master_shortlist.FILE, index=False)
+            with self.assertRaisesRegex(Exception, r'Current master shortlist \(strong\) differs'):
+                check()
+            (raw / master_shortlist.FILE).write_bytes(live)
+            baseline = raw / mr.load_config()['file']
+            stored = baseline.read_bytes()
+            baseline.unlink()
+            with self.assertRaisesRegex(Exception, "Missing today's master"):
+                check()
+            baseline.write_bytes(stored)
+            check()
+
+    def test_raw_check_accepts_a_strong_failure_only_when_it_replays(self):
+        import master_shortlist
+        with tempfile.TemporaryDirectory() as tmp:
+            raw, summary, check = self.pipeline_run(tmp, [(ms, 'live_frame')])
+            self.assertEqual(summary[master_shortlist.RELEASE_STATUS_KEY]['status'], master_shortlist.STRONG_FAILED)
+            check((ms, 'live_frame'))
+            with self.assertRaisesRegex(Exception, 'says the strong master failed, but it replays without error'):
+                check()
+
+
+class StrongRollbackTest(unittest.TestCase):
+    def test_rollback_triggers_only_when_live_and_entirely_below_zero(self):
+        import price_edge_tracking as tracking
+        compared = {'status': 'COMPARED', 'difference': -.05, 'interval_95': [-.09, -.01]}
+        out = tracking.strong_rollback(compared)
+        self.assertTrue(out['triggered'])
+        self.assertEqual(out['status'], tracking.ROLLBACK_TRIGGERED)
+        self.assertFalse(tracking.strong_rollback({**compared, 'interval_95': [-.09, .01]})['triggered'])
+        with switched('new'):
+            self.assertFalse(tracking.strong_rollback(compared)['triggered'])
+        self.assertEqual(tracking.strong_rollback({'status': 'WAITING'})['status'], 'WAITING')
+
+    def test_workbook_names_the_strong_master_live(self):
+        import performance_report_layout as layout
+        with tempfile.TemporaryDirectory() as tmp:
+            self.assertEqual(layout.list_names(Path(tmp))['strong'], 'Strong master (live)')
+            self.assertIn('strong-team master', layout.release_status(Path(tmp), 'master'))
 
 
 class GradingTest(unittest.TestCase):
