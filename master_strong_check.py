@@ -320,7 +320,8 @@ def main(argv=None):
             'ranking_no_loss_probability', 'ranking_profit_probability', 'research_no_loss_probability',
             'research_profit_probability', 'gap_points', 'new_master_decision', 'new_master_tier', 'live_master_rank',
             *[c for c in ms.STRONG_COLUMNS if c != 'research_profit_probability'], *ms.SELECTION_COLUMNS]
-    picks.reindex(columns=keep).to_csv(args.output / 'strong_offers.csv', index=False)
+    chosen = picks.strong_decision.eq('SHORTLISTED') | picks.new_master_decision.eq('SHORTLISTED')
+    picks.loc[chosen].reindex(columns=keep).to_csv(args.output / 'strong_picks.csv', index=False)
     print(json.dumps({'settings': result['settings'],
                       'backtest': {p: {'strong': v['strong_master'].get('flat_stake_return'),
                                        'difference': v['strong_minus_live_return'], 'reading': v['reading']}
