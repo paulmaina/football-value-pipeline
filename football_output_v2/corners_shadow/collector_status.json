@@ -1,8 +1,8 @@
 {
-  "checked_at_utc": "2026-11-23T19:39:38.920153+00:00",
-  "eligible": 1,
+  "checked_at_utc": "2026-11-23T19:54:22.809514+00:00",
+  "eligible": 2,
   "errors": [],
   "reason": "CHECKED_ELIGIBLE_FIXTURES",
-  "requests": 1,
-  "written": 1
+  "requests": 2,
+  "written": 2
 }

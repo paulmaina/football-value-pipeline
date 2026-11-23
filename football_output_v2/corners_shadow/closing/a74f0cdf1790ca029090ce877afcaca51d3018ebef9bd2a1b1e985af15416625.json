@@ -1,0 +1,113 @@
+{
+  "fixture": {
+    "away_team": "Everton",
+    "home_team": "Brentford",
+    "kickoff_utc": "2026-11-23T20:00:00+00:00",
+    "league": "Premier League",
+    "odds_event_id": "1639740188"
+  },
+  "observed_at_utc": "2026-11-23T19:54:22.829235+00:00",
+  "payload": {
+    "away_team": "Everton",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "alternate_totals_corners",
+            "last_update": "2026-11-23T19:54:22Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 9.0,
+                "price": 1.5155
+              },
+              {
+                "name": "Over",
+                "point": 9.5,
+                "price": 1.7246
+              },
+              {
+                "name": "Over",
+                "point": 10.0,
+                "price": 1.9346
+              },
+              {
+                "name": "Over",
+                "point": 10.5,
+                "price": 2.15
+              },
+              {
+                "name": "Over",
+                "point": 11.0,
+                "price": 2.47
+              },
+              {
+                "name": "Under",
+                "point": 9.0,
+                "price": 2.51
+              },
+              {
+                "name": "Under",
+                "point": 9.5,
+                "price": 2.13
+              },
+              {
+                "name": "Under",
+                "point": 10.0,
+                "price": 1.9174
+              },
+              {
+                "name": "Under",
+                "point": 10.5,
+                "price": 1.7092
+              },
+              {
+                "name": "Under",
+                "point": 11.0,
+                "price": 1.5291
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-23T20:00:00Z",
+    "home_team": "Brentford",
+    "id": "1639740188",
+    "odds_provider": "pinnapi",
+    "sport_key": "soccer_epl"
+  },
+  "quotes": [
+    {
+      "decimal_odds": 1.7246,
+      "fair_probability": 0.5565161261626965,
+      "line": 9.5,
+      "quote_last_update_utc": "2026-11-23T19:54:22+00:00",
+      "side": "Over"
+    },
+    {
+      "decimal_odds": 2.13,
+      "fair_probability": 0.4434838738373034,
+      "line": 9.5,
+      "quote_last_update_utc": "2026-11-23T19:54:22+00:00",
+      "side": "Under"
+    },
+    {
+      "decimal_odds": 2.15,
+      "fair_probability": 0.4385433690041871,
+      "line": 10.5,
+      "quote_last_update_utc": "2026-11-23T19:54:22+00:00",
+      "side": "Over"
+    },
+    {
+      "decimal_odds": 1.7092,
+      "fair_probability": 0.5614566309958128,
+      "line": 10.5,
+      "quote_last_update_utc": "2026-11-23T19:54:22+00:00",
+      "side": "Under"
+    }
+  ],
+  "version": "corners-closing-v1"
+}

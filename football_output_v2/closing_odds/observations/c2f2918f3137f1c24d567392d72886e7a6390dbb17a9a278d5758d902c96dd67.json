@@ -1,0 +1,334 @@
+{
+  "fixture": {
+    "away_team": "Elche",
+    "home_team": "Levante",
+    "kickoff_utc": "2026-11-23T20:00:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "1639848575"
+  },
+  "observed_at_utc": "2026-11-23T19:54:22.720680+00:00",
+  "payload": {
+    "away_team": "Elche",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-23T19:54:22Z",
+            "outcomes": [
+              {
+                "name": "Levante",
+                "price": 2.05
+              },
+              {
+                "name": "Elche",
+                "price": 3.74
+              },
+              {
+                "name": "Draw",
+                "price": 3.69
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-23T19:54:22Z",
+            "outcomes": [
+              {
+                "name": "Levante",
+                "point": -0.5,
+                "price": 2.05
+              },
+              {
+                "name": "Elche",
+                "point": 0.5,
+                "price": 1.8621
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-23T19:54:22Z",
+            "outcomes": [
+              {
+                "name": "Levante",
+                "point": -1.25,
+                "price": 3.37
+              },
+              {
+                "name": "Levante",
+                "point": -1.0,
+                "price": 2.96
+              },
+              {
+                "name": "Levante",
+                "point": -0.75,
+                "price": 2.37
+              },
+              {
+                "name": "Levante",
+                "point": -0.25,
+                "price": 1.7874
+              },
+              {
+                "name": "Levante",
+                "point": 0.0,
+                "price": 1.5102
+              },
+              {
+                "name": "Levante",
+                "point": 0.25,
+                "price": 1.3937
+              },
+              {
+                "name": "Levante",
+                "point": 0.5,
+                "price": 1.3155
+              },
+              {
+                "name": "Levante",
+                "point": 0.75,
+                "price": 1.2183
+              },
+              {
+                "name": "Elche",
+                "point": 1.25,
+                "price": 1.361
+              },
+              {
+                "name": "Elche",
+                "point": 1.0,
+                "price": 1.4405
+              },
+              {
+                "name": "Elche",
+                "point": 0.75,
+                "price": 1.6536
+              },
+              {
+                "name": "Elche",
+                "point": 0.25,
+                "price": 2.17
+              },
+              {
+                "name": "Elche",
+                "point": 0.0,
+                "price": 2.76
+              },
+              {
+                "name": "Elche",
+                "point": -0.25,
+                "price": 3.24
+              },
+              {
+                "name": "Elche",
+                "point": -0.5,
+                "price": 3.69
+              },
+              {
+                "name": "Elche",
+                "point": -0.75,
+                "price": 4.77
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-23T19:54:22Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.9091
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.0
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-23T20:00:00Z",
+    "home_team": "Levante",
+    "id": "1639848575",
+    "odds_provider": "pinnapi",
+    "sport_key": "soccer_spain_la_liga"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.05,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4790837379945834,
+      "selection": "home",
+      "updated_at_utc": "2026-11-23T19:54:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.69,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2622549245328249,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-23T19:54:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.74,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.25866133747259173,
+      "selection": "away",
+      "updated_at_utc": "2026-11-23T19:54:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.8621,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-23T19:54:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.05,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-23T19:54:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.77,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-23T19:54:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.69,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-23T19:54:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.24,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-23T19:54:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.76,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-23T19:54:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.17,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-23T19:54:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6536,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-23T19:54:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4405,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-23T19:54:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.361,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-23T19:54:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.37,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-23T19:54:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.96,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-23T19:54:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.37,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-23T19:54:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7874,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-23T19:54:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5102,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-23T19:54:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3937,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-23T19:54:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3155,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-23T19:54:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2183,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-23T19:54:22+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
