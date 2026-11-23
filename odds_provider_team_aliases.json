@@ -1,0 +1,66 @@
+{
+  "note": "Reviewed provider team names -> the canonical names our fixtures use, per league key ('*' for every league). Only reviewed entries; the adapter never fuzzy-matches. Each target is The Odds API's own spelling for the same fixture (same league and kickoff, one other team identical), so canonical_team_key matches exactly as it does today. Built 23 Nov 2026 from scripts/odds_provider_compare.py (Actions runs of odds-provider-compare.yml); add new entries the same way when the check lists an unmatched fixture.",
+  "aliases": {
+    "Bundesliga": {
+      "FC Koln": "1. FC Köln",
+      "Mainz 05": "FSV Mainz 05",
+      "Stuttgart": "VfB Stuttgart",
+      "Hoffenheim": "TSG Hoffenheim"
+    },
+    "Eredivisie": {
+      "Cambuur Leeuwaarden": "SC Cambuur",
+      "PEC Zwolle": "FC Zwolle",
+      "FC Twente": "FC Twente Enschede"
+    },
+    "LaLiga": {
+      "Racing Santander": "Real Racing Club de Santander",
+      "Osasuna": "CA Osasuna"
+    },
+    "Ligue1": {
+      "Lens": "RC Lens",
+      "Monaco": "AS Monaco"
+    },
+    "PrimeiraLiga": {
+      "Maritimo": "CS Maritimo",
+      "Nacional da Madeira": "Nacional",
+      "Vitoria Guimaraes": "Vitória SC",
+      "Estrela da Amadora": "CF Estrela"
+    },
+    "SerieA": {
+      "Roma": "AS Roma",
+      "Atalanta": "Atalanta BC"
+    },
+    "UCL": {
+      "Bodo Glimt": "Bodø/Glimt",
+      "LASK Linz": "LASK",
+      "Lens": "RC Lens",
+      "Slovan Bratislava": "ŠK Slovan Bratislava",
+      "Viking": "Viking FK",
+      "Internazionale": "Inter Milan",
+      "Stuttgart": "VfB Stuttgart",
+      "Roma": "AS Roma"
+    },
+    "UEL": {
+      "Besiktas": "Besiktas JK",
+      "Hapoel Beer Sheva": "Hapoel Be'er Sheva",
+      "Levski Sofia": "PFC Levski Sofia",
+      "Olympiakos": "Olympiakos Piraeus",
+      "Ferencvaros": "Ferencváros TC",
+      "Celje": "NK Celje",
+      "Hoffenheim": "TSG Hoffenheim",
+      "Sturm Graz": "SK Sturm Graz",
+      "Omonia Nicosia": "Omonoia FC",
+      "Jagiellonia Bialystok": "Jagiellonia Białystok"
+    },
+    "SuperLig": {
+      "Istanbul Basaksehir": "Basaksehir",
+      "Corum Belediyespor": "Çorum FK",
+      "Konyaspor": "Torku Konyaspor",
+      "Kasimpasa": "Kasimpasa SK",
+      "Genclerbirligi": "Genclerbirligi SK",
+      "Gaziantep": "Gazişehir Gaziantep",
+      "Amedspor": "Amed SK",
+      "Erzurumspor": "Erzurum BB"
+    }
+  }
+}

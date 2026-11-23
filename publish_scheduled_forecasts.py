@@ -49,13 +49,16 @@ def usage_record(outcome,attempt):
             'remaining_total':usage.get('remaining_total'),'all_keys_exhausted':usage.get('all_keys_exhausted',False)}
     if outcome.get('message'):record['message']=outcome['message']
     if outcome.get('forecast_rows') is not None:record['forecast_rows']=outcome['forecast_rows']
+    if outcome.get('odds_provider'):record['odds_provider']=outcome['odds_provider']  # provider switch on only
     return record
 
 
 def report(outcome,record):
-    """One readable block in the run summary: the outcome line first, then credits."""
+    """One readable block in the run summary: the outcome line first, then credits (and providers, switch on)."""
+    import odds_provider
     lines=[str(outcome.get('message') or ''),*[str(n) for n in outcome.get('notes') or []]]
-    odds_api_usage.write_step_summary('\n\n'.join(line for line in lines if line)+'\n\n'+odds_api_usage.summary_markdown(record))
+    providers=('\n'+odds_provider.summary_markdown(record['odds_provider'])) if record.get('odds_provider') else ''
+    odds_api_usage.write_step_summary('\n\n'.join(line for line in lines if line)+'\n\n'+odds_api_usage.summary_markdown(record)+providers)
 
 
 def append_records(work,records):
