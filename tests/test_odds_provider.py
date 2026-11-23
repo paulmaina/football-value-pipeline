@@ -25,6 +25,7 @@ KEYS = {'PINNAPI_API_KEY': 'pinnapi-secret-for-tests', 'PINNODDS_API_KEY': 'pinn
 EXHAUSTED = {'error_code': 'OUT_OF_USAGE_CREDITS', 'message': 'Usage quota has been reached.'}
 EPL = LEAGUES['EPL']
 PROVENANCE = ('odds_provider', 'odds_schedule_provider', 'odds_extra_markets_provider')
+COMMITTED = Path(op.__file__).with_name('odds_provider_config.json')  # the live file; tests hold the switch off
 
 
 def stamp(when):
@@ -162,7 +163,7 @@ def odds_api_event(kickoff, quoted, spec=SPEC):
 
 
 def config(**changes):
-    data = op.load_config()
+    data = op.load_config(COMMITTED)
     data = json.loads(json.dumps(data))
     data['enabled'] = True
     for name, value in changes.items():
@@ -198,9 +199,13 @@ class Base(OfflineQuotePolicyTestCase):
 
 
 class SwitchOffTests(Base):
-    def test_committed_config_is_off_and_valid(self):
+    def test_committed_config_is_on_and_valid_and_tests_hold_it_off(self):
+        # Switched on 23 Nov 2026 (docs/odds-providers.md); offline tests never route (offline_test_case).
+        self.assertTrue(op.enabled(COMMITTED))
         self.assertFalse(op.enabled())
-        cfg = op.load_config()
+        self.assertIsNone(TheOddsAPI(KEYS['THE_ODDS_API_KEY'], cache_dir=self.tmp.name).router)
+        cfg = op.load_config(COMMITTED)
+        self.assertTrue(cfg['leagues_verified'])
         self.assertEqual(cfg['order'], ['pinnapi', 'pinnodds', 'the-odds-api'])
         self.assertEqual(cfg['providers']['pinnapi']['key_env'], 'PINNAPI_API_KEY')
         self.assertEqual(cfg['providers']['pinnodds']['key_env'], 'PINNODDS_API_KEY')

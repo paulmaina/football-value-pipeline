@@ -58,8 +58,10 @@ ODDS_API_EVENT_ID = re.compile(r'[0-9a-f]{32}')
 
 # --- configuration -----------------------------------------------------------------------------------------------
 
-def load_config(path: Path | str = CONFIG) -> dict:
-    """The provider settings; refuses a file that leaves a rule out rather than guessing it."""
+def load_config(path: Path | str | None = None) -> dict:
+    """The provider settings; refuses a file that leaves a rule out rather than guessing it. No path: the committed
+    file (`CONFIG`, read at call time so offline tests can point it elsewhere)."""
+    path = CONFIG if path is None else path
     data = json.loads(Path(path).read_text(encoding='utf-8'))
     if data.get('schema') != SCHEMA:
         raise ValueError(f'{path}: schema must be {SCHEMA}')
@@ -85,9 +87,9 @@ def load_config(path: Path | str = CONFIG) -> dict:
     return data
 
 
-def enabled(path: Path | str = CONFIG) -> bool:
+def enabled(path: Path | str | None = None) -> bool:
     """The switch. A missing file is off; a malformed one raises (never silently on or off)."""
-    path = Path(path)
+    path = Path(CONFIG if path is None else path)
     return path.exists() and load_config(path)['enabled']
 
 
@@ -957,7 +959,7 @@ def summary_markdown(summary: Optional[Mapping]) -> str:
     return '\n'.join(lines) + '\n'
 
 
-def router_for(odds_api_client, *, config_path: Path | str = CONFIG, repo: Path | str = '.') -> Optional[
+def router_for(odds_api_client, *, config_path: Path | str | None = None, repo: Path | str = '.') -> Optional[
         OddsProviderRouter]:
     """A router for this client when the switch is on (seeded from the committed usage log), else None."""
     if not enabled(config_path):
