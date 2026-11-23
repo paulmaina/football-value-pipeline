@@ -2,6 +2,8 @@
 
 **Outcome: not put forward for declaration.** The choice rule fixed in `docs/plan.md` Phase 2h before any figure was computed (commit 6b2c053fd) fails on (a) and (b). Offline only: nothing live changed, nothing was declared, and no harness file or config changed. No holdout match and no match played after 10 Oct 2026 was forecast, fitted or read: runs end at 16 Jan 2026.
 
+**Decision (Paul, 23 Nov 2026):** not declared (plan open item 13 closed). This is kept as an evaluation record. A different fatigue candidate is parked as open item 14: rest-day difference, or extreme cases only. It is pre-registered with its own choice rule, and the missing Turkish and Portuguese cups are a stated limit.
+
 | Choice rule condition | Result | Met? |
 | --- | --- | --- |
 | (a) Development: C6 minus C6R on AH all lines positive, 95% interval clear of zero | −0.00002 (−0.00052 to +0.00045), 6,959 fixtures, 106 weeks | no |
