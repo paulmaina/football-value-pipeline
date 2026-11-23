@@ -18,7 +18,7 @@ already in the file is not written again (so a retried workflow attempt or a rer
     details            plain English
     key                what the event tracks, for "compared with the last logged state" (refit:C6, stale:CE3n,
                        switches, rollback:v5, ucl_live_check, ...)
-    source             refit workflow | forecast run | weekly report | backfill
+    source             refit workflow | forecast run | weekly report | backfill | closing odds
     backfilled         true for events reconstructed from git history after the fact
     data               the figures behind the line (fit windows and parameters, switch states, intervals, ...)
 
@@ -30,7 +30,9 @@ Writers (each wrapped so that it can never break, delay or alter a forecast, a r
   forecast run       publish_scheduled_forecasts.py after the pipeline: stale-fit warning started or ended, a change
                      in any switch of master_shortlist_config.json or research_config.json against the last logged
                      state, new master failed (old published), comparison baseline missing, and the UCL live check
-                     (every result until one has passed, then only failures).
+                     (every result until one has passed, then only failures). With the odds-provider switch on
+                     (odds_provider.py), every change of serving provider: this run's from its summary, and the
+                     closing collector's from the committed usage log (source "closing odds").
   weekly report      performance_tracking.review: one rollback-check line per release (new master, research v5,
                      research v6) and per competition (UCL, UEL) for each report week (Monday to Sunday, EAT), and a
                      further line within the week whenever a check's status changes.
@@ -57,12 +59,14 @@ EAT = timezone(timedelta(hours=3), 'EAT')
 
 RELEASE, REFIT, STALE, ROLLBACK, SWITCH = 'Release', 'Refit', 'Stale-fit warning', 'Rollback check', 'Switch change'
 MASTER_FALLBACK, BASELINE_MISSING, UCL_CHECK = 'Master fallback', 'Comparison baseline missing', 'UCL live check'
-EVENTS = (RELEASE, REFIT, STALE, ROLLBACK, SWITCH, MASTER_FALLBACK, BASELINE_MISSING, UCL_CHECK)
+ODDS_SWITCH = 'Odds provider switch'
+EVENTS = (RELEASE, REFIT, STALE, ROLLBACK, SWITCH, MASTER_FALLBACK, BASELINE_MISSING, UCL_CHECK, ODDS_SWITCH)
 
 PUBLISHED, SKIPPED, FAILED = 'PUBLISHED', 'SKIPPED', 'FAILED'
 STALE_STARTED, STALE_ENDED = 'STALE FIT WARNING STARTED', 'STALE FIT WARNING ENDED'
 TRIGGERED, COMPETITION_WARNING = 'ROLLBACK TRIGGERED', 'CE3n COMPETITION WARNING'
 FITS = {'C6': 'C6 live fit (research v5, domestic)', 'CE3n': 'CE3n live fit (research v6, UCL/UEL)'}
+SOURCE_CLOSING = 'closing odds'
 SOURCE_REFIT, SOURCE_FORECAST, SOURCE_REVIEW, SOURCE_BACKFILL = ('refit workflow', 'forecast run', 'weekly report',
                                                                  'backfill')
 BOT = ('-c', 'user.name=github-actions[bot]', '-c',
@@ -512,6 +516,34 @@ def cagey_release_event(log: Sequence[Mapping], state: Mapping, when: Any = None
                                     'after': f'{name} (cagey-correction-through-2425-power-1x2-v1, power grid)'}})
 
 
+def odds_switch_events(switches: Iterable[Mapping], *, source: str) -> List[dict]:
+    """One line per change of serving odds provider (odds_provider.py; switch on only). The id is the switch
+    itself, so a switch read again from the summary or the usage log is never logged twice."""
+    out = []
+    for item in switches or []:
+        if not isinstance(item, Mapping):
+            continue
+        before, after = item.get('from'), item.get('to')
+        reasons = ', '.join(f'{k}: {v}' for k, v in (item.get('reasons') or {}).items()) or 'provider available again'
+        details = (f'Odds requests moved from {before} to {after}' if after else
+                   f'Every odds provider failed (last serving: {before})') +             f" at a {item.get('request')} request for {item.get('league')} ({reasons})."
+        ident = 'odds-switch-' + hashlib.sha256(json.dumps(dict(item), sort_keys=True, default=str)
+                                                .encode('utf-8')).hexdigest()[:16]
+        out.append(event(ODDS_SWITCH, 'odds providers', f"{before} -> {after or 'none'}", details,
+                         key='odds_provider_switch', source=source, when=item.get('at_utc'), data=item, ident=ident))
+    return out
+
+
+def closing_switch_events(repo: Path | str) -> List[dict]:
+    """Switches the closing collector recorded in the committed usage log (odds_api_usage.LOG)."""
+    from odds_api_usage import read_log
+    out = []
+    for record in read_log(repo):
+        if record.get('workflow') == 'closing-odds' and isinstance(record.get('odds_provider'), Mapping):
+            out += odds_switch_events(record['odds_provider'].get('switches') or [], source=SOURCE_CLOSING)
+    return out
+
+
 def forecast_events(log: Sequence[Mapping], out_dir: Path | str, master_config: Path | str,
                     research_config: Path | str, when: Any = None,
                     cagey_config: Optional[Path | str] = None) -> List[dict]:
@@ -545,6 +577,9 @@ def forecast_events(log: Sequence[Mapping], out_dir: Path | str, master_config: 
     ucl = ucl_event(log, summary.get('ce3n_ucl_live_check'), when)
     if ucl is not None:
         events.append(ucl)
+    provider = summary.get('odds_provider')  # odds provider switch on only
+    if isinstance(provider, Mapping):
+        events += odds_switch_events(provider.get('switches') or [], source=SOURCE_FORECAST)
     return events
 
 
@@ -556,7 +591,8 @@ def record_forecast(repo: Path | str, out_dir: Path | str, when: Any = None) -> 
         log = read(repo / LOG)
         return append(repo / LOG, forecast_events(log, out_dir, repo / 'master_shortlist_config.json',
                                                   repo / 'research_config.json', when,
-                                                  repo / 'cagey_correction_config.json'))
+                                                  repo / 'cagey_correction_config.json')
+                      + closing_switch_events(repo))
     except Exception as exc:  # noqa: BLE001
         warnings.warn(f'Model activity not recorded for this forecast run ({type(exc).__name__}: {exc})')
         return []

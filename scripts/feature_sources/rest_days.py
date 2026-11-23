@@ -171,8 +171,12 @@ def norm(name):
 
 
 def espn_team_ids(espn, league, season, names):
-    """football-data name -> (ESPN id, ESPN name, how) for the league's ESPN teams that season. Reviewed resolver
-    first (team_research.history_team); otherwise a close normalised-name match (sample selection only)."""
+    """football-data name -> (ESPN id, ESPN name, how). Reviewed resolver first (team_research.history_team);
+    otherwise a close normalised-name match (sample selection only).
+
+    Caveat: ESPN's /teams endpoint ignores `season` and returns the CURRENT clubs, so only clubs in the league both
+    that season and now can be drawn (see the report's correction). scripts/backfill_espn_schedules.py uses the
+    standings endpoint, which honours the season."""
     from team_research import history_team
     data = espn.get(f'{c.ESPN_SLUG[league]}/teams?season={season}')
     if not data:
