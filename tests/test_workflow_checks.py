@@ -406,7 +406,12 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
         self.assertEqual(set(matrix['os']),{'ubuntu-latest','windows-latest'})
         self.assertEqual(matrix['python'],['3.14'])
         self.assertNotIn('exclude',matrix)
-        self.assertEqual(ci['jobs']['self-test']['timeout-minutes'],'45')
+        self.assertEqual(ci['jobs']['self-test']['timeout-minutes'],"${{ matrix.os == 'windows-latest' && 60 || 45 }}")
+        steps={s.get('name'):s for s in ci['jobs']['self-test']['steps']}
+        # The full offline suite runs on both systems; only the production-policy pytest rerun is Linux-only.
+        self.assertNotIn('if',steps['Run complete offline regression and integration suite'])
+        self.assertEqual(steps['Verify conventional pytest entry point with production policy present']['if'],
+                         "runner.os == 'Linux'")
         # Every other workflow sets up the production Python, 3.14.
         for path in sorted(workflows.glob('*.yml')):
             if path.name=='pipeline-self-test.yml':
