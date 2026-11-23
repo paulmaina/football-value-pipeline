@@ -591,14 +591,29 @@ class ScheduledRefreshTest(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'overdue'):
                 self.b.european_known_through(cache, status)
 
-    def test_scheduled_run_builds_only_on_a_fold_origin(self):
+    def test_scheduled_run_builds_whenever_the_committed_fit_lacks_todays_window(self):
         import os
+        import tempfile
         env = {k: v for k, v in os.environ.items() if k != 'GITHUB_STEP_SUMMARY'}
-        with patch.object(self.b, 'build', side_effect=AssertionError('built on a non-fit day')), \
-                patch.dict(os.environ, env, clear=True):
-            self.assertEqual(self.b.main(['--scheduled', '--today', '2026-11-09']), 0)
         self.assertEqual(ce3n.expected_origin(pd.Timestamp('2026-11-16'), self.b.european_fold_rule(CFG)),
-                         pd.Timestamp('2026-11-16'))  # the same Mondays as the C6 refresh
+                         pd.Timestamp('2026-11-16'))  # the next Monday after 2 Nov is a fold origin
+        with tempfile.TemporaryDirectory() as tmp:
+            fits = Path(tmp) / 'fits.json'
+            fits.write_text(json.dumps({'windows': [{'origin': '2026-11-02'}]}), encoding='utf-8')
+            with patch.object(ce3n, 'FITS', fits), patch.dict(os.environ, env, clear=True):
+                # The committed file holds today's window: nothing is built.
+                with patch.object(self.b, 'build', side_effect=AssertionError('built with a current fit')):
+                    self.assertEqual(self.b.main(['--scheduled', '--today', '2026-11-09']), 0)
+                # It lacks it: built on the fold origin, and on any later day (a run GitHub started after midnight
+                # on 17 Nov 2026 used to stop as "not a fit day").
+                for today in ('2026-11-16', '2026-11-17', '2026-11-28'):
+                    with patch.object(self.b, '_refresh', return_value=0) as refresh:
+                        self.assertEqual(self.b.main(['--scheduled', '--today', today]), 0)
+                    self.assertEqual(refresh.call_args.args[-1], pd.Timestamp('2026-11-16'), today)
+                fits.write_text(json.dumps({'windows': []}), encoding='utf-8')  # no window at all: built
+                with patch.object(self.b, '_refresh', return_value=0) as refresh:
+                    self.assertEqual(self.b.main(['--scheduled', '--today', '2026-11-09']), 0)
+                refresh.assert_called_once()
 
     def test_harness_fits_cannot_be_refreshed_by_the_schedule(self):
         for args in (['--basis', 'harness', '--publish'], ['--basis', 'harness', '--leave-out-holdout']):
