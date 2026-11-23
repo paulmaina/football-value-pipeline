@@ -32,6 +32,15 @@ import master_golden as mg
 from master_switch import switched
 from test_master_reconciliation import production_run
 
+# The strong-team master (master_strong.py) writes its own shadow files after either master; these tests are about
+# the live and old/new master lists, so their file listings leave the strong shadow's files out
+# (tests/test_master_strong.py covers them).
+STRONG_FILES = ('master_shortlist_strong.csv', 'master_shortlist_strong_summary.json')
+
+
+def master_listing(out) -> list:
+    return sorted(p.name for p in Path(out).iterdir() if p.name not in STRONG_FILES)
+
 REPO = Path(__file__).resolve().parents[1]
 GOLDEN = mg.INDEX
 SNAPSHOT = REPO / 'football_output_v2' / 'performance' / 'snapshots' / 'a00d5e530cc2e80e'
@@ -141,7 +150,7 @@ class SwitchTest(unittest.TestCase):
     def assert_pre_release(self, case, out, summary):
         """Main's pre-release output (tests/fixtures/master_release_pre_release), compared as master_golden says."""
         golden = GOLDEN[case]
-        self.assertEqual(sorted(p.name for p in out.iterdir()), golden['files'])
+        self.assertEqual(master_listing(out), golden['files'])
         for name in golden['files']:
             if name.endswith('.csv'):
                 problems = mg.frame_differences(mg.read_csv(out / name), mg.read_csv(mg.path(case, name)),
@@ -174,7 +183,7 @@ class SwitchTest(unittest.TestCase):
         _, summary = refresh(frozen_inputs(), 'old', out)
         self.assert_pre_release('frozen_forecast', out, summary)
         refresh(frozen_inputs(), 'new', out)
-        self.assertEqual(sorted(p.name for p in out.iterdir()), sorted(RELEASE_FILES))
+        self.assertEqual(master_listing(out), sorted(RELEASE_FILES))
 
 
 class RoleSwapTest(unittest.TestCase):
@@ -182,7 +191,7 @@ class RoleSwapTest(unittest.TestCase):
     master_shortlist.csv, byte for byte apart from file names and the version field."""
 
     def assert_swapped(self, case, out, summary):
-        self.assertEqual(sorted(p.name for p in out.iterdir()), sorted(RELEASE_FILES))
+        self.assertEqual(master_listing(out), sorted(RELEASE_FILES))
         old = lambda name: mg.read_csv(mg.path(case, name))
         self.assertEqual(mg.frame_differences(mg.read_csv(out / ms.OLD_FILE), old('master_shortlist.csv')), [])
         self.assertEqual(mg.frame_differences(mg.read_csv(out / ms.OLD_AUDIT_FILE), old('master_shortlist_audit.csv')),
@@ -293,7 +302,7 @@ class FailureTest(unittest.TestCase):
                     self.assertWarnsRegex(UserWarning, 'NEW MASTER FAILED - OLD MASTER PUBLISHED'):
                 frame = ms.refresh(decisions, out, summary, predictions)
             # exactly what live "old" publishes, without the shadow new master
-            self.assertEqual(sorted(p.name for p in out.iterdir()), [ms.FILE, 'master_shortlist_audit.csv'])
+            self.assertEqual(master_listing(out), [ms.FILE, 'master_shortlist_audit.csv'])
             self.assertEqual((out / ms.FILE).read_bytes(), (old_out / ms.FILE).read_bytes())
             self.assertEqual((out / 'master_shortlist_audit.csv').read_bytes(),
                              (old_out / 'master_shortlist_audit.csv').read_bytes())
@@ -331,7 +340,7 @@ class FailureTest(unittest.TestCase):
         with mock.patch.object(ms, '_old_master', side_effect=RuntimeError('boom')), \
                 self.assertWarnsRegex(UserWarning, 'COMPARISON BASELINE MISSING'):
             ms.refresh(decisions, out, summary, predictions)
-        self.assertEqual(sorted(p.name for p in out.iterdir()), [ms.FILE, ms.SUMMARY_FILE])
+        self.assertEqual(master_listing(out), [ms.FILE, ms.SUMMARY_FILE])
         self.assertNotIn(ms.OLD_SUMMARY_KEY, summary)
         self.assertEqual(summary[ms.RELEASE_STATUS_KEY]['status'], 'COMPARISON BASELINE MISSING')
         self.assertEqual(summary[ms.RELEASE_STATUS_KEY]['old_master_version'], ms.VERSION_PINNACLE_MARKETS)

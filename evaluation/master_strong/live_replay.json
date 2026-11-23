@@ -1,0 +1,35 @@
+{
+  "what": "Saved live runs generated 27 Oct - 23 Nov 2026 replayed through master_shortlist.refresh on main (02dd717a9) and on this branch (scripts/master_reconciliation_replay.py --start 2026-10-27 --end 2026-11-24). Integration check only: no result is read.",
+  "live_master_byte_identity": {
+    "runs_main": 43,
+    "runs_branch": 43,
+    "same_runs": true,
+    "compared_files": 301,
+    "runs_with_master": 43,
+    "byte_identical": true
+  },
+  "strong_master": {
+    "runs": 43,
+    "runs_with_nominations": 35,
+    "runs_without_nominations": "8 runs nominate nothing; the first replay found the shadow failing (skipped) on them, fixed in b0938aee5 so they write an empty list (checked on run 0495c2e1c84c474b)",
+    "picks": 334,
+    "live_master_picks_same_runs": 362,
+    "runs_reaching_15": 7,
+    "live_master_runs_reaching_15": 15,
+    "picks_by_tier": {
+      "proven": 43,
+      "not proven: safe": 161,
+      "not proven: fill": 128,
+      "not proven: risky fill": 2
+    },
+    "picks_by_market_group": {
+      "match_result": 104,
+      "double_chance": 49,
+      "asian_handicap": 181
+    },
+    "most_picks_in_one_group_in_one_run": 6,
+    "same_fixture_as_live_master": 273,
+    "same_offer_as_live_master": 218,
+    "european_picks": 75
+  }
+}
