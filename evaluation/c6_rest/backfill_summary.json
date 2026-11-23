@@ -1,0 +1,40 @@
+{
+ "schema": "espn-schedule-compact-v1",
+ "run_at_utc": "2026-11-23T06:09:24.148812+00:00",
+ "leagues": [
+  "EPL",
+  "LaLiga",
+  "Bundesliga",
+  "SerieA",
+  "Ligue1",
+  "Eredivisie",
+  "PrimeiraLiga",
+  "SuperLig"
+ ],
+ "seasons": [
+  2016,
+  2017,
+  2018,
+  2019,
+  2020,
+  2021,
+  2022,
+  2023,
+  2024,
+  2025,
+  2026
+ ],
+ "team_seasons_mapped": 1673,
+ "mapping_methods": {
+  "reviewed": 1623,
+  "alias": 50
+ },
+ "unmapped_fd_teams": [],
+ "schedules_fetched_this_run": 1673,
+ "schedules_already_cached": 0,
+ "schedule_files_in_cache": 1673,
+ "requests": {
+  "http_200": 1761
+ },
+ "failed_requests": []
+}

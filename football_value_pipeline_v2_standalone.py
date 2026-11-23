@@ -3715,6 +3715,9 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 "fixture_source": row.get("fixture_source", "unknown"),
                 "fixture_id": row.get("fixture_id"),
                 "odds_source": row.get("odds_source"),
+                # Which odds provider supplied the schedule and the main odds (switch on only; the per-event
+                # markets' provider, odds_extra_markets_provider, comes with them below). Reporting only.
+                **{k: row[k] for k in ("odds_schedule_provider", "odds_provider") if isinstance(row.get(k), str)},
                 "odds_match_method": row.get("odds_match_method"),
                 "odds_event_id": row.get("odds_event_id"),
                 "odds_last_update_utc": row.get("odds_last_update_utc"),
