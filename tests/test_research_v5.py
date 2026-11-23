@@ -452,6 +452,27 @@ class ScheduledRefreshTest(unittest.TestCase):
                     self.assertEqual(self.b.main(['--scheduled', '--today', '2026-11-09']), 0)
                 refresh.assert_called_once()
 
+    def test_published_windows_are_final(self):
+        previous = {'windows': [{'origin': '2026-11-02', 'rho': -0.0189551}]}
+        rebuilt = {'windows': [{'origin': '2026-11-02', 'rho': -0.0189439}, {'origin': '2026-11-16', 'rho': -0.02}]}
+        self.assertEqual(self.b.keep_published(rebuilt, previous), 1)
+        self.assertEqual(rebuilt['windows'], [{'origin': '2026-11-02', 'rho': -0.0189551},
+                                              {'origin': '2026-11-16', 'rho': -0.02}])
+        self.assertEqual(self.b.keep_published(rebuilt, None), 0)
+        # The refresh keeps them unless --rebuild-windows is given (a corrected result).
+        import os
+        env = {k: v for k, v in os.environ.items() if k != 'GITHUB_STEP_SUMMARY'}
+        for argv, expected in (([], -0.0189551), (['--rebuild-windows'], -0.0189439)):
+            data = {'windows': [{'origin': '2026-11-02', 'rho': -0.0189439}, {'origin': '2026-11-16', 'rho': -0.02}],
+                    'built_with': {}}
+            with tempfile.TemporaryDirectory() as tmp:
+                fits, out = Path(tmp) / 'fits.json', Path(tmp) / 'out.json'
+                fits.write_text(json.dumps(previous), encoding='utf-8')
+                with patch.object(c6, 'FITS', fits), patch.dict(os.environ, env, clear=True),                         patch.object(self.b, 'build', return_value=data),                         patch.object(self.b, 'live_seasons', return_value=['2627']),                         patch.object(self.b, 'validate', return_value={'windows': 2, 'latest': data['windows'][-1]}),                         patch.object(self.b, 'summary_lines', return_value=[]):
+                    self.b.main(['--today', '2026-11-16', '--known-through', '2026-11-16T18:00', '--output', str(out),
+                                 *argv])
+                self.assertEqual(json.loads(out.read_text(encoding='utf-8'))['windows'][0]['rho'], expected)
+
     def test_harness_fits_cannot_be_refreshed_by_the_schedule(self):
         with self.assertRaises(SystemExit):
             self.b.main(['--basis', 'harness', '--publish'])
