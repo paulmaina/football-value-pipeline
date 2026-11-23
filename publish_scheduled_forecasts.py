@@ -59,7 +59,7 @@ def report(outcome,record):
     lines=[str(outcome.get('message') or ''),*[str(n) for n in outcome.get('notes') or []]]
     if outcome.get('stale_fit_warning'):
         # First in the run summary, and a warning annotation on the run page (no other notification is set up).
-        lines.insert(0,f"## ⚠️ {outcome['stale_fit_warning']}")
+        lines.insert(0,f"## ⚠️ {outcome['stale_fit_warning']}")  # warning sign; this file stays ASCII
         print(f"::warning title=Stale research fit::{outcome['stale_fit_warning']}",flush=True)
     providers=('\n'+odds_provider.summary_markdown(record['odds_provider'])) if record.get('odds_provider') else ''
     odds_api_usage.write_step_summary('\n\n'.join(line for line in lines if line)+'\n\n'+odds_api_usage.summary_markdown(record)+providers)
