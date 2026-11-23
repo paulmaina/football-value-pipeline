@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "e6ea3db17392208710a2c0b99ab1ffa6d54c685fc51b8d1359be69faa1b14d80",
-  "training_as_of_utc": "2026-11-22T13:50:15.836474+00:00",
+  "training_as_of_utc": "2026-11-23T06:14:39.338772+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -28,7 +28,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-11-22",
+    "cutoff_date": "2026-11-23",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -50,30 +50,30 @@
     },
     "bbs_shot_source_enabled": false,
     "shot_matches": 1818,
-    "tune_start_date": "2025-11-23",
-    "audit_start_date": "2026-05-24",
-    "training_shot_matches": 1524,
-    "tuning_matches": 195,
-    "audit_matches": 86,
+    "tune_start_date": "2025-11-24",
+    "audit_start_date": "2026-05-25",
+    "training_shot_matches": 1528,
+    "tuning_matches": 191,
+    "audit_matches": 85,
     "audit_matchdays": 36,
     "selected_shrinkage": 5.0,
-    "selected_component": "shots_on_target",
+    "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8129297473427133,
-    "audit_candidate_poisson_score": 0.8062731835187815,
-    "audit_gain": 0.00665656382393176,
-    "audit_gain_lower95": -0.004870973836409847,
+    "audit_baseline_poisson_score": 0.816429520551151,
+    "audit_candidate_poisson_score": 0.809396170269206,
+    "audit_gain": 0.007033350281945072,
+    "audit_gain_lower95": -0.005065437200352511,
     "audit_baseline_briers": [
-      0.5799445363312061,
-      0.17075906294123644,
-      0.21434167185589004,
-      0.2531162702038325
+      0.5753554712953275,
+      0.1722590963472249,
+      0.21007156333437788,
+      0.2538613358804622
     ],
     "audit_candidate_briers": [
-      0.5792965999137786,
-      0.16809048996490092,
-      0.21026384974473156,
-      0.25293016404652297
+      0.5746308323506023,
+      0.1693526392241696,
+      0.20607634946001951,
+      0.25331696005716237
     ],
     "audit_brier_order": [
       "1x2",
@@ -88,10 +88,10 @@
   },
   "training_end": "2026-11-08",
   "fit_success": true,
-  "objective": 1657.0695837103842,
-  "base": 0.14323924205786778,
-  "home_adv": 0.23647733771314808,
-  "rho": -0.09334457980634721,
+  "objective": 1655.434940667386,
+  "base": 0.14326373030110867,
+  "home_adv": 0.23645744759861254,
+  "rho": -0.09332259501843863,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -109,7 +109,7 @@
   },
   "training_data_health": {
     "training_end": "2026-11-08",
-    "days_since_latest_result": 14,
+    "days_since_latest_result": 15,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -119,55 +119,50 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 2,
+  "live_odds_matched": 1,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 0,
+  "additional_event_odds_calls_used_before_this_league": 3,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 0,
+  "over_1_5_in_window_quote_fixtures": 1,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
-      "fixture_id": "2f3dfa781742b66f1412e15c132ff871",
-      "event_id": "2f3dfa781742b66f1412e15c132ff871",
-      "home_team": "Trabzonspor",
-      "away_team": "Ey\u00fcpspor",
-      "kickoff_utc": "2026-11-22T16:00:00+00:00",
-      "status": "NOT_REQUESTED_LOW_CREDITS",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "c1958a1dcd4f8228f4d09148fd6ea216",
-      "event_id": "c1958a1dcd4f8228f4d09148fd6ea216",
+      "fixture_id": "1640273423",
+      "event_id": "1640273423",
       "home_team": "Basaksehir",
       "away_team": "\u00c7orum FK",
       "kickoff_utc": "2026-11-23T17:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "count_market_quotes": 4,
+      "count_market_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 18,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 0,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     }
   ],
   "additional_odds_in_window_linked_fixtures": 1,
-  "additional_odds_unrequested_linked_fixtures": 1,
+  "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 0,
+  "additional_event_odds_calls_this_league": 1,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 2
+    "ANCHORED_ALTERNATE": 1
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 2
+    "none": 1
   },
   "legacy_comparison_status": {
-    "None": 2
+    "None": 1
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"

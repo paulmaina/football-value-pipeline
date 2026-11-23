@@ -10,12 +10,12 @@
     "requests": "2.34.2",
     "scipy": "1.18.1"
   },
-  "generated_at_utc": "2026-11-22T13:50:47.131378+00:00",
-  "model_code_sha256": "1345e46da314ea399898e53667a9cfc54ced8f20b25ce367e3f3acffd882c201",
+  "generated_at_utc": "2026-11-23T06:15:00.240474+00:00",
+  "model_code_sha256": "9a09744a4d6f8a2ea0cd9d720df0f62b5a31748b9257548b662d03fcd30b9a96",
   "model_component_sha256": {
     "api_football_data.py": "c5ae292a50d10b4e1a0d9901a0989c8eebc99082aa19d75d3d0e87cc59b00de5",
     "api_football_integration.py": "3a95ec1edc5eaf6b79a8075450905df9b4d5a3050a91cfe8df2b5a2ffb2ddeac",
-    "api_key_config.py": "f4b833b31f9f3311cab770cf80854294e5e6306bbb956b687d708ff1b801908e",
+    "api_key_config.py": "8878b5b7ec9ead4ebcde8f330416f29e8ecef4f59e25e12be9f43481faf3cf68",
     "asian_handicap.py": "284a9e7d6fbbf41b0eb2c6a2da7b6e04351ab041232711e753eb7a4229239de6",
     "bbs_data.py": "ea3888908b6c27648c2cc6aeb24149c454bb5c90303c7d93ccba437a897299be",
     "bbs_integration.py": "68912f30219c8c2f4399a93231e7379cd91e7095bbcde1db624b7560af2569ae",
@@ -29,7 +29,7 @@
     "dc_decay_validation.py": "26ca9299789c00051c20b974e22583035b45e8b0acd6d06145415b93b981b2a7",
     "double_chance.py": "0c113db43dff86b4398afeee97898a51a33370695bccb2ba51a91361804ad1e8",
     "elo_ratings.py": "e74edd69c0f90f6e22b0be61a2b88d6e4cea9cca60c88efeb579c7090ff9bc0d",
-    "football_value_pipeline_v2_standalone.py": "1345e46da314ea399898e53667a9cfc54ced8f20b25ce367e3f3acffd882c201",
+    "football_value_pipeline_v2_standalone.py": "9a09744a4d6f8a2ea0cd9d720df0f62b5a31748b9257548b662d03fcd30b9a96",
     "forward_trial_basis.py": "99f5091db8075d2fb9933204e2b9c4c3a7f526096bfd4783e42813c005b3bf1d",
     "goal_market_validation.py": "0ed0247f60809a7f4b8bd42c0eef793b90f32cb97d4fd165be95fd9afdde6ec3",
     "historical_benchmark.py": "cba811adfcc35f947bb1630223a4c40fdffc5f9b64824992201ac8ab70ff5c81",
@@ -57,6 +57,6 @@
     "ucl_training.py": "1acf2d45aa2b85afda071d0871e24b2ca3f9b0f951959d6c60ca5ed97f379d47",
     "win_first_shortlist.py": "13a189d481338e75ee2f386a6de316df0ca9b73d8a96e8d5b9cdc3de91c59bb8"
   },
-  "predictions_sha256": "85c256dfd007d46722f7584de757ba540d21ab75e20e637529e00abba8773695",
+  "predictions_sha256": "be24b1d1c37f8adb34cd49338fa8a1c2656a10ce129e9453c347a487d09b7aa8",
   "selection_policy_version": "48h-ah-price-edge-cagey-v28"
 }

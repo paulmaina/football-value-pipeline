@@ -1,6 +1,6 @@
 {
   "league": "Premier League",
-  "training_matches": 2007,
+  "training_matches": 2009,
   "training_seasons_requested": 6,
   "training_seasons_loaded": [
     "2122",
@@ -10,13 +10,13 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "9bfb0165e77d1ec7f9d297bfa1c0d67a0ea65d74e20989c0706486606788e32e",
-  "training_as_of_utc": "2026-11-22T13:46:08.917846+00:00",
+  "training_sha256": "3e8f37c7e46effa353a3f8ff699d0ee7690eb860ba3f7cb30ca5582d7ed44981",
+  "training_as_of_utc": "2026-11-23T06:10:10.144144+00:00",
   "training_data_provenance": {
-    "bbs_confirmed_rows": 107,
-    "bbs_added_results": 7,
+    "bbs_confirmed_rows": 109,
+    "bbs_added_results": 9,
     "bbs_result_conflicts": 0,
-    "bbs_rows_with_statistics": 107,
+    "bbs_rows_with_statistics": 109,
     "bbs_statistics_used_as_predictor_features": false,
     "note": "Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass.",
     "api_football": {
@@ -27,7 +27,7 @@
       "unmapped": 38,
       "ambiguous": 0,
       "excluded_phase": 0,
-      "statistics_observations": 512,
+      "statistics_observations": 535,
       "source": "api-football",
       "usage": "supplementary_cached_observations"
     }
@@ -35,10 +35,10 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-22T13:46:08.917846+00:00",
-    "observations": 1286,
-    "observations_sha256": "654562ad36d24076373e2f701f8069f4f5870ea462c8a98be5f8b5d6ffbae371",
-    "eligible_training_matches": 585,
+    "cutoff_utc": "2026-11-23T06:10:10.144144+00:00",
+    "observations": 1328,
+    "observations_sha256": "0e58a20544fd1bafcdc98239d6c8f44274ff82b34696f1b541ac391c2ca69367",
+    "eligible_training_matches": 609,
     "required_training_matches": 120,
     "feature_fields": [
       "shots_on_target",
@@ -63,22 +63,22 @@
     "max_form_age_days": 180,
     "max_goal_rate_ratio": 1.25,
     "selected_weight": 0.0,
-    "usable_current_matches": 499,
+    "usable_current_matches": 520,
     "validation_policy": "auto",
     "validation_mode": "retrospective_backfill",
-    "strict_eligible_training_matches": 45,
-    "retrospective_eligible_training_matches": 585,
+    "strict_eligible_training_matches": 47,
+    "retrospective_eligible_training_matches": 609,
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:26.478110+00:00",
-    "retrospective_inputs_sha256": "2039158e2f22e2626b518dfc202e79caa4bec12d5928ea139329e19fa7a56728",
+    "retrospective_inputs_sha256": "56b988646c5071d7014b5a1acbf4bdacf13edea59e6aafc47c93e2a62a369309",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
-    "training_matches": 523,
+    "training_matches": 548,
     "tuning_matches": 21,
-    "audit_matches": 41,
-    "tuning_origin_utc": "2025-10-26T00:00:00+00:00",
-    "audit_origin_utc": "2026-10-18T00:00:00+00:00",
+    "audit_matches": 40,
+    "tuning_origin_utc": "2025-11-01T00:00:00+00:00",
+    "audit_origin_utc": "2026-10-19T00:00:00+00:00",
     "supported_feature_columns": [
       "own_shots_on_target",
       "own_shots_off_target",
@@ -112,7 +112,7 @@
       "opponent_conceded_pass_percentage",
       "is_home"
     ],
-    "paired_audit_matches": 35,
+    "paired_audit_matches": 36,
     "input_providers": [
       "api-football",
       "bigballsdata"
@@ -123,7 +123,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "VALIDATED",
-    "cutoff_date": "2026-11-22",
+    "cutoff_date": "2026-11-23",
     "selected_weight": 0.3,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -145,30 +145,30 @@
     },
     "bbs_shot_source_enabled": false,
     "shot_matches": 1999,
-    "tune_start_date": "2025-11-23",
-    "audit_start_date": "2026-05-24",
-    "training_shot_matches": 1636,
-    "tuning_matches": 253,
-    "audit_matches": 104,
-    "audit_matchdays": 32,
-    "selected_shrinkage": 5.0,
+    "tune_start_date": "2025-11-24",
+    "audit_start_date": "2026-05-25",
+    "training_shot_matches": 1638,
+    "tuning_matches": 261,
+    "audit_matches": 93,
+    "audit_matchdays": 31,
+    "selected_shrinkage": 15.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.9580989823048095,
-    "audit_candidate_poisson_score": 0.942860880078589,
-    "audit_gain": 0.015238102226220462,
-    "audit_gain_lower95": 0.004022420957729827,
+    "audit_baseline_poisson_score": 0.9669588942924072,
+    "audit_candidate_poisson_score": 0.9486055804487347,
+    "audit_gain": 0.01835331384367256,
+    "audit_gain_lower95": 0.005541860180615888,
     "audit_baseline_briers": [
-      0.6401705087130807,
-      0.1688646176312766,
-      0.21821366231670683,
-      0.26674906493550843
+      0.6375712180320979,
+      0.17995183159258799,
+      0.2241512745804081,
+      0.2713643165710411
     ],
     "audit_candidate_briers": [
-      0.637398791337325,
-      0.16810198761585565,
-      0.21648271592237023,
-      0.2619832716602162
+      0.6342809073568283,
+      0.17829917076600368,
+      0.2230934259200214,
+      0.2664438880334677
     ],
     "audit_brier_order": [
       "1x2",
@@ -178,12 +178,12 @@
     ],
     "failed_gates": []
   },
-  "training_end": "2026-11-21",
+  "training_end": "2026-11-22",
   "fit_success": true,
-  "objective": 1882.8594166612038,
-  "base": 0.21331871531785795,
-  "home_adv": 0.18326548679181434,
-  "rho": -0.057809983908047334,
+  "objective": 1887.1299531518584,
+  "base": 0.20980661762773567,
+  "home_adv": 0.1885347754014324,
+  "rho": -0.05756653548298524,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -192,15 +192,15 @@
   "elo_ratings": {
     "version": "venue-elo-v1",
     "teams": 29,
-    "matches": 2007,
+    "matches": 2009,
     "k_factor": 20.0,
     "home_advantage": 60.0,
     "venue_weight": 0.5,
     "season_regression": 0.2,
-    "last_match_date": "2026-11-21"
+    "last_match_date": "2026-11-22"
   },
   "training_data_health": {
-    "training_end": "2026-11-21",
+    "training_end": "2026-11-22",
     "days_since_latest_result": 1,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
@@ -211,69 +211,51 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 3,
+  "live_odds_matched": 1,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261122T134608917846Z_45bc6b10b9cb0679903f001d862cda9982683c14278b98c1d19dfa61a8d33623.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261123T061010144144Z_04b6b51307e545c312d21c6f56d4a91ed324ff7a83626aaadc508e580fda8cd2.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
-      "fixture_id": "230a356290e1a358e9dd2f7fa23de3b9",
-      "event_id": "230a356290e1a358e9dd2f7fa23de3b9",
-      "home_team": "Hull City",
-      "away_team": "Brighton and Hove Albion",
-      "kickoff_utc": "2026-11-22T14:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "4c08b213ed416e8f41e038f42a42b962",
-      "event_id": "4c08b213ed416e8f41e038f42a42b962",
-      "home_team": "Liverpool",
-      "away_team": "Manchester United",
-      "kickoff_utc": "2026-11-22T16:30:00+00:00",
-      "status": "NOT_REQUESTED_LOW_CREDITS",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "aa77e2a08a1a003b0bbb62a5f8e8ae42",
-      "event_id": "aa77e2a08a1a003b0bbb62a5f8e8ae42",
+      "fixture_id": "1639740188",
+      "event_id": "1639740188",
       "home_team": "Brentford",
       "away_team": "Everton",
       "kickoff_utc": "2026-11-23T20:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
+      "count_market_quotes": 4,
+      "count_market_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 18,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 1,
-  "additional_odds_unrequested_linked_fixtures": 1,
+  "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 0,
+  "additional_event_odds_calls_this_league": 1,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 3
+    "ANCHORED_MAIN": 1
   },
-  "shot_features_applied_fixtures": 3,
+  "shot_features_applied_fixtures": 1,
   "goal_rate_features_used": {
-    "shot_features": 3
+    "shot_features": 1
   },
   "legacy_comparison_status": {
-    "None": 3
+    "None": 1
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
