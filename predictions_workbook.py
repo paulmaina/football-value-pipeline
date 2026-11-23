@@ -116,6 +116,7 @@ class MasterFiles:
         new_schema = live is not None and 'new_master_decision' in live.columns
         self.new_is_live = new_schema
         self.generated = summary.get('generated_at_utc')
+        self.stale_warning = (summary.get('stale_fit_warning') or {}).get('text')  # shown above the master list
         self.new_all = live if new_schema else _csv(base / 'master_shortlist_new.csv') if base else None
         self.old = _csv(base / ms.OLD_FILE) if base and new_schema else (live if live is not None and not new_schema
                                                                              else None)
@@ -298,7 +299,11 @@ def master_tab(book: xb.Book, files: MasterFiles, run: str, which: str) -> None:
                 f'raw/{"master_shortlist_old.csv" if files.new_is_live else "master_shortlist.csv"}.', span=12)
         rows, empty = old_master_rows(files), ('Run bundle not available to the workbook.' if not files.available
                                                else 'No old-master list in this run.')
-    table = s.table(4, columns, rows, MASTER_KINDS, freeze_columns=4, empty=empty,
+    start = 4
+    if getattr(files, 'stale_warning', None):  # a stale research fit: one red line above the list
+        s.note(4, f'⚠️ {files.stale_warning}', 12, style='bad')
+        start = 6
+    table = s.table(start, columns, rows, MASTER_KINDS, freeze_columns=4, empty=empty,
                     widths={'Labels and flags': 30, 'Inspection note': 40, 'Match': 30,
                             'Re-check price before betting': 30, IN_OLD: 22, IN_NEW: 22})
     master_rules(s, table, IN_OLD if new else IN_NEW)
