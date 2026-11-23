@@ -488,10 +488,14 @@ def record_usage(root, api):
     if not isinstance(getattr(api, 'usage', None), odds_api_usage.UsageLedger) or not (api.usage.calls or routed):
         return None
     record = odds_api_usage.run_record('closing-odds', api.usage, **({'odds_provider': provider} if provider else {}))
-    odds_api_usage.append_log(record, Path(root).parent)
     import odds_provider
+    projection = odds_provider.projection_for(record, Path(root).parent)  # routed only; reporting only
+    if projection:
+        record['odds_provider_projection'] = projection
+    odds_api_usage.append_log(record, Path(root).parent)
     odds_api_usage.write_step_summary(odds_api_usage.summary_markdown(record)
-                                      + ('\n' + odds_provider.summary_markdown(provider) if provider else ''))
+                                      + ('\n' + odds_provider.summary_markdown(provider) if provider else '')
+                                      + ('\n' + odds_provider.projection_markdown(projection) if projection else ''))
     return record
 
 

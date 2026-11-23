@@ -55,6 +55,17 @@ league plus one per fixture.
 - **Across runs.** Counts and blocks are written to the usage log (`odds_api_usage.LOG`, an `odds_provider` block
   per record) and seeded from it. A closing session therefore knows what the forecast run spent today, and the
   closing collector now writes a usage line when only kit providers answered.
+- **Daily projection** (reporting only, 23 Nov 2026). Each routed forecast and closing record in the usage log
+  carries `odds_provider_projection`, also shown in the run summary. It projects kit requests per UTC day as
+  requests per run x runs per day, for a normal day and a busy day, against pinnapi's `daily_allowance`
+  (`odds_provider.daily_projection`).
+  - Requests per run count both kit keys, which is what pinnapi would carry alone. A normal day uses the median
+    routed run and a busy day the largest. Until a workflow has a routed run, its Odds API calls per run stand in
+    as an upper bound: a routed request needs at most one board request.
+  - Runs per day: forecast runs are the scheduled ones from the cron (1 a day; each manual run adds its requests).
+    Closing sessions are the ones that called, taking the median day and the busiest day in the log. The busiest
+    day of any weekday is used, so a busy day is at least a busy Saturday.
+  - Nothing reads the projection to decide.
 - **Back to pinnapi.** Every request starts from the first provider. The router goes back to pinnapi as soon as
   its allowance resets at UTC midnight or its Retry-After has passed.
 - **Switches.** A switch is any change of serving provider, including to "none" when all three failed. It is
