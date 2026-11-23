@@ -1,0 +1,383 @@
+{
+ "period": "validation",
+ "dates": [
+  "2025-01-01",
+  "2025-07-01"
+ ],
+ "groups": {
+  "1X2": {
+   "C6_minus_C6X": {
+    "fixtures": 934,
+    "weeks": 20,
+    "mean_gain": 0.0001108007807715288,
+    "interval_95": [
+     -0.0043417944769983926,
+     0.004589197041099628
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6X": {
+    "fixtures": 925,
+    "weeks": 20,
+    "mean_gain": -0.022685822719884324,
+    "interval_95": [
+     -0.03461955955332267,
+     -0.009742803680350834
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6": {
+    "fixtures": 925,
+    "weeks": 20,
+    "mean_gain": -0.02295296321376061,
+    "interval_95": [
+     -0.033833662323734845,
+     -0.011770099534643181
+    ],
+    "clear_of_zero": false
+   },
+   "C6_minus_C6Xplacebo": {
+    "fixtures": 934,
+    "weeks": 20,
+    "mean_gain": 0.0002386096815008414,
+    "interval_95": [
+     -0.0026751601046353384,
+     0.003122640927920718
+    ],
+    "clear_of_zero": false
+   },
+   "mean_log_loss": {
+    "C": 0.9893306539808275,
+    "C6": 0.9889395863736986,
+    "C6X": 0.9888287855929272,
+    "C6Xplacebo": 0.9887009766921978,
+    "M": 0.9736651884783307
+   }
+  },
+  "Over 1.5": {
+   "C6_minus_C6X": {
+    "fixtures": 934,
+    "weeks": 20,
+    "mean_gain": -0.0009024218086247266,
+    "interval_95": [
+     -0.0036478163289620008,
+     0.00174778576629479
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6X": {
+    "fixtures": 925,
+    "weeks": 20,
+    "mean_gain": -0.007478375960616212,
+    "interval_95": [
+     -0.015220182876990397,
+     0.0004161179830033797
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6": {
+    "fixtures": 925,
+    "weeks": 20,
+    "mean_gain": -0.006728150113597921,
+    "interval_95": [
+     -0.014999157314560961,
+     0.0013781959336969728
+    ],
+    "clear_of_zero": false
+   },
+   "C6_minus_C6Xplacebo": {
+    "fixtures": 934,
+    "weeks": 20,
+    "mean_gain": -0.0004047356276604518,
+    "interval_95": [
+     -0.0034609467560436317,
+     0.0026200393862632365
+    ],
+    "clear_of_zero": false
+   },
+   "mean_log_loss": {
+    "C": 0.5398038305600709,
+    "C6": 0.5397965318606215,
+    "C6X": 0.5406989536692464,
+    "C6Xplacebo": 0.540201267488282,
+    "M": 0.5375014044023634
+   }
+  },
+  "AH all": {
+   "C6_minus_C6X": {
+    "fixtures": 934,
+    "weeks": 20,
+    "mean_gain": 0.0001527457313888704,
+    "interval_95": [
+     -0.0026481751900231322,
+     0.00309833883590544
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6X": {
+    "fixtures": 925,
+    "weeks": 20,
+    "mean_gain": -0.015481486254581098,
+    "interval_95": [
+     -0.023432691636677938,
+     -0.0067030910450091635
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6": {
+    "fixtures": 925,
+    "weeks": 20,
+    "mean_gain": -0.015491175691742274,
+    "interval_95": [
+     -0.023257335841528323,
+     -0.0074736347100034396
+    ],
+    "clear_of_zero": false
+   },
+   "C6_minus_C6Xplacebo": {
+    "fixtures": 934,
+    "weeks": 20,
+    "mean_gain": -0.0001281416967966612,
+    "interval_95": [
+     -0.0020694943307360838,
+     0.0017981114835101675
+    ],
+    "clear_of_zero": false
+   },
+   "mean_log_loss": {
+    "C": 0.7213828673900554,
+    "C6": 0.7211883699805393,
+    "C6X": 0.7210356242491505,
+    "C6Xplacebo": 0.721316511677336,
+    "M": 0.7086389058801912
+   }
+  },
+  "AH draw-sensitive": {
+   "C6_minus_C6X": {
+    "fixtures": 934,
+    "weeks": 20,
+    "mean_gain": 1.8569099959150327e-05,
+    "interval_95": [
+     -0.0037594210484297483,
+     0.003841660738187003
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6X": {
+    "fixtures": 925,
+    "weeks": 20,
+    "mean_gain": -0.01812422871313439,
+    "interval_95": [
+     -0.02778407504146395,
+     -0.00756929920126159
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6": {
+    "fixtures": 925,
+    "weeks": 20,
+    "mean_gain": -0.01825603845538676,
+    "interval_95": [
+     -0.027052849763808843,
+     -0.00906075889287726
+    ],
+    "clear_of_zero": false
+   },
+   "C6_minus_C6Xplacebo": {
+    "fixtures": 934,
+    "weeks": 20,
+    "mean_gain": 0.00012630109717765763,
+    "interval_95": [
+     -0.0022690963376154646,
+     0.002406295288611565
+    ],
+    "clear_of_zero": false
+   },
+   "mean_log_loss": {
+    "C": 0.7255238045498614,
+    "C6": 0.7251363109591072,
+    "C6X": 0.725117741859148,
+    "C6Xplacebo": 0.7250100098619294,
+    "M": 0.7124574113760849
+   }
+  }
+ },
+ "calibration": {
+  "C6X_v3_against_C6": {
+   "rule": "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3",
+   "forecasts": 934,
+   "relative_slopes": {
+    "fixtures_compared": 934,
+    "candidate_on_common_fixtures": {
+     "home": 1.0488589776743154,
+     "away": 1.0001732538529304
+    },
+    "baseline_on_common_fixtures": {
+     "home": 1.0130001697307673,
+     "away": 1.003580279064466
+    },
+    "in_band": {
+     "home": true,
+     "away": true
+    },
+    "closer_to_one_than_baseline": {
+     "home": false,
+     "away": true
+    },
+    "slope_passes": {
+     "home": true,
+     "away": true
+    }
+   },
+   "slopes": {
+    "home": 1.0488589776743154,
+    "away": 1.0001732538529304
+   },
+   "slopes_pass": true,
+   "bands_checked": 17,
+   "band_z_threshold": 2.973819901220312,
+   "failing_bands": [],
+   "worst_band": {
+    "outcome": "away",
+    "band_lower": 0.2,
+    "n": 208,
+    "mean_forecast": 0.24611411242988518,
+    "observed_rate": 0.32211538461538464,
+    "observed_minus_forecast": 0.07600127218549946,
+    "z": 2.5446699663343266
+   },
+   "bands_pass": true,
+   "passes": true
+  },
+  "C6_v2": {
+   "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+   "forecasts": 934,
+   "slopes": {
+    "home": 1.0130001697307673,
+    "away": 1.003580279064466
+   },
+   "slopes_pass": true,
+   "bands_checked": 17,
+   "band_z_threshold": 2.973819901220312,
+   "failing_bands": [],
+   "worst_band": {
+    "outcome": "away",
+    "band_lower": 0.2,
+    "n": 208,
+    "mean_forecast": 0.2503936885212182,
+    "observed_rate": 0.3125,
+    "observed_minus_forecast": 0.06210631147878182,
+    "z": 2.067469438080373
+   },
+   "bands_pass": true,
+   "passes": true
+  },
+  "C6X_v2": {
+   "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+   "forecasts": 934,
+   "slopes": {
+    "home": 1.0488589776743154,
+    "away": 1.0001732538529304
+   },
+   "slopes_pass": true,
+   "bands_checked": 17,
+   "band_z_threshold": 2.973819901220312,
+   "failing_bands": [],
+   "worst_band": {
+    "outcome": "away",
+    "band_lower": 0.2,
+    "n": 208,
+    "mean_forecast": 0.24611411242988518,
+    "observed_rate": 0.32211538461538464,
+    "observed_minus_forecast": 0.07600127218549946,
+    "z": 2.5446699663343266
+   },
+   "bands_pass": true,
+   "passes": true
+  }
+ },
+ "largest_1x2_move_from_C6": {
+  "mean": 0.02759913763753648,
+  "p90": 0.05644531090207961,
+  "max": 0.11681491711099135
+ },
+ "features": {
+  "fixtures": 934,
+  "both_sides_k_3_plus_share": 1.0,
+  "x_for_sd": 0.22187148365938542,
+  "x_against_sd": 0.2488883915387464
+ },
+ "segment_either_side_under_3_xg_matches": {
+  "AH all": null,
+  "1X2": null
+ },
+ "xg_fits": {
+  "windows": 10,
+  "fitted": 10,
+  "first": {
+   "origin": "2025-01-13",
+   "end_exclusive": "2025-01-27",
+   "alpha_xg_for": 0.02624935372897501,
+   "alpha_xg_against": -0.04669728991268169,
+   "gamma_xg_for": 0.034137046304626925,
+   "gamma_xg_against": 0.2612199448516759,
+   "se_alpha_xg_for": 0.057612578432761435,
+   "se_alpha_xg_against": 0.0644507234734666,
+   "se_gamma_xg_for": 0.06148128080172302,
+   "se_gamma_xg_against": 0.06296708463073993,
+   "matches": 1469,
+   "status": "fitted",
+   "objective_gain_per_match": 0.006322162549263497
+  },
+  "last": {
+   "origin": "2025-05-19",
+   "end_exclusive": "2025-06-02",
+   "alpha_xg_for": 0.11212214194333225,
+   "alpha_xg_against": -0.02904347615722743,
+   "gamma_xg_for": 0.0380949149087861,
+   "gamma_xg_against": 0.19404394269420158,
+   "se_alpha_xg_for": 0.0487812180935759,
+   "se_alpha_xg_against": 0.051404869459309104,
+   "se_gamma_xg_for": 0.051329894666110994,
+   "se_gamma_xg_against": 0.04941502265151755,
+   "matches": 2309,
+   "status": "fitted",
+   "objective_gain_per_match": 0.004948234279242773
+  },
+  "median": {
+   "alpha_xg_for": 0.08109918500182237,
+   "alpha_xg_against": -0.03376085623648574,
+   "gamma_xg_for": 0.05715726874366597,
+   "gamma_xg_against": 0.21912736809333744
+  }
+ },
+ "placebo_fits_median": {
+  "alpha_xg_for": -0.020202088557178033,
+  "alpha_xg_against": 0.062057698671196135,
+  "gamma_xg_for": 0.11167337241482,
+  "gamma_xg_against": 0.05196195201083723
+ },
+ "candidate": "C6X",
+ "version": "research-xg-form-walk-forward-v1",
+ "run_end_exclusive": "2025-07-01",
+ "xg_coverage_of_sides": {
+  "side_k_0": 4242,
+  "side_k_1_to_2": 217,
+  "side_k_3_plus": 4737
+ },
+ "window": 8,
+ "shrink": 4.0,
+ "min_side_matches": 3,
+ "min_matches": 600,
+ "prior_sd": 0.2,
+ "xg_table_sha256": "8c7536b5b3adbba647c3443805c32dfe5fe04f72fcf350474f616bee1741c8d0",
+ "leakage_checks": {
+  "xg_rows_on_or_after_run_end": 0,
+  "feature_matches_on_or_after_match_day": "0",
+  "research_rows_on_or_after_run_end": 0,
+  "xg_first_date": "2024-01-28",
+  "xg_last_date": "2025-05-25",
+  "ucl_rows_read": 0,
+  "odds_or_market_inputs_read_by_c6x": 0
+ }
+}
