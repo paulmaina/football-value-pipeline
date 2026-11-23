@@ -1790,6 +1790,9 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
                   markdown_table(list(tier_readable.columns), tier_readable.astype(str).values.tolist())
                   if not tier_readable.empty else "No cagey-tier pick this run."]
     lines += master_section(summary, input_dir, output_dir)
+    stale = stale_banner(summary)
+    if stale:  # right under the title
+        lines[1:1] = stale
     (output_dir / "conservative_bet_shortlist_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     return len(readable)
 
@@ -1797,11 +1800,20 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
 MASTER_READABLE = "master_shortlist_readable.csv"
 
 
+def stale_banner(summary: dict) -> list:
+    """The run's stale research-fit warning (model_activity.stale_warning) as report lines, or nothing."""
+    text = (summary.get('stale_fit_warning') or {}).get('text')
+    return ['', f'> **⚠️ {text}**'] if text else []
+
+
 def master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -> list:
     """master_shortlist_readable.csv and its report section, when the run recorded a master shortlist, with the run's
     release incident (new master failed and old master published, or comparison baseline missing) under its heading."""
     import master_shortlist
     lines = _master_section(summary, input_dir, output_dir)
+    heading = next((i for i, line in enumerate(lines) if line.startswith('## ')), None)
+    if heading is not None and stale_banner(summary):  # the master's own heading carries it too
+        lines = [*lines[:heading + 1], *stale_banner(summary), *lines[heading + 1:]]
     incident = summary.get(master_shortlist.RELEASE_STATUS_KEY) or {}
     if not incident.get('status'):
         return lines
