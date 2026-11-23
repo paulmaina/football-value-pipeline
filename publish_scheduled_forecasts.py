@@ -40,7 +40,7 @@ def read_outcome(path):
     return data if isinstance(data,dict) else None
 
 
-def usage_record(outcome,attempt):
+def usage_record(outcome,attempt,repo=None):
     usage=outcome.get('odds_api') or {}
     record={'recorded_at_utc':datetime.now(timezone.utc).isoformat(timespec='seconds'),
             'workflow':'scheduled-forecasts','outcome':outcome.get('status',''),'attempt':attempt,
@@ -50,6 +50,9 @@ def usage_record(outcome,attempt):
     if outcome.get('message'):record['message']=outcome['message']
     if outcome.get('forecast_rows') is not None:record['forecast_rows']=outcome['forecast_rows']
     if outcome.get('odds_provider'):record['odds_provider']=outcome['odds_provider']  # provider switch on only
+    if repo is not None and record.get('odds_provider'):
+        import odds_provider  # reporting only: projected kit requests per day against the daily allowance
+        record['odds_provider_projection']=odds_provider.projection_for(record,repo)
     return record
 
 
@@ -58,6 +61,7 @@ def report(outcome,record):
     import odds_provider
     lines=[str(outcome.get('message') or ''),*[str(n) for n in outcome.get('notes') or []]]
     providers=('\n'+odds_provider.summary_markdown(record['odds_provider'])) if record.get('odds_provider') else ''
+    if record.get('odds_provider_projection'):providers+='\n'+odds_provider.projection_markdown(record['odds_provider_projection'])
     odds_api_usage.write_step_summary('\n\n'.join(line for line in lines if line)+'\n\n'+odds_api_usage.summary_markdown(record)+providers)
 
 
@@ -103,7 +107,7 @@ def publish(repo,attempts=3,runner=None):
                 except subprocess.CalledProcessError:
                     outcome=read_outcome(outcome_path)
                     if outcome is not None:
-                        records.append(usage_record(outcome,attempt));report(outcome,records[-1])
+                        records.append(usage_record(outcome,attempt,work));report(outcome,records[-1])
                     if outcome is not None and outcome.get('status')==odds_api_usage.CREDITS_EXHAUSTED:
                         # Keep the balances visible on main, then stop with one line.
                         commit_usage_only(work,records,'Record Odds API usage (credits exhausted)')
@@ -111,7 +115,7 @@ def publish(repo,attempts=3,runner=None):
                     raise
                 outcome=read_outcome(outcome_path)
                 if outcome is not None:
-                    records.append(usage_record(outcome,attempt));report(outcome,records[-1])
+                    records.append(usage_record(outcome,attempt,work));report(outcome,records[-1])
                     if outcome.get('status')==odds_api_usage.NO_FIXTURES:
                         # Not an error: nothing to forecast, nothing to capture.
                         if commit_usage_only(work,records,'Record Odds API usage (no fixtures)'):return outcome
