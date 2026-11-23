@@ -83,31 +83,27 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                     self.assertNotIn(excluded,summary['eligible_markets'])
                 self.assertEqual(summary.get('value_rule'), 'local-research-profit-115-200-dc12-v2')
                 # The pipeline writes the master shortlist beside the other lists and records it in the summary.
-                # Since the release (14 Nov 2026) the live master_shortlist.csv is the new master (every nominated
-                # offer; its picks are SHORTLISTED, one per match) and the old master runs in shadow.
+                # Since the strong release (23 Nov 2026) the live master_shortlist.csv is the strong-team master (every
+                # nominated offer; its picks are SHORTLISTED, one per match, at most 6 per market group) and today's
+                # master (master-new-fill-rule-v4) runs in shadow as master_shortlist_new.csv; no old master is written.
                 live = pd.read_csv(raw/'master_shortlist.csv')
-                self.assertEqual(summary['master_shortlist']['version'], 'master-new-fill-rule-v4-live-v10')
-                self.assertTrue(live.new_master_version.eq('master-new-fill-rule-v4-live-v10').all())
+                self.assertEqual(summary['master_shortlist']['version'], 'master-strong-team-v1-live-v11')
+                self.assertTrue(live.new_master_version.eq('master-strong-team-v1-live-v11').all())
                 picks_live = live.loc[live.new_master_decision.eq('SHORTLISTED')]
                 self.assertEqual(len(picks_live), summary['master_shortlist']['ranked_fixtures'])
                 self.assertLessEqual(len(picks_live), 15)
+                self.assertTrue(picks_live.groupby('strong_market_group').size().le(6).all())
                 self.assertEqual(len(picks_live[['league','home_team','away_team','kickoff_utc']].drop_duplicates()),
                                  len(picks_live))
                 self.assertEqual(json.loads((raw/'master_shortlist_summary.json').read_text()),
                                  summary['master_shortlist'])
-                self.assertFalse((raw/'master_shortlist_new.csv').exists())
-                master = pd.read_csv(raw/'master_shortlist_old.csv')
-                old_summary = summary['master_shortlist_old']
-                self.assertEqual(old_summary['n_bets'], len(master))
+                baseline = pd.read_csv(raw/'master_shortlist_new.csv')
+                self.assertTrue(baseline.new_master_version.eq('master-new-fill-rule-v4').all())
+                picks_baseline = baseline.loc[baseline.new_master_decision.eq('SHORTLISTED')]
                 # A negative edge and missing optional research do not block nominations.
-                self.assertEqual(len(master), min(15, len(keys)))
-                self.assertEqual(old_summary['version'], 'master-profit-15-pinnacle-markets-v9')
-                self.assertEqual(old_summary['shortfall'], max(0, 15-len(keys)))
-                self.assertTrue(master.master_suggested_stake.eq(0).all())
-                self.assertEqual(len(master[['league','home_team','away_team','kickoff_utc']].drop_duplicates()),len(master))
-                audit = pd.read_csv(raw/'master_shortlist_old_audit.csv')
-                self.assertEqual(set(audit.master_decision), {'ELIGIBLE'})
-                self.assertTrue(audit.master_coverage_warning.str.contains('research').all())
+                self.assertEqual(len(picks_baseline), min(15, len(keys)))
+                self.assertFalse((raw/'master_shortlist_old.csv').exists())
+                self.assertNotIn('master_shortlist_old', summary)
                 self.assertNotIn('Over 1.5', summary['eligible_markets'])
                 self.assertEqual(set(picks.market),{'Home win'})
                 self.assertEqual(set(picks.bookmaker),{'Pinnacle'})

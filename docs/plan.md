@@ -1078,6 +1078,11 @@ Six diagnostics every later candidate is read against. Reporting only: no live p
      - Rollback rule (`strong_release.rollback`): after at least 150 graded matches over at least 3 weeks on each list, strong minus today's master flat-stake return per bet at Pinnacle prices, whole kickoff weeks resampled. If the 95% interval is entirely below zero, the weekly report says ROLLBACK TRIGGERED at the top. Nothing switches automatically: Paul decides, and rolling back is `live` "new", which restores the output before this release exactly.
      - If the strong master fails in a run, that run publishes today's master (STRONG MASTER FAILED - TODAY'S MASTER PUBLISHED). If today's master (shadow) fails, the strong master stays live and the run has no baseline (COMPARISON BASELINE MISSING). The reports check replays both.
      - Not evidence that the strong master is better: offline it showed no measurable difference.
+     - Replay of the 43 saved runs (`evaluation/master_strong/release_replay.json`; integration check, no result read):
+       - With `live` "new" the branch is byte-identical to main (301 files), so rolling back restores the output exactly.
+       - With `live` "strong", today's master in shadow makes the same picks as main's live master in 43 of 43 runs.
+       - The live strong list equals the strong shadow's picks in 43 of 43 runs.
+       - The value shortlist and cagey tier decision rows are byte-identical.
    - **Live comparison** (decided 23 Nov 2026, before any pick): after at least 150 graded matches over at least 3 weeks on each list, strong minus live master flat-stake return per bet at Pinnacle prices, whole weeks resampled; better only if the 95% interval is entirely above zero. Becoming live is Paul's decision, through a third value of `master_shortlist_config.json` `live`, added only after the comparison.
 5. **Release**: one PR per change that passes; anything else stays in shadow.
    - [ ] Master shortlist release (decided by Paul on 14 Nov 2026 as a deliberate exception: released without waiting for the live shadow comparison verdict; the release gate was not passed and no holdout test was declared for the new master). Open until the rollback window has passed.
