@@ -30,9 +30,11 @@ Writers (each wrapped so that it can never break, delay or alter a forecast, a r
   forecast run       publish_scheduled_forecasts.py after the pipeline: stale-fit warning started or ended, a change
                      in any switch of master_shortlist_config.json or research_config.json against the last logged
                      state, new master failed (old published), comparison baseline missing, and the UCL live check
-                     (every result until one has passed, then only failures). With the odds-provider switch on
-                     (odds_provider.py), every change of serving provider: this run's from its summary, and the
-                     closing collector's from the committed usage log (source "closing odds").
+                     (every result until one has passed, then only failures). Every change of serving odds
+                     provider (odds_provider.py): within a run, and at run start against the provider serving at
+                     the end of the same workflow's previous run (The Odds API before any routed run, and for a
+                     run with the switch off); this run's from its summary, earlier forecast runs' and the closing
+                     collector's from the committed usage log (source "closing odds").
   weekly report      performance_tracking.review: one rollback-check line per release (new master, research v5,
                      research v6) and per competition (UCL, UEL) for each report week (Monday to Sunday, EAT), and a
                      further line within the week whenever a check's status changes.
@@ -534,20 +536,91 @@ def odds_switch_events(switches: Iterable[Mapping], *, source: str) -> List[dict
     return out
 
 
-def closing_switch_events(repo: Path | str) -> List[dict]:
-    """Switches the closing collector recorded in the committed usage log (odds_api_usage.LOG)."""
-    from odds_api_usage import read_log
-    out = []
-    for record in read_log(repo):
-        if record.get('workflow') == 'closing-odds' and isinstance(record.get('odds_provider'), Mapping):
-            out += odds_switch_events(record['odds_provider'].get('switches') or [], source=SOURCE_CLOSING)
+THE_ODDS_API = 'the-odds-api'  # odds_provider.THE_ODDS_API: serves every request while the switch is off
+USAGE_WORKFLOWS = {'scheduled-forecasts': SOURCE_FORECAST, 'closing-odds': SOURCE_CLOSING}
+
+
+def serving_at_start(block: Optional[Mapping]) -> Optional[Mapping]:
+    """Who served a run's first odds request: The Odds API with the switch off (no provider block); otherwise the
+    router's first_served, or, for a record written before first_served existed, the first provider in order that
+    served anything (exact for a run without switches). None when a routed run served nothing."""
+    if not isinstance(block, Mapping):
+        return {'provider': THE_ODDS_API, 'switch_off': True}
+    first = block.get('first_served')
+    if isinstance(first, Mapping):
+        return first
+    providers = block.get('providers') or {}
+    for name in block.get('order') or []:
+        if isinstance(providers.get(name), Mapping) and providers[name].get('served'):
+            return {'provider': name}
+    return None
+
+
+def run_start_event(before: Optional[str], start: Mapping, *, source: str, stamp: Any) -> dict:
+    """One line when a run starts on a different provider from the one serving at the end of the previous run."""
+    after = start.get('provider')
+    reasons = ', '.join(f'{k}: {v}' for k, v in (start.get('reasons') or {}).items())
+    if start.get('switch_off'):
+        details = f'Odds provider switch off: The Odds API serves this {source} (the previous run ended on {before}).'
+    else:
+        details = (f'This {source} started on {after or "none (every provider failed)"}; the previous run ended on '
+                   f'{before}' + (f' ({reasons}).' if reasons else '.'))
+    when = start.get('at_utc') or stamp
+    data = {'from': before, 'to': after, 'request': 'run start', 'run_start': True, 'at_utc': when,
+            **{k: start[k] for k in ('reasons', 'league', 'switch_off') if start.get(k)},
+            **({'first_request': start['request']} if start.get('request') else {})}
+    ident = 'odds-start-' + hashlib.sha256(json.dumps({'source': source, 'from': before, 'to': after, 'at': when},
+                                                      sort_keys=True, default=str).encode('utf-8')).hexdigest()[:16]
+    return event(ODDS_SWITCH, 'odds providers', f"{before} -> {after or 'none'}", details,
+                 key='odds_provider_switch', source=source, when=when, data=data, ident=ident)
+
+
+def provider_chain_events(runs: Iterable[tuple], *, source: str,
+                          before: Optional[str] = THE_ODDS_API) -> tuple:
+    """(events, provider serving at the end) over one workflow's runs, oldest first, each (stamp, provider block
+    or None). A run-start line wherever a run starts on another provider than the previous run ended on, then the
+    run's own switches (the one its first request made is the run-start line instead). Deterministic, so the
+    whole usage log can be read again every run: append keeps each line once by id."""
+    out: List[dict] = []
+    for stamp, block in runs:
+        start = serving_at_start(block)
+        if start is not None:
+            if start.get('provider') != before:
+                out.append(run_start_event(before, start, source=source, stamp=stamp))
+            before = start.get('provider')
+        switches = [s for s in ((block or {}).get('switches') or []) if isinstance(s, Mapping)]
+        out += odds_switch_events([s for s in switches if not s.get('run_start')], source=source)
+        if switches:
+            before = switches[-1].get('to')
+    return out, before
+
+
+def usage_runs(records: Iterable[Mapping], workflow: str) -> List[tuple]:
+    """(stamp, provider block or None) for each of a workflow's runs in the committed usage log."""
+    return [(r.get('recorded_at_utc'), r.get('odds_provider') if isinstance(r.get('odds_provider'), Mapping) else None)
+            for r in records if isinstance(r, Mapping) and r.get('workflow') == workflow]
+
+
+def usage_log_switch_events(records: Sequence[Mapping]) -> List[dict]:
+    """Provider changes of the forecast runs and the closing collector, from the committed usage log
+    (odds_api_usage.LOG)."""
+    out: List[dict] = []
+    for workflow, source in USAGE_WORKFLOWS.items():
+        out += provider_chain_events(usage_runs(records, workflow), source=source)[0]
     return out
+
+
+def closing_switch_events(repo: Path | str) -> List[dict]:
+    """The closing collector's provider changes, from the committed usage log."""
+    from odds_api_usage import read_log
+    return provider_chain_events(usage_runs(read_log(repo), 'closing-odds'), source=SOURCE_CLOSING)[0]
 
 
 def forecast_events(log: Sequence[Mapping], out_dir: Path | str, master_config: Path | str,
                     research_config: Path | str, when: Any = None,
-                    cagey_config: Optional[Path | str] = None) -> List[dict]:
-    """The events of one forecast run, from its run summary and predictions (out_dir) and the switch files."""
+                    cagey_config: Optional[Path | str] = None, usage_records: Sequence[Mapping] = ()) -> List[dict]:
+    """The events of one forecast run, from its run summary and predictions (out_dir) and the switch files. The
+    earlier forecast runs in the usage log (usage_records) give the provider this run's start is compared with."""
     from csv_utils import dict_reader
     out_dir = Path(out_dir)
     when = utc_time(when)
@@ -579,7 +652,10 @@ def forecast_events(log: Sequence[Mapping], out_dir: Path | str, master_config: 
         events.append(ucl)
     provider = summary.get('odds_provider')  # odds provider switch on only
     if isinstance(provider, Mapping):
-        events += odds_switch_events(provider.get('switches') or [], source=SOURCE_FORECAST)
+        # A run with the switch off has no stable stamp of its own; the usage log records it from the next run.
+        _, before = provider_chain_events(usage_runs(usage_records, 'scheduled-forecasts'), source=SOURCE_FORECAST)
+        events += provider_chain_events([(summary.get('generated_at_utc'), provider)], source=SOURCE_FORECAST,
+                                        before=before)[0]
     return events
 
 
@@ -588,11 +664,13 @@ def record_forecast(repo: Path | str, out_dir: Path | str, when: Any = None) -> 
     import warnings
     repo = Path(repo)
     try:
+        from odds_api_usage import read_log
         log = read(repo / LOG)
-        return append(repo / LOG, forecast_events(log, out_dir, repo / 'master_shortlist_config.json',
-                                                  repo / 'research_config.json', when,
-                                                  repo / 'cagey_correction_config.json')
-                      + closing_switch_events(repo))
+        usage = read_log(repo)
+        return append(repo / LOG, usage_log_switch_events(usage)
+                      + forecast_events(log, out_dir, repo / 'master_shortlist_config.json',
+                                        repo / 'research_config.json', when, repo / 'cagey_correction_config.json',
+                                        usage))
     except Exception as exc:  # noqa: BLE001
         warnings.warn(f'Model activity not recorded for this forecast run ({type(exc).__name__}: {exc})')
         return []

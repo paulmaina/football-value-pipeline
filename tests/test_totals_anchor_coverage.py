@@ -114,7 +114,7 @@ class AnchorStatusTests(OfflineQuotePolicyTestCase):
 
 
 class RunLeagueAlternateAnchorTests(OfflineQuotePolicyTestCase):
-    def run_pipeline(self, extra):
+    def run_pipeline(self, extra, **fixture):
         pipeline = object.__new__(FootballValuePipelineV2)
         for key, value in dict(half_life_days=480, l2=0.08, max_goals=10, devig_method="power",
                 market_weight=0.7, totals_anchor=True, fixture_provider="auto", odds_regions="eu",
@@ -128,7 +128,7 @@ class RunLeagueAlternateAnchorTests(OfflineQuotePolicyTestCase):
         kickoff = (NOW + timedelta(hours=5)).isoformat()
         pipeline._current_fixtures = Mock(return_value=pd.DataFrame([dict(
             Date=pd.Timestamp(kickoff[:10]), kickoff_utc=kickoff, HomeTeam="A", AwayTeam="B",
-            odds_source="The Odds API", odds_event_id="ev1")]))
+            odds_source="The Odds API", odds_event_id="ev1", **fixture)]))
         pipeline._attach_live_odds = lambda fixtures, *args: fixtures
         seen = []
         def predict(model, row):
@@ -164,6 +164,15 @@ class RunLeagueAlternateAnchorTests(OfflineQuotePolicyTestCase):
         self.assertEqual(diagnostics["totals_anchor_fixtures"], {"ANCHORED_ALTERNATE": 1})
         self.assertNotIn("pinnacle_alternate_ou25", frame.columns)
         self.assertEqual(frame["legacy_p_home"].tolist(), [0.4])
+
+    def test_provider_provenance_reaches_the_predictions(self):
+        # Switch on: which provider gave the schedule, the main odds and the per-event markets (reporting only).
+        extra = {"_asian_handicap_identity": self.identity(), "odds_extra_markets_provider": "pinnodds"}
+        _, frame, _ = self.run_pipeline(extra, odds_schedule_provider="pinnapi", odds_provider="pinnapi")
+        self.assertEqual(frame.iloc[0][["odds_schedule_provider", "odds_provider", "odds_extra_markets_provider"]]
+                         .tolist(), ["pinnapi", "pinnapi", "pinnodds"])
+        _, frame, _ = self.run_pipeline({"_asian_handicap_identity": self.identity()})  # switch off: no columns
+        self.assertFalse({"odds_schedule_provider", "odds_provider", "odds_extra_markets_provider"} & set(frame))
 
     def test_rejected_event_identity_never_anchors(self):
         quote = dict(pinnacle_totals(), over=1.85, under=2.05)

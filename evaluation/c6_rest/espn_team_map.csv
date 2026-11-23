@@ -1,0 +1,1674 @@
+league,season,fd_team,espn_id,espn_name,method
+Bundesliga,2016,Augsburg,3841,FC Augsburg,reviewed
+Bundesliga,2016,Bayern Munich,132,Bayern Munich,reviewed
+Bundesliga,2016,Darmstadt,3812,SV Darmstadt 98,reviewed
+Bundesliga,2016,Dortmund,124,Borussia Dortmund,reviewed
+Bundesliga,2016,Ein Frankfurt,125,Eintracht Frankfurt,reviewed
+Bundesliga,2016,FC Koln,122,FC Cologne,reviewed
+Bundesliga,2016,Freiburg,126,SC Freiburg,reviewed
+Bundesliga,2016,Hamburg,127,Hamburg SV,reviewed
+Bundesliga,2016,Hertha,129,Hertha Berlin,reviewed
+Bundesliga,2016,Hoffenheim,7911,TSG Hoffenheim,reviewed
+Bundesliga,2016,Ingolstadt,6367,FC Ingolstadt 04,reviewed
+Bundesliga,2016,Leverkusen,131,Bayer Leverkusen,reviewed
+Bundesliga,2016,M'gladbach,268,Borussia Mönchengladbach,reviewed
+Bundesliga,2016,Mainz,2950,Mainz,reviewed
+Bundesliga,2016,RB Leipzig,11420,RB Leipzig,reviewed
+Bundesliga,2016,Schalke 04,133,Schalke 04,reviewed
+Bundesliga,2016,Werder Bremen,137,Werder Bremen,reviewed
+Bundesliga,2016,Wolfsburg,138,VfL Wolfsburg,reviewed
+Bundesliga,2017,Augsburg,3841,FC Augsburg,reviewed
+Bundesliga,2017,Bayern Munich,132,Bayern Munich,reviewed
+Bundesliga,2017,Dortmund,124,Borussia Dortmund,reviewed
+Bundesliga,2017,Ein Frankfurt,125,Eintracht Frankfurt,reviewed
+Bundesliga,2017,FC Koln,122,FC Cologne,reviewed
+Bundesliga,2017,Freiburg,126,SC Freiburg,reviewed
+Bundesliga,2017,Hamburg,127,Hamburg SV,reviewed
+Bundesliga,2017,Hannover,2428,Hannover 96,reviewed
+Bundesliga,2017,Hertha,129,Hertha Berlin,reviewed
+Bundesliga,2017,Hoffenheim,7911,TSG Hoffenheim,reviewed
+Bundesliga,2017,Leverkusen,131,Bayer Leverkusen,reviewed
+Bundesliga,2017,M'gladbach,268,Borussia Mönchengladbach,reviewed
+Bundesliga,2017,Mainz,2950,Mainz,reviewed
+Bundesliga,2017,RB Leipzig,11420,RB Leipzig,reviewed
+Bundesliga,2017,Schalke 04,133,Schalke 04,reviewed
+Bundesliga,2017,Stuttgart,134,VfB Stuttgart,reviewed
+Bundesliga,2017,Werder Bremen,137,Werder Bremen,reviewed
+Bundesliga,2017,Wolfsburg,138,VfL Wolfsburg,reviewed
+Bundesliga,2018,Augsburg,3841,FC Augsburg,reviewed
+Bundesliga,2018,Bayern Munich,132,Bayern Munich,reviewed
+Bundesliga,2018,Dortmund,124,Borussia Dortmund,reviewed
+Bundesliga,2018,Ein Frankfurt,125,Eintracht Frankfurt,reviewed
+Bundesliga,2018,Fortuna Dusseldorf,9707,Fortuna Düsseldorf,reviewed
+Bundesliga,2018,Freiburg,126,SC Freiburg,reviewed
+Bundesliga,2018,Hannover,2428,Hannover 96,reviewed
+Bundesliga,2018,Hertha,129,Hertha Berlin,reviewed
+Bundesliga,2018,Hoffenheim,7911,TSG Hoffenheim,reviewed
+Bundesliga,2018,Leverkusen,131,Bayer Leverkusen,reviewed
+Bundesliga,2018,M'gladbach,268,Borussia Mönchengladbach,reviewed
+Bundesliga,2018,Mainz,2950,Mainz,reviewed
+Bundesliga,2018,Nurnberg,269,1. FC Nürnberg,alias
+Bundesliga,2018,RB Leipzig,11420,RB Leipzig,reviewed
+Bundesliga,2018,Schalke 04,133,Schalke 04,reviewed
+Bundesliga,2018,Stuttgart,134,VfB Stuttgart,reviewed
+Bundesliga,2018,Werder Bremen,137,Werder Bremen,reviewed
+Bundesliga,2018,Wolfsburg,138,VfL Wolfsburg,reviewed
+Bundesliga,2019,Augsburg,3841,FC Augsburg,reviewed
+Bundesliga,2019,Bayern Munich,132,Bayern Munich,reviewed
+Bundesliga,2019,Dortmund,124,Borussia Dortmund,reviewed
+Bundesliga,2019,Ein Frankfurt,125,Eintracht Frankfurt,reviewed
+Bundesliga,2019,FC Koln,122,FC Cologne,reviewed
+Bundesliga,2019,Fortuna Dusseldorf,9707,Fortuna Düsseldorf,reviewed
+Bundesliga,2019,Freiburg,126,SC Freiburg,reviewed
+Bundesliga,2019,Hertha,129,Hertha Berlin,reviewed
+Bundesliga,2019,Hoffenheim,7911,TSG Hoffenheim,reviewed
+Bundesliga,2019,Leverkusen,131,Bayer Leverkusen,reviewed
+Bundesliga,2019,M'gladbach,268,Borussia Mönchengladbach,reviewed
+Bundesliga,2019,Mainz,2950,Mainz,reviewed
+Bundesliga,2019,Paderborn,3307,SC Paderborn 07,reviewed
+Bundesliga,2019,RB Leipzig,11420,RB Leipzig,reviewed
+Bundesliga,2019,Schalke 04,133,Schalke 04,reviewed
+Bundesliga,2019,Union Berlin,598,1. FC Union Berlin,reviewed
+Bundesliga,2019,Werder Bremen,137,Werder Bremen,reviewed
+Bundesliga,2019,Wolfsburg,138,VfL Wolfsburg,reviewed
+Bundesliga,2020,Augsburg,3841,FC Augsburg,reviewed
+Bundesliga,2020,Bayern Munich,132,Bayern Munich,reviewed
+Bundesliga,2020,Bielefeld,2506,Arminia Bielefeld,reviewed
+Bundesliga,2020,Dortmund,124,Borussia Dortmund,reviewed
+Bundesliga,2020,Ein Frankfurt,125,Eintracht Frankfurt,reviewed
+Bundesliga,2020,FC Koln,122,FC Cologne,reviewed
+Bundesliga,2020,Freiburg,126,SC Freiburg,reviewed
+Bundesliga,2020,Hertha,129,Hertha Berlin,reviewed
+Bundesliga,2020,Hoffenheim,7911,TSG Hoffenheim,reviewed
+Bundesliga,2020,Leverkusen,131,Bayer Leverkusen,reviewed
+Bundesliga,2020,M'gladbach,268,Borussia Mönchengladbach,reviewed
+Bundesliga,2020,Mainz,2950,Mainz,reviewed
+Bundesliga,2020,RB Leipzig,11420,RB Leipzig,reviewed
+Bundesliga,2020,Schalke 04,133,Schalke 04,reviewed
+Bundesliga,2020,Stuttgart,134,VfB Stuttgart,reviewed
+Bundesliga,2020,Union Berlin,598,1. FC Union Berlin,reviewed
+Bundesliga,2020,Werder Bremen,137,Werder Bremen,reviewed
+Bundesliga,2020,Wolfsburg,138,VfL Wolfsburg,reviewed
+Bundesliga,2021,Augsburg,3841,FC Augsburg,reviewed
+Bundesliga,2021,Bayern Munich,132,Bayern Munich,reviewed
+Bundesliga,2021,Bielefeld,2506,Arminia Bielefeld,reviewed
+Bundesliga,2021,Bochum,121,VfL Bochum,reviewed
+Bundesliga,2021,Dortmund,124,Borussia Dortmund,reviewed
+Bundesliga,2021,Ein Frankfurt,125,Eintracht Frankfurt,reviewed
+Bundesliga,2021,FC Koln,122,FC Cologne,reviewed
+Bundesliga,2021,Freiburg,126,SC Freiburg,reviewed
+Bundesliga,2021,Greuther Furth,3070,SpVgg Greuther Fürth,reviewed
+Bundesliga,2021,Hertha,129,Hertha Berlin,reviewed
+Bundesliga,2021,Hoffenheim,7911,TSG Hoffenheim,reviewed
+Bundesliga,2021,Leverkusen,131,Bayer Leverkusen,reviewed
+Bundesliga,2021,M'gladbach,268,Borussia Mönchengladbach,reviewed
+Bundesliga,2021,Mainz,2950,Mainz,reviewed
+Bundesliga,2021,RB Leipzig,11420,RB Leipzig,reviewed
+Bundesliga,2021,Stuttgart,134,VfB Stuttgart,reviewed
+Bundesliga,2021,Union Berlin,598,1. FC Union Berlin,reviewed
+Bundesliga,2021,Wolfsburg,138,VfL Wolfsburg,reviewed
+Bundesliga,2022,Augsburg,3841,FC Augsburg,reviewed
+Bundesliga,2022,Bayern Munich,132,Bayern Munich,reviewed
+Bundesliga,2022,Bochum,121,VfL Bochum,reviewed
+Bundesliga,2022,Dortmund,124,Borussia Dortmund,reviewed
+Bundesliga,2022,Ein Frankfurt,125,Eintracht Frankfurt,reviewed
+Bundesliga,2022,FC Koln,122,FC Cologne,reviewed
+Bundesliga,2022,Freiburg,126,SC Freiburg,reviewed
+Bundesliga,2022,Hertha,129,Hertha Berlin,reviewed
+Bundesliga,2022,Hoffenheim,7911,TSG Hoffenheim,reviewed
+Bundesliga,2022,Leverkusen,131,Bayer Leverkusen,reviewed
+Bundesliga,2022,M'gladbach,268,Borussia Mönchengladbach,reviewed
+Bundesliga,2022,Mainz,2950,Mainz,reviewed
+Bundesliga,2022,RB Leipzig,11420,RB Leipzig,reviewed
+Bundesliga,2022,Schalke 04,133,Schalke 04,reviewed
+Bundesliga,2022,Stuttgart,134,VfB Stuttgart,reviewed
+Bundesliga,2022,Union Berlin,598,1. FC Union Berlin,reviewed
+Bundesliga,2022,Werder Bremen,137,Werder Bremen,reviewed
+Bundesliga,2022,Wolfsburg,138,VfL Wolfsburg,reviewed
+Bundesliga,2023,Augsburg,3841,FC Augsburg,reviewed
+Bundesliga,2023,Bayern Munich,132,Bayern Munich,reviewed
+Bundesliga,2023,Bochum,121,VfL Bochum,reviewed
+Bundesliga,2023,Darmstadt,3812,SV Darmstadt 98,reviewed
+Bundesliga,2023,Dortmund,124,Borussia Dortmund,reviewed
+Bundesliga,2023,Ein Frankfurt,125,Eintracht Frankfurt,reviewed
+Bundesliga,2023,FC Koln,122,FC Cologne,reviewed
+Bundesliga,2023,Freiburg,126,SC Freiburg,reviewed
+Bundesliga,2023,Heidenheim,6418,1. FC Heidenheim 1846,reviewed
+Bundesliga,2023,Hoffenheim,7911,TSG Hoffenheim,reviewed
+Bundesliga,2023,Leverkusen,131,Bayer Leverkusen,reviewed
+Bundesliga,2023,M'gladbach,268,Borussia Mönchengladbach,reviewed
+Bundesliga,2023,Mainz,2950,Mainz,reviewed
+Bundesliga,2023,RB Leipzig,11420,RB Leipzig,reviewed
+Bundesliga,2023,Stuttgart,134,VfB Stuttgart,reviewed
+Bundesliga,2023,Union Berlin,598,1. FC Union Berlin,reviewed
+Bundesliga,2023,Werder Bremen,137,Werder Bremen,reviewed
+Bundesliga,2023,Wolfsburg,138,VfL Wolfsburg,reviewed
+Bundesliga,2024,Augsburg,3841,FC Augsburg,reviewed
+Bundesliga,2024,Bayern Munich,132,Bayern Munich,reviewed
+Bundesliga,2024,Bochum,121,VfL Bochum,reviewed
+Bundesliga,2024,Dortmund,124,Borussia Dortmund,reviewed
+Bundesliga,2024,Ein Frankfurt,125,Eintracht Frankfurt,reviewed
+Bundesliga,2024,Freiburg,126,SC Freiburg,reviewed
+Bundesliga,2024,Heidenheim,6418,1. FC Heidenheim 1846,reviewed
+Bundesliga,2024,Hoffenheim,7911,TSG Hoffenheim,reviewed
+Bundesliga,2024,Holstein Kiel,7884,Holstein Kiel,reviewed
+Bundesliga,2024,Leverkusen,131,Bayer Leverkusen,reviewed
+Bundesliga,2024,M'gladbach,268,Borussia Mönchengladbach,reviewed
+Bundesliga,2024,Mainz,2950,Mainz,reviewed
+Bundesliga,2024,RB Leipzig,11420,RB Leipzig,reviewed
+Bundesliga,2024,St Pauli,270,St. Pauli,reviewed
+Bundesliga,2024,Stuttgart,134,VfB Stuttgart,reviewed
+Bundesliga,2024,Union Berlin,598,1. FC Union Berlin,reviewed
+Bundesliga,2024,Werder Bremen,137,Werder Bremen,reviewed
+Bundesliga,2024,Wolfsburg,138,VfL Wolfsburg,reviewed
+Bundesliga,2025,Augsburg,3841,FC Augsburg,reviewed
+Bundesliga,2025,Bayern Munich,132,Bayern Munich,reviewed
+Bundesliga,2025,Dortmund,124,Borussia Dortmund,reviewed
+Bundesliga,2025,Ein Frankfurt,125,Eintracht Frankfurt,reviewed
+Bundesliga,2025,FC Koln,122,FC Cologne,reviewed
+Bundesliga,2025,Freiburg,126,SC Freiburg,reviewed
+Bundesliga,2025,Hamburg,127,Hamburg SV,reviewed
+Bundesliga,2025,Heidenheim,6418,1. FC Heidenheim 1846,reviewed
+Bundesliga,2025,Hoffenheim,7911,TSG Hoffenheim,reviewed
+Bundesliga,2025,Leverkusen,131,Bayer Leverkusen,reviewed
+Bundesliga,2025,M'gladbach,268,Borussia Mönchengladbach,reviewed
+Bundesliga,2025,Mainz,2950,Mainz,reviewed
+Bundesliga,2025,RB Leipzig,11420,RB Leipzig,reviewed
+Bundesliga,2025,St Pauli,270,St. Pauli,reviewed
+Bundesliga,2025,Stuttgart,134,VfB Stuttgart,reviewed
+Bundesliga,2025,Union Berlin,598,1. FC Union Berlin,reviewed
+Bundesliga,2025,Werder Bremen,137,Werder Bremen,reviewed
+Bundesliga,2025,Wolfsburg,138,VfL Wolfsburg,reviewed
+Bundesliga,2026,Augsburg,3841,FC Augsburg,reviewed
+Bundesliga,2026,Bayern Munich,132,Bayern Munich,reviewed
+Bundesliga,2026,Dortmund,124,Borussia Dortmund,reviewed
+Bundesliga,2026,Ein Frankfurt,125,Eintracht Frankfurt,reviewed
+Bundesliga,2026,Elversberg,10388,SV Elversberg,reviewed
+Bundesliga,2026,FC Koln,122,FC Cologne,reviewed
+Bundesliga,2026,Freiburg,126,SC Freiburg,reviewed
+Bundesliga,2026,Hamburg,127,Hamburg SV,reviewed
+Bundesliga,2026,Hoffenheim,7911,TSG Hoffenheim,reviewed
+Bundesliga,2026,Leverkusen,131,Bayer Leverkusen,reviewed
+Bundesliga,2026,M'gladbach,268,Borussia Mönchengladbach,reviewed
+Bundesliga,2026,Mainz,2950,Mainz,reviewed
+Bundesliga,2026,Paderborn,3307,SC Paderborn 07,reviewed
+Bundesliga,2026,RB Leipzig,11420,RB Leipzig,reviewed
+Bundesliga,2026,Schalke 04,133,Schalke 04,reviewed
+Bundesliga,2026,Stuttgart,134,VfB Stuttgart,reviewed
+Bundesliga,2026,Union Berlin,598,1. FC Union Berlin,reviewed
+Bundesliga,2026,Werder Bremen,137,Werder Bremen,reviewed
+EPL,2016,Arsenal,359,Arsenal,reviewed
+EPL,2016,Bournemouth,349,AFC Bournemouth,reviewed
+EPL,2016,Burnley,379,Burnley,reviewed
+EPL,2016,Chelsea,363,Chelsea,reviewed
+EPL,2016,Crystal Palace,384,Crystal Palace,reviewed
+EPL,2016,Everton,368,Everton,reviewed
+EPL,2016,Hull,306,Hull City,reviewed
+EPL,2016,Leicester,375,Leicester City,reviewed
+EPL,2016,Liverpool,364,Liverpool,reviewed
+EPL,2016,Man City,382,Manchester City,reviewed
+EPL,2016,Man United,360,Manchester United,reviewed
+EPL,2016,Middlesbrough,369,Middlesbrough,reviewed
+EPL,2016,Southampton,376,Southampton,reviewed
+EPL,2016,Stoke,336,Stoke City,reviewed
+EPL,2016,Sunderland,366,Sunderland,reviewed
+EPL,2016,Swansea,318,Swansea City,reviewed
+EPL,2016,Tottenham,367,Tottenham Hotspur,reviewed
+EPL,2016,Watford,395,Watford,reviewed
+EPL,2016,West Brom,383,West Bromwich Albion,reviewed
+EPL,2016,West Ham,371,West Ham United,reviewed
+EPL,2017,Arsenal,359,Arsenal,reviewed
+EPL,2017,Bournemouth,349,AFC Bournemouth,reviewed
+EPL,2017,Brighton,331,Brighton & Hove Albion,reviewed
+EPL,2017,Burnley,379,Burnley,reviewed
+EPL,2017,Chelsea,363,Chelsea,reviewed
+EPL,2017,Crystal Palace,384,Crystal Palace,reviewed
+EPL,2017,Everton,368,Everton,reviewed
+EPL,2017,Huddersfield,335,Huddersfield Town,reviewed
+EPL,2017,Leicester,375,Leicester City,reviewed
+EPL,2017,Liverpool,364,Liverpool,reviewed
+EPL,2017,Man City,382,Manchester City,reviewed
+EPL,2017,Man United,360,Manchester United,reviewed
+EPL,2017,Newcastle,361,Newcastle United,reviewed
+EPL,2017,Southampton,376,Southampton,reviewed
+EPL,2017,Stoke,336,Stoke City,reviewed
+EPL,2017,Swansea,318,Swansea City,reviewed
+EPL,2017,Tottenham,367,Tottenham Hotspur,reviewed
+EPL,2017,Watford,395,Watford,reviewed
+EPL,2017,West Brom,383,West Bromwich Albion,reviewed
+EPL,2017,West Ham,371,West Ham United,reviewed
+EPL,2018,Arsenal,359,Arsenal,reviewed
+EPL,2018,Bournemouth,349,AFC Bournemouth,reviewed
+EPL,2018,Brighton,331,Brighton & Hove Albion,reviewed
+EPL,2018,Burnley,379,Burnley,reviewed
+EPL,2018,Cardiff,347,Cardiff City,reviewed
+EPL,2018,Chelsea,363,Chelsea,reviewed
+EPL,2018,Crystal Palace,384,Crystal Palace,reviewed
+EPL,2018,Everton,368,Everton,reviewed
+EPL,2018,Fulham,370,Fulham,reviewed
+EPL,2018,Huddersfield,335,Huddersfield Town,reviewed
+EPL,2018,Leicester,375,Leicester City,reviewed
+EPL,2018,Liverpool,364,Liverpool,reviewed
+EPL,2018,Man City,382,Manchester City,reviewed
+EPL,2018,Man United,360,Manchester United,reviewed
+EPL,2018,Newcastle,361,Newcastle United,reviewed
+EPL,2018,Southampton,376,Southampton,reviewed
+EPL,2018,Tottenham,367,Tottenham Hotspur,reviewed
+EPL,2018,Watford,395,Watford,reviewed
+EPL,2018,West Ham,371,West Ham United,reviewed
+EPL,2018,Wolves,380,Wolverhampton Wanderers,reviewed
+EPL,2019,Arsenal,359,Arsenal,reviewed
+EPL,2019,Aston Villa,362,Aston Villa,reviewed
+EPL,2019,Bournemouth,349,AFC Bournemouth,reviewed
+EPL,2019,Brighton,331,Brighton & Hove Albion,reviewed
+EPL,2019,Burnley,379,Burnley,reviewed
+EPL,2019,Chelsea,363,Chelsea,reviewed
+EPL,2019,Crystal Palace,384,Crystal Palace,reviewed
+EPL,2019,Everton,368,Everton,reviewed
+EPL,2019,Leicester,375,Leicester City,reviewed
+EPL,2019,Liverpool,364,Liverpool,reviewed
+EPL,2019,Man City,382,Manchester City,reviewed
+EPL,2019,Man United,360,Manchester United,reviewed
+EPL,2019,Newcastle,361,Newcastle United,reviewed
+EPL,2019,Norwich,381,Norwich City,alias
+EPL,2019,Sheffield United,398,Sheffield United,reviewed
+EPL,2019,Southampton,376,Southampton,reviewed
+EPL,2019,Tottenham,367,Tottenham Hotspur,reviewed
+EPL,2019,Watford,395,Watford,reviewed
+EPL,2019,West Ham,371,West Ham United,reviewed
+EPL,2019,Wolves,380,Wolverhampton Wanderers,reviewed
+EPL,2020,Arsenal,359,Arsenal,reviewed
+EPL,2020,Aston Villa,362,Aston Villa,reviewed
+EPL,2020,Brighton,331,Brighton & Hove Albion,reviewed
+EPL,2020,Burnley,379,Burnley,reviewed
+EPL,2020,Chelsea,363,Chelsea,reviewed
+EPL,2020,Crystal Palace,384,Crystal Palace,reviewed
+EPL,2020,Everton,368,Everton,reviewed
+EPL,2020,Fulham,370,Fulham,reviewed
+EPL,2020,Leeds,357,Leeds United,reviewed
+EPL,2020,Leicester,375,Leicester City,reviewed
+EPL,2020,Liverpool,364,Liverpool,reviewed
+EPL,2020,Man City,382,Manchester City,reviewed
+EPL,2020,Man United,360,Manchester United,reviewed
+EPL,2020,Newcastle,361,Newcastle United,reviewed
+EPL,2020,Sheffield United,398,Sheffield United,reviewed
+EPL,2020,Southampton,376,Southampton,reviewed
+EPL,2020,Tottenham,367,Tottenham Hotspur,reviewed
+EPL,2020,West Brom,383,West Bromwich Albion,reviewed
+EPL,2020,West Ham,371,West Ham United,reviewed
+EPL,2020,Wolves,380,Wolverhampton Wanderers,reviewed
+EPL,2021,Arsenal,359,Arsenal,reviewed
+EPL,2021,Aston Villa,362,Aston Villa,reviewed
+EPL,2021,Brentford,337,Brentford,reviewed
+EPL,2021,Brighton,331,Brighton & Hove Albion,reviewed
+EPL,2021,Burnley,379,Burnley,reviewed
+EPL,2021,Chelsea,363,Chelsea,reviewed
+EPL,2021,Crystal Palace,384,Crystal Palace,reviewed
+EPL,2021,Everton,368,Everton,reviewed
+EPL,2021,Leeds,357,Leeds United,reviewed
+EPL,2021,Leicester,375,Leicester City,reviewed
+EPL,2021,Liverpool,364,Liverpool,reviewed
+EPL,2021,Man City,382,Manchester City,reviewed
+EPL,2021,Man United,360,Manchester United,reviewed
+EPL,2021,Newcastle,361,Newcastle United,reviewed
+EPL,2021,Norwich,381,Norwich City,alias
+EPL,2021,Southampton,376,Southampton,reviewed
+EPL,2021,Tottenham,367,Tottenham Hotspur,reviewed
+EPL,2021,Watford,395,Watford,reviewed
+EPL,2021,West Ham,371,West Ham United,reviewed
+EPL,2021,Wolves,380,Wolverhampton Wanderers,reviewed
+EPL,2022,Arsenal,359,Arsenal,reviewed
+EPL,2022,Aston Villa,362,Aston Villa,reviewed
+EPL,2022,Bournemouth,349,AFC Bournemouth,reviewed
+EPL,2022,Brentford,337,Brentford,reviewed
+EPL,2022,Brighton,331,Brighton & Hove Albion,reviewed
+EPL,2022,Chelsea,363,Chelsea,reviewed
+EPL,2022,Crystal Palace,384,Crystal Palace,reviewed
+EPL,2022,Everton,368,Everton,reviewed
+EPL,2022,Fulham,370,Fulham,reviewed
+EPL,2022,Leeds,357,Leeds United,reviewed
+EPL,2022,Leicester,375,Leicester City,reviewed
+EPL,2022,Liverpool,364,Liverpool,reviewed
+EPL,2022,Man City,382,Manchester City,reviewed
+EPL,2022,Man United,360,Manchester United,reviewed
+EPL,2022,Newcastle,361,Newcastle United,reviewed
+EPL,2022,Nott'm Forest,393,Nottingham Forest,reviewed
+EPL,2022,Southampton,376,Southampton,reviewed
+EPL,2022,Tottenham,367,Tottenham Hotspur,reviewed
+EPL,2022,West Ham,371,West Ham United,reviewed
+EPL,2022,Wolves,380,Wolverhampton Wanderers,reviewed
+EPL,2023,Arsenal,359,Arsenal,reviewed
+EPL,2023,Aston Villa,362,Aston Villa,reviewed
+EPL,2023,Bournemouth,349,AFC Bournemouth,reviewed
+EPL,2023,Brentford,337,Brentford,reviewed
+EPL,2023,Brighton,331,Brighton & Hove Albion,reviewed
+EPL,2023,Burnley,379,Burnley,reviewed
+EPL,2023,Chelsea,363,Chelsea,reviewed
+EPL,2023,Crystal Palace,384,Crystal Palace,reviewed
+EPL,2023,Everton,368,Everton,reviewed
+EPL,2023,Fulham,370,Fulham,reviewed
+EPL,2023,Liverpool,364,Liverpool,reviewed
+EPL,2023,Luton,301,Luton Town,reviewed
+EPL,2023,Man City,382,Manchester City,reviewed
+EPL,2023,Man United,360,Manchester United,reviewed
+EPL,2023,Newcastle,361,Newcastle United,reviewed
+EPL,2023,Nott'm Forest,393,Nottingham Forest,reviewed
+EPL,2023,Sheffield United,398,Sheffield United,reviewed
+EPL,2023,Tottenham,367,Tottenham Hotspur,reviewed
+EPL,2023,West Ham,371,West Ham United,reviewed
+EPL,2023,Wolves,380,Wolverhampton Wanderers,reviewed
+EPL,2024,Arsenal,359,Arsenal,reviewed
+EPL,2024,Aston Villa,362,Aston Villa,reviewed
+EPL,2024,Bournemouth,349,AFC Bournemouth,reviewed
+EPL,2024,Brentford,337,Brentford,reviewed
+EPL,2024,Brighton,331,Brighton & Hove Albion,reviewed
+EPL,2024,Chelsea,363,Chelsea,reviewed
+EPL,2024,Crystal Palace,384,Crystal Palace,reviewed
+EPL,2024,Everton,368,Everton,reviewed
+EPL,2024,Fulham,370,Fulham,reviewed
+EPL,2024,Ipswich,373,Ipswich Town,reviewed
+EPL,2024,Leicester,375,Leicester City,reviewed
+EPL,2024,Liverpool,364,Liverpool,reviewed
+EPL,2024,Man City,382,Manchester City,reviewed
+EPL,2024,Man United,360,Manchester United,reviewed
+EPL,2024,Newcastle,361,Newcastle United,reviewed
+EPL,2024,Nott'm Forest,393,Nottingham Forest,reviewed
+EPL,2024,Southampton,376,Southampton,reviewed
+EPL,2024,Tottenham,367,Tottenham Hotspur,reviewed
+EPL,2024,West Ham,371,West Ham United,reviewed
+EPL,2024,Wolves,380,Wolverhampton Wanderers,reviewed
+EPL,2025,Arsenal,359,Arsenal,reviewed
+EPL,2025,Aston Villa,362,Aston Villa,reviewed
+EPL,2025,Bournemouth,349,AFC Bournemouth,reviewed
+EPL,2025,Brentford,337,Brentford,reviewed
+EPL,2025,Brighton,331,Brighton & Hove Albion,reviewed
+EPL,2025,Burnley,379,Burnley,reviewed
+EPL,2025,Chelsea,363,Chelsea,reviewed
+EPL,2025,Crystal Palace,384,Crystal Palace,reviewed
+EPL,2025,Everton,368,Everton,reviewed
+EPL,2025,Fulham,370,Fulham,reviewed
+EPL,2025,Leeds,357,Leeds United,reviewed
+EPL,2025,Liverpool,364,Liverpool,reviewed
+EPL,2025,Man City,382,Manchester City,reviewed
+EPL,2025,Man United,360,Manchester United,reviewed
+EPL,2025,Newcastle,361,Newcastle United,reviewed
+EPL,2025,Nott'm Forest,393,Nottingham Forest,reviewed
+EPL,2025,Sunderland,366,Sunderland,reviewed
+EPL,2025,Tottenham,367,Tottenham Hotspur,reviewed
+EPL,2025,West Ham,371,West Ham United,reviewed
+EPL,2025,Wolves,380,Wolverhampton Wanderers,reviewed
+EPL,2026,Arsenal,359,Arsenal,reviewed
+EPL,2026,Aston Villa,362,Aston Villa,reviewed
+EPL,2026,Bournemouth,349,AFC Bournemouth,reviewed
+EPL,2026,Brentford,337,Brentford,reviewed
+EPL,2026,Brighton,331,Brighton & Hove Albion,reviewed
+EPL,2026,Chelsea,363,Chelsea,reviewed
+EPL,2026,Coventry,388,Coventry City,reviewed
+EPL,2026,Crystal Palace,384,Crystal Palace,reviewed
+EPL,2026,Everton,368,Everton,reviewed
+EPL,2026,Fulham,370,Fulham,reviewed
+EPL,2026,Hull,306,Hull City,reviewed
+EPL,2026,Ipswich,373,Ipswich Town,reviewed
+EPL,2026,Leeds,357,Leeds United,reviewed
+EPL,2026,Liverpool,364,Liverpool,reviewed
+EPL,2026,Man City,382,Manchester City,reviewed
+EPL,2026,Man United,360,Manchester United,reviewed
+EPL,2026,Newcastle,361,Newcastle United,reviewed
+EPL,2026,Nott'm Forest,393,Nottingham Forest,reviewed
+EPL,2026,Sunderland,366,Sunderland,reviewed
+EPL,2026,Tottenham,367,Tottenham Hotspur,reviewed
+Eredivisie,2016,AZ Alkmaar,140,AZ Alkmaar,reviewed
+Eredivisie,2016,Ajax,139,Ajax Amsterdam,reviewed
+Eredivisie,2016,Den Haag,2726,ADO Den Haag,reviewed
+Eredivisie,2016,Excelsior,2566,Excelsior,reviewed
+Eredivisie,2016,Feyenoord,142,Feyenoord Rotterdam,reviewed
+Eredivisie,2016,Go Ahead Eagles,3706,Go Ahead Eagles,reviewed
+Eredivisie,2016,Groningen,145,FC Groningen,reviewed
+Eredivisie,2016,Heerenveen,146,Heerenveen,reviewed
+Eredivisie,2016,Heracles,3708,Heracles Almelo,reviewed
+Eredivisie,2016,Nijmegen,147,NEC Nijmegen,reviewed
+Eredivisie,2016,PSV Eindhoven,148,PSV Eindhoven,reviewed
+Eredivisie,2016,Roda,149,Roda JC Kerkrade,alias
+Eredivisie,2016,Sparta Rotterdam,151,Sparta Rotterdam,reviewed
+Eredivisie,2016,Twente,152,FC Twente,reviewed
+Eredivisie,2016,Utrecht,153,FC Utrecht,reviewed
+Eredivisie,2016,Vitesse,154,Vitesse,reviewed
+Eredivisie,2016,Willem II,156,Willem II,reviewed
+Eredivisie,2016,Zwolle,2565,PEC Zwolle,reviewed
+Eredivisie,2017,AZ Alkmaar,140,AZ Alkmaar,reviewed
+Eredivisie,2017,Ajax,139,Ajax Amsterdam,reviewed
+Eredivisie,2017,Den Haag,2726,ADO Den Haag,reviewed
+Eredivisie,2017,Excelsior,2566,Excelsior,reviewed
+Eredivisie,2017,Feyenoord,142,Feyenoord Rotterdam,reviewed
+Eredivisie,2017,Groningen,145,FC Groningen,reviewed
+Eredivisie,2017,Heerenveen,146,Heerenveen,reviewed
+Eredivisie,2017,Heracles,3708,Heracles Almelo,reviewed
+Eredivisie,2017,NAC Breda,141,NAC Breda,reviewed
+Eredivisie,2017,PSV Eindhoven,148,PSV Eindhoven,reviewed
+Eredivisie,2017,Roda,149,Roda JC Kerkrade,alias
+Eredivisie,2017,Sparta Rotterdam,151,Sparta Rotterdam,reviewed
+Eredivisie,2017,Twente,152,FC Twente,reviewed
+Eredivisie,2017,Utrecht,153,FC Utrecht,reviewed
+Eredivisie,2017,VVV Venlo,3731,VVV-Venlo,reviewed
+Eredivisie,2017,Vitesse,154,Vitesse,reviewed
+Eredivisie,2017,Willem II,156,Willem II,reviewed
+Eredivisie,2017,Zwolle,2565,PEC Zwolle,reviewed
+Eredivisie,2018,AZ Alkmaar,140,AZ Alkmaar,reviewed
+Eredivisie,2018,Ajax,139,Ajax Amsterdam,reviewed
+Eredivisie,2018,Den Haag,2726,ADO Den Haag,reviewed
+Eredivisie,2018,Excelsior,2566,Excelsior,reviewed
+Eredivisie,2018,FC Emmen,3707,FC Emmen,reviewed
+Eredivisie,2018,Feyenoord,142,Feyenoord Rotterdam,reviewed
+Eredivisie,2018,For Sittard,143,Fortuna Sittard,reviewed
+Eredivisie,2018,Graafschap,144,De Graafschap,reviewed
+Eredivisie,2018,Groningen,145,FC Groningen,reviewed
+Eredivisie,2018,Heerenveen,146,Heerenveen,reviewed
+Eredivisie,2018,Heracles,3708,Heracles Almelo,reviewed
+Eredivisie,2018,NAC Breda,141,NAC Breda,reviewed
+Eredivisie,2018,PSV Eindhoven,148,PSV Eindhoven,reviewed
+Eredivisie,2018,Utrecht,153,FC Utrecht,reviewed
+Eredivisie,2018,VVV Venlo,3731,VVV-Venlo,reviewed
+Eredivisie,2018,Vitesse,154,Vitesse,reviewed
+Eredivisie,2018,Willem II,156,Willem II,reviewed
+Eredivisie,2018,Zwolle,2565,PEC Zwolle,reviewed
+Eredivisie,2019,AZ Alkmaar,140,AZ Alkmaar,reviewed
+Eredivisie,2019,Ajax,139,Ajax Amsterdam,reviewed
+Eredivisie,2019,Den Haag,2726,ADO Den Haag,reviewed
+Eredivisie,2019,FC Emmen,3707,FC Emmen,reviewed
+Eredivisie,2019,Feyenoord,142,Feyenoord Rotterdam,reviewed
+Eredivisie,2019,For Sittard,143,Fortuna Sittard,reviewed
+Eredivisie,2019,Groningen,145,FC Groningen,reviewed
+Eredivisie,2019,Heerenveen,146,Heerenveen,reviewed
+Eredivisie,2019,Heracles,3708,Heracles Almelo,reviewed
+Eredivisie,2019,PSV Eindhoven,148,PSV Eindhoven,reviewed
+Eredivisie,2019,Sparta Rotterdam,151,Sparta Rotterdam,reviewed
+Eredivisie,2019,Twente,152,FC Twente,reviewed
+Eredivisie,2019,Utrecht,153,FC Utrecht,reviewed
+Eredivisie,2019,VVV Venlo,3731,VVV-Venlo,reviewed
+Eredivisie,2019,Vitesse,154,Vitesse,reviewed
+Eredivisie,2019,Waalwijk,155,RKC Waalwijk,alias
+Eredivisie,2019,Willem II,156,Willem II,reviewed
+Eredivisie,2019,Zwolle,2565,PEC Zwolle,reviewed
+Eredivisie,2020,AZ Alkmaar,140,AZ Alkmaar,reviewed
+Eredivisie,2020,Ajax,139,Ajax Amsterdam,reviewed
+Eredivisie,2020,Den Haag,2726,ADO Den Haag,reviewed
+Eredivisie,2020,FC Emmen,3707,FC Emmen,reviewed
+Eredivisie,2020,Feyenoord,142,Feyenoord Rotterdam,reviewed
+Eredivisie,2020,For Sittard,143,Fortuna Sittard,reviewed
+Eredivisie,2020,Groningen,145,FC Groningen,reviewed
+Eredivisie,2020,Heerenveen,146,Heerenveen,reviewed
+Eredivisie,2020,Heracles,3708,Heracles Almelo,reviewed
+Eredivisie,2020,PSV Eindhoven,148,PSV Eindhoven,reviewed
+Eredivisie,2020,Sparta Rotterdam,151,Sparta Rotterdam,reviewed
+Eredivisie,2020,Twente,152,FC Twente,reviewed
+Eredivisie,2020,Utrecht,153,FC Utrecht,reviewed
+Eredivisie,2020,VVV Venlo,3731,VVV-Venlo,reviewed
+Eredivisie,2020,Vitesse,154,Vitesse,reviewed
+Eredivisie,2020,Waalwijk,155,RKC Waalwijk,alias
+Eredivisie,2020,Willem II,156,Willem II,reviewed
+Eredivisie,2020,Zwolle,2565,PEC Zwolle,reviewed
+Eredivisie,2021,AZ Alkmaar,140,AZ Alkmaar,reviewed
+Eredivisie,2021,Ajax,139,Ajax Amsterdam,reviewed
+Eredivisie,2021,Cambuur,3736,SC Cambuur,reviewed
+Eredivisie,2021,Feyenoord,142,Feyenoord Rotterdam,reviewed
+Eredivisie,2021,For Sittard,143,Fortuna Sittard,reviewed
+Eredivisie,2021,Go Ahead Eagles,3706,Go Ahead Eagles,reviewed
+Eredivisie,2021,Groningen,145,FC Groningen,reviewed
+Eredivisie,2021,Heerenveen,146,Heerenveen,reviewed
+Eredivisie,2021,Heracles,3708,Heracles Almelo,reviewed
+Eredivisie,2021,Nijmegen,147,NEC Nijmegen,reviewed
+Eredivisie,2021,PSV Eindhoven,148,PSV Eindhoven,reviewed
+Eredivisie,2021,Sparta Rotterdam,151,Sparta Rotterdam,reviewed
+Eredivisie,2021,Twente,152,FC Twente,reviewed
+Eredivisie,2021,Utrecht,153,FC Utrecht,reviewed
+Eredivisie,2021,Vitesse,154,Vitesse,reviewed
+Eredivisie,2021,Waalwijk,155,RKC Waalwijk,alias
+Eredivisie,2021,Willem II,156,Willem II,reviewed
+Eredivisie,2021,Zwolle,2565,PEC Zwolle,reviewed
+Eredivisie,2022,AZ Alkmaar,140,AZ Alkmaar,reviewed
+Eredivisie,2022,Ajax,139,Ajax Amsterdam,reviewed
+Eredivisie,2022,Cambuur,3736,SC Cambuur,reviewed
+Eredivisie,2022,Excelsior,2566,Excelsior,reviewed
+Eredivisie,2022,FC Emmen,3707,FC Emmen,reviewed
+Eredivisie,2022,Feyenoord,142,Feyenoord Rotterdam,reviewed
+Eredivisie,2022,For Sittard,143,Fortuna Sittard,reviewed
+Eredivisie,2022,Go Ahead Eagles,3706,Go Ahead Eagles,reviewed
+Eredivisie,2022,Groningen,145,FC Groningen,reviewed
+Eredivisie,2022,Heerenveen,146,Heerenveen,reviewed
+Eredivisie,2022,Nijmegen,147,NEC Nijmegen,reviewed
+Eredivisie,2022,PSV Eindhoven,148,PSV Eindhoven,reviewed
+Eredivisie,2022,Sparta Rotterdam,151,Sparta Rotterdam,reviewed
+Eredivisie,2022,Twente,152,FC Twente,reviewed
+Eredivisie,2022,Utrecht,153,FC Utrecht,reviewed
+Eredivisie,2022,Vitesse,154,Vitesse,reviewed
+Eredivisie,2022,Volendam,2727,FC Volendam,reviewed
+Eredivisie,2022,Waalwijk,155,RKC Waalwijk,alias
+Eredivisie,2023,AZ Alkmaar,140,AZ Alkmaar,reviewed
+Eredivisie,2023,Ajax,139,Ajax Amsterdam,reviewed
+Eredivisie,2023,Almere City,5291,Almere City,reviewed
+Eredivisie,2023,Excelsior,2566,Excelsior,reviewed
+Eredivisie,2023,Feyenoord,142,Feyenoord Rotterdam,reviewed
+Eredivisie,2023,For Sittard,143,Fortuna Sittard,reviewed
+Eredivisie,2023,Go Ahead Eagles,3706,Go Ahead Eagles,reviewed
+Eredivisie,2023,Heerenveen,146,Heerenveen,reviewed
+Eredivisie,2023,Heracles,3708,Heracles Almelo,reviewed
+Eredivisie,2023,Nijmegen,147,NEC Nijmegen,reviewed
+Eredivisie,2023,PSV Eindhoven,148,PSV Eindhoven,reviewed
+Eredivisie,2023,Sparta Rotterdam,151,Sparta Rotterdam,reviewed
+Eredivisie,2023,Twente,152,FC Twente,reviewed
+Eredivisie,2023,Utrecht,153,FC Utrecht,reviewed
+Eredivisie,2023,Vitesse,154,Vitesse,reviewed
+Eredivisie,2023,Volendam,2727,FC Volendam,reviewed
+Eredivisie,2023,Waalwijk,155,RKC Waalwijk,alias
+Eredivisie,2023,Zwolle,2565,PEC Zwolle,reviewed
+Eredivisie,2024,AZ Alkmaar,140,AZ Alkmaar,reviewed
+Eredivisie,2024,Ajax,139,Ajax Amsterdam,reviewed
+Eredivisie,2024,Almere City,5291,Almere City,reviewed
+Eredivisie,2024,Feyenoord,142,Feyenoord Rotterdam,reviewed
+Eredivisie,2024,For Sittard,143,Fortuna Sittard,reviewed
+Eredivisie,2024,Go Ahead Eagles,3706,Go Ahead Eagles,reviewed
+Eredivisie,2024,Groningen,145,FC Groningen,reviewed
+Eredivisie,2024,Heerenveen,146,Heerenveen,reviewed
+Eredivisie,2024,Heracles,3708,Heracles Almelo,reviewed
+Eredivisie,2024,NAC Breda,141,NAC Breda,reviewed
+Eredivisie,2024,Nijmegen,147,NEC Nijmegen,reviewed
+Eredivisie,2024,PSV Eindhoven,148,PSV Eindhoven,reviewed
+Eredivisie,2024,Sparta Rotterdam,151,Sparta Rotterdam,reviewed
+Eredivisie,2024,Twente,152,FC Twente,reviewed
+Eredivisie,2024,Utrecht,153,FC Utrecht,reviewed
+Eredivisie,2024,Waalwijk,155,RKC Waalwijk,alias
+Eredivisie,2024,Willem II,156,Willem II,reviewed
+Eredivisie,2024,Zwolle,2565,PEC Zwolle,reviewed
+Eredivisie,2025,AZ Alkmaar,140,AZ Alkmaar,reviewed
+Eredivisie,2025,Ajax,139,Ajax Amsterdam,reviewed
+Eredivisie,2025,Excelsior,2566,Excelsior,reviewed
+Eredivisie,2025,Feyenoord,142,Feyenoord Rotterdam,reviewed
+Eredivisie,2025,For Sittard,143,Fortuna Sittard,reviewed
+Eredivisie,2025,Go Ahead Eagles,3706,Go Ahead Eagles,reviewed
+Eredivisie,2025,Groningen,145,FC Groningen,reviewed
+Eredivisie,2025,Heerenveen,146,Heerenveen,reviewed
+Eredivisie,2025,Heracles,3708,Heracles Almelo,reviewed
+Eredivisie,2025,NAC Breda,141,NAC Breda,reviewed
+Eredivisie,2025,Nijmegen,147,NEC Nijmegen,reviewed
+Eredivisie,2025,PSV Eindhoven,148,PSV Eindhoven,reviewed
+Eredivisie,2025,Sparta Rotterdam,151,Sparta Rotterdam,reviewed
+Eredivisie,2025,Telstar,3735,Telstar,reviewed
+Eredivisie,2025,Twente,152,FC Twente,reviewed
+Eredivisie,2025,Utrecht,153,FC Utrecht,reviewed
+Eredivisie,2025,Volendam,2727,FC Volendam,reviewed
+Eredivisie,2025,Zwolle,2565,PEC Zwolle,reviewed
+Eredivisie,2026,AZ Alkmaar,140,AZ Alkmaar,reviewed
+Eredivisie,2026,Ajax,139,Ajax Amsterdam,reviewed
+Eredivisie,2026,Cambuur,3736,SC Cambuur,reviewed
+Eredivisie,2026,Den Haag,2726,ADO Den Haag,reviewed
+Eredivisie,2026,Excelsior,2566,Excelsior,reviewed
+Eredivisie,2026,Feyenoord,142,Feyenoord Rotterdam,reviewed
+Eredivisie,2026,For Sittard,143,Fortuna Sittard,reviewed
+Eredivisie,2026,Go Ahead Eagles,3706,Go Ahead Eagles,reviewed
+Eredivisie,2026,Groningen,145,FC Groningen,reviewed
+Eredivisie,2026,Heerenveen,146,Heerenveen,reviewed
+Eredivisie,2026,Nijmegen,147,NEC Nijmegen,reviewed
+Eredivisie,2026,PSV Eindhoven,148,PSV Eindhoven,reviewed
+Eredivisie,2026,Sparta Rotterdam,151,Sparta Rotterdam,reviewed
+Eredivisie,2026,Telstar,3735,Telstar,reviewed
+Eredivisie,2026,Twente,152,FC Twente,reviewed
+Eredivisie,2026,Utrecht,153,FC Utrecht,reviewed
+Eredivisie,2026,Willem II,156,Willem II,reviewed
+Eredivisie,2026,Zwolle,2565,PEC Zwolle,reviewed
+LaLiga,2016,Alaves,96,Alavés,reviewed
+LaLiga,2016,Ath Bilbao,93,Athletic Club,reviewed
+LaLiga,2016,Ath Madrid,1068,Atlético Madrid,reviewed
+LaLiga,2016,Barcelona,83,Barcelona,reviewed
+LaLiga,2016,Betis,244,Real Betis,reviewed
+LaLiga,2016,Celta,85,Celta Vigo,reviewed
+LaLiga,2016,Eibar,3752,Eibar,reviewed
+LaLiga,2016,Espanol,88,Espanyol,reviewed
+LaLiga,2016,Granada,3747,Granada,reviewed
+LaLiga,2016,La Coruna,90,Deportivo,alias
+LaLiga,2016,Las Palmas,98,Las Palmas,reviewed
+LaLiga,2016,Leganes,17534,Leganés,reviewed
+LaLiga,2016,Malaga,99,Málaga,reviewed
+LaLiga,2016,Osasuna,97,Osasuna,reviewed
+LaLiga,2016,Real Madrid,86,Real Madrid,reviewed
+LaLiga,2016,Sevilla,243,Sevilla,reviewed
+LaLiga,2016,Sociedad,89,Real Sociedad,reviewed
+LaLiga,2016,Sp Gijon,3788,Sporting Gijón,alias
+LaLiga,2016,Valencia,94,Valencia,reviewed
+LaLiga,2016,Villarreal,102,Villarreal,reviewed
+LaLiga,2017,Alaves,96,Alavés,reviewed
+LaLiga,2017,Ath Bilbao,93,Athletic Club,reviewed
+LaLiga,2017,Ath Madrid,1068,Atlético Madrid,reviewed
+LaLiga,2017,Barcelona,83,Barcelona,reviewed
+LaLiga,2017,Betis,244,Real Betis,reviewed
+LaLiga,2017,Celta,85,Celta Vigo,reviewed
+LaLiga,2017,Eibar,3752,Eibar,reviewed
+LaLiga,2017,Espanol,88,Espanyol,reviewed
+LaLiga,2017,Getafe,2922,Getafe,reviewed
+LaLiga,2017,Girona,9812,Girona,reviewed
+LaLiga,2017,La Coruna,90,Deportivo,alias
+LaLiga,2017,Las Palmas,98,Las Palmas,reviewed
+LaLiga,2017,Leganes,17534,Leganés,reviewed
+LaLiga,2017,Levante,1538,Levante,reviewed
+LaLiga,2017,Malaga,99,Málaga,reviewed
+LaLiga,2017,Real Madrid,86,Real Madrid,reviewed
+LaLiga,2017,Sevilla,243,Sevilla,reviewed
+LaLiga,2017,Sociedad,89,Real Sociedad,reviewed
+LaLiga,2017,Valencia,94,Valencia,reviewed
+LaLiga,2017,Villarreal,102,Villarreal,reviewed
+LaLiga,2018,Alaves,96,Alavés,reviewed
+LaLiga,2018,Ath Bilbao,93,Athletic Club,reviewed
+LaLiga,2018,Ath Madrid,1068,Atlético Madrid,reviewed
+LaLiga,2018,Barcelona,83,Barcelona,reviewed
+LaLiga,2018,Betis,244,Real Betis,reviewed
+LaLiga,2018,Celta,85,Celta Vigo,reviewed
+LaLiga,2018,Eibar,3752,Eibar,reviewed
+LaLiga,2018,Espanol,88,Espanyol,reviewed
+LaLiga,2018,Getafe,2922,Getafe,reviewed
+LaLiga,2018,Girona,9812,Girona,reviewed
+LaLiga,2018,Huesca,5413,Huesca,reviewed
+LaLiga,2018,Leganes,17534,Leganés,reviewed
+LaLiga,2018,Levante,1538,Levante,reviewed
+LaLiga,2018,Real Madrid,86,Real Madrid,reviewed
+LaLiga,2018,Sevilla,243,Sevilla,reviewed
+LaLiga,2018,Sociedad,89,Real Sociedad,reviewed
+LaLiga,2018,Valencia,94,Valencia,reviewed
+LaLiga,2018,Valladolid,95,Real Valladolid,reviewed
+LaLiga,2018,Vallecano,101,Rayo Vallecano,reviewed
+LaLiga,2018,Villarreal,102,Villarreal,reviewed
+LaLiga,2019,Alaves,96,Alavés,reviewed
+LaLiga,2019,Ath Bilbao,93,Athletic Club,reviewed
+LaLiga,2019,Ath Madrid,1068,Atlético Madrid,reviewed
+LaLiga,2019,Barcelona,83,Barcelona,reviewed
+LaLiga,2019,Betis,244,Real Betis,reviewed
+LaLiga,2019,Celta,85,Celta Vigo,reviewed
+LaLiga,2019,Eibar,3752,Eibar,reviewed
+LaLiga,2019,Espanol,88,Espanyol,reviewed
+LaLiga,2019,Getafe,2922,Getafe,reviewed
+LaLiga,2019,Granada,3747,Granada,reviewed
+LaLiga,2019,Leganes,17534,Leganés,reviewed
+LaLiga,2019,Levante,1538,Levante,reviewed
+LaLiga,2019,Mallorca,84,Mallorca,reviewed
+LaLiga,2019,Osasuna,97,Osasuna,reviewed
+LaLiga,2019,Real Madrid,86,Real Madrid,reviewed
+LaLiga,2019,Sevilla,243,Sevilla,reviewed
+LaLiga,2019,Sociedad,89,Real Sociedad,reviewed
+LaLiga,2019,Valencia,94,Valencia,reviewed
+LaLiga,2019,Valladolid,95,Real Valladolid,reviewed
+LaLiga,2019,Villarreal,102,Villarreal,reviewed
+LaLiga,2020,Alaves,96,Alavés,reviewed
+LaLiga,2020,Ath Bilbao,93,Athletic Club,reviewed
+LaLiga,2020,Ath Madrid,1068,Atlético Madrid,reviewed
+LaLiga,2020,Barcelona,83,Barcelona,reviewed
+LaLiga,2020,Betis,244,Real Betis,reviewed
+LaLiga,2020,Cadiz,3842,Cádiz,reviewed
+LaLiga,2020,Celta,85,Celta Vigo,reviewed
+LaLiga,2020,Eibar,3752,Eibar,reviewed
+LaLiga,2020,Elche,3751,Elche,reviewed
+LaLiga,2020,Getafe,2922,Getafe,reviewed
+LaLiga,2020,Granada,3747,Granada,reviewed
+LaLiga,2020,Huesca,5413,Huesca,reviewed
+LaLiga,2020,Levante,1538,Levante,reviewed
+LaLiga,2020,Osasuna,97,Osasuna,reviewed
+LaLiga,2020,Real Madrid,86,Real Madrid,reviewed
+LaLiga,2020,Sevilla,243,Sevilla,reviewed
+LaLiga,2020,Sociedad,89,Real Sociedad,reviewed
+LaLiga,2020,Valencia,94,Valencia,reviewed
+LaLiga,2020,Valladolid,95,Real Valladolid,reviewed
+LaLiga,2020,Villarreal,102,Villarreal,reviewed
+LaLiga,2021,Alaves,96,Alavés,reviewed
+LaLiga,2021,Ath Bilbao,93,Athletic Club,reviewed
+LaLiga,2021,Ath Madrid,1068,Atlético Madrid,reviewed
+LaLiga,2021,Barcelona,83,Barcelona,reviewed
+LaLiga,2021,Betis,244,Real Betis,reviewed
+LaLiga,2021,Cadiz,3842,Cádiz,reviewed
+LaLiga,2021,Celta,85,Celta Vigo,reviewed
+LaLiga,2021,Elche,3751,Elche,reviewed
+LaLiga,2021,Espanol,88,Espanyol,reviewed
+LaLiga,2021,Getafe,2922,Getafe,reviewed
+LaLiga,2021,Granada,3747,Granada,reviewed
+LaLiga,2021,Levante,1538,Levante,reviewed
+LaLiga,2021,Mallorca,84,Mallorca,reviewed
+LaLiga,2021,Osasuna,97,Osasuna,reviewed
+LaLiga,2021,Real Madrid,86,Real Madrid,reviewed
+LaLiga,2021,Sevilla,243,Sevilla,reviewed
+LaLiga,2021,Sociedad,89,Real Sociedad,reviewed
+LaLiga,2021,Valencia,94,Valencia,reviewed
+LaLiga,2021,Vallecano,101,Rayo Vallecano,reviewed
+LaLiga,2021,Villarreal,102,Villarreal,reviewed
+LaLiga,2022,Almeria,6832,Almería,reviewed
+LaLiga,2022,Ath Bilbao,93,Athletic Club,reviewed
+LaLiga,2022,Ath Madrid,1068,Atlético Madrid,reviewed
+LaLiga,2022,Barcelona,83,Barcelona,reviewed
+LaLiga,2022,Betis,244,Real Betis,reviewed
+LaLiga,2022,Cadiz,3842,Cádiz,reviewed
+LaLiga,2022,Celta,85,Celta Vigo,reviewed
+LaLiga,2022,Elche,3751,Elche,reviewed
+LaLiga,2022,Espanol,88,Espanyol,reviewed
+LaLiga,2022,Getafe,2922,Getafe,reviewed
+LaLiga,2022,Girona,9812,Girona,reviewed
+LaLiga,2022,Mallorca,84,Mallorca,reviewed
+LaLiga,2022,Osasuna,97,Osasuna,reviewed
+LaLiga,2022,Real Madrid,86,Real Madrid,reviewed
+LaLiga,2022,Sevilla,243,Sevilla,reviewed
+LaLiga,2022,Sociedad,89,Real Sociedad,reviewed
+LaLiga,2022,Valencia,94,Valencia,reviewed
+LaLiga,2022,Valladolid,95,Real Valladolid,reviewed
+LaLiga,2022,Vallecano,101,Rayo Vallecano,reviewed
+LaLiga,2022,Villarreal,102,Villarreal,reviewed
+LaLiga,2023,Alaves,96,Alavés,reviewed
+LaLiga,2023,Almeria,6832,Almería,reviewed
+LaLiga,2023,Ath Bilbao,93,Athletic Club,reviewed
+LaLiga,2023,Ath Madrid,1068,Atlético Madrid,reviewed
+LaLiga,2023,Barcelona,83,Barcelona,reviewed
+LaLiga,2023,Betis,244,Real Betis,reviewed
+LaLiga,2023,Cadiz,3842,Cádiz,reviewed
+LaLiga,2023,Celta,85,Celta Vigo,reviewed
+LaLiga,2023,Getafe,2922,Getafe,reviewed
+LaLiga,2023,Girona,9812,Girona,reviewed
+LaLiga,2023,Granada,3747,Granada,reviewed
+LaLiga,2023,Las Palmas,98,Las Palmas,reviewed
+LaLiga,2023,Mallorca,84,Mallorca,reviewed
+LaLiga,2023,Osasuna,97,Osasuna,reviewed
+LaLiga,2023,Real Madrid,86,Real Madrid,reviewed
+LaLiga,2023,Sevilla,243,Sevilla,reviewed
+LaLiga,2023,Sociedad,89,Real Sociedad,reviewed
+LaLiga,2023,Valencia,94,Valencia,reviewed
+LaLiga,2023,Vallecano,101,Rayo Vallecano,reviewed
+LaLiga,2023,Villarreal,102,Villarreal,reviewed
+LaLiga,2024,Alaves,96,Alavés,reviewed
+LaLiga,2024,Ath Bilbao,93,Athletic Club,reviewed
+LaLiga,2024,Ath Madrid,1068,Atlético Madrid,reviewed
+LaLiga,2024,Barcelona,83,Barcelona,reviewed
+LaLiga,2024,Betis,244,Real Betis,reviewed
+LaLiga,2024,Celta,85,Celta Vigo,reviewed
+LaLiga,2024,Espanol,88,Espanyol,reviewed
+LaLiga,2024,Getafe,2922,Getafe,reviewed
+LaLiga,2024,Girona,9812,Girona,reviewed
+LaLiga,2024,Las Palmas,98,Las Palmas,reviewed
+LaLiga,2024,Leganes,17534,Leganés,reviewed
+LaLiga,2024,Mallorca,84,Mallorca,reviewed
+LaLiga,2024,Osasuna,97,Osasuna,reviewed
+LaLiga,2024,Real Madrid,86,Real Madrid,reviewed
+LaLiga,2024,Sevilla,243,Sevilla,reviewed
+LaLiga,2024,Sociedad,89,Real Sociedad,reviewed
+LaLiga,2024,Valencia,94,Valencia,reviewed
+LaLiga,2024,Valladolid,95,Real Valladolid,reviewed
+LaLiga,2024,Vallecano,101,Rayo Vallecano,reviewed
+LaLiga,2024,Villarreal,102,Villarreal,reviewed
+LaLiga,2025,Alaves,96,Alavés,reviewed
+LaLiga,2025,Ath Bilbao,93,Athletic Club,reviewed
+LaLiga,2025,Ath Madrid,1068,Atlético Madrid,reviewed
+LaLiga,2025,Barcelona,83,Barcelona,reviewed
+LaLiga,2025,Betis,244,Real Betis,reviewed
+LaLiga,2025,Celta,85,Celta Vigo,reviewed
+LaLiga,2025,Elche,3751,Elche,reviewed
+LaLiga,2025,Espanol,88,Espanyol,reviewed
+LaLiga,2025,Getafe,2922,Getafe,reviewed
+LaLiga,2025,Girona,9812,Girona,reviewed
+LaLiga,2025,Levante,1538,Levante,reviewed
+LaLiga,2025,Mallorca,84,Mallorca,reviewed
+LaLiga,2025,Osasuna,97,Osasuna,reviewed
+LaLiga,2025,Oviedo,92,Real Oviedo,alias
+LaLiga,2025,Real Madrid,86,Real Madrid,reviewed
+LaLiga,2025,Sevilla,243,Sevilla,reviewed
+LaLiga,2025,Sociedad,89,Real Sociedad,reviewed
+LaLiga,2025,Valencia,94,Valencia,reviewed
+LaLiga,2025,Vallecano,101,Rayo Vallecano,reviewed
+LaLiga,2025,Villarreal,102,Villarreal,reviewed
+LaLiga,2026,Alaves,96,Alavés,reviewed
+LaLiga,2026,Ath Bilbao,93,Athletic Club,reviewed
+LaLiga,2026,Ath Madrid,1068,Atlético Madrid,reviewed
+LaLiga,2026,Barcelona,83,Barcelona,reviewed
+LaLiga,2026,Betis,244,Real Betis,reviewed
+LaLiga,2026,Celta,85,Celta Vigo,reviewed
+LaLiga,2026,Elche,3751,Elche,reviewed
+LaLiga,2026,Espanol,88,Espanyol,reviewed
+LaLiga,2026,Getafe,2922,Getafe,reviewed
+LaLiga,2026,La Coruna,90,Deportivo,alias
+LaLiga,2026,Levante,1538,Levante,reviewed
+LaLiga,2026,Malaga,99,Málaga,reviewed
+LaLiga,2026,Osasuna,97,Osasuna,reviewed
+LaLiga,2026,Real Madrid,86,Real Madrid,reviewed
+LaLiga,2026,Santander,87,Racing Santander,reviewed
+LaLiga,2026,Sevilla,243,Sevilla,reviewed
+LaLiga,2026,Sociedad,89,Real Sociedad,reviewed
+LaLiga,2026,Valencia,94,Valencia,reviewed
+LaLiga,2026,Vallecano,101,Rayo Vallecano,reviewed
+LaLiga,2026,Villarreal,102,Villarreal,reviewed
+Ligue1,2016,Angers,7868,Angers,reviewed
+Ligue1,2016,Bastia,173,Bastia,reviewed
+Ligue1,2016,Bordeaux,159,Bordeaux,reviewed
+Ligue1,2016,Caen,2927,Caen,reviewed
+Ligue1,2016,Dijon,3170,Dijon FCO,alias
+Ligue1,2016,Guingamp,171,Guingamp,reviewed
+Ligue1,2016,Lille,166,Lille,reviewed
+Ligue1,2016,Lorient,273,Lorient,reviewed
+Ligue1,2016,Lyon,167,Lyon,reviewed
+Ligue1,2016,Marseille,176,Marseille,reviewed
+Ligue1,2016,Metz,177,Metz,reviewed
+Ligue1,2016,Monaco,174,AS Monaco,reviewed
+Ligue1,2016,Montpellier,274,Montpellier,reviewed
+Ligue1,2016,Nancy,3267,AS Nancy Lorraine,reviewed
+Ligue1,2016,Nantes,165,Nantes,reviewed
+Ligue1,2016,Nice,2502,Nice,reviewed
+Ligue1,2016,Paris SG,160,Paris Saint-Germain,reviewed
+Ligue1,2016,Rennes,169,Stade Rennais,reviewed
+Ligue1,2016,St Etienne,178,Saint-Étienne,reviewed
+Ligue1,2016,Toulouse,179,Toulouse,reviewed
+Ligue1,2017,Amiens,3335,SC Amiens,reviewed
+Ligue1,2017,Angers,7868,Angers,reviewed
+Ligue1,2017,Bordeaux,159,Bordeaux,reviewed
+Ligue1,2017,Caen,2927,Caen,reviewed
+Ligue1,2017,Dijon,3170,Dijon FCO,alias
+Ligue1,2017,Guingamp,171,Guingamp,reviewed
+Ligue1,2017,Lille,166,Lille,reviewed
+Ligue1,2017,Lyon,167,Lyon,reviewed
+Ligue1,2017,Marseille,176,Marseille,reviewed
+Ligue1,2017,Metz,177,Metz,reviewed
+Ligue1,2017,Monaco,174,AS Monaco,reviewed
+Ligue1,2017,Montpellier,274,Montpellier,reviewed
+Ligue1,2017,Nantes,165,Nantes,reviewed
+Ligue1,2017,Nice,2502,Nice,reviewed
+Ligue1,2017,Paris SG,160,Paris Saint-Germain,reviewed
+Ligue1,2017,Rennes,169,Stade Rennais,reviewed
+Ligue1,2017,St Etienne,178,Saint-Étienne,reviewed
+Ligue1,2017,Strasbourg,180,Strasbourg,reviewed
+Ligue1,2017,Toulouse,179,Toulouse,reviewed
+Ligue1,2017,Troyes,170,Troyes,reviewed
+Ligue1,2018,Amiens,3335,SC Amiens,reviewed
+Ligue1,2018,Angers,7868,Angers,reviewed
+Ligue1,2018,Bordeaux,159,Bordeaux,reviewed
+Ligue1,2018,Caen,2927,Caen,reviewed
+Ligue1,2018,Dijon,3170,Dijon FCO,alias
+Ligue1,2018,Guingamp,171,Guingamp,reviewed
+Ligue1,2018,Lille,166,Lille,reviewed
+Ligue1,2018,Lyon,167,Lyon,reviewed
+Ligue1,2018,Marseille,176,Marseille,reviewed
+Ligue1,2018,Monaco,174,AS Monaco,reviewed
+Ligue1,2018,Montpellier,274,Montpellier,reviewed
+Ligue1,2018,Nantes,165,Nantes,reviewed
+Ligue1,2018,Nice,2502,Nice,reviewed
+Ligue1,2018,Nimes,7730,Nimes,reviewed
+Ligue1,2018,Paris SG,160,Paris Saint-Germain,reviewed
+Ligue1,2018,Reims,3243,Stade de Reims,reviewed
+Ligue1,2018,Rennes,169,Stade Rennais,reviewed
+Ligue1,2018,St Etienne,178,Saint-Étienne,reviewed
+Ligue1,2018,Strasbourg,180,Strasbourg,reviewed
+Ligue1,2018,Toulouse,179,Toulouse,reviewed
+Ligue1,2019,Amiens,3335,SC Amiens,reviewed
+Ligue1,2019,Angers,7868,Angers,reviewed
+Ligue1,2019,Bordeaux,159,Bordeaux,reviewed
+Ligue1,2019,Brest,6997,Brest,reviewed
+Ligue1,2019,Dijon,3170,Dijon FCO,alias
+Ligue1,2019,Lille,166,Lille,reviewed
+Ligue1,2019,Lyon,167,Lyon,reviewed
+Ligue1,2019,Marseille,176,Marseille,reviewed
+Ligue1,2019,Metz,177,Metz,reviewed
+Ligue1,2019,Monaco,174,AS Monaco,reviewed
+Ligue1,2019,Montpellier,274,Montpellier,reviewed
+Ligue1,2019,Nantes,165,Nantes,reviewed
+Ligue1,2019,Nice,2502,Nice,reviewed
+Ligue1,2019,Nimes,7730,Nimes,reviewed
+Ligue1,2019,Paris SG,160,Paris Saint-Germain,reviewed
+Ligue1,2019,Reims,3243,Stade de Reims,reviewed
+Ligue1,2019,Rennes,169,Stade Rennais,reviewed
+Ligue1,2019,St Etienne,178,Saint-Étienne,reviewed
+Ligue1,2019,Strasbourg,180,Strasbourg,reviewed
+Ligue1,2019,Toulouse,179,Toulouse,reviewed
+Ligue1,2020,Angers,7868,Angers,reviewed
+Ligue1,2020,Bordeaux,159,Bordeaux,reviewed
+Ligue1,2020,Brest,6997,Brest,reviewed
+Ligue1,2020,Dijon,3170,Dijon FCO,alias
+Ligue1,2020,Lens,175,Lens,reviewed
+Ligue1,2020,Lille,166,Lille,reviewed
+Ligue1,2020,Lorient,273,Lorient,reviewed
+Ligue1,2020,Lyon,167,Lyon,reviewed
+Ligue1,2020,Marseille,176,Marseille,reviewed
+Ligue1,2020,Metz,177,Metz,reviewed
+Ligue1,2020,Monaco,174,AS Monaco,reviewed
+Ligue1,2020,Montpellier,274,Montpellier,reviewed
+Ligue1,2020,Nantes,165,Nantes,reviewed
+Ligue1,2020,Nice,2502,Nice,reviewed
+Ligue1,2020,Nimes,7730,Nimes,reviewed
+Ligue1,2020,Paris SG,160,Paris Saint-Germain,reviewed
+Ligue1,2020,Reims,3243,Stade de Reims,reviewed
+Ligue1,2020,Rennes,169,Stade Rennais,reviewed
+Ligue1,2020,St Etienne,178,Saint-Étienne,reviewed
+Ligue1,2020,Strasbourg,180,Strasbourg,reviewed
+Ligue1,2021,Angers,7868,Angers,reviewed
+Ligue1,2021,Bordeaux,159,Bordeaux,reviewed
+Ligue1,2021,Brest,6997,Brest,reviewed
+Ligue1,2021,Clermont,3171,Clermont Foot,alias
+Ligue1,2021,Lens,175,Lens,reviewed
+Ligue1,2021,Lille,166,Lille,reviewed
+Ligue1,2021,Lorient,273,Lorient,reviewed
+Ligue1,2021,Lyon,167,Lyon,reviewed
+Ligue1,2021,Marseille,176,Marseille,reviewed
+Ligue1,2021,Metz,177,Metz,reviewed
+Ligue1,2021,Monaco,174,AS Monaco,reviewed
+Ligue1,2021,Montpellier,274,Montpellier,reviewed
+Ligue1,2021,Nantes,165,Nantes,reviewed
+Ligue1,2021,Nice,2502,Nice,reviewed
+Ligue1,2021,Paris SG,160,Paris Saint-Germain,reviewed
+Ligue1,2021,Reims,3243,Stade de Reims,reviewed
+Ligue1,2021,Rennes,169,Stade Rennais,reviewed
+Ligue1,2021,St Etienne,178,Saint-Étienne,reviewed
+Ligue1,2021,Strasbourg,180,Strasbourg,reviewed
+Ligue1,2021,Troyes,170,Troyes,reviewed
+Ligue1,2022,Ajaccio,2503,AC Ajaccio,reviewed
+Ligue1,2022,Angers,7868,Angers,reviewed
+Ligue1,2022,Auxerre,172,AJ Auxerre,reviewed
+Ligue1,2022,Brest,6997,Brest,reviewed
+Ligue1,2022,Clermont,3171,Clermont Foot,alias
+Ligue1,2022,Lens,175,Lens,reviewed
+Ligue1,2022,Lille,166,Lille,reviewed
+Ligue1,2022,Lorient,273,Lorient,reviewed
+Ligue1,2022,Lyon,167,Lyon,reviewed
+Ligue1,2022,Marseille,176,Marseille,reviewed
+Ligue1,2022,Monaco,174,AS Monaco,reviewed
+Ligue1,2022,Montpellier,274,Montpellier,reviewed
+Ligue1,2022,Nantes,165,Nantes,reviewed
+Ligue1,2022,Nice,2502,Nice,reviewed
+Ligue1,2022,Paris SG,160,Paris Saint-Germain,reviewed
+Ligue1,2022,Reims,3243,Stade de Reims,reviewed
+Ligue1,2022,Rennes,169,Stade Rennais,reviewed
+Ligue1,2022,Strasbourg,180,Strasbourg,reviewed
+Ligue1,2022,Toulouse,179,Toulouse,reviewed
+Ligue1,2022,Troyes,170,Troyes,reviewed
+Ligue1,2023,Brest,6997,Brest,reviewed
+Ligue1,2023,Clermont,3171,Clermont Foot,alias
+Ligue1,2023,Le Havre,3236,Le Havre AC,reviewed
+Ligue1,2023,Lens,175,Lens,reviewed
+Ligue1,2023,Lille,166,Lille,reviewed
+Ligue1,2023,Lorient,273,Lorient,reviewed
+Ligue1,2023,Lyon,167,Lyon,reviewed
+Ligue1,2023,Marseille,176,Marseille,reviewed
+Ligue1,2023,Metz,177,Metz,reviewed
+Ligue1,2023,Monaco,174,AS Monaco,reviewed
+Ligue1,2023,Montpellier,274,Montpellier,reviewed
+Ligue1,2023,Nantes,165,Nantes,reviewed
+Ligue1,2023,Nice,2502,Nice,reviewed
+Ligue1,2023,Paris SG,160,Paris Saint-Germain,reviewed
+Ligue1,2023,Reims,3243,Stade de Reims,reviewed
+Ligue1,2023,Rennes,169,Stade Rennais,reviewed
+Ligue1,2023,Strasbourg,180,Strasbourg,reviewed
+Ligue1,2023,Toulouse,179,Toulouse,reviewed
+Ligue1,2024,Angers,7868,Angers,reviewed
+Ligue1,2024,Auxerre,172,AJ Auxerre,reviewed
+Ligue1,2024,Brest,6997,Brest,reviewed
+Ligue1,2024,Le Havre,3236,Le Havre AC,reviewed
+Ligue1,2024,Lens,175,Lens,reviewed
+Ligue1,2024,Lille,166,Lille,reviewed
+Ligue1,2024,Lyon,167,Lyon,reviewed
+Ligue1,2024,Marseille,176,Marseille,reviewed
+Ligue1,2024,Monaco,174,AS Monaco,reviewed
+Ligue1,2024,Montpellier,274,Montpellier,reviewed
+Ligue1,2024,Nantes,165,Nantes,reviewed
+Ligue1,2024,Nice,2502,Nice,reviewed
+Ligue1,2024,Paris SG,160,Paris Saint-Germain,reviewed
+Ligue1,2024,Reims,3243,Stade de Reims,reviewed
+Ligue1,2024,Rennes,169,Stade Rennais,reviewed
+Ligue1,2024,St Etienne,178,Saint-Étienne,reviewed
+Ligue1,2024,Strasbourg,180,Strasbourg,reviewed
+Ligue1,2024,Toulouse,179,Toulouse,reviewed
+Ligue1,2025,Angers,7868,Angers,reviewed
+Ligue1,2025,Auxerre,172,AJ Auxerre,reviewed
+Ligue1,2025,Brest,6997,Brest,reviewed
+Ligue1,2025,Le Havre,3236,Le Havre AC,reviewed
+Ligue1,2025,Lens,175,Lens,reviewed
+Ligue1,2025,Lille,166,Lille,reviewed
+Ligue1,2025,Lorient,273,Lorient,reviewed
+Ligue1,2025,Lyon,167,Lyon,reviewed
+Ligue1,2025,Marseille,176,Marseille,reviewed
+Ligue1,2025,Metz,177,Metz,reviewed
+Ligue1,2025,Monaco,174,AS Monaco,reviewed
+Ligue1,2025,Nantes,165,Nantes,reviewed
+Ligue1,2025,Nice,2502,Nice,reviewed
+Ligue1,2025,Paris FC,6851,Paris FC,reviewed
+Ligue1,2025,Paris SG,160,Paris Saint-Germain,reviewed
+Ligue1,2025,Rennes,169,Stade Rennais,reviewed
+Ligue1,2025,Strasbourg,180,Strasbourg,reviewed
+Ligue1,2025,Toulouse,179,Toulouse,reviewed
+Ligue1,2026,Angers,7868,Angers,reviewed
+Ligue1,2026,Auxerre,172,AJ Auxerre,reviewed
+Ligue1,2026,Brest,6997,Brest,reviewed
+Ligue1,2026,Le Havre,3236,Le Havre AC,reviewed
+Ligue1,2026,Le Mans,2697,Le Mans,reviewed
+Ligue1,2026,Lens,175,Lens,reviewed
+Ligue1,2026,Lille,166,Lille,reviewed
+Ligue1,2026,Lorient,273,Lorient,reviewed
+Ligue1,2026,Lyon,167,Lyon,reviewed
+Ligue1,2026,Marseille,176,Marseille,reviewed
+Ligue1,2026,Monaco,174,AS Monaco,reviewed
+Ligue1,2026,Nice,2502,Nice,reviewed
+Ligue1,2026,Paris FC,6851,Paris FC,reviewed
+Ligue1,2026,Paris SG,160,Paris Saint-Germain,reviewed
+Ligue1,2026,Rennes,169,Stade Rennais,reviewed
+Ligue1,2026,Strasbourg,180,Strasbourg,reviewed
+Ligue1,2026,Toulouse,179,Toulouse,reviewed
+Ligue1,2026,Troyes,170,Troyes,reviewed
+PrimeiraLiga,2016,Arouca,15784,Arouca,reviewed
+PrimeiraLiga,2016,Belenenses,3519,Belenenses,reviewed
+PrimeiraLiga,2016,Benfica,1929,Benfica,reviewed
+PrimeiraLiga,2016,Boavista,2256,Boavista,reviewed
+PrimeiraLiga,2016,Chaves,12705,GD Chaves,alias
+PrimeiraLiga,2016,Estoril,12216,Estoril,reviewed
+PrimeiraLiga,2016,Feirense,3717,Feirense,reviewed
+PrimeiraLiga,2016,Guimaraes,5309,Vitória de Guimaraes,reviewed
+PrimeiraLiga,2016,Maritimo,552,Maritimo,reviewed
+PrimeiraLiga,2016,Moreirense,3696,Moreirense,reviewed
+PrimeiraLiga,2016,Nacional,3472,C.D. Nacional,reviewed
+PrimeiraLiga,2016,Pacos Ferreira,3713,Paços de Ferreira,reviewed
+PrimeiraLiga,2016,Porto,437,FC Porto,reviewed
+PrimeiraLiga,2016,Rio Ave,3822,Rio Ave,reviewed
+PrimeiraLiga,2016,Setubal,5308,Vitoria Setubal,reviewed
+PrimeiraLiga,2016,Sp Braga,2994,Braga,reviewed
+PrimeiraLiga,2016,Sp Lisbon,2250,Sporting CP,reviewed
+PrimeiraLiga,2016,Tondela,12706,Tondela,reviewed
+PrimeiraLiga,2017,Aves,18764,Desportivo Aves,alias
+PrimeiraLiga,2017,Belenenses,3519,Belenenses,reviewed
+PrimeiraLiga,2017,Benfica,1929,Benfica,reviewed
+PrimeiraLiga,2017,Boavista,2256,Boavista,reviewed
+PrimeiraLiga,2017,Chaves,12705,GD Chaves,alias
+PrimeiraLiga,2017,Estoril,12216,Estoril,reviewed
+PrimeiraLiga,2017,Feirense,3717,Feirense,reviewed
+PrimeiraLiga,2017,Guimaraes,5309,Vitória de Guimaraes,reviewed
+PrimeiraLiga,2017,Maritimo,552,Maritimo,reviewed
+PrimeiraLiga,2017,Moreirense,3696,Moreirense,reviewed
+PrimeiraLiga,2017,Pacos Ferreira,3713,Paços de Ferreira,reviewed
+PrimeiraLiga,2017,Portimonense,3719,Portimonense,reviewed
+PrimeiraLiga,2017,Porto,437,FC Porto,reviewed
+PrimeiraLiga,2017,Rio Ave,3822,Rio Ave,reviewed
+PrimeiraLiga,2017,Setubal,5308,Vitoria Setubal,reviewed
+PrimeiraLiga,2017,Sp Braga,2994,Braga,reviewed
+PrimeiraLiga,2017,Sp Lisbon,2250,Sporting CP,reviewed
+PrimeiraLiga,2017,Tondela,12706,Tondela,reviewed
+PrimeiraLiga,2018,Aves,18764,Desportivo Aves,alias
+PrimeiraLiga,2018,Belenenses,3519,Belenenses,reviewed
+PrimeiraLiga,2018,Benfica,1929,Benfica,reviewed
+PrimeiraLiga,2018,Boavista,2256,Boavista,reviewed
+PrimeiraLiga,2018,Chaves,12705,GD Chaves,alias
+PrimeiraLiga,2018,Feirense,3717,Feirense,reviewed
+PrimeiraLiga,2018,Guimaraes,5309,Vitória de Guimaraes,reviewed
+PrimeiraLiga,2018,Maritimo,552,Maritimo,reviewed
+PrimeiraLiga,2018,Moreirense,3696,Moreirense,reviewed
+PrimeiraLiga,2018,Nacional,3472,C.D. Nacional,reviewed
+PrimeiraLiga,2018,Portimonense,3719,Portimonense,reviewed
+PrimeiraLiga,2018,Porto,437,FC Porto,reviewed
+PrimeiraLiga,2018,Rio Ave,3822,Rio Ave,reviewed
+PrimeiraLiga,2018,Santa Clara,12215,Santa Clara,reviewed
+PrimeiraLiga,2018,Setubal,5308,Vitoria Setubal,reviewed
+PrimeiraLiga,2018,Sp Braga,2994,Braga,reviewed
+PrimeiraLiga,2018,Sp Lisbon,2250,Sporting CP,reviewed
+PrimeiraLiga,2018,Tondela,12706,Tondela,reviewed
+PrimeiraLiga,2019,Aves,18764,Desportivo Aves,alias
+PrimeiraLiga,2019,Belenenses,3519,Belenenses,reviewed
+PrimeiraLiga,2019,Benfica,1929,Benfica,reviewed
+PrimeiraLiga,2019,Boavista,2256,Boavista,reviewed
+PrimeiraLiga,2019,Famalicao,12698,FC Famalicao,reviewed
+PrimeiraLiga,2019,Gil Vicente,3699,Gil Vicente,reviewed
+PrimeiraLiga,2019,Guimaraes,5309,Vitória de Guimaraes,reviewed
+PrimeiraLiga,2019,Maritimo,552,Maritimo,reviewed
+PrimeiraLiga,2019,Moreirense,3696,Moreirense,reviewed
+PrimeiraLiga,2019,Pacos Ferreira,3713,Paços de Ferreira,reviewed
+PrimeiraLiga,2019,Portimonense,3719,Portimonense,reviewed
+PrimeiraLiga,2019,Porto,437,FC Porto,reviewed
+PrimeiraLiga,2019,Rio Ave,3822,Rio Ave,reviewed
+PrimeiraLiga,2019,Santa Clara,12215,Santa Clara,reviewed
+PrimeiraLiga,2019,Setubal,5308,Vitoria Setubal,reviewed
+PrimeiraLiga,2019,Sp Braga,2994,Braga,reviewed
+PrimeiraLiga,2019,Sp Lisbon,2250,Sporting CP,reviewed
+PrimeiraLiga,2019,Tondela,12706,Tondela,reviewed
+PrimeiraLiga,2020,Belenenses,3519,Belenenses,reviewed
+PrimeiraLiga,2020,Benfica,1929,Benfica,reviewed
+PrimeiraLiga,2020,Boavista,2256,Boavista,reviewed
+PrimeiraLiga,2020,Famalicao,12698,FC Famalicao,reviewed
+PrimeiraLiga,2020,Farense,20740,SC Farense,reviewed
+PrimeiraLiga,2020,Gil Vicente,3699,Gil Vicente,reviewed
+PrimeiraLiga,2020,Guimaraes,5309,Vitória de Guimaraes,reviewed
+PrimeiraLiga,2020,Maritimo,552,Maritimo,reviewed
+PrimeiraLiga,2020,Moreirense,3696,Moreirense,reviewed
+PrimeiraLiga,2020,Nacional,3472,C.D. Nacional,reviewed
+PrimeiraLiga,2020,Pacos Ferreira,3713,Paços de Ferreira,reviewed
+PrimeiraLiga,2020,Portimonense,3719,Portimonense,reviewed
+PrimeiraLiga,2020,Porto,437,FC Porto,reviewed
+PrimeiraLiga,2020,Rio Ave,3822,Rio Ave,reviewed
+PrimeiraLiga,2020,Santa Clara,12215,Santa Clara,reviewed
+PrimeiraLiga,2020,Sp Braga,2994,Braga,reviewed
+PrimeiraLiga,2020,Sp Lisbon,2250,Sporting CP,reviewed
+PrimeiraLiga,2020,Tondela,12706,Tondela,reviewed
+PrimeiraLiga,2021,Arouca,15784,Arouca,reviewed
+PrimeiraLiga,2021,Belenenses,3519,Belenenses,reviewed
+PrimeiraLiga,2021,Benfica,1929,Benfica,reviewed
+PrimeiraLiga,2021,Boavista,2256,Boavista,reviewed
+PrimeiraLiga,2021,Estoril,12216,Estoril,reviewed
+PrimeiraLiga,2021,Famalicao,12698,FC Famalicao,reviewed
+PrimeiraLiga,2021,Gil Vicente,3699,Gil Vicente,reviewed
+PrimeiraLiga,2021,Guimaraes,5309,Vitória de Guimaraes,reviewed
+PrimeiraLiga,2021,Maritimo,552,Maritimo,reviewed
+PrimeiraLiga,2021,Moreirense,3696,Moreirense,reviewed
+PrimeiraLiga,2021,Pacos Ferreira,3713,Paços de Ferreira,reviewed
+PrimeiraLiga,2021,Portimonense,3719,Portimonense,reviewed
+PrimeiraLiga,2021,Porto,437,FC Porto,reviewed
+PrimeiraLiga,2021,Santa Clara,12215,Santa Clara,reviewed
+PrimeiraLiga,2021,Sp Braga,2994,Braga,reviewed
+PrimeiraLiga,2021,Sp Lisbon,2250,Sporting CP,reviewed
+PrimeiraLiga,2021,Tondela,12706,Tondela,reviewed
+PrimeiraLiga,2021,Vizela,20995,Vizela,reviewed
+PrimeiraLiga,2022,Arouca,15784,Arouca,reviewed
+PrimeiraLiga,2022,Benfica,1929,Benfica,reviewed
+PrimeiraLiga,2022,Boavista,2256,Boavista,reviewed
+PrimeiraLiga,2022,Casa Pia,21581,Casa Pia,reviewed
+PrimeiraLiga,2022,Chaves,12705,GD Chaves,alias
+PrimeiraLiga,2022,Estoril,12216,Estoril,reviewed
+PrimeiraLiga,2022,Famalicao,12698,FC Famalicao,reviewed
+PrimeiraLiga,2022,Gil Vicente,3699,Gil Vicente,reviewed
+PrimeiraLiga,2022,Guimaraes,5309,Vitória de Guimaraes,reviewed
+PrimeiraLiga,2022,Maritimo,552,Maritimo,reviewed
+PrimeiraLiga,2022,Pacos Ferreira,3713,Paços de Ferreira,reviewed
+PrimeiraLiga,2022,Portimonense,3719,Portimonense,reviewed
+PrimeiraLiga,2022,Porto,437,FC Porto,reviewed
+PrimeiraLiga,2022,Rio Ave,3822,Rio Ave,reviewed
+PrimeiraLiga,2022,Santa Clara,12215,Santa Clara,reviewed
+PrimeiraLiga,2022,Sp Braga,2994,Braga,reviewed
+PrimeiraLiga,2022,Sp Lisbon,2250,Sporting CP,reviewed
+PrimeiraLiga,2022,Vizela,20995,Vizela,reviewed
+PrimeiraLiga,2023,Arouca,15784,Arouca,reviewed
+PrimeiraLiga,2023,Benfica,1929,Benfica,reviewed
+PrimeiraLiga,2023,Boavista,2256,Boavista,reviewed
+PrimeiraLiga,2023,Casa Pia,21581,Casa Pia,reviewed
+PrimeiraLiga,2023,Chaves,12705,GD Chaves,alias
+PrimeiraLiga,2023,Estoril,12216,Estoril,reviewed
+PrimeiraLiga,2023,Estrela,21610,Estrela,reviewed
+PrimeiraLiga,2023,Famalicao,12698,FC Famalicao,reviewed
+PrimeiraLiga,2023,Farense,20740,SC Farense,reviewed
+PrimeiraLiga,2023,Gil Vicente,3699,Gil Vicente,reviewed
+PrimeiraLiga,2023,Guimaraes,5309,Vitória de Guimaraes,reviewed
+PrimeiraLiga,2023,Moreirense,3696,Moreirense,reviewed
+PrimeiraLiga,2023,Portimonense,3719,Portimonense,reviewed
+PrimeiraLiga,2023,Porto,437,FC Porto,reviewed
+PrimeiraLiga,2023,Rio Ave,3822,Rio Ave,reviewed
+PrimeiraLiga,2023,Sp Braga,2994,Braga,reviewed
+PrimeiraLiga,2023,Sp Lisbon,2250,Sporting CP,reviewed
+PrimeiraLiga,2023,Vizela,20995,Vizela,reviewed
+PrimeiraLiga,2024,AVS,22064,AVS,reviewed
+PrimeiraLiga,2024,Arouca,15784,Arouca,reviewed
+PrimeiraLiga,2024,Benfica,1929,Benfica,reviewed
+PrimeiraLiga,2024,Boavista,2256,Boavista,reviewed
+PrimeiraLiga,2024,Casa Pia,21581,Casa Pia,reviewed
+PrimeiraLiga,2024,Estoril,12216,Estoril,reviewed
+PrimeiraLiga,2024,Estrela,21610,Estrela,reviewed
+PrimeiraLiga,2024,Famalicao,12698,FC Famalicao,reviewed
+PrimeiraLiga,2024,Farense,20740,SC Farense,reviewed
+PrimeiraLiga,2024,Gil Vicente,3699,Gil Vicente,reviewed
+PrimeiraLiga,2024,Guimaraes,5309,Vitória de Guimaraes,reviewed
+PrimeiraLiga,2024,Moreirense,3696,Moreirense,reviewed
+PrimeiraLiga,2024,Nacional,3472,C.D. Nacional,reviewed
+PrimeiraLiga,2024,Porto,437,FC Porto,reviewed
+PrimeiraLiga,2024,Rio Ave,3822,Rio Ave,reviewed
+PrimeiraLiga,2024,Santa Clara,12215,Santa Clara,reviewed
+PrimeiraLiga,2024,Sp Braga,2994,Braga,reviewed
+PrimeiraLiga,2024,Sp Lisbon,2250,Sporting CP,reviewed
+PrimeiraLiga,2025,AVS,22064,AVS,reviewed
+PrimeiraLiga,2025,Alverca,21613,Alverca,reviewed
+PrimeiraLiga,2025,Arouca,15784,Arouca,reviewed
+PrimeiraLiga,2025,Benfica,1929,Benfica,reviewed
+PrimeiraLiga,2025,Casa Pia,21581,Casa Pia,reviewed
+PrimeiraLiga,2025,Estoril,12216,Estoril,reviewed
+PrimeiraLiga,2025,Estrela,21610,Estrela,reviewed
+PrimeiraLiga,2025,Famalicao,12698,FC Famalicao,reviewed
+PrimeiraLiga,2025,Gil Vicente,3699,Gil Vicente,reviewed
+PrimeiraLiga,2025,Guimaraes,5309,Vitória de Guimaraes,reviewed
+PrimeiraLiga,2025,Moreirense,3696,Moreirense,reviewed
+PrimeiraLiga,2025,Nacional,3472,C.D. Nacional,reviewed
+PrimeiraLiga,2025,Porto,437,FC Porto,reviewed
+PrimeiraLiga,2025,Rio Ave,3822,Rio Ave,reviewed
+PrimeiraLiga,2025,Santa Clara,12215,Santa Clara,reviewed
+PrimeiraLiga,2025,Sp Braga,2994,Braga,reviewed
+PrimeiraLiga,2025,Sp Lisbon,2250,Sporting CP,reviewed
+PrimeiraLiga,2025,Tondela,12706,Tondela,reviewed
+PrimeiraLiga,2026,Academico Viseu,21607,Académico de Viseu,reviewed
+PrimeiraLiga,2026,Alverca,21613,Alverca,reviewed
+PrimeiraLiga,2026,Arouca,15784,Arouca,reviewed
+PrimeiraLiga,2026,Benfica,1929,Benfica,reviewed
+PrimeiraLiga,2026,Casa Pia,21581,Casa Pia,reviewed
+PrimeiraLiga,2026,Estoril,12216,Estoril,reviewed
+PrimeiraLiga,2026,Estrela,21610,Estrela,reviewed
+PrimeiraLiga,2026,Famalicao,12698,FC Famalicao,reviewed
+PrimeiraLiga,2026,Gil Vicente,3699,Gil Vicente,reviewed
+PrimeiraLiga,2026,Guimaraes,5309,Vitória de Guimaraes,reviewed
+PrimeiraLiga,2026,Maritimo,552,Maritimo,reviewed
+PrimeiraLiga,2026,Moreirense,3696,Moreirense,reviewed
+PrimeiraLiga,2026,Nacional,3472,C.D. Nacional,reviewed
+PrimeiraLiga,2026,Porto,437,FC Porto,reviewed
+PrimeiraLiga,2026,Rio Ave,3822,Rio Ave,reviewed
+PrimeiraLiga,2026,Santa Clara,12215,Santa Clara,reviewed
+PrimeiraLiga,2026,Sp Braga,2994,Braga,reviewed
+PrimeiraLiga,2026,Sp Lisbon,2250,Sporting CP,reviewed
+SerieA,2016,Atalanta,105,Atalanta,reviewed
+SerieA,2016,Bologna,107,Bologna,reviewed
+SerieA,2016,Cagliari,2925,Cagliari,reviewed
+SerieA,2016,Chievo,238,Chievo Verona,reviewed
+SerieA,2016,Crotone,3173,Crotone,reviewed
+SerieA,2016,Empoli,2574,Empoli,reviewed
+SerieA,2016,Fiorentina,109,Fiorentina,reviewed
+SerieA,2016,Genoa,3263,Genoa,reviewed
+SerieA,2016,Inter,110,Internazionale,reviewed
+SerieA,2016,Juventus,111,Juventus,reviewed
+SerieA,2016,Lazio,112,Lazio,reviewed
+SerieA,2016,Milan,103,AC Milan,reviewed
+SerieA,2016,Napoli,114,Napoli,reviewed
+SerieA,2016,Palermo,2923,Palermo,reviewed
+SerieA,2016,Pescara,3290,Pescara,reviewed
+SerieA,2016,Roma,104,AS Roma,reviewed
+SerieA,2016,Sampdoria,2734,Sampdoria,reviewed
+SerieA,2016,Sassuolo,3997,Sassuolo,reviewed
+SerieA,2016,Torino,239,Torino,reviewed
+SerieA,2016,Udinese,118,Udinese,reviewed
+SerieA,2017,Atalanta,105,Atalanta,reviewed
+SerieA,2017,Benevento,4059,Benevento,reviewed
+SerieA,2017,Bologna,107,Bologna,reviewed
+SerieA,2017,Cagliari,2925,Cagliari,reviewed
+SerieA,2017,Chievo,238,Chievo Verona,reviewed
+SerieA,2017,Crotone,3173,Crotone,reviewed
+SerieA,2017,Fiorentina,109,Fiorentina,reviewed
+SerieA,2017,Genoa,3263,Genoa,reviewed
+SerieA,2017,Inter,110,Internazionale,reviewed
+SerieA,2017,Juventus,111,Juventus,reviewed
+SerieA,2017,Lazio,112,Lazio,reviewed
+SerieA,2017,Milan,103,AC Milan,reviewed
+SerieA,2017,Napoli,114,Napoli,reviewed
+SerieA,2017,Roma,104,AS Roma,reviewed
+SerieA,2017,Sampdoria,2734,Sampdoria,reviewed
+SerieA,2017,Sassuolo,3997,Sassuolo,reviewed
+SerieA,2017,Spal,3958,SPAL,reviewed
+SerieA,2017,Torino,239,Torino,reviewed
+SerieA,2017,Udinese,118,Udinese,reviewed
+SerieA,2017,Verona,119,Hellas Verona,reviewed
+SerieA,2018,Atalanta,105,Atalanta,reviewed
+SerieA,2018,Bologna,107,Bologna,reviewed
+SerieA,2018,Cagliari,2925,Cagliari,reviewed
+SerieA,2018,Chievo,238,Chievo Verona,reviewed
+SerieA,2018,Empoli,2574,Empoli,reviewed
+SerieA,2018,Fiorentina,109,Fiorentina,reviewed
+SerieA,2018,Frosinone,4057,Frosinone,reviewed
+SerieA,2018,Genoa,3263,Genoa,reviewed
+SerieA,2018,Inter,110,Internazionale,reviewed
+SerieA,2018,Juventus,111,Juventus,reviewed
+SerieA,2018,Lazio,112,Lazio,reviewed
+SerieA,2018,Milan,103,AC Milan,reviewed
+SerieA,2018,Napoli,114,Napoli,reviewed
+SerieA,2018,Parma,115,Parma,reviewed
+SerieA,2018,Roma,104,AS Roma,reviewed
+SerieA,2018,Sampdoria,2734,Sampdoria,reviewed
+SerieA,2018,Sassuolo,3997,Sassuolo,reviewed
+SerieA,2018,Spal,3958,SPAL,reviewed
+SerieA,2018,Torino,239,Torino,reviewed
+SerieA,2018,Udinese,118,Udinese,reviewed
+SerieA,2019,Atalanta,105,Atalanta,reviewed
+SerieA,2019,Bologna,107,Bologna,reviewed
+SerieA,2019,Brescia,108,Brescia,reviewed
+SerieA,2019,Cagliari,2925,Cagliari,reviewed
+SerieA,2019,Fiorentina,109,Fiorentina,reviewed
+SerieA,2019,Genoa,3263,Genoa,reviewed
+SerieA,2019,Inter,110,Internazionale,reviewed
+SerieA,2019,Juventus,111,Juventus,reviewed
+SerieA,2019,Lazio,112,Lazio,reviewed
+SerieA,2019,Lecce,113,Lecce,reviewed
+SerieA,2019,Milan,103,AC Milan,reviewed
+SerieA,2019,Napoli,114,Napoli,reviewed
+SerieA,2019,Parma,115,Parma,reviewed
+SerieA,2019,Roma,104,AS Roma,reviewed
+SerieA,2019,Sampdoria,2734,Sampdoria,reviewed
+SerieA,2019,Sassuolo,3997,Sassuolo,reviewed
+SerieA,2019,Spal,3958,SPAL,reviewed
+SerieA,2019,Torino,239,Torino,reviewed
+SerieA,2019,Udinese,118,Udinese,reviewed
+SerieA,2019,Verona,119,Hellas Verona,reviewed
+SerieA,2020,Atalanta,105,Atalanta,reviewed
+SerieA,2020,Benevento,4059,Benevento,reviewed
+SerieA,2020,Bologna,107,Bologna,reviewed
+SerieA,2020,Cagliari,2925,Cagliari,reviewed
+SerieA,2020,Crotone,3173,Crotone,reviewed
+SerieA,2020,Fiorentina,109,Fiorentina,reviewed
+SerieA,2020,Genoa,3263,Genoa,reviewed
+SerieA,2020,Inter,110,Internazionale,reviewed
+SerieA,2020,Juventus,111,Juventus,reviewed
+SerieA,2020,Lazio,112,Lazio,reviewed
+SerieA,2020,Milan,103,AC Milan,reviewed
+SerieA,2020,Napoli,114,Napoli,reviewed
+SerieA,2020,Parma,115,Parma,reviewed
+SerieA,2020,Roma,104,AS Roma,reviewed
+SerieA,2020,Sampdoria,2734,Sampdoria,reviewed
+SerieA,2020,Sassuolo,3997,Sassuolo,reviewed
+SerieA,2020,Spezia,4056,Spezia,reviewed
+SerieA,2020,Torino,239,Torino,reviewed
+SerieA,2020,Udinese,118,Udinese,reviewed
+SerieA,2020,Verona,119,Hellas Verona,reviewed
+SerieA,2021,Atalanta,105,Atalanta,reviewed
+SerieA,2021,Bologna,107,Bologna,reviewed
+SerieA,2021,Cagliari,2925,Cagliari,reviewed
+SerieA,2021,Empoli,2574,Empoli,reviewed
+SerieA,2021,Fiorentina,109,Fiorentina,reviewed
+SerieA,2021,Genoa,3263,Genoa,reviewed
+SerieA,2021,Inter,110,Internazionale,reviewed
+SerieA,2021,Juventus,111,Juventus,reviewed
+SerieA,2021,Lazio,112,Lazio,reviewed
+SerieA,2021,Milan,103,AC Milan,reviewed
+SerieA,2021,Napoli,114,Napoli,reviewed
+SerieA,2021,Roma,104,AS Roma,reviewed
+SerieA,2021,Salernitana,3240,Salernitana,reviewed
+SerieA,2021,Sampdoria,2734,Sampdoria,reviewed
+SerieA,2021,Sassuolo,3997,Sassuolo,reviewed
+SerieA,2021,Spezia,4056,Spezia,reviewed
+SerieA,2021,Torino,239,Torino,reviewed
+SerieA,2021,Udinese,118,Udinese,reviewed
+SerieA,2021,Venezia,17530,Venezia,reviewed
+SerieA,2021,Verona,119,Hellas Verona,reviewed
+SerieA,2022,Atalanta,105,Atalanta,reviewed
+SerieA,2022,Bologna,107,Bologna,reviewed
+SerieA,2022,Cremonese,4050,Cremonese,reviewed
+SerieA,2022,Empoli,2574,Empoli,reviewed
+SerieA,2022,Fiorentina,109,Fiorentina,reviewed
+SerieA,2022,Inter,110,Internazionale,reviewed
+SerieA,2022,Juventus,111,Juventus,reviewed
+SerieA,2022,Lazio,112,Lazio,reviewed
+SerieA,2022,Lecce,113,Lecce,reviewed
+SerieA,2022,Milan,103,AC Milan,reviewed
+SerieA,2022,Monza,4007,Monza,reviewed
+SerieA,2022,Napoli,114,Napoli,reviewed
+SerieA,2022,Roma,104,AS Roma,reviewed
+SerieA,2022,Salernitana,3240,Salernitana,reviewed
+SerieA,2022,Sampdoria,2734,Sampdoria,reviewed
+SerieA,2022,Sassuolo,3997,Sassuolo,reviewed
+SerieA,2022,Spezia,4056,Spezia,reviewed
+SerieA,2022,Torino,239,Torino,reviewed
+SerieA,2022,Udinese,118,Udinese,reviewed
+SerieA,2022,Verona,119,Hellas Verona,reviewed
+SerieA,2023,Atalanta,105,Atalanta,reviewed
+SerieA,2023,Bologna,107,Bologna,reviewed
+SerieA,2023,Cagliari,2925,Cagliari,reviewed
+SerieA,2023,Empoli,2574,Empoli,reviewed
+SerieA,2023,Fiorentina,109,Fiorentina,reviewed
+SerieA,2023,Frosinone,4057,Frosinone,reviewed
+SerieA,2023,Genoa,3263,Genoa,reviewed
+SerieA,2023,Inter,110,Internazionale,reviewed
+SerieA,2023,Juventus,111,Juventus,reviewed
+SerieA,2023,Lazio,112,Lazio,reviewed
+SerieA,2023,Lecce,113,Lecce,reviewed
+SerieA,2023,Milan,103,AC Milan,reviewed
+SerieA,2023,Monza,4007,Monza,reviewed
+SerieA,2023,Napoli,114,Napoli,reviewed
+SerieA,2023,Roma,104,AS Roma,reviewed
+SerieA,2023,Salernitana,3240,Salernitana,reviewed
+SerieA,2023,Sassuolo,3997,Sassuolo,reviewed
+SerieA,2023,Torino,239,Torino,reviewed
+SerieA,2023,Udinese,118,Udinese,reviewed
+SerieA,2023,Verona,119,Hellas Verona,reviewed
+SerieA,2024,Atalanta,105,Atalanta,reviewed
+SerieA,2024,Bologna,107,Bologna,reviewed
+SerieA,2024,Cagliari,2925,Cagliari,reviewed
+SerieA,2024,Como,2572,Como,reviewed
+SerieA,2024,Empoli,2574,Empoli,reviewed
+SerieA,2024,Fiorentina,109,Fiorentina,reviewed
+SerieA,2024,Genoa,3263,Genoa,reviewed
+SerieA,2024,Inter,110,Internazionale,reviewed
+SerieA,2024,Juventus,111,Juventus,reviewed
+SerieA,2024,Lazio,112,Lazio,reviewed
+SerieA,2024,Lecce,113,Lecce,reviewed
+SerieA,2024,Milan,103,AC Milan,reviewed
+SerieA,2024,Monza,4007,Monza,reviewed
+SerieA,2024,Napoli,114,Napoli,reviewed
+SerieA,2024,Parma,115,Parma,reviewed
+SerieA,2024,Roma,104,AS Roma,reviewed
+SerieA,2024,Torino,239,Torino,reviewed
+SerieA,2024,Udinese,118,Udinese,reviewed
+SerieA,2024,Venezia,17530,Venezia,reviewed
+SerieA,2024,Verona,119,Hellas Verona,reviewed
+SerieA,2025,Atalanta,105,Atalanta,reviewed
+SerieA,2025,Bologna,107,Bologna,reviewed
+SerieA,2025,Cagliari,2925,Cagliari,reviewed
+SerieA,2025,Como,2572,Como,reviewed
+SerieA,2025,Cremonese,4050,Cremonese,reviewed
+SerieA,2025,Fiorentina,109,Fiorentina,reviewed
+SerieA,2025,Genoa,3263,Genoa,reviewed
+SerieA,2025,Inter,110,Internazionale,reviewed
+SerieA,2025,Juventus,111,Juventus,reviewed
+SerieA,2025,Lazio,112,Lazio,reviewed
+SerieA,2025,Lecce,113,Lecce,reviewed
+SerieA,2025,Milan,103,AC Milan,reviewed
+SerieA,2025,Napoli,114,Napoli,reviewed
+SerieA,2025,Parma,115,Parma,reviewed
+SerieA,2025,Pisa,3956,Pisa,reviewed
+SerieA,2025,Roma,104,AS Roma,reviewed
+SerieA,2025,Sassuolo,3997,Sassuolo,reviewed
+SerieA,2025,Torino,239,Torino,reviewed
+SerieA,2025,Udinese,118,Udinese,reviewed
+SerieA,2025,Verona,119,Hellas Verona,reviewed
+SerieA,2026,Atalanta,105,Atalanta,reviewed
+SerieA,2026,Bologna,107,Bologna,reviewed
+SerieA,2026,Cagliari,2925,Cagliari,reviewed
+SerieA,2026,Como,2572,Como,reviewed
+SerieA,2026,Fiorentina,109,Fiorentina,reviewed
+SerieA,2026,Frosinone,4057,Frosinone,reviewed
+SerieA,2026,Genoa,3263,Genoa,reviewed
+SerieA,2026,Inter,110,Internazionale,reviewed
+SerieA,2026,Juventus,111,Juventus,reviewed
+SerieA,2026,Lazio,112,Lazio,reviewed
+SerieA,2026,Lecce,113,Lecce,reviewed
+SerieA,2026,Milan,103,AC Milan,reviewed
+SerieA,2026,Monza,4007,Monza,reviewed
+SerieA,2026,Napoli,114,Napoli,reviewed
+SerieA,2026,Parma,115,Parma,reviewed
+SerieA,2026,Roma,104,AS Roma,reviewed
+SerieA,2026,Sassuolo,3997,Sassuolo,reviewed
+SerieA,2026,Torino,239,Torino,reviewed
+SerieA,2026,Udinese,118,Udinese,reviewed
+SerieA,2026,Venezia,17530,Venezia,reviewed
+SuperLig,2016,Adanaspor,3845,Adanaspor,reviewed
+SuperLig,2016,Akhisar Belediyespor,18330,Akhisar Belediyespor,reviewed
+SuperLig,2016,Alanyaspor,9078,Alanyaspor,reviewed
+SuperLig,2016,Antalyaspor,3794,Antalyaspor,reviewed
+SuperLig,2016,Besiktas,1895,Besiktas,reviewed
+SuperLig,2016,Bursaspor,810,Bursaspor,reviewed
+SuperLig,2016,Buyuksehyr,7914,Istanbul Basaksehir,alias
+SuperLig,2016,Fenerbahce,436,Fenerbahce,reviewed
+SuperLig,2016,Galatasaray,432,Galatasaray,reviewed
+SuperLig,2016,Gaziantepspor,539,Gaziantepspor,reviewed
+SuperLig,2016,Genclerbirligi,996,Genclerbirligi,reviewed
+SuperLig,2016,Karabukspor,4738,Karabükspor,reviewed
+SuperLig,2016,Kasimpasa,6870,Kasimpasa,reviewed
+SuperLig,2016,Kayserispor,3643,Kayserispor,reviewed
+SuperLig,2016,Konyaspor,7648,Konyaspor,reviewed
+SuperLig,2016,Osmanlispor,18321,Osmanlispor,reviewed
+SuperLig,2016,Rizespor,7656,Caykur Rizespor,reviewed
+SuperLig,2016,Trabzonspor,997,Trabzonspor,reviewed
+SuperLig,2017,Akhisar Belediyespor,18330,Akhisar Belediyespor,reviewed
+SuperLig,2017,Alanyaspor,9078,Alanyaspor,reviewed
+SuperLig,2017,Antalyaspor,3794,Antalyaspor,reviewed
+SuperLig,2017,Besiktas,1895,Besiktas,reviewed
+SuperLig,2017,Bursaspor,810,Bursaspor,reviewed
+SuperLig,2017,Buyuksehyr,7914,Istanbul Basaksehir,alias
+SuperLig,2017,Fenerbahce,436,Fenerbahce,reviewed
+SuperLig,2017,Galatasaray,432,Galatasaray,reviewed
+SuperLig,2017,Genclerbirligi,996,Genclerbirligi,reviewed
+SuperLig,2017,Goztep,789,Goztepe,reviewed
+SuperLig,2017,Karabukspor,4738,Karabükspor,reviewed
+SuperLig,2017,Kasimpasa,6870,Kasimpasa,reviewed
+SuperLig,2017,Kayserispor,3643,Kayserispor,reviewed
+SuperLig,2017,Konyaspor,7648,Konyaspor,reviewed
+SuperLig,2017,Osmanlispor,18321,Osmanlispor,reviewed
+SuperLig,2017,Sivasspor,3691,Sivasspor,reviewed
+SuperLig,2017,Trabzonspor,997,Trabzonspor,reviewed
+SuperLig,2017,Yeni Malatyaspor,18790,Yeni Malatyaspor,reviewed
+SuperLig,2018,Akhisar Belediyespor,18330,Akhisar Belediyespor,reviewed
+SuperLig,2018,Alanyaspor,9078,Alanyaspor,reviewed
+SuperLig,2018,Ankaragucu,2429,Ankaragucu,reviewed
+SuperLig,2018,Antalyaspor,3794,Antalyaspor,reviewed
+SuperLig,2018,Besiktas,1895,Besiktas,reviewed
+SuperLig,2018,Bursaspor,810,Bursaspor,reviewed
+SuperLig,2018,Buyuksehyr,7914,Istanbul Basaksehir,alias
+SuperLig,2018,Erzurum BB,19267,Erzurum BB,reviewed
+SuperLig,2018,Fenerbahce,436,Fenerbahce,reviewed
+SuperLig,2018,Galatasaray,432,Galatasaray,reviewed
+SuperLig,2018,Goztep,789,Goztepe,reviewed
+SuperLig,2018,Kasimpasa,6870,Kasimpasa,reviewed
+SuperLig,2018,Kayserispor,3643,Kayserispor,reviewed
+SuperLig,2018,Konyaspor,7648,Konyaspor,reviewed
+SuperLig,2018,Rizespor,7656,Caykur Rizespor,reviewed
+SuperLig,2018,Sivasspor,3691,Sivasspor,reviewed
+SuperLig,2018,Trabzonspor,997,Trabzonspor,reviewed
+SuperLig,2018,Yeni Malatyaspor,18790,Yeni Malatyaspor,reviewed
+SuperLig,2019,Alanyaspor,9078,Alanyaspor,reviewed
+SuperLig,2019,Ankaragucu,2429,Ankaragucu,reviewed
+SuperLig,2019,Antalyaspor,3794,Antalyaspor,reviewed
+SuperLig,2019,Besiktas,1895,Besiktas,reviewed
+SuperLig,2019,Buyuksehyr,7914,Istanbul Basaksehir,alias
+SuperLig,2019,Denizlispor,2576,Denizlispor,reviewed
+SuperLig,2019,Fenerbahce,436,Fenerbahce,reviewed
+SuperLig,2019,Galatasaray,432,Galatasaray,reviewed
+SuperLig,2019,Gaziantep,20070,Gaziantep FK,reviewed
+SuperLig,2019,Genclerbirligi,996,Genclerbirligi,reviewed
+SuperLig,2019,Goztep,789,Goztepe,reviewed
+SuperLig,2019,Kasimpasa,6870,Kasimpasa,reviewed
+SuperLig,2019,Kayserispor,3643,Kayserispor,reviewed
+SuperLig,2019,Konyaspor,7648,Konyaspor,reviewed
+SuperLig,2019,Rizespor,7656,Caykur Rizespor,reviewed
+SuperLig,2019,Sivasspor,3691,Sivasspor,reviewed
+SuperLig,2019,Trabzonspor,997,Trabzonspor,reviewed
+SuperLig,2019,Yeni Malatyaspor,18790,Yeni Malatyaspor,reviewed
+SuperLig,2020,Alanyaspor,9078,Alanyaspor,reviewed
+SuperLig,2020,Ankaragucu,2429,Ankaragucu,reviewed
+SuperLig,2020,Antalyaspor,3794,Antalyaspor,reviewed
+SuperLig,2020,Besiktas,1895,Besiktas,reviewed
+SuperLig,2020,Buyuksehyr,7914,Istanbul Basaksehir,alias
+SuperLig,2020,Denizlispor,2576,Denizlispor,reviewed
+SuperLig,2020,Erzurum BB,19267,Erzurum BB,reviewed
+SuperLig,2020,Fenerbahce,436,Fenerbahce,reviewed
+SuperLig,2020,Galatasaray,432,Galatasaray,reviewed
+SuperLig,2020,Gaziantep,20070,Gaziantep FK,reviewed
+SuperLig,2020,Genclerbirligi,996,Genclerbirligi,reviewed
+SuperLig,2020,Goztep,789,Goztepe,reviewed
+SuperLig,2020,Hatayspor,20737,Hatayspor,reviewed
+SuperLig,2020,Karagumruk,20736,Fatih Karagümrük,reviewed
+SuperLig,2020,Kasimpasa,6870,Kasimpasa,reviewed
+SuperLig,2020,Kayserispor,3643,Kayserispor,reviewed
+SuperLig,2020,Konyaspor,7648,Konyaspor,reviewed
+SuperLig,2020,Rizespor,7656,Caykur Rizespor,reviewed
+SuperLig,2020,Sivasspor,3691,Sivasspor,reviewed
+SuperLig,2020,Trabzonspor,997,Trabzonspor,reviewed
+SuperLig,2020,Yeni Malatyaspor,18790,Yeni Malatyaspor,reviewed
+SuperLig,2021,Ad. Demirspor,20765,Adana Demirspor,alias
+SuperLig,2021,Alanyaspor,9078,Alanyaspor,reviewed
+SuperLig,2021,Altay,3789,Altay Izmir,alias
+SuperLig,2021,Antalyaspor,3794,Antalyaspor,reviewed
+SuperLig,2021,Besiktas,1895,Besiktas,reviewed
+SuperLig,2021,Buyuksehyr,7914,Istanbul Basaksehir,alias
+SuperLig,2021,Fenerbahce,436,Fenerbahce,reviewed
+SuperLig,2021,Galatasaray,432,Galatasaray,reviewed
+SuperLig,2021,Gaziantep,20070,Gaziantep FK,reviewed
+SuperLig,2021,Giresunspor,21031,Giresunspor,reviewed
+SuperLig,2021,Goztep,789,Goztepe,reviewed
+SuperLig,2021,Hatayspor,20737,Hatayspor,reviewed
+SuperLig,2021,Karagumruk,20736,Fatih Karagümrük,reviewed
+SuperLig,2021,Kasimpasa,6870,Kasimpasa,reviewed
+SuperLig,2021,Kayserispor,3643,Kayserispor,reviewed
+SuperLig,2021,Konyaspor,7648,Konyaspor,reviewed
+SuperLig,2021,Rizespor,7656,Caykur Rizespor,reviewed
+SuperLig,2021,Sivasspor,3691,Sivasspor,reviewed
+SuperLig,2021,Trabzonspor,997,Trabzonspor,reviewed
+SuperLig,2021,Yeni Malatyaspor,18790,Yeni Malatyaspor,reviewed
+SuperLig,2022,Ad. Demirspor,20765,Adana Demirspor,alias
+SuperLig,2022,Alanyaspor,9078,Alanyaspor,reviewed
+SuperLig,2022,Ankaragucu,2429,Ankaragucu,reviewed
+SuperLig,2022,Antalyaspor,3794,Antalyaspor,reviewed
+SuperLig,2022,Besiktas,1895,Besiktas,reviewed
+SuperLig,2022,Buyuksehyr,7914,Istanbul Basaksehir,alias
+SuperLig,2022,Fenerbahce,436,Fenerbahce,reviewed
+SuperLig,2022,Galatasaray,432,Galatasaray,reviewed
+SuperLig,2022,Gaziantep,20070,Gaziantep FK,reviewed
+SuperLig,2022,Giresunspor,21031,Giresunspor,reviewed
+SuperLig,2022,Hatayspor,20737,Hatayspor,reviewed
+SuperLig,2022,Istanbulspor,8841,Istanbulspor,reviewed
+SuperLig,2022,Karagumruk,20736,Fatih Karagümrük,reviewed
+SuperLig,2022,Kasimpasa,6870,Kasimpasa,reviewed
+SuperLig,2022,Kayserispor,3643,Kayserispor,reviewed
+SuperLig,2022,Konyaspor,7648,Konyaspor,reviewed
+SuperLig,2022,Sivasspor,3691,Sivasspor,reviewed
+SuperLig,2022,Trabzonspor,997,Trabzonspor,reviewed
+SuperLig,2022,Umraniyespor,20041,Umraniyespor,reviewed
+SuperLig,2023,Ad. Demirspor,20765,Adana Demirspor,alias
+SuperLig,2023,Alanyaspor,9078,Alanyaspor,reviewed
+SuperLig,2023,Ankaragucu,2429,Ankaragucu,reviewed
+SuperLig,2023,Antalyaspor,3794,Antalyaspor,reviewed
+SuperLig,2023,Besiktas,1895,Besiktas,reviewed
+SuperLig,2023,Buyuksehyr,7914,Istanbul Basaksehir,alias
+SuperLig,2023,Fenerbahce,436,Fenerbahce,reviewed
+SuperLig,2023,Galatasaray,432,Galatasaray,reviewed
+SuperLig,2023,Gaziantep,20070,Gaziantep FK,reviewed
+SuperLig,2023,Hatayspor,20737,Hatayspor,reviewed
+SuperLig,2023,Istanbulspor,8841,Istanbulspor,reviewed
+SuperLig,2023,Karagumruk,20736,Fatih Karagümrük,reviewed
+SuperLig,2023,Kasimpasa,6870,Kasimpasa,reviewed
+SuperLig,2023,Kayserispor,3643,Kayserispor,reviewed
+SuperLig,2023,Konyaspor,7648,Konyaspor,reviewed
+SuperLig,2023,Pendikspor,9104,Pendikspor,reviewed
+SuperLig,2023,Rizespor,7656,Caykur Rizespor,reviewed
+SuperLig,2023,Samsunspor,11429,Samsunspor,reviewed
+SuperLig,2023,Sivasspor,3691,Sivasspor,reviewed
+SuperLig,2023,Trabzonspor,997,Trabzonspor,reviewed
+SuperLig,2024,Ad. Demirspor,20765,Adana Demirspor,alias
+SuperLig,2024,Alanyaspor,9078,Alanyaspor,reviewed
+SuperLig,2024,Antalyaspor,3794,Antalyaspor,reviewed
+SuperLig,2024,Besiktas,1895,Besiktas,reviewed
+SuperLig,2024,Bodrumspor,22321,Bodrum FK,alias
+SuperLig,2024,Buyuksehyr,7914,Istanbul Basaksehir,alias
+SuperLig,2024,Eyupspor,20729,Eyupspor,reviewed
+SuperLig,2024,Fenerbahce,436,Fenerbahce,reviewed
+SuperLig,2024,Galatasaray,432,Galatasaray,reviewed
+SuperLig,2024,Gaziantep,20070,Gaziantep FK,reviewed
+SuperLig,2024,Goztep,789,Goztepe,reviewed
+SuperLig,2024,Hatayspor,20737,Hatayspor,reviewed
+SuperLig,2024,Kasimpasa,6870,Kasimpasa,reviewed
+SuperLig,2024,Kayserispor,3643,Kayserispor,reviewed
+SuperLig,2024,Konyaspor,7648,Konyaspor,reviewed
+SuperLig,2024,Rizespor,7656,Caykur Rizespor,reviewed
+SuperLig,2024,Samsunspor,11429,Samsunspor,reviewed
+SuperLig,2024,Sivasspor,3691,Sivasspor,reviewed
+SuperLig,2024,Trabzonspor,997,Trabzonspor,reviewed
+SuperLig,2025,Alanyaspor,9078,Alanyaspor,reviewed
+SuperLig,2025,Antalyaspor,3794,Antalyaspor,reviewed
+SuperLig,2025,Besiktas,1895,Besiktas,reviewed
+SuperLig,2025,Buyuksehyr,7914,Istanbul Basaksehir,alias
+SuperLig,2025,Eyupspor,20729,Eyupspor,reviewed
+SuperLig,2025,Fenerbahce,436,Fenerbahce,reviewed
+SuperLig,2025,Galatasaray,432,Galatasaray,reviewed
+SuperLig,2025,Gaziantep,20070,Gaziantep FK,reviewed
+SuperLig,2025,Genclerbirligi,996,Genclerbirligi,reviewed
+SuperLig,2025,Goztep,789,Goztepe,reviewed
+SuperLig,2025,Karagumruk,20736,Fatih Karagümrük,reviewed
+SuperLig,2025,Kasimpasa,6870,Kasimpasa,reviewed
+SuperLig,2025,Kayserispor,3643,Kayserispor,reviewed
+SuperLig,2025,Kocaelispor,995,Kocaelispor,reviewed
+SuperLig,2025,Konyaspor,7648,Konyaspor,reviewed
+SuperLig,2025,Rizespor,7656,Caykur Rizespor,reviewed
+SuperLig,2025,Samsunspor,11429,Samsunspor,reviewed
+SuperLig,2025,Trabzonspor,997,Trabzonspor,reviewed
+SuperLig,2026,Alanyaspor,9078,Alanyaspor,reviewed
+SuperLig,2026,Amedspor,132335,Amed SFK,alias
+SuperLig,2026,Besiktas,1895,Besiktas,reviewed
+SuperLig,2026,Buyuksehyr,7914,Istanbul Basaksehir,alias
+SuperLig,2026,Corum,132334,Çorum FK,reviewed
+SuperLig,2026,Erzurumspor,19267,Erzurum BB,reviewed
+SuperLig,2026,Eyupspor,20729,Eyupspor,reviewed
+SuperLig,2026,Fenerbahce,436,Fenerbahce,reviewed
+SuperLig,2026,Galatasaray,432,Galatasaray,reviewed
+SuperLig,2026,Gaziantep,20070,Gaziantep FK,reviewed
+SuperLig,2026,Genclerbirligi,996,Genclerbirligi,reviewed
+SuperLig,2026,Goztep,789,Goztepe,reviewed
+SuperLig,2026,Kasimpasa,6870,Kasimpasa,reviewed
+SuperLig,2026,Kocaelispor,995,Kocaelispor,reviewed
+SuperLig,2026,Konyaspor,7648,Konyaspor,reviewed
+SuperLig,2026,Rizespor,7656,Caykur Rizespor,reviewed
+SuperLig,2026,Samsunspor,11429,Samsunspor,reviewed
+SuperLig,2026,Trabzonspor,997,Trabzonspor,reviewed
