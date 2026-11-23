@@ -537,12 +537,15 @@ def refresh(decisions: pd.DataFrame, out_dir, run_summary: Mapping, predictions:
     from price_edge_cagey_shortlist import POLICY
     if run_summary.get('selection_policy_version') == POLICY:
         if configured_live() == LIVE_NEW:
-            return release(decisions, out_dir, run_summary, predictions)
+            frame = release(decisions, out_dir, run_summary, predictions)
+            strong_shadow(decisions, out_dir, run_summary, predictions, frame)
+            return frame
         for name in RELEASE_FILES:
             (Path(out_dir) / name).unlink(missing_ok=True)
         run_summary.pop(RELEASE_STATUS_KEY, None)
         frame = write(decisions, out_dir, run_summary, predictions)
         shadow(decisions, out_dir, frame, run_summary.get('generated_at_utc'), predictions)
+        strong_shadow(decisions, out_dir, run_summary, predictions, None)
         return frame
     from master_selection import AUDIT_FILE
     (Path(out_dir) / AUDIT_FILE).unlink(missing_ok=True)
@@ -553,7 +556,28 @@ def refresh(decisions: pd.DataFrame, out_dir, run_summary: Mapping, predictions:
     run_summary.pop(OLD_SUMMARY_KEY, None)
     run_summary.pop(RELEASE_STATUS_KEY, None)
     shadow(None, out_dir)
+    strong_shadow(None, out_dir, run_summary)
     return None
+
+
+def strong_shadow(decisions, out_dir, run_summary: Mapping, predictions=None, live=None) -> None:
+    """The strong-team master (master_strong.py, rule master-strong-team-v1), in shadow: master_shortlist_strong.csv
+    and its summary beside FILE, written after the live master from the same decision rows. `live` is the live
+    master frame (for overlap columns only). It never changes FILE, the run summary or any decision; a failure only
+    warns and removes its own files."""
+    import warnings
+    import master_strong
+    try:
+        if decisions is None:
+            master_strong.remove_shadow(out_dir)
+        else:
+            master_strong.write_shadow(decisions, out_dir, predictions, live, run_summary.get('generated_at_utc'))
+    except Exception as exc:  # shadow output must never break or alter the live run
+        warnings.warn(f'Strong master shadow skipped ({type(exc).__name__}: {exc})')
+        try:
+            master_strong.remove_shadow(out_dir)
+        except Exception:
+            pass
 
 
 def shadow(decisions, out_dir, live=None, generated_at_utc=None, predictions=None) -> None:
