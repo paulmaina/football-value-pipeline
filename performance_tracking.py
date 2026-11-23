@@ -1152,6 +1152,9 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
     (output / "README.md").write_text("\n".join(intro), encoding="utf-8")
     weeks_dir = output / "weekly"
     weeks_dir.mkdir(parents=True, exist_ok=True)
+    from odds_api_usage import LOG as USAGE_LOG, read_log
+    from odds_provider import weekly_lines as provider_lines
+    usage_records = read_log(root, USAGE_LOG.relative_to(USAGE_LOG.parts[0]))
     for week in weeks:
         subset = [r for r in selections if r["week"] == week]
         lines = [*(banner if week == weeks[-1] else []),
@@ -1182,6 +1185,7 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
         lines += ["", "Pending/unverified fixtures are excluded from win-rate and ROI denominators.", ""]
         if week == weeks[-1]:  # the cumulative research v5 checks, with the latest gameweek
             lines += research_lines[len(banner):]
+        lines += provider_lines(usage_records, week)  # odds provider switch on only; else nothing
         (weeks_dir / f"{week}.md").write_text("\n".join(lines), encoding="utf-8")
     from performance_excel import write_workbook
     write_workbook(root, selections, all_predictions, result)
