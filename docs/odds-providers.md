@@ -65,7 +65,9 @@ league plus one per fixture.
   - Runs per day: forecast runs are the scheduled ones from the cron (1 a day; each manual run adds its requests).
     Closing sessions are the ones that called, taking the median day and the busiest day in the log. The busiest
     day of any weekday is used, so a busy day is at least a busy Saturday.
-  - Nothing reads the projection to decide.
+  - The only reader is the once-a-day UCL/UEL 48-hour step (`european_alternates.py`, plan open item 15). It runs
+    only while the busy-day projection plus its own requests stays within 80 of the 100 a day. Its requests are
+    inside the forecast runs' own and are also shown on their own line.
 - **Back to pinnapi.** Every request starts from the first provider. The router goes back to pinnapi as soon as
   its allowance resets at UTC midnight or its Retry-After has passed.
 - **Switches.** A switch is any change of serving provider, including to "none" when all three failed. It is
