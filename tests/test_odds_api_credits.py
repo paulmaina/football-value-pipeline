@@ -1,4 +1,4 @@
-"""Odds API credits: usage recording, no fixtures, all keys exhausted and the low-credit guard.
+"""Odds API credits: usage recording, no fixtures, all keys exhausted and the zero-credit guard.
 
 Every response is mocked; no request reaches the provider and no real key is used.
 """
@@ -145,12 +145,14 @@ class UsageRecordingTests(OfflineQuotePolicyTestCase):
 
 
 class LowCreditGuardTests(OfflineQuotePolicyTestCase):
-    def test_threshold_is_one_forecast_run_and_unknown_never_blocks(self):
-        self.assertTrue(usage.UsageLedger().allows_optional(4))
-        self.assertTrue(ledger(usage.FORECAST_RUN_CREDITS + 4).allows_optional(4))
-        self.assertFalse(ledger(usage.FORECAST_RUN_CREDITS + 3).allows_optional(4))
-        both = ledger(200, THE_ODDS_API_KEY_FALLBACK_1={'remaining': 200, 'used': 300})
-        self.assertTrue(both.allows_optional(4))
+    def test_optional_calls_run_while_any_credit_remains_and_unknown_never_blocks(self):
+        self.assertFalse(hasattr(usage, 'FORECAST_RUN_CREDITS'))  # the 300-credit floor is gone
+        self.assertTrue(usage.UsageLedger().allows_optional())
+        self.assertTrue(ledger(1).allows_optional())
+        self.assertTrue(ledger(299).allows_optional())
+        self.assertFalse(ledger(0).allows_optional())
+        both = ledger(0, THE_ODDS_API_KEY_FALLBACK_1={'remaining': 1, 'used': 499})
+        self.assertTrue(both.allows_optional())
 
     def coverage_with_balance(self, remaining):
         """The coverage suite's offline league run, with the mocked client holding a known balance."""
@@ -166,12 +168,13 @@ class LowCreditGuardTests(OfflineQuotePolicyTestCase):
             return case.run_pipeline()
 
     def test_extra_coverage_is_skipped_but_main_odds_kept_when_credits_are_low(self):
-        pipeline, (frame, diagnostics, _) = self.coverage_with_balance(usage.FORECAST_RUN_CREDITS - 1)
+        pipeline, (frame, diagnostics, _) = self.coverage_with_balance(0)
         self.assertEqual(pipeline.odds_api.extra_markets_for_event.call_count, 0)
         self.assertEqual(len(frame), 18)  # Every fixture is still forecast.
         self.assertEqual({r['status'] for r in diagnostics['additional_odds_coverage']}, {'NOT_REQUESTED_LOW_CREDITS'})
         self.assertEqual(diagnostics['additional_odds_unrequested_linked_fixtures'], 18)
-        pipeline, _ = self.coverage_with_balance(usage.FORECAST_RUN_CREDITS + 100)
+        # One credit left is enough: the old floor of 300 skipped these at 299.
+        pipeline, _ = self.coverage_with_balance(1)
         self.assertEqual(pipeline.odds_api.extra_markets_for_event.call_count, 18)
 
     def test_closing_collects_picks_only_when_credits_are_low(self):
@@ -187,13 +190,13 @@ class LowCreditGuardTests(OfflineQuotePolicyTestCase):
             def fetch(api, source, markets):
                 requested.append(source['odds_event_id'])
                 return payload(source, observed)
-            api = SimpleNamespace(usage=ledger(50))
+            api = SimpleNamespace(usage=ledger(0))
             status = c.collect_once(root, api, observed, fetcher=fetch)
             self.assertEqual(requested, [row['odds_event_id']])
             self.assertEqual(status['skipped_low_credit_fixtures'], 1)
-            # With credits, the fixture without a pick is collected too.
+            # With any credit left, the fixture without a pick is collected too.
             requested.clear()
-            api = SimpleNamespace(usage=ledger(1000))
+            api = SimpleNamespace(usage=ledger(50))
             c.collect_once(root, api, observed, fetcher=fetch)
             self.assertEqual(requested, ['nopick1'])
 

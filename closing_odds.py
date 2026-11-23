@@ -119,7 +119,8 @@ def fetch(api,source,markets):
     event=str(source.get('odds_event_id',''))
     if not re.fullmatch(r'[A-Za-z0-9_-]+',event):raise ValueError('Invalid odds event')
     league=next(l for l in LEAGUES.values() if l.name==source['league'])
-    return api._get_json(f'{THE_ODDS_API_BASE}/sports/{league.odds_api_sport_key}/events/{event}/odds',f'closing_v1_{event}.json',ttl=timedelta(seconds=0),force_refresh=True,allow_stale=False,params={'bookmakers':('pinnacle' if any('spreads' in m for m in markets) else 'pinnacle,onexbet')+(',bet365' if source.get('_closing_bet365') else ''),'markets':','.join(sorted(markets)),'oddsFormat':'decimal','dateFormat':'iso'})
+    from odds_provider import event_request  # provider switch on: Pinnacle via the providers in order
+    return api._get_json(f'{THE_ODDS_API_BASE}/sports/{league.odds_api_sport_key}/events/{event}/odds',f'closing_v1_{event}.json',ttl=timedelta(seconds=0),force_refresh=True,allow_stale=False,params={'bookmakers':('pinnacle' if any('spreads' in m for m in markets) else 'pinnacle,onexbet')+(',bet365' if source.get('_closing_bet365') else ''),'markets':','.join(sorted(markets)),'oddsFormat':'decimal','dateFormat':'iso'},**event_request(api,league,source,markets,max_age_seconds=30))
 
 
 def collection_targets(root, predictions, picks):
@@ -202,7 +203,11 @@ def required_quotes(source, selected, observations):
 
 
 def low_credits(root, api=None):
-    """Budget guard: below one forecast run of credits on all keys, collect picks only."""
+    """Zero-credit guard: with no Odds API credits left on any key, collect picks only. With the provider switch
+    on, the providers decide instead (the Odds API is only their final fallback)."""
+    from odds_provider import active_router
+    if active_router(api) is not None:
+        return False
     from odds_api_usage import UsageLedger, seeded_ledger
     usage = getattr(api, 'usage', None)
     usage = usage if isinstance(usage, UsageLedger) else seeded_ledger(Path(root).parent)
@@ -476,11 +481,17 @@ def main(argv=None):
 def record_usage(root, api):
     """One usage record per collector session that called the API; published with the evidence."""
     import odds_api_usage
-    if not isinstance(getattr(api, 'usage', None), odds_api_usage.UsageLedger) or not api.usage.calls:
+    from odds_provider import active_router
+    router = active_router(api)
+    provider = router.summary() if router is not None else None  # provider switch on only
+    routed = bool(provider) and any(p.get('requests') for p in provider['providers'].values())
+    if not isinstance(getattr(api, 'usage', None), odds_api_usage.UsageLedger) or not (api.usage.calls or routed):
         return None
-    record = odds_api_usage.run_record('closing-odds', api.usage)
+    record = odds_api_usage.run_record('closing-odds', api.usage, **({'odds_provider': provider} if provider else {}))
     odds_api_usage.append_log(record, Path(root).parent)
-    odds_api_usage.write_step_summary(odds_api_usage.summary_markdown(record))
+    import odds_provider
+    odds_api_usage.write_step_summary(odds_api_usage.summary_markdown(record)
+                                      + ('\n' + odds_provider.summary_markdown(provider) if provider else ''))
     return record
 
 

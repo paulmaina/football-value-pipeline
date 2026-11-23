@@ -5,6 +5,8 @@ import os
 API_KEY_NAMES = (
     'THE_ODDS_API_KEY', 'THE_ODDS_API_KEY_FALLBACK_1',
     'THE_ODDS_API_KEY_FALLBACK_2', 'FOOTBALL_DATA_API_KEY', 'BBS_API_KEY', 'API_FOOTBALL_KEY',
+    # Odds providers (odds_provider.py); read only while odds_provider_config.json has the switch on.
+    'PINNAPI_API_KEY', 'PINNODDS_API_KEY',
 )
 ENV_PATH = Path(__file__).resolve().parent / '.env'
 
