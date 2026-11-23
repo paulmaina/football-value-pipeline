@@ -1,202 +1,114 @@
 ﻿Match date,League,Home team,Away team,Model,Rank,Score,Probability,Probability (decimal)
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,1,1-1,13.93%,0.1393209290843962
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,2,0-1,12.41%,0.12406474766664885
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,3,0-0,10.65%,0.1065132780334582
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,4,1-0,9.68%,0.09678993080771926
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,5,1-2,8.33%,0.08325526728386909
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,6,0-2,8.01%,0.08013799295802143
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,7,2-1,6.52%,0.0652391713486767
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,8,2-0,5.15%,0.05151409089843214
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,9,2-2,4.50%,0.04497352812370906
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,10,1-3,3.51%,0.03514575367169115
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,11,0-3,3.38%,0.03382981344163011
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,12,3-1,2.26%,0.02259229963852222
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,13,2-3,1.83%,0.018256441219849533
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,14,3-0,1.78%,0.017839309622179254
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,15,3-2,1.43%,0.014305822752305002
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,16,1-4,1.11%,0.011127440113844785
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,17,0-4,1.07%,0.010710802410178242
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,18,3-3,0.66%,0.0065746116285972335
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,19,4-1,0.59%,0.005867778426731093
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,20,2-4,0.58%,0.005780142268778045
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,21,4-0,0.46%,0.00463330948259532
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,22,4-2,0.37%,0.0037155756370848545
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,23,1-5,0.28%,0.0028184326253202032
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,24,0-5,0.27%,0.002712903834786318
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,25,3-4,0.20%,0.0020016610172987745
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,26,4-3,0.16%,0.0015685098414766933
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,27,2-5,0.15%,0.0014640331812747443
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,28,5-1,0.12%,0.0012192056308071508
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,29,5-0,0.10%,0.0009627079619636193
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,30,5-2,0.08%,0.0007720214379238905
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,31,1-6,0.06%,0.0005948929240237634
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,32,0-6,0.06%,0.0005726187244543266
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,33,4-4,0.05%,0.0005406370130833781
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,34,3-5,0.05%,0.0005069941206843494
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,35,5-3,0.03%,0.00032590460846187205
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,36,2-6,0.03%,0.00030901678197022605
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,37,6-1,0.02%,0.00021110521763798698
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,38,6-0,0.02%,0.00016669269620876552
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,39,6-2,0.01%,0.00013367536169121722
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,40,4-5,0.01%,0.000131678899953972
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,41,1-7,0.01%,0.000107627476919781
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,42,3-6,0.01%,0.00010701239128698476
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,43,0-7,0.01%,0.00010359764936047655
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,Research,44,5-4,0.01%,0.00010318412993392536
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,"Benchmark (70% Pinnacle blend), display only",1,0-1,16.18%,0.16184768259865265
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,"Benchmark (70% Pinnacle blend), display only",2,1-2,12.02%,0.12017630178027076
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,"Benchmark (70% Pinnacle blend), display only",3,0-2,11.21%,0.11206988252671217
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,"Benchmark (70% Pinnacle blend), display only",4,1-1,11.07%,0.11074774952339535
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,"Benchmark (70% Pinnacle blend), display only",5,0-0,8.12%,0.08121094588200069
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,"Benchmark (70% Pinnacle blend), display only",6,1-0,5.66%,0.05658363997373417
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,"Benchmark (70% Pinnacle blend), display only",7,1-3,5.20%,0.05203753790512563
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,"Benchmark (70% Pinnacle blend), display only",8,0-3,4.85%,0.04852737747471747
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,"Benchmark (70% Pinnacle blend), display only",9,2-1,4.26%,0.04261021535802357
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,"Benchmark (70% Pinnacle blend), display only",10,2-2,3.65%,0.03645997235607099
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,"Benchmark (70% Pinnacle blend), display only",11,2-0,3.28%,0.032801565343875766
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,"Benchmark (70% Pinnacle blend), display only",12,2-3,2.79%,0.027900800456795678
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,"Benchmark (70% Pinnacle blend), display only",13,1-4,1.69%,0.016899579894993518
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,"Benchmark (70% Pinnacle blend), display only",14,0-4,1.58%,0.015759629024410828
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,"Benchmark (70% Pinnacle blend), display only",15,3-1,1.52%,0.015230788695817024
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,"Benchmark (70% Pinnacle blend), display only",16,3-0,1.17%,0.011724740333905213
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,"Benchmark (70% Pinnacle blend), display only",17,3-2,0.99%,0.009892625239034265
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,"Benchmark (70% Pinnacle blend), display only",18,2-4,0.91%,0.009060993764031387
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,"Benchmark (70% Pinnacle blend), display only",19,3-3,0.56%,0.00564316701544578
-2026-11-22,Premier League,Hull City,Brighton and Hove Albion,"Benchmark (70% Pinnacle blend), display only",20,1-5,0.44%,0.004390612040838136
-2026-11-22,Premier League,Liverpool,Manchester United,Research,1,1-1,10.55%,0.10548884356222164
-2026-11-22,Premier League,Liverpool,Manchester United,Research,2,2-1,10.07%,0.10069541749265305
-2026-11-22,Premier League,Liverpool,Manchester United,Research,3,2-0,8.65%,0.08648289019443953
-2026-11-22,Premier League,Liverpool,Manchester United,Research,4,1-0,8.51%,0.08508568178677492
-2026-11-22,Premier League,Liverpool,Manchester United,Research,5,3-1,6.67%,0.0667267285099422
-2026-11-22,Premier League,Liverpool,Manchester United,Research,6,2-2,5.99%,0.05990766140047742
-2026-11-22,Premier League,Liverpool,Manchester United,Research,7,3-0,5.73%,0.05730866883967734
-2026-11-22,Premier League,Liverpool,Manchester United,Research,8,1-2,5.14%,0.05138954828027468
-2026-11-22,Premier League,Liverpool,Manchester United,Research,9,0-0,4.67%,0.04668841226115997
-2026-11-22,Premier League,Liverpool,Manchester United,Research,10,0-1,4.27%,0.04272994520452648
-2026-11-22,Premier League,Liverpool,Manchester United,Research,11,3-2,3.88%,0.03884627219396255
-2026-11-22,Premier League,Liverpool,Manchester United,Research,12,4-1,3.32%,0.03316280230402038
-2026-11-22,Premier League,Liverpool,Manchester United,Research,13,4-0,2.85%,0.028482080531696062
-2026-11-22,Premier League,Liverpool,Manchester United,Research,14,0-2,2.59%,0.02585017096045246
-2026-11-22,Premier League,Liverpool,Manchester United,Research,15,1-3,1.99%,0.019944954842924602
-2026-11-22,Premier League,Liverpool,Manchester United,Research,16,2-3,1.98%,0.01982505689065725
-2026-11-22,Premier League,Liverpool,Manchester United,Research,17,4-2,1.93%,0.019306375028180747
-2026-11-22,Premier League,Liverpool,Manchester United,Research,18,3-3,1.54%,0.015407449376972129
-2026-11-22,Premier League,Liverpool,Manchester United,Research,19,5-1,1.32%,0.013185378407894528
-2026-11-22,Premier League,Liverpool,Manchester United,Research,20,5-0,1.13%,0.011324344855169559
-2026-11-22,Premier League,Liverpool,Manchester United,Research,21,0-3,1.00%,0.01003278895693281
-2026-11-22,Premier League,Liverpool,Manchester United,Research,22,5-2,0.77%,0.007676126344739797
-2026-11-22,Premier League,Liverpool,Manchester United,Research,23,4-3,0.75%,0.007493056292643752
-2026-11-22,Premier League,Liverpool,Manchester United,Research,24,1-4,0.58%,0.005805673094021823
-2026-11-22,Premier League,Liverpool,Manchester United,Research,25,2-4,0.58%,0.005770772623151427
-2026-11-22,Premier League,Liverpool,Manchester United,Research,26,6-1,0.44%,0.004368705087243046
-2026-11-22,Premier League,Liverpool,Manchester United,Research,27,3-4,0.38%,0.0038240546363068344
-2026-11-22,Premier League,Liverpool,Manchester United,Research,28,6-0,0.38%,0.003752089735160948
-2026-11-22,Premier League,Liverpool,Manchester United,Research,29,5-3,0.30%,0.0029792048857760615
-2026-11-22,Premier League,Liverpool,Manchester United,Research,30,0-4,0.29%,0.0029203923179563886
-2026-11-22,Premier League,Liverpool,Manchester United,Research,31,6-2,0.25%,0.0025433272504721406
-2026-11-22,Premier League,Liverpool,Manchester United,Research,32,4-4,0.22%,0.002228956840400263
-2026-11-22,Premier League,Liverpool,Manchester United,Research,33,1-5,0.14%,0.001351954530460357
-2026-11-22,Premier League,Liverpool,Manchester United,Research,34,2-5,0.13%,0.001343827333330188
-2026-11-22,Premier League,Liverpool,Manchester United,Research,35,7-1,0.12%,0.0012406979620401407
-2026-11-22,Premier League,Liverpool,Manchester United,Research,36,7-0,0.11%,0.0010655812179676514
-2026-11-22,Premier League,Liverpool,Manchester United,Research,37,6-3,0.10%,0.0009870985221506075
-2026-11-22,Premier League,Liverpool,Manchester United,Research,38,3-5,0.09%,0.0008904993282530011
-2026-11-22,Premier League,Liverpool,Manchester United,Research,39,5-4,0.09%,0.0008672012437804158
-2026-11-22,Premier League,Liverpool,Manchester United,Research,40,7-2,0.07%,0.0007222966241590085
-2026-11-22,Premier League,Liverpool,Manchester United,Research,41,0-5,0.07%,0.0006800654396211724
-2026-11-22,Premier League,Liverpool,Manchester United,Research,42,4-5,0.04%,0.00044257307130405894
-2026-11-22,Premier League,Liverpool,Manchester United,Research,43,8-1,0.03%,0.0003083098943477171
-2026-11-22,Premier League,Liverpool,Manchester United,Research,44,6-4,0.03%,0.0002873293710780928
-2026-11-22,Premier League,Liverpool,Manchester United,Research,45,7-3,0.03%,0.0002803327531403494
-2026-11-22,Premier League,Liverpool,Manchester United,Research,46,8-0,0.03%,0.00026479388439576505
-2026-11-22,Premier League,Liverpool,Manchester United,Research,47,1-6,0.03%,0.00026235560500216754
-2026-11-22,Premier League,Liverpool,Manchester United,Research,48,2-6,0.03%,0.0002607784693278403
-2026-11-22,Premier League,Liverpool,Manchester United,Research,49,5-5,0.02%,0.00020637284107694593
-2026-11-22,Premier League,Liverpool,Manchester United,Research,50,8-2,0.02%,0.0001794886448559926
-2026-11-22,Premier League,Liverpool,Manchester United,Research,51,3-6,0.02%,0.00017280720967611745
-2026-11-22,Premier League,Liverpool,Manchester United,Research,52,0-6,0.01%,0.00013197113943774712
-2026-11-22,Premier League,Liverpool,Manchester United,"Benchmark (70% Pinnacle blend), display only",1,1-1,10.35%,0.10350734460919314
-2026-11-22,Premier League,Liverpool,Manchester United,"Benchmark (70% Pinnacle blend), display only",2,2-1,9.62%,0.09621532123704292
-2026-11-22,Premier League,Liverpool,Manchester United,"Benchmark (70% Pinnacle blend), display only",3,2-0,7.84%,0.07842961013934435
-2026-11-22,Premier League,Liverpool,Manchester United,"Benchmark (70% Pinnacle blend), display only",4,1-0,7.16%,0.07161150141130525
-2026-11-22,Premier League,Liverpool,Manchester United,"Benchmark (70% Pinnacle blend), display only",5,3-1,6.53%,0.06526847915224304
-2026-11-22,Premier League,Liverpool,Manchester United,"Benchmark (70% Pinnacle blend), display only",6,2-2,6.11%,0.061072852648601954
-2026-11-22,Premier League,Liverpool,Manchester United,"Benchmark (70% Pinnacle blend), display only",7,1-2,5.90%,0.05902014748940556
-2026-11-22,Premier League,Liverpool,Manchester United,"Benchmark (70% Pinnacle blend), display only",8,3-0,5.32%,0.053203391190545
-2026-11-22,Premier League,Liverpool,Manchester United,"Benchmark (70% Pinnacle blend), display only",9,0-0,4.49%,0.044850671892021896
-2026-11-22,Premier League,Liverpool,Manchester United,"Benchmark (70% Pinnacle blend), display only",10,0-1,4.17%,0.0417183983908482
-2026-11-22,Premier League,Liverpool,Manchester United,"Benchmark (70% Pinnacle blend), display only",11,3-2,4.00%,0.04003480112376598
-2026-11-22,Premier League,Liverpool,Manchester United,"Benchmark (70% Pinnacle blend), display only",12,4-1,3.32%,0.03320656977555275
-2026-11-22,Premier League,Liverpool,Manchester United,"Benchmark (70% Pinnacle blend), display only",13,0-2,2.90%,0.02900145432072451
-2026-11-22,Premier League,Liverpool,Manchester United,"Benchmark (70% Pinnacle blend), display only",14,4-0,2.71%,0.027068228719469796
-2026-11-22,Premier League,Liverpool,Manchester United,"Benchmark (70% Pinnacle blend), display only",15,2-3,2.46%,0.024558041657548272
-2026-11-22,Premier League,Liverpool,Manchester United,"Benchmark (70% Pinnacle blend), display only",16,1-3,2.41%,0.024134772738942496
-2026-11-22,Premier League,Liverpool,Manchester United,"Benchmark (70% Pinnacle blend), display only",17,4-2,2.04%,0.020368460154644576
-2026-11-22,Premier League,Liverpool,Manchester United,"Benchmark (70% Pinnacle blend), display only",18,3-3,1.69%,0.016941442578388467
-2026-11-22,Premier League,Liverpool,Manchester United,"Benchmark (70% Pinnacle blend), display only",19,5-1,1.35%,0.01351557493701164
-2026-11-22,Premier League,Liverpool,Manchester United,"Benchmark (70% Pinnacle blend), display only",20,0-3,1.19%,0.011859399525478173
-2026-11-23,Premier League,Brentford,Everton,Research,1,1-1,13.29%,0.13287079280479697
-2026-11-23,Premier League,Brentford,Everton,Research,2,1-0,12.45%,0.12452446510734337
-2026-11-23,Premier League,Brentford,Everton,Research,3,0-0,9.23%,0.09231098612463336
-2026-11-23,Premier League,Brentford,Everton,Research,4,2-0,9.22%,0.09220938226152664
-2026-11-23,Premier League,Brentford,Everton,Research,5,2-1,9.21%,0.09211612595963829
-2026-11-23,Premier League,Brentford,Everton,Research,6,0-1,7.77%,0.07769328848099455
-2026-11-23,Premier League,Brentford,Everton,Research,7,1-2,5.80%,0.05798162704637513
-2026-11-23,Premier League,Brentford,Everton,Research,8,2-2,4.73%,0.04731760954365815
-2026-11-23,Premier League,Brentford,Everton,Research,9,3-0,4.47%,0.04465824300991671
-2026-11-23,Premier League,Brentford,Everton,Research,10,3-1,4.46%,0.044613077729662214
-2026-11-23,Premier League,Brentford,Everton,Research,11,0-2,3.99%,0.03990640661252806
-2026-11-23,Premier League,Brentford,Everton,Research,12,3-2,2.23%,0.022283979063740977
-2026-11-23,Premier League,Brentford,Everton,Research,13,1-3,1.93%,0.019307662370698378
-2026-11-23,Premier League,Brentford,Everton,Research,14,4-0,1.62%,0.016221440431161794
-2026-11-23,Premier League,Brentford,Everton,Research,15,4-1,1.62%,0.016205034817017
-2026-11-23,Premier League,Brentford,Everton,Research,16,2-3,1.40%,0.014026440536038094
-2026-11-23,Premier League,Brentford,Everton,Research,17,0-3,1.33%,0.013288682373232342
-2026-11-23,Premier League,Brentford,Everton,Research,18,4-2,0.81%,0.00809432289737556
-2026-11-23,Premier League,Brentford,Everton,Research,19,3-3,0.76%,0.0076311258166976235
-2026-11-23,Premier League,Brentford,Everton,Research,20,1-4,0.48%,0.0048220338736275755
-2026-11-23,Premier League,Brentford,Everton,Research,21,5-0,0.47%,0.004713756958209028
-2026-11-23,Premier League,Brentford,Everton,Research,22,5-1,0.47%,0.00470898968256807
-2026-11-23,Premier League,Brentford,Everton,Research,23,2-4,0.35%,0.0035030637108013686
-2026-11-23,Premier League,Brentford,Everton,Research,24,0-4,0.33%,0.0033188107037157733
-2026-11-23,Premier League,Brentford,Everton,Research,25,4-3,0.27%,0.002695378891263983
-2026-11-23,Premier League,Brentford,Everton,Research,26,5-2,0.24%,0.002352113614164536
-2026-11-23,Premier League,Brentford,Everton,Research,27,3-4,0.17%,0.0016965808320078212
-2026-11-23,Premier League,Brentford,Everton,Research,28,6-0,0.11%,0.0011414679209775845
-2026-11-23,Premier League,Brentford,Everton,Research,29,6-1,0.11%,0.0011403134931479667
-2026-11-23,Premier League,Brentford,Everton,Research,30,1-5,0.10%,0.0009634314183450558
-2026-11-23,Premier League,Brentford,Everton,Research,31,5-3,0.08%,0.0007832449317693153
-2026-11-23,Premier League,Brentford,Everton,Research,32,2-5,0.07%,0.0006999041748563043
-2026-11-23,Premier League,Brentford,Everton,Research,33,4-4,0.07%,0.0006922723063979592
-2026-11-23,Premier League,Brentford,Everton,Research,34,0-5,0.07%,0.0006630908424320604
-2026-11-23,Premier League,Brentford,Everton,Research,35,6-2,0.06%,0.0005695801164266153
-2026-11-23,Premier League,Brentford,Everton,Research,36,3-5,0.03%,0.000338972997733979
-2026-11-23,Premier League,Brentford,Everton,Research,37,7-0,0.02%,0.00023692639459458874
-2026-11-23,Premier League,Brentford,Everton,Research,38,7-1,0.02%,0.00023668677820374288
-2026-11-23,Premier League,Brentford,Everton,Research,39,5-4,0.02%,0.0001956131985232216
-2026-11-23,Premier League,Brentford,Everton,Research,40,6-3,0.02%,0.00018966802315209744
-2026-11-23,Premier League,Brentford,Everton,Research,41,1-6,0.02%,0.00016040950806581685
-2026-11-23,Premier League,Brentford,Everton,Research,42,4-5,0.01%,0.00012312688363698204
-2026-11-23,Premier League,Brentford,Everton,Research,43,7-2,0.01%,0.00011822370207491278
-2026-11-23,Premier League,Brentford,Everton,Research,44,2-6,0.01%,0.00011653272069408571
-2026-11-23,Premier League,Brentford,Everton,Research,45,0-6,0.01%,0.00011040337050683514
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",1,1-1,12.95%,0.12953788415666592
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",2,1-0,9.98%,0.09976898009246425
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",3,2-1,8.69%,0.0868641510762985
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",4,0-1,8.27%,0.08268343768609054
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",5,0-0,8.22%,0.08217866436665347
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",6,2-0,7.90%,0.07900063515209658
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",7,1-2,7.37%,0.07373408885627358
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",8,2-2,4.99%,0.049920873929715344
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",9,0-2,4.97%,0.0497193315456546
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",10,3-1,4.29%,0.04294003180636311
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",11,3-0,3.91%,0.039052816888456604
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",12,1-3,2.70%,0.02702446219389495
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",13,3-2,2.36%,0.02360708494854424
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",14,2-3,2.00%,0.020038725730533367
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",15,0-3,1.82%,0.01822275444781534
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",16,4-1,1.59%,0.015920085921681638
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",17,4-0,1.45%,0.014478894732811961
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",18,3-3,0.90%,0.009044669536375375
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",19,4-2,0.88%,0.008752364749892182
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",20,1-4,0.74%,0.007428601562021456
+2026-11-23,Premier League,Brentford,Everton,Research,1,1-1,13.27%,0.1327179547863637
+2026-11-23,Premier League,Brentford,Everton,Research,2,1-0,12.45%,0.12454647093902736
+2026-11-23,Premier League,Brentford,Everton,Research,3,2-0,9.25%,0.09246116961728362
+2026-11-23,Premier League,Brentford,Everton,Research,4,2-1,9.23%,0.09226322056678254
+2026-11-23,Premier League,Brentford,Everton,Research,5,0-0,9.21%,0.09207561491824949
+2026-11-23,Premier League,Brentford,Everton,Research,6,0-1,7.73%,0.07734268259587787
+2026-11-23,Premier League,Brentford,Everton,Research,7,1-2,5.78%,0.05780740623350642
+2026-11-23,Premier League,Brentford,Everton,Research,8,2-2,4.73%,0.04733132170533769
+2026-11-23,Premier League,Brentford,Everton,Research,9,3-0,4.49%,0.04489551004395988
+2026-11-23,Premier League,Brentford,Everton,Research,10,3-1,4.48%,0.04479939376485861
+2026-11-23,Premier League,Brentford,Everton,Research,11,0-2,3.97%,0.03968429795955027
+2026-11-23,Premier League,Brentford,Everton,Research,12,3-2,2.24%,0.022351741629994773
+2026-11-23,Premier League,Brentford,Everton,Research,13,1-3,1.92%,0.019227882341643455
+2026-11-23,Premier League,Brentford,Everton,Research,14,4-0,1.63%,0.016349621390663177
+2026-11-23,Premier League,Brentford,Everton,Research,15,4-1,1.63%,0.016314618674996367
+2026-11-23,Premier League,Brentford,Everton,Research,16,2-3,1.40%,0.01400445595215519
+2026-11-23,Premier League,Brentford,Everton,Research,17,0-3,1.32%,0.013199779434744409
+2026-11-23,Premier League,Brentford,Everton,Research,18,4-2,0.81%,0.008139845448119703
+2026-11-23,Premier League,Brentford,Everton,Research,19,3-3,0.76%,0.007644342402565558
+2026-11-23,Premier League,Brentford,Everton,Research,20,1-4,0.48%,0.004796679397584586
+2026-11-23,Premier League,Brentford,Everton,Research,21,5-0,0.48%,0.004763240143280103
+2026-11-23,Premier League,Brentford,Everton,Research,22,5-1,0.48%,0.004753042577452483
+2026-11-23,Premier League,Brentford,Everton,Research,23,2-4,0.35%,0.003493618493524753
+2026-11-23,Premier League,Brentford,Everton,Research,24,0-4,0.33%,0.0032928800448384426
+2026-11-23,Premier League,Brentford,Everton,Research,25,4-3,0.27%,0.0027074729823267853
+2026-11-23,Premier League,Brentford,Everton,Research,26,5-2,0.24%,0.002371433421737903
+2026-11-23,Premier League,Brentford,Everton,Research,27,3-4,0.17%,0.0016963638337588712
+2026-11-23,Premier League,Brentford,Everton,Research,28,6-0,0.12%,0.0011564211040136477
+2026-11-23,Premier League,Brentford,Everton,Research,29,6-1,0.12%,0.0011539453354238016
+2026-11-23,Premier League,Brentford,Everton,Research,30,1-5,0.10%,0.000957282048408702
+2026-11-23,Premier League,Brentford,Everton,Research,31,5-3,0.08%,0.0007887854824350854
+2026-11-23,Premier League,Brentford,Everton,Research,32,2-5,0.07%,0.0006972278092056757
+2026-11-23,Premier League,Brentford,Everton,Research,33,4-4,0.07%,0.0006944710684701387
+2026-11-23,Premier League,Brentford,Everton,Research,34,0-5,0.07%,0.0006571660711938372
+2026-11-23,Premier League,Brentford,Everton,Research,35,6-2,0.06%,0.0005757374335891724
+2026-11-23,Premier League,Brentford,Everton,Research,36,3-5,0.03%,0.00033854642160259063
+2026-11-23,Premier League,Brentford,Everton,Research,37,7-0,0.02%,0.0002406482735487401
+2026-11-23,Premier League,Brentford,Everton,Research,38,7-1,0.02%,0.00024013307243836177
+2026-11-23,Premier League,Brentford,Everton,Research,39,5-4,0.02%,0.00019677419517571284
+2026-11-23,Premier League,Brentford,Everton,Research,40,6-3,0.02%,0.00019150161465497187
+2026-11-23,Premier League,Brentford,Everton,Research,41,1-6,0.02%,0.00015920543572063198
+2026-11-23,Premier League,Brentford,Everton,Research,42,4-5,0.01%,0.0001232886275475306
+2026-11-23,Premier League,Brentford,Everton,Research,43,7-2,0.01%,0.0001198094871580462
+2026-11-23,Premier League,Brentford,Everton,Research,44,2-6,0.01%,0.0001159558537064928
+2026-11-23,Premier League,Brentford,Everton,Research,45,0-6,0.01%,0.0001092931919899143
+2026-11-23,Premier League,Brentford,Everton,Cagey,1,1-1,13.24%,0.13239258236706866
+2026-11-23,Premier League,Brentford,Everton,Cagey,2,2-1,9.18%,0.0918316725101961
+2026-11-23,Premier League,Brentford,Everton,Cagey,3,1-0,8.38%,0.08378990287918989
+2026-11-23,Premier League,Brentford,Everton,Cagey,4,1-2,7.80%,0.07803647908286505
+2026-11-23,Premier League,Brentford,Everton,Cagey,5,0-0,7.35%,0.07345342212288254
+2026-11-23,Premier League,Brentford,Everton,Cagey,6,0-1,6.97%,0.06965167531218097
+2026-11-23,Premier League,Brentford,Everton,Cagey,7,2-0,6.75%,0.06750684649733701
+2026-11-23,Premier League,Brentford,Everton,Cagey,8,2-2,5.90%,0.05899399171623012
+2026-11-23,Premier League,Brentford,Everton,Cagey,9,0-2,4.91%,0.04909930478330169
+2026-11-23,Premier League,Brentford,Everton,Cagey,10,3-1,4.37%,0.04367311325502276
+2026-11-23,Premier League,Brentford,Everton,Cagey,11,3-0,3.23%,0.03226952033402053
+2026-11-23,Premier League,Brentford,Everton,Cagey,12,1-3,3.18%,0.03176447441710381
+2026-11-23,Premier League,Brentford,Everton,Cagey,13,3-2,2.97%,0.029704950253409943
+2026-11-23,Premier League,Brentford,Everton,Cagey,14,2-3,2.52%,0.025242595128063202
+2026-11-23,Premier League,Brentford,Everton,Cagey,15,0-3,2.01%,0.020088262812339944
+2026-11-23,Premier League,Brentford,Everton,Cagey,16,4-1,1.57%,0.01565741649947163
+2026-11-23,Premier League,Brentford,Everton,Cagey,17,3-3,1.27%,0.012721925825653981
+2026-11-23,Premier League,Brentford,Everton,Cagey,18,4-0,1.21%,0.012148289605363499
+2026-11-23,Premier League,Brentford,Everton,Cagey,19,4-2,1.06%,0.01059526322338256
+2026-11-23,Premier League,Brentford,Everton,Cagey,20,1-4,0.97%,0.009746977778038322
+2026-11-23,Premier League,Brentford,Everton,Cagey,21,2-4,0.77%,0.0077061821912343224
+2026-11-23,Premier League,Brentford,Everton,Cagey,22,0-4,0.65%,0.006472728009891781
+2026-11-23,Premier League,Brentford,Everton,Cagey,23,4-3,0.48%,0.00480435586893829
+2026-11-23,Premier League,Brentford,Everton,Cagey,24,5-1,0.47%,0.004715553950316296
+2026-11-23,Premier League,Brentford,Everton,Cagey,25,3-4,0.41%,0.004082632996054991
+2026-11-23,Premier League,Brentford,Everton,Cagey,26,5-0,0.37%,0.00365870800205713
+2026-11-23,Premier League,Brentford,Everton,Cagey,27,5-2,0.30%,0.0030388389898621366
+2026-11-23,Premier League,Brentford,Everton,Cagey,28,1-5,0.25%,0.0025124934561069727
+2026-11-23,Premier League,Brentford,Everton,Cagey,29,2-5,0.19%,0.0018917230761679106
+2026-11-23,Premier League,Brentford,Everton,Cagey,30,0-5,0.17%,0.0016684850564301192
+2026-11-23,Premier League,Brentford,Everton,Cagey,31,4-4,0.15%,0.0015431937728374585
+2026-11-23,Premier League,Brentford,Everton,Cagey,32,5-3,0.14%,0.0013709072626872517
+2026-11-23,Premier League,Brentford,Everton,Cagey,33,6-1,0.12%,0.001183488618055964
+2026-11-23,Premier League,Brentford,Everton,Cagey,34,3-5,0.10%,0.0009970928433603908
+2026-11-23,Premier League,Brentford,Everton,Cagey,35,6-0,0.09%,0.000918246153653794
+2026-11-23,Premier League,Brentford,Everton,Cagey,36,6-2,0.08%,0.0007626742042396298
+2026-11-23,Premier League,Brentford,Everton,Cagey,37,1-6,0.05%,0.0005397077527289032
+2026-11-23,Premier League,Brentford,Everton,Cagey,38,5-4,0.05%,0.00046622199569754455
+2026-11-23,Premier League,Brentford,Everton,Cagey,39,2-6,0.04%,0.00040636030622979763
+2026-11-23,Premier League,Brentford,Everton,Cagey,40,4-5,0.04%,0.000396184911161054
+2026-11-23,Premier League,Brentford,Everton,Cagey,41,0-6,0.04%,0.0003584066330914727
+2026-11-23,Premier League,Brentford,Everton,Cagey,42,6-3,0.03%,0.000327659504811025
+2026-11-23,Premier League,Brentford,Everton,Cagey,43,7-1,0.03%,0.0002545942925703933
+2026-11-23,Premier League,Brentford,Everton,Cagey,44,3-6,0.02%,0.00020397298061681344
+2026-11-23,Premier League,Brentford,Everton,Cagey,45,7-0,0.02%,0.00019753483584741791
+2026-11-23,Premier League,Brentford,Everton,Cagey,46,7-2,0.02%,0.00016406790612742014
+2026-11-23,Premier League,Brentford,Everton,Cagey,47,5-5,0.01%,0.00011980309538215768
+2026-11-23,Premier League,Brentford,Everton,Cagey,48,6-4,0.01%,0.00011086243701932384
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",1,1-1,12.90%,0.12900867314428988
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",2,2-1,8.58%,0.0858183347050521
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",3,1-0,8.23%,0.08230346050472825
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",4,1-2,7.60%,0.07602529140170744
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",5,2-0,7.17%,0.07170190108849972
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",6,0-1,7.10%,0.0709936361672484
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",7,0-0,6.98%,0.06984594567956548
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",8,2-2,5.92%,0.0592160596975152
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",9,0-2,4.69%,0.04686182709703433
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",10,3-1,4.64%,0.046408518458966534
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",11,3-0,3.88%,0.03877468622113381
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",12,1-3,3.03%,0.030330966610903853
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",13,3-2,2.78%,0.0277726371952219
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",14,2-3,2.46%,0.024603400229302578
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",15,4-1,1.88%,0.018822468936490387
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",16,0-3,1.87%,0.018695942978972598
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",17,4-0,1.57%,0.015726322476007467
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",18,3-3,1.28%,0.012775717044319632
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",19,4-2,1.13%,0.011264087246260324
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",20,1-4,0.91%,0.009075606800611716

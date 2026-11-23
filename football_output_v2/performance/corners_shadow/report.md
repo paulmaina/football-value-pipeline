@@ -12,11 +12,12 @@ Zero stake: returns are what one unit per pick would have made. latest pre-kicko
 
 | | picks | graded | win rate | mean odds | return per unit | with close | mean CLV | CLV > 0 | pending |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| All | 16 | 0 | — | — | — | 0 | — | — | 16 |
-| Positive expected return at entry | 9 | 0 | — | — | — | 0 | — | — | 9 |
+| All | 19 | 0 | — | — | — | 0 | — | — | 19 |
+| Positive expected return at entry | 12 | 0 | — | — | — | 0 | — | — | 12 |
 
 ## By kickoff week
 
 | | picks | graded | win rate | mean odds | return per unit | with close | mean CLV | CLV > 0 | pending |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | 2026-W47 | 16 | 0 | — | — | — | 0 | — | — | 16 |
+| 2026-W48 | 3 | 0 | — | — | — | 0 | — | — | 3 |
