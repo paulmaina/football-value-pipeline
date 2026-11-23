@@ -1,8 +1,10 @@
 # Odds providers: pinnapi, pinnodds, then The Odds API
 
-Built 23 Nov 2026 for Paul. **Off by default** (`odds_provider_config.json` `"enabled": false`); nothing is live.
-With the switch off, nothing below runs, and every output is byte-identical to before. Turning it on is a
-separate decision. It needs the checks under "Before turning it on", including the terms check.
+Built 23 Nov 2026 for Paul and **switched on the same day** (`odds_provider_config.json` `"enabled": true`), after
+the live check below. Rolling back is setting `enabled` to `false`: no code change, and saved runs replay as
+before. With the switch off, nothing below runs, and every output is byte-identical to before. Offline tests
+always hold the switch off (`tests/offline_test_case.py` points `odds_provider.CONFIG` at a missing file); the
+adapter's own tests attach their routers explicitly.
 
 ## What it does
 
@@ -192,7 +194,9 @@ Final results (run 3):
    Confirm whether corner child events appear. Done 23 Nov 2026: no flag (most balanced pair, 89% agreement);
    corner children appear.
 5. Set `"enabled": true` in a reviewed PR. Rolling back is setting it to `false`: no code change is needed, and
-   saved runs replay as before.
+   saved runs replay as before. Done 23 Nov 2026. Item 1 was Paul's call: he added both keys and asked for the
+   switch on; the config still records both keys' plans as `free` (100 requests a day each), so failing over from
+   pinnapi to pinnodds on the daily cap is the case the terms check describes.
 
 ## Files
 
