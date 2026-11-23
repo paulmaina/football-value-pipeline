@@ -3559,13 +3559,25 @@ class FootballValuePipelineV2(FootballValuePipeline):
             - self.extra_event_odds_by_league.get(league.key, 0)
         )
         full_coverage = self.additional_odds_coverage == "all"
+        # UCL/UEL, once a day within the pinnapi budget: per-event markets 48 hours ahead (european_alternates).
+        window, extended = None, set()
+        import european_alternates
+        if league.key in european_alternates.LEAGUES:
+            pairs = [(row, pred) for row, pred, _ in prepared]
+            extended = (set(prioritized_additional_events(pairs, len(prepared), as_of=now, coverage="all",
+                                                          hours=european_alternates.HOURS))
+                        - set(prioritized_additional_events(pairs, len(prepared), as_of=now, coverage="all")))
+            if extended and self._european_alternates(now).allow(league.key, len(extended)):
+                window = european_alternates.HOURS
+            else:
+                extended = set()
         eligible = prioritized_additional_events(
             [(row, pred) for row, pred, _ in prepared], len(prepared),
-            as_of=now, coverage="all"
+            as_of=now, coverage="all", hours=window
         )
         positions = prioritized_additional_events(
             [(row, pred) for row, pred, _ in prepared], quota,
-            as_of=now, coverage=self.additional_odds_coverage
+            as_of=now, coverage=self.additional_odds_coverage, hours=window
         )
         coverage_rows = []
         selected = set(positions)
@@ -3596,6 +3608,9 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 coverage_row["status"] = "NOT_REQUESTED_LOW_CREDITS"
                 continue
             event_id = row["odds_event_id"]
+            if idx in extended:  # the 48-hour step's own request, counted against its budget
+                coverage_row["window_hours"] = european_alternates.HOURS
+                self._european_alternates(now).count(league.key)
             self.extra_event_odds_requests += 1
             self.extra_event_odds_by_league[league.key] = (
                 self.extra_event_odds_by_league.get(league.key, 0) + 1
@@ -3750,6 +3765,17 @@ class FootballValuePipelineV2(FootballValuePipeline):
         diagnostics['bbs_statistics_applied_fixtures'] = sum(r.get('bbs_statistics_applied') is True for r in records)
         diagnostics['training_data_provenance']['bbs_statistics_used_as_predictor_features'] = bool(diagnostics['bbs_statistics_applied_fixtures'])
         return pd.DataFrame(records), diagnostics, scorelines
+
+    def _european_alternates(self, now):
+        """This run's UCL/UEL 48-hour step (one per run), seeded from the committed usage log."""
+        step = getattr(self, '_european_step', None)
+        if step is None:
+            import european_alternates
+            from odds_api_usage import read_log
+            step = european_alternates.Step(read_log(Path(__file__).resolve().parent), now,
+                                            routed=_active_router(self.odds_api) is not None)
+            self._european_step = step
+        return step
 
     def backtest_league(
         self,
@@ -4722,6 +4748,9 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     router = _active_router(pipe.odds_api)
     if router is not None:  # provider switch on: requests, failures and every switch this run
         selection_summary['odds_provider'] = router.summary()
+    european_step = getattr(pipe, '_european_step', None)
+    if european_step is not None and european_step.summary():  # UCL/UEL 48-hour step: what it did this run
+        selection_summary['european_alternates_48h'] = european_step.summary()
     (out_dir / "conservative_bet_summary.json").write_text(
         json.dumps(selection_summary, indent=2), encoding="utf-8"
     )
@@ -4807,6 +4836,13 @@ def run_outcome(staging: Path, lookahead_days: int, client=None) -> Dict[str, ob
     router = _active_router(client)
     if router is not None:  # provider switch on only
         outcome['odds_provider'] = router.summary()
+    try:  # the UCL/UEL 48-hour step, for the usage log (european_alternates.ran_today reads it next run)
+        step = json.loads((Path(staging) / 'conservative_bet_summary.json').read_text(encoding='utf-8'))
+        step = step.get('european_alternates_48h') if isinstance(step, dict) else None
+    except (OSError, ValueError):
+        step = None
+    if isinstance(step, dict):
+        outcome['european_alternates_48h'] = step
     return outcome
 
 
