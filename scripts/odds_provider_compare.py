@@ -10,7 +10,7 @@ Fetches one board from each configured kit provider (pinnapi, pinnodds) and repo
   list: league, kickoff within 5 minutes, same canonical teams). Unmatched fixtures are listed with the schedule
   fixture at the same kickoff, which is the alias to add to odds_provider_team_aliases.json.
 - **Prices:** pinnapi against pinnodds, and, with --odds-api, the kit board against The Odds API's Pinnacle 1X2,
-  totals and spreads (3 credits per league, only for --odds-api-leagues). Every difference is listed and those
+  totals and spreads over the next 7 days (3 credits per league, only for --odds-api-leagues). Every difference is listed and those
   above the configured tolerance are marked.
 
 Reads keys from the environment or .env (PINNAPI_API_KEY, PINNODDS_API_KEY, THE_ODDS_API_KEY...). Writes only
@@ -85,7 +85,7 @@ def board_leagues(payload):
     """Counter of (league id, league name) over the board's match events (no corner children)."""
     counts = Counter()
     for event in op.kit_events(payload):
-        if op.is_corner_child(event) or event.get('event_type') not in (None, 'prematch'):
+        if event.get('parent_id') or event.get('event_type') not in (None, 'prematch'):
             continue
         counts[(str(event.get('league_id', '')), str(event.get('league_name') or '').strip())] += 1
     return counts
@@ -149,7 +149,7 @@ def duplicate_report(payload, leagues, limit=6):
                          for k, v in list(repeated.items())[:limit]]}
 
 
-def main_line_report(kit, odds_api):
+def main_line_report(kit, odds_api, raw=None):
     """Kit main lines (provider flag, otherwise the most balanced pair) against The Odds API's main lines."""
     def index(events):
         out = {}
@@ -164,6 +164,17 @@ def main_line_report(kit, odds_api):
 
     def main(event, market):
         return next((x for x in event.get(market) or [] if x.get('main')), None)
+
+    def limit(event, market, line):
+        source = (raw or {}).get(str(event.get('provider_event_id')))
+        period = op._kit_period(source) if source else None
+        block = (period or {}).get('spreads' if market == 'asian_handicap' else 'totals') or {}
+        for item in block.values() if isinstance(block, dict) else []:
+            if isinstance(item, dict) and op.point(item.get('hdp' if market == 'asian_handicap' else 'points')) is not None:
+                value = op.point(item.get('hdp' if market == 'asian_handicap' else 'points'))
+                if value == line:
+                    return item.get('max')
+        return None
 
     a, b = index(kit), index(odds_api)
     rows, counts = [], {'asian_handicap': [0, 0], 'goal_lines': [0, 0]}
@@ -182,7 +193,9 @@ def main_line_report(kit, odds_api):
                              'odds_api_main': theirs['line'],
                              'odds_api_prices': f"{theirs[first]:.3f}/{theirs[second]:.3f}",
                              'kit_at_odds_api_line': (f"{at_theirs[first]:.3f}/{at_theirs[second]:.3f}"
-                                                      if at_theirs else 'absent')})
+                                                      if at_theirs else 'absent'),
+                             'kit_limits': f"{limit(a[key], market, ours['line'])}/"
+                                           f"{limit(a[key], market, theirs['line'])}"})
     return {'agree': {k: v[0] for k, v in counts.items()}, 'disagree': {k: v[1] for k, v in counts.items()},
             'rows': rows}
 
@@ -217,9 +230,9 @@ def odds_api_schedule(client, leagues, errors):
     return out
 
 
-def odds_api_prices(client, leagues, aliases, errors):
+def odds_api_prices(client, leagues, aliases, errors, days=7):
     from football_value_pipeline_v2_standalone import LEAGUES, THE_ODDS_API_BASE
-    start, end = client._window(datetime.now(timezone.utc), 3)
+    start, end = client._window(datetime.now(timezone.utc), days)
     items = []
     for league_key in leagues:
         league = LEAGUES[league_key]
@@ -359,7 +372,8 @@ def markdown(report):
                   f"{main_lines['disagree']['asian_handicap']} differ. Goal lines: "
                   f"{main_lines['agree']['goal_lines']} agree, {main_lines['disagree']['goal_lines']} differ.", '']
         lines += _table(main_lines['rows'], ['league', 'kickoff_utc', 'match', 'market', 'kit_main', 'kit_prices',
-                                             'odds_api_main', 'odds_api_prices', 'kit_at_odds_api_line'])
+                                             'odds_api_main', 'odds_api_prices', 'kit_at_odds_api_line',
+                                             'kit_limits'])
     for name, dup in report.get('duplicates', {}).items():
         lines += [f'## Repeated events ({name})', '',
                   f"Fixtures in our competitions: {dup['fixtures']}; listed more than once: "
@@ -408,7 +422,8 @@ def main(argv=None) -> int:
         board = [e for e in events[kit_names[0]] if e['league_key'] in chosen]
         prices[f'{kit_names[0]} v {op.THE_ODDS_API}'] = op.compare_providers(
             {kit_names[0]: board, op.THE_ODDS_API: items}, tolerance)
-        main_lines = main_line_report(board, items)
+        raw = {str(e.get('event_id')): e for e in op.kit_events(boards[kit_names[0]][0])}
+        main_lines = main_line_report(board, items, raw)
     else:
         main_lines = None
     report = {

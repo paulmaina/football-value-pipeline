@@ -51,6 +51,16 @@
       "Sturm Graz": "SK Sturm Graz",
       "Omonia Nicosia": "Omonoia FC",
       "Jagiellonia Bialystok": "Jagiellonia Białystok"
+    },
+    "SuperLig": {
+      "Istanbul Basaksehir": "Basaksehir",
+      "Corum Belediyespor": "Çorum FK",
+      "Konyaspor": "Torku Konyaspor",
+      "Kasimpasa": "Kasimpasa SK",
+      "Genclerbirligi": "Genclerbirligi SK",
+      "Gaziantep": "Gazişehir Gaziantep",
+      "Amedspor": "Amed SK",
+      "Erzurumspor": "Erzurum BB"
     }
   }
 }
