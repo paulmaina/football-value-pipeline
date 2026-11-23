@@ -26,7 +26,7 @@ Actual placed bets: NOT_RECORDED
 
 > **STOP REVIEW**: 116 graded picks with mean CLV -2.02% (below zero). Review the policy before relying on further picks.
 
-Reviewed 2026-11-23T12:54:54.982835+00:00. Frozen v27 picks: 430.
+Reviewed 2026-11-23T14:48:02.128920+00:00. Frozen v27 picks: 430.
 
 **Mean CLV vs Pinnacle close:** -2.02% ± 0.81% (n=116). **Flat-stake profit per bet:** +2.69% ± 6.88% (n=407).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -164,6 +164,19 @@ Frozen picks: 112; CLV -1.15% ± 1.45% (n=37); realised profit per bet +0.17% ±
 | below value threshold | -0.95% ± 6.95% (n=4) | -21.95% ± 44.11% (n=19) |
 | negative market EV nomination | -1.86% ± 0.94% (n=29) | +5.06% ± 13.65% (n=70) |
 | value | +3.82% ± 9.37% (n=4) | +6.67% ± 39.87% (n=12) |
+
+## Strong-team master (shadow, rule master-strong-team-v1) beside the live master
+
+Frozen picks: 0; CLV n/a (0); realised profit per bet n/a (0). Graded European picks: 0 (R3 is reviewed at 50).
+
+Comparison rule (decided 23 Nov 2026): Decided 23 Nov 2026, before any strong-master pick: after at least 150 graded matches over at least 3 calendar weeks on each list, flat-stake return per bet at Pinnacle prices, strong master minus live master, whole kickoff weeks resampled (the same weeks for both), 95% interval. The strong master is better only if the interval is entirely above zero. Results by market group, tier and research label are context only.
+
+| list | graded matches | weeks | flat-stake return per bet | hit rate | average price |
+|---|---|---|---|---|---|
+| strong master | 0 | 0 | n/a | n/a | n/a |
+| live master | 41 | 1 | -0.95% | 68.3% | 1.48 |
+
+**Status:** waiting for at least 150 graded matches over at least 3 weeks on each list (not yet comparable).
 
 ## Both tiers (value and cagey)
 
