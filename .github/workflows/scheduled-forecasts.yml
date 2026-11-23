@@ -23,6 +23,10 @@ jobs:
       THE_ODDS_API_KEY: ${{ secrets.THE_ODDS_API_KEY }}
       THE_ODDS_API_KEY_FALLBACK_1: ${{ secrets.THE_ODDS_API_KEY_FALLBACK_1 }}
       THE_ODDS_API_KEY_FALLBACK_2: ${{ secrets.THE_ODDS_API_KEY_FALLBACK_2 }}
+      # Optional odds providers (odds_provider_config.json); an absent secret is an empty key, and that
+      # provider is skipped. Read only when the provider switch is on.
+      PINNAPI_API_KEY: ${{ secrets.PINNAPI_API_KEY }}
+      PINNODDS_API_KEY: ${{ secrets.PINNODDS_API_KEY }}
       FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
       GH_TOKEN: ${{ github.token }}
       OPENBLAS_NUM_THREADS: '1'

@@ -154,7 +154,9 @@ while the switch is on (bets are placed at Pinnacle only). Closing requests with
    terms. The config records each key's `plan`. Use a paid plan on at least one of them (pinnapi REST or pinnodds
    Pro is $99 a month, 10 requests a second, no daily cap: set `daily_allowance` to `null`), or confirm with the
    provider.
-2. Add the keys as repository secrets and pass them to the forecast and closing workflows (not done here).
+2. Add the keys as repository secrets and pass them to the forecast and closing workflows. Done 23 Nov 2026:
+   Paul added both secrets; `scheduled-forecasts.yml` and `closing-odds.yml` pass `PINNAPI_API_KEY` and
+   `PINNODDS_API_KEY` as optional secrets (an absent secret is an empty key, and that provider is skipped).
 3. Run `python scripts/odds_provider_compare.py --output <dir> --odds-api`. Fix the league names
    (`leagues_verified`) and add reviewed aliases for every fixture not matched at every provider. Check that
    the differences are within tolerance. The report lists them all.
