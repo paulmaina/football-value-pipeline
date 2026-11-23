@@ -1,0 +1,334 @@
+{
+  "fixture": {
+    "away_team": "\u00c7orum FK",
+    "home_team": "Basaksehir",
+    "kickoff_utc": "2026-11-23T17:00:00+00:00",
+    "league": "Super Lig",
+    "odds_event_id": "1640273423"
+  },
+  "observed_at_utc": "2026-11-23T16:54:35.967865+00:00",
+  "payload": {
+    "away_team": "\u00c7orum FK",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-23T16:54:35Z",
+            "outcomes": [
+              {
+                "name": "Basaksehir",
+                "price": 1.9174
+              },
+              {
+                "name": "\u00c7orum FK",
+                "price": 3.89
+              },
+              {
+                "name": "Draw",
+                "price": 3.96
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-23T16:54:35Z",
+            "outcomes": [
+              {
+                "name": "Basaksehir",
+                "point": -0.5,
+                "price": 1.9174
+              },
+              {
+                "name": "\u00c7orum FK",
+                "point": 0.5,
+                "price": 1.9901
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-23T16:54:35Z",
+            "outcomes": [
+              {
+                "name": "Basaksehir",
+                "point": -1.5,
+                "price": 3.36
+              },
+              {
+                "name": "Basaksehir",
+                "point": -1.25,
+                "price": 3.0
+              },
+              {
+                "name": "Basaksehir",
+                "point": -1.0,
+                "price": 2.64
+              },
+              {
+                "name": "Basaksehir",
+                "point": -0.75,
+                "price": 2.18
+              },
+              {
+                "name": "Basaksehir",
+                "point": -0.25,
+                "price": 1.6803
+              },
+              {
+                "name": "Basaksehir",
+                "point": 0.0,
+                "price": 1.4444
+              },
+              {
+                "name": "Basaksehir",
+                "point": 0.25,
+                "price": 1.3509
+              },
+              {
+                "name": "Basaksehir",
+                "point": 0.5,
+                "price": 1.2907
+              },
+              {
+                "name": "\u00c7orum FK",
+                "point": 1.5,
+                "price": 1.3534
+              },
+              {
+                "name": "\u00c7orum FK",
+                "point": 1.25,
+                "price": 1.4237
+              },
+              {
+                "name": "\u00c7orum FK",
+                "point": 1.0,
+                "price": 1.5319
+              },
+              {
+                "name": "\u00c7orum FK",
+                "point": 0.75,
+                "price": 1.7576
+              },
+              {
+                "name": "\u00c7orum FK",
+                "point": 0.25,
+                "price": 2.31
+              },
+              {
+                "name": "\u00c7orum FK",
+                "point": 0.0,
+                "price": 2.94
+              },
+              {
+                "name": "\u00c7orum FK",
+                "point": -0.25,
+                "price": 3.38
+              },
+              {
+                "name": "\u00c7orum FK",
+                "point": -0.5,
+                "price": 3.83
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-23T16:54:35Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.9091
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.9804
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-23T17:00:00Z",
+    "home_team": "Basaksehir",
+    "id": "1640273423",
+    "odds_provider": "pinnapi",
+    "sport_key": "soccer_turkey_super_league"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9174,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5112642109161348,
+      "selection": "home",
+      "updated_at_utc": "2026-11-23T16:54:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.96,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2421222120543189,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-23T16:54:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.89,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24661357702954623,
+      "selection": "away",
+      "updated_at_utc": "2026-11-23T16:54:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9901,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-23T16:54:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9174,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-23T16:54:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.83,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-23T16:54:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.38,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-23T16:54:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.94,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-23T16:54:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.31,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-23T16:54:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7576,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-23T16:54:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5319,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-23T16:54:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4237,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-23T16:54:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3534,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-23T16:54:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.36,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-23T16:54:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.0,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-23T16:54:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.64,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-23T16:54:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.18,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-23T16:54:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6803,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-23T16:54:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4444,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-23T16:54:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3509,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-23T16:54:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2907,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-23T16:54:35+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
