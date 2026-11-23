@@ -238,8 +238,10 @@ def frozen_strong_master_picks(root: Path, archive) -> List[dict]:
     """Latest-generation pre-kickoff archived strong-master pick per fixture (master_shortlist_strong.csv, shadow),
     graded exactly as the other master lists; only picks made under the current rule count."""
     import master_strong as ms
-    rows = [r for r in archived_tier_rows(root, archive, ms.load_config()['file'])
-            if r.get('strong_master_version') == ms.VERSION and r.get('strong_decision') == 'SHORTLISTED']
+    from master_shortlist import FILE as MASTER_FILE
+    # Its shadow file (live "new"), and master_shortlist.csv itself since the strong release (live "strong").
+    rows = archived_tier_rows(root, archive, ms.load_config()['file']) + archived_tier_rows(root, archive, MASTER_FILE)
+    rows = [r for r in rows if r.get('strong_master_version') == ms.VERSION and r.get('strong_decision') == 'SHORTLISTED']
     return latest_per_fixture(sorted(rows, key=lambda r: str(r.get('snapshot_captured_utc') or '')))
 
 
@@ -263,7 +265,8 @@ def strong_master_summary(strong: pd.DataFrame, live: pd.DataFrame) -> dict:
     flags = strong['unvalidated_view'].astype(str).str.lower().eq('true') if len(strong) and 'unvalidated_view' in strong \
         else pd.Series(False, index=strong.index)
     profits = pd.to_numeric(strong['unit_profit'], errors='coerce') if len(strong) else pd.Series(dtype=float)
-    return {'version': ms.VERSION, 'picks': int(len(strong)),
+    rollback = strong_rollback(comparison)
+    return {'version': ms.VERSION, 'live': _live_list() == 'strong', 'rollback': rollback, 'picks': int(len(strong)),
             'clv': summarize(strong['clv'] if len(strong) else []),
             'profit': summarize(strong['unit_profit'] if len(strong) else []),
             'by_tier': _grouped(strong, 'strong_tier'), 'by_market_group': _grouped(strong, 'strong_market_group'),
@@ -271,6 +274,28 @@ def strong_master_summary(strong: pd.DataFrame, live: pd.DataFrame) -> dict:
             'european_graded_picks': int(profits[flags].notna().sum()) if len(strong) else 0,
             'min_graded_matches': int(config['live_comparison']['min_graded_matches']),
             'comparison': comparison}
+
+
+def strong_rollback(comparison: dict) -> dict:
+    """The strong release's rollback rule (master_shortlist_config.json strong_release.rollback): once the comparison
+    with today's master is computed, ROLLBACK TRIGGERED when its 95% interval is entirely below zero. Reported only
+    while the strong master is live; nothing switches automatically."""
+    from master_shortlist import load_config
+    rule = (load_config().get('strong_release') or {}).get('rollback') or {}
+    live = _live_list() == 'strong'
+    out = {'rule': rule.get('rule'), 'live': live, 'triggered': False}
+    if comparison.get('status') != 'COMPARED':
+        out.update(status='WAITING', message=f"waiting for at least {rule.get('min_graded_matches', 150)} graded "
+                                             f"matches over at least {rule.get('min_weeks', 3)} weeks on each list")
+        return out
+    low, high = comparison['interval_95']
+    triggered = live and high < 0
+    out.update(triggered=triggered, status=ROLLBACK_TRIGGERED if triggered else 'NOT TRIGGERED',
+               message=(f"strong minus today's master {comparison['difference']:+.2%} per bet, 95% interval "
+                        f"{low:+.2%} to {high:+.2%}" + ('; entirely below zero: Paul decides whether to set '
+                                                        'master_shortlist_config.json live to "new"' if triggered
+                                                        else '')))
+    return out
 
 
 def new_master_offer_counts(root: Path, archive) -> Dict[str, int]:
@@ -1010,8 +1035,9 @@ def review(root: Path, archive, records: List[dict], clock, active_rule: Optiona
         'frozen_picks': int(len(graded)), 'clv': overall,
         'headline': list_headlines(root, clock, {
             'value shortlist': graded, 'cagey tier': tier,
-            'new master (live)' if _live_list() == 'new' else 'new master (shadow)': new_master,
-            'old master (shadow)' if _live_list() == 'new' else 'old master (live)': master}),
+            **({'strong master (live)': strong, "today's master (shadow)": new_master} if _live_list() == 'strong'
+               else {'new master (live)' if _live_list() == 'new' else 'new master (shadow)': new_master,
+                     'old master (shadow)' if _live_list() == 'new' else 'old master (live)': master})}),
         'profit': summarize(graded['unit_profit'] if len(graded) else []),
         'stop_review': bool(stop),
         'stop_review_rule': f'>= {STOP_REVIEW_MIN_PICKS} graded picks with mean CLV < 0',
@@ -1124,7 +1150,8 @@ def master_release_incidents(root: Path, archive) -> dict:
 
 
 def _live_list() -> str:
-    """Which master is live: "new" (the release) or "old" (master_shortlist_config.json, live)."""
+    """Which master is live: "strong" (the strong-team release, 23 Nov 2026), "new" (the 14 Nov release) or "old"
+    (master_shortlist_config.json, live)."""
     from master_shortlist import configured_live
     return configured_live()
 
@@ -1244,7 +1271,9 @@ def strong_master_report(summary: dict) -> List[str]:
     if not m:
         return []
     c = m['comparison']
-    lines = ['## Strong-team master (shadow, rule master-strong-team-v1) beside the live master', '',
+    heading = ("## Strong-team master (live since 23 Nov 2026) beside today's master (shadow, the rollback baseline)"
+               if m.get('live') else '## Strong-team master (shadow, rule master-strong-team-v1) beside the live master')
+    lines = [heading, '',
              f"Frozen picks: {m['picks']}; CLV {_fmt(m['clv'])}; realised profit per bet {_fmt(m['profit'])}. "
              f"Graded European picks: {m['european_graded_picks']} (R3 is reviewed at 50).", '',
              f"Comparison rule (decided {c['decided']}): {c['rule']}", '']
@@ -1253,7 +1282,10 @@ def strong_master_report(summary: dict) -> List[str]:
                               if x['graded_matches'] else 'n/a | n/a | n/a |'))
     lines += ['| list | graded matches | weeks | flat-stake return per bet | hit rate | average price |',
               '|---|---|---|---|---|---|', row('strong master', c['strong_master']),
-              row('live master', c['live_master']), '']
+              row("today's master" if m.get('live') else 'live master', c['live_master']), '']
+    if m.get('live') and m.get('rollback'):
+        lines += [f"Rollback rule (strong release, decided by Paul 23 Nov 2026): {m['rollback']['rule']}", '',
+                  f"**Rollback status: {m['rollback']['status']}.** {m['rollback']['message']}", '']
     if c['status'] == 'COMPARED':
         lo, hi = c['interval_95']
         lines.append(f"**Strong minus live:** {c['difference']:+.2%} per bet (95% interval {lo:+.2%} to {hi:+.2%}, "
@@ -1282,6 +1314,9 @@ def report(summary: dict) -> str:
     rollback = summary.get('master_rollback') or {}
     if rollback.get('triggered'):  # the release's rollback rule: at the very top, never acted on automatically
         lines += [f"> **{ROLLBACK_TRIGGERED}** (master shortlist): {rollback['message']}", '']
+    strong_back = (summary.get('strong_master') or {}).get('rollback') or {}
+    if strong_back.get('triggered'):  # the strong release's rollback rule, likewise
+        lines += [f"> **{ROLLBACK_TRIGGERED}** (strong-team master): {strong_back['message']}", '']
     for message in (summary.get('master_release_incidents') or {}).get('messages', []):  # release incidents next
         head, _, rest = message.partition(' in ')
         lines += [f"> **{head}** (master shortlist) in {rest}", '']
