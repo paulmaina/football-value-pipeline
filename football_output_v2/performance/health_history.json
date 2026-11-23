@@ -40884,7 +40884,7 @@
         "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
         "observations": 517,
         "rejected_files": [],
-        "reviewed_at_utc": "2026-11-23T14:48:02.128920+00:00",
+        "reviewed_at_utc": "2026-11-23T16:44:04.944745+00:00",
         "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
         "version": "local-closing-quotes-v4"
       },
@@ -40901,9 +40901,9 @@
       },
       "evidence": {
         "assessment": "Forward evidence collection; improvements are not assumed from software or data changes.",
-        "graded_selections": 490,
+        "graded_selections": 503,
         "model_improvement_established": false,
-        "prediction_fixtures_graded": 431
+        "prediction_fixtures_graded": 439
       },
       "execution_policy": {
         "account_availability": "USER_ALLOWLIST",
@@ -40917,7 +40917,7 @@
       },
       "experiment_capture_counts": {},
       "forecast_freshness": {
-        "age_hours": 8.550524568333334,
+        "age_hours": 10.48464007527778,
         "generated_at_utc": "2026-11-23T06:15:00.240474+00:00",
         "status": "WITHIN_24_HOURS",
         "upcoming_fixture_count": 22
@@ -40936,23 +40936,23 @@
         "unknown_kickoff_count": 0,
         "upcoming_kickoff_count": 6
       },
-      "reviewed_at_utc": "2026-11-23T14:48:02.128920+00:00",
+      "reviewed_at_utc": "2026-11-23T16:44:04.944745+00:00",
       "selection_policy_groups": {
         "48h-ah-price-edge-cagey-v28": {
-          "brier": 0.206236,
-          "flat_stake_roi": 0.026929,
-          "graded": 407,
+          "brier": 0.208383,
+          "flat_stake_roi": 0.028357,
+          "graded": 420,
           "half_losses": 1,
           "half_wins": 14,
-          "losses": 119,
-          "no_loss_rate": 0.707617,
-          "pending": 23,
-          "profit_per_unit_staked": 10.96,
+          "losses": 124,
+          "no_loss_rate": 0.704762,
+          "pending": 10,
+          "profit_per_unit_staked": 11.91,
           "refunds": 2,
-          "settled_with_odds": 407,
+          "settled_with_odds": 420,
           "total": 430,
-          "win_rate": 0.702703,
-          "wins": 286
+          "win_rate": 0.7,
+          "wins": 294
         },
         "48h-top-ten-probability-ev-no-under35-v14": {
           "brier": 0.164736,
@@ -41124,20 +41124,20 @@
         }
       },
       "shortlist_performance": {
-        "brier": 0.196824,
-        "flat_stake_roi": 0.027908,
-        "graded": 490,
+        "brier": 0.19886,
+        "flat_stake_roi": 0.029076,
+        "graded": 503,
         "half_losses": 1,
         "half_wins": 16,
-        "losses": 138,
-        "no_loss_rate": 0.718367,
-        "pending": 23,
-        "profit_per_unit_staked": 13.675,
+        "losses": 143,
+        "no_loss_rate": 0.715706,
+        "pending": 10,
+        "profit_per_unit_staked": 14.625,
         "refunds": 5,
-        "settled_with_odds": 490,
+        "settled_with_odds": 503,
         "total": 513,
-        "win_rate": 0.708163,
-        "wins": 347
+        "win_rate": 0.705765,
+        "wins": 355
       },
       "training": {
         "Bundesliga": {
@@ -41827,11 +41827,11 @@
           "current_source_health": {
             "added_matches": 0,
             "cache_hash_verified": true,
-            "checked_at_utc": "2026-11-23T06:14:17.131888+00:00",
+            "checked_at_utc": "2026-11-23T15:05:13.031962+00:00",
             "completed_matches": 72,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 8.562499175555555,
+            "download_age_hours": 1.6477535508333332,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-11-04",
             "latest_completed_utc": "2026-11-04T20:00:00+00:00",
@@ -41842,7 +41842,7 @@
             "season_start": 2026,
             "sha256": "775fe6cc74b2c925be14fea6ea85ffb90dbf0d3602dc28e9f04d08ae6ac61de0",
             "source_schedule_matches": 144,
-            "status": "REFRESH_OVERDUE",
+            "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
             "training_end": "2026-11-04"
           },
           "days_since_latest_result": 19,
@@ -41893,7 +41893,7 @@
               }
             },
             "status": "VERIFIED_WITHIN_24_HOURS",
-            "verified_at_utc": "2026-11-23T14:48:02.128920+00:00"
+            "verified_at_utc": "2026-11-23T16:44:04.944745+00:00"
           },
           "days_since_latest_result": 18,
           "diagnostics_sha256": "5199c19249e5de328285e80c903dd276e94b9c9da071e0b2c84a61e2d9c3f543",
@@ -41991,20 +41991,20 @@
           "wins": 227
         },
         "2026-W47": {
-          "brier": 0.23431,
-          "flat_stake_roi": -0.00305,
-          "graded": 100,
+          "brier": 0.239061,
+          "flat_stake_roi": 0.005708,
+          "graded": 113,
           "half_losses": 1,
           "half_wins": 3,
-          "losses": 39,
-          "no_loss_rate": 0.61,
-          "pending": 13,
-          "profit_per_unit_staked": -0.305,
+          "losses": 44,
+          "no_loss_rate": 0.610619,
+          "pending": 0,
+          "profit_per_unit_staked": 0.645,
           "refunds": 2,
-          "settled_with_odds": 100,
+          "settled_with_odds": 113,
           "total": 113,
-          "win_rate": 0.59,
-          "wins": 59
+          "win_rate": 0.59292,
+          "wins": 67
         },
         "2026-W48": {
           "brier": null,

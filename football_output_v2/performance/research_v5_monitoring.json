@@ -1,11 +1,11 @@
 {
   "cagey": {
     "coverage": {
-      "matches_scored": 10,
-      "not_replayed:no corrected D distribution": 44,
+      "matches_scored": 12,
+      "not_replayed:no corrected D distribution": 50,
       "offer_out_of_scope:pinnacle draw_no_bet": 2
     },
-    "d_pow2_minus_d_log_loss": 0.010895710743864917,
+    "d_pow2_minus_d_log_loss": 0.006279074107898501,
     "eligible": false,
     "fallbacks": {
       "domestic_fixtures": 66,
@@ -17,10 +17,10 @@
     "graded_fallbacks": 0,
     "interval_95": null,
     "log_loss": {
-      "D": 0.8985463717023745,
-      "D_pow2": 0.9094420824462393
+      "D": 0.8913794402267436,
+      "D_pow2": 0.8976585143346422
     },
-    "matches": 10,
+    "matches": 12,
     "rule": "After at least 150 graded domestic matches across at least 3 weeks, roll back the cagey correction D_pow2 if its log loss on AH all lines minus D's, on the same frozen Pinnacle quotes, matches and offers, has a week-resampled 95% interval entirely above zero. Rolling back is setting cagey_correction_config.json cagey_correction_live.domestic to \"D\".",
     "triggered": false,
     "weeks": 1
@@ -99,12 +99,12 @@
   },
   "home_favourites": {
     "all": {
-      "actual_home_win": 0.2,
+      "actual_home_win": 0.5,
       "fixtures": 11,
-      "graded": 5,
+      "graded": 10,
       "picks": 17,
-      "v4_predicted_home_win": 0.5650460947573996,
-      "v5_predicted_home_win": 0.573312173429668
+      "v4_predicted_home_win": 0.6092511234354182,
+      "v5_predicted_home_win": 0.6187702069839784
     },
     "by_league": {
       "Eredivisie": {
@@ -116,12 +116,12 @@
         "v5_predicted_home_win": 0.573312173429668
       },
       "Super Lig": {
-        "actual_home_win": null,
+        "actual_home_win": 0.8,
         "fixtures": 6,
-        "graded": 0,
+        "graded": 5,
         "picks": 10,
-        "v4_predicted_home_win": null,
-        "v5_predicted_home_win": null
+        "v4_predicted_home_win": 0.6534561521134368,
+        "v5_predicted_home_win": 0.6642282405382887
       }
     },
     "fixtures": [
@@ -194,8 +194,8 @@
       },
       {
         "fixture": "Amed SK v Çaykur Rizespor",
-        "graded": false,
-        "home_won": null,
+        "graded": true,
+        "home_won": false,
         "kickoff_utc": "2026-11-21T13:00:00+00:00",
         "league": "Super Lig",
         "markets": [
@@ -222,8 +222,8 @@
       },
       {
         "fixture": "Galatasaray v Samsunspor",
-        "graded": false,
-        "home_won": null,
+        "graded": true,
+        "home_won": true,
         "kickoff_utc": "2026-11-21T13:00:00+00:00",
         "league": "Super Lig",
         "markets": [
@@ -236,8 +236,8 @@
       },
       {
         "fixture": "Genclerbirligi SK v Gazişehir Gaziantep",
-        "graded": false,
-        "home_won": null,
+        "graded": true,
+        "home_won": true,
         "kickoff_utc": "2026-11-21T10:30:00+00:00",
         "league": "Super Lig",
         "markets": [
@@ -249,8 +249,8 @@
       },
       {
         "fixture": "Kasimpasa SK v Alanyaspor",
-        "graded": false,
-        "home_won": null,
+        "graded": true,
+        "home_won": true,
         "kickoff_utc": "2026-11-22T13:00:00+00:00",
         "league": "Super Lig",
         "markets": [
@@ -263,8 +263,8 @@
       },
       {
         "fixture": "Trabzonspor v Eyüpspor",
-        "graded": false,
-        "home_won": null,
+        "graded": true,
+        "home_won": true,
         "kickoff_utc": "2026-11-22T16:00:00+00:00",
         "league": "Super Lig",
         "markets": [
@@ -283,19 +283,19 @@
   },
   "rollback": {
     "coverage": {
-      "matches_scored": 54,
+      "matches_scored": 62,
       "offer_out_of_scope:pinnacle draw_no_bet": 4
     },
     "eligible": false,
     "interval_95": null,
     "log_loss": {
-      "v4": 0.9997802407850378,
-      "v5": 1.0030034447313394
+      "v4": 0.9836840216986583,
+      "v5": 0.9878023559308164
     },
-    "matches": 54,
+    "matches": 62,
     "rule": "After at least 150 graded matches across at least 3 weeks, roll back research v5 if its research log loss on AH all lines minus v4's, on the same frozen inputs, matches and offers, has a week-resampled 95% interval entirely above zero.",
     "triggered": false,
-    "v5_minus_v4_log_loss": 0.0032232039463018104,
+    "v5_minus_v4_log_loss": 0.004118334232158044,
     "weeks": 1
   },
   "ucl_live_check": {
