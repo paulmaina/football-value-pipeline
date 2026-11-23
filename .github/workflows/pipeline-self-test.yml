@@ -36,7 +36,8 @@ jobs:
         # Production workflows run Python 3.14 on Linux; local work uses 3.14 on Windows.
         python: ['3.14']
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 45
+    # Windows runners are slower and vary (24-45 min for the same suite on 23 Nov 2026): 60 minutes there.
+    timeout-minutes: ${{ matrix.os == 'windows-latest' && 60 || 45 }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -65,9 +66,11 @@ jobs:
       - name: Run complete offline regression and integration suite
         run: python -m coverage run run_offline_tests.py
       - name: Verify conventional pytest entry point with production policy present
-        # The offline suite above already ran every test. This pass exists to rerun them with the
-        # production quote policy present, so it skips the offline research/harness modules: none of
-        # them loads quote_policy, and together they take most of the suite's time.
+        # The offline suite above already ran every test, on both systems. This pass exists to rerun them
+        # with the production quote policy present, so it skips the offline research/harness modules: none
+        # of them loads quote_policy, and together they take most of the suite's time. Linux only (since
+        # 23 Nov 2026): on Windows it repeated the whole suite and pushed the job past its timeout.
+        if: runner.os == 'Linux'
         run: >-
           python -m pytest -q tests
           --ignore=tests/test_european_candidates.py
