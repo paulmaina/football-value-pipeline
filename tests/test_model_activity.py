@@ -431,7 +431,9 @@ class BackfillTests(unittest.TestCase):
         refits = {e['data']['fit']: e for e in first if e['event'] == ma.REFIT}
         self.assertEqual(set(refits), {'C6', 'CE3n'})
         self.assertTrue(all(e['outcome'] == ma.PUBLISHED for e in refits.values()))
-        self.assertEqual(refits['C6']['data']['window']['origin'], '2026-11-02')
+        # Outside git the backfill reads the file it is given (the initial fit's commit is not reachable there).
+        latest = json.loads((REPO / 'research_c6_live_fits.json').read_text(encoding='utf-8'))['windows'][-1]
+        self.assertEqual(refits['C6']['data']['window']['origin'], latest['origin'])
 
     def test_committed_log_matches_the_backfill_and_the_current_switches(self):
         committed = ma.read(REPO / ma.LOG)
