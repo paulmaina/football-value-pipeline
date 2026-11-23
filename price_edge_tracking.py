@@ -163,6 +163,20 @@ def capture_new_master_file(raw: Path, generated) -> Optional[Path]:
     return path
 
 
+def capture_strong_master_file(raw: Path, generated) -> Optional[Path]:
+    """Archive the strong-team master (shadow) only when every row belongs to this exact v28 generation and rule."""
+    from performance_tracking import read_csv, utc
+    import master_strong as ms
+    path = Path(raw) / ms.load_config()['file']
+    if not path.exists():
+        return None
+    rows = read_csv(path)
+    if any(r.get('selection_policy_version') != CAGEY_POLICY or utc(r.get('evaluated_at_utc')) != utc(generated)
+           or r.get('strong_master_version') != ms.VERSION for r in rows):
+        return None
+    return path
+
+
 def latest_per_fixture(rows: List[dict]) -> List[dict]:
     """The pick of the newest generation per fixture; within one generation the first capture.
 
@@ -218,6 +232,45 @@ def frozen_new_master_picks(root: Path, archive) -> List[dict]:
     under the current rule (shadow or released) count, so a rule change restarts the comparison."""
     return latest_per_fixture([r for r in _new_master_rows(root, archive)
                                if r.get('new_master_decision') == 'SHORTLISTED'])
+
+
+def frozen_strong_master_picks(root: Path, archive) -> List[dict]:
+    """Latest-generation pre-kickoff archived strong-master pick per fixture (master_shortlist_strong.csv, shadow),
+    graded exactly as the other master lists; only picks made under the current rule count."""
+    import master_strong as ms
+    rows = [r for r in archived_tier_rows(root, archive, ms.load_config()['file'])
+            if r.get('strong_master_version') == ms.VERSION and r.get('strong_decision') == 'SHORTLISTED']
+    return latest_per_fixture(sorted(rows, key=lambda r: str(r.get('snapshot_captured_utc') or '')))
+
+
+def _grouped(frame: pd.DataFrame, column: str) -> dict:
+    if not len(frame) or column not in frame:
+        return {}
+    return {name: {'clv': summarize(g['clv']), 'profit': summarize(g['unit_profit'])}
+            for name, g in frame.groupby(frame[column].fillna('n/a'))}
+
+
+def strong_master_summary(strong: pd.DataFrame, live: pd.DataFrame) -> dict:
+    """The strong-team master (shadow) graded beside the live master: CLV and realised profit, by tier, market group
+    and labels (context only), and the live comparison decided on 23 Nov 2026 (master_strong_config.json
+    live_comparison: strong minus live master flat-stake return, whole kickoff weeks resampled)."""
+    import master_strong as ms
+    config = ms.load_config()
+    comparison = compare_masters(strong, live, {**config['live_comparison'], 'decided': '23 Nov 2026'})
+    comparison['verdict'] = str(comparison.get('verdict')).replace('new master', 'strong master')
+    comparison['strong_master'] = comparison.pop('new_master')
+    comparison.pop('new_master_offers', None)
+    flags = strong['unvalidated_view'].astype(str).str.lower().eq('true') if len(strong) and 'unvalidated_view' in strong \
+        else pd.Series(False, index=strong.index)
+    profits = pd.to_numeric(strong['unit_profit'], errors='coerce') if len(strong) else pd.Series(dtype=float)
+    return {'version': ms.VERSION, 'picks': int(len(strong)),
+            'clv': summarize(strong['clv'] if len(strong) else []),
+            'profit': summarize(strong['unit_profit'] if len(strong) else []),
+            'by_tier': _grouped(strong, 'strong_tier'), 'by_market_group': _grouped(strong, 'strong_market_group'),
+            'by_labels': _grouped(strong, 'strong_labels'),
+            'european_graded_picks': int(profits[flags].notna().sum()) if len(strong) else 0,
+            'min_graded_matches': int(config['live_comparison']['min_graded_matches']),
+            'comparison': comparison}
 
 
 def new_master_offer_counts(root: Path, archive) -> Dict[str, int]:
@@ -940,6 +993,7 @@ def review(root: Path, archive, records: List[dict], clock, active_rule: Optiona
     tier = grade(bind_event_ids(frozen_tier_picks(root, archive), archive), observations, records, clock)
     master = grade(bind_event_ids(frozen_old_master_picks(root, archive), archive), observations, records, clock)
     new_master = grade(bind_event_ids(frozen_new_master_picks(root, archive), archive), observations, records, clock)
+    strong = grade(bind_event_ids(frozen_strong_master_picks(root, archive), archive), observations, records, clock)
     from recommendation_history import rows as history_rows, summarize as history_summary
     history = grade(bind_event_ids(history_rows(root,archive),archive),observations,records,clock)
     from bet_ledger import review_private
@@ -987,6 +1041,7 @@ def review(root: Path, archive, records: List[dict], clock, active_rule: Optiona
         'master_release_incidents': (incidents := master_release_incidents(root, archive)),
         'master_rollback': master_rollback(new_master, master,
                                            baseline_missing_runs=incidents['baseline_missing']['runs']),
+        'strong_master': strong_master_summary(strong, new_master),
         'cagey_tier_picks': int(len(tier)),
         'cagey_tier': {'clv': summarize(tier['clv'] if len(tier) else []),
                        'profit': summarize(tier['unit_profit'] if len(tier) else [])},
@@ -1020,6 +1075,7 @@ def review(root: Path, archive, records: List[dict], clock, active_rule: Optiona
     # the old master logic's are master_shortlist_old_picks.csv (both eras); the shadow-period name is removed.
     new_master.to_csv(dest / GRADED_FILES['new'], index=False)
     master.to_csv(dest / GRADED_FILES['old'], index=False)
+    strong.to_csv(dest / STRONG_GRADED_FILE, index=False)
     (dest / LEGACY_GRADED_NEW_FILE).unlink(missing_ok=True)
     monitoring.to_csv(dest / 'correction_monitoring.csv', index=False)
     (dest / 'report.md').write_text(report(summary), encoding='utf-8')
@@ -1075,6 +1131,7 @@ def _live_list() -> str:
 
 ROLLBACK_TRIGGERED = 'ROLLBACK TRIGGERED'
 GRADED_FILES = {'new': 'master_shortlist_picks.csv', 'old': 'master_shortlist_old_picks.csv'}
+STRONG_GRADED_FILE = 'master_shortlist_strong_picks.csv'  # the strong-team master (shadow, Phase 4c)
 LEGACY_GRADED_NEW_FILE = 'master_shortlist_new_picks.csv'  # the new master's graded picks while it was in shadow
 BASELINE_MISSING_STATUS = 'COMPARISON BASELINE MISSING'
 
@@ -1181,6 +1238,38 @@ def new_master_report(summary: dict) -> List[str]:
     return lines
 
 
+def strong_master_report(summary: dict) -> List[str]:
+    """The strong-team master (shadow) beside the live master, with its comparison rule's status."""
+    m = summary.get('strong_master')
+    if not m:
+        return []
+    c = m['comparison']
+    lines = ['## Strong-team master (shadow, rule master-strong-team-v1) beside the live master', '',
+             f"Frozen picks: {m['picks']}; CLV {_fmt(m['clv'])}; realised profit per bet {_fmt(m['profit'])}. "
+             f"Graded European picks: {m['european_graded_picks']} (R3 is reviewed at 50).", '',
+             f"Comparison rule (decided {c['decided']}): {c['rule']}", '']
+    row = lambda name, x: (f"| {name} | {x['graded_matches']} | {x['weeks']} | "
+                           + (f"{x['flat_stake_return_per_bet']:+.2%} | {x['hit_rate']:.1%} | {x['average_price']:.2f} |"
+                              if x['graded_matches'] else 'n/a | n/a | n/a |'))
+    lines += ['| list | graded matches | weeks | flat-stake return per bet | hit rate | average price |',
+              '|---|---|---|---|---|---|', row('strong master', c['strong_master']),
+              row('live master', c['live_master']), '']
+    if c['status'] == 'COMPARED':
+        lo, hi = c['interval_95']
+        lines.append(f"**Strong minus live:** {c['difference']:+.2%} per bet (95% interval {lo:+.2%} to {hi:+.2%}, "
+                     f"{c['weeks_resampled']} weeks resampled): {c['verdict']}.")
+    else:
+        lines.append(f"**Status:** waiting for at least {m['min_graded_matches']} graded matches over at least 3 weeks "
+                     f"on each list ({c['verdict']}).")
+    for title, key in (('By tier', 'by_tier'), ('By market group', 'by_market_group')):
+        if m.get(key):
+            lines += ['', f'{title} (context only; the comparison rule never reads it):', '',
+                      '| group | mean CLV (n) | realised profit per bet (n) |', '|---|---|---|']
+            lines += [f"| {g} | {_fmt(v['clv'])} | {_fmt(v['profit'])} |" for g, v in m[key].items()]
+    lines.append('')
+    return lines
+
+
 def _fmt(m: dict) -> str:
     if not m.get('n'):
         return 'n/a (0)'
@@ -1243,6 +1332,7 @@ def report(summary: dict) -> str:
         lines.append('')
     if not released:
         lines += new_master_report(summary)
+    lines += strong_master_report(summary)
     if 'both_tiers_clv_by' in summary:
         lines += ['## Both tiers (value and cagey)', '',
                   f"Cagey-tier picks frozen: {summary['cagey_tier_picks']}; CLV {_fmt(summary['cagey_tier']['clv'])}; "

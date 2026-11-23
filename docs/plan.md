@@ -1008,6 +1008,71 @@ Six diagnostics every later candidate is read against. Reporting only: no live p
        - Verdicts (value with C; cagey with D). Loosen: lowest odds 1.15 → 1.10 (both lists; failing bets beat the cagey tier's prediction more than passing ones, added bets +2.5 points, +0.3 to +4.5), double chance 12 (both; derived prices, return about −4%), highest odds 2.00 → 2.20 (cagey only; validation leans the other way). Keep: highest odds 2.00 (value), Over 1.5 excluded (both), order within a group (cagey). No evidence: everything else, including one pick per market group and the value list's order within a group, which were "keep" until the rank comparisons were paired within contested groups (review fix); the price guard never fired, offline or live. Expected-return floors (research or cagey) make both lists clearly worse in both periods (unchanged by the fixes). Bet365-period wins and main AH lines are now "reconstructed" prices, never real (review fix). The research model decides the AH line (value vs cagey same pick 7%, C vs C6 83%), not the win or double-chance pick (100%).
        - Combined effect of the loosen verdicts on the lists: 10% (value) to 16% (cagey) more bets a week on matches already nominated, quality unchanged (development, both lists, +0.0 points, −0.4 to +0.4), real-plus-derived return about 1–2 points lower; nominated matches unchanged.
        - Proposed for Paul's decision: P1 lower the odds floor to 1.10 (only together with moving the master's floor; alone it costs a master pick); P2 double chance 12 (do not adopt: not a native master market); P3 cagey ceiling 2.20 (not recommended).
+4c. **Strong-team master, in shadow** (Paul, 23 Nov 2026; rule `master-strong-team-v1`, `master_strong_config.json`). A third master list beside the live master and the old master's shadow: `master_shortlist_strong.csv`, shadow only. The live master, the cagey tier, the value shortlist and every live probability, pick and stake are unchanged. **Status: rule and thresholds written before anything was computed (23 Nov 2026); offline check run once (no measurable difference from the live master; R2 and R4 failed and are labels only); shadow writes `master_shortlist_strong.csv` every v28 run, live grading pending.**
+   - **What Paul asked for (23 Nov 2026).**
+     - A market spread: at most 6 picks per market (match result, double chance, Asian handicap), 15 matches, one pick per match.
+     - Picks the team should win: a strong team with a proven record on the exact bet, priced by the best-calibrated view (the cagey tier: D_pow2 has the best holdout slopes on AH no-loss and 1X2), with the best-calibrated leagues first.
+     - The research model supplementing the cagey decisions where it is strong.
+   - **His answers, before anything was computed.**
+     - Rank by the cagey chance of winning (chance of profit).
+     - A strong record gate, thresholds fixed and tested first (not a perfect record).
+     - Short of 15: fill with today's rule, labelled "not proven".
+     - League trust ranks, never excludes.
+     - Research roles R1–R4 (below), each kept only if it passes its pass rule.
+   - **The rule** (every value in `master_strong_config.json`):
+     - Pool, execution, quote timing and probabilities exactly as the live master (`master_reconciliation.offer_row`).
+     - Checks, one column each:
+       - safe: market no-loss ≥ 0.75;
+       - strong team: the backed team's pre-match Elo expected score ≥ E, E from {0.55, 0.60, 0.65};
+       - proven record: the backed team's last 10 matches before kickoff day (any venue, the forecast's frozen `research_history_json`), each settled for the exact bet: win bets ≥ 70% won, no-loss bets ≥ 80% not lost, at least 6 matches;
+       - head-to-head: shown, never a gate;
+       - league trust: per-league calibration of the cagey no-loss events (cagey-events-v1) on development, slope 0.90–1.10 and no failing band; UCL/UEL "unvalidated".
+     - Research roles:
+       - R1 research strength (part of "proven"): research expected margin for the backed side plus the line ≥ G, G from {0.25, 0.50, 0.75};
+       - R2 agreement boost: within proven, offers the research confirms (research no-loss ≥ 0.75, gap above −4 points) rank first;
+       - R3 European second opinion: UCL/UEL proven only if research v6 no-loss ≥ 0.70 (judged live after 50 graded European picks);
+       - R4 fill tie-breaker: within 2-point bands of chance of profit, the higher research chance of profit goes first.
+     - Selection: proven offers by league trust, then R2, then chance of profit, taken greedily with the caps; then the fill (today's safe, fill, risky fill steps, same caps), labelled "not proven".
+   - **Why the research model gets only these roles.** Once the market is known, the research view adds nothing on 1X2 (disagreement test, b −0.23 for C on development, clear of zero). C6 failed its holdout home slope (0.79). In #171, bets the research view disliked did better than the cagey tier predicted (+3.3 points). Its strengths are independence from odds and CE3n's better calibration on UCL. R2 may fail its pass rule for the #171 reason.
+   - **Change from the plan, made before anything was computed:** the record uses any venue, because the frozen forecast holds each team's last ten matches at any venue; a same-venue record would leave about five, below the 6-match minimum.
+   - **Offline check** (`python master_strong_check.py`, locked; development decides, validation checks, retrospective is a diagnostic; the holdout is never read):
+     - E, G and the league trust table chosen once by the config's choice rules;
+     - the track-record test (among safe offers, proven minus not-proven, observed minus market no-loss);
+     - each research role's pass rule;
+     - strong minus live-master flat-stake return, by period, with a week bootstrap.
+
+     Offline offers are wins and the main AH line only, so the double-chance cap and most plus lines are exercised only live.
+   - **Offline result (23 Nov 2026; computed once, locked run of `master_strong_check.py`, `evaluation/master_strong/results.json`; recorded in `master_strong_config.json` `offline_result`).** Week-resampled 95% intervals; "observed minus market" is observed no-loss minus the market no-loss chance, in points.
+     - League trust (development):
+       - Trusted: EPL (slope 0.98), Bundesliga (1.04), Eredivisie (0.95) and Ligue 1 (1.01).
+       - Not trusted: La Liga (1.17), Primeira Liga (1.18) and Serie A (1.12), each slope outside 0.90–1.10; Süper Lig (1.10, one failing band).
+       - Saved in `master_league_trust.json`.
+     - E = 0.55 and G = 0.25, the smallest candidates. Proven development offers: 212, observed minus market +4.9 (−0.6 to +10.2). G = 0.25 removes no proven development offer.
+     - Research roles:
+       - R1 passes on a tie only (the same 212 offers with and without it), so it is active but changes no development pick.
+       - R2 fails: confirmed minus other proven offers is −4.1 on development (−13.0 to +4.1), the direction #171 found. It is a label only.
+       - R4 fails: development −1.1 (−3.5 to +1.1), validation −4.9 (−9.3 to −0.6). It is a label only, and the fill keeps the live order.
+       - R3 is judged live.
+     - Track-record test (among safe offers, proven minus not proven, observed minus market): development +0.5 (−8.3 to +9.7), validation −0.3 (−18.2 to +16.8), retrospective +17.3 (−3.1 to +37.5). **No measurable gain:** on development and validation the gate narrows the list without adding information beyond the cagey probability.
+     - Backtest, strong master against the live master's logic (master-new-fill-rule-v4):
+
+       | Period | Strong: picks per week, odds, return | Live logic: picks per week, odds, return | Strong minus live |
+       | --- | --- | --- | --- |
+       | Development (106 weeks) | 11.6, 1.59, +1.0% (−3.3% to +5.1%) | 14.5, 1.42, −0.1% (−3.1% to +2.9%) | +1.1 points (−3.2 to +5.3): no measurable difference |
+       | Validation (22) | 11.4, 1.59, +0.7% (−9.6% to +10.5%) | 14.3, 1.46, +5.1% (−2.4% to +12.1%) | −4.4 (−11.9 to +3.0): no measurable difference |
+       | Retrospective (29) | 11.7, 1.63, −7.5% (−13.7% to −1.0%) | 14.6, 1.52, −0.8% (−7.8% to +6.1%) | −6.6 (−15.6 to +2.8): no measurable difference |
+
+       - Proven picks are about 2 a week; the rest is the not-proven fill (development: 209 proven, 109 safe, 914 fill).
+       - Offline there is no double chance, so the caps hold the list to 12 (6 match result, 6 Asian handicap) and every week is short of 15; live runs also offer double chance.
+     - Reading: nothing is measurably better or worse than the live master. The strong-team checks select different bets at higher prices (1.59 against 1.42) without changing the return measurably. Live grading decides, under the comparison rule above.
+   - **Replay of the saved live runs** (27 Oct – 23 Nov 2026, 43 runs; integration check, no result read; `evaluation/master_strong/live_replay.json`):
+     - The live master's files are byte-identical on main and on the branch (301 files).
+     - On the 35 runs with nominations the strong list makes 334 picks (live master 362): 43 proven, 161 not-proven safe, 128 fill, 2 risky fill.
+     - By market group: 104 match result, 49 double chance, 181 Asian handicap; never more than 6 in a group.
+     - 7 runs reach 15 (live master 15): Asian handicap is where most offers are, so its cap of 6 binds.
+     - 273 picks are on a fixture the live master also picked, 218 the same offer.
+     - The 8 runs with no nomination first failed in the shadow (skipped, live untouched); fixed to write an empty list.
+   - **Live comparison** (decided 23 Nov 2026, before any pick): after at least 150 graded matches over at least 3 weeks on each list, strong minus live master flat-stake return per bet at Pinnacle prices, whole weeks resampled; better only if the 95% interval is entirely above zero. Becoming live is Paul's decision, through a third value of `master_shortlist_config.json` `live`, added only after the comparison.
 5. **Release**: one PR per change that passes; anything else stays in shadow.
    - [ ] Master shortlist release (decided by Paul on 14 Nov 2026 as a deliberate exception: released without waiting for the live shadow comparison verdict; the release gate was not passed and no holdout test was declared for the new master). Open until the rollback window has passed.
      - Roles swapped: the new master rule (`master_reconciliation`, `master-new-fill-rule-v4` with the fill and the quote timing checks, unchanged) writes the live `master_shortlist.csv`; its rows record `new_master_version` = `master-new-fill-rule-v4-live-v10` (the master version bump: the old master is `master-profit-15-pinnacle-markets-v9`), its summary is `master_shortlist_summary.json` and the run summary's `master_shortlist`. The old master logic keeps running in shadow as `master_shortlist_old.csv` with `master_shortlist_old_audit.csv` and the run summary's `master_shortlist_old`. The live file names its overlap columns after the old master it compares with (`in_old_master`, `old_master_rank`, `old_master_same_offer`; summary `overlap_with_old_master`); live "old" keeps the shadow-period names. The live file's rows are in a platform-stable order (`master_reconciliation.stable_order`: ties in theory no longer follow floating-point noise; ranks and decisions unchanged).
@@ -1122,4 +1187,5 @@ Agreed with Paul to address. Each item is one PR unless stated, and each stops f
 | Understat off switch (audit item 22; #206, 19 Nov 2026) | `research_config.json` `understat_live` (false): new forecasts' research makes no Understat request, so live xG cannot enter the last-ten form if the site returns. Turning it on is a release decision. Live probabilities byte-identical on all saved runs and the frozen forecast; new forecasts' `evidence.sources` lose the two Understat entries per fixture in the five Understat leagues |
 | Historical benchmark schedule (19 Nov 2026) | `historical-benchmark.yml`'s weekly schedule runs only the offline regression checks (`run_offline_tests.py`); the benchmark (pinned replay, promotion rules, validation, summary, artifact) runs on pushes to the workflow's own paths and on manual dispatch. Its data are hash-pinned, so a weekly rerun on unchanged code repeats the same result; saves about 8–15 runner minutes a week. `historical_benchmark.py` and its inputs unchanged (the harness and the fit builders read its history loader). CI only |
 | Readable outputs show research and cagey (19 Nov 2026) | Reporting only. The readable league files (`*_predictions_readable.csv`, `*_report.md`, `*_scorelines_readable.csv`) and the league tabs of `league_predictions.xlsx` show the two models the shortlists use instead of the production model's 70% Pinnacle blend: research (live v5 domestic, v6 UCL/UEL, as the forecast row carries it) and cagey (the cagey tier's grid via `cagey_basis`: D_pow2 domestic, D UCL/UEL, D fallback flagged), each with 1X2, expected goals, scores, totals, BTTS, double chance and no-loss on the quoted Pinnacle AH lines; the lists each fixture is on; and the master's verdict on every Pinnacle offer from `master_reconciliation.offer_row` (extracted from `reconcile`, which now calls it; master byte-identical). No blended probability. The production model stays only as a labelled benchmark at the end. Nothing that grades or decides reads these files; `scripts/readable_views_check.py` checks every offer against the list and master files |
+| Strong-team master (23 Nov 2026) | Decided by Paul: a third master list in shadow (`master_shortlist_strong.csv`, rule `master-strong-team-v1`): at most 6 picks per market, 15 matches, one per match; proven picks (cagey safe, strong team by Elo, proven record on the exact bet, research strength R1) first, ranked by league trust then cagey chance of profit; research roles R1-R4 each kept only if they pass their pass rule; fill labelled 'not proven'. Thresholds and pass rules written before anything was computed (Phase 4c); live comparison against the live master after 150 graded matches over 3 weeks |
 | Still open | Rollback margin and match count for candidates released through the holdout (C6 and CE3n, released as exceptions, use the correctness-fix trigger); whether cup and European games count in live form; the open items listed above (18 Nov 2026) |

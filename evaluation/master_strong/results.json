@@ -1,0 +1,1173 @@
+{
+  "version": "master-strong-team-v1",
+  "research_view": "C6",
+  "cagey_view": "D",
+  "league_trust": {
+    "Bundesliga": {
+      "name": "Bundesliga",
+      "periods": {
+        "development": {
+          "events": 4451,
+          "fixtures": 684,
+          "mean_forecast": 0.7015125265182255,
+          "observed_rate": 0.706133453156594,
+          "slope": 1.0395164677068003,
+          "failing_bands": [],
+          "band_z_threshold": 2.5758293035489,
+          "passes": true
+        },
+        "validation": {
+          "events": 928,
+          "fixtures": 141,
+          "mean_forecast": 0.7004511768632047,
+          "observed_rate": 0.7112068965517241,
+          "slope": 1.2393553965487658,
+          "failing_bands": [],
+          "band_z_threshold": 2.5758293035489,
+          "passes": false
+        },
+        "retrospective": {
+          "events": 1498,
+          "fixtures": 232,
+          "mean_forecast": 0.6892871792194847,
+          "observed_rate": 0.6695594125500668,
+          "slope": 0.8415591318394721,
+          "failing_bands": [
+            {
+              "band_lower": 0.6,
+              "n": 429,
+              "mean_forecast": 0.6505170798662606,
+              "observed_rate": 0.7156177156177156,
+              "observed_minus_forecast": 0.06510063575145497,
+              "z": 2.8279488243409188
+            },
+            {
+              "band_lower": 0.7,
+              "n": 478,
+              "mean_forecast": 0.7534354944135528,
+              "observed_rate": 0.6589958158995816,
+              "observed_minus_forecast": -0.09443967851397128,
+              "z": 4.790492135878391
+            }
+          ],
+          "band_z_threshold": 2.5758293035489,
+          "passes": false
+        }
+      },
+      "status": "trusted"
+    },
+    "EPL": {
+      "name": "Premier League",
+      "periods": {
+        "development": {
+          "events": 6343,
+          "fixtures": 989,
+          "mean_forecast": 0.7051023835587791,
+          "observed_rate": 0.7029796626202113,
+          "slope": 0.9838426964974909,
+          "failing_bands": [],
+          "band_z_threshold": 2.5758293035489,
+          "passes": true
+        },
+        "validation": {
+          "events": 1325,
+          "fixtures": 208,
+          "mean_forecast": 0.7101144863219104,
+          "observed_rate": 0.7124528301886792,
+          "slope": 0.9952615025390945,
+          "failing_bands": [],
+          "band_z_threshold": 2.5758293035489,
+          "passes": true
+        },
+        "retrospective": {
+          "events": 1686,
+          "fixtures": 267,
+          "mean_forecast": 0.6979638760441105,
+          "observed_rate": 0.7241992882562278,
+          "slope": 0.9915901364884275,
+          "failing_bands": [],
+          "band_z_threshold": 2.5758293035489,
+          "passes": true
+        }
+      },
+      "status": "trusted"
+    },
+    "Eredivisie": {
+      "name": "Eredivisie",
+      "periods": {
+        "development": {
+          "events": 4447,
+          "fixtures": 709,
+          "mean_forecast": 0.6998739255036404,
+          "observed_rate": 0.6806836069260176,
+          "slope": 0.9551205460859001,
+          "failing_bands": [],
+          "band_z_threshold": 2.5758293035489,
+          "passes": true
+        },
+        "validation": {
+          "events": 926,
+          "fixtures": 141,
+          "mean_forecast": 0.697642726178685,
+          "observed_rate": 0.7105831533477321,
+          "slope": 0.9835756749008612,
+          "failing_bands": [
+            {
+              "band_lower": 0.7,
+              "n": 295,
+              "mean_forecast": 0.7536738755157752,
+              "observed_rate": 0.8305084745762712,
+              "observed_minus_forecast": 0.07683459906049595,
+              "z": 3.06281573455533
+            }
+          ],
+          "band_z_threshold": 2.5758293035489,
+          "passes": false
+        },
+        "retrospective": {
+          "events": 247,
+          "fixtures": 38,
+          "mean_forecast": 0.6851487670748735,
+          "observed_rate": 0.6477732793522267,
+          "slope": 0.799711050769696,
+          "failing_bands": [],
+          "band_z_threshold": 2.4977054744123737,
+          "passes": false
+        }
+      },
+      "status": "trusted"
+    },
+    "LaLiga": {
+      "name": "La Liga",
+      "periods": {
+        "development": {
+          "events": 6096,
+          "fixtures": 1004,
+          "mean_forecast": 0.7199216029408552,
+          "observed_rate": 0.7086614173228346,
+          "slope": 1.1733858672858075,
+          "failing_bands": [],
+          "band_z_threshold": 2.5758293035489,
+          "passes": false
+        },
+        "validation": {
+          "events": 1126,
+          "fixtures": 186,
+          "mean_forecast": 0.7131313963758812,
+          "observed_rate": 0.6971580817051509,
+          "slope": 0.9388480153138409,
+          "failing_bands": [
+            {
+              "band_lower": 0.6,
+              "n": 260,
+              "mean_forecast": 0.6428510133427768,
+              "observed_rate": 0.5653846153846154,
+              "observed_minus_forecast": -0.07746639795816146,
+              "z": 2.606874710814596
+            }
+          ],
+          "band_z_threshold": 2.4977054744123737,
+          "passes": false
+        },
+        "retrospective": {
+          "events": 1814,
+          "fixtures": 302,
+          "mean_forecast": 0.7007225692886482,
+          "observed_rate": 0.7034178610804851,
+          "slope": 1.2707928223998068,
+          "failing_bands": [],
+          "band_z_threshold": 2.5758293035489,
+          "passes": false
+        }
+      },
+      "status": "not trusted"
+    },
+    "Ligue1": {
+      "name": "Ligue 1",
+      "periods": {
+        "development": {
+          "events": 5472,
+          "fixtures": 866,
+          "mean_forecast": 0.7094453646760073,
+          "observed_rate": 0.7028508771929824,
+          "slope": 1.0106994351862466,
+          "failing_bands": [],
+          "band_z_threshold": 2.5758293035489,
+          "passes": true
+        },
+        "validation": {
+          "events": 952,
+          "fixtures": 150,
+          "mean_forecast": 0.7071604133834815,
+          "observed_rate": 0.7058823529411765,
+          "slope": 0.9683641553545813,
+          "failing_bands": [],
+          "band_z_threshold": 2.5758293035489,
+          "passes": true
+        },
+        "retrospective": {
+          "events": 1505,
+          "fixtures": 242,
+          "mean_forecast": 0.6951960760300381,
+          "observed_rate": 0.6777408637873754,
+          "slope": 0.9460837194502645,
+          "failing_bands": [
+            {
+              "band_lower": 0.8,
+              "n": 281,
+              "mean_forecast": 0.8303933700473337,
+              "observed_rate": 0.7651245551601423,
+              "observed_minus_forecast": -0.06526881488719138,
+              "z": 2.9153824700268953
+            }
+          ],
+          "band_z_threshold": 2.5758293035489,
+          "passes": false
+        }
+      },
+      "status": "trusted"
+    },
+    "PrimeiraLiga": {
+      "name": "Primeira Liga",
+      "periods": {
+        "development": {
+          "events": 4311,
+          "fixtures": 719,
+          "mean_forecast": 0.7144496927020783,
+          "observed_rate": 0.6965901183020181,
+          "slope": 1.1809441244373027,
+          "failing_bands": [],
+          "band_z_threshold": 2.5758293035489,
+          "passes": false
+        },
+        "validation": {
+          "events": 912,
+          "fixtures": 152,
+          "mean_forecast": 0.7196754085669665,
+          "observed_rate": 0.6589912280701754,
+          "slope": 0.7583993925343518,
+          "failing_bands": [
+            {
+              "band_lower": 0.8,
+              "n": 288,
+              "mean_forecast": 0.8369839343042321,
+              "observed_rate": 0.7291666666666666,
+              "observed_minus_forecast": -0.1078172676375655,
+              "z": 4.953484412537576
+            }
+          ],
+          "band_z_threshold": 2.4977054744123737,
+          "passes": false
+        },
+        "retrospective": {
+          "events": 169,
+          "fixtures": 29,
+          "mean_forecast": 0.7097645440897731,
+          "observed_rate": 0.757396449704142,
+          "slope": 0.7923993273449303,
+          "failing_bands": [
+            {
+              "band_lower": 0.6,
+              "n": 39,
+              "mean_forecast": 0.652381316903615,
+              "observed_rate": 0.8974358974358975,
+              "observed_minus_forecast": 0.24505458053228246,
+              "z": 3.2136073771495908
+            }
+          ],
+          "band_z_threshold": 2.3939797998185104,
+          "passes": false
+        }
+      },
+      "status": "not trusted"
+    },
+    "SerieA": {
+      "name": "Serie A",
+      "periods": {
+        "development": {
+          "events": 6199,
+          "fixtures": 1004,
+          "mean_forecast": 0.7187849381320027,
+          "observed_rate": 0.7201161477657687,
+          "slope": 1.1243150364265102,
+          "failing_bands": [],
+          "band_z_threshold": 2.5758293035489,
+          "passes": false
+        },
+        "validation": {
+          "events": 1210,
+          "fixtures": 199,
+          "mean_forecast": 0.727491434270792,
+          "observed_rate": 0.7132231404958678,
+          "slope": 1.2149679529021882,
+          "failing_bands": [],
+          "band_z_threshold": 2.4977054744123737,
+          "passes": false
+        },
+        "retrospective": {
+          "events": 1754,
+          "fixtures": 290,
+          "mean_forecast": 0.7125011224130964,
+          "observed_rate": 0.7001140250855188,
+          "slope": 1.337979166735309,
+          "failing_bands": [
+            {
+              "band_lower": 0.5,
+              "n": 244,
+              "mean_forecast": 0.5608681159086583,
+              "observed_rate": 0.46311475409836067,
+              "observed_minus_forecast": -0.09775336181029759,
+              "z": 3.076796363685754
+            }
+          ],
+          "band_z_threshold": 2.5758293035489,
+          "passes": false
+        }
+      },
+      "status": "not trusted"
+    },
+    "SuperLig": {
+      "name": "Super Lig",
+      "periods": {
+        "development": {
+          "events": 5775,
+          "fixtures": 900,
+          "mean_forecast": 0.7028609777658782,
+          "observed_rate": 0.6782683982683982,
+          "slope": 1.094986743687855,
+          "failing_bands": [
+            {
+              "band_lower": 0.4,
+              "n": 194,
+              "mean_forecast": 0.4727064286890453,
+              "observed_rate": 0.37628865979381443,
+              "observed_minus_forecast": -0.09641776889523085,
+              "z": 2.6898988551893086
+            }
+          ],
+          "band_z_threshold": 2.5758293035489,
+          "passes": false
+        },
+        "validation": {
+          "events": 813,
+          "fixtures": 128,
+          "mean_forecast": 0.7044297951637708,
+          "observed_rate": 0.7170971709717097,
+          "slope": 0.9872108751157443,
+          "failing_bands": [],
+          "band_z_threshold": 2.4977054744123737,
+          "passes": true
+        },
+        "retrospective": {
+          "events": 232,
+          "fixtures": 36,
+          "mean_forecast": 0.693993635110511,
+          "observed_rate": 0.5818965517241379,
+          "slope": 0.9553265256578066,
+          "failing_bands": [],
+          "band_z_threshold": 2.4977054744123737,
+          "passes": true
+        }
+      },
+      "status": "not trusted"
+    }
+  },
+  "choices": {
+    "E": {
+      "chosen": 0.55,
+      "met_rule": true,
+      "tried": [
+        {
+          "candidate": 0.55,
+          "offers": 212,
+          "mean_observed_minus_market": 0.049405920302666655,
+          "interval": [
+            -0.005661325643957358,
+            0.1019234853631661
+          ]
+        }
+      ]
+    },
+    "G": {
+      "chosen": 0.25,
+      "met_rule": true,
+      "tried": [
+        {
+          "candidate": 0.25,
+          "offers": 212,
+          "mean_observed_minus_market": 0.049405920302666655,
+          "interval": [
+            -0.005661325643957358,
+            0.1019234853631661
+          ]
+        }
+      ]
+    }
+  },
+  "research_roles": {
+    "R1": {
+      "with_R1_development": {
+        "offers": 212,
+        "fixtures": 212,
+        "value": 0.04940592030266666,
+        "interval_95": [
+          -0.005661325643957358,
+          0.1019234853631661
+        ],
+        "weeks": 87,
+        "interval_reading": "spans zero"
+      },
+      "without_R1_development": {
+        "offers": 212,
+        "fixtures": 212,
+        "value": 0.04940592030266666,
+        "interval_95": [
+          -0.005661325643957358,
+          0.1019234853631661
+        ],
+        "weeks": 87,
+        "interval_reading": "spans zero"
+      },
+      "passes": true
+    },
+    "R2": {
+      "development": {
+        "value": -0.04101670492645565,
+        "interval_95": [
+          -0.13012339646767954,
+          0.0414434306276113
+        ],
+        "weeks": 87,
+        "interval_reading": "spans zero"
+      },
+      "validation": {
+        "value": 0.01605107349412635,
+        "interval_95": [
+          -0.1128239089003561,
+          0.23478839543705315
+        ],
+        "weeks": 15,
+        "interval_reading": "spans zero"
+      },
+      "passes": false
+    },
+    "R3": {
+      "passes": null,
+      "note": "live only: no historical European prices"
+    },
+    "R4": {
+      "development": {
+        "value": -0.011133805794596236,
+        "interval_95": [
+          -0.03523094540819246,
+          0.011267757525295078
+        ],
+        "weeks": 106,
+        "interval_reading": "spans zero"
+      },
+      "validation": {
+        "value": -0.04870627202063036,
+        "interval_95": [
+          -0.09257147257380163,
+          -0.0055645871970117335
+        ],
+        "weeks": 22,
+        "interval_reading": "below zero"
+      },
+      "passes": false
+    }
+  },
+  "settings": {
+    "E": 0.55,
+    "G": 0.25,
+    "R1": true,
+    "R2": false,
+    "R3": true,
+    "R4": false
+  },
+  "track_record_test": {
+    "development": {
+      "proven": {
+        "offers": 212,
+        "fixtures": 212,
+        "value": 0.04940592030266666,
+        "interval_95": [
+          -0.005661325643957358,
+          0.1019234853631661
+        ],
+        "weeks": 87,
+        "interval_reading": "spans zero"
+      },
+      "not_proven": {
+        "offers": 134,
+        "fixtures": 134,
+        "value": 0.04456567002083491,
+        "interval_95": [
+          -0.02624012581366636,
+          0.108356359730798
+        ],
+        "weeks": 70,
+        "interval_reading": "spans zero"
+      },
+      "proven_minus_not_proven": {
+        "value": 0.004840250281831743,
+        "interval_95": [
+          -0.08276492591930304,
+          0.09659131247560494
+        ],
+        "weeks": 98,
+        "interval_reading": "spans zero"
+      }
+    },
+    "validation": {
+      "proven": {
+        "offers": 34,
+        "fixtures": 34,
+        "value": 0.10043459373409577,
+        "interval_95": [
+          -0.0249559785747043,
+          0.21265835252283766
+        ],
+        "weeks": 15,
+        "interval_reading": "spans zero"
+      },
+      "not_proven": {
+        "offers": 27,
+        "fixtures": 27,
+        "value": 0.10354777466418559,
+        "interval_95": [
+          0.008654572740830768,
+          0.2117145343443856
+        ],
+        "weeks": 17,
+        "interval_reading": "above zero"
+      },
+      "proven_minus_not_proven": {
+        "value": -0.0031131809300898178,
+        "interval_95": [
+          -0.18212181589854484,
+          0.1674929690121561
+        ],
+        "weeks": 21,
+        "interval_reading": "spans zero"
+      }
+    },
+    "retrospective": {
+      "proven": {
+        "offers": 35,
+        "fixtures": 35,
+        "value": 0.11688610997675455,
+        "interval_95": [
+          0.00854826082512791,
+          0.20383687317694762
+        ],
+        "weeks": 19,
+        "interval_reading": "above zero"
+      },
+      "not_proven": {
+        "offers": 25,
+        "fixtures": 25,
+        "value": -0.05602304403436946,
+        "interval_95": [
+          -0.2252411734438603,
+          0.1304391774358817
+        ],
+        "weeks": 19,
+        "interval_reading": "spans zero"
+      },
+      "proven_minus_not_proven": {
+        "value": 0.17290915401112406,
+        "interval_95": [
+          -0.03111215051304419,
+          0.37511926041467464
+        ],
+        "weeks": 24,
+        "interval_reading": "spans zero"
+      }
+    }
+  },
+  "backtest": {
+    "development": {
+      "weeks": 106,
+      "strong_master": {
+        "picks": 1232,
+        "fixtures": 1232,
+        "weeks": 106,
+        "mean_odds": 1.5880925324675323,
+        "hit_rate": 0.6834415584415584,
+        "no_loss_rate": 0.6866883116883117,
+        "mean_cagey_no_loss": 0.6637383638147563,
+        "flat_stake_return": {
+          "value": 0.010275974025974023,
+          "interval_95": [
+            -0.03262907327614605,
+            0.05084278851961133
+          ],
+          "weeks": 106,
+          "interval_reading": "spans zero"
+        },
+        "picks_per_week": 11.622641509433961,
+        "observed_minus_market_no_loss": {
+          "value": 0.022949947873555483,
+          "interval_95": [
+            -0.004324643769357096,
+            0.049013600657842965
+          ],
+          "weeks": 106,
+          "interval_reading": "spans zero"
+        },
+        "by_market_group": {
+          "match_result": 608,
+          "double_chance": 0,
+          "asian_handicap": 624
+        }
+      },
+      "live_master_logic": {
+        "picks": 1533,
+        "fixtures": 1533,
+        "weeks": 106,
+        "mean_odds": 1.4177495107632092,
+        "hit_rate": 0.7266797129810828,
+        "no_loss_rate": 0.7279843444227005,
+        "mean_cagey_no_loss": 0.693698567101737,
+        "flat_stake_return": {
+          "value": -0.0008219178082191823,
+          "interval_95": [
+            -0.030841505240179302,
+            0.029151536800986838
+          ],
+          "weeks": 106,
+          "interval_reading": "spans zero"
+        },
+        "picks_per_week": 14.462264150943396,
+        "observed_minus_market_no_loss": {
+          "value": 0.03428577732096341,
+          "interval_95": [
+            0.013646312639076572,
+            0.05413373058576734
+          ],
+          "weeks": 106,
+          "interval_reading": "above zero"
+        },
+        "by_market_group": {
+          "match_result": 1311,
+          "double_chance": 0,
+          "asian_handicap": 222
+        }
+      },
+      "strong_minus_live_return": {
+        "value": 0.011097891834193206,
+        "interval_95": [
+          -0.03183975490022236,
+          0.05316006154863192
+        ],
+        "weeks": 106,
+        "interval_reading": "spans zero"
+      },
+      "reading": "no measurable difference",
+      "weeks_short_of_target": 106,
+      "by_tier": {
+        "proven": {
+          "picks": 209,
+          "fixtures": 209,
+          "weeks": 87,
+          "mean_odds": 1.2118181818181817,
+          "hit_rate": 0.8325358851674641,
+          "no_loss_rate": 0.8325358851674641,
+          "mean_cagey_no_loss": 0.7858542012817339,
+          "flat_stake_return": {
+            "value": 0.008277511961722465,
+            "interval_95": [
+              -0.058438460693895515,
+              0.07304318898419064
+            ],
+            "weeks": 87,
+            "interval_reading": "spans zero"
+          },
+          "picks_per_week": 1.971698113207547,
+          "observed_minus_market_no_loss": {
+            "value": 0.04668168388573012,
+            "interval_95": [
+              -0.008526805985528354,
+              0.10001612316808875
+            ],
+            "weeks": 87,
+            "interval_reading": "spans zero"
+          },
+          "by_market_group": {
+            "match_result": 209,
+            "double_chance": 0,
+            "asian_handicap": 0
+          }
+        },
+        "not proven: safe": {
+          "picks": 109,
+          "fixtures": 109,
+          "weeks": 67,
+          "mean_odds": 1.214862385321101,
+          "hit_rate": 0.8073394495412844,
+          "no_loss_rate": 0.8073394495412844,
+          "mean_cagey_no_loss": 0.784544692999575,
+          "flat_stake_return": {
+            "value": -0.021009174311926636,
+            "interval_95": [
+              -0.11854738680700483,
+              0.07126339285714275
+            ],
+            "weeks": 67,
+            "interval_reading": "spans zero"
+          },
+          "picks_per_week": 1.028301886792453,
+          "observed_minus_market_no_loss": {
+            "value": 0.022794756541709513,
+            "interval_95": [
+              -0.05682380400887061,
+              0.09854430501829463
+            ],
+            "weeks": 67,
+            "interval_reading": "spans zero"
+          },
+          "by_market_group": {
+            "match_result": 109,
+            "double_chance": 0,
+            "asian_handicap": 0
+          }
+        },
+        "not proven: fill": {
+          "picks": 914,
+          "fixtures": 914,
+          "weeks": 106,
+          "mean_odds": 1.7186433260393872,
+          "hit_rate": 0.6345733041575492,
+          "no_loss_rate": 0.6389496717724289,
+          "mean_cagey_no_loss": 0.6214078387472031,
+          "flat_stake_return": {
+            "value": 0.014463894967177253,
+            "interval_95": [
+              -0.040007135189476545,
+              0.06839196210641929
+            ],
+            "weeks": 106,
+            "interval_reading": "spans zero"
+          },
+          "picks_per_week": 8.622641509433961,
+          "observed_minus_market_no_loss": {
+            "value": 0.017541833025225852,
+            "interval_95": [
+              -0.015826525020484962,
+              0.04994275312829405
+            ],
+            "weeks": 106,
+            "interval_reading": "spans zero"
+          },
+          "by_market_group": {
+            "match_result": 290,
+            "double_chance": 0,
+            "asian_handicap": 624
+          }
+        },
+        "not proven: risky fill": {
+          "picks": 0,
+          "picks_per_week": 0.0
+        }
+      },
+      "same_fixture_as_live": 742
+    },
+    "validation": {
+      "weeks": 22,
+      "strong_master": {
+        "picks": 251,
+        "fixtures": 251,
+        "weeks": 22,
+        "mean_odds": 1.5928685258964144,
+        "hit_rate": 0.6852589641434262,
+        "no_loss_rate": 0.6932270916334662,
+        "mean_cagey_no_loss": 0.658379857046376,
+        "flat_stake_return": {
+          "value": 0.006792828685258968,
+          "interval_95": [
+            -0.09549485162763002,
+            0.10504157387915587
+          ],
+          "weeks": 22,
+          "interval_reading": "spans zero"
+        },
+        "picks_per_week": 11.409090909090908,
+        "observed_minus_market_no_loss": {
+          "value": 0.03484723458709014,
+          "interval_95": [
+            -0.030977821764174913,
+            0.09776790694062147
+          ],
+          "weeks": 22,
+          "interval_reading": "spans zero"
+        },
+        "by_market_group": {
+          "match_result": 124,
+          "double_chance": 0,
+          "asian_handicap": 127
+        }
+      },
+      "live_master_logic": {
+        "picks": 315,
+        "fixtures": 315,
+        "weeks": 22,
+        "mean_odds": 1.4571111111111112,
+        "hit_rate": 0.746031746031746,
+        "no_loss_rate": 0.7492063492063492,
+        "mean_cagey_no_loss": 0.6813708363759091,
+        "flat_stake_return": {
+          "value": 0.05088888888888889,
+          "interval_95": [
+            -0.02368305201698514,
+            0.12130725359911403
+          ],
+          "weeks": 22,
+          "interval_reading": "spans zero"
+        },
+        "picks_per_week": 14.318181818181818,
+        "observed_minus_market_no_loss": {
+          "value": 0.06783551283044001,
+          "interval_95": [
+            0.01837098600756214,
+            0.11277060380029226
+          ],
+          "weeks": 22,
+          "interval_reading": "above zero"
+        },
+        "by_market_group": {
+          "match_result": 246,
+          "double_chance": 0,
+          "asian_handicap": 69
+        }
+      },
+      "strong_minus_live_return": {
+        "value": -0.044096060203629925,
+        "interval_95": [
+          -0.1191085260342224,
+          0.02968539250950203
+        ],
+        "weeks": 22,
+        "interval_reading": "spans zero"
+      },
+      "reading": "no measurable difference",
+      "weeks_short_of_target": 22,
+      "by_tier": {
+        "proven": {
+          "picks": 34,
+          "fixtures": 34,
+          "weeks": 15,
+          "mean_odds": 1.2138235294117645,
+          "hit_rate": 0.8823529411764706,
+          "no_loss_rate": 0.8823529411764706,
+          "mean_cagey_no_loss": 0.7819183474423749,
+          "flat_stake_return": {
+            "value": 0.07029411764705878,
+            "interval_95": [
+              -0.08216845293569436,
+              0.20428726708074532
+            ],
+            "weeks": 15,
+            "interval_reading": "spans zero"
+          },
+          "picks_per_week": 1.5454545454545454,
+          "observed_minus_market_no_loss": {
+            "value": 0.10043459373409577,
+            "interval_95": [
+              -0.0249559785747043,
+              0.21265835252283766
+            ],
+            "weeks": 15,
+            "interval_reading": "spans zero"
+          },
+          "by_market_group": {
+            "match_result": 34,
+            "double_chance": 0,
+            "asian_handicap": 0
+          }
+        },
+        "not proven: safe": {
+          "picks": 24,
+          "fixtures": 24,
+          "weeks": 17,
+          "mean_odds": 1.2091666666666667,
+          "hit_rate": 0.9166666666666666,
+          "no_loss_rate": 0.9166666666666666,
+          "mean_cagey_no_loss": 0.785748752434024,
+          "flat_stake_return": {
+            "value": 0.10666666666666662,
+            "interval_95": [
+              -0.013946428571428608,
+              0.21500499999999995
+            ],
+            "weeks": 17,
+            "interval_reading": "spans zero"
+          },
+          "picks_per_week": 1.0909090909090908,
+          "observed_minus_market_no_loss": {
+            "value": 0.13091791423264265,
+            "interval_95": [
+              0.03495679018774136,
+              0.21657962523230034
+            ],
+            "weeks": 17,
+            "interval_reading": "above zero"
+          },
+          "by_market_group": {
+            "match_result": 24,
+            "double_chance": 0,
+            "asian_handicap": 0
+          }
+        },
+        "not proven: fill": {
+          "picks": 193,
+          "fixtures": 193,
+          "weeks": 22,
+          "mean_odds": 1.707357512953368,
+          "hit_rate": 0.6217616580310881,
+          "no_loss_rate": 0.6321243523316062,
+          "mean_cagey_no_loss": 0.6207779805553526,
+          "flat_stake_return": {
+            "value": -0.016813471502590667,
+            "interval_95": [
+              -0.1408602804557406,
+              0.09868576451846865
+            ],
+            "weeks": 22,
+            "interval_reading": "spans zero"
+          },
+          "picks_per_week": 8.772727272727273,
+          "observed_minus_market_no_loss": {
+            "value": 0.011346371776253599,
+            "interval_95": [
+              -0.06479580111469965,
+              0.08247765176308108
+            ],
+            "weeks": 22,
+            "interval_reading": "spans zero"
+          },
+          "by_market_group": {
+            "match_result": 66,
+            "double_chance": 0,
+            "asian_handicap": 127
+          }
+        },
+        "not proven: risky fill": {
+          "picks": 0,
+          "picks_per_week": 0.0
+        }
+      },
+      "same_fixture_as_live": 156
+    },
+    "retrospective": {
+      "weeks": 29,
+      "strong_master": {
+        "picks": 339,
+        "fixtures": 339,
+        "weeks": 29,
+        "mean_odds": 1.628767574219236,
+        "hit_rate": 0.6135693215339233,
+        "no_loss_rate": 0.6135693215339233,
+        "mean_cagey_no_loss": 0.6441623007688639,
+        "flat_stake_return": {
+          "value": -0.074901618588808,
+          "interval_95": [
+            -0.13706450405020684,
+            -0.009561189482855961
+          ],
+          "weeks": 29,
+          "interval_reading": "below zero"
+        },
+        "picks_per_week": 11.689655172413794,
+        "observed_minus_market_no_loss": {
+          "value": -0.03059297923494065,
+          "interval_95": [
+            -0.0682978257847379,
+            0.008120866354467635
+          ],
+          "weeks": 29,
+          "interval_reading": "spans zero"
+        },
+        "by_market_group": {
+          "match_result": 168,
+          "double_chance": 0,
+          "asian_handicap": 171
+        }
+      },
+      "live_master_logic": {
+        "picks": 423,
+        "fixtures": 423,
+        "weeks": 29,
+        "mean_odds": 1.5176260367875931,
+        "hit_rate": 0.6903073286052009,
+        "no_loss_rate": 0.6903073286052009,
+        "mean_cagey_no_loss": 0.6659619814240595,
+        "flat_stake_return": {
+          "value": -0.008496464054612686,
+          "interval_95": [
+            -0.0775557281506709,
+            0.060669731504095534
+          ],
+          "weeks": 29,
+          "interval_reading": "spans zero"
+        },
+        "picks_per_week": 14.586206896551724,
+        "observed_minus_market_no_loss": {
+          "value": 0.02434534718114146,
+          "interval_95": [
+            -0.02211537476403583,
+            0.06989141712212893
+          ],
+          "weeks": 29,
+          "interval_reading": "spans zero"
+        },
+        "by_market_group": {
+          "match_result": 313,
+          "double_chance": 0,
+          "asian_handicap": 110
+        }
+      },
+      "strong_minus_live_return": {
+        "value": -0.06640515453419532,
+        "interval_95": [
+          -0.1564240156104627,
+          0.02745558172424161
+        ],
+        "weeks": 29,
+        "interval_reading": "spans zero"
+      },
+      "reading": "no measurable difference",
+      "weeks_short_of_target": 29,
+      "by_tier": {
+        "proven": {
+          "picks": 35,
+          "fixtures": 35,
+          "weeks": 19,
+          "mean_odds": 1.2211108929545076,
+          "hit_rate": 0.9142857142857143,
+          "no_loss_rate": 0.9142857142857143,
+          "mean_cagey_no_loss": 0.7973996043089596,
+          "flat_stake_return": {
+            "value": 0.11665481495330106,
+            "interval_95": [
+              -0.01551999730042446,
+              0.2210719309749404
+            ],
+            "weeks": 19,
+            "interval_reading": "spans zero"
+          },
+          "picks_per_week": 1.206896551724138,
+          "observed_minus_market_no_loss": {
+            "value": 0.11688610997675455,
+            "interval_95": [
+              0.00854826082512791,
+              0.20383687317694762
+            ],
+            "weeks": 19,
+            "interval_reading": "above zero"
+          },
+          "by_market_group": {
+            "match_result": 35,
+            "double_chance": 0,
+            "asian_handicap": 0
+          }
+        },
+        "not proven: safe": {
+          "picks": 25,
+          "fixtures": 25,
+          "weeks": 19,
+          "mean_odds": 1.2383771721546104,
+          "hit_rate": 0.72,
+          "no_loss_rate": 0.72,
+          "mean_cagey_no_loss": 0.7760230440343696,
+          "flat_stake_return": {
+            "value": -0.10887880701600988,
+            "interval_95": [
+              -0.3159177707150186,
+              0.1223158747669092
+            ],
+            "weeks": 19,
+            "interval_reading": "spans zero"
+          },
+          "picks_per_week": 0.8620689655172413,
+          "observed_minus_market_no_loss": {
+            "value": -0.05602304403436946,
+            "interval_95": [
+              -0.2252411734438603,
+              0.1304391774358817
+            ],
+            "weeks": 19,
+            "interval_reading": "spans zero"
+          },
+          "by_market_group": {
+            "match_result": 25,
+            "double_chance": 0,
+            "asian_handicap": 0
+          }
+        },
+        "not proven: fill": {
+          "picks": 278,
+          "fixtures": 278,
+          "weeks": 29,
+          "mean_odds": 1.7147226133988493,
+          "hit_rate": 0.564748201438849,
+          "no_loss_rate": 0.564748201438849,
+          "mean_cagey_no_loss": 0.6136869527054786,
+          "flat_stake_return": {
+            "value": -0.09896981161057201,
+            "interval_95": [
+              -0.17418726506876903,
+              -0.02294979710555058
+            ],
+            "weeks": 29,
+            "interval_reading": "below zero"
+          },
+          "picks_per_week": 9.586206896551724,
+          "observed_minus_market_no_loss": {
+            "value": -0.04893875126662975,
+            "interval_95": [
+              -0.09121121220972331,
+              -0.005871732386547502
+            ],
+            "weeks": 29,
+            "interval_reading": "below zero"
+          },
+          "by_market_group": {
+            "match_result": 108,
+            "double_chance": 0,
+            "asian_handicap": 170
+          }
+        },
+        "not proven: risky fill": {
+          "picks": 1,
+          "fixtures": 1,
+          "weeks": 1,
+          "mean_odds": 1.7610105781678145,
+          "hit_rate": 1.0,
+          "no_loss_rate": 1.0,
+          "mean_cagey_no_loss": 0.4564848568489819,
+          "flat_stake_return": {
+            "value": 0.7610105781678145,
+            "interval_95": null,
+            "weeks": 1,
+            "interval_reading": null
+          },
+          "picks_per_week": 0.034482758620689655,
+          "observed_minus_market_no_loss": {
+            "value": 0.5435151431510181,
+            "interval_95": null,
+            "weeks": 1,
+            "interval_reading": null
+          },
+          "by_market_group": {
+            "match_result": 0,
+            "double_chance": 0,
+            "asian_handicap": 1
+          }
+        }
+      },
+      "same_fixture_as_live": 214
+    }
+  },
+  "source_commit": "880847bb22e2216b96c2dd2e37a89762b344b01b"
+}
