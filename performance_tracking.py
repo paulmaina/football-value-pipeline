@@ -223,6 +223,12 @@ def capture(commit_sha: str, *, root: Path = ROOT,
         if old_master is not None: files[old_master.name] = old_master
     except Exception as exc:
         warnings.warn(f"old master (shadow) capture skipped ({type(exc).__name__})")
+    try:  # Strong-team master (shadow, Phase 4c): graded beside the live master, never part of it.
+        from price_edge_tracking import capture_strong_master_file
+        strong_master = capture_strong_master_file(raw, summary.get("generated_at_utc"))
+        if strong_master is not None: files[strong_master.name] = strong_master
+    except Exception as exc:
+        warnings.warn(f"strong master (shadow) capture skipped ({type(exc).__name__})")
     try:
         from price_edge_tracking import capture_monitoring_file, MONITOR_FILE
         monitoring = capture_monitoring_file(raw, summary.get("generated_at_utc"))
@@ -297,7 +303,7 @@ def load_snapshot(directory: Path) -> tuple[dict, list[dict], list[dict]] | None
         'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'pipeline_health.json',
         'bet365_vs_pinnacle.csv', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv',
         'cagey_correction_monitoring.csv', 'corners_shadow.csv', 'master_shortlist.csv', 'master_shortlist_new.csv',
-        'master_shortlist_old.csv'}
+        'master_shortlist_strong.csv', 'master_shortlist_old.csv'}
     digests = meta.get('sha256')
     if not isinstance(digests, dict) or not required.issubset(digests) or set(digests)-required-optional:
         warnings.warn(f'Missing required or invalid snapshot manifest ignored: {directory}')

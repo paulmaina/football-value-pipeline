@@ -158,5 +158,31 @@ class ShadowTest(unittest.TestCase):
             self.assertFalse((Path(tmp) / ms.load_config()['file']).exists())
 
 
+class GradingTest(unittest.TestCase):
+    def test_capture_only_this_generation_and_rule(self):
+        import pandas as pd
+        import price_edge_tracking as tracking
+        generated = '2026-11-23T10:00:00+00:00'
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / ms.load_config()['file']
+            row = {'selection_policy_version': tracking.CAGEY_POLICY, 'evaluated_at_utc': generated,
+                   'strong_master_version': ms.VERSION, 'strong_decision': 'SHORTLISTED'}
+            pd.DataFrame([row]).to_csv(path, index=False)
+            self.assertEqual(tracking.capture_strong_master_file(Path(tmp), generated), path)
+            self.assertIsNone(tracking.capture_strong_master_file(Path(tmp), '2026-11-23T11:00:00+00:00'))
+            pd.DataFrame([{**row, 'strong_master_version': 'other'}]).to_csv(path, index=False)
+            self.assertIsNone(tracking.capture_strong_master_file(Path(tmp), generated))
+
+    def test_comparison_waits_for_enough_graded_matches(self):
+        import pandas as pd
+        import price_edge_tracking as tracking
+        empty = pd.DataFrame(columns=['kickoff_utc', 'unit_profit', 'offered_decimal_odds', 'clv'])
+        out = tracking.strong_master_summary(empty, empty)
+        self.assertEqual(out['comparison']['status'], 'WAITING')
+        self.assertIn('strong_master', out['comparison'])
+        text = '\n'.join(tracking.strong_master_report({'strong_master': out}))
+        self.assertIn('Strong-team master', text)
+
+
 if __name__ == '__main__':
     unittest.main()
