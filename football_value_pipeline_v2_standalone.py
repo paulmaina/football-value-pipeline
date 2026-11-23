@@ -190,8 +190,16 @@ def ev_decimal(probability: float, decimal_odds: Optional[float]) -> Optional[fl
     return probability * decimal_odds - 1.0
 
 
+# Letters NFKD does not decompose: transliterated, not dropped, so "Bodø/Glimt" keys as "bodo glimt" like
+# "Bodo/Glimt" (23 Nov 2026; tests/test_team_name_transliteration.py checks that nothing else moves).
+TRANSLITERATE = str.maketrans({
+    "ø": "o", "Ø": "O", "ł": "l", "Ł": "L", "đ": "d", "Đ": "D", "ð": "d", "Ð": "D", "ı": "i", "ħ": "h", "Ħ": "H",
+    "ŧ": "t", "Ŧ": "T", "æ": "ae", "Æ": "AE", "œ": "oe", "Œ": "OE", "ß": "ss", "þ": "th", "Þ": "TH",
+})
+
+
 def normalize_team_name(name: str) -> str:
-    s = unicodedata.normalize("NFKD", str(name))
+    s = unicodedata.normalize("NFKD", str(name).translate(TRANSLITERATE))
     s = "".join(ch for ch in s if not unicodedata.combining(ch)).lower()
     s = s.replace("&", " and ")
     s = re.sub(r"[^a-z0-9]+", " ", s)
@@ -4722,6 +4730,11 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     router = _active_router(pipe.odds_api)
     if router is not None:  # provider switch on: requests, failures and every switch this run
         selection_summary['odds_provider'] = router.summary()
+    if not all_predictions.empty:  # any forecast on a stale research fit: flagged at the top of every output
+        from model_activity import stale_warning
+        stale = stale_warning(all_predictions.astype(object).where(all_predictions.notna(), None).to_dict('records'))
+        if stale:
+            selection_summary['stale_fit_warning'] = stale
     (out_dir / "conservative_bet_summary.json").write_text(
         json.dumps(selection_summary, indent=2), encoding="utf-8"
     )
@@ -4807,6 +4820,10 @@ def run_outcome(staging: Path, lookahead_days: int, client=None) -> Dict[str, ob
     router = _active_router(client)
     if router is not None:  # provider switch on only
         outcome['odds_provider'] = router.summary()
+    from model_activity import stale_warning
+    stale = stale_warning(rows)
+    if stale:  # opens the GitHub run summary (publish_scheduled_forecasts.report)
+        outcome['stale_fit_warning'] = stale['text']
     return outcome
 
 

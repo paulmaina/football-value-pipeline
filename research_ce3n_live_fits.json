@@ -748,10 +748,10 @@
  "basis": "live",
  "description": "Live CE3n fits for research v6 (UCL/UEL): factors and domestic strengths from every result known before each origin, including the European holdout period (UCL 21 Jan 2025 - 12 Oct 2026) and the domestic holdout period (Paul, 14 Nov 2026). Differs from the tested fit (research_ce3n_fits.json) by design.",
  "built_with": {
-  "commit": "84172898af9814932a8d2bcd9985afaf55408dba",
-  "config_sha256": "cdeceab266027ee15ef1ff0db0a6a3d698ce63ff1fcabb20713f6e1635c7dec1",
-  "european_end_exclusive": "2026-11-16",
-  "domestic_end_exclusive": "2026-11-16",
+  "commit": "02dd717a96e62947bc67b41665df2dcda144056c",
+  "config_sha256": "77a20cfccfdc3d267db488370697bc215d24bb303cc5a9d264eb349631938c74",
+  "european_end_exclusive": "2026-11-30",
+  "domestic_end_exclusive": "2026-11-30",
   "seasons": [
    "2122",
    "2223",
@@ -776,7 +776,7 @@
   "ambiguous_identities": [],
   "include_holdout": true,
   "holdout_period_european_results": 288,
-  "results_known_through_utc": "2026-11-14T23:54:37.351089Z"
+  "results_known_through_utc": "2026-11-23T06:14:17.131888Z"
  },
  "windows": [
   {
@@ -11453,6 +11453,1426 @@
       "goals": [
        0.2754670817839299,
        -0.21102998676661971
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     }
+    }
+   }
+  },
+  {
+   "origin": "2026-11-16",
+   "end_exclusive": "2026-11-30",
+   "factors": {
+    "status": "fitted",
+    "matches": 1114,
+    "s": {
+     "EPL": 0.2719864094435801,
+     "LaLiga": 0.06404693007869992,
+     "Bundesliga": 0.08460850071776126,
+     "SerieA": 0.06923785992880423,
+     "Ligue1": 0.04295728304747002,
+     "Eredivisie": -0.24512992569962389,
+     "PrimeiraLiga": -0.11265276787229013,
+     "SuperLig": -0.1750542896444011
+    },
+    "c": {
+     "UCL": 0.26554605828511735,
+     "UEL": 0.07593757072515725
+    },
+    "h": {
+     "UCL": 0.27731297411742173,
+     "UEL": 0.4070738757616818
+    }
+   },
+   "strengths": {
+    "Bundesliga": {
+     "Augsburg": {
+      "goals": [
+       0.001770999283506542,
+       0.20061710359677673
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Bayern Munich": {
+      "goals": [
+       0.5726624378865484,
+       -0.2633568889467642
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Dortmund": {
+      "goals": [
+       0.1723602605987293,
+       -0.3005785446730863
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Ein Frankfurt": {
+      "goals": [
+       0.06884299677123287,
+       0.10774434873072948
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Elversberg": {
+      "goals": [
+       0.18577855209316801,
+       0.14725026412457193
+      ],
+      "domestic_matches": 9,
+      "matches_in_form": 9
+     },
+     "FC Koln": {
+      "goals": [
+       -0.21183126084928308,
+       0.060115010433815674
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Freiburg": {
+      "goals": [
+       0.09170114826528358,
+       -0.08343116238018347
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Hamburg": {
+      "goals": [
+       -0.17049515587927463,
+       0.10177026695883257
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Heidenheim": {
+      "goals": [
+       -0.056745075186938825,
+       0.1314958091031296
+      ],
+      "domestic_matches": 24,
+      "matches_in_form": 10
+     },
+     "Hoffenheim": {
+      "goals": [
+       0.061859347770845924,
+       0.09446374457085209
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Leverkusen": {
+      "goals": [
+       0.218084754213356,
+       -0.015929948772051374
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "M'gladbach": {
+      "goals": [
+       -0.05468600643094975,
+       0.18100796612510514
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Mainz": {
+      "goals": [
+       0.018874621834054993,
+       0.09444111574892887
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Paderborn": {
+      "goals": [
+       -0.3332399019902454,
+       -0.11529163498147449
+      ],
+      "domestic_matches": 9,
+      "matches_in_form": 10
+     },
+     "RB Leipzig": {
+      "goals": [
+       0.33308122348049,
+       -0.07778481163195644
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Schalke 04": {
+      "goals": [
+       -0.4955027913213145,
+       -0.01836894733070111
+      ],
+      "domestic_matches": 9,
+      "matches_in_form": 10
+     },
+     "St Pauli": {
+      "goals": [
+       -0.4622980543970917,
+       0.08231418541760448
+      ],
+      "domestic_matches": 24,
+      "matches_in_form": 10
+     },
+     "Stuttgart": {
+      "goals": [
+       0.12833974189066602,
+       -0.04817883157149453
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Union Berlin": {
+      "goals": [
+       -0.2829417510797533,
+       0.07054489994383101
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Werder Bremen": {
+      "goals": [
+       -0.030652808044783864,
+       0.022137449001175237
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Wolfsburg": {
+      "goals": [
+       -0.10123967482332225,
+       0.019656326658095996
+      ],
+      "domestic_matches": 24,
+      "matches_in_form": 10
+     }
+    },
+    "EPL": {
+     "Arsenal": {
+      "goals": [
+       0.1270024854170945,
+       -0.46402395674337815
+      ],
+      "domestic_matches": 37,
+      "matches_in_form": 10
+     },
+     "Aston Villa": {
+      "goals": [
+       0.09263266171913286,
+       0.05076402087720756
+      ],
+      "domestic_matches": 37,
+      "matches_in_form": 10
+     },
+     "Bournemouth": {
+      "goals": [
+       0.08787219158164836,
+       -0.04192109863054176
+      ],
+      "domestic_matches": 37,
+      "matches_in_form": 10
+     },
+     "Brentford": {
+      "goals": [
+       0.028551895270334957,
+       -0.03921239767549492
+      ],
+      "domestic_matches": 37,
+      "matches_in_form": 10
+     },
+     "Brighton": {
+      "goals": [
+       0.2146454807432045,
+       -0.23306713485347066
+      ],
+      "domestic_matches": 37,
+      "matches_in_form": 10
+     },
+     "Burnley": {
+      "goals": [
+       -0.2936213504834811,
+       0.20143734008279437
+      ],
+      "domestic_matches": 27,
+      "matches_in_form": 10
+     },
+     "Chelsea": {
+      "goals": [
+       0.11277736079168417,
+       -0.04294759160790968
+      ],
+      "domestic_matches": 37,
+      "matches_in_form": 10
+     },
+     "Coventry": {
+      "goals": [
+       -0.12531224433402244,
+       0.19131728809558193
+      ],
+      "domestic_matches": 10,
+      "matches_in_form": 10
+     },
+     "Crystal Palace": {
+      "goals": [
+       -0.16738221232467135,
+       0.18682170109664728
+      ],
+      "domestic_matches": 37,
+      "matches_in_form": 10
+     },
+     "Everton": {
+      "goals": [
+       -0.1077537565392985,
+       -0.10215648017584664
+      ],
+      "domestic_matches": 37,
+      "matches_in_form": 10
+     },
+     "Fulham": {
+      "goals": [
+       -0.12059855180756791,
+       -0.09293885904025714
+      ],
+      "domestic_matches": 37,
+      "matches_in_form": 10
+     },
+     "Hull": {
+      "goals": [
+       -0.19187918258127673,
+       -0.08067825374727507
+      ],
+      "domestic_matches": 10,
+      "matches_in_form": 10
+     },
+     "Ipswich": {
+      "goals": [
+       -0.07134235271551283,
+       0.25364710753922554
+      ],
+      "domestic_matches": 10,
+      "matches_in_form": 10
+     },
+     "Leeds": {
+      "goals": [
+       -0.1515631426050372,
+       -0.11263672928934594
+      ],
+      "domestic_matches": 37,
+      "matches_in_form": 10
+     },
+     "Liverpool": {
+      "goals": [
+       0.1598821280250952,
+       -0.18123454945227999
+      ],
+      "domestic_matches": 37,
+      "matches_in_form": 10
+     },
+     "Man City": {
+      "goals": [
+       0.2616055420479595,
+       -0.13528206886236396
+      ],
+      "domestic_matches": 37,
+      "matches_in_form": 10
+     },
+     "Man United": {
+      "goals": [
+       0.06387424001272438,
+       0.10874273710264697
+      ],
+      "domestic_matches": 37,
+      "matches_in_form": 10
+     },
+     "Newcastle": {
+      "goals": [
+       -0.0002758831350513511,
+       0.012899677331017554
+      ],
+      "domestic_matches": 37,
+      "matches_in_form": 10
+     },
+     "Nott'm Forest": {
+      "goals": [
+       -0.11151373546281909,
+       -0.029068683299074815
+      ],
+      "domestic_matches": 37,
+      "matches_in_form": 10
+     },
+     "Sunderland": {
+      "goals": [
+       -0.25298828819584374,
+       0.027667836858756893
+      ],
+      "domestic_matches": 37,
+      "matches_in_form": 10
+     },
+     "Tottenham": {
+      "goals": [
+       -0.020018806194640575,
+       -0.07910626293320223
+      ],
+      "domestic_matches": 37,
+      "matches_in_form": 10
+     },
+     "West Ham": {
+      "goals": [
+       -0.06847242144760861,
+       0.03986461514651283
+      ],
+      "domestic_matches": 27,
+      "matches_in_form": 10
+     },
+     "Wolves": {
+      "goals": [
+       -0.2611352659954663,
+       0.10981849435098141
+      ],
+      "domestic_matches": 27,
+      "matches_in_form": 10
+     }
+    },
+    "Eredivisie": {
+     "AZ Alkmaar": {
+      "goals": [
+       0.07683070296296333,
+       -0.1161238641973968
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Ajax": {
+      "goals": [
+       0.2845622179264326,
+       -0.2232651884086911
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Cambuur": {
+      "goals": [
+       0.16888903719235998,
+       0.16645247588093195
+      ],
+      "domestic_matches": 12,
+      "matches_in_form": 10
+     },
+     "Den Haag": {
+      "goals": [
+       -0.1105623513771661,
+       0.09820852170437014
+      ],
+      "domestic_matches": 12,
+      "matches_in_form": 10
+     },
+     "Excelsior": {
+      "goals": [
+       -0.25801323741782783,
+       0.2676786473550049
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Feyenoord": {
+      "goals": [
+       0.36738969876906785,
+       -0.14398062073427814
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "For Sittard": {
+      "goals": [
+       -0.11431217200835324,
+       -0.0011110219836802503
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Go Ahead Eagles": {
+      "goals": [
+       -0.0026801422906684077,
+       0.10001942640848761
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Groningen": {
+      "goals": [
+       0.09704321742163104,
+       0.1441490480398398
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Heerenveen": {
+      "goals": [
+       0.11629499578356213,
+       -0.06671909457899465
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Heracles": {
+      "goals": [
+       -0.41134756677851947,
+       0.21871990486810655
+      ],
+      "domestic_matches": 22,
+      "matches_in_form": 10
+     },
+     "NAC Breda": {
+      "goals": [
+       -0.2899912609081257,
+       0.06299843008154389
+      ],
+      "domestic_matches": 22,
+      "matches_in_form": 10
+     },
+     "Nijmegen": {
+      "goals": [
+       0.04981566684709506,
+       -0.028245974937307478
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "PSV Eindhoven": {
+      "goals": [
+       0.555160438192798,
+       -0.24317885774952808
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Sparta Rotterdam": {
+      "goals": [
+       -0.046817608014604946,
+       0.1436381063146701
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Telstar": {
+      "goals": [
+       0.014570594623856417,
+       0.09405954746120085
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Twente": {
+      "goals": [
+       0.26943445289321605,
+       -0.28024335660265165
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Utrecht": {
+      "goals": [
+       0.05708087465577186,
+       0.11371137914505504
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Volendam": {
+      "goals": [
+       -0.3381985594488075,
+       0.04212178904144611
+      ],
+      "domestic_matches": 22,
+      "matches_in_form": 10
+     },
+     "Willem II": {
+      "goals": [
+       -0.373425038871949,
+       0.38045268209030647
+      ],
+      "domestic_matches": 12,
+      "matches_in_form": 10
+     },
+     "Zwolle": {
+      "goals": [
+       -0.19747325487647444,
+       0.05643954289616184
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     }
+    },
+    "LaLiga": {
+     "Alaves": {
+      "goals": [
+       -0.18899415214640616,
+       0.07501289789709284
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Ath Bilbao": {
+      "goals": [
+       0.01742986507206539,
+       -0.19875680326012055
+      ],
+      "domestic_matches": 37,
+      "matches_in_form": 10
+     },
+     "Ath Madrid": {
+      "goals": [
+       0.21168335282464532,
+       -0.2965343328150333
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Barcelona": {
+      "goals": [
+       0.665828266088778,
+       -0.17756970105491662
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Betis": {
+      "goals": [
+       0.14607881724774274,
+       -0.058547326618697014
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Celta": {
+      "goals": [
+       -0.12697322558975602,
+       -0.13685872761613344
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Elche": {
+      "goals": [
+       -0.10637117313867407,
+       0.01854992047404609
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Espanol": {
+      "goals": [
+       -0.20744555205816292,
+       -0.05792529617962778
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Getafe": {
+      "goals": [
+       -0.3306603765633322,
+       -0.028408750597696805
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Girona": {
+      "goals": [
+       -0.11511168172740055,
+       -0.01899172542448289
+      ],
+      "domestic_matches": 26,
+      "matches_in_form": 10
+     },
+     "La Coruna": {
+      "goals": [
+       -0.10913252914819804,
+       -0.09507101953015198
+      ],
+      "domestic_matches": 12,
+      "matches_in_form": 10
+     },
+     "Levante": {
+      "goals": [
+       -0.01528849518384968,
+       0.12582636848599188
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Malaga": {
+      "goals": [
+       -0.36141388667206253,
+       0.25513380681370723
+      ],
+      "domestic_matches": 12,
+      "matches_in_form": 10
+     },
+     "Mallorca": {
+      "goals": [
+       -0.09248394212355743,
+       -0.046082478506799286
+      ],
+      "domestic_matches": 26,
+      "matches_in_form": 10
+     },
+     "Osasuna": {
+      "goals": [
+       -0.14445791426312526,
+       0.13671550881830366
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Oviedo": {
+      "goals": [
+       -0.4838182614900025,
+       0.11388678151636164
+      ],
+      "domestic_matches": 26,
+      "matches_in_form": 10
+     },
+     "Real Madrid": {
+      "goals": [
+       0.42456383412994625,
+       -0.3669553590329218
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Santander": {
+      "goals": [
+       0.015017325521416361,
+       0.4725113439121767
+      ],
+      "domestic_matches": 12,
+      "matches_in_form": 10
+     },
+     "Sevilla": {
+      "goals": [
+       -0.05943989850380244,
+       0.07439737050901052
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Sociedad": {
+      "goals": [
+       0.1418331261523405,
+       0.012404669992963949
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Valencia": {
+      "goals": [
+       -0.2061326368435262,
+       0.06648903326804095
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Vallecano": {
+      "goals": [
+       -0.10954880819672241,
+       0.022157184772675524
+      ],
+      "domestic_matches": 37,
+      "matches_in_form": 10
+     },
+     "Villarreal": {
+      "goals": [
+       0.1345429666312239,
+       -0.12840349130553555
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     }
+    },
+    "Ligue1": {
+     "Angers": {
+      "goals": [
+       -0.3598152304961287,
+       0.15104354286888774
+      ],
+      "domestic_matches": 32,
+      "matches_in_form": 10
+     },
+     "Auxerre": {
+      "goals": [
+       -0.13213843577468268,
+       0.17697032307398516
+      ],
+      "domestic_matches": 32,
+      "matches_in_form": 10
+     },
+     "Brest": {
+      "goals": [
+       0.07444583368734192,
+       -0.057449710507560314
+      ],
+      "domestic_matches": 32,
+      "matches_in_form": 10
+     },
+     "Le Havre": {
+      "goals": [
+       -0.24549191476338467,
+       0.23964863195847758
+      ],
+      "domestic_matches": 32,
+      "matches_in_form": 10
+     },
+     "Le Mans": {
+      "goals": [
+       -0.1638991883682206,
+       0.18355662407068457
+      ],
+      "domestic_matches": 10,
+      "matches_in_form": 10
+     },
+     "Lens": {
+      "goals": [
+       0.09605596725224022,
+       -0.10506085680149946
+      ],
+      "domestic_matches": 32,
+      "matches_in_form": 10
+     },
+     "Lille": {
+      "goals": [
+       0.01726838363220323,
+       -0.3273783643748118
+      ],
+      "domestic_matches": 32,
+      "matches_in_form": 10
+     },
+     "Lorient": {
+      "goals": [
+       -0.1581846965096091,
+       -0.12302807708517843
+      ],
+      "domestic_matches": 32,
+      "matches_in_form": 10
+     },
+     "Lyon": {
+      "goals": [
+       0.0748988799078875,
+       -0.14473369913888143
+      ],
+      "domestic_matches": 32,
+      "matches_in_form": 10
+     },
+     "Marseille": {
+      "goals": [
+       0.2837396117129774,
+       -0.062094513718034094
+      ],
+      "domestic_matches": 32,
+      "matches_in_form": 10
+     },
+     "Metz": {
+      "goals": [
+       -0.27257853503060975,
+       0.2958633275167625
+      ],
+      "domestic_matches": 22,
+      "matches_in_form": 10
+     },
+     "Monaco": {
+      "goals": [
+       0.08253698196850107,
+       -0.06071689554955986
+      ],
+      "domestic_matches": 32,
+      "matches_in_form": 10
+     },
+     "Nantes": {
+      "goals": [
+       -0.325063121913776,
+       -0.05834421433970487
+      ],
+      "domestic_matches": 22,
+      "matches_in_form": 10
+     },
+     "Nice": {
+      "goals": [
+       0.06809843277910779,
+       -0.08563395976634569
+      ],
+      "domestic_matches": 32,
+      "matches_in_form": 10
+     },
+     "Paris FC": {
+      "goals": [
+       0.09171162674725017,
+       -0.12880598125531886
+      ],
+      "domestic_matches": 32,
+      "matches_in_form": 10
+     },
+     "Paris SG": {
+      "goals": [
+       0.3996928973218949,
+       -0.3329732034762246
+      ],
+      "domestic_matches": 32,
+      "matches_in_form": 10
+     },
+     "Rennes": {
+      "goals": [
+       0.20974057611588232,
+       0.1492257745457053
+      ],
+      "domestic_matches": 32,
+      "matches_in_form": 10
+     },
+     "Strasbourg": {
+      "goals": [
+       0.12647964613927679,
+       0.14632201004231396
+      ],
+      "domestic_matches": 32,
+      "matches_in_form": 10
+     },
+     "Toulouse": {
+      "goals": [
+       0.004492213026877608,
+       -0.0533075995379316
+      ],
+      "domestic_matches": 32,
+      "matches_in_form": 10
+     },
+     "Troyes": {
+      "goals": [
+       -0.3885248030654053,
+       0.1170914887944502
+      ],
+      "domestic_matches": 10,
+      "matches_in_form": 10
+     }
+    },
+    "PrimeiraLiga": {
+     "AVS": {
+      "goals": [
+       -0.27571850916679247,
+       0.12286935610369647
+      ],
+      "domestic_matches": 23,
+      "matches_in_form": 10
+     },
+     "Academico Viseu": {
+      "goals": [
+       0.05308607025076619,
+       -0.16594214717352074
+      ],
+      "domestic_matches": 11,
+      "matches_in_form": 10
+     },
+     "Alverca": {
+      "goals": [
+       -0.07819838620061513,
+       -0.004032876403226621
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Arouca": {
+      "goals": [
+       -0.08087783555924521,
+       -0.07709295733300227
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Benfica": {
+      "goals": [
+       0.48068777043411837,
+       -0.3157930872933226
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Casa Pia": {
+      "goals": [
+       -0.29735931359453105,
+       0.1110029051597654
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Estoril": {
+      "goals": [
+       -0.17374139557470913,
+       0.24302506932765036
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Estrela": {
+      "goals": [
+       -0.09655497800784311,
+       0.23256222520579373
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Famalicao": {
+      "goals": [
+       0.009634710892906939,
+       -0.08191538856220146
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Gil Vicente": {
+      "goals": [
+       -0.14155416113788324,
+       -0.16714642701401564
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Guimaraes": {
+      "goals": [
+       -0.05665958396961808,
+       -0.08743120206871381
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Maritimo": {
+      "goals": [
+       -0.2767961323593474,
+       0.3216553884213199
+      ],
+      "domestic_matches": 10,
+      "matches_in_form": 10
+     },
+     "Moreirense": {
+      "goals": [
+       -0.10758088496015916,
+       0.03703603168347059
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Nacional": {
+      "goals": [
+       -0.22017608135172373,
+       0.0940882378624067
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Porto": {
+      "goals": [
+       0.40353109942010273,
+       -0.49650258536431247
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Rio Ave": {
+      "goals": [
+       -0.2085211671220906,
+       0.25310491332097024
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Santa Clara": {
+      "goals": [
+       -0.08071217325576935,
+       -0.20037878124432185
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Sp Braga": {
+      "goals": [
+       0.11576945253696536,
+       -0.2114641419890738
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Sp Lisbon": {
+      "goals": [
+       0.43726458142715907,
+       -0.33197620831648833
+      ],
+      "domestic_matches": 34,
+      "matches_in_form": 10
+     },
+     "Tondela": {
+      "goals": [
+       -0.2573511472037131,
+       0.16605145278905756
+      ],
+      "domestic_matches": 23,
+      "matches_in_form": 10
+     }
+    },
+    "SerieA": {
+     "Atalanta": {
+      "goals": [
+       0.16573216833494755,
+       0.046014672709991565
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Bologna": {
+      "goals": [
+       0.1252420765663157,
+       -0.05776255304257134
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Cagliari": {
+      "goals": [
+       -0.18422276926843617,
+       0.10145455538205983
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Como": {
+      "goals": [
+       0.14804087318814188,
+       -0.2567278253573022
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Cremonese": {
+      "goals": [
+       -0.24651464385478336,
+       0.15335433201772838
+      ],
+      "domestic_matches": 27,
+      "matches_in_form": 10
+     },
+     "Fiorentina": {
+      "goals": [
+       0.1359203719431955,
+       0.13560160669572757
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Frosinone": {
+      "goals": [
+       0.2838644857172789,
+       0.09787874757230094
+      ],
+      "domestic_matches": 11,
+      "matches_in_form": 10
+     },
+     "Genoa": {
+      "goals": [
+       -0.1142510582313449,
+       -0.014220071960639373
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Inter": {
+      "goals": [
+       0.4326657048403826,
+       -0.21433220211802043
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Juventus": {
+      "goals": [
+       0.0999489183615964,
+       -0.18266500436887914
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Lazio": {
+      "goals": [
+       0.2600140273517827,
+       -0.1727644086922486
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Lecce": {
+      "goals": [
+       -0.2679995740208838,
+       0.18956294620785402
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Milan": {
+      "goals": [
+       0.26684788106252455,
+       -0.10475030505944098
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Monza": {
+      "goals": [
+       -0.06400285565634477,
+       0.2660503044800575
+      ],
+      "domestic_matches": 11,
+      "matches_in_form": 10
+     },
+     "Napoli": {
+      "goals": [
+       0.1645435313435618,
+       -0.13849321075178248
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Parma": {
+      "goals": [
+       -0.22874702916755082,
+       0.044884571457681
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Pisa": {
+      "goals": [
+       -0.48653093121195934,
+       0.3372755981971852
+      ],
+      "domestic_matches": 27,
+      "matches_in_form": 10
+     },
+     "Roma": {
+      "goals": [
+       0.3943431482974059,
+       -0.20541737724128098
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Sassuolo": {
+      "goals": [
+       0.00312862463552221,
+       0.3777959134173572
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Torino": {
+      "goals": [
+       -0.05516872396690377,
+       0.055190361216452606
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Udinese": {
+      "goals": [
+       -0.1382178329376881,
+       0.22981698273743725
+      ],
+      "domestic_matches": 38,
+      "matches_in_form": 10
+     },
+     "Venezia": {
+      "goals": [
+       -0.33123178176896867,
+       0.14294444201568968
+      ],
+      "domestic_matches": 11,
+      "matches_in_form": 10
+     },
+     "Verona": {
+      "goals": [
+       -0.4430741946379781,
+       0.05483812518865342
+      ],
+      "domestic_matches": 27,
+      "matches_in_form": 10
+     }
+    },
+    "SuperLig": {
+     "Alanyaspor": {
+      "goals": [
+       -0.2467159439931599,
+       0.10719723901922193
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Amedspor": {
+      "goals": [
+       0.49961459311514783,
+       0.010630561184874458
+      ],
+      "domestic_matches": 11,
+      "matches_in_form": 10
+     },
+     "Antalyaspor": {
+      "goals": [
+       -0.25898070370024834,
+       0.09432150926497851
+      ],
+      "domestic_matches": 22,
+      "matches_in_form": 10
+     },
+     "Besiktas": {
+      "goals": [
+       0.19460098014149008,
+       -0.17485626412562566
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Buyuksehyr": {
+      "goals": [
+       0.13114247343648833,
+       -0.03685163528542235
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Corum": {
+      "goals": [
+       0.17918608658836374,
+       0.2133446116751971
+      ],
+      "domestic_matches": 11,
+      "matches_in_form": 10
+     },
+     "Erzurumspor": {
+      "goals": [
+       -0.2696906464056675,
+       -0.0030221284176297184
+      ],
+      "domestic_matches": 11,
+      "matches_in_form": 10
+     },
+     "Eyupspor": {
+      "goals": [
+       -0.4687816575215652,
+       0.3066977954162938
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Fenerbahce": {
+      "goals": [
+       0.43453508371332344,
+       -0.267578385941901
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Galatasaray": {
+      "goals": [
+       0.3942230465528777,
+       -0.19766478730193884
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Gaziantep": {
+      "goals": [
+       -0.2912129907312442,
+       0.1642046847889069
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Genclerbirligi": {
+      "goals": [
+       -0.1939558038965252,
+       0.11734729967749316
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Goztep": {
+      "goals": [
+       0.08493838495994215,
+       -0.02605393624444756
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Karagumruk": {
+      "goals": [
+       -0.18310568499261884,
+       -0.060265907419747515
+      ],
+      "domestic_matches": 22,
+      "matches_in_form": 10
+     },
+     "Kasimpasa": {
+      "goals": [
+       0.021062412974274688,
+       -0.05244936617401568
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Kayserispor": {
+      "goals": [
+       -0.23422446144099368,
+       0.15478643123887723
+      ],
+      "domestic_matches": 22,
+      "matches_in_form": 10
+     },
+     "Kocaelispor": {
+      "goals": [
+       -0.24933033819173273,
+       -0.31915179431618873
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Konyaspor": {
+      "goals": [
+       -0.3215160847672715,
+       -0.05102474173572223
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Rizespor": {
+      "goals": [
+       -0.07518072491511461,
+       0.0938464102717732
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Samsunspor": {
+      "goals": [
+       -0.1668058181972147,
+       0.1788198654373147
+      ],
+      "domestic_matches": 33,
+      "matches_in_form": 10
+     },
+     "Trabzonspor": {
+      "goals": [
+       0.26824646532874635,
+       -0.26222617718080177
       ],
       "domestic_matches": 33,
       "matches_in_form": 10

@@ -26,7 +26,7 @@ Actual placed bets: NOT_RECORDED
 
 > **STOP REVIEW**: 116 graded picks with mean CLV -2.02% (below zero). Review the policy before relying on further picks.
 
-Reviewed 2026-11-23T10:25:09.120725+00:00. Frozen v27 picks: 430.
+Reviewed 2026-11-23T12:54:54.982835+00:00. Frozen v27 picks: 430.
 
 **Mean CLV vs Pinnacle close:** -2.02% ± 0.81% (n=116). **Flat-stake profit per bet:** +2.69% ± 6.88% (n=407).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -284,12 +284,12 @@ Return at the capture fair price, all tagged lines: +1.06% ± 3.82% (n=2079); pl
 
 Forward monitoring of cagey-correction-monitoring-v1 started 2026-11-03T13:58:25Z (first eligible capture). Earlier forecasts are not backfilled. One record per fixture: its first pre-kickoff capture at least 20 minutes before kickoff. Quintiles use the fixed training-period boundaries stored with the model.
 
-Fixtures: eligible 140, pending 11, graded 129, excluded 72.
+Fixtures: eligible 140, pending 11, graded 129, excluded 71.
 
 | excluded because | fixtures |
 |---|---:|
 | no usable market-implied fit (missing input: over_2_5) | 56 |
-| no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line) | 16 |
+| no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line) | 15 |
 
 | quintile | n | 2+ actual | 2+ corrected | 2+ uncorrected | 3+ actual | 3+ corrected | 3+ uncorrected |
 |---|---:|---:|---:|---:|---:|---:|---:|
