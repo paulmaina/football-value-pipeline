@@ -122,6 +122,71 @@ def board_shape(payload, leagues):
             'sample_event': sample, 'sample_corner_event': corner}
 
 
+def duplicate_report(payload, leagues, limit=6):
+    """Board events in our competitions that share league, teams and kickoff: what tells them apart."""
+    groups = {}
+    for event in op.kit_events(payload):
+        key = op.league_of(event, leagues)
+        if key is None or op.is_corner_child(event):
+            continue
+        groups.setdefault((key, str(event.get('home')), str(event.get('away')), str(event.get('starts'))),
+                          []).append(event)
+    repeated = {k: v for k, v in groups.items() if len(v) > 1}
+
+    def describe(event):
+        period = op._kit_period(event) or {}
+        periods = event.get('periods')
+        return {**{k: v for k, v in event.items() if k != 'periods'},
+                'period_keys': sorted(periods) if isinstance(periods, dict) else None,
+                'game_period': {'status': period.get('status'), 'money_line': period.get('money_line'),
+                                'spreads': len(period.get('spreads') or {}), 'totals': len(period.get('totals') or {}),
+                                'team_totals': bool(period.get('team_totals')), 'meta': period.get('meta')}}
+
+    return {'fixtures': len(groups), 'repeated_fixtures': len(repeated),
+            'parent_id_patterns': sorted({tuple(sorted(str(e.get('parent_id')) == 'None' for e in v))
+                                          for v in repeated.values()}),
+            'examples': [{'fixture': ' | '.join(k), 'events': [describe(e) for e in v]}
+                         for k, v in list(repeated.items())[:limit]]}
+
+
+def main_line_report(kit, odds_api):
+    """Kit main lines (provider flag, otherwise the most balanced pair) against The Odds API's main lines."""
+    def index(events):
+        out = {}
+        for event in events:
+            kick = op.parse_time(event.get('kickoff_utc'))
+            if kick is None:
+                continue
+            slot = kick.replace(minute=(kick.minute // 5) * 5, second=0, microsecond=0)
+            out[(event['league_key'], op.iso(slot), op.team_key(event['home_team']),
+                 op.team_key(event['away_team']))] = event
+        return out
+
+    def main(event, market):
+        return next((x for x in event.get(market) or [] if x.get('main')), None)
+
+    a, b = index(kit), index(odds_api)
+    rows, counts = [], {'asian_handicap': [0, 0], 'goal_lines': [0, 0]}
+    for key in sorted(set(a) & set(b)):
+        for market, first, second in (('asian_handicap', 'home', 'away'), ('goal_lines', 'over', 'under')):
+            ours, theirs = main(a[key], market), main(b[key], market)
+            if ours is None or theirs is None:
+                continue
+            same = ours['line'] == theirs['line']
+            counts[market][0 if same else 1] += 1
+            if not same:
+                at_theirs = next((x for x in a[key].get(market) or [] if x['line'] == theirs['line']), None)
+                rows.append({'league': key[0], 'kickoff_utc': key[1], 'match': f'{key[2]} v {key[3]}',
+                             'market': market, 'kit_main': ours['line'],
+                             'kit_prices': f"{ours[first]:.3f}/{ours[second]:.3f}",
+                             'odds_api_main': theirs['line'],
+                             'odds_api_prices': f"{theirs[first]:.3f}/{theirs[second]:.3f}",
+                             'kit_at_odds_api_line': (f"{at_theirs[first]:.3f}/{at_theirs[second]:.3f}"
+                                                      if at_theirs else 'absent')})
+    return {'agree': {k: v[0] for k, v in counts.items()}, 'disagree': {k: v[1] for k, v in counts.items()},
+            'rows': rows}
+
+
 def odds_api_client():
     from football_value_pipeline_v2_standalone import TheOddsAPI
     key = next((os.getenv(k, '').strip() for k in TheOddsAPI.KEY_ENV_NAMES if os.getenv(k, '').strip()), '')
@@ -287,6 +352,21 @@ def markdown(report):
         lines += ['<details><summary>Every difference</summary>', '']
         lines += _table(rows, ['league', 'kickoff_utc', 'match', 'price', *names, 'difference', 'within'])
         lines += ['</details>', '']
+    main_lines = report.get('main_lines')
+    if main_lines:
+        lines += ['## Main lines (kit v The Odds API)', '',
+                  f"Asian handicap: {main_lines['agree']['asian_handicap']} agree, "
+                  f"{main_lines['disagree']['asian_handicap']} differ. Goal lines: "
+                  f"{main_lines['agree']['goal_lines']} agree, {main_lines['disagree']['goal_lines']} differ.", '']
+        lines += _table(main_lines['rows'], ['league', 'kickoff_utc', 'match', 'market', 'kit_main', 'kit_prices',
+                                             'odds_api_main', 'odds_api_prices', 'kit_at_odds_api_line'])
+    for name, dup in report.get('duplicates', {}).items():
+        lines += [f'## Repeated events ({name})', '',
+                  f"Fixtures in our competitions: {dup['fixtures']}; listed more than once: "
+                  f"{dup['repeated_fixtures']}; parent_id empty per repeat (True = empty): "
+                  f"{dup['parent_id_patterns']}.", '', '<details><summary>Examples</summary>', '', '```json',
+                  json.dumps(dup['examples'], indent=1, default=str, ensure_ascii=False)[:20000], '```',
+                  '</details>', '']
     for name, shape in report['board_shape'].items():
         lines += [f'<details><summary>Board shape ({name})</summary>', '', '```json',
                   json.dumps(shape, indent=1, default=str)[:6000], '```', '</details>', '']
@@ -328,6 +408,9 @@ def main(argv=None) -> int:
         board = [e for e in events[kit_names[0]] if e['league_key'] in chosen]
         prices[f'{kit_names[0]} v {op.THE_ODDS_API}'] = op.compare_providers(
             {kit_names[0]: board, op.THE_ODDS_API: items}, tolerance)
+        main_lines = main_line_report(board, items)
+    else:
+        main_lines = None
     report = {
         'run_at_utc': op.iso(datetime.now(timezone.utc)), 'tolerance': tolerance,
         'requests': requests_made,
@@ -339,6 +422,8 @@ def main(argv=None) -> int:
         'team_names': {name: match_report(events[name], schedule) for name in kit_names},
         'prices': prices,
         'price_summary': {label: price_summary(result) for label, result in prices.items()},
+        'main_lines': main_lines,
+        'duplicates': {name: duplicate_report(payload, leagues) for name, (payload, _) in boards.items()},
     }
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / 'odds_provider_compare.json').write_text(json.dumps(report, indent=2, sort_keys=True,
