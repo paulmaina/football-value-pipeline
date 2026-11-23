@@ -508,7 +508,8 @@ class LiveMasterUnchangedTest(OldMasterLive, unittest.TestCase):
             (out / name).write_text('stale', encoding='utf-8')
         self.run_refresh(True, out)
         self.assertFalse(any((out / name).exists() for name in mr.SUPERSEDED_FILES))
-        masters = sorted(p.name for p in out.glob('master_shortlist*.csv'))
+        masters = sorted(p.name for p in out.glob('master_shortlist*.csv')
+                         if p.name != 'master_shortlist_strong.csv')  # the strong-team shadow, tested apart
         self.assertEqual(masters, ['master_shortlist.csv', 'master_shortlist_audit.csv', 'master_shortlist_new.csv'])
 
     def test_overlap_reads_the_live_list_without_changing_the_new_master(self):
