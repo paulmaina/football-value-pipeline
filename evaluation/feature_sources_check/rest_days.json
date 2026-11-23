@@ -1,0 +1,348 @@
+{
+ "part_a_held_fixtures": {
+  "appearances": 67140,
+  "domestic_league_appearances": 61852,
+  "european_appearances": 5288,
+  "first_date": "2015-08-07",
+  "last_date": "2026-11-08",
+  "european_teams": 240,
+  "european_teams_linked_to_domestic": 120,
+  "ambiguous_identities": [],
+  "by_period": {
+   "development": {
+    "team_matches": 16460,
+    "with_rest_value_share": 0.9712,
+    "last_match_european_away_share": 0.0365,
+    "days_since_last_median": 7.0,
+    "short_rest_le_3d_share": 0.0956,
+    "matches_prev_14d_mean": 1.608
+   },
+   "holdout": {
+    "team_matches": 1292,
+    "with_rest_value_share": 0.9582,
+    "last_match_european_away_share": 0.0186,
+    "days_since_last_median": 7.0,
+    "short_rest_le_3d_share": 0.0267,
+    "matches_prev_14d_mean": 1.471
+   },
+   "retrospective": {
+    "team_matches": 2922,
+    "with_rest_value_share": 0.9671,
+    "last_match_european_away_share": 0.0592,
+    "days_since_last_median": 7.0,
+    "short_rest_le_3d_share": 0.1093,
+    "matches_prev_14d_mean": 1.703
+   },
+   "validation": {
+    "team_matches": 2736,
+    "with_rest_value_share": 0.9452,
+    "last_match_european_away_share": 0.0486,
+    "days_since_last_median": 7.0,
+    "short_rest_le_3d_share": 0.1032,
+    "matches_prev_14d_mean": 1.501
+   },
+   "warm_up": {
+    "team_matches": 38442,
+    "with_rest_value_share": 0.9714,
+    "last_match_european_away_share": 0.0214,
+    "days_since_last_median": 7.0,
+    "short_rest_le_3d_share": 0.109,
+    "matches_prev_14d_mean": 1.631
+   }
+  },
+  "by_league": {
+   "Bundesliga": {
+    "team_matches": 6894,
+    "after_european_match_share": 0.0811,
+    "last_match_european_away_share": 0.0405
+   },
+   "EPL": {
+    "team_matches": 8560,
+    "after_european_match_share": 0.0765,
+    "last_match_european_away_share": 0.0386
+   },
+   "Eredivisie": {
+    "team_matches": 6800,
+    "after_european_match_share": 0.0356,
+    "last_match_european_away_share": 0.0178
+   },
+   "LaLiga": {
+    "team_matches": 8598,
+    "after_european_match_share": 0.0748,
+    "last_match_european_away_share": 0.0375
+   },
+   "Ligue1": {
+    "team_matches": 7894,
+    "after_european_match_share": 0.0524,
+    "last_match_european_away_share": 0.0265
+   },
+   "PrimeiraLiga": {
+    "team_matches": 6928,
+    "after_european_match_share": 0.045,
+    "last_match_european_away_share": 0.0221
+   },
+   "SerieA": {
+    "team_matches": 8580,
+    "after_european_match_share": 0.0622,
+    "last_match_european_away_share": 0.0311
+   },
+   "SuperLig": {
+    "team_matches": 7598,
+    "after_european_match_share": 0.0192,
+    "last_match_european_away_share": 0.0095
+   }
+  },
+  "domestic_teams_with_european_matches_by_season": {
+   "2015/16": {
+    "UCL": 21,
+    "UEL": 0
+   },
+   "2016/17": {
+    "UCL": 22,
+    "UEL": 0
+   },
+   "2017/18": {
+    "UCL": 22,
+    "UEL": 0
+   },
+   "2018/19": {
+    "UCL": 24,
+    "UEL": 0
+   },
+   "2019/20": {
+    "UCL": 22,
+    "UEL": 0
+   },
+   "2020/21": {
+    "UCL": 24,
+    "UEL": 21
+   },
+   "2021/22": {
+    "UCL": 24,
+    "UEL": 21
+   },
+   "2022/23": {
+    "UCL": 23,
+    "UEL": 22
+   },
+   "2023/24": {
+    "UCL": 25,
+    "UEL": 20
+   },
+   "2024/25": {
+    "UCL": 26,
+    "UEL": 18
+   },
+   "2025/26": {
+    "UCL": 27,
+    "UEL": 17
+   },
+   "2026/27": {
+    "UCL": 27,
+    "UEL": 16
+   }
+  }
+ },
+ "part_b_espn_audit": {
+  "sample": {
+   "seasons": [
+    "2016/17",
+    "2019/20",
+    "2022/23",
+    "2024/25"
+   ],
+   "per_league_season": 4,
+   "seed": 20261123,
+   "team_seasons": 128
+  },
+  "espn_competitive_matches": 5493,
+  "espn_competitive_missing_from_held": 704,
+  "missing_by_competition": {
+   "uefa.europa": 169,
+   "esp.copa_del_rey": 62,
+   "eng.fa": 58,
+   "ger.dfb_pokal": 55,
+   "fra.coupe_de_france": 51,
+   "ned.cup": 50,
+   "eng.league_cup": 47,
+   "ita.coppa_italia": 42,
+   "uefa.europa.conf": 40,
+   "por.taca.portugal": 24,
+   "uefa.europa.conf_qual": 18,
+   "ned.1": 17,
+   "uefa.champions": 14,
+   "fra.coupe_de_la_ligue": 14,
+   "uefa.champions_qual": 10,
+   "uefa.europa_qual": 10,
+   "esp.super_cup": 5,
+   "eng.charity": 4,
+   "ger.super_cup": 3,
+   "ned.supercup": 2,
+   "fifa.cwc": 2,
+   "fra.super_cup": 2,
+   "ger.playoff.relegation": 2,
+   "uefa.super_cup": 1,
+   "ita.super_cup": 1,
+   "tur.1": 1
+  },
+  "league_match_count_mismatches": [
+   {
+    "season": "2016/17",
+    "league": "Eredivisie",
+    "team": "Utrecht",
+    "espn_name": "FC Utrecht",
+    "match": "reviewed",
+    "held_league_matches": 34,
+    "espn_league_matches": 38
+   },
+   {
+    "season": "2016/17",
+    "league": "Eredivisie",
+    "team": "AZ Alkmaar",
+    "espn_name": "AZ Alkmaar",
+    "match": "reviewed",
+    "held_league_matches": 34,
+    "espn_league_matches": 38
+   },
+   {
+    "season": "2022/23",
+    "league": "LaLiga",
+    "team": "Sevilla",
+    "espn_name": "Sevilla",
+    "match": "reviewed",
+    "held_league_matches": 38,
+    "espn_league_matches": 37
+   },
+   {
+    "season": "2022/23",
+    "league": "LaLiga",
+    "team": "Sociedad",
+    "espn_name": "Real Sociedad",
+    "match": "reviewed",
+    "held_league_matches": 38,
+    "espn_league_matches": 37
+   },
+   {
+    "season": "2022/23",
+    "league": "LaLiga",
+    "team": "Valencia",
+    "espn_name": "Valencia",
+    "match": "reviewed",
+    "held_league_matches": 38,
+    "espn_league_matches": 37
+   },
+   {
+    "season": "2022/23",
+    "league": "Eredivisie",
+    "team": "Sparta Rotterdam",
+    "espn_name": "Sparta Rotterdam",
+    "match": "reviewed",
+    "held_league_matches": 34,
+    "espn_league_matches": 38
+   },
+   {
+    "season": "2022/23",
+    "league": "Eredivisie",
+    "team": "Heerenveen",
+    "espn_name": "Heerenveen",
+    "match": "reviewed",
+    "held_league_matches": 34,
+    "espn_league_matches": 36
+   },
+   {
+    "season": "2022/23",
+    "league": "PrimeiraLiga",
+    "team": "Gil Vicente",
+    "espn_name": "Gil Vicente",
+    "match": "reviewed",
+    "held_league_matches": 34,
+    "espn_league_matches": 33
+   },
+   {
+    "season": "2022/23",
+    "league": "PrimeiraLiga",
+    "team": "Famalicao",
+    "espn_name": "FC Famalicao",
+    "match": "reviewed",
+    "held_league_matches": 34,
+    "espn_league_matches": 33
+   },
+   {
+    "season": "2024/25",
+    "league": "Eredivisie",
+    "team": "Heerenveen",
+    "espn_name": "Heerenveen",
+    "match": "reviewed",
+    "held_league_matches": 34,
+    "espn_league_matches": 35
+   },
+   {
+    "season": "2024/25",
+    "league": "Eredivisie",
+    "team": "Nijmegen",
+    "espn_name": "NEC Nijmegen",
+    "match": "reviewed",
+    "held_league_matches": 34,
+    "espn_league_matches": 35
+   }
+  ],
+  "all": {
+   "league_team_matches": 4407,
+   "days_since_last_differs_share": 0.142,
+   "days_since_last_mean_abs_diff_when_differs": 5.52,
+   "matches_prev_14d_differs_share": 0.2296,
+   "matches_prev_21d_differs_share": 0.2979,
+   "last_match_european_away_differs_share": 0.0259
+  },
+  "by_season": {
+   "2016": {
+    "league_team_matches": 1152,
+    "days_since_last_differs_share": 0.1717,
+    "days_since_last_mean_abs_diff_when_differs": 4.91,
+    "matches_prev_14d_differs_share": 0.27,
+    "matches_prev_21d_differs_share": 0.349,
+    "last_match_european_away_differs_share": 0.0408
+   },
+   "2019": {
+    "league_team_matches": 951,
+    "days_since_last_differs_share": 0.165,
+    "days_since_last_mean_abs_diff_when_differs": 6.29,
+    "matches_prev_14d_differs_share": 0.2503,
+    "matches_prev_21d_differs_share": 0.3028,
+    "last_match_european_away_differs_share": 0.0347
+   },
+   "2022": {
+    "league_team_matches": 1160,
+    "days_since_last_differs_share": 0.1171,
+    "days_since_last_mean_abs_diff_when_differs": 5.83,
+    "matches_prev_14d_differs_share": 0.2017,
+    "matches_prev_21d_differs_share": 0.2647,
+    "last_match_european_away_differs_share": 0.0138
+   },
+   "2024": {
+    "league_team_matches": 1144,
+    "days_since_last_differs_share": 0.1184,
+    "days_since_last_mean_abs_diff_when_differs": 5.23,
+    "matches_prev_14d_differs_share": 0.2002,
+    "matches_prev_21d_differs_share": 0.2762,
+    "last_match_european_away_differs_share": 0.0157
+   }
+  },
+  "european_club_seasons": {
+   "league_team_matches": 1794,
+   "days_since_last_differs_share": 0.2322,
+   "days_since_last_mean_abs_diff_when_differs": 5.64,
+   "matches_prev_14d_differs_share": 0.3618,
+   "matches_prev_21d_differs_share": 0.4582,
+   "last_match_european_away_differs_share": 0.0635
+  },
+  "requests": {
+   "cached": 288
+  },
+  "failed_requests": [],
+  "team_matching": {
+   "reviewed": 125,
+   "close": 3
+  }
+ }
+}
