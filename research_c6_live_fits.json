@@ -14,9 +14,9 @@
   ]
  },
  "built_with": {
-  "commit": "6c2d0ce5baf3edba1ae0aa0b193a7a2ad6a325cd",
-  "end_exclusive": "2026-11-16",
-  "config_sha256": "d9bff8010bf809325d420f53dcc3c6b849abd5d6e1d54609b6fad161dce8f3fa",
+  "commit": "02dd717a96e62947bc67b41665df2dcda144056c",
+  "end_exclusive": "2026-11-30",
+  "config_sha256": "389649a103e0d9f41a871214e7fdfcd659eadc95da179e530db8dfd92714e5fd",
   "seasons": [
    "2122",
    "2223",
@@ -28,7 +28,7 @@
   "research_rows": 10403,
   "holdout_period_rows": 640,
   "last_result_date": "2026-11-08",
-  "results_known_through_utc": "2026-11-14T17:59:14.550159Z",
+  "results_known_through_utc": "2026-11-23T07:33:06.468366Z",
   "leagues": [
    "EPL",
    "LaLiga",
@@ -1305,6 +1305,17 @@
    "slope": 1.1447833796793323,
    "slope_status": "fitted",
    "slope_matches": 7743
+  },
+  {
+   "origin": "2026-11-16",
+   "end_exclusive": "2026-11-30",
+   "rho": -0.016463701485858812,
+   "delta": 0.055466179703356835,
+   "low_score_status": "fitted",
+   "low_score_matches": 10403,
+   "slope": 1.1507759984871408,
+   "slope_status": "fitted",
+   "slope_matches": 7809
   }
  ]
 }

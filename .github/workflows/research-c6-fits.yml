@@ -2,13 +2,16 @@ name: Refresh live C6 and CE3n research fits
 
 on:
   schedule:
-    # Mondays 17:05 UTC, after the 16:17 training refresh. Both scripts build only on fold origins
-    # (every second Monday); on the other Mondays they record "not a fit day" and stop.
-    - cron: '5 17 * * 1'
+    # Every day 17:05 UTC, after the 16:17 training refresh. Both scripts build whenever the committed fit
+    # lacks the window holding today (a new window opens every second Monday), whatever the day, so a run
+    # GitHub starts late (after midnight) or a refresh that failed is caught up by the next run. When the
+    # window is already published they stop at once (nothing built, logged or committed). Since 23 Nov 2026;
+    # before, they built only on the origin's own UTC day and the 16 Nov 2026 window was missed.
+    - cron: '5 17 * * *'
   workflow_dispatch:
     inputs:
       any_day:
-        description: Rebuild the current window even if today is not a fold origin (e.g. after a missed refresh)
+        description: Rebuild the current window even if the committed fit already holds it
         type: boolean
         default: true
 
@@ -40,8 +43,8 @@ jobs:
       # and commits it on latest main. Any failure leaves the committed fit in place; live forecasts then
       # carry the "stale fit" warning until a refresh succeeds. The harness's locked fits are never touched.
       # Each fit-day run appends one line to football_output_v2/model_activity/activity_log.jsonl (model_activity.py):
-      # published (in the fit's commit), skipped or failed with the reason (in a commit of its own). Other Mondays
-      # log and commit nothing.
+      # published (in the fit's commit), skipped or failed with the reason (in a commit of its own). Days whose
+      # window is already published log and commit nothing.
       - name: Build, validate and publish the live fits
         id: c6
         env:

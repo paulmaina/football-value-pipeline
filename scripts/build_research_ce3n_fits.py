@@ -30,8 +30,8 @@ Two bases:
     python scripts/build_research_ce3n_fits.py --leave-out-holdout --end 2026-11-09 --output /tmp/check.json
     python scripts/build_research_ce3n_fits.py --scheduled --publish     # the fortnightly GitHub refresh
 
-The scheduled refresh runs in .github/workflows/research-c6-fits.yml after the C6 refresh, every second Monday,
-with C6's publish conditions: every domestic league's current-season file and the UCL and UEL training data
+The scheduled refresh runs in .github/workflows/research-c6-fits.yml after the C6 refresh, every day, and builds
+whenever the committed fit lacks the window holding today (since 23 Nov 2026), with C6's publish conditions: every domestic league's current-season file and the UCL and UEL training data
 checked at least 12 hours after the origin, every earlier window kept and the window opening today present. Any
 failure leaves the committed fit in place, and live v6 forecasts warn that their CE3n fit is stale.
 """
@@ -438,8 +438,11 @@ def main(argv=None):
                         help='live builder without the European and domestic holdout results (check only)')
     parser.add_argument('--output', type=Path)
     parser.add_argument('--workers', type=int)
-    parser.add_argument('--scheduled', action='store_true', help='live: build only on a fold origin (every second Monday)')
+    parser.add_argument('--scheduled', action='store_true',
+                        help='live: build only when the committed fit lacks the window holding today')
     parser.add_argument('--publish', action='store_true', help='live: validate and commit the file on latest main')
+    parser.add_argument('--rebuild-windows', action='store_true',
+                        help='live: rebuild the windows already published too (only after a corrected result)')
     args = parser.parse_args(argv)
     cfg = json.loads(eh.CONFIG.read_text(encoding='utf-8'))
     if args.basis == 'harness':
@@ -461,11 +464,12 @@ def main(argv=None):
         return 0
     today = pd.Timestamp(args.today or datetime.now(timezone.utc).date().isoformat())
     origin = ce3n.expected_origin(today, european_fold_rule(cfg))
-    if args.scheduled and origin != today:
+    if args.scheduled and c6b.current(ce3n.FITS, origin):
         upcoming = origin + pd.Timedelta(days=int(cfg['european']['step_days']))
-        text = f'Not a CE3n fit day: the current window opened {origin.date()}; next refresh {upcoming.date()}.'
-        c6b.write_summary([text])
-        # Not a fit day: nothing is built, logged or committed (model_activity logs real outcomes only).
+        c6b.write_summary([f'CE3n fit current: the committed file holds the window from {origin.date()}; '
+                           f'next window {upcoming.date()}.'])
+        # Nothing to do: nothing is built, logged or committed. A missing window is built whatever the day, and
+        # its outcome (published, skipped or failed) is logged (model_activity).
         return 0
     try:
         return _refresh(args, cfg, origin)
@@ -491,6 +495,8 @@ def _refresh(args, cfg, origin):
         known = min(c6b.results_known_through(cfg), european_known_through(args.cache))
     data = build(args.cache, cfg, 'live', args.workers, known)
     previous = json.loads(ce3n.FITS.read_text(encoding='utf-8')) if ce3n.FITS.exists() else None
+    if not getattr(args, 'rebuild_windows', False):
+        c6b.keep_published(data, previous)  # published windows are final; only new windows are added
     try:
         report = validate(data, previous if args.publish else None, origin.date().isoformat() if args.publish else None)
     except ValueError as exc:
