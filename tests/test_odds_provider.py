@@ -573,3 +573,36 @@ class ComparisonTests(Base):
         self.assertEqual(len(result['outside_tolerance']), 1)
         self.assertEqual(len(result['not_quoted_by_all']['pinnodds']), 1)
         self.assertIn('| NO |', op.comparison_markdown(result))
+
+    def test_check_script_reports_leagues_and_team_names(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location('odds_provider_compare',
+                                                      Path(__file__).resolve().parents[1] / 'scripts' /
+                                                      'odds_provider_compare.py')
+        script = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(script)
+        leagues = config()['leagues']
+        board = kit_board(self.kickoff)
+        board['events'].append({**board['events'][0], 'event_id': 99, 'league_name': 'Spain - LaLiga'})
+        report = script.league_report(board, leagues)
+        self.assertEqual(report['competitions']['EPL']['events'], 1)
+        self.assertEqual(report['competitions']['LaLiga']['events'], 0)
+        self.assertIn('Spain - LaLiga', [x['league_name'] for x in report['candidates']])
+        events = op.normalise_kit_board(board, provider='pinnapi', fetched_at=self.now, leagues=leagues, aliases={})
+        kick = stamp(self.kickoff)
+        same = {'EPL': [{'home_team': 'Arsenal', 'away_team': 'Chelsea', 'kickoff_utc': kick}]}
+        self.assertEqual(script.match_report(events, same, self.now)['matched'], 1)
+        other = {'EPL': [{'home_team': 'Arsenal FC', 'away_team': 'Chelsea Blues', 'kickoff_utc': kick},
+                         {'home_team': 'Spurs', 'away_team': 'Leeds', 'kickoff_utc': stamp(self.kickoff
+                                                                                          - timedelta(hours=1))}]}
+        result = script.match_report(events, other, self.now)
+        self.assertEqual((result['matched'], len(result['mismatched'])), (0, 1))
+        self.assertIn('Chelsea Blues', result['mismatched'][0]['schedule_at_same_kickoff'][0])
+        self.assertEqual([x['schedule'] for x in result['schedule_not_on_board']],
+                         ['Arsenal FC v Chelsea Blues', 'Spurs v Leeds'])
+        text = script.markdown({'run_at_utc': kick, 'tolerance': 0.02, 'requests': {'pinnapi': [
+            {'status': 200, 'seconds': 0.1, 'bytes': 10, 'headers': {'x-ratelimit-remaining': '99'}}]},
+            'allowances': {'pinnapi': 100}, 'odds_api_usage': None, 'errors': {},
+            'leagues': {'pinnapi': report}, 'team_names': {'pinnapi': result}, 'prices': {}, 'board_shape': {}})
+        self.assertIn('x-ratelimit-remaining', text)
+        self.assertIn('Spain - LaLiga', text)
