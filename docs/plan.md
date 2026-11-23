@@ -1062,6 +1062,7 @@ Agreed with Paul to address. Each item is one PR unless stated, and each stops f
     Limit: ESPN has no Turkish Cup or Super Cup and no Portuguese League Cup or Super Cup. For Süper Lig and Primeira Liga clubs, two of the three holdout leagues, the rest days around those matches are overstated and the match counts understated. The candidate's report states this, with coverage counts per league.
 
     Like C6R it would queue behind 2g-4 and follow open item 2's fingerprint timing. It starts from the ESPN schedule cache and `research_rest.py`.
+15. [ ] **Option: UCL/UEL alternate lines at 48 hours** (Paul, 23 Nov 2026; not built). Per-event markets, and with them Pinnacle's alternate goal lines, are fetched only for fixtures inside the 24-hour window. UCL and UEL fixtures priced a day or more ahead therefore often have no Pinnacle 2.5 quote: their main goal line was 2.75–5 on 23 Nov, and all 18 UCL rows in the first live run had a blank cagey view. This was the same under The Odds API on 22 Nov. The 24-hour window stays as it is for now. The option: on one forecast run a day, fetch UCL/UEL per-event markets out to 48 hours, if the pinnapi budget allows (the daily projection in the usage log, `odds_provider_projection`, against 100 requests a day). It touches `football_value_pipeline_v2_standalone.py` (in `evaluation_harness.SETUP_FILES`), so mind the 2g-4 fingerprint timing.
 
 ## Decisions
 
