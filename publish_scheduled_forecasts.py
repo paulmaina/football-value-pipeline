@@ -50,6 +50,7 @@ def usage_record(outcome,attempt,repo=None):
     if outcome.get('message'):record['message']=outcome['message']
     if outcome.get('forecast_rows') is not None:record['forecast_rows']=outcome['forecast_rows']
     if outcome.get('odds_provider'):record['odds_provider']=outcome['odds_provider']  # provider switch on only
+    if outcome.get('european_alternates_48h'):record['european_alternates_48h']=outcome['european_alternates_48h']
     if repo is not None and record.get('odds_provider'):
         import odds_provider  # reporting only: projected kit requests per day against the daily allowance
         record['odds_provider_projection']=odds_provider.projection_for(record,repo)
