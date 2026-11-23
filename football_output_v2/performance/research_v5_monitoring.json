@@ -5,7 +5,7 @@
       "not_replayed:no corrected D distribution": 50,
       "offer_out_of_scope:pinnacle draw_no_bet": 2
     },
-    "d_pow2_minus_d_log_loss": 0.006279074107898501,
+    "d_pow2_minus_d_log_loss": 0.006279074111311261,
     "eligible": false,
     "fallbacks": {
       "domestic_fixtures": 66,
@@ -17,8 +17,8 @@
     "graded_fallbacks": 0,
     "interval_95": null,
     "log_loss": {
-      "D": 0.8913794402267436,
-      "D_pow2": 0.8976585143346422
+      "D": 0.8913794402238174,
+      "D_pow2": 0.8976585143351286
     },
     "matches": 12,
     "rule": "After at least 150 graded domestic matches across at least 3 weeks, roll back the cagey correction D_pow2 if its log loss on AH all lines minus D's, on the same frozen Pinnacle quotes, matches and offers, has a week-resampled 95% interval entirely above zero. Rolling back is setting cagey_correction_config.json cagey_correction_live.domestic to \"D\".",
@@ -295,7 +295,7 @@
     "matches": 62,
     "rule": "After at least 150 graded matches across at least 3 weeks, roll back research v5 if its research log loss on AH all lines minus v4's, on the same frozen inputs, matches and offers, has a week-resampled 95% interval entirely above zero.",
     "triggered": false,
-    "v5_minus_v4_log_loss": 0.004118334232158044,
+    "v5_minus_v4_log_loss": 0.004118334232158036,
     "weeks": 1
   },
   "ucl_live_check": {
