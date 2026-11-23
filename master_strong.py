@@ -16,7 +16,7 @@ if it passed its pass rule (master_strong_config.json research_roles; `active`).
 
 Shadow only: master_shortlist_strong.csv beside the live files. It never changes master_shortlist.csv, a probability,
 a pick or a stake. The same `annotate` and `select` serve the live shadow and the offline check
-(evaluation_harness.py --mode master-strong), so the two can't drift apart.
+(master_strong_check.py), so the two can't drift apart.
 """
 from __future__ import annotations
 
@@ -79,7 +79,7 @@ def settings(config: Mapping, **overrides) -> Dict[str, object]:
     missing = [k for k, v in out.items() if v is None]
     if missing:
         raise ValueError(f"strong master thresholds not set ({', '.join(missing)}): run the offline check first "
-                         f"(evaluation_harness.py --mode master-strong) and record its choices in the config")
+                         f"(master_strong_check.py) and record its choices in the config")
     return out
 
 

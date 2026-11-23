@@ -1,6 +1,6 @@
 {
   "version": "master-strong-team-v1",
-  "decided": "Decided by Paul, 23 Nov 2026 (plan Phase 4c, 'Strong-team master'): market spread of at most 6 picks per market, 15 matches, one pick per match; rank by the cagey chance of winning; a strong-team and proven-record gate with thresholds fixed and tested first; fill to 15 with today's rule, labelled 'not proven'; poorly calibrated leagues ranked lower, not excluded; four research roles (R1-R4), each kept only if it passes its pass rule. Everything here was written before any figure was computed; E, G, the league trust table and the research roles' verdicts are filled in afterwards, once, by the offline check (evaluation_harness.py --mode master-strong), and recorded in docs/plan.md.",
+  "decided": "Decided by Paul, 23 Nov 2026 (plan Phase 4c, 'Strong-team master'): market spread of at most 6 picks per market, 15 matches, one pick per match; rank by the cagey chance of winning; a strong-team and proven-record gate with thresholds fixed and tested first; fill to 15 with today's rule, labelled 'not proven'; poorly calibrated leagues ranked lower, not excluded; four research roles (R1-R4), each kept only if it passes its pass rule. Everything here was written before any figure was computed; E, G, the league trust table and the research roles' verdicts are filled in afterwards, once, by the offline check (master_strong_check.py), and recorded in docs/plan.md.",
   "status": "shadow only: never replaces master_shortlist.csv, never changes a probability, a pick or a stake.",
   "file": "master_shortlist_strong.csv",
   "summary_file": "master_shortlist_strong_summary.json",
@@ -90,7 +90,7 @@
     "seed": 136
   },
   "offline_check": {
-    "rule": "Locked backtest only (python evaluation_harness.py --mode master-strong): development decides, validation checks, retrospective is a diagnostic; the holdout is never read. Research view C6 (live domestic v5), cagey view D, Pinnacle reference as the master backtest. Reports picks per week and per market group, results by tier, strong minus live-master flat-stake return (week bootstrap, 2000 samples, seed 136), the track-record test (among safe offers: proven minus not-proven mean observed - market no-loss) and each research role's pass rule.",
+    "rule": "Locked backtest only (python master_strong_check.py): development decides, validation checks, retrospective is a diagnostic; the holdout is never read. Research view C6 (live domestic v5), cagey view D, Pinnacle reference as the master backtest. Reports picks per week and per market group, results by tier, strong minus live-master flat-stake return (week bootstrap, 2000 samples, seed 136), the track-record test (among safe offers: proven minus not-proven mean observed - market no-loss) and each research role's pass rule.",
     "pool_limitation": "Offline offers are Home win, Away win and the main AH line only (no double chance, no alternate lines), so the double-chance cap and most plus lines are exercised only live."
   }
 }

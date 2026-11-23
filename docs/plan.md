@@ -1035,7 +1035,7 @@ Six diagnostics every later candidate is read against. Reporting only: no live p
      - Selection: proven offers by league trust, then R2, then chance of profit, taken greedily with the caps; then the fill (today's safe, fill, risky fill steps, same caps), labelled "not proven".
    - **Why the research model gets only these roles.** Once the market is known, the research view adds nothing on 1X2 (disagreement test, b −0.23 for C on development, clear of zero). C6 failed its holdout home slope (0.79). In #171, bets the research view disliked did better than the cagey tier predicted (+3.3 points). Its strengths are independence from odds and CE3n's better calibration on UCL. R2 may fail its pass rule for the #171 reason.
    - **Change from the plan, made before anything was computed:** the record uses any venue, because the frozen forecast holds each team's last ten matches at any venue; a same-venue record would leave about five, below the 6-match minimum.
-   - **Offline check** (`python evaluation_harness.py --mode master-strong`, locked; development decides, validation checks, retrospective is a diagnostic; the holdout is never read):
+   - **Offline check** (`python master_strong_check.py`, locked; development decides, validation checks, retrospective is a diagnostic; the holdout is never read):
      - E, G and the league trust table chosen once by the config's choice rules;
      - the track-record test (among safe offers, proven minus not-proven, observed minus market no-loss);
      - each research role's pass rule;
