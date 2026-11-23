@@ -102,3 +102,25 @@ class ForecastInputsTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class OfflineHistoryParityTest(unittest.TestCase):
+    def test_offline_lookup_matches_form_history(self):
+        import master_strong_check as check
+        teams = ['Ajax', 'PSV', 'AZ', 'Utrecht', 'Twente']
+        rows = []
+        day = pd.Timestamp('2026-08-01')
+        for i in range(60):
+            home, away = teams[i % 5], teams[(i * 2 + 1) % 5]
+            if home == away:
+                away = teams[(i + 2) % 5]
+            rows.append({'Date': day + pd.Timedelta(days=3 * i), 'HomeTeam': home, 'AwayTeam': away,
+                         'FTHG': i % 4, 'FTAG': (i * 7) % 3})
+        history = pd.DataFrame(rows)
+        index = check.team_index(history)
+        for kickoff in ('2026-09-10', '2026-10-01', '2026-12-30'):
+            expected = form_history(history, 'Ajax', 'PSV', pd.Timestamp(kickoff, tz='UTC'))
+            for side, team in (('home', 'Ajax'), ('away', 'PSV')):
+                fast = check.last_matches(index, team, kickoff)
+                self.assertEqual(tr.team_margins(fast, team), tr.team_margins(expected[side], team))
+                self.assertEqual([r['date'][:10] for r in fast], [r['date'][:10] for r in expected[side]])
