@@ -1,0 +1,401 @@
+{
+ "period": "development",
+ "dates": [
+  "2024-07-01",
+  "2025-01-01"
+ ],
+ "groups": {
+  "1X2": {
+   "C6_minus_C6X": {
+    "fixtures": 809,
+    "weeks": 18,
+    "mean_gain": 0.0021083533325081975,
+    "interval_95": [
+     -0.0010334829554940511,
+     0.005657892433883631
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6X": {
+    "fixtures": 796,
+    "weeks": 18,
+    "mean_gain": -0.021674734659975287,
+    "interval_95": [
+     -0.03693427229100658,
+     -0.006364392744889158
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6": {
+    "fixtures": 796,
+    "weeks": 18,
+    "mean_gain": -0.023212412425328104,
+    "interval_95": [
+     -0.03884130571985626,
+     -0.007903286669930999
+    ],
+    "clear_of_zero": false
+   },
+   "C6_minus_C6Xplacebo": {
+    "fixtures": 809,
+    "weeks": 18,
+    "mean_gain": -0.006178732102615978,
+    "interval_95": [
+     -0.011338192573950476,
+     -0.0012296239088375393
+    ],
+    "clear_of_zero": false
+   },
+   "mean_log_loss": {
+    "C": 0.987781543228027,
+    "C6": 0.9854634910286115,
+    "C6X": 0.9833551376961035,
+    "C6Xplacebo": 0.9916422231312275,
+    "M": 0.9622016501059708
+   }
+  },
+  "Over 1.5": {
+   "C6_minus_C6X": {
+    "fixtures": 809,
+    "weeks": 18,
+    "mean_gain": -0.0005548350302500248,
+    "interval_95": [
+     -0.00352908104367867,
+     0.002741512813085852
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6X": {
+    "fixtures": 796,
+    "weeks": 18,
+    "mean_gain": -0.007254190901950185,
+    "interval_95": [
+     -0.013485893010649985,
+     -0.0010046726315145027
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6": {
+    "fixtures": 796,
+    "weeks": 18,
+    "mean_gain": -0.006942867620273777,
+    "interval_95": [
+     -0.014224973434170665,
+     0.0006351318760977878
+    ],
+    "clear_of_zero": false
+   },
+   "C6_minus_C6Xplacebo": {
+    "fixtures": 809,
+    "weeks": 18,
+    "mean_gain": -0.0001814003629279553,
+    "interval_95": [
+     -0.002978341753679968,
+     0.0028799569456939914
+    ],
+    "clear_of_zero": false
+   },
+   "mean_log_loss": {
+    "C": 0.5073091516047932,
+    "C6": 0.5064175643045404,
+    "C6X": 0.5069723993347905,
+    "C6Xplacebo": 0.5065989646674685,
+    "M": 0.5052460860135584
+   }
+  },
+  "AH all": {
+   "C6_minus_C6X": {
+    "fixtures": 809,
+    "weeks": 18,
+    "mean_gain": 0.0019351425622287544,
+    "interval_95": [
+     -0.0003881875877112889,
+     0.0045618094250739144
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6X": {
+    "fixtures": 796,
+    "weeks": 18,
+    "mean_gain": -0.01664467553504948,
+    "interval_95": [
+     -0.02671975944099824,
+     -0.005972379613352117
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6": {
+    "fixtures": 796,
+    "weeks": 18,
+    "mean_gain": -0.01830338026098903,
+    "interval_95": [
+     -0.02911695270286873,
+     -0.007302876490385829
+    ],
+    "clear_of_zero": false
+   },
+   "C6_minus_C6Xplacebo": {
+    "fixtures": 809,
+    "weeks": 18,
+    "mean_gain": -0.004722040399153243,
+    "interval_95": [
+     -0.008414766389231332,
+     -0.0014592628326132598
+    ],
+    "clear_of_zero": false
+   },
+   "mean_log_loss": {
+    "C": 0.7198954399157856,
+    "C6": 0.7189602771063064,
+    "C6X": 0.7170251345440776,
+    "C6Xplacebo": 0.7236823175054596,
+    "M": 0.7018605769746856
+   }
+  },
+  "AH draw-sensitive": {
+   "C6_minus_C6X": {
+    "fixtures": 809,
+    "weeks": 18,
+    "mean_gain": 0.0018185243457518195,
+    "interval_95": [
+     -0.0008722396831562508,
+     0.004856713525203389
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6X": {
+    "fixtures": 796,
+    "weeks": 18,
+    "mean_gain": -0.018957054399229022,
+    "interval_95": [
+     -0.03107145334148971,
+     -0.006618984611044072
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6": {
+    "fixtures": 796,
+    "weeks": 18,
+    "mean_gain": -0.02037064552210606,
+    "interval_95": [
+     -0.03266124983667075,
+     -0.007970242075817537
+    ],
+    "clear_of_zero": false
+   },
+   "C6_minus_C6Xplacebo": {
+    "fixtures": 809,
+    "weeks": 18,
+    "mean_gain": -0.005002475649455244,
+    "interval_95": [
+     -0.009277407632306212,
+     -0.0009524404845088129
+    ],
+    "clear_of_zero": false
+   },
+   "mean_log_loss": {
+    "C": 0.7182558115852674,
+    "C6": 0.7168082050659973,
+    "C6X": 0.7149896807202456,
+    "C6Xplacebo": 0.7218106807154526,
+    "M": 0.6969727253414014
+   }
+  }
+ },
+ "calibration": {
+  "C6X_v3_against_C6": {
+   "rule": "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3",
+   "forecasts": 809,
+   "relative_slopes": {
+    "fixtures_compared": 809,
+    "candidate_on_common_fixtures": {
+     "home": 1.0122108152827594,
+     "away": 0.9533701120423576
+    },
+    "baseline_on_common_fixtures": {
+     "home": 0.9943043983064175,
+     "away": 0.9241988496202225
+    },
+    "in_band": {
+     "home": true,
+     "away": true
+    },
+    "closer_to_one_than_baseline": {
+     "home": false,
+     "away": true
+    },
+    "slope_passes": {
+     "home": true,
+     "away": true
+    }
+   },
+   "slopes": {
+    "home": 1.0122108152827594,
+    "away": 0.9533701120423576
+   },
+   "slopes_pass": true,
+   "bands_checked": 17,
+   "band_z_threshold": 2.973819901220312,
+   "failing_bands": [],
+   "worst_band": {
+    "outcome": "away",
+    "band_lower": 0.6,
+    "n": 33,
+    "mean_forecast": 0.6413234211157485,
+    "observed_rate": 0.5454545454545454,
+    "observed_minus_forecast": -0.09586887566120306,
+    "z": 1.1482713902642052
+   },
+   "bands_pass": true,
+   "passes": true
+  },
+  "C6_v2": {
+   "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+   "forecasts": 809,
+   "slopes": {
+    "home": 0.9943043983064175,
+    "away": 0.9241988496202225
+   },
+   "slopes_pass": true,
+   "bands_checked": 17,
+   "band_z_threshold": 2.973819901220312,
+   "failing_bands": [],
+   "worst_band": {
+    "outcome": "away",
+    "band_lower": 0.6,
+    "n": 34,
+    "mean_forecast": 0.6425858487951299,
+    "observed_rate": 0.5,
+    "observed_minus_forecast": -0.14258584879512992,
+    "z": 1.734859998398245
+   },
+   "bands_pass": true,
+   "passes": true
+  },
+  "C6X_v2": {
+   "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+   "forecasts": 809,
+   "slopes": {
+    "home": 1.0122108152827594,
+    "away": 0.9533701120423576
+   },
+   "slopes_pass": true,
+   "bands_checked": 17,
+   "band_z_threshold": 2.973819901220312,
+   "failing_bands": [],
+   "worst_band": {
+    "outcome": "away",
+    "band_lower": 0.6,
+    "n": 33,
+    "mean_forecast": 0.6413234211157485,
+    "observed_rate": 0.5454545454545454,
+    "observed_minus_forecast": -0.09586887566120306,
+    "z": 1.1482713902642052
+   },
+   "bands_pass": true,
+   "passes": true
+  }
+ },
+ "largest_1x2_move_from_C6": {
+  "mean": 0.021626136400627414,
+  "p90": 0.04524800167328325,
+  "max": 0.09595124372953645
+ },
+ "features": {
+  "fixtures": 809,
+  "both_sides_k_3_plus_share": 0.9616810877626699,
+  "x_for_sd": 0.25005829853634803,
+  "x_against_sd": 0.22416215767185915
+ },
+ "segment_either_side_under_3_xg_matches": {
+  "AH all": {
+   "fixtures": 31,
+   "weeks": 4,
+   "mean_gain": 0.01023670122059605,
+   "interval_95": [
+    -0.0009818659734896523,
+    0.01653418024257669
+   ],
+   "clear_of_zero": false
+  },
+  "1X2": {
+   "fixtures": 31,
+   "weeks": 4,
+   "mean_gain": 0.01226599688519656,
+   "interval_95": [
+    -0.0009961872465451191,
+    0.01796044448980814
+   ],
+   "clear_of_zero": false
+  }
+ },
+ "xg_fits": {
+  "windows": 12,
+  "fitted": 12,
+  "first": {
+   "origin": "2024-07-29",
+   "end_exclusive": "2024-08-12",
+   "alpha_xg_for": -0.013543627428139825,
+   "alpha_xg_against": 0.037149417445155944,
+   "gamma_xg_for": 0.1546533252706513,
+   "gamma_xg_against": 0.1477790796954854,
+   "se_alpha_xg_for": 0.08478810956353548,
+   "se_alpha_xg_against": 0.09174261778560466,
+   "se_gamma_xg_for": 0.09132735608662342,
+   "se_gamma_xg_against": 0.08871261693617125,
+   "matches": 630,
+   "status": "fitted",
+   "objective_gain_per_match": 0.004801956234081849
+  },
+  "last": {
+   "origin": "2024-12-30",
+   "end_exclusive": "2025-01-13",
+   "alpha_xg_for": 0.017161392493998923,
+   "alpha_xg_against": -0.03158477584731416,
+   "gamma_xg_for": 0.018258932618399348,
+   "gamma_xg_against": 0.26079272724407804,
+   "se_alpha_xg_for": 0.05855244350718535,
+   "se_alpha_xg_against": 0.06560336765843489,
+   "se_gamma_xg_for": 0.062436855760533615,
+   "se_gamma_xg_against": 0.06400945309890861,
+   "matches": 1403,
+   "status": "fitted",
+   "objective_gain_per_match": 0.006180052053297988
+  },
+  "median": {
+   "alpha_xg_for": 0.0037751618855431414,
+   "alpha_xg_against": -0.012854850054645787,
+   "gamma_xg_for": 0.03741739915811233,
+   "gamma_xg_against": 0.1957867923989603
+  }
+ },
+ "placebo_fits_median": {
+  "alpha_xg_for": -0.020202088557178033,
+  "alpha_xg_against": 0.062057698671196135,
+  "gamma_xg_for": 0.11167337241482,
+  "gamma_xg_against": 0.05196195201083723
+ },
+ "candidate": "C6X",
+ "version": "research-xg-form-walk-forward-v1",
+ "run_end_exclusive": "2025-07-01",
+ "xg_coverage_of_sides": {
+  "side_k_0": 4242,
+  "side_k_1_to_2": 217,
+  "side_k_3_plus": 4737
+ },
+ "window": 8,
+ "shrink": 4.0,
+ "min_side_matches": 3,
+ "min_matches": 600,
+ "prior_sd": 0.2,
+ "xg_table_sha256": "8c7536b5b3adbba647c3443805c32dfe5fe04f72fcf350474f616bee1741c8d0",
+ "leakage_checks": {
+  "xg_rows_on_or_after_run_end": 0,
+  "feature_matches_on_or_after_match_day": "0",
+  "research_rows_on_or_after_run_end": 0,
+  "xg_first_date": "2024-01-28",
+  "xg_last_date": "2025-05-25",
+  "ucl_rows_read": 0,
+  "odds_or_market_inputs_read_by_c6x": 0
+ }
+}
