@@ -38,7 +38,7 @@
     "PrimeiraLiga": {"pinnacle_league_names": ["Portugal - Primeira Liga", "Portugal - Liga Portugal"], "pinnacle_league_ids": []},
     "SuperLig": {"pinnacle_league_names": ["Turkey - Super League"], "pinnacle_league_ids": []}
   },
-  "leagues_verified": false,
+  "leagues_verified": true,
   "price_tolerance": {
     "decimal_odds_relative": 0.02,
     "note": "Cross-provider check (scripts/odds_provider_compare.py): for a fixture every provider quotes, each shared Pinnacle price must agree within 2% of the lower price. Quotes are fetched seconds apart, so a line that moved in between can differ; the report lists every difference."

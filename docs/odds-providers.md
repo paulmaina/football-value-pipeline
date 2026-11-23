@@ -107,9 +107,10 @@ bookmaker odds were attached", so it is a marker, not a provider name. The provi
 | Bookmakers | Pinnacle (forecast); Pinnacle, 1xBet, bet365 (closing) | Pinnacle only, whatever the source |
 | Double chance, draw no bet | yes | not offered: absent (never derived) |
 | Alternate lines | Pinnacle's alternates as The Odds API lists them | every line on Pinnacle's board |
-| Main line | The Odds API's `spreads`/`totals` | the provider's `is_alternate` flag (requested with `line_meta=1`); otherwise the most balanced pair |
+| Main line | The Odds API's `spreads`/`totals` (Pinnacle's own main line) | the most balanced pair: the live board carries no main-line flag (`is_alternate` is absent even with `line_meta=1`). It agreed with Pinnacle's main line in 94 of 106 fixtures for Asian handicap and 94 of 106 for goal lines (23 Nov 2026); otherwise it is the adjacent line |
 | Quote time | Pinnacle's `last_update` per market | fetch time on a fresh board; a board flagged `stale` dates from its `last_change` (so freshness rules drop old quotes) |
-| Corners | `alternate_totals_corners` (domestic) | Pinnacle corner child events (`parent_id`, "(Corners)") if the board carries them; not documented by either provider |
+| Corners | `alternate_totals_corners` (domestic) | Pinnacle corner child events (`parent_id`, "(Corners)", leagues such as "Italy - Serie A Corners"); 117 on the board on 23 Nov 2026 |
+| Other child events | not applicable | skipped: the board lists two specials per near-term fixture under the match's own teams and league (`parent_id` set, no draw, no lines, 750 limit); they are never a fixture |
 | Odds API credit guard | applies | does not apply: the providers decide |
 
 The odds client is still built only when an Odds API key is set (as today), so keep at least one; the
@@ -136,10 +137,36 @@ while the switch is on (bets are placed at Pinnacle only). Closing requests with
   identity, reset at UTC midnight back to pinnapi, and all three exhausted (`CREDITS_EXHAUSTED`, a switch to
   none). Also a key that isn't set, a block seeded from the usage log, and closing under another provider's
   event id. Every test is in `tests/test_odds_provider.py`.
-- **Cross-provider prices:** not run against live data. There are no pinnapi or pinnodds keys
-  (`PINNAPI_API_KEY` and `PINNODDS_API_KEY` are not set locally or as repository secrets). The check is
-  `scripts/odds_provider_compare.py` (tolerance 2% of the lower price, `price_tolerance` in the config). It
-  reports every difference and every fixture not matched at every provider; it is tested on synthetic boards.
+- **Cross-provider prices:** run against live data on 23 Nov 2026 in GitHub Actions (see "Live check"). The check is `scripts/odds_provider_compare.py` (tolerance 2% of the lower price, `price_tolerance` in the
+  config); it reports every difference and every fixture not matched at every provider.
+
+## Live check (23 Nov 2026, GitHub Actions)
+
+The keys exist only as repository secrets, so the check ran in `odds-provider-compare.yml` (manual, commits
+nothing) on #212's branch, three times:
+
+| Run | Actions run | pinnapi | pinnodds | The Odds API | What it found |
+|---|---|---|---|---|---|
+| 1 | 45112906138 | 1 request | 1 request | 10 free events calls, 0 credits | Nine of ten league names right; Süper Lig is "Turkey - Super League" (id 2592). 38 fixtures with other team spellings. Each near-term fixture listed three times. |
+| 2 | 45113356611 | 1 request | 1 request | 10 events calls; 12 odds calls, 15 credits | All ten found; every fixture outside Süper Lig matched with the new aliases. The repeats are child specials (`parent_id` set, no draw, no lines). |
+| 3 | 45113640328 | 1 request | 1 request | 10 events calls; 10 odds calls, 30 credits | All ten found; all 159 board fixtures matched; repeats skipped. |
+
+Every kit request returned HTTP 200 in under 2 s (about 2.8 MB) with no rate-limit headers, so usage is counted
+from our own request log: 3 requests on each key against a daily allowance of 100.
+
+Final results (run 3):
+
+- **League names:** every competition is found under its configured name: EPL 21, LaLiga 21, Bundesliga 18,
+  SerieA 21, Ligue1 18, Eredivisie 9, PrimeiraLiga 9, SuperLig 6, UCL 18, UEL 18 board fixtures
+  (`leagues_verified: true`).
+- **Team names:** all 159 board fixtures in our competitions match The Odds API's schedule (aliases in
+  `odds_provider_team_aliases.json`; each target is The Odds API's own spelling for the same fixture). Two
+  Süper Lig schedule fixtures (29 Nov) were not on Pinnacle's board yet.
+- **Prices:** pinnapi against pinnodds, 7,751 shared prices, none outside 2%. The board against The Odds API's
+  Pinnacle prices, 106 fixtures and 742 shared prices: 4 outside 2% (0.54%), all in two fixtures (largest 3.3%,
+  a 14.04 against 13.59 away price), consistent with a price moving between the two fetches.
+- **Main lines:** see "Main line" above: 12 of 106 fixtures differ in each market. The cagey grid's fit B uses
+  the main AH line, so for those fixtures it is fitted on the adjacent Pinnacle line.
 
 ## Before turning it on
 
@@ -157,11 +184,13 @@ while the switch is on (bets are placed at Pinnacle only). Closing requests with
 2. Add the keys as repository secrets and pass them to the forecast and closing workflows. Done 23 Nov 2026:
    Paul added both secrets; `scheduled-forecasts.yml` and `closing-odds.yml` pass `PINNAPI_API_KEY` and
    `PINNODDS_API_KEY` as optional secrets (an absent secret is an empty key, and that provider is skipped).
-3. Run `python scripts/odds_provider_compare.py --output <dir> --odds-api`. Fix the league names
-   (`leagues_verified`) and add reviewed aliases for every fixture not matched at every provider. Check that
-   the differences are within tolerance. The report lists them all.
+3. Run the check (`odds-provider-compare.yml`, or `python scripts/odds_provider_compare.py --output <dir>
+   --odds-api` with local keys). Fix the league names (`leagues_verified`) and add reviewed aliases for every
+   fixture not matched at every provider. Check that the differences are within tolerance. The report lists
+   them all. Done 23 Nov 2026 (see "Live check").
 4. Confirm that the main-line flag (`is_alternate`) arrives on the board, or accept the most-balanced-pair rule.
-   Confirm whether corner child events appear.
+   Confirm whether corner child events appear. Done 23 Nov 2026: no flag (most balanced pair, 89% agreement);
+   corner children appear.
 5. Set `"enabled": true` in a reviewed PR. Rolling back is setting it to `false`: no code change is needed, and
    saved runs replay as before.
 
