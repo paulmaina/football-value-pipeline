@@ -1,0 +1,29 @@
+{
+ "_note": "Reviewed API-Football team ID -> football-data.co.uk training name, for the C6X xG extraction only (scripts/extract_api_football_xg.py). Used only where neither the live integration's name check nor team_research.history_team resolves the club. Each pair checked by hand on 23 Nov 2026 against the provider names seen in the cache; no close matching. The live integration never reads this file.",
+ "EPL": {
+  "62": "Sheffield United"
+ },
+ "Bundesliga": {
+  "176": "Bochum",
+  "161": "Wolfsburg",
+  "181": "Darmstadt"
+ },
+ "SerieA": {
+  "504": "Verona"
+ },
+ "Ligue1": {
+  "1063": "St Etienne",
+  "99": "Clermont"
+ },
+ "UCL": {
+  "91": "AS Monaco FC",
+  "211": "Sport Lisboa e Benfica",
+  "400": "FC København",
+  "487": "SS Lazio",
+  "499": "Atalanta BC",
+  "500": "Bologna FC 1909",
+  "548": "Real Sociedad de Fútbol",
+  "620": "GNK Dinamo Zagreb",
+  "637": "SK Sturm Graz"
+ }
+}
