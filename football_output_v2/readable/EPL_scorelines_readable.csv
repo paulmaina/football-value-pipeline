@@ -1,114 +1,112 @@
 ﻿Match date,League,Home team,Away team,Model,Rank,Score,Probability,Probability (decimal)
-2026-11-23,Premier League,Brentford,Everton,Research,1,1-1,13.27%,0.1327179547863637
-2026-11-23,Premier League,Brentford,Everton,Research,2,1-0,12.45%,0.12454647093902736
-2026-11-23,Premier League,Brentford,Everton,Research,3,2-0,9.25%,0.09246116961728362
-2026-11-23,Premier League,Brentford,Everton,Research,4,2-1,9.23%,0.09226322056678254
-2026-11-23,Premier League,Brentford,Everton,Research,5,0-0,9.21%,0.09207561491824949
-2026-11-23,Premier League,Brentford,Everton,Research,6,0-1,7.73%,0.07734268259587787
-2026-11-23,Premier League,Brentford,Everton,Research,7,1-2,5.78%,0.05780740623350642
-2026-11-23,Premier League,Brentford,Everton,Research,8,2-2,4.73%,0.04733132170533769
-2026-11-23,Premier League,Brentford,Everton,Research,9,3-0,4.49%,0.04489551004395988
-2026-11-23,Premier League,Brentford,Everton,Research,10,3-1,4.48%,0.04479939376485861
-2026-11-23,Premier League,Brentford,Everton,Research,11,0-2,3.97%,0.03968429795955027
-2026-11-23,Premier League,Brentford,Everton,Research,12,3-2,2.24%,0.022351741629994773
-2026-11-23,Premier League,Brentford,Everton,Research,13,1-3,1.92%,0.019227882341643455
-2026-11-23,Premier League,Brentford,Everton,Research,14,4-0,1.63%,0.016349621390663177
-2026-11-23,Premier League,Brentford,Everton,Research,15,4-1,1.63%,0.016314618674996367
-2026-11-23,Premier League,Brentford,Everton,Research,16,2-3,1.40%,0.01400445595215519
-2026-11-23,Premier League,Brentford,Everton,Research,17,0-3,1.32%,0.013199779434744409
-2026-11-23,Premier League,Brentford,Everton,Research,18,4-2,0.81%,0.008139845448119703
-2026-11-23,Premier League,Brentford,Everton,Research,19,3-3,0.76%,0.007644342402565558
-2026-11-23,Premier League,Brentford,Everton,Research,20,1-4,0.48%,0.004796679397584586
-2026-11-23,Premier League,Brentford,Everton,Research,21,5-0,0.48%,0.004763240143280103
-2026-11-23,Premier League,Brentford,Everton,Research,22,5-1,0.48%,0.004753042577452483
-2026-11-23,Premier League,Brentford,Everton,Research,23,2-4,0.35%,0.003493618493524753
-2026-11-23,Premier League,Brentford,Everton,Research,24,0-4,0.33%,0.0032928800448384426
-2026-11-23,Premier League,Brentford,Everton,Research,25,4-3,0.27%,0.0027074729823267853
-2026-11-23,Premier League,Brentford,Everton,Research,26,5-2,0.24%,0.002371433421737903
-2026-11-23,Premier League,Brentford,Everton,Research,27,3-4,0.17%,0.0016963638337588712
-2026-11-23,Premier League,Brentford,Everton,Research,28,6-0,0.12%,0.0011564211040136477
-2026-11-23,Premier League,Brentford,Everton,Research,29,6-1,0.12%,0.0011539453354238016
-2026-11-23,Premier League,Brentford,Everton,Research,30,1-5,0.10%,0.000957282048408702
-2026-11-23,Premier League,Brentford,Everton,Research,31,5-3,0.08%,0.0007887854824350854
-2026-11-23,Premier League,Brentford,Everton,Research,32,2-5,0.07%,0.0006972278092056757
-2026-11-23,Premier League,Brentford,Everton,Research,33,4-4,0.07%,0.0006944710684701387
-2026-11-23,Premier League,Brentford,Everton,Research,34,0-5,0.07%,0.0006571660711938372
-2026-11-23,Premier League,Brentford,Everton,Research,35,6-2,0.06%,0.0005757374335891724
-2026-11-23,Premier League,Brentford,Everton,Research,36,3-5,0.03%,0.00033854642160259063
-2026-11-23,Premier League,Brentford,Everton,Research,37,7-0,0.02%,0.0002406482735487401
-2026-11-23,Premier League,Brentford,Everton,Research,38,7-1,0.02%,0.00024013307243836177
-2026-11-23,Premier League,Brentford,Everton,Research,39,5-4,0.02%,0.00019677419517571284
-2026-11-23,Premier League,Brentford,Everton,Research,40,6-3,0.02%,0.00019150161465497187
-2026-11-23,Premier League,Brentford,Everton,Research,41,1-6,0.02%,0.00015920543572063198
-2026-11-23,Premier League,Brentford,Everton,Research,42,4-5,0.01%,0.0001232886275475306
-2026-11-23,Premier League,Brentford,Everton,Research,43,7-2,0.01%,0.0001198094871580462
-2026-11-23,Premier League,Brentford,Everton,Research,44,2-6,0.01%,0.0001159558537064928
-2026-11-23,Premier League,Brentford,Everton,Research,45,0-6,0.01%,0.0001092931919899143
-2026-11-23,Premier League,Brentford,Everton,Cagey,1,1-1,13.24%,0.13239258236706866
-2026-11-23,Premier League,Brentford,Everton,Cagey,2,2-1,9.18%,0.0918316725101961
-2026-11-23,Premier League,Brentford,Everton,Cagey,3,1-0,8.38%,0.08378990287918989
-2026-11-23,Premier League,Brentford,Everton,Cagey,4,1-2,7.80%,0.07803647908286505
-2026-11-23,Premier League,Brentford,Everton,Cagey,5,0-0,7.35%,0.07345342212288254
-2026-11-23,Premier League,Brentford,Everton,Cagey,6,0-1,6.97%,0.06965167531218097
-2026-11-23,Premier League,Brentford,Everton,Cagey,7,2-0,6.75%,0.06750684649733701
-2026-11-23,Premier League,Brentford,Everton,Cagey,8,2-2,5.90%,0.05899399171623012
-2026-11-23,Premier League,Brentford,Everton,Cagey,9,0-2,4.91%,0.04909930478330169
-2026-11-23,Premier League,Brentford,Everton,Cagey,10,3-1,4.37%,0.04367311325502276
-2026-11-23,Premier League,Brentford,Everton,Cagey,11,3-0,3.23%,0.03226952033402053
-2026-11-23,Premier League,Brentford,Everton,Cagey,12,1-3,3.18%,0.03176447441710381
-2026-11-23,Premier League,Brentford,Everton,Cagey,13,3-2,2.97%,0.029704950253409943
-2026-11-23,Premier League,Brentford,Everton,Cagey,14,2-3,2.52%,0.025242595128063202
-2026-11-23,Premier League,Brentford,Everton,Cagey,15,0-3,2.01%,0.020088262812339944
-2026-11-23,Premier League,Brentford,Everton,Cagey,16,4-1,1.57%,0.01565741649947163
-2026-11-23,Premier League,Brentford,Everton,Cagey,17,3-3,1.27%,0.012721925825653981
-2026-11-23,Premier League,Brentford,Everton,Cagey,18,4-0,1.21%,0.012148289605363499
-2026-11-23,Premier League,Brentford,Everton,Cagey,19,4-2,1.06%,0.01059526322338256
-2026-11-23,Premier League,Brentford,Everton,Cagey,20,1-4,0.97%,0.009746977778038322
-2026-11-23,Premier League,Brentford,Everton,Cagey,21,2-4,0.77%,0.0077061821912343224
-2026-11-23,Premier League,Brentford,Everton,Cagey,22,0-4,0.65%,0.006472728009891781
-2026-11-23,Premier League,Brentford,Everton,Cagey,23,4-3,0.48%,0.00480435586893829
-2026-11-23,Premier League,Brentford,Everton,Cagey,24,5-1,0.47%,0.004715553950316296
-2026-11-23,Premier League,Brentford,Everton,Cagey,25,3-4,0.41%,0.004082632996054991
-2026-11-23,Premier League,Brentford,Everton,Cagey,26,5-0,0.37%,0.00365870800205713
-2026-11-23,Premier League,Brentford,Everton,Cagey,27,5-2,0.30%,0.0030388389898621366
-2026-11-23,Premier League,Brentford,Everton,Cagey,28,1-5,0.25%,0.0025124934561069727
-2026-11-23,Premier League,Brentford,Everton,Cagey,29,2-5,0.19%,0.0018917230761679106
-2026-11-23,Premier League,Brentford,Everton,Cagey,30,0-5,0.17%,0.0016684850564301192
-2026-11-23,Premier League,Brentford,Everton,Cagey,31,4-4,0.15%,0.0015431937728374585
-2026-11-23,Premier League,Brentford,Everton,Cagey,32,5-3,0.14%,0.0013709072626872517
-2026-11-23,Premier League,Brentford,Everton,Cagey,33,6-1,0.12%,0.001183488618055964
-2026-11-23,Premier League,Brentford,Everton,Cagey,34,3-5,0.10%,0.0009970928433603908
-2026-11-23,Premier League,Brentford,Everton,Cagey,35,6-0,0.09%,0.000918246153653794
-2026-11-23,Premier League,Brentford,Everton,Cagey,36,6-2,0.08%,0.0007626742042396298
-2026-11-23,Premier League,Brentford,Everton,Cagey,37,1-6,0.05%,0.0005397077527289032
-2026-11-23,Premier League,Brentford,Everton,Cagey,38,5-4,0.05%,0.00046622199569754455
-2026-11-23,Premier League,Brentford,Everton,Cagey,39,2-6,0.04%,0.00040636030622979763
-2026-11-23,Premier League,Brentford,Everton,Cagey,40,4-5,0.04%,0.000396184911161054
-2026-11-23,Premier League,Brentford,Everton,Cagey,41,0-6,0.04%,0.0003584066330914727
-2026-11-23,Premier League,Brentford,Everton,Cagey,42,6-3,0.03%,0.000327659504811025
-2026-11-23,Premier League,Brentford,Everton,Cagey,43,7-1,0.03%,0.0002545942925703933
-2026-11-23,Premier League,Brentford,Everton,Cagey,44,3-6,0.02%,0.00020397298061681344
-2026-11-23,Premier League,Brentford,Everton,Cagey,45,7-0,0.02%,0.00019753483584741791
-2026-11-23,Premier League,Brentford,Everton,Cagey,46,7-2,0.02%,0.00016406790612742014
-2026-11-23,Premier League,Brentford,Everton,Cagey,47,5-5,0.01%,0.00011980309538215768
-2026-11-23,Premier League,Brentford,Everton,Cagey,48,6-4,0.01%,0.00011086243701932384
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",1,1-1,12.90%,0.12900867314428988
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",2,2-1,8.58%,0.0858183347050521
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",3,1-0,8.23%,0.08230346050472825
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",4,1-2,7.60%,0.07602529140170744
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",5,2-0,7.17%,0.07170190108849972
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",6,0-1,7.10%,0.0709936361672484
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",7,0-0,6.98%,0.06984594567956548
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",8,2-2,5.92%,0.0592160596975152
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",9,0-2,4.69%,0.04686182709703433
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",10,3-1,4.64%,0.046408518458966534
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",11,3-0,3.88%,0.03877468622113381
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",12,1-3,3.03%,0.030330966610903853
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",13,3-2,2.78%,0.0277726371952219
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",14,2-3,2.46%,0.024603400229302578
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",15,4-1,1.88%,0.018822468936490387
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",16,0-3,1.87%,0.018695942978972598
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",17,4-0,1.57%,0.015726322476007467
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",18,3-3,1.28%,0.012775717044319632
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",19,4-2,1.13%,0.011264087246260324
-2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",20,1-4,0.91%,0.009075606800611716
+2026-11-23,Premier League,Brentford,Everton,Research,1,1-1,13.21%,0.13213674745571438
+2026-11-23,Premier League,Brentford,Everton,Research,2,1-0,12.51%,0.12511089116001123
+2026-11-23,Premier League,Brentford,Everton,Research,3,2-0,9.26%,0.09264651598589649
+2026-11-23,Premier League,Brentford,Everton,Research,4,2-1,9.24%,0.09244904732345895
+2026-11-23,Premier League,Brentford,Everton,Research,5,0-0,9.16%,0.0915713156974267
+2026-11-23,Premier League,Brentford,Everton,Research,6,0-1,7.75%,0.07750557962958124
+2026-11-23,Premier League,Brentford,Everton,Research,7,1-2,5.77%,0.05771499266235252
+2026-11-23,Premier League,Brentford,Everton,Research,8,2-2,4.72%,0.047240550777339275
+2026-11-23,Premier League,Brentford,Everton,Research,9,3-0,4.50%,0.04498603273987108
+2026-11-23,Premier League,Brentford,Everton,Research,10,3-1,4.49%,0.04489014859766691
+2026-11-23,Premier League,Brentford,Everton,Research,11,0-2,3.96%,0.03962039374337785
+2026-11-23,Premier League,Brentford,Everton,Research,12,3-2,2.24%,0.022397234412433666
+2026-11-23,Premier League,Brentford,Everton,Research,13,1-3,1.92%,0.019197325918969842
+2026-11-23,Premier League,Brentford,Everton,Research,14,4-0,1.64%,0.016382778565419774
+2026-11-23,Premier League,Brentford,Everton,Research,15,4-1,1.63%,0.016347859979049875
+2026-11-23,Premier League,Brentford,Everton,Research,16,2-3,1.40%,0.013982363877129826
+2026-11-23,Premier League,Brentford,Everton,Research,17,0-3,1.32%,0.013178648677636953
+2026-11-23,Premier League,Brentford,Everton,Research,18,4-2,0.82%,0.008156507909431444
+2026-11-23,Premier League,Brentford,Everton,Research,19,3-3,0.76%,0.00762984382687854
+2026-11-23,Premier League,Brentford,Everton,Research,20,1-4,0.48%,0.004789102087327497
+2026-11-23,Premier League,Brentford,Everton,Research,21,5-0,0.48%,0.004772955820764322
+2026-11-23,Premier League,Brentford,Everton,Research,22,5-1,0.48%,0.004762782645963628
+2026-11-23,Premier League,Brentford,Everton,Research,23,2-4,0.35%,0.0034881403958228144
+2026-11-23,Premier League,Brentford,Everton,Research,24,0-4,0.33%,0.0032876398596671675
+2026-11-23,Premier League,Brentford,Everton,Research,25,4-3,0.27%,0.002713040987704222
+2026-11-23,Premier League,Brentford,Everton,Research,26,5-2,0.24%,0.0023763155772369756
+2026-11-23,Premier League,Brentford,Everton,Research,27,3-4,0.17%,0.0016937236805714259
+2026-11-23,Premier League,Brentford,Everton,Research,28,6-0,0.12%,0.0011587934232278531
+2026-11-23,Premier League,Brentford,Everton,Research,29,6-1,0.12%,0.0011563235474328364
+2026-11-23,Premier League,Brentford,Everton,Research,30,1-5,0.10%,0.0009557788996093823
+2026-11-23,Premier League,Brentford,Everton,Research,31,5-3,0.08%,0.0007904168833465067
+2026-11-23,Premier League,Brentford,Everton,Research,32,2-5,0.07%,0.0006961411405332987
+2026-11-23,Premier League,Brentford,Everton,Research,33,4-4,0.07%,0.0006931685844864406
+2026-11-23,Premier League,Brentford,Everton,Research,34,0-5,0.07%,0.0006561265034836894
+2026-11-23,Premier League,Brentford,Everton,Research,35,6-2,0.06%,0.000576929467990581
+2026-11-23,Premier League,Brentford,Everton,Research,36,3-5,0.03%,0.00033802272871620424
+2026-11-23,Premier League,Brentford,Everton,Research,37,7-0,0.02%,0.00024114476553939603
+2026-11-23,Premier League,Brentford,Everton,Research,38,7-1,0.02%,0.00024063078469728724
+2026-11-23,Premier League,Brentford,Everton,Research,39,5-4,0.02%,0.0001971830431942148
+2026-11-23,Premier League,Brentford,Everton,Research,40,6-3,0.02%,0.000191899929608717
+2026-11-23,Premier League,Brentford,Everton,Research,41,1-6,0.02%,0.00015895695551430201
+2026-11-23,Premier League,Brentford,Everton,Research,42,4-5,0.01%,0.0001230993527848574
+2026-11-23,Premier League,Brentford,Everton,Research,43,7-2,0.01%,0.00012005894968218277
+2026-11-23,Premier League,Brentford,Everton,Research,44,2-6,0.01%,0.00011577622853219638
+2026-11-23,Premier League,Brentford,Everton,Research,45,0-6,0.01%,0.0001091213370253686
+2026-11-23,Premier League,Brentford,Everton,Cagey,1,1-1,13.50%,0.1349675706136908
+2026-11-23,Premier League,Brentford,Everton,Cagey,2,2-1,9.24%,0.09239378048434321
+2026-11-23,Premier League,Brentford,Everton,Cagey,3,1-0,8.91%,0.08906856015884831
+2026-11-23,Premier League,Brentford,Everton,Cagey,4,0-0,7.84%,0.07840694375755171
+2026-11-23,Premier League,Brentford,Everton,Cagey,5,1-2,7.74%,0.07738700154922704
+2026-11-23,Premier League,Brentford,Everton,Cagey,6,0-1,7.29%,0.07288708135136297
+2026-11-23,Premier League,Brentford,Everton,Cagey,7,2-0,6.90%,0.06903004211736068
+2026-11-23,Premier League,Brentford,Everton,Cagey,8,2-2,5.70%,0.05698496172208625
+2026-11-23,Premier League,Brentford,Everton,Cagey,9,0-2,4.89%,0.04894821295943881
+2026-11-23,Premier League,Brentford,Everton,Cagey,10,3-1,4.24%,0.04236429706534208
+2026-11-23,Premier League,Brentford,Everton,Cagey,11,3-0,3.23%,0.03229379123953827
+2026-11-23,Premier League,Brentford,Everton,Cagey,12,1-3,3.00%,0.03003991553569952
+2026-11-23,Premier League,Brentford,Everton,Cagey,13,3-2,2.84%,0.028351406455569314
+2026-11-23,Premier League,Brentford,Everton,Cagey,14,2-3,2.37%,0.023746515445070504
+2026-11-23,Premier League,Brentford,Everton,Cagey,15,0-3,1.94%,0.019386131587594422
+2026-11-23,Premier League,Brentford,Everton,Cagey,16,4-1,1.49%,0.014864221324593445
+2026-11-23,Premier League,Brentford,Everton,Cagey,17,4-0,1.19%,0.01190594556392132
+2026-11-23,Premier League,Brentford,Everton,Cagey,18,3-3,1.17%,0.011657377824702555
+2026-11-23,Premier League,Brentford,Everton,Cagey,19,4-2,0.97%,0.009749742344731168
+2026-11-23,Premier League,Brentford,Everton,Cagey,20,1-4,0.89%,0.008923069713564406
+2026-11-23,Premier League,Brentford,Everton,Cagey,21,2-4,0.69%,0.006913402483199969
+2026-11-23,Premier League,Brentford,Everton,Cagey,22,0-4,0.61%,0.006050753150990961
+2026-11-23,Premier League,Brentford,Everton,Cagey,23,5-1,0.44%,0.004384065249645021
+2026-11-23,Premier League,Brentford,Everton,Cagey,24,4-3,0.43%,0.004349872057378949
+2026-11-23,Premier League,Brentford,Everton,Cagey,25,3-4,0.36%,0.003643357311268016
+2026-11-23,Premier League,Brentford,Everton,Cagey,26,5-0,0.35%,0.003511549045935673
+2026-11-23,Premier League,Brentford,Everton,Cagey,27,5-2,0.27%,0.002736687977545218
+2026-11-23,Premier League,Brentford,Everton,Cagey,28,1-5,0.22%,0.002228037788432717
+2026-11-23,Premier League,Brentford,Everton,Cagey,29,2-5,0.16%,0.0016428480896948342
+2026-11-23,Premier League,Brentford,Everton,Cagey,30,0-5,0.15%,0.0015108373129028218
+2026-11-23,Premier League,Brentford,Everton,Cagey,31,4-4,0.13%,0.0013414176332340706
+2026-11-23,Premier League,Brentford,Everton,Cagey,32,5-3,0.12%,0.001196699200329357
+2026-11-23,Premier League,Brentford,Everton,Cagey,33,6-1,0.11%,0.0010775330738507837
+2026-11-23,Premier League,Brentford,Everton,Cagey,34,6-0,0.09%,0.0008630825551127985
+2026-11-23,Premier League,Brentford,Everton,Cagey,35,3-5,0.08%,0.0008485622420238948
+2026-11-23,Premier League,Brentford,Everton,Cagey,36,6-2,0.07%,0.0006726341057203821
+2026-11-23,Premier League,Brentford,Everton,Cagey,37,1-6,0.05%,0.00046360656011479735
+2026-11-23,Premier League,Brentford,Everton,Cagey,38,5-4,0.04%,0.0004004327674936057
+2026-11-23,Premier League,Brentford,Everton,Cagey,39,2-6,0.03%,0.0003418412181376644
+2026-11-23,Premier League,Brentford,Everton,Cagey,40,4-5,0.03%,0.00033539369247522155
+2026-11-23,Premier League,Brentford,Everton,Cagey,41,0-6,0.03%,0.0003143726256190082
+2026-11-23,Premier League,Brentford,Everton,Cagey,42,6-3,0.03%,0.0002799212702655978
+2026-11-23,Premier League,Brentford,Everton,Cagey,43,7-1,0.02%,0.00022700604363293667
+2026-11-23,Premier League,Brentford,Everton,Cagey,44,7-0,0.02%,0.00018182732476561912
+2026-11-23,Premier League,Brentford,Everton,Cagey,45,3-6,0.02%,0.00016803820088152153
+2026-11-23,Premier League,Brentford,Everton,Cagey,46,7-2,0.01%,0.00014170516976011363
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",1,1-1,13.10%,0.13096352141895992
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",2,1-0,8.73%,0.08729923627033272
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",3,2-1,8.61%,0.08611614471895976
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",4,1-2,7.49%,0.07488496361671525
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",5,0-0,7.44%,0.07441473291490108
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",6,0-1,7.40%,0.07397218432593647
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",7,2-0,7.39%,0.0739035309606591
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",8,2-2,5.70%,0.05697683914479233
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",9,0-2,4.74%,0.047411539382008816
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",10,3-1,4.53%,0.045339203972624774
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",11,3-0,3.89%,0.03890939701791828
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",12,1-3,2.91%,0.029086586618457002
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",13,3-2,2.64%,0.02641577066748969
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",14,2-3,2.30%,0.022970652388099096
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",15,0-3,1.84%,0.018415443906837477
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",16,4-1,1.79%,0.017902944537112084
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",17,4-0,1.54%,0.015364027502663241
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",18,3-3,1.17%,0.011651606258959066
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",19,4-2,1.04%,0.010430709755087081
+2026-11-23,Premier League,Brentford,Everton,"Benchmark (70% Pinnacle blend), display only",20,1-4,0.85%,0.008473291702222548

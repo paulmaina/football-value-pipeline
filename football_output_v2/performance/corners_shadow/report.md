@@ -13,7 +13,7 @@ Zero stake: returns are what one unit per pick would have made. latest pre-kicko
 | | picks | graded | win rate | mean odds | return per unit | with close | mean CLV | CLV > 0 | pending |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | All | 19 | 0 | — | — | — | 0 | — | — | 19 |
-| Positive expected return at entry | 12 | 0 | — | — | — | 0 | — | — | 12 |
+| Positive expected return at entry | 11 | 0 | — | — | — | 0 | — | — | 11 |
 
 ## By kickoff week
 

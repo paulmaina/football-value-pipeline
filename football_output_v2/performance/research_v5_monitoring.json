@@ -5,20 +5,20 @@
       "not_replayed:no corrected D distribution": 50,
       "offer_out_of_scope:pinnacle draw_no_bet": 2
     },
-    "d_pow2_minus_d_log_loss": 0.006279074111311261,
+    "d_pow2_minus_d_log_loss": 0.006279074107898501,
     "eligible": false,
     "fallbacks": {
       "domestic_fixtures": 66,
-      "domestic_records": 651,
+      "domestic_records": 654,
       "fallback_fixtures": 0,
       "fallback_records": 0,
-      "runs": 14
+      "runs": 15
     },
     "graded_fallbacks": 0,
     "interval_95": null,
     "log_loss": {
-      "D": 0.8913794402238174,
-      "D_pow2": 0.8976585143351286
+      "D": 0.8913794402267436,
+      "D_pow2": 0.8976585143346422
     },
     "matches": 12,
     "rule": "After at least 150 graded domestic matches across at least 3 weeks, roll back the cagey correction D_pow2 if its log loss on AH all lines minus D's, on the same frozen Pinnacle quotes, matches and offers, has a week-resampled 95% interval entirely above zero. Rolling back is setting cagey_correction_config.json cagey_correction_live.domestic to \"D\".",
@@ -295,11 +295,26 @@
     "matches": 62,
     "rule": "After at least 150 graded matches across at least 3 weeks, roll back research v5 if its research log loss on AH all lines minus v4's, on the same frozen inputs, matches and offers, has a week-resampled 95% interval entirely above zero.",
     "triggered": false,
-    "v5_minus_v4_log_loss": 0.004118334232158036,
+    "v5_minus_v4_log_loss": 0.004118334232158044,
     "weeks": 1
   },
   "ucl_live_check": {
-    "passed_on": null,
+    "passed_on": {
+      "checks": {
+        "ce_shadow": true,
+        "competition": true,
+        "fit_window": true,
+        "frozen_replay": true,
+        "mapping": true,
+        "unvalidated_view": null
+      },
+      "domestic_used": 10,
+      "generated_at_utc": "2026-11-23T18:16:57.482339+00:00",
+      "problems": [],
+      "snapshot": "6ad0ac014ab6ed4951104a9b707d33aa10aca058",
+      "status": "passed",
+      "ucl_fixtures": 18
+    },
     "runs": [
       {
         "checks": {
@@ -360,9 +375,25 @@
         "snapshot": "878a28dde724b68bbaa2986bb24818b7a4987313",
         "status": "failed",
         "ucl_fixtures": 18
+      },
+      {
+        "checks": {
+          "ce_shadow": true,
+          "competition": true,
+          "fit_window": true,
+          "frozen_replay": true,
+          "mapping": true,
+          "unvalidated_view": null
+        },
+        "domestic_used": 10,
+        "generated_at_utc": "2026-11-23T18:16:57.482339+00:00",
+        "problems": [],
+        "snapshot": "6ad0ac014ab6ed4951104a9b707d33aa10aca058",
+        "status": "passed",
+        "ucl_fixtures": 18
       }
     ],
-    "status": "failed",
+    "status": "passed",
     "version": "ce3n-ucl-live-check-v1"
   },
   "version": "research-v5-v6-monitoring-v1"

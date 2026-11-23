@@ -29,8 +29,8 @@
     "graded": 0,
     "mean_clv_vs_pinnacle_fair": null,
     "mean_odds": null,
-    "pending": 12,
-    "picks": 12,
+    "pending": 11,
+    "picks": 11,
     "positive_clv_share": null,
     "return_per_unit": null,
     "units_returned": 0,
@@ -39,7 +39,7 @@
     "won": 0
   },
   "rejected_closing_observations": [],
-  "reviewed_at_utc": "2026-11-23T18:07:05.824432+00:00",
+  "reviewed_at_utc": "2026-11-23T18:17:35.237888+00:00",
   "stake": 0,
   "status": "unvalidated, not bet",
   "weeks": {
