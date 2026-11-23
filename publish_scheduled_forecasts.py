@@ -60,6 +60,10 @@ def report(outcome,record):
     """One readable block in the run summary: the outcome line first, then credits (and providers, switch on)."""
     import odds_provider
     lines=[str(outcome.get('message') or ''),*[str(n) for n in outcome.get('notes') or []]]
+    if outcome.get('stale_fit_warning'):
+        # First in the run summary, and a warning annotation on the run page (no other notification is set up).
+        lines.insert(0,f"## \u26a0\ufe0f {outcome['stale_fit_warning']}")  # warning sign; this file stays ASCII
+        print(f"::warning title=Stale research fit::{outcome['stale_fit_warning']}",flush=True)
     providers=('\n'+odds_provider.summary_markdown(record['odds_provider'])) if record.get('odds_provider') else ''
     if record.get('odds_provider_projection'):providers+='\n'+odds_provider.projection_markdown(record['odds_provider_projection'])
     odds_api_usage.write_step_summary('\n\n'.join(line for line in lines if line)+'\n\n'+odds_api_usage.summary_markdown(record)+providers)

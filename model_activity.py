@@ -441,6 +441,19 @@ def stale_state(rows: Iterable[Mapping]) -> Dict[str, Optional[dict]]:
     return out
 
 
+def stale_warning(rows: Iterable[Mapping]) -> Optional[dict]:
+    """The run's stale-fit warning, or None when no forecast used a stale fit. Shown at the top of the run summary,
+    the shortlist report and the master shortlist outputs (23 Nov 2026: a missed refresh went unnoticed for a
+    week); {'text', 'fits'}."""
+    fits = {fit: state for fit, state in stale_state(rows).items() if state and state['stale']}
+    if not fits:
+        return None
+    parts = [f"{s['stale_forecasts']} of {s['forecasts']} forecasts used a stale {fit} fit (window from {s['origin']}; "
+             f"the window for this day opened {s['expected_origin']})" for fit, s in fits.items()]
+    return {'text': 'STALE RESEARCH FIT: ' + '; '.join(parts) + '. Research probabilities are not on the current fit '
+                    'until the refit workflow (research-c6-fits.yml) publishes it.', 'fits': fits}
+
+
 def stale_events(log: Sequence[Mapping], rows: Iterable[Mapping], when: Any = None) -> List[dict]:
     out = []
     for fit, state in stale_state(rows).items():
