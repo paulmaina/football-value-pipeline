@@ -4759,6 +4759,11 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     european_step = getattr(pipe, '_european_step', None)
     if european_step is not None and european_step.summary():  # UCL/UEL 48-hour step: what it did this run
         selection_summary['european_alternates_48h'] = european_step.summary()
+    if not all_predictions.empty:  # any forecast on a stale research fit: flagged at the top of every output
+        from model_activity import stale_warning
+        stale = stale_warning(all_predictions.astype(object).where(all_predictions.notna(), None).to_dict('records'))
+        if stale:
+            selection_summary['stale_fit_warning'] = stale
     (out_dir / "conservative_bet_summary.json").write_text(
         json.dumps(selection_summary, indent=2), encoding="utf-8"
     )
@@ -4851,6 +4856,10 @@ def run_outcome(staging: Path, lookahead_days: int, client=None) -> Dict[str, ob
         step = None
     if isinstance(step, dict):
         outcome['european_alternates_48h'] = step
+    from model_activity import stale_warning
+    stale = stale_warning(rows)
+    if stale:  # opens the GitHub run summary (publish_scheduled_forecasts.report)
+        outcome['stale_fit_warning'] = stale['text']
     return outcome
 
 
