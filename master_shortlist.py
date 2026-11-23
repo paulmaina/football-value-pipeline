@@ -86,6 +86,20 @@ CONFIG = Path(__file__).with_name('master_shortlist_config.json')
 # new_master_version; the rule itself is master_reconciliation.VERSION (master-new-fill-rule-v4), unchanged.
 VERSION_NEW_LIVE = 'master-new-fill-rule-v4-live-v10'
 LIVE_NEW, LIVE_OLD = 'new', 'old'
+# Release of the strong-team master (decided by Paul, 23 Nov 2026, as a deliberate exception to the release gate):
+# live "strong" writes it as master_shortlist.csv (rows carry this version in new_master_version; the rule is
+# master_strong.VERSION) and today's master (master-new-fill-rule-v4) runs in shadow as master_shortlist_new.csv, the
+# comparison and rollback baseline. Rolling back is setting live to "new".
+LIVE_STRONG = 'strong'
+VERSION_STRONG_LIVE = 'master-strong-team-v1-live-v11'
+STRONG_FAILED = "STRONG MASTER FAILED - TODAY'S MASTER PUBLISHED"
+STRONG_LIVE_STATUS = ('live master: the strong-team master, released by Paul on 23 Nov 2026 as a deliberate exception '
+                      'to the release gate (offline: no measurable difference from today\'s master); graded beside '
+                      'today\'s master (master_shortlist_new.csv) with the rollback rule in master_shortlist_config.json')
+STRONG_LIVE_NOTE = ('Live: master_shortlist.csv is the strong-team master. Today\'s master (master-new-fill-rule-v4) '
+                    'runs in shadow as master_shortlist_new.csv, the comparison and rollback baseline; the columns '
+                    'in_old_master, old_master_rank and old_master_same_offer and overlap_with_old_master compare '
+                    'with it. Rolling back is master_shortlist_config.json live "new".')
 OLD_FILE = 'master_shortlist_old.csv'
 OLD_AUDIT_FILE = 'master_shortlist_old_audit.csv'
 SUMMARY_FILE = 'master_shortlist_summary.json'
@@ -165,9 +179,108 @@ def configured_live() -> str:
     """The single release switch: "new" (the new master writes master_shortlist.csv, the old one runs in shadow) or
     "old" (the pre-release behaviour, byte for byte)."""
     live = load_config().get('live')
-    if live not in (LIVE_NEW, LIVE_OLD):
-        raise ValueError('master_shortlist_config.json: live must be "new" or "old"')
+    if live not in (LIVE_NEW, LIVE_OLD, LIVE_STRONG):
+        raise ValueError('master_shortlist_config.json: live must be "strong", "new" or "old"')
     return live
+
+
+def strong_live_columns() -> List[str]:
+    """The live file's columns under live "strong": master_strong.live_columns() with the overlap columns named after
+    the baseline (LIVE_RENAMES), then the inspection details (master_inspection.COLUMNS)."""
+    import master_inspection
+    import master_strong
+    return [LIVE_RENAMES.get(c, c) for c in master_strong.live_columns()] + list(master_inspection.COLUMNS)
+
+
+def strong_live(decisions: pd.DataFrame, baseline: Optional[pd.DataFrame], generated_at_utc=None,
+                predictions: Optional[pd.DataFrame] = None, cagey_model_version: Optional[str] = None,
+                cagey: Optional[Mapping] = None):
+    """The live master under live "strong": (frame, summary). The strong-team master (master_strong.live_frame) in the
+    live file's schema, ordered as the live master is (master_reconciliation.stable_order), with the live master's
+    summary of it (master_reconciliation.summary) plus the strong master's own (key 'strong') and the inspection
+    details of flagged picks. `baseline` is today's master (shadow), for the overlap columns only."""
+    import master_reconciliation as mr
+    import master_inspection
+    import master_strong
+    config = mr.load_config()
+    frame = master_strong.live_frame(decisions, predictions, baseline, generated_at_utc, version=VERSION_STRONG_LIVE)
+    frame = mr.stable_order(frame)
+    strong_info = master_strong.summary(frame, generated_at_utc=generated_at_utc)
+    picked = (baseline.loc[baseline.new_master_decision.eq('SHORTLISTED')]
+              if baseline is not None and len(baseline) else baseline)  # overlap counts: the baseline's picks
+    info = _renamed(mr.summary(frame, picked, config, generated_at_utc))
+    clock = mr.run_clock(mr._records(decisions), generated_at_utc)
+    frame, details = master_inspection.annotate(frame, predictions, clock, config, cagey_model_version, cagey)
+    by_rank = {frame.at[i, 'new_master_rank']: d for i, d in details.items()}
+    for pick in info['for_inspection']['picks']:
+        pick['detail'] = by_rank.get(pick['new_master_rank'])
+    info.update(version=VERSION_STRONG_LIVE, rule=master_strong.VERSION, status=STRONG_LIVE_STATUS,
+                note=STRONG_LIVE_NOTE, strong=_renamed(strong_info))
+    frame = frame.rename(columns=LIVE_RENAMES).reindex(columns=strong_live_columns())
+    return frame, json.loads(json.dumps(info, default=str))
+
+
+def matches_strong(frame: pd.DataFrame, expected: pd.DataFrame) -> bool:
+    """The written live strong-master file carries exactly the replayed one (strong_live_columns()), with the same
+    tolerances as matches()."""
+    wanted = strong_live_columns()
+    if list(frame.columns) != wanted:
+        return False
+    left, right = _as_csv(frame), _as_csv(expected.reindex(columns=wanted))
+    if len(left) != len(right):
+        return False
+    return all(_same(got, want) for column in wanted
+               for got, want in zip(left[column].astype(object), right[column].astype(object)))
+
+
+def strong_release(decisions: pd.DataFrame, out_dir, run_summary: Mapping,
+                   predictions: Optional[pd.DataFrame] = None) -> pd.DataFrame:
+    """Live "strong": today's master in shadow first (master_shortlist_new.csv and its summary, the baseline), then the
+    strong-team master as the live FILE, its summary in SUMMARY_FILE and run_summary['master_shortlist']. The old
+    master (v9) is no longer written. If the strong master fails, today's master is published as the live FILE for
+    that run (STRONG_FAILED); if the baseline fails, the strong master is live and the run has no baseline
+    (BASELINE_MISSING)."""
+    import warnings
+    import master_reconciliation as mr
+    import master_strong
+    from master_selection import AUDIT_FILE
+    out = Path(out_dir)
+    for name in (AUDIT_FILE, OLD_FILE, OLD_AUDIT_FILE, *mr.SUPERSEDED_FILES):
+        (out / name).unlink(missing_ok=True)
+    master_strong.remove_shadow(out)  # the separate strong shadow: the strong master is FILE itself now
+    run_summary.pop(RELEASE_STATUS_KEY, None)
+    run_summary.pop(OLD_SUMMARY_KEY, None)
+    generated = run_summary.get('generated_at_utc')
+    baseline = None
+    try:
+        baseline = mr.write_shadow(decisions, out, None, generated, predictions)
+    except Exception as exc:  # the baseline must never break or alter the live run
+        warnings.warn(f'{BASELINE_MISSING}: today\'s master (shadow) failed ({error_text(exc)})')
+        mr.remove_shadow(out)
+        run_summary[RELEASE_STATUS_KEY] = {
+            'status': BASELINE_MISSING, 'error': error_text(exc), 'baseline': mr.VERSION,
+            'note': "Today's master (shadow, the strong master's baseline) failed in this run: the strong master is "
+                    'live as usual, its overlap columns have nothing to compare with, and this run has no comparison '
+                    'baseline for the rollback rule.'}
+    try:
+        frame, info = strong_live(decisions, baseline, generated, predictions, run_summary.get('cagey_model_version'),
+                                  cagey_settings(run_summary))
+    except Exception as exc:
+        if baseline is None:  # nothing to publish: both failed
+            raise
+        warnings.warn(f'{STRONG_FAILED} ({error_text(exc)})')
+        mr.remove_shadow(out)
+        frame, info = new_live(decisions, None, generated, predictions, run_summary.get('cagey_model_version'),
+                               cagey_settings(run_summary))
+        run_summary[RELEASE_STATUS_KEY] = {
+            'status': STRONG_FAILED, 'error': error_text(exc),
+            'note': "The strong master failed in this run, so master_shortlist.csv is today's master for this run (as "
+                    'with live "new", without the old master shadow); the switch is unchanged and the next run tries '
+                    'the strong master again.'}
+    frame.to_csv(out / FILE, index=False)
+    (out / SUMMARY_FILE).write_text(json.dumps(info, indent=2, default=str) + '\n', encoding='utf-8')
+    run_summary['master_shortlist'] = info
+    return frame
 
 
 def is_new_schema(row: Mapping) -> bool:
@@ -536,6 +649,8 @@ def refresh(decisions: pd.DataFrame, out_dir, run_summary: Mapping, predictions:
     """
     from price_edge_cagey_shortlist import POLICY
     if run_summary.get('selection_policy_version') == POLICY:
+        if configured_live() == LIVE_STRONG:
+            return strong_release(decisions, out_dir, run_summary, predictions)
         if configured_live() == LIVE_NEW:
             frame = release(decisions, out_dir, run_summary, predictions)
             strong_shadow(decisions, out_dir, run_summary, predictions, frame)

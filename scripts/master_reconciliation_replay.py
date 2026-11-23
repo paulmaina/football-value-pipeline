@@ -303,7 +303,7 @@ def main(argv=None):
     parser.add_argument('--compare', nargs=2, type=Path, metavar=('MAIN', 'BRANCH'))
     parser.add_argument('--release-compare', nargs=2, type=Path, metavar=('MAIN', 'BRANCH'),
                         help='main (pre-release) against the branch replayed with live "new"')
-    parser.add_argument('--live', choices=('new', 'old'),
+    parser.add_argument('--live', choices=('strong', 'new', 'old'),
                         help='replay with master_shortlist_config.json\'s live switch set to this (a copy of the '
                              'config with only that field changed); default: the config as committed')
     args = parser.parse_args(argv)

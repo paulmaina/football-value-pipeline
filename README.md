@@ -157,7 +157,29 @@ New value, cagey-tier and master shortlists use kickoffs from 20 minutes to
 See the [value rule](docs/team_research_profit.md), [cagey-tier rule](docs/cagey-market-basis-v5.md)
 and [master rule](docs/master-market-selection.md).
 
-**Master shortlist release (14 Nov 2026).** The live `master_shortlist.csv` is
+**Strong-team master release (23 Nov 2026).** The live `master_shortlist.csv` is
+the strong-team master (`master_strong.py`, rule `master-strong-team-v1`; rows
+carry `new_master_version` = `master-strong-team-v1-live-v11`): at most 6 picks
+each in match result, double chance and Asian handicap, 15 matches, one pick per
+match. "Proven" picks come first: the cagey tier rates the bet safe, the backed
+team is stronger by Elo, it has a strong record on the exact bet over its last
+10 matches, and the research model's expected margin agrees. They are ranked by
+league trust, then the cagey chance of winning; today's fill rule completes the
+list, labelled "not proven". The selection is in the usual `new_master_*`
+columns, with the checks behind it in the `strong_*` columns. Today's master
+(rule `master-new-fill-rule-v4`) keeps running in shadow as
+`master_shortlist_new.csv`, the comparison and rollback baseline; the old master
+(v9) is no longer written. Paul released it on 23 Nov 2026 as a deliberate
+exception to the release gate (offline it showed no measurable difference from
+today's master). The weekly report grades both and puts **ROLLBACK TRIGGERED**
+at the top if strong minus today's master has its 95% interval entirely below
+zero after at least 150 graded matches over at least 3 weeks. To roll back, set
+`"live": "new"` in `master_shortlist_config.json`: every master file is then
+written exactly as before this release. If the strong master fails during a
+run, that run publishes today's master as `master_shortlist.csv` and its run
+summary says **STRONG MASTER FAILED - TODAY'S MASTER PUBLISHED**.
+
+**Master shortlist release (14 Nov 2026).** Under `"live": "new"`, the live `master_shortlist.csv` is
 written by the new master rule (`master_reconciliation.py`, rule
 `master-new-fill-rule-v4`: safe picks, then fill to 15 matches, only from the
 value and cagey nominations, Pinnacle prices and quote-timing checks). Its rows

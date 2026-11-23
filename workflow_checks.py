@@ -281,7 +281,8 @@ def raw_check(root, *, raw_dir=None):
             release = summary.get(master_shortlist.RELEASE_STATUS_KEY)
             incident = (release or {}).get('status')
             require(release is None or incident in (master_shortlist.NEW_MASTER_FAILED,
-                                                    master_shortlist.BASELINE_MISSING),
+                                                    master_shortlist.BASELINE_MISSING,
+                                                    master_shortlist.STRONG_FAILED),
                     'Unknown master release status')
 
             def replays(build):
@@ -300,7 +301,67 @@ def raw_check(root, *, raw_dir=None):
                     raw/'all_leagues_predictions.csv', low_memory=False), summary.get('cagey_model_version'),
                     master_shortlist.cagey_settings(summary))
 
-            if incident == master_shortlist.NEW_MASTER_FAILED:
+            def replay_baseline():
+                import master_reconciliation as mr
+                return mr.reconcile(decisions, None, mr.load_config(), pd.read_csv(
+                    raw/'all_leagues_predictions.csv', low_memory=False), summary.get('generated_at_utc'))
+
+            def replay_strong(baseline):
+                return master_shortlist.strong_live(decisions, baseline, summary.get('generated_at_utc'), pd.read_csv(
+                    raw/'all_leagues_predictions.csv', low_memory=False), summary.get('cagey_model_version'),
+                    master_shortlist.cagey_settings(summary))
+
+            if live_info is not None and live_info.get('version') == master_shortlist.VERSION_STRONG_LIVE:
+                # Live "strong" (23 Nov 2026): the strong-team master is master_shortlist.csv and today's master its
+                # shadow baseline (master_shortlist_new.csv); no old master shadow.
+                import master_reconciliation as mr
+                require(release is None or incident == master_shortlist.BASELINE_MISSING,
+                        'Unexpected release incident beside the live strong master')
+                require(master_path.exists(), 'Missing current master shortlist')
+                require(master_shortlist.OLD_SUMMARY_KEY not in summary and not (raw/master_shortlist.OLD_FILE).exists(),
+                        'Unexpected old master shadow under the strong release')
+                baseline_path = raw/mr.load_config()['file']
+                baseline_expected = None
+                if incident == master_shortlist.BASELINE_MISSING:
+                    require(not baseline_path.exists(), "Today's master (shadow) file without its run")
+                    require(not replays(replay_baseline),
+                            "The run summary says today's master (shadow) failed, but it replays without error")
+                else:
+                    require(baseline_path.exists(), "Missing today's master (shadow), the strong master's baseline")
+                    baseline_expected = replay_baseline()
+                    try:
+                        baseline_actual = pd.read_csv(baseline_path, low_memory=False)
+                    except pd.errors.EmptyDataError:
+                        baseline_actual = pd.DataFrame(columns=list(mr.COLUMNS))
+                    require(len(baseline_actual) == len(baseline_expected) and list(baseline_actual.columns)
+                            == list(mr.COLUMNS) and all(
+                                master_shortlist._same(got, want)
+                                for column in ('new_master_rank', 'new_master_decision', 'market', 'offered_decimal_odds')
+                                for got, want in zip(master_shortlist._as_csv(baseline_actual)[column].astype(object),
+                                                     master_shortlist._as_csv(baseline_expected)[column].astype(object))),
+                            "Today's master (shadow) differs from deterministic replay")
+                strong_expected, strong_summary_expected = replay_strong(baseline_expected)
+                try:
+                    strong_actual = pd.read_csv(master_path, low_memory=False)
+                except pd.errors.EmptyDataError:
+                    strong_actual = pd.DataFrame(columns=list(strong_expected.columns))
+                require(master_shortlist.matches_strong(strong_actual, strong_expected),
+                        'Current master shortlist (strong) differs from deterministic replay')
+                require(equivalent(live_info, strong_summary_expected),
+                        'Current master shortlist (strong) summary differs from replay')
+            elif incident == master_shortlist.STRONG_FAILED:
+                # The strong master failed: today's master was published as the live list for this run.
+                require(live_info is not None and live_info.get('version') == master_shortlist.VERSION_NEW_LIVE,
+                        "A run whose strong master failed must publish today's master")
+                require(not replays(lambda: replay_strong(replay_baseline())),
+                        'The run summary says the strong master failed, but it replays without error')
+                new_expected, new_summary_expected = replay_new(None)
+                new_actual = pd.read_csv(master_path, low_memory=False)
+                require(master_shortlist.matches_new(new_actual, new_expected),
+                        'Current master shortlist differs from deterministic replay')
+                require(equivalent(live_info, new_summary_expected),
+                        'Current master shortlist summary differs from replay')
+            elif incident == master_shortlist.NEW_MASTER_FAILED:
                 # The old master was published as the live list for this run, exactly as live "old" writes it.
                 require(live_info is not None and live_info.get('version') in master_shortlist.VERSIONS,
                         'A run whose new master failed must publish the old master')

@@ -1070,5 +1070,15 @@ class RawCheckTest(unittest.TestCase):
                 check((ms, '_old_master'))
 
 
+def setUpModule():  # this module is about the 14 Nov 2026 release: it runs under live "new" (tests/master_switch.py)
+    from master_switch import pin_module
+    pin_module('new')
+
+
+def tearDownModule():
+    from master_switch import unpin_module
+    unpin_module()
+
+
 if __name__ == '__main__':
     unittest.main()

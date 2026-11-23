@@ -152,6 +152,12 @@ def collection_targets(root, predictions, picks):
         for pick in archived_tier_rows(root, archive, name) + read_csv(resolve_raw(root/'raw')/name):
             if is_pick(pick):
                 selected.setdefault(fixture_key(pick), set()).add(pick.get('market'))
+    # Today's master in shadow (master_shortlist_new.csv) since the strong release: the rollback baseline is graded.
+    import master_reconciliation as mr
+    baseline_file = mr.load_config()['file']
+    for pick in archived_tier_rows(root, archive, baseline_file) + read_csv(resolve_raw(root/'raw')/baseline_file):
+        if pick.get('new_master_decision') == 'SHORTLISTED':
+            selected.setdefault(fixture_key(pick), set()).add(pick.get('market'))
     # The strong-team master (shadow, Phase 4c) is graded too: only its ranked picks count.
     from master_strong import load_config as strong_config
     strong_file = strong_config()['file']
