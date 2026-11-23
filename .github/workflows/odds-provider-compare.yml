@@ -1,0 +1,68 @@
+name: Odds provider check
+
+# Manual only: the cross-provider check in docs/odds-providers.md ("Before turning it on"). One board request
+# per kit provider (pinnapi, pinnodds) plus The Odds API's free events list per league; with odds_api, also
+# The Odds API's Pinnacle prices (3 credits per league). Writes the report to the job summary and keeps the
+# JSON as a short-lived run artifact. Commits nothing.
+on:
+  workflow_dispatch:
+    inputs:
+      odds_api:
+        description: "Compare against The Odds API's Pinnacle prices (3 credits per league)"
+        type: boolean
+        default: false
+      odds_api_leagues:
+        description: 'League keys for the price check, space separated (empty: every league)'
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: odds-provider-compare
+  cancel-in-progress: false
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PINNAPI_API_KEY: ${{ secrets.PINNAPI_API_KEY }}
+      PINNODDS_API_KEY: ${{ secrets.PINNODDS_API_KEY }}
+      THE_ODDS_API_KEY: ${{ secrets.THE_ODDS_API_KEY }}
+      THE_ODDS_API_KEY_FALLBACK_1: ${{ secrets.THE_ODDS_API_KEY_FALLBACK_1 }}
+      THE_ODDS_API_KEY_FALLBACK_2: ${{ secrets.THE_ODDS_API_KEY_FALLBACK_2 }}
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.14'
+          cache: pip
+          cache-dependency-path: football_value_requirements.txt
+      - name: Install runtime dependencies
+        run: python -m pip install -r football_value_requirements.txt
+      - name: Run the check
+        env:
+          ODDS_API: ${{ inputs.odds_api }}
+          ODDS_API_LEAGUES: ${{ inputs.odds_api_leagues }}
+        run: |
+          args=(--output "$RUNNER_TEMP/odds-provider-compare" --api-key-source environment)
+          if [ "$ODDS_API" = "true" ]; then
+            args+=(--odds-api)
+            if [ -n "$ODDS_API_LEAGUES" ]; then
+              read -r -a leagues <<< "$ODDS_API_LEAGUES"
+              args+=(--odds-api-leagues "${leagues[@]}")
+            fi
+          fi
+          python scripts/odds_provider_compare.py "${args[@]}" > /dev/null
+          cat "$RUNNER_TEMP/odds-provider-compare/odds_provider_compare.md" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: odds-provider-compare
+          path: ${{ runner.temp }}/odds-provider-compare/odds_provider_compare.json
+          retention-days: 7
+          if-no-files-found: ignore
