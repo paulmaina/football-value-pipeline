@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "7c73b44b6e1c6ee16fc6ee45d20634ecf277c8dff8e4ce224e38cad97bc36515",
-  "training_as_of_utc": "2026-11-23T06:14:36.947815+00:00",
+  "training_as_of_utc": "2026-11-23T18:16:29.753128+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -59,21 +59,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8691707083068149,
-    "audit_candidate_poisson_score": 0.864438259575236,
-    "audit_gain": 0.004732448731578853,
-    "audit_gain_lower95": -0.003782445732241611,
+    "audit_baseline_poisson_score": 0.8691707083135856,
+    "audit_candidate_poisson_score": 0.8644382595785636,
+    "audit_gain": 0.004732448735021988,
+    "audit_gain_lower95": -0.003782445732582011,
     "audit_baseline_briers": [
-      0.5249053988200361,
-      0.20087214085223207,
-      0.22046320493120106,
-      0.25256701647480734
+      0.5249053988105924,
+      0.20087214085746227,
+      0.22046320493917024,
+      0.2525670164844894
     ],
     "audit_candidate_briers": [
-      0.5287255359322104,
-      0.20034990378682685,
-      0.2177402761034345,
-      0.2519696265039408
+      0.528725535925223,
+      0.20034990379017573,
+      0.21774027610928914,
+      0.25196962651010896
     ],
     "audit_brier_order": [
       "1x2",
@@ -89,9 +89,9 @@
   },
   "training_end": "2026-11-08",
   "fit_success": true,
-  "objective": 1451.7486971077958,
-  "base": 0.0832973121953067,
-  "home_adv": 0.17448324876224386,
+  "objective": 1450.6983728807643,
+  "base": 0.08329181872061685,
+  "home_adv": 0.1744852642746025,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -128,7 +128,7 @@
     }
   ],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 3,
+  "additional_event_odds_calls_used_before_this_league": 14,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"

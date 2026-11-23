@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "PyYAML": "6.0.4",
-    "coverage": "7.17.4",
+    "coverage": "7.17.5",
     "numpy": "2.5.5",
     "pandas": "3.1.1",
     "python": "3.14.10",
@@ -10,8 +10,8 @@
     "requests": "2.34.2",
     "scipy": "1.18.1"
   },
-  "generated_at_utc": "2026-11-23T06:15:00.240474+00:00",
-  "model_code_sha256": "9a09744a4d6f8a2ea0cd9d720df0f62b5a31748b9257548b662d03fcd30b9a96",
+  "generated_at_utc": "2026-11-23T18:16:57.482339+00:00",
+  "model_code_sha256": "cbd510fdf1b652a9e306dc98cf1ceaa83193f57d7faa5d44097e176add2ec48e",
   "model_component_sha256": {
     "api_football_data.py": "c5ae292a50d10b4e1a0d9901a0989c8eebc99082aa19d75d3d0e87cc59b00de5",
     "api_football_integration.py": "3a95ec1edc5eaf6b79a8075450905df9b4d5a3050a91cfe8df2b5a2ffb2ddeac",
@@ -20,7 +20,7 @@
     "bbs_data.py": "ea3888908b6c27648c2cc6aeb24149c454bb5c90303c7d93ccba437a897299be",
     "bbs_integration.py": "68912f30219c8c2f4399a93231e7379cd91e7095bbcde1db624b7560af2569ae",
     "bbs_statistics_model.py": "42f5b8221cf032348df233a7fdc3ab812835278fa4adffa959168303537a21e7",
-    "bbs_team_aliases.json": "0eaefff9782e7c695e56dc1a2f96626e145897bafa0086ec1753557d2a0320f8",
+    "bbs_team_aliases.json": "e8c8cff4c1548b0729d25ec27ec1ad2341e4fd493f0680f73d4b5e32522ccfb3",
     "bet365_pinnacle.py": "29c1e233fdf48673b404693148e9b301561bb984e0acd916f76fda58bb9d5276",
     "cagey_correction_config.json": "dd6d3e21f2b6fe9c9bf6df078645c4e18627fb6d9db904beff1c167fb1e66a63",
     "conservative_bet_filter.py": "a8c2a8f98b2bc25754665fa8ed5b2eb2efd90564071a6ea472be9e084514824d",
@@ -29,9 +29,9 @@
     "dc_decay_validation.py": "26ca9299789c00051c20b974e22583035b45e8b0acd6d06145415b93b981b2a7",
     "double_chance.py": "0c113db43dff86b4398afeee97898a51a33370695bccb2ba51a91361804ad1e8",
     "elo_ratings.py": "e74edd69c0f90f6e22b0be61a2b88d6e4cea9cca60c88efeb579c7090ff9bc0d",
-    "football_value_pipeline_v2_standalone.py": "9a09744a4d6f8a2ea0cd9d720df0f62b5a31748b9257548b662d03fcd30b9a96",
+    "football_value_pipeline_v2_standalone.py": "cbd510fdf1b652a9e306dc98cf1ceaa83193f57d7faa5d44097e176add2ec48e",
     "forward_trial_basis.py": "99f5091db8075d2fb9933204e2b9c4c3a7f526096bfd4783e42813c005b3bf1d",
-    "goal_market_validation.py": "0ed0247f60809a7f4b8bd42c0eef793b90f32cb97d4fd165be95fd9afdde6ec3",
+    "goal_market_validation.py": "01d772d2d8b024db4ba543aa522ad85fe4cecad08c49729ba73f1ffb3863897e",
     "historical_benchmark.py": "cba811adfcc35f947bb1630223a4c40fdffc5f9b64824992201ac8ab70ff5c81",
     "league_registry.py": "09ab1ad80a45dffdd5a397add9481c4d01a107d328602d6b4ab00dcdc095f9b5",
     "market_blend_validation.py": "1136fba8bdc85eaaed468ef3f8458781a366d1fcc7913e1057783b023692ea04",
@@ -44,7 +44,7 @@
     "no_loss_corners_shortlist.py": "873b8f0aab9ecb2d9afac068833dc711d587140de38616e1c71dfde9bfeb46fe",
     "odds_provider_health.py": "8554bc4e6f47957e0e996466308123ba98c9ad65cab2986bc2230832f64675e2",
     "per_market_shortlist.py": "83debc1318f8a87649d225cf64cd6b299524d7dbfe20d2ad423c5a690a227bea",
-    "prediction_runs.py": "60723e3203bf8fe0121f5fd74ab3da6dcea7a04351d8df9d031d7f77d7925419",
+    "prediction_runs.py": "f41b3566ce8485c11d1502d41981656c9c47f27c9dcbfe312a8bad043f74b724",
     "price_edge_cagey_shortlist.py": "bba588720e84f0906eda33ed0a056f82fbdb35b1b4440e5ebda296a0302bb94f",
     "price_edge_shortlist.py": "789cd8aeb960f898c8440225e5234d389dfda1be4b9ef1613a1e6fcb49f455f1",
     "quote_freshness.py": "b682731ba7c20bb30d885b726a299b62ef3695419ce612a5da1d4b67d75e47c6",
@@ -57,6 +57,6 @@
     "ucl_training.py": "1acf2d45aa2b85afda071d0871e24b2ca3f9b0f951959d6c60ca5ed97f379d47",
     "win_first_shortlist.py": "13a189d481338e75ee2f386a6de316df0ca9b73d8a96e8d5b9cdc3de91c59bb8"
   },
-  "predictions_sha256": "be24b1d1c37f8adb34cd49338fa8a1c2656a10ce129e9453c347a487d09b7aa8",
+  "predictions_sha256": "e8a5465307d3677b389fe70b95c5587c85d92213be14622d8cf7474d41726563",
   "selection_policy_version": "48h-ah-price-edge-cagey-v28"
 }
