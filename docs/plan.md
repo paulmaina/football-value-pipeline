@@ -1065,6 +1065,13 @@ Six diagnostics every later candidate is read against. Reporting only: no live p
        - Proven picks are about 2 a week; the rest is the not-proven fill (development: 209 proven, 109 safe, 914 fill).
        - Offline there is no double chance, so the caps hold the list to 12 (6 match result, 6 Asian handicap) and every week is short of 15; live runs also offer double chance.
      - Reading: nothing is measurably better or worse than the live master. The strong-team checks select different bets at higher prices (1.59 against 1.42) without changing the return measurably. Live grading decides, under the comparison rule above.
+   - **Replay of the saved live runs** (27 Oct – 23 Nov 2026, 43 runs; integration check, no result read; `evaluation/master_strong/live_replay.json`):
+     - The live master's files are byte-identical on main and on the branch (301 files).
+     - On the 35 runs with nominations the strong list makes 334 picks (live master 362): 43 proven, 161 not-proven safe, 128 fill, 2 risky fill.
+     - By market group: 104 match result, 49 double chance, 181 Asian handicap; never more than 6 in a group.
+     - 7 runs reach 15 (live master 15): Asian handicap is where most offers are, so its cap of 6 binds.
+     - 273 picks are on a fixture the live master also picked, 218 the same offer.
+     - The 8 runs with no nomination first failed in the shadow (skipped, live untouched); fixed to write an empty list.
    - **Live comparison** (decided 23 Nov 2026, before any pick): after at least 150 graded matches over at least 3 weeks on each list, strong minus live master flat-stake return per bet at Pinnacle prices, whole weeks resampled; better only if the 95% interval is entirely above zero. Becoming live is Paul's decision, through a third value of `master_shortlist_config.json` `live`, added only after the comparison.
 5. **Release**: one PR per change that passes; anything else stays in shadow.
    - [ ] Master shortlist release (decided by Paul on 14 Nov 2026 as a deliberate exception: released without waiting for the live shadow comparison verdict; the release gate was not passed and no holdout test was declared for the new master). Open until the rollback window has passed.
