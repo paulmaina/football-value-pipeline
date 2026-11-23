@@ -1,0 +1,124 @@
+{
+ "A_pipeline_prekickoff_espn": {
+  "committed_versions_read": 102,
+  "all": {
+   "fixtures": 191,
+   "first_kickoff": "2026-11-05",
+   "last_kickoff": "2026-11-24",
+   "summary_available_share": 0.7068,
+   "availability_list_share": 0.0,
+   "availability_players_mean_when_listed": null,
+   "roster_both_share": 0.1414,
+   "starters_both_11_share": 0.1361,
+   "xi_confirmed_both_share": 0.0,
+   "last_observation_minutes_before_kickoff_median": 189.7,
+   "last_observation_within_75_min_share": 0.2513
+  },
+  "by_scope": {
+   "UCL/UEL": {
+    "fixtures": 43,
+    "first_kickoff": "2026-11-05",
+    "last_kickoff": "2026-11-24",
+    "summary_available_share": 0.5814,
+    "availability_list_share": 0.0,
+    "availability_players_mean_when_listed": null,
+    "roster_both_share": 0.0698,
+    "starters_both_11_share": 0.0698,
+    "xi_confirmed_both_share": 0.0,
+    "last_observation_minutes_before_kickoff_median": 189.7,
+    "last_observation_within_75_min_share": 0.186
+   },
+   "domestic": {
+    "fixtures": 148,
+    "first_kickoff": "2026-11-06",
+    "last_kickoff": "2026-11-23",
+    "summary_available_share": 0.7432,
+    "availability_list_share": 0.0,
+    "availability_players_mean_when_listed": null,
+    "roster_both_share": 0.1622,
+    "starters_both_11_share": 0.1554,
+    "xi_confirmed_both_share": 0.0,
+    "last_observation_minutes_before_kickoff_median": 182.7,
+    "last_observation_within_75_min_share": 0.2703
+   }
+  },
+  "xi_confirmed_by_minutes_before": {
+   "<=75 min": 0.0,
+   "75 min-3 h": 0.0,
+   "3-12 h": 0.0,
+   ">12 h": 0.0
+  }
+ },
+ "B_espn_history": {
+  "by_season": {
+   "2016/17": {
+    "matches": 24,
+    "summary_share": 1.0,
+    "starters_both_11_share": 1.0,
+    "formation_both_share": 0.75,
+    "bench_players_mean": 7.9,
+    "injury_list_share": 0.0
+   },
+   "2019/20": {
+    "matches": 24,
+    "summary_share": 1.0,
+    "starters_both_11_share": 1.0,
+    "formation_both_share": 0.75,
+    "bench_players_mean": 8.8,
+    "injury_list_share": 0.0
+   },
+   "2022/23": {
+    "matches": 24,
+    "summary_share": 1.0,
+    "starters_both_11_share": 1.0,
+    "formation_both_share": 0.875,
+    "bench_players_mean": 9.9,
+    "injury_list_share": 0.0
+   },
+   "2024/25": {
+    "matches": 24,
+    "summary_share": 1.0,
+    "starters_both_11_share": 1.0,
+    "formation_both_share": 1.0,
+    "bench_players_mean": 10.0,
+    "injury_list_share": 0.0
+   },
+   "2025/26": {
+    "matches": 24,
+    "summary_share": 1.0,
+    "starters_both_11_share": 1.0,
+    "formation_both_share": 1.0,
+    "bench_players_mean": 10.0,
+    "injury_list_share": 0.0
+   }
+  },
+  "requests": {
+   "http_200": 117,
+   "cached": 19
+  }
+ },
+ "C_sofascore_soccerdata": {
+  "soccerdata_version": "2026.43.0",
+  "schedule": {
+   "status": "unavailable",
+   "error": "ConnectionError: Could not download https://api.sofascore.com/api/v1/config/default-unique-tournaments/EN/football."
+  }
+ },
+ "D_fotmob_direct": {
+  "soccerdata_reader": "none in soccerdata 2026.43.0",
+  "requests": [
+   {
+    "url": "https://www.fotmob.com/api/leagues?id=47&ccode3=GBR",
+    "http": 404,
+    "bytes": 0,
+    "json": false
+   },
+   {
+    "url": "https://www.fotmob.com/api/matchDetails?matchId=4813616",
+    "http": 404,
+    "bytes": 0,
+    "json": false
+   }
+  ]
+ }
+}
