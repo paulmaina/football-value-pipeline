@@ -833,7 +833,7 @@
     },
     "correction_review": false,
     "excluded_by_reason": {
-      "no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line)": 16,
+      "no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line)": 15,
       "no usable market-implied fit (missing input: over_2_5)": 56
     },
     "fair_price_returns": {
@@ -852,7 +852,7 @@
     },
     "fixtures": {
       "eligible": 140,
-      "excluded": 72,
+      "excluded": 71,
       "graded": 129,
       "pending": 11
     },
@@ -1339,7 +1339,7 @@
     }
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-23T10:25:09.120725+00:00",
+  "reviewed_at_utc": "2026-11-23T10:46:06.164056+00:00",
   "stop_review": true,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "tagged_candidates": {
