@@ -1,0 +1,316 @@
+{
+ "period": "development",
+ "groups": {
+  "1X2": {
+   "C6_minus_C6R": {
+    "fixtures": 6959,
+    "weeks": 106,
+    "mean_gain": 0.00013695940348189612,
+    "interval_95": [
+     -0.000517721176880195,
+     0.0008018913831397213
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6R": {
+    "fixtures": 6875,
+    "weeks": 106,
+    "mean_gain": -0.026071498677577333,
+    "interval_95": [
+     -0.032020234489951914,
+     -0.020811757092202628
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6": {
+    "fixtures": 6875,
+    "weeks": 106,
+    "mean_gain": -0.026220117819957933,
+    "interval_95": [
+     -0.032172445290259914,
+     -0.02104559810585991
+    ],
+    "clear_of_zero": false
+   },
+   "mean_log_loss": {
+    "C": 0.9775459691786027,
+    "C6": 0.9758473089744528,
+    "C6R": 0.9757103495709709,
+    "M": 0.9537833651381519
+   }
+  },
+  "Over 1.5": {
+   "C6_minus_C6R": {
+    "fixtures": 6959,
+    "weeks": 106,
+    "mean_gain": -0.00023780057769927647,
+    "interval_95": [
+     -0.0005514202688829034,
+     6.14394889181303e-05
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6R": {
+    "fixtures": 6875,
+    "weeks": 106,
+    "mean_gain": -0.009851270725473243,
+    "interval_95": [
+     -0.01259837449488796,
+     -0.00719970443192025
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6": {
+    "fixtures": 6875,
+    "weeks": 106,
+    "mean_gain": -0.009608897741147418,
+    "interval_95": [
+     -0.012367284418912234,
+     -0.006971343267446321
+    ],
+    "clear_of_zero": false
+   },
+   "mean_log_loss": {
+    "C": 0.5225434259809028,
+    "C6": 0.5221627098402578,
+    "C6R": 0.5224005104179571,
+    "M": 0.5165501716847726
+   }
+  },
+  "AH all": {
+   "C6_minus_C6R": {
+    "fixtures": 6959,
+    "weeks": 106,
+    "mean_gain": -2.2306612872219682e-05,
+    "interval_95": [
+     -0.0005213947733238472,
+     0.0004524240069819304
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6R": {
+    "fixtures": 6875,
+    "weeks": 106,
+    "mean_gain": -0.018632259223887865,
+    "interval_95": [
+     -0.022542160401723837,
+     -0.015095145870103296
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6": {
+    "fixtures": 6875,
+    "weeks": 106,
+    "mean_gain": -0.018625892421116657,
+    "interval_95": [
+     -0.02252285421796846,
+     -0.015113829037878517
+    ],
+    "clear_of_zero": false
+   },
+   "mean_log_loss": {
+    "C": 0.7165306086562945,
+    "C6": 0.7157657432887193,
+    "C6R": 0.7157880499015916,
+    "M": 0.6980686698201314
+   }
+  },
+  "AH draw-sensitive": {
+   "C6_minus_C6R": {
+    "fixtures": 6959,
+    "weeks": 106,
+    "mean_gain": 0.00010103769132098539,
+    "interval_95": [
+     -0.00046062745032231396,
+     0.0006509699938036782
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6R": {
+    "fixtures": 6875,
+    "weeks": 106,
+    "mean_gain": -0.02147175296223157,
+    "interval_95": [
+     -0.02620447605589685,
+     -0.01726670622334617
+    ],
+    "clear_of_zero": false
+   },
+   "M_minus_C6": {
+    "fixtures": 6875,
+    "weeks": 106,
+    "mean_gain": -0.02158453016195326,
+    "interval_95": [
+     -0.02631918697029055,
+     -0.017415432297092488
+    ],
+    "clear_of_zero": false
+   },
+   "mean_log_loss": {
+    "C": 0.7128373640694359,
+    "C6": 0.7116120173916358,
+    "C6R": 0.7115109797003148,
+    "M": 0.6927071784057469
+   }
+  }
+ },
+ "calibration": {
+  "C6R_v3_against_C6": {
+   "rule": "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3",
+   "forecasts": 6959,
+   "relative_slopes": {
+    "fixtures_compared": 6959,
+    "candidate_on_common_fixtures": {
+     "home": 1.0012259477891376,
+     "away": 1.0356165766256074
+    },
+    "baseline_on_common_fixtures": {
+     "home": 1.0196007824340798,
+     "away": 1.0523873980263778
+    },
+    "in_band": {
+     "home": true,
+     "away": true
+    },
+    "closer_to_one_than_baseline": {
+     "home": true,
+     "away": true
+    },
+    "slope_passes": {
+     "home": true,
+     "away": true
+    }
+   },
+   "slopes": {
+    "home": 1.0012259477891376,
+    "away": 1.0356165766256074
+   },
+   "slopes_pass": true,
+   "bands_checked": 21,
+   "band_z_threshold": 3.038074304924211,
+   "failing_bands": [],
+   "worst_band": {
+    "outcome": "home",
+    "band_lower": 0.0,
+    "n": 127,
+    "mean_forecast": 0.07193515956668327,
+    "observed_rate": 0.13385826771653545,
+    "observed_minus_forecast": 0.06192310814985218,
+    "z": 2.700815031216086
+   },
+   "bands_pass": true,
+   "passes": true
+  },
+  "C6_v2": {
+   "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+   "forecasts": 6959,
+   "slopes": {
+    "home": 1.0196007824340798,
+    "away": 1.0523873980263778
+   },
+   "slopes_pass": true,
+   "bands_checked": 21,
+   "band_z_threshold": 3.038074304924211,
+   "failing_bands": [],
+   "worst_band": {
+    "outcome": "home",
+    "band_lower": 0.0,
+    "n": 113,
+    "mean_forecast": 0.07114367339450853,
+    "observed_rate": 0.13274336283185842,
+    "observed_minus_forecast": 0.06159968943734989,
+    "z": 2.547272047129801
+   },
+   "bands_pass": true,
+   "passes": true
+  },
+  "C6R_v2": {
+   "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+   "forecasts": 6959,
+   "slopes": {
+    "home": 1.0012259477891376,
+    "away": 1.0356165766256074
+   },
+   "slopes_pass": true,
+   "bands_checked": 21,
+   "band_z_threshold": 3.038074304924211,
+   "failing_bands": [],
+   "worst_band": {
+    "outcome": "home",
+    "band_lower": 0.0,
+    "n": 127,
+    "mean_forecast": 0.07193515956668327,
+    "observed_rate": 0.13385826771653545,
+    "observed_minus_forecast": 0.06192310814985218,
+    "z": 2.700815031216086
+   },
+   "bands_pass": true,
+   "passes": true
+  }
+ },
+ "largest_1x2_move_from_C6": {
+  "mean": 0.006929032187826013,
+  "max": 0.08004032291945523
+ },
+ "features": {
+  "fixtures": 6959,
+  "short_rest_share_of_sides": 0.12710159505676102,
+  "european_away_last_share_of_sides": 0.043181491593619774,
+  "congestion_mean": -0.08894956171863773
+ },
+ "segment_short_rest_or_european_away": {
+  "AH all": {
+   "fixtures": 1715,
+   "weeks": 96,
+   "mean_gain": -0.00014208100158589123,
+   "interval_95": [
+    -0.002001456456651465,
+    0.0016136595062493883
+   ],
+   "clear_of_zero": false
+  },
+  "1X2": {
+   "fixtures": 1715,
+   "weeks": 96,
+   "mean_gain": 0.0007027491389928513,
+   "interval_95": [
+    -0.0015208180142471679,
+    0.0029843735813793325
+   ],
+   "clear_of_zero": false
+  }
+ },
+ "rest_fits": {
+  "windows": 59,
+  "fitted": 39,
+  "last": {
+   "origin": "2025-05-19",
+   "end_exclusive": "2025-06-02",
+   "alpha_short_rest": 0.04504081613765482,
+   "alpha_congestion": 0.019213429289264488,
+   "alpha_european_away": -0.022985855151675855,
+   "gamma_short_rest": -0.027378960660622724,
+   "gamma_congestion": -0.01887539886769179,
+   "gamma_european_away": -0.013869401439055632,
+   "matches": 6908,
+   "status": "fitted",
+   "objective_gain_per_match": 0.0006099047180503378
+  },
+  "median": {
+   "alpha_short_rest": 0.03351837511997997,
+   "alpha_congestion": 0.015869009501388576,
+   "alpha_european_away": -0.022985855151675855,
+   "gamma_short_rest": -0.022053974951683306,
+   "gamma_congestion": -0.0300976928620511,
+   "gamma_european_away": -0.020737500776683668
+  }
+ },
+ "candidate": "C6R",
+ "version": "research-rest-congestion-walk-forward-v1",
+ "run_end_exclusive": "2026-01-16",
+ "schedule_coverage_of_sides": {
+  "with_schedule": 16626
+ },
+ "min_matches": 2000,
+ "prior_sd": 0.1
+}
