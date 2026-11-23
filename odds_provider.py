@@ -644,6 +644,7 @@ class OddsProviderRouter:
         self.odds_api_ids: Dict[Tuple[str, str], str] = {}           # (league, schedule id) -> Odds API id
         self.switches: List[dict] = []
         self.current: Optional[str] = self.order[0]  # who serves requests now; a change is a switch
+        self.first_served: Optional[dict] = None     # who served this run's first request, and why (reporting)
         self.not_found = 0
         self.unmapped: Dict[str, int] = {}
         self._seed(seed)
@@ -909,12 +910,18 @@ class OddsProviderRouter:
         self._note(name, request, reasons)
 
     def _note(self, name: Optional[str], request: ProviderRequest, reasons: List[Tuple[str, str]]) -> None:
-        """A switch whenever the serving provider changes (None: every provider failed for a request)."""
+        """A switch whenever the serving provider changes (None: every provider failed for a request). The first
+        request also sets first_served; a switch made by it is marked run_start, because the activity log records
+        the run's starting provider against the previous run's instead (model_activity.provider_chain_events)."""
+        first = self.first_served is None
+        if first:
+            self.first_served = {'at_utc': iso(self.clock()), 'provider': name, 'reasons': {n: r for n, r in reasons},
+                                 'request': request.kind, 'league': request.league_key}
         if name == self.current:
             return
         self.switches.append({'at_utc': iso(self.clock()), 'from': self.current, 'to': name,
                               'reasons': {n: r for n, r in reasons}, 'request': request.kind,
-                              'league': request.league_key})
+                              'league': request.league_key, **({'run_start': True} if first else {})})
         self.current = name
 
     # --- what the run records ---
@@ -931,7 +938,7 @@ class OddsProviderRouter:
                 item['blocked_until_utc'] = iso(state.blocked_until)
             providers[name] = item
         return {'enabled': True, 'order': list(self.order), 'providers': providers, 'switches': list(self.switches),
-                'events_not_found': self.not_found}
+                'first_served': self.first_served, 'events_not_found': self.not_found}
 
 
 def summary_markdown(summary: Optional[Mapping]) -> str:
