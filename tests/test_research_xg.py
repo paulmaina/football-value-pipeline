@@ -99,6 +99,42 @@ def test_walk_forward_fits_only_on_rows_before_each_origin():
     assert again == fits
 
 
+def test_zero_features_give_c6_exactly():
+    import json
+    import evaluation_harness as eh
+    spec = importlib.util.spec_from_file_location('c6_xg_report', ROOT / 'scripts' / 'c6_xg_report.py')
+    report = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(report)
+    cfg = json.loads(eh.CONFIG.read_text(encoding='utf-8'))
+    end = pd.Timestamp('2023-03-01')
+    cfg = {**cfg, 'end_exclusive': end.date().isoformat()}
+    rng = np.random.default_rng(7)
+    dates = pd.date_range('2022-08-01', end - pd.Timedelta(days=1), periods=2600)
+    research = []
+    for i, d in enumerate(dates):
+        key = f'EPL|{d.date()}|H{i}|A{i}'
+        research.append({'identity': {'league': 'EPL', 'date': d.date().isoformat(), 'phase': 'development',
+                                      'week': f'{d.isocalendar().year}-W{d.isocalendar().week:02d}',
+                                      'fixture_key': key, 'market_book': ''},
+                         'date': d, 'fixture_key': key, 'goal_rates': list(rng.uniform(.9, 1.9, 2)),
+                         'home_goals': int(rng.poisson(1.5)), 'away_goals': int(rng.poisson(1.1)), 'scored': True})
+    feats = [((0., 0.), (0., 0.)) for _ in research]
+    counts = [(8, 8) for _ in research]
+    c6_records, c6_calib, _, _ = eh.low_score_sharpen_candidate(research, cfg, end, {'C6'})
+    r, k, fits = report.c6x_candidate(research, feats, counts, cfg, end)
+    assert any(f['status'] == 'fitted' for f in fits)
+    strip = lambda rows: [{x: v for x, v in row.items() if x != 'candidate'} for row in rows]
+    assert strip(r) == strip(c6_records)
+    assert strip(k) == strip(c6_calib)
+
+
+def test_no_odds_or_market_input():
+    text = (ROOT / 'research_xg.py').read_text(encoding='utf-8')
+    for token in ('market_implied', 'narrow_margin', 'book_prices', 'market_matrix', 'cagey', 'PSH', 'PSA',
+                  'B365', 'AHh', 'P>2.5', 'score_matrix_json', 'published_proxy', 'odds_api', 'pinnacle'):
+        assert token not in text, token
+
+
 def test_extraction_scope_drops_play_offs_qualifiers_and_keeps_main_rounds():
     ex = _extractor()
     assert ex.scope('EPL', 'Regular Season - 12') == 'kept'
