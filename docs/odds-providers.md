@@ -95,17 +95,24 @@ real keys (`leagues_verified: false`).
 Every quote records which provider supplied it (switch on only):
 
 - **Forecast rows:** `odds_provider` (1X2, main lines), `odds_extra_markets_provider` (per-event markets) and
-  `odds_schedule_provider` (fixtures), in the prediction files. List files are unchanged: decisions carry fixed
-  columns, so provenance cannot change a list (tested).
+  `odds_schedule_provider` (fixtures), in the prediction files, `all_leagues_predictions.csv` included (the first
+  two were dropped there until 23 Nov 2026). List files are unchanged: decisions carry fixed columns, so provenance
+  cannot change a list (tested).
 - **Saved payloads:** each payload the adapter returns carries `odds_provider`, which the parsers ignore. Closing
   observations and shadow corner closes therefore keep it with the evidence.
 - **Forecast summary:** `conservative_bet_summary.json` `odds_provider` holds requests, served requests and
-  failures per provider, and every switch. The run outcome and the GitHub run summary show the same (an "Odds
+  failures per provider, every switch, and `first_served` (the provider that served the run's first request, and
+  why any earlier one in the order did not). The run outcome and the GitHub run summary show the same (an "Odds
   providers" table).
 - **Usage log:** one `odds_provider` block per forecast and closing record.
-- **Model activity log:** one "Odds provider switch" line per switch. Forecast-run switches come from the
-  summary; closing switches come from the usage log (source "closing odds") at the next forecast run. Ids are
-  the switch itself, so nothing is logged twice.
+- **Model activity log:** one "Odds provider switch" line per change of serving provider, within a run and at
+  run start. Each workflow (forecast runs, closing collector) is one chain: a run that starts on another provider
+  than its previous run ended on gets a run-start line (`request` "run start", with the reasons), including the
+  first routed run (from The Odds API) and a run with the switch off (back to The Odds API). A switch made by a
+  run's first request is that run-start line, not a second one. The run being published comes from its summary;
+  earlier forecast runs and the closing collector come from the usage log (source "closing odds") at the next
+  forecast run. The whole usage log is read every run and ids are fixed, so nothing is logged twice. The first
+  routed forecast run (23 Nov 2026, 06:15 UTC) is logged from the usage log at its own time.
 - **Weekly report:** the week's file gains an "Odds providers" section: requests, served requests, failures and
   switches per provider, and Odds API credits spent that week across every workflow. Weeks with the switch off
   get no section.

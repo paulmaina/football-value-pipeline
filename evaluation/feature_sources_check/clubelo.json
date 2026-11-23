@@ -1,0 +1,855 @@
+{
+ "api_attempt": {
+  "source": "soccerdata.ClubElo (api.clubelo.com)",
+  "soccerdata_version": "2026.43.0",
+  "status": "unavailable",
+  "error": "ConnectionError: Could not download http://api.clubelo.com/2026-11-19."
+ },
+ "mirror": {
+  "source": "https://github.com/xgabora/Club-Football-Match-Data-2000-2025",
+  "commit": "25882a58a736daf7ece3781940eac17ae1117a66",
+  "file": "data/EloRatings.csv",
+  "fetched_utc": "2026-11-23T04:42:17Z",
+  "note": "ClubElo snapshots (1st/15th of month) to 2025-06-01; later rows are the maintainer's provisional continuation, not ClubElo",
+  "rows": 273972,
+  "clubs": 984,
+  "countries": 19,
+  "first_date": "2000-07-01",
+  "last_date": "2026-09-01",
+  "snapshot_dates_per_year": 24,
+  "genuine_clubelo_until": "2025-06-01"
+ },
+ "domestic_name_match": {
+  "clubs": 269,
+  "by_match": {
+   "exact": 265,
+   "unmatched": 2,
+   "close (review)": 2
+  },
+  "by_league": {
+   "Bundesliga": {
+    "exact": 31
+   },
+   "EPL": {
+    "exact": 35
+   },
+   "Eredivisie": {
+    "exact": 28
+   },
+   "LaLiga": {
+    "exact": 32
+   },
+   "Ligue1": {
+    "exact": 33,
+    "unmatched": 1
+   },
+   "PrimeiraLiga": {
+    "exact": 32
+   },
+   "SerieA": {
+    "exact": 35
+   },
+   "SuperLig": {
+    "exact": 39,
+    "close (review)": 2,
+    "unmatched": 1
+   }
+  },
+  "not_exact": [
+   {
+    "league": "Ligue1",
+    "team": "Ajaccio GFCO",
+    "clubelo_name": NaN,
+    "match": "unmatched",
+    "seasons": [
+     "1516"
+    ],
+    "first_snapshot": NaN,
+    "first_season_in_our_data": "2015-07-01"
+   },
+   {
+    "league": "SuperLig",
+    "team": "Ankaragucu",
+    "clubelo_name": "Ankaraguecue",
+    "match": "close (review)",
+    "seasons": [
+     "1819",
+     "1920",
+     "2021",
+     "2223",
+     "2324"
+    ],
+    "first_snapshot": "2000-07-01",
+    "first_season_in_our_data": "2018-07-01"
+   },
+   {
+    "league": "SuperLig",
+    "team": "Osmanlispor",
+    "clubelo_name": NaN,
+    "match": "unmatched",
+    "seasons": [
+     "1516",
+     "1617",
+     "1718"
+    ],
+    "first_snapshot": NaN,
+    "first_season_in_our_data": "2015-07-01"
+   },
+   {
+    "league": "SuperLig",
+    "team": "Yeni Malatyaspor",
+    "clubelo_name": "Malatyaspor",
+    "match": "close (review)",
+    "seasons": [
+     "1718",
+     "1819",
+     "1920",
+     "2021",
+     "2122"
+    ],
+    "first_snapshot": "2001-07-01",
+    "first_season_in_our_data": "2017-07-01"
+   }
+  ],
+  "history_starts_after_first_season_in_our_data": [
+   {
+    "league": "Bundesliga",
+    "team": "M'gladbach",
+    "first_season_in_our_data": "2015-07-01",
+    "first_snapshot": "2025-01-01"
+   },
+   {
+    "league": "EPL",
+    "team": "Nott'm Forest",
+    "first_season_in_our_data": "2022-07-01",
+    "first_snapshot": "2025-01-01"
+   },
+   {
+    "league": "Eredivisie",
+    "team": "Telstar",
+    "first_season_in_our_data": "2025-07-01",
+    "first_snapshot": "2025-08-15"
+   },
+   {
+    "league": "PrimeiraLiga",
+    "team": "AVS",
+    "first_season_in_our_data": "2024-07-01",
+    "first_snapshot": "2024-07-15"
+   },
+   {
+    "league": "PrimeiraLiga",
+    "team": "Academico Viseu",
+    "first_season_in_our_data": "2026-07-01",
+    "first_snapshot": "2026-08-15"
+   },
+   {
+    "league": "PrimeiraLiga",
+    "team": "Estrela",
+    "first_season_in_our_data": "2023-07-01",
+    "first_snapshot": "2025-08-15"
+   },
+   {
+    "league": "SuperLig",
+    "team": "Amedspor",
+    "first_season_in_our_data": "2026-07-01",
+    "first_snapshot": "2026-09-01"
+   },
+   {
+    "league": "SuperLig",
+    "team": "Bodrumspor",
+    "first_season_in_our_data": "2024-07-01",
+    "first_snapshot": "2024-07-15"
+   },
+   {
+    "league": "SuperLig",
+    "team": "Corum",
+    "first_season_in_our_data": "2026-07-01",
+    "first_snapshot": "2026-08-15"
+   },
+   {
+    "league": "SuperLig",
+    "team": "Eyupspor",
+    "first_season_in_our_data": "2024-07-01",
+    "first_snapshot": "2024-07-15"
+   },
+   {
+    "league": "SuperLig",
+    "team": "Gaziantep",
+    "first_season_in_our_data": "2019-07-01",
+    "first_snapshot": "2025-08-15"
+   }
+  ]
+ },
+ "european_name_match": {
+  "clubs": 240,
+  "linked_to_forecast_league": 120,
+  "by_match": {
+   "via domestic identity": 120,
+   "unmatched": 59,
+   "normalised": 23,
+   "affixes removed (review)": 13,
+   "token subset (review)": 13,
+   "close (review)": 10,
+   "exact": 2
+  },
+  "non_forecast_league_clubs": 120,
+  "non_forecast_matched_share": 0.5083,
+  "non_forecast_by_match": {
+   "unmatched": 59,
+   "normalised": 23,
+   "affixes removed (review)": 13,
+   "token subset (review)": 13,
+   "close (review)": 10,
+   "exact": 2
+  },
+  "non_forecast_countries": {
+   "RUS": 11,
+   "BEL": 11,
+   "AUT": 8,
+   "NOR": 6,
+   "GRE": 6,
+   "POL": 5,
+   "SCO": 4,
+   "DEN": 4,
+   "SWE": 4,
+   "ROM": 2
+  },
+  "unmatched": [
+   {
+    "team": "AC Sparta Praha",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "APOEL Nikosia",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "BATE Borisov",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "BSC Young Boys",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "Dinamo Kiev",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "FC Basel 1893",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "FC Sheriff",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "FK Astana",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "FK Crvena Zvezda",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "FK Kairat",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "FK Shakhtar Donetsk",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "Ferencv\u00e1rosi TC",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "GNK Dinamo Zagreb",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "Maccabi Haifa",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "Maccabi Tel Aviv",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "NK Maribor",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "PAE AEK",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "PFC Ludogorets Razgrad",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "Paphos FC",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "Qaraba\u011f A\u011fdam FK",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "Royale Union Saint-Gilloise",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "SK Slavia Praha",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "Sabah FK",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "Viktoria Plze\u0148",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "aek athens",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "aek larnaca",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "ararat-armenia",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "basel",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "celje",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "crvena zvezda",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "cska sofia",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "dundalk fc",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "dynamo kyiv",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "fcsb",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "ferencvaros",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "h. beer-sheva",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "hjk",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "hnk rijeka",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "levski sofia",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "ludogorets",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "maccabi haifa",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "maccabi tel aviv",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "omonia",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "qarabag",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "rfs",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "servette",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "shakhtar donetsk",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "sheriff",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "slavia praha",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "slovan liberec",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "sparta praha",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "torreense",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "tsc",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "union sg",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "viktoria plzen",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "young boys",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "zorya lugansk",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "zurich",
+    "competitions": [
+     "UEL"
+    ],
+    "forecast_league": NaN
+   },
+   {
+    "team": "\u0160K Slovan Bratislava",
+    "competitions": [
+     "UCL"
+    ],
+    "forecast_league": NaN
+   }
+  ],
+  "close_for_review": [
+   {
+    "team": "FC K\u00f8benhavn",
+    "clubelo_name": "FC Kobenhavn",
+    "country": "DEN"
+   },
+   {
+    "team": "FK Bod\u00f8/Glimt",
+    "clubelo_name": "Bodoe Glimt",
+    "country": "NOR"
+   },
+   {
+    "team": "Malm\u00f6 FF",
+    "clubelo_name": "Malmoe",
+    "country": "SWE"
+   },
+   {
+    "team": "bod\u00f8/glimt",
+    "clubelo_name": "Bodoe Glimt",
+    "country": "NOR"
+   },
+   {
+    "team": "br\u00f8ndby if",
+    "clubelo_name": "Brondby",
+    "country": "DEN"
+   },
+   {
+    "team": "hacken",
+    "clubelo_name": "Haecken",
+    "country": "SWE"
+   },
+   {
+    "team": "lillestr\u00f8m",
+    "clubelo_name": "Lillestrom",
+    "country": "NOR"
+   },
+   {
+    "team": "malmo",
+    "clubelo_name": "Malmoe",
+    "country": "SWE"
+   },
+   {
+    "team": "olympiacos",
+    "clubelo_name": "Olympiakos",
+    "country": "GRE"
+   },
+   {
+    "team": "wolfsberger ac",
+    "clubelo_name": "Wolfsberg",
+    "country": "AUT"
+   }
+  ]
+ },
+ "domestic_match_coverage_from_2016_17": {
+  "development": {
+   "matches": 8230,
+   "both_rated_share": 0.9567,
+   "both_rated_by_genuine_clubelo_share": 0.9567
+  },
+  "holdout": {
+   "matches": 646,
+   "both_rated_share": 0.9675,
+   "both_rated_by_genuine_clubelo_share": 0.0
+  },
+  "retrospective": {
+   "matches": 1461,
+   "both_rated_share": 0.7529,
+   "both_rated_by_genuine_clubelo_share": 0.0
+  },
+  "validation": {
+   "matches": 1368,
+   "both_rated_share": 0.9971,
+   "both_rated_by_genuine_clubelo_share": 0.0
+  },
+  "warm_up": {
+   "matches": 16477,
+   "both_rated_share": 0.9765,
+   "both_rated_by_genuine_clubelo_share": 0.9765
+  }
+ },
+ "european_match_coverage": {
+  "both forecast-league clubs": {
+   "matches": 1217,
+   "both_rated_share": 0.9523,
+   "both_rated_by_genuine_clubelo_share": 0.7987
+  },
+  "involves a non-forecast-league club": {
+   "matches": 1427,
+   "both_rated_share": 0.4296,
+   "both_rated_by_genuine_clubelo_share": 0.3532
+  }
+ },
+ "earliest_snapshot_matched_domestic_clubs": {
+  "min": "2000-07-01",
+  "max": "2026-09-01",
+  "clubs_first_seen_after_2016_07_01": [
+   {
+    "league": "Bundesliga",
+    "team": "Elversberg",
+    "first_snapshot": "2023-07-01"
+   },
+   {
+    "league": "Bundesliga",
+    "team": "Holstein Kiel",
+    "first_snapshot": "2017-07-01"
+   },
+   {
+    "league": "Bundesliga",
+    "team": "M'gladbach",
+    "first_snapshot": "2025-01-01"
+   },
+   {
+    "league": "EPL",
+    "team": "Nott'm Forest",
+    "first_snapshot": "2025-01-01"
+   },
+   {
+    "league": "Eredivisie",
+    "team": "Almere City",
+    "first_snapshot": "2023-07-01"
+   },
+   {
+    "league": "Eredivisie",
+    "team": "FC Emmen",
+    "first_snapshot": "2018-07-01"
+   },
+   {
+    "league": "Eredivisie",
+    "team": "Telstar",
+    "first_snapshot": "2025-08-15"
+   },
+   {
+    "league": "PrimeiraLiga",
+    "team": "AVS",
+    "first_snapshot": "2024-07-15"
+   },
+   {
+    "league": "PrimeiraLiga",
+    "team": "Academico Viseu",
+    "first_snapshot": "2026-08-15"
+   },
+   {
+    "league": "PrimeiraLiga",
+    "team": "Casa Pia",
+    "first_snapshot": "2022-07-01"
+   },
+   {
+    "league": "PrimeiraLiga",
+    "team": "Estrela",
+    "first_snapshot": "2025-08-15"
+   },
+   {
+    "league": "PrimeiraLiga",
+    "team": "Famalicao",
+    "first_snapshot": "2019-07-01"
+   },
+   {
+    "league": "PrimeiraLiga",
+    "team": "Vizela",
+    "first_snapshot": "2021-07-01"
+   },
+   {
+    "league": "SuperLig",
+    "team": "Ad. Demirspor",
+    "first_snapshot": "2021-07-01"
+   },
+   {
+    "league": "SuperLig",
+    "team": "Amedspor",
+    "first_snapshot": "2026-09-01"
+   },
+   {
+    "league": "SuperLig",
+    "team": "Bodrumspor",
+    "first_snapshot": "2024-07-15"
+   },
+   {
+    "league": "SuperLig",
+    "team": "Corum",
+    "first_snapshot": "2026-08-15"
+   },
+   {
+    "league": "SuperLig",
+    "team": "Erzurum BB",
+    "first_snapshot": "2018-07-01"
+   },
+   {
+    "league": "SuperLig",
+    "team": "Eyupspor",
+    "first_snapshot": "2024-07-15"
+   },
+   {
+    "league": "SuperLig",
+    "team": "Gaziantep",
+    "first_snapshot": "2025-08-15"
+   },
+   {
+    "league": "SuperLig",
+    "team": "Giresunspor",
+    "first_snapshot": "2021-07-01"
+   },
+   {
+    "league": "SuperLig",
+    "team": "Hatayspor",
+    "first_snapshot": "2020-07-01"
+   },
+   {
+    "league": "SuperLig",
+    "team": "Karagumruk",
+    "first_snapshot": "2020-07-01"
+   },
+   {
+    "league": "SuperLig",
+    "team": "Pendikspor",
+    "first_snapshot": "2023-07-01"
+   },
+   {
+    "league": "SuperLig",
+    "team": "Umraniyespor",
+    "first_snapshot": "2022-07-01"
+   }
+  ]
+ }
+}
