@@ -87,5 +87,42 @@ class StaleWarningTests(unittest.TestCase):
         self.assertEqual(current_sheet['A4'].value, 'Rank')
 
 
+class RedJobTests(unittest.TestCase):
+    """After publishing, a stale fit makes the forecast workflow's last step fail (Paul, 23 Nov 2026)."""
+
+    def test_publisher_flags_the_workflow_only_after_publishing(self):
+        import publish_scheduled_forecasts as publisher
+        with tempfile.TemporaryDirectory() as tmp:
+            output = Path(tmp) / 'out'
+            self.assertTrue(publisher.stale_alert({'stale_fit_warning': 'STALE RESEARCH FIT: 1 of 1\nforecasts'}, output))
+            self.assertFalse(publisher.stale_alert({'status': 'FORECASTS_PRODUCED'}, output))
+            self.assertFalse(publisher.stale_alert(None, output))
+            self.assertEqual(output.read_text(encoding='utf-8').splitlines(),
+                             ['stale_fit=true', 'stale_fit_warning=STALE RESEARCH FIT: 1 of 1 forecasts',
+                              'stale_fit=false', 'stale_fit=false'])
+            env = {'GITHUB_OUTPUT': str(output)}
+            for outcome, code in (({'stale_fit_warning': 'STALE'}, 0), ({}, 0)):
+                with mock.patch.object(publisher, 'publish', return_value=outcome), mock.patch.dict('os.environ', env):
+                    self.assertEqual(publisher.main([]), code)  # the publisher itself still succeeds
+            stopped = publisher.ForecastStopped('credits exhausted')
+            with mock.patch.object(publisher, 'publish', side_effect=stopped), mock.patch.object(publisher, 'stale_alert') as alert,                     redirect_stdout(io.StringIO()):
+                self.assertEqual(publisher.main([]), 1)
+            alert.assert_not_called()
+
+    def test_workflow_fails_only_in_a_last_step_after_publishing(self):
+        import yaml
+        root = Path(__file__).resolve().parents[1]
+        flow = yaml.load((root / '.github/workflows/scheduled-forecasts.yml').read_text(encoding='utf-8'),
+                         Loader=yaml.BaseLoader)
+        steps = flow['jobs']['collect']['steps']
+        names = [s.get('name') for s in steps]
+        publish = names.index('Generate, capture, grade and publish on latest main')
+        fail = names.index('Fail the run when a live forecast used a stale research fit')
+        self.assertEqual(fail, len(steps) - 1)
+        self.assertGreater(fail, publish)
+        self.assertEqual(steps[publish]['id'], 'publish')
+        self.assertEqual(steps[fail]['if'], "steps.publish.outputs.stale_fit == 'true'")
+        self.assertIn('exit 1', steps[fail]['run'])
+
 if __name__ == '__main__':
     unittest.main()
