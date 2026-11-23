@@ -1,0 +1,284 @@
+{
+ "cutoff_utc": "2026-11-23T12:00:00+00:00",
+ "api_football_requests": 0,
+ "leagues": {
+  "EPL": {
+   "counts": {
+    "fixtures_cached": 1140,
+    "mapped": 552,
+    "teams_by_integration_check": 23,
+    "teams_by_reviewed_alias": 1,
+    "xg_cached": 552,
+    "xg_not_cached_yet": 588
+   },
+   "by_season": {
+    "2324": {
+     "mapped_with_xg": 172,
+     "first_date": "2024-01-30",
+     "last_date": "2024-05-19",
+     "failed_to_map": 0
+    },
+    "2425": {
+     "mapped_with_xg": 380,
+     "first_date": "2024-08-16",
+     "last_date": "2025-05-25",
+     "failed_to_map": 0
+    }
+   },
+   "by_month": {
+    "2024-01": 8,
+    "2024-02": 42,
+    "2024-03": 35,
+    "2024-04": 53,
+    "2024-05": 34,
+    "2024-08": 27,
+    "2024-09": 33,
+    "2024-10": 30,
+    "2024-11": 36,
+    "2024-12": 62,
+    "2025-01": 41,
+    "2025-02": 42,
+    "2025-03": 18,
+    "2025-04": 50,
+    "2025-05": 41
+   },
+   "failed_to_map": []
+  },
+  "LaLiga": {
+   "counts": {
+    "fixtures_cached": 1140,
+    "mapped": 547,
+    "teams_by_history_team": 6,
+    "teams_by_integration_check": 18,
+    "xg_cached": 547,
+    "xg_not_cached_yet": 593
+   },
+   "by_season": {
+    "2324": {
+     "mapped_with_xg": 167,
+     "first_date": "2024-01-28",
+     "last_date": "2024-05-26",
+     "failed_to_map": 0
+    },
+    "2425": {
+     "mapped_with_xg": 380,
+     "first_date": "2024-08-15",
+     "last_date": "2025-05-25",
+     "failed_to_map": 0
+    }
+   },
+   "by_month": {
+    "2024-01": 6,
+    "2024-02": 40,
+    "2024-03": 39,
+    "2024-04": 32,
+    "2024-05": 50,
+    "2024-08": 34,
+    "2024-09": 46,
+    "2024-10": 30,
+    "2024-11": 32,
+    "2024-12": 39,
+    "2025-01": 30,
+    "2025-02": 40,
+    "2025-03": 38,
+    "2025-04": 41,
+    "2025-05": 50
+   },
+   "failed_to_map": []
+  },
+  "Bundesliga": {
+   "counts": {
+    "excluded_play_off": 6,
+    "fixtures_cached": 924,
+    "mapped": 443,
+    "teams_by_history_team": 6,
+    "teams_by_integration_check": 12,
+    "teams_by_reviewed_alias": 3,
+    "xg_cached": 444,
+    "xg_not_cached_yet": 474
+   },
+   "by_season": {
+    "2324": {
+     "mapped_with_xg": 138,
+     "first_date": "2024-01-28",
+     "last_date": "2024-05-18",
+     "failed_to_map": 0
+    },
+    "2425": {
+     "mapped_with_xg": 305,
+     "first_date": "2024-08-23",
+     "last_date": "2025-05-17",
+     "failed_to_map": 1
+    }
+   },
+   "by_month": {
+    "2024-01": 2,
+    "2024-02": 37,
+    "2024-03": 36,
+    "2024-04": 36,
+    "2024-05": 27,
+    "2024-08": 16,
+    "2024-09": 29,
+    "2024-10": 27,
+    "2024-11": 34,
+    "2024-12": 28,
+    "2025-01": 37,
+    "2025-02": 36,
+    "2025-03": 35,
+    "2025-04": 36,
+    "2025-05": 27
+   },
+   "failed_to_map": [
+    {
+     "league": "Bundesliga",
+     "season": "2425",
+     "api_fixture_id": 1224099,
+     "kickoff_utc": "2024-12-14T14:30:00+00:00",
+     "api_home": "Union Berlin",
+     "api_away": "VfL Bochum",
+     "reason": "score_disagrees_with_history",
+     "home": "Union Berlin",
+     "away": "Bochum"
+    }
+   ]
+  },
+  "SerieA": {
+   "counts": {
+    "excluded_play_off": 1,
+    "fixtures_cached": 1141,
+    "mapped": 548,
+    "teams_by_history_team": 1,
+    "teams_by_integration_check": 24,
+    "teams_by_reviewed_alias": 1,
+    "xg_cached": 548,
+    "xg_not_cached_yet": 591,
+    "xg_response_not_two_teams": 1
+   },
+   "by_season": {
+    "2324": {
+     "mapped_with_xg": 169,
+     "first_date": "2024-01-28",
+     "last_date": "2024-06-02",
+     "failed_to_map": 0
+    },
+    "2425": {
+     "mapped_with_xg": 379,
+     "first_date": "2024-08-17",
+     "last_date": "2025-05-25",
+     "failed_to_map": 0
+    }
+   },
+   "by_month": {
+    "2024-01": 5,
+    "2024-02": 44,
+    "2024-03": 34,
+    "2024-04": 45,
+    "2024-05": 40,
+    "2024-06": 1,
+    "2024-08": 26,
+    "2024-09": 34,
+    "2024-10": 39,
+    "2024-11": 34,
+    "2024-12": 45,
+    "2025-01": 41,
+    "2025-02": 41,
+    "2025-03": 39,
+    "2025-04": 40,
+    "2025-05": 40
+   },
+   "failed_to_map": []
+  },
+  "Ligue1": {
+   "counts": {
+    "excluded_play_off": 4,
+    "fixtures_cached": 996,
+    "mapped": 446,
+    "teams_by_history_team": 2,
+    "teams_by_integration_check": 19,
+    "teams_by_reviewed_alias": 2,
+    "xg_cached": 446,
+    "xg_not_cached_yet": 546
+   },
+   "by_season": {
+    "2324": {
+     "mapped_with_xg": 140,
+     "first_date": "2024-01-28",
+     "last_date": "2024-05-19",
+     "failed_to_map": 0
+    },
+    "2425": {
+     "mapped_with_xg": 306,
+     "first_date": "2024-08-16",
+     "last_date": "2025-05-17",
+     "failed_to_map": 0
+    }
+   },
+   "by_month": {
+    "2024-01": 5,
+    "2024-02": 36,
+    "2024-03": 36,
+    "2024-04": 36,
+    "2024-05": 27,
+    "2024-08": 22,
+    "2024-09": 32,
+    "2024-10": 27,
+    "2024-11": 31,
+    "2024-12": 24,
+    "2025-01": 36,
+    "2025-02": 36,
+    "2025-03": 35,
+    "2025-04": 36,
+    "2025-05": 27
+   },
+   "failed_to_map": []
+  },
+  "UCL": {
+   "counts": {
+    "european_holdout_not_read": 81,
+    "excluded_extra_time_or_penalties": 3,
+    "excluded_play_off": 38,
+    "excluded_qualifier": 230,
+    "fixtures_cached": 707,
+    "mapped": 134,
+    "teams_by_history_team": 6,
+    "teams_by_integration_check": 37,
+    "teams_by_reviewed_alias": 9,
+    "xg_cached": 134,
+    "xg_not_cached_yet": 221
+   },
+   "by_season": {
+    "2324": {
+     "mapped_with_xg": 26,
+     "first_date": "2024-02-13",
+     "last_date": "2024-06-01",
+     "failed_to_map": 0
+    },
+    "2425": {
+     "mapped_with_xg": 108,
+     "first_date": "2024-09-17",
+     "last_date": "2024-12-11",
+     "failed_to_map": 0
+    }
+   },
+   "by_month": {
+    "2024-02": 8,
+    "2024-03": 6,
+    "2024-04": 8,
+    "2024-05": 3,
+    "2024-06": 1,
+    "2024-09": 18,
+    "2024-10": 36,
+    "2024-11": 36,
+    "2024-12": 18
+   },
+   "failed_to_map": []
+  }
+ },
+ "table": {
+  "path": "data/feature_cache/api_football_xg/xg_matches.csv",
+  "rows": 2670,
+  "sha256": "8c7536b5b3adbba647c3443805c32dfe5fe04f72fcf350474f616bee1741c8d0",
+  "first_date": "2024-01-28",
+  "last_date": "2025-05-25"
+ }
+}
