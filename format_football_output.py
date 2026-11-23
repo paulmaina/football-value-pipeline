@@ -1829,6 +1829,8 @@ def _master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) 
     path = Path(input_dir) / master_shortlist.FILE if input_dir is not None else None
     if info is None or path is None or not path.exists():
         return []
+    if info.get('version') == master_shortlist.VERSION_STRONG_LIVE:
+        return strong_master_section(info, path, summary, output_dir)
     if info.get('version') == master_shortlist.VERSION_NEW_LIVE:
         return new_master_section(info, path, summary, output_dir)
     try:
@@ -1978,6 +1980,63 @@ def new_master_section(info: dict, path: Path, summary: dict, output_dir: Path) 
             f"This run: {info.get('ranked_fixtures', len(readable))} matches (safe {tiers.get('safe', 0)}, fill "
             f"{tiers.get('fill', 0)}, risky fill {tiers.get('risky fill', 0)}).{short} "
             f"Old master (shadow): {old.get('n_bets', 'no')} picks.", "",
+            markdown_table(list(readable.columns), readable.astype(str).values.tolist())
+            if not readable.empty else "No nominated offer passed the master's execution and timing checks this run.",
+            *inspection_lines(picks, info)]
+
+
+def strong_master_section(info: dict, path: Path, summary: dict, output_dir: Path) -> list:
+    """The live master since the strong release of 23 Nov 2026 (rule master-strong-team-v1): its ranked picks only,
+    readable CSV (the workbook's master tab) and report section, with the strong-team checks behind each pick."""
+    import master_shortlist
+    try:
+        raw = pd.read_csv(path, low_memory=False)
+    except pd.errors.EmptyDataError:
+        raw = pd.DataFrame(columns=master_shortlist.strong_live_columns())
+    picks = raw.loc[raw.new_master_decision.eq('SHORTLISTED')].copy()
+    picks = picks.assign(_rank=pd.to_numeric(picks.new_master_rank, errors='coerce')).sort_values('_rank', kind='stable')
+    yes = lambda v: 'yes' if str(v) == 'True' else 'no'
+    text = lambda v: '' if pd.isna(v) else v
+    groups = {'match_result': 'Match result', 'double_chance': 'Double chance', 'asian_handicap': 'Asian handicap'}
+    readable = pd.DataFrame({
+        "Rank": picks.new_master_rank, "Tier (proven / not proven)": picks.new_master_tier.map(text),
+        "Market group": picks.strong_market_group.map(lambda v: groups.get(v, text(v))),
+        "Kickoff (UTC)": picks.kickoff_utc, "League": picks.league, "Home": picks.home_team, "Away": picks.away_team,
+        "Market to bet": picks.market_to_bet, "Bookmaker": picks.bookmaker,
+        "Price": picks.offered_decimal_odds.map(decimal),
+        "Cagey chance of winning (profit)": picks.ranking_profit_probability.map(pct),
+        "Cagey no-loss probability": picks.ranking_no_loss_probability.map(pct),
+        "Research no-loss probability": picks.research_no_loss_probability.map(pct),
+        "Backed team Elo expected score": picks.strong_elo_expectancy.map(pct),
+        "Record on this bet (last 10)": picks.strong_record_reason.map(text),
+        "Research expected margin after the line": picks.strong_research_margin.map(
+            lambda v: '' if pd.isna(v) else f"{float(v):+.2f}"),
+        "League trust": picks.strong_league_trust.map(text),
+        "Labels": picks.strong_labels.map(text), "Checks failed": picks.strong_failed_checks.map(text),
+        "Offered quote (UTC)": picks.offered_last_update_utc.map(text),
+        "On value shortlist": picks.in_value_shortlist.map(yes), "On cagey tier": picks.in_cagey_tier.map(yes),
+        "In today's master (shadow)": picks.in_old_master.map(yes),
+        **{label: (picks[column].map(text) if column in picks else '') for column, label in INSPECTION_LABELS},
+    })
+    readable.to_csv(output_dir / MASTER_READABLE, index=False, encoding="utf-8-sig")
+    strong = info.get('strong') or {}
+    tiers, by_group = strong.get('picks_by_tier') or {}, strong.get('picks_by_market_group') or {}
+    target = info.get('target_fixtures', 15)
+    short = f" Short of the {target}-match target: {strong['short_reason']}." if strong.get('short_reason') else ''
+    return ["", f"## Master shortlist (strong-team master, live since 23 Nov 2026; target {target} matches)", "",
+            "At most 6 picks each in match result, double chance and Asian handicap, one bet per match, only from the "
+            "value shortlist's and the cagey tier's nominations, Pinnacle prices only (odds above 1.15 up to 2.00), "
+            "quotes at most 15 minutes old. Proven picks first: the cagey tier rates the bet safe (no-loss at least "
+            "75%), the backed team is stronger by Elo, it has a strong record on this exact bet over its last 10 "
+            "matches, and the research model's expected margin agrees; ranked by league trust, then the cagey chance "
+            "of winning. Today's fill rule completes the list, labelled 'not proven'. Released by Paul on 23 Nov 2026 "
+            "as a deliberate exception (offline: no measurable difference from today's master); today's master runs "
+            "in shadow (master_shortlist_new.csv) and is graded beside it, with a rollback rule in the weekly report. "
+            "Information for your own decision, not a recommendation to bet. "
+            f"This run: {info.get('ranked_fixtures', len(readable))} matches (proven {tiers.get('proven', 0)}, not "
+            f"proven {sum(v for k, v in tiers.items() if k != 'proven')}; match result "
+            f"{by_group.get('match_result', 0)}, double chance {by_group.get('double_chance', 0)}, Asian handicap "
+            f"{by_group.get('asian_handicap', 0)}).{short}", "",
             markdown_table(list(readable.columns), readable.astype(str).values.tolist())
             if not readable.empty else "No nominated offer passed the master's execution and timing checks this run.",
             *inspection_lines(picks, info)]

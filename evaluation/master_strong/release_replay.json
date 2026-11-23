@@ -1,0 +1,33 @@
+{
+  "what": "Saved live runs generated 27 Oct - 23 Nov 2026 (43 runs) replayed through master_shortlist.refresh: main (cf0a0fc72, live \"new\") against this branch with live \"new\" (rollback state) and with live \"strong\" (the release). Integration check only: no result is read.",
+  "rollback_state_live_new": {
+    "runs": 43,
+    "compared_files": 301,
+    "byte_identical_with_main": true,
+    "strong_shadow_file_identical_with_main": "43 of 43"
+  },
+  "release_live_strong": {
+    "files_per_run": [
+      "master_shortlist.csv (strong master)",
+      "master_shortlist_summary.json",
+      "master_shortlist_new.csv (today's master, shadow)",
+      "master_shortlist_new_summary.json"
+    ],
+    "todays_master_picks_equal_main_live_master": "43 of 43 runs (362 picks)",
+    "strong_live_picks_equal_main_strong_shadow": "43 of 43 runs",
+    "strong_picks": 334,
+    "runs_reaching_15": 7,
+    "by_tier": {
+      "proven": 43,
+      "not proven: safe": 161,
+      "not proven: fill": 128,
+      "not proven: risky fill": 2
+    },
+    "by_market_group": {
+      "match_result": 104,
+      "double_chance": 49,
+      "asian_handicap": 181
+    },
+    "decision_rows_identical_with_main": "43 of 43 runs (value shortlist and cagey tier unchanged)"
+  }
+}

@@ -301,15 +301,12 @@ def columns() -> List[str]:
             'in_live_master', 'live_master_rank', 'live_master_same_offer', 'strong_master_version']
 
 
-def reconcile(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = None,
-              live_master: Optional[pd.DataFrame] = None, generated_at_utc=None,
-              config: Optional[Mapping] = None, trust: Optional[Mapping] = None) -> pd.DataFrame:
-    """The strong master of one run: every nominated offer as the live master sees it (master_reconciliation.offer_row),
-    with the strong-team checks and the selection. `live_master` (the run's master_shortlist.csv) is read for the
-    overlap columns only."""
+def offer_rows(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame], generated_at_utc,
+               config: Mapping, trust: Optional[Mapping] = None) -> List[Dict[str, object]]:
+    """Every nominated offer of one run as the live master's rule sees it (master_reconciliation.offer_row: identity,
+    both views, timing, execution), with the strong-team checks and the selection."""
     import master_reconciliation as mr
     from master_selection import identity
-    config = config or load_config()
     run = settings(config)
     trust = load_trust() if trust is None else trust
     mcfg = mr.load_config()
@@ -328,6 +325,16 @@ def reconcile(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = Non
                  E=run['E'], G=run['G'])
         rows.append(row)
     select(rows, config, run)
+    return rows
+
+
+def reconcile(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = None,
+              live_master: Optional[pd.DataFrame] = None, generated_at_utc=None,
+              config: Optional[Mapping] = None, trust: Optional[Mapping] = None) -> pd.DataFrame:
+    """The strong master of one run in its shadow schema (columns()): every nominated offer with the strong-team checks
+    and the selection. `live_master` (the run's master_shortlist.csv) is read for the overlap columns only."""
+    config = config or load_config()
+    rows = offer_rows(decisions, predictions, generated_at_utc, config, trust)
     if not rows:  # nothing nominated in this run: an empty list with the full schema
         return pd.DataFrame(columns=columns())
     frame = pd.DataFrame(rows)
@@ -340,6 +347,39 @@ def reconcile(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = Non
     order = order.sort_values(['_rank', '_dec', '_p', 'kickoff_utc', 'league', 'home_team', 'away_team', 'market',
                                'handicap_side', '_line'], na_position='last', kind='stable')
     return order.reindex(columns=columns()).reset_index(drop=True)
+
+
+STEP_OF_TIER = {tier: number for number, tier in enumerate(TIERS, start=1)}
+
+
+def live_columns() -> List[str]:
+    """The strong master's file when it is the live master_shortlist.csv (master_shortlist_config.json live "strong"):
+    the live master file's columns (master_reconciliation.COLUMNS: new_master_rank, tier, step, decision and reason
+    carry the strong selection; the classification columns are the live master rule's own, from offer_row), then the
+    strong-team columns. The overlap columns (in_live_master, ...) compare with the baseline, today's master."""
+    import master_reconciliation as mr
+    extra = [c for c in (*STRONG_COLUMNS, *SELECTION_COLUMNS, 'strong_master_version') if c not in mr.COLUMNS]
+    return [*mr.COLUMNS, *extra]
+
+
+def live_frame(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = None,
+               baseline: Optional[pd.DataFrame] = None, generated_at_utc=None, version: str = VERSION,
+               config: Optional[Mapping] = None, trust: Optional[Mapping] = None) -> pd.DataFrame:
+    """The strong master as the live list: every nominated offer in live_columns(), with the strong selection written
+    into the new_master_* selection columns (rank, tier, step, decision, reason) and `version` in new_master_version.
+    `baseline` (today's master, master_reconciliation.reconcile's frame) is read for the overlap columns only."""
+    config = config or load_config()
+    rows = offer_rows(decisions, predictions, generated_at_utc, config, trust)
+    if not rows:
+        return pd.DataFrame(columns=live_columns())
+    for row in rows:
+        row.update(new_master_rank=row['strong_rank'], new_master_tier=row['strong_tier'],
+                   new_master_step=STEP_OF_TIER.get(row['strong_tier']), new_master_decision=row['strong_decision'],
+                   new_master_reason=row['strong_reason'], risky_fill=row['strong_tier'] == TIERS[-1],
+                   strong_master_version=config['version'])
+    frame = overlap(pd.DataFrame(rows), baseline)
+    frame['new_master_version'] = version
+    return frame.reindex(columns=live_columns())
 
 
 def _offer_key(row: Mapping) -> tuple:
