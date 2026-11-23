@@ -139,6 +139,7 @@ def prioritized_additional_events(
     quota: int,
     as_of=None,
     coverage="ranked",
+    hours=None,
 ) -> list[int]:
     """Rank *within one league* before spending any quota.
 
@@ -147,7 +148,10 @@ def prioritized_additional_events(
     regardless of quota or model probability. Ranked mode also applies
     model eligibility gates and the supplied quota.
     Extra markets fetched in one call can then be independently screened.
+    `hours` widens the time window (default: the shortlist window); only the
+    once-a-day UCL/UEL 48-hour step (european_alternates) uses it.
     """
+    window = shortlist_window.DEFAULT_HOURS if hours is None else hours
     if coverage not in {"all", "ranked"}:
         raise ValueError("Unknown additional odds coverage mode")
     candidates: list[tuple[float, int]] = []
@@ -158,7 +162,7 @@ def prioritized_additional_events(
             kickoff = pd.to_datetime(fixture.get('kickoff_utc'), utc=True, errors='coerce')
             if pd.isna(kickoff) or not (
                 clock + pd.Timedelta(minutes=MIN_MINUTES_UNTIL_KICKOFF)
-                <= kickoff <= clock + pd.Timedelta(hours=shortlist_window.DEFAULT_HOURS)
+                <= kickoff <= clock + pd.Timedelta(hours=window)
             ):
                 continue
         if fixture.get("odds_source") != "The Odds API":

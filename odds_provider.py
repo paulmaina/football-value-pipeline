@@ -1132,6 +1132,13 @@ def daily_projection(records: Iterable[Mapping], *, provider: str = 'pinnapi', a
                            'runs_per_day': per_day, 'runs_per_day_basis': day_basis,
                            'requests_per_day': {k: round(per_run[k] * per_day[k], 1) for k in ('normal', 'busy')}}
     totals = {k: round(sum(p['requests_per_day'][k] for p in parts.values()), 1) for k in ('normal', 'busy')}
+    # The UCL/UEL 48-hour step (european_alternates; once a day): its requests are inside the forecast runs' own
+    # (measured per run above); shown apart so the step's share is visible.
+    step = [int(r['european_alternates_48h'].get('requests') or 0) for r in records
+            if r.get('workflow') == FORECAST_WORKFLOW and isinstance(r.get('european_alternates_48h'), Mapping)
+            and r['european_alternates_48h'].get('ran')]
+    parts[FORECAST_WORKFLOW]['european_alternates_48h_requests_per_run'] = (
+        {'normal': _median(step), 'busy': float(max(step))} if step else None)
     return {'provider': provider, 'daily_allowance': allowance, 'workflows': parts,
             'normal_day': totals['normal'], 'busy_day': totals['busy'],
             'share_of_allowance': {k: (round(v / allowance, 3) if allowance else None) for k, v in totals.items()},
@@ -1153,6 +1160,10 @@ def projection_markdown(projection: Optional[Mapping]) -> str:
                      f"{total['normal']:g} / {total['busy']:g} |")
     lines += ['', f"Normal day: {projection['normal_day']:g} of {allowance} a day; busy day (the busiest in the log, "
                   f"at least a busy Saturday): {projection['busy_day']:g} of {allowance}."]
+    step = (projection['workflows'].get(FORECAST_WORKFLOW) or {}).get('european_alternates_48h_requests_per_run')
+    if step:
+        lines.append(f"Of the forecast runs' requests, the once-a-day UCL/UEL 48-hour step made {step['normal']:g} "
+                     f"(largest {step['busy']:g}) per run.")
     over = [k for k, ok in (projection.get('within_allowance') or {}).items() if not ok]
     if over:
         lines.append(f"Over the allowance on a {' and a '.join(over)} day: pinnodds then The Odds API take the rest.")
