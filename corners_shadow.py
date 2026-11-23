@@ -276,10 +276,12 @@ def fetch(api, source):
     if not re.fullmatch(r'[A-Za-z0-9_-]+', event):
         raise ValueError('Invalid odds event')
     league = next(l for l in LEAGUES.values() if l.name == source['league'])
+    from odds_provider import event_request  # provider switch on: Pinnacle via the providers in order
     return api._get_json(f'{THE_ODDS_API_BASE}/sports/{league.odds_api_sport_key}/events/{event}/odds',
                          f'corners_closing_v1_{event}.json', ttl=timedelta(seconds=0), force_refresh=True,
                          allow_stale=False, params={'bookmakers': 'pinnacle', 'markets': MARKET_KEY,
-                                                    'oddsFormat': 'decimal', 'dateFormat': 'iso'})
+                                                    'oddsFormat': 'decimal', 'dateFormat': 'iso'},
+                         **event_request(api, league, source, (MARKET_KEY,), max_age_seconds=30))
 
 
 def collect_closing(root: Path, api, clock=None, fetcher=None, low_credits=None) -> dict:

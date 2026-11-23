@@ -2,7 +2,7 @@
 
 Investigation only. Nothing live, no harness candidate, no declaration. No holdout score was read: holdout fixtures were counted by identity and date only, as the plan's European holdout counting does. The scripts are in `scripts/feature_sources/` and the figures in `clubelo.json`, `rest_days.json` and `lineups.json` here. Caches are in `data/feature_cache/{clubelo,rest,lineups}` (untracked). This ran in its own worktree, venv and cache folders, separate from the FotMob xG check.
 
-**Decisions (Paul, 23 Nov 2026):** rest and congestion go ahead: ESPN schedule backfill, a C6-plus-rest candidate built on development data, and its declaration queued behind 2g-4. ClubElo and lineups are parked (`docs/plan.md`, open items 10 and 11).
+**Decisions (Paul, 23 Nov 2026):** rest and congestion go ahead: ESPN schedule backfill, a C6-plus-rest candidate built on development data, and its declaration queued behind 2g-4. ClubElo and lineups are parked (`docs/plan.md`, open items 11 and 12).
 
 ## Summary
 
