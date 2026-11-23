@@ -212,6 +212,25 @@ def build(cache, cfg, basis='live', workers=None, known_through=None):
         'windows': out}
 
 
+def keep_published(new, previous):
+    """`new` with every window `previous` already holds replaced by the published one, exactly; returns how many.
+
+    A window reads only results played before its origin, so once published it is final. Rebuilt on another
+    machine it would differ in the last digits (the first live fits were built on Windows, the refresh runs on
+    Linux: the 23 Nov 2026 refresh moved 96 of 115 earlier C6 windows by up to 2e-4 and broke the exact
+    harness-live parity of the pre-holdout windows). A corrected result is the one reason to rebuild them:
+    --rebuild-windows."""
+    if not previous:
+        return 0
+    before = {w['origin']: w for w in previous.get('windows') or []}
+    kept = 0
+    for i, window in enumerate(new.get('windows') or []):
+        if window['origin'] in before:
+            new['windows'][i] = before[window['origin']]
+            kept += 1
+    return kept
+
+
 def validate(new, previous=None, required_origin=None):
     """Raises ValueError unless `new` is a complete live fit file that can replace `previous`; returns the
     comparison with `previous`."""
@@ -356,6 +375,8 @@ def main(argv=None):
     parser.add_argument('--scheduled', action='store_true',
                         help='live: build only when the committed fit lacks the window holding today')
     parser.add_argument('--publish', action='store_true', help='live: validate and commit the file on latest main')
+    parser.add_argument('--rebuild-windows', action='store_true',
+                        help='live: rebuild the windows already published too (only after a corrected result)')
     args = parser.parse_args(argv)
     cfg = json.loads(eh.CONFIG.read_text(encoding='utf-8'))
     if args.basis == 'harness':
@@ -399,6 +420,8 @@ def _refresh(args, cfg, origin):
              else results_known_through(cfg))
     data = build(args.cache, cfg, 'live', args.workers, known)
     previous = json.loads(c6.FITS.read_text(encoding='utf-8')) if c6.FITS.exists() else None
+    if not getattr(args, 'rebuild_windows', False):
+        keep_published(data, previous)  # published windows are final; only new windows are added
     try:
         report = validate(data, previous if args.publish else None, origin.date().isoformat() if args.publish else None)
     except ValueError as exc:

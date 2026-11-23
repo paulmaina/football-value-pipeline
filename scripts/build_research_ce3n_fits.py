@@ -441,6 +441,8 @@ def main(argv=None):
     parser.add_argument('--scheduled', action='store_true',
                         help='live: build only when the committed fit lacks the window holding today')
     parser.add_argument('--publish', action='store_true', help='live: validate and commit the file on latest main')
+    parser.add_argument('--rebuild-windows', action='store_true',
+                        help='live: rebuild the windows already published too (only after a corrected result)')
     args = parser.parse_args(argv)
     cfg = json.loads(eh.CONFIG.read_text(encoding='utf-8'))
     if args.basis == 'harness':
@@ -493,6 +495,8 @@ def _refresh(args, cfg, origin):
         known = min(c6b.results_known_through(cfg), european_known_through(args.cache))
     data = build(args.cache, cfg, 'live', args.workers, known)
     previous = json.loads(ce3n.FITS.read_text(encoding='utf-8')) if ce3n.FITS.exists() else None
+    if not getattr(args, 'rebuild_windows', False):
+        c6b.keep_published(data, previous)  # published windows are final; only new windows are added
     try:
         report = validate(data, previous if args.publish else None, origin.date().isoformat() if args.publish else None)
     except ValueError as exc:
