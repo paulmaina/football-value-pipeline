@@ -1,0 +1,127 @@
+{
+  "fixture": {
+    "away_team": "Elche",
+    "home_team": "Levante",
+    "kickoff_utc": "2026-11-23T20:00:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "1639848575"
+  },
+  "observed_at_utc": "2026-11-23T19:54:22.830566+00:00",
+  "payload": {
+    "away_team": "Elche",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "alternate_totals_corners",
+            "last_update": "2026-11-23T19:54:22Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 8.5,
+                "price": 1.6061
+              },
+              {
+                "name": "Over",
+                "point": 9.0,
+                "price": 1.7752
+              },
+              {
+                "name": "Over",
+                "point": 9.5,
+                "price": 2.02
+              },
+              {
+                "name": "Over",
+                "point": 10.0,
+                "price": 2.31
+              },
+              {
+                "name": "Over",
+                "point": 10.5,
+                "price": 2.56
+              },
+              {
+                "name": "Under",
+                "point": 8.5,
+                "price": 2.3
+              },
+              {
+                "name": "Under",
+                "point": 9.0,
+                "price": 2.05
+              },
+              {
+                "name": "Under",
+                "point": 9.5,
+                "price": 1.8264
+              },
+              {
+                "name": "Under",
+                "point": 10.0,
+                "price": 1.6173
+              },
+              {
+                "name": "Under",
+                "point": 10.5,
+                "price": 1.4926
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-23T20:00:00Z",
+    "home_team": "Levante",
+    "id": "1639848575",
+    "odds_provider": "pinnapi",
+    "sport_key": "soccer_spain_la_liga"
+  },
+  "quotes": [
+    {
+      "decimal_odds": 1.6061,
+      "fair_probability": 0.596626543666345,
+      "line": 8.5,
+      "quote_last_update_utc": "2026-11-23T19:54:22+00:00",
+      "side": "Over"
+    },
+    {
+      "decimal_odds": 2.3,
+      "fair_probability": 0.4033734563336549,
+      "line": 8.5,
+      "quote_last_update_utc": "2026-11-23T19:54:22+00:00",
+      "side": "Under"
+    },
+    {
+      "decimal_odds": 2.02,
+      "fair_probability": 0.47322260545818795,
+      "line": 9.5,
+      "quote_last_update_utc": "2026-11-23T19:54:22+00:00",
+      "side": "Over"
+    },
+    {
+      "decimal_odds": 1.8264,
+      "fair_probability": 0.526777394541812,
+      "line": 9.5,
+      "quote_last_update_utc": "2026-11-23T19:54:22+00:00",
+      "side": "Under"
+    },
+    {
+      "decimal_odds": 2.56,
+      "fair_probability": 0.35600390206101185,
+      "line": 10.5,
+      "quote_last_update_utc": "2026-11-23T19:54:22+00:00",
+      "side": "Over"
+    },
+    {
+      "decimal_odds": 1.4926,
+      "fair_probability": 0.6439960979389883,
+      "line": 10.5,
+      "quote_last_update_utc": "2026-11-23T19:54:22+00:00",
+      "side": "Under"
+    }
+  ],
+  "version": "corners-closing-v1"
+}
