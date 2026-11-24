@@ -47,7 +47,7 @@ class ProductionCageyRowsTest(unittest.TestCase):
         cls.legacy = v28.cagey_tier_list(cls.decisions, None)
 
     def test_production_rule_and_research_value_rule_are_exercised(self):
-        self.assertEqual(self.summary['cagey_tier']['rule_version'], v28.TIER_RULE_MARKET_BASIS)
+        self.assertEqual(self.summary['cagey_tier']['rule_version'], v28.TIER_RULE_MARKET_BASIS_120)
         self.assertIn(self.summary['value_rule'], v28.PROFIT_RULES)
         self.assertGreaterEqual(len(self.picks), 2)
 

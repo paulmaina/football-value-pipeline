@@ -60,11 +60,16 @@ def over_probability(matrix):
     return float(grid[np.add.outer(np.arange(grid.shape[0]),np.arange(grid.shape[1])) >= 2].sum())
 
 
-def annotate(item, context, row, now, policy, cost, pin, method='proportional'):
-    from cagey_tier_v3 import annotate as previous, RULE_NO_GATE, RULE_MARKET_BASIS, BASIS
+def annotate(item, context, row, now, policy, cost, pin, method='proportional', rule=None):
+    """`rule`: a market-basis rule (cagey_tier_v3.MARKET_BASIS_RULES; v5 when omitted). They differ only in the
+    offered-odds floor (cagey_tier_v3.odds_floor)."""
+    from cagey_tier_v3 import annotate as previous, RULE_NO_GATE, RULE_MARKET_BASIS, MARKET_BASIS_RULES, BASIS, odds_floor
     from price_edge_shortlist import pinnacle_quotes
-    previous(item,context,row,now,policy,cost,rule=RULE_NO_GATE)
-    item['cagey_tier_rule'] = RULE_MARKET_BASIS
+    rule = rule or RULE_MARKET_BASIS
+    if rule not in MARKET_BASIS_RULES:
+        raise ValueError(f'Unknown market-basis cagey rule {rule!r}')
+    previous(item,context,row,now,policy,cost,rule=RULE_NO_GATE,min_odds=odds_floor(rule))
+    item['cagey_tier_rule'] = rule
     item.update({key:None for key in COLUMNS})
     item['cagey_probability_basis'] = UNCORRECTED if item.get('market') == 'Over 1.5' else BASIS
     reasons = [r for r in item['cagey_tier_reasons'].split('; ') if r]

@@ -15,7 +15,12 @@ import shortlist_window
 
 RULE = 'team-research-profit-v1'
 RULE_V2 = 'local-research-profit-115-200-dc12-v2'
-RULES = (RULE, RULE_V2)
+# Odds floor raised from 1.15 to 1.20 (Paul, 24 Nov 2026; docs/plan.md Phase 4d, Part 1). v2 stays for replay.
+RULE_V3 = 'local-research-profit-120-200-dc12-v3'
+LOCAL_RULES = (RULE_V2, RULE_V3)
+RULES = (RULE, *LOCAL_RULES)
+# Offered odds must be above the floor and at most 2.00 (local-research rules).
+ODDS_FLOOR = {RULE_V2: 1.15, RULE_V3: 1.20}
 BASIS = 'team_form_poisson_v1'
 COLUMNS = ['profit_model_fair_odds', 'profit_model_edge', 'profit_probability', 'profit_expected_return', 'profit_price_flag', 'research_probability_basis',
            'research_coverage', 'research_warnings', 'research_summary', 'research_details', 'research_sources',
@@ -87,7 +92,7 @@ def annotate(row, item, now, cost, rule=RULE):
     from price_edge_shortlist import MAX_ODDS, MIN_MINUTES
     if rule not in RULES:
         raise ValueError('Unknown researched shortlist rule')
-    maximum = 2.0 if rule == RULE_V2 else MAX_ODDS
+    maximum = 2.0 if rule in LOCAL_RULES else MAX_ODDS
     item.update(price_edge_decision=item.get('decision'), price_edge_rejection_reasons=item.get('rejection_reasons'))
     evidence, warnings = context(row, now)
     item.update(value_market_group=__import__('price_edge_cagey_shortlist').market_group(item, rule=rule),
@@ -98,7 +103,7 @@ def annotate(row, item, now, cost, rule=RULE):
                 research_sources=json.dumps(evidence.get('evidence', {}).get('sources', []), sort_keys=True),
                 probability_basis='net_profit', value_probability_basis=BASIS, per_stake_cost=cost)
     reasons = []
-    if rule == RULE_V2:
+    if rule in LOCAL_RULES:
         from europa_training import eligibility
         reasons.extend(eligibility(row))
     price = number(item.get('offered_decimal_odds'))
@@ -107,8 +112,8 @@ def annotate(row, item, now, cost, rule=RULE):
         reasons.append(shortlist_window.rejection_reason())
     if price is None or price <= 1:
         reasons.append('no offered quote at an allowed bookmaker')
-    elif rule == RULE_V2 and price <= 1.15:
-        reasons.append('offered odds must be greater than 1.15')
+    elif rule in LOCAL_RULES and price <= ODDS_FLOOR[rule]:
+        reasons.append(f'offered odds must be greater than {ODDS_FLOOR[rule]:.2f}')
     elif price > maximum:
         reasons.append(f'offered odds above {maximum:.2f}')
     if offered is None or not quote_is_fresh(offered, now):

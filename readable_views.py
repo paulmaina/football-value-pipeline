@@ -317,6 +317,18 @@ def cagey_tier(row: Mapping) -> str:
     return text + (' (Pinnacle stand-in: no cagey view)' if row.get('market_basis') == 'pinnacle' else '')
 
 
+def live_master_config(summary: Mapping) -> Dict:
+    """The master rule config the run's live master executed with: the strong master's rule (recorded in the run
+    summary) has its own odds window since master-strong-team-v2; otherwise the live master rule's config."""
+    import master_reconciliation as mr
+    import master_shortlist
+    import master_strong
+    rule = master_shortlist.strong_rule((summary.get('master_shortlist') or {}).get('version'))
+    if rule is None:
+        return mr.load_config()
+    return master_strong.execution_config(mr.load_config(), master_strong.load_config(version=rule))
+
+
 def master_check(row: Mapping) -> str:
     return 'eligible' if row.get('new_master_executable') else str(row.get('new_master_reason') or 'not executable')
 
@@ -344,7 +356,7 @@ class Run:
         stamp = self.summary.get('generated_at_utc')
         self.clock = pd.Timestamp(quote_utc(stamp)) if stamp and quote_utc(stamp) is not None else None
         self._cagey = None
-        self.config = mr.load_config()
+        self.config = live_master_config(self.summary)
         self.decisions = _read_csv(base / 'conservative_bet_rejections.csv') if base else None
         self.value = _read_csv(base / 'conservative_bet_shortlist.csv') if base else None
         self.cagey_list = _read_csv(base / 'cagey_tier_shortlist.csv') if base else None
