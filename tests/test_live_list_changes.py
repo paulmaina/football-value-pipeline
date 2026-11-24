@@ -239,8 +239,8 @@ class ResearchGateTest(unittest.TestCase):
         self.assertNotIn('research_gate', old)
 
     def test_live_version_v3(self):
-        self.assertEqual(ms.VERSION, 'master-strong-team-v3')
-        self.assertEqual(master_shortlist.VERSION_STRONG_LIVE, 'master-strong-team-v3-live-v13')
+        self.assertEqual(master_shortlist.STRONG_LIVE_VERSIONS['master-strong-team-v3'], 'master-strong-team-v3-live-v13')
+        self.assertIn('research_gate', ms.load_config())  # every later rule keeps the gate
         self.assertEqual(ms.load_config(version='master-strong-team-v2')['execution']['min_odds_exclusive'], 1.2)
         self.assertNotIn('research_gate', ms.load_config(version='master-strong-team-v2'))
 
@@ -274,6 +274,56 @@ class ResearchGateReviewTest(unittest.TestCase):
         gap = pet.no_loss_gap(frame)
         self.assertEqual(gap['n'], 3)
         self.assertAlmostEqual(gap['observed_no_loss'], 2 / 3)
+
+
+# ---------------------------------------------------------------------------
+# Part 3: proven ranking without league trust (master-strong-team-v4)
+# ---------------------------------------------------------------------------
+
+class ProvenOrderTest(unittest.TestCase):
+    def proven(self, match, elo, wins, profit, trust='trusted', market='Home win', **extra):
+        from test_master_strong import offer, evidence
+        side = 'away' if market in ('Away win', 'Double Chance X2') else 'home'
+        return offer(match, market=market, profit=profit, trust=trust,
+                     ev=evidence(elo=elo, wins=wins, side=side), **extra)
+
+    def test_elo_then_record_share_then_chance_of_profit(self):
+        from test_master_strong import config, RUN
+        rows = [self.proven('m1', .70, 8, .95), self.proven('m2', .80, 7, .60, trust='not trusted'),
+                self.proven('m3', .70, 10, .70), self.proven('m4', .70, 8, .99)]
+        self.assertTrue(all(ms.proven(r, RUN) for r in rows))
+        ms.select(rows, config(), RUN)
+        order = [r['_match'] for r in sorted(rows, key=lambda r: r['strong_rank'])]
+        # m2: highest Elo (league not trusted no longer matters); m3: best record at Elo .70; m4 over m1 on profit.
+        self.assertEqual(order, ['m2', 'm3', 'm4', 'm1'])
+        self.assertIn('league not trusted', next(r for r in rows if r['_match'] == 'm2')['strong_labels'])
+
+    def test_record_share_is_won_share_for_win_bets_and_not_lost_share_for_no_loss_bets(self):
+        self.assertEqual(ms.record_share({'strong_bet_kind': 'win', 'strong_record_won_share': .7,
+                                          'strong_record_not_lost_share': .9}), .7)
+        self.assertEqual(ms.record_share({'strong_bet_kind': 'no loss', 'strong_record_won_share': .7,
+                                          'strong_record_not_lost_share': .9}), .9)
+
+    def test_rules_before_v4_rank_proven_picks_by_league_trust_first(self):
+        from test_master_strong import config, RUN
+        old = copy.deepcopy(config())
+        old.pop('proven_order')
+        rows = [self.proven('m1', .70, 8, .95), self.proven('m2', .80, 7, .60, trust='not trusted')]
+        ms.select(rows, old, RUN)
+        self.assertEqual([r['_match'] for r in sorted(rows, key=lambda r: r['strong_rank'])], ['m1', 'm2'])
+
+    def test_the_fill_keeps_league_trust_first(self):
+        from test_master_strong import offer, config, RUN
+        rows = [offer('m1', no_loss=.6, profit=.70, trust='not trusted'), offer('m2', no_loss=.6, profit=.60)]
+        ms.select(rows, config(), RUN)
+        self.assertEqual([r['_match'] for r in sorted(rows, key=lambda r: r['strong_rank'])], ['m2', 'm1'])
+        self.assertTrue(all(r['strong_tier'] == 'not proven: fill' for r in rows))
+
+    def test_live_version_v4(self):
+        self.assertEqual(master_shortlist.STRONG_LIVE_VERSIONS['master-strong-team-v4'], 'master-strong-team-v4-live-v14')
+        self.assertIn('proven_order', ms.load_config())
+        self.assertNotIn('proven_order', ms.load_config(version='master-strong-team-v3'))
+        self.assertIn('research_gate', ms.load_config(version='master-strong-team-v3'))
 
 
 if __name__ == '__main__':
