@@ -33,7 +33,7 @@
       "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
       "observations": 521,
       "rejected_files": [],
-      "reviewed_at_utc": "2026-11-24T10:51:25.028675+00:00",
+      "reviewed_at_utc": "2026-11-24T11:35:23.282414+00:00",
       "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
       "version": "local-closing-quotes-v4"
     },
@@ -67,7 +67,7 @@
     "experiment_capture_counts": {},
     "experimental_reports": {},
     "forecast_freshness": {
-      "age_hours": 2.6846752475,
+      "age_hours": 3.4175235083333333,
       "generated_at_utc": "2026-11-24T08:10:20.197784+00:00",
       "status": "WITHIN_24_HOURS",
       "upcoming_fixture_count": 36
@@ -86,7 +86,7 @@
       "unknown_kickoff_count": 0,
       "upcoming_kickoff_count": 18
     },
-    "reviewed_at_utc": "2026-11-24T10:51:25.028675+00:00",
+    "reviewed_at_utc": "2026-11-24T11:35:23.282414+00:00",
     "selection_policy_groups": {
       "48h-ah-price-edge-cagey-v28": {
         "brier": 0.208073,
@@ -56903,7 +56903,7 @@
           "completed_matches": 72,
           "corrected_scores": 0,
           "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-          "download_age_hours": 2.697371029722222,
+          "download_age_hours": 3.4302192905555557,
           "download_status": "VERIFIED_LIVE",
           "latest_completed_date": "2026-11-04",
           "latest_completed_utc": "2026-11-04T20:00:00+00:00",
@@ -56965,7 +56965,7 @@
             }
           },
           "status": "VERIFIED_WITHIN_24_HOURS",
-          "verified_at_utc": "2026-11-24T10:51:25.028675+00:00"
+          "verified_at_utc": "2026-11-24T11:35:23.282414+00:00"
         },
         "days_since_latest_result": 19,
         "diagnostics_sha256": "274e06b4d80fbe25a97acb39bc41fa2d6f75451ee56612146ea323519973cbd8",
@@ -57096,7 +57096,7 @@
       }
     }
   },
-  "reviewed_at_utc": "2026-11-24T10:51:25Z",
+  "reviewed_at_utc": "2026-11-24T11:35:23Z",
   "snapshots": 99,
   "shortlist": {
     "brier": 0.198712,
