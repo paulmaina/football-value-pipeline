@@ -468,6 +468,56 @@ class FailoverTests(Base):
         self.assertEqual(self.pinnapi.calls, [])
 
 
+class EmptyAnswerTests(Base):
+    """A kit reply that succeeds (HTTP 200) but holds nothing for the request passes it on (24 Nov 2026: pinnapi's
+    board held no UCL or UEL events, and the run was left without fixtures or prices)."""
+
+    def other_league_board(self):
+        return kit_board(self.kickoff, league='Spain - La Liga')
+
+    def test_empty_pinnapi_board_moves_to_pinnodds(self):
+        api = self.client()
+        self.pinnapi.board = self.other_league_board
+        fixtures = api.events(EPL, 3, self.now)
+        self.assertEqual(fixtures.iloc[0]['odds_schedule_provider'], 'pinnodds')
+        self.assertEqual(api.odds(EPL, 3, self.now).iloc[0]['odds_provider'], 'pinnodds')
+        self.assertEqual(self.odds_api.calls, [])
+        self.assertEqual(api.router.summary()['providers']['pinnapi']['failures'], {'empty': 2})
+        self.assertEqual(api.router.switches[-1]['reasons'], {'pinnapi': 'empty'})
+
+    def test_both_kit_boards_empty_falls_back_to_the_odds_api(self):
+        api = self.client(board=self.other_league_board, odds_api=[
+            ('/events', response(200, odds_api_events(self.kickoff))),
+            ('/odds', response(200, odds_api_odds(self.kickoff, self.now)))])
+        fixtures = api.events(EPL, 3, self.now)
+        self.assertEqual(fixtures.iloc[0]['odds_schedule_provider'], 'the-odds-api')
+        odds = api.odds(EPL, 3, self.now)
+        self.assertEqual(odds.iloc[0]['odds_provider'], 'the-odds-api')
+        self.assertEqual(odds.iloc[0]['fixture_id'], fixtures.iloc[0]['fixture_id'])
+        self.assertEqual(api.router.switches[0]['reasons'], {'pinnapi': 'empty', 'pinnodds': 'empty'})
+
+    def test_every_provider_empty_returns_no_fixtures(self):
+        api = self.client(board=self.other_league_board, odds_api=[('/events', response(200, []))])
+        self.assertTrue(api.events(EPL, 3, self.now).empty)
+        self.assertEqual(len(self.odds_api.calls), 1)  # the free events list, no credits
+
+    def test_event_missing_from_the_board_falls_back_but_a_missing_market_does_not(self):
+        import closing_odds
+        self.kickoff = self.now + timedelta(minutes=4)
+        source = {'league': EPL.name, 'home_team': SPEC['home'], 'away_team': SPEC['away'],
+                  'kickoff_utc': stamp(self.kickoff), 'odds_event_id': SPEC['odds_id']}
+        api = self.client()
+        payload = closing_odds.fetch(api, source, {'double_chance'})  # on the board; the kit never offers it
+        self.assertEqual(payload['odds_provider'], 'pinnapi')
+        self.assertEqual(self.odds_api.calls, [])
+        api = self.client(board=self.other_league_board, odds_api=[
+            ('/events/', response(200, odds_api_event(self.kickoff, self.now)))])
+        payload = closing_odds.fetch(api, source, {'alternate_spreads'})
+        self.assertEqual(payload['odds_provider'], 'the-odds-api')
+        self.assertTrue(payload['bookmakers'])
+        self.assertEqual(api.router.summary()['events_not_found'], 0)
+
+
 class ClosingTests(Base):
     def source(self):
         return {'league': EPL.name, 'home_team': SPEC['home'], 'away_team': SPEC['away'],

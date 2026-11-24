@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "2f01bb1cc9ab665e9a28461a7fbf40ec350ce82e73e9bace8aa1175d298cc576",
-  "training_as_of_utc": "2026-11-24T06:47:44.980885+00:00",
+  "training_as_of_utc": "2026-11-24T08:09:55.229044+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -88,10 +88,10 @@
   },
   "training_end": "2026-11-23",
   "fit_success": true,
-  "objective": 1680.3299975703653,
-  "base": 0.1445516963808972,
-  "home_adv": 0.23109016545090366,
-  "rho": -0.08372773528415879,
+  "objective": 1680.1915495816959,
+  "base": 0.14453952191818933,
+  "home_adv": 0.23112091796797538,
+  "rho": -0.08373680603421788,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -120,7 +120,7 @@
   "live_odds_matched": 0,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 0,
+  "additional_event_odds_calls_used_before_this_league": 18,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"

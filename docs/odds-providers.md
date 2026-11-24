@@ -32,9 +32,14 @@ The router asks the providers in the configured order:
 | 3 | The Odds API | the existing three keys | final fallback only |
 
 The Odds API is called for a request only when both pinnapi and pinnodds have failed for it. A failure is an
-error, a timeout, a 429, the daily allowance being used up, a Retry-After still running, or a key that isn't
-set. A provider that answers without the event or the market has not failed. The request returns no quote for
-it, and the run summary counts events that weren't found.
+error, a timeout, a 429, the daily allowance being used up, a Retry-After still running, a key that isn't
+set, or an empty answer (`empty`, since 24 Nov 2026). An answer is empty when it succeeds (HTTP 200) but holds
+no fixture in the requested league and window (schedule and league odds requests), or doesn't hold the requested
+event at all (per-event requests). On 24 Nov 2026 pinnapi's board held no UCL or UEL events; no other provider
+was asked, so the run had no UCL fixtures and no prices. A provider that holds the event but not a requested
+market has not failed: the kit API never offers some markets (double chance, draw no bet), and those requests
+must not spend Odds API credits. Only The Odds API's own answer, the last in the chain, is returned empty; the
+run summary counts events that no provider found.
 
 The answer is normalised from whichever provider gave it (`normalise_kit_event`, `normalise_odds_api_event`).
 It is then handed back in The Odds API's v4 event shape (`to_odds_api_event`), with Pinnacle as the only book.
