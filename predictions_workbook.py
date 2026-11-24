@@ -1,9 +1,14 @@
 """league_predictions.xlsx: the run's lists and league views in one workbook (display only; standard library).
 
-Tabs, in order: Master shortlist, Old master (shadow) with the same columns, Value shortlist, Cagey tier, then one
+Tabs, in order: Master shortlist, the shadow master with the same columns, Value shortlist, Cagey tier, then one
 tab per league with fixtures. Only the columns used to choose or review a bet are shown; every tab's title line
 names the CSV that keeps the full columns. Kickoff and quote times are in Nairobi time (EAT, UTC+3). Blank inputs
 are shown with a short reason, never as a silent blank.
+
+The shadow tab follows the run: with the strong-team master live (runs since 23 Nov 2026) it is "Previous master
+(shadow)", today's master (master-new-fill-rule-v4) from master_shortlist_new.csv, the rollback baseline; earlier
+runs keep "Old master (shadow)" from master_shortlist_old.csv (or master_shortlist.csv when the old master was live).
+A strong-master run never reads master_shortlist_old.csv, which that release stopped writing.
 
 Sources: the master tabs read the run bundle's raw master files (master_shortlist.csv, and
 master_shortlist_old.csv or master_shortlist_new.csv), so both lists, their overlap and the inspection details are
@@ -26,7 +31,10 @@ import excel_book as xb
 
 WORKBOOK_NAME = 'league_predictions.xlsx'
 MASTER_TAB, OLD_TAB, VALUE_TAB, CAGEY_TAB = 'Master shortlist', 'Old master (shadow)', 'Value shortlist', 'Cagey tier'
-LIST_TABS = (MASTER_TAB, OLD_TAB, VALUE_TAB, CAGEY_TAB)
+# With the strong-team master live (released 23 Nov 2026) the shadow tab shows the previous master, the rollback
+# baseline (master_shortlist_new.csv); earlier runs keep OLD_TAB.
+PREVIOUS_TAB, PREVIOUS_FILE = 'Previous master (shadow)', 'master_shortlist_new.csv'
+LIST_TABS = (MASTER_TAB, OLD_TAB, PREVIOUS_TAB, VALUE_TAB, CAGEY_TAB)
 RELEASED = '14 Nov 2026'
 MASTER_COLUMNS = ['Rank', 'Kickoff (EAT)', 'League', 'Match', 'Bet', 'Price', 'Tier', 'Cagey no-loss chance',
                   'Chance of profit', 'Research no-loss chance', 'Research gap (points)', 'Labels and flags',
@@ -39,6 +47,7 @@ MASTER_WEAK = [WEAK_LINK, WEAK_LINK_REASONS]
 MASTER_KINDS = ['int', 'datetime', 'text', 'text', 'text', 'odds', 'text', 'pct', 'pct', 'pct', 'points', 'wrap', 'wrap',
                 'text', 'text', 'text', 'datetime', 'wrap', 'text', 'wrap']
 IN_OLD, IN_NEW = 'In old master (shadow)', 'In new master (live)'
+IN_PREVIOUS, IN_STRONG = 'In previous master (shadow)', 'In strong master (live)'
 LIST_COLUMNS = ['Kickoff (EAT)', 'League', 'Match', 'Bet', 'Price', 'Chance of no loss', 'Chance of profit',
                 'Expected return', 'Probability basis', 'Price check status']
 LIST_KINDS = ['datetime', 'text', 'text', 'text', 'odds', 'pct', 'pct', 'signed_pct', 'text', 'wrap']
@@ -108,8 +117,19 @@ def _fixture_key(row: Mapping) -> Tuple[str, ...]:
     return _offer_key(row)[:4]
 
 
+def _ranked(frame: Optional[pd.DataFrame]) -> Optional[pd.DataFrame]:
+    """A new-schema master file's ranked picks (SHORTLISTED), best first; None without such a file."""
+    if frame is None or 'new_master_decision' not in frame.columns:
+        return None
+    ranked = frame.loc[frame.new_master_decision.eq('SHORTLISTED')].copy()
+    ranked['_rank'] = pd.to_numeric(ranked.new_master_rank, errors='coerce')
+    return ranked.sort_values('_rank', kind='stable')
+
+
 class MasterFiles:
-    """The run's two master lists, whichever was live: the new rule (released 14 Nov 2026) and the old rule."""
+    """The run's master lists: the live list and its shadow. Strong-master runs (since 23 Nov 2026): the strong
+    master live and the previous master (master-new-fill-rule-v4, master_shortlist_new.csv) in shadow. Earlier runs:
+    the new rule (released 14 Nov 2026) and the old rule, whichever was live."""
 
     def __init__(self, input_dir: Optional[Path]):
         import master_shortlist as ms
@@ -121,15 +141,24 @@ class MasterFiles:
         self.new_is_live = new_schema
         self.generated = summary.get('generated_at_utc')
         self.stale_warning = (summary.get('stale_fit_warning') or {}).get('text')  # shown above the master list
-        self.new_all = live if new_schema else _csv(base / 'master_shortlist_new.csv') if base else None
-        self.old = _csv(base / ms.OLD_FILE) if base and new_schema else (live if live is not None and not new_schema
-                                                                             else None)
-        if self.new_all is not None and 'new_master_decision' in self.new_all.columns:
-            ranked = self.new_all.loc[self.new_all.new_master_decision.eq('SHORTLISTED')].copy()
-            ranked['_rank'] = pd.to_numeric(ranked.new_master_rank, errors='coerce')
-            self.new = ranked.sort_values('_rank', kind='stable')
+        # A strong-master run: the run recorded a strong live version, or the strong master failed and today's
+        # master was published in its place (no shadow that run).
+        self.strong_failed = (summary.get(ms.RELEASE_STATUS_KEY) or {}).get('status') == ms.STRONG_FAILED
+        self.strong_era = (ms.strong_rule((summary.get('master_shortlist') or {}).get('version')) is not None
+                           or self.strong_failed)
+        self.new_all = live if new_schema else _csv(base / PREVIOUS_FILE) if base else None
+        if self.strong_era:
+            # The old master (v9) is no longer written; a leftover master_shortlist_old.csv is never read.
+            self.old = None
+            self.previous_all = None if self.strong_failed or base is None else _csv(base / PREVIOUS_FILE)
         else:
-            self.new = None
+            self.old = _csv(base / ms.OLD_FILE) if base and new_schema else (live if live is not None
+                                                                                 and not new_schema else None)
+            self.previous_all = None
+        self.new = _ranked(self.new_all)
+        self.previous = _ranked(self.previous_all)
+        self.previous_picks = {_fixture_key(r): r for r in (self.previous.to_dict('records')
+                                                            if self.previous is not None else [])}
         if self.old is not None and 'master_rank' in self.old.columns:
             self.old = self.old.assign(_rank=pd.to_numeric(self.old.master_rank, errors='coerce')).sort_values(
                 '_rank', kind='stable')
@@ -226,9 +255,10 @@ def _overlap(row: Mapping, picks: Dict, rank_column: str) -> str:
         if rank is not None else 'yes'
 
 
-def new_master_rows(files: MasterFiles) -> List[List[Any]]:
+def _new_schema_rows(picks: Optional[pd.DataFrame], overlap, weak) -> List[List[Any]]:
+    """Rows of a new-schema master file's ranked picks (the live master, or the previous master in shadow)."""
     rows = []
-    for r in files.new.to_dict('records') if files.new is not None else []:
+    for r in picks.to_dict('records') if picks is not None else []:
         research, gap = _research(r, 'no research view')
         rows.append([xb.number(r.get('new_master_rank')), xb.excel_time(r.get('kickoff_utc')) or 'not recorded',
                      r.get('league') or 'not recorded', f"{r.get('home_team', '')} v {r.get('away_team', '')}",
@@ -238,10 +268,28 @@ def new_master_rows(files: MasterFiles) -> List[List[Any]]:
                      _labels(r.get('new_master_labels')), _inspection(r),
                      'yes' if _yes(r.get('in_value_shortlist')) else 'no',
                      'yes' if _yes(r.get('in_cagey_tier')) else 'no',
-                     _overlap(r, files.old_picks, 'master_rank') if files.old is not None else 'no old master this run',
+                     overlap(r),
                      xb.excel_time(r.get('offered_last_update_utc')) or 'not recorded', _recheck(r),
-                     *_weak(r)])
+                     *weak(r)])
     return rows
+
+
+def new_master_rows(files: MasterFiles) -> List[List[Any]]:
+    if getattr(files, 'strong_era', False):  # the shadow is the previous master
+        overlap = ((lambda r: _overlap(r, files.previous_picks, 'new_master_rank')) if files.previous is not None
+                   else (lambda r: 'no previous master this run'))
+    else:
+        overlap = ((lambda r: _overlap(r, files.old_picks, 'master_rank')) if files.old is not None
+                   else (lambda r: 'no old master this run'))
+    return _new_schema_rows(files.new, overlap, _weak)
+
+
+def previous_master_rows(files: MasterFiles) -> List[List[Any]]:
+    """The previous master (today's master, master-new-fill-rule-v4) in shadow beside the strong master: its own
+    ranked picks with its own cagey and research views; weak links are flagged on the live strong master only."""
+    overlap = ((lambda r: _overlap(r, files.new_picks, 'new_master_rank')) if files.new is not None
+               else (lambda r: 'no strong master this run'))
+    return _new_schema_rows(files.previous, overlap, lambda r: ['previous master: not flagged'] * 2)
 
 
 def _weak(row: Mapping) -> List[str]:
@@ -293,10 +341,37 @@ def master_rules(sheet: xb.Sheet, table: xb.Table, overlap: str) -> None:
     sheet.highlight(table.column_range('Research gap (points)'), 'good', 'above', 4)
 
 
+def previous_tab(book: xb.Book, files: MasterFiles, run: str) -> None:
+    """Strong-master runs: the previous master (today's master, master_shortlist_new.csv), the rollback baseline."""
+    s = book.sheet(PREVIOUS_TAB, xb.MUTED)
+    columns = MASTER_COLUMNS + [c if c else IN_STRONG for c in MASTER_TAIL] + MASTER_WEAK
+    s.title('Previous master (shadow): the rule live before the strong-team master, the rollback baseline',
+            f'Run {run}. Today\'s master rule (master-new-fill-rule-v4): safe (market no-loss ≥75%), fill, then risky '
+            'fill; it runs in shadow beside the strong-team master as its comparison and rollback baseline, with its '
+            f'own cagey and research views. Not bet. Full columns: raw/{PREVIOUS_FILE}.', span=12)
+    empty = ('Run bundle not available to the workbook.' if not files.available else
+             'No previous-master list in this run: the strong master failed, so the master shortlist tab is '
+             'today\'s master.' if files.strong_failed else
+             f'No previous-master file in this run ({PREVIOUS_FILE} missing: comparison baseline missing).'
+             if files.previous_all is None else
+             'No nominated offer passed the previous master\'s execution and timing checks.')
+    start = 4
+    if getattr(files, 'stale_warning', None):
+        s.note(4, f'⚠️ {files.stale_warning}', 12, style='bad')
+        start = 6
+    table = s.table(start, columns, previous_master_rows(files), MASTER_KINDS, freeze_columns=4, empty=empty,
+                    widths={'Labels and flags': 30, 'Inspection note': 40, 'Match': 30,
+                            'Re-check price before betting': 30, IN_STRONG: 22, WEAK_LINK_REASONS: 50})
+    master_rules(s, table, IN_STRONG)
+
+
 def master_tab(book: xb.Book, files: MasterFiles, run: str, which: str) -> None:
+    if which == 'old' and getattr(files, 'strong_era', False):
+        return previous_tab(book, files, run)
     new = which == 'new'
     s = book.sheet(MASTER_TAB if new else OLD_TAB, xb.NAVY if new else xb.MUTED)
-    columns = MASTER_COLUMNS + [c if c else (IN_OLD if new else IN_NEW) for c in MASTER_TAIL] + MASTER_WEAK
+    in_shadow = IN_PREVIOUS if getattr(files, 'strong_era', False) else IN_OLD
+    columns = MASTER_COLUMNS + [c if c else (in_shadow if new else IN_NEW) for c in MASTER_TAIL] + MASTER_WEAK
     era = ('' if files.new_is_live or not files.available else
            f' In this run (before the {RELEASED} release, or with live set to "old") the old master was the live list.')
     if new:
@@ -321,8 +396,8 @@ def master_tab(book: xb.Book, files: MasterFiles, run: str, which: str) -> None:
         start = 6
     table = s.table(start, columns, rows, MASTER_KINDS, freeze_columns=4, empty=empty,
                     widths={'Labels and flags': 30, 'Inspection note': 40, 'Match': 30,
-                            'Re-check price before betting': 30, IN_OLD: 22, IN_NEW: 22, WEAK_LINK_REASONS: 50})
-    master_rules(s, table, IN_OLD if new else IN_NEW)
+                            'Re-check price before betting': 30, in_shadow: 22, IN_NEW: 22, WEAK_LINK_REASONS: 50})
+    master_rules(s, table, in_shadow if new else IN_NEW)
 
 
 # --- value and cagey tabs ----------------------------------------------------------------------------------------
