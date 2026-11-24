@@ -1,5 +1,5 @@
 {
-  "version": "master-strong-team-v3",
+  "version": "master-strong-team-v4",
   "decided": "Decided by Paul, 23 Nov 2026 (plan Phase 4c, 'Strong-team master'): market spread of at most 6 picks per market, 15 matches, one pick per match; rank by the cagey chance of winning; a strong-team and proven-record gate with thresholds fixed and tested first; fill to 15 with today's rule, labelled 'not proven'; poorly calibrated leagues ranked lower, not excluded; four research roles (R1-R4), each kept only if it passes its pass rule. Everything here was written before any figure was computed; E, G, the league trust table and the research roles' verdicts are filled in afterwards, once, by the offline check (master_strong_check.py), and recorded in docs/plan.md.",
   "status": "live master since 23 Nov 2026 (master_shortlist_config.json live \"strong\"; writes master_shortlist.csv). Rule history in 'rule_changes'; each superseded rule's config is frozen in master_strong_rules/ so archived runs replay.",
   "file": "master_shortlist_strong.csv",
@@ -122,7 +122,18 @@
       "not proven: safe",
       "not proven: fill",
       "not proven: risky fill"
-    ]
+    ],
+    "proven_order_since_v4": "Since master-strong-team-v4 Step A uses 'proven_order' instead of league trust, R2 and chance of profit; Step B is unchanged."
+  },
+  "proven_order": {
+    "rule": "Proven picks (Step A) are sorted by: the backed team's pre-match Elo expected score (strong_elo_expectancy), higher first; then the proven-record share on the exact bet (strong_record_won_share for win bets, strong_record_not_lost_share for no-loss bets), higher first; then the market (cagey) chance of profit (ranking_profit_probability), higher first; then today's tie order (higher odds, kickoff, league, teams, market, side, line). Values are compared at 9 decimals. League trust no longer orders proven picks: it stays a label only for them. The fill steps (Step B) keep their current order (league trust, then no-loss or chance of profit). Paul, 24 Nov 2026 (plan Phase 4d, Part 3), a deliberate exception to the release gate: no backtest before release.",
+    "keys": [
+      "strong_elo_expectancy (higher first)",
+      "record share on the exact bet (higher first)",
+      "ranking_profit_probability (higher first)",
+      "tie order"
+    ],
+    "since": "master-strong-team-v4"
   },
   "live_comparison": {
     "rule": "Decided 23 Nov 2026, before any strong-master pick: after at least 150 graded matches over at least 3 calendar weeks on each list, flat-stake return per bet at Pinnacle prices, strong master minus live master, whole kickoff weeks resampled (the same weeks for both), 95% interval. The strong master is better only if the interval is entirely above zero. Results by market group, tier and research label are context only.",
@@ -163,7 +174,14 @@
       "version": "master-strong-team-v3",
       "live_version": "master-strong-team-v3-live-v13",
       "decided": "Paul, 24 Nov 2026 (plan Phase 4d, Part 2), a deliberate exception to the release gate.",
-      "change": "Research no-loss >= 0.70 for every pick in every tier ('research_gate'); no research view, not eligible. Nothing else changes."
+      "change": "Research no-loss >= 0.70 for every pick in every tier ('research_gate'); no research view, not eligible. Nothing else changes.",
+      "config": "master_strong_rules/master-strong-team-v3.json"
+    },
+    {
+      "version": "master-strong-team-v4",
+      "live_version": "master-strong-team-v4-live-v14",
+      "decided": "Paul, 24 Nov 2026 (plan Phase 4d, Part 3), a deliberate exception to the release gate.",
+      "change": "Proven picks ranked by Elo expected score, then record share on the exact bet, then cagey chance of profit, then the tie order ('proven_order'); league trust a label only for proven picks. Nothing else changes."
     }
   ]
 }

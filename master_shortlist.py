@@ -96,8 +96,9 @@ LIVE_STRONG = 'strong'
 # and replays under the rule it recorded.
 STRONG_LIVE_VERSIONS = {'master-strong-team-v1': 'master-strong-team-v1-live-v11',
                         'master-strong-team-v2': 'master-strong-team-v2-live-v12',
-                        'master-strong-team-v3': 'master-strong-team-v3-live-v13'}
-VERSION_STRONG_LIVE = STRONG_LIVE_VERSIONS['master-strong-team-v3']
+                        'master-strong-team-v3': 'master-strong-team-v3-live-v13',
+                        'master-strong-team-v4': 'master-strong-team-v4-live-v14'}
+VERSION_STRONG_LIVE = STRONG_LIVE_VERSIONS['master-strong-team-v4']
 STRONG_FAILED = "STRONG MASTER FAILED - TODAY'S MASTER PUBLISHED"
 STRONG_LIVE_STATUS = ('live master: the strong-team master, released by Paul on 23 Nov 2026 as a deliberate exception '
                       'to the release gate (offline: no measurable difference from today\'s master); graded beside '

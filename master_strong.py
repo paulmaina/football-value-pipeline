@@ -37,7 +37,8 @@ TRUST_FILE = Path(__file__).with_name('master_league_trust.json')
 RULES_DIR = Path(__file__).with_name('master_strong_rules')
 # v2 (Paul, 24 Nov 2026; docs/plan.md Phase 4d, Part 1): the executable pool's odds floor is 1.20 (config 'execution').
 # v3 (Part 2): research no-loss >= 0.70 for every pick in every tier (config 'research_gate'; R3 extended).
-VERSIONS = ('master-strong-team-v1', 'master-strong-team-v2', 'master-strong-team-v3')
+# v4 (Part 3): proven picks by Elo expected score, then record share, then chance of profit (config 'proven_order').
+VERSIONS = ('master-strong-team-v1', 'master-strong-team-v2', 'master-strong-team-v3', 'master-strong-team-v4')
 VERSION = VERSIONS[-1]
 TRUST_ORDER = ('trusted', 'not trusted', 'unvalidated')
 TIERS = ('proven', 'not proven: safe', 'not proven: fill', 'not proven: risky fill')
@@ -251,7 +252,22 @@ def _no_loss(row: Mapping) -> float:
     return -round(p, 9) if p is not None else math.inf
 
 
-def proven_key(row: Mapping, run: Mapping) -> tuple:
+def record_share(row: Mapping) -> Optional[float]:
+    """The proven-record share on the exact bet: the won share for win bets, the not-lost share for no-loss bets."""
+    column = 'strong_record_won_share' if row.get('strong_bet_kind') == 'win' else 'strong_record_not_lost_share'
+    return _number(row.get(column))
+
+
+def _higher_first(value: Optional[float]) -> float:
+    return -round(value, 9) if value is not None else math.inf
+
+
+def proven_key(row: Mapping, run: Mapping, config: Optional[Mapping] = None) -> tuple:
+    """Step A's order. Since v4 (config 'proven_order'): Elo expected score, record share on the exact bet, market
+    chance of profit, tie order. Before: league trust, (R2 active) research confirms, chance of profit, tie order."""
+    if config is not None and config.get('proven_order'):
+        return (_higher_first(_number(row.get('strong_elo_expectancy'))), _higher_first(record_share(row)),
+                _profit(row), *_tie_key(row))
     confirms = 0 if run['R2'] and row.get('strong_research_confirms') else 1
     return (_trust_index(row), confirms, _profit(row), *_tie_key(row))
 
@@ -302,7 +318,7 @@ def select(rows: List[Dict[str, object]], config: Mapping, run: Mapping, match_k
             row.update(strong_rank=picks, strong_tier=tier, strong_decision='SHORTLISTED', strong_reason='')
 
     pool = [r for r in rows if eligible(r)]
-    take(sorted((r for r in pool if r['strong_proven']), key=lambda r: proven_key(r, run)), 'proven')
+    take(sorted((r for r in pool if r['strong_proven']), key=lambda r: proven_key(r, run, config)), 'proven')
     chance = lambda r: _number(r.get('ranking_no_loss_probability'))
     take(sorted((r for r in pool if r['strong_safe']), key=lambda r: (_trust_index(r), _no_loss(r), *_tie_key(r))),
          'not proven: safe')
@@ -503,7 +519,8 @@ def summary(frame: pd.DataFrame, config: Optional[Mapping] = None, generated_at_
         'note': 'Shadow only: master_shortlist.csv, every probability, pick and stake are unchanged.',
         **({'execution': {k: config['execution'][k] for k in ('min_odds_exclusive', 'max_odds_inclusive')}}
            if config.get('execution') else {}),
-        **({'research_gate': research_gate_summary(frame, config)} if config.get('research_gate') else {})}
+        **({'research_gate': research_gate_summary(frame, config)} if config.get('research_gate') else {}),
+        **({'proven_order': list(config['proven_order']['keys'])} if config.get('proven_order') else {})}
 
 
 def research_gate_summary(frame: pd.DataFrame, config: Mapping) -> Dict[str, object]:
