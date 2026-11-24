@@ -1,0 +1,334 @@
+{
+  "fixture": {
+    "away_team": "LASK",
+    "home_team": "Bod\u00f8/Glimt",
+    "kickoff_utc": "2026-11-24T17:45:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "1639986825"
+  },
+  "observed_at_utc": "2026-11-24T17:40:14.097975+00:00",
+  "payload": {
+    "away_team": "LASK",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-24T17:40:14Z",
+            "outcomes": [
+              {
+                "name": "Bod\u00f8/Glimt",
+                "price": 1.3509
+              },
+              {
+                "name": "LASK",
+                "price": 7.7
+              },
+              {
+                "name": "Draw",
+                "price": 6.2
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-24T17:40:14Z",
+            "outcomes": [
+              {
+                "name": "Bod\u00f8/Glimt",
+                "point": -1.75,
+                "price": 1.9901
+              },
+              {
+                "name": "LASK",
+                "point": 1.75,
+                "price": 1.9009
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-24T17:40:14Z",
+            "outcomes": [
+              {
+                "name": "Bod\u00f8/Glimt",
+                "point": -2.5,
+                "price": 2.83
+              },
+              {
+                "name": "Bod\u00f8/Glimt",
+                "point": -2.25,
+                "price": 2.55
+              },
+              {
+                "name": "Bod\u00f8/Glimt",
+                "point": -2.0,
+                "price": 2.27
+              },
+              {
+                "name": "Bod\u00f8/Glimt",
+                "point": -1.5,
+                "price": 1.813
+              },
+              {
+                "name": "Bod\u00f8/Glimt",
+                "point": -1.25,
+                "price": 1.625
+              },
+              {
+                "name": "Bod\u00f8/Glimt",
+                "point": -1.0,
+                "price": 1.4405
+              },
+              {
+                "name": "Bod\u00f8/Glimt",
+                "point": -0.75,
+                "price": 1.369
+              },
+              {
+                "name": "Bod\u00f8/Glimt",
+                "point": -0.5,
+                "price": 1.3175
+              },
+              {
+                "name": "LASK",
+                "point": 2.5,
+                "price": 1.4587
+              },
+              {
+                "name": "LASK",
+                "point": 2.25,
+                "price": 1.5464
+              },
+              {
+                "name": "LASK",
+                "point": 2.0,
+                "price": 1.6711
+              },
+              {
+                "name": "LASK",
+                "point": 1.5,
+                "price": 2.13
+              },
+              {
+                "name": "LASK",
+                "point": 1.25,
+                "price": 2.42
+              },
+              {
+                "name": "LASK",
+                "point": 1.0,
+                "price": 2.9
+              },
+              {
+                "name": "LASK",
+                "point": 0.75,
+                "price": 3.24
+              },
+              {
+                "name": "LASK",
+                "point": 0.5,
+                "price": 3.58
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-24T17:40:14Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 4.0,
+                "price": 1.9901
+              },
+              {
+                "name": "Under",
+                "point": 4.0,
+                "price": 1.9174
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-24T17:45:00Z",
+    "home_team": "Bod\u00f8/Glimt",
+    "id": "1639986825",
+    "odds_provider": "pinnapi",
+    "sport_key": "soccer_uefa_champs_league"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3509,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7310902089898608,
+      "selection": "home",
+      "updated_at_utc": "2026-11-24T17:40:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.2,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.14955992709460095,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-24T17:40:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 7.7,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.11934986391553835,
+      "selection": "away",
+      "updated_at_utc": "2026-11-24T17:40:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9009,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-11-24T17:40:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9901,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-11-24T17:40:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.58,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-24T17:40:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.24,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-24T17:40:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.9,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-24T17:40:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.42,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-24T17:40:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.13,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-24T17:40:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6711,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.00",
+      "updated_at_utc": "2026-11-24T17:40:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5464,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.25",
+      "updated_at_utc": "2026-11-24T17:40:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4587,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.50",
+      "updated_at_utc": "2026-11-24T17:40:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.83,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.50",
+      "updated_at_utc": "2026-11-24T17:40:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.55,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.25",
+      "updated_at_utc": "2026-11-24T17:40:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.27,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.00",
+      "updated_at_utc": "2026-11-24T17:40:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.813,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-24T17:40:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.625,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-24T17:40:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4405,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-24T17:40:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.369,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-24T17:40:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3175,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-24T17:40:14+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
