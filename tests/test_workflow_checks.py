@@ -445,3 +445,22 @@ class ShortlistReplayDifferenceTest(unittest.TestCase):
         many = difference([{'a': i} for i in range(8)], [{'a': i + 1} for i in range(8)], limit=2)
         self.assertTrue(many.endswith('... 6 more differing cells'))
         self.assertEqual(difference([{'a': 1}], [{'a': 1 + 1e-12}]), 'no differing cell found')
+
+class FixtureIdAsTextTest(unittest.TestCase):
+    """24 Nov 2026: all-digit provider fixture IDs read back from CSV as integers, while the replay held them as text,
+    so the raw check failed every live run whose shortlist had only numeric IDs."""
+    def test_written_numeric_ids_match_a_text_replay(self):
+        import io
+        import pandas as pd
+        from shortlist_replay import READ_IDS_AS_TEXT, clean, equivalent
+        replay = pd.DataFrame({'fixture_id': ['1639986885', '1639986826'], 'price': [1.32, 1.37]})
+        text = io.StringIO(); replay.to_csv(text, index=False)
+        for written in (pd.read_csv(io.StringIO(text.getvalue())),
+                        pd.read_csv(io.StringIO(text.getvalue()), dtype=READ_IDS_AS_TEXT)):
+            self.assertTrue(equivalent(clean(written), clean(replay)))
+        numeric_replay = pd.DataFrame({'fixture_id': [1639986885, None], 'price': [1.32, 1.37]})  # float beside a blank
+        self.assertEqual([r['fixture_id'] for r in clean(numeric_replay)], ['1639986885', None])
+        hex_ids = pd.DataFrame({'fixture_id': ['50b80f3ebd38bf63663b11ae0afc575b']})
+        self.assertEqual(clean(hex_ids), [{'fixture_id': '50b80f3ebd38bf63663b11ae0afc575b'}])
+        self.assertFalse(equivalent(clean(pd.DataFrame({'fixture_id': ['1639986885']})),
+                                    clean(pd.DataFrame({'fixture_id': ['1639986886']}))))
