@@ -1,0 +1,350 @@
+{
+  "fixture": {
+    "away_team": "AEK Athens",
+    "home_team": "Como",
+    "kickoff_utc": "2026-11-24T20:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "1639986885"
+  },
+  "observed_at_utc": "2026-11-24T19:54:36.357923+00:00",
+  "payload": {
+    "away_team": "AEK Athens",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-24T19:54:36Z",
+            "outcomes": [
+              {
+                "name": "Como",
+                "price": 1.2817
+              },
+              {
+                "name": "AEK Athens",
+                "price": 10.5
+              },
+              {
+                "name": "Draw",
+                "price": 6.45
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-24T19:54:36Z",
+            "outcomes": [
+              {
+                "name": "Como",
+                "point": -1.75,
+                "price": 1.9434
+              },
+              {
+                "name": "AEK Athens",
+                "point": 1.75,
+                "price": 1.9615
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-24T19:54:36Z",
+            "outcomes": [
+              {
+                "name": "Como",
+                "point": -2.75,
+                "price": 3.38
+              },
+              {
+                "name": "Como",
+                "point": -2.5,
+                "price": 2.81
+              },
+              {
+                "name": "Como",
+                "point": -2.25,
+                "price": 2.51
+              },
+              {
+                "name": "Como",
+                "point": -2.0,
+                "price": 2.23
+              },
+              {
+                "name": "Como",
+                "point": -1.5,
+                "price": 1.7407
+              },
+              {
+                "name": "Como",
+                "point": -1.25,
+                "price": 1.5435
+              },
+              {
+                "name": "Como",
+                "point": -1.0,
+                "price": 1.3636
+              },
+              {
+                "name": "Como",
+                "point": -0.75,
+                "price": 1.3012
+              },
+              {
+                "name": "AEK Athens",
+                "point": 2.75,
+                "price": 1.339
+              },
+              {
+                "name": "AEK Athens",
+                "point": 2.5,
+                "price": 1.4545
+              },
+              {
+                "name": "AEK Athens",
+                "point": 2.25,
+                "price": 1.5495
+              },
+              {
+                "name": "AEK Athens",
+                "point": 2.0,
+                "price": 1.7092
+              },
+              {
+                "name": "AEK Athens",
+                "point": 1.5,
+                "price": 2.18
+              },
+              {
+                "name": "AEK Athens",
+                "point": 1.25,
+                "price": 2.53
+              },
+              {
+                "name": "AEK Athens",
+                "point": 1.0,
+                "price": 3.23
+              },
+              {
+                "name": "AEK Athens",
+                "point": 0.75,
+                "price": 3.65
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-24T19:54:36Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.9804
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.9091
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-24T20:00:00Z",
+    "home_team": "Como",
+    "id": "1639986885",
+    "odds_provider": "pinnapi",
+    "sport_key": "soccer_uefa_champs_league"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2817,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7716100616167607,
+      "selection": "home",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.45,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1426495397032912,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 10.5,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.08574039867994795,
+      "selection": "away",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9615,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9434,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.65,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.23,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.53,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.18,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7092,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.00",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5495,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.25",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4545,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.50",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.339,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.75",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.38,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.75",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.81,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.50",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.51,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.25",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.23,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.00",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7407,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5435,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3636,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3012,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9804,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.49044342238062516,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9091,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5095565776193748,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-24T19:54:36+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
