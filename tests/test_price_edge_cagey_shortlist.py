@@ -112,8 +112,9 @@ class SwitchTests(OfflineQuotePolicyTestCase):
         from asian_handicap import PRODUCTION_POLICY, POLICIES
         settings = v28.load_settings()
         self.assertEqual(settings, {'cagey_correction_enabled': True, 'cagey_tier_enabled': True,
-                                    'model_version': nm.PRODUCTION_VERSION, 'cagey_tier_rule': v28.TIER_RULE_MARKET_BASIS,
-                                    'value_rule': v28.VALUE_RULE_LOCAL_RESEARCH,
+                                    # Odds floor 1.20 since 24 Nov 2026 (plan Phase 4d, Part 1): v6 and v3.
+                                    'model_version': nm.PRODUCTION_VERSION, 'cagey_tier_rule': v28.TIER_RULE_MARKET_BASIS_120,
+                                    'value_rule': v28.VALUE_RULE_LOCAL_RESEARCH_120,
                                     'quote_timing_rule': v28.TIMING_RULE_CUTOFF,
                                     'excluded_markets': ['Double Chance 12', 'Draw No Bet Away',
                                                          'Draw No Bet Home', 'Over 1.5'],

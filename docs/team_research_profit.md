@@ -1,5 +1,8 @@
 # Current rule: local training plus free research
 
+Since 24 Nov 2026 the live rule is `local-research-profit-120-200-dc12-v3`: v2 exactly, with odds above
+1.20 and at most 2.00 (Paul's decision, `docs/plan.md` Phase 4d, Part 1). Runs recorded under v2 replay under v2.
+
 `local-research-profit-115-200-dc12-v2` is the current main-shortlist rule.
 It replaces `per-market-v2` in the live configuration and supersedes
 `team-research-profit-v1` for new generations. Its probability basis
