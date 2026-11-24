@@ -1381,7 +1381,7 @@
     }
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-24T08:10:54.529799+00:00",
+  "reviewed_at_utc": "2026-11-24T09:58:13.342526+00:00",
   "stop_review": true,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "strong_master": {
