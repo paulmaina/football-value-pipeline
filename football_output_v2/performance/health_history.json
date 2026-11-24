@@ -42057,7 +42057,7 @@
         "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
         "observations": 521,
         "rejected_files": [],
-        "reviewed_at_utc": "2026-11-24T16:36:44.036289+00:00",
+        "reviewed_at_utc": "2026-11-24T17:20:29.154802+00:00",
         "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
         "version": "local-closing-quotes-v4"
       },
@@ -42090,7 +42090,7 @@
       },
       "experiment_capture_counts": {},
       "forecast_freshness": {
-        "age_hours": 0.015402411944444446,
+        "age_hours": 0.7446019988888889,
         "generated_at_utc": "2026-11-24T16:35:48.587606+00:00",
         "status": "WITHIN_24_HOURS",
         "upcoming_fixture_count": 43
@@ -42109,7 +42109,7 @@
         "unknown_kickoff_count": 0,
         "upcoming_kickoff_count": 15
       },
-      "reviewed_at_utc": "2026-11-24T16:36:44.036289+00:00",
+      "reviewed_at_utc": "2026-11-24T17:20:29.154802+00:00",
       "selection_policy_groups": {
         "48h-ah-price-edge-cagey-v28": {
           "brier": 0.208073,
@@ -43090,7 +43090,7 @@
             "completed_matches": 72,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 0.03324434444444445,
+            "download_age_hours": 0.7624439313888889,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-11-04",
             "latest_completed_utc": "2026-11-04T20:00:00+00:00",
@@ -43152,7 +43152,7 @@
               }
             },
             "status": "VERIFIED_WITHIN_24_HOURS",
-            "verified_at_utc": "2026-11-24T16:36:44.036289+00:00"
+            "verified_at_utc": "2026-11-24T17:20:29.154802+00:00"
           },
           "days_since_latest_result": 19,
           "diagnostics_sha256": "55ddca54ffa77f3382bbec61ba910c16e8fb138034252de0a1c7d2fd6c0292f8",

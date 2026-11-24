@@ -26,7 +26,7 @@ Actual placed bets: NOT_RECORDED
 
 > **STOP REVIEW**: 122 graded picks with mean CLV -1.95% (below zero). Review the policy before relying on further picks.
 
-Reviewed 2026-11-24T16:36:44.036289+00:00. Frozen v27 picks: 448.
+Reviewed 2026-11-24T17:20:29.154802+00:00. Frozen v27 picks: 448.
 
 **Mean CLV vs Pinnacle close:** -1.95% ± 0.78% (n=122). **Flat-stake profit per bet:** +2.83% ± 6.78% (n=426).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -170,7 +170,7 @@ By tier (context only; the comparison rule never reads it):
 
 ## Strong-team master (live since 23 Nov 2026) beside today's master (shadow, the rollback baseline)
 
-Frozen picks: 5; CLV n/a (0); realised profit per bet n/a (0). Research gate (research no-loss at least 0.70 on every pick, since 24 Nov 2026): 0 graded picks (reviewed at 50).
+Frozen picks: 0; CLV n/a (0); realised profit per bet n/a (0). Research gate (research no-loss at least 0.70 on every pick, since 24 Nov 2026): 0 graded picks (reviewed at 50).
 
 Weak-link flags (flag only, since 24 Nov 2026): 0 flagged picks graded; each reason is reviewed once 50 flagged picks are graded.
 
@@ -198,19 +198,6 @@ Rollback rule (strong release, decided by Paul 23 Nov 2026): After at least 150 
 **Rollback status: WAITING.** waiting for at least 150 graded matches over at least 3 weeks on each list
 
 **Status:** waiting for at least 150 graded matches over at least 3 weeks on each list (not yet comparable).
-
-By tier (context only; the comparison rule never reads it):
-
-| group | mean CLV (n) | realised profit per bet (n) |
-|---|---|---|
-| not proven: fill | n/a (0) | n/a (0) |
-| not proven: safe | n/a (0) | n/a (0) |
-
-By market group (context only; the comparison rule never reads it):
-
-| group | mean CLV (n) | realised profit per bet (n) |
-|---|---|---|
-| asian_handicap | n/a (0) | n/a (0) |
 
 ## Both tiers (value and cagey)
 
