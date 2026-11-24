@@ -1,0 +1,208 @@
+{
+  "computed_with": {
+    "research_view": "C6",
+    "cagey_view": "D",
+    "floors": [
+      1.15,
+      1.2
+    ],
+    "strong_rules": [
+      "master-strong-team-v1",
+      "master-strong-team-v3"
+    ],
+    "source_commit": "567835f743f2a49bc6d090ecbbac86b24be2b497",
+    "periods": [
+      "development",
+      "validation"
+    ]
+  },
+  "lists": {
+    "development": {
+      "weeks": 106,
+      "value_shortlist": {
+        "before": {
+          "bets": 10602,
+          "matches": 6875,
+          "bets_per_week": 100.01886792452831,
+          "matches_per_week": 64.85849056603773
+        },
+        "after": {
+          "bets": 10461,
+          "matches": 6875,
+          "bets_per_week": 98.68867924528301,
+          "matches_per_week": 64.85849056603773
+        },
+        "lost_bets_per_week": 1.3301886792452962,
+        "lost_matches_per_week": 0.0,
+        "bets_at_1_15_to_1_20_before": 141
+      },
+      "cagey_tier": {
+        "before": {
+          "bets": 10602,
+          "matches": 6875,
+          "bets_per_week": 100.01886792452831,
+          "matches_per_week": 64.85849056603773
+        },
+        "after": {
+          "bets": 10461,
+          "matches": 6875,
+          "bets_per_week": 98.68867924528301,
+          "matches_per_week": 64.85849056603773
+        },
+        "lost_bets_per_week": 1.3301886792452962,
+        "lost_matches_per_week": 0.0,
+        "bets_at_1_15_to_1_20_before": 141
+      }
+    },
+    "validation": {
+      "weeks": 22,
+      "value_shortlist": {
+        "before": {
+          "bets": 2002,
+          "matches": 1305,
+          "bets_per_week": 91.0,
+          "matches_per_week": 59.31818181818182
+        },
+        "after": {
+          "bets": 1977,
+          "matches": 1305,
+          "bets_per_week": 89.86363636363636,
+          "matches_per_week": 59.31818181818182
+        },
+        "lost_bets_per_week": 1.1363636363636402,
+        "lost_matches_per_week": 0.0,
+        "bets_at_1_15_to_1_20_before": 25
+      },
+      "cagey_tier": {
+        "before": {
+          "bets": 2002,
+          "matches": 1305,
+          "bets_per_week": 91.0,
+          "matches_per_week": 59.31818181818182
+        },
+        "after": {
+          "bets": 1977,
+          "matches": 1305,
+          "bets_per_week": 89.86363636363636,
+          "matches_per_week": 59.31818181818182
+        },
+        "lost_bets_per_week": 1.1363636363636402,
+        "lost_matches_per_week": 0.0,
+        "bets_at_1_15_to_1_20_before": 25
+      }
+    }
+  },
+  "strong_master": {
+    "development": {
+      "weeks": 106,
+      "before": {
+        "bets": 1232,
+        "matches": 1232,
+        "bets_per_week": 11.622641509433961,
+        "matches_per_week": 11.622641509433961,
+        "weeks_reaching_target": 0,
+        "weeks_at_offline_maximum_12": 99,
+        "picks_per_week_distribution": {
+          "1": 2,
+          "7": 1,
+          "8": 2,
+          "9": 1,
+          "10": 1,
+          "12": 99
+        },
+        "by_tier": {
+          "proven": 209,
+          "not proven: safe": 109,
+          "not proven: fill": 914,
+          "not proven: risky fill": 0
+        },
+        "offers_left_out_by_research_gate": 0
+      },
+      "after": {
+        "bets": 922,
+        "matches": 922,
+        "bets_per_week": 8.69811320754717,
+        "matches_per_week": 8.69811320754717,
+        "weeks_reaching_target": 0,
+        "weeks_at_offline_maximum_12": 29,
+        "picks_per_week_distribution": {
+          "0": 2,
+          "1": 3,
+          "2": 1,
+          "3": 5,
+          "4": 2,
+          "5": 2,
+          "6": 8,
+          "7": 7,
+          "8": 14,
+          "9": 10,
+          "10": 16,
+          "11": 7,
+          "12": 29
+        },
+        "by_tier": {
+          "proven": 90,
+          "not proven: safe": 48,
+          "not proven: fill": 778,
+          "not proven: risky fill": 6
+        },
+        "offers_left_out_by_research_gate": 10038
+      },
+      "lost_picks_per_week": 2.9245283018867916,
+      "lost_matches_per_week": 2.9245283018867916
+    },
+    "validation": {
+      "weeks": 22,
+      "before": {
+        "bets": 251,
+        "matches": 251,
+        "bets_per_week": 11.409090909090908,
+        "matches_per_week": 11.409090909090908,
+        "weeks_reaching_target": 0,
+        "weeks_at_offline_maximum_12": 20,
+        "picks_per_week_distribution": {
+          "1": 1,
+          "10": 1,
+          "12": 20
+        },
+        "by_tier": {
+          "proven": 34,
+          "not proven: safe": 24,
+          "not proven: fill": 193,
+          "not proven: risky fill": 0
+        },
+        "offers_left_out_by_research_gate": 0
+      },
+      "after": {
+        "bets": 172,
+        "matches": 172,
+        "bets_per_week": 7.818181818181818,
+        "matches_per_week": 7.818181818181818,
+        "weeks_reaching_target": 0,
+        "weeks_at_offline_maximum_12": 3,
+        "picks_per_week_distribution": {
+          "0": 1,
+          "1": 1,
+          "3": 1,
+          "5": 3,
+          "6": 1,
+          "7": 3,
+          "8": 1,
+          "9": 2,
+          "10": 2,
+          "11": 4,
+          "12": 3
+        },
+        "by_tier": {
+          "proven": 14,
+          "not proven: safe": 11,
+          "not proven: fill": 147,
+          "not proven: risky fill": 0
+        },
+        "offers_left_out_by_research_gate": 1915
+      },
+      "lost_picks_per_week": 3.59090909090909,
+      "lost_matches_per_week": 3.59090909090909
+    }
+  }
+}
