@@ -416,6 +416,15 @@ RULE_RELEASES = {
                     "master-strong-team-v3-live-v13). Reviewed once 50 picks under the rule are graded. Paul's "
                     "exception of 24 Nov 2026: no shadow list, no pre-release backtest gate. Rolling back is the "
                     "strong master back to master-strong-team-v2. Takes effect with the merge of its PR.")},
+    'master-strong-team-v4': {
+        'model': 'strong master: proven ranking without league trust (Part 3)',
+        'before': 'master-strong-team-v3-live-v13', 'after': 'master-strong-team-v4-live-v14',
+        'details': ("Proven strong-master picks are ranked by the backed team's Elo expected score, then the "
+                    "proven-record share on the exact bet, then the cagey chance of profit, then the tie order; league "
+                    "trust is a label only for proven picks; the fill steps keep their order (master-strong-team-v4, "
+                    "live master-strong-team-v4-live-v14). Paul's exception of 24 Nov 2026: no shadow list, no "
+                    "pre-release backtest gate. Rolling back is the strong master back to master-strong-team-v3. Takes "
+                    "effect with the merge of its PR.")},
 }
 
 
