@@ -2626,7 +2626,7 @@
   "prediction_1x2_multiclass_brier": 0.546387,
   "prediction_fixtures_graded": 443,
   "provider_errors": {},
-  "reviewed_at_utc": "2026-11-24T10:06:08Z",
+  "reviewed_at_utc": "2026-11-24T10:11:13Z",
   "run_history_groups": {
     "2026-10-11T06:32:27.587243+00:00": {
       "brier": 0.232708,
