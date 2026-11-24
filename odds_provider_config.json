@@ -1,7 +1,7 @@
 {
   "schema": "odds-provider-config-v1",
   "enabled": true,
-  "note": "On since 23 Nov 2026 (Paul). Order: pinnapi, then pinnodds, then The Odds API as the final fallback only (called for a request only when both kit providers failed for it). Rolling back is setting enabled to false: no code change, and saved runs replay as before. See docs/odds-providers.md.",
+  "note": "On since 23 Nov 2026 (Paul). Order: pinnapi, then pinnodds, then The Odds API as the final fallback only (called for a request only when both kit providers failed for it, an empty answer included). Rolling back is setting enabled to false: no code change, and saved runs replay as before. See docs/odds-providers.md.",
   "order": ["pinnapi", "pinnodds", "the-odds-api"],
   "providers": {
     "pinnapi": {

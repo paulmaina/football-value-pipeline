@@ -8,7 +8,14 @@ in the configured order:
   1. pinnapi   (PINNAPI_API_KEY)   Pinnacle kit API, /kit/v1
   2. pinnodds  (PINNODDS_API_KEY)  the same kit API on another host
   3. The Odds API (existing keys)  final fallback only: called for a request only when every kit provider
-                                   failed for it (error, timeout, 429, daily allowance exhausted)
+                                   failed for it (error, timeout, 429, daily allowance exhausted, or an
+                                   empty answer)
+
+An empty answer counts as a failure: a kit reply that succeeds (HTTP 200) but holds no fixture for the requested
+league and window (events, odds), or not the requested event at all (event_odds), passes the request to the next
+provider, so a board that silently lost a competition cannot leave a run without fixtures or prices (24 Nov 2026:
+pinnapi's board held no UCL or UEL events and no other provider was asked). Only The Odds API's own answer, the
+last in the chain, is returned empty.
 
 Whatever answered, the response is normalised (`normalise_kit_event`, `normalise_odds_api_event`: Pinnacle
 only; 1X2, Asian handicap lines, goal lines, team totals, corners when offered, kickoff, canonical team names,
@@ -45,9 +52,9 @@ KIT_FIXTURES_PATH = '/kit/v1/prematch/fixtures'
 USER_AGENT = 'football-value-pipeline/2.0 (+research; odds-provider-adapter)'
 
 # Failure reasons that pass a request to the next provider.
-NOT_CONFIGURED, ERROR, TIMEOUT, RATE_LIMITED, DAILY_ALLOWANCE, RETRY_AFTER = (
-    'not_configured', 'error', 'timeout', 'rate_limited', 'daily_allowance', 'retry_after')
-FAILURES = (NOT_CONFIGURED, ERROR, TIMEOUT, RATE_LIMITED, DAILY_ALLOWANCE, RETRY_AFTER)
+NOT_CONFIGURED, ERROR, TIMEOUT, RATE_LIMITED, DAILY_ALLOWANCE, RETRY_AFTER, EMPTY = (
+    'not_configured', 'error', 'timeout', 'rate_limited', 'daily_allowance', 'retry_after', 'empty')
+FAILURES = (NOT_CONFIGURED, ERROR, TIMEOUT, RATE_LIMITED, DAILY_ALLOWANCE, RETRY_AFTER, EMPTY)
 
 # Odds API market keys the adapter can emit, by normalised market.
 H2H, SPREADS, ALT_SPREADS, TOTALS, ALT_TOTALS = 'h2h', 'spreads', 'alternate_spreads', 'totals', 'alternate_totals'
@@ -884,6 +891,7 @@ class OddsProviderRouter:
                 self._fail(name, why)
                 reasons.append((name, why))
                 continue
+            not_found = self.not_found
             try:
                 result = self._ask_kit(name, request)
             except ProviderFailure as failure:
@@ -892,6 +900,14 @@ class OddsProviderRouter:
                     self._block(name, failure)
                 self._fail(name, reason)
                 reasons.append((name, reason))
+                continue
+            # Empty: no fixture in the league and window (events, odds), or the requested event is not on the
+            # board (event_odds). An event that is on the board but lacks a requested market is an answer: the kit
+            # API never offers some markets (double chance, draw no bet), and those must not cost credits.
+            if (not result) if request.kind in ('events', 'odds') else self.not_found > not_found:
+                self.not_found = not_found  # counted only if the last provider cannot find it either
+                self._fail(name, EMPTY)
+                reasons.append((name, EMPTY))
                 continue
             self._served(name, request, reasons)
             return result
