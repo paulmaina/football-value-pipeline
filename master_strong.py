@@ -39,8 +39,9 @@ RULES_DIR = Path(__file__).with_name('master_strong_rules')
 # v3 (Part 2): research no-loss >= 0.70 for every pick in every tier (config 'research_gate'; R3 extended).
 # v4 (Part 3): proven picks by Elo expected score, then record share, then chance of profit (config 'proven_order').
 # v5 (Part 4): weak-link flags on the picks, flag only (config 'weak_links'; weak_links.py).
+# v6 (Part 5): weak-link reasons (f) and (g) narrowed (weak_links 'f.tiers', 'g.counted_review_warnings').
 VERSIONS = ('master-strong-team-v1', 'master-strong-team-v2', 'master-strong-team-v3', 'master-strong-team-v4',
-            'master-strong-team-v5')
+            'master-strong-team-v5', 'master-strong-team-v6')
 WEAK_COLUMNS = ['weak_link', 'weak_link_reasons']  # since v5 (config 'weak_links')
 VERSION = VERSIONS[-1]
 TRUST_ORDER = ('trusted', 'not trusted', 'unvalidated')

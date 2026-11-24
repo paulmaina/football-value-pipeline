@@ -330,8 +330,8 @@ class ProvenOrderTest(unittest.TestCase):
 # Part 4: weak-link flags, flag only (master-strong-team-v5)
 # ---------------------------------------------------------------------------
 
-def weak_rule():
-    return ms.load_config()['weak_links']
+def weak_rule(version=None):
+    return ms.load_config(version=version)['weak_links']
 
 
 def pick(**extra):
@@ -352,9 +352,9 @@ def forecast(h2h=(1.50, 4.20, 6.50), ah=(), research=None, kickoff='2026-11-25T2
 
 
 class WeakLinkReasonTest(unittest.TestCase):
-    def fire(self, row, forecast_row=None, warnings='', fallback=None, move=None):
+    def fire(self, row, forecast_row=None, warnings='', fallback=None, move=None, rule=None):
         import weak_links
-        return weak_links.reasons(row, weak_rule(), E=.55, forecast=forecast_row, warnings_text=warnings,
+        return weak_links.reasons(row, rule or weak_rule(), E=.55, forecast=forecast_row, warnings_text=warnings,
                                   fallback=fallback, move=move)
 
     def test_a_clean_proven_pick_has_no_reason_and_notes_missing_movement(self):
@@ -383,18 +383,73 @@ class WeakLinkReasonTest(unittest.TestCase):
         self.assertEqual((weak_links.reason_letters('; '.join(fired)), notes), (['e'], []))
         self.assertEqual(self.fire(pick(), move={**moved, 'drop_points': 2.9})[0], [])
 
-    def test_research_warnings_except_the_standing_note_and_stale_fits(self):
+    def test_research_warnings_except_the_standing_note_and_stale_fits(self):  # v5: every warning counted
         import weak_links
-        standing = weak_rule()['g']['standing_note']
-        self.assertEqual(self.fire(pick(), warnings=standing)[0], [])
-        fired, _ = self.fire(pick(), warnings=f'{standing}; Research review: lineup unconfirmed')
+        v5 = weak_rule('master-strong-team-v5')
+        standing = v5['g']['standing_note']
+        self.assertEqual(self.fire(pick(), warnings=standing, rule=v5)[0], [])
+        fired, _ = self.fire(pick(), warnings=f'{standing}; Research review: lineup unconfirmed', rule=v5)
         self.assertEqual(fired, ['(g) research warning: Research review: lineup unconfirmed'])
         fired, _ = self.fire(pick(), warnings=f'{standing}; lineups unconfirmed; goals are not verified xG; '
-                                              'goals are not verified xG')
+                                              'goals are not verified xG', rule=v5)
         self.assertEqual(fired, ['(g) 2 research warnings: lineups unconfirmed | goals are not verified xG'])
         fired, _ = self.fire(pick(), forecast(research={'c6_fit': {'stale': True}}))
         self.assertEqual(fired, ['(g) stale research fit (C6)'])
         self.assertEqual(weak_links.reason_letters('(a) x; (g) y; (g) z; note: no movement data'), ['a', 'g'])
+
+
+class NarrowedWeakLinkTest(unittest.TestCase):
+    """Part 5 (master-strong-team-v6): (f) only the fill tiers; (g) only stale fits and match-specific review lines."""
+    # The quality review's warnings as they reach the master (research_quality.assess, joined with '; ').
+    ROUTINE = ('xg unavailable or unconfirmed; lineups unavailable or unconfirmed; availability unavailable or unconfirmed; '
+               'Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH; '
+               'Research review: missing absence reports do not mean both teams have full squads; '
+               'Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment; '
+               'Research review: home xG sample below five; goals are not verified xG; '
+               'Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; '
+               'completeness/freshness not established by this review; research older than 24 hours; refresh team news; '
+               'research probability model has not passed a forward calibration gate')
+
+    def fire(self, row, *args, **kw):
+        return WeakLinkReasonTest.fire(None, row, *args, **kw)
+
+    def test_the_live_rule_is_v6_and_v5_is_frozen(self):
+        self.assertEqual(ms.VERSION, 'master-strong-team-v6')
+        self.assertEqual(master_shortlist.VERSION_STRONG_LIVE, 'master-strong-team-v6-live-v16')
+        v5, v6 = weak_rule('master-strong-team-v5'), weak_rule()
+        self.assertNotIn('tiers', v5['f'])
+        self.assertNotIn('counted_review_warnings', v5['g'])
+        same = lambda rule: {k: v for k, v in rule.items() if k not in ('f', 'g', 'narrowed')}
+        self.assertEqual(same(v5), same(v6))  # a-e, the review and the standing note unchanged
+        self.assertEqual(v5['g']['standing_note'], v6['g']['standing_note'])
+
+    def test_f_only_for_the_fill_tiers(self):
+        self.assertEqual(self.fire(pick(strong_tier='not proven: safe'))[0], [])
+        self.assertEqual(self.fire(pick(strong_tier='proven'))[0], [])
+        for tier in ('not proven: fill', 'not proven: risky fill'):
+            self.assertEqual(self.fire(pick(strong_tier=tier))[0], [f'(f) {tier} tier'])
+        v5 = weak_rule('master-strong-team-v5')
+        self.assertEqual(self.fire(pick(strong_tier='not proven: safe'), rule=v5)[0], ['(f) not proven: safe tier'])
+
+    def test_g_ignores_routine_coverage_and_standing_review_lines(self):
+        self.assertEqual(self.fire(pick(), warnings=self.ROUTINE)[0], [])
+        v5 = weak_rule('master-strong-team-v5')
+        self.assertEqual(__import__('weak_links').reason_letters('; '.join(self.fire(pick(), warnings=self.ROUTINE,
+                                                                                      rule=v5)[0])), ['g'])
+
+    def test_g_counts_match_specific_review_lines_and_stale_fits(self):
+        lines = ['Research review: home form/venue evidence is thin', 'Research review: away form/venue evidence is thin',
+                 'Research review: training cutoff missing or not before evaluation',
+                 'Research review: training health/status not recorded',
+                 'Research review: training refresh warning; using cached evidence, inspect cutoff',
+                 'Research review: pre-match deadline unavailable or passed']
+        for line in lines:
+            fired, _ = self.fire(pick(), warnings=f'{self.ROUTINE}; {line}')
+            self.assertEqual(fired, [f"(g) research warning: {line.split('; ')[0]}"], line)
+        fired, _ = self.fire(pick(), warnings=f'{self.ROUTINE}; {lines[0]}; {lines[1]}')
+        self.assertEqual(fired, [f'(g) 2 research warnings: {lines[0]} | {lines[1]}'])
+        fired, _ = self.fire(pick(), forecast(research={'ce3n_fit': {'stale': True}}), warnings=self.ROUTINE)
+        self.assertEqual(fired, ['(g) stale research fit (CE3n)'])
 
 
 class FairProbabilityTest(unittest.TestCase):
@@ -459,7 +514,7 @@ class WeakLinkLiveTest(unittest.TestCase):
             v5, info = master_shortlist.strong_live(decisions, None, summary['generated_at_utc'], predictions)
             v4, old = master_shortlist.strong_live(decisions, None, summary['generated_at_utc'], predictions,
                                                    rule='master-strong-team-v4')
-        self.assertEqual(info['version'], 'master-strong-team-v5-live-v15')
+        self.assertEqual(info['version'], 'master-strong-team-v6-live-v16')
         self.assertEqual(list(v5.columns[-2 - len(__import__('master_inspection').COLUMNS):][:2]),
                          ['weak_link', 'weak_link_reasons'])
         self.assertNotIn('weak_link', v4.columns)

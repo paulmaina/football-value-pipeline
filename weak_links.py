@@ -18,6 +18,10 @@ these holds (thresholds in master_strong_config.json `weak_links`, since master-
      model has not passed a forward calibration gate), or a stale research fit for the fixture (the C6 or CE3n fit
      frozen in the forecast's research marked stale).
 
+Since master-strong-team-v6 (Paul, 24 Nov 2026; Phase 4d, Part 5), (f) fires only for the tiers in `f.tiers` ("not
+proven: fill", "not proven: risky fill"), and (g) counts only stale fits and the warnings starting with one of
+`g.counted_review_warnings` (match-specific quality-review lines). Routine coverage notes stay in research_warnings.
+
 Each reason is written in plain words, prefixed with its letter ("(a) ..."), so the weekly review can grade each one.
 """
 from __future__ import annotations
@@ -223,9 +227,13 @@ def reasons(row: Mapping, rule: Mapping, *, E: float, forecast: Optional[Mapping
         out.append(f"(e) Pinnacle fair probability fell {move['drop_points']:.1f} points since the earliest snapshot "
                    f"({pct(move['earliest'])} at {move['earliest_generated_utc'][:16]}Z, now {pct(move['now'])})")
     tier = str(row.get('strong_tier') or '')
-    if tier.startswith('not proven'):
+    tiers = rule['f'].get('tiers')  # since v6: only these tiers; v5: any 'not proven' tier
+    if (tier in tiers) if tiers is not None else tier.startswith('not proven'):
         out.append(f"(f) {tier} tier")
     warnings = list(dict.fromkeys(research_warnings(warnings_text, rule['g']['standing_note'])))
+    counted = rule['g'].get('counted_review_warnings')  # since v6: match-specific quality-review warnings only
+    if counted is not None:
+        warnings = [w for w in warnings if any(w.startswith(c) for c in counted)]
     if len(warnings) == 1:
         out.append(f"(g) research warning: {warnings[0]}")
     elif warnings:  # one reason, every distinct warning once ('; ' separates reasons)
