@@ -20,13 +20,13 @@ Closing-line value (CLV) leads because it is the less noisy measure: it compares
 Every captured generation is graded at its own offered odds; re-uploads deduplicate. Repeated fixtures and overlapping lists are correlated recommendations, not independent bets. Unit returns are hypothetical, not actual betting ROI. Latest-view reports remain separate.
 
 Latest-view tables below are simulated recommendations, not executed-bet ROI.
-value: 1633 captured recommendations; 1579 graded; 173 distinct fixtures.
-cagey: 1018 captured recommendations; 980 graded; 118 distinct fixtures.
+value: 1648 captured recommendations; 1579 graded; 173 distinct fixtures.
+cagey: 1026 captured recommendations; 980 graded; 118 distinct fixtures.
 Actual placed bets: NOT_RECORDED
 
 > **STOP REVIEW**: 122 graded picks with mean CLV -1.95% (below zero). Review the policy before relying on further picks.
 
-Reviewed 2026-11-24T15:20:56.085776+00:00. Frozen v27 picks: 448.
+Reviewed 2026-11-24T15:51:27.307532+00:00. Frozen v27 picks: 448.
 
 **Mean CLV vs Pinnacle close:** -1.95% ± 0.78% (n=122). **Flat-stake profit per bet:** +2.83% ± 6.78% (n=426).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -262,8 +262,8 @@ Only the active rule's value-priced picks count toward CAGEY TIER REVIEW.
 |---|---|---|
 | Q1 cagiest | -3.55% ± 1.26% (n=31) | +2.47% ± 13.74% (n=113) |
 | Q2 | -1.71% ± 1.06% (n=36) | -3.66% ± 12.46% (n=116) |
-| Q3 | -2.06% ± 0.80% (n=36) | +8.93% ± 11.42% (n=118) |
-| Q4 | +0.50% ± 1.88% (n=28) | +4.24% ± 11.94% (n=112) |
+| Q3 | -2.06% ± 0.80% (n=36) | +8.53% ± 11.58% (n=116) |
+| Q4 | +0.50% ± 1.88% (n=28) | +4.72% ± 11.78% (n=114) |
 | Q5 most open | -1.01% ± 2.16% (n=20) | +6.60% ± 10.06% (n=109) |
 | n/a | -2.01% ± 1.35% (n=48) | +0.30% ± 14.25% (n=112) |
 
