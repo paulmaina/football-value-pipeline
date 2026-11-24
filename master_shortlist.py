@@ -97,8 +97,9 @@ LIVE_STRONG = 'strong'
 STRONG_LIVE_VERSIONS = {'master-strong-team-v1': 'master-strong-team-v1-live-v11',
                         'master-strong-team-v2': 'master-strong-team-v2-live-v12',
                         'master-strong-team-v3': 'master-strong-team-v3-live-v13',
-                        'master-strong-team-v4': 'master-strong-team-v4-live-v14'}
-VERSION_STRONG_LIVE = STRONG_LIVE_VERSIONS['master-strong-team-v4']
+                        'master-strong-team-v4': 'master-strong-team-v4-live-v14',
+                        'master-strong-team-v5': 'master-strong-team-v5-live-v15'}
+VERSION_STRONG_LIVE = STRONG_LIVE_VERSIONS['master-strong-team-v5']
 STRONG_FAILED = "STRONG MASTER FAILED - TODAY'S MASTER PUBLISHED"
 STRONG_LIVE_STATUS = ('live master: the strong-team master, released by Paul on 23 Nov 2026 as a deliberate exception '
                       'to the release gate (offline: no measurable difference from today\'s master); graded beside '
@@ -196,12 +197,14 @@ def strong_rule(live_version: Optional[str]) -> Optional[str]:
     return next((rule for rule, live in STRONG_LIVE_VERSIONS.items() if live == live_version), None)
 
 
-def strong_live_columns() -> List[str]:
+def strong_live_columns(rule: Optional[str] = None) -> List[str]:
     """The live file's columns under live "strong": master_strong.live_columns() with the overlap columns named after
-    the baseline (LIVE_RENAMES), then the inspection details (master_inspection.COLUMNS)."""
+    the baseline (LIVE_RENAMES), then the inspection details (master_inspection.COLUMNS). `rule`: the strong-master
+    rule (the current one when omitted); weak_link and weak_link_reasons exist since master-strong-team-v5."""
     import master_inspection
     import master_strong
-    return [LIVE_RENAMES.get(c, c) for c in master_strong.live_columns()] + list(master_inspection.COLUMNS)
+    config = master_strong.load_config(version=rule)
+    return [LIVE_RENAMES.get(c, c) for c in master_strong.live_columns(config)] + list(master_inspection.COLUMNS)
 
 
 def strong_live(decisions: pd.DataFrame, baseline: Optional[pd.DataFrame], generated_at_utc=None,
@@ -232,14 +235,14 @@ def strong_live(decisions: pd.DataFrame, baseline: Optional[pd.DataFrame], gener
         pick['detail'] = by_rank.get(pick['new_master_rank'])
     info.update(version=live_version, rule=strong_config['version'], status=STRONG_LIVE_STATUS,
                 note=STRONG_LIVE_NOTE, strong=_renamed(strong_info))
-    frame = frame.rename(columns=LIVE_RENAMES).reindex(columns=strong_live_columns())
+    frame = frame.rename(columns=LIVE_RENAMES).reindex(columns=strong_live_columns(strong_config['version']))
     return frame, json.loads(json.dumps(info, default=str))
 
 
-def matches_strong(frame: pd.DataFrame, expected: pd.DataFrame) -> bool:
-    """The written live strong-master file carries exactly the replayed one (strong_live_columns()), with the same
-    tolerances as matches()."""
-    wanted = strong_live_columns()
+def matches_strong(frame: pd.DataFrame, expected: pd.DataFrame, rule: Optional[str] = None) -> bool:
+    """The written live strong-master file carries exactly the replayed one (strong_live_columns(rule)), with the
+    same tolerances as matches()."""
+    wanted = strong_live_columns(rule)
     if list(frame.columns) != wanted:
         return False
     left, right = _as_csv(frame), _as_csv(expected.reindex(columns=wanted))

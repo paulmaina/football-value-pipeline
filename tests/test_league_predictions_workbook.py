@@ -153,8 +153,9 @@ class TabsAndColumnsTests(WorkbookCase):
         self.assertEqual(formatter.workbook_league_tabs(self.path), ['EPL', 'LaLiga'])
 
     def test_master_and_old_master_columns(self):
-        self.assertEqual(table(self.book, 'Master shortlist')[0], MASTER + ['In old master (shadow)'] + TAIL)
-        self.assertEqual(table(self.book, 'Old master (shadow)')[0], MASTER + ['In new master (live)'] + TAIL)
+        weak = ['Weak link', 'Weak-link reasons']  # since 24 Nov 2026 (master-strong-team-v5)
+        self.assertEqual(table(self.book, 'Master shortlist')[0], MASTER + ['In old master (shadow)'] + TAIL + weak)
+        self.assertEqual(table(self.book, 'Old master (shadow)')[0], MASTER + ['In new master (live)'] + TAIL + weak)
 
     def test_master_rows_show_tier_views_flags_inspection_overlap_and_times_in_eat(self):
         _, rows = table(self.book, 'Master shortlist')

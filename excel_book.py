@@ -430,6 +430,17 @@ class Sheet:
             xml = f'<cfRule type="expression" dxfId="{dxf}" priority="{{p}}"><formula>{_xml(formula)}</formula></cfRule>'
         self.rules.append((ref, xml))
 
+    def highlight_rows(self, table: 'Table', header: str, look: str, value: Any) -> None:
+        """Every data row of `table` whose `header` cell equals `value` (text), across the whole row."""
+        if table.rows < 1 or header not in table.columns:
+            return
+        ref = f'{address(table.top + 1, table.left)}:{address(table.bottom, table.right)}'
+        key = f'${column_letter(table.columns[header])}{table.top + 1}'
+        literal = '"' + str(value).replace('"', '""') + '"'
+        dxf = self.book.styles.dxf(look)
+        self.rules.append((ref, f'<cfRule type="expression" dxfId="{dxf}" priority="{{p}}">'
+                                f'<formula>{_xml(key + "=" + literal)}</formula></cfRule>'))
+
     def chart(self, chart: Chart) -> None:
         self.charts.append(chart)
 
