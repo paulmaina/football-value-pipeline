@@ -1,5 +1,5 @@
 {
-  "version": "master-strong-team-v2",
+  "version": "master-strong-team-v3",
   "decided": "Decided by Paul, 23 Nov 2026 (plan Phase 4c, 'Strong-team master'): market spread of at most 6 picks per market, 15 matches, one pick per match; rank by the cagey chance of winning; a strong-team and proven-record gate with thresholds fixed and tested first; fill to 15 with today's rule, labelled 'not proven'; poorly calibrated leagues ranked lower, not excluded; four research roles (R1-R4), each kept only if it passes its pass rule. Everything here was written before any figure was computed; E, G, the league trust table and the research roles' verdicts are filled in afterwards, once, by the offline check (master_strong_check.py), and recorded in docs/plan.md.",
   "status": "live master since 23 Nov 2026 (master_shortlist_config.json live \"strong\"; writes master_shortlist.csv). Rule history in 'rule_changes'; each superseded rule's config is frozen in master_strong_rules/ so archived runs replay.",
   "file": "master_shortlist_strong.csv",
@@ -96,7 +96,8 @@
       "rule": "UCL and UEL only: a European offer counts as proven only if the research view (live research v6, CE3n) also gives no-loss >= 0.70. No historical European prices exist, so it is judged live: once 50 European strong-master picks are graded, the report compares picks that pass R3 with offers that failed only R3 (observed no-loss - market no-loss), and Paul keeps or drops it.",
       "min_research_no_loss": 0.7,
       "review_after_graded_european_picks": 50,
-      "active": true
+      "active": true,
+      "extended": "Since master-strong-team-v3 (Paul, 24 Nov 2026; plan Phase 4d, Part 2) R3 applies to every pick in every tier as the 'research_gate' below; this role entry is kept for the record and for runs before v3."
     },
     "R4_fill_tie_breaker": {
       "rule": "In the 'not proven' fill's chance-of-profit steps (fill and risky fill): offers are grouped in 2-point bands of the market chance of profit (floor(p / 0.02)); within a band the higher research chance of profit goes first, then the exact market chance of profit. A band is a transitive version of 'within 2 points'.",
@@ -104,6 +105,14 @@
       "pass_rule": "On development, among not-proven candidate offers with a market view: mean (observed profit - market chance of profit) of offers whose research chance of profit is above the market's minus that of the others is >= 0, with its week-resampled 95% interval not entirely below zero; and on validation the same difference is >= 0. Otherwise R4 is a label only and the fill keeps today's order.",
       "active": false
     }
+  },
+  "research_gate": {
+    "rule": "Every pick in every tier (proven, not proven: safe, fill, risky fill): an offer is eligible only if the research view (live research v5 domestic, v6 UCL/UEL; the row's research_no_loss_probability for that exact bet, line and price) gives no-loss >= 0.70. An offer with no research view is not eligible. Ineligible offers are LEFT_OUT with the reason ('research no-loss below 0.70' or 'no research view'). R3 extended from UCL/UEL proven picks (Paul, 24 Nov 2026; plan Phase 4d, Part 2), a deliberate exception to the release gate: no backtest before release.",
+    "min_research_no_loss": 0.7,
+    "no_research_view": "not eligible",
+    "review": "Kept from R3, now covering all picks: once 50 strong-master picks under this rule are graded, the weekly report compares graded picks (research no-loss >= 0.70) with the offers left out only by this check (observed no-loss minus market no-loss, each), and Paul keeps or drops it.",
+    "review_after_graded_picks": 50,
+    "since": "master-strong-team-v3"
   },
   "proven": "An offer is 'proven' when it passes safe, strong_team, proven_record and (if active) R1; a UCL/UEL offer must also pass R3 (if active).",
   "selection": {
@@ -147,7 +156,14 @@
       "version": "master-strong-team-v2",
       "live_version": "master-strong-team-v2-live-v12",
       "decided": "Paul, 24 Nov 2026 (plan Phase 4d, Part 1), a deliberate exception to the release gate: the current live rule edited directly, no new shadow list, no pre-release backtest gate.",
-      "change": "Executable pool: odds above 1.20 up to 2.00 (was 1.15 to 2.00), with the value shortlist (local-research-profit-120-200-dc12-v3) and the cagey tier (no-loss-market-reference-120-200-v6). Nothing else changes."
+      "change": "Executable pool: odds above 1.20 up to 2.00 (was 1.15 to 2.00), with the value shortlist (local-research-profit-120-200-dc12-v3) and the cagey tier (no-loss-market-reference-120-200-v6). Nothing else changes.",
+      "config": "master_strong_rules/master-strong-team-v2.json"
+    },
+    {
+      "version": "master-strong-team-v3",
+      "live_version": "master-strong-team-v3-live-v13",
+      "decided": "Paul, 24 Nov 2026 (plan Phase 4d, Part 2), a deliberate exception to the release gate.",
+      "change": "Research no-loss >= 0.70 for every pick in every tier ('research_gate'); no research view, not eligible. Nothing else changes."
     }
   ]
 }

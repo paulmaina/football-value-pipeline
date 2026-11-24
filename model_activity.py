@@ -407,6 +407,15 @@ RULE_RELEASES = {
                     "Paul's exception of 24 Nov 2026: the live rules edited directly, no shadow list, no pre-release "
                     "backtest gate. Rolling back is setting cagey_correction_config.json value_rule and cagey_tier_rule "
                     "to v2 and v5 and the strong master to master-strong-team-v1. Takes effect with the merge of its PR.")},
+    'master-strong-team-v3': {
+        'model': 'strong master: research no-loss >= 0.70 for all picks (Part 2)',
+        'before': 'master-strong-team-v2-live-v12', 'after': 'master-strong-team-v3-live-v13',
+        'details': ("Every strong-master pick in every tier (proven, safe, fill, risky fill) needs research no-loss >= "
+                    "0.70 on the exact bet (live research v5 domestic, v6 UCL/UEL); an offer with no research view is "
+                    "not eligible (R3 extended from UCL/UEL proven picks; master-strong-team-v3, live "
+                    "master-strong-team-v3-live-v13). Reviewed once 50 picks under the rule are graded. Paul's "
+                    "exception of 24 Nov 2026: no shadow list, no pre-release backtest gate. Rolling back is the "
+                    "strong master back to master-strong-team-v2. Takes effect with the merge of its PR.")},
 }
 
 
