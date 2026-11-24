@@ -349,7 +349,7 @@ class AnyProviderTests(Base):
         self.assertEqual(row['live_ref_home_odds'], 2.10)
         self.assertEqual(row['live_ref_over_2_5_odds'], 1.95)
         self.assertGreater(len(json.loads(row['asian_handicap_offers'])), 2)
-        self.assertIn('count_market_offers', row)
+        self.assertNotIn('count_market_offers', row)  # the shadow corner list's column, retired 24 Nov 2026
 
     def test_lists_byte_identical_with_provenance_columns(self):
         from test_asian_handicap import choose, quote, row

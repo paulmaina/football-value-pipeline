@@ -9,11 +9,9 @@ alternate totals, alternate spreads, draw no bet and double chance
 credit. On the 2 November all-league replay this is about 95 credits per run
 instead of 117. Existing caches still apply.
 
-Since 18 November 2026 domestic leagues also request `alternate_totals_corners`
-for the shadow corner list ([corners-shadow.md](corners-shadow.md)); UCL and UEL
-do not (Pinnacle does not price their corners). It is charged only where returned
-(in practice the big five), about one credit per such fixture per run. No live
-list reads the corner prices.
+From 18 to 24 November 2026 domestic leagues also requested
+`alternate_totals_corners` for the shadow corner list. The list was retired on
+24 November 2026 and the market is no longer requested.
 
 Previously, 24 event requests were split equally across the six leagues.
 When UCL had all 18 in-window fixtures, it received only four requests;
