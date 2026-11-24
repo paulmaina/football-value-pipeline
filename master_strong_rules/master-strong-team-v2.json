@@ -1,0 +1,153 @@
+{
+  "version": "master-strong-team-v2",
+  "decided": "Decided by Paul, 23 Nov 2026 (plan Phase 4c, 'Strong-team master'): market spread of at most 6 picks per market, 15 matches, one pick per match; rank by the cagey chance of winning; a strong-team and proven-record gate with thresholds fixed and tested first; fill to 15 with today's rule, labelled 'not proven'; poorly calibrated leagues ranked lower, not excluded; four research roles (R1-R4), each kept only if it passes its pass rule. Everything here was written before any figure was computed; E, G, the league trust table and the research roles' verdicts are filled in afterwards, once, by the offline check (master_strong_check.py), and recorded in docs/plan.md.",
+  "status": "live master since 23 Nov 2026 (master_shortlist_config.json live \"strong\"; writes master_shortlist.csv). Rule history in 'rule_changes'; each superseded rule's config is frozen in master_strong_rules/ so archived runs replay.",
+  "file": "master_shortlist_strong.csv",
+  "summary_file": "master_shortlist_strong_summary.json",
+  "target_fixtures": 15,
+  "one_pick_per_match": true,
+  "max_picks_per_market": 6,
+  "market_groups": {
+    "rule": "Each offer's market group, from its market label: Home win and Away win are 'match_result'; Double Chance 1X and X2 are 'double_chance'; every Asian Handicap line is 'asian_handicap'. No group holds more than max_picks_per_market picks.",
+    "match_result": [
+      "Home win",
+      "Away win"
+    ],
+    "double_chance": [
+      "Double Chance 1X",
+      "Double Chance X2"
+    ],
+    "asian_handicap_prefix": "Asian Handicap"
+  },
+  "pool_execution_timing": "The live master's (master_reconciliation_config.json, master-new-fill-rule-v4; master_reconciliation.offer_row): both lists' nominations only, Pinnacle only, the native Pinnacle master markets, the live master's quote timing checks; odds in the window of 'execution' below (since master-strong-team-v2; before it, the live master's (1.15, 2.00]). An offer that fails execution or timing is never picked.",
+  "execution": {
+    "rule": "Odds must be above 1.20 and at most 2.00 (Paul, 24 Nov 2026; docs/plan.md Phase 4d, Part 1: the value shortlist, the cagey tier and the master's executable pool all move from (1.15, 2.00] to (1.20, 2.00]). An offer outside the window is NOT_EXECUTABLE ('offered odds outside (1.20, 2.00]'). Today's master in shadow (master_shortlist_new.csv, master-new-fill-rule-v4) is left as it is; its pool is the same two lists' nominations, now all above 1.20.",
+    "bookmaker": "Pinnacle",
+    "min_odds_exclusive": 1.2,
+    "max_odds_inclusive": 2.0,
+    "since": "master-strong-team-v2"
+  },
+  "probability": "The market view of master_reconciliation.classify, unchanged: the cagey tier's no-loss chance and chance of profit (D_pow2 domestic, D for UCL/UEL, per cagey_correction_config.json), or Pinnacle's margin-free figures where the cagey score is missing (labelled 'one view missing'). The research view's probabilities never replace them; it acts only through the research roles below.",
+  "backed_side": {
+    "rule": "The team the bet is on: home for Home win, Double Chance 1X and Asian Handicap Home; away for Away win, Double Chance X2 and Asian Handicap Away. The bet's line from the backed team's side: Home win and Away win -0.5, Double Chance +0.5, Asian Handicap its handicap line."
+  },
+  "checks": {
+    "safe": {
+      "rule": "Market no-loss chance (ranking_no_loss_probability) >= 0.75: the live master's safe line (master_reconciliation_config.json inclusion).",
+      "min_no_loss": 0.75
+    },
+    "strong_team": {
+      "rule": "The backed team's pre-match Elo expected score (elo_ratings, venue-aware; draws count one half) >= E. Home: elo_home_expectancy; away: 1 - elo_home_expectancy. Live: the run's forecast row (elo_home_expectancy, fitted on the pipeline's training history before the run). Offline: elo_ratings.pre_match_ratings on the league's locked training rows (the fold models' rows; holdout results never read). No rating: the check fails ('no Elo rating').",
+      "candidates": [
+        0.55,
+        0.6,
+        0.65
+      ],
+      "choice_rule": "On development only: among nominated executable offers that pass 'safe' and 'proven_record', the smallest candidate E for which the offers also passing strong_team have mean (observed no-loss - market no-loss) >= 0. If no candidate meets it, E = 0.65 (the strictest) and the report says no candidate met the rule.",
+      "E": 0.55
+    },
+    "proven_record": {
+      "rule": "The backed team's last 10 matches before kickoff day at any venue, as frozen in the forecast's research_history_json (team_research.form_history: the pipeline's training history, completed earlier dates only; offline the same function on the league's locked training rows). Each past score is settled for the exact bet from the backed team's side (its goals minus its opponent's, plus the bet's line; ah_close_backtest.settle): a half win counts 1/2 won, a half loss 1/2 lost, a push not lost and not won. Win bets (line below 0: Home win, Away win, Asian Handicap minus lines) pass when the won share >= 0.70; no-loss bets (line 0 or above: Double Chance, Asian Handicap 0 and plus lines) pass when the not-lost share >= 0.80. Fewer than 6 matches: fails ('not enough history').",
+      "matches": 10,
+      "min_matches": 6,
+      "win_bets_min_won_share": 0.7,
+      "no_loss_bets_min_not_lost_share": 0.8,
+      "why_any_venue": "The frozen forecast holds each team's last ten matches at any venue; a same-venue record would leave about five matches, below the 6-match minimum. Changed from the plan's 'same venue' on 23 Nov 2026, before anything was computed."
+    },
+    "head_to_head": {
+      "rule": "Shown on the row, never a gate: the backed team's record on the exact bet in the last 5 meetings (research_history_json h2h, last four years). Samples are too small to decide."
+    },
+    "league_trust": {
+      "rule": "Ranking only. A domestic league is 'trusted' when the cagey tier's no-loss events in it (rule cagey-events-v1's no-loss family: the tier's bettable lines -3.00 to +3.00, odds in (1.15, 2.00], one side per fixture by D's expected return; evaluation_harness.master_sharpen_events) on development have a logistic calibration slope between 0.90 and 1.10 and no failing band (tenths of probability with at least 30 events failing only when more than 5 points off AND Bonferroni-clear over that league's bands, as cagey-events-v1). Otherwise 'not trusted'. Validation is reported, never decides. UCL and UEL are 'unvalidated' (no historical European prices) and rank after the others. Computed on D, the cagey view of the offline master backtest; live domestic fixtures are priced by D_pow2, whose correction is close to D's.",
+      "file": "master_league_trust.json",
+      "slope_range": [
+        0.9,
+        1.1
+      ],
+      "order": [
+        "trusted",
+        "not trusted",
+        "unvalidated"
+      ]
+    }
+  },
+  "research_roles": {
+    "rule": "The research model supplements the cagey decisions only through these roles (Paul, 23 Nov 2026). Each has a pass rule fixed here before anything is computed; a role that fails is shown as a label only and changes no pick. Research inputs are odds-free (the value model's own probabilities and goal rates), so the independence rule holds.",
+    "R1_research_strength": {
+      "rule": "Part of 'proven': the research model's own expected goal margin must also favour the backed team after the handicap: s * E[margin] + line >= G, where E[margin] is the mean of the research view's margin distribution (live: team_research_json margin_distribution, research v5/v6 as live; offline: C6's walk-forward grid), s = +1 for the home side and -1 for the away side, and line is the bet's line from the backed side. No research distribution: the check fails ('no research view').",
+      "candidates": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "choice_rule": "With E fixed: on development, the smallest candidate G for which proven offers (safe, strong_team, proven_record, R1) have mean (observed no-loss - market no-loss) >= 0; if none, G = 0.75.",
+      "pass_rule": "On development, proven offers with R1 have mean (observed no-loss - market no-loss) at least that of proven offers without R1, and the week-resampled 95% interval of the with-R1 figure is not entirely below zero. Otherwise R1 is dropped from 'proven' (label only).",
+      "G": 0.25,
+      "active": true
+    },
+    "R2_agreement_boost": {
+      "rule": "Ranking within 'proven': offers the research view confirms rank before the rest: research no-loss >= 0.75 and gap g = 100 x (research - cagey no-loss) > -4.0 points (research within 4 points below the cagey view, or above it). Labelled 'research confirms'.",
+      "min_research_no_loss": 0.75,
+      "min_gap_points_exclusive": -4.0,
+      "pass_rule": "On development, among proven offers: mean (observed no-loss - market no-loss) of confirmed offers minus that of the others is >= 0, with its week-resampled 95% interval not entirely below zero; and on validation the same difference is >= 0. Otherwise R2 is a label only.",
+      "active": false
+    },
+    "R3_european_second_opinion": {
+      "rule": "UCL and UEL only: a European offer counts as proven only if the research view (live research v6, CE3n) also gives no-loss >= 0.70. No historical European prices exist, so it is judged live: once 50 European strong-master picks are graded, the report compares picks that pass R3 with offers that failed only R3 (observed no-loss - market no-loss), and Paul keeps or drops it.",
+      "min_research_no_loss": 0.7,
+      "review_after_graded_european_picks": 50,
+      "active": true
+    },
+    "R4_fill_tie_breaker": {
+      "rule": "In the 'not proven' fill's chance-of-profit steps (fill and risky fill): offers are grouped in 2-point bands of the market chance of profit (floor(p / 0.02)); within a band the higher research chance of profit goes first, then the exact market chance of profit. A band is a transitive version of 'within 2 points'.",
+      "band_width": 0.02,
+      "pass_rule": "On development, among not-proven candidate offers with a market view: mean (observed profit - market chance of profit) of offers whose research chance of profit is above the market's minus that of the others is >= 0, with its week-resampled 95% interval not entirely below zero; and on validation the same difference is >= 0. Otherwise R4 is a label only and the fill keeps today's order.",
+      "active": false
+    }
+  },
+  "proven": "An offer is 'proven' when it passes safe, strong_team, proven_record and (if active) R1; a UCL/UEL offer must also pass R3 (if active).",
+  "selection": {
+    "rule": "Step A, proven picks: every executable nominated proven offer, sorted by league trust (trusted, not trusted, unvalidated), then (if R2 active) research confirms first, then market chance of profit (9 decimals), then the live master's tie order (higher odds, kickoff, league, teams, market, side, line). Offers are taken in that order when their match has no pick yet and their market group holds fewer than 6 picks, so a match whose best market is full can still be picked in another market. Step B, fill ('not proven'): only if fewer than 15 matches are picked, today's fill steps on the remaining matches' executable nominated offers, each step's offers sorted and taken the same greedy way (same caps): safe (market no-loss >= 0.75) by league trust then no-loss; fill (no-loss >= 0.50) and risky fill (any market view) by league trust then chance of profit (R4 inside if active). Stop at 15 or when no offer can be taken; the list is then shorter and the summary says why.",
+    "tiers": [
+      "proven",
+      "not proven: safe",
+      "not proven: fill",
+      "not proven: risky fill"
+    ]
+  },
+  "live_comparison": {
+    "rule": "Decided 23 Nov 2026, before any strong-master pick: after at least 150 graded matches over at least 3 calendar weeks on each list, flat-stake return per bet at Pinnacle prices, strong master minus live master, whole kickoff weeks resampled (the same weeks for both), 95% interval. The strong master is better only if the interval is entirely above zero. Results by market group, tier and research label are context only.",
+    "min_graded_matches": 150,
+    "min_weeks": 3,
+    "bootstrap_samples": 2000,
+    "seed": 136
+  },
+  "offline_check": {
+    "rule": "Locked backtest only (python master_strong_check.py): development decides, validation checks, retrospective is a diagnostic; the holdout is never read. Research view C6 (live domestic v5), cagey view D, Pinnacle reference as the master backtest. Reports picks per week and per market group, results by tier, strong minus live-master flat-stake return (week bootstrap, 2000 samples, seed 136), the track-record test (among safe offers: proven minus not-proven mean observed - market no-loss) and each research role's pass rule.",
+    "pool_limitation": "Offline offers are Home win, Away win and the main AH line only (no double chance, no alternate lines), so the double-chance cap and most plus lines are exercised only live."
+  },
+  "offline_result": {
+    "computed": "23 Nov 2026, once, locked run of master_strong_check.py (evaluation/master_strong/results.json); recorded in docs/plan.md Phase 4c.",
+    "E": "E = 0.55: the smallest candidate; its 212 proven development offers have observed minus market no-loss +4.9 points (-0.6 to +10.2).",
+    "G": "G = 0.25: the smallest candidate; on development it removes no proven offer (212 with and without R1).",
+    "R1": "passes, on a tie only (with and without R1 the same 212 offers, +4.9 points); active, but it changes no development pick.",
+    "R2": "fails: on development confirmed minus other proven offers -4.1 points (-13.0 to +4.1); label only.",
+    "R4": "fails: development -1.1 points (-3.5 to +1.1), validation -4.9 points (-9.3 to -0.6); label only, the fill keeps the live order.",
+    "league_trust": "trusted: EPL, Bundesliga, Eredivisie, Ligue 1; not trusted: LaLiga, PrimeiraLiga, SerieA, SuperLig (master_league_trust.json)."
+  },
+  "rule_changes": [
+    {
+      "version": "master-strong-team-v1",
+      "live_version": "master-strong-team-v1-live-v11",
+      "decided": "Paul, 23 Nov 2026 (plan Phase 4c)",
+      "change": "The strong-team master as built and released.",
+      "config": "master_strong_rules/master-strong-team-v1.json"
+    },
+    {
+      "version": "master-strong-team-v2",
+      "live_version": "master-strong-team-v2-live-v12",
+      "decided": "Paul, 24 Nov 2026 (plan Phase 4d, Part 1), a deliberate exception to the release gate: the current live rule edited directly, no new shadow list, no pre-release backtest gate.",
+      "change": "Executable pool: odds above 1.20 up to 2.00 (was 1.15 to 2.00), with the value shortlist (local-research-profit-120-200-dc12-v3) and the cagey tier (no-loss-market-reference-120-200-v6). Nothing else changes."
+    }
+  ]
+}

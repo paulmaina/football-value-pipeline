@@ -78,9 +78,16 @@ class ChecksTest(unittest.TestCase):
         self.assertEqual(row['strong_bet_kind'], 'no loss')
 
     def test_r3_only_on_european_offers(self):
-        domestic = offer('m1', research=.60)
+        """Rules before master-strong-team-v3; since v3 the research gate covers every offer
+        (test_live_list_changes.ResearchGateTest)."""
+        import copy as _copy
+        old = _copy.deepcopy(config())
+        old.pop('research_gate')
+        domestic = ms.annotate({**offer('m1', research=.60)}, evidence(), config=old, trust='trusted', european=False,
+                               E=RUN['E'], G=RUN['G'])
         self.assertIsNone(domestic['strong_r3_check'])
         self.assertTrue(ms.proven(domestic, RUN))
+        self.assertIs(offer('m1', research=.60)['strong_r3_check'], False)  # v3: every offer
         european = offer('m2', research=.60, european=True, trust='unvalidated')
         self.assertFalse(european['strong_r3_check'])
         self.assertFalse(ms.proven(european, RUN))

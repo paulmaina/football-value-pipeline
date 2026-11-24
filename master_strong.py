@@ -36,7 +36,8 @@ TRUST_FILE = Path(__file__).with_name('master_league_trust.json')
 # Each superseded rule's config, frozen byte for byte, so archived runs replay under the rule they used.
 RULES_DIR = Path(__file__).with_name('master_strong_rules')
 # v2 (Paul, 24 Nov 2026; docs/plan.md Phase 4d, Part 1): the executable pool's odds floor is 1.20 (config 'execution').
-VERSIONS = ('master-strong-team-v1', 'master-strong-team-v2')
+# v3 (Part 2): research no-loss >= 0.70 for every pick in every tier (config 'research_gate'; R3 extended).
+VERSIONS = ('master-strong-team-v1', 'master-strong-team-v2', 'master-strong-team-v3')
 VERSION = VERSIONS[-1]
 TRUST_ORDER = ('trusted', 'not trusted', 'unvalidated')
 TIERS = ('proven', 'not proven: safe', 'not proven: fill', 'not proven: risky fill')
@@ -180,10 +181,27 @@ def annotate(row: Dict[str, object], evidence: Mapping, *, config: Mapping, trus
     row['strong_research_confirms'] = bool(research is not None and gap is not None
                                            and research + TOLERANCE >= r2['min_research_no_loss']
                                            and gap > r2['min_gap_points_exclusive'] + TOLERANCE)
-    if european:
+    gate = config.get('research_gate')
+    if gate:  # since v3: every offer, domestic and European (R3 extended)
+        row['strong_r3_check'] = research is not None and research + TOLERANCE >= gate['min_research_no_loss']
+    elif european:
         r3 = roles['R3_european_second_opinion']
         row['strong_r3_check'] = research is not None and research + TOLERANCE >= r3['min_research_no_loss']
     return row
+
+
+def research_gate_reason(row: Mapping, config: Mapping) -> Optional[str]:
+    """Why the research gate (config 'research_gate', since v3) leaves the offer out, or None (eligible, or a rule
+    without the gate)."""
+    gate = config.get('research_gate')
+    if not gate:
+        return None
+    research = _number(row.get('research_no_loss_probability'))
+    if research is None:
+        return 'no research view'
+    if research + TOLERANCE < gate['min_research_no_loss']:
+        return f"research no-loss below {gate['min_research_no_loss']:.2f}"
+    return None
 
 
 def failed_checks(row: Mapping, run: Mapping) -> List[str]:
@@ -202,7 +220,9 @@ def failed_checks(row: Mapping, run: Mapping) -> List[str]:
         margin = row.get('strong_research_margin')
         out.append('research strength (no research view)' if margin is None else
                    f"research strength (margin {margin:+.2f} below {run['G']:+.2f})")
-    if run['R3'] and row.get('strong_r3_check') is False:
+    if run.get('research_gate') and row.get('strong_r3_check') is False:
+        out.append('research second opinion (research no-loss below 0.70 or no research view)')
+    elif run['R3'] and row.get('strong_r3_check') is False:
         out.append('European second opinion (research no-loss below 0.70)')
     return out
 
@@ -255,6 +275,7 @@ def select(rows: List[Dict[str, object]], config: Mapping, run: Mapping, match_k
     strong_proven, strong_failed_checks, strong_labels)."""
     target, cap = int(config['target_fixtures']), int(config['max_picks_per_market'])
     floor_fill = 0.5
+    run = {**run, 'research_gate': bool(config.get('research_gate'))}
     for row in rows:
         failed = failed_checks(row, run)
         row.update(strong_rank=None, strong_tier=None, strong_decision=None, strong_reason=None,
@@ -264,7 +285,8 @@ def select(rows: List[Dict[str, object]], config: Mapping, run: Mapping, match_k
         return (r.get(executable_key, True) is not False and r.get(nominated_key, True) is not False
                 and r.get('strong_market_group') is not None
                 and _number(r.get('ranking_no_loss_probability')) is not None
-                and _number(r.get('ranking_profit_probability')) is not None)
+                and _number(r.get('ranking_profit_probability')) is not None
+                and research_gate_reason(r, config) is None)
     taken_matches, per_group, picks = set(), {}, 0
 
     def take(candidates, tier):
@@ -294,7 +316,10 @@ def select(rows: List[Dict[str, object]], config: Mapping, run: Mapping, match_k
                 row.update(strong_decision='NOT_EXECUTABLE',
                            strong_reason=row.get('new_master_reason') or 'not executable')
             elif not eligible(row):
-                row.update(strong_decision='LEFT_OUT', strong_reason='no market view or not a native master market')
+                gate = research_gate_reason(row, config)
+                row.update(strong_decision='LEFT_OUT', strong_reason='no market view or not a native master market'
+                           if gate is None or not eligible({**row, 'research_no_loss_probability': 1.0})
+                           else f'research gate: {gate}')
             elif row[match_key] in taken_matches:
                 row.update(strong_decision='NOT_SELECTED', strong_reason='another offer chosen for this match')
             elif per_group.get(row['strong_market_group'], 0) >= cap:
@@ -477,7 +502,19 @@ def summary(frame: pd.DataFrame, config: Optional[Mapping] = None, generated_at_
         'picks': [clean(r) for r in picks.to_dict('records')],
         'note': 'Shadow only: master_shortlist.csv, every probability, pick and stake are unchanged.',
         **({'execution': {k: config['execution'][k] for k in ('min_odds_exclusive', 'max_odds_inclusive')}}
-           if config.get('execution') else {})}
+           if config.get('execution') else {}),
+        **({'research_gate': research_gate_summary(frame, config)} if config.get('research_gate') else {})}
+
+
+def research_gate_summary(frame: pd.DataFrame, config: Mapping) -> Dict[str, object]:
+    """Offers the research gate (since v3) left out, by reason: research no-loss below the line, or no research view."""
+    reasons = frame.strong_reason.astype(str) if len(frame) else pd.Series(dtype=str)
+    gated = reasons.str.startswith('research gate: ')
+    return {'min_research_no_loss': config['research_gate']['min_research_no_loss'],
+            'left_out_offers': int(gated.sum()),
+            'left_out_no_research_view': int(reasons.eq('research gate: no research view').sum()),
+            'left_out_matches': int(frame.loc[gated, ['league', 'home_team', 'away_team', 'kickoff_utc']]
+                                    .drop_duplicates().shape[0]) if len(frame) else 0}
 
 
 def write_shadow(decisions: pd.DataFrame, out_dir, predictions: Optional[pd.DataFrame] = None,
