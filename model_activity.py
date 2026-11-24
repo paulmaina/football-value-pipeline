@@ -444,6 +444,15 @@ RULE_RELEASES = {
                     "notes stay visible in the research warnings but no longer flag. Flag only (master-strong-team-v6, "
                     "live master-strong-team-v6-live-v16). Paul's exception of 24 Nov 2026. Rolling back is the strong "
                     "master back to master-strong-team-v5. Takes effect with the merge of its PR.")},
+    'master-strong-team-v7': {
+        'model': 'strong master: weak-link reason (d) for proven picks only (Part 6)',
+        'before': 'master-strong-team-v6-live-v16', 'after': 'master-strong-team-v7-live-v17',
+        'details': ("Weak-link reason (d) (proven record on fewer than 8 of the last 10 matches, or the backed team's "
+                    "Elo expected score within 0.03 of the strong-team line) fires only for picks in the 'proven' "
+                    "tier; not-proven picks no longer fire it. Every other reason unchanged. Flag only "
+                    "(master-strong-team-v7, live master-strong-team-v7-live-v17). Paul's exception of 24 Nov 2026. "
+                    "Rolling back is the strong master back to master-strong-team-v6. Takes effect with the merge of "
+                    "its PR.")},
 }
 
 

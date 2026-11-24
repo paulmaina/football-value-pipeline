@@ -22,6 +22,9 @@ Since master-strong-team-v6 (Paul, 24 Nov 2026; Phase 4d, Part 5), (f) fires onl
 proven: fill", "not proven: risky fill"), and (g) counts only stale fits and the warnings starting with one of
 `g.counted_review_warnings` (match-specific quality-review lines). Routine coverage notes stay in research_warnings.
 
+Since master-strong-team-v7 (Paul, 24 Nov 2026; Phase 4d, Part 6), (d) fires only for picks in the tiers in `d.tiers`
+("proven"); a not-proven pick never fires (d). The other reasons are unchanged.
+
 Each reason is written in plain words, prefixed with its letter ("(a) ..."), so the weekly review can grade each one.
 """
 from __future__ import annotations
@@ -212,21 +215,23 @@ def reasons(row: Mapping, rule: Mapping, *, E: float, forecast: Optional[Mapping
     elif str(fallback or '').strip() not in ('', 'nan', 'None', 'False'):
         out.append(f"(c) cagey view fell back from D_pow2 to D ({str(fallback).strip()})")
     d = rule['d']
-    matches = _number(row.get('strong_record_matches'))
-    if matches is None or matches < d['min_record_matches']:
-        out.append(f"(d) proven record on only {int(matches or 0)} of the last 10 matches "
-                   f"(fewer than {d['min_record_matches']})")
-    elo = _number(row.get('strong_elo_expectancy'))
-    if elo is not None and abs(elo - float(E)) <= d['elo_margin'] + TOLERANCE:
-        out.append(f"(d) backed team's Elo expected score {elo:.3f} within {d['elo_margin']:.2f} of the strong-team "
-                   f"line {float(E):.2f}")
+    tier = str(row.get('strong_tier') or '')
+    d_tiers = d.get('tiers')  # since v7: only these tiers ('proven'); v5 and v6: every pick
+    if d_tiers is None or tier in d_tiers:
+        matches = _number(row.get('strong_record_matches'))
+        if matches is None or matches < d['min_record_matches']:
+            out.append(f"(d) proven record on only {int(matches or 0)} of the last 10 matches "
+                       f"(fewer than {d['min_record_matches']})")
+        elo = _number(row.get('strong_elo_expectancy'))
+        if elo is not None and abs(elo - float(E)) <= d['elo_margin'] + TOLERANCE:
+            out.append(f"(d) backed team's Elo expected score {elo:.3f} within {d['elo_margin']:.2f} of the "
+                       f"strong-team line {float(E):.2f}")
     e = rule['e']
     if move is None:
         notes.append(NOTE_NO_MOVEMENT)
     elif move['drop_points'] + TOLERANCE >= e['min_drop_points']:
         out.append(f"(e) Pinnacle fair probability fell {move['drop_points']:.1f} points since the earliest snapshot "
                    f"({pct(move['earliest'])} at {move['earliest_generated_utc'][:16]}Z, now {pct(move['now'])})")
-    tier = str(row.get('strong_tier') or '')
     tiers = rule['f'].get('tiers')  # since v6: only these tiers; v5: any 'not proven' tier
     if (tier in tiers) if tiers is not None else tier.startswith('not proven'):
         out.append(f"(f) {tier} tier")

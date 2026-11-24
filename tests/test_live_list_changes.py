@@ -413,10 +413,8 @@ class NarrowedWeakLinkTest(unittest.TestCase):
     def fire(self, row, *args, **kw):
         return WeakLinkReasonTest.fire(None, row, *args, **kw)
 
-    def test_the_live_rule_is_v6_and_v5_is_frozen(self):
-        self.assertEqual(ms.VERSION, 'master-strong-team-v6')
-        self.assertEqual(master_shortlist.VERSION_STRONG_LIVE, 'master-strong-team-v6-live-v16')
-        v5, v6 = weak_rule('master-strong-team-v5'), weak_rule()
+    def test_v6_and_v5_are_frozen_and_differ_only_in_f_and_g(self):
+        v5, v6 = weak_rule('master-strong-team-v5'), weak_rule('master-strong-team-v6')
         self.assertNotIn('tiers', v5['f'])
         self.assertNotIn('counted_review_warnings', v5['g'])
         same = lambda rule: {k: v for k, v in rule.items() if k not in ('f', 'g', 'narrowed')}
@@ -450,6 +448,48 @@ class NarrowedWeakLinkTest(unittest.TestCase):
         self.assertEqual(fired, [f'(g) 2 research warnings: {lines[0]} | {lines[1]}'])
         fired, _ = self.fire(pick(), forecast(research={'ce3n_fit': {'stale': True}}), warnings=self.ROUTINE)
         self.assertEqual(fired, ['(g) stale research fit (CE3n)'])
+
+
+class ProvenOnlyWeakLinkDTest(unittest.TestCase):
+    """Part 6 (master-strong-team-v7): (d) fires only for picks in the 'proven' tier; every other reason is v6's."""
+    THIN = {'strong_record_matches': 7}            # (d): record on fewer than 8 of the last 10
+    NEAR_LINE = {'strong_elo_expectancy': .57}     # (d): Elo within 0.03 of E = 0.55
+
+    def fire(self, row, *args, **kw):
+        return WeakLinkReasonTest.fire(None, row, *args, **kw)
+
+    def letters(self, row, rule=None):
+        return __import__('weak_links').reason_letters('; '.join(self.fire(row, rule=rule)[0]))
+
+    def test_the_live_rule_is_v7_and_v6_is_frozen(self):
+        self.assertEqual(ms.VERSION, 'master-strong-team-v7')
+        self.assertEqual(master_shortlist.VERSION_STRONG_LIVE, 'master-strong-team-v7-live-v17')
+        self.assertEqual(master_shortlist.strong_rule('master-strong-team-v6-live-v16'), 'master-strong-team-v6')
+        v6, v7 = weak_rule('master-strong-team-v6'), weak_rule()
+        self.assertNotIn('tiers', v6['d'])
+        self.assertEqual(v7['d']['tiers'], ['proven'])
+        without = lambda rule, *keys: {k: v for k, v in rule.items() if k not in keys}
+        self.assertEqual(without(v6, 'd', 'narrowed'), without(v7, 'd', 'narrowed'))  # a-c, e-g and the review
+        self.assertEqual(without(v6['d'], 'rule'), without(v7['d'], 'rule', 'tiers'))  # thresholds unchanged
+
+    def test_d_fires_for_proven_picks(self):
+        for extra in (self.THIN, self.NEAR_LINE):
+            self.assertEqual(self.letters(pick(**extra)), ['d'], extra)
+
+    def test_d_never_fires_for_not_proven_picks(self):
+        for tier in ('not proven: safe', 'not proven: fill', 'not proven: risky fill'):
+            for extra in (self.THIN, self.NEAR_LINE, {**self.THIN, **self.NEAR_LINE}):
+                with self.subTest(tier=tier, extra=extra):
+                    expected = [] if tier == 'not proven: safe' else ['f']  # (f) as in v6
+                    self.assertEqual(self.letters(pick(strong_tier=tier, **extra)), expected)
+                    # v6 replays with v6's flags: (d) on every pick
+                    self.assertIn('d', self.letters(pick(strong_tier=tier, **extra), weak_rule('master-strong-team-v6')))
+
+    def test_other_reasons_unchanged_for_not_proven_picks(self):
+        row = pick(strong_tier='not proven: safe', research_no_loss_probability=.74, cagey_no_loss_probability=None,
+                   **self.THIN)
+        self.assertEqual(self.letters(row), ['b', 'c'])
+        self.assertEqual(self.letters(row, weak_rule('master-strong-team-v6')), ['b', 'c', 'd'])
 
 
 class FairProbabilityTest(unittest.TestCase):
@@ -514,7 +554,7 @@ class WeakLinkLiveTest(unittest.TestCase):
             v5, info = master_shortlist.strong_live(decisions, None, summary['generated_at_utc'], predictions)
             v4, old = master_shortlist.strong_live(decisions, None, summary['generated_at_utc'], predictions,
                                                    rule='master-strong-team-v4')
-        self.assertEqual(info['version'], 'master-strong-team-v6-live-v16')
+        self.assertEqual(info['version'], 'master-strong-team-v7-live-v17')
         self.assertEqual(list(v5.columns[-2 - len(__import__('master_inspection').COLUMNS):][:2]),
                          ['weak_link', 'weak_link_reasons'])
         self.assertNotIn('weak_link', v4.columns)
