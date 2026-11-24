@@ -497,6 +497,9 @@ class FootballDataUK:
         self.force_refresh = force_refresh
         self.allow_training_download = allow_training_download
         self._current_refresh_attempts = set()
+        # The fixture snapshot is committed with the cache and git checkout resets its mtime, so the first read in
+        # a process always downloads it; after that the mtime was set by this process and the TTL is honest.
+        self._fixtures_refreshed = False
 
     def season(
         self,
@@ -606,11 +609,13 @@ class FootballDataUK:
         now = now or datetime.now(timezone.utc)
 
         try:
+            refresh = self.force_refresh or not self._fixtures_refreshed
+            self._fixtures_refreshed = True  # one attempt per process, whatever its outcome
             content = self.http.get_bytes(
                 FIXTURES_URL,
                 "fixtures.csv",
                 ttl=timedelta(minutes=30),
-                force_refresh=self.force_refresh,
+                force_refresh=refresh,
                 allow_stale=False,
             )
 
@@ -1480,17 +1485,19 @@ class FootballDataOrg:
             f"{FOOTBALL_DATA_ORG_BASE}/competitions/"
             f"{league.football_data_org_code}/matches"
         )
+        window = {"dateFrom": start_date.isoformat(), "dateTo": end_date.isoformat()}
         payload = self.http.get_json(
             url,
             f"fdorg_fixtures_{league.key}.json",
             ttl=timedelta(minutes=15),
             force_refresh=self.force_refresh,
-            params={
-                "dateFrom": start_date.isoformat(),
-                "dateTo": end_date.isoformat(),
-            },
+            params=window,
             headers={"X-Auth-Token": self.api_key},
             allow_stale=False,
+            # The cache is committed and git checkout resets mtimes: freshness comes only from the fetch time and
+            # window stored in the file (24 Nov 2026: a 22 Nov copy listing no UCL matches passed as fresh).
+            stamped=True,
+            request_key=window,
         )
         matches = payload.get("matches") if isinstance(payload, dict) else None
         if not isinstance(matches, list):
