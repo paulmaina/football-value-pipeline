@@ -26,7 +26,7 @@ Actual placed bets: NOT_RECORDED
 
 > **STOP REVIEW**: 122 graded picks with mean CLV -1.95% (below zero). Review the policy before relying on further picks.
 
-Reviewed 2026-11-24T11:35:23.282414+00:00. Frozen v27 picks: 448.
+Reviewed 2026-11-24T12:10:50.244615+00:00. Frozen v27 picks: 448.
 
 **Mean CLV vs Pinnacle close:** -1.95% ± 0.78% (n=122). **Flat-stake profit per bet:** +2.83% ± 6.78% (n=426).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -171,6 +171,20 @@ By tier (context only; the comparison rule never reads it):
 ## Strong-team master (live since 23 Nov 2026) beside today's master (shadow, the rollback baseline)
 
 Frozen picks: 0; CLV n/a (0); realised profit per bet n/a (0). Research gate (research no-loss at least 0.70 on every pick, since 24 Nov 2026): 0 graded picks (reviewed at 50).
+
+Weak-link flags (flag only, since 24 Nov 2026): 0 flagged picks graded; each reason is reviewed once 50 flagged picks are graded.
+
+| picks | graded | realised profit per bet (n) | mean CLV (n) | observed minus market no-loss (points) |
+|---|---|---|---|---|
+| weak link | 0 | n/a (0) | n/a (0) | n/a |
+| not flagged | 0 | n/a (0) | n/a (0) | n/a |
+| reason (a) | 0 | n/a (0) | n/a (0) | n/a |
+| reason (b) | 0 | n/a (0) | n/a (0) | n/a |
+| reason (c) | 0 | n/a (0) | n/a (0) | n/a |
+| reason (d) | 0 | n/a (0) | n/a (0) | n/a |
+| reason (e) | 0 | n/a (0) | n/a (0) | n/a |
+| reason (f) | 0 | n/a (0) | n/a (0) | n/a |
+| reason (g) | 0 | n/a (0) | n/a (0) | n/a |
 
 Comparison rule (decided 23 Nov 2026): Decided 23 Nov 2026, before any strong-master pick: after at least 150 graded matches over at least 3 calendar weeks on each list, flat-stake return per bet at Pinnacle prices, strong master minus live master, whole kickoff weeks resampled (the same weeks for both), 95% interval. The strong master is better only if the interval is entirely above zero. Results by market group, tier and research label are context only.
 
