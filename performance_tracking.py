@@ -235,12 +235,6 @@ def capture(commit_sha: str, *, root: Path = ROOT,
         if monitoring is not None: files[MONITOR_FILE] = monitoring
     except Exception as exc:
         warnings.warn(f"Correction-monitoring capture skipped ({type(exc).__name__})")
-    try:  # Shadow corner list (unvalidated, not bet): graded beside the live lists, never part of them.
-        from corners_shadow import capture_file as capture_corners, FILE as CORNER_FILE
-        corners = capture_corners(raw, summary.get("generated_at_utc"))
-        if corners is not None: files[CORNER_FILE] = corners
-    except Exception as exc:
-        warnings.warn(f"Shadow corner list capture skipped ({type(exc).__name__})")
     directory.parent.mkdir(parents=True, exist_ok=True)
     # Publish the directory only after every artifact and metadata file exists.
     # A failed health capture or interrupted copy must leave the commit retryable.
@@ -303,7 +297,7 @@ def load_snapshot(directory: Path) -> tuple[dict, list[dict], list[dict]] | None
         'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'pipeline_health.json',
         'bet365_vs_pinnacle.csv', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv',
         'cagey_correction_monitoring.csv', 'corners_shadow.csv', 'master_shortlist.csv', 'master_shortlist_new.csv',
-        'master_shortlist_strong.csv', 'master_shortlist_old.csv'}
+        'master_shortlist_strong.csv', 'master_shortlist_old.csv'}  # corners_shadow.csv: retired, archived snapshots only
     digests = meta.get('sha256')
     if not isinstance(digests, dict) or not required.issubset(digests) or set(digests)-required-optional:
         warnings.warn(f'Missing required or invalid snapshot manifest ignored: {directory}')
@@ -1253,11 +1247,6 @@ def review(*, root: Path = ROOT, token: str = "",
                    forward_assessment(predictions, records, clock))
     except Exception as exc:
         warnings.warn(f'BBS forward comparison failed ({type(exc).__name__}); production report complete')
-    try:  # Shadow corner list: win rate, return per unit and CLV of each fixture's latest pick (never bet).
-        from corners_shadow import review as review_corners
-        review_corners(root, archived, verified_for, clock)
-    except Exception as exc:
-        warnings.warn(f'Shadow corner review failed ({type(exc).__name__}); production report complete')
     try:
         from closing_odds import review as review_closing
         review_closing(root, archived, clock)
