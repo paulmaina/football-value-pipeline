@@ -435,6 +435,15 @@ RULE_RELEASES = {
                     "only: no pick is removed or reordered (master-strong-team-v5, live "
                     "master-strong-team-v5-live-v15). Paul's exception of 24 Nov 2026. Rolling back is the strong "
                     "master back to master-strong-team-v4. Takes effect with the merge of its PR.")},
+    'master-strong-team-v6': {
+        'model': 'strong master: weak-link flags narrowed (Part 5)',
+        'before': 'master-strong-team-v5-live-v15', 'after': 'master-strong-team-v6-live-v16',
+        'details': ("Weak-link reason (f) fires only for 'not proven: fill' and 'not proven: risky fill' picks, and "
+                    "reason (g) only for stale research fits and match-specific quality-review warnings (thin form or "
+                    "venue evidence, training cutoff, status or refresh problems, pre-match deadline); routine coverage "
+                    "notes stay visible in the research warnings but no longer flag. Flag only (master-strong-team-v6, "
+                    "live master-strong-team-v6-live-v16). Paul's exception of 24 Nov 2026. Rolling back is the strong "
+                    "master back to master-strong-team-v5. Takes effect with the merge of its PR.")},
 }
 
 

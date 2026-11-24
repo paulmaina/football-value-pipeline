@@ -1,5 +1,5 @@
 {
-  "version": "master-strong-team-v5",
+  "version": "master-strong-team-v6",
   "decided": "Decided by Paul, 23 Nov 2026 (plan Phase 4c, 'Strong-team master'): market spread of at most 6 picks per market, 15 matches, one pick per match; rank by the cagey chance of winning; a strong-team and proven-record gate with thresholds fixed and tested first; fill to 15 with today's rule, labelled 'not proven'; poorly calibrated leagues ranked lower, not excluded; four research roles (R1-R4), each kept only if it passes its pass rule. Everything here was written before any figure was computed; E, G, the league trust table and the research roles' verdicts are filled in afterwards, once, by the offline check (master_strong_check.py), and recorded in docs/plan.md.",
   "status": "live master since 23 Nov 2026 (master_shortlist_config.json live \"strong\"; writes master_shortlist.csv). Rule history in 'rule_changes'; each superseded rule's config is frozen in master_strong_rules/ so archived runs replay.",
   "file": "master_shortlist_strong.csv",
@@ -160,15 +160,28 @@
       "method": "power"
     },
     "f": {
-      "rule": "the pick sits in a 'not proven' tier"
+      "rule": "the pick sits in the 'not proven: fill' or 'not proven: risky fill' tier (since master-strong-team-v6; v5: any 'not proven' tier, 'not proven: safe' included)",
+      "tiers": [
+        "not proven: fill",
+        "not proven: risky fill"
+      ]
     },
     "g": {
-      "rule": "any research warning on the offer (the value list's research_warnings: coverage, quality review, age), except the standing note on every row that the research model has not passed a forward calibration gate; or a stale research fit for the fixture (the C6 or CE3n fit frozen in the forecast's research marked stale)",
+      "rule": "a stale research fit for the fixture (the C6 or CE3n fit frozen in the forecast's research marked stale), or a match-specific quality-review warning on the offer (research_quality.assess; the value list's research_warnings starting with one of counted_review_warnings). Since master-strong-team-v6 the collector's routine coverage notes ('lineups unavailable or unconfirmed', ...) and the review's standing lines (starting XIs, absence reports, weather, xG sample, training status to inspect) no longer fire (g); they stay visible in research_warnings. Paul, 24 Nov 2026.",
+      "counted_review_warnings": [
+        "Research review: home form/venue evidence is thin",
+        "Research review: away form/venue evidence is thin",
+        "Research review: training cutoff missing or not before evaluation",
+        "Research review: training health/status not recorded",
+        "Research review: training refresh warning",
+        "Research review: pre-match deadline unavailable or passed"
+      ],
       "standing_note": "research probability model has not passed a forward calibration gate"
     },
     "review": "Weekly review: graded results of flagged against unflagged picks, and per reason; once 50 flagged picks are graded, each reason can be kept or dropped (Paul decides).",
     "review_after_flagged_picks": 50,
-    "since": "master-strong-team-v5"
+    "since": "master-strong-team-v5",
+    "narrowed": "master-strong-team-v6 (Paul, 24 Nov 2026; plan Phase 4d, Part 5): reasons (f) and (g) narrowed; a-e unchanged."
   },
   "live_comparison": {
     "rule": "Decided 23 Nov 2026, before any strong-master pick: after at least 150 graded matches over at least 3 calendar weeks on each list, flat-stake return per bet at Pinnacle prices, strong master minus live master, whole kickoff weeks resampled (the same weeks for both), 95% interval. The strong master is better only if the interval is entirely above zero. Results by market group, tier and research label are context only.",
@@ -223,7 +236,14 @@
       "version": "master-strong-team-v5",
       "live_version": "master-strong-team-v5-live-v15",
       "decided": "Paul, 24 Nov 2026 (plan Phase 4d, Part 4), a deliberate exception to the release gate.",
-      "change": "Weak-link flags on every pick ('weak_links'; columns weak_link and weak_link_reasons), flag only: the selection is v4's exactly."
+      "change": "Weak-link flags on every pick ('weak_links'; columns weak_link and weak_link_reasons), flag only: the selection is v4's exactly.",
+      "config": "master_strong_rules/master-strong-team-v5.json"
+    },
+    {
+      "version": "master-strong-team-v6",
+      "live_version": "master-strong-team-v6-live-v16",
+      "decided": "Paul, 24 Nov 2026 (plan Phase 4d, Part 5), released directly like Parts 1-4, a deliberate exception to the release gate.",
+      "change": "Weak-link reasons narrowed: (f) only the 'not proven: fill' and 'not proven: risky fill' tiers; (g) only stale fits and the match-specific quality-review warnings in weak_links.g.counted_review_warnings. Flag only: the selection is v5's exactly."
     }
   ]
 }
