@@ -174,7 +174,7 @@ def raw_check(root, *, raw_dir=None):
         # not bind the selected market, price, EV or top-twelve membership.
         import pandas as pd
         from conservative_bet_filter import build_conservative_shortlist
-        from shortlist_replay import clean as clean_frame, difference, equivalent, monitoring_equivalent
+        from shortlist_replay import READ_IDS_AS_TEXT, clean as clean_frame, difference, equivalent, monitoring_equivalent
         reliability = None
         if summary.get('validation_required'):
             reliability = {}
@@ -205,7 +205,7 @@ def raw_check(root, *, raw_dir=None):
                 as_of=utc(summary['generated_at_utc']), market_reliability=reliability,
                 execution_policy=summary.get('quote_execution_policy'),
                 selection_policy_version=policy_version)
-        actual = pd.read_csv(raw/'conservative_bet_shortlist.csv', low_memory=False)
+        actual = pd.read_csv(raw/'conservative_bet_shortlist.csv', low_memory=False, dtype=READ_IDS_AS_TEXT)
         require(set(expected.columns).issubset(actual.columns), 'Missing current shortlist replay columns')
         # CSV blank strings deserialize as null, including empty strict-rule
         # warnings. Normalize only that representation difference for replay.
@@ -225,7 +225,7 @@ def raw_check(root, *, raw_dir=None):
                 require(tier_path.exists(), 'Missing current cagey-tier shortlist')
             if tier_path.exists():
                 try:
-                    tier_actual = pd.read_csv(tier_path, low_memory=False)
+                    tier_actual = pd.read_csv(tier_path, low_memory=False, dtype=READ_IDS_AS_TEXT)
                 except pd.errors.EmptyDataError:
                     tier_actual = pd.DataFrame()
                 if len(tier_expected) or len(tier_actual):
@@ -420,7 +420,7 @@ def raw_check(root, *, raw_dir=None):
             if monitor_path.exists():
                 monitor_expected = pd.DataFrame(monitoring, columns=price_edge_cagey_shortlist.MONITOR_COLUMNS)
                 try:
-                    monitor_actual = pd.read_csv(monitor_path, low_memory=False)
+                    monitor_actual = pd.read_csv(monitor_path, low_memory=False, dtype=READ_IDS_AS_TEXT)
                 except pd.errors.EmptyDataError:
                     monitor_actual = pd.DataFrame(columns=price_edge_cagey_shortlist.MONITOR_COLUMNS)
                 require(list(monitor_actual.columns) == price_edge_cagey_shortlist.MONITOR_COLUMNS,

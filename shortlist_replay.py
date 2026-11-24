@@ -7,9 +7,30 @@ import json
 import math
 
 
+# Identifiers are text, never numbers. A CSV column whose values are all digits (odds-provider fixture IDs such as
+# 1639986885) reads back as integers, or floats beside a blank; the replay may hold the same ID as text.
+ID_COLUMNS = ('fixture_id',)
+READ_IDS_AS_TEXT = {column: str for column in ID_COLUMNS}  # pd.read_csv(..., dtype=READ_IDS_AS_TEXT)
+
+
+def _id_text(value):
+    if isinstance(value, bool) or value is None:
+        return value
+    if isinstance(value, int):
+        return str(value)
+    if isinstance(value, float) and math.isfinite(value) and value.is_integer():
+        return str(int(value))
+    return value
+
+
 def clean(table):
     # pandas serializes missing/nonfinite values as JSON null.
-    return json.loads(table.to_json(orient='records', double_precision=15))
+    records = json.loads(table.to_json(orient='records', double_precision=15))
+    for record in records:
+        for column in ID_COLUMNS:
+            if column in record:
+                record[column] = _id_text(record[column])
+    return records
 
 
 def equivalent(actual, expected):
