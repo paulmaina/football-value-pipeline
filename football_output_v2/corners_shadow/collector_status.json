@@ -1,8 +1,8 @@
 {
-  "checked_at_utc": "2026-11-24T08:26:49.809009+00:00",
-  "eligible": 0,
+  "checked_at_utc": "2026-11-23T19:54:22.809514+00:00",
+  "eligible": 2,
   "errors": [],
-  "reason": "NO_PICKS_IN_PRE_KICKOFF_WINDOW",
-  "requests": 0,
-  "written": 0
+  "reason": "CHECKED_ELIGIBLE_FIXTURES",
+  "requests": 2,
+  "written": 2
 }
