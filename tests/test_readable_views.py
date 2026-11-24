@@ -35,8 +35,8 @@ def checker():
     return module
 
 
-def synthetic_rows():
-    return [fx.forecast(0, rates=(2.1, 0.7), h2h=(1.40, 4.9, 8.0), ou25=(1.80, 2.05),
+def synthetic_rows():  # Home_0: research no-loss above the strong master's 0.70 gate (since 24 Nov 2026)
+    return [fx.forecast(0, rates=(2.4, 0.6), h2h=(1.40, 4.9, 8.0), ou25=(1.80, 2.05),
                         ah=((-1.0, 1.85, 2.02), (0.5, 1.17, 5.2), (1.0, 1.08, 8.5))),
             fx.forecast(1, rates=(1.2, 1.3), h2h=(2.6, 3.3, 2.8), ou25=(2.10, 1.78), ah=((0.0, 1.95, 1.95),
                                                                                          (0.5, 1.48, 2.7))),
@@ -124,7 +124,7 @@ class SavedRunAgreementTests(OfflineQuotePolicyTestCase):
 
 class ViewTests(SyntheticRunCase):
     def test_research_is_the_forecast_rows_own_and_the_rebuilt_grid_reproduces_it(self):
-        row = fx.forecast(0, rates=(2.1, 0.7))
+        row = fx.forecast(0, rates=(2.4, 0.6))
         view = rv.research_view(row)
         self.assertEqual(view['p_1x2'], [row['research_p_home'], row['research_p_draw'], row['research_p_away']])
         markets = rv.grid_markets(view['matrix'], view['p_1x2'])
@@ -197,7 +197,7 @@ class ViewTests(SyntheticRunCase):
         home_0 = decisions.loc[decisions.home_team.eq('Home_0') & decisions.cagey_correction.notna()]
         self.assertEqual(set(home_0.cagey_correction), {'D'})
         self.assertEqual(set(home_0.cagey_correction_fallback),
-                         {rv.cagey_view(fx.forecast(0, rates=(2.1, 0.7), h2h=(1.40, 4.9, 8.0), ou25=(1.80, 2.05),
+                         {rv.cagey_view(fx.forecast(0, rates=(2.4, 0.6), h2h=(1.40, 4.9, 8.0), ou25=(1.80, 2.05),
                                                     ah=((-1.0, 1.85, 2.02), (0.5, 1.17, 5.2), (1.0, 1.08, 8.5))),
                                         run.clock, run.cagey)['fallback']})
 
@@ -250,7 +250,7 @@ class ViewTests(SyntheticRunCase):
         probabilities = research['Probability (decimal)'].astype(float)
         self.assertTrue((np.diff(probabilities.to_numpy()) <= 0).all())
         self.assertGreaterEqual(probabilities.min(), rv.SCORELINE_MIN)
-        view = rv.research_view(fx.forecast(0, rates=(2.1, 0.7)))
+        view = rv.research_view(fx.forecast(0, rates=(2.4, 0.6)))
         i, j = map(int, research.iloc[0]['Score'].split('-'))
         self.assertAlmostEqual(probabilities.iloc[0], view['matrix'][i, j], places=12)
         no_cagey = self.scores.loc[self.scores['Home team'].eq('Home_2'), 'Model']
