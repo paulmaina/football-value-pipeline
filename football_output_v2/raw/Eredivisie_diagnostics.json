@@ -1,6 +1,6 @@
 {
   "league": "Eredivisie",
-  "training_matches": 1638,
+  "training_matches": 1647,
   "training_seasons_requested": 6,
   "training_seasons_loaded": [
     "2122",
@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "4212daa07980e273b194bddb8e91d18ffccc501ffbaf41c9333976c8348e2d65",
-  "training_as_of_utc": "2026-11-23T18:16:27.857712+00:00",
+  "training_sha256": "6a6942c4484010b7ee31ba0d63440397e3d2574de9f7102f07acd6e30191f1e0",
+  "training_as_of_utc": "2026-11-24T06:47:41.006866+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -28,7 +28,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-11-23",
+    "cutoff_date": "2026-11-24",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -49,31 +49,31 @@
       "max_goal_rate_ratio": 1.25
     },
     "bbs_shot_source_enabled": false,
-    "shot_matches": 1638,
-    "tune_start_date": "2025-11-24",
-    "audit_start_date": "2026-05-25",
+    "shot_matches": 1647,
+    "tune_start_date": "2025-11-25",
+    "audit_start_date": "2026-05-26",
     "training_shot_matches": 1341,
     "tuning_matches": 189,
-    "audit_matches": 102,
-    "audit_matchdays": 37,
+    "audit_matches": 111,
+    "audit_matchdays": 39,
     "selected_shrinkage": 40.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.6287674032157867,
-    "audit_candidate_poisson_score": 0.6203367369074393,
-    "audit_gain": 0.008430666308347434,
-    "audit_gain_lower95": -0.003945224280325961,
+    "audit_baseline_poisson_score": 0.6308826464450854,
+    "audit_candidate_poisson_score": 0.6224704282339654,
+    "audit_gain": 0.008412218211120037,
+    "audit_gain_lower95": -0.004701228080257648,
     "audit_baseline_briers": [
-      0.627647906209722,
-      0.10653452093123733,
-      0.29401744635637583,
-      0.22724278000676557
+      0.628450015796775,
+      0.10533193375569261,
+      0.29201483407538037,
+      0.2253102053487333
     ],
     "audit_candidate_briers": [
-      0.6238227579791598,
-      0.10582401172671832,
-      0.2908344761128815,
-      0.22090121904054952
+      0.6243811817352334,
+      0.10483815203633236,
+      0.28942699667427135,
+      0.2190901069387336
     ],
     "audit_brier_order": [
       "1x2",
@@ -86,12 +86,12 @@
       "bootstrap_lower95_not_positive"
     ]
   },
-  "training_end": "2026-11-08",
+  "training_end": "2026-11-22",
   "fit_success": true,
-  "objective": 1625.6158650861742,
-  "base": 0.2974218097176476,
-  "home_adv": 0.18435563513391653,
-  "rho": -0.076404525534582,
+  "objective": 1654.6941105666237,
+  "base": 0.3096816560348643,
+  "home_adv": 0.16451193723710544,
+  "rho": -0.06774265542886897,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -100,16 +100,16 @@
   "elo_ratings": {
     "version": "venue-elo-v1",
     "teams": 25,
-    "matches": 1638,
+    "matches": 1647,
     "k_factor": 20.0,
     "home_advantage": 60.0,
     "venue_weight": 0.5,
     "season_regression": 0.2,
-    "last_match_date": "2026-11-08"
+    "last_match_date": "2026-11-22"
   },
   "training_data_health": {
-    "training_end": "2026-11-08",
-    "days_since_latest_result": 15,
+    "training_end": "2026-11-22",
+    "days_since_latest_result": 2,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -127,7 +127,7 @@
     }
   ],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 14,
+  "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"

@@ -10,7 +10,7 @@
     "2026"
   ],
   "training_sha256": "7423d6cb39c84355e5fbdd4ed6b7bfedf9856d0b77390f595fb8f318aaee7986",
-  "training_as_of_utc": "2026-11-23T18:16:26.921452+00:00",
+  "training_as_of_utc": "2026-11-24T06:47:39.409322+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -27,7 +27,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "NO_SHOT_DATA",
-    "cutoff_date": "2026-11-23",
+    "cutoff_date": "2026-11-24",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -52,9 +52,9 @@
   },
   "training_end": "2026-11-05",
   "fit_success": true,
-  "objective": 819.9751592158,
-  "base": 0.12763022859389317,
-  "home_adv": 0.23249336822785072,
+  "objective": 819.3600033803762,
+  "base": 0.12762815246458112,
+  "home_adv": 0.23248618509286803,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -73,7 +73,7 @@
   },
   "training_data_health": {
     "training_end": "2026-11-05",
-    "verified_at_utc": "2026-11-23T07:33:06.468366+00:00",
+    "verified_at_utc": "2026-11-24T04:46:47.837437+00:00",
     "official_source_health": {
       "2025": {
         "status": "REVIEWED_HISTORICAL_FACTS",
@@ -87,24 +87,24 @@
   "training_source": "verified .football_cache/europa/training.json",
   "fixture_provider_mode": "auto",
   "fixture_sources": [
-    "The Odds API"
+    "Fixture Download UTC"
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 8,
+  "live_odds_matched": 0,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 14,
+  "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
-      "fixture_id": "1640061973",
-      "event_id": "1640061973",
-      "home_team": "Besiktas JK",
-      "away_team": "Hapoel Be'er Sheva",
+      "fixture_id": "uel-fd-1",
+      "event_id": null,
+      "home_team": "olympiacos",
+      "away_team": "milan",
       "kickoff_utc": "2026-11-26T17:45:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
@@ -114,10 +114,10 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "1640061971",
-      "event_id": "1640061971",
-      "home_team": "Celta Vigo",
-      "away_team": "Bournemouth",
+      "fixture_id": "uel-fd-2",
+      "event_id": null,
+      "home_team": "marseille",
+      "away_team": "levski sofia",
       "kickoff_utc": "2026-11-26T17:45:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
@@ -127,10 +127,10 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "1640077678",
-      "event_id": "1640077678",
-      "home_team": "Dinamo Zagreb",
-      "away_team": "Bayer Leverkusen",
+      "fixture_id": "uel-fd-3",
+      "event_id": null,
+      "home_team": "viktoria plzen",
+      "away_team": "benfica",
       "kickoff_utc": "2026-11-26T17:45:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
@@ -140,10 +140,10 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "1640066618",
-      "event_id": "1640066618",
-      "home_team": "Marseille",
-      "away_team": "PFC Levski Sofia",
+      "fixture_id": "uel-fd-4",
+      "event_id": null,
+      "home_team": "union sg",
+      "away_team": "lech poznan",
       "kickoff_utc": "2026-11-26T17:45:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
@@ -153,10 +153,10 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "1640061968",
-      "event_id": "1640061968",
-      "home_team": "Olympiakos Piraeus",
-      "away_team": "AC Milan",
+      "fixture_id": "uel-fd-5",
+      "event_id": null,
+      "home_team": "gnk dinamo",
+      "away_team": "leverkusen",
       "kickoff_utc": "2026-11-26T17:45:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
@@ -166,10 +166,10 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "1640061970",
-      "event_id": "1640061970",
-      "home_team": "Salzburg",
-      "away_team": "Ararat-Armenia",
+      "fixture_id": "uel-fd-6",
+      "event_id": null,
+      "home_team": "salzburg",
+      "away_team": "ararat-armenia",
       "kickoff_utc": "2026-11-26T17:45:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
@@ -179,10 +179,10 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "1640066616",
-      "event_id": "1640066616",
-      "home_team": "Union Saint-Gilloise",
-      "away_team": "Lech Poznan",
+      "fixture_id": "uel-fd-7",
+      "event_id": null,
+      "home_team": "celta",
+      "away_team": "bournemouth",
       "kickoff_utc": "2026-11-26T17:45:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
@@ -192,11 +192,141 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "1640066615",
-      "event_id": "1640066615",
-      "home_team": "Viktoria Plzen",
-      "away_team": "Benfica",
+      "fixture_id": "uel-fd-8",
+      "event_id": null,
+      "home_team": "besiktas",
+      "away_team": "h. beer-sheva",
       "kickoff_utc": "2026-11-26T17:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "uel-fd-9",
+      "event_id": null,
+      "home_team": "juventus",
+      "away_team": "omonia",
+      "kickoff_utc": "2026-11-26T20:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "uel-fd-10",
+      "event_id": null,
+      "home_team": "lyon",
+      "away_team": "lillestr\u00f8m",
+      "kickoff_utc": "2026-11-26T20:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "uel-fd-11",
+      "event_id": null,
+      "home_team": "ferencvaros",
+      "away_team": "celje",
+      "kickoff_utc": "2026-11-26T20:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "uel-fd-12",
+      "event_id": null,
+      "home_team": "sparta praha",
+      "away_team": "az alkmaar",
+      "kickoff_utc": "2026-11-26T20:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "uel-fd-13",
+      "event_id": null,
+      "home_team": "crystal palace",
+      "away_team": "real sociedad",
+      "kickoff_utc": "2026-11-26T20:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "uel-fd-14",
+      "event_id": null,
+      "home_team": "sunderland",
+      "away_team": "jagiellonia",
+      "kickoff_utc": "2026-11-26T20:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "uel-fd-15",
+      "event_id": null,
+      "home_team": "hoffenheim",
+      "away_team": "sturm graz",
+      "kickoff_utc": "2026-11-26T20:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "uel-fd-16",
+      "event_id": null,
+      "home_team": "torreense",
+      "away_team": "celtic",
+      "kickoff_utc": "2026-11-26T20:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "uel-fd-17",
+      "event_id": null,
+      "home_team": "n.e.c.",
+      "away_team": "rennes",
+      "kickoff_utc": "2026-11-26T20:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "uel-fd-18",
+      "event_id": null,
+      "home_team": "ofi crete",
+      "away_team": "anderlecht",
+      "kickoff_utc": "2026-11-26T20:00:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
@@ -210,15 +340,14 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 6,
-    "ANCHORED_MAIN": 2
+    "NOT_ANCHORED_NO_PINNACLE": 18
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 8
+    "none": 18
   },
   "legacy_comparison_status": {
-    "None": 8
+    "None": 18
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
