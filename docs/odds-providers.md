@@ -20,8 +20,8 @@ adapter's own tests attach their routers explicitly.
 - the fetch time.
 
 Each request the pipeline already makes to The Odds API goes through `OddsProviderRouter.fetch` instead. These
-are the schedule, the per-league odds, the per-event extra markets, the closing collector and the shadow corner
-closes.
+are the schedule, the per-league odds, the per-event extra markets and the closing collector (and, until it was
+retired on 24 Nov 2026, the shadow corner list's closes).
 
 The router asks the providers in the configured order:
 
@@ -106,7 +106,7 @@ Every quote records which provider supplied it (switch on only):
   two were dropped there until 23 Nov 2026). List files are unchanged: decisions carry fixed columns, so provenance
   cannot change a list (tested).
 - **Saved payloads:** each payload the adapter returns carries `odds_provider`, which the parsers ignore. Closing
-  observations and shadow corner closes therefore keep it with the evidence.
+  observations therefore keep it with the evidence.
 - **Forecast summary:** `conservative_bet_summary.json` `odds_provider` holds requests, served requests and
   failures per provider, every switch, and `first_served` (the provider that served the run's first request, and
   why any earlier one in the order did not). The run outcome and the GitHub run summary show the same (an "Odds
@@ -136,7 +136,7 @@ bookmaker odds were attached", so it is a marker, not a provider name. The provi
 | Alternate lines | Pinnacle's alternates as The Odds API lists them | every line on Pinnacle's board |
 | Main line | The Odds API's `spreads`/`totals` (Pinnacle's own main line) | the most balanced pair: the live board carries no main-line flag (`is_alternate` is absent even with `line_meta=1`). It agreed with Pinnacle's main line in 94 of 106 fixtures for Asian handicap and 94 of 106 for goal lines (23 Nov 2026); otherwise it is the adjacent line |
 | Quote time | Pinnacle's `last_update` per market | fetch time on a fresh board; a board flagged `stale` dates from its `last_change` (so freshness rules drop old quotes) |
-| Corners | `alternate_totals_corners` (domestic) | Pinnacle corner child events (`parent_id`, "(Corners)", leagues such as "Italy - Serie A Corners"); 117 on the board on 23 Nov 2026 |
+| Corners | `alternate_totals_corners` (no longer requested since the shadow corner list was retired, 24 Nov 2026) | Pinnacle corner child events (`parent_id`, "(Corners)", leagues such as "Italy - Serie A Corners"); 117 on the board on 23 Nov 2026 |
 | Other child events | not applicable | skipped: the board lists two specials per near-term fixture under the match's own teams and league (`parent_id` set, no draw, no lines, 750 limit); they are never a fixture |
 | Odds API credit guard | applies | does not apply: the providers decide |
 

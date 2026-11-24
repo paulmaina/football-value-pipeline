@@ -119,8 +119,9 @@ Each run that calls the API:
   known balances add up to zero:
   - per-event extra coverage (status `NOT_REQUESTED_LOW_CREDITS`; those
     fixtures fall back to the main line);
-  - closing quotes for fixtures without a pick (picks are still collected);
-  - the shadow corner list's closing requests (`LOW_CREDITS_SKIPPED`).
+  - closing quotes for fixtures without a pick (picks are still collected).
+    (The shadow corner list's closing requests were also skipped here until the list was retired on
+    24 Nov 2026.)
 
   Balances come from this run's headers, seeded from the committed log. An
   unknown balance never blocks a call. Until 23 Nov 2026 the floor was one

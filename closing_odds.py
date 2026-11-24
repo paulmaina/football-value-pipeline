@@ -465,12 +465,6 @@ def main(argv=None):
             kwargs = {'reservation_id':args.budget_reservation} if args.budget_reservation else {}
             result=collect_once(args.root,api,limit=remaining,**kwargs);remaining-=result['requests']
             if result['requests'] or not args.watch:print(json.dumps(result))
-            try:  # Shadow corner list closes: own cap and folder; never affects the live collection above.
-                from corners_shadow import collect_closing
-                corner=collect_closing(args.root,api)
-                if corner['requests']:print(json.dumps({'corners_shadow':corner}))
-            except Exception as exc:
-                print(json.dumps({'corners_shadow_error':type(exc).__name__}))
             from odds_provider_health import alert_summary
             if any(error.get('category') in ('CREDITS_EXHAUSTED', 'RATE_LIMITED', 'HTTP_ERROR')
                    for error in result.get('errors', [])) and (message := alert_summary(args.root)):

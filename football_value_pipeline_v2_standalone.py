@@ -1346,15 +1346,12 @@ class TheOddsAPI:
         region_tag = re.sub(r"[^a-z0-9]+", "_", self.regions.lower()).strip("_")
         from quote_policy import odds_api_bookmaker_scope
         book_params, book_scope = odds_api_bookmaker_scope()
-        # BTTS and card totals are not requested. Corner totals are requested for
-        # domestic leagues only, for the shadow corner list (corners_shadow.py):
-        # no live list reads them, and Pinnacle does not price UCL/UEL corners.
-        import corners_shadow
-        corners = corners_shadow.requests_corners(league.key)
-        markets = EXTRA_EVENT_MARKETS + ((corners_shadow.MARKET_KEY,) if corners else ())
+        # BTTS, corner and card totals are not requested (the shadow corner list that
+        # requested domestic corner totals was retired on 24 Nov 2026).
+        markets = EXTRA_EVENT_MARKETS
         payload = self._get_json(
             url,
-            f"oddsapi_additional_ah_dc_v4_{'corners_' if corners else ''}{league.key}_{region_tag}_{book_scope}_{safe_id}.json",
+            f"oddsapi_additional_ah_dc_v4_{league.key}_{region_tag}_{book_scope}_{safe_id}.json",
             ttl=timedelta(minutes=5),
             force_refresh=self.force_refresh,
             params={
@@ -1441,11 +1438,6 @@ class TheOddsAPI:
             result['price_edge_quotes'] = json.dumps(edge_quotes, sort_keys=True, allow_nan=False)
         if asian_offers or edge_quotes:
             result['_asian_handicap_identity'] = {k:payload.get(k) for k in ('home_team','away_team','commence_time')}
-        count_offers = corners_shadow.corner_offers(payload, clock) if corners else []
-        if count_offers:
-            # Shadow corner list only. Its own identity, so the live identity check above is unchanged.
-            result['count_market_offers'] = json.dumps(count_offers, sort_keys=True, allow_nan=False)
-            result['_count_market_identity'] = {k:payload.get(k) for k in ('home_team','away_team','commence_time')}
         for market, available in offers.items():
             result.update(self._goal_quote_fields(market, available, as_of=clock))
         provider = self.served_by()
@@ -3635,7 +3627,6 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 extra = self.odds_api.extra_markets_for_event(league, event_id,
                     main_over_1_5_offers=primary if isinstance(primary, (list, tuple)) else None)
                 identity = extra.pop('_asian_handicap_identity', None)
-                count_identity = extra.pop('_count_market_identity', None)
                 valid_identity = isinstance(identity,dict) and all(canonical_team_key(str(identity.get(k,''))) == canonical_team_key(str(row[field])) for k,field in [('home_team','HomeTeam'),('away_team','AwayTeam')])
                 event_kick = pd.to_datetime((identity or {}).get('commence_time'),utc=True,errors='coerce')
                 row_kick = pd.to_datetime(row.get('kickoff_utc'),utc=True,errors='coerce')
@@ -3652,18 +3643,6 @@ class FootballValuePipelineV2(FootballValuePipeline):
                     pred.clear()
                     pred.update(anchored)
                     prepared[idx] = (row, pred, score_dist)
-                if 'count_market_offers' in extra:
-                    # Same identity rule as the live quotes, applied to the corner payload's own identity.
-                    count_kick = pd.to_datetime((count_identity or {}).get('commence_time'),utc=True,errors='coerce')
-                    count_rejected = (not isinstance(count_identity,dict) or not all(
-                        canonical_team_key(str(count_identity.get(k,''))) == canonical_team_key(str(row[field]))
-                        for k,field in [('home_team','HomeTeam'),('away_team','AwayTeam')])
-                        or pd.isna(count_kick) or pd.isna(row_kick) or abs((count_kick-row_kick).total_seconds()) > 300)
-                    if count_rejected:
-                        extra['count_market_offers'] = '[]'
-                    coverage_row['count_market_quotes'] = len(json.loads(extra['count_market_offers']))
-                    coverage_row['count_market_status'] = ('EVENT_IDENTITY_REJECTED' if count_rejected else
-                        'QUOTES_AVAILABLE' if coverage_row['count_market_quotes'] else 'NO_COUNT_MARKET_QUOTES')
                 if 'asian_handicap_offers' in extra:
                     if identity_rejected:
                         extra['asian_handicap_offers'] = '[]'
@@ -4781,17 +4760,6 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         # v27 narrow-margin hypothesis: every tagged candidate, picked or rejected.
         from price_edge_tracking import write_list as write_tagged_list
         write_tagged_list(decisions, out_dir, selection_summary['generated_at_utc'])
-        # Shadow corner list: unvalidated, not bet, zero stake. Written after every live list, from the
-        # predictions alone; no live list reads it, and a failure here never breaks the run.
-        try:
-            from corners_shadow import write_list as write_corner_list, FILE as CORNER_FILE
-            corner_rows = write_corner_list(
-                all_predictions.astype(object).where(all_predictions.notna(), None).to_dict('records'),
-                out_dir, selection_summary['generated_at_utc'])
-            print(f"Shadow corner list: {len(corner_rows)} picks, unvalidated, not bet "
-                  f"(see {out_dir / CORNER_FILE})", file=sys.stderr)
-        except Exception as exc:
-            warnings.warn(f"Shadow corner list unavailable ({type(exc).__name__}: {exc}); run complete")
 
     # Retain a timestamped historical audit even though the current raw
     # shortlist is overwritten each run. No picks are ever added by force.
