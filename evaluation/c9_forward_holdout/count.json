@@ -1,0 +1,125 @@
+{
+ "start": "2026-10-11",
+ "end_exclusive": "2026-11-24",
+ "last_match_date": "2026-11-23",
+ "book": "bet365",
+ "priced_fixtures": 401,
+ "unpriced_fixtures": 0,
+ "weeks": 7,
+ "week_list": [
+  "2026-W41",
+  "2026-W42",
+  "2026-W43",
+  "2026-W44",
+  "2026-W45",
+  "2026-W47",
+  "2026-W48"
+ ],
+ "by_league": {
+  "EPL": {
+   "matches": 54,
+   "priced": 54,
+   "weeks": [
+    "2026-W41",
+    "2026-W42",
+    "2026-W43",
+    "2026-W44",
+    "2026-W45",
+    "2026-W47",
+    "2026-W48"
+   ]
+  },
+  "LaLiga": {
+   "matches": 56,
+   "priced": 56,
+   "weeks": [
+    "2026-W41",
+    "2026-W42",
+    "2026-W43",
+    "2026-W44",
+    "2026-W45",
+    "2026-W47",
+    "2026-W48"
+   ]
+  },
+  "Bundesliga": {
+   "matches": 47,
+   "priced": 47,
+   "weeks": [
+    "2026-W41",
+    "2026-W42",
+    "2026-W43",
+    "2026-W44",
+    "2026-W45",
+    "2026-W47"
+   ]
+  },
+  "SerieA": {
+   "matches": 67,
+   "priced": 67,
+   "weeks": [
+    "2026-W41",
+    "2026-W42",
+    "2026-W43",
+    "2026-W44",
+    "2026-W45",
+    "2026-W47",
+    "2026-W48"
+   ]
+  },
+  "Ligue1": {
+   "matches": 48,
+   "priced": 48,
+   "weeks": [
+    "2026-W41",
+    "2026-W42",
+    "2026-W43",
+    "2026-W44",
+    "2026-W45",
+    "2026-W47"
+   ]
+  },
+  "Eredivisie": {
+   "matches": 49,
+   "priced": 49,
+   "weeks": [
+    "2026-W41",
+    "2026-W42",
+    "2026-W43",
+    "2026-W44",
+    "2026-W45",
+    "2026-W47"
+   ]
+  },
+  "PrimeiraLiga": {
+   "matches": 31,
+   "priced": 31,
+   "weeks": [
+    "2026-W41",
+    "2026-W42",
+    "2026-W43",
+    "2026-W44",
+    "2026-W45"
+   ]
+  },
+  "SuperLig": {
+   "matches": 49,
+   "priced": 49,
+   "weeks": [
+    "2026-W41",
+    "2026-W42",
+    "2026-W43",
+    "2026-W44",
+    "2026-W45",
+    "2026-W47",
+    "2026-W48"
+   ]
+  }
+ },
+ "sample_minimum": {
+  "fixtures": 300,
+  "weeks": 6
+ },
+ "sample_minimum_met": true,
+ "read": "Date, HomeTeam, AwayTeam and Bet365 price columns only; no result column"
+}

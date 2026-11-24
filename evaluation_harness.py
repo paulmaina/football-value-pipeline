@@ -34,6 +34,10 @@ candidate is scored on the same matches:
   C8 candidate: C7 plus Elo: + c z on the home rate and - c z on the away rate, z the pre-match Elo
      difference / 400 from elo_ratings on the fold's training rows (never later results), c fitted with
      C7's parameters; (rho, delta) refitted on C8's own rates (uses no odds). Offline only
+  C9 candidate (docs/plan.md, Phase 2g-4): C8's grid with its home/away split sharpened by a slope fitted
+     walk-forward on C8's own forecasts of decided development matches only (played before 1 Jul 2025),
+     C8's draw held; from the first fold after development the slope is the development fit
+     (rate_calibration_slope_candidate; research_rate_calibration.sharpened_grid; uses no odds). Offline only
   C8P1, C8P3, C8S70, C8S50 and their pairs (RATE_VARIANTS): C8 with both fits refitted on goal rates
      from a fold Dixon-Coles fit with one setting changed, the penalty l2 (1 or 3, against 0.08) or the
      season carry-over (0.7 or 0.5, against 1.0: earlier seasons' weights scaled after each summer gap).
@@ -75,6 +79,11 @@ Periods (configured in evaluation_harness_config.json):
                  were scored by the earlier benchmark (to 13 Oct 2026) and every
                  league from 11 Oct 2026 by the live performance reports, so these
                  results are diagnostics only, never release evidence.
+  forward holdout  Every priced match of the 8 leagues played from 11 Oct 2026 (cfg['forward_holdout'];
+                 docs/plan.md, Phase 2g-4), Bet365. Scored only by a declaration that names it
+                 (`holdout_period`), once per candidate, recorded in its own ledger
+                 (evaluation/forward_holdout_ledger.json); evaluation/holdout_ledger.json never
+                 records it. A plain run still labels these matches retrospective.
 
 Pinnacle prices in the files stop on 15 Jan 2026; Bet365 continues for every league.
 
@@ -142,6 +151,10 @@ CANDIDATES = {
     'C8': 'candidate: C7 plus a fitted Elo term (+c z home, -c z away; z = pre-match Elo difference / 400 from '
           "elo_ratings on the fold's training rows), on C2's (rho, delta) grid refitted on C8's own rates "
           '(research_rate_calibration.py; uses no odds)',
+    'C9': "candidate: C8's grid with its home/away split sharpened by a slope fitted walk-forward on C8's own "
+          'forecasts of decided development matches only (played before 1 Jul 2025; never a validation, holdout '
+          "or later result), C8's draw held, pooled across leagues (research_rate_calibration.sharpened_grid; "
+          'uses no odds)',
     'M':'market reference: margin-free fit to the period bookmaker (Pinnacle, Bet365 on the holdout)',
     'D': 'cagey tier: M corrected toward narrow margins (production correction model)',
     'A': 'published-grid production proxy (benchmark only; mixes model and market)',
@@ -174,7 +187,9 @@ RATE_VARIANTS = {'C8P1': {'l2': 1.}, 'C8P3': {'l2': 3.},
                  'C8S70': {'season_carry_over': .7}, 'C8S50': {'season_carry_over': .5},
                  'C8P1S70': {'l2': 1., 'season_carry_over': .7}, 'C8P1S50': {'l2': 1., 'season_carry_over': .5},
                  'C8P3S70': {'l2': 3., 'season_carry_over': .7}, 'C8P3S50': {'l2': 3., 'season_carry_over': .5}}
-WALK_FORWARD_CANDIDATES = frozenset({'C2', 'C5', 'C6', *RATE_CALIBRATION_CANDIDATES, *RATE_VARIANTS})  # fitted on earlier forecasts
+SLOPE_FIT_END = 'development_end'  # C9's slope reads only matches played before cfg[SLOPE_FIT_END]
+WALK_FORWARD_CANDIDATES = frozenset({'C2', 'C5', 'C6', *RATE_CALIBRATION_CANDIDATES, *RATE_VARIANTS, 'C9'})  # fitted on earlier forecasts
+FORWARD_RUN = 'scoring_period'  # in memory only: set by forward_run_config for a forward holdout run
 RESEARCH_BASELINES = ('C0', 'DC')  # diagnostics: scored wherever C is; never live and never a declared candidate
 QUOTE_REFERENCES = ('QPROP', 'QPOW')  # diagnostics: 1X2 forecasts only (no score grid), Pinnacle periods only
 GAP_CANDIDATES = ('MP', 'MB')  # Pinnacle and Bet365 market fits on the same matches
@@ -220,9 +235,16 @@ GROUPS = ('1X2', 'Over 1.5', 'AH all', 'AH draw-sensitive')
 # ---------------------------------------------------------------------------
 
 def phase(date, league, cfg) -> str:
+    """The period of one match. In a forward holdout run (cfg[FORWARD_RUN], set in memory only) the forward
+    period is the run's 'holdout' and the spent 16 Jan - 10 Oct holdout is retrospective (training and fits
+    only); every other run labels exactly as before."""
     date = pd.Timestamp(date)
+    forward = cfg.get(FORWARD_RUN)
+    if forward is not None and date >= pd.Timestamp(forward['start']):
+        return 'holdout' if league in forward['leagues'] else 'retrospective'
     if date >= pd.Timestamp(cfg['holdout_start']):
-        untouched = league in cfg['holdout_leagues'] and date < pd.Timestamp(cfg['holdout_end_exclusive'])
+        untouched = forward is None and league in cfg['holdout_leagues'] \
+            and date < pd.Timestamp(cfg['holdout_end_exclusive'])
         return 'holdout' if untouched else 'retrospective'
     return 'validation' if date >= pd.Timestamp(cfg['development_end']) else 'development'
 
@@ -495,6 +517,8 @@ def candidates(row, train, origin, model, cfg, cagey_model, xg_train=None, elo=N
 def fold_windows(cfg, end):
     start = pd.Timestamp(cfg['test_start'])
     fixed = [pd.Timestamp(cfg[k]) for k in ('development_end', 'holdout_start', 'holdout_end_exclusive')] + [end]
+    if cfg.get(FORWARD_RUN) is not None:  # the forward start is a fold boundary (it is holdout_end_exclusive today)
+        fixed.append(pd.Timestamp(cfg[FORWARD_RUN]['start']))
     bounds = sorted({*pd.date_range(start, end, freq=f"{cfg['step_days']}D"), *[b for b in fixed if start < b <= end]})
     return list(zip(bounds, bounds[1:]))
 
@@ -569,7 +593,8 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None, master_rows=
     end = pd.Timestamp(cfg['end_exclusive'])
     records, folds, coverage, overrounds, calib, research = [], [], Counter(), [], [], []
     # C8's Elo difference (and its variants'): ratings from the fold's training rows only
-    with_elo = keep is None or 'C8' in keep or bool(keep & set(RATE_VARIANTS))
+    with_elo = keep is None or 'C8' in keep or 'C9' in keep or bool(keep & set(RATE_VARIANTS))
+    forward = cfg.get(FORWARD_RUN) is not None
     history = training_rows(data, league, cfg, include_holdout)
     xg_history = None
     if keep is None or 'C3' in keep:
@@ -591,6 +616,11 @@ def evaluate_league(league, cache, cfg, include_holdout, keep=None, master_rows=
         elo = fit_history(train) if with_elo else None
         for _, row in test.iterrows():
             name = phase(row.Date, league, cfg)
+            if forward and name == 'holdout' and book_prices(row, period_book(row.Date, cfg)) is None:
+                # The forward holdout scores priced fixtures only (the declared count); an unpriced one still
+                # feeds the walk-forward fits of later windows, as any other earlier match does.
+                coverage[league + ':forward_unpriced'] += 1
+                name = 'forward_unpriced'
             if include_holdout and name != 'holdout' and keep is not None and keep & WALK_FORWARD_CANDIDATES \
                     and row.HomeTeam in model.teams and row.AwayTeam in model.teams:
                 # Not scored in a holdout run, but the walk-forward fits (C2, C5, C6, C7, C8) learn from the
@@ -971,6 +1001,89 @@ def rate_calibration_candidate(research, cfg, end, name, keep=None):
     return records, calib, coverage, fits
 
 
+def rate_calibration_slope_walk_forward(research, cfg, end, every_window=False):
+    """C9's walk-forward fits: C8's (rate_calibration_walk_forward with the Elo term), then one slope per window.
+
+    Returns (research sorted by date, C8's calibrated rates per row, windows); each window also carries its
+    `slope` (research_sharpen.fit on C8's forecasts of the decided matches played before the origin and before
+    cfg[SLOPE_FIT_END], with `slope_rows_last_date`). C8's forecast of a row is its window's calibrated rates on
+    its window's (rho, delta) grid, as C8 scores it (low_score_matrix); a row C8 did not forecast feeds no fit.
+    Windows without scored rows get a slope only with `every_window`."""
+    import research_sharpen as rs
+    research, rates, windows = rate_calibration_walk_forward(research, cfg, end, True, every_window)
+    dates = pd.DatetimeIndex([r['date'] for r in research])
+    goals = np.array([(r['home_goals'], r['away_goals']) for r in research], dtype=float).reshape(-1, 2)
+    outcomes = np.where(goals[:, 0] > goals[:, 1], 0, np.where(goals[:, 0] == goals[:, 1], 1, 2))
+    c8_probs = np.full((len(research), 3), np.nan)  # NaN: C8 made no forecast; left out of the slope fit
+    for window in windows:
+        if window['low_score'] is None:
+            continue
+        for i in np.flatnonzero((dates >= window['origin']) & (dates < window['stop'])):
+            if np.isfinite(rates[i]).all():
+                try:
+                    c8_probs[i] = rs.one_x_two(low_score_matrix(rates[i], window['low_score']))
+                except ValueError:
+                    pass
+    development = np.asarray(dates < pd.Timestamp(cfg[SLOPE_FIT_END])) & np.isfinite(c8_probs).all(axis=1)
+    half_life = cfg['production_v2']['half_life_days']
+    for window in windows:
+        window['slope'] = None
+        if not window['scored'] and not every_window:
+            continue
+        origin = window['origin']
+        past = np.asarray(dates < origin) & development
+        window['slope'] = {**rs.fit(c8_probs[past], outcomes[past],
+                                    (origin - dates[past]).total_seconds().to_numpy() / 86400, half_life),
+                           'slope_rows_last_date': dates[past].max().date().isoformat() if past.any() else None}
+    return research, rates, windows
+
+
+def rate_calibration_slope_candidate(research, cfg, end, keep=None):
+    """C9 for every scored match: C8's grid moved onto its sharpened 1X2 (draw held), walk-forward.
+
+    C8's fits are exactly C8's (rate_calibration_walk_forward with the Elo term), so every match C8 forecast
+    carries the grid C8 made of it: its window's calibrated rates on its window's (rho, delta). For each
+    window the slope (research_sharpen.fit, C6's slope fit) is fitted on C8's forecasts of the decided matches
+    played before the origin AND before cfg[SLOPE_FIT_END] (1 Jul 2025): development only, never a validation,
+    holdout or later result, whatever the run. The fit's recency weights are relative, so from the first window
+    after development the slope is the one fitted on every development forecast. A neutral slope (warm-up)
+    gives C8 exactly. Reads C0's goal rates, the Elo difference and final scores only: no odds.
+    """
+    import research_rate_calibration as rrc
+    records, calib, coverage, fits = [], [], Counter(), []
+    if (keep is not None and 'C9' not in keep) or not research:
+        return records, calib, coverage, fits
+    research, rates, windows = rate_calibration_slope_walk_forward(research, cfg, end)
+    outcomes = np.array([0 if r['home_goals'] > r['away_goals'] else 1 if r['home_goals'] == r['away_goals'] else 2
+                         for r in research])
+    for window in windows:
+        inside = window['scored']
+        if not inside:
+            continue
+        origin, low_score, slope = window['origin'], window['low_score'], window['slope']
+        fits.append({'origin': origin.date().isoformat(), 'end_exclusive': window['stop'].date().isoformat(),
+                     'scored_matches': len(inside), **slope, 'calibration': window['calibration'],
+                     'low_score': {k: low_score.get(k) for k in ('rho', 'delta', 'status', 'matches')}})
+        for i in inside:
+            r = research[i]
+            try:
+                if not np.isfinite(rates[i]).all():
+                    raise ValueError('no calibrated goal rates')
+                matrix = rb.matrix_value(rrc.sharpened_grid(rates[i], low_score, float(slope['slope'])))
+            except ValueError as exc:
+                coverage[f"{r['identity']['league']}:C9:{exc}"] += 1
+                continue
+            coverage[f"{r['identity']['league']}:C9:available"] += 1
+            hg, ag = r['home_goals'], r['away_goals']
+            records.extend(rb.score_fixture(r['identity'], {'C9': matrix}, hg, ag))
+            h, a = np.indices(matrix.shape)
+            calib.append({'phase': r['identity']['phase'], 'league': r['identity']['league'],
+                          'fixture_key': r['identity']['fixture_key'], 'candidate': 'C9',
+                          'probs': [float(matrix[h > a].sum()), float(matrix[h == a].sum()), float(matrix[h < a].sum())],
+                          'outcome': int(outcomes[i])})
+    return records, calib, coverage, fits
+
+
 RATE_GOALS_COLUMNS = ['phase', 'league', 'fixture_key', 'candidate', 'expected_home_goals', 'expected_away_goals',
                       'home_goals', 'away_goals']
 
@@ -1059,7 +1172,8 @@ def summarize(records, overrounds, coverage, cfg, metadata):
             for base, cand in (('C', 'C2'), ('C', 'C3'), ('C2', 'C3'), ('C', 'C5'), ('C2', 'C5'), ('C3', 'C5'),
                                ('C', 'C6'), ('C2', 'C6'), ('C5', 'C6'), ('C', 'M'), ('C', 'D'), ('C', 'A'), ('M', 'D'),
                                ('C6', 'C7'), ('C6', 'C8'), ('C', 'C7'), ('C', 'C8'), ('C0', 'C7'), ('C0', 'C8'),
-                               ('C7', 'C8'), *((b, c) for c in CAGEY_CANDIDATES for b in ('D', 'M'))):
+                               ('C7', 'C8'), ('C6', 'C9'), ('C8', 'C9'),
+                               *((b, c) for c in CAGEY_CANDIDATES for b in ('D', 'M'))):
                 result = paired(sub, base, cand)
                 if result:
                     entry[f'{cand}_vs_{base}'] = result
@@ -1496,8 +1610,67 @@ def validate_declaration(path, cfg, setup, ledger=LEDGER, candidates=None):
     if any(e.get('setup_sha256') == setup['sha256'] and e['candidate'] == data['candidate'] for e in entries):
         raise ValueError(f"Holdout already scored for candidate {data['candidate']!r} on this frozen setup "
                          '(same code, data and config)')
+    period = data.get('holdout_period')  # absent: the 16 Jan - 10 Oct holdout; else it must name the forward holdout
+    if period is not None and (not domestic or period != (cfg.get('forward_holdout') or {}).get('name')):
+        raise ValueError(f"holdout_period {period!r} is not the configured forward holdout")
     digest = hashlib.sha256(json.dumps(data, sort_keys=True).encode()).hexdigest()
     return {**data, 'calibration_rule': rule, 'sha256': digest}
+
+
+# ---------------------------------------------------------------------------
+# Forward holdout (docs/plan.md, Phase 2g-4): matches played after 10 Oct 2026
+# ---------------------------------------------------------------------------
+
+def declared_period(path):
+    """The holdout a declaration names: None for the 16 Jan - 10 Oct holdout, else its `holdout_period`."""
+    return json.loads(Path(path).read_text(encoding='utf-8')).get('holdout_period')
+
+
+def forward_ledger(cfg) -> Path:
+    """The forward holdout's own ledger; evaluation/holdout_ledger.json never records this period."""
+    return Path(__file__).parent / cfg['forward_holdout']['ledger']
+
+
+def file_dates(path) -> pd.Series:
+    """The match dates of one football-data.co.uk file, parsed as historical_benchmark.load_history parses them.
+    Reads the Date column only: no result and no price."""
+    raw = Path(path).read_bytes()
+    try:
+        content = raw.decode('utf-8-sig')
+    except UnicodeDecodeError:
+        content = raw.decode('latin1')
+    import io
+    text = pd.read_csv(io.StringIO(content), usecols=['Date'], dtype=str)['Date'].dropna().str.strip()
+    text = text.loc[text != '']
+    iso = text.str.match(r'^\d{4}-\d{2}-\d{2}(?:$|T|\s)')
+    dates = pd.Series(pd.NaT, index=text.index, dtype='datetime64[ns]')
+    dates.loc[iso] = pd.to_datetime(text.loc[iso], format='ISO8601', errors='coerce')
+    dates.loc[~iso] = pd.to_datetime(text.loc[~iso], format='mixed', dayfirst=True, errors='coerce')
+    if dates.isna().any():
+        raise ValueError('Invalid historical date ' + Path(path).name)
+    return dates.dt.normalize()
+
+
+def forward_end(cfg, cache) -> pd.Timestamp:
+    """The forward holdout's end (exclusive): the day after the last match of its leagues in the cached files.
+    Fixed by the data, so nothing is chosen at scoring time; dates only are read."""
+    last = max(file_dates(Path(cache) / f"{season}_{hb.CODES[league]}.csv").max()
+               for league in cfg['forward_holdout']['leagues'] for season in cfg['seasons'])
+    return pd.Timestamp(last) + pd.Timedelta(days=1)
+
+
+def forward_run_config(cfg, cache) -> dict:
+    """The forward run's config, in memory only: the forward period is the run's 'holdout' (phase), its end the
+    day after the last cached match. The configured end (plain runs) and the spent holdout's dates are unchanged."""
+    forward = cfg['forward_holdout']
+    if sorted(forward['leagues']) != sorted(cfg['leagues']):
+        raise ValueError('The forward holdout covers every configured league')
+    if pd.Timestamp(forward['start']) != pd.Timestamp(cfg['holdout_end_exclusive']):
+        raise ValueError('The forward holdout starts where the 16 Jan - 10 Oct holdout ends')
+    end = forward_end(cfg, cache)
+    if end <= pd.Timestamp(forward['start']):
+        raise ValueError('No cached match in the forward holdout yet')
+    return {**cfg, FORWARD_RUN: forward, 'end_exclusive': end.date().isoformat()}
 
 
 def holdout_verdict(records, calib, declaration, gap, minimum=None):
@@ -1582,6 +1755,7 @@ def record_holdout(declaration, setup, commit, fixtures, verdict, ledger=LEDGER)
                     'declaration_sha256': declaration['sha256'], 'setup_sha256': setup['sha256'],
                     'source_commit': commit, 'holdout_fixtures': fixtures,
                     'passes_holdout_gate': verdict['passes_holdout_gate'],
+                    **({'holdout_period': declaration['holdout_period']} if 'holdout_period' in declaration else {}),
                     **({'deciding_criterion': declaration['deciding_criterion'],
                         'calibration_tolerance': declaration['calibration_rule']['name']}
                        if 'deciding_criterion' in declaration else {}),
@@ -2766,6 +2940,9 @@ def historical(cache, cfg, *, include_holdout=False, keep=None, leagues=None, wo
         r, k, c, fits = rate_calibration_candidate(research, cfg, pd.Timestamp(cfg['end_exclusive']), name, keep)
         records += r; calib += k; coverage.update(c)
         folds.append({'candidate': name, 'walk_forward_fits': fits})
+    r, k, c, fits = rate_calibration_slope_candidate(research, cfg, pd.Timestamp(cfg['end_exclusive']), keep)
+    records += r; calib += k; coverage.update(c)
+    folds.append({'candidate': 'C9', 'walk_forward_fits': fits})
     for name in variants:
         r, k, c, fits = rate_calibration_candidate(with_variant_rates(research, variant_rates[name], name), cfg,
                                                    pd.Timestamp(cfg['end_exclusive']), name, keep)
@@ -3938,18 +4115,22 @@ def main(argv=None):
         picks.to_csv(args.output / 'today_picks.csv', index=False)
         return 0
     declaration = setup = keep = None
+    run_cfg, ledger, forward = cfg, LEDGER, False
     if args.declaration:
         if args.leagues:
             raise ValueError('A holdout run always covers every configured league')
-        setup = setup_fingerprint(cfg, args.cache)
-        declaration = validate_declaration(args.declaration, cfg, setup)
+        if declared_period(args.declaration) is not None:  # the forward holdout: its own period and ledger
+            run_cfg, ledger, forward = forward_run_config(cfg, args.cache), forward_ledger(cfg), True
+        setup = setup_fingerprint(run_cfg, args.cache)
+        declaration = validate_declaration(args.declaration, cfg, setup, ledger)
         keep = {declaration['candidate'], declaration['baseline'], 'M'}
     records, folds, coverage, overrounds, sources, calib = historical(
-        args.cache, cfg, include_holdout=declaration is not None, keep=keep, leagues=args.leagues, workers=args.workers,
-        variants=args.rate_variants, cagey=args.cagey_candidates)
-    metadata = {'mode': 'holdout' if declaration else 'historical', 'source_commit': commit, 'folds': folds,
-                'inputs': sources, 'config_sha256': hashlib.sha256(json.dumps(cfg, sort_keys=True).encode()).hexdigest()}
-    summary = summarize(records, overrounds, coverage, cfg, metadata)
+        args.cache, run_cfg, include_holdout=declaration is not None, keep=keep, leagues=args.leagues,
+        workers=args.workers, variants=args.rate_variants, cagey=args.cagey_candidates)
+    metadata = {'mode': 'forward_holdout' if forward else 'holdout' if declaration else 'historical',
+                'source_commit': commit, 'folds': folds, 'inputs': sources,
+                'config_sha256': hashlib.sha256(json.dumps(run_cfg, sort_keys=True).encode()).hexdigest()}
+    summary = summarize(records, overrounds, coverage, run_cfg, metadata)
     scored_cagey = [c for c in CAGEY_CANDIDATES if c in {*args.cagey_candidates, *(keep or ())}]
     if scored_cagey:  # never in a plain run: its results.json is unchanged
         summary['cagey_candidates'] = {c: CAGEY_CANDIDATES[c] for c in scored_cagey}
@@ -3964,7 +4145,7 @@ def main(argv=None):
         verdict = holdout_verdict(records, calib, declaration, summary['bet365_gap'])
         summary.update(declaration=declaration, setup=setup, holdout_verdict=verdict)
         fixtures = len({r['fixture_key'] for r in records if r['phase'] == 'holdout'})
-        record_holdout(declaration, setup, commit, fixtures, verdict)
+        record_holdout(declaration, setup, commit, fixtures, verdict, ledger)
     hb.write_json(args.output / 'results.json', summary)
     fixture_scores(records, cfg['draw_sensitive_lines']).to_csv(args.output / 'fixture_scores.csv', index=False)
     if declaration is None:  # per-forecast 1X2 for calibration work; locked runs only
