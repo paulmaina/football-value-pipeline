@@ -2107,7 +2107,7 @@
         "win_rate": null,
         "wins": 0
       },
-      "2026-11-24T15:50:27.507236+00:00": {
+      "2026-11-24T16:35:48.587606+00:00": {
         "brier": null,
         "flat_stake_roi": null,
         "graded": 0,
@@ -2638,7 +2638,7 @@
   "prediction_1x2_multiclass_brier": 0.546387,
   "prediction_fixtures_graded": 443,
   "provider_errors": {},
-  "reviewed_at_utc": "2026-11-24T15:51:27Z",
+  "reviewed_at_utc": "2026-11-24T16:36:44Z",
   "run_history_groups": {
     "2026-10-11T06:32:27.587243+00:00": {
       "brier": 0.232708,
@@ -3803,6 +3803,22 @@
       "total": 15,
       "win_rate": null,
       "wins": 0
+    },
+    "2026-11-24T16:35:48.587606+00:00": {
+      "brier": null,
+      "flat_stake_roi": null,
+      "graded": 0,
+      "half_losses": 0,
+      "half_wins": 0,
+      "losses": 0,
+      "no_loss_rate": null,
+      "pending": 15,
+      "profit_per_unit_staked": null,
+      "refunds": 0,
+      "settled_with_odds": 0,
+      "total": 15,
+      "win_rate": null,
+      "wins": 0
     }
   },
   "run_provenance": {
@@ -4133,6 +4149,10 @@
     "2026-11-24T15:50:27.507236+00:00": {
       "first_snapshot_commit": "826c1dc6dc8cde3758147c493d642bb59586521f",
       "generated_at_utc": "2026-11-24T15:50:27.507236+00:00"
+    },
+    "2026-11-24T16:35:48.587606+00:00": {
+      "first_snapshot_commit": "ca3316190802599610edd9c451b9a9166f9a9a06",
+      "generated_at_utc": "2026-11-24T16:35:48.587606+00:00"
     }
   },
   "shortlist": {
@@ -4159,17 +4179,17 @@
     "half_wins": 72,
     "losses": 507,
     "no_loss_rate": 0.725352,
-    "pending": 69,
+    "pending": 84,
     "profit_per_unit_staked": 69.234,
     "refunds": 16,
     "settled_with_odds": 1846,
-    "total": 1915,
+    "total": 1930,
     "win_rate": 0.716685,
     "wins": 1323
   },
   "source": "football-data.org v4 FINISHED regulation-time scorelines; Europa: corroborated Cornerflick / Fixture Download league-phase scores",
   "status": "PARTIALLY_GRADED",
-  "tracked_prediction_runs": 82,
+  "tracked_prediction_runs": 83,
   "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
   "unique_shortlisted_fixtures": 256
 }

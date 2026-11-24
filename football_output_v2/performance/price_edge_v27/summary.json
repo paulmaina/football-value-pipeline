@@ -1186,7 +1186,7 @@
     "new_master_offers": {
       "both_agree": 3,
       "fixtures": 75,
-      "included": 23,
+      "included": 24,
       "inspection_flag": 0,
       "no_research_check": 0,
       "no_view": 0,
@@ -1399,7 +1399,7 @@
       "graded": 980,
       "no_loss_share": 0.8040816326530612,
       "positive_return_share": 0.7295918367346939,
-      "recommendations": 1026,
+      "recommendations": 1034,
       "simulated_mean_unit_return": 0.06908979591836735
     },
     "note": "Every captured generation is graded at its own offered odds; re-uploads deduplicate. Repeated fixtures and overlapping lists are correlated recommendations, not independent bets. Unit returns are hypothetical, not actual betting ROI. Latest-view reports remain separate.",
@@ -1408,12 +1408,12 @@
       "graded": 1579,
       "no_loss_share": 0.7093096896770108,
       "positive_return_share": 0.7029765674477517,
-      "recommendations": 1648,
+      "recommendations": 1663,
       "simulated_mean_unit_return": 0.029413552881570625
     }
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-24T15:51:27.307532+00:00",
+  "reviewed_at_utc": "2026-11-24T16:36:44.036289+00:00",
   "stop_review": true,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "strong_master": {
@@ -1787,7 +1787,7 @@
       "positive_share": 0.054820415879017016,
       "standard_error": 0.0010473047909545074
     },
-    "frozen": 2868,
+    "frozen": 2870,
     "return_at_capture_fair": {
       "mean": 0.009684873786440208,
       "n": 2169,
@@ -1800,7 +1800,7 @@
       "positive_share": 0.7414750198255353,
       "standard_error": 0.01498557399820936
     },
-    "with_offered_price": 2868
+    "with_offered_price": 2870
   },
   "version": "price-edge-v27-tracking-v1"
 }
