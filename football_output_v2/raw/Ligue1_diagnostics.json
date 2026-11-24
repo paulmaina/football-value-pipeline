@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "b012bf647b3154853737559e0d2adb26161c4f5a61849359a75b0ca6c5ab885e",
-  "training_as_of_utc": "2026-11-24T08:09:08.849968+00:00",
+  "training_as_of_utc": "2026-11-24T15:18:59.800617+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 99,
     "bbs_added_results": 0,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-24T08:09:08.849968+00:00",
+    "cutoff_utc": "2026-11-24T15:18:59.800617+00:00",
     "observations": 1098,
     "observations_sha256": "9dc5b59457cb166942eab82dd775b1f2ea483d9ab552a10718155387f4c80092",
     "eligible_training_matches": 415,
@@ -185,10 +185,10 @@
   },
   "training_end": "2026-11-22",
   "fit_success": true,
-  "objective": 1603.3768502549083,
-  "base": 0.2030882722977109,
-  "home_adv": 0.19566457611974367,
-  "rho": -0.04784138681407317,
+  "objective": 1602.6859629677404,
+  "base": 0.2031235488234858,
+  "home_adv": 0.19568395009075204,
+  "rho": -0.047868133819878436,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -211,22 +211,49 @@
   },
   "training_source": "Football-Data.co.uk",
   "fixture_provider_mode": "auto",
-  "fixture_sources": [],
+  "fixture_sources": [
+    "football-data.org"
+  ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 0,
-  "excluded_started_fixtures": [
-    {
-      "home_team": "Toulouse FC",
-      "away_team": "RC Strasbourg Alsace",
-      "kickoff_utc": "2026-11-06T19:45:00+00:00",
-      "fixture_source": "football-data.org"
-    }
-  ],
+  "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261124T080908849968Z_ee0a159c1b224371b1dd6d74b2da901dfe7be60ea871d65820eaae5112ab11a2.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261124T151859800617Z_833aacc5f956a81d36416c1f53871297dbe3e1f73026c81398491b17abb164de.json",
+  "over_1_5_in_window_quote_fixtures": 0,
+  "additional_odds_coverage_mode": "all",
+  "additional_odds_coverage": [
+    {
+      "fixture_id": "fdorg:559616",
+      "event_id": null,
+      "home_team": "Stade Brestois 29",
+      "away_team": "Paris FC",
+      "kickoff_utc": "2026-11-27T19:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    }
+  ],
+  "additional_odds_in_window_linked_fixtures": 0,
+  "additional_odds_unrequested_linked_fixtures": 0,
+  "additional_event_odds_hard_cap_applies": false,
+  "additional_event_odds_calls_this_league": 0,
+  "totals_anchor_fixtures": {
+    "NOT_ANCHORED_NO_PINNACLE": 1
+  },
+  "shot_features_applied_fixtures": 0,
+  "goal_rate_features_used": {
+    "none": 1
+  },
+  "legacy_comparison_status": {
+    "None": 1
+  },
+  "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }

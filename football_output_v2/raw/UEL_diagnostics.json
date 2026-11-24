@@ -10,7 +10,7 @@
     "2026"
   ],
   "training_sha256": "7423d6cb39c84355e5fbdd4ed6b7bfedf9856d0b77390f595fb8f318aaee7986",
-  "training_as_of_utc": "2026-11-24T08:09:50.679436+00:00",
+  "training_as_of_utc": "2026-11-24T15:19:45.801984+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -52,9 +52,9 @@
   },
   "training_end": "2026-11-05",
   "fit_success": true,
-  "objective": 819.292734587604,
-  "base": 0.1276237861505775,
-  "home_adv": 0.23248738572895378,
+  "objective": 818.9409280179415,
+  "base": 0.12761973853936542,
+  "home_adv": 0.23252680997251884,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -94,15 +94,15 @@
   "live_odds_matched": 18,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 18,
+  "additional_event_odds_calls_used_before_this_league": 9,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
-      "fixture_id": "a18687d4f17a96a7732fb0c8673ea037",
-      "event_id": "a18687d4f17a96a7732fb0c8673ea037",
+      "fixture_id": "1640061973",
+      "event_id": "1640061973",
       "home_team": "Besiktas JK",
       "away_team": "Hapoel Be'er Sheva",
       "kickoff_utc": "2026-11-26T17:45:00+00:00",
@@ -114,8 +114,8 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "7da3be4f6fe50a39ecdf3a8dc12966c8",
-      "event_id": "7da3be4f6fe50a39ecdf3a8dc12966c8",
+      "fixture_id": "1640061971",
+      "event_id": "1640061971",
       "home_team": "Celta Vigo",
       "away_team": "Bournemouth",
       "kickoff_utc": "2026-11-26T17:45:00+00:00",
@@ -127,8 +127,8 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "cdf4b848361b0374c2027326bd54d8eb",
-      "event_id": "cdf4b848361b0374c2027326bd54d8eb",
+      "fixture_id": "1640077678",
+      "event_id": "1640077678",
       "home_team": "Dinamo Zagreb",
       "away_team": "Bayer Leverkusen",
       "kickoff_utc": "2026-11-26T17:45:00+00:00",
@@ -140,8 +140,8 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "707c513bfa43b45b7813126e09ad08d8",
-      "event_id": "707c513bfa43b45b7813126e09ad08d8",
+      "fixture_id": "1640066618",
+      "event_id": "1640066618",
       "home_team": "Marseille",
       "away_team": "PFC Levski Sofia",
       "kickoff_utc": "2026-11-26T17:45:00+00:00",
@@ -153,8 +153,8 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "31ebd41354699af625fa3372932206f0",
-      "event_id": "31ebd41354699af625fa3372932206f0",
+      "fixture_id": "1640061968",
+      "event_id": "1640061968",
       "home_team": "Olympiakos Piraeus",
       "away_team": "AC Milan",
       "kickoff_utc": "2026-11-26T17:45:00+00:00",
@@ -166,10 +166,10 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "5902b4703e9ddc1f573091e14107834c",
-      "event_id": "5902b4703e9ddc1f573091e14107834c",
+      "fixture_id": "1640061970",
+      "event_id": "1640061970",
       "home_team": "Salzburg",
-      "away_team": "FC Ararat-Armenia",
+      "away_team": "Ararat-Armenia",
       "kickoff_utc": "2026-11-26T17:45:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
@@ -179,10 +179,10 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "3ee2bf8a6fa6add543f64ac3e9813976",
-      "event_id": "3ee2bf8a6fa6add543f64ac3e9813976",
+      "fixture_id": "1640066616",
+      "event_id": "1640066616",
       "home_team": "Union Saint-Gilloise",
-      "away_team": "Lech Pozna\u0144",
+      "away_team": "Lech Poznan",
       "kickoff_utc": "2026-11-26T17:45:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
@@ -192,9 +192,9 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "38332e4cbb2b3991904b00a75dc3769d",
-      "event_id": "38332e4cbb2b3991904b00a75dc3769d",
-      "home_team": "Viktoria Plze\u0148",
+      "fixture_id": "1640066615",
+      "event_id": "1640066615",
+      "home_team": "Viktoria Plzen",
       "away_team": "Benfica",
       "kickoff_utc": "2026-11-26T17:45:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
@@ -205,8 +205,8 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "3fe17778f32b5fd0f218f9be6b0681cc",
-      "event_id": "3fe17778f32b5fd0f218f9be6b0681cc",
+      "fixture_id": "1640061994",
+      "event_id": "1640061994",
       "home_team": "Crystal Palace",
       "away_team": "Real Sociedad",
       "kickoff_utc": "2026-11-26T20:00:00+00:00",
@@ -218,8 +218,8 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "0e5553b52ece07115fbdf8145df0c377",
-      "event_id": "0e5553b52ece07115fbdf8145df0c377",
+      "fixture_id": "1640077696",
+      "event_id": "1640077696",
       "home_team": "Ferencv\u00e1ros TC",
       "away_team": "NK Celje",
       "kickoff_utc": "2026-11-26T20:00:00+00:00",
@@ -231,8 +231,8 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "d6377d30379e5d3053c1076646d83f78",
-      "event_id": "d6377d30379e5d3053c1076646d83f78",
+      "fixture_id": "1640061967",
+      "event_id": "1640061967",
       "home_team": "Juventus",
       "away_team": "Omonoia FC",
       "kickoff_utc": "2026-11-26T20:00:00+00:00",
@@ -244,8 +244,8 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "a24c89b65c5a30fb9473735049589e64",
-      "event_id": "a24c89b65c5a30fb9473735049589e64",
+      "fixture_id": "1640061979",
+      "event_id": "1640061979",
       "home_team": "Lyon",
       "away_team": "Lillestrom",
       "kickoff_utc": "2026-11-26T20:00:00+00:00",
@@ -257,8 +257,8 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "e836bc70afa19b0db28fb320a97662e4",
-      "event_id": "e836bc70afa19b0db28fb320a97662e4",
+      "fixture_id": "1640066617",
+      "event_id": "1640066617",
       "home_team": "NEC Nijmegen",
       "away_team": "Rennes",
       "kickoff_utc": "2026-11-26T20:00:00+00:00",
@@ -270,8 +270,8 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "de10dd2e5917108a9478c07275ba8cdb",
-      "event_id": "de10dd2e5917108a9478c07275ba8cdb",
+      "fixture_id": "1640061969",
+      "event_id": "1640061969",
       "home_team": "OFI Crete",
       "away_team": "Anderlecht",
       "kickoff_utc": "2026-11-26T20:00:00+00:00",
@@ -283,8 +283,8 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "189401357a4b5e5920ca9ec1207a6566",
-      "event_id": "189401357a4b5e5920ca9ec1207a6566",
+      "fixture_id": "1640066619",
+      "event_id": "1640066619",
       "home_team": "Sparta Prague",
       "away_team": "AZ Alkmaar",
       "kickoff_utc": "2026-11-26T20:00:00+00:00",
@@ -296,8 +296,8 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "413409b43875d1bdb627a9e7fb6bc3fd",
-      "event_id": "413409b43875d1bdb627a9e7fb6bc3fd",
+      "fixture_id": "1640061996",
+      "event_id": "1640061996",
       "home_team": "Sunderland",
       "away_team": "Jagiellonia Bia\u0142ystok",
       "kickoff_utc": "2026-11-26T20:00:00+00:00",
@@ -309,8 +309,8 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "df4947bbe49057782feacca38c03e790",
-      "event_id": "df4947bbe49057782feacca38c03e790",
+      "fixture_id": "1640060302",
+      "event_id": "1640060302",
       "home_team": "TSG Hoffenheim",
       "away_team": "SK Sturm Graz",
       "kickoff_utc": "2026-11-26T20:00:00+00:00",
@@ -322,8 +322,8 @@
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "e2036567ee9394a55f022358781dce15",
-      "event_id": "e2036567ee9394a55f022358781dce15",
+      "fixture_id": "1640066644",
+      "event_id": "1640066644",
       "home_team": "Torreense",
       "away_team": "Celtic",
       "kickoff_utc": "2026-11-26T20:00:00+00:00",
