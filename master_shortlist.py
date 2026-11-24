@@ -99,8 +99,9 @@ STRONG_LIVE_VERSIONS = {'master-strong-team-v1': 'master-strong-team-v1-live-v11
                         'master-strong-team-v3': 'master-strong-team-v3-live-v13',
                         'master-strong-team-v4': 'master-strong-team-v4-live-v14',
                         'master-strong-team-v5': 'master-strong-team-v5-live-v15',
-                        'master-strong-team-v6': 'master-strong-team-v6-live-v16'}
-VERSION_STRONG_LIVE = STRONG_LIVE_VERSIONS['master-strong-team-v6']
+                        'master-strong-team-v6': 'master-strong-team-v6-live-v16',
+                        'master-strong-team-v7': 'master-strong-team-v7-live-v17'}
+VERSION_STRONG_LIVE = STRONG_LIVE_VERSIONS['master-strong-team-v7']
 STRONG_FAILED = "STRONG MASTER FAILED - TODAY'S MASTER PUBLISHED"
 STRONG_LIVE_STATUS = ('live master: the strong-team master, released by Paul on 23 Nov 2026 as a deliberate exception '
                       'to the release gate (offline: no measurable difference from today\'s master); graded beside '
