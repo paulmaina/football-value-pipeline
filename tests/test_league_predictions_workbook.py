@@ -286,6 +286,100 @@ class ListTabTests(OfflineQuotePolicyTestCase):
         self.assertIn('the old master was the live list', book['cells']['Old master (shadow)']['A2'])
 
 
+class StrongMasterRunTests(OfflineQuotePolicyTestCase):
+    """Runs with the strong-team master live (since 23 Nov 2026): the shadow tab is the previous master
+    (master_shortlist_new.csv, the rollback baseline); master_shortlist_old.csv is no longer written and never read."""
+
+    def setUp(self):
+        import master_shortlist as ms
+        self.ms = ms
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.out = Path(self.tmp.name)
+        self.raw = self.out / 'raw'
+        self.raw.mkdir()
+        base = {'kickoff_utc': KICKOFF, 'league': 'Premier League', 'bookmaker': 'Pinnacle',
+                'offered_last_update_utc': '2026-11-24T15:45:00+00:00', 'evaluated_at_utc': '2026-11-24T15:50:00+00:00',
+                'new_master_decision': 'SHORTLISTED', 'in_value_shortlist': True, 'in_cagey_tier': True,
+                'inspection_flag': False}
+        strong = [dict(base, new_master_rank=1, new_master_tier='proven', home_team='Arsenal', away_team='Chelsea',
+                       market_to_bet='Double Chance 1X', offered_decimal_odds=1.25, cagey_no_loss_probability=0.86,
+                       ranking_profit_probability=0.80, research_no_loss_probability=0.81, gap_points=-5.0,
+                       new_master_version=ms.VERSION_STRONG_LIVE, weak_link='no', weak_link_reasons='')]
+        previous = [dict(base, new_master_rank=1, new_master_tier='safe', home_team='Arsenal', away_team='Chelsea',
+                         market_to_bet='Asian Handicap Home +0.00', offered_decimal_odds=1.3,
+                         cagey_no_loss_probability=0.83, ranking_profit_probability=0.6,
+                         research_no_loss_probability=0.78, gap_points=-5.0, new_master_labels='both agree',
+                         new_master_version=ms.VERSION_NEW_LIVE),
+                    dict(base, new_master_rank=2, new_master_tier='fill', home_team='Genoa', away_team='AC Milan',
+                         market_to_bet='Double Chance X2', offered_decimal_odds=1.4, cagey_no_loss_probability=0.7,
+                         ranking_profit_probability=0.66, research_no_loss_probability=0.68, gap_points=-2.0,
+                         new_master_version=ms.VERSION_NEW_LIVE)]
+        pd.DataFrame(strong).to_csv(self.raw / ms.FILE, index=False)
+        pd.DataFrame(previous).to_csv(self.raw / pw.PREVIOUS_FILE, index=False)
+        # Left over from a run before the strong release (the committed raw folder keeps it): never read.
+        pd.DataFrame([dict(master_rank=1, kickoff_utc=KICKOFF, league='Serie A', home_team='Lazio', away_team='Roma',
+                           market_to_bet='Away win', offered_decimal_odds=1.95, master_profit_probability=0.51)]).to_csv(
+            self.raw / ms.OLD_FILE, index=False)
+        self.summary = {'generated_at_utc': '2026-11-24T15:50:00+00:00',
+                        'master_shortlist': {'version': ms.VERSION_STRONG_LIVE, 'rule': 'master-strong-team-v6'}}
+        self.write_summary(self.summary)
+
+    def write_summary(self, summary):
+        (self.raw / 'conservative_bet_summary.json').write_text(json.dumps(summary))
+
+    def book(self, name='strong.xlsx'):
+        return xb.read_workbook(write_predictions_workbook([], self.out / name, None, self.raw))
+
+    def test_the_shadow_tab_is_the_previous_master_from_master_shortlist_new(self):
+        book = self.book()
+        self.assertEqual(book['sheets'], ['Master shortlist', 'Previous master (shadow)', 'Value shortlist',
+                                          'Cagey tier'])
+        weak = ['Weak link', 'Weak-link reasons']
+        headers, rows = table(book, 'Previous master (shadow)')
+        self.assertEqual(headers, MASTER + ['In strong master (live)'] + TAIL + weak)
+        self.assertEqual([r['Match'] for r in rows], ['Arsenal v Chelsea', 'Genoa v AC Milan'])  # not the old file
+        first, second = rows
+        self.assertEqual((first['Tier'], second['Tier']), ('safe', 'fill'))
+        self.assertAlmostEqual(first['Cagey no-loss chance'], 0.83)  # its own view of its own offer
+        self.assertEqual(first['Labels and flags'], 'both agree')
+        self.assertEqual(first['In strong master (live)'], 'yes (rank 1, other bet: Double Chance 1X)')
+        self.assertEqual(second['In strong master (live)'], 'no')
+        self.assertEqual(first['Weak link'], 'previous master: not flagged')
+        subtitle = book['cells']['Previous master (shadow)']['A2']
+        self.assertIn('raw/master_shortlist_new.csv', subtitle)
+        self.assertIn('Run Tue 24 Nov 2026 18:50 EAT', subtitle)
+        self.assertNotIn('master_shortlist_old.csv', subtitle)
+
+    def test_the_master_tab_compares_with_the_previous_master(self):
+        headers, rows = table(self.book(), 'Master shortlist')
+        self.assertEqual(headers, MASTER + ['In previous master (shadow)'] + TAIL + ['Weak link', 'Weak-link reasons'])
+        self.assertEqual(rows[0]['Tier'], 'proven')
+        self.assertEqual(rows[0]['In previous master (shadow)'],
+                         'yes (rank 1, other bet: Asian Handicap Home +0.00)')
+        self.assertEqual(rows[0]['Weak link'], 'no')
+
+    def test_a_missing_baseline_and_a_failed_strong_master_say_why(self):
+        (self.raw / pw.PREVIOUS_FILE).unlink()
+        self.assertEqual(table(self.book('baseline.xlsx'), 'Previous master (shadow)')[1][0]['Rank'],
+                         'No previous-master file in this run (master_shortlist_new.csv missing: comparison '
+                         'baseline missing).')
+        self.write_summary({'generated_at_utc': self.summary['generated_at_utc'],
+                            'master_shortlist': {'version': self.ms.VERSION_NEW_LIVE},
+                            self.ms.RELEASE_STATUS_KEY: {'status': self.ms.STRONG_FAILED}})
+        book = self.book('failed.xlsx')
+        self.assertIn('Previous master (shadow)', book['sheets'])
+        self.assertIn('the strong master failed', table(book, 'Previous master (shadow)')[1][0]['Rank'])
+
+    def test_runs_before_the_strong_release_keep_the_old_master_tab(self):
+        self.write_summary({'generated_at_utc': '2026-11-22T12:00:00+00:00',
+                            'master_shortlist': {'version': self.ms.VERSION_NEW_LIVE}})
+        book = self.book('archived.xlsx')
+        self.assertEqual(book['sheets'][:2], ['Master shortlist', 'Old master (shadow)'])
+        self.assertEqual(table(book, 'Old master (shadow)')[1][0]['Match'], 'Lazio v Roma')
+        self.assertIn('In old master (shadow)', table(book, 'Master shortlist')[0])
+
+
 @unittest.skipIf(openpyxl is None, "openpyxl is not installed")
 class OpenpyxlTests(WorkbookCase):
     def test_reloads_cleanly_with_formats_tables_and_frozen_panes(self):
