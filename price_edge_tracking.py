@@ -245,6 +245,60 @@ def frozen_strong_master_picks(root: Path, archive) -> List[dict]:
     return latest_per_fixture(sorted(rows, key=lambda r: str(r.get('snapshot_captured_utc') or '')))
 
 
+def frozen_strong_gate_left_out(root: Path, archive) -> List[dict]:
+    """The offers the strong master's research gate (since master-strong-team-v3) left out, and nothing else did:
+    latest generation per fixture and offer (market, side, line), pre-kickoff, under the current rule. The
+    comparison group of the gate's review (master_strong_config.json research_gate review)."""
+    import master_strong as ms
+    from master_shortlist import FILE as MASTER_FILE
+    from performance_tracking import fixture_key, utc
+    rows = archived_tier_rows(root, archive, MASTER_FILE)
+    rows = [r for r in rows if r.get('strong_master_version') == ms.VERSION
+            and str(r.get('strong_reason') or '').startswith('research gate: ')]
+    frozen = {}
+    for row in sorted(rows, key=lambda r: str(r.get('snapshot_captured_utc') or '')):
+        key = (fixture_key(row), row.get('market'), row.get('handicap_side'), str(row.get('handicap_line')))
+        if key not in frozen or utc(row['snapshot_generated_utc']) > utc(frozen[key]['snapshot_generated_utc']):
+            frozen[key] = row
+    return list(frozen.values())
+
+
+NO_LOSS_STATUSES = ('WON', 'HALF_WON', 'REFUNDED')
+
+
+def no_loss_gap(frame: pd.DataFrame) -> dict:
+    """Graded rows: observed no-loss rate (won, half won or refunded), the mean market no-loss chance they were
+    ranked by (ranking_no_loss_probability) and the difference, in points."""
+    empty = {'n': 0, 'observed_no_loss': None, 'market_no_loss': None, 'difference_points': None}
+    if not len(frame) or 'result_status' not in frame or 'ranking_no_loss_probability' not in frame:
+        return empty
+    market = pd.to_numeric(frame['ranking_no_loss_probability'], errors='coerce')
+    graded = frame.loc[frame.result_status.notna() & market.notna()]
+    if not len(graded):
+        return empty
+    observed = float(graded.result_status.isin(NO_LOSS_STATUSES).mean())
+    expected = float(market.loc[graded.index].mean())
+    return {'n': int(len(graded)), 'observed_no_loss': observed, 'market_no_loss': expected,
+            'difference_points': 100 * (observed - expected)}
+
+
+def research_gate_review(strong: pd.DataFrame, left_out: Optional[pd.DataFrame], config: Mapping) -> Optional[dict]:
+    """The research gate's review (since master-strong-team-v3; R3 extended to every pick): once
+    review_after_graded_picks strong-master picks are graded, graded picks against the offers left out only by the
+    gate, each as observed minus market no-loss. Reporting only: Paul keeps or drops the gate."""
+    gate = config.get('research_gate')
+    if not gate:
+        return None
+    need = int(gate['review_after_graded_picks'])
+    picks, others = no_loss_gap(strong), no_loss_gap(left_out if left_out is not None else pd.DataFrame())
+    ready = picks['n'] >= need
+    return {'rule': gate['rule'], 'review': gate['review'], 'review_after_graded_picks': need,
+            'graded_picks': picks['n'], 'status': 'READY FOR REVIEW' if ready else 'WAITING',
+            'picks': picks, 'left_out_by_gate': others,
+            'picks_minus_left_out_points': (picks['difference_points'] - others['difference_points']
+                                            if ready and others['n'] else None)}
+
+
 def _grouped(frame: pd.DataFrame, column: str) -> dict:
     if not len(frame) or column not in frame:
         return {}
@@ -252,7 +306,7 @@ def _grouped(frame: pd.DataFrame, column: str) -> dict:
             for name, g in frame.groupby(frame[column].fillna('n/a'))}
 
 
-def strong_master_summary(strong: pd.DataFrame, live: pd.DataFrame) -> dict:
+def strong_master_summary(strong: pd.DataFrame, live: pd.DataFrame, left_out: Optional[pd.DataFrame] = None) -> dict:
     """The strong-team master (shadow) graded beside the live master: CLV and realised profit, by tier, market group
     and labels (context only), and the live comparison decided on 23 Nov 2026 (master_strong_config.json
     live_comparison: strong minus live master flat-stake return, whole kickoff weeks resampled)."""
@@ -273,7 +327,8 @@ def strong_master_summary(strong: pd.DataFrame, live: pd.DataFrame) -> dict:
             'by_labels': _grouped(strong, 'strong_labels'),
             'european_graded_picks': int(profits[flags].notna().sum()) if len(strong) else 0,
             'min_graded_matches': int(config['live_comparison']['min_graded_matches']),
-            'comparison': comparison}
+            'comparison': comparison,
+            **({'research_gate_review': review} if (review := research_gate_review(strong, left_out, config)) else {})}
 
 
 def strong_rollback(comparison: dict) -> dict:
@@ -1019,6 +1074,8 @@ def review(root: Path, archive, records: List[dict], clock, active_rule: Optiona
     master = grade(bind_event_ids(frozen_old_master_picks(root, archive), archive), observations, records, clock)
     new_master = grade(bind_event_ids(frozen_new_master_picks(root, archive), archive), observations, records, clock)
     strong = grade(bind_event_ids(frozen_strong_master_picks(root, archive), archive), observations, records, clock)
+    gate_left_out = grade(bind_event_ids(frozen_strong_gate_left_out(root, archive), archive), observations, records,
+                          clock)
     from recommendation_history import rows as history_rows, summarize as history_summary
     history = grade(bind_event_ids(history_rows(root,archive),archive),observations,records,clock)
     from bet_ledger import review_private
@@ -1067,7 +1124,7 @@ def review(root: Path, archive, records: List[dict], clock, active_rule: Optiona
         'master_release_incidents': (incidents := master_release_incidents(root, archive)),
         'master_rollback': master_rollback(new_master, master,
                                            baseline_missing_runs=incidents['baseline_missing']['runs']),
-        'strong_master': strong_master_summary(strong, new_master),
+        'strong_master': strong_master_summary(strong, new_master, gate_left_out),
         'cagey_tier_picks': int(len(tier)),
         'cagey_tier': {'clv': summarize(tier['clv'] if len(tier) else []),
                        'profit': summarize(tier['unit_profit'] if len(tier) else [])},
@@ -1265,6 +1322,22 @@ def new_master_report(summary: dict) -> List[str]:
     return lines
 
 
+def research_gate_lines(review: Optional[dict]) -> List[str]:
+    """The research gate's review table, once enough picks are graded."""
+    if not review or review['status'] != 'READY FOR REVIEW':
+        return []
+    pct = lambda v: 'n/a' if v is None else f'{v:.1%}'
+    pts = lambda v: 'n/a' if v is None else f'{v:+.1f}'
+    row = lambda name, x: (f"| {name} | {x['n']} | {pct(x['observed_no_loss'])} | {pct(x['market_no_loss'])} | "
+                           f"{pts(x['difference_points'])} |")
+    return ['**Research gate review: ready.** ' + review['review'], '',
+            '| group | graded | observed no-loss | market no-loss | observed minus market (points) |',
+            '|---|---|---|---|---|', row('picks (research no-loss at least 0.70)', review['picks']),
+            row('offers left out only by the gate', review['left_out_by_gate']), '',
+            f"Picks minus left-out offers: {pts(review['picks_minus_left_out_points'])} points. Paul keeps or drops "
+            'the gate.', '']
+
+
 def strong_master_report(summary: dict) -> List[str]:
     """The strong-team master (shadow) beside the live master, with its comparison rule's status."""
     m = summary.get('strong_master')
@@ -1275,7 +1348,12 @@ def strong_master_report(summary: dict) -> List[str]:
                if m.get('live') else '## Strong-team master (shadow, rule master-strong-team-v1) beside the live master')
     lines = [heading, '',
              f"Frozen picks: {m['picks']}; CLV {_fmt(m['clv'])}; realised profit per bet {_fmt(m['profit'])}. "
-             f"Graded European picks: {m['european_graded_picks']} (R3 is reviewed at 50).", '',
+             + (f"Graded European picks: {m['european_graded_picks']} (R3 is reviewed at 50)."
+                if 'research_gate_review' not in m else
+                f"Research gate (research no-loss at least 0.70 on every pick, since 24 Nov 2026): "
+                f"{m['research_gate_review']['graded_picks']} graded picks (reviewed at "
+                f"{m['research_gate_review']['review_after_graded_picks']})."), '',
+             *research_gate_lines(m.get('research_gate_review')),
              f"Comparison rule (decided {c['decided']}): {c['rule']}", '']
     row = lambda name, x: (f"| {name} | {x['graded_matches']} | {x['weeks']} | "
                            + (f"{x['flat_stake_return_per_bet']:+.2%} | {x['hit_rate']:.1%} | {x['average_price']:.2f} |"

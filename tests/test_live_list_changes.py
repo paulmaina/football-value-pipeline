@@ -80,12 +80,12 @@ class LiveConfigTest(unittest.TestCase):
         self.assertEqual((settings['value_rule'], settings['cagey_tier_rule']),
                          (ps.RULE_V3, tier.RULE_MARKET_BASIS_120))
 
-    def test_the_strong_master_is_v2_with_its_own_window(self):
-        config = ms.load_config()
-        self.assertEqual(config['version'], 'master-strong-team-v2')
-        self.assertEqual((config['execution']['min_odds_exclusive'], config['execution']['max_odds_inclusive']),
-                         (1.2, 2.0))
-        self.assertEqual(master_shortlist.VERSION_STRONG_LIVE, 'master-strong-team-v2-live-v12')
+    def test_the_strong_master_has_its_own_window_since_v2(self):
+        for config in (ms.load_config(), ms.load_config(version='master-strong-team-v2')):
+            self.assertEqual((config['execution']['min_odds_exclusive'], config['execution']['max_odds_inclusive']),
+                             (1.2, 2.0))
+        self.assertNotIn('execution', ms.load_config(version='master-strong-team-v1'))
+        self.assertEqual(master_shortlist.STRONG_LIVE_VERSIONS['master-strong-team-v2'], 'master-strong-team-v2-live-v12')
         self.assertEqual(master_shortlist.STRONG_LIVE_VERSIONS[ms.VERSION], master_shortlist.VERSION_STRONG_LIVE)
         self.assertEqual(set(master_shortlist.STRONG_LIVE_VERSIONS), set(ms.VERSIONS))
 
@@ -185,6 +185,95 @@ class ActivityTest(unittest.TestCase):
         old = {'master_shortlist': {'rule': 'master-strong-team-v1'}}
         self.assertIsNone(ma.rule_release_event([], old))
         self.assertIn(ms.VERSION, ma.RULE_RELEASES)
+
+
+# ---------------------------------------------------------------------------
+# Part 2: research no-loss >= 0.70 for every strong-master pick (master-strong-team-v3)
+# ---------------------------------------------------------------------------
+
+class ResearchGateTest(unittest.TestCase):
+    def test_every_tier_needs_research_no_loss_at_least_0_70(self):
+        from test_master_strong import offer, config, RUN
+        cfg = config()
+        self.assertEqual(cfg['research_gate']['min_research_no_loss'], 0.7)
+        rows = [offer('m1', research=.69), offer('m2', research=None), offer('m3', research=.70),
+                offer('m4', no_loss=.55, profit=.55, research=.60), offer('m5', no_loss=.55, profit=.50, research=.90)]
+        ms.select(rows, cfg, RUN)
+        by = {r['_match']: r for r in rows}
+        self.assertEqual((by['m1']['strong_decision'], by['m1']['strong_reason']),
+                         ('LEFT_OUT', 'research gate: research no-loss below 0.70'))
+        self.assertEqual((by['m2']['strong_decision'], by['m2']['strong_reason']),
+                         ('LEFT_OUT', 'research gate: no research view'))
+        self.assertEqual(by['m3']['strong_decision'], 'SHORTLISTED')
+        # The fill would take m4 (the list is short), but the gate covers every tier.
+        self.assertEqual(by['m4']['strong_reason'], 'research gate: research no-loss below 0.70')
+        self.assertEqual((by['m5']['strong_decision'], by['m5']['strong_tier']), ('SHORTLISTED', 'not proven: fill'))
+        self.assertIs(by['m1']['strong_r3_check'], False)  # domestic offers carry the check since v3
+        self.assertIs(by['m3']['strong_r3_check'], True)
+
+    def test_rules_before_v3_have_no_gate(self):
+        from test_master_strong import offer, RUN
+        old = copy.deepcopy(ms.load_config(version='master-strong-team-v2'))
+        old['checks']['strong_team']['E'] = RUN['E']
+        old['research_roles']['R1_research_strength'].update(G=RUN['G'])
+        rows = [offer('m1', research=.50), offer('m2', research=None, no_loss=.6, profit=.6)]
+        for row in rows:
+            ms.annotate(row, {'elo_home_expectancy': .7, 'history': {}, 'teams': {}, 'h2h': [], 'research_margin': 1.},
+                        config=old, trust='trusted', european=False, E=RUN['E'], G=RUN['G'])
+        ms.select(rows, old, RUN)
+        self.assertEqual([r['strong_decision'] for r in rows], ['SHORTLISTED', 'SHORTLISTED'])
+        self.assertIsNone(rows[0]['strong_r3_check'])  # v2: R3 on UCL/UEL only
+
+    def test_the_summary_counts_offers_left_out_by_the_gate(self):
+        import pandas as pd
+        from test_master_strong import offer, config, RUN
+        cfg = config()
+        rows = [offer('m1', research=.69), offer('m2', research=None), offer('m3', research=.80)]
+        ms.select(rows, cfg, RUN)
+        frame = pd.DataFrame(rows).assign(strong_master_version=cfg['version'], in_live_master=False,
+                                          live_master_same_offer=False, unvalidated_view=False)
+        info = ms.summary(frame, cfg)
+        self.assertEqual(info['research_gate'], {'min_research_no_loss': 0.7, 'left_out_offers': 2,
+                                                 'left_out_no_research_view': 1, 'left_out_matches': 2})
+        old = ms.summary(frame, ms.load_config(version='master-strong-team-v2'))
+        self.assertNotIn('research_gate', old)
+
+    def test_live_version_v3(self):
+        self.assertEqual(ms.VERSION, 'master-strong-team-v3')
+        self.assertEqual(master_shortlist.VERSION_STRONG_LIVE, 'master-strong-team-v3-live-v13')
+        self.assertEqual(ms.load_config(version='master-strong-team-v2')['execution']['min_odds_exclusive'], 1.2)
+        self.assertNotIn('research_gate', ms.load_config(version='master-strong-team-v2'))
+
+
+class ResearchGateReviewTest(unittest.TestCase):
+    def frame(self, n, won, no_loss):
+        import pandas as pd
+        return pd.DataFrame({'result_status': ['WON'] * won + ['LOST'] * (n - won),
+                             'ranking_no_loss_probability': [no_loss] * n})
+
+    def test_waits_for_50_graded_picks_then_compares_with_the_left_out_offers(self):
+        import price_edge_tracking as pet
+        cfg = ms.load_config()
+        waiting = pet.research_gate_review(self.frame(49, 40, .8), self.frame(10, 5, .8), cfg)
+        self.assertEqual((waiting['status'], waiting['graded_picks']), ('WAITING', 49))
+        self.assertIsNone(waiting['picks_minus_left_out_points'])
+        ready = pet.research_gate_review(self.frame(50, 45, .8), self.frame(10, 7, .8), cfg)
+        self.assertEqual(ready['status'], 'READY FOR REVIEW')
+        self.assertAlmostEqual(ready['picks']['difference_points'], 10.0)
+        self.assertAlmostEqual(ready['left_out_by_gate']['difference_points'], -10.0)
+        self.assertAlmostEqual(ready['picks_minus_left_out_points'], 20.0)
+        self.assertTrue(any('Research gate review: ready' in line for line in pet.research_gate_lines(ready)))
+        self.assertIsNone(pet.research_gate_review(self.frame(50, 45, .8), None,
+                                                   ms.load_config(version='master-strong-team-v2')))
+
+    def test_half_wins_and_refunds_are_not_losses(self):
+        import pandas as pd
+        import price_edge_tracking as pet
+        frame = pd.DataFrame({'result_status': ['HALF_WON', 'REFUNDED', 'HALF_LOST', None],
+                              'ranking_no_loss_probability': [.75, .75, .75, .75]})
+        gap = pet.no_loss_gap(frame)
+        self.assertEqual(gap['n'], 3)
+        self.assertAlmostEqual(gap['observed_no_loss'], 2 / 3)
 
 
 if __name__ == '__main__':

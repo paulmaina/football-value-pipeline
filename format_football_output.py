@@ -2037,7 +2037,11 @@ def strong_master_section(info: dict, path: Path, summary: dict, output_dir: Pat
             "of winning. Today's fill rule completes the list, labelled 'not proven'. Released by Paul on 23 Nov 2026 "
             "as a deliberate exception (offline: no measurable difference from today's master); today's master runs "
             "in shadow (master_shortlist_new.csv) and is graded beside it, with a rollback rule in the weekly report. "
-            "Information for your own decision, not a recommendation to bet. "
+            + (f"Since 24 Nov 2026 every pick also needs the research model's no-loss chance at least "
+               f"{strong['research_gate']['min_research_no_loss']:.0%} on the exact bet (no research view: not "
+               f"eligible); this run it left out {strong['research_gate']['left_out_offers']} offers. "
+               if strong.get('research_gate') else '')
+            + "Information for your own decision, not a recommendation to bet. "
             f"This run: {info.get('ranked_fixtures', len(readable))} matches (proven {tiers.get('proven', 0)}, not "
             f"proven {sum(v for k, v in tiers.items() if k != 'proven')}; match result "
             f"{by_group.get('match_result', 0)}, double chance {by_group.get('double_chance', 0)}, Asian handicap "
