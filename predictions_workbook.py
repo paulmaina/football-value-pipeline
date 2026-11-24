@@ -32,8 +32,12 @@ MASTER_COLUMNS = ['Rank', 'Kickoff (EAT)', 'League', 'Match', 'Bet', 'Price', 'T
                   'Chance of profit', 'Research no-loss chance', 'Research gap (points)', 'Labels and flags',
                   'Inspection note']
 MASTER_TAIL = ['On value shortlist', 'On cagey tier', None, 'Quote time (EAT)', 'Re-check price before betting']
+# Weak-link flags on the live strong master's picks (since 24 Nov 2026, master-strong-team-v5; flag only): weak-link
+# rows are red across the whole row.
+WEAK_LINK, WEAK_LINK_REASONS = 'Weak link', 'Weak-link reasons'
+MASTER_WEAK = [WEAK_LINK, WEAK_LINK_REASONS]
 MASTER_KINDS = ['int', 'datetime', 'text', 'text', 'text', 'odds', 'text', 'pct', 'pct', 'pct', 'points', 'wrap', 'wrap',
-                'text', 'text', 'text', 'datetime', 'wrap']
+                'text', 'text', 'text', 'datetime', 'wrap', 'text', 'wrap']
 IN_OLD, IN_NEW = 'In old master (shadow)', 'In new master (live)'
 LIST_COLUMNS = ['Kickoff (EAT)', 'League', 'Match', 'Bet', 'Price', 'Chance of no loss', 'Chance of profit',
                 'Expected return', 'Probability basis', 'Price check status']
@@ -235,8 +239,19 @@ def new_master_rows(files: MasterFiles) -> List[List[Any]]:
                      'yes' if _yes(r.get('in_value_shortlist')) else 'no',
                      'yes' if _yes(r.get('in_cagey_tier')) else 'no',
                      _overlap(r, files.old_picks, 'master_rank') if files.old is not None else 'no old master this run',
-                     xb.excel_time(r.get('offered_last_update_utc')) or 'not recorded', _recheck(r)])
+                     xb.excel_time(r.get('offered_last_update_utc')) or 'not recorded', _recheck(r),
+                     *_weak(r)])
     return rows
+
+
+def _weak(row: Mapping) -> List[str]:
+    """The pick's weak-link flag and reasons; rules before master-strong-team-v5 recorded none."""
+    if 'weak_link' not in row:
+        return ['not flagged (before 24 Nov 2026)', 'not flagged (before 24 Nov 2026)']
+    flag = str(row.get('weak_link') or '').strip()
+    reasons = row.get('weak_link_reasons')
+    reasons = '' if reasons is None or (isinstance(reasons, float) and pd.isna(reasons)) else str(reasons).strip()
+    return [flag if flag in ('yes', 'no') else 'not recorded', reasons or 'none']
 
 
 def old_master_rows(files: MasterFiles) -> List[List[Any]]:
@@ -257,11 +272,12 @@ def old_master_rows(files: MasterFiles) -> List[List[Any]]:
                      _overlap(r, files.new_picks, 'new_master_rank') if files.new is not None
                      else 'no new master this run',
                      xb.excel_time(r.get('offered_last_update_utc')) or 'not recorded',
-                     _recheck(r, 'master_offer_age_minutes')])
+                     _recheck(r, 'master_offer_age_minutes'), 'old master: not flagged', 'old master: not flagged'])
     return rows
 
 
 def master_rules(sheet: xb.Sheet, table: xb.Table, overlap: str) -> None:
+    sheet.highlight_rows(table, WEAK_LINK, 'bad', 'yes')  # first, so the red row wins over the column colours
     tier = table.column_range('Tier')
     sheet.highlight(tier, 'good', 'equals', 'safe')
     sheet.highlight(tier, 'info', 'equals', 'fill')
@@ -280,7 +296,7 @@ def master_rules(sheet: xb.Sheet, table: xb.Table, overlap: str) -> None:
 def master_tab(book: xb.Book, files: MasterFiles, run: str, which: str) -> None:
     new = which == 'new'
     s = book.sheet(MASTER_TAB if new else OLD_TAB, xb.NAVY if new else xb.MUTED)
-    columns = MASTER_COLUMNS + [c if c else (IN_OLD if new else IN_NEW) for c in MASTER_TAIL]
+    columns = MASTER_COLUMNS + [c if c else (IN_OLD if new else IN_NEW) for c in MASTER_TAIL] + MASTER_WEAK
     era = ('' if files.new_is_live or not files.available else
            f' In this run (before the {RELEASED} release, or with live set to "old") the old master was the live list.')
     if new:
@@ -305,7 +321,7 @@ def master_tab(book: xb.Book, files: MasterFiles, run: str, which: str) -> None:
         start = 6
     table = s.table(start, columns, rows, MASTER_KINDS, freeze_columns=4, empty=empty,
                     widths={'Labels and flags': 30, 'Inspection note': 40, 'Match': 30,
-                            'Re-check price before betting': 30, IN_OLD: 22, IN_NEW: 22})
+                            'Re-check price before betting': 30, IN_OLD: 22, IN_NEW: 22, WEAK_LINK_REASONS: 50})
     master_rules(s, table, IN_OLD if new else IN_NEW)
 
 

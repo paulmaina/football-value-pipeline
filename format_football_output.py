@@ -1996,14 +1996,17 @@ def strong_master_section(info: dict, path: Path, summary: dict, output_dir: Pat
     try:
         raw = pd.read_csv(path, low_memory=False)
     except pd.errors.EmptyDataError:
-        raw = pd.DataFrame(columns=master_shortlist.strong_live_columns())
+        raw = pd.DataFrame(columns=master_shortlist.strong_live_columns(master_shortlist.strong_rule(info.get('version'))))
     picks = raw.loc[raw.new_master_decision.eq('SHORTLISTED')].copy()
     picks = picks.assign(_rank=pd.to_numeric(picks.new_master_rank, errors='coerce')).sort_values('_rank', kind='stable')
     yes = lambda v: 'yes' if str(v) == 'True' else 'no'
     text = lambda v: '' if pd.isna(v) else v
     groups = {'match_result': 'Match result', 'double_chance': 'Double chance', 'asian_handicap': 'Asian handicap'}
+    weak = 'weak_link' in picks  # since master-strong-team-v5 (24 Nov 2026): flag only
     readable = pd.DataFrame({
         "Rank": picks.new_master_rank, "Tier (proven / not proven)": picks.new_master_tier.map(text),
+        **({"Weak link": picks.weak_link.map(text), "Weak-link reasons": picks.weak_link_reasons.map(text)}
+           if weak else {}),
         "Market group": picks.strong_market_group.map(lambda v: groups.get(v, text(v))),
         "Kickoff (UTC)": picks.kickoff_utc, "League": picks.league, "Home": picks.home_team, "Away": picks.away_team,
         "Market to bet": picks.market_to_bet, "Bookmaker": picks.bookmaker,
@@ -2029,6 +2032,7 @@ def strong_master_section(info: dict, path: Path, summary: dict, output_dir: Pat
     short = f" Short of the {target}-match target: {strong['short_reason']}." if strong.get('short_reason') else ''
     floor = (strong.get('execution') or {}).get('min_odds_exclusive', 1.15)
     return ["", f"## Master shortlist (strong-team master, live since 23 Nov 2026; target {target} matches)", "",
+            *(weak_link_lines(picks) if weak else []),
             "At most 6 picks each in match result, double chance and Asian handicap, one bet per match, only from the "
             f"value shortlist's and the cagey tier's nominations, Pinnacle prices only (odds above {floor:.2f} up to 2.00), "
             "quotes at most 15 minutes old. Proven picks first: the cagey tier rates the bet safe (no-loss at least "
@@ -2052,6 +2056,24 @@ def strong_master_section(info: dict, path: Path, summary: dict, output_dir: Pat
             markdown_table(list(readable.columns), readable.astype(str).values.tolist())
             if not readable.empty else "No nominated offer passed the master's execution and timing checks this run.",
             *inspection_lines(picks, info)]
+
+
+def weak_link_lines(picks: pd.DataFrame) -> list:
+    """The master report's weak links, first and whatever their rank (flag only: nothing is removed or reordered)."""
+    flagged = picks.loc[picks.weak_link.astype(str).eq('yes')] if len(picks) else picks
+    if not len(picks):
+        return []
+    head = (f"**Weak links: {len(flagged)} of {len(picks)} picks** (flag only: a weak link is never removed or "
+            "reordered; reasons a-g in docs/plan.md Phase 4d).")
+    if not len(flagged):
+        return [head + ' None this run.', '']
+    lines = [head, '']
+    for r in flagged.to_dict('records'):
+        rank = pd.to_numeric(pd.Series([r.get('new_master_rank')]), errors='coerce').iloc[0]
+        reasons = [x for x in str(r.get('weak_link_reasons') or '').split('; ') if x and not x.startswith('note:')]
+        lines.append(f"- Rank {'' if pd.isna(rank) else int(rank)}: {r.get('home_team')} v {r.get('away_team')}, "
+                     f"{r.get('market_to_bet')} at {decimal(r.get('offered_decimal_odds'))}: " + '; '.join(reasons))
+    return lines + ['']
 
 
 INSPECTION_LABELS = (('inspection_summary', 'Inspection: research take'),

@@ -326,5 +326,182 @@ class ProvenOrderTest(unittest.TestCase):
         self.assertIn('research_gate', ms.load_config(version='master-strong-team-v3'))
 
 
+# ---------------------------------------------------------------------------
+# Part 4: weak-link flags, flag only (master-strong-team-v5)
+# ---------------------------------------------------------------------------
+
+def weak_rule():
+    return ms.load_config()['weak_links']
+
+
+def pick(**extra):
+    row = {'_match': 'EPL|H|A|2026-11-25', 'strong_decision': 'SHORTLISTED', 'strong_tier': 'proven',
+           'research_no_loss_probability': .82, 'cagey_no_loss_probability': .84, 'strong_record_matches': 10,
+           'strong_elo_expectancy': .70, 'market': 'Home win', 'handicap_side': 'home', 'handicap_line': -.5}
+    row.update(extra)
+    return row
+
+
+def forecast(h2h=(1.50, 4.20, 6.50), ah=(), research=None, kickoff='2026-11-25T20:00:00+00:00'):
+    import json as _json
+    quotes = [{'bookmaker': 'Pinnacle', 'market': 'h2h', 'prices': dict(zip(('home', 'draw', 'away'), h2h))}]
+    offers = [{'bookmaker': 'Pinnacle', 'side': s, 'line': l, 'price': p, 'opposite_price': o} for s, l, p, o in ah]
+    return {'league': 'EPL', 'home_team': 'H', 'away_team': 'A', 'kickoff_utc': kickoff,
+            'price_edge_quotes': _json.dumps(quotes), 'asian_handicap_offers': _json.dumps(offers),
+            'team_research_json': _json.dumps(research or {})}
+
+
+class WeakLinkReasonTest(unittest.TestCase):
+    def fire(self, row, forecast_row=None, warnings='', fallback=None, move=None):
+        import weak_links
+        return weak_links.reasons(row, weak_rule(), E=.55, forecast=forecast_row, warnings_text=warnings,
+                                  fallback=fallback, move=move)
+
+    def test_a_clean_proven_pick_has_no_reason_and_notes_missing_movement(self):
+        fired, notes = self.fire(pick())
+        self.assertEqual((fired, notes), ([], ['note: no movement data']))
+
+    def test_each_reason(self):
+        import weak_links
+        cases = {
+            'a': pick(research_no_loss_probability=.76, cagey_no_loss_probability=.84),
+            'b': pick(research_no_loss_probability=.74, cagey_no_loss_probability=.76),
+            'c': pick(cagey_no_loss_probability=None),
+            'd': pick(strong_record_matches=7),
+            'f': pick(strong_tier='not proven: fill'),
+        }
+        for letter, row in cases.items():
+            with self.subTest(letter=letter):
+                fired, _ = self.fire(row)
+                self.assertIn(letter, weak_links.reason_letters('; '.join(fired)), fired)
+        self.assertIn('d', weak_links.reason_letters('; '.join(self.fire(pick(strong_elo_expectancy=.58))[0])))
+        self.assertNotIn('d', weak_links.reason_letters('; '.join(self.fire(pick(strong_elo_expectancy=.59))[0])))
+        self.assertIn('c', weak_links.reason_letters('; '.join(self.fire(pick(), fallback='power fit B failed')[0])))
+        self.assertEqual(self.fire(pick(research_no_loss_probability=.77, cagey_no_loss_probability=.84))[0], [])  # 7 points
+        moved = {'now': .60, 'earliest': .63, 'earliest_generated_utc': '2026-11-24T06:00:00+00:00', 'drop_points': 3.0}
+        fired, notes = self.fire(pick(), move=moved)
+        self.assertEqual((weak_links.reason_letters('; '.join(fired)), notes), (['e'], []))
+        self.assertEqual(self.fire(pick(), move={**moved, 'drop_points': 2.9})[0], [])
+
+    def test_research_warnings_except_the_standing_note_and_stale_fits(self):
+        import weak_links
+        standing = weak_rule()['g']['standing_note']
+        self.assertEqual(self.fire(pick(), warnings=standing)[0], [])
+        fired, _ = self.fire(pick(), warnings=f'{standing}; Research review: lineup unconfirmed')
+        self.assertEqual(fired, ['(g) research warning: Research review: lineup unconfirmed'])
+        fired, _ = self.fire(pick(), forecast(research={'c6_fit': {'stale': True}}))
+        self.assertEqual(fired, ['(g) stale research fit (C6)'])
+        self.assertEqual(weak_links.reason_letters('(a) x; (g) y; (g) z; note: no movement data'), ['a', 'g'])
+
+
+class FairProbabilityTest(unittest.TestCase):
+    def test_power_devig_of_the_pinnacle_quote_with_its_opposite(self):
+        import weak_links
+        from football_value_pipeline_v2_standalone import devig
+        row = forecast(ah=[('home', -0.75, 1.80, 2.10)])
+        h, d, a = devig([1.50, 4.20, 6.50], method='power')
+        self.assertAlmostEqual(weak_links.fair_probability(row, 'Home win', 'home', -.5), h)
+        self.assertAlmostEqual(weak_links.fair_probability(row, 'Double Chance X2', 'away', .5), d + a)
+        pair = devig([1.80, 2.10], method='power')
+        self.assertAlmostEqual(weak_links.fair_probability(row, 'Asian Handicap Home -0.75', 'home', -.75), pair[0])
+        self.assertAlmostEqual(weak_links.fair_probability(row, 'Asian Handicap Away +0.75', 'away', .75), pair[1])
+        self.assertIsNone(weak_links.fair_probability(row, 'Asian Handicap Home -1.00', 'home', -1.))
+        self.assertIsNone(weak_links.fair_probability(None, 'Home win', 'home', -.5))
+
+
+class MovementTest(unittest.TestCase):
+    def archive(self, base, name, generated, captured, rows):
+        import json as _json
+        import pandas as pd
+        folder = Path(base) / name
+        folder.mkdir()
+        (folder / 'metadata.json').write_text(_json.dumps({'generated_at_utc': generated, 'captured_at_utc': captured}))
+        pd.DataFrame(rows).to_csv(folder / 'predictions.csv', index=False)
+
+    def test_only_snapshots_generated_and_captured_before_the_clock_count(self):
+        import tempfile
+        import weak_links
+        from performance_tracking import fixture_key
+        with tempfile.TemporaryDirectory() as base:
+            self.archive(base, 'a', '2026-11-24T06:00:00Z', '2026-11-24T06:05:00Z', [forecast(h2h=(1.40, 4.6, 8.0))])
+            self.archive(base, 'b', '2026-11-24T09:00:00Z', '2026-11-24T13:00:00Z', [forecast(h2h=(1.30, 5.0, 10.))])
+            self.archive(base, 'c', '2026-11-24T13:00:00Z', '2026-11-24T13:05:00Z', [forecast()])  # after the clock
+            key = fixture_key(forecast())
+            earlier = weak_links.earlier_forecasts({key}, '2026-11-24T12:00:00Z', Path(base))
+            self.assertEqual(len(earlier[key]), 1)  # b was captured after the clock, c generated after it
+            row = pick(_match=key, _forecast=forecast())
+            rows = [row, pick(_match=key, strong_decision='NOT_SELECTED')]
+            weak_links.annotate(rows, weak_rule(), E=.55, clock='2026-11-24T12:00:00Z', snapshots=Path(base))
+        self.assertEqual(rows[0]['weak_link'], 'yes')  # home fair probability fell from about 0.69 to 0.64
+        self.assertTrue(rows[0]['weak_link_reasons'].startswith('(e) Pinnacle fair probability fell'))
+        self.assertEqual((rows[1]['weak_link'], rows[1]['weak_link_reasons']), (None, None))
+
+
+class WeakLinkLiveTest(unittest.TestCase):
+    def test_flags_never_remove_or_reorder_a_pick(self):
+        import warnings
+        import pandas as pd
+        from test_master_reconciliation import production_run
+        predictions, decisions, summary = production_run()
+        with warnings.catch_warnings():
+            warnings.simplefilter('ignore')
+            v5, info = master_shortlist.strong_live(decisions, None, summary['generated_at_utc'], predictions)
+            v4, old = master_shortlist.strong_live(decisions, None, summary['generated_at_utc'], predictions,
+                                                   rule='master-strong-team-v4')
+        self.assertEqual(info['version'], 'master-strong-team-v5-live-v15')
+        self.assertEqual(list(v5.columns[-2 - len(__import__('master_inspection').COLUMNS):][:2]),
+                         ['weak_link', 'weak_link_reasons'])
+        self.assertNotIn('weak_link', v4.columns)
+        key = ['new_master_rank', 'new_master_decision', 'market', 'home_team', 'offered_decimal_odds']
+        pd.testing.assert_frame_equal(v5[key].reset_index(drop=True), v4[key].reset_index(drop=True))
+        picks = v5.loc[v5.new_master_decision.eq('SHORTLISTED')]
+        self.assertTrue(len(picks))
+        self.assertTrue(picks.weak_link.isin(['yes', 'no']).all())
+        self.assertTrue(v5.loc[~v5.new_master_decision.eq('SHORTLISTED'), 'weak_link'].isna().all())
+        self.assertEqual(info['strong']['weak_links']['flagged_picks'], int(picks.weak_link.eq('yes').sum()))
+        self.assertNotIn('weak_links', old['strong'])
+        self.assertTrue(master_shortlist.matches_strong(v5, v5))
+        self.assertTrue(master_shortlist.matches_strong(v4, v4, 'master-strong-team-v4'))
+
+    def test_readable_lists_weak_links_first_and_the_workbook_paints_them_red(self):
+        import pandas as pd
+        import format_football_output as fo
+        import excel_book as xb
+        import predictions_workbook as pw
+        picks = pd.DataFrame([{'new_master_rank': 1, 'home_team': 'H', 'away_team': 'A', 'market_to_bet': 'Home win',
+                               'offered_decimal_odds': 1.5, 'weak_link': 'no', 'weak_link_reasons': ''},
+                              {'new_master_rank': 7, 'home_team': 'C', 'away_team': 'D', 'market_to_bet': 'Away win',
+                               'offered_decimal_odds': 1.8, 'weak_link': 'yes',
+                               'weak_link_reasons': '(f) not proven: fill tier; note: no movement data'}])
+        lines = fo.weak_link_lines(picks)
+        self.assertTrue(lines[0].startswith('**Weak links: 1 of 2 picks**'))
+        self.assertEqual(lines[2], '- Rank 7: C v D, Away win at 1.80: (f) not proven: fill tier')
+        book = xb.Book()
+        sheet = book.sheet('t')
+        table = sheet.table(1, ['Rank', pw.WEAK_LINK], [[1, 'no'], [7, 'yes']], ['int', 'text'])
+        sheet.highlight_rows(table, pw.WEAK_LINK, 'bad', 'yes')
+        ref, rule = sheet.rules[-1]
+        self.assertEqual(ref, 'A2:B3')
+        self.assertIn('$B2=&quot;yes&quot;', rule)
+
+
+class WeakLinkReviewTest(unittest.TestCase):
+    def test_flagged_against_unflagged_and_per_reason(self):
+        import pandas as pd
+        import price_edge_tracking as pet
+        rows = ([{'result_status': 'LOST', 'unit_profit': -1., 'clv': -.02, 'ranking_no_loss_probability': .8,
+                  'weak_link': 'yes', 'weak_link_reasons': '(f) not proven: fill tier'}] * 50
+                + [{'result_status': 'WON', 'unit_profit': .5, 'clv': .01, 'ranking_no_loss_probability': .8,
+                    'weak_link': 'no', 'weak_link_reasons': 'note: no movement data'}] * 10)
+        review = pet.weak_link_review(pd.DataFrame(rows), ms.load_config())
+        self.assertEqual((review['status'], review['flagged_graded']), ('READY FOR REVIEW', 50))
+        self.assertEqual((review['flagged']['n'], review['unflagged']['n'], review['by_reason']['f']['n'],
+                          review['by_reason']['a']['n']), (50, 10, 50, 0))
+        self.assertAlmostEqual(review['flagged']['no_loss']['difference_points'], -80.0)
+        self.assertTrue(any('ready for review' in line for line in pet.weak_link_lines(review)))
+        self.assertEqual(pet.weak_link_review(pd.DataFrame(rows[:10]), ms.load_config())['status'], 'WAITING')
+        self.assertIsNone(pet.weak_link_review(pd.DataFrame(rows), ms.load_config(version='master-strong-team-v4')))
+
+
 if __name__ == '__main__':
     unittest.main()
