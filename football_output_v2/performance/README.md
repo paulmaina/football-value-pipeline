@@ -17,8 +17,8 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 
 | View | With a close | Mean CLV | 95% interval | Beat the close | Settled | Return per unit | 95% interval |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| per pick | 178 | -1.9% | -2.7% to -1.2% | 29% | 509 | +2.9% | -3.1% to +8.9% |
-| per fixture (a match's picks averaged) | 113 | -1.8% | -2.9% to -0.8% | 29% | 245 | +3.9% | -3.0% to +10.7% |
+| per pick | 183 | -1.9% | -2.7% to -1.2% | 30% | 509 | +2.9% | -3.1% to +8.9% |
+| per fixture (a match's picks averaged) | 115 | -1.8% | -2.8% to -0.8% | 29% | 245 | +3.9% | -3.0% to +10.7% |
 
 531 picks on 256 matches. A match can hold several picks (one per market group); the per-fixture row averages them, so each match counts once. Closing-line value (CLV) leads because it is the less noisy measure: it compares the frozen price with the Pinnacle fair close and does not wait for results. Returns come second: with few matches they are mostly luck. Intervals are mean ± 1.96 standard errors, clustered by fixture. Near-kickoff feed quotes are not verified official closing prices.
 
@@ -295,8 +295,8 @@ Whole-fixture 1X2 multiclass Brier (n=443): 0.5464
 | 2026-W45 | per fixture (a match's picks averaged) | 19 | -0.2% | -2.2% to +1.7% | 37% | 96 | +2.8% | -5.3% to +10.9% |
 | 2026-W47 | per pick | 67 | -2.2% | -3.3% to -1.1% | 28% | 113 | +0.6% | -13.8% to +15.0% |
 | 2026-W47 | per fixture (a match's picks averaged) | 34 | -2.6% | -4.1% to -1.1% | 21% | 62 | +5.7% | -10.4% to +21.7% |
-| 2026-W48 | per pick | 6 | -0.5% | -4.2% to +3.2% | 50% | 6 | +2.3% | -90.7% to +95.4% |
-| 2026-W48 | per fixture (a match's picks averaged) | 4 | -0.1% | -4.9% to +4.6% | 50% | 4 | +12.3% | -62.2% to +86.9% |
+| 2026-W48 | per pick | 11 | -0.9% | -2.9% to +1.0% | 55% | 6 | +2.3% | -90.7% to +95.4% |
+| 2026-W48 | per fixture (a match's picks averaged) | 6 | -0.6% | -3.7% to +2.5% | 33% | 4 | +12.3% | -62.2% to +86.9% |
 
 ## Confidence calibration of shortlisted markets
 
@@ -339,7 +339,7 @@ A missing, ambiguous or unverified result is **never called a win**.
 | UCL | 2026-11-04 | 575 | 20 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 | UEL | 2026-11-05 | 732 | 19 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 15, "exchange_quotes": 0, "missing_quote_age": 15, "quote_age_over_24h": 0, "costs_recorded": 15, "bookmakers": {"Pinnacle": 15}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 15, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 15, "exchange_quotes": 0, "missing_quote_age": 15, "quote_age_over_24h": 0, "costs_recorded": 15, "bookmakers": {"Pinnacle": 15}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 3, "upcoming_kickoff_count": 12, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
