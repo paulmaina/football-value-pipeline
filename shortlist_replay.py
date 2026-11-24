@@ -23,6 +23,21 @@ def equivalent(actual, expected):
     return type(actual) is type(expected) and actual == expected
 
 
+def difference(actual, expected, limit=5, width=160):
+    """Where two cleaned record lists (clean()) are not equivalent: the row counts, then the first `limit` differing
+    cells as row, column, actual and expected. For failure messages only; never part of the comparison."""
+    if not isinstance(actual, list) or not isinstance(expected, list):
+        return 'not record lists'
+    out = [] if len(actual) == len(expected) else [f'{len(actual)} rows written, {len(expected)} in the replay']
+    cells = []
+    for i, (a, e) in enumerate(zip(actual, expected)):
+        for key in list(dict.fromkeys([*e.keys(), *a.keys()])):
+            if not equivalent(a.get(key), e.get(key)):
+                cells.append(f'row {i} {key}: written {a.get(key)!r:.{width}} | replay {e.get(key)!r:.{width}}')
+    out += cells[:limit] + ([f'... {len(cells) - limit} more differing cells'] if len(cells) > limit else [])
+    return '; '.join(out) or 'no differing cell found'
+
+
 def monitoring_equivalent(actual, expected):
     """Solver diagnostics allow max(1e-7 absolute, 1e-8 relative) drift.
 
