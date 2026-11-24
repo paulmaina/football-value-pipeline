@@ -349,7 +349,7 @@ def raw_check(root, *, raw_dir=None):
                     strong_actual = pd.read_csv(master_path, low_memory=False)
                 except pd.errors.EmptyDataError:
                     strong_actual = pd.DataFrame(columns=list(strong_expected.columns))
-                require(master_shortlist.matches_strong(strong_actual, strong_expected),
+                require(master_shortlist.matches_strong(strong_actual, strong_expected, strong_rule),
                         'Current master shortlist (strong) differs from deterministic replay')
                 require(equivalent(live_info, strong_summary_expected),
                         'Current master shortlist (strong) summary differs from replay')
