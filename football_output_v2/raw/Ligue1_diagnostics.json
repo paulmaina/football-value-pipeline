@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "b012bf647b3154853737559e0d2adb26161c4f5a61849359a75b0ca6c5ab885e",
-  "training_as_of_utc": "2026-11-24T16:33:54.961405+00:00",
+  "training_sha256": "be832f219f20b678294a6772a9497d7206ea068529d455da3a945856517643d6",
+  "training_as_of_utc": "2026-11-24T22:38:58.072204+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 99,
     "bbs_added_results": 0,
@@ -35,9 +35,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-24T16:33:54.961405+00:00",
-    "observations": 1098,
-    "observations_sha256": "9dc5b59457cb166942eab82dd775b1f2ea483d9ab552a10718155387f4c80092",
+    "cutoff_utc": "2026-11-24T22:38:58.072204+00:00",
+    "observations": 1099,
+    "observations_sha256": "41cd2d6a76e532fd715205aa1e34652b434675f378a01c9a95bf910e4b5eaaab",
     "eligible_training_matches": 415,
     "required_training_matches": 120,
     "feature_fields": [
@@ -71,7 +71,7 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:29.253586+00:00",
-    "retrospective_inputs_sha256": "a4dbb89e42d6bf57ff095f91c0c405c7535d75f7f653eeae0ddb96bfcd786b53",
+    "retrospective_inputs_sha256": "d5aea66bac9a61a2fa5e1ea2b6ffcc0d405fb46a3bf7efe5a5712702fea52262",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "training_matches": 354,
@@ -156,21 +156,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8570386247465478,
-    "audit_candidate_poisson_score": 0.8512583220862963,
-    "audit_gain": 0.005780302660251535,
-    "audit_gain_lower95": -0.001751997875908252,
+    "audit_baseline_poisson_score": 0.8570382866976696,
+    "audit_candidate_poisson_score": 0.8512580175470882,
+    "audit_gain": 0.005780269150581385,
+    "audit_gain_lower95": -0.001752721712168081,
     "audit_baseline_briers": [
-      0.5856033518783379,
-      0.1628934403909076,
-      0.22821994719896568,
-      0.24145086484005113
+      0.5856032374357698,
+      0.1628927417464559,
+      0.22821981475151296,
+      0.24145157511779713
     ],
     "audit_candidate_briers": [
-      0.5842469461303595,
-      0.1621985137454303,
-      0.22431109193006557,
-      0.240208566981081
+      0.5842467140794457,
+      0.16219801987764715,
+      0.22431110130082776,
+      0.24020901700559263
     ],
     "audit_brier_order": [
       "1x2",
@@ -185,10 +185,10 @@
   },
   "training_end": "2026-11-22",
   "fit_success": true,
-  "objective": 1602.565573243639,
-  "base": 0.20309574902176852,
-  "home_adv": 0.19563548577571455,
-  "rho": -0.04786824607295846,
+  "objective": 1601.9791090642275,
+  "base": 0.2030802891726105,
+  "home_adv": 0.1956543673806486,
+  "rho": -0.04785234997020352,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -212,24 +212,24 @@
   "training_source": "Football-Data.co.uk",
   "fixture_provider_mode": "auto",
   "fixture_sources": [
-    "football-data.org"
+    "The Odds API"
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 0,
+  "live_odds_matched": 1,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261124T163354961405Z_f8708c866b420ac9ebf274321399436dbf3e6b1932c7d1a92bbc3863cae1e184.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261124T223858072204Z_11e70d8923d7012a0430925e6c21ef83a210bc4757ace7bed0117b0009e012f7.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
-      "fixture_id": "fdorg:559616",
-      "event_id": null,
-      "home_team": "Stade Brestois 29",
+      "fixture_id": "1640267728",
+      "event_id": "1640267728",
+      "home_team": "Brest",
       "away_team": "Paris FC",
       "kickoff_utc": "2026-11-27T19:45:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
@@ -245,7 +245,7 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_NO_PINNACLE": 1
+    "ANCHORED_MAIN": 1
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
