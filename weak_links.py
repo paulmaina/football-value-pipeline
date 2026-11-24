@@ -103,6 +103,18 @@ def fair_probability(forecast: Optional[Mapping], market, side, line) -> Optiona
     return None
 
 
+def _utc_clock(clock) -> Optional[pd.Timestamp]:
+    """The run's clock as a UTC Timestamp: a timezone-aware string, datetime or Timestamp (the master passes a
+    Timestamp); None when missing or without a timezone."""
+    if clock is None or isinstance(clock, str) and not clock.strip():
+        return None
+    try:
+        stamp = pd.Timestamp(clock.strip().replace('Z', '+00:00') if isinstance(clock, str) else clock)
+    except (TypeError, ValueError):
+        return None
+    return stamp.tz_convert('UTC') if not pd.isna(stamp) and stamp.tzinfo is not None else None
+
+
 def earlier_forecasts(fixtures: Iterable[str], clock, snapshots: Optional[Path] = None,
                       lookback_days: int = 30) -> Dict[str, List[Tuple[pd.Timestamp, Mapping]]]:
     """fixture key -> [(generated_at, forecast row)] from the archived forecast runs generated AND captured before
@@ -112,7 +124,7 @@ def earlier_forecasts(fixtures: Iterable[str], clock, snapshots: Optional[Path] 
     wanted = set(fixtures)
     out: Dict[str, List[Tuple[pd.Timestamp, Mapping]]] = {}
     base = Path(snapshots or SNAPSHOTS)
-    clock = pd.Timestamp(utc(clock)) if clock is not None and utc(clock) is not None else None
+    clock = _utc_clock(clock)
     if not wanted or clock is None or not base.exists():
         return out
     for meta_path in sorted(base.glob('*/metadata.json')):
@@ -213,8 +225,11 @@ def reasons(row: Mapping, rule: Mapping, *, E: float, forecast: Optional[Mapping
     tier = str(row.get('strong_tier') or '')
     if tier.startswith('not proven'):
         out.append(f"(f) {tier} tier")
-    for warning in research_warnings(warnings_text, rule['g']['standing_note']):
-        out.append(f"(g) research warning: {warning}")
+    warnings = list(dict.fromkeys(research_warnings(warnings_text, rule['g']['standing_note'])))
+    if len(warnings) == 1:
+        out.append(f"(g) research warning: {warnings[0]}")
+    elif warnings:  # one reason, every distinct warning once ('; ' separates reasons)
+        out.append(f"(g) {len(warnings)} research warnings: {' | '.join(warnings)}")
     for fit in stale_fits(forecast):
         out.append(f"(g) stale research fit ({fit})")
     return out, notes
