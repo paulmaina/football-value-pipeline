@@ -26,7 +26,7 @@ Actual placed bets: NOT_RECORDED
 
 > **STOP REVIEW**: 122 graded picks with mean CLV -1.95% (below zero). Review the policy before relying on further picks.
 
-Reviewed 2026-11-24T10:06:08.578472+00:00. Frozen v27 picks: 448.
+Reviewed 2026-11-24T10:11:13.166503+00:00. Frozen v27 picks: 448.
 
 **Mean CLV vs Pinnacle close:** -1.95% ± 0.78% (n=122). **Flat-stake profit per bet:** +2.83% ± 6.78% (n=426).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
