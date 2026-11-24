@@ -1,0 +1,13 @@
+[
+  {
+    "candidate": "C9",
+    "baseline": "C6",
+    "declaration_sha256": "208bcdc27817dcca938f0aca3b9bdf4279134b882959a0f984c94ee222985ad1",
+    "setup_sha256": "00c386c4dc2d7cbc61dc5b1b3ab7c7311692d7f7614eb106ab3b27acb345adda",
+    "source_commit": "840381a9a1fe01b682c7e1af05aa9a32e4cc1cf0",
+    "holdout_fixtures": 401,
+    "passes_holdout_gate": false,
+    "holdout_period": "eight-leagues-from-2026-10-11-v1",
+    "scored_at_utc": "2026-11-24T13:28:25.811819+00:00"
+  }
+]
