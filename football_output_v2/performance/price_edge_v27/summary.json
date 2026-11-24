@@ -1381,7 +1381,7 @@
     }
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-24T10:11:13.166503+00:00",
+  "reviewed_at_utc": "2026-11-24T10:51:25.028675+00:00",
   "stop_review": true,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "strong_master": {
@@ -1423,6 +1423,26 @@
       "positive_share": null,
       "standard_error": null
     },
+    "research_gate_review": {
+      "graded_picks": 0,
+      "left_out_by_gate": {
+        "difference_points": null,
+        "market_no_loss": null,
+        "n": 0,
+        "observed_no_loss": null
+      },
+      "picks": {
+        "difference_points": null,
+        "market_no_loss": null,
+        "n": 0,
+        "observed_no_loss": null
+      },
+      "picks_minus_left_out_points": null,
+      "review": "Kept from R3, now covering all picks: once 50 strong-master picks under this rule are graded, the weekly report compares graded picks (research no-loss >= 0.70) with the offers left out only by this check (observed no-loss minus market no-loss, each), and Paul keeps or drops it.",
+      "review_after_graded_picks": 50,
+      "rule": "Every pick in every tier (proven, not proven: safe, fill, risky fill): an offer is eligible only if the research view (live research v5 domestic, v6 UCL/UEL; the row's research_no_loss_probability for that exact bet, line and price) gives no-loss >= 0.70. An offer with no research view is not eligible. Ineligible offers are LEFT_OUT with the reason ('research no-loss below 0.70' or 'no research view'). R3 extended from UCL/UEL proven picks (Paul, 24 Nov 2026; plan Phase 4d, Part 2), a deliberate exception to the release gate: no backtest before release.",
+      "status": "WAITING"
+    },
     "rollback": {
       "live": true,
       "message": "waiting for at least 150 graded matches over at least 3 weeks on each list",
@@ -1430,7 +1450,7 @@
       "status": "WAITING",
       "triggered": false
     },
-    "version": "master-strong-team-v2"
+    "version": "master-strong-team-v3"
   },
   "tagged_candidates": {
     "by_tag": {
