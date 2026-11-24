@@ -268,5 +268,32 @@ class OutcomeTest(unittest.TestCase):
             outcome.declared_outcome({**self.verdict(), 'candidate': 'C8'})
 
 
+class CommittedDeclarationTest(unittest.TestCase):
+    """The committed declaration: the settled terms, validated against an empty forward ledger; the real forward
+    ledger now refuses it (C9 scored once on 24 Nov 2026); the 16 Jan - 10 Oct ledger never records C9."""
+    PATH = REPO / 'evaluation' / 'declarations' / 'c9_forward_holdout.json'
+
+    def test_the_settled_terms(self):
+        data = json.loads(self.PATH.read_text(encoding='utf-8'))
+        self.assertEqual((data['candidate'], data['baseline'], data['market_reference']), ('C9', 'C6', 'M'))
+        self.assertEqual(data['holdout_period'], CFG['forward_holdout']['name'])
+        self.assertEqual(data['primary_metric'], 'AH all')
+        self.assertEqual(data['calibration_tolerance'], V3)
+        self.assertEqual({k: data['sample_minimum'][k] for k in ('fixtures', 'weeks')}, eh.promotion_minimums())
+        self.assertNotIn('deciding_criterion', data)
+        self.assertEqual(tuple(data['outcomes']), outcome.OUTCOMES)
+
+    def test_validates_once_and_only_in_its_own_ledger(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            declared = eh.validate_declaration(self.PATH, CFG, {'sha256': 'a' * 64}, Path(tmp) / 'empty.json')
+        self.assertEqual(declared['sha256'], '208bcdc27817dcca938f0aca3b9bdf4279134b882959a0f984c94ee222985ad1')
+        with self.assertRaisesRegex(ValueError, "already scored for candidate 'C9'"):
+            eh.validate_declaration(self.PATH, CFG, {'sha256': 'b' * 64}, eh.forward_ledger(CFG))
+        entries = json.loads(eh.forward_ledger(CFG).read_text(encoding='utf-8'))
+        self.assertEqual([(e['candidate'], e['holdout_period'], e['holdout_fixtures']) for e in entries],
+                         [('C9', CFG['forward_holdout']['name'], 401)])
+        self.assertNotIn('C9', {e['candidate'] for e in json.loads(eh.LEDGER.read_text(encoding='utf-8'))})
+
+
 if __name__ == '__main__':
     unittest.main()
