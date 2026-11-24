@@ -389,6 +389,9 @@ class WeakLinkReasonTest(unittest.TestCase):
         self.assertEqual(self.fire(pick(), warnings=standing)[0], [])
         fired, _ = self.fire(pick(), warnings=f'{standing}; Research review: lineup unconfirmed')
         self.assertEqual(fired, ['(g) research warning: Research review: lineup unconfirmed'])
+        fired, _ = self.fire(pick(), warnings=f'{standing}; lineups unconfirmed; goals are not verified xG; '
+                                              'goals are not verified xG')
+        self.assertEqual(fired, ['(g) 2 research warnings: lineups unconfirmed | goals are not verified xG'])
         fired, _ = self.fire(pick(), forecast(research={'c6_fit': {'stale': True}}))
         self.assertEqual(fired, ['(g) stale research fit (C6)'])
         self.assertEqual(weak_links.reason_letters('(a) x; (g) y; (g) z; note: no movement data'), ['a', 'g'])
@@ -429,9 +432,17 @@ class MovementTest(unittest.TestCase):
             key = fixture_key(forecast())
             earlier = weak_links.earlier_forecasts({key}, '2026-11-24T12:00:00Z', Path(base))
             self.assertEqual(len(earlier[key]), 1)  # b was captured after the clock, c generated after it
+            # The master passes its clock as a Timestamp (master_reconciliation.run_clock); a naive clock counts none.
+            import pandas as pd
+            from datetime import datetime, timezone
+            for clock in (pd.Timestamp('2026-11-24T12:00:00Z'), datetime(2026, 11, 24, 12, tzinfo=timezone.utc)):
+                self.assertEqual(len(weak_links.earlier_forecasts({key}, clock, Path(base))[key]), 1)
+            self.assertEqual(weak_links.earlier_forecasts({key}, pd.Timestamp('2026-11-24T12:00:00'), Path(base)), {})
+            self.assertEqual(weak_links.earlier_forecasts({key}, None, Path(base)), {})
             row = pick(_match=key, _forecast=forecast())
             rows = [row, pick(_match=key, strong_decision='NOT_SELECTED')]
-            weak_links.annotate(rows, weak_rule(), E=.55, clock='2026-11-24T12:00:00Z', snapshots=Path(base))
+            weak_links.annotate(rows, weak_rule(), E=.55, clock=pd.Timestamp('2026-11-24T12:00:00Z'),
+                                snapshots=Path(base))
         self.assertEqual(rows[0]['weak_link'], 'yes')  # home fair probability fell from about 0.69 to 0.64
         self.assertTrue(rows[0]['weak_link_reasons'].startswith('(e) Pinnacle fair probability fell'))
         self.assertEqual((rows[1]['weak_link'], rows[1]['weak_link_reasons']), (None, None))
