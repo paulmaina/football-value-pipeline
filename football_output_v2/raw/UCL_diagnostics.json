@@ -9,7 +9,7 @@
     "2026"
   ],
   "training_sha256": "a47c93183a9321dcbb7d726bc934c21475f0a67d745f81f2575bd932d12e5d13",
-  "training_as_of_utc": "2026-11-24T15:49:22.010312+00:00",
+  "training_as_of_utc": "2026-11-24T16:34:44.356649+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 72,
     "bbs_added_results": 0,
@@ -33,7 +33,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-11-24T15:49:22.010312+00:00",
+    "cutoff_utc": "2026-11-24T16:34:44.356649+00:00",
     "observations": 779,
     "observations_sha256": "c075b20245096e6de32cb6e736a2f41eb0dd38826cafab76c18fb00f95fc6ef3",
     "eligible_training_matches": 83,
@@ -107,9 +107,9 @@
   },
   "training_end": "2026-11-04",
   "fit_success": true,
-  "objective": 841.0049169359881,
-  "base": 0.22465090352964415,
-  "home_adv": 0.29209196353615896,
+  "objective": 840.9667249305817,
+  "base": 0.22466854383156823,
+  "home_adv": 0.2920639802372073,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -135,7 +135,7 @@
     "source_schedule_matches": 144,
     "provider": "football-data.org",
     "season_start": 2026,
-    "checked_at_utc": "2026-11-24T15:49:22.010312+00:00",
+    "checked_at_utc": "2026-11-24T16:34:44.356649+00:00",
     "download_status": "VERIFIED_LIVE",
     "added_matches": 0,
     "corrected_scores": 0,
@@ -162,7 +162,7 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261124T154922010312Z_34b4da6cb7b0f0caac5069e03440617681399b793c069da0140c3f1ddb39b171.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261124T163444356649Z_bf5534ac83256c50e2c8258957efc14877a1922b10d34add817e9ccdd802480f.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
