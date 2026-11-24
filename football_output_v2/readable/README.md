@@ -50,8 +50,10 @@ a headline.
   compared with Pinnacle's no-vig share at the same line.
 - `*_scorelines_readable.csv` — ranked scorelines per match with a **Model** column:
   Research and Cagey (every score at 0.01% or more), then the benchmark's scorelines.
-- `league_predictions.xlsx` — tabs: Master shortlist, Old master (shadow) with the
-  same columns, Value shortlist, Cagey tier, then one tab per league with fixtures in
+- `league_predictions.xlsx` — tabs: Master shortlist, the shadow master with the same
+  columns (Previous master (shadow), the rollback baseline, while the strong-team master
+  is live; Old master (shadow) in runs before 23 Nov 2026), Value shortlist, Cagey tier,
+  then one tab per league with fixtures in
   the latest run. League tabs show both views, the lists, the best offer's verdict, the
   safest AH line and the benchmark's 1X2 last. Only the columns used to choose a bet are
   shown; each tab's title line names the CSV with the full columns. Kickoff and quote

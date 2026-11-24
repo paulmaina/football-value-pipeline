@@ -1,10 +1,10 @@
 # Candidate closing-line value
 
-Generated 2026-11-24T19:00:15.325721+00:00; 3062 priced candidates on 247 fixtures with a Pinnacle near-kickoff quote. CLV = entry odds × Pinnacle fair close probability − 1 (EV at the sharp close). Uncertainty is clustered by fixture. The descriptive t-ratio is not a proof of edge; independent fixture coverage matters.
+Generated 2026-11-24T22:40:47.259225+00:00; 3219 priced candidates on 254 fixtures with a Pinnacle near-kickoff quote. CLV = entry odds × Pinnacle fair close probability − 1 (EV at the sharp close). Uncertainty is clustered by fixture. The descriptive t-ratio is not a proof of edge; independent fixture coverage matters.
 
-**Overall:** mean -3.4%, 27% positive, t = -24.41 (n = 3062).
+**Overall:** mean -3.5%, 26% positive, t = -25.45 (n = 3219).
 
-**Shortlisted picks:** mean -2.0%, n = 198.
+**Shortlisted picks:** mean -2.0%, n = 211.
 
 **Does the market move towards the model?** correlation -0.08, sign agreement 62% (independent fixtures = 173; descriptive only).
 
@@ -25,14 +25,14 @@ Generated 2026-11-24T19:00:15.325721+00:00; 3062 priced candidates on 247 fixtur
 | Goal totals | Coolbet | 1 | 1 | -2.4% | 0% | — | — (0) |
 | 1X2 | 1xBet | 338 | 144 | -2.4% | 39% | -7.93 | +2.9% (239) |
 | Goal totals | Pinnacle | 12 | 12 | -3.2% | 17% | -3.11 | -1.3% (12) |
-| Double chance | Pinnacle | 420 | 157 | -3.2% | 13% | -21.21 | -0.3% (103) |
+| Double chance | Pinnacle | 441 | 164 | -3.2% | 13% | -21.39 | -0.3% (103) |
 | 1X2 | Matchbook | 14 | 14 | -3.3% | 29% | -1.20 | — (0) |
-| Asian handicap | Pinnacle | 1226 | 86 | -3.6% | 27% | -38.30 | +0.1% (1226) |
+| Asian handicap | Pinnacle | 1348 | 93 | -3.6% | 27% | -39.98 | +0.1% (1348) |
 | Goal totals | 1xBet | 7 | 7 | -3.7% | 14% | -2.77 | +0.5% (4) |
 | 1X2 | Unibet (SE) | 17 | 15 | -3.7% | 53% | -1.82 | — (0) |
 | Double chance | 1xBet | 255 | 97 | -3.7% | 16% | -20.22 | +2.6% (60) |
 | Goal totals | Codere (IT) | 1 | 1 | -3.9% | 0% | — | — (0) |
-| 1X2 | Pinnacle | 468 | 204 | -3.9% | 28% | -14.15 | -0.2% (468) |
+| 1X2 | Pinnacle | 482 | 211 | -4.0% | 28% | -14.56 | -0.2% (482) |
 | Asian handicap | 1xBet | 194 | 43 | -5.0% | 26% | -12.17 | — (0) |
 | 1X2 | BetOnline.ag | 6 | 6 | -7.3% | 33% | -1.64 | — (0) |
 | BTTS | Pinnacle | 2 | 2 | -9.2% | 50% | -0.92 | -5.4% (2) |
@@ -44,16 +44,16 @@ Generated 2026-11-24T19:00:15.325721+00:00; 3062 priced candidates on 247 fixtur
 | hours_bucket | n | Fixtures | Mean CLV vs Pinnacle fair | Positive | t | Same-book CLV (n) |
 |---|---:|---:|---:|---:|---:|---:|
 | 48h+ | 346 | 107 | -2.1% | 41% | -2.91 | +2.1% (191) |
-| <6h | 1653 | 196 | -3.6% | 26% | -26.39 | +0.3% (1186) |
-| 6-24h | 981 | 85 | -3.6% | 24% | -20.45 | +0.2% (708) |
+| 6-24h | 1002 | 92 | -3.6% | 23% | -20.71 | +0.2% (708) |
+| <6h | 1789 | 203 | -3.6% | 25% | -27.83 | +0.3% (1322) |
 | 24-48h | 82 | 32 | -4.1% | 27% | -2.44 | -3.3% (30) |
 
 ## Shortlisted vs not selected
 
 | decision_group | n | Fixtures | Mean CLV vs Pinnacle fair | Positive | t | Same-book CLV (n) |
 |---|---:|---:|---:|---:|---:|---:|
-| shortlisted | 198 | 112 | -2.0% | 26% | -5.70 | +0.2% (165) |
-| not selected | 2864 | 247 | -3.5% | 27% | -23.30 | +0.4% (1950) |
+| shortlisted | 211 | 119 | -2.0% | 26% | -5.88 | +0.1% (177) |
+| not selected | 3008 | 254 | -3.6% | 26% | -24.17 | +0.4% (2074) |
 
 ## By league
 
@@ -66,8 +66,8 @@ Generated 2026-11-24T19:00:15.325721+00:00; 3062 priced candidates on 247 fixtur
 | La Liga | 410 | 28 | -3.4% | 30% | -14.29 | +0.1% (289) |
 | Super Lig | 136 | 9 | -3.5% | 40% | -9.47 | +0.4% (116) |
 | Bundesliga | 395 | 32 | -3.6% | 24% | -9.04 | +0.5% (280) |
-| UEFA Champions League | 563 | 43 | -3.7% | 30% | -8.66 | +0.2% (336) |
 | Eredivisie | 108 | 12 | -3.8% | 29% | -14.86 | +0.2% (83) |
+| UEFA Champions League | 720 | 50 | -3.8% | 28% | -10.75 | +0.2% (472) |
 | Primeira Liga | 55 | 8 | -3.9% | 27% | -7.63 | +0.2% (55) |
 
 Near-kickoff feed quotes are not guaranteed official closing prices. Candidate rows within one fixture are dependent; standard errors are clustered by fixture. Market-movement figures use one averaged row per fixture and remain descriptive.
