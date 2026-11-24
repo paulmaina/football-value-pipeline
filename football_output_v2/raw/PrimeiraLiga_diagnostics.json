@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "7c73b44b6e1c6ee16fc6ee45d20634ecf277c8dff8e4ce224e38cad97bc36515",
-  "training_as_of_utc": "2026-11-24T16:35:12.223404+00:00",
+  "training_as_of_utc": "2026-11-24T22:39:44.061744+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -59,21 +59,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8715376387746687,
-    "audit_candidate_poisson_score": 0.8661166852387249,
-    "audit_gain": 0.005420953535943851,
-    "audit_gain_lower95": -0.003731446012881781,
+    "audit_baseline_poisson_score": 0.8715376387866776,
+    "audit_candidate_poisson_score": 0.8661166852473193,
+    "audit_gain": 0.005420953539358231,
+    "audit_gain_lower95": -0.0037314460101351495,
     "audit_baseline_briers": [
-      0.5256825537437794,
-      0.20162598269824156,
-      0.221887119731087,
-      0.2543680014638883
+      0.5256825537476439,
+      0.20162598270462478,
+      0.2218871197329721,
+      0.25436800146761224
     ],
     "audit_candidate_briers": [
-      0.5292164683524547,
-      0.20093844348497894,
-      0.21876001119885946,
-      0.2532888353919278
+      0.5292164683546622,
+      0.20093844348934414,
+      0.21876001120007932,
+      0.2532888353944095
     ],
     "audit_brier_order": [
       "1x2",
@@ -89,9 +89,9 @@
   },
   "training_end": "2026-11-08",
   "fit_success": true,
-  "objective": 1448.7525871838052,
-  "base": 0.08330613472933229,
-  "home_adv": 0.1744787738670507,
+  "objective": 1448.2232018128452,
+  "base": 0.08332155578200817,
+  "home_adv": 0.17448136320203902,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -116,11 +116,11 @@
   "training_source": "Football-Data.co.uk",
   "fixture_provider_mode": "auto",
   "fixture_sources": [
-    "football-data.org"
+    "The Odds API"
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 0,
+  "live_odds_matched": 1,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 9,
@@ -130,10 +130,10 @@
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
-      "fixture_id": "fdorg:567361",
-      "event_id": null,
-      "home_team": "CS Mar\u00edtimo",
-      "away_team": "CD Nacional",
+      "fixture_id": "1640277271",
+      "event_id": "1640277271",
+      "home_team": "CS Maritimo",
+      "away_team": "Nacional",
       "kickoff_utc": "2026-11-27T20:15:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
@@ -148,7 +148,7 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_NO_PINNACLE": 1
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {

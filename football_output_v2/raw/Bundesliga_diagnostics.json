@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "21a5ab317f2ce765ca06e2e4c2462c615e3b16a482c76a412a7a2ab3159ba305",
-  "training_as_of_utc": "2026-11-24T16:32:13.967571+00:00",
+  "training_sha256": "c55472056f2d7cd149b01332e7c839213d9354d5927ee7a458ffb7077c34fc49",
+  "training_as_of_utc": "2026-11-24T22:37:52.316463+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 90,
     "bbs_added_results": 0,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-24T16:32:13.967571+00:00",
+    "cutoff_utc": "2026-11-24T22:37:52.316463+00:00",
     "observations": 825,
     "observations_sha256": "3bbf5c1e577e9ad9c4ec39cfbff838b4529ae5fc81d14f9ba1885ddd0d4ffc10",
     "eligible_training_matches": 130,
@@ -154,21 +154,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.7232858498570991,
-    "audit_candidate_poisson_score": 0.7146076231331342,
-    "audit_gain": 0.0086782267239649,
-    "audit_gain_lower95": -0.005866927308594522,
+    "audit_baseline_poisson_score": 0.7232735700638955,
+    "audit_candidate_poisson_score": 0.7145981600397998,
+    "audit_gain": 0.008675410024095664,
+    "audit_gain_lower95": -0.005867409205399877,
     "audit_baseline_briers": [
-      0.5815671253427377,
-      0.16846580426132174,
-      0.2834022123553773,
-      0.24188684098875374
+      0.5815497429501392,
+      0.16846861848860473,
+      0.28339734657211774,
+      0.2418829889775711
     ],
     "audit_candidate_briers": [
-      0.5787693933098529,
-      0.16688943271260906,
-      0.2759057880164011,
-      0.24255184005782238
+      0.5787511771124748,
+      0.16689426504638666,
+      0.27589953692834357,
+      0.24254999345282816
     ],
     "audit_brier_order": [
       "1x2",
@@ -184,10 +184,10 @@
   },
   "training_end": "2026-11-22",
   "fit_success": true,
-  "objective": 1596.8457670998166,
-  "base": 0.21479276066069314,
-  "home_adv": 0.23322638647432964,
-  "rho": -0.06570266842555647,
+  "objective": 1596.260489560489,
+  "base": 0.21482011662181902,
+  "home_adv": 0.23323082511241713,
+  "rho": -0.06567450113256676,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -211,25 +211,25 @@
   "training_source": "Football-Data.co.uk",
   "fixture_provider_mode": "auto",
   "fixture_sources": [
-    "football-data.org"
+    "The Odds API"
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 0,
+  "live_odds_matched": 1,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261124T163213967571Z_d110f5db7e589d05590f996a97fb27e26a2c84021283b368ee44f8ee5a0e9a50.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261124T223752316463Z_69c964a54ae7180279046896789cdd45f6b87f69e0560a1196c96393b219e0c5.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
-      "fixture_id": "fdorg:565869",
-      "event_id": null,
-      "home_team": "SV Werder Bremen",
-      "away_team": "Borussia M\u00f6nchengladbach",
+      "fixture_id": "1640260146",
+      "event_id": "1640260146",
+      "home_team": "Werder Bremen",
+      "away_team": "Borussia Monchengladbach",
       "kickoff_utc": "2026-11-27T19:30:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
@@ -244,7 +244,7 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_NO_PINNACLE": 1
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {

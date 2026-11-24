@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "4f6d95381b8cfd91e9023a94d1b173af4893896e324bce797e4744fa47776118",
-  "training_as_of_utc": "2026-11-24T16:31:11.442282+00:00",
+  "training_sha256": "24378a59b0a3db56fedb8c6dbe9c91db37a4424f691b4658425cfd90a62588d9",
+  "training_as_of_utc": "2026-11-24T22:37:17.876598+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 129,
     "bbs_added_results": 0,
@@ -35,9 +35,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_utc": "2026-11-24T16:31:11.442282+00:00",
-    "observations": 1222,
-    "observations_sha256": "75490ae45f9f75061afffb0ea8fc0037b3ff850230a9cc5b781378654644af46",
+    "cutoff_utc": "2026-11-24T22:37:17.876598+00:00",
+    "observations": 1224,
+    "observations_sha256": "ab9b2bcc3a9d446715fa7e1c58b417d19a51f8b19e98ef74537752b24c28b275",
     "eligible_training_matches": 356,
     "required_training_matches": 120,
     "feature_fields": [
@@ -71,7 +71,7 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:27.155286+00:00",
-    "retrospective_inputs_sha256": "1dbad689d7a4cd7380d2dda26e8a5d145c84af2d92b37e29f5b1409df2e19cfd",
+    "retrospective_inputs_sha256": "69b35d1c2108f3a44d026ff2d38850df251a3f12c076e62fb3c232dbfbcc31a3",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "training_matches": 296,
@@ -118,21 +118,21 @@
     "audit_matchdays": 15,
     "selected_ridge": 100.0,
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8952429070490318,
-    "audit_candidate_poisson_score": 0.8915402222885241,
-    "audit_gain": 0.003702684760507613,
-    "audit_gain_lower95": -0.01156682491656295,
+    "audit_baseline_poisson_score": 0.8952371648431244,
+    "audit_candidate_poisson_score": 0.8915362622731108,
+    "audit_gain": 0.0037009025700136533,
+    "audit_gain_lower95": -0.011568438870258373,
     "audit_baseline_briers": [
-      0.5455469722916333,
-      0.19765564273440522,
-      0.16234436270737604,
-      0.23199920913785804
+      0.5455405803287083,
+      0.1976540459878047,
+      0.1623441719552971,
+      0.23199911626112096
     ],
     "audit_candidate_briers": [
-      0.5429958888588804,
-      0.19682851871692997,
-      0.16600724404619635,
-      0.2338107027776007
+      0.5429922292316874,
+      0.19682774508012907,
+      0.1660066427284999,
+      0.23381083080780965
     ],
     "audit_brier_order": [
       "1x2",
@@ -181,21 +181,21 @@
     "selected_shrinkage": 40.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.7949635929533156,
-    "audit_candidate_poisson_score": 0.7996383655023083,
-    "audit_gain": -0.004674772548992623,
-    "audit_gain_lower95": -0.013813793914599394,
+    "audit_baseline_poisson_score": 0.7949749477503751,
+    "audit_candidate_poisson_score": 0.7996477569248229,
+    "audit_gain": -0.0046728091744477895,
+    "audit_gain_lower95": -0.013811683564063338,
     "audit_baseline_briers": [
-      0.5433894114865379,
-      0.19395445083491153,
-      0.19963971369955807,
-      0.2540491251783392
+      0.5433888906595042,
+      0.1939622888379839,
+      0.1996416083959726,
+      0.25405140114965663
     ],
     "audit_candidate_briers": [
-      0.5523965859420397,
-      0.1910833424526641,
-      0.2002061771832245,
-      0.24984601360867045
+      0.5523955343982682,
+      0.19108907706222616,
+      0.20020832835092672,
+      0.2498487273640876
     ],
     "audit_brier_order": [
       "1x2",
@@ -211,10 +211,10 @@
   },
   "training_end": "2026-11-23",
   "fit_success": true,
-  "objective": 1846.079532247755,
-  "base": 0.08409927519074348,
-  "home_adv": 0.2804377488040809,
-  "rho": -0.028275628834497257,
+  "objective": 1845.4020042762656,
+  "base": 0.08409091619267987,
+  "home_adv": 0.28044389993096197,
+  "rho": -0.0283270456237883,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -238,24 +238,24 @@
   "training_source": "Football-Data.co.uk",
   "fixture_provider_mode": "auto",
   "fixture_sources": [
-    "football-data.org"
+    "The Odds API"
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 0,
+  "live_odds_matched": 1,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261124T163111442282Z_f31393a3e9fdbc004173eb5b4c446f3c6c8f6bcab11c708d687542416c057d0e.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261124T223717876598Z_692f9c344d538a1a11a3aeda7ed379208484a7996dfa2db643bf8db5e3b8f75b.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
-      "fixture_id": "fdorg:564765",
-      "event_id": null,
-      "home_team": "Levante UD",
+      "fixture_id": "1640273345",
+      "event_id": "1640273345",
+      "home_team": "Levante",
       "away_team": "Real Racing Club de Santander",
       "kickoff_utc": "2026-11-27T20:00:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
@@ -271,7 +271,7 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_NO_PINNACLE": 1
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {

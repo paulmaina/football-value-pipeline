@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "74ec1f29314d863c87bb354e75ce24b5153b4b9267a018dfce04f90b1434c815",
-  "training_as_of_utc": "2026-11-24T16:30:03.224928+00:00",
+  "training_sha256": "743e2d0e6b94ad28bef6a5d5d17ced97660cb8d4443af8cd75cb1b7ef619ec7c",
+  "training_as_of_utc": "2026-11-24T22:36:40.021774+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 110,
     "bbs_added_results": 0,
@@ -35,9 +35,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_utc": "2026-11-24T16:30:03.224928+00:00",
-    "observations": 1350,
-    "observations_sha256": "688c6e2d1684d5eabebd186823f14fefa133eb7ff148bf8c6127406c9ddd07c1",
+    "cutoff_utc": "2026-11-24T22:36:40.021774+00:00",
+    "observations": 1351,
+    "observations_sha256": "1d838f99c3f46b27c6ebaf3f2f91da588002333332f9f0b98d1317b289ce2821",
     "eligible_training_matches": 623,
     "required_training_matches": 120,
     "feature_fields": [
@@ -71,7 +71,7 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:26.478110+00:00",
-    "retrospective_inputs_sha256": "43d183e27a7ba7dfbf1559e8e82192681aee0526dd26b0f170f2e23a57d58124",
+    "retrospective_inputs_sha256": "1c925c5a967d0a9bf9eec4d83f2228dbd006a3842f55ca02e2cb22816488c62d",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "training_matches": 563,
@@ -116,21 +116,21 @@
     "audit_matchdays": 12,
     "selected_ridge": 1.0,
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.9575942784583156,
-    "audit_candidate_poisson_score": 0.9465679801206305,
-    "audit_gain": 0.011026298337685092,
-    "audit_gain_lower95": -0.019939942288780856,
+    "audit_baseline_poisson_score": 0.9576280989650229,
+    "audit_candidate_poisson_score": 0.9465935057910044,
+    "audit_gain": 0.011034593174018448,
+    "audit_gain_lower95": -0.019935210565672455,
     "audit_baseline_briers": [
-      0.641950982393535,
-      0.1638489814833199,
-      0.21361364649456321,
-      0.27005587660777053
+      0.6419637840712948,
+      0.16385717562788668,
+      0.21360753597625554,
+      0.27008470838694854
     ],
     "audit_candidate_briers": [
-      0.6149201048451516,
-      0.17028575760725415,
-      0.2128925202066679,
-      0.26747729179746227
+      0.6149295715492762,
+      0.17029265535846322,
+      0.21289295881212372,
+      0.2674981180196572
     ],
     "audit_brier_order": [
       "1x2",
@@ -179,21 +179,21 @@
     "selected_shrinkage": 15.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.9482603977931439,
-    "audit_candidate_poisson_score": 0.9343399956818201,
-    "audit_gain": 0.013920402111323726,
-    "audit_gain_lower95": 0.0027706910237097,
+    "audit_baseline_poisson_score": 0.9482780840497544,
+    "audit_candidate_poisson_score": 0.9343555304405057,
+    "audit_gain": 0.013922553609248767,
+    "audit_gain_lower95": 0.0027696492649480387,
     "audit_baseline_briers": [
-      0.644364084711085,
-      0.16995295645544223,
-      0.22462619666525824,
-      0.2627992110251714
+      0.6443779764626287,
+      0.16995673206676046,
+      0.2246205329045237,
+      0.26280460056850996
     ],
     "audit_candidate_briers": [
-      0.6405068820537645,
-      0.1688316958299716,
-      0.2230948200883952,
-      0.25980780632813805
+      0.6405203532902879,
+      0.16883540299441452,
+      0.22309142669450327,
+      0.25981348302293156
     ],
     "audit_brier_order": [
       "1x2",
@@ -205,10 +205,10 @@
   },
   "training_end": "2026-11-23",
   "fit_success": true,
-  "objective": 1887.2400251660847,
-  "base": 0.2080799664859504,
-  "home_adv": 0.19215389436803937,
-  "rho": -0.0573950749532768,
+  "objective": 1886.5464405951507,
+  "base": 0.2080700019251473,
+  "home_adv": 0.19207075903428997,
+  "rho": -0.05734642184907512,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -232,25 +232,25 @@
   "training_source": "Football-Data.co.uk",
   "fixture_provider_mode": "auto",
   "fixture_sources": [
-    "football-data.org"
+    "The Odds API"
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 0,
+  "live_odds_matched": 1,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261124T163003224928Z_43c595530eb03306577441947f605ccc967f3a81af7db2da5639fc14ab719465.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261124T223640021774Z_f9b11ba46c451c805e8432852ddfdc53b3ab663ad52b41bb6d5669c119611c91.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
-      "fixture_id": "fdorg:560658",
-      "event_id": null,
-      "home_team": "Nottingham Forest FC",
-      "away_team": "Chelsea FC",
+      "fixture_id": "1640213882",
+      "event_id": "1640213882",
+      "home_team": "Nottingham Forest",
+      "away_team": "Chelsea",
       "kickoff_utc": "2026-11-27T20:00:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
@@ -265,7 +265,7 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_NO_PINNACLE": 1
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1
   },
   "shot_features_applied_fixtures": 1,
   "goal_rate_features_used": {

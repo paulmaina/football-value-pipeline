@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "6a6942c4484010b7ee31ba0d63440397e3d2574de9f7102f07acd6e30191f1e0",
-  "training_as_of_utc": "2026-11-24T16:35:07.327316+00:00",
+  "training_as_of_utc": "2026-11-24T22:39:42.330598+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -59,21 +59,21 @@
     "selected_shrinkage": 40.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.6308885479009532,
-    "audit_candidate_poisson_score": 0.6224747475142083,
-    "audit_gain": 0.008413800386744885,
-    "audit_gain_lower95": -0.004700720782241717,
+    "audit_baseline_poisson_score": 0.6308826464450854,
+    "audit_candidate_poisson_score": 0.6224704282339654,
+    "audit_gain": 0.008412218211120037,
+    "audit_gain_lower95": -0.004701228080257648,
     "audit_baseline_briers": [
-      0.6284532874594683,
-      0.1053318588745377,
-      0.29201417341229924,
-      0.22530861506060088
+      0.628450015796775,
+      0.10533193375569261,
+      0.29201483407538037,
+      0.2253102053487333
     ],
     "audit_candidate_briers": [
-      0.6243834192083423,
-      0.10483838377502522,
-      0.289426870307917,
-      0.21908927405314252
+      0.6243811817352334,
+      0.10483815203633236,
+      0.28942699667427135,
+      0.2190901069387336
     ],
     "audit_brier_order": [
       "1x2",
@@ -88,10 +88,10 @@
   },
   "training_end": "2026-11-22",
   "fit_success": true,
-  "objective": 1653.7197639756644,
-  "base": 0.30973126721437455,
-  "home_adv": 0.16452759219367497,
-  "rho": -0.06777085325517453,
+  "objective": 1653.1153544040437,
+  "base": 0.3097215720169534,
+  "home_adv": 0.1645138357195362,
+  "rho": -0.0677315619611541,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -115,11 +115,11 @@
   "training_source": "Football-Data.co.uk",
   "fixture_provider_mode": "auto",
   "fixture_sources": [
-    "football-data.org"
+    "The Odds API"
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 0,
+  "live_odds_matched": 1,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 9,
@@ -129,10 +129,10 @@
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
-      "fixture_id": "fdorg:558820",
-      "event_id": null,
-      "home_team": "FC Groningen",
-      "away_team": "Willem II Tilburg",
+      "fixture_id": "1640270692",
+      "event_id": "1640270692",
+      "home_team": "Groningen",
+      "away_team": "Willem II",
       "kickoff_utc": "2026-11-27T19:00:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
@@ -147,7 +147,7 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_NO_PINNACLE": 1
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
