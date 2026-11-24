@@ -374,7 +374,19 @@ def master_tab(book: xb.Book, files: MasterFiles, run: str, which: str) -> None:
     columns = MASTER_COLUMNS + [c if c else (in_shadow if new else IN_NEW) for c in MASTER_TAIL] + MASTER_WEAK
     era = ('' if files.new_is_live or not files.available else
            f' In this run (before the {RELEASED} release, or with live set to "old") the old master was the live list.')
-    if new:
+    if new and getattr(files, 'strong_era', False) and not files.strong_failed:
+        # The strong-team master is live (since 23 Nov 2026); a run where it failed shows today's master instead.
+        s.title('Master shortlist: the live list (strong-team master), best first',
+                f'Run {run}. Strong-team master rule: at most 6 picks per market group, 15 matches, one bet per match. '
+                'Proven picks first (cagey safe, backed team stronger by Elo, proven record on this exact bet, '
+                'research margin agrees), ranked by Elo expected score; then not proven: safe (market no-loss ≥75%), '
+                'fill, then risky fill. Research gate: every pick needs research no-loss ≥70% on the exact bet. '
+                'Weak-link flags are shown in red and never remove or reorder a pick. Pinnacle prices only. Re-check '
+                'every price at Pinnacle before betting. Full columns: readable/master_shortlist_readable.csv and '
+                'raw/master_shortlist.csv.', span=12)
+        rows, empty = new_master_rows(files), ('No nominated offer passed the strong master\'s execution, timing '
+                                               'and research-gate checks.')
+    elif new:
         s.title('Master shortlist: the live list, best first',
                 f'Run {run}. New master rule: safe (market no-loss ≥75%), fill, then risky fill; Pinnacle prices '
                 f'only; the research view only labels and flags. Re-check every price at Pinnacle before betting.{era} '
