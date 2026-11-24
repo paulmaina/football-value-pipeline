@@ -89,8 +89,9 @@ uses Pinnacle's margin-free price as a stand-in, marked as such.
 **Best offer** — the fixture's master pick; otherwise the Pinnacle offer the master's own
 rule would choose for it (safe first, then chance of profit), marked "not on the master".
 
-**Master check** — whether the offer passes the master's execution rule (Pinnacle, odds in
-(1.15, 2.00], native markets) and quote timing checks.
+**Master check** — whether the offer passes the master's execution rule (Pinnacle, the live
+master's odds window: above 1.20 up to 2.00 since 24 Nov 2026, above 1.15 before; native
+markets) and quote timing checks.
 
 **Fair odds** — 1 / probability. These do not include a bookmaker margin.
 
