@@ -299,6 +299,45 @@ def research_gate_review(strong: pd.DataFrame, left_out: Optional[pd.DataFrame],
                                             if ready and others['n'] else None)}
 
 
+def weak_link_review(strong: pd.DataFrame, config: Mapping) -> Optional[dict]:
+    """Weak-link flags (since master-strong-team-v5; flag only): graded results of flagged against unflagged picks
+    and for each reason (a-g), as realised profit per bet, CLV and observed minus market no-loss. Once
+    review_after_flagged_picks flagged picks are graded, each reason can be kept or dropped (Paul decides)."""
+    import weak_links
+    rule = config.get('weak_links')
+    if not rule:
+        return None
+    graded = strong.loc[strong.result_status.notna()] if len(strong) and 'result_status' in strong else pd.DataFrame()
+    flags = graded['weak_link'].astype(str) if len(graded) and 'weak_link' in graded else pd.Series(dtype=str)
+    reasons = (graded['weak_link_reasons'].map(weak_links.reason_letters) if len(graded) and 'weak_link_reasons' in graded
+               else pd.Series(dtype=object))
+
+    def group(frame):
+        return {'n': int(len(frame)), 'profit': summarize(frame['unit_profit'] if len(frame) else []),
+                'clv': summarize(frame['clv'] if len(frame) and 'clv' in frame else []), 'no_loss': no_loss_gap(frame)}
+    flagged = graded.loc[flags.eq('yes')] if len(graded) else graded
+    need = int(rule['review_after_flagged_picks'])
+    return {'review': rule['review'], 'review_after_flagged_picks': need, 'flagged_graded': int(len(flagged)),
+            'status': 'READY FOR REVIEW' if len(flagged) >= need else 'WAITING',
+            'flagged': group(flagged), 'unflagged': group(graded.loc[flags.eq('no')] if len(graded) else graded),
+            'by_reason': {letter: group(graded.loc[reasons.map(lambda r, x=letter: x in r)] if len(graded) else graded)
+                          for letter in weak_links.REASONS}}
+
+
+def weak_link_lines(review: Optional[dict]) -> List[str]:
+    """The weekly report's weak-link review table."""
+    if not review:
+        return []
+    pts = lambda v: 'n/a' if v is None else f'{v:+.1f}'
+    row = lambda name, x: f"| {name} | {x['n']} | {_fmt(x['profit'])} | {_fmt(x['clv'])} | {pts(x['no_loss']['difference_points'])} |"
+    lines = [f"Weak-link flags (flag only, since 24 Nov 2026): {review['flagged_graded']} flagged picks graded; "
+             f"{'**ready for review**: ' + review['review'] if review['status'] == 'READY FOR REVIEW' else 'each reason is reviewed once ' + str(review['review_after_flagged_picks']) + ' flagged picks are graded.'}",
+             '', '| picks | graded | realised profit per bet (n) | mean CLV (n) | observed minus market no-loss (points) |',
+             '|---|---|---|---|---|', row('weak link', review['flagged']), row('not flagged', review['unflagged'])]
+    lines += [row(f'reason ({letter})', x) for letter, x in review['by_reason'].items()]
+    return lines + ['']
+
+
 def _grouped(frame: pd.DataFrame, column: str) -> dict:
     if not len(frame) or column not in frame:
         return {}
@@ -328,7 +367,8 @@ def strong_master_summary(strong: pd.DataFrame, live: pd.DataFrame, left_out: Op
             'european_graded_picks': int(profits[flags].notna().sum()) if len(strong) else 0,
             'min_graded_matches': int(config['live_comparison']['min_graded_matches']),
             'comparison': comparison,
-            **({'research_gate_review': review} if (review := research_gate_review(strong, left_out, config)) else {})}
+            **({'research_gate_review': review} if (review := research_gate_review(strong, left_out, config)) else {}),
+            **({'weak_link_review': weak} if (weak := weak_link_review(strong, config)) else {})}
 
 
 def strong_rollback(comparison: dict) -> dict:
@@ -1354,6 +1394,7 @@ def strong_master_report(summary: dict) -> List[str]:
                 f"{m['research_gate_review']['graded_picks']} graded picks (reviewed at "
                 f"{m['research_gate_review']['review_after_graded_picks']})."), '',
              *research_gate_lines(m.get('research_gate_review')),
+             *weak_link_lines(m.get('weak_link_review')),
              f"Comparison rule (decided {c['decided']}): {c['rule']}", '']
     row = lambda name, x: (f"| {name} | {x['graded_matches']} | {x['weeks']} | "
                            + (f"{x['flat_stake_return_per_bet']:+.2%} | {x['hit_rate']:.1%} | {x['average_price']:.2f} |"

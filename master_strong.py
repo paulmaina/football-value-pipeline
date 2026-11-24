@@ -38,7 +38,10 @@ RULES_DIR = Path(__file__).with_name('master_strong_rules')
 # v2 (Paul, 24 Nov 2026; docs/plan.md Phase 4d, Part 1): the executable pool's odds floor is 1.20 (config 'execution').
 # v3 (Part 2): research no-loss >= 0.70 for every pick in every tier (config 'research_gate'; R3 extended).
 # v4 (Part 3): proven picks by Elo expected score, then record share, then chance of profit (config 'proven_order').
-VERSIONS = ('master-strong-team-v1', 'master-strong-team-v2', 'master-strong-team-v3', 'master-strong-team-v4')
+# v5 (Part 4): weak-link flags on the picks, flag only (config 'weak_links'; weak_links.py).
+VERSIONS = ('master-strong-team-v1', 'master-strong-team-v2', 'master-strong-team-v3', 'master-strong-team-v4',
+            'master-strong-team-v5')
+WEAK_COLUMNS = ['weak_link', 'weak_link_reasons']  # since v5 (config 'weak_links')
 VERSION = VERSIONS[-1]
 TRUST_ORDER = ('trusted', 'not trusted', 'unvalidated')
 TIERS = ('proven', 'not proven: safe', 'not proven: fill', 'not proven: risky fill')
@@ -358,10 +361,12 @@ def select(rows: List[Dict[str, object]], config: Mapping, run: Mapping, match_k
 # Live shadow
 # ---------------------------------------------------------------------------
 
-def columns() -> List[str]:
+def columns(config: Optional[Mapping] = None) -> List[str]:
     import master_reconciliation as mr
+    config = config or load_config()
     return [*SELECTION_COLUMNS, *mr.IDENTITY_COLUMNS, *REPORTED_CLASSIFICATION, *STRONG_COLUMNS,
-            'in_live_master', 'live_master_rank', 'live_master_same_offer', 'strong_master_version']
+            'in_live_master', 'live_master_rank', 'live_master_same_offer', 'strong_master_version',
+            *(WEAK_COLUMNS if config.get('weak_links') else [])]
 
 
 def offer_rows(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame], generated_at_utc,
@@ -377,6 +382,7 @@ def offer_rows(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame], gen
     records = mr.pool(decisions)
     clock = mr.run_clock(mr._records(decisions), generated_at_utc)
     by_fixture, fits = mr.forecasts(predictions), {}
+    weak = config.get('weak_links')
     rows = []
     for record in records:
         row = mr.offer_row(record, mcfg, clock, by_fixture, fits)
@@ -386,8 +392,17 @@ def offer_rows(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame], gen
         annotate(row, evidence_from_forecast(by_fixture.get(identity(record))), config=config,
                  trust=league_trust(record.get('league'), trust, european), european=european,
                  E=run['E'], G=run['G'])
+        if weak:  # the weak-link flags' private inputs, dropped once the flags are set
+            row.update(_forecast=by_fixture.get(identity(record)), _research_warnings=record.get('research_warnings'),
+                       _cagey_fallback=record.get('cagey_correction_fallback'))
         rows.append(row)
     select(rows, config, run)
+    if weak:
+        import weak_links
+        weak_links.annotate(rows, weak, E=run['E'], clock=clock)
+        for row in rows:
+            for key in ('_forecast', '_research_warnings', '_cagey_fallback'):
+                row.pop(key, None)
     return rows
 
 
@@ -399,7 +414,7 @@ def reconcile(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = Non
     config = config or load_config()
     rows = offer_rows(decisions, predictions, generated_at_utc, config, trust)
     if not rows:  # nothing nominated in this run: an empty list with the full schema
-        return pd.DataFrame(columns=columns())
+        return pd.DataFrame(columns=columns(config))
     frame = pd.DataFrame(rows)
     frame = overlap(frame, live_master)
     frame['strong_master_version'] = config['version']
@@ -409,20 +424,22 @@ def reconcile(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = Non
                          _line=pd.to_numeric(frame.handicap_line, errors='coerce'))
     order = order.sort_values(['_rank', '_dec', '_p', 'kickoff_utc', 'league', 'home_team', 'away_team', 'market',
                                'handicap_side', '_line'], na_position='last', kind='stable')
-    return order.reindex(columns=columns()).reset_index(drop=True)
+    return order.reindex(columns=columns(config)).reset_index(drop=True)
 
 
 STEP_OF_TIER = {tier: number for number, tier in enumerate(TIERS, start=1)}
 
 
-def live_columns() -> List[str]:
+def live_columns(config: Optional[Mapping] = None) -> List[str]:
     """The strong master's file when it is the live master_shortlist.csv (master_shortlist_config.json live "strong"):
     the live master file's columns (master_reconciliation.COLUMNS: new_master_rank, tier, step, decision and reason
     carry the strong selection; the classification columns are the live master rule's own, from offer_row), then the
-    strong-team columns. The overlap columns (in_live_master, ...) compare with the baseline, today's master."""
+    strong-team columns, then (since v5) weak_link and weak_link_reasons. The overlap columns (in_live_master, ...)
+    compare with the baseline, today's master. `config`: the rule's (the current one when omitted)."""
     import master_reconciliation as mr
+    config = config or load_config()
     extra = [c for c in (*STRONG_COLUMNS, *SELECTION_COLUMNS, 'strong_master_version') if c not in mr.COLUMNS]
-    return [*mr.COLUMNS, *extra]
+    return [*mr.COLUMNS, *extra, *(WEAK_COLUMNS if config.get('weak_links') else [])]
 
 
 def live_frame(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = None,
@@ -434,7 +451,7 @@ def live_frame(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = No
     config = config or load_config()
     rows = offer_rows(decisions, predictions, generated_at_utc, config, trust)
     if not rows:
-        return pd.DataFrame(columns=live_columns())
+        return pd.DataFrame(columns=live_columns(config))
     for row in rows:
         row.update(new_master_rank=row['strong_rank'], new_master_tier=row['strong_tier'],
                    new_master_step=STEP_OF_TIER.get(row['strong_tier']), new_master_decision=row['strong_decision'],
@@ -442,7 +459,7 @@ def live_frame(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = No
                    strong_master_version=config['version'])
     frame = overlap(pd.DataFrame(rows), baseline)
     frame['new_master_version'] = version
-    return frame.reindex(columns=live_columns())
+    return frame.reindex(columns=live_columns(config))
 
 
 def _offer_key(row: Mapping) -> tuple:
@@ -520,7 +537,8 @@ def summary(frame: pd.DataFrame, config: Optional[Mapping] = None, generated_at_
         **({'execution': {k: config['execution'][k] for k in ('min_odds_exclusive', 'max_odds_inclusive')}}
            if config.get('execution') else {}),
         **({'research_gate': research_gate_summary(frame, config)} if config.get('research_gate') else {}),
-        **({'proven_order': list(config['proven_order']['keys'])} if config.get('proven_order') else {})}
+        **({'proven_order': list(config['proven_order']['keys'])} if config.get('proven_order') else {}),
+        **({'weak_links': __import__('weak_links').summary(frame)} if config.get('weak_links') else {})}
 
 
 def research_gate_summary(frame: pd.DataFrame, config: Mapping) -> Dict[str, object]:

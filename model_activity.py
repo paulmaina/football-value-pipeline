@@ -425,6 +425,16 @@ RULE_RELEASES = {
                     "live master-strong-team-v4-live-v14). Paul's exception of 24 Nov 2026: no shadow list, no "
                     "pre-release backtest gate. Rolling back is the strong master back to master-strong-team-v3. Takes "
                     "effect with the merge of its PR.")},
+    'master-strong-team-v5': {
+        'model': 'strong master: weak-link flags (Part 4)',
+        'before': 'master-strong-team-v4-live-v14', 'after': 'master-strong-team-v5-live-v15',
+        'details': ("Every strong-master pick is flagged as a weak link (weak_link, weak_link_reasons) when any of "
+                    "seven reasons holds: research 8+ points below cagey, either no-loss below 0.75, cagey view missing "
+                    "or fallen back to D, a thin record or Elo near the line, Pinnacle's fair probability down 3+ "
+                    "points since the earliest snapshot, a not-proven tier, a research warning or stale fit. Flag "
+                    "only: no pick is removed or reordered (master-strong-team-v5, live "
+                    "master-strong-team-v5-live-v15). Paul's exception of 24 Nov 2026. Rolling back is the strong "
+                    "master back to master-strong-team-v4. Takes effect with the merge of its PR.")},
 }
 
 
