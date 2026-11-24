@@ -436,7 +436,7 @@ def executable(row: Mapping, config: Mapping) -> Optional[str]:
     if row.get('bookmaker') != rule['bookmaker']:
         return 'bookmaker other than Pinnacle'
     if price is None or not rule['min_odds_exclusive'] < price <= rule['max_odds_inclusive']:
-        return 'offered odds outside (1.15, 2.00]'
+        return f"offered odds outside ({rule['min_odds_exclusive']:.2f}, {rule['max_odds_inclusive']:.2f}]"
     if not allowed({**row, 'master_offer_source_market': row.get('source_market')}):
         return 'market outside the native Pinnacle master markets'
     return None

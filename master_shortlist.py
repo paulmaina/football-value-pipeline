@@ -91,7 +91,12 @@ LIVE_NEW, LIVE_OLD = 'new', 'old'
 # master_strong.VERSION) and today's master (master-new-fill-rule-v4) runs in shadow as master_shortlist_new.csv, the
 # comparison and rollback baseline. Rolling back is setting live to "new".
 LIVE_STRONG = 'strong'
-VERSION_STRONG_LIVE = 'master-strong-team-v1-live-v11'
+# The live version of each strong-master rule (master_strong.VERSIONS; Paul's rule changes of 24 Nov 2026 are edits of
+# the live rule, each a new rule version and a new live version). A run records both (summary 'version' and 'rule'),
+# and replays under the rule it recorded.
+STRONG_LIVE_VERSIONS = {'master-strong-team-v1': 'master-strong-team-v1-live-v11',
+                        'master-strong-team-v2': 'master-strong-team-v2-live-v12'}
+VERSION_STRONG_LIVE = STRONG_LIVE_VERSIONS['master-strong-team-v2']
 STRONG_FAILED = "STRONG MASTER FAILED - TODAY'S MASTER PUBLISHED"
 STRONG_LIVE_STATUS = ('live master: the strong-team master, released by Paul on 23 Nov 2026 as a deliberate exception '
                       'to the release gate (offline: no measurable difference from today\'s master); graded beside '
@@ -184,6 +189,11 @@ def configured_live() -> str:
     return live
 
 
+def strong_rule(live_version: Optional[str]) -> Optional[str]:
+    """The strong-master rule a live version belongs to (None: not a strong-master live version)."""
+    return next((rule for rule, live in STRONG_LIVE_VERSIONS.items() if live == live_version), None)
+
+
 def strong_live_columns() -> List[str]:
     """The live file's columns under live "strong": master_strong.live_columns() with the overlap columns named after
     the baseline (LIVE_RENAMES), then the inspection details (master_inspection.COLUMNS)."""
@@ -194,18 +204,22 @@ def strong_live_columns() -> List[str]:
 
 def strong_live(decisions: pd.DataFrame, baseline: Optional[pd.DataFrame], generated_at_utc=None,
                 predictions: Optional[pd.DataFrame] = None, cagey_model_version: Optional[str] = None,
-                cagey: Optional[Mapping] = None):
+                cagey: Optional[Mapping] = None, rule: Optional[str] = None):
     """The live master under live "strong": (frame, summary). The strong-team master (master_strong.live_frame) in the
     live file's schema, ordered as the live master is (master_reconciliation.stable_order), with the live master's
     summary of it (master_reconciliation.summary) plus the strong master's own (key 'strong') and the inspection
-    details of flagged picks. `baseline` is today's master (shadow), for the overlap columns only."""
+    details of flagged picks. `baseline` is today's master (shadow), for the overlap columns only. `rule`: the
+    strong-master rule (master_strong.VERSIONS; the current one when omitted): a replay passes the run's own."""
     import master_reconciliation as mr
     import master_inspection
     import master_strong
     config = mr.load_config()
-    frame = master_strong.live_frame(decisions, predictions, baseline, generated_at_utc, version=VERSION_STRONG_LIVE)
+    strong_config = master_strong.load_config(version=rule)
+    live_version = STRONG_LIVE_VERSIONS[strong_config['version']]
+    frame = master_strong.live_frame(decisions, predictions, baseline, generated_at_utc, version=live_version,
+                                     config=strong_config)
     frame = mr.stable_order(frame)
-    strong_info = master_strong.summary(frame, generated_at_utc=generated_at_utc)
+    strong_info = master_strong.summary(frame, strong_config, generated_at_utc=generated_at_utc)
     picked = (baseline.loc[baseline.new_master_decision.eq('SHORTLISTED')]
               if baseline is not None and len(baseline) else baseline)  # overlap counts: the baseline's picks
     info = _renamed(mr.summary(frame, picked, config, generated_at_utc))
@@ -214,7 +228,7 @@ def strong_live(decisions: pd.DataFrame, baseline: Optional[pd.DataFrame], gener
     by_rank = {frame.at[i, 'new_master_rank']: d for i, d in details.items()}
     for pick in info['for_inspection']['picks']:
         pick['detail'] = by_rank.get(pick['new_master_rank'])
-    info.update(version=VERSION_STRONG_LIVE, rule=master_strong.VERSION, status=STRONG_LIVE_STATUS,
+    info.update(version=live_version, rule=strong_config['version'], status=STRONG_LIVE_STATUS,
                 note=STRONG_LIVE_NOTE, strong=_renamed(strong_info))
     frame = frame.rename(columns=LIVE_RENAMES).reindex(columns=strong_live_columns())
     return frame, json.loads(json.dumps(info, default=str))

@@ -1,5 +1,8 @@
 # Market-specific no-loss tier (v5)
 
+Since 24 Nov 2026 the live rule is `no-loss-market-reference-120-200-v6`: v5 exactly, with odds above
+1.20 and at most 2.00 (Paul's decision, `docs/plan.md` Phase 4d, Part 1). Runs recorded under v5 replay under v5.
+
 Current rule: `no-loss-market-reference-v5`. The strict offered-price range
 (1.15, 2.00], one pick per fixture/market group,
 no-loss/expected-return/odds ranking, and no narrow/EV/no-loss eligibility floors

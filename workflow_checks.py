@@ -138,7 +138,7 @@ def raw_check(root, *, raw_dir=None):
             counted = row.get('market') in count_markets_allowed
             require(row.get('market') in ordinary_markets(policy_version) or parse_handicap(row.get('market')) is not None
                     or counted or (value_per_market and row.get('market') == price_edge_cagey_shortlist.OVER_1_5)
-                    or (summary.get('value_rule') == price_edge_cagey_shortlist.VALUE_RULE_LOCAL_RESEARCH and row.get('market') == 'Double Chance 12'),
+                    or (summary.get('value_rule') in price_edge_cagey_shortlist.LOCAL_RESEARCH_RULES and row.get('market') == 'Double Chance 12'),
                     'Excluded Asian shortlist market')
             if value_per_market:
                 require(row.get('value_market_group') == price_edge_cagey_shortlist.market_group(row, rule=summary.get('value_rule')),
@@ -150,8 +150,10 @@ def raw_check(root, *, raw_dir=None):
         require(number(row.get('offered_decimal_odds'),min_value=1.000001) is not None, 'Missing real selection price')
         require(number(row.get('rank_probability') or row.get('predicted_probability'),min_value=0,max_value=1) is not None,
                 'Missing selection probability')
-        if summary.get('value_rule') == price_edge_cagey_shortlist.VALUE_RULE_LOCAL_RESEARCH:
-            require(1.15 < float(row['offered_decimal_odds']) <= 2.0, 'Researched shortlist price outside (1.15, 2.00]')
+        if summary.get('value_rule') in price_edge_cagey_shortlist.LOCAL_RESEARCH_RULES:
+            from profit_shortlist import ODDS_FLOOR
+            floor = ODDS_FLOOR[summary['value_rule']]
+            require(floor < float(row['offered_decimal_odds']) <= 2.0, f'Researched shortlist price outside ({floor:.2f}, 2.00]')
         if balanced:
             from datetime import timedelta
             generated, kickoff = utc(summary['generated_at_utc']), utc(row['kickoff_utc'])
@@ -306,12 +308,13 @@ def raw_check(root, *, raw_dir=None):
                 return mr.reconcile(decisions, None, mr.load_config(), pd.read_csv(
                     raw/'all_leagues_predictions.csv', low_memory=False), summary.get('generated_at_utc'))
 
-            def replay_strong(baseline):
+            def replay_strong(baseline, rule=None):
                 return master_shortlist.strong_live(decisions, baseline, summary.get('generated_at_utc'), pd.read_csv(
                     raw/'all_leagues_predictions.csv', low_memory=False), summary.get('cagey_model_version'),
-                    master_shortlist.cagey_settings(summary))
+                    master_shortlist.cagey_settings(summary), rule=rule)
 
-            if live_info is not None and live_info.get('version') == master_shortlist.VERSION_STRONG_LIVE:
+            strong_rule = master_shortlist.strong_rule((live_info or {}).get('version'))
+            if strong_rule is not None:
                 # Live "strong" (23 Nov 2026): the strong-team master is master_shortlist.csv and today's master its
                 # shadow baseline (master_shortlist_new.csv); no old master shadow.
                 import master_reconciliation as mr
@@ -340,7 +343,8 @@ def raw_check(root, *, raw_dir=None):
                                 for got, want in zip(master_shortlist._as_csv(baseline_actual)[column].astype(object),
                                                      master_shortlist._as_csv(baseline_expected)[column].astype(object))),
                             "Today's master (shadow) differs from deterministic replay")
-                strong_expected, strong_summary_expected = replay_strong(baseline_expected)
+                require((live_info or {}).get('rule') == strong_rule, 'Strong master live version and rule disagree')
+                strong_expected, strong_summary_expected = replay_strong(baseline_expected, strong_rule)
                 try:
                     strong_actual = pd.read_csv(master_path, low_memory=False)
                 except pd.errors.EmptyDataError:

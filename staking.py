@@ -125,8 +125,8 @@ def settlement_kelly(probabilities: Mapping[str, float], odds: float, cost: floa
 
 def conservative_settlement(row: Mapping, *, tier='value') -> dict:
     """Calibration-penalised settlement distribution for one shortlist row."""
-    from cagey_tier_v3 import RULE_MARKET_BASIS
-    if tier == 'cagey' and row.get('cagey_tier_rule') == RULE_MARKET_BASIS:
+    from cagey_tier_v3 import MARKET_BASIS_RULES
+    if tier == 'cagey' and row.get('cagey_tier_rule') in MARKET_BASIS_RULES:
         mapping = {'full_win':'win','half_win':'half_win','refund':'push','half_loss':'half_loss','full_loss':'loss'}
         probs = {k:_number(row.get('cagey_p_'+suffix)) for k,suffix in mapping.items()}
         from cagey_market_basis import UNCORRECTED
@@ -212,8 +212,8 @@ def stake_recommendations(
         if record.get('selection_policy_version') == CAGEY_POLICY:
             out['staking_version'] = 'fractional-kelly-v28-reference-v2'
             out['probability_basis'] = ('team_form_poisson_v1' if tier == 'value' and record.get('value_probability_basis') == 'team_form_poisson_v1' else settlement_basis(record, tier))
-        from cagey_tier_v3 import RULE_MARKET_BASIS
-        if tier == 'cagey' and record.get('cagey_tier_rule') == RULE_MARKET_BASIS:
+        from cagey_tier_v3 import MARKET_BASIS_RULES
+        if tier == 'cagey' and record.get('cagey_tier_rule') in MARKET_BASIS_RULES:
             out['probability_basis'] = record.get('cagey_probability_basis')
         try:
             odds = _number(record.get('offered_decimal_odds'))

@@ -7,7 +7,18 @@ import shortlist_window
 RULE = 'narrow-67-per-market-v3'
 RULE_NO_GATE = 'corrected-no-loss-per-market-v4'
 RULE_MARKET_BASIS = 'no-loss-market-reference-v5'
-EXPANDED_RULES = (RULE, RULE_NO_GATE, RULE_MARKET_BASIS)
+# v5 with the odds floor raised from 1.15 to 1.20 (Paul, 24 Nov 2026; docs/plan.md Phase 4d, Part 1). v5 stays for replay.
+RULE_MARKET_BASIS_120 = 'no-loss-market-reference-120-200-v6'
+MARKET_BASIS_RULES = (RULE_MARKET_BASIS, RULE_MARKET_BASIS_120)
+EXPANDED_RULES = (RULE, RULE_NO_GATE, *MARKET_BASIS_RULES)
+# Offered odds must be above the floor and at most 2.00. Rules v3-v5 use 1.15.
+ODDS_FLOOR = {RULE_MARKET_BASIS_120: 1.20}
+DEFAULT_ODDS_FLOOR = 1.15
+MAX_ODDS = 2.0
+
+
+def odds_floor(rule) -> float:
+    return ODDS_FLOOR.get(rule, DEFAULT_ODDS_FLOOR)
 BASIS = 'pinnacle_cagey_corrected_matrix_v1'
 MIN_NARROW = .67
 COLUMNS = ['cagey_tier_rule', 'cagey_market_group', 'cagey_probability_basis']
@@ -38,17 +49,18 @@ def corrected_grid(context, matrix):
 
 
 def columns(rule):
-    if rule in (RULE_NO_GATE,RULE_MARKET_BASIS):
+    if rule in (RULE_NO_GATE, *MARKET_BASIS_RULES):
         from narrow_support import COLUMNS as support_columns
         from cagey_market_basis import COLUMNS as basis_columns
-        return [*COLUMNS, *support_columns, *(basis_columns if rule == RULE_MARKET_BASIS else [])]
+        return [*COLUMNS, *support_columns, *(basis_columns if rule in MARKET_BASIS_RULES else [])]
     return list(COLUMNS)
 
 
-def annotate(item, context, row, now, policy, cost, rule=RULE, pin=None, method='proportional'):
-    if rule == RULE_MARKET_BASIS:
+def annotate(item, context, row, now, policy, cost, rule=RULE, pin=None, method='proportional', min_odds=None):
+    """`min_odds` (exclusive floor) defaults to the rule's own (odds_floor); the market-basis rules pass theirs."""
+    if rule in MARKET_BASIS_RULES:
         from cagey_market_basis import annotate as market_annotate
-        return market_annotate(item,context,row,now,policy,cost,pin,method=method)
+        return market_annotate(item,context,row,now,policy,cost,pin,method=method,rule=rule)
     if method != 'proportional':
         raise ValueError('Only the market-basis rule (v5) has a margin-removal method')
     import price_edge_cagey_shortlist as v28
@@ -68,8 +80,9 @@ def annotate(item, context, row, now, policy, cost, rule=RULE, pin=None, method=
     if kick is None or not now+pd.Timedelta(minutes=20) <= kick <= now+pd.Timedelta(hours=shortlist_window.hours()):
         reasons.append(shortlist_window.rejection_reason())
     price = number(item.get('offered_decimal_odds'))
-    if price is None or not 1.15 < price <= 2.0:
-        reasons.append('cagey offered odds outside (1.15, 2.00]')
+    floor = odds_floor(rule) if min_odds is None else min_odds
+    if price is None or not floor < price <= MAX_ODDS:
+        reasons.append(f'cagey offered odds outside ({floor:.2f}, {MAX_ODDS:.2f}]')
     if not usable_bookmaker(item.get('bookmaker'), policy):
         reasons.append('bookmaker unavailable')
     if offer is None or not quote_is_fresh(offer, now) or offer > now or (kick is not None and offer >= kick):
@@ -137,13 +150,16 @@ def select(decisions, selected, rule=RULE):
                 probability_basis=BASIS, selection_objective='NO_LOSS_PROBABILITY',
                 rule='P(narrow) >= 67%; real quoted win/DC/AH/Over 1.5; odds (1.15, 2.00]; one per fixture/market group; no-loss then expected return then odds; no EV or no-loss floor; no cap')
 
-    if rule in (RULE_NO_GATE,RULE_MARKET_BASIS):
+    if rule in (RULE_NO_GATE, *MARKET_BASIS_RULES):
         result.update(narrow_general_gate=False, narrow_supplement_threshold=MIN_NARROW,
                       narrow_supplement_version='corrected-narrow-support-v1',
                       rule='No P(narrow) eligibility gate; corrected no-loss then expected return then odds; real quoted win/DC/AH/Over 1.5; odds (1.15, 2.00]; one per fixture/market group; no EV or no-loss floor; no cap; 67% narrow is market-specific supporting information only')
-    if rule == RULE_MARKET_BASIS:
+    if rule in MARKET_BASIS_RULES:
         from cagey_market_basis import UNCORRECTED
         result.update(probability_basis='market_specific_pinnacle_v1',
                       probability_basis_by_market={'Over 1.5':UNCORRECTED,'other_markets':BASIS},
                       rule='No narrow gate; per-market-source no-loss then expected return then odds; Over 1.5 uses uncorrected Pinnacle grid; binary price guard uses independent Pinnacle prices; narrow support is informational')
+    if rule == RULE_MARKET_BASIS_120:
+        result.update(min_offered_odds_exclusive=odds_floor(rule), max_offered_odds=MAX_ODDS)
+        result['rule'] += f'; odds ({odds_floor(rule):.2f}, {MAX_ODDS:.2f}]'
     return result

@@ -1,8 +1,8 @@
 """Versioned shortlist v28: v27 price edge with the cagey-match correction.
 
-Current cagey rule no-loss-market-reference-v5 ranks market-source no-loss
-across win/DC/AH/Over 1.5 at odds (1.15, 2.00], with no P(narrow) gate, one per
-fixture/market group. Over 1.5 uses the uncorrected grid; see docs/cagey-market-basis-v5.md. The rules
+Current cagey rule no-loss-market-reference-120-200-v6 ranks market-source no-loss
+across win/DC/AH/Over 1.5 at odds (1.20, 2.00], with no P(narrow) gate, one per
+fixture/market group (v5, the same at (1.15, 2.00], until 24 Nov 2026). Over 1.5 uses the uncorrected grid; see docs/cagey-market-basis-v5.md. The rules
 below describe historical runs, which remain replayable; v3 retains its 67% gate.
 
 VALUE TIER (identical to v27 except):
@@ -96,13 +96,17 @@ PRICE_REASONS = ('offered price above 1.15 x fair odds', 'edge below 3%')
 TIER_RULE_VALUE = 'value-v1'
 TIER_RULE_NARROW = 'narrow-63-flagged-v2'
 from cagey_tier_v3 import RULE as TIER_RULE_EXPANDED, RULE_NO_GATE as TIER_RULE_NO_GATE, RULE_MARKET_BASIS as TIER_RULE_MARKET_BASIS, EXPANDED_RULES
+from cagey_tier_v3 import RULE_MARKET_BASIS_120 as TIER_RULE_MARKET_BASIS_120, MARKET_BASIS_RULES as TIER_MARKET_BASIS_RULES
 TIER_RULES = (TIER_RULE_VALUE, TIER_RULE_NARROW, *EXPANDED_RULES)
 # Value-tier selection rules. A run records the rule it used; runs that record none used VALUE_RULE_ONE.
 VALUE_RULE_ONE = 'one-per-fixture-v1'
 VALUE_RULE_PER_MARKET = 'per-market-v2'
 VALUE_RULE_PROFIT = 'team-research-profit-v1'
 VALUE_RULE_LOCAL_RESEARCH = 'local-research-profit-115-200-dc12-v2'
-PROFIT_RULES = (VALUE_RULE_PROFIT, VALUE_RULE_LOCAL_RESEARCH)
+# The same with the odds floor raised to 1.20 (Paul, 24 Nov 2026; docs/plan.md Phase 4d, Part 1).
+VALUE_RULE_LOCAL_RESEARCH_120 = 'local-research-profit-120-200-dc12-v3'
+LOCAL_RESEARCH_RULES = (VALUE_RULE_LOCAL_RESEARCH, VALUE_RULE_LOCAL_RESEARCH_120)
+PROFIT_RULES = (VALUE_RULE_PROFIT, *LOCAL_RESEARCH_RULES)
 VALUE_RULES = (VALUE_RULE_ONE, VALUE_RULE_PER_MARKET, *PROFIT_RULES)
 # Quote timing rules. skew-5min-v1 (runs that record none): a quote may be stamped up to 5 minutes after the
 # evaluation clock (the shared freshness allowance for provider clock skew). observed-by-cutoff-v2: every quote a
@@ -280,7 +284,7 @@ VALUE_GROUP_COLUMNS = ['value_market_group']
 
 
 def market_group(item: Mapping, rule=None) -> str:
-    if rule == VALUE_RULE_LOCAL_RESEARCH:
+    if rule in LOCAL_RESEARCH_RULES:
         label = str(item.get('market') or '')
         if label.startswith('Asian Handicap '):
             return GROUP_AH
@@ -312,7 +316,7 @@ def settlement_basis(row: Mapping, tier='value') -> str:
     """Choose a single distribution; overlap between lists never changes a value pick's source."""
     if tier not in ('value', 'cagey'):
         raise ValueError('Unknown shortlist tier')
-    if tier == 'cagey' and row.get('cagey_tier_rule') == TIER_RULE_MARKET_BASIS:
+    if tier == 'cagey' and row.get('cagey_tier_rule') in TIER_MARKET_BASIS_RULES:
         return 'uncorrected_matrix' if row.get('market') == 'Over 1.5' else 'corrected_matrix'
     return 'corrected_matrix' if tier == 'cagey' or row.get('reference_type') == 'c-cagey' else 'uncorrected_matrix'
 
@@ -686,7 +690,7 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
             from cagey_tier_v3 import corrected_grid
             source = cagey_fit if cagey_fit.usable else cagey_info['fit_a']
             context = {**context, 'matrix': corrected_grid(context, source.matrix)}
-            if tier_rule(settings) == TIER_RULE_MARKET_BASIS:
+            if tier_rule(settings) in TIER_MARKET_BASIS_RULES:
                 context['uncorrected_matrix'] = source.matrix
         tier = tier_rule(settings) if settings['cagey_tier_enabled'] and not expanded else False
         out = []
@@ -716,7 +720,7 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
                 if execution:
                     apply_execution_checks(decision, context, raw_context)
                 out.append(decision)
-        if value_rule(settings) == VALUE_RULE_LOCAL_RESEARCH:
+        if value_rule(settings) in LOCAL_RESEARCH_RULES:
             from profit_shortlist import dc12_candidates
             extra = dc12_candidates(row, pin, fit, fit_info, now, policy)
             if live is not None:
@@ -1168,10 +1172,12 @@ def _build_shortlist(predictions, as_of, market_reliability, execution_policy, s
             rejection_counts={str(k): int(v) for k, v in reasons.items()},
             research_missing_policy='eligible with visible coverage warnings',
             research_rule='ten recent games weighted newest first; venue splits; verified xG if supplied; Poisson goal rates; context evidence shown separately')
-    if value_rule(settings) == VALUE_RULE_LOCAL_RESEARCH:
-        summary.update(min_offered_odds_exclusive=1.15, max_offered_odds=2.0,
+    if value_rule(settings) in LOCAL_RESEARCH_RULES:
+        from profit_shortlist import ODDS_FLOOR
+        floor = ODDS_FLOOR[value_rule(settings)]
+        summary.update(min_offered_odds_exclusive=floor, max_offered_odds=2.0,
             eligible_markets=[*summary['eligible_markets'], 'Double Chance 12'],
-            asian_handicap_selection='Highest positive-net-return probability among available quoted AH lines within (1.15, 2.00]; one per fixture/group',
+            asian_handicap_selection=f'Highest positive-net-return probability among available quoted AH lines within ({floor:.2f}, 2.00]; one per fixture/group',
             training_rule='Verified local competition history plus pre-cutoff free-source research; refresh failure retains valid cache with a warning',
             model_role='Researched settlement probabilities select and rank the main shortlist',
             warning='Research probabilities are model estimates and have not passed a forward calibration gate. Negative expected return remains eligible and flagged.')
@@ -1190,6 +1196,6 @@ def _build_shortlist(predictions, as_of, market_reliability, execution_policy, s
             tier.get('probability_basis_by_market', {}).pop(market, None)
     if settings['cagey_tier_enabled'] and tier_rule(settings) in EXPANDED_RULES:
         from shortlist_schema import harmonize
-        selected = harmonize(selected, 'value')
+        selected = harmonize(selected, 'value', value_rule(settings))
         summary['shortlist_schema_version'] = 'comparable-shortlist-v1'
     return selected, decisions, summary
