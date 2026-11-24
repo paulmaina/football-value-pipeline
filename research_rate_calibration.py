@@ -23,6 +23,16 @@ rates are C0's exactly, and with C2's neutral (rho, delta) its grid is C0's grid
 Reads only the Dixon-Coles goal rates, the Elo difference and final scores: never odds, market fits, the
 published grid, or the last-ten form. Not used by the live pipeline; harness candidates until one passes
 the release gate in docs/plan.md.
+
+C9 (docs/plan.md, Phase 2g-4; Paul, 17 Nov 2026) is C8 with a home/away calibration slope on top, the step
+C6 adds to C2 (research_sharpen.sharpen_matrix: the draw held, the home/away split sharpened):
+
+  C9 grid = research_sharpen.sharpen_matrix(C8 grid, slope)
+
+The slope is research_sharpen.fit on C8's own earlier forecasts of decided matches, walk-forward, but only on
+development matches (played before the harness's development end, 1 Jul 2025): never a validation, holdout or
+later result. From the first fold after development it is the slope fitted on every development forecast.
+A neutral slope (1.0, below research_sharpen.MIN_MATCHES decided matches) gives C8's grid exactly.
 """
 from __future__ import annotations
 
@@ -139,3 +149,13 @@ def grid(rates, params, low_score_params, z=None):
     """The candidate's score grid: its calibrated rates on C2's (rho, delta) grid. Everything neutral gives
     C0's grid (team_research.research_grid of the same rates) exactly."""
     return rls.adjusted_grid(calibrated_rates(rates, params, z), low_score_params)
+
+
+SLOPE_VERSION = 'research-rate-calibration-elo-then-development-slope-v1'  # C9
+
+
+def sharpened_grid(calibrated, low_score_params, slope):
+    """C9's score grid: C8's grid (its calibrated rates on C2's (rho, delta) grid) moved onto its sharpened 1X2,
+    the draw held (research_sharpen.sharpen_matrix, as C6 does to C2). A neutral slope gives C8's grid exactly."""
+    import research_sharpen as rs
+    return rs.sharpen_matrix(rls.adjusted_grid(calibrated, low_score_params), slope)

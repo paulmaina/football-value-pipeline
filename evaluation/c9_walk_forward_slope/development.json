@@ -1,0 +1,434 @@
+{
+ "period": "development",
+ "groups": {
+  "1X2": {
+   "C6_minus_C9": {
+    "fixtures": 6959,
+    "weeks": 106,
+    "mean_gain": 0.005951616100675879,
+    "interval_95": [
+     0.0028523022743255555,
+     0.00931325283950174
+    ],
+    "clear_of_zero": true
+   },
+   "C8_minus_C9": {
+    "fixtures": 6959,
+    "weeks": 106,
+    "mean_gain": 0.0002539509738487765,
+    "interval_95": [
+     -0.0005487816827140381,
+     0.0009928146588515361
+    ],
+    "clear_of_zero": false
+   },
+   "C6_minus_C8": {
+    "fixtures": 6959,
+    "weeks": 106,
+    "mean_gain": 0.005697665126827103,
+    "interval_95": [
+     0.002828132534997262,
+     0.009000617617535714
+    ],
+    "clear_of_zero": true
+   },
+   "M_minus_C9": {
+    "fixtures": 6875,
+    "weeks": 106,
+    "mean_gain": -0.02014350997997963,
+    "interval_95": [
+     -0.024432418111212544,
+     -0.01601083909477398
+    ],
+    "clear_of_zero": false
+   },
+   "mean_log_loss": {
+    "C6": 0.9758473089744528,
+    "C8": 0.9701496438476258,
+    "C9": 0.9698956928737771,
+    "M": 0.9537833651381519
+   }
+  },
+  "Over 1.5": {
+   "C6_minus_C9": {
+    "fixtures": 6959,
+    "weeks": 106,
+    "mean_gain": 0.002813735712980037,
+    "interval_95": [
+     0.0003969324075500599,
+     0.0050625909721969025
+    ],
+    "clear_of_zero": true
+   },
+   "C8_minus_C9": {
+    "fixtures": 6959,
+    "weeks": 106,
+    "mean_gain": 4.4987418952326046e-05,
+    "interval_95": [
+     -3.512681579542193e-05,
+     0.00012285099558383809
+    ],
+    "clear_of_zero": false
+   },
+   "C6_minus_C8": {
+    "fixtures": 6959,
+    "weeks": 106,
+    "mean_gain": 0.002768748294027711,
+    "interval_95": [
+     0.0003826632705504917,
+     0.005029051694632443
+    ],
+    "clear_of_zero": true
+   },
+   "M_minus_C9": {
+    "fixtures": 6875,
+    "weeks": 106,
+    "mean_gain": -0.0066139804891270715,
+    "interval_95": [
+     -0.009151041609486864,
+     -0.004156513080699855
+    ],
+    "clear_of_zero": false
+   },
+   "mean_log_loss": {
+    "C6": 0.5221627098402578,
+    "C8": 0.5193939615462301,
+    "C9": 0.5193489741272777,
+    "M": 0.5165501716847726
+   }
+  },
+  "AH all": {
+   "C6_minus_C9": {
+    "fixtures": 6959,
+    "weeks": 106,
+    "mean_gain": 0.003835338059891113,
+    "interval_95": [
+     0.001602600988722063,
+     0.006305822369086579
+    ],
+    "clear_of_zero": true
+   },
+   "C8_minus_C9": {
+    "fixtures": 6959,
+    "weeks": 106,
+    "mean_gain": 1.4073403194276595e-05,
+    "interval_95": [
+     -0.00047216666061713927,
+     0.00047237008426047523
+    ],
+    "clear_of_zero": false
+   },
+   "C6_minus_C8": {
+    "fixtures": 6959,
+    "weeks": 106,
+    "mean_gain": 0.0038212646566968362,
+    "interval_95": [
+     0.001709982681395348,
+     0.0062775414847718826
+    ],
+    "clear_of_zero": true
+   },
+   "M_minus_C9": {
+    "fixtures": 6875,
+    "weeks": 106,
+    "mean_gain": -0.014615811748340292,
+    "interval_95": [
+     -0.017498349277858146,
+     -0.011889626332069773
+    ],
+    "clear_of_zero": false
+   },
+   "mean_log_loss": {
+    "C6": 0.7157657432887193,
+    "C8": 0.7119444786320226,
+    "C9": 0.7119304052288282,
+    "M": 0.6980686698201314
+   }
+  },
+  "AH draw-sensitive": {
+   "C6_minus_C9": {
+    "fixtures": 6959,
+    "weeks": 106,
+    "mean_gain": 0.004819743880294101,
+    "interval_95": [
+     0.002285134136167309,
+     0.0076036961230477925
+    ],
+    "clear_of_zero": true
+   },
+   "C8_minus_C9": {
+    "fixtures": 6959,
+    "weeks": 106,
+    "mean_gain": 0.00019022869196406569,
+    "interval_95": [
+     -0.0004650896578292501,
+     0.0007850033842453613
+    ],
+    "clear_of_zero": false
+   },
+   "C6_minus_C8": {
+    "fixtures": 6959,
+    "weeks": 106,
+    "mean_gain": 0.0046295151883300354,
+    "interval_95": [
+     0.002270319776607836,
+     0.0073705526751619566
+    ],
+    "clear_of_zero": true
+   },
+   "M_minus_C9": {
+    "fixtures": 6875,
+    "weeks": 106,
+    "mean_gain": -0.016652093416692184,
+    "interval_95": [
+     -0.020156190806858352,
+     -0.013325583187248836
+    ],
+    "clear_of_zero": false
+   },
+   "mean_log_loss": {
+    "C6": 0.7116120173916358,
+    "C8": 0.7069825022033058,
+    "C9": 0.7067922735113418,
+    "M": 0.6927071784057469
+   }
+  }
+ },
+ "calibration": {
+  "C9_v3_against_C6": {
+   "rule": "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3",
+   "forecasts": 6959,
+   "relative_slopes": {
+    "fixtures_compared": 6959,
+    "candidate_on_common_fixtures": {
+     "home": 0.9863008356137871,
+     "away": 1.015859184708118
+    },
+    "baseline_on_common_fixtures": {
+     "home": 1.0196007824340798,
+     "away": 1.0523873980263778
+    },
+    "in_band": {
+     "home": true,
+     "away": true
+    },
+    "closer_to_one_than_baseline": {
+     "home": true,
+     "away": true
+    },
+    "slope_passes": {
+     "home": true,
+     "away": true
+    }
+   },
+   "slopes": {
+    "home": 0.9863008356137871,
+    "away": 1.015859184708118
+   },
+   "slopes_pass": true,
+   "bands_checked": 22,
+   "band_z_threshold": 3.052065201864885,
+   "failing_bands": [],
+   "worst_band": {
+    "outcome": "away",
+    "band_lower": 0.8,
+    "n": 34,
+    "mean_forecast": 0.8230836579267569,
+    "observed_rate": 0.6470588235294118,
+    "observed_minus_forecast": -0.17602483439734506,
+    "z": 2.6897222636957125
+   },
+   "bands_pass": true,
+   "passes": true
+  },
+  "C8_v3_against_C6": {
+   "rule": "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3",
+   "forecasts": 6959,
+   "relative_slopes": {
+    "fixtures_compared": 6959,
+    "candidate_on_common_fixtures": {
+     "home": 1.047540844437886,
+     "away": 1.0933677697013782
+    },
+    "baseline_on_common_fixtures": {
+     "home": 1.0196007824340798,
+     "away": 1.0523873980263778
+    },
+    "in_band": {
+     "home": true,
+     "away": true
+    },
+    "closer_to_one_than_baseline": {
+     "home": false,
+     "away": false
+    },
+    "slope_passes": {
+     "home": true,
+     "away": true
+    }
+   },
+   "slopes": {
+    "home": 1.047540844437886,
+    "away": 1.0933677697013782
+   },
+   "slopes_pass": true,
+   "bands_checked": 21,
+   "band_z_threshold": 3.038074304924211,
+   "failing_bands": [],
+   "worst_band": {
+    "outcome": "home",
+    "band_lower": 0.8,
+    "n": 206,
+    "mean_forecast": 0.8413293466692692,
+    "observed_rate": 0.8883495145631068,
+    "observed_minus_forecast": 0.04702016789383767,
+    "z": 1.8470832149409757
+   },
+   "bands_pass": true,
+   "passes": true
+  },
+  "C6_v2": {
+   "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+   "forecasts": 6959,
+   "slopes": {
+    "home": 1.0196007824340798,
+    "away": 1.0523873980263778
+   },
+   "slopes_pass": true,
+   "bands_checked": 21,
+   "band_z_threshold": 3.038074304924211,
+   "failing_bands": [],
+   "worst_band": {
+    "outcome": "home",
+    "band_lower": 0.0,
+    "n": 113,
+    "mean_forecast": 0.07114367339450853,
+    "observed_rate": 0.13274336283185842,
+    "observed_minus_forecast": 0.06159968943734989,
+    "z": 2.547272047129801
+   },
+   "bands_pass": true,
+   "passes": true
+  },
+  "C8_v2": {
+   "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+   "forecasts": 6959,
+   "slopes": {
+    "home": 1.047540844437886,
+    "away": 1.0933677697013782
+   },
+   "slopes_pass": true,
+   "bands_checked": 21,
+   "band_z_threshold": 3.038074304924211,
+   "failing_bands": [],
+   "worst_band": {
+    "outcome": "home",
+    "band_lower": 0.8,
+    "n": 206,
+    "mean_forecast": 0.8413293466692692,
+    "observed_rate": 0.8883495145631068,
+    "observed_minus_forecast": 0.04702016789383767,
+    "z": 1.8470832149409757
+   },
+   "bands_pass": true,
+   "passes": true
+  },
+  "C9_v2": {
+   "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+   "forecasts": 6959,
+   "slopes": {
+    "home": 0.9863008356137871,
+    "away": 1.015859184708118
+   },
+   "slopes_pass": true,
+   "bands_checked": 22,
+   "band_z_threshold": 3.052065201864885,
+   "failing_bands": [],
+   "worst_band": {
+    "outcome": "away",
+    "band_lower": 0.8,
+    "n": 34,
+    "mean_forecast": 0.8230836579267569,
+    "observed_rate": 0.6470588235294118,
+    "observed_minus_forecast": -0.17602483439734506,
+    "z": 2.6897222636957125
+   },
+   "bands_pass": true,
+   "passes": true
+  },
+  "M_v2": {
+   "rule": "slopes-0.90-1.10-bands-30-5pp-bonferroni-v2",
+   "forecasts": 6875,
+   "slopes": {
+    "home": 1.151011444544968,
+    "away": 1.2060015253718617
+   },
+   "slopes_pass": false,
+   "bands_checked": 21,
+   "band_z_threshold": 3.038074304924211,
+   "failing_bands": [],
+   "worst_band": {
+    "outcome": "away",
+    "band_lower": 0.7,
+    "n": 155,
+    "mean_forecast": 0.7436268013443836,
+    "observed_rate": 0.8,
+    "observed_minus_forecast": 0.05637319865561641,
+    "z": 1.607402719817097
+   },
+   "bands_pass": true,
+   "passes": false
+  }
+ },
+ "largest_1x2_move_from_C8": {
+  "mean": 0.00842371153466776,
+  "max": 0.028200992036834793
+ },
+ "slope_fits": {
+  "windows": 59,
+  "fitted": 46,
+  "first_fitted_origin": "2023-05-22",
+  "range": [
+   1.017755278126817,
+   1.1742088846314604
+  ],
+  "last": {
+   "origin": "2025-05-19",
+   "end_exclusive": "2025-06-02",
+   "scored_matches": 51,
+   "slope": 1.0844910267862318,
+   "status": "fitted",
+   "matches": 5193,
+   "neutral_minus_fitted_loss": 0.0005892135724027137,
+   "slope_rows_last_date": "2025-05-18",
+   "calibration": {
+    "a_home": 0.13774375466323865,
+    "a_away": 0.18681001842290224,
+    "b": 0.5114263444287159,
+    "c": 0.4276961433439404,
+    "elo": true,
+    "matches": 6908,
+    "status": "fitted",
+    "neutral_minus_fitted_loss": 0.013579781814360729
+   },
+   "low_score": {
+    "rho": 0.018642100396050507,
+    "delta": 0.15313175565480855,
+    "status": "fitted",
+    "matches": 6908
+   }
+  }
+ },
+ "candidate": "C9",
+ "candidate_definition": "candidate: C8's grid with its home/away split sharpened by a slope fitted walk-forward on C8's own forecasts of decided development matches only (played before 1 Jul 2025; never a validation, holdout or later result), C8's draw held, pooled across leagues (research_rate_calibration.sharpened_grid; uses no odds)",
+ "run_end_exclusive": "2025-07-01",
+ "slope_applied_after_development": {
+  "slope": 1.0720301779179104,
+  "status": "fitted",
+  "matches": 5235,
+  "neutral_minus_fitted_loss": 0.0004333077886770065,
+  "slope_rows_last_date": "2025-06-01"
+ },
+ "research_rows": 6959,
+ "last_research_row": "2025-06-01"
+}
