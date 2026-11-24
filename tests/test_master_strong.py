@@ -118,15 +118,19 @@ class SelectTest(unittest.TestCase):
         self.assertEqual(sorted(r['strong_rank'] for r in picks), list(range(1, 16)))
 
     def test_order_proven_then_trust_then_confirms_then_profit(self):
+        """Rules before master-strong-team-v4; since v4 proven picks go by Elo, record share, then chance of profit
+        (test_live_list_changes.ProvenOrderTest)."""
+        before_v4 = copy.deepcopy(config())
+        before_v4.pop('proven_order')
         rows = [offer('m1', profit=.95, trust='not trusted'), offer('m2', profit=.80),
                 offer('m3', profit=.90, research=.70), offer('m4', profit=.99, no_loss=.70)]
-        ms.select(rows, config(), RUN)
+        ms.select(rows, before_v4, RUN)
         order = sorted((r for r in rows if r['strong_rank']), key=lambda r: r['strong_rank'])
         self.assertEqual([r['_match'] for r in order], ['m2', 'm3', 'm1', 'm4'])
         self.assertEqual([r['strong_tier'] for r in order], ['proven'] * 3 + ['not proven: fill'])
         # R2 failed its pass rule: confirmation is a label only and the order is by chance of profit
         rows = [offer('m2', profit=.80), offer('m3', profit=.90, research=.70)]
-        ms.select(rows, config(), {**RUN, 'R2': False})
+        ms.select(rows, before_v4, {**RUN, 'R2': False})
         self.assertEqual(min(rows, key=lambda r: r['strong_rank'])['_match'], 'm3')
         self.assertIn('research confirms (label only)', rows[0]['strong_labels'])
 

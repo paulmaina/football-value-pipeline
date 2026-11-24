@@ -2033,8 +2033,11 @@ def strong_master_section(info: dict, path: Path, summary: dict, output_dir: Pat
             f"value shortlist's and the cagey tier's nominations, Pinnacle prices only (odds above {floor:.2f} up to 2.00), "
             "quotes at most 15 minutes old. Proven picks first: the cagey tier rates the bet safe (no-loss at least "
             "75%), the backed team is stronger by Elo, it has a strong record on this exact bet over its last 10 "
-            "matches, and the research model's expected margin agrees; ranked by league trust, then the cagey chance "
-            "of winning. Today's fill rule completes the list, labelled 'not proven'. Released by Paul on 23 Nov 2026 "
+            "matches, and the research model's expected margin agrees; "
+            + ("ranked by the backed team's Elo expected score, then its record on this exact bet, then the cagey "
+               "chance of winning (league trust is a label only). " if strong.get('proven_order') else
+               "ranked by league trust, then the cagey chance of winning. ")
+            + "Today's fill rule completes the list, labelled 'not proven'. Released by Paul on 23 Nov 2026 "
             "as a deliberate exception (offline: no measurable difference from today's master); today's master runs "
             "in shadow (master_shortlist_new.csv) and is graded beside it, with a rollback rule in the weekly report. "
             + (f"Since 24 Nov 2026 every pick also needs the research model's no-loss chance at least "
