@@ -1,29 +1,32 @@
 {
   "cagey": {
     "coverage": {
-      "matches_scored": 12,
+      "matches_scored": 16,
       "not_replayed:no corrected D distribution": 50,
       "offer_out_of_scope:pinnacle draw_no_bet": 2
     },
-    "d_pow2_minus_d_log_loss": 0.006279074107898501,
+    "d_pow2_minus_d_log_loss": 0.004286578317378803,
     "eligible": false,
     "fallbacks": {
       "domestic_fixtures": 66,
       "domestic_records": 654,
       "fallback_fixtures": 0,
       "fallback_records": 0,
-      "runs": 15
+      "runs": 16
     },
     "graded_fallbacks": 0,
-    "interval_95": null,
+    "interval_95": [
+      -0.0016909090541802896,
+      0.006279074107898501
+    ],
     "log_loss": {
-      "D": 0.8913794402267436,
-      "D_pow2": 0.8976585143346422
+      "D": 0.8992596793855594,
+      "D_pow2": 0.9035462577029382
     },
-    "matches": 12,
+    "matches": 16,
     "rule": "After at least 150 graded domestic matches across at least 3 weeks, roll back the cagey correction D_pow2 if its log loss on AH all lines minus D's, on the same frozen Pinnacle quotes, matches and offers, has a week-resampled 95% interval entirely above zero. Rolling back is setting cagey_correction_config.json cagey_correction_live.domestic to \"D\".",
     "triggered": false,
-    "weeks": 1
+    "weeks": 2
   },
   "ce3n": {
     "by_competition": {
@@ -99,12 +102,12 @@
   },
   "home_favourites": {
     "all": {
-      "actual_home_win": 0.5,
+      "actual_home_win": 0.5454545454545454,
       "fixtures": 11,
-      "graded": 10,
+      "graded": 11,
       "picks": 17,
-      "v4_predicted_home_win": 0.6092511234354182,
-      "v5_predicted_home_win": 0.6187702069839784
+      "v4_predicted_home_win": 0.6042655189779201,
+      "v5_predicted_home_win": 0.613932673254064
     },
     "by_league": {
       "Eredivisie": {
@@ -116,12 +119,12 @@
         "v5_predicted_home_win": 0.573312173429668
       },
       "Super Lig": {
-        "actual_home_win": 0.8,
+        "actual_home_win": 0.8333333333333334,
         "fixtures": 6,
-        "graded": 5,
+        "graded": 6,
         "picks": 10,
-        "v4_predicted_home_win": 0.6534561521134368,
-        "v5_predicted_home_win": 0.6642282405382887
+        "v4_predicted_home_win": 0.6369483724950203,
+        "v5_predicted_home_win": 0.6477830897743938
       }
     },
     "fixtures": [
@@ -208,8 +211,8 @@
       },
       {
         "fixture": "Basaksehir v Çorum FK",
-        "graded": false,
-        "home_won": null,
+        "graded": true,
+        "home_won": true,
         "kickoff_utc": "2026-11-23T17:00:00+00:00",
         "league": "Super Lig",
         "markets": [
@@ -283,20 +286,23 @@
   },
   "rollback": {
     "coverage": {
-      "matches_scored": 62,
+      "matches_scored": 66,
       "offer_out_of_scope:pinnacle draw_no_bet": 4
     },
     "eligible": false,
-    "interval_95": null,
+    "interval_95": [
+      -0.006757434482906277,
+      0.004118334232158044
+    ],
     "log_loss": {
-      "v4": 0.9836840216986583,
-      "v5": 0.9878023559308164
+      "v4": 0.9748191841997474,
+      "v5": 0.978278380934023
     },
-    "matches": 62,
+    "matches": 66,
     "rule": "After at least 150 graded matches across at least 3 weeks, roll back research v5 if its research log loss on AH all lines minus v4's, on the same frozen inputs, matches and offers, has a week-resampled 95% interval entirely above zero.",
     "triggered": false,
-    "v5_minus_v4_log_loss": 0.004118334232158044,
-    "weeks": 1
+    "v5_minus_v4_log_loss": 0.003459196734275358,
+    "weeks": 2
   },
   "ucl_live_check": {
     "passed_on": {
