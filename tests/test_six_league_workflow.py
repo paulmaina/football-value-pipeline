@@ -81,14 +81,15 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 self.assertTrue({'Home win','Away win','Double Chance 1X','Double Chance X2'}.issubset(summary['eligible_markets']))
                 for excluded in ('Draw', 'Double Chance 12', 'Over 1.5'):
                     self.assertNotIn(excluded,summary['eligible_markets'])
-                self.assertEqual(summary.get('value_rule'), 'local-research-profit-115-200-dc12-v2')
+                self.assertEqual(summary.get('value_rule'), 'local-research-profit-120-200-dc12-v3')  # floor 1.20, 24 Nov 2026
                 # The pipeline writes the master shortlist beside the other lists and records it in the summary.
                 # Since the strong release (23 Nov 2026) the live master_shortlist.csv is the strong-team master (every
                 # nominated offer; its picks are SHORTLISTED, one per match, at most 6 per market group) and today's
                 # master (master-new-fill-rule-v4) runs in shadow as master_shortlist_new.csv; no old master is written.
                 live = pd.read_csv(raw/'master_shortlist.csv')
-                self.assertEqual(summary['master_shortlist']['version'], 'master-strong-team-v1-live-v11')
-                self.assertTrue(live.new_master_version.eq('master-strong-team-v1-live-v11').all())
+                import master_shortlist  # the live strong-master version (each rule change of 24 Nov 2026 bumps it)
+                self.assertEqual(summary['master_shortlist']['version'], master_shortlist.VERSION_STRONG_LIVE)
+                self.assertTrue(live.new_master_version.eq(master_shortlist.VERSION_STRONG_LIVE).all())
                 picks_live = live.loc[live.new_master_decision.eq('SHORTLISTED')]
                 self.assertEqual(len(picks_live), summary['master_shortlist']['ranked_fixtures'])
                 self.assertLessEqual(len(picks_live), 15)

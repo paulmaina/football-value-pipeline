@@ -1309,8 +1309,9 @@ uses Pinnacle's margin-free price as a stand-in, marked as such.
 **Best offer** — the fixture's master pick; otherwise the Pinnacle offer the master's own
 rule would choose for it (safe first, then chance of profit), marked "not on the master".
 
-**Master check** — whether the offer passes the master's execution rule (Pinnacle, odds in
-(1.15, 2.00], native markets) and quote timing checks.
+**Master check** — whether the offer passes the master's execution rule (Pinnacle, the live
+master's odds window: above 1.20 up to 2.00 since 24 Nov 2026, above 1.15 before; native
+markets) and quote timing checks.
 
 **Fair odds** — 1 / probability. These do not include a bookmaker margin.
 
@@ -1755,9 +1756,12 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
             tier_readable['Also in value tier'] = tier_raw.in_value_tier.map(
                 lambda v: 'yes' if str(v) == 'True' else 'no')
         tier_readable.to_csv(output_dir / "cagey_tier_shortlist_readable.csv", index=False, encoding="utf-8-sig")
-        if tier.get('rule_version') == v28.TIER_RULE_MARKET_BASIS:
+        if tier.get('rule_version') in v28.TIER_MARKET_BASIS_RULES:
             horizon = summary.get('shortlist_lookahead_hours', 48)
-            rule_text = (f'Kickoff 20 minutes–{horizon:g} hours. '
+            from cagey_tier_v3 import odds_floor
+            window = (f'Odds above {odds_floor(tier["rule_version"]):.2f} up to 2.00. '
+                      if tier.get('rule_version') == v28.TIER_RULE_MARKET_BASIS_120 else '')
+            rule_text = (f'Kickoff 20 minutes–{horizon:g} hours. {window}'
                          'No narrow gate; rank no-loss, expected return, then odds. Over 1.5 uses the uncorrected '
                          'Pinnacle grid consistently for selection, EV and stakes; other markets use the corrected grid. '
                          'Binary price checks use independent Pinnacle fair prices, or are visibly unavailable. '
@@ -1829,7 +1833,7 @@ def _master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) 
     path = Path(input_dir) / master_shortlist.FILE if input_dir is not None else None
     if info is None or path is None or not path.exists():
         return []
-    if info.get('version') == master_shortlist.VERSION_STRONG_LIVE:
+    if master_shortlist.strong_rule(info.get('version')) is not None:
         return strong_master_section(info, path, summary, output_dir)
     if info.get('version') == master_shortlist.VERSION_NEW_LIVE:
         return new_master_section(info, path, summary, output_dir)
@@ -2023,9 +2027,10 @@ def strong_master_section(info: dict, path: Path, summary: dict, output_dir: Pat
     tiers, by_group = strong.get('picks_by_tier') or {}, strong.get('picks_by_market_group') or {}
     target = info.get('target_fixtures', 15)
     short = f" Short of the {target}-match target: {strong['short_reason']}." if strong.get('short_reason') else ''
+    floor = (strong.get('execution') or {}).get('min_odds_exclusive', 1.15)
     return ["", f"## Master shortlist (strong-team master, live since 23 Nov 2026; target {target} matches)", "",
             "At most 6 picks each in match result, double chance and Asian handicap, one bet per match, only from the "
-            "value shortlist's and the cagey tier's nominations, Pinnacle prices only (odds above 1.15 up to 2.00), "
+            f"value shortlist's and the cagey tier's nominations, Pinnacle prices only (odds above {floor:.2f} up to 2.00), "
             "quotes at most 15 minutes old. Proven picks first: the cagey tier rates the bet safe (no-loss at least "
             "75%), the backed team is stronger by Elo, it has a strong record on this exact bet over its last 10 "
             "matches, and the research model's expected margin agrees; ranked by league trust, then the cagey chance "

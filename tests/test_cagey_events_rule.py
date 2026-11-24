@@ -57,9 +57,12 @@ class ConfigTest(unittest.TestCase):
             eh.calibration_check([{'probs': [.4, .3, .3], 'outcome': 0, 'fixture_key': 'f'}], RULE, [])
 
     def test_the_v5_odds_window_is_the_one_the_rule_uses(self):
-        import inspect
+        """The locked rule records v5's window; v6 (live since 24 Nov 2026) raised the floor to 1.20 and is not
+        what cagey-events-v1 was scored on."""
         import cagey_tier_v3
-        self.assertIn('1.15 < price <= 2.0', inspect.getsource(cagey_tier_v3.annotate))
+        window = (RULE['odds_window']['min_exclusive'], RULE['odds_window']['max_inclusive'])
+        self.assertEqual(window, (cagey_tier_v3.odds_floor(cagey_tier_v3.RULE_MARKET_BASIS), cagey_tier_v3.MAX_ODDS))
+        self.assertEqual(cagey_tier_v3.odds_floor(cagey_tier_v3.RULE_MARKET_BASIS_120), 1.20)
 
 
 class EventTest(unittest.TestCase):

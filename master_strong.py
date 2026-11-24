@@ -33,7 +33,11 @@ import team_track_record as tr
 
 CONFIG = Path(__file__).with_name('master_strong_config.json')
 TRUST_FILE = Path(__file__).with_name('master_league_trust.json')
-VERSION = 'master-strong-team-v1'
+# Each superseded rule's config, frozen byte for byte, so archived runs replay under the rule they used.
+RULES_DIR = Path(__file__).with_name('master_strong_rules')
+# v2 (Paul, 24 Nov 2026; docs/plan.md Phase 4d, Part 1): the executable pool's odds floor is 1.20 (config 'execution').
+VERSIONS = ('master-strong-team-v1', 'master-strong-team-v2')
+VERSION = VERSIONS[-1]
 TRUST_ORDER = ('trusted', 'not trusted', 'unvalidated')
 TIERS = ('proven', 'not proven: safe', 'not proven: fill', 'not proven: risky fill')
 DECISIONS = ('SHORTLISTED', 'BEYOND_TARGET', 'NOT_SELECTED', 'LEFT_OUT', 'NOT_EXECUTABLE')
@@ -53,11 +57,29 @@ REPORTED_CLASSIFICATION = [
     'ranking_profit_probability', 'new_master_labels', 'one_view_missing', 'unvalidated_view', 'timing_check']
 
 
-def load_config(path: Optional[Path] = None) -> Dict[str, object]:
+def load_config(path: Optional[Path] = None, version: Optional[str] = None) -> Dict[str, object]:
+    """The current rule's config (master_strong_config.json), or with `version` the config that rule used (an older
+    rule's frozen copy in master_strong_rules/), so a run replays under the rule it recorded."""
+    if path is None and version is not None and version != VERSION:
+        if version not in VERSIONS:
+            raise ValueError(f'Unknown strong master rule version {version!r}')
+        path = RULES_DIR / f'{version}.json'
     config = json.loads(Path(path or CONFIG).read_text(encoding='utf-8'))
-    if config.get('version') != VERSION:
+    if config.get('version') not in VERSIONS or (path is None and config['version'] != VERSION)             or (version is not None and config['version'] != version):
         raise ValueError('Unknown strong master rule version')
     return config
+
+
+def execution_config(master_config: Mapping, config: Mapping) -> Dict[str, object]:
+    """The live master rule's config (master_reconciliation) with this rule's own execution window, when it sets one
+    (config 'execution', since master-strong-team-v2: odds above 1.20 up to 2.00). Rules without one use the live
+    master's window unchanged (1.15 to 2.00)."""
+    window = config.get('execution')
+    if not window:
+        return dict(master_config)
+    return {**master_config, 'execution': {**master_config['execution'],
+                                           'min_odds_exclusive': float(window['min_odds_exclusive']),
+                                           'max_odds_inclusive': float(window['max_odds_inclusive'])}}
 
 
 def _number(value) -> Optional[float]:
@@ -309,7 +331,7 @@ def offer_rows(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame], gen
     from master_selection import identity
     run = settings(config)
     trust = load_trust() if trust is None else trust
-    mcfg = mr.load_config()
+    mcfg = execution_config(mr.load_config(), config)
     european_leagues = set(mcfg['european']['leagues'])
     records = mr.pool(decisions)
     clock = mr.run_clock(mr._records(decisions), generated_at_utc)
@@ -453,7 +475,9 @@ def summary(frame: pd.DataFrame, config: Optional[Mapping] = None, generated_at_
             'same_offer': int(picks.live_master_same_offer.eq(True).sum()) if len(picks) else 0},
         'decisions': count(frame, 'strong_decision', DECISIONS),
         'picks': [clean(r) for r in picks.to_dict('records')],
-        'note': 'Shadow only: master_shortlist.csv, every probability, pick and stake are unchanged.'}
+        'note': 'Shadow only: master_shortlist.csv, every probability, pick and stake are unchanged.',
+        **({'execution': {k: config['execution'][k] for k in ('min_odds_exclusive', 'max_odds_inclusive')}}
+           if config.get('execution') else {})}
 
 
 def write_shadow(decisions: pd.DataFrame, out_dir, predictions: Optional[pd.DataFrame] = None,

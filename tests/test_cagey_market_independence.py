@@ -113,8 +113,9 @@ class LiveCageyResearchPerturbationTest(unittest.TestCase):
 
     def test_the_frozen_row_exercises_the_production_cagey_rule(self):
         _, decisions, picks, summary = self.base
-        self.assertEqual(summary['cagey_tier']['rule_version'], v28.TIER_RULE_MARKET_BASIS)
-        self.assertEqual(v28.load_settings()['cagey_tier_rule'], v28.TIER_RULE_MARKET_BASIS)
+        # The live cagey rule (v6 since 24 Nov 2026: v5 with the odds floor at 1.20).
+        self.assertEqual(summary['cagey_tier']['rule_version'], v28.TIER_RULE_MARKET_BASIS_120)
+        self.assertEqual(v28.load_settings()['cagey_tier_rule'], v28.TIER_RULE_MARKET_BASIS_120)
         self.assertGreaterEqual(len(picks), 2)
         self.assertGreater(decisions.cagey_tier_decision.eq('NOT_SELECTED').sum(), 0)
         self.assertTrue(decisions.cagey_no_loss_probability.notna().all())

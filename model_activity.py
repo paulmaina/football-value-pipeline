@@ -395,6 +395,34 @@ MASTER_RELEASES = {
 }
 
 
+# Rule changes of the live lists made by editing the live rules (Paul, 24 Nov 2026; docs/plan.md Phase 4d), keyed by
+# the strong-master rule each one brought in: logged once, by the first forecast run whose summary records that rule.
+RULE_RELEASES = {
+    'master-strong-team-v2': {
+        'model': 'live lists: odds floor 1.20 (Part 1)', 'before': 'master-strong-team-v1-live-v11',
+        'after': 'master-strong-team-v2-live-v12',
+        'details': ("Odds must be above 1.20 and at most 2.00 (was 1.15 to 2.00) on the value shortlist "
+                    "(local-research-profit-120-200-dc12-v3), the cagey tier (no-loss-market-reference-120-200-v6) and "
+                    "the strong master's executable pool (master-strong-team-v2, live master-strong-team-v2-live-v12). "
+                    "Paul's exception of 24 Nov 2026: the live rules edited directly, no shadow list, no pre-release "
+                    "backtest gate. Rolling back is setting cagey_correction_config.json value_rule and cagey_tier_rule "
+                    "to v2 and v5 and the strong master to master-strong-team-v1. Takes effect with the merge of its PR.")},
+}
+
+
+def rule_release_event(log: Sequence[Mapping], summary: Mapping, when: Any = None) -> Optional[dict]:
+    """The release line of a live-list rule change (RULE_RELEASES), the first time a run records its rule."""
+    rule = (summary.get('master_shortlist') or {}).get('rule')
+    if rule not in RULE_RELEASES or last(log, f'release:rule {rule}') is not None:
+        return None
+    item = RULE_RELEASES[rule]
+    return event(RELEASE, item['model'], f'RELEASED ({EXCEPTION})', item['details'], key=f'release:rule {rule}',
+                 source=SOURCE_FORECAST, when=when,
+                 data={'decided': '2026-11-24', 'decision': EXCEPTION, 'rule': rule,
+                       'versions': {'before': item['before'], 'after': item['after']},
+                       'value_rule': summary.get('value_rule'), 'cagey_tier_rule': summary.get('cagey_tier_rule')})
+
+
 def master_release_event(log: Sequence[Mapping], state: Mapping, when: Any = None,
                          source: str = SOURCE_FORECAST) -> Optional[dict]:
     """The release line of a master released by its live switch, the first time it is found live."""
@@ -689,6 +717,9 @@ def forecast_events(log: Sequence[Mapping], out_dir: Path | str, master_config: 
     master_release = master_release_event(log, state, when)
     if master_release is not None:
         events.append(master_release)
+    rule_release = rule_release_event(log, summary, when)
+    if rule_release is not None:
+        events.append(rule_release)
     events += stale_events(log, rows, when)
     events += master_events(summary, when)
     ucl = ucl_event(log, summary.get('ce3n_ucl_live_check'), when)

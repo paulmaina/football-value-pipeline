@@ -1,8 +1,9 @@
 {
   "cagey_correction_enabled": true,
   "cagey_tier_enabled": true,
-  "cagey_tier_rule": "no-loss-market-reference-v5",
-  "value_rule": "local-research-profit-115-200-dc12-v2",
+  "cagey_tier_rule": "no-loss-market-reference-120-200-v6",
+  "value_rule": "local-research-profit-120-200-dc12-v3",
+  "odds_window": "Both lists take odds above 1.20 and at most 2.00 (Paul, 24 Nov 2026; docs/plan.md Phase 4d, Part 1, a deliberate exception to the release gate): value rule local-research-profit-120-200-dc12-v3 and cagey rule no-loss-market-reference-120-200-v6 are v2 and v5 with the floor raised from 1.15. Runs record their rules, so earlier runs replay under v2 and v5.",
   "model_version": "cagey-correction-through-2425-v1",
   "gate_report": "football_output_v2/performance/cagey_correction/report.md",
   "quote_timing_rule": "observed-by-cutoff-v2",

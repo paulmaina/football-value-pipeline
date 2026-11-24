@@ -33,7 +33,7 @@ class PinnacleMarketScopeTests(OfflineQuotePolicyTestCase):
         dc = forecast('Chance FC', double_chance={'home_draw': 1.25, 'draw_away': 1.35, 'home_away': 1.4})
         away_dc = forecast('Away Chance FC',
                            double_chance={'home_draw': 1.10, 'draw_away': 1.35, 'home_away': 1.4})
-        handicap = forecast('Handicap FC', extra_ah=ah_pair(3.25, 1.16, 7.0)
+        handicap = forecast('Handicap FC', extra_ah=ah_pair(1.75, 1.22, 7.0)
                             + ah_pair(0, 1.22, 5.0, key='draw_no_bet')
                             + ah_pair(3.5, 1.16, 7.0, book='1xBet'))
         forecasts = pd.DataFrame([dc, away_dc, handicap])
@@ -51,9 +51,9 @@ class PinnacleMarketScopeTests(OfflineQuotePolicyTestCase):
             self.assertEqual(info['master_shortlist']['version'], master.VERSION_PINNACLE_MARKETS)
             for frame in (value, tier, top):
                 self.assertTrue(frame.bookmaker.eq('Pinnacle').all())
-                self.assertIn('Asian Handicap Home +3.25', frame.market.tolist())
+                self.assertIn('Asian Handicap Home +1.75', frame.market.tolist())
                 self.assertTrue(frame.market.isin(['Home win', 'Away win', 'Double Chance 1X',
-                    'Double Chance X2', 'Asian Handicap Home +3.25', 'Asian Handicap Home -0.25',
+                    'Double Chance X2', 'Asian Handicap Home +1.75', 'Asian Handicap Home -0.25',
                     'Asian Handicap Away +0.25']).all())
                 self.assertTrue(frame.market.str.startswith('Double Chance ').any())
             dc_picks = top.loc[top.market.str.startswith('Double Chance ')]

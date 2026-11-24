@@ -6,7 +6,8 @@ SCHEMA = 'comparable-shortlist-v1'
 SETTLEMENT = ('win', 'half_win', 'push', 'half_loss', 'loss')
 
 
-def harmonize(frame, tier):
+def harmonize(frame, tier, value_rule='local-research-profit-115-200-dc12-v2'):
+    """`value_rule`: the run's value rule, recorded as the value rows' selection_rule."""
     from performance_tracking import fixture_key
     from cagey_tier_v3 import BASIS, RULE
     out = frame.copy()
@@ -14,7 +15,7 @@ def harmonize(frame, tier):
     prefix = 'cagey' if cagey and 'cagey_p_win' in out else 'corrected' if cagey else 'research'
     out['shortlist_schema_version'] = SCHEMA
     out['shortlist_source'] = tier
-    out['selection_rule'] = out.cagey_tier_rule if cagey else 'local-research-profit-115-200-dc12-v2'
+    out['selection_rule'] = out.cagey_tier_rule if cagey else value_rule
     out['selection_objective'] = 'NO_LOSS_PROBABILITY' if cagey else 'POSITIVE_RETURN_PROBABILITY'
     out['source_probability_basis'] = out.cagey_probability_basis if cagey else 'team_form_poisson_v1'
     out['fixture_key'] = out.apply(fixture_key, axis=1) if len(out) else pd.Series(dtype=str)
