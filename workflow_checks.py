@@ -174,7 +174,7 @@ def raw_check(root, *, raw_dir=None):
         # not bind the selected market, price, EV or top-twelve membership.
         import pandas as pd
         from conservative_bet_filter import build_conservative_shortlist
-        from shortlist_replay import clean as clean_frame, equivalent, monitoring_equivalent
+        from shortlist_replay import clean as clean_frame, difference, equivalent, monitoring_equivalent
         reliability = None
         if summary.get('validation_required'):
             reliability = {}
@@ -209,8 +209,11 @@ def raw_check(root, *, raw_dir=None):
         require(set(expected.columns).issubset(actual.columns), 'Missing current shortlist replay columns')
         # CSV blank strings deserialize as null, including empty strict-rule
         # warnings. Normalize only that representation difference for replay.
-        require(equivalent(clean_frame(actual[list(expected.columns)]), clean_frame(expected.replace('', None))),
-                'Current shortlist differs from deterministic ranking replay')
+        written, replayed = clean_frame(actual[list(expected.columns)]), clean_frame(expected.replace('', None))
+        if not equivalent(written, replayed):
+            # Name the differing cells, so a failed run says why (the comparison itself is unchanged).
+            require(False, 'Current shortlist differs from deterministic ranking replay: '
+                    + difference(written, replayed))
         if policy_version == price_edge_cagey_shortlist.POLICY:
             # The cagey tier is a separate list: bind its rows to the same replay.
             # Labelled as the run recorded (runs before cagey-own-probabilities-v1 record nothing).
