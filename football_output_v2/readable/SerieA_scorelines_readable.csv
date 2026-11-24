@@ -1,127 +1,63 @@
 ﻿Match date,League,Home team,Away team,Model,Rank,Score,Probability,Probability (decimal)
-2026-11-23,Serie A,Monza,Fiorentina,Research,1,1-1,10.71%,0.10710364641278197
-2026-11-23,Serie A,Monza,Fiorentina,Research,2,1-2,9.52%,0.09522851143735046
-2026-11-23,Serie A,Monza,Fiorentina,Research,3,0-1,7.32%,0.07318432149496035
-2026-11-23,Serie A,Monza,Fiorentina,Research,4,0-2,6.95%,0.06946020462988961
-2026-11-23,Serie A,Monza,Fiorentina,Research,5,2-2,6.70%,0.06700641397965243
-2026-11-23,Serie A,Monza,Fiorentina,Research,6,2-1,6.48%,0.06482856389308937
-2026-11-23,Serie A,Monza,Fiorentina,Research,7,1-3,5.89%,0.05889504915797492
-2026-11-23,Serie A,Monza,Fiorentina,Research,8,1-0,4.94%,0.0494150710189971
-2026-11-23,Serie A,Monza,Fiorentina,Research,9,0-0,4.32%,0.043158415106595176
-2026-11-23,Serie A,Monza,Fiorentina,Research,10,0-3,4.30%,0.04295837564248464
-2026-11-23,Serie A,Monza,Fiorentina,Research,11,2-3,4.04%,0.04037195032916828
-2026-11-23,Serie A,Monza,Fiorentina,Research,12,2-0,3.49%,0.034940840961582
-2026-11-23,Serie A,Monza,Fiorentina,Research,13,3-1,2.96%,0.02962620909365765
-2026-11-23,Serie A,Monza,Fiorentina,Research,14,3-2,2.75%,0.027483949101997387
-2026-11-23,Serie A,Monza,Fiorentina,Research,15,1-4,2.73%,0.027318185197105424
-2026-11-23,Serie A,Monza,Fiorentina,Research,16,0-4,1.99%,0.01992603586118765
-2026-11-23,Serie A,Monza,Fiorentina,Research,17,3-3,1.89%,0.01893816306405892
-2026-11-23,Serie A,Monza,Fiorentina,Research,18,2-4,1.87%,0.018726334923369684
-2026-11-23,Serie A,Monza,Fiorentina,Research,19,3-0,1.60%,0.015967724689122928
-2026-11-23,Serie A,Monza,Fiorentina,Research,20,4-1,1.02%,0.010154230780608328
-2026-11-23,Serie A,Monza,Fiorentina,Research,21,1-5,1.01%,0.010137127016725435
-2026-11-23,Serie A,Monza,Fiorentina,Research,22,4-2,0.94%,0.009419982187458448
-2026-11-23,Serie A,Monza,Fiorentina,Research,23,3-4,0.86%,0.008557806631541834
-2026-11-23,Serie A,Monza,Fiorentina,Research,24,0-5,0.74%,0.007394076693135821
-2026-11-23,Serie A,Monza,Fiorentina,Research,25,2-5,0.69%,0.006948896286714314
-2026-11-23,Serie A,Monza,Fiorentina,Research,26,4-3,0.58%,0.0058258845552007004
-2026-11-23,Serie A,Monza,Fiorentina,Research,27,4-0,0.55%,0.005472855505137253
-2026-11-23,Serie A,Monza,Fiorentina,Research,28,3-5,0.32%,0.0031755979462979415
-2026-11-23,Serie A,Monza,Fiorentina,Research,29,1-6,0.31%,0.0031347050634276453
-2026-11-23,Serie A,Monza,Fiorentina,Research,30,4-4,0.30%,0.003010799629521443
-2026-11-23,Serie A,Monza,Fiorentina,Research,31,5-1,0.28%,0.0027842482963620773
-2026-11-23,Serie A,Monza,Fiorentina,Research,32,5-2,0.26%,0.0025829203534825543
-2026-11-23,Serie A,Monza,Fiorentina,Research,33,0-6,0.23%,0.0022864712665731594
-2026-11-23,Serie A,Monza,Fiorentina,Research,34,2-6,0.21%,0.002148808073456826
-2026-11-23,Serie A,Monza,Fiorentina,Research,35,5-3,0.16%,0.0015974335720827417
-2026-11-23,Serie A,Monza,Fiorentina,Research,36,5-0,0.15%,0.0015006344592358508
-2026-11-23,Serie A,Monza,Fiorentina,Research,37,4-5,0.11%,0.0010884198619943682
-2026-11-23,Serie A,Monza,Fiorentina,Research,38,3-6,0.10%,0.000981990552672998
-2026-11-23,Serie A,Monza,Fiorentina,Research,39,1-7,0.08%,0.0008308673497332723
-2026-11-23,Serie A,Monza,Fiorentina,Research,40,5-4,0.07%,0.0007409618768663661
-2026-11-23,Serie A,Monza,Fiorentina,Research,41,6-1,0.06%,0.0006361911882909677
-2026-11-23,Serie A,Monza,Fiorentina,Research,42,0-7,0.06%,0.0006060392550684279
-2026-11-23,Serie A,Monza,Fiorentina,Research,43,6-2,0.06%,0.000590188443713893
-2026-11-23,Serie A,Monza,Fiorentina,Research,44,2-7,0.06%,0.0005695510208945504
-2026-11-23,Serie A,Monza,Fiorentina,Research,45,6-3,0.04%,0.0003650080934832845
-2026-11-23,Serie A,Monza,Fiorentina,Research,46,6-0,0.03%,0.0003428898281302843
-2026-11-23,Serie A,Monza,Fiorentina,Research,47,4-6,0.03%,0.00033657221093310246
-2026-11-23,Serie A,Monza,Fiorentina,Research,48,5-5,0.03%,0.0003063414969137733
-2026-11-23,Serie A,Monza,Fiorentina,Research,49,3-7,0.03%,0.00026028091046957207
-2026-11-23,Serie A,Monza,Fiorentina,Research,50,1-8,0.02%,0.00019269691135972343
-2026-11-23,Serie A,Monza,Fiorentina,Research,51,6-4,0.02%,0.00016930724804172306
-2026-11-23,Serie A,Monza,Fiorentina,Research,52,0-8,0.01%,0.00014055419634906026
-2026-11-23,Serie A,Monza,Fiorentina,Research,53,2-8,0.01%,0.0001320917504140579
-2026-11-23,Serie A,Monza,Fiorentina,Research,54,7-1,0.01%,0.00012460071854569746
-2026-11-23,Serie A,Monza,Fiorentina,Research,55,7-2,0.01%,0.00011559088764128683
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,1,1-1,11.87%,0.11872891527639218
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,2,1-2,10.03%,0.10033062712322366
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,3,0-1,8.29%,0.08285646704456517
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,4,0-2,7.59%,0.07589417051336603
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,5,2-1,6.59%,0.0658806649107124
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,6,0-0,5.98%,0.059794477245537395
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,7,2-2,5.93%,0.05930012549349019
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,8,1-3,5.49%,0.05490795206879632
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,9,1-0,5.12%,0.051230598693702036
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,10,0-3,4.81%,0.0480707607254795
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,11,2-3,3.63%,0.03629362589939656
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,12,2-0,3.31%,0.03313350949100348
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,13,1-4,2.61%,0.026083693332154777
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,14,3-1,2.40%,0.023971447855571763
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,15,3-2,2.38%,0.023831688038152794
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,16,0-4,2.17%,0.021713396255408073
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,17,2-4,1.49%,0.014896812133243505
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,18,3-3,1.43%,0.014300828053263675
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,19,3-0,1.40%,0.013953224697103027
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,20,1-5,0.94%,0.009425531205715659
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,21,0-5,0.78%,0.007846292753914672
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,22,4-1,0.76%,0.007571164435535422
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,23,3-4,0.66%,0.006564432609932565
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,24,4-2,0.65%,0.006503578112308268
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,25,2-5,0.57%,0.005661313010886279
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,26,4-3,0.43%,0.0043104403660586335
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,27,4-0,0.42%,0.004190404275232106
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,28,1-6,0.28%,0.002838319883697894
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,29,0-6,0.24%,0.0023627621882197974
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,30,3-5,0.22%,0.002155510603929572
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,31,4-4,0.19%,0.0019399444054329798
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,32,5-1,0.18%,0.001819005456179028
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,33,2-6,0.17%,0.0017047969961514818
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,34,5-2,0.16%,0.0016432769386081148
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,35,5-0,0.10%,0.0010067630025927558
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,36,5-3,0.09%,0.0009410423827042303
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,37,1-7,0.07%,0.0007326052963141182
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,38,4-5,0.07%,0.0007123858433399876
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,39,3-6,0.07%,0.0006826415901369118
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,40,0-7,0.06%,0.0006098580018984215
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,41,5-4,0.05%,0.00046777792961042423
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,42,2-7,0.04%,0.00044002908752264867
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,43,6-1,0.04%,0.00036418669785227446
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,44,6-2,0.03%,0.00032900374206991
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,45,6-0,0.02%,0.0002015660217997776
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,46,6-3,0.02%,0.00019814646889329066
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,47,4-6,0.02%,0.0001949337349031028
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,48,3-7,0.02%,0.00017619819643691125
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,49,5-5,0.02%,0.0001684214327015554
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,50,1-8,0.02%,0.0001654576384647011
-2026-11-23,Serie A,Monza,Fiorentina,Cagey,51,0-8,0.01%,0.00013773537442411397
-2026-11-23,Serie A,Monza,Fiorentina,"Benchmark (70% Pinnacle blend), display only",1,1-1,11.38%,0.11378804949268155
-2026-11-23,Serie A,Monza,Fiorentina,"Benchmark (70% Pinnacle blend), display only",2,1-2,9.62%,0.0961688229439176
-2026-11-23,Serie A,Monza,Fiorentina,"Benchmark (70% Pinnacle blend), display only",3,0-1,8.54%,0.08542536020483711
-2026-11-23,Serie A,Monza,Fiorentina,"Benchmark (70% Pinnacle blend), display only",4,0-2,7.90%,0.07898555611786871
-2026-11-23,Serie A,Monza,Fiorentina,"Benchmark (70% Pinnacle blend), display only",5,2-1,6.30%,0.06302211489484201
-2026-11-23,Serie A,Monza,Fiorentina,"Benchmark (70% Pinnacle blend), display only",6,2-2,6.13%,0.061331258642567305
-2026-11-23,Serie A,Monza,Fiorentina,"Benchmark (70% Pinnacle blend), display only",7,1-3,5.79%,0.05787127784476079
-2026-11-23,Serie A,Monza,Fiorentina,"Benchmark (70% Pinnacle blend), display only",8,1-0,5.53%,0.055324063615840004
-2026-11-23,Serie A,Monza,Fiorentina,"Benchmark (70% Pinnacle blend), display only",9,0-0,5.30%,0.052954685935223074
-2026-11-23,Serie A,Monza,Fiorentina,"Benchmark (70% Pinnacle blend), display only",10,0-3,4.75%,0.04753094530943542
-2026-11-23,Serie A,Monza,Fiorentina,"Benchmark (70% Pinnacle blend), display only",11,2-3,3.52%,0.03523057218389334
-2026-11-23,Serie A,Monza,Fiorentina,"Benchmark (70% Pinnacle blend), display only",12,2-0,3.49%,0.03490944520660282
-2026-11-23,Serie A,Monza,Fiorentina,"Benchmark (70% Pinnacle blend), display only",13,1-4,2.61%,0.026118793208105815
-2026-11-23,Serie A,Monza,Fiorentina,"Benchmark (70% Pinnacle blend), display only",14,3-1,2.56%,0.025577514450148036
-2026-11-23,Serie A,Monza,Fiorentina,"Benchmark (70% Pinnacle blend), display only",15,3-2,2.31%,0.02308757765787732
-2026-11-23,Serie A,Monza,Fiorentina,"Benchmark (70% Pinnacle blend), display only",16,0-4,2.15%,0.021451935705534487
-2026-11-23,Serie A,Monza,Fiorentina,"Benchmark (70% Pinnacle blend), display only",17,2-4,1.59%,0.01590046157167516
-2026-11-23,Serie A,Monza,Fiorentina,"Benchmark (70% Pinnacle blend), display only",18,3-3,1.50%,0.01497876524908055
-2026-11-23,Serie A,Monza,Fiorentina,"Benchmark (70% Pinnacle blend), display only",19,3-0,1.42%,0.01416799231045185
-2026-11-23,Serie A,Monza,Fiorentina,"Benchmark (70% Pinnacle blend), display only",20,1-5,0.94%,0.009430465461333231
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,1,0-1,14.74%,0.1473891060078755
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,2,1-1,12.21%,0.12208656741594094
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,3,0-2,12.05%,0.12048721226867314
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,4,0-0,9.61%,0.09605529448707366
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,5,1-2,9.53%,0.09532749949026495
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,6,0-3,6.48%,0.06480836490943374
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,7,1-0,6.00%,0.05997679450050962
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,8,1-3,5.13%,0.0512753117658051
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,9,2-1,3.93%,0.039331064271333434
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,10,2-2,3.83%,0.03833580840366554
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,11,0-4,2.61%,0.02614462615876102
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,12,2-0,2.44%,0.024373861286966707
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,13,1-4,2.07%,0.02068519795499046
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,14,2-3,2.03%,0.020284091415935415
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,15,3-1,1.04%,0.010372696926864244
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,16,0-5,0.84%,0.0084376944604183
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,17,3-2,0.84%,0.008368990138540571
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,18,2-4,0.82%,0.008182894102958143
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,19,1-5,0.67%,0.00667576499803928
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,20,3-0,0.64%,0.006428065976628187
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,21,3-3,0.54%,0.0054381442663222835
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,22,2-5,0.26%,0.0026408777017292604
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,23,0-6,0.23%,0.0022692581697621116
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,24,3-4,0.22%,0.002158057049487816
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,25,4-1,0.21%,0.0020516767762943215
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,26,1-6,0.18%,0.0017953997187593789
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,27,4-2,0.17%,0.0016553518173089694
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,28,4-0,0.13%,0.0012714450035245242
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,29,4-3,0.09%,0.0008903902962783308
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,30,2-6,0.07%,0.0007102453553046313
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,31,3-5,0.07%,0.000696472992237764
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,32,0-7,0.05%,0.000523115069121125
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,33,4-4,0.04%,0.00043392967410098326
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,34,1-7,0.04%,0.0004138800337897729
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,35,5-1,0.03%,0.0003246505801964464
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,36,5-2,0.03%,0.0002619374231496906
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,37,5-0,0.02%,0.00020118927252647093
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,38,3-6,0.02%,0.00018731147887237644
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,39,2-7,0.02%,0.0001637275357576829
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,40,5-3,0.01%,0.0001408924298544471
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,41,4-5,0.01%,0.0001377594924025623
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,Research,42,0-8,0.01%,0.00010551606987229684
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,"Benchmark (70% Pinnacle blend), display only",1,0-1,14.35%,0.14346375401693956
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,"Benchmark (70% Pinnacle blend), display only",2,0-2,11.75%,0.1175394169427789
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,"Benchmark (70% Pinnacle blend), display only",3,1-1,11.75%,0.11747720551576003
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,"Benchmark (70% Pinnacle blend), display only",4,1-2,9.30%,0.09299525234025227
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,"Benchmark (70% Pinnacle blend), display only",5,0-0,9.25%,0.09249683897937828
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,"Benchmark (70% Pinnacle blend), display only",6,1-0,6.92%,0.06921093246207798
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,"Benchmark (70% Pinnacle blend), display only",7,0-3,6.32%,0.06322278755593938
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,"Benchmark (70% Pinnacle blend), display only",8,1-3,5.00%,0.05002082905754919
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,"Benchmark (70% Pinnacle blend), display only",9,2-1,4.56%,0.04559599100337759
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,"Benchmark (70% Pinnacle blend), display only",10,2-2,3.68%,0.03678815661488823
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,"Benchmark (70% Pinnacle blend), display only",11,2-0,2.83%,0.028256300218352307
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,"Benchmark (70% Pinnacle blend), display only",12,0-4,2.55%,0.025504981458407322
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,"Benchmark (70% Pinnacle blend), display only",13,1-4,2.02%,0.020179121594696318
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,"Benchmark (70% Pinnacle blend), display only",14,2-3,1.98%,0.019787828379053355
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,"Benchmark (70% Pinnacle blend), display only",15,3-1,1.20%,0.012024932569718894
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,"Benchmark (70% Pinnacle blend), display only",16,3-2,0.97%,0.009702061363805416
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,"Benchmark (70% Pinnacle blend), display only",17,0-5,0.82%,0.008231260965747665
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,"Benchmark (70% Pinnacle blend), display only",18,2-4,0.80%,0.00798269445907229
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,"Benchmark (70% Pinnacle blend), display only",19,3-0,0.75%,0.00745197323971421
+2026-11-27,Serie A,Venezia FC,Bologna FC 1909,"Benchmark (70% Pinnacle blend), display only",20,1-5,0.65%,0.0065124382143295955

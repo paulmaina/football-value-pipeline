@@ -76,7 +76,7 @@ Fallbacks to D: where D_pow2's power grid failed its fit check, the run priced t
 
 | D_pow2 runs | Domestic fixture forecasts | Priced by D (fallback) | Domestic fixtures | Fixtures with a fallback | Graded matches left out |
 |---|---|---|---|---|---|
-| 17 | 654 | 0 | 66 | 0 | 0 |
+| 18 | 661 | 0 | 73 | 0 | 0 |
 
 ## Cumulative shortlist — latest prediction per match
 
@@ -147,6 +147,7 @@ Whole-fixture 1X2 multiclass Brier (n=443): 0.5464
 | 2026-11-23T06:15:00.240474+00:00 | 2 | 2-0 | 100.0% | +64.7% |
 | 2026-11-23T18:16:57.482339+00:00 | 4 | 2-2 | 50.0% | -28.8% |
 | 2026-11-24T08:10:20.197784+00:00 | 0 | 0-0 | — | — |
+| 2026-11-24T15:20:26.167153+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
@@ -338,7 +339,7 @@ A missing, ambiguous or unverified result is **never called a win**.
 | UCL | 2026-11-04 | 575 | 20 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 | UEL | 2026-11-05 | 732 | 19 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 18, "exchange_quotes": 0, "missing_quote_age": 18, "quote_age_over_24h": 0, "costs_recorded": 18, "bookmakers": {"Pinnacle": 18}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 18, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 15, "exchange_quotes": 0, "missing_quote_age": 15, "quote_age_over_24h": 0, "costs_recorded": 15, "bookmakers": {"Pinnacle": 15}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 15, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 

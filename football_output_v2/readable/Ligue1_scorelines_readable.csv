@@ -1,218 +1,72 @@
 ﻿Match date,League,Home team,Away team,Model,Rank,Score,Probability,Probability (decimal)
-2026-11-22,Ligue 1,Lorient,Rennes,Research,1,1-1,10.81%,0.10805778420452497
-2026-11-22,Ligue 1,Lorient,Rennes,Research,2,2-1,8.58%,0.08580824870147069
-2026-11-22,Ligue 1,Lorient,Rennes,Research,3,1-2,7.77%,0.07770137862671682
-2026-11-22,Ligue 1,Lorient,Rennes,Research,4,2-2,7.07%,0.07074456309432957
-2026-11-22,Ligue 1,Lorient,Rennes,Research,5,1-0,6.24%,0.062399594016648664
-2026-11-22,Ligue 1,Lorient,Rennes,Research,6,0-1,5.64%,0.05636243948687414
-2026-11-22,Ligue 1,Lorient,Rennes,Research,7,2-0,5.46%,0.054636204136906404
-2026-11-22,Ligue 1,Lorient,Rennes,Research,8,3-1,4.86%,0.04859720952502868
-2026-11-22,Ligue 1,Lorient,Rennes,Research,9,0-2,4.57%,0.04573252447217557
-2026-11-22,Ligue 1,Lorient,Rennes,Research,10,0-0,4.18%,0.041752075383240474
-2026-11-22,Ligue 1,Lorient,Rennes,Research,11,1-3,4.07%,0.04067766253149259
-2026-11-22,Ligue 1,Lorient,Rennes,Research,12,3-2,3.82%,0.03816188832108401
-2026-11-22,Ligue 1,Lorient,Rennes,Research,13,2-3,3.46%,0.03455648353648559
-2026-11-22,Ligue 1,Lorient,Rennes,Research,14,3-0,3.09%,0.03094302820852201
-2026-11-22,Ligue 1,Lorient,Rennes,Research,15,0-3,2.39%,0.02394155972610686
-2026-11-22,Ligue 1,Lorient,Rennes,Research,16,3-3,2.10%,0.020975031786840445
-2026-11-22,Ligue 1,Lorient,Rennes,Research,17,4-1,2.06%,0.020642148127005128
-2026-11-22,Ligue 1,Lorient,Rennes,Research,18,4-2,1.62%,0.01620964164875223
-2026-11-22,Ligue 1,Lorient,Rennes,Research,19,1-4,1.60%,0.015971456281765262
-2026-11-22,Ligue 1,Lorient,Rennes,Research,20,2-4,1.36%,0.013568069837523896
-2026-11-22,Ligue 1,Lorient,Rennes,Research,21,4-0,1.31%,0.013143359012196957
-2026-11-22,Ligue 1,Lorient,Rennes,Research,22,0-4,0.94%,0.00940028385816782
-2026-11-22,Ligue 1,Lorient,Rennes,Research,23,4-3,0.85%,0.008485954102719774
-2026-11-22,Ligue 1,Lorient,Rennes,Research,24,3-4,0.77%,0.0076842301611158475
-2026-11-22,Ligue 1,Lorient,Rennes,Research,25,5-1,0.70%,0.0070143661903512644
-2026-11-22,Ligue 1,Lorient,Rennes,Research,26,5-2,0.55%,0.005508165218036034
-2026-11-22,Ligue 1,Lorient,Rennes,Research,27,1-5,0.50%,0.005016756615508097
-2026-11-22,Ligue 1,Lorient,Rennes,Research,28,5-0,0.45%,0.004466217978650784
-2026-11-22,Ligue 1,Lorient,Rennes,Research,29,2-5,0.43%,0.004261834545093255
-2026-11-22,Ligue 1,Lorient,Rennes,Research,30,4-4,0.35%,0.0034981200788983986
-2026-11-22,Ligue 1,Lorient,Rennes,Research,31,0-5,0.30%,0.002952701081300839
-2026-11-22,Ligue 1,Lorient,Rennes,Research,32,5-3,0.29%,0.0028835947298100403
-2026-11-22,Ligue 1,Lorient,Rennes,Research,33,3-5,0.24%,0.0024136754855521537
-2026-11-22,Ligue 1,Lorient,Rennes,Research,34,6-1,0.20%,0.0019862812060394315
-2026-11-22,Ligue 1,Lorient,Rennes,Research,35,6-2,0.16%,0.0015597653095720644
-2026-11-22,Ligue 1,Lorient,Rennes,Research,36,1-6,0.13%,0.0013131680300592756
-2026-11-22,Ligue 1,Lorient,Rennes,Research,37,6-0,0.13%,0.0012647136736705252
-2026-11-22,Ligue 1,Lorient,Rennes,Research,38,5-4,0.11%,0.001132198958724187
-2026-11-22,Ligue 1,Lorient,Rennes,Research,39,2-6,0.11%,0.0011155623648790199
-2026-11-22,Ligue 1,Lorient,Rennes,Research,40,4-5,0.10%,0.001025232670563695
-2026-11-22,Ligue 1,Lorient,Rennes,Research,41,6-3,0.08%,0.0008165570291346891
-2026-11-22,Ligue 1,Lorient,Rennes,Research,42,0-6,0.08%,0.0007728883339286761
-2026-11-22,Ligue 1,Lorient,Rennes,Research,43,3-6,0.06%,0.0006317949475099012
-2026-11-22,Ligue 1,Lorient,Rennes,Research,44,7-1,0.05%,0.00048211011381908193
-2026-11-22,Ligue 1,Lorient,Rennes,Research,45,7-2,0.04%,0.0003785861884220614
-2026-11-22,Ligue 1,Lorient,Rennes,Research,46,5-5,0.04%,0.00037337632166090193
-2026-11-22,Ligue 1,Lorient,Rennes,Research,47,6-4,0.03%,0.0003206085128981052
-2026-11-22,Ligue 1,Lorient,Rennes,Research,48,7-0,0.03%,0.0003069712643446025
-2026-11-22,Ligue 1,Lorient,Rennes,Research,49,1-7,0.03%,0.0002946258037666052
-2026-11-22,Ligue 1,Lorient,Rennes,Research,50,4-6,0.03%,0.0002683611882216424
-2026-11-22,Ligue 1,Lorient,Rennes,Research,51,2-7,0.03%,0.00025029048140124153
-2026-11-22,Ligue 1,Lorient,Rennes,Research,52,7-3,0.02%,0.0001981946972356749
-2026-11-22,Ligue 1,Lorient,Rennes,Research,53,0-7,0.02%,0.00017340724217546614
-2026-11-22,Ligue 1,Lorient,Rennes,Research,54,3-7,0.01%,0.00014175116204845654
-2026-11-22,Ligue 1,Lorient,Rennes,Research,55,8-1,0.01%,0.00010239053312161254
-2026-11-22,Ligue 1,Lorient,Rennes,Research,56,6-5,0.01%,0.00010070558687288408
-2026-11-22,Ligue 1,Lorient,Rennes,"Benchmark (70% Pinnacle blend), display only",1,1-1,12.93%,0.1292689043267585
-2026-11-22,Ligue 1,Lorient,Rennes,"Benchmark (70% Pinnacle blend), display only",2,1-2,8.82%,0.0881883383158767
-2026-11-22,Ligue 1,Lorient,Rennes,"Benchmark (70% Pinnacle blend), display only",3,2-2,7.23%,0.07231951330116439
-2026-11-22,Ligue 1,Lorient,Rennes,"Benchmark (70% Pinnacle blend), display only",4,2-1,7.17%,0.07173835612356332
-2026-11-22,Ligue 1,Lorient,Rennes,"Benchmark (70% Pinnacle blend), display only",5,0-1,7.04%,0.07044278746461377
-2026-11-22,Ligue 1,Lorient,Rennes,"Benchmark (70% Pinnacle blend), display only",6,0-2,6.06%,0.06057571918056092
-2026-11-22,Ligue 1,Lorient,Rennes,"Benchmark (70% Pinnacle blend), display only",7,0-0,5.85%,0.05846847500518015
-2026-11-22,Ligue 1,Lorient,Rennes,"Benchmark (70% Pinnacle blend), display only",8,1-0,5.69%,0.056884639232953386
-2026-11-22,Ligue 1,Lorient,Rennes,"Benchmark (70% Pinnacle blend), display only",9,1-3,4.72%,0.04722875233971784
-2026-11-22,Ligue 1,Lorient,Rennes,"Benchmark (70% Pinnacle blend), display only",10,2-0,4.47%,0.04465137659183427
-2026-11-22,Ligue 1,Lorient,Rennes,"Benchmark (70% Pinnacle blend), display only",11,3-1,3.48%,0.0348131039170551
-2026-11-22,Ligue 1,Lorient,Rennes,"Benchmark (70% Pinnacle blend), display only",12,2-3,3.44%,0.03437866892803123
-2026-11-22,Ligue 1,Lorient,Rennes,"Benchmark (70% Pinnacle blend), display only",13,0-3,3.24%,0.03244097455075818
-2026-11-22,Ligue 1,Lorient,Rennes,"Benchmark (70% Pinnacle blend), display only",14,3-2,2.80%,0.027965933384291684
-2026-11-22,Ligue 1,Lorient,Rennes,"Benchmark (70% Pinnacle blend), display only",15,3-0,2.17%,0.02166836678908104
-2026-11-22,Ligue 1,Lorient,Rennes,"Benchmark (70% Pinnacle blend), display only",16,1-4,1.90%,0.01896981298913561
-2026-11-22,Ligue 1,Lorient,Rennes,"Benchmark (70% Pinnacle blend), display only",17,3-3,1.88%,0.018794991509434665
-2026-11-22,Ligue 1,Lorient,Rennes,"Benchmark (70% Pinnacle blend), display only",18,2-4,1.38%,0.013808472340941277
-2026-11-22,Ligue 1,Lorient,Rennes,"Benchmark (70% Pinnacle blend), display only",19,0-4,1.30%,0.013030181614508994
-2026-11-22,Ligue 1,Lorient,Rennes,"Benchmark (70% Pinnacle blend), display only",20,4-1,1.27%,0.012670546167647652
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,1,2-1,9.83%,0.09828228695150806
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,2,2-0,9.26%,0.09257430309272582
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,3,1-1,8.50%,0.08503465811211827
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,4,3-1,7.89%,0.07887798721955894
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,5,1-0,7.54%,0.07535113466773814
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,6,3-0,7.43%,0.07429695546065596
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,7,2-2,5.33%,0.05332950295286103
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,8,4-1,4.75%,0.04747857213740871
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,9,4-0,4.47%,0.04472113809914636
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,10,3-2,4.19%,0.041870739044641135
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,11,1-2,3.49%,0.03486600039660496
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,12,0-0,3.42%,0.03422968679832242
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,13,0-1,2.60%,0.026035056944022267
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,14,4-2,2.52%,0.025203012579974475
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,15,5-1,2.29%,0.022862802580724654
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,16,5-0,2.15%,0.021534989480875958
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,17,3-3,1.51%,0.015146477700648723
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,18,2-3,1.49%,0.014853797662002826
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,19,0-2,1.45%,0.014481058559012935
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,20,1-3,1.23%,0.012338594121517728
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,21,5-2,1.21%,0.012136243259124366
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,22,6-1,0.92%,0.009174449973144563
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,23,4-3,0.89%,0.008918996711021974
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,24,6-0,0.86%,0.008641621383332116
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,25,0-3,0.51%,0.0051246458434328875
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,26,6-2,0.49%,0.004870065961931614
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,27,5-3,0.43%,0.00429484821978383
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,28,2-4,0.39%,0.003942414782951016
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,29,1-4,0.33%,0.0032748430382850023
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,30,3-4,0.32%,0.0031640466711691517
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,31,7-1,0.32%,0.0031556135909612685
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,32,7-0,0.30%,0.0029723436244143164
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,33,4-4,0.24%,0.0024197934144109053
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,34,6-3,0.17%,0.0017234488202192584
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,35,7-2,0.17%,0.0016750918456511932
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,36,0-4,0.14%,0.0013601558328898184
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,37,5-4,0.11%,0.0011399154275219586
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,38,8-1,0.09%,0.00094972014878627
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,39,8-0,0.09%,0.0008945628315546616
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,40,2-5,0.08%,0.0008370995579448338
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,41,1-5,0.07%,0.000695352927231846
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,42,3-5,0.07%,0.0006718273483567721
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,43,7-3,0.06%,0.0005927917789436683
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,44,8-2,0.05%,0.0005041391891070876
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,45,6-4,0.05%,0.000457428481328575
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,46,4-5,0.04%,0.0004043891628985633
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,47,0-5,0.03%,0.00028880417437859965
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,48,9-1,0.03%,0.00025407092190505713
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,49,5-5,0.02%,0.0002474143614018187
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,50,9-0,0.02%,0.00023931513257411166
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,51,8-3,0.02%,0.000178407869109906
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,52,7-4,0.02%,0.00015733559361035706
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,53,2-6,0.01%,0.0001481189635647017
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,54,9-2,0.01%,0.00013486826483422444
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,55,1-6,0.01%,0.0001230378799221036
-2026-11-22,Ligue 1,Marseille,Le Mans FC,Research,56,3-6,0.01%,0.00011887519183182365
-2026-11-22,Ligue 1,Marseille,Le Mans FC,"Benchmark (70% Pinnacle blend), display only",1,2-1,8.87%,0.08869430194566424
-2026-11-22,Ligue 1,Marseille,Le Mans FC,"Benchmark (70% Pinnacle blend), display only",2,2-0,8.67%,0.08668698452777433
-2026-11-22,Ligue 1,Marseille,Le Mans FC,"Benchmark (70% Pinnacle blend), display only",3,1-1,8.03%,0.08032425939244649
-2026-11-22,Ligue 1,Marseille,Le Mans FC,"Benchmark (70% Pinnacle blend), display only",4,3-1,7.71%,0.07708875088263158
-2026-11-22,Ligue 1,Marseille,Le Mans FC,"Benchmark (70% Pinnacle blend), display only",5,3-0,7.53%,0.0753440887231066
-2026-11-22,Ligue 1,Marseille,Le Mans FC,"Benchmark (70% Pinnacle blend), display only",6,1-0,6.34%,0.06341530511377334
-2026-11-22,Ligue 1,Marseille,Le Mans FC,"Benchmark (70% Pinnacle blend), display only",7,2-2,5.13%,0.051255134289051034
-2026-11-22,Ligue 1,Marseille,Le Mans FC,"Benchmark (70% Pinnacle blend), display only",8,4-1,5.03%,0.050251329980744074
-2026-11-22,Ligue 1,Marseille,Le Mans FC,"Benchmark (70% Pinnacle blend), display only",9,4-0,4.91%,0.049114048692885506
-2026-11-22,Ligue 1,Marseille,Le Mans FC,"Benchmark (70% Pinnacle blend), display only",10,1-2,3.98%,0.039766961963191225
-2026-11-22,Ligue 1,Marseille,Le Mans FC,"Benchmark (70% Pinnacle blend), display only",11,3-2,3.94%,0.039436906155199965
-2026-11-22,Ligue 1,Marseille,Le Mans FC,"Benchmark (70% Pinnacle blend), display only",12,0-0,3.23%,0.03228096738424114
-2026-11-22,Ligue 1,Marseille,Le Mans FC,"Benchmark (70% Pinnacle blend), display only",13,0-1,2.63%,0.026297069552133588
-2026-11-22,Ligue 1,Marseille,Le Mans FC,"Benchmark (70% Pinnacle blend), display only",14,5-1,2.62%,0.02620559950365019
-2026-11-22,Ligue 1,Marseille,Le Mans FC,"Benchmark (70% Pinnacle blend), display only",15,4-2,2.57%,0.02570747303509737
-2026-11-22,Ligue 1,Marseille,Le Mans FC,"Benchmark (70% Pinnacle blend), display only",16,5-0,2.56%,0.025612517928216522
-2026-11-22,Ligue 1,Marseille,Le Mans FC,"Benchmark (70% Pinnacle blend), display only",17,2-3,1.77%,0.01768192445982088
-2026-11-22,Ligue 1,Marseille,Le Mans FC,"Benchmark (70% Pinnacle blend), display only",18,0-2,1.53%,0.015251265117332427
-2026-11-22,Ligue 1,Marseille,Le Mans FC,"Benchmark (70% Pinnacle blend), display only",19,3-3,1.52%,0.015193339193069321
-2026-11-22,Ligue 1,Marseille,Le Mans FC,"Benchmark (70% Pinnacle blend), display only",20,1-3,1.36%,0.013562600933457509
-2026-11-22,Ligue 1,Paris FC,Angers,Research,1,2-0,12.43%,0.12431672975553691
-2026-11-22,Ligue 1,Paris FC,Angers,Research,2,1-0,12.27%,0.12268739166665249
-2026-11-22,Ligue 1,Paris FC,Angers,Research,3,1-1,10.40%,0.10404235760242642
-2026-11-22,Ligue 1,Paris FC,Angers,Research,4,2-1,9.96%,0.09964642089729873
-2026-11-22,Ligue 1,Paris FC,Angers,Research,5,3-0,8.27%,0.08270253979997536
-2026-11-22,Ligue 1,Paris FC,Angers,Research,6,3-1,6.63%,0.06629045106309918
-2026-11-22,Ligue 1,Paris FC,Angers,Research,7,0-0,6.58%,0.06576363196618534
-2026-11-22,Ligue 1,Paris FC,Angers,Research,8,4-0,4.13%,0.04126381523317383
-2026-11-22,Ligue 1,Paris FC,Angers,Research,9,2-2,4.08%,0.04083549074546689
-2026-11-22,Ligue 1,Paris FC,Angers,Research,10,0-1,3.85%,0.038526123036372185
-2026-11-22,Ligue 1,Paris FC,Angers,Research,11,4-1,3.31%,0.03307512599984615
-2026-11-22,Ligue 1,Paris FC,Angers,Research,12,1-2,3.20%,0.03202699568382154
-2026-11-22,Ligue 1,Paris FC,Angers,Research,13,3-2,2.66%,0.026567647818177744
-2026-11-22,Ligue 1,Paris FC,Angers,Research,14,5-0,1.65%,0.01647061821042664
-2026-11-22,Ligue 1,Paris FC,Angers,Research,15,0-2,1.60%,0.016047436902329074
-2026-11-22,Ligue 1,Paris FC,Angers,Research,16,4-2,1.33%,0.01325572967167384
-2026-11-22,Ligue 1,Paris FC,Angers,Research,17,5-1,1.32%,0.013202069889244229
-2026-11-22,Ligue 1,Paris FC,Angers,Research,18,1-3,0.86%,0.008557109190001331
-2026-11-22,Ligue 1,Paris FC,Angers,Research,19,2-3,0.85%,0.008539011580546749
-2026-11-22,Ligue 1,Paris FC,Angers,Research,20,3-3,0.73%,0.007258350253751604
-2026-11-22,Ligue 1,Paris FC,Angers,Research,21,6-0,0.55%,0.005478594718332101
-2026-11-22,Ligue 1,Paris FC,Angers,Research,22,5-2,0.53%,0.005291077940539986
-2026-11-22,Ligue 1,Paris FC,Angers,Research,23,6-1,0.44%,0.004391382851706037
-2026-11-22,Ligue 1,Paris FC,Angers,Research,24,0-3,0.43%,0.004287622577794701
-2026-11-22,Ligue 1,Paris FC,Angers,Research,25,4-3,0.35%,0.003541722343034292
-2026-11-22,Ligue 1,Paris FC,Angers,Research,26,6-2,0.18%,0.001759962576327303
-2026-11-22,Ligue 1,Paris FC,Angers,Research,27,1-4,0.17%,0.0017147436746602447
-2026-11-22,Ligue 1,Paris FC,Angers,Research,28,2-4,0.17%,0.0017111171273474005
-2026-11-22,Ligue 1,Paris FC,Angers,Research,29,7-0,0.16%,0.001562002263889466
-2026-11-22,Ligue 1,Paris FC,Angers,Research,30,5-3,0.14%,0.0014136927521078543
-2026-11-22,Ligue 1,Paris FC,Angers,Research,31,7-1,0.13%,0.0012520272640386993
-2026-11-22,Ligue 1,Paris FC,Angers,Research,32,3-4,0.11%,0.0011383321665969501
-2026-11-22,Ligue 1,Paris FC,Angers,Research,33,0-4,0.09%,0.0008591889540447442
-2026-11-22,Ligue 1,Paris FC,Angers,Research,34,4-4,0.07%,0.0007257057938440758
-2026-11-22,Ligue 1,Paris FC,Angers,Research,35,7-2,0.05%,0.0005017829698892032
-2026-11-22,Ligue 1,Paris FC,Angers,Research,36,6-3,0.05%,0.0004702343012322088
-2026-11-22,Ligue 1,Paris FC,Angers,Research,37,8-0,0.04%,0.0003896746881463573
-2026-11-22,Ligue 1,Paris FC,Angers,Research,38,8-1,0.03%,0.00031234483133856823
-2026-11-22,Ligue 1,Paris FC,Angers,Research,39,5-4,0.03%,0.0002832873404750371
-2026-11-22,Ligue 1,Paris FC,Angers,Research,40,1-5,0.03%,0.0002748915134305408
-2026-11-22,Ligue 1,Paris FC,Angers,Research,41,2-5,0.03%,0.0002743101396111839
-2026-11-22,Ligue 1,Paris FC,Angers,Research,42,3-5,0.02%,0.00018248666356766288
-2026-11-22,Ligue 1,Paris FC,Angers,Research,43,0-5,0.01%,0.00013773705970774903
-2026-11-22,Ligue 1,Paris FC,Angers,Research,44,7-3,0.01%,0.00013406851224556432
-2026-11-22,Ligue 1,Paris FC,Angers,Research,45,8-2,0.01%,0.00012518043464408506
-2026-11-22,Ligue 1,Paris FC,Angers,"Benchmark (70% Pinnacle blend), display only",1,1-0,15.08%,0.1508290573836043
-2026-11-22,Ligue 1,Paris FC,Angers,"Benchmark (70% Pinnacle blend), display only",2,2-0,14.53%,0.14533655546134971
-2026-11-22,Ligue 1,Paris FC,Angers,"Benchmark (70% Pinnacle blend), display only",3,2-1,10.50%,0.10501786730181467
-2026-11-22,Ligue 1,Paris FC,Angers,"Benchmark (70% Pinnacle blend), display only",4,3-0,9.03%,0.09031205739003048
-2026-11-22,Ligue 1,Paris FC,Angers,"Benchmark (70% Pinnacle blend), display only",5,1-1,8.49%,0.08490246250854676
-2026-11-22,Ligue 1,Paris FC,Angers,"Benchmark (70% Pinnacle blend), display only",6,3-1,6.53%,0.06525804625431855
-2026-11-22,Ligue 1,Paris FC,Angers,"Benchmark (70% Pinnacle blend), display only",7,0-0,6.40%,0.06397524425586594
-2026-11-22,Ligue 1,Paris FC,Angers,"Benchmark (70% Pinnacle blend), display only",8,4-0,4.21%,0.0420898979138246
-2026-11-22,Ligue 1,Paris FC,Angers,"Benchmark (70% Pinnacle blend), display only",9,0-1,3.99%,0.03990788659759024
-2026-11-22,Ligue 1,Paris FC,Angers,"Benchmark (70% Pinnacle blend), display only",10,4-1,3.04%,0.030413486131068024
-2026-11-22,Ligue 1,Paris FC,Angers,"Benchmark (70% Pinnacle blend), display only",11,1-2,2.94%,0.0293532078016677
-2026-11-22,Ligue 1,Paris FC,Angers,"Benchmark (70% Pinnacle blend), display only",12,2-2,2.74%,0.02735476726953163
-2026-11-22,Ligue 1,Paris FC,Angers,"Benchmark (70% Pinnacle blend), display only",13,3-2,2.36%,0.02357720953326929
-2026-11-22,Ligue 1,Paris FC,Angers,"Benchmark (70% Pinnacle blend), display only",14,0-2,1.57%,0.015745753250538227
-2026-11-22,Ligue 1,Paris FC,Angers,"Benchmark (70% Pinnacle blend), display only",15,5-0,1.57%,0.015692783954597313
-2026-11-22,Ligue 1,Paris FC,Angers,"Benchmark (70% Pinnacle blend), display only",16,5-1,1.13%,0.011339354353820616
-2026-11-22,Ligue 1,Paris FC,Angers,"Benchmark (70% Pinnacle blend), display only",17,4-2,1.10%,0.010988148991694915
-2026-11-22,Ligue 1,Paris FC,Angers,"Benchmark (70% Pinnacle blend), display only",18,1-3,0.71%,0.007070052614574102
-2026-11-22,Ligue 1,Paris FC,Angers,"Benchmark (70% Pinnacle blend), display only",19,2-3,0.66%,0.006589990337782788
-2026-11-22,Ligue 1,Paris FC,Angers,"Benchmark (70% Pinnacle blend), display only",20,6-0,0.49%,0.0048757437542746715
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,1,1-1,12.57%,0.12568758005506883
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,2,2-1,8.52%,0.08516409512644045
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,3,1-0,8.43%,0.08430300738721083
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,4,1-2,7.93%,0.0792754658308694
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,5,0-1,7.84%,0.07836810912803274
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,6,0-0,6.46%,0.06464447307056606
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,7,2-0,6.24%,0.062350759055212174
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,8,2-2,6.11%,0.061052894368943844
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,9,0-2,5.48%,0.054826160787281274
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,10,3-1,4.10%,0.04104745627674429
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,11,1-3,3.61%,0.03609377771559871
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,12,3-0,3.01%,0.030051866955679716
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,13,3-2,2.80%,0.02803309473711073
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,14,2-3,2.61%,0.02609476024686125
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,15,0-3,2.50%,0.024962114567420663
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,16,4-1,1.48%,0.014838063484585773
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,17,3-3,1.34%,0.013397677110120215
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,18,1-4,1.23%,0.012325006004024275
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,19,4-0,1.09%,0.010863316516188973
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,20,4-2,1.01%,0.010133559472583431
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,21,2-4,0.89%,0.008910623854624801
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,22,0-4,0.85%,0.008523857334657447
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,23,4-3,0.46%,0.004613765926668346
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,24,3-4,0.43%,0.004294749360375358
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,25,5-1,0.43%,0.004290996771896644
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,26,1-5,0.34%,0.003366913249063097
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,27,5-0,0.31%,0.0031415458055886396
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,28,5-2,0.29%,0.0029305084878393796
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,29,2-5,0.24%,0.0024341811682491764
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,30,0-5,0.23%,0.002328525291087987
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,31,4-4,0.17%,0.0016537706608971056
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,32,5-3,0.13%,0.0013342478766307346
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,33,3-5,0.12%,0.0011732285175464951
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,34,6-1,0.10%,0.0010340889674021478
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,35,1-6,0.08%,0.0007664705412053638
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,36,6-0,0.08%,0.0007570823356065564
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,37,6-2,0.07%,0.0007062243709900527
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,38,2-6,0.06%,0.0005541360942219176
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,39,0-6,0.05%,0.000530083761607824
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,40,5-4,0.05%,0.00045560797819241706
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,41,4-5,0.04%,0.0004241051895618734
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,42,6-3,0.03%,0.00032154091050358354
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,43,3-6,0.03%,0.000267082942232521
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,44,7-1,0.02%,0.0002136047135793754
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,45,7-0,0.02%,0.0001563853406728717
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,46,1-7,0.01%,0.00014955888513843227
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,47,7-2,0.01%,0.0001458799573764715
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,48,5-5,0.01%,0.00013064747872883244
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,49,6-4,0.01%,0.000109797142425006
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,50,2-7,0.01%,0.00010812676027504355
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,Research,51,0-7,0.01%,0.00010343350742662288
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,"Benchmark (70% Pinnacle blend), display only",1,1-1,12.33%,0.12327801880344308
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,"Benchmark (70% Pinnacle blend), display only",2,1-2,8.56%,0.08559036830355488
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,"Benchmark (70% Pinnacle blend), display only",3,2-1,8.16%,0.08163134266557576
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,"Benchmark (70% Pinnacle blend), display only",4,0-1,7.91%,0.07914412411555213
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,"Benchmark (70% Pinnacle blend), display only",5,1-0,7.52%,0.07522278402856476
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,"Benchmark (70% Pinnacle blend), display only",6,0-0,6.39%,0.06389483624702608
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,"Benchmark (70% Pinnacle blend), display only",7,0-2,6.17%,0.06167610974123747
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,"Benchmark (70% Pinnacle blend), display only",8,2-2,5.94%,0.059388563716755494
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,"Benchmark (70% Pinnacle blend), display only",9,2-0,5.61%,0.05610235109545681
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,"Benchmark (70% Pinnacle blend), display only",10,1-3,4.15%,0.04151256021322144
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,"Benchmark (70% Pinnacle blend), display only",11,3-1,3.78%,0.03776101050673551
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,"Benchmark (70% Pinnacle blend), display only",12,0-3,2.99%,0.029913800700914074
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,"Benchmark (70% Pinnacle blend), display only",13,2-3,2.88%,0.02880430796284066
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,"Benchmark (70% Pinnacle blend), display only",14,3-2,2.75%,0.027471950175750773
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,"Benchmark (70% Pinnacle blend), display only",15,3-0,2.60%,0.02595181458483447
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,"Benchmark (70% Pinnacle blend), display only",16,1-4,1.51%,0.015100641780257074
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,"Benchmark (70% Pinnacle blend), display only",17,3-3,1.33%,0.013324291137535707
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,"Benchmark (70% Pinnacle blend), display only",18,4-1,1.31%,0.013100610634918793
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,"Benchmark (70% Pinnacle blend), display only",19,0-4,1.09%,0.010881467834080678
+2026-11-27,Ligue 1,Stade Brestois 29,Paris FC,"Benchmark (70% Pinnacle blend), display only",20,2-4,1.05%,0.010477877876983616
