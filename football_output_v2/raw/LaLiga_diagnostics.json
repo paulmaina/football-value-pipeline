@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "4f6d95381b8cfd91e9023a94d1b173af4893896e324bce797e4744fa47776118",
-  "training_as_of_utc": "2026-11-24T06:44:54.437817+00:00",
+  "training_as_of_utc": "2026-11-24T08:07:45.812043+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 129,
     "bbs_added_results": 0,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_utc": "2026-11-24T06:44:54.437817+00:00",
+    "cutoff_utc": "2026-11-24T08:07:45.812043+00:00",
     "observations": 1222,
     "observations_sha256": "75490ae45f9f75061afffb0ea8fc0037b3ff850230a9cc5b781378654644af46",
     "eligible_training_matches": 356,
@@ -211,10 +211,10 @@
   },
   "training_end": "2026-11-23",
   "fit_success": true,
-  "objective": 1847.1650371255303,
-  "base": 0.08410793631435899,
-  "home_adv": 0.280446170542314,
-  "rho": -0.028329115901482467,
+  "objective": 1847.0115931044077,
+  "base": 0.08411630855325347,
+  "home_adv": 0.2804491059566958,
+  "rho": -0.02833961745501853,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -253,6 +253,6 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261124T064454437817Z_c7bcb529796ee1debfe36c033d4b8d3a741db17866b0bbe8429bf608d5c29008.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261124T080745812043Z_b8ce9389b14c81c856dc856155e713db3943a9f0cb426be78ff98d5e32c21a61.json",
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }
