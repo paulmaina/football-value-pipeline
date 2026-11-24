@@ -78541,13 +78541,25 @@
     "chance_of_positive_return": "0.8033838085548373",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "pinnacle",
+        "decimal_odds": 1.361,
+        "devig_method": "split_settlement_fair_probability_unavailable",
+        "fair_close_ev": null,
+        "fair_probability": null,
+        "observation_sha256": "c2f2918f3137f1c24d567392d72886e7a6390dbb17a9a278d5758d902c96dd67",
+        "observed_at_utc": "2026-11-23T19:54:22.720680+00:00",
+        "offered_price_clv": -0.028214548126377692,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 337.27932,
+        "selection": "Asian Handicap Away +1.25",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-11-23T19:54:22+00:00"
       }
     },
     "corrected_cagey_score": "0.3586631369961691",
@@ -78929,13 +78941,25 @@
     "chance_of_positive_return": "0.7621370300968715",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "pinnacle",
+        "decimal_odds": 1.4098,
+        "devig_method": "split_settlement_fair_probability_unavailable",
+        "fair_close_ev": null,
+        "fair_probability": null,
+        "observation_sha256": "e5084779f5b5445d9e3ed3c581a6ae2d71cef0451b1eb4b5603111d332c517a4",
+        "observed_at_utc": "2026-11-23T19:54:22.776706+00:00",
+        "offered_price_clv": 0.08263583487019432,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 337.223294,
+        "selection": "Asian Handicap Home +0.25",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-11-23T19:54:22+00:00"
       }
     },
     "corrected_cagey_score": "0.3327032247006438",
