@@ -8,8 +8,8 @@
 | value shortlist | per fixture (a match's picks averaged) | 57 | -1.6% | -2.8% to -0.4% | 28% | 162 | +4.2% | -3.8% to +12.1% |
 | cagey tier | per pick | 75 | -1.6% | -2.6% to -0.6% | 32% | 254 | +3.7% | -4.8% to +12.1% |
 | cagey tier | per fixture (a match's picks averaged) | 35 | -1.9% | -2.9% to -0.8% | 29% | 110 | +4.6% | -4.2% to +13.4% |
-| strong master (live) | per pick | 3 | -5.4% | -8.1% to -2.8% | 0% | 3 | -53.7% | -144.4% to +36.9% |
-| strong master (live) | per fixture (a match's picks averaged) | 3 | -5.4% | -8.1% to -2.8% | 0% | 3 | -53.7% | -144.4% to +36.9% |
+| strong master (live) | per pick | 0 | — | — | — | 0 | — | — |
+| strong master (live) | per fixture (a match's picks averaged) | 0 | — | — | — | 0 | — | — |
 | today's master (shadow) | per pick | 32 | -2.1% | -3.1% to -1.1% | 22% | 52 | -5.6% | -25.2% to +13.9% |
 | today's master (shadow) | per fixture (a match's picks averaged) | 32 | -2.1% | -3.1% to -1.1% | 22% | 52 | -5.6% | -25.2% to +13.9% |
 
@@ -26,7 +26,7 @@ Actual placed bets: NOT_RECORDED
 
 > **STOP REVIEW**: 122 graded picks with mean CLV -1.95% (below zero). Review the policy before relying on further picks.
 
-Reviewed 2026-11-24T09:58:13.342526+00:00. Frozen v27 picks: 448.
+Reviewed 2026-11-24T10:06:08.578472+00:00. Frozen v27 picks: 448.
 
 **Mean CLV vs Pinnacle close:** -1.95% ± 0.78% (n=122). **Flat-stake profit per bet:** +2.83% ± 6.78% (n=426).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -170,13 +170,13 @@ By tier (context only; the comparison rule never reads it):
 
 ## Strong-team master (live since 23 Nov 2026) beside today's master (shadow, the rollback baseline)
 
-Frozen picks: 11; CLV -5.45% ± 2.68% (n=3); realised profit per bet -53.75% ± 90.66% (n=3). Graded European picks: 0 (R3 is reviewed at 50).
+Frozen picks: 0; CLV n/a (0); realised profit per bet n/a (0). Graded European picks: 0 (R3 is reviewed at 50).
 
 Comparison rule (decided 23 Nov 2026): Decided 23 Nov 2026, before any strong-master pick: after at least 150 graded matches over at least 3 calendar weeks on each list, flat-stake return per bet at Pinnacle prices, strong master minus live master, whole kickoff weeks resampled (the same weeks for both), 95% interval. The strong master is better only if the interval is entirely above zero. Results by market group, tier and research label are context only.
 
 | list | graded matches | weeks | flat-stake return per bet | hit rate | average price |
 |---|---|---|---|---|---|
-| strong master | 3 | 1 | -53.75% | 33.3% | 1.38 |
+| strong master | 0 | 0 | n/a | n/a | n/a |
 | today's master | 52 | 2 | -5.63% | 65.4% | 1.47 |
 
 Rollback rule (strong release, decided by Paul 23 Nov 2026): After at least 150 graded matches over at least 3 calendar weeks on each list, compare flat-stake return per bet at Pinnacle prices, strong master minus today's master, whole kickoff weeks resampled (the same weeks for both), 95% interval. If the interval is entirely below zero, the weekly report says ROLLBACK TRIGGERED at the top. Nothing switches automatically: Paul decides, and rolling back is setting live to "new".
@@ -185,32 +185,17 @@ Rollback rule (strong release, decided by Paul 23 Nov 2026): After at least 150 
 
 **Status:** waiting for at least 150 graded matches over at least 3 weeks on each list (not yet comparable).
 
-By tier (context only; the comparison rule never reads it):
-
-| group | mean CLV (n) | realised profit per bet (n) |
-|---|---|---|
-| not proven: fill | n/a (0) | n/a (0) |
-| not proven: safe | -5.45% ± 2.68% (n=3) | -53.75% ± 90.66% (n=3) |
-
-By market group (context only; the comparison rule never reads it):
-
-| group | mean CLV (n) | realised profit per bet (n) |
-|---|---|---|
-| asian_handicap | -5.45% ± 2.68% (n=3) | -53.75% ± 90.66% (n=3) |
-| double_chance | n/a (0) | n/a (0) |
-| match_result | n/a (0) | n/a (0) |
-
 ## Both tiers (value and cagey)
 
 Cagey-tier picks frozen: 269; CLV -1.44% ± 0.84% (n=77); realised profit per bet +3.67% ± 7.34% (n=254). Correction-only value picks: CLV n/a (0).
-Flags: >= 50 graded correction-only value picks with mean CLV < 0; recommends cagey_correction_enabled = false; >= 50 graded value-priced cagey-tier picks made under the active rule (no-loss-market-reference-v5) with realised ROI 95% interval entirely below 0; recommends cagey_tier_enabled = false.
+Flags: >= 50 graded correction-only value picks with mean CLV < 0; recommends cagey_correction_enabled = false; >= 50 graded value-priced cagey-tier picks made under the active rule (no-loss-market-reference-120-200-v6) with realised ROI 95% interval entirely below 0; recommends cagey_tier_enabled = false.
 
 ### Cagey-tier realised profit per bet by rule
 
 | rule | all picks | value-priced | below fair |
 |---|---|---|---|
 | narrow-63-flagged-v2 | +14.29% ± 11.83% (n=7) | +0.00% (n=2) | +20.00% ± 13.57% (n=5) |
-| no-loss-market-reference-v5 (active) | +3.37% ± 7.54% (n=247) | +23.00% ± 33.26% (n=13) | +2.27% ± 7.74% (n=234) |
+| no-loss-market-reference-v5 | +3.37% ± 7.54% (n=247) | +23.00% ± 33.26% (n=13) | +2.27% ± 7.74% (n=234) |
 
 Only the active rule's value-priced picks count toward CAGEY TIER REVIEW.
 
