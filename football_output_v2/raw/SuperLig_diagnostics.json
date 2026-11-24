@@ -1,6 +1,6 @@
 {
   "league": "Super Lig",
-  "training_matches": 1849,
+  "training_matches": 1858,
   "training_seasons_requested": 6,
   "training_seasons_loaded": [
     "2122",
@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "e6ea3db17392208710a2c0b99ab1ffa6d54c685fc51b8d1359be69faa1b14d80",
-  "training_as_of_utc": "2026-11-23T18:16:31.655096+00:00",
+  "training_sha256": "2f01bb1cc9ab665e9a28461a7fbf40ec350ce82e73e9bace8aa1175d298cc576",
+  "training_as_of_utc": "2026-11-24T06:47:44.980885+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -28,7 +28,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-11-23",
+    "cutoff_date": "2026-11-24",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -49,31 +49,31 @@
       "max_goal_rate_ratio": 1.25
     },
     "bbs_shot_source_enabled": false,
-    "shot_matches": 1818,
-    "tune_start_date": "2025-11-24",
-    "audit_start_date": "2026-05-25",
-    "training_shot_matches": 1528,
-    "tuning_matches": 191,
-    "audit_matches": 85,
-    "audit_matchdays": 36,
+    "shot_matches": 1827,
+    "tune_start_date": "2025-11-25",
+    "audit_start_date": "2026-05-26",
+    "training_shot_matches": 1530,
+    "tuning_matches": 189,
+    "audit_matches": 94,
+    "audit_matchdays": 39,
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8164366900887418,
-    "audit_candidate_poisson_score": 0.8094010600019891,
-    "audit_gain": 0.0070356300867526755,
-    "audit_gain_lower95": -0.005062711307505716,
+    "audit_baseline_poisson_score": 0.8254108351326706,
+    "audit_candidate_poisson_score": 0.8177387911435587,
+    "audit_gain": 0.00767204398911181,
+    "audit_gain_lower95": -0.004562796013470618,
     "audit_baseline_briers": [
-      0.5753611088842787,
-      0.17226101121734116,
-      0.21007422611710624,
-      0.2538620864562184
+      0.5677052751674057,
+      0.1765923230854275,
+      0.2154496174392609,
+      0.25297296620479504
     ],
     "audit_candidate_briers": [
-      0.5746356058683875,
-      0.1693534522552978,
-      0.20607810293399437,
-      0.253317192936782
+      0.5676679163116422,
+      0.17453262678394632,
+      0.21074723511752158,
+      0.2528828946671464
     ],
     "audit_brier_order": [
       "1x2",
@@ -86,12 +86,12 @@
       "bootstrap_lower95_not_positive"
     ]
   },
-  "training_end": "2026-11-08",
+  "training_end": "2026-11-23",
   "fit_success": true,
-  "objective": 1654.2372553884015,
-  "base": 0.14327578151446424,
-  "home_adv": 0.23650276763245395,
-  "rho": -0.09334563977457234,
+  "objective": 1680.3299975703653,
+  "base": 0.1445516963808972,
+  "home_adv": 0.23109016545090366,
+  "rho": -0.08372773528415879,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -100,16 +100,16 @@
   "elo_ratings": {
     "version": "venue-elo-v1",
     "teams": 32,
-    "matches": 1849,
+    "matches": 1858,
     "k_factor": 20.0,
     "home_advantage": 60.0,
     "venue_weight": 0.5,
     "season_regression": 0.2,
-    "last_match_date": "2026-11-08"
+    "last_match_date": "2026-11-23"
   },
   "training_data_health": {
-    "training_end": "2026-11-08",
-    "days_since_latest_result": 15,
+    "training_end": "2026-11-23",
+    "days_since_latest_result": 1,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -120,7 +120,7 @@
   "live_odds_matched": 0,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 14,
+  "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
