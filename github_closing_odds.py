@@ -21,7 +21,6 @@ from publish_performance import git, merge_snapshots
 ROOT = Path('football_output_v2')
 DATA = ROOT/'closing_odds'
 BUDGET = DATA/'request_budget.json'
-CORNERS = ROOT/'corners_shadow'  # shadow corner list closes and their own request budget
 DAILY_CAP = 100
 
 
@@ -165,12 +164,6 @@ def publish_results(repo, source, reservation_id, temp, remote, branch, attempts
         git(repo,'worktree','add','--detach',str(work),base)
         try:
             merge_snapshots(source/DATA/'observations',work/DATA/'observations')
-            if (source/CORNERS/'closing').exists():  # shadow corner list closes (corners_shadow.py)
-                merge_snapshots(source/CORNERS/'closing',work/CORNERS/'closing')
-                (work/CORNERS).mkdir(parents=True,exist_ok=True)
-                for name in ('request_budget.json','collector_status.json'):
-                    if (source/CORNERS/name).exists():
-                        shutil.copyfile(source/CORNERS/name,work/CORNERS/name)
             write(work/BUDGET,settle(read(work/BUDGET),local,reservation_id))
             status = read(source/DATA/'collector_status.json')
             previous = read(work/DATA/'collector_status.json')
@@ -182,8 +175,7 @@ def publish_results(repo, source, reservation_id, temp, remote, branch, attempts
                 write(work/DATA/'provider_status.json', health)
             review(work/ROOT,snapshots(work/ROOT),datetime.now(timezone.utc))
             usage = merge_usage_log(source, work)
-            corners = [CORNERS] if (work/CORNERS).exists() else []
-            if commit_push(work,[DATA,ROOT/'performance/closing_odds',*corners,*usage],
+            if commit_push(work,[DATA,ROOT/'performance/closing_odds',*usage],
                            'Publish pre-kickoff closing quote evidence',remote,branch):
                 return
         finally:
@@ -231,8 +223,6 @@ def collect(repo, reservation_id, *, allowance=100, minutes=18, attempts=3,
                     recovery.mkdir(parents=True,exist_ok=True)
                     shutil.copytree(work/DATA,recovery,dirs_exist_ok=True,
                                     ignore=shutil.ignore_patterns('collector.lock'))
-                    if (work/CORNERS).exists():
-                        shutil.copytree(work/CORNERS,recovery/'corners_shadow',dirs_exist_ok=True)
                     publish_results(repo,work,reservation_id,temp,remote,branch,attempts)
                 return assessment
             finally:

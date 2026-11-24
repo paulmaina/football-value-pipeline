@@ -28,7 +28,7 @@ LOCK_GUARD = '.prediction-run.guard'
 # Experiment files capture() copies verbatim from a bundle into its archive.
 # Retired experiments (archive/) are no longer captured, so they never block pruning.
 SIDECARS = frozenset({'bet365_vs_pinnacle.csv', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv',
-                      'corners_shadow.csv',
+                      'corners_shadow.csv',  # retired 24 Nov 2026; still copied from older bundles
                       'master_shortlist.csv', 'master_shortlist_new.csv', 'master_shortlist_old.csv',
                       'master_shortlist_strong.csv',
                       'cagey_correction_monitoring.csv'})
