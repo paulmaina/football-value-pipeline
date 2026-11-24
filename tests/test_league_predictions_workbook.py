@@ -351,6 +351,14 @@ class StrongMasterRunTests(OfflineQuotePolicyTestCase):
         self.assertIn('Run Tue 24 Nov 2026 18:50 EAT', subtitle)
         self.assertNotIn('master_shortlist_old.csv', subtitle)
 
+    def test_the_master_tab_describes_the_strong_master_rule(self):
+        cells = self.book()['cells']['Master shortlist']
+        self.assertIn('strong-team master', cells['A1'])
+        for part in ('Proven picks first', 'then not proven: safe', 'risky fill', 'research no-loss ≥70%',
+                     'Weak-link flags', 'Run Tue 24 Nov 2026 18:50 EAT', 'raw/master_shortlist.csv'):
+            self.assertIn(part, cells['A2'])
+        self.assertNotIn('New master rule', cells['A2'])
+
     def test_the_master_tab_compares_with_the_previous_master(self):
         headers, rows = table(self.book(), 'Master shortlist')
         self.assertEqual(headers, MASTER + ['In previous master (shadow)'] + TAIL + ['Weak link', 'Weak-link reasons'])
@@ -369,6 +377,7 @@ class StrongMasterRunTests(OfflineQuotePolicyTestCase):
                             self.ms.RELEASE_STATUS_KEY: {'status': self.ms.STRONG_FAILED}})
         book = self.book('failed.xlsx')
         self.assertIn('Previous master (shadow)', book['sheets'])
+        self.assertIn('New master rule', book['cells']['Master shortlist']['A2'])  # today's master was published
         self.assertIn('the strong master failed', table(book, 'Previous master (shadow)')[1][0]['Rank'])
 
     def test_runs_before_the_strong_release_keep_the_old_master_tab(self):
