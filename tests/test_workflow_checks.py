@@ -436,3 +436,12 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
         text=(workflows/'forward-performance.yml').read_text()
         self.assertIn('--validate-reports',text)
         self.assertIn('--api-key-source environment',text)
+
+class ShortlistReplayDifferenceTest(unittest.TestCase):
+    def test_names_row_counts_and_the_first_differing_cells(self):
+        from shortlist_replay import difference
+        self.assertEqual(difference([{'a': 1, 'b': 'x'}], [{'a': 1.0, 'b': 'y'}]), "row 0 b: written 'x' | replay 'y'")
+        self.assertEqual(difference([{'a': 1}], [{'a': 1}, {'a': 2}]), '1 rows written, 2 in the replay')
+        many = difference([{'a': i} for i in range(8)], [{'a': i + 1} for i in range(8)], limit=2)
+        self.assertTrue(many.endswith('... 6 more differing cells'))
+        self.assertEqual(difference([{'a': 1}], [{'a': 1 + 1e-12}]), 'no differing cell found')
