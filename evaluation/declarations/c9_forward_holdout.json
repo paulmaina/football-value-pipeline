@@ -1,0 +1,35 @@
+{
+  "candidate": "C9",
+  "baseline": "C6",
+  "market_reference": "M",
+  "holdout_period": "eight-leagues-from-2026-10-11-v1",
+  "holdout": "Forward holdout (evaluation_harness_config.json forward_holdout): every match of the eight domestic leagues (EPL, LaLiga, Bundesliga, Serie A, Ligue 1, Eredivisie, Primeira Liga, Super Lig) played from 11 Oct 2026, after the 16 Jan - 10 Oct holdout, to the last match in the cached football-data.co.uk files when the run starts (end fixed by the data: evaluation_harness.forward_end), with valid Bet365 pre-match prices; the margin removed as on the holdout (M). An unpriced match is not scored. evaluation_harness.py --declaration with this file; recorded in evaluation/forward_holdout_ledger.json, never in evaluation/holdout_ledger.json.",
+  "primary_metric": "AH all",
+  "draw_sensitive_lines": [-0.5, 0.0, 0.5],
+  "calibration_tolerance": "slopes-0.90-1.10-or-closer-than-baseline-bands-30-5pp-bonferroni-v3",
+  "sample_minimum": {"fixtures": 300, "weeks": 6, "source": "benchmark_promotion_rules.json, promotion_review_gates (the domestic release gate)"},
+  "candidate_definition": "C9 exactly as registered in commit 6e96ba2a7 (harness candidate C9; evaluation_harness.rate_calibration_slope_candidate, research_rate_calibration.sharpened_grid): C8's grid, exactly as C8 forecasts each match (the fold's Dixon-Coles goal rates without the form term, through the rate calibration with the Elo term, on C2's (rho, delta) grid refitted on C8's own rates; both walk-forward on every match forecast and played before each 14-day fold origin, pooled across the 8 leagues), moved onto its sharpened 1X2 with the draw held (research_sharpen.sharpen_matrix). The slope is research_sharpen.fit on C8's forecasts of decided matches played before the fold origin and before 1 Jul 2025 (development only: no validation, holdout or later result), so on the forward holdout it is the development fit, 1.072. Reads no odds.",
+  "measures": "Baseline minus candidate log loss (C6 minus C9; positive = C9 better) on AH settlement across all lines (primary) and on the draw-sensitive lines (-0.5, 0, +0.5), on the forward holdout fixtures both forecast, whole calendar weeks resampled, 95% interval. Calibration rule v3 (v2 with the relative slope rule) on C9's forward holdout 1X2 forecasts: each of the home and away slopes is in 0.90-1.10 or closer to 1 than C6's on the same fixtures, and no outcome band of at least 30 matches is more than 5 points off AND Bonferroni-clear.",
+  "outcomes": {
+    "proven": {
+      "conditions": "The sample minimum is met, the calibration rule passes, C6 minus C9 on AH all lines is positive with its 95% interval clear of zero, and the point estimate on the draw-sensitive lines is positive.",
+      "decision": "Release: passes the declared test. The release itself is Paul's decision, in a reviewed PR."
+    },
+    "release_with_guardrails": {
+      "conditions": "Not proven (the AH all interval includes zero), but the sample minimum is met, the calibration rule passes, and the point estimates on AH all lines and on the draw-sensitive lines are both positive.",
+      "decision": "Release with guardrails, as C6 was: passes the declared test, recorded as not proven. If Paul decides to release: the current version (v5, C6) kept in shadow on the same inputs; the rollback switch in research_config.json; a rollback trigger in research_monitoring.py matching the existing ones; the home-favourite check; the weekly monitoring."
+    },
+    "no_release": {
+      "conditions": "Either point estimate (AH all lines or draw-sensitive lines) is negative or exactly zero, or the calibration rule fails, or the sample minimum is not met.",
+      "decision": "No release. Nothing live changes; the report is saved; no shadow run."
+    }
+  },
+  "outcome_reading": "As in C8's declaration. The three outcomes are read in this order and cover every case: no_release first, then proven, otherwise release_with_guardrails. (1) If AH all lines were clear of zero but the draw-sensitive point estimate were negative, the outcome is no_release. (2) A point estimate of exactly zero, or missing, counts as not positive. The harness's passes_holdout_gate is its standing log-loss-superiority verdict (sample minimum, AH all interval clear of zero, calibration); the outcome above is read from the same verdict's numbers by scripts/c9_forward_outcome.py, committed before this declaration in 6e96ba2a7.",
+  "scoring_condition": "Scored once, only when the priced-fixture count (scripts/forward_holdout_count.py: dates, teams and Bet365 prices only, no result column) shows at least 300 priced fixtures over at least 6 calendar weeks. If it does not, nothing is scored and the count is reported.",
+  "reported_only": "1X2 and Over 1.5 log loss; C9 against M (C9 counts as beating the market only if it beats M by more than the measured Bet365-Pinnacle gap); the calibration slopes and bands themselves; the forward fixtures C9 does not forecast (no Elo difference).",
+  "known_before_scoring": "C8's holdout result (17 Nov 2026: C6 minus C8 AH all +0.00466, -0.00173 to +0.01140; draw-sensitive +0.00727; away slope 1.124 against C6's 1.013, failing v3) and C6's (11 Nov 2026: slopes 0.79 / 1.01). C9 on development only (6,959 fixtures): C6 minus C9 AH all +0.00384 (+0.00160 to +0.00631), draw-sensitive +0.00482; C8 minus C9 AH all +0.00001; slopes C9 0.986 / 1.016, C8 1.048 / 1.093, C6 1.020 / 1.052. Validation was not computed for C9. Nothing of C9, C8 or C6 in the harness on any match played after 10 Oct 2026; the live weekly grading of research v5 on these matches was not used to design or tune C9.",
+  "setup": "Decided by Paul on 17 Nov 2026 (docs/plan.md, Phase 2g-4): C8 plus a walk-forward calibration slope fitted on development data only, declared against C6 before any domestic match played after 10 Oct 2026 is read, scored once when at least 300 such fixtures with prices exist; calibration rule as C8's (v2 with the relative slope rule, v3); the eight domestic leagues; Bet365 margin-free from football-data.co.uk; sample minimum 300 fixtures and 6 weeks; a separate ledger for matches played after 10 Oct 2026. Primary metric, draw-sensitive lines and the three outcomes as in C8's declaration. Built on 24 Nov 2026 in commit 6e96ba2a7. The forward ledger is empty.",
+  "declared_by": "Paul (decision, 17 Nov 2026; terms confirmed 24 Nov 2026), written by Claude Code",
+  "declared_at": "2026-11-24T13:14:00Z",
+  "notes": "Scored once with evaluation_harness.py --declaration evaluation/declarations/c9_forward_holdout.json. No rerun, no change to the setup after it. A pass does not change anything live: a release needs Paul's decision, the parity test, the replay over the saved live forecasts and a reviewed PR."
+}
