@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "9c4c07c85e419e74e3984551571def1749c90a2698793624852f2b1119cf00c5",
-  "training_as_of_utc": "2026-11-24T06:46:05.184790+00:00",
+  "training_as_of_utc": "2026-11-24T08:08:34.748593+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 120,
     "bbs_added_results": 0,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_utc": "2026-11-24T06:46:05.184790+00:00",
+    "cutoff_utc": "2026-11-24T08:08:34.748593+00:00",
     "observations": 1400,
     "observations_sha256": "bf01b8a10efbe5bbd065ec9ba202d782d13e5caf450aca8fab7056d7f90e8604",
     "eligible_training_matches": 524,
@@ -211,10 +211,10 @@
   },
   "training_end": "2026-11-23",
   "fit_success": true,
-  "objective": 1834.5451699992354,
-  "base": 0.14837970643893494,
-  "home_adv": 0.11812630652453757,
-  "rho": -0.01923532929769288,
+  "objective": 1834.3934388235332,
+  "base": 0.14837961917432704,
+  "home_adv": 0.11812636571773132,
+  "rho": -0.019235152276037386,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -253,6 +253,6 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261124T064605184790Z_e219b4bc29e59d6d7e13932facef8bd67cecc3d22fc762abf8685e4e0a90f2cf.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261124T080834748593Z_1b54aaab0d4316f4e67e6d125a2ea8d8238d6cd30b4854e1d44d7b83a1126c8c.json",
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }
