@@ -9,10 +9,10 @@
     "eligible": false,
     "fallbacks": {
       "domestic_fixtures": 73,
-      "domestic_records": 668,
+      "domestic_records": 675,
       "fallback_fixtures": 0,
       "fallback_records": 0,
-      "runs": 19
+      "runs": 20
     },
     "graded_fallbacks": 0,
     "interval_95": [
