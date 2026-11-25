@@ -1,0 +1,744 @@
+{
+  "generated_at_utc": "2026-11-25T14:22:45.129589+00:00",
+  "selection_policy_version": "48h-ah-price-edge-cagey-v28",
+  "selection_objective": "TEAM_RESEARCH_PROFIT_PROBABILITY",
+  "status": "QUALIFIED",
+  "n_fixtures": 39,
+  "n_markets_evaluated": 734,
+  "n_shortlisted": 13,
+  "n_strict_qualified": 13,
+  "n_provisional_watchlist": 0,
+  "n_total_candidates": 13,
+  "target_distinct_matches": null,
+  "shortfall": null,
+  "usable_distinct_fixtures": 39,
+  "shortlist_lookahead_hours": 24,
+  "selected_matches_within_48_hours": false,
+  "shortlist_window_start_utc": "2026-11-25T14:22:45.129589+00:00",
+  "shortlist_window_end_utc": "2026-11-26T14:22:45.129589+00:00",
+  "eligible_markets": [
+    "Home win",
+    "Away win",
+    "Double Chance 1X",
+    "Double Chance X2",
+    "Asian Handicap Home -3.00",
+    "Asian Handicap Home -2.75",
+    "Asian Handicap Home -2.50",
+    "Asian Handicap Home -2.25",
+    "Asian Handicap Home -2.00",
+    "Asian Handicap Home -1.75",
+    "Asian Handicap Home -1.50",
+    "Asian Handicap Home -1.25",
+    "Asian Handicap Home -1.00",
+    "Asian Handicap Home -0.75",
+    "Asian Handicap Home -0.50",
+    "Asian Handicap Home -0.25",
+    "Asian Handicap Home +0.00",
+    "Asian Handicap Home +0.25",
+    "Asian Handicap Home +0.50",
+    "Asian Handicap Home +0.75",
+    "Asian Handicap Home +1.00",
+    "Asian Handicap Home +1.25",
+    "Asian Handicap Home +1.50",
+    "Asian Handicap Home +1.75",
+    "Asian Handicap Home +2.00",
+    "Asian Handicap Home +2.25",
+    "Asian Handicap Home +2.50",
+    "Asian Handicap Home +2.75",
+    "Asian Handicap Home +3.00",
+    "Asian Handicap Away -3.00",
+    "Asian Handicap Away -2.75",
+    "Asian Handicap Away -2.50",
+    "Asian Handicap Away -2.25",
+    "Asian Handicap Away -2.00",
+    "Asian Handicap Away -1.75",
+    "Asian Handicap Away -1.50",
+    "Asian Handicap Away -1.25",
+    "Asian Handicap Away -1.00",
+    "Asian Handicap Away -0.75",
+    "Asian Handicap Away -0.50",
+    "Asian Handicap Away -0.25",
+    "Asian Handicap Away +0.00",
+    "Asian Handicap Away +0.25",
+    "Asian Handicap Away +0.50",
+    "Asian Handicap Away +0.75",
+    "Asian Handicap Away +1.00",
+    "Asian Handicap Away +1.25",
+    "Asian Handicap Away +1.50",
+    "Asian Handicap Away +1.75",
+    "Asian Handicap Away +2.00",
+    "Asian Handicap Away +2.25",
+    "Asian Handicap Away +2.50",
+    "Asian Handicap Away +2.75",
+    "Asian Handicap Away +3.00",
+    "Asian Handicap Away +3.25",
+    "Asian Handicap Away +3.50",
+    "Asian Handicap Away -3.25",
+    "Asian Handicap Away -3.50",
+    "Asian Handicap Away -3.75",
+    "Asian Handicap Away -4.00",
+    "Asian Handicap Home +3.25",
+    "Asian Handicap Home +3.50",
+    "Asian Handicap Home +3.75",
+    "Asian Handicap Home +4.00",
+    "Asian Handicap Home -3.25",
+    "Asian Handicap Home -3.50"
+  ],
+  "quote_execution_policy": {
+    "asian_handicap_risk_tolerance": 0,
+    "min_adjusted_no_loss_probability": 0.75,
+    "allowed_bookmakers": [
+      "Pinnacle"
+    ],
+    "per_stake_cost_bps": 0,
+    "exchange_policy": "EXCLUDED_UNTIL_COMMISSION_AND_LIQUIDITY_ADAPTER",
+    "account_availability": "USER_ALLOWLIST"
+  },
+  "validation_required": false,
+  "validation_market_statuses": {},
+  "min_edge": null,
+  "min_edge_derived": null,
+  "max_offered_odds": 2.0,
+  "max_offered_to_fair_ratio": 1.15,
+  "max_quote_skew_minutes": 10.0,
+  "pinnacle_overround_range": [
+    1.0,
+    1.1
+  ],
+  "reference_order": {
+    "a": "Pinnacle same AH line",
+    "b": "Pinnacle equivalent market",
+    "c": "market-implied (derived)",
+    "c-cagey": "market-implied, cagey-corrected (derived)"
+  },
+  "derived_reference": "market_implied fit B (1X2 + O/U 2.5 + main AH), plus lines only, residual <= 3pp",
+  "tags": {
+    "balanced": "Pinnacle 1X2 home and away odds both in [2.00, 3.50]",
+    "low_total": "Pinnacle margin-free P(over 2.5) < 0.45",
+    "high_draw": "Pinnacle margin-free draw probability >= 0.27",
+    "even_odds": "Pinnacle 1X2 home and away odds both >= 2.50 (raw quoted odds)",
+    "use": "tracking only; never changes a decision"
+  },
+  "tagged_candidates": {
+    "balanced": 274,
+    "low_total": 0,
+    "high_draw": 158,
+    "even_odds": 84
+  },
+  "tagged_fixtures": 14,
+  "rejection_counts": {
+    "kickoff outside 20-minute to 24-hour window": 529,
+    "offered odds above 2.00": 291,
+    "Europa team has fewer than six verified prior appearances": 277,
+    "no offered quote at an allowed bookmaker": 129,
+    "offered quote stale or unavailable": 129,
+    "offered odds must be greater than 1.20": 18,
+    "market excluded by shortlist configuration": 17
+  },
+  "reference_type_counts": {
+    "a": 13
+  },
+  "selection_method": "Highest positive-return probability per fixture and market group; expected return then odds break ties; no cap; configured excluded markets are rejected before selection",
+  "ranking_metric": "probability of positive net return descending",
+  "ev_required_for_selection": false,
+  "model_ev_required": false,
+  "no_loss_floor": null,
+  "model_role": "Researched settlement probabilities select and rank the main shortlist",
+  "shortfall_reason": "No candidate cleared the price-edge rule against a Pinnacle reference",
+  "warning": "Research probabilities are model estimates and have not passed a forward calibration gate. Negative expected return remains eligible and flagged.",
+  "cagey_correction_live": {
+    "domestic": "D_pow2",
+    "european": "D"
+  },
+  "cagey_corrections": {
+    "D": {
+      "model_version": "cagey-correction-through-2425-v1",
+      "devig_method": "proportional"
+    },
+    "D_pow2": {
+      "model_version": "cagey-correction-through-2425-power-1x2-v1",
+      "devig_method": "power"
+    }
+  },
+  "cagey_tier_rule": "no-loss-market-reference-120-200-v6",
+  "value_rule": "local-research-profit-120-200-dc12-v3",
+  "value_market_groups": [
+    "asian_handicap",
+    "match_winner",
+    "double_chance"
+  ],
+  "min_edge_by_market_group": {},
+  "value_market_group_counts": {
+    "asian_handicap": 9,
+    "match_winner": 4,
+    "double_chance": 0
+  },
+  "cagey_correction_enabled": true,
+  "cagey_tier_enabled": true,
+  "cagey_model_version": "cagey-correction-through-2425-v1",
+  "correction_only_value_picks": 0,
+  "cagey_tier": {
+    "enabled": true,
+    "rule_version": "no-loss-market-reference-120-200-v6",
+    "min_p_narrow": null,
+    "n_shortlisted": 7,
+    "value_picks": 0,
+    "below_fair_picks": 7,
+    "probability_basis": "market_specific_pinnacle_v1",
+    "selection_objective": "NO_LOSS_PROBABILITY",
+    "rule": "No narrow gate; per-market-source no-loss then expected return then odds; Over 1.5 uses uncorrected Pinnacle grid; binary price guard uses independent Pinnacle prices; narrow support is informational; odds (1.20, 2.00]; configured excluded markets are rejected before selection",
+    "narrow_general_gate": false,
+    "narrow_supplement_threshold": 0.67,
+    "narrow_supplement_version": "corrected-narrow-support-v1",
+    "probability_basis_by_market": {
+      "other_markets": "pinnacle_cagey_corrected_matrix_v1"
+    },
+    "min_offered_odds_exclusive": 1.2,
+    "max_offered_odds": 2.0,
+    "excluded_markets": [
+      "Double Chance 12",
+      "Draw No Bet Away",
+      "Draw No Bet Home",
+      "Over 1.5"
+    ]
+  },
+  "correction_rule": "Derived plus lines (>= +1.0) are priced from the cagey-corrected matrix (c-cagey, 3% threshold); Pinnacle-quoted lines keep Pinnacle as the fair price; minus lines are never corrected.",
+  "cagey_tier_labels_version": "cagey-own-probabilities-v1",
+  "price_edge_execution_version": 2,
+  "quote_timing_rule": "observed-by-cutoff-v2",
+  "probability_basis": "team_form_poisson_v1",
+  "research_missing_policy": "eligible with visible coverage warnings",
+  "research_rule": "ten recent games weighted newest first; venue splits; verified xG if supplied; Poisson goal rates; context evidence shown separately",
+  "min_offered_odds_exclusive": 1.2,
+  "asian_handicap_selection": "Highest positive-net-return probability among available quoted AH lines within (1.20, 2.00]; one per fixture/group",
+  "training_rule": "Verified local competition history plus pre-cutoff free-source research; refresh failure retains valid cache with a warning",
+  "excluded_markets": [
+    "Double Chance 12",
+    "Draw No Bet Away",
+    "Draw No Bet Home",
+    "Over 1.5"
+  ],
+  "shortlist_schema_version": "comparable-shortlist-v1",
+  "master_shortlist": {
+    "version": "master-strong-team-v7-live-v17",
+    "status": "live master: the strong-team master, released by Paul on 23 Nov 2026 as a deliberate exception to the release gate (offline: no measurable difference from today's master); graded beside today's master (master_shortlist_new.csv) with the rollback rule in master_shortlist_config.json",
+    "generated_at_utc": "2026-11-25T14:22:45.129589+00:00",
+    "config_sha256": "2bb4675405bdc2164b2f37894463dacc32643c7fc0f85c51f5fb319912ee4162",
+    "target_fixtures": 15,
+    "ranked_fixtures": 5,
+    "shortfall": 10,
+    "nominated_fixtures": 9,
+    "nominated_executable_fixtures": 9,
+    "fixtures_with_market_view": 7,
+    "fixtures_without_market_view": 2,
+    "short_reason": "nominations cover fewer than 15 matches",
+    "timing_check": {
+      "rule": "the live master's: one generation clock; offer and ranking reference quoted 0-15 minutes before evaluation (none after it); reference inputs and offer at most 10 minutes apart",
+      "ineligible_offers": 0,
+      "by_reason": {
+        "missing, mixed or outdated evaluation generation": 0,
+        "offered quote missing, future or older than fifteen minutes": 0,
+        "unique same-generation fixture forecast unavailable": 0,
+        "reference inputs missing, future or older than fifteen minutes": 0,
+        "reference inputs and offer more than 10 minutes apart": 0
+      },
+      "fixtures_losing_every_eligible_offer": 0
+    },
+    "picks_by_tier": {
+      "safe": 0,
+      "fill": 0,
+      "risky fill": 0
+    },
+    "fill_candidates": {
+      "step_1": 0,
+      "step_2": 2,
+      "step_3": 3
+    },
+    "probabilities": "current cagey probabilities (cagey-sharpen-walk-forward-v1: failed: pass rule computed once, 14 Nov 2026, locked backtest at 76a155f (evaluation/master_new_fill/results.json). Development: the sharpened slopes are further from 1.0 than the current ones (no-loss 1.125 vs 1.075; profit 1.128 vs 1.069), log loss not worse (no-loss -0.00005, -0.00059 to +0.00049). Validation: slopes not closer (no-loss 0.995 vs 0.996; profit 1.009 vs 1.001) and no-loss log loss worse (-0.00007, -0.00016 to -0.0000002, entirely below zero). The new master keeps the current cagey probabilities.)",
+    "nominated_offers": 18,
+    "not_executable_offers": 0,
+    "offers": 18,
+    "matches_with_a_pick_or_candidate": 5,
+    "matches": 9,
+    "offers_by_group": {
+      "included": 5,
+      "left_out": 13
+    },
+    "gap_checks": {
+      "agree": 1,
+      "research_too_optimistic": 5,
+      "research_more_pessimistic": 6,
+      "no_research_check": 0,
+      "one_view_missing": 6,
+      "no_view": 0
+    },
+    "left_out_by_reason": {
+      "risky": 0,
+      "in between (not safe)": 9,
+      "one view missing: no Pinnacle reference": 4,
+      "no view": 0
+    },
+    "labels_offers": {
+      "both agree": 0,
+      "research too optimistic": 5,
+      "research strongly disagrees": 0,
+      "one view missing": 6,
+      "no research check": 0,
+      "unvalidated view": 18,
+      "risky fill": 0
+    },
+    "labels_ranked": {
+      "both agree": 0,
+      "research too optimistic": 3,
+      "research strongly disagrees": 0,
+      "one view missing": 0,
+      "no research check": 0,
+      "unvalidated view": 5,
+      "risky fill": 0
+    },
+    "decisions": {
+      "SHORTLISTED": 5,
+      "BEYOND_TARGET": 0,
+      "NOT_SELECTED": 3,
+      "LEFT_OUT": 10,
+      "NOT_EXECUTABLE": 0
+    },
+    "european_offers": 18,
+    "european_ranked": 5,
+    "for_inspection": {
+      "rule": "research strongly disagrees: g <= -8.0 points and cagey no-loss >= 0.85; the bet keeps its place (the flag never removes or reorders a bet)",
+      "flagged_offers": 0,
+      "picks": []
+    },
+    "overlap_with_old_master": {
+      "old_master_fixtures": 7,
+      "new_master_fixtures": 5,
+      "same_fixture": 5,
+      "same_offer": 3,
+      "old_only": 2,
+      "new_only": 0
+    },
+    "top_picks": [
+      {
+        "new_master_rank": 1.0,
+        "new_master_tier": "not proven: safe",
+        "kickoff_utc": "2026-11-25T20:00:00+00:00",
+        "league": "UEFA Champions League",
+        "home_team": "Lille",
+        "away_team": "Bayern Munich",
+        "market_to_bet": "Asian Handicap Home +2.00",
+        "offered_decimal_odds": 1.2326,
+        "cagey_no_loss_probability": 0.836992012471947,
+        "ranking_no_loss_probability": 0.836992012471947,
+        "ranking_profit_probability": 0.6672063718872543,
+        "probability_source": "cagey",
+        "research_no_loss_probability": 0.8714154381803904,
+        "gap_points": 3.4423425708443367,
+        "research_expected_return": 0.03859225905773836,
+        "market_price": "fair",
+        "new_master_labels": "unvalidated view",
+        "in_old_master": true,
+        "old_master_same_offer": true
+      },
+      {
+        "new_master_rank": 2.0,
+        "new_master_tier": "not proven: safe",
+        "kickoff_utc": "2026-11-25T17:45:00+00:00",
+        "league": "UEFA Champions League",
+        "home_team": "Slavia Prague",
+        "away_team": "Villarreal",
+        "market_to_bet": "Asian Handicap Home +1.00",
+        "offered_decimal_odds": 1.3425,
+        "cagey_no_loss_probability": 0.781592143718835,
+        "ranking_no_loss_probability": 0.781592143718835,
+        "ranking_profit_probability": 0.5791380853139102,
+        "probability_source": "cagey",
+        "research_no_loss_probability": 0.7383456950187209,
+        "gap_points": -4.324644870011407,
+        "research_expected_return": -0.07961770935254975,
+        "market_price": "fair",
+        "new_master_labels": "unvalidated view",
+        "in_old_master": true,
+        "old_master_same_offer": true
+      },
+      {
+        "new_master_rank": 3.0,
+        "new_master_tier": "not proven: fill",
+        "kickoff_utc": "2026-11-25T20:00:00+00:00",
+        "league": "UEFA Champions League",
+        "home_team": "Paris Saint-Germain",
+        "away_team": "AS Roma",
+        "market_to_bet": "Asian Handicap Away +2.25",
+        "offered_decimal_odds": 1.3125,
+        "cagey_no_loss_probability": 0.7410569194570021,
+        "ranking_no_loss_probability": 0.7410569194570021,
+        "ranking_profit_probability": 0.7410569194570021,
+        "probability_source": "cagey",
+        "research_no_loss_probability": 0.8164662801639455,
+        "gap_points": 7.540936070694338,
+        "research_expected_return": 0.04530002374470957,
+        "market_price": "below fair",
+        "new_master_labels": "research too optimistic; unvalidated view",
+        "in_old_master": true,
+        "old_master_same_offer": true
+      },
+      {
+        "new_master_rank": 4.0,
+        "new_master_tier": "not proven: fill",
+        "kickoff_utc": "2026-11-25T20:00:00+00:00",
+        "league": "UEFA Champions League",
+        "home_team": "Shakhtar Donetsk",
+        "away_team": "Fenerbahce",
+        "market_to_bet": "Asian Handicap Home +0.50",
+        "offered_decimal_odds": 1.5263,
+        "cagey_no_loss_probability": 0.6392745200703737,
+        "ranking_no_loss_probability": 0.6392745200703737,
+        "ranking_profit_probability": 0.6392745200703737,
+        "probability_source": "cagey",
+        "research_no_loss_probability": 0.7547031447158074,
+        "gap_points": 11.542862464543369,
+        "research_expected_return": 0.1519034097797369,
+        "market_price": "fair",
+        "new_master_labels": "research too optimistic; unvalidated view",
+        "in_old_master": true,
+        "old_master_same_offer": false
+      },
+      {
+        "new_master_rank": 5.0,
+        "new_master_tier": "not proven: fill",
+        "kickoff_utc": "2026-11-25T20:00:00+00:00",
+        "league": "UEFA Champions League",
+        "home_team": "Sporting CP",
+        "away_team": "Manchester United",
+        "market_to_bet": "Asian Handicap Home +0.25",
+        "offered_decimal_odds": 1.7519,
+        "cagey_no_loss_probability": 0.611098794402819,
+        "ranking_no_loss_probability": 0.611098794402819,
+        "ranking_profit_probability": 0.611098794402819,
+        "probability_source": "cagey",
+        "research_no_loss_probability": 0.7373038515595239,
+        "gap_points": 12.620505715670493,
+        "research_expected_return": 0.21097430750980306,
+        "market_price": "below fair",
+        "new_master_labels": "research too optimistic; unvalidated view",
+        "in_old_master": true,
+        "old_master_same_offer": false
+      }
+    ],
+    "note": "Live: master_shortlist.csv is the strong-team master. Today's master (master-new-fill-rule-v4) runs in shadow as master_shortlist_new.csv, the comparison and rollback baseline; the columns in_old_master, old_master_rank and old_master_same_offer and overlap_with_old_master compare with it. Rolling back is master_shortlist_config.json live \"new\".",
+    "rule": "master-strong-team-v7",
+    "strong": {
+      "version": "master-strong-team-v7",
+      "status": "live master since 23 Nov 2026 (master_shortlist_config.json live \"strong\"; writes master_shortlist.csv). Rule history in 'rule_changes'; each superseded rule's config is frozen in master_strong_rules/ so archived runs replay.",
+      "generated_at_utc": "2026-11-25T14:22:45.129589+00:00",
+      "config_sha256": "5dda979ae1f318493a68c1439a8e55d5120c3c724f6debb1ee172ffae841dbf4",
+      "settings": {
+        "E": 0.55,
+        "G": 0.25,
+        "R1": true,
+        "R2": false,
+        "R3": true,
+        "R4": false
+      },
+      "target_fixtures": 15,
+      "max_picks_per_market": 6,
+      "ranked_fixtures": 5,
+      "shortfall": 10,
+      "short_reason": "the nominations give only 5 matches with an eligible offer",
+      "picks_by_tier": {
+        "proven": 0,
+        "not proven: safe": 2,
+        "not proven: fill": 3,
+        "not proven: risky fill": 0
+      },
+      "picks_by_market_group": {
+        "match_result": 0,
+        "double_chance": 0,
+        "asian_handicap": 5
+      },
+      "picks_by_league_trust": {
+        "trusted": 0,
+        "not trusted": 0,
+        "unvalidated": 5
+      },
+      "eligible_offers": 8,
+      "eligible_matches": 5,
+      "proven_offers": 0,
+      "proven_matches": 0,
+      "failed_checks_on_eligible_offers": {
+        "strong team": 4,
+        "record": 6,
+        "safe": 5
+      },
+      "research_confirms_picks": 3,
+      "european_picks": 5,
+      "overlap_with_old_master": {
+        "same_fixture": 5,
+        "same_offer": 3
+      },
+      "decisions": {
+        "SHORTLISTED": 5,
+        "BEYOND_TARGET": 0,
+        "NOT_SELECTED": 3,
+        "LEFT_OUT": 10,
+        "NOT_EXECUTABLE": 0
+      },
+      "picks": [
+        {
+          "strong_rank": 1.0,
+          "strong_tier": "not proven: safe",
+          "kickoff_utc": "2026-11-25T20:00:00+00:00",
+          "league": "UEFA Champions League",
+          "home_team": "Lille",
+          "away_team": "Bayern Munich",
+          "market_to_bet": "Asian Handicap Home +2.00",
+          "offered_decimal_odds": 1.2326,
+          "ranking_no_loss_probability": 0.836992012471947,
+          "ranking_profit_probability": 0.6672063718872543,
+          "research_no_loss_probability": 0.8714154381803904,
+          "strong_elo_expectancy": 0.38534500931692905,
+          "strong_record_reason": "not lost 90% of 10 (needs 80%)",
+          "strong_research_margin": 1.453451493924375,
+          "strong_league_trust": "unvalidated",
+          "strong_labels": "not proven; research confirms (label only); league unvalidated",
+          "strong_failed_checks": "strong team (Elo 0.39 below 0.55)",
+          "in_old_master": true,
+          "old_master_same_offer": true
+        },
+        {
+          "strong_rank": 2.0,
+          "strong_tier": "not proven: safe",
+          "kickoff_utc": "2026-11-25T17:45:00+00:00",
+          "league": "UEFA Champions League",
+          "home_team": "Slavia Prague",
+          "away_team": "Villarreal",
+          "market_to_bet": "Asian Handicap Home +1.00",
+          "offered_decimal_odds": 1.3425,
+          "ranking_no_loss_probability": 0.781592143718835,
+          "ranking_profit_probability": 0.5791380853139102,
+          "research_no_loss_probability": 0.7383456950187209,
+          "strong_elo_expectancy": 0.5774053743671336,
+          "strong_record_reason": "not lost 50% of 10 (needs 80%)",
+          "strong_research_margin": 0.6158878549333908,
+          "strong_league_trust": "unvalidated",
+          "strong_labels": "not proven; league unvalidated",
+          "strong_failed_checks": "record (not lost 50% of 10 (needs 80%))",
+          "in_old_master": true,
+          "old_master_same_offer": true
+        },
+        {
+          "strong_rank": 3.0,
+          "strong_tier": "not proven: fill",
+          "kickoff_utc": "2026-11-25T20:00:00+00:00",
+          "league": "UEFA Champions League",
+          "home_team": "Paris Saint-Germain",
+          "away_team": "AS Roma",
+          "market_to_bet": "Asian Handicap Away +2.25",
+          "offered_decimal_odds": 1.3125,
+          "ranking_no_loss_probability": 0.7410569194570021,
+          "ranking_profit_probability": 0.7410569194570021,
+          "research_no_loss_probability": 0.8164662801639455,
+          "strong_elo_expectancy": 0.2009084601333092,
+          "strong_record_reason": "not enough history (4 of 6 matches)",
+          "strong_research_margin": 1.4049408474721727,
+          "strong_league_trust": "unvalidated",
+          "strong_labels": "not proven; research confirms (label only); league unvalidated",
+          "strong_failed_checks": "safe (market no-loss below 0.75); strong team (Elo 0.20 below 0.55); record (not enough history (4 of 6 matches))",
+          "in_old_master": true,
+          "old_master_same_offer": true
+        },
+        {
+          "strong_rank": 4.0,
+          "strong_tier": "not proven: fill",
+          "kickoff_utc": "2026-11-25T20:00:00+00:00",
+          "league": "UEFA Champions League",
+          "home_team": "Shakhtar Donetsk",
+          "away_team": "Fenerbahce",
+          "market_to_bet": "Asian Handicap Home +0.50",
+          "offered_decimal_odds": 1.5263,
+          "ranking_no_loss_probability": 0.6392745200703737,
+          "ranking_profit_probability": 0.6392745200703737,
+          "research_no_loss_probability": 0.7547031447158074,
+          "strong_elo_expectancy": 0.6242885855409577,
+          "strong_record_reason": "not lost 40% of 10 (needs 80%)",
+          "strong_research_margin": 1.243543014706758,
+          "strong_league_trust": "unvalidated",
+          "strong_labels": "not proven; research confirms (label only); league unvalidated",
+          "strong_failed_checks": "safe (market no-loss below 0.75); record (not lost 40% of 10 (needs 80%))",
+          "in_old_master": true,
+          "old_master_same_offer": false
+        },
+        {
+          "strong_rank": 5.0,
+          "strong_tier": "not proven: fill",
+          "kickoff_utc": "2026-11-25T20:00:00+00:00",
+          "league": "UEFA Champions League",
+          "home_team": "Sporting CP",
+          "away_team": "Manchester United",
+          "market_to_bet": "Asian Handicap Home +0.25",
+          "offered_decimal_odds": 1.7519,
+          "ranking_no_loss_probability": 0.611098794402819,
+          "ranking_profit_probability": 0.611098794402819,
+          "research_no_loss_probability": 0.7373038515595239,
+          "strong_elo_expectancy": 0.6546605710354544,
+          "strong_record_reason": "not lost 70% of 10 (needs 80%)",
+          "strong_research_margin": 0.886219237479003,
+          "strong_league_trust": "unvalidated",
+          "strong_labels": "not proven; league unvalidated",
+          "strong_failed_checks": "safe (market no-loss below 0.75); record (not lost 70% of 10 (needs 80%))",
+          "in_old_master": true,
+          "old_master_same_offer": false
+        }
+      ],
+      "note": "Shadow only: master_shortlist.csv, every probability, pick and stake are unchanged.",
+      "execution": {
+        "min_odds_exclusive": 1.2,
+        "max_odds_inclusive": 2.0
+      },
+      "research_gate": {
+        "min_research_no_loss": 0.7,
+        "left_out_offers": 6,
+        "left_out_no_research_view": 0,
+        "left_out_matches": 6
+      },
+      "proven_order": [
+        "strong_elo_expectancy (higher first)",
+        "record share on the exact bet (higher first)",
+        "ranking_profit_probability (higher first)",
+        "tie order"
+      ],
+      "weak_links": {
+        "flagged_picks": 4,
+        "unflagged_picks": 1,
+        "by_reason": {
+          "a": 0,
+          "b": 4,
+          "c": 0,
+          "d": 0,
+          "e": 1,
+          "f": 3,
+          "g": 0
+        },
+        "picks_without_movement_data": 0
+      }
+    }
+  },
+  "ce3n_ucl_live_check": {
+    "version": "ce3n-ucl-live-check-v1",
+    "ucl_fixtures": 9,
+    "status": "passed",
+    "ucl_forecasts_with_research": 9,
+    "checks": {
+      "competition": true,
+      "mapping": true,
+      "fit_window": true,
+      "ce_shadow": true,
+      "frozen_replay": true,
+      "unvalidated_view": true
+    },
+    "unvalidated_view": {
+      "offers": 18,
+      "not_flagged": 0
+    },
+    "domestic_used": 4,
+    "problems": []
+  },
+  "correction_monitoring_version": "cagey-correction-monitoring-v1",
+  "staking_settings": {
+    "bankroll": 100.0,
+    "multiplier": 0.25,
+    "max_fraction": 0.025,
+    "max_total_exposure": 0.1
+  },
+  "league_availability": {
+    "requested_leagues": [
+      "EPL",
+      "LaLiga",
+      "Bundesliga",
+      "SerieA",
+      "Ligue1",
+      "UCL",
+      "UEL",
+      "Eredivisie",
+      "PrimeiraLiga",
+      "SuperLig"
+    ],
+    "excluded_leagues": {},
+    "forecast_leagues": [
+      "EPL",
+      "LaLiga",
+      "Bundesliga",
+      "SerieA",
+      "Ligue1",
+      "UCL",
+      "UEL",
+      "Eredivisie",
+      "PrimeiraLiga",
+      "SuperLig"
+    ]
+  },
+  "odds_provider": {
+    "enabled": true,
+    "order": [
+      "pinnapi",
+      "pinnodds",
+      "the-odds-api"
+    ],
+    "providers": {
+      "pinnapi": {
+        "requests": 1,
+        "requests_by_utc_day": {
+          "2026-11-25": 1
+        },
+        "served": {
+          "event_odds": 27,
+          "events": 10,
+          "odds": 10
+        },
+        "failures": {},
+        "daily_allowance": 100,
+        "requests_today": 1,
+        "blocked_until_utc": null
+      },
+      "pinnodds": {
+        "requests": 0,
+        "requests_by_utc_day": {},
+        "served": {},
+        "failures": {},
+        "daily_allowance": 100,
+        "requests_today": 0,
+        "blocked_until_utc": null
+      },
+      "the-odds-api": {
+        "requests": 0,
+        "requests_by_utc_day": {},
+        "served": {},
+        "failures": {}
+      }
+    },
+    "switches": [],
+    "first_served": {
+      "at_utc": "2026-11-25T14:21:43Z",
+      "provider": "pinnapi",
+      "reasons": {},
+      "request": "events",
+      "league": "EPL"
+    },
+    "events_not_found": 0
+  },
+  "european_alternates_48h": {
+    "ran": true,
+    "hours": 48,
+    "limit": 80,
+    "busy_day_projection_before": 32.0,
+    "requests": 18,
+    "leagues": {
+      "UEL": {
+        "extra_fixtures": 18,
+        "allowed": true,
+        "reason": "projected 50 of 80 a day",
+        "requests": 18
+      }
+    }
+  }
+}

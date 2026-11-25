@@ -11,24 +11,19 @@
     "2627"
   ],
   "training_sha256": "2f01bb1cc9ab665e9a28461a7fbf40ec350ce82e73e9bace8aa1175d298cc576",
-  "training_as_of_utc": "2026-11-24T22:39:45.772552+00:00",
+  "training_as_of_utc": "2026-11-25T14:22:14.940736+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
     "bbs_result_conflicts": 0,
-    "bbs_rows_with_statistics": 0,
-    "bbs_statistics_used_as_predictor_features": false,
-    "note": "Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass."
-  },
-  "bbs_statistics_model": {
-    "status": "NO_OBSERVATIONS"
+    "note": "Confirmed rows retain primary results; BBS-only verified additions extend score history."
   },
   "model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
   "totals_anchor_enabled": true,
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-11-24",
+    "cutoff_date": "2026-11-25",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -48,10 +43,9 @@
       ],
       "max_goal_rate_ratio": 1.25
     },
-    "bbs_shot_source_enabled": false,
     "shot_matches": 1827,
-    "tune_start_date": "2025-11-25",
-    "audit_start_date": "2026-05-26",
+    "tune_start_date": "2025-11-26",
+    "audit_start_date": "2026-05-27",
     "training_shot_matches": 1530,
     "tuning_matches": 189,
     "audit_matches": 94,
@@ -59,21 +53,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8254108351326706,
-    "audit_candidate_poisson_score": 0.8177387911435587,
-    "audit_gain": 0.00767204398911181,
-    "audit_gain_lower95": -0.004562796013470618,
+    "audit_baseline_poisson_score": 0.8254021402430867,
+    "audit_candidate_poisson_score": 0.8177321035287762,
+    "audit_gain": 0.007670036714310435,
+    "audit_gain_lower95": -0.004563673740837692,
     "audit_baseline_briers": [
-      0.5677052751674057,
-      0.1765923230854275,
-      0.2154496174392609,
-      0.25297296620479504
+      0.5677002343848078,
+      0.1765893095946232,
+      0.21544748612261796,
+      0.2529732808529481
     ],
     "audit_candidate_briers": [
-      0.5676679163116422,
-      0.17453262678394632,
-      0.21074723511752158,
-      0.2528828946671464
+      0.5676646297798097,
+      0.17452975837746457,
+      0.21074507871030687,
+      0.25288198428384395
     ],
     "audit_brier_order": [
       "1x2",
@@ -88,10 +82,10 @@
   },
   "training_end": "2026-11-23",
   "fit_success": true,
-  "objective": 1678.7268720409425,
-  "base": 0.1445417669283121,
-  "home_adv": 0.23112318281611824,
-  "rho": -0.08372965315355284,
+  "objective": 1677.1413200050818,
+  "base": 0.14456024933098646,
+  "home_adv": 0.2311244610493411,
+  "rho": -0.08374022607493566,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -109,7 +103,7 @@
   },
   "training_data_health": {
     "training_end": "2026-11-23",
-    "days_since_latest_result": 1,
+    "days_since_latest_result": 2,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -119,10 +113,10 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 2,
+  "live_odds_matched": 3,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 9,
+  "additional_event_odds_calls_used_before_this_league": 27,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "over_1_5_in_window_quote_fixtures": 0,
@@ -153,6 +147,19 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640822652",
+      "event_id": "1640822652",
+      "home_team": "Samsunspor",
+      "away_team": "Genclerbirligi SK",
+      "kickoff_utc": "2026-11-28T13:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -160,16 +167,15 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "ANCHORED_MAIN": 1,
+    "ANCHORED_MAIN": 2,
     "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 2
+    "none": 3
   },
   "legacy_comparison_status": {
-    "None": 2
+    "None": 3
   },
-  "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }
