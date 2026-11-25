@@ -31,6 +31,8 @@ Every slice is also split by season half (to the end of 2023, and from 2024).
 Intervals resample whole gameweeks. Output goes to
 `football_output_v2/performance/market_implied_calibration/` (`report.md`, `summary.json`).
 
+The last committed output was removed on 25 Nov 2026 (nothing live read it); rerun the script to regenerate it, or see git history.
+
 The report states how many intervals exclude zero against the 5% expected by
 chance. The slices overlap heavily, so that figure is only a rough yardstick.
 It also answers whether fit B removes the plus-line underpricing seen in fit A,
