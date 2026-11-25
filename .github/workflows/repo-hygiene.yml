@@ -1,0 +1,50 @@
+name: Repository hygiene report
+
+# Monthly, report only: lists large tracked files and folders unchanged for 30+ days that no live code,
+# workflow or test refers to, plus folders marked ARCHIVED (scripts/repo_hygiene.py), and posts the list
+# as a GitHub issue. It never deletes, commits or pushes anything.
+on:
+  schedule:
+    # 09:17 EAT on the 1st of each month.
+    - cron: '17 6 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: repo-hygiene
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.14'
+      - name: Build the report
+        run: |
+          python scripts/repo_hygiene.py --output hygiene.md --json hygiene.json
+          cat hygiene.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Post the list as an issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if grep -q '^Nothing to review\.$' hygiene.md; then
+            echo 'Nothing to review; no issue opened.' >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          title="Repository hygiene report $(date -u +%Y-%m)"
+          gh label create repo-hygiene --color BFD4F2 --description 'Monthly report-only hygiene list' 2>/dev/null || true
+          existing=$(gh issue list --state open --label repo-hygiene --search "\"$title\" in:title" --json number --jq '.[0].number')
+          if [ -n "$existing" ]; then
+            gh issue edit "$existing" --body-file hygiene.md
+          else
+            gh issue create --title "$title" --label repo-hygiene --body-file hygiene.md
+          fi
