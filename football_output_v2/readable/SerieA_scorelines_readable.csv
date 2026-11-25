@@ -1,69 +1,186 @@
 ﻿Match date,League,Home team,Away team,Model,Rank,Score,Probability,Probability (decimal)
-2026-11-27,Serie A,Venezia,Bologna,Research,1,1-1,11.80%,0.117978703888549
-2026-11-27,Serie A,Venezia,Bologna,Research,2,0-1,11.59%,0.11585251918596134
-2026-11-27,Serie A,Venezia,Bologna,Research,3,0-2,10.37%,0.10365941802226028
-2026-11-27,Serie A,Venezia,Bologna,Research,4,1-2,10.05%,0.10046641304332889
-2026-11-27,Serie A,Venezia,Bologna,Research,5,0-0,6.99%,0.0699176634195667
-2026-11-27,Serie A,Venezia,Bologna,Research,6,0-3,6.08%,0.06084642358979068
-2026-11-27,Serie A,Venezia,Bologna,Research,7,1-3,5.90%,0.05897218063937542
-2026-11-27,Serie A,Venezia,Bologna,Research,8,1-0,5.41%,0.054069089871382085
-2026-11-27,Serie A,Venezia,Bologna,Research,9,2-2,4.95%,0.04952351145697384
-2026-11-27,Serie A,Venezia,Bologna,Research,10,2-1,4.75%,0.04751774660436938
-2026-11-27,Serie A,Venezia,Bologna,Research,11,2-3,2.86%,0.028577834851961987
-2026-11-27,Serie A,Venezia,Bologna,Research,12,2-0,2.70%,0.026984122035643817
-2026-11-27,Serie A,Venezia,Bologna,Research,13,0-4,2.68%,0.026786909484238973
-2026-11-27,Serie A,Venezia,Bologna,Research,14,1-4,2.60%,0.025961796465227113
-2026-11-27,Serie A,Venezia,Bologna,Research,15,3-1,1.54%,0.015351354941421846
-2026-11-27,Serie A,Venezia,Bologna,Research,16,3-2,1.35%,0.013516500428968152
-2026-11-27,Serie A,Venezia,Bologna,Research,17,2-4,1.26%,0.012581049637295028
-2026-11-27,Serie A,Venezia,Bologna,Research,18,0-5,0.94%,0.009434092949215921
-2026-11-27,Serie A,Venezia,Bologna,Research,19,3-3,0.94%,0.009391362339148241
-2026-11-27,Serie A,Venezia,Bologna,Research,20,1-5,0.91%,0.00914349604704077
-2026-11-27,Serie A,Venezia,Bologna,Research,21,3-0,0.87%,0.008717644769664225
-2026-11-27,Serie A,Venezia,Bologna,Research,22,2-5,0.44%,0.00443092517809031
-2026-11-27,Serie A,Venezia,Bologna,Research,23,3-4,0.41%,0.004064505838751267
-2026-11-27,Serie A,Venezia,Bologna,Research,24,4-1,0.37%,0.0037196223839218233
-2026-11-27,Serie A,Venezia,Bologna,Research,25,4-2,0.33%,0.003275038440562711
-2026-11-27,Serie A,Venezia,Bologna,Research,26,0-6,0.28%,0.00276883097901524
-2026-11-27,Serie A,Venezia,Bologna,Research,27,1-6,0.27%,0.0026835431077297136
-2026-11-27,Serie A,Venezia,Bologna,Research,28,4-0,0.21%,0.0021122791274161452
-2026-11-27,Serie A,Venezia,Bologna,Research,29,4-3,0.19%,0.001922395282834148
-2026-11-27,Serie A,Venezia,Bologna,Research,30,3-5,0.14%,0.0014314800256435656
-2026-11-27,Serie A,Venezia,Bologna,Research,31,2-6,0.13%,0.001300441172758926
-2026-11-27,Serie A,Venezia,Bologna,Research,32,4-4,0.10%,0.0010017706185326042
-2026-11-27,Serie A,Venezia,Bologna,Research,33,5-1,0.07%,0.000721009486485931
-2026-11-27,Serie A,Venezia,Bologna,Research,34,0-7,0.07%,0.0006965398216529107
-2026-11-27,Serie A,Venezia,Bologna,Research,35,1-7,0.07%,0.0006750844135385788
-2026-11-27,Serie A,Venezia,Bologna,Research,36,5-2,0.06%,0.0006348315878672898
-2026-11-27,Serie A,Venezia,Bologna,Research,37,3-6,0.04%,0.0004201279616577073
-2026-11-27,Serie A,Venezia,Bologna,Research,38,5-0,0.04%,0.00040944298420085925
-2026-11-27,Serie A,Venezia,Bologna,Research,39,5-3,0.04%,0.0003726360078083552
-2026-11-27,Serie A,Venezia,Bologna,Research,40,4-5,0.03%,0.0003468465920981194
-2026-11-27,Serie A,Venezia,Bologna,Research,41,2-7,0.03%,0.0003271449465166572
-2026-11-27,Serie A,Venezia,Bologna,Research,42,5-4,0.02%,0.000164048540946709
-2026-11-27,Serie A,Venezia,Bologna,Research,43,0-8,0.02%,0.00015332165848047565
-2026-11-27,Serie A,Venezia,Bologna,Research,44,1-8,0.01%,0.00014859891520980584
-2026-11-27,Serie A,Venezia,Bologna,Research,45,6-1,0.01%,0.00011646672384670742
-2026-11-27,Serie A,Venezia,Bologna,Research,46,3-7,0.01%,0.00010568931715309648
-2026-11-27,Serie A,Venezia,Bologna,Research,47,6-2,0.01%,0.00010254616148486574
-2026-11-27,Serie A,Venezia,Bologna,Research,48,4-6,0.01%,0.00010179670630094355
-2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",1,1-1,12.94%,0.12943817603069122
-2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",2,0-1,12.03%,0.12025787940508638
-2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",3,0-0,10.19%,0.10191403803774902
-2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",4,0-2,9.85%,0.09852310352263852
-2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",5,1-0,9.46%,0.09456332673900433
-2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",6,1-2,7.80%,0.07795180146776988
-2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",7,2-1,6.23%,0.062296252447537746
-2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",8,0-3,5.30%,0.052992826589431226
-2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",9,1-3,4.19%,0.041928097571206836
-2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",10,2-2,4.05%,0.0405343934520478
-2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",11,2-0,3.86%,0.038606609761941225
-2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",12,0-4,2.14%,0.021377521384810944
-2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",13,1-4,1.69%,0.01691396477861541
-2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",14,2-3,1.66%,0.01658682390694786
-2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",15,3-1,1.64%,0.016429666170841187
-2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",16,3-2,1.33%,0.013255588067933335
-2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",17,3-0,1.02%,0.010181891935005207
-2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",18,0-5,0.69%,0.006899023131545008
-2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",19,2-4,0.67%,0.006691192102736202
-2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",20,3-3,0.58%,0.005750021882791622
+2026-11-27,Serie A,Venezia,Bologna,Research,1,1-1,11.80%,0.11797868310673258
+2026-11-27,Serie A,Venezia,Bologna,Research,2,0-1,11.59%,0.11585239935750974
+2026-11-27,Serie A,Venezia,Bologna,Research,3,0-2,10.37%,0.10365934002606363
+2026-11-27,Serie A,Venezia,Bologna,Research,4,1-2,10.05%,0.10046642172057735
+2026-11-27,Serie A,Venezia,Bologna,Research,5,0-0,6.99%,0.06991757581425712
+2026-11-27,Serie A,Venezia,Bologna,Research,6,0-3,6.08%,0.060846394131763286
+2026-11-27,Serie A,Venezia,Bologna,Research,7,1-3,5.90%,0.05897220155444907
+2026-11-27,Serie A,Venezia,Bologna,Research,8,1-0,5.41%,0.05406907145008134
+2026-11-27,Serie A,Venezia,Bologna,Research,9,2-2,4.95%,0.049523557560354876
+2026-11-27,Serie A,Venezia,Bologna,Research,10,2-1,4.75%,0.04751778340207064
+2026-11-27,Serie A,Venezia,Bologna,Research,11,2-3,2.86%,0.028577868958409733
+2026-11-27,Serie A,Venezia,Bologna,Research,12,2-0,2.70%,0.0269841356925415
+2026-11-27,Serie A,Venezia,Bologna,Research,13,0-4,2.68%,0.026786903702360487
+2026-11-27,Serie A,Venezia,Bologna,Research,14,1-4,2.60%,0.025961812638139358
+2026-11-27,Serie A,Venezia,Bologna,Research,15,3-1,1.54%,0.015351379706189985
+2026-11-27,Serie A,Venezia,Bologna,Research,16,3-2,1.35%,0.013516525860105733
+2026-11-27,Serie A,Venezia,Bologna,Research,17,2-4,1.26%,0.012581068027628319
+2026-11-27,Serie A,Venezia,Bologna,Research,18,0-5,0.94%,0.009434093443969085
+2026-11-27,Serie A,Venezia,Bologna,Research,19,3-3,0.94%,0.009391381479013496
+2026-11-27,Serie A,Venezia,Bologna,Research,20,1-5,0.91%,0.009143504196098677
+2026-11-27,Serie A,Venezia,Bologna,Research,21,3-0,0.87%,0.00871765649408443
+2026-11-27,Serie A,Venezia,Bologna,Research,22,2-5,0.44%,0.004430932843765675
+2026-11-27,Serie A,Venezia,Bologna,Research,23,3-4,0.41%,0.0040645151893409425
+2026-11-27,Serie A,Venezia,Bologna,Research,24,4-1,0.37%,0.0037196315044235465
+2026-11-27,Serie A,Venezia,Bologna,Research,25,4-2,0.33%,0.0032750473496093876
+2026-11-27,Serie A,Venezia,Bologna,Research,26,0-6,0.28%,0.0027688318670719657
+2026-11-27,Serie A,Venezia,Bologna,Research,27,1-6,0.27%,0.0026835462193824764
+2026-11-27,Serie A,Venezia,Bologna,Research,28,4-0,0.21%,0.002112283740012239
+2026-11-27,Serie A,Venezia,Bologna,Research,29,4-3,0.19%,0.0019224010280637983
+2026-11-27,Serie A,Venezia,Bologna,Research,30,3-5,0.14%,0.0014314837028848227
+2026-11-27,Serie A,Venezia,Bologna,Research,31,2-6,0.13%,0.0013004437714698566
+2026-11-27,Serie A,Venezia,Bologna,Research,32,4-4,0.10%,0.001001773769220623
+2026-11-27,Serie A,Venezia,Bologna,Research,33,5-1,0.07%,0.0007210118591814319
+2026-11-27,Serie A,Venezia,Bologna,Research,34,0-7,0.07%,0.000696540231931495
+2026-11-27,Serie A,Venezia,Bologna,Research,35,1-7,0.07%,0.0006750853774390535
+2026-11-27,Serie A,Venezia,Bologna,Research,36,5-2,0.06%,0.0006348338472886006
+2026-11-27,Serie A,Venezia,Bologna,Research,37,3-6,0.04%,0.00042012915361522486
+2026-11-27,Serie A,Venezia,Bologna,Research,38,5-0,0.04%,0.0004094442217444757
+2026-11-27,Serie A,Venezia,Bologna,Research,39,5-3,0.04%,0.00037263743402759017
+2026-11-27,Serie A,Venezia,Bologna,Research,40,4-5,0.03%,0.00034684777402595803
+2026-11-27,Serie A,Venezia,Bologna,Research,41,2-7,0.03%,0.0003271456880303013
+2026-11-27,Serie A,Venezia,Bologna,Research,42,5-4,0.02%,0.00016404921283545752
+2026-11-27,Serie A,Venezia,Bologna,Research,43,0-8,0.02%,0.0001533217899253358
+2026-11-27,Serie A,Venezia,Bologna,Research,44,1-8,0.01%,0.00014859916725033675
+2026-11-27,Serie A,Venezia,Bologna,Research,45,6-1,0.01%,0.00011646720480734596
+2026-11-27,Serie A,Venezia,Bologna,Research,46,3-7,0.01%,0.00010568964536289967
+2026-11-27,Serie A,Venezia,Bologna,Research,47,6-2,0.01%,0.00010254661247144843
+2026-11-27,Serie A,Venezia,Bologna,Research,48,4-6,0.01%,0.00010179708049849536
+2026-11-27,Serie A,Venezia,Bologna,Cagey,1,1-1,14.09%,0.1409133643610209
+2026-11-27,Serie A,Venezia,Bologna,Cagey,2,0-1,10.59%,0.10589948840701112
+2026-11-27,Serie A,Venezia,Bologna,Cagey,3,1-2,9.53%,0.0952979814153003
+2026-11-27,Serie A,Venezia,Bologna,Cagey,4,0-0,9.34%,0.09335455587924538
+2026-11-27,Serie A,Venezia,Bologna,Cagey,5,1-0,7.66%,0.07660295237337623
+2026-11-27,Serie A,Venezia,Bologna,Cagey,6,0-2,7.62%,0.07615849145403572
+2026-11-27,Serie A,Venezia,Bologna,Cagey,7,2-1,7.18%,0.07180811252988024
+2026-11-27,Serie A,Venezia,Bologna,Cagey,8,2-2,5.09%,0.05086456644430891
+2026-11-27,Serie A,Venezia,Bologna,Cagey,9,2-0,4.38%,0.043822722315485965
+2026-11-27,Serie A,Venezia,Bologna,Cagey,10,1-3,4.05%,0.0404581638855735
+2026-11-27,Serie A,Venezia,Bologna,Cagey,11,0-3,3.57%,0.035701410688745445
+2026-11-27,Serie A,Venezia,Bologna,Cagey,12,2-3,2.53%,0.025312878947920947
+2026-11-27,Serie A,Venezia,Bologna,Cagey,13,3-1,2.33%,0.02328022584877443
+2026-11-27,Serie A,Venezia,Bologna,Cagey,14,3-2,1.91%,0.019073542093470956
+2026-11-27,Serie A,Venezia,Bologna,Cagey,15,3-0,1.57%,0.015687639724516617
+2026-11-27,Serie A,Venezia,Bologna,Cagey,16,1-4,1.42%,0.014224417038215439
+2026-11-27,Serie A,Venezia,Bologna,Cagey,17,0-4,1.29%,0.01289390084468532
+2026-11-27,Serie A,Venezia,Bologna,Cagey,18,3-3,0.90%,0.009007036623593912
+2026-11-27,Serie A,Venezia,Bologna,Cagey,19,2-4,0.81%,0.008059818710332975
+2026-11-27,Serie A,Venezia,Bologna,Cagey,20,4-1,0.63%,0.006250384101968976
+2026-11-27,Serie A,Venezia,Bologna,Cagey,21,4-2,0.46%,0.00463773888522005
+2026-11-27,Serie A,Venezia,Bologna,Cagey,22,4-0,0.43%,0.004326610163881822
+2026-11-27,Serie A,Venezia,Bologna,Cagey,23,1-5,0.41%,0.004109825787293504
+2026-11-27,Serie A,Venezia,Bologna,Cagey,24,0-5,0.37%,0.0037254030198865334
+2026-11-27,Serie A,Venezia,Bologna,Cagey,25,3-4,0.34%,0.003361780759236661
+2026-11-27,Serie A,Venezia,Bologna,Cagey,26,4-3,0.25%,0.0025331400253698856
+2026-11-27,Serie A,Venezia,Bologna,Cagey,27,2-5,0.23%,0.0022669584890196836
+2026-11-27,Serie A,Venezia,Bologna,Cagey,28,5-1,0.14%,0.0013790717205970293
+2026-11-27,Serie A,Venezia,Bologna,Cagey,29,5-2,0.10%,0.0009961294906866626
+2026-11-27,Serie A,Venezia,Bologna,Cagey,30,1-6,0.10%,0.0009895348702471754
+2026-11-27,Serie A,Venezia,Bologna,Cagey,31,5-0,0.10%,0.0009546142486151349
+2026-11-27,Serie A,Venezia,Bologna,Cagey,32,4-4,0.09%,0.0008971623441540116
+2026-11-27,Serie A,Venezia,Bologna,Cagey,33,0-6,0.09%,0.0008969762672907647
+2026-11-27,Serie A,Venezia,Bologna,Cagey,34,3-5,0.09%,0.0008563338376193201
+2026-11-27,Serie A,Venezia,Bologna,Cagey,35,2-6,0.05%,0.0005458222782151283
+2026-11-27,Serie A,Venezia,Bologna,Cagey,36,5-3,0.05%,0.0004927471547673012
+2026-11-27,Serie A,Venezia,Bologna,Cagey,37,4-5,0.03%,0.00026788505321166764
+2026-11-27,Serie A,Venezia,Bologna,Cagey,38,6-1,0.03%,0.00025356292503039124
+2026-11-27,Serie A,Venezia,Bologna,Cagey,39,1-7,0.02%,0.0002042170523826355
+2026-11-27,Serie A,Venezia,Bologna,Cagey,40,5-4,0.02%,0.00020185443343512355
+2026-11-27,Serie A,Venezia,Bologna,Cagey,41,3-6,0.02%,0.00020071514968208267
+2026-11-27,Serie A,Venezia,Bologna,Cagey,42,0-7,0.02%,0.0001851151029347181
+2026-11-27,Serie A,Venezia,Bologna,Cagey,43,6-2,0.02%,0.00018315327882888942
+2026-11-27,Serie A,Venezia,Bologna,Cagey,44,6-0,0.02%,0.00017552008176177517
+2026-11-27,Serie A,Venezia,Bologna,Cagey,45,2-7,0.01%,0.00011264506197141414
+2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",1,1-1,13.18%,0.13179346091182517
+2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",2,0-1,10.15%,0.10153974520747722
+2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",3,0-2,9.12%,0.09120404790268302
+2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",4,0-0,8.70%,0.08699385582822468
+2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",5,1-0,8.29%,0.08290611644632612
+2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",6,1-2,7.90%,0.07899881423684567
+2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",7,2-1,6.57%,0.06565691427108744
+2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",8,0-3,5.37%,0.05370454269360718
+2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",9,2-2,4.95%,0.049464287693738514
+2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",10,1-3,4.65%,0.04651761944222009
+2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",11,2-0,3.72%,0.037167410514265656
+2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",12,0-4,2.37%,0.02371751560583389
+2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",13,1-4,2.05%,0.020543557578760065
+2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",14,2-3,2.01%,0.020146237264476292
+2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",15,3-1,1.90%,0.018956828098246264
+2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",16,3-2,1.67%,0.016743792748496345
+2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",17,3-0,1.07%,0.010731180711094593
+2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",18,2-4,0.89%,0.008897174666304845
+2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",19,3-3,0.84%,0.008409571591869846
+2026-11-27,Serie A,Venezia,Bologna,"Benchmark (70% Pinnacle blend), display only",20,0-5,0.84%,0.008379485507916782
+2026-11-28,Serie A,Frosinone,Parma,Research,1,1-1,10.27%,0.1026883167235505
+2026-11-28,Serie A,Frosinone,Parma,Research,2,2-1,10.12%,0.10124203754105011
+2026-11-28,Serie A,Frosinone,Parma,Research,3,2-0,8.85%,0.0885255555406554
+2026-11-28,Serie A,Frosinone,Parma,Research,4,1-0,8.52%,0.08522089254324383
+2026-11-28,Serie A,Frosinone,Parma,Research,5,3-1,6.88%,0.06879185948569279
+2026-11-28,Serie A,Frosinone,Parma,Research,6,3-0,6.02%,0.060151274367393474
+2026-11-28,Serie A,Frosinone,Parma,Research,7,2-2,5.89%,0.05887878127019509
+2026-11-28,Serie A,Frosinone,Parma,Research,8,1-2,4.86%,0.04863278699096873
+2026-11-28,Serie A,Frosinone,Parma,Research,9,0-0,4.50%,0.044998318136795244
+2026-11-28,Serie A,Frosinone,Parma,Research,10,0-1,4.03%,0.040322207967711216
+2026-11-28,Serie A,Frosinone,Parma,Research,11,3-2,3.93%,0.03933682188173702
+2026-11-28,Serie A,Frosinone,Parma,Research,12,4-1,3.51%,0.03505697865064579
+2026-11-28,Serie A,Frosinone,Parma,Research,13,4-0,3.07%,0.030653655200953228
+2026-11-28,Serie A,Frosinone,Parma,Research,14,0-2,2.39%,0.02385787350943547
+2026-11-28,Serie A,Frosinone,Parma,Research,15,4-2,2.00%,0.020046414433369384
+2026-11-28,Serie A,Frosinone,Parma,Research,16,2-3,1.89%,0.018895898639935165
+2026-11-28,Serie A,Frosinone,Parma,Research,17,1-3,1.85%,0.018539589749705473
+2026-11-28,Serie A,Frosinone,Parma,Research,18,3-3,1.53%,0.015251267738794217
+2026-11-28,Serie A,Frosinone,Parma,Research,19,5-1,1.43%,0.014292292853254692
+2026-11-28,Serie A,Frosinone,Parma,Research,20,5-0,1.25%,0.012497112815129807
+2026-11-28,Serie A,Frosinone,Parma,Research,21,0-3,0.91%,0.009094999783735177
+2026-11-28,Serie A,Frosinone,Parma,Research,22,5-2,0.82%,0.008172673081573423
+2026-11-28,Serie A,Frosinone,Parma,Research,23,4-3,0.76%,0.007642011131631422
+2026-11-28,Serie A,Frosinone,Parma,Research,24,2-4,0.54%,0.005402562197414341
+2026-11-28,Serie A,Frosinone,Parma,Research,25,1-4,0.53%,0.0053006892472234855
+2026-11-28,Serie A,Frosinone,Parma,Research,26,6-1,0.49%,0.004855657914286928
+2026-11-28,Serie A,Frosinone,Parma,Research,27,6-0,0.42%,0.004245764159016862
+2026-11-28,Serie A,Frosinone,Parma,Research,28,3-4,0.37%,0.003670928683122866
+2026-11-28,Serie A,Frosinone,Parma,Research,29,5-3,0.31%,0.0031155526027938692
+2026-11-28,Serie A,Frosinone,Parma,Research,30,6-2,0.28%,0.002776580716395327
+2026-11-28,Serie A,Frosinone,Parma,Research,31,0-4,0.26%,0.002600368627785351
+2026-11-28,Serie A,Frosinone,Parma,Research,32,4-4,0.22%,0.002222161430232389
+2026-11-28,Serie A,Frosinone,Parma,Research,33,7-1,0.14%,0.0014139936831284027
+2026-11-28,Serie A,Frosinone,Parma,Research,34,7-0,0.12%,0.0012363893434993874
+2026-11-28,Serie A,Frosinone,Parma,Research,35,2-5,0.12%,0.001235725438757143
+2026-11-28,Serie A,Frosinone,Parma,Research,36,1-5,0.12%,0.001212424088125339
+2026-11-28,Serie A,Frosinone,Parma,Research,37,6-3,0.11%,0.0010584766075296499
+2026-11-28,Serie A,Frosinone,Parma,Research,38,5-4,0.09%,0.0008907735502103525
+2026-11-28,Serie A,Frosinone,Parma,Research,39,3-5,0.08%,0.0008396497424442857
+2026-11-28,Serie A,Frosinone,Parma,Research,40,7-2,0.08%,0.0008085552283506952
+2026-11-28,Serie A,Frosinone,Parma,Research,41,0-5,0.06%,0.0005947810587054905
+2026-11-28,Serie A,Frosinone,Parma,Research,42,4-5,0.04%,0.00042789340650126667
+2026-11-28,Serie A,Frosinone,Parma,Research,43,8-1,0.04%,0.00036029224047861327
+2026-11-28,Serie A,Frosinone,Parma,Research,44,8-0,0.03%,0.00031503781946727713
+2026-11-28,Serie A,Frosinone,Parma,Research,45,7-3,0.03%,0.00030823407727764105
+2026-11-28,Serie A,Frosinone,Parma,Research,46,6-4,0.03%,0.00030263105320651134
+2026-11-28,Serie A,Frosinone,Parma,Research,47,2-6,0.02%,0.00023553906834587388
+2026-11-28,Serie A,Frosinone,Parma,Research,48,1-6,0.02%,0.00023109764612789672
+2026-11-28,Serie A,Frosinone,Parma,Research,49,5-5,0.02%,0.00020721693200947193
+2026-11-28,Serie A,Frosinone,Parma,Research,50,8-2,0.02%,0.00020602367482197212
+2026-11-28,Serie A,Frosinone,Parma,Research,51,3-6,0.02%,0.0001600438996150243
+2026-11-28,Serie A,Frosinone,Parma,Research,52,0-6,0.01%,0.00011336998660330764
+2026-11-28,Serie A,Frosinone,Parma,"Benchmark (70% Pinnacle blend), display only",1,2-1,11.24%,0.11241908961878917
+2026-11-28,Serie A,Frosinone,Parma,"Benchmark (70% Pinnacle blend), display only",2,1-0,10.21%,0.10205764045093597
+2026-11-28,Serie A,Frosinone,Parma,"Benchmark (70% Pinnacle blend), display only",3,2-0,9.84%,0.09839619746229303
+2026-11-28,Serie A,Frosinone,Parma,"Benchmark (70% Pinnacle blend), display only",4,1-1,9.00%,0.09003031170284474
+2026-11-28,Serie A,Frosinone,Parma,"Benchmark (70% Pinnacle blend), display only",5,3-1,7.07%,0.07067080407086657
+2026-11-28,Serie A,Frosinone,Parma,"Benchmark (70% Pinnacle blend), display only",6,3-0,6.19%,0.06185549461177806
+2026-11-28,Serie A,Frosinone,Parma,"Benchmark (70% Pinnacle blend), display only",7,1-2,4.82%,0.04817957637166565
+2026-11-28,Serie A,Frosinone,Parma,"Benchmark (70% Pinnacle blend), display only",8,2-2,4.76%,0.04758225282626722
+2026-11-28,Serie A,Frosinone,Parma,"Benchmark (70% Pinnacle blend), display only",9,0-1,4.31%,0.043100077156489454
+2026-11-28,Serie A,Frosinone,Parma,"Benchmark (70% Pinnacle blend), display only",10,0-0,4.27%,0.042693277086101086
+2026-11-28,Serie A,Frosinone,Parma,"Benchmark (70% Pinnacle blend), display only",11,3-2,4.04%,0.04037121180073646
+2026-11-28,Serie A,Frosinone,Parma,"Benchmark (70% Pinnacle blend), display only",12,4-1,3.33%,0.033319713971345456
+2026-11-28,Serie A,Frosinone,Parma,"Benchmark (70% Pinnacle blend), display only",13,4-0,2.92%,0.029163491417952863
+2026-11-28,Serie A,Frosinone,Parma,"Benchmark (70% Pinnacle blend), display only",14,0-2,2.55%,0.02554710857442757
+2026-11-28,Serie A,Frosinone,Parma,"Benchmark (70% Pinnacle blend), display only",15,4-2,1.90%,0.01903412940552172
+2026-11-28,Serie A,Frosinone,Parma,"Benchmark (70% Pinnacle blend), display only",16,1-3,1.83%,0.018348622723275428
+2026-11-28,Serie A,Frosinone,Parma,"Benchmark (70% Pinnacle blend), display only",17,2-3,1.73%,0.01730193589688333
+2026-11-28,Serie A,Frosinone,Parma,"Benchmark (70% Pinnacle blend), display only",18,5-1,1.26%,0.012567603878048377
+2026-11-28,Serie A,Frosinone,Parma,"Benchmark (70% Pinnacle blend), display only",19,3-3,1.14%,0.011391619301901709
+2026-11-28,Serie A,Frosinone,Parma,"Benchmark (70% Pinnacle blend), display only",20,5-0,1.10%,0.010999950604524801

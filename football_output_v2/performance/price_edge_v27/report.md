@@ -20,13 +20,13 @@ Closing-line value (CLV) leads because it is the less noisy measure: it compares
 Every captured generation is graded at its own offered odds; re-uploads deduplicate. Repeated fixtures and overlapping lists are correlated recommendations, not independent bets. Unit returns are hypothetical, not actual betting ROI. Latest-view reports remain separate.
 
 Latest-view tables below are simulated recommendations, not executed-bet ROI.
-value: 1676 captured recommendations; 1645 graded; 182 distinct fixtures.
-cagey: 1041 captured recommendations; 1017 graded; 123 distinct fixtures.
+value: 1689 captured recommendations; 1645 graded; 182 distinct fixtures.
+cagey: 1048 captured recommendations; 1017 graded; 123 distinct fixtures.
 Actual placed bets: NOT_RECORDED
 
 > **STOP REVIEW**: 137 graded picks with mean CLV -2.05% (below zero). Review the policy before relying on further picks.
 
-Reviewed 2026-11-24T22:40:47.259225+00:00. Frozen v27 picks: 461.
+Reviewed 2026-11-25T14:24:07.673770+00:00. Frozen v27 picks: 461.
 
 **Mean CLV vs Pinnacle close:** -2.05% ± 0.74% (n=137). **Flat-stake profit per bet:** +2.86% ± 6.59% (n=444).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -149,7 +149,7 @@ Release incidents: new master failed (old master published) in 0 runs; compariso
 | live master | 112 | 3 | -0.81% | 67.0% | 1.53 |
 
 **Status:** waiting for at least 150 graded matches over at least 3 weeks on each list (not yet comparable).
-Context, new master offers (newest pre-kickoff generation per fixture): 147 offers on 84 fixtures; included (cagey safe) 29; labels: both agree 3, research too optimistic 23, research strongly disagrees 0, one view missing 93, no research check 0, unvalidated view 38; no view 0.
+Context, new master offers (newest pre-kickoff generation per fixture): 147 offers on 84 fixtures; included (cagey safe) 29; labels: both agree 3, research too optimistic 22, research strongly disagrees 0, one view missing 93, no research check 0, unvalidated view 38; no view 0.
 
 By tier (context only; the comparison rule never reads it):
 
@@ -204,7 +204,7 @@ By tier (context only; the comparison rule never reads it):
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
 | not proven: fill | n/a (0) | n/a (0) |
-| proven | n/a (0) | n/a (0) |
+| not proven: safe | n/a (0) | n/a (0) |
 
 By market group (context only; the comparison rule never reads it):
 
@@ -262,8 +262,8 @@ Only the active rule's value-priced picks count toward CAGEY TIER REVIEW.
 |---|---|---|
 | Q1 cagiest | -3.55% ± 1.26% (n=31) | +2.17% ± 13.52% (n=116) |
 | Q2 | -1.73% ± 1.10% (n=38) | -4.30% ± 12.25% (n=119) |
-| Q3 | -2.19% ± 0.77% (n=38) | +11.01% ± 11.05% (n=121) |
-| Q4 | +0.13% ± 1.68% (n=32) | +2.44% ± 11.99% (n=114) |
+| Q3 | -2.19% ± 0.77% (n=38) | +10.99% ± 11.40% (n=115) |
+| Q4 | +0.13% ± 1.68% (n=32) | +2.89% ± 11.61% (n=120) |
 | Q5 most open | -2.52% ± 2.10% (n=28) | +5.59% ± 9.64% (n=118) |
 | n/a | -2.01% ± 1.23% (n=55) | +0.47% ± 13.59% (n=120) |
 
@@ -320,7 +320,7 @@ Only the active rule's value-priced picks count toward CAGEY TIER REVIEW.
 
 ## Tagged candidates (narrow-margin hypothesis)
 
-Frozen tagged candidates: 2958 (2958 with an offered price).
+Frozen tagged candidates: 3031 (3031 with an offered price).
 1xBet edge vs fair at capture: -3.80% ± 0.21% (n=529).
 Return at the capture fair price, all tagged lines: +1.09% ± 3.69% (n=2223); plus lines only: +1.75% ± 2.89% (n=1295).
 
@@ -333,12 +333,12 @@ Return at the capture fair price, all tagged lines: +1.09% ± 3.69% (n=2223); pl
 
 Forward monitoring of cagey-correction-monitoring-v1 started 2026-11-03T13:58:25Z (first eligible capture). Earlier forecasts are not backfilled. One record per fixture: its first pre-kickoff capture at least 20 minutes before kickoff. Quintiles use the fixed training-period boundaries stored with the model.
 
-Fixtures: eligible 155, pending 11, graded 144, excluded 100.
+Fixtures: eligible 173, pending 29, graded 144, excluded 85.
 
 | excluded because | fixtures |
 |---|---:|
-| no usable market-implied fit (missing input: over_2_5) | 62 |
-| no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line) | 38 |
+| no usable market-implied fit (missing input: over_2_5) | 51 |
+| no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line) | 34 |
 
 | quintile | n | 2+ actual | 2+ corrected | 2+ uncorrected | 3+ actual | 3+ corrected | 3+ uncorrected |
 |---|---:|---:|---:|---:|---:|---:|---:|
