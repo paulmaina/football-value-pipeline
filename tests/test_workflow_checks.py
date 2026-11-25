@@ -272,9 +272,23 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
         capture(SHA,root=self.root,captured_at=T0)
         directory=self.root/'performance/snapshots'/SHA[:16]
         meta=json.loads((directory/'metadata.json').read_text())
-        meta['sha256']['goal_blend_experiment.json']='a'*64
+        meta['sha256']['cagey_tier_shortlist.csv']='a'*64
         write_json(directory/'metadata.json',meta)
         self.assertTrue(archive_check(self.root)['warnings'])
+
+    def test_retired_sidecar_absent_is_silent_but_tampered_copy_warns(self):
+        from workflow_checks import RETIRED_SIDECARS
+        capture(SHA,root=self.root,captured_at=T0)
+        directory=self.root/'performance/snapshots'/SHA[:16]
+        meta=json.loads((directory/'metadata.json').read_text())
+        name=RETIRED_SIDECARS[0]
+        meta['sha256'][name]=hashlib.sha256(b'{}').hexdigest()
+        write_json(directory/'metadata.json',meta)
+        self.assertEqual(archive_check(self.root)['warnings'],[])
+        (directory/name).write_bytes(b'{"changed": true}')
+        self.assertEqual(len(archive_check(self.root)['warnings']),1)
+        (directory/name).write_bytes(b'{}')
+        self.assertEqual(archive_check(self.root)['warnings'],[])
 
     def test_invalid_manifest_timestamp_and_count_are_rejected(self):
         capture(SHA,root=self.root,captured_at=T0)
