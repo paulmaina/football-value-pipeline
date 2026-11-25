@@ -23,8 +23,11 @@ FORECAST_PATHS = (
     'football_output_v2/raw/conservative_bet_shortlist.csv',
     'football_output_v2/raw/conservative_bet_summary.json',
 )
-# Every sidecar an archived snapshot may hold, including retired experiments.
-SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json', 'totals_anchor_experiment.json', 'model_reliability_experiment.json', 'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv', 'cagey_correction_monitoring.csv', 'corners_shadow.csv', 'master_shortlist.csv', 'master_shortlist_audit.csv', 'master_shortlist_new.csv', 'master_shortlist_old.csv', 'master_shortlist_strong.csv')
+# Every sidecar an archived snapshot may hold, including retired experiments. The retired experiments' files were
+# removed from the committed snapshots on 25 Nov 2026 (metadata.json still lists them): absent is expected and
+# silent; a copy that is present is still checked against its digest.
+RETIRED_SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json', 'totals_anchor_experiment.json', 'model_reliability_experiment.json', 'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json')
+SIDECARS = (*RETIRED_SIDECARS, 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv', 'cagey_correction_monitoring.csv', 'corners_shadow.csv', 'master_shortlist.csv', 'master_shortlist_audit.csv', 'master_shortlist_new.csv', 'master_shortlist_old.csv', 'master_shortlist_strong.csv')
 CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output.py',
              'collect_api_football_data.py', 'publish_api_football_data.py',
              'performance_tracking.py', 'performance_excel.py', 'publish_performance.py',
@@ -507,6 +510,8 @@ def archive_check(root):
         for name,digest in digests.items():
             require(name in ('predictions.csv','shortlist.csv','selection_summary.json','pipeline_health.json','run_manifest.json','bet365_vs_pinnacle.csv',*SIDECARS), 'Unexpected snapshot path')
             path=directory/name
+            if name in RETIRED_SIDECARS and not path.exists():
+                continue
             valid=path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest()==digest
             if name in (*SIDECARS, 'pipeline_health.json'):
                 if not valid: warnings.append(f'{directory.name}/{name}: optional artifact missing/tampered; excluded from grading')
