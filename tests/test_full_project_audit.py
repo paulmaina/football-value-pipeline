@@ -76,31 +76,6 @@ class TrainingAuditTests(OfflineQuotePolicyTestCase):
         model.league_key = 'EPL'
         self.assertIsNone(model.resolve_team('AEK Athens')[0])
 
-    def test_shadow_comparisons_share_production_clock_and_league(self):
-        from tests.test_model_reliability_experiment import inputs, ToyModel
-        from archive.model_reliability_experiment import generate_league
-        from archive.recency_experiment import generate_league as recency_generate
-        from tests.test_recency_experiment import predictions, history as recency_history, tuning, ToyModel as RecencyModel
-        origins = []
-        class ClockModel(ToyModel):
-            def fit(self, data, as_of=None):
-                origins.append(as_of)
-                return super().fit(data)
-        data, frame = inputs()
-        report = generate_league(data, frame, ClockModel, half_life=240, l2=.08,
-                                max_goals=10, as_of=T0.isoformat())
-        self.assertEqual(origins, [pd.Timestamp(T0)]*2)
-        self.assertEqual(report[0]['training_as_of_utc'], T0.isoformat())
-        recency_origins = []
-        class ClockRecencyModel(RecencyModel):
-            def fit(self, data, as_of=None):
-                recency_origins.append(as_of)
-                return super().fit(data)
-        recency_generate(predictions(), recency_history(), ClockRecencyModel, tuning(),
-            league='Premier League', production_half_life=240, l2=.08, max_goals=10,
-            as_of=T0.isoformat())
-        self.assertEqual(recency_origins, [pd.Timestamp(T0)])
-
     def test_production_and_backtest_fits_use_prediction_origins(self):
         original = DixonColesModel.fit
         with tempfile.TemporaryDirectory() as tmp, patch.dict('os.environ', {}, clear=True):

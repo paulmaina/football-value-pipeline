@@ -11,7 +11,7 @@ import pandas as pd
 
 from api_football_data import FINISHED, observations, payload_digest
 from bbs_data import utc
-from bbs_integration import CSV_STATS, season_year
+from bbs_integration import season_year
 
 
 def latest(rows):
@@ -62,7 +62,7 @@ def mappings(history, cache, league, matches):
 
 
 def reconcile(baseline, cache, league, now, seasons_back):
-    """Add verified missing scores and bind optional, lagged-only statistics."""
+    """Add verified missing scores (match statistics are no longer bound: the statistics adjustment was retired)."""
     from football_value_pipeline_v2_standalone import canonical_team_key, current_season_start_year
     cutoff = now.isoformat()
     matches = records(cache, league, cutoff)
@@ -80,7 +80,7 @@ def reconcile(baseline, cache, league, now, seasons_back):
     last = current_season_start_year(now)
     resolved = []
     report = {'status': 'AVAILABLE', 'matched_results': 0, 'added_results': 0,
-              'conflicts': 0, 'unmapped': 0, 'ambiguous': 0, 'excluded_phase': 0, 'statistics_observations': 0,
+              'conflicts': 0, 'unmapped': 0, 'ambiguous': 0, 'excluded_phase': 0,
               'source': 'api-football', 'usage': 'supplementary_cached_observations'}
     for observation in matches:
         m = observation['payload']
@@ -102,7 +102,6 @@ def reconcile(baseline, cache, league, now, seasons_back):
     # Two provider IDs for one ordered pair/season can be a duplicate or reschedule.
     # UCL can have legitimate rematches; an exact-date match to primary wins there.
     provider_pairs = Counter((r['payload']['season'], *key[1:]) for r, _, key in resolved)
-    bound = {}
     for observation, mapped, key in resolved:
         m = observation['payload']; pair = (m['season'], *key[1:])
         if signatures[key] != 1 or (league != 'UCL' and provider_pairs[pair] != 1):
@@ -130,37 +129,12 @@ def reconcile(baseline, cache, league, now, seasons_back):
             report['added_results'] += 1
         existing.update(api_football_match_id=observation['entity'],
                         api_football_observed_at_utc=observation['observed'])
-        bound[observation['entity']] = (existing, m)
-    features = []
-    for observation in observations(cache, 'statistics', cutoff):
-        if observation['league'] != league or observation['entity'] not in bound:
-            continue
-        row, match = bound[observation['entity']]; values = observation['payload']
-        available = (match['status'] == 'FT' and values.get('available') is True and
-            values.get('team_ids') == {s: str(match[s]['id']) for s in ('home', 'away')} and
-            utc(observation['observed']) > utc(match['kickoff_utc']))
-        for side, prefix in [('home', 'H'), ('away', 'A')]:
-            for field, suffix in CSV_STATS.items():
-                value = (values.get(side) or {}).get(field)
-                for column in (prefix+suffix, 'bbs_'+side+'_'+field):
-                    primary = row.get(column)
-                    if primary is not None and not pd.isna(primary) and primary != '' and value is not None:
-                        if float(primary) != float(value):
-                            available = False
-        features.append({'match_id': league+':api-football:'+observation['entity'],
-            'source': 'api-football', 'home_team': row['HomeTeam'], 'away_team': row['AwayTeam'],
-            'kickoff_utc': match['kickoff_utc'], 'observed_at_utc': observation['observed'],
-            'available': available, 'home': values.get('home') if available else None,
-            'away': values.get('away') if available else None})
     result = pd.DataFrame(rows)
     result['Date'] = pd.to_datetime(result['Date'])
     for col in baseline.select_dtypes(include='number').columns:
         result[col] = pd.to_numeric(result[col], errors='coerce')
     result = result.sort_values('Date').reset_index(drop=True)
     result.attrs = dict(baseline.attrs)
-    existing_features = list(result.attrs.get('bbs_statistics_observations', []))
-    result.attrs['bbs_statistics_observations'] = existing_features+features
-    report['statistics_observations'] = len(features)
     result.attrs['api_football'] = report
     return result
 

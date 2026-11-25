@@ -2,14 +2,12 @@
 
 No API calls. Shots (HST/AST, optionally HS/AS) from a match only inform
 matches on LATER dates; same-day results are excluded because the CSV dates
-carry no kickoff time. Each fit re-runs a chronological audit with the BBS
-statistics model's gate thresholds and keeps pure Dixon-Coles unless every
-gate passes, so a league's feature switches on or off per run with a logged
-reason.
+carry no kickoff time. Each fit re-runs a chronological audit with the gate
+thresholds below and keeps pure Dixon-Coles unless every gate passes, so a
+league's feature switches on or off per run with a logged reason.
 
-Hook for BBS shots/xG: ``extra_shot_rows`` accepts additional lagged rows
-(same columns as ``shot_table``). It stays unused until bbs_statistics_model
-reports VALIDATED for that league; BBS gates are not changed here.
+The gate thresholds and the scoring helpers came from the BBS statistics
+model, retired on 25 Nov 2026; they are unchanged.
 """
 from __future__ import annotations
 
@@ -18,9 +16,6 @@ import math
 import numpy as np
 import pandas as pd
 
-from bbs_statistics_model import (MAX_RATE_RATIO, MIN_AUDIT, MIN_AUDIT_DATES,
-    MIN_AUDIT_GAIN, MIN_FORM, MIN_TRAIN, MIN_TUNE, WEIGHTS, market_briers,
-    mix_rates, poisson_score)
 
 VERSION = 'football-data-lagged-shot-strength-v1'
 SHRINKAGE = (5., 15., 40.)  # prior match-equivalents pulling teams to league average
@@ -30,7 +25,39 @@ AUDIT_DAYS = 182
 STEP_DAYS = 28
 ITERATIONS = 8
 COLUMNS = ('Date', 'HomeTeam', 'AwayTeam', 'FTHG', 'FTAG', 'HST', 'AST', 'HS', 'AS')
-BBS_SHOT_SOURCE_ENABLED = False  # flip only after BBS passes its own validation
+# Gates (unchanged from the retired BBS statistics model, whose thresholds this audit always used).
+MIN_FORM = 3
+MIN_TRAIN = 60
+MIN_TUNE = 20
+MIN_AUDIT = 40
+MIN_AUDIT_DATES = 8
+WEIGHTS = (.1, .2, .3)
+MAX_RATE_RATIO = 1.25
+MIN_AUDIT_GAIN = .01
+
+
+def mix_rates(base, extra, weight):
+    mixed = (1-weight)*np.asarray(base)+weight*np.asarray(extra)
+    return np.clip(mixed, np.asarray(base)/MAX_RATE_RATIO, np.asarray(base)*MAX_RATE_RATIO)
+
+
+def poisson_score(y, rates):
+    return float(np.mean(rates-y*np.log(np.maximum(rates, 1e-12))))
+
+
+def market_briers(y, rates, rho, minimum):
+    from score_probability import score_grid
+    scores = []
+    for (h, a), (lam, mu), correction in zip(y, rates, rho):
+        matrix, _ = score_grid(float(lam), float(mu), correction, minimum)
+        hda = np.array([np.tril(matrix, -1).sum(), np.trace(matrix), np.triu(matrix, 1).sum()])
+        target = int(0 if h > a else 1 if h == a else 2)
+        home, away = np.indices(matrix.shape)
+        scores.append([np.sum((hda-np.eye(3)[target])**2),
+            (matrix[home+away >= 2].sum()-int(h+a >= 2))**2,
+            (matrix[home+away <= 3].sum()-int(h+a <= 3))**2,
+            (matrix[1:, 1:].sum()-int(h > 0 and a > 0))**2])
+    return np.mean(scores, axis=0)
 
 
 def day(value):
@@ -42,13 +69,11 @@ def day(value):
     return stamp.normalize()
 
 
-def shot_table(history, extra_shot_rows=None):
+def shot_table(history):
     """Completed rows with coherent non-negative integer shot counts only."""
     if 'HST' not in history or 'AST' not in history:
         return pd.DataFrame(columns=COLUMNS)
     frame = history.reindex(columns=COLUMNS).copy()
-    if extra_shot_rows is not None and BBS_SHOT_SOURCE_ENABLED:
-        frame = pd.concat([frame, extra_shot_rows.reindex(columns=COLUMNS)], ignore_index=True)
     for column in ('FTHG', 'FTAG', 'HST', 'AST', 'HS', 'AS'):
         frame[column] = pd.to_numeric(frame[column], errors='coerce')
     valid = frame[['FTHG', 'FTAG', 'HST', 'AST']].notna().all(axis=1)
@@ -136,8 +161,7 @@ class ShotModel:
                       'min_audit': MIN_AUDIT, 'min_audit_matchdays': MIN_AUDIT_DATES,
                       'min_audit_gain': MIN_AUDIT_GAIN, 'bootstrap_lower95': '>0',
                       'market_brier_safety': ['1x2', 'over_1_5', 'under_3_5', 'btts_yes'],
-                      'max_goal_rate_ratio': MAX_RATE_RATIO},
-            'bbs_shot_source_enabled': BBS_SHOT_SOURCE_ENABLED}
+                      'max_goal_rate_ratio': MAX_RATE_RATIO}}
 
     def apply(self, home, away, base):
         info = {'shot_features_applied': False, 'shot_features_version': VERSION,

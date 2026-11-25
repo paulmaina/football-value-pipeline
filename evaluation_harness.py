@@ -538,7 +538,7 @@ def fold_model(train, origin, cfg, **settings):
     profile = cfg['production_v2']
     return DixonColesModel(**{'half_life_days': profile['half_life_days'], 'l2': cfg['baseline_l2'],
                               'max_goals': cfg['max_goals'], 'shot_features': profile['shot_features'],
-                              'bbs_statistics': False, **settings}).fit(train.copy(), as_of=origin)
+                              **settings}).fit(train.copy(), as_of=origin)
 
 
 def variant_base_rates(league, cache, cfg, include_holdout, name) -> dict:
@@ -2260,7 +2260,7 @@ def research_parity(root, cache, cfg):
             train = history.loc[history.Date < origin]
             models[(league, origin)] = (train, DixonColesModel(
                 half_life_days=profile['half_life_days'], l2=cfg['baseline_l2'], max_goals=cfg['max_goals'],
-                shot_features=profile['shot_features'], bbs_statistics=False).fit(train.copy(), as_of=origin))
+                shot_features=profile['shot_features']).fit(train.copy(), as_of=origin))
         train, model = models[(league, origin)]
         teams = (row.get('model_home_team'), row.get('model_away_team'))
         if not all(t in model.teams for t in teams):
@@ -2432,7 +2432,7 @@ def research_ce3n_parity(root, cache, cfg):
                 train = history.loc[history.Date < origin]
                 models[(competition, origin, basis)] = (train, DixonColesModel(
                     half_life_days=profile['half_life_days'], l2=cfg['baseline_l2'], max_goals=cfg['max_goals'],
-                    shot_features=profile['shot_features'], bbs_statistics=False).fit(train.copy(), as_of=origin))
+                    shot_features=profile['shot_features']).fit(train.copy(), as_of=origin))
             train, model = models[(competition, origin, basis)]
             if not all(isinstance(t, str) and t in model.teams for t in names):
                 coverage[f'harness_team_unresolved:{basis}'] += 1
@@ -2621,8 +2621,7 @@ def evaluate_european(competition, cache, cfg, include_holdout=False, keep=None,
                 if train.Date.max() >= origin:
                     raise ValueError('Training reaches prediction origin')
                 model = DixonColesModel(half_life_days=profile['half_life_days'], l2=cfg['baseline_l2'],
-                                        max_goals=cfg['max_goals'], shot_features=profile['shot_features'],
-                                        bbs_statistics=False).fit(train.copy(), as_of=origin)
+                                        max_goals=cfg['max_goals'], shot_features=profile['shot_features']).fit(train.copy(), as_of=origin)
                 folds.append({'competition': competition, 'origin': origin.date().isoformat(),
                               'end_exclusive': stop.date().isoformat(), 'training_end': train.Date.max().isoformat(),
                               'training_matches': len(train)})

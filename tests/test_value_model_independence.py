@@ -310,8 +310,7 @@ def development_fold():
         test = data.loc[(data.Date >= origin) & (data.Date < stop)].head(12)
         profile = CFG['production_v2']
         model = DixonColesModel(half_life_days=profile['half_life_days'], l2=CFG['baseline_l2'],
-                                max_goals=CFG['max_goals'], shot_features=profile['shot_features'],
-                                bbs_statistics=False).fit(train.copy(), as_of=origin)
+                                max_goals=CFG['max_goals'], shot_features=profile['shot_features']).fit(train.copy(), as_of=origin)
         assert eh.phase(test.Date.max(), 'EPL', CFG) == 'development'
         _FOLD.update(origin=origin, train=train, test=test, model=model)
     return _FOLD

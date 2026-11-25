@@ -257,7 +257,7 @@ fresh `main`:
    `price_edge_tagged_candidates.csv`,
    `cagey_tier_shortlist.csv` and `cagey_correction_monitoring.csv`.
 4. **Review**: `performance_tracking.py review` grades results and refreshes:
-   - performance tracking and the BBS forward assessment. The dashboard
+   - performance tracking. The dashboard
      (`performance/README.md`), the weekly files and the price-edge report
      lead with closing-line value (`clv_report.py`) and give returns second,
      per pick and with one row per fixture, a match's picks averaged
@@ -279,9 +279,9 @@ never scheduled: `ah_close_backtest.py`, `price_edge_backtest.py`,
 reviewed: goal blend, market-led, recency, model reliability, shortlist weight,
 shortlist policy, filter sensitivity and the legacy model comparison. The
 benchmark-forward and totals-anchor trials followed on 2026-11-03. Their code
-is in `archive/`, importable for replay; their last reports under
-`football_output_v2/performance/` are frozen and marked ARCHIVED. Archived
-snapshots still load and verify.
+(`archive/`), their last reports under `football_output_v2/performance/` and the
+files they captured in archived snapshots were removed on 2026-11-25; all of it is
+in git history. Archived snapshots still load and verify.
 
 ## History
 

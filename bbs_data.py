@@ -1,11 +1,12 @@
-"""Big Balls Free collection: bounded requests, durable observations and replay cutoffs.
+"""Big Balls Free collection: match results and teams, durable observations and replay cutoffs.
 
-No model fitting or forecast mutation. Raw responses never contain request headers.
+No model fitting or forecast mutation. Raw responses never contain request headers. A match
+observation is stored only when the match's state changes. The statistics, standings, player and
+coverage requests were retired with the statistics adjustment on 25 Nov 2026.
 """
 from __future__ import annotations
 
 import json
-import math
 import hashlib
 import os
 import tempfile
@@ -21,10 +22,35 @@ BASE_URL = 'https://api.bigballsdata.com'
 # Only registry leagues with a BBS slug are collected.
 LEAGUES = league_registry.bbs_slugs()
 DISPLAY_NAMES = league_registry.bbs_display_names()
-STAT_FIELDS = ('shots_on_target', 'shots_off_target', 'total_shots', 'blocked_shots',
- 'shots_inside_box', 'shots_outside_box', 'fouls', 'corner_kicks', 'offsides',
- 'ball_possession', 'yellow_cards', 'red_cards', 'goalkeeper_saves', 'total_passes',
- 'accurate_passes', 'pass_percentage')
+
+
+# Match fields that change between listings without the match changing: the retrieval time, the provider's
+# per-request metadata, broadcaster and odds flags, and team logo URLs. Nothing downstream reads them.
+VOLATILE_MATCH_FIELDS = ('observed_at_utc', 'source_meta', 'has_odds', 'broadcast')
+VOLATILE_TEAM_FIELDS = ('logo_url',)
+
+
+def match_state(payload):
+    """A normalized match's state: everything except the volatile fields, as canonical JSON.
+
+    A new match observation is stored only when this changes (and once after a quarantine), so the latest
+    observation at any cutoff carries the same state as it would if every listing had been stored.
+    """
+    state = {k: v for k, v in payload.items() if k not in VOLATILE_MATCH_FIELDS}
+    for side in ('home', 'away'):
+        if isinstance(state.get(side), dict):
+            state[side] = {k: v for k, v in state[side].items() if k not in VOLATILE_TEAM_FIELDS}
+    return dumps(state)
+
+
+def match_observation_needed(previous, payload, quarantined_at=None):
+    """Store a listing only if its state differs from the entity's latest stored observation, or if a
+    quarantine at or after that observation would otherwise keep holding the match."""
+    if previous is None:
+        return True
+    if quarantined_at is not None and utc(quarantined_at) >= utc(previous['observed']):
+        return True
+    return match_state(previous['payload']) != match_state(payload)
 
 
 def utc(value):
@@ -284,64 +310,13 @@ def normal_match(row, league, observed, meta):
             'regulation_score_verified': league != 'UCL' and row.get('status') == 'finished'}
 
 
-def normal_stats(payload, match):
-    data = payload['data']
-    if not isinstance(data, dict):
-        raise ValueError('Statistics must be an object')
-    available = payload.get('meta', {}).get('available') is not False
-    result = {'available': available, 'source_meta': payload.get('meta', {}),
-              'team_ids': {side: str(match[side]['id']) for side in ('home', 'away')},
-              'identity_resolution': {}, 'provider_team_ids': {}}
-    from football_value_pipeline_v2_standalone import canonical_team_key
-    league = match.get('league_key') or next((key for key, names in DISPLAY_NAMES.items()
-        if str(match.get('league', '')).lower() in names), None)
-    aliases = decode(Path(__file__).with_name('bbs_team_aliases.json').read_text(encoding='utf-8')).get(league, {})
-    def identity(name):
-        return canonical_team_key(aliases.get(name, name)) if isinstance(name, str) and name.strip() else None
-    for side in ('home', 'away'):
-        values = data.get(side)
-        if not available or values is None:
-            result[side] = None
-            continue
-        if not isinstance(values, dict):
-            raise ValueError('Statistics team does not match fixture side')
-        provider_id = values.get('team_id')
-        result['provider_team_ids'][side] = provider_id
-        if provider_id not in (None, ''):
-            if str(provider_id) != str(match[side]['id']):
-                raise ValueError('Statistics team does not match fixture side')
-            if values.get('team_name') not in (None, '') and identity(values['team_name']) != identity(match[side]['name']):
-                raise ValueError('Statistics team name contradicts fixture side')
-            result['identity_resolution'][side] = 'provider_id'
-        else:
-            expected = identity(match[side]['name'])
-            other = identity(match['away' if side == 'home' else 'home']['name'])
-            if not expected or expected == other or identity(values.get('team_name')) != expected:
-                raise ValueError('Missing statistics ID has no verified matching team name')
-            result['identity_resolution'][side] = 'verified_name'
-        cleaned = {}
-        for key in STAT_FIELDS:
-            value = values.get(key)
-            percent = key in ('ball_possession', 'pass_percentage')
-            if value is not None and (isinstance(value, bool) or not isinstance(value, (int, float))
-                or not math.isfinite(value) or value < 0 or (percent and value > 100)
-                or (not percent and int(value) != value)):
-                raise ValueError('Invalid statistic: ' + key)
-            cleaned[key] = value
-        for part, whole in [('shots_on_target', 'total_shots'), ('accurate_passes', 'total_passes')]:
-            if cleaned[part] is not None and cleaned[whole] is not None and cleaned[part] > cleaned[whole]:
-                raise ValueError('Inconsistent statistics')
-        result[side] = cleaned if any(v is not None for v in cleaned.values()) else None
-    result['available'] = available and any(result[s] is not None for s in ('home', 'away'))
-    return result
-
-
-def collect(client, leagues, seasons, stats_limit=None):
+def collect(client, leagues, seasons):
     """Checkpoint pages; incomplete pagination never claims full competition coverage."""
     store = client.store
-    report = {'errors': [], 'completed_lists': [], 'statistics_fetched': 0}
-    rejected_stats = {(q['league'], q['entity']): q
-                      for q in store.latest('statistics_quarantine', client.clock().isoformat())}
+    report = {'errors': [], 'completed_lists': [], 'match_observations_stored': 0, 'match_listings_unchanged': 0}
+    clock = client.clock().isoformat()
+    latest_match = {(x['league'], x['entity']): x for x in store.latest('match', clock)}
+    latest_quarantine = {(x['league'], x['entity']): x['observed'] for x in store.latest('quarantine', clock)}
 
     def eligible_matches():
         latest = store.latest('match', client.clock().isoformat())
@@ -351,17 +326,6 @@ def collect(client, leagues, seasons, stats_limit=None):
                 and x['payload'].get('requested_season') in seasons
                 and ((x['league'], x['entity']) not in rejected
                      or rejected[(x['league'], x['entity'])] < utc(x['observed']))]
-
-    def statistics_ttl(item):
-        age = (client.clock() - utc(item['payload']['kickoff_utc'])).total_seconds()
-        return 6 * 3600 if age < 2 * 86400 else (86400 if age < 7 * 86400 else 7 * 86400)
-
-    def statistics_due(item, previous):
-        rejected = rejected_stats.get((item['league'], item['entity']))
-        return (previous is None or
-            (rejected is not None and utc(rejected['observed']) >= utc(previous['observed'])) or
-            (client.clock() - utc(previous['observed'])).total_seconds() >= statistics_ttl(item) or
-            previous['payload'].get('team_ids') != {side: str(item['payload'][side]['id']) for side in ('home', 'away')})
 
     def attempt(label, action):
         try:
@@ -375,6 +339,7 @@ def collect(client, leagues, seasons, stats_limit=None):
         params = {'sport': 'football', 'league': LEAGUES[league], 'season': season, 'status': status}
         for rows, observed, query, meta in client.pages('/v1/matches', params, ttl=(7 * 86400 if season < max(seasons) else (86400 if status in ('postponed', 'cancelled') else 6 * 3600))):
             for row in rows:
+                key = (league, str(row.get('id')))
                 try:
                     if row.get('status') != status:
                         raise ValueError('Requested match status was not honored')
@@ -382,37 +347,22 @@ def collect(client, leagues, seasons, stats_limit=None):
                     if not (datetime(season, 7, 1, tzinfo=timezone.utc) <= utc(parsed['kickoff_utc']) < datetime(season+1, 7, 1, tzinfo=timezone.utc)):
                         raise ValueError('Requested season was not honored')
                     parsed['requested_season'] = season
+                    if not match_observation_needed(latest_match.get(key), parsed, latest_quarantine.get(key)):
+                        report['match_listings_unchanged'] += 1
+                        continue
                     store.put('match', league, row['id'], observed, parsed, query)
+                    latest_match[key] = {'league': league, 'entity': key[1], 'observed': utc(observed).isoformat(),
+                                         'payload': parsed}
+                    report['match_observations_stored'] += 1
                 except (ValueError, KeyError, TypeError) as exc:
                     rejection = {'bbs_match_id': row.get('id'), 'league': league, 'season': season,
                                  'reason': str(exc), 'row': row}
                     store.put('quarantine', league, row['id'], observed, rejection, query)
+                    latest_quarantine[key] = utc(observed).isoformat()
                     report['errors'].append({'scope': f'match/{league}/{row["id"]}', 'error': str(exc)})
         report['completed_lists'].append(f'matches/{league}/{season}/{status}')
 
-    def standings(league, season):
-        previous = next((x for x in store.latest('standings', client.clock().isoformat()) if x['league'] == league and x['entity'] == str(season)), None)
-        latest_kickoff = max((utc(x['payload']['kickoff_utc']) for x in store.latest('match', client.clock().isoformat()) if x['league'] == league and x['payload']['status'] == 'finished'), default=None)
-        ttl = 0 if previous and latest_kickoff and latest_kickoff > utc(previous['observed']) else 6 * 3600
-        payload, observed, query = client.get('/v1/standings',
-            {'sport': 'football', 'league': LEAGUES[league], 'season': season}, ttl=ttl)
-        if not isinstance(payload['data'], dict):
-            raise ValueError('Expected standings object')
-        groups = payload['data'].get('standings')
-        if not isinstance(groups, list):
-            raise ValueError('Expected standings groups')
-        for group in groups:
-            if (not isinstance(group, dict) or group.get('sport') != 'football' or str(group.get('league_name', '')).lower() not in DISPLAY_NAMES[league]
-                or str(group.get('season', '')).split('-')[0] != str(season) or not isinstance(group.get('rows'), list)):
-                raise ValueError('Wrong standings scope')
-        store.put('standings', league, season, observed, payload, query)
-
-    def coverage():
-        payload, observed, query = client.get('/v1/coverage', {'sport': 'football'})
-        store.put('coverage', 'football', 'coverage', observed, payload, query)
-
     try:
-        attempt('coverage', coverage)
         for season in seasons:
             for league in leagues:
                 attempt(f'matches/{league}/{season}/finished', lambda l=league, s=season: list_matches(l, s, 'finished'))
@@ -420,82 +370,28 @@ def collect(client, leagues, seasons, stats_limit=None):
                     attempt(f'matches/{league}/{season}/scheduled', lambda l=league, s=season: list_matches(l, s, 'scheduled'))
                     for status in ('postponed', 'cancelled'):
                         attempt(f'matches/{league}/{season}/{status}', lambda l=league, s=season, st=status: list_matches(l, s, st))
-                    attempt(f'standings/{league}/{season}', lambda l=league, s=season: standings(l, s))
-        # Fair across leagues, unseen/oldest observations first. New data progressively
-        # backfills; weekly rechecks capture post-match corrections.
-        prior = {(x['league'], x['entity']): x for x in store.latest('statistics', client.clock().isoformat())}
-        queue = []
+        # Teams give mapping names when a club's ID differs between surfaces.
         for league in leagues:
-            matches = [x for x in eligible_matches() if x['league'] == league and x['payload']['status'] == 'finished']
-            matches = [x for x in matches if statistics_due(x, prior.get((league, x['entity'])))]
-            matches.sort(key=lambda x: (int(x['payload']['requested_season']) < max(seasons), (client.clock() - utc(x['payload']['kickoff_utc'])).total_seconds() >= 2 * 86400, prior.get((league, x['entity']), {}).get('observed', ''),
-                                        -utc(x['payload']['kickoff_utc']).timestamp()))
-            queue.append(matches)
-        fetched = 0
-        while any(queue) and (stats_limit is None or fetched < stats_limit):
-            for items in queue:
-                if not items or (stats_limit is not None and fetched >= stats_limit):
-                    continue
-                item = items.pop(0)
-                def statistics():
-                    nonlocal fetched
-                    path = '/v1/matches/' + item['entity'] + '/statistics'
-                    ttl = statistics_ttl(item)
-                    previous = prior.get((item['league'], item['entity']))
-                    if previous and previous['payload'].get('team_ids') != {side: str(item['payload'][side]['id']) for side in ('home', 'away')}:
-                        ttl = 0
-                    rejected = rejected_stats.get((item['league'], item['entity']))
-                    if previous and rejected and utc(rejected['observed']) >= utc(previous['observed']):
-                        ttl = 0
-                    payload, observed, query = client.get(path, ttl=ttl)
-                    try:
-                        normalized = normal_stats(payload, item['payload'])
-                    except (ValueError, KeyError, TypeError) as exc:
-                        store.put('statistics_quarantine', item['league'], item['entity'], observed,
-                                  {'reason': str(exc)}, query)
-                        rejected_stats[(item['league'], item['entity'])] = {'observed': observed}
-                        raise
-                    store.put('statistics', item['league'], item['entity'], observed, normalized, query)
-                    fetched += 1
-                    report['statistics_fetched'] = fetched
-                attempt('statistics/' + item['entity'], statistics)
-        report['statistics_fetched'] = fetched
-        for league in leagues:
-            for kind, path in [('team', '/v1/teams'), ('player', '/v1/players')]:
-                def entities():
-                    for rows, observed, query, meta in client.pages(path,
-                        {'sport': 'football', 'league': LEAGUES[league]}, ttl=7 * 86400):
-                        for row in rows:
-                            if row.get('sport') not in (None, 'football'):
-                                raise ValueError('Wrong entity sport')
-                            store.put(kind, league, row['id'], observed, row, query)
-                    report['completed_lists'].append(f'{kind}/{league}')
-                attempt(f'{kind}/{league}', entities)
+            def entities():
+                for rows, observed, query, meta in client.pages('/v1/teams',
+                    {'sport': 'football', 'league': LEAGUES[league]}, ttl=7 * 86400):
+                    for row in rows:
+                        if row.get('sport') not in (None, 'football'):
+                            raise ValueError('Wrong entity sport')
+                        store.put('team', league, row['id'], observed, row, query)
+                report['completed_lists'].append(f'team/{league}')
+            attempt(f'team/{league}', entities)
     except Deferred as exc:
         report['deferred'] = str(exc)
     report['coverage'] = {}
     for league in leagues:
         matches = [x for x in eligible_matches() if x['league'] == league]
         finished = [x for x in matches if x['payload']['status'] == 'finished']
-        statistics = {x['entity']: x for x in store.latest('statistics', client.clock().isoformat()) if x['league'] == league}
-        rejected = {entity for (scope, entity), q in rejected_stats.items()
-                    if scope == league and (entity not in statistics
-                    or utc(q['observed']) >= utc(statistics[entity]['observed']))}
-        held = sum(x['entity'] in rejected and x['entity'] in statistics for x in finished)
-        missing = sum(x['entity'] not in statistics for x in finished)
-        unavailable = sum(not statistics[x['entity']]['payload']['available'] for x in finished
-                          if x['entity'] in statistics and x['entity'] not in rejected)
-        stale = sum(statistics_due(x, statistics[x['entity']]) for x in finished if x['entity'] in statistics)
-        report['coverage'][league] = dict(completed_matches=len(finished), statistics_stale=stale,
+        report['coverage'][league] = dict(completed_matches=len(finished),
             team_records=sum(x['league'] == league for x in store.latest('team', client.clock().isoformat())),
-            player_records=sum(x['league'] == league for x in store.latest('player', client.clock().isoformat())),
-            scheduled_matches=sum(x['payload']['status'] == 'scheduled' for x in matches),
-            statistics_missing=missing, statistics_unavailable=unavailable, statistics_quarantined=held,
-            statistics_available=len(finished)-missing-unavailable-held)
+            scheduled_matches=sum(x['payload']['status'] == 'scheduled' for x in matches))
         if not finished:
             report['errors'].append({'scope': league, 'error': 'No completed results collected; training coverage unverified'})
-        if missing or unavailable or stale or held:
-            report['errors'].append({'scope': league, 'error': f'Statistics incomplete: {missing} unfetched, {unavailable} unavailable, {stale} stale, {held} quarantined'})
     report['quarantined_records'] = [dict(league=x['league'], bbs_match_id=x['entity'], reason=x['payload']['reason'])
         for x in store.latest('quarantine', client.clock().isoformat())
         if x['league'] in leagues and not any(m['league']==x['league'] and m['entity']==x['entity'] and utc(m['observed']) > utc(x['observed']) for m in store.latest('match', client.clock().isoformat()))]

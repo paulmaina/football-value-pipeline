@@ -93,8 +93,7 @@ class HarnessCandidateTest(unittest.TestCase):
     @staticmethod
     def fit(train, origin):
         from football_value_pipeline_v2_standalone import DixonColesModel
-        return DixonColesModel(half_life_days=480., l2=.08, max_goals=10, shot_features=True,
-                               bbs_statistics=False).fit(train.copy(), as_of=origin)
+        return DixonColesModel(half_life_days=480., l2=.08, max_goals=10, shot_features=True).fit(train.copy(), as_of=origin)
 
     def forecasts(self, data, xg_data, n=6):
         import narrow_margin as nm

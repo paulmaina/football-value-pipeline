@@ -14,7 +14,6 @@ from __future__ import annotations
 from collections.abc import Mapping, Sequence
 import math
 import hashlib
-import json
 from pathlib import Path
 from typing import Optional
 
@@ -56,12 +55,6 @@ def training_fingerprint(history):
     frame = frame.reindex(sorted(frame.columns), axis=1).sort_values(
         ['Date', 'HomeTeam', 'AwayTeam'], kind='stable').reset_index(drop=True)
     content = frame.to_json(orient='split', index=False, date_format='iso', double_precision=15).encode()
-    observations = history.attrs.get('bbs_statistics_observations')
-    if observations:
-        content += json.dumps(observations, sort_keys=True, allow_nan=False).encode()
-        content += json.dumps({'bbs_statistics_enabled': history.attrs.get('bbs_statistics_enabled', True),
-            'bbs_statistics_validation': history.attrs.get('bbs_statistics_validation', 'auto')},
-            sort_keys=True).encode()
     return hashlib.sha256(content).hexdigest()
 
 
@@ -69,7 +62,7 @@ def validation_code_fingerprint():
     root = Path(__file__).resolve().parent
     files = ('goal_market_validation.py', 'football_value_pipeline_v2_standalone.py',
              'score_probability.py', 'double_chance.py', 'asian_handicap.py', 'win_first_shortlist.py', 'match_scores.py', 'bbs_team_aliases.json',
-             'bbs_statistics_model.py', 'bbs_integration.py',
+             'bbs_integration.py',
              'shot_features.py', 'historical_benchmark.py', 'bet365_pinnacle.py',
              'api_football_data.py', 'api_football_integration.py', 'europa_training.py',
              'docs/audits/europa-uefa-attestations.json', 'docs/audits/europa-team-aliases.json', 'docs/audits/europa-regulation-reviews.json')

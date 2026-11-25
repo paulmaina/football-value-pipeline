@@ -148,7 +148,7 @@ class ShotFeatureLagTests(OfflineQuotePolicyTestCase):
     def test_gate_fit_ignores_future_rows_and_logs_its_decision(self):
         history = shot_history(days=800, start='2023-01-01')
         cutoff = pd.Timestamp('2025-02-01')
-        factory = lambda past, origin: DixonColesModel(half_life_days=480, bbs_statistics=False).fit(past, as_of=origin)
+        factory = lambda past, origin: DixonColesModel(half_life_days=480).fit(past, as_of=origin)
         first = shot_features.fit_shot_model(history.loc[history['Date'] < cutoff], cutoff, factory, 480.)
         future = shot_history(days=30, start='2025-02-01'); future['HST'] = 25
         second = shot_features.fit_shot_model(pd.concat([history.loc[history['Date'] < cutoff], future]),
@@ -169,12 +169,6 @@ class ShotFeatureLagTests(OfflineQuotePolicyTestCase):
         frame.loc[2, 'HST'] = -1
         self.assertEqual(len(shot_features.shot_table(frame)), 3)
         self.assertTrue(shot_features.shot_table(frame.drop(columns=['HST'])).empty)
-
-    def test_bbs_hook_is_off_until_bbs_validates(self):
-        self.assertFalse(shot_features.BBS_SHOT_SOURCE_ENABLED)
-        extra = shot_history(days=3); extra['HST'] = 1
-        self.assertEqual(len(shot_features.shot_table(shot_history(days=5), extra)), 5)
-
 
 def book(key, markets, minutes_old=2):
     stamp = (NOW - timedelta(minutes=minutes_old)).isoformat()

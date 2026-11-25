@@ -52,13 +52,10 @@ class AllMarketEVTests(OfflineQuotePolicyTestCase):
             row=self.evaluate(spec,remove='best_'+key+'_bookmaker')
             self.assertIn('no validated bookmaker quote',row['rejection_reasons'])
 
-    def test_summary_and_experiment_thresholds(self):
+    def test_summary_thresholds(self):
         _,_,summary=build_conservative_shortlist(pd.DataFrame([fixture()]),as_of=NOW)
         self.assertEqual(summary['min_estimated_ev'],.015)
         self.assertEqual(summary['min_bookmakers'],1)
         self.assertEqual(summary['selection_policy_version'],'72h-seven-markets-fresh-references-net-ev15-v11')
-        from archive.market_led_experiment import settings
-        self.assertEqual(settings()['min_ev'],.03)
-        self.assertEqual(settings()['min_probability'],.8)
 
 

@@ -7,7 +7,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from bbs_data import Client, Deferred, FetchError, Store, collect, normal_match, normal_stats
+from bbs_data import Client, Deferred, FetchError, Store, collect, normal_match
 from bbs_integration import build_dataset, read_existing, write_dataset
 from collect_bbs_data import main
 
@@ -54,26 +54,61 @@ class BbsTests(unittest.TestCase):
         self.assertEqual(rows[0]['payload']['version'], 1)
         self.assertEqual(self.store.latest('team', '2026-10-15T08:00:01Z')[0]['payload']['version'], 2)
 
-    def test_coverage_outage_still_exports_checkpoint(self):
+    def test_team_outage_still_exports_matches_and_retired_endpoints_are_never_requested(self):
+        paths = []
         def sender(path, params, key):
-            if path == '/v1/coverage':
+            paths.append(path)
+            if path == '/v1/teams':
                 return 503, {}, b'{}'
-            if path == '/v1/standings':
-                return 200, {}, b'{"data":{"standings":[]}}'
-            return 200, {}, b'{"data":[]}'
-        report = collect(self.client(sender), ['EPL'], [2026], 0)
+            return 200, {}, json.dumps({'data': [match()] if params.get('status') == 'finished' else []}).encode()
+        report = collect(self.client(sender), ['EPL'], [2026])
         self.assertEqual(report['status'], 'partial')
-        self.assertEqual(report['errors'][0]['scope'], 'coverage')
+        self.assertEqual(report['errors'][0]['scope'], 'team/EPL')
         self.assertIn('matches/EPL/2026/finished', report['completed_lists'])
-        self.assertIn('player/EPL', report['completed_lists'])
+        self.assertEqual(set(paths), {'/v1/matches', '/v1/teams'})
+        self.assertEqual(len(self.store.latest('match')), 1)
+        self.assertNotIn('statistics_fetched', report)
+
+    def test_unchanged_listing_is_not_stored_again(self):
+        def collect_at(clock, row):
+            def sender(path, params, key):
+                return 200, {}, json.dumps({'data': [row] if params.get('status') == 'finished' and path == '/v1/matches'
+                                            else []}).encode()
+            client = Client(self.store, 'k', sender=sender, clock=lambda: clock, sleeper=lambda _: None)
+            return collect(client, ['EPL'], [2026])
+        first = collect_at(NOW, match())
+        again = collect_at(NOW + timedelta(days=1), {**match(), 'broadcast': 'TV', 'has_odds': True})
+        self.assertEqual((first['match_observations_stored'], again['match_observations_stored']), (1, 0))
+        self.assertEqual(again['match_listings_unchanged'], 1)
+        self.assertEqual(len(list((self.store.path/'observations/match').glob('*.json'))), 1)
+        corrected = collect_at(NOW + timedelta(days=2), match(hg=3))
+        self.assertEqual(corrected['match_observations_stored'], 1)
+        self.assertEqual(self.store.latest('match')[0]['payload']['score'], {'home': 3, 'away': 1})
+
+    def test_listing_after_a_quarantine_is_stored_so_the_hold_lifts(self):
+        self.put_match()
+        self.store.put('quarantine', 'EPL', 'm1', (NOW + timedelta(hours=1)).isoformat(),
+                       {'bbs_match_id': 'm1', 'league': 'EPL', 'season': 2026, 'reason': 'bad row', 'row': {}})
+        held = build_dataset(self.store, base(), (NOW + timedelta(hours=1)).isoformat())
+        self.assertEqual(held['matches'][0]['integration_status'], 'existing_only')
+        later = NOW + timedelta(hours=2)
+        def sender(path, params, key):
+            return 200, {}, json.dumps({'data': [match()] if params.get('status') == 'finished' and path == '/v1/matches'
+                                        else []}).encode()
+        report = collect(Client(self.store, 'k', sender=sender, clock=lambda: later, sleeper=lambda _: None), ['EPL'], [2026])
+        self.assertEqual(report['match_observations_stored'], 1)
+        self.assertEqual(report['quarantined_records'], [])
+        lifted = build_dataset(self.store, base(), later.isoformat())
+        self.assertEqual(lifted['matches'][0]['integration_status'], 'matched')
 
     def test_freshness_reports_missing_and_observation_age(self):
         self.put_match()
         out = build_dataset(self.store, base(), (NOW + timedelta(hours=2)).isoformat())
         report = out['report']['observation_freshness']
         self.assertEqual(report['match']['EPL']['oldest_observation_age_hours'], 2)
-        self.assertEqual(report['statistics']['EPL']['records'], 0)
-        self.assertIsNone(report['statistics']['EPL']['oldest_observation_age_hours'])
+        self.assertEqual(set(report), {'match', 'team'})
+        self.assertEqual(report['team']['EPL']['records'], 0)
+        self.assertIsNone(report['team']['EPL']['oldest_observation_age_hours'])
 
     def test_cache_keeps_observation_time_and_budget(self):
         calls = []
@@ -162,49 +197,27 @@ class BbsTests(unittest.TestCase):
         row = {**match(), 'status':'new_unknown_state', 'score':None}
         self.assertEqual(normal_match(row, 'EPL', NOW.isoformat(), {})['status'], 'new_unknown_state')
 
-    def test_statistics_null_zero_and_wrong_team(self):
-        m = self.put_match()
-        payload = {'data': {'home': {'team_id':'h1','total_shots':0}, 'away': None}, 'meta':{}}
-        values = normal_stats(payload, m)
-        self.assertEqual(values['home']['total_shots'], 0)
-        self.assertIsNone(values['home']['shots_on_target'])
-        self.assertIsNone(values['away'])
-        for field,value in [('team_id','a1'),('total_shots',-1),('ball_possession',101),('total_shots',True)]:
-            bad = copy.deepcopy(payload)
-            bad['data']['home'][field] = value
-            with self.assertRaises(ValueError): normal_stats(bad,m)
-        payload['data']['home'].update(total_shots=2,shots_on_target=3)
-        with self.assertRaises(ValueError): normal_stats(payload,m)
-
     def test_repeat_import_enrichment_and_correction_history(self):
         self.put_match()
         self.put_match()
         self.assertEqual(len(self.store.latest('match')),1)
-        self.store.put('statistics','EPL','m1',NOW.isoformat(),
-            {'available':True,'team_ids':{'home':'h1','away':'a1'},'home':{'total_shots':9},'away':None})
         out = build_dataset(self.store,base(),NOW.isoformat())
         self.assertEqual(len(out['matches']),1)
         row=out['matches'][0]
         self.assertEqual(row['integration_status'],'matched')
         self.assertEqual(row['HS'],'8')
-        self.assertEqual(row['bbs_home_total_shots'],9)
-        self.assertEqual(out['report']['issues'][0]['type'],'statistic_conflict')
+        self.assertEqual(out['report']['issues'],[])
+        self.assertFalse([k for k in row if 'statistic' in k or k.startswith(('bbs_home_','bbs_away_'))
+                          and k not in ('bbs_home_team_id','bbs_away_team_id')])
         self.put_match(match(hg=3),NOW+timedelta(days=1))
         old=build_dataset(self.store,base(),NOW.isoformat())
         new=build_dataset(self.store,base(),(NOW+timedelta(days=1)).isoformat())
         self.assertEqual(old['matches'][0]['integration_status'],'matched')
         self.assertEqual(new['matches'][0]['integration_status'],'conflict')
         self.assertEqual(new['matches'][0]['FTHG'],2)
-        self.assertFalse(new['matches'][0]['bbs_statistics_available'])
 
-    def test_corrected_fixture_cannot_reuse_other_teams_statistics(self):
+    def test_invalid_explicit_team_map_is_rejected(self):
         self.put_match()
-        self.store.put('statistics','EPL','m1',NOW.isoformat(),
-            {'available':True,'team_ids':{'home':'wrong','away':'a1'},
-             'home':{'total_shots':9},'away':None})
-        out=build_dataset(self.store,base(),NOW.isoformat())
-        self.assertFalse(out['matches'][0]['bbs_statistics_available'])
-        self.assertEqual(out['report']['issues'][0]['type'],'statistics_identity_conflict')
         with self.assertRaises(ValueError):
             build_dataset(self.store,base(),NOW.isoformat(),{'EPL': []})
 
@@ -263,26 +276,23 @@ class BbsTests(unittest.TestCase):
 
     def test_complete_collection_and_offline_cli(self):
         def sender(path,params,key):
-            if path=='/v1/coverage': body={'data':{'football':{}}}
-            elif path=='/v1/matches': body={'data':[match()] if params['status']=='finished' else []}
-            elif path=='/v1/standings': body={'data':{'standings':[{'league_name':'Premier League',
-                'sport':'football','season':'2026','rows':[]}]}}
-            elif path.endswith('/statistics'): body={'data':{'home':{'team_id':'h1','total_shots':0},'away':None}}
-            else: body={'data':[{'id':path,'name':'Example','sport':'football'}]}
+            if path=='/v1/matches': body={'data':[match()] if params['status']=='finished' else []}
+            elif path=='/v1/teams': body={'data':[{'id':'h1','name':'Manchester United','sport':'football'}]}
+            else: raise AssertionError('retired endpoint requested: '+path)
             return 200,{},json.dumps(body).encode()
-        report=collect(self.client(sender),['EPL'],[2026],1)
+        report=collect(self.client(sender),['EPL'],[2026])
         self.assertEqual(report['status'],'complete')
-        self.assertEqual(len(self.store.latest('player')),1)
-        self.assertEqual(len(self.store.latest('standings')),1)
-        # Cached observations require no quota; a later request limit still reports
-        # the statistics already processed before the deferred endpoint.
+        self.assertEqual(len(self.store.latest('team')),1)
+        self.assertEqual(report['coverage']['EPL'],{'completed_matches':1,'team_records':1,'scheduled_matches':0})
+        # Cached observations require no quota; with two lists uncached, a one-request limit defers the second.
         limited = self.client(sender, budget=10, max_requests=1)
         for path in (self.store.path/'responses').glob('*.json'):
-            if json.loads(path.read_text())['query'].startswith(('/v1/teams?', '/v1/players?')):
+            query = json.loads(path.read_text())['query']
+            if query.startswith('/v1/teams?') or 'status=scheduled' in query:
                 path.unlink()
-        partial = collect(limited, ['EPL'], [2026], 1)
+        partial = collect(limited, ['EPL'], [2026])
         self.assertEqual(partial['status'], 'partial')
-        self.assertEqual(partial['statistics_fetched'], 0)
+        self.assertEqual(partial['match_observations_stored'], 0)
         (self.root/'2627_E0.csv').write_text('Date,HomeTeam,AwayTeam,FTHG,FTAG\n10/10/2026,Man United,Arsenal,2,1\n')
         with patch('bbs_data.transport',side_effect=AssertionError('offline network')):
             code=main(['--offline','--store',str(self.root/'bbs'),'--existing-cache',str(self.root),
@@ -291,7 +301,9 @@ class BbsTests(unittest.TestCase):
         manifest=json.loads((self.root/'out/latest.json').read_text())
         import csv
         rows=list(csv.DictReader((self.root/'out'/manifest['generation']/'EPL_enriched_history.csv').open()))
-        self.assertEqual(rows[0]['bbs_home_total_shots'],'0')
+        self.assertEqual(rows[0]['integration_status'],'matched')
+        self.assertEqual(sorted(manifest['sha256']),['EPL_enriched_history.csv','fixtures.json','report.json',
+                                                      'team_mappings.json','teams.json'])
         dataset=build_dataset(self.store,read_existing(self.root),NOW.isoformat())
         generation=write_dataset(dataset,self.root/'second')
         self.assertEqual(write_dataset(dataset,self.root/'second'),generation)

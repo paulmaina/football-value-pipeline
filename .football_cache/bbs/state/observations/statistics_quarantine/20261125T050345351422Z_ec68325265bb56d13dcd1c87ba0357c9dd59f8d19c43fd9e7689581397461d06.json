@@ -1,1 +1,0 @@
-{"entity":"5c3e3955-2d9c-440a-9b6c-d23efe638c07","kind":"statistics_quarantine","league":"UCL","observed":"2026-11-25T05:03:45.351422+00:00","payload":{"reason":"Missing statistics ID has no verified matching team name"},"query":"/v1/matches/5c3e3955-2d9c-440a-9b6c-d23efe638c07/statistics?"}

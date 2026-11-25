@@ -65,9 +65,8 @@
       "market_weight": 0.7,
       "half_life_days": 480.0,
       "shot_features": true,
-      "bbs_statistics": true,
       "totals_anchor": true,
-      "feature_rule": "bbs_priority_mutually_exclusive_shots"
+      "feature_rule": "shot_features_only"
     },
     "note": "Production v1 replays the per-run half-life tuning at every fold origin on the fold's training rows. Pinnacle nominal-opening O/U 2.5 stands in for the fresh live quote; missing quotes leave totals unanchored. Shot features run their own per-fold chronological gate."
   }
