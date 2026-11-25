@@ -9,8 +9,8 @@ from unittest.mock import patch
 import pandas as pd
 import closing_odds as c
 from performance_tracking import capture,snapshots,write_json,fixture_key
-from test_totals_anchor_experiment import sample
-from test_benchmark_forward_experiment import NOW
+from forecast_fixtures import sample
+from forecast_fixtures import NOW
 
 
 def payload(row,observed):

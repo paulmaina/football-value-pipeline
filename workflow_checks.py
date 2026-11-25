@@ -38,11 +38,11 @@ COVERAGE_FLOORS = {'asian_handicap.py':85, 'api_football_data.py':85, 'api_footb
     'collect_api_football_data.py':75, 'publish_api_football_data.py':75,
     'prediction_runs.py':85, 'github_closing_odds.py':80, 'bbs_statistics_model.py':85, 'bbs_data.py':85, 'bbs_integration.py':85, 'collect_bbs_data.py':75,
     'publish_bbs_data.py':75, 'forecast_integrity.py':100, 'api_key_config.py':90, 'conservative_bet_filter.py':90,
-    'shortlist_policy_experiment.py':85, 'shortlist_weight_experiment.py':85, 'quote_freshness.py':95, 'score_probability.py':95,
-    'double_chance.py':90, 'goal_market_validation.py':85, 'goal_blend_experiment.py':90,
-    'market_led_experiment.py':90, 'match_scores.py':90, 'performance_tracking.py':85, 'turkey_results.py':90,
+    'quote_freshness.py':95, 'score_probability.py':95,
+    'double_chance.py':90, 'goal_market_validation.py':85,
+    'match_scores.py':90, 'performance_tracking.py':85, 'turkey_results.py':90,
     'performance_excel.py':85, 'publish_performance.py':75, 'workflow_checks.py':80,
-    'dc_decay_validation.py':85, 'market_blend_validation.py':90, 'refresh_training_data.py':70, 'format_football_output.py':60, 'ucl_training.py':90, 'quote_policy.py':95, 'pipeline_health.py':90, 'refresh_ucl_training.py':75, 'league_registry.py':90, 'recency_experiment.py':85, 'filter_sensitivity_experiment.py':85, 'historical_benchmark.py':85, 'benchmark_forward_experiment.py':85, 'publish_scheduled_forecasts.py':80, 'odds_api_usage.py':90, 'totals_anchor_experiment.py':90, 'closing_odds.py':90, 'model_reliability_experiment.py':90, 'model_comparison.py':90,
+    'dc_decay_validation.py':85, 'market_blend_validation.py':90, 'refresh_training_data.py':70, 'format_football_output.py':60, 'ucl_training.py':90, 'quote_policy.py':95, 'pipeline_health.py':90, 'refresh_ucl_training.py':75, 'league_registry.py':90, 'historical_benchmark.py':85, 'publish_scheduled_forecasts.py':80, 'odds_api_usage.py':90, 'closing_odds.py':90,
     'excel_book.py':90, 'predictions_workbook.py':90, 'performance_report_layout.py':90, 'model_activity.py':85, 'odds_provider.py':85,
     'shortlist_replay.py':95, 'market_implied.py':95, 'market_implied_calibration.py':85, 'price_edge_shortlist.py':90, 'price_edge_tracking.py':90, 'narrow_margin.py':90, 'cagey_correction_report.py':90, 'price_edge_cagey_shortlist.py':95, 'staking.py':95, 'elo_ratings.py':95, 'clv_report.py':90}
 

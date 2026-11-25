@@ -11,7 +11,6 @@ from offline_test_case import OfflineQuotePolicyTestCase
 from conservative_bet_filter import build_conservative_shortlist, PROBABILITY_SELECTION_POLICY_VERSION, BALANCED_SELECTION_POLICY_VERSION
 from test_conservative_bet_filter import fixture, NOW
 from test_graded_candidates import only_over_goal, sample_report
-from archived_hooks import setUpModule, tearDownModule  # noqa: F401  (retired capture/review hooks)
 
 
 def select(rows, reliability=None, selection_policy_version=None, **kwargs):
@@ -96,45 +95,6 @@ class ProbabilityShortlistTests(OfflineQuotePolicyTestCase):
         self.assertIn('Fewer than ten', summary['shortfall_reason'])
         self.assertTrue(select([])[0].empty)
 
-    def test_new_experiments_capture_replay_and_reporting_include_control_without_ev_gate(self):
-        import archive.filter_sensitivity_experiment as ev
-        import archive.shortlist_policy_experiment as policy
-        from performance_tracking import write_json, capture, snapshots
-        from format_football_output import process_conservative_shortlist
-        from workflow_checks import raw_check, archive_check
-        row = only_over_goal(0); row['market_over_1_5_odds'] = 1.05
-        predictions = pd.DataFrame([row]); reports = {'Premier League': sample_report()}
-        picks, decisions, summary = select([row], reports)
-        with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp); raw = root/'raw'; raw.mkdir(); (root/'readable').mkdir()
-            predictions.to_csv(raw/'all_leagues_predictions.csv', index=False)
-            picks.to_csv(raw/'conservative_bet_shortlist.csv', index=False)
-            write_json(raw/'conservative_bet_summary.json', summary)
-            write_json(raw/'EPL_goal_market_validation.json', {'league':'Premier League', **reports['Premier League']})
-            reports['Premier League']['league'] = 'Premier League'
-            pdataset = policy.write_experiment(predictions, raw, summary, decisions, reports)
-            edataset = ev.write_experiment(predictions, raw, summary, decisions, reports)
-            self.assertEqual(edataset['floors'], [0., .015, .03, .05])
-            self.assertEqual(len(edataset['rows']), 4*len(summary['eligible_markets']))
-            self.assertIsNotNone(policy.capture_file(raw, summary['generated_at_utc']))
-            self.assertIsNotNone(ev.capture_file(raw, summary['generated_at_utc']))
-            self.assertEqual(raw_check(root)['warnings'], [])
-            self.assertTrue(capture('abcdef01'*5, root=root, captured_at=NOW+timedelta(minutes=1)))
-            self.assertEqual(archive_check(root)['warnings'], [])
-            self.assertEqual(ev.frozen(root, snapshots(root))[1], [])
-            self.assertEqual(policy.frozen(root, snapshots(root))[1], [])
-            es, _, _ = ev.evaluate(root, snapshots(root), [], NOW)
-            self.assertIn(0., [r['ev_floor'] for r in es['comparisons']])
-            ev.review_experiment(root, snapshots(root), [], NOW)
-            self.assertIn('No EV gate', (root/'performance/filter_sensitivity_experiment/report.md').read_text())
-            process_conservative_shortlist(raw, root/'readable')
-            text = (root/'readable/conservative_bet_shortlist_report.md').read_text()
-            self.assertIn(f"Top {summary['target_distinct_matches']}", text)
-            self.assertIn('Negative EV', text)
-            forged = copy.deepcopy(pdataset); forged['rows'][0]['rank_probability'] = .99
-            with self.assertRaises(ValueError): policy.validate(forged, summary['generated_at_utc'], predictions.to_dict('records'))
-
-
 class BalancedShortlistTests(OfflineQuotePolicyTestCase):
     def select(self, rows, **kwargs):
         return select(rows, {'Premier League':sample_report()},
@@ -187,9 +147,8 @@ class BalancedShortlistTests(OfflineQuotePolicyTestCase):
         self.assertTrue(select([row], {'Premier League': report},
             selection_policy_version=BALANCED_SELECTION_POLICY_VERSION)[0].empty)
 
-    def test_twelve_cap_preserves_top_ten_and_frozen_v14_weighting_replay(self):
+    def test_twelve_cap_preserves_top_ten(self):
         from conservative_bet_filter import TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION
-        import archive.shortlist_weight_experiment as trial
         rows = [dict(only_over_goal(i), kickoff_utc=(NOW+timedelta(hours=24)).isoformat()) for i in range(15)]
         reports = {'Premier League': sample_report()}
         current, _, summary = self.select(rows)
@@ -201,32 +160,6 @@ class BalancedShortlistTests(OfflineQuotePolicyTestCase):
         self.assertEqual(old_summary['target_distinct_matches'], 10)
         self.assertEqual(legacy.fixture_id.tolist(), current.fixture_id.iloc[:10].tolist())
         pd.testing.assert_frame_equal(legacy, current.iloc[:10].reset_index(drop=True))
-        execution = old_summary['quote_execution_policy']
-        frozen = {'version': trial.VERSION, 'variants': trial.VARIANTS,
-            'selection_policy_version': TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION,
-            'generated_at_utc': NOW.isoformat(), 'execution_policy': execution,
-            'validation_evidence': reports,
-            'rows': trial.decision_rows(pd.DataFrame(rows), NOW.isoformat(), reports, execution,
-                baseline_policy=TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION)}
-        trial.validate(frozen, NOW.isoformat(), rows)
-        trial.validate_control(frozen, legacy.to_dict('records'))
-
-    def test_archived_v15_weighting_keeps_twelve_match_cap_and_original_pool(self):
-        from conservative_bet_filter import PREVIOUS_TWELVE_MATCH_BALANCED_SELECTION_POLICY_VERSION as old_policy
-        import archive.shortlist_weight_experiment as trial
-        rows = [dict(only_over_goal(i), kickoff_utc=(NOW+timedelta(hours=24)).isoformat()) for i in range(15)]
-        reports = {'Premier League': sample_report()}
-        picks, decisions, summary = select(rows, reports, selection_policy_version=old_policy)
-        frozen = {'version': trial.VERSION, 'variants': trial.VARIANTS,
-            'selection_policy_version': old_policy, 'generated_at_utc': NOW.isoformat(),
-            'execution_policy': summary['quote_execution_policy'], 'validation_evidence': reports,
-            'rows': trial.decision_rows(pd.DataFrame(rows), NOW.isoformat(), reports,
-                summary['quote_execution_policy'], baseline_policy=old_policy)}
-        self.assertEqual(len(picks), 12)
-        self.assertIn('Both Teams to Score - Yes', decisions.market.tolist())
-        self.assertNotIn('Draw', decisions.market.tolist())
-        trial.validate(frozen, NOW.isoformat(), rows)
-        trial.validate_control(frozen, picks.to_dict('records'))
 
     def test_twelve_target_shortfall_and_raw_integrity_cap(self):
         from format_football_output import process_conservative_shortlist
@@ -295,36 +228,6 @@ class BalancedShortlistTests(OfflineQuotePolicyTestCase):
             with self.assertRaisesRegex(ValueError, 'Missing.*reliability evidence'):
                 raw_check(root)
 
-    def test_ev_sensitivity_captures_twelve_and_keeps_archived_ten_cap(self):
-        import archive.filter_sensitivity_experiment as ev
-        from conservative_bet_filter import TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION
-        from performance_tracking import capture, snapshots, write_json
-        rows = [dict(only_over_goal(i), kickoff_utc=(NOW+timedelta(hours=24)).isoformat()) for i in range(15)]
-        reports = {'Premier League': dict(sample_report(), league='Premier League')}
-        frame = pd.DataFrame(rows)
-        picks, decisions, summary = select(rows, reports, selection_policy_version=BALANCED_SELECTION_POLICY_VERSION)
-        with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp); raw = root/'raw'; raw.mkdir()
-            frame.to_csv(raw/'all_leagues_predictions.csv', index=False)
-            picks.to_csv(raw/'conservative_bet_shortlist.csv', index=False)
-            write_json(raw/'conservative_bet_summary.json', summary)
-            write_json(raw/'EPL_goal_market_validation.json', reports['Premier League'])
-            data = ev.write_experiment(frame, raw, summary, decisions, reports)
-            self.assertEqual(sum(r['ev_floor']==0 and r['decision'] in ev.SELECTED for r in data['rows']), 12)
-            self.assertIsNotNone(ev.capture_file(raw, summary['generated_at_utc']))
-            self.assertTrue(capture('e'*40, root=root, captured_at=NOW))
-            self.assertEqual(len(ev.frozen(root, snapshots(root))[0]), 15*7*4)
-            mislabeled = copy.deepcopy(data)
-            mislabeled['selection_policy_version'] = TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION
-            with self.assertRaisesRegex(ValueError, 'policy cap exceeded|Invalid/duplicate candidate decision'):
-                ev.validate(mislabeled, summary['generated_at_utc'], rows)
-            overflow = copy.deepcopy(data)
-            extra = next(r for r in overflow['rows'] if r['ev_floor']==0 and r['decision']=='NOT_SELECTED'
-                         and r['market']=='Over 1.5' and r['fixture_id'] not in set(picks.fixture_id))
-            extra.update(decision='SHORTLISTED', selection_tier='STRICT')
-            with self.assertRaisesRegex(ValueError, 'policy cap exceeded'):
-                ev.validate(overflow, summary['generated_at_utc'], rows)
-
     def test_under_35_excluded_before_scoring_and_historical_replay_preserved(self):
         from conservative_bet_filter import PREVIOUS_BALANCED_SELECTION_POLICY_VERSION
         row = fixture(); row.update(p_under_3_5=.99, raw_p_under_3_5=.98)
@@ -351,12 +254,6 @@ class BalancedShortlistTests(OfflineQuotePolicyTestCase):
         self.assertIn('Under 3.5', old_decisions.market.tolist())
         self.assertIn('Under 3.5', old_summary['eligible_markets'])
         self.assertEqual(old.iloc[0].market, 'Under 3.5')
-
-    def test_v13_experiments_and_archive_reports_still_replay(self):
-        from conservative_bet_filter import PREVIOUS_BALANCED_SELECTION_POLICY_VERSION
-        from unittest.mock import patch
-        with patch(__name__+'.PROBABILITY_SELECTION_POLICY_VERSION', PREVIOUS_BALANCED_SELECTION_POLICY_VERSION):
-            ProbabilityShortlistTests('test_new_experiments_capture_replay_and_reporting_include_control_without_ev_gate').test_new_experiments_capture_replay_and_reporting_include_control_without_ev_gate()
 
     def test_both_probability_and_ev_contribute_to_the_score(self):
         rows = [only_over_goal(i) for i in range(4)]
@@ -405,10 +302,3 @@ class BalancedShortlistTests(OfflineQuotePolicyTestCase):
         self.assertTrue(filtered.empty)
         # Experimental EV gates must not change the underlying score population.
         self.assertEqual(decisions.selection_score.tolist(), other.selection_score.tolist())
-
-    def test_balanced_experiments_and_archive_reports_replay(self):
-        from unittest.mock import patch
-        # Exercise the same capture/grading/report checks under the new policy.
-        with patch(__name__+'.PROBABILITY_SELECTION_POLICY_VERSION', BALANCED_SELECTION_POLICY_VERSION):
-            ProbabilityShortlistTests('test_new_experiments_capture_replay_and_reporting_include_control_without_ev_gate').test_new_experiments_capture_replay_and_reporting_include_control_without_ev_gate()
-

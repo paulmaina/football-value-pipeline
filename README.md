@@ -279,9 +279,9 @@ never scheduled: `ah_close_backtest.py`, `price_edge_backtest.py`,
 reviewed: goal blend, market-led, recency, model reliability, shortlist weight,
 shortlist policy, filter sensitivity and the legacy model comparison. The
 benchmark-forward and totals-anchor trials followed on 2026-11-03. Their code
-is in `archive/`, importable for replay; their last reports under
-`football_output_v2/performance/` are frozen and marked ARCHIVED. Archived
-snapshots still load and verify.
+(`archive/`), their last reports under `football_output_v2/performance/` and the
+files they captured in archived snapshots were removed on 2026-11-25; all of it is
+in git history. Archived snapshots still load and verify.
 
 ## History
 

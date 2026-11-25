@@ -128,7 +128,6 @@ def model_component_hashes():
         'dc_decay_validation.py', 'market_blend_validation.py',
         'bbs_statistics_model.py', 'bbs_integration.py', 'bbs_data.py',
         'shot_features.py', 'historical_benchmark.py', 'bet365_pinnacle.py',
-        'forward_trial_basis.py',
         'api_football_data.py', 'api_football_integration.py',
         'match_scores.py', 'ucl_training.py', 'api_key_config.py', 'refresh_training_data.py',
         'league_registry.py',
@@ -199,14 +198,10 @@ def write_report(root, metrics, clock):
     quote = data['quote_audit']
     lines += ['', 'Latest shortlist audit: '+json.dumps(quote, ensure_ascii=False)+'.', '',
         'Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.', '',
-        'No forward model trials are generated or captured. The benchmark-forward and totals-anchor trials are archived '
-        '(archive/); their frozen reports stay readable.']
+        'No forward model trials are generated or captured. The retired trials, their code and their reports were '
+        'removed on 25 Nov 2026; they are in git history.']
     lines += ['', 'Dependency versions at review: '+json.dumps(data['dependencies'])+'. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.', '',
         'Closing odds: [report](closing_odds/report.md). Latest-selection comparison aligned with headline ROI, with a separate first-entry reference; official close and accepted execution are unverified.', '',
-        'Filter sensitivity: [report](filter_sensitivity_experiment/report.md). Frozen 1.5%, 3% and 5% adjusted EV policies; production unchanged.', '',
-        'Shortlist probability/EV weights: [report](shortlist_weight_experiment/report.md). Four frozen weightings; production stays 50/50.', '',
-        'Probability/calibration policies: [report](shortlist_policy_experiment/report.md). Fixed one-factor cutoffs and development-only penalty strengths; production unchanged.', '',
-        'Recency comparisons: [report](recency_experiment/report.md). Raw goal probabilities, chronological selection/audit and paired forward scores; no automatic promotion.', '',
         'Daily observations: [health_history.json](health_history.json). Frozen forecast health: [pipeline_health.json](pipeline_health.json).', '',
         'Policy and gameweek results above show sample counts, ROI and calibration. Compare experiments on paired settled forecasts; small samples and changing cohorts cannot establish improvement. Historical missing experimental data is not backfilled.', '']
     path = output/'README.md'
