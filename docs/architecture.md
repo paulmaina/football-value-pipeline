@@ -9,7 +9,7 @@ How the modules fit together and where staking and Elo sit.
 | Configuration | `api_key_config.py`, `quote_policy.py`, `shortlist_quote_policy.json`, `LEAGUES` in the main pipeline | Credentials, league identities, quote rules |
 | Data providers | `TheOddsAPI`, `FootballDataUK`, `FootballDataOrg` (main pipeline); `bbs_data.py`, `api_football_data.py`, `europa_training.py`, `ucl_training.py`, `refresh_training_data.py` | Fetch and cache fixtures, odds and results |
 | Training inputs | `bbs_integration.py`, `api_football_integration.py`, `match_scores.py` | Merge histories; regulation-time scores |
-| Goal model | `DixonColesModel` (main pipeline), `score_probability.py`, `bbs_statistics_model.py`, `dc_decay_validation.py` | Dixon-Coles fit, bounded score grid, gated statistics features, half-life tuning |
+| Goal model | `DixonColesModel` (main pipeline), `score_probability.py`, `shot_features.py`, `dc_decay_validation.py` | Dixon-Coles fit, bounded score grid, gated shot features, half-life tuning (BBS statistics retired 25 Nov 2026) |
 | Ratings | `elo_ratings.py` | Venue-aware Elo, informational fixture columns |
 | Markets | `market_snapshot`, `devig`, `reweight_matrix_to_1x2` (main pipeline); `asian_handicap.py`, `double_chance.py` | De-vigging, market blend, settlement, exact prices |
 | Validation | `goal_market_validation.py`, `market_blend_validation.py`, `backtest_league` (main pipeline), `historical_benchmark.py` | Chronological development/audit splits, calibration penalties |
@@ -27,8 +27,8 @@ main()                                    prediction_runs.stage_run (lock + stag
      ├─ per league
      │   ├─ dc_decay_validation.tune_half_life          (--tune-half-life, or legacy companion; not scheduled)
      │   ├─ FootballValuePipelineV2.run_league
-     │   │   ├─ _history_for_league  -> bbs/api-football augmentation
-     │   │   ├─ DixonColesModel.fit  -> bbs_statistics_model (gated)
+     │   │   ├─ _history_for_league  -> bbs/api-football results augmentation
+     │   │   ├─ DixonColesModel.fit  -> shot_features (gated)
      │   │   ├─ elo_ratings.fit_history                  informational columns
      │   │   ├─ _current_fixtures / _attach_live_odds    (The Odds API ...)
      │   │   └─ _predict_row: score_grid -> 50/50 market reweight -> markets
