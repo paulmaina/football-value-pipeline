@@ -1,7 +1,8 @@
-"""Join collected BBS observations to existing cached history without duplicate games.
+"""Join collected BBS match results to existing cached history without duplicate games.
 
-Exports enriched rows and timestamped lagged-form inputs; never changes legacy caches
-or invokes the production fitter. Every BBS field has an observation timestamp.
+Exports enriched rows; never changes legacy caches or invokes the production fitter.
+Every BBS field has an observation timestamp. The match-statistics adjustment and its
+statistics, standings, player and coverage collections were retired on 25 Nov 2026.
 """
 from __future__ import annotations
 
@@ -12,7 +13,7 @@ from collections import Counter, defaultdict
 from datetime import datetime
 from pathlib import Path
 
-from bbs_data import LEAGUES, STAT_FIELDS, dumps, utc
+from bbs_data import LEAGUES, dumps, utc
 from match_scores import regulation_goals
 
 import league_registry
@@ -21,8 +22,6 @@ import league_registry
 DIVISIONS = {div: key for key, div in league_registry.divisions().items() if key in LEAGUES}
 # Holds the one committed combined generation; legacy timestamped copies stay readable.
 GENERATIONS = 'generations'
-CSV_STATS = {'total_shots': 'S', 'shots_on_target': 'ST', 'corner_kicks': 'C',
-             'fouls': 'F', 'yellow_cards': 'Y', 'red_cards': 'R'}
 
 
 def read_existing(cache_dir):
@@ -97,7 +96,6 @@ def build_dataset(store, baseline, cutoff, explicit=None):
             active_quarantine.append(q)
     held = {(q['league'], q['entity']) for q in active_quarantine}
     matches = [m for m in matches if (m['league'],m['entity']) not in held]
-    stats = {(x['league'], x['entity']): x for x in store.latest('statistics', cutoff.isoformat())}
     names = defaultdict(set)
     base_index = defaultdict(list)
     pair_index = defaultdict(list)
@@ -107,10 +105,7 @@ def build_dataset(store, baseline, cutoff, explicit=None):
             continue
         row = dict(original)
         row['bbs_match_id'] = None
-        row['bbs_statistics_available'] = False
-        row['bbs_statistics_feature_eligible'] = False
         row['integration_status'] = 'existing_only'
-        row['post_match_statistics_not_predictor_features'] = True
         index = len(result)
         result.append(row)
         league = row['league']
@@ -129,15 +124,10 @@ def build_dataset(store, baseline, cutoff, explicit=None):
         for side in ('home', 'away'):
             team = item['payload'][side]
             provider_names[(item['league'], str(team['id']))].add(team['name'])
-    # Team and standings surfaces can use different IDs for one reviewed club.
+    # The team surface can use a different ID for one reviewed club.
     for item in store.latest('team', cutoff.isoformat()):
         if item['league'] in LEAGUES and item['payload'].get('name'):
             provider_names[(item['league'], item['entity'])].add(item['payload']['name'])
-    for item in store.latest('standings', cutoff.isoformat()):
-        for group in item['payload']['data']['standings']:
-            for team in group['rows']:
-                if team.get('team_id') and team.get('team_name'):
-                    provider_names[(item['league'], str(team['team_id']))].add(team['team_name'])
     for (league, entity), aliases in provider_names.items():
         configured = explicit.get(league, {}).get(entity)
         candidates = {n for alias in aliases for n in names.get((league, canonical_team_key(
@@ -228,51 +218,18 @@ def build_dataset(store, baseline, cutoff, explicit=None):
                 'FTHG': m['score']['home'], 'FTAG': m['score']['away'],
                 'Season': str(m['requested_season']), 'history_source': 'bigballsdata',
                 'bbs_match_id': item['entity'], 'bbs_match_observed_at': item['observed'],
-                'bbs_source_updated_at': m.get('source_updated_at'), 'integration_status': 'added',
-                'bbs_statistics_available': False, 'bbs_statistics_feature_eligible': False,
-                'post_match_statistics_not_predictor_features': True}
+                'bbs_source_updated_at': m.get('source_updated_at'), 'integration_status': 'added'}
             result.append(row)
             fixture['join_status'] = 'added'
         row['bbs_home_team_id'] = str(m['home']['id'])
         row['bbs_away_team_id'] = str(m['away']['id'])
         row['bbs_kickoff_utc'] = m['kickoff_utc']
-        observation = stats.get((league, item['entity']))
-        if not observation:
-            continue
-        values = observation['payload']
-        if values.get('team_ids') != {s: str(m[s]['id']) for s in ('home', 'away')}:
-            issues.append({'type': 'statistics_identity_conflict', 'bbs_match_id': item['entity']})
-            continue
-        row['bbs_statistics_observed_at'] = observation['observed']
-        row['bbs_statistics_available'] = values['available']
-        row['bbs_statistics_feature_eligible'] = values['available'] and all(values.get(side) is not None for side in ('home','away'))
-        for side, prefix in [('home', 'H'), ('away', 'A')]:
-            row[f'bbs_{side}_identity_resolution'] = values.get('identity_resolution', {}).get(side, 'provider_id')
-            row[f'bbs_{side}_provider_team_id'] = values.get('provider_team_ids', {}).get(side, values['team_ids'][side])
-            for field in STAT_FIELDS:
-                value = (values.get(side) or {}).get(field)
-                row[f'bbs_{side}_{field}'] = value
-                # Preserve the original feed's columns. Disagreements are visible,
-                # not averaged or silently substituted in legacy model inputs.
-                source_col = prefix + CSV_STATS[field] if field in CSV_STATS else None
-                if source_col and row.get(source_col) not in (None, '') and value is not None:
-                    try:
-                        differs = float(row[source_col]) != value
-                    except (TypeError, ValueError):
-                        differs = True
-                    if differs:
-                        issues.append({'type': 'statistic_conflict', 'bbs_match_id': item['entity'],
-                            'field': source_col, 'existing': row[source_col], 'bbs': value})
     for row in result:
-        disputed = [i['field'] for i in issues if i['type']=='statistic_conflict' and i.get('bbs_match_id')==row.get('bbs_match_id')]
-        row['bbs_disputed_fields'] = '|'.join(sorted(set(disputed)))
-        if disputed:
-            row['bbs_statistics_feature_eligible'] = False
         row['bbs_conflict_flags'] = '|'.join(sorted({i['type'] for i in issues
             if row.get('bbs_match_id') and i.get('bbs_match_id') == row['bbs_match_id']}))
     result.sort(key=lambda r: (r['league'], r['Date'], r['HomeTeam'], r['AwayTeam']))
     freshness = {}
-    for kind in ('match', 'statistics', 'standings', 'team', 'player'):
+    for kind in ('match', 'team'):
         observations = store.latest(kind, cutoff.isoformat())
         freshness[kind] = {}
         for league in LEAGUES:
@@ -283,36 +240,6 @@ def build_dataset(store, baseline, cutoff, explicit=None):
                 'oldest_observation_age_hours': max(ages) if ages else None,
                 'newest_observation_age_hours': min(ages) if ages else None,
             }
-    standings_checks = []
-    for item in store.latest('standings', cutoff.isoformat()):
-        league = item['league']
-        year = int(item['entity'])
-        totals = defaultdict(lambda: Counter(games_played=0, wins=0, losses=0, ties=0, points_for=0, points_against=0))
-        for row in result:
-            if row['league'] != league or season_year(row['Season']) != year:
-                continue
-            for side, hg, ag in [('HomeTeam', row['FTHG'], row['FTAG']), ('AwayTeam', row['FTAG'], row['FTHG'])]:
-                t = totals[canonical_team_key(row[side])]
-                t.update(games_played=1, wins=int(hg > ag), losses=int(hg < ag), ties=int(hg == ag), points_for=hg, points_against=ag)
-        compared, unmapped, differences = 0, [], []
-        for group in item['payload']['data']['standings']:
-            for team in group['rows']:
-                identity = mappings.get((league, str(team.get('team_id'))))
-                if not identity:
-                    unmapped.append(team.get('team_name'))
-                    continue
-                total = totals.get(canonical_team_key(identity['name']))
-                if not total:
-                    continue
-                compared += 1
-                for field, expected in total.items():
-                    if team.get(field) is not None and team[field] != expected:
-                        differences.append({'team': identity['name'], 'field': field, 'history': expected, 'standings': team[field]})
-        updated = [utc(t['updated_at']) for g in item['payload']['data']['standings'] for t in g['rows'] if t.get('updated_at')]
-        latest_kickoff = max((utc(x['payload']['kickoff_utc']) for x in matches if x['league']==league and x['payload']['status']=='finished'),default=None)
-        timing_skew = bool(differences and updated and latest_kickoff and latest_kickoff > min(updated))
-        standings_checks.append(dict(source_updated_at=min(updated).isoformat() if updated else None,
-            possible_timing_skew=timing_skew, observed_at=item['observed'], league=league, season=year, compared_teams=compared, unmapped_teams=unmapped, differences=differences))
     training_coverage = []
     for league in LEAGUES:
         seasons = {int(x['payload']['requested_season']) for x in matches if x['league'] == league}
@@ -323,32 +250,22 @@ def build_dataset(store, baseline, cutoff, explicit=None):
             observed = sum(x['league'] == league and int(x['payload']['requested_season']) == year and x['payload']['status'] == 'finished' for x in matches)
             training_coverage.append(dict(league=league, season=year, baseline_matches=len(baseline_rows),
                 bbs_finished_matches=observed, matched_results=matched,
-                existing_results_without_bbs_confirmation=len(baseline_rows)-matched,
-                rows_with_statistics=sum(r['bbs_statistics_available'] for r in rows)))
-    field_coverage = {}
-    for league in LEAGUES:
-        rows = [r for r in result if r['league'] == league]
-        field_coverage[league] = {field: sum(r.get(f'bbs_{side}_{field}') is not None for r in rows for side in ('home', 'away'))
-                                  for field in STAT_FIELDS}
+                existing_results_without_bbs_confirmation=len(baseline_rows)-matched))
     report = {'quarantined_records': [dict(league=q['league'], bbs_match_id=q['entity'], reason=q['payload']['reason']) for q in active_quarantine],
-        'statistic_reconciliation': [dict(i, status='unresolved_provider_disagreement', policy='retain_primary_exclude_disputed_bbs') for i in issues if i['type']=='statistic_conflict'],
-        'training_coverage': training_coverage, 'standings_checks': standings_checks, 'statistic_populated_team_sides': field_coverage,
-        'data_quality_status': 'partial' if active_quarantine or issues or any(x['differences'] or x['unmapped_teams'] for x in standings_checks) or any(x['existing_results_without_bbs_confirmation'] for x in training_coverage) else 'verified_joins',
+        'training_coverage': training_coverage,
+        'data_quality_status': 'partial' if active_quarantine or issues or any(x['existing_results_without_bbs_confirmation'] for x in training_coverage) else 'verified_joins',
         'observation_freshness': freshness, 'cutoff_utc': cutoff.isoformat(), 'rows': len(result), 'bbs_matches': len(matches),
         'join_counts': dict(Counter(r['join_status'] for r in fixtures)),
-        'rows_with_bbs_statistics': sum(bool(r['bbs_statistics_available']) for r in result),
         'issues': issues, 'baseline_history_is_current_revision_not_point_in_time': True,
-        'note': 'Observation cutoff applies to BBS only. Same-match statistics are outcomes, never pre-match features.'}
+        'note': 'Observation cutoff applies to BBS only.'}
     return {'matches': result, 'fixtures': fixtures, 'team_mappings': [
         {'league': l, 'bbs_team_id': i, **v} for (l, i), v in sorted(mappings.items())],
-        'standings': store.latest('standings', cutoff.isoformat()),
-        'teams': store.latest('team', cutoff.isoformat()), 'players': store.latest('player', cutoff.isoformat()),
-        'report': report}
+        'teams': store.latest('team', cutoff.isoformat()), 'report': report}
 
 
 def _dataset_files(dataset):
     files = {}
-    for key in ('fixtures', 'standings', 'teams', 'players', 'team_mappings', 'report'):
+    for key in ('fixtures', 'teams', 'team_mappings', 'report'):
         files[key + '.json'] = (dumps(dataset[key]) + '\n').encode()
     for league in LEAGUES:
         rows = [r for r in dataset['matches'] if r['league'] == league]
@@ -474,7 +391,6 @@ def combined_training_history(baseline, cache_dir, league, now, seasons_back):
     """Reconcile the shared CSV against freshly loaded primary history.
 
     Never substitute an old exported primary score for a newer primary revision.
-    Raw same-match statistics stay separate; the gated fitter uses lagged form.
     """
     import pandas as pd
     from football_value_pipeline_v2_standalone import canonical_team_key, current_season_start_year
@@ -512,32 +428,10 @@ def combined_training_history(baseline, cache_dir, league, now, seasons_back):
             metadata = {k: v for k, v in row.items() if k.startswith('bbs_')}
             metadata['integration_status'] = row['integration_status']
             if (int(row['FTHG']), int(row['FTAG'])) != (int(existing['FTHG']), int(existing['FTAG'])):
-                metadata = {k: v for k, v in metadata.items() if k not in
-                    {f'bbs_{side}_{field}' for side in ('home', 'away') for field in STAT_FIELDS}}
-                metadata.update(integration_status='conflict', bbs_statistics_available=False, bbs_statistics_feature_eligible=False)
+                metadata['integration_status'] = 'conflict'
                 flags = set(filter(None, str(metadata.get('bbs_conflict_flags', '')).split('|')))
                 flags.add('result_or_status_conflict')
                 metadata['bbs_conflict_flags'] = '|'.join(sorted(flags))
-            disputed = set(filter(None, str(metadata.get('bbs_disputed_fields', '')).split('|')))
-            for side, prefix in [('home', 'H'), ('away', 'A')]:
-                for field, suffix in CSV_STATS.items():
-                    source = existing.get(prefix + suffix)
-                    value = metadata.get(f'bbs_{side}_{field}')
-                    # NaN in a primary DataFrame means missing, never a disagreement.
-                    if source is None or pd.isna(source) or source == '' or value in (None, ''):
-                        continue
-                    try:
-                        differs = float(source) != float(value)
-                    except (TypeError, ValueError):
-                        differs = True
-                    if differs:
-                        disputed.add(prefix + suffix)
-            if disputed:
-                metadata['bbs_disputed_fields'] = '|'.join(sorted(disputed))
-                flags = set(filter(None, str(metadata.get('bbs_conflict_flags', '')).split('|')))
-                flags.add('statistic_conflict')
-                metadata['bbs_conflict_flags'] = '|'.join(sorted(flags))
-                metadata['bbs_statistics_feature_eligible'] = False
             existing.update(metadata)
         elif row['integration_status'] == 'added' and league != 'UCL':
             if (year, *key[1:]) in pairs:
@@ -559,112 +453,20 @@ def combined_training_history(baseline, cache_dir, league, now, seasons_back):
     for col in baseline.select_dtypes(include='number').columns:
         if col in result:
             result[col] = pd.to_numeric(result[col], errors='coerce')
-    for side in ('home', 'away'):
-        for field in STAT_FIELDS:
-            col = f'bbs_{side}_{field}'
-            if col in result:
-                result[col] = pd.to_numeric(result[col], errors='coerce')
-    for col in ('bbs_statistics_available','bbs_statistics_feature_eligible'):
-        if col in result:
-            result[col] = result[col].map(lambda value: value is True or value == 'True')
     result = result.sort_values('Date').reset_index(drop=True)
-    try:
-        result.attrs['bbs_statistics_observations'] = feature_observations(result, cache_dir, league)
-    except (ValueError, OSError, KeyError, TypeError) as exc:
-        # Optional feature provenance must not invalidate already verified score
-        # history. Expose the failure and keep the original probability model.
-        result.attrs['bbs_statistics_observations'] = []
-        result.attrs['bbs_statistics_source_error'] = type(exc).__name__
     return result
-
-
-def feature_observations(history, cache_dir, league):
-    """Bind immutable statistics revisions to verified training identities.
-
-    Unavailable/corrected responses remain tombstones, preventing reuse of an
-    older valid response after a newer unavailable one. CSV-only installations
-    can use the latest exported revision without inventing older availability.
-    """
-    import pandas as pd
-    from bbs_data import decode
-    matched = {}
-    for row in history.to_dict('records'):
-        entity = row.get('bbs_match_id')
-        if isinstance(entity, str) and entity.strip():
-            matched[entity] = row
-    if not matched:
-        return []
-    observations = []
-
-    def bind(entity, observed, values):
-        row = matched[entity]
-        expected = {s: str(row.get(f'bbs_{s}_team_id', '')) for s in ('home', 'away')}
-        flags = str(row.get('bbs_conflict_flags', '') or '')
-        available = (values.get('available') is True and values.get('team_ids') == expected
-            and all(v.strip() and v not in ('nan', 'None') for v in expected.values())
-            and row.get('integration_status') in ('matched', 'added')
-            and not any(f in flags for f in ('statistic_conflict', 'identity_conflict', 'result_or_status_conflict'))
-            and all(isinstance(values.get(s), dict) and any(v is not None for v in values[s].values())
-                    for s in ('home', 'away')))
-        # Reconcile EACH saved revision against the authoritative primary fields.
-        for side, prefix in [('home', 'H'), ('away', 'A')]:
-            for field, suffix in CSV_STATS.items():
-                primary = row.get(prefix+suffix)
-                value = (values.get(side) or {}).get(field)
-                if primary is not None and not pd.isna(primary) and primary != '' and value is not None:
-                    try:
-                        if float(primary) != float(value): available = False
-                    except (ValueError, TypeError):
-                        available = False
-        return {'match_id': league+':'+entity, 'home_team': row['HomeTeam'], 'away_team': row['AwayTeam'],
-                'kickoff_utc': utc(row['bbs_kickoff_utc']).isoformat(),
-                'observed_at_utc': utc(observed).isoformat(), 'available': available,
-                'home': values.get('home') if available else None,
-                'away': values.get('away') if available else None}
-
-    for path in sorted((Path(cache_dir)/'bbs/state/observations/statistics').glob('*.json')):
-        item = decode(path.read_text(encoding='utf-8'))
-        if item.get('league') == league and item.get('entity') in matched:
-            observations.append(bind(item['entity'], item['observed'], item['payload']))
-    for path in sorted((Path(cache_dir)/'bbs/state/observations/statistics_quarantine').glob('*.json')):
-        item = decode(path.read_text(encoding='utf-8'))
-        if item.get('league') == league and item.get('entity') in matched:
-            observations.append(bind(item['entity'], item['observed'], {'available': False}))
-    for entity, row in matched.items():
-        # The export may be newer than a locally incomplete observation directory.
-        observed = row.get('bbs_statistics_observed_at')
-        if not isinstance(observed, str) or not observed.strip():
-            continue
-        values = {'available': row.get('bbs_statistics_available') is True or row.get('bbs_statistics_available') == 'True',
-            'team_ids': {s: str(row.get(f'bbs_{s}_team_id', '')) for s in ('home', 'away')}}
-        for side in ('home', 'away'):
-            values[side] = {field: None if pd.isna(row.get(f'bbs_{side}_{field}')) else row.get(f'bbs_{side}_{field}')
-                            for field in STAT_FIELDS}
-        exported = bind(entity, observed, values)
-        if not any(x['match_id'] == exported['match_id'] and utc(x['observed_at_utc']) >= utc(observed)
-                   for x in observations):
-            observations.append(exported)
-    held = {(x['match_id'], x['observed_at_utc']) for x in observations if not x['available']}
-    return sorted((x for x in observations if not x['available'] or
-                   (x['match_id'], x['observed_at_utc']) not in held),
-                  key=lambda x: (x['observed_at_utc'], x['match_id']))
 
 
 def training_provenance(history):
     """Report the BBS contribution actually present in the fitted input frame."""
     import pandas as pd
-    def count_true(column):
-        return int(history.get(column, pd.Series(dtype=object)).map(
-            lambda x: x is True or x == 'True').sum())
     ids = history.get('bbs_match_id', pd.Series(dtype=object))
     confirmed = ids.notna() & ids.astype(str).str.strip().ne('')
     statuses = history.get('integration_status', pd.Series(dtype=object))
     result = {'bbs_confirmed_rows': int((confirmed & statuses.isin(['matched', 'added'])).sum()),
             'bbs_added_results': int(statuses.eq('added').sum()),
             'bbs_result_conflicts': int(statuses.eq('conflict').sum()),
-            'bbs_rows_with_statistics': count_true('bbs_statistics_available'),
-            'bbs_statistics_used_as_predictor_features': False,
-            'note': 'Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass.'}
+            'note': 'Confirmed rows retain primary results; BBS-only verified additions extend score history.'}
     if 'api_football' in history.attrs:
         result['api_football'] = history.attrs['api_football']
     return result

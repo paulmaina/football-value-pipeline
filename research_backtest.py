@@ -264,7 +264,7 @@ def historical(cache, cfg, source_commit, model_class=None):
                 coverage[league+':insufficient_training'] += len(test)
                 continue
             model = model_class(half_life_days=profile['half_life_days'], l2=cfg['baseline_l2'],
-                max_goals=cfg['max_goals'], shot_features=profile['shot_features'], bbs_statistics=False).fit(train, as_of=origin)
+                max_goals=cfg['max_goals'], shot_features=profile['shot_features']).fit(train, as_of=origin)
             folds.append({'league': league, 'origin': origin.isoformat(), 'end_exclusive': stop.isoformat(),
                 'training_end': train.Date.max().isoformat(), 'training_matches': len(train),
                 'training_sha256': hashlib.sha256(train.to_csv(index=False).encode()).hexdigest()})

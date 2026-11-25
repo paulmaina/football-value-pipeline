@@ -224,7 +224,7 @@ class CEIndependenceTest(unittest.TestCase):
         profile = CFG['production_v2']
         train = data[data.Date < origin]
         model = DixonColesModel(half_life_days=profile['half_life_days'], l2=CFG['baseline_l2'], max_goals=CFG['max_goals'],
-                                shot_features=profile['shot_features'], bbs_statistics=False).fit(train.copy(), as_of=origin)
+                                shot_features=profile['shot_features']).fit(train.copy(), as_of=origin)
         return train, model
 
     def test_ce_ignores_every_odds_field(self):

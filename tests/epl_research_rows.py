@@ -34,8 +34,7 @@ def research_row(league, date, goal_rates, hg, ag, scored=True, phase='developme
 
 def fit(train, origin):
     from football_value_pipeline_v2_standalone import DixonColesModel
-    return DixonColesModel(half_life_days=480., l2=.08, max_goals=10, shot_features=True,
-                           bbs_statistics=False).fit(train.copy(), as_of=origin)
+    return DixonColesModel(half_life_days=480., l2=.08, max_goals=10, shot_features=True).fit(train.copy(), as_of=origin)
 
 
 @lru_cache(maxsize=None)

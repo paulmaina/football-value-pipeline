@@ -121,24 +121,18 @@ class FeatureExclusionTests(OfflineQuotePolicyTestCase):
                 return np.asarray(base), {self.tag+'_applied': False}
             return np.asarray(base)*1.1, {self.tag+'_applied': True}
 
-    def model(self, bbs, shots):
+    def model(self, shots):
         m = toy_model()
-        m.statistics_model = self.Stub(bbs, 'bbs_statistics')
         m.shot_features_enabled = True; m.shot_model = self.Stub(shots, 'shot_features')
         m.shot_features_report = {'status': 'VALIDATED'}
         return m
 
-    def test_bbs_and_shots_never_stack_and_the_source_is_logged(self):
-        self.assertFalse(fvp.SHOTS_WITH_BBS_VALIDATED)
-        both = self.model(True, True).expected_goals('A', 'B')
-        self.assertTrue(both['bbs_statistics_applied'])
-        self.assertFalse(both.get('shot_features_applied'))
-        self.assertEqual(both['shot_features_status'], 'SKIPPED_BBS_STATISTICS_APPLIED')
-        self.assertEqual(both['goal_rate_features_used'], 'bbs_statistics')
-        self.assertAlmostEqual(both['lambda_home'], both['dc_lambda_home']*1.1, places=12)
-        shots = self.model(False, True).expected_goals('A', 'B')
+    def test_shot_adjustment_and_its_source_are_logged(self):
+        shots = self.model(True).expected_goals('A', 'B')
         self.assertEqual(shots['goal_rate_features_used'], 'shot_features')
-        self.assertEqual(self.model(False, False).expected_goals('A', 'B')['goal_rate_features_used'], 'none')
+        self.assertAlmostEqual(shots['lambda_home'], shots['dc_lambda_home']*1.1, places=12)
+        self.assertFalse(any(k.startswith('bbs_') for k in shots))
+        self.assertEqual(self.model(False).expected_goals('A', 'B')['goal_rate_features_used'], 'none')
 
 
 class ValidationCacheTests(OfflineQuotePolicyTestCase):

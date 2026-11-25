@@ -37,8 +37,6 @@ def current_health(root, clock, *, raw_dir=None):
             'training_end': end, 'training_matches': data.get('training_matches'),
             'days_since_latest_result': (clock.date()-datetime.fromisoformat(end).date()).days if end else None,
             'forecast_training_health': data.get('training_data_health', {'status': 'LEGACY_NOT_RECORDED'}),
-            'bbs_statistics_model': data.get('bbs_statistics_model', {'status': 'LEGACY_NOT_RECORDED'}),
-            'bbs_statistics_model_artifact': data.get('bbs_statistics_model_artifact'),
             'api_football': data.get('training_data_provenance', {}).get('api_football', {'status': 'NOT_COLLECTED'}),
             'diagnostics_sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
             'odds_provider_health': data.get('odds_provider_health', {'state': 'NOT_RECORDED'})}
@@ -126,7 +124,7 @@ def model_component_hashes():
         'double_chance.py', 'asian_handicap.py', 'win_first_shortlist.py', 'per_market_shortlist.py', 'corners_cards_shortlist.py', 'no_loss_corners_shortlist.py', 'count_markets.py', 'quote_freshness.py', 'quote_policy.py',
         'conservative_bet_filter.py', 'goal_market_validation.py',
         'dc_decay_validation.py', 'market_blend_validation.py',
-        'bbs_statistics_model.py', 'bbs_integration.py', 'bbs_data.py',
+        'bbs_integration.py', 'bbs_data.py',
         'shot_features.py', 'historical_benchmark.py', 'bet365_pinnacle.py',
         'api_football_data.py', 'api_football_integration.py',
         'match_scores.py', 'ucl_training.py', 'api_key_config.py', 'refresh_training_data.py',

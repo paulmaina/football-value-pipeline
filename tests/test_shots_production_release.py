@@ -26,7 +26,7 @@ class ShotsReleaseTests(OfflineQuotePolicyTestCase):
         cfg=json.loads(Path('historical_benchmark_config.json').read_text())['model_upgrade_comparison']['production_v2']
         self.assertEqual(cfg['model_version'],MODEL_VERSION)
         self.assertTrue(cfg['shot_features'])
-        self.assertEqual(cfg['feature_rule'],'bbs_priority_mutually_exclusive_shots')
+        self.assertEqual(cfg['feature_rule'],'shot_features_only')
 
     def test_optional_history_failure_does_not_abort_offline_ucl_validation(self):
         from football_value_pipeline_v2_standalone import main, LEAGUES

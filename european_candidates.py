@@ -204,8 +204,7 @@ def league_strengths(league, frame, requests, cfg):
             continue
         try:
             model = DixonColesModel(half_life_days=profile['half_life_days'], l2=cfg['baseline_l2'],
-                                    max_goals=cfg['max_goals'], shot_features=profile['shot_features'],
-                                    bbs_statistics=False).fit(train.copy(), as_of=origin)
+                                    max_goals=cfg['max_goals'], shot_features=profile['shot_features']).fit(train.copy(), as_of=origin)
         except (RuntimeError, ValueError):
             continue
         for team in teams:

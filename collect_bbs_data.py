@@ -1,4 +1,4 @@
-"""Collect Big Balls Free data and produce integrated, provenance-preserving history."""
+"""Collect Big Balls Free match results and produce integrated, provenance-preserving history."""
 from __future__ import annotations
 
 import argparse
@@ -19,7 +19,6 @@ def main(argv=None):
     parser.add_argument('--seasons', nargs='+', type=int, help='Explicit season start years; default current season')
     parser.add_argument('--daily-budget', type=int, help='Optional local ceiling; default uses provider allowance')
     parser.add_argument('--max-requests', type=int, help='Optional local ceiling; default has no per-run cap')
-    parser.add_argument('--stats-limit', type=int, help='Optional statistics cap; default processes all due candidates')
     parser.add_argument('--store', type=Path, default=Path('.football_cache/bbs/state'))
     parser.add_argument('--existing-cache', type=Path, default=Path('.football_cache'))
     parser.add_argument('--output', type=Path, default=Path('.football_cache/bbs/combined'))
@@ -29,8 +28,6 @@ def main(argv=None):
     args = parser.parse_args(argv)
     if args.as_of and not args.offline:
         parser.error('--as-of requires --offline')
-    if args.stats_limit is not None and args.stats_limit < 0:
-        parser.error('--stats-limit cannot be negative')
     now = datetime.now(timezone.utc)
     current = now.year if now.month >= 7 else now.year - 1
     seasons = args.seasons or [current]
@@ -58,7 +55,7 @@ def main(argv=None):
         if not args.offline:
             load_api_keys(args.api_key_source)
             client = Client(store, os.getenv('BBS_API_KEY', ''), args.daily_budget, args.max_requests)
-            report = collect(client, args.leagues, seasons, args.stats_limit)
+            report = collect(client, args.leagues, seasons)
         cutoff = args.as_of or datetime.now(timezone.utc).isoformat()
         dataset = build_dataset(store, baseline, cutoff, explicit)
         dataset['report']['collection'] = report

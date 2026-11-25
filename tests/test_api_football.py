@@ -1,5 +1,4 @@
 """Free-plan accounting, source reconciliation and observed-before-origin gates."""
-import copy
 from datetime import datetime, timedelta, timezone
 import json
 from pathlib import Path
@@ -12,7 +11,6 @@ import pandas as pd
 
 import api_football_data as api
 from api_football_integration import augment_history, records, supplement_fixtures, latest
-from bbs_statistics_model import FormIndex
 from bbs_data import Store, Deferred, FetchError, atomic_json
 
 NOW = datetime(2026, 10, 20, 6, tzinfo=timezone.utc)
@@ -333,7 +331,7 @@ class ApiFootballTests(unittest.TestCase):
         result = augment_history(corrected, self.cache, 'EPL', NOW, 6)
         self.assertEqual(result.attrs['api_football']['conflicts'], 1)
         self.assertEqual(result.loc[result.HomeTeam.eq('Arsenal'), 'FTHG'].iloc[0], 3)
-        self.assertEqual(len(result.attrs['bbs_statistics_observations']), 1)
+        self.assertNotIn('bbs_statistics_observations', result.attrs)  # statistics are no longer bound
         self.assertIs(augment_history(corrected, self.cache, 'EPL', NOW-timedelta(days=1), 6), corrected)
 
     def test_unmapped_teams_duplicates_date_conflicts_and_tamper_are_held(self):
@@ -351,30 +349,11 @@ class ApiFootballTests(unittest.TestCase):
         self.assertEqual(result.attrs['api_football']['status'], 'BASELINE_RETAINED_SOURCE_ERROR')
         self.assertEqual(len(result), len(baseline()))
 
-    def test_newer_quarantine_blocks_prior_match_and_stats_are_reconciled_against_primary(self):
+    def test_newer_quarantine_blocks_prior_match(self):
         self.add()
-        primary = baseline(); primary['HST'] = 5
-        data = augment_history(primary, self.cache, 'EPL', NOW, 6)
-        self.assertFalse(data.attrs['bbs_statistics_observations'][0]['available'])
         self.store.put('quarantine', 'EPL', '1', (NOW+timedelta(seconds=1)).isoformat(), {'reason': 'bad'})
         self.assertEqual(records(self.cache, 'EPL', (NOW+timedelta(seconds=2)).isoformat()), [])
         self.assertEqual(len(records(self.cache, 'EPL', NOW.isoformat())), 1)
-
-    def test_form_inputs_count_one_physical_match_and_resolve_each_source_as_of_origin(self):
-        self.add()
-        frame = augment_history(baseline(), self.cache, 'EPL', NOW, 6)
-        extra = frame.attrs['bbs_statistics_observations'][0]
-        bbs = {**extra, 'match_id': 'EPL:bbs-one', 'source': 'bigballsdata'}
-        index = FormIndex([extra, bbs], NOW+timedelta(hours=1))
-        self.assertEqual(index.form('Arsenal', NOW+timedelta(minutes=1))[1], 1)
-        self.assertEqual(index.form('Arsenal', NOW)[1], 0)
-        tombstone = {**bbs, 'observed_at_utc': (NOW+timedelta(minutes=2)).isoformat(),
-                     'available': False, 'home': None, 'away': None}
-        index = FormIndex([bbs, extra, tombstone], NOW+timedelta(hours=1))
-        self.assertEqual(index.form('Arsenal', NOW+timedelta(minutes=3))[1], 1)
-        tombstone2 = {**tombstone, 'match_id': extra['match_id'], 'source': 'api-football'}
-        index = FormIndex([bbs, extra, tombstone, tombstone2], NOW+timedelta(hours=1))
-        self.assertEqual(index.form('Arsenal', NOW+timedelta(minutes=3))[1], 0)
 
     def test_cached_fixtures_fill_gaps_but_not_conflicting_dates_or_stale_schedules(self):
         self.add(match(2, 2, 3, day='2026-10-21T15:00:00Z', status='NS'), statistics=False)
@@ -393,7 +372,7 @@ class ApiFootballTests(unittest.TestCase):
         with patch.object(pipeline.source, 'history', return_value=baseline()), patch.object(api, 'transport', side_effect=AssertionError('no live calls')):
             result = pipeline._history_for_league(LEAGUES['EPL'], NOW)
         self.assertEqual(result.attrs['api_football']['matched_results'], 1)
-        self.assertEqual(len(result.attrs['bbs_statistics_observations']), 1)
+        self.assertNotIn('bbs_statistics_observations', result.attrs)  # statistics are no longer bound
         from bbs_integration import training_provenance
         self.assertEqual(training_provenance(result)['api_football']['source'], 'api-football')
 
@@ -413,43 +392,9 @@ class ApiFootballTests(unittest.TestCase):
             result = pipeline._current_fixtures(LEAGUES['EPL'], NOW)
         self.assertEqual(result.iloc[0]['fixture_source'], 'API-Football cached')
 
-    def test_insufficient_api_statistics_leave_fitted_probabilities_identical(self):
-        from football_value_pipeline_v2_standalone import DixonColesModel
-        from tests.test_model_correctness import history
-        self.add()
-        extra = augment_history(baseline(), self.cache, 'EPL', NOW, 6).attrs['bbs_statistics_observations'][0]
-        extra = {**extra, 'home_team': 'A', 'away_team': 'B'}
-        frame = history(); frame.attrs['bbs_statistics_observations'] = [extra]
-        reference = NOW+timedelta(hours=1)
-        control = DixonColesModel(bbs_statistics=False).fit(frame, as_of=reference)
-        augmented = DixonColesModel().fit(frame, as_of=reference)
-        self.assertEqual(augmented.bbs_statistics_report['input_providers'], ['api-football'])
-        for field in ('lambda_home', 'lambda_away'):
-            self.assertEqual(augmented.expected_goals('A', 'B')[field], control.expected_goals('A', 'B')[field])
-
     def test_conflicting_observation_instants_fail_closed(self):
         row = {'league': 'EPL', 'entity': '1', 'observed': NOW.isoformat(), 'payload': {}}
         with self.assertRaises(ValueError):latest([row, {**row, 'payload': {'different': True}}])
-
-    def test_consistent_statistics_fill_fields_only_after_observation_and_never_double_count(self):
-        self.add()
-        sample = augment_history(baseline(), self.cache, 'EPL', NOW, 6).attrs['bbs_statistics_observations'][0]
-        values = []
-        for i in range(3):
-            extra = copy.deepcopy(sample)
-            extra.update(match_id='api:'+str(i), kickoff_utc=f'2026-10-0{i+5}T15:00:00Z')
-            primary = copy.deepcopy(extra)
-            primary.update(match_id='bbs:'+str(i), source='bigballsdata',
-                           observed_at_utc=(NOW-timedelta(minutes=1)).isoformat())
-            for side in ('home', 'away'):primary[side]['total_shots'] = None
-            values.extend([primary, extra])
-        index = FormIndex(values, NOW+timedelta(hours=1))
-        self.assertFalse(index.form('Arsenal', NOW)[3])
-        after = index.form('Arsenal', NOW+timedelta(minutes=1))
-        self.assertTrue(after[3]); self.assertEqual(after[1], 3)
-        for row in values:
-            if row.get('source') == 'api-football':row['home']['shots_on_target'] = 5
-        self.assertFalse(FormIndex(values, NOW+timedelta(hours=1)).form('Arsenal', NOW+timedelta(minutes=1))[3])
 
     def test_ucl_scope_retains_regulation_scores_but_excludes_qualifiers_and_unknown_phases(self):
         history = baseline(); history['Season'] = '2026'
