@@ -27,6 +27,35 @@ STAT_FIELDS = ('shots_on_target', 'shots_off_target', 'total_shots', 'blocked_sh
  'accurate_passes', 'pass_percentage')
 
 
+# Match fields that change between listings without the match changing: the retrieval time, the provider's
+# per-request metadata, broadcaster and odds flags, and team logo URLs. Nothing downstream reads them.
+VOLATILE_MATCH_FIELDS = ('observed_at_utc', 'source_meta', 'has_odds', 'broadcast')
+VOLATILE_TEAM_FIELDS = ('logo_url',)
+
+
+def match_state(payload):
+    """A normalized match's state: everything except the volatile fields, as canonical JSON.
+
+    A new match observation is stored only when this changes (and once after a quarantine), so the latest
+    observation at any cutoff carries the same state as it would if every listing had been stored.
+    """
+    state = {k: v for k, v in payload.items() if k not in VOLATILE_MATCH_FIELDS}
+    for side in ('home', 'away'):
+        if isinstance(state.get(side), dict):
+            state[side] = {k: v for k, v in state[side].items() if k not in VOLATILE_TEAM_FIELDS}
+    return dumps(state)
+
+
+def match_observation_needed(previous, payload, quarantined_at=None):
+    """Store a listing only if its state differs from the entity's latest stored observation, or if a
+    quarantine at or after that observation would otherwise keep holding the match."""
+    if previous is None:
+        return True
+    if quarantined_at is not None and utc(quarantined_at) >= utc(previous['observed']):
+        return True
+    return match_state(previous['payload']) != match_state(payload)
+
+
 def utc(value):
     result = datetime.fromisoformat(str(value).replace('Z', '+00:00'))
     if result.tzinfo is None:
