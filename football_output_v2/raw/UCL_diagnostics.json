@@ -1,6 +1,6 @@
 {
   "league": "UEFA Champions League",
-  "training_matches": 584,
+  "training_matches": 593,
   "training_seasons_requested": 4,
   "training_seasons_loaded": [
     "2023",
@@ -8,8 +8,8 @@
     "2025",
     "2026"
   ],
-  "training_sha256": "cf52f36d586c8489e1b67a2dc093c3b0d8c65d58ea5d1d8458f6efed651a0301",
-  "training_as_of_utc": "2026-11-25T14:22:02.504363+00:00",
+  "training_sha256": "6222f1545005a5f1f0abaf6ec3b92fec049badcf758c64a33a4e23589d2f9499",
+  "training_as_of_utc": "2026-11-25T22:12:48.132562+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 81,
     "bbs_added_results": 0,
@@ -54,11 +54,11 @@
     },
     "shot_matches": 0
   },
-  "training_end": "2026-11-24",
+  "training_end": "2026-11-25",
   "fit_success": true,
-  "objective": 865.9360874575558,
-  "base": 0.2069462289299368,
-  "home_adv": 0.28827982874038843,
+  "objective": 891.0879614945335,
+  "base": 0.20221060806858213,
+  "home_adv": 0.2800934177613048,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -68,238 +68,101 @@
   "elo_ratings": {
     "version": "venue-elo-v1",
     "teams": 71,
-    "matches": 584,
+    "matches": 593,
     "k_factor": 20.0,
     "home_advantage": 60.0,
     "venue_weight": 0.5,
     "season_regression": 0.2,
-    "last_match_date": "2026-11-24"
+    "last_match_date": "2026-11-25"
   },
   "training_data_health": {
-    "completed_matches": 81,
-    "latest_completed_utc": "2026-11-24T20:00:00+00:00",
-    "latest_completed_date": "2026-11-24",
-    "next_fixture_utc": "2026-11-25T17:45:00+00:00",
+    "completed_matches": 90,
+    "latest_completed_utc": "2026-11-25T20:00:00+00:00",
+    "latest_completed_date": "2026-11-25",
+    "next_fixture_utc": "2026-12-08T17:45:00+00:00",
     "overdue_unfinished_match_ids": [],
     "source_schedule_matches": 144,
     "provider": "football-data.org",
     "season_start": 2026,
-    "checked_at_utc": "2026-11-25T14:22:02.504363+00:00",
+    "checked_at_utc": "2026-11-25T22:12:48.132562+00:00",
     "download_status": "VERIFIED_LIVE",
-    "added_matches": 0,
+    "added_matches": 9,
     "corrected_scores": 0,
-    "sha256": "a02d876499c29565cd7be6be2e475fc3b9cb26b2efcd196ff983b283a53051c1",
+    "sha256": "753f97595b57294ee74c9a279c31fbdb01f1680d232ff9c1f78dc1d0fd123e07",
     "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
     "note": "Provider schedule comparison is not independent proof of complete coverage.",
     "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
     "download_age_hours": 0.0,
-    "training_end": "2026-11-24",
+    "training_end": "2026-11-25",
     "cache_hash_verified": true,
     "last_refresh_error": null,
     "last_refresh_error_reason": null
   },
   "training_source": "football-data.org",
   "fixture_provider_mode": "auto",
-  "fixture_sources": [
-    "The Odds API"
-  ],
+  "fixture_sources": [],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 9,
-  "excluded_started_fixtures": [],
+  "live_odds_matched": 0,
+  "excluded_started_fixtures": [
+    {
+      "home_team": "SK Slavia Praha",
+      "away_team": "Villarreal CF",
+      "kickoff_utc": "2026-11-25T17:45:00+00:00",
+      "fixture_source": "football-data.org"
+    },
+    {
+      "home_team": "Sabah FK",
+      "away_team": "FC Barcelona",
+      "kickoff_utc": "2026-11-25T17:45:00+00:00",
+      "fixture_source": "football-data.org"
+    },
+    {
+      "home_team": "Club Atl\u00e9tico de Madrid",
+      "away_team": "Viking FK",
+      "kickoff_utc": "2026-11-25T20:00:00+00:00",
+      "fixture_source": "football-data.org"
+    },
+    {
+      "home_team": "Club Brugge KV",
+      "away_team": "Liverpool FC",
+      "kickoff_utc": "2026-11-25T20:00:00+00:00",
+      "fixture_source": "football-data.org"
+    },
+    {
+      "home_team": "FC Internazionale Milano",
+      "away_team": "VfB Stuttgart",
+      "kickoff_utc": "2026-11-25T20:00:00+00:00",
+      "fixture_source": "football-data.org"
+    },
+    {
+      "home_team": "FK Shakhtar Donetsk",
+      "away_team": "Fenerbah\u00e7e SK",
+      "kickoff_utc": "2026-11-25T20:00:00+00:00",
+      "fixture_source": "football-data.org"
+    },
+    {
+      "home_team": "Lille OSC",
+      "away_team": "FC Bayern M\u00fcnchen",
+      "kickoff_utc": "2026-11-25T20:00:00+00:00",
+      "fixture_source": "football-data.org"
+    },
+    {
+      "home_team": "Paris Saint-Germain FC",
+      "away_team": "AS Roma",
+      "kickoff_utc": "2026-11-25T20:00:00+00:00",
+      "fixture_source": "football-data.org"
+    },
+    {
+      "home_team": "Sporting Clube de Portugal",
+      "away_team": "Manchester United FC",
+      "kickoff_utc": "2026-11-25T20:00:00+00:00",
+      "fixture_source": "football-data.org"
+    }
+  ],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 0,
-  "additional_odds_coverage_mode": "all",
-  "additional_odds_coverage": [
-    {
-      "fixture_id": "1639984879",
-      "event_id": "1639984879",
-      "home_team": "Sabah FK",
-      "away_team": "Barcelona",
-      "kickoff_utc": "2026-11-25T17:45:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "1639986827",
-      "event_id": "1639986827",
-      "home_team": "Slavia Prague",
-      "away_team": "Villarreal",
-      "kickoff_utc": "2026-11-25T17:45:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "1639989883",
-      "event_id": "1639989883",
-      "home_team": "Atletico Madrid",
-      "away_team": "Viking FK",
-      "kickoff_utc": "2026-11-25T20:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "1639984863",
-      "event_id": "1639984863",
-      "home_team": "Club Brugge",
-      "away_team": "Liverpool",
-      "kickoff_utc": "2026-11-25T20:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "1639986886",
-      "event_id": "1639986886",
-      "home_team": "Inter Milan",
-      "away_team": "VfB Stuttgart",
-      "kickoff_utc": "2026-11-25T20:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "1639984866",
-      "event_id": "1639984866",
-      "home_team": "Lille",
-      "away_team": "Bayern Munich",
-      "kickoff_utc": "2026-11-25T20:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "1639999736",
-      "event_id": "1639999736",
-      "home_team": "Paris Saint-Germain",
-      "away_team": "AS Roma",
-      "kickoff_utc": "2026-11-25T20:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "1639984874",
-      "event_id": "1639984874",
-      "home_team": "Shakhtar Donetsk",
-      "away_team": "Fenerbahce",
-      "kickoff_utc": "2026-11-25T20:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "1639986832",
-      "event_id": "1639986832",
-      "home_team": "Sporting CP",
-      "away_team": "Manchester United",
-      "kickoff_utc": "2026-11-25T20:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    }
-  ],
-  "additional_odds_in_window_linked_fixtures": 9,
-  "additional_odds_unrequested_linked_fixtures": 0,
-  "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 9,
-  "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 4,
-    "ANCHORED_ALTERNATE": 5
-  },
-  "shot_features_applied_fixtures": 0,
-  "goal_rate_features_used": {
-    "none": 9
-  },
-  "legacy_comparison_status": {
-    "None": 9
-  },
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }

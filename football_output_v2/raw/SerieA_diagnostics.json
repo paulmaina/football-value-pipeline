@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "0ab4697dbbcc83ac023f3b5bd97b850828a30c795cde7e3029887ec728478299",
-  "training_as_of_utc": "2026-11-25T14:21:54.039170+00:00",
+  "training_as_of_utc": "2026-11-25T22:12:42.477989+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 120,
     "bbs_added_results": 0,
@@ -64,21 +64,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.2,
-    "audit_baseline_poisson_score": 0.7914014448763833,
-    "audit_candidate_poisson_score": 0.791982452389408,
-    "audit_gain": -0.0005810075130247006,
-    "audit_gain_lower95": -0.0046622496551596655,
+    "audit_baseline_poisson_score": 0.7914041860824839,
+    "audit_candidate_poisson_score": 0.7919846952540031,
+    "audit_gain": -0.0005805091715191946,
+    "audit_gain_lower95": -0.004661726540592777,
     "audit_baseline_briers": [
-      0.5234835599028856,
-      0.14284141268917727,
-      0.21194188991180746,
-      0.24164686473125452
+      0.5234862362938795,
+      0.14284138952635933,
+      0.2119422312678105,
+      0.24164662135933954
     ],
     "audit_candidate_briers": [
-      0.5281600412496228,
-      0.14119764380742073,
-      0.2118302635717925,
-      0.24227992184940994
+      0.5281622485859013,
+      0.1411976253649197,
+      0.21183052941940006,
+      0.2422797455565395
     ],
     "audit_brier_order": [
       "1x2",
@@ -94,10 +94,10 @@
   },
   "training_end": "2026-11-23",
   "fit_success": true,
-  "objective": 1831.0613112038538,
-  "base": 0.1483522067117521,
-  "home_adv": 0.11811152918096982,
-  "rho": -0.01921717665477468,
+  "objective": 1830.197157578107,
+  "base": 0.14837579396960957,
+  "home_adv": 0.11809391757825752,
+  "rho": -0.01921292077140672,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -125,7 +125,7 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 2,
+  "live_odds_matched": 4,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
@@ -159,6 +159,32 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640264915",
+      "event_id": "1640264915",
+      "home_team": "Torino",
+      "away_team": "Lazio",
+      "kickoff_utc": "2026-11-28T17:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640264916",
+      "event_id": "1640264916",
+      "home_team": "Internazionale",
+      "away_team": "Genoa",
+      "kickoff_utc": "2026-11-28T19:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -166,15 +192,15 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "ANCHORED_MAIN": 1,
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 3,
+    "ANCHORED_MAIN": 1
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 2
+    "none": 4
   },
   "legacy_comparison_status": {
-    "None": 2
+    "None": 4
   },
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }

@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "2f01bb1cc9ab665e9a28461a7fbf40ec350ce82e73e9bace8aa1175d298cc576",
-  "training_as_of_utc": "2026-11-25T14:22:14.940736+00:00",
+  "training_as_of_utc": "2026-11-25T22:12:56.176803+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -53,21 +53,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8254021402430867,
-    "audit_candidate_poisson_score": 0.8177321035287762,
-    "audit_gain": 0.007670036714310435,
-    "audit_gain_lower95": -0.004563673740837692,
+    "audit_baseline_poisson_score": 0.8254057195117618,
+    "audit_candidate_poisson_score": 0.8177346762429554,
+    "audit_gain": 0.00767104326880641,
+    "audit_gain_lower95": -0.004562303044978781,
     "audit_baseline_briers": [
-      0.5677002343848078,
-      0.1765893095946232,
-      0.21544748612261796,
-      0.2529732808529481
+      0.5677055406960533,
+      0.17658669063316992,
+      0.215448350261568,
+      0.25297188925225
     ],
     "audit_candidate_briers": [
-      0.5676646297798097,
-      0.17452975837746457,
-      0.21074507871030687,
-      0.25288198428384395
+      0.5676710537966523,
+      0.1745271620199954,
+      0.21074574483073577,
+      0.25288053358313783
     ],
     "audit_brier_order": [
       "1x2",
@@ -82,10 +82,10 @@
   },
   "training_end": "2026-11-23",
   "fit_success": true,
-  "objective": 1677.1413200050818,
-  "base": 0.14456024933098646,
-  "home_adv": 0.2311244610493411,
-  "rho": -0.08374022607493566,
+  "objective": 1676.350034613235,
+  "base": 0.14451681578161907,
+  "home_adv": 0.23111778448445341,
+  "rho": -0.08372297681509593,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -113,10 +113,10 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 3,
+  "live_odds_matched": 4,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 27,
+  "additional_event_odds_calls_used_before_this_league": 18,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "over_1_5_in_window_quote_fixtures": 0,
@@ -160,6 +160,19 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640831650",
+      "event_id": "1640831650",
+      "home_team": "Gazi\u015fehir Gaziantep",
+      "away_team": "Amed SK",
+      "kickoff_utc": "2026-11-28T16:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -168,14 +181,14 @@
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
     "ANCHORED_MAIN": 2,
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 2
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 3
+    "none": 4
   },
   "legacy_comparison_status": {
-    "None": 3
+    "None": 4
   },
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }

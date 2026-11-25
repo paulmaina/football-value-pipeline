@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "7c4358696eb2cbce74fd03dae1bbda40ec31361c408685b979e64a31f267fc34",
-  "training_as_of_utc": "2026-11-25T14:21:45.266928+00:00",
+  "training_as_of_utc": "2026-11-25T22:12:36.534776+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 129,
     "bbs_added_results": 0,
@@ -64,21 +64,21 @@
     "selected_shrinkage": 40.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.7952712191614251,
-    "audit_candidate_poisson_score": 0.7999902640370592,
-    "audit_gain": -0.004719044875634126,
-    "audit_gain_lower95": -0.013829551817331903,
+    "audit_baseline_poisson_score": 0.7952695814419604,
+    "audit_candidate_poisson_score": 0.7999853854945955,
+    "audit_gain": -0.004715804052635164,
+    "audit_gain_lower95": -0.013822778253564049,
     "audit_baseline_briers": [
-      0.5428152603237963,
-      0.1942487338217905,
-      0.20012784546755658,
-      0.2545067734722313
+      0.5428184576725379,
+      0.19425398823682177,
+      0.20012360083868935,
+      0.25451385484187333
     ],
     "audit_candidate_briers": [
-      0.5520739000433388,
-      0.19128087906198443,
-      0.2005865711954557,
-      0.2502147759538689
+      0.5520743245745915,
+      0.1912848035763146,
+      0.2005828073670723,
+      0.25022068573579537
     ],
     "audit_brier_order": [
       "1x2",
@@ -94,10 +94,10 @@
   },
   "training_end": "2026-11-23",
   "fit_success": true,
-  "objective": 1843.6553169017018,
-  "base": 0.08413266290467723,
-  "home_adv": 0.2804064705489673,
-  "rho": -0.028316626826642904,
+  "objective": 1842.785134122265,
+  "base": 0.08409413730513213,
+  "home_adv": 0.2804322204903168,
+  "rho": -0.028288548087833897,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -125,7 +125,7 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 2,
+  "live_odds_matched": 5,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
@@ -159,6 +159,45 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640270751",
+      "event_id": "1640270751",
+      "home_team": "Malaga",
+      "away_team": "Athletic Bilbao",
+      "kickoff_utc": "2026-11-28T15:15:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640270749",
+      "event_id": "1640270749",
+      "home_team": "Elche",
+      "away_team": "Atletico Madrid",
+      "kickoff_utc": "2026-11-28T17:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640273568",
+      "event_id": "1640273568",
+      "home_team": "Real Madrid",
+      "away_team": "Alaves",
+      "kickoff_utc": "2026-11-28T20:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -166,14 +205,15 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 2
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 4,
+    "ANCHORED_MAIN": 1
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 2
+    "none": 5
   },
   "legacy_comparison_status": {
-    "None": 2
+    "None": 5
   },
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }

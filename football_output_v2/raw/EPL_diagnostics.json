@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "44ca042bb959dc0ef064621877ebe03bc8ecc5a142761703d267cb3023a987c0",
-  "training_as_of_utc": "2026-11-25T14:21:39.225318+00:00",
+  "training_as_of_utc": "2026-11-25T22:12:32.410218+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 110,
     "bbs_added_results": 0,
@@ -64,21 +64,21 @@
     "selected_shrinkage": 15.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.94828433664178,
-    "audit_candidate_poisson_score": 0.9343581309897188,
-    "audit_gain": 0.013926205652061263,
-    "audit_gain_lower95": 0.0027774183963838956,
+    "audit_baseline_poisson_score": 0.9482588668018321,
+    "audit_candidate_poisson_score": 0.9343352224228244,
+    "audit_gain": 0.013923644379007727,
+    "audit_gain_lower95": 0.00277353194426263,
     "audit_baseline_briers": [
-      0.64437948951343,
-      0.16995655565324372,
-      0.22462503733090824,
-      0.26280472631767154
+      0.6443661959851544,
+      0.1699508120974608,
+      0.22462225659786578,
+      0.262794861055021
     ],
     "audit_candidate_briers": [
-      0.6405209431484865,
-      0.16883542557237116,
-      0.2230944892580544,
-      0.25981311939993157
+      0.6405063438927887,
+      0.1688294218661401,
+      0.2230918614765639,
+      0.25980273080435906
     ],
     "audit_brier_order": [
       "1x2",
@@ -90,10 +90,10 @@
   },
   "training_end": "2026-11-23",
   "fit_success": true,
-  "objective": 1884.7598216158428,
-  "base": 0.20813036393259002,
-  "home_adv": 0.1921180860171688,
-  "rho": -0.05740167788737106,
+  "objective": 1883.8701730525727,
+  "base": 0.20802284346576458,
+  "home_adv": 0.1921749190429557,
+  "rho": -0.057374539900415196,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -121,7 +121,7 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 1,
+  "live_odds_matched": 4,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
@@ -142,6 +142,45 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640217308",
+      "event_id": "1640217308",
+      "home_team": "Leeds United",
+      "away_team": "Coventry City",
+      "kickoff_utc": "2026-11-28T15:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640218865",
+      "event_id": "1640218865",
+      "home_team": "Manchester United",
+      "away_team": "Brentford",
+      "kickoff_utc": "2026-11-28T15:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640217305",
+      "event_id": "1640217305",
+      "home_team": "Ipswich Town",
+      "away_team": "Aston Villa",
+      "kickoff_utc": "2026-11-28T17:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -149,14 +188,14 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 4
   },
-  "shot_features_applied_fixtures": 1,
+  "shot_features_applied_fixtures": 4,
   "goal_rate_features_used": {
-    "shot_features": 1
+    "shot_features": 4
   },
   "legacy_comparison_status": {
-    "None": 1
+    "None": 4
   },
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }

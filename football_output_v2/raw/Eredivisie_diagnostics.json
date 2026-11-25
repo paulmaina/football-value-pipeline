@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "6a6942c4484010b7ee31ba0d63440397e3d2574de9f7102f07acd6e30191f1e0",
-  "training_as_of_utc": "2026-11-25T14:22:09.283705+00:00",
+  "training_as_of_utc": "2026-11-25T22:12:52.448752+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -53,21 +53,21 @@
     "selected_shrinkage": 40.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.6311237163705384,
-    "audit_candidate_poisson_score": 0.6226930266663387,
-    "audit_gain": 0.00843068970419969,
-    "audit_gain_lower95": -0.004730993309242119,
+    "audit_baseline_poisson_score": 0.6311371413340364,
+    "audit_candidate_poisson_score": 0.6227000363075237,
+    "audit_gain": 0.008437105026512737,
+    "audit_gain_lower95": -0.004727855526246432,
     "audit_baseline_briers": [
-      0.6283471910561477,
-      0.10548286540338594,
-      0.2918329446988821,
-      0.22528758057568335
+      0.6283541496863121,
+      0.10548432456442935,
+      0.2918384949505,
+      0.22529370761609313
     ],
     "audit_candidate_briers": [
-      0.6242734858421458,
-      0.10495398460140241,
-      0.28932359155895987,
-      0.2191214212017121
+      0.6242780544599584,
+      0.10495514596761113,
+      0.2893276867568348,
+      0.21912475385865265
     ],
     "audit_brier_order": [
       "1x2",
@@ -82,10 +82,10 @@
   },
   "training_end": "2026-11-22",
   "fit_success": true,
-  "objective": 1651.553958973005,
-  "base": 0.30967812188231914,
-  "home_adv": 0.16453169691504532,
-  "rho": -0.0677148850332569,
+  "objective": 1650.7746456906416,
+  "base": 0.30968922878607763,
+  "home_adv": 0.16452496407949732,
+  "rho": -0.06774017538969906,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -113,10 +113,10 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 1,
+  "live_odds_matched": 4,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 27,
+  "additional_event_odds_calls_used_before_this_league": 18,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "over_1_5_in_window_quote_fixtures": 0,
@@ -134,6 +134,45 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640270576",
+      "event_id": "1640270576",
+      "home_team": "Excelsior",
+      "away_team": "Telstar",
+      "kickoff_utc": "2026-11-28T15:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640270574",
+      "event_id": "1640270574",
+      "home_team": "PSV",
+      "away_team": "Go Ahead Eagles",
+      "kickoff_utc": "2026-11-28T17:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640270693",
+      "event_id": "1640270693",
+      "home_team": "SC Cambuur",
+      "away_team": "Sparta Rotterdam",
+      "kickoff_utc": "2026-11-28T20:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -141,14 +180,14 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 4
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 1
+    "none": 4
   },
   "legacy_comparison_status": {
-    "None": 1
+    "None": 4
   },
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }

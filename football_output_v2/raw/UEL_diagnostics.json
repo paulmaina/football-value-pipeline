@@ -10,7 +10,7 @@
     "2026"
   ],
   "training_sha256": "7423d6cb39c84355e5fbdd4ed6b7bfedf9856d0b77390f595fb8f318aaee7986",
-  "training_as_of_utc": "2026-11-25T14:22:05.717871+00:00",
+  "training_as_of_utc": "2026-11-25T22:12:50.552406+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -46,9 +46,9 @@
   },
   "training_end": "2026-11-05",
   "fit_success": true,
-  "objective": 817.8107560949418,
-  "base": 0.12760935595528186,
-  "home_adv": 0.23250423521110947,
+  "objective": 817.4262138430715,
+  "base": 0.12767152400429538,
+  "home_adv": 0.23249186230334862,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -88,7 +88,7 @@
   "live_odds_matched": 18,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 9,
+  "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "over_1_5_in_window_quote_fixtures": 17,
@@ -104,7 +104,6 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "window_hours": 48,
       "asian_handicap_quotes": 18,
       "asian_handicap_bookmakers": [
         "Pinnacle"
@@ -124,7 +123,6 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "window_hours": 48,
       "asian_handicap_quotes": 18,
       "asian_handicap_bookmakers": [
         "Pinnacle"
@@ -144,7 +142,6 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "window_hours": 48,
       "asian_handicap_quotes": 18,
       "asian_handicap_bookmakers": [
         "Pinnacle"
@@ -164,7 +161,6 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "window_hours": 48,
       "asian_handicap_quotes": 18,
       "asian_handicap_bookmakers": [
         "Pinnacle"
@@ -184,7 +180,6 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "window_hours": 48,
       "asian_handicap_quotes": 18,
       "asian_handicap_bookmakers": [
         "Pinnacle"
@@ -204,7 +199,6 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "window_hours": 48,
       "asian_handicap_quotes": 18,
       "asian_handicap_bookmakers": [
         "Pinnacle"
@@ -224,7 +218,6 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "window_hours": 48,
       "asian_handicap_quotes": 18,
       "asian_handicap_bookmakers": [
         "Pinnacle"
@@ -244,7 +237,6 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "window_hours": 48,
       "asian_handicap_quotes": 18,
       "asian_handicap_bookmakers": [
         "Pinnacle"
@@ -264,7 +256,6 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "window_hours": 48,
       "asian_handicap_quotes": 18,
       "asian_handicap_bookmakers": [
         "Pinnacle"
@@ -284,7 +275,6 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "window_hours": 48,
       "asian_handicap_quotes": 18,
       "asian_handicap_bookmakers": [
         "Pinnacle"
@@ -304,7 +294,6 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "window_hours": 48,
       "asian_handicap_quotes": 18,
       "asian_handicap_bookmakers": [
         "Pinnacle"
@@ -324,7 +313,6 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "window_hours": 48,
       "asian_handicap_quotes": 18,
       "asian_handicap_bookmakers": [
         "Pinnacle"
@@ -344,7 +332,6 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "window_hours": 48,
       "asian_handicap_quotes": 18,
       "asian_handicap_bookmakers": [
         "Pinnacle"
@@ -364,7 +351,6 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "window_hours": 48,
       "asian_handicap_quotes": 18,
       "asian_handicap_bookmakers": [
         "Pinnacle"
@@ -384,7 +370,6 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "window_hours": 48,
       "asian_handicap_quotes": 18,
       "asian_handicap_bookmakers": [
         "Pinnacle"
@@ -404,7 +389,6 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "window_hours": 48,
       "asian_handicap_quotes": 18,
       "asian_handicap_bookmakers": [
         "Pinnacle"
@@ -424,7 +408,6 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "window_hours": 48,
       "asian_handicap_quotes": 18,
       "asian_handicap_bookmakers": [
         "Pinnacle"
@@ -444,7 +427,6 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "window_hours": 48,
       "asian_handicap_quotes": 18,
       "asian_handicap_bookmakers": [
         "Pinnacle"

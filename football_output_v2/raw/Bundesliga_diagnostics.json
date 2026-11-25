@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "3fd60f6b326e72970c565c0b8aea8a583b339974fd68f30dcb45083b0801d762",
-  "training_as_of_utc": "2026-11-25T14:21:50.091684+00:00",
+  "training_as_of_utc": "2026-11-25T22:12:39.676849+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 90,
     "bbs_added_results": 0,
@@ -64,21 +64,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.7236713569708688,
-    "audit_candidate_poisson_score": 0.7148115361026497,
-    "audit_gain": 0.008859820868219126,
-    "audit_gain_lower95": -0.0057804410167429324,
+    "audit_baseline_poisson_score": 0.7236554151416221,
+    "audit_candidate_poisson_score": 0.7148019786295168,
+    "audit_gain": 0.00885343651210535,
+    "audit_gain_lower95": -0.005795020797368516,
     "audit_baseline_briers": [
-      0.5818555006376981,
-      0.16899841569473273,
-      0.28357757251701105,
-      0.24184331166947765
+      0.5818451574294956,
+      0.16899488653223665,
+      0.2835719430611051,
+      0.24184378682803417
     ],
     "audit_candidate_briers": [
-      0.5789438121606326,
-      0.167179006900971,
-      0.27605145759043054,
-      0.24251426646123664
+      0.5789367545609461,
+      0.1671765818415252,
+      0.27604749502819076,
+      0.2425144258256762
     ],
     "audit_brier_order": [
       "1x2",
@@ -94,10 +94,10 @@
   },
   "training_end": "2026-11-22",
   "fit_success": true,
-  "objective": 1594.7504655635526,
-  "base": 0.21473770338626486,
-  "home_adv": 0.2332371406762964,
-  "rho": -0.06565723217544406,
+  "objective": 1593.9978449206712,
+  "base": 0.21479629163372096,
+  "home_adv": 0.23325408037393391,
+  "rho": -0.06563905237767963,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -125,7 +125,7 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 1,
+  "live_odds_matched": 6,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
@@ -146,6 +146,71 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640260143",
+      "event_id": "1640260143",
+      "home_team": "1. FC K\u00f6ln",
+      "away_team": "Elversberg",
+      "kickoff_utc": "2026-11-28T14:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640258945",
+      "event_id": "1640258945",
+      "home_team": "FSV Mainz 05",
+      "away_team": "Union Berlin",
+      "kickoff_utc": "2026-11-28T14:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640262046",
+      "event_id": "1640262046",
+      "home_team": "Hamburger SV",
+      "away_team": "Bayern Munich",
+      "kickoff_utc": "2026-11-28T14:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640260148",
+      "event_id": "1640260148",
+      "home_team": "Paderborn",
+      "away_team": "Schalke 04",
+      "kickoff_utc": "2026-11-28T14:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640260144",
+      "event_id": "1640260144",
+      "home_team": "VfB Stuttgart",
+      "away_team": "Eintracht Frankfurt",
+      "kickoff_utc": "2026-11-28T17:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -153,14 +218,14 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 6
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 1
+    "none": 6
   },
   "legacy_comparison_status": {
-    "None": 1
+    "None": 6
   },
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }

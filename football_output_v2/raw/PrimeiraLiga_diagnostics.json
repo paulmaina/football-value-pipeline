@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "7c73b44b6e1c6ee16fc6ee45d20634ecf277c8dff8e4ce224e38cad97bc36515",
-  "training_as_of_utc": "2026-11-25T14:22:12.189440+00:00",
+  "training_as_of_utc": "2026-11-25T22:12:54.313996+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -53,21 +53,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8715404267382761,
-    "audit_candidate_poisson_score": 0.8661191163092895,
-    "audit_gain": 0.0054213104289866365,
-    "audit_gain_lower95": -0.0037336337287461694,
+    "audit_baseline_poisson_score": 0.8715404267379883,
+    "audit_candidate_poisson_score": 0.8661191163091132,
+    "audit_gain": 0.005421310428875059,
+    "audit_gain_lower95": -0.0037336337288200357,
     "audit_baseline_briers": [
-      0.5256881914875379,
-      0.20162320318102928,
-      0.22188757756158048,
-      0.2543685952254264
+      0.525688191487545,
+      0.20162320318098034,
+      0.22188757756145017,
+      0.25436859522530963
     ],
     "audit_candidate_briers": [
-      0.5292212744115292,
-      0.20093634828065535,
-      0.21876000763591966,
-      0.2532891639569504
+      0.5292212744115398,
+      0.2009363482806188,
+      0.21876000763583242,
+      0.25328916395687906
     ],
     "audit_brier_order": [
       "1x2",
@@ -83,9 +83,9 @@
   },
   "training_end": "2026-11-08",
   "fit_success": true,
-  "objective": 1446.8554131673204,
-  "base": 0.08340828630795319,
-  "home_adv": 0.17447969345736172,
+  "objective": 1446.1727735888578,
+  "base": 0.08332259981237394,
+  "home_adv": 0.17453213281810562,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -114,10 +114,10 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 1,
+  "live_odds_matched": 5,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 27,
+  "additional_event_odds_calls_used_before_this_league": 18,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "over_1_5_in_window_quote_fixtures": 0,
@@ -135,6 +135,58 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640278091",
+      "event_id": "1640278091",
+      "home_team": "Arouca",
+      "away_team": "Rio Ave",
+      "kickoff_utc": "2026-11-28T15:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640278093",
+      "event_id": "1640278093",
+      "home_team": "Moreirense",
+      "away_team": "Santa Clara",
+      "kickoff_utc": "2026-11-28T15:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640273428",
+      "event_id": "1640273428",
+      "home_team": "Academico de Viseu",
+      "away_team": "Alverca",
+      "kickoff_utc": "2026-11-28T18:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640277238",
+      "event_id": "1640277238",
+      "home_team": "Vit\u00f3ria SC",
+      "away_team": "CF Estrela",
+      "kickoff_utc": "2026-11-28T20:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -142,14 +194,15 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 3,
+    "ANCHORED_MAIN": 2
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 1
+    "none": 5
   },
   "legacy_comparison_status": {
-    "None": 1
+    "None": 5
   },
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }
