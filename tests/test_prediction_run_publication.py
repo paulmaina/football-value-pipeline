@@ -369,22 +369,21 @@ class PruneCapturedRunsTests(OfflineQuotePolicyTestCase):
             self.assertEqual(len(runs.prune_captured_runs(root)),1)
 
 
-# Archived trial sidecars: no experiment sidecar is live since PR E, so these tests re-attach
-# the archived trials' capture (archived_hooks) to keep exercising sidecar-safe pruning.
-SIDECARS=('benchmark_forward_experiment.json','totals_anchor_experiment.json')
+# Sidecar-safe pruning, exercised with two live sidecars, each bound to its run's own generation.
+SIDECARS=('price_edge_tagged_candidates.csv','cagey_tier_shortlist.csv')
 
 
 def publish_with_sidecars(root, clock=T0, *, market='over_1_5', **kwargs):
-    """A run whose trial sidecars are bound to its own generation, as the pipeline used to write them."""
+    """A run whose sidecars are bound to its own generation, as the pipeline writes them."""
     import pandas as pd
-    from archive.benchmark_forward_experiment import write_experiment as write_benchmark
-    from archive.totals_anchor_experiment import write_experiment as write_totals
+    from price_edge_tracking import CAGEY_POLICY, VERSION
     with runs.stage_run(root/'raw') as staging:
         populate(staging, clock, **kwargs)
         generated=json.loads((staging/'conservative_bet_summary.json').read_text())['generated_at_utc']
-        predictions=pd.read_csv(staging/'all_leagues_predictions.csv',low_memory=False)
-        write_benchmark(predictions, staging, generated, {})
-        write_totals(predictions, staging, generated, {}, {})
+        pd.DataFrame([{'list_version': VERSION, 'generated_at_utc': generated, 'market': market}]).to_csv(
+            staging/SIDECARS[0], index=False)
+        pd.DataFrame([{'selection_policy_version': CAGEY_POLICY, 'evaluated_at_utc': generated, 'market': market}]).to_csv(
+            staging/SIDECARS[1], index=False)
         raw_check(staging.parent)
         return runs.publish_run(staging, root/'raw')
 
@@ -393,9 +392,6 @@ class PruneSidecarTests(OfflineQuotePolicyTestCase):
     """Pruning requires the archive to hold every core file and sidecar of the run."""
 
     def setUp(self):
-        from archived_hooks import archived_hooks
-        self.enterContext(archived_hooks())
-        self.enterContext(patch.object(runs, 'SIDECARS', runs.SIDECARS | set(SIDECARS)))
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
         self.root=root=Path(self.temp.name)
         self.old=publish_with_sidecars(root)
@@ -442,7 +438,7 @@ class PruneSidecarTests(OfflineQuotePolicyTestCase):
             del metadata['sha256'][name];write_json(self.archive/'metadata.json',metadata)
             (self.archive/name).unlink()
         def corrupted(name):
-            path=self.archive/name;path.write_bytes(path.read_bytes().replace(b'"rows"',b'"Rows"'))
+            path=self.archive/name;path.write_bytes(path.read_bytes().replace(b'market',b'Market'))
         def mismatched(name):
             # Another run's valid sidecar, with the archive digest updated to match it.
             (self.archive/name).write_bytes((other/name).read_bytes())
@@ -456,9 +452,13 @@ class PruneSidecarTests(OfflineQuotePolicyTestCase):
                     damage(name)
                     tree=lambda d:{f.name:f.read_bytes() for f in d.iterdir()}
                     self.assertNotEqual(tree(self.archive),tree(pristine))
-                    # Performance reporting alone still accepts the archive.
-                    if damage is not not_recorded:
-                        self.assertIn(self.old.name,[m.get('prediction_run_id') for m,_,_ in snapshots(self.root)])
+                    # Reporting fails closed on a missing or corrupted live sidecar and accepts a
+                    # consistent one; pruning keeps the bundle either way.
+                    reported=[m.get('prediction_run_id') for m,_,_ in snapshots(self.root)]
+                    if damage is mismatched:
+                        self.assertIn(self.old.name,reported)
+                    elif damage is not not_recorded:
+                        self.assertNotIn(self.old.name,reported)
                     self.assert_kept()
 
     def test_current_and_uncaptured_runs_are_never_touched(self):
@@ -477,19 +477,16 @@ class PruneSidecarTests(OfflineQuotePolicyTestCase):
             self.assertEqual(after[run],before[run])
         self.assertEqual(runs.resolve_raw(self.root/'raw'),current)
 
-    def test_pruned_archive_still_loads_for_reporting_and_experiments(self):
-        from archive.benchmark_forward_experiment import review_experiment
+    def test_pruned_archive_still_loads_for_reporting(self):
         self.assertEqual(runs.prune_captured_runs(self.root),[self.old.name])
         self.assertFalse(self.old.exists())
         archived={m['prediction_run_id']:m for m,_,_ in snapshots(self.root)}
         self.assertEqual(set(archived),{self.old.name,self.current.name})
         for name in SIDECARS:
             self.assertEqual(archived[self.old.name]['sha256'][name],self.metadata['sha256'][name])
-        self.assertEqual(len(archive_check(self.root)['snapshots']),2)
-        summary=review_experiment(self.root,snapshots(self.root),[],T0+timedelta(hours=3))
         # Both runs' archived sidecars, including the pruned run's, are accepted.
-        self.assertEqual(summary['rejected_snapshot_commits'],[])
-        self.assertEqual(json.loads((self.root/'performance/benchmark_forward_experiment/summary.json').read_text()),summary)
+        self.assertEqual(len(archive_check(self.root)['snapshots']),2)
+        self.assertEqual(archive_check(self.root)['warnings'],[])
         self.assertEqual(runs.capture_runs(self.root,'b'*40,captured_at=T0+timedelta(hours=3)),0)
 
 

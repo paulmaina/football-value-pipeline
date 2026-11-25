@@ -108,7 +108,7 @@ def validate(history, current, output_dir):
         excluded[str(int(test.iloc[0].season))] += int((~eligible).sum())
         if not eligible.any():
             continue
-        model = DixonColesModel(half_life_days=240, l2=.08, bbs_statistics=False).fit(train, as_of=origin)
+        model = DixonColesModel(half_life_days=240, l2=.08).fit(train, as_of=origin)
         windows.append({'origin': origin.date().isoformat(), 'training_rows': len(train),
                         'latest_training_date': train.Date.max().date().isoformat(),
                         'test_rows': int(eligible.sum()), 'optimizer_success': bool(model.fit_result.success)})
@@ -134,7 +134,7 @@ def validate(history, current, output_dir):
     if final_frame.duplicated(['Date', 'HomeTeam', 'AwayTeam']).any():
         raise ValueError('Final research fit contains duplicate fixtures')
     as_of = pd.Timestamp('2026-10-22')
-    final_model = DixonColesModel(half_life_days=240, l2=.08, bbs_statistics=False).fit(final_frame, as_of=as_of)
+    final_model = DixonColesModel(half_life_days=240, l2=.08).fit(final_frame, as_of=as_of)
     counts = team_counts(final_frame)
     participants = sorted({x[k] for x in current for k in ('home', 'away')})
     coverage = {t: counts[t] for t in participants}

@@ -23,8 +23,11 @@ FORECAST_PATHS = (
     'football_output_v2/raw/conservative_bet_shortlist.csv',
     'football_output_v2/raw/conservative_bet_summary.json',
 )
-# Every sidecar an archived snapshot may hold, including retired experiments.
-SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json', 'totals_anchor_experiment.json', 'model_reliability_experiment.json', 'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv', 'cagey_correction_monitoring.csv', 'corners_shadow.csv', 'master_shortlist.csv', 'master_shortlist_audit.csv', 'master_shortlist_new.csv', 'master_shortlist_old.csv', 'master_shortlist_strong.csv')
+# Every sidecar an archived snapshot may hold, including retired experiments. The retired experiments' files were
+# removed from the committed snapshots on 25 Nov 2026 (metadata.json still lists them): absent is expected and
+# silent; a copy that is present is still checked against its digest.
+RETIRED_SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json', 'totals_anchor_experiment.json', 'model_reliability_experiment.json', 'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json')
+SIDECARS = (*RETIRED_SIDECARS, 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv', 'cagey_correction_monitoring.csv', 'corners_shadow.csv', 'master_shortlist.csv', 'master_shortlist_audit.csv', 'master_shortlist_new.csv', 'master_shortlist_old.csv', 'master_shortlist_strong.csv')
 CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output.py',
              'collect_api_football_data.py', 'publish_api_football_data.py',
              'performance_tracking.py', 'performance_excel.py', 'publish_performance.py',
@@ -33,13 +36,13 @@ COVERAGE_FLOORS = {'asian_handicap.py':85, 'api_football_data.py':85, 'api_footb
     'win_first_shortlist.py':85, 'per_market_shortlist.py':85, 'corners_cards_shortlist.py':85, 'count_markets.py':85,
     'no_loss_corners_shortlist.py':85,
     'collect_api_football_data.py':75, 'publish_api_football_data.py':75,
-    'prediction_runs.py':85, 'github_closing_odds.py':80, 'bbs_statistics_model.py':85, 'bbs_data.py':85, 'bbs_integration.py':85, 'collect_bbs_data.py':75,
+    'prediction_runs.py':85, 'github_closing_odds.py':80, 'bbs_data.py':85, 'bbs_integration.py':85, 'collect_bbs_data.py':75,
     'publish_bbs_data.py':75, 'forecast_integrity.py':100, 'api_key_config.py':90, 'conservative_bet_filter.py':90,
-    'shortlist_policy_experiment.py':85, 'shortlist_weight_experiment.py':85, 'quote_freshness.py':95, 'score_probability.py':95,
-    'double_chance.py':90, 'goal_market_validation.py':85, 'goal_blend_experiment.py':90,
-    'market_led_experiment.py':90, 'match_scores.py':90, 'performance_tracking.py':85, 'turkey_results.py':90,
+    'quote_freshness.py':95, 'score_probability.py':95,
+    'double_chance.py':90, 'goal_market_validation.py':85,
+    'match_scores.py':90, 'performance_tracking.py':85, 'turkey_results.py':90,
     'performance_excel.py':85, 'publish_performance.py':75, 'workflow_checks.py':80,
-    'dc_decay_validation.py':85, 'market_blend_validation.py':90, 'refresh_training_data.py':70, 'format_football_output.py':60, 'ucl_training.py':90, 'quote_policy.py':95, 'pipeline_health.py':90, 'refresh_ucl_training.py':75, 'league_registry.py':90, 'recency_experiment.py':85, 'filter_sensitivity_experiment.py':85, 'historical_benchmark.py':85, 'benchmark_forward_experiment.py':85, 'publish_scheduled_forecasts.py':80, 'odds_api_usage.py':90, 'totals_anchor_experiment.py':90, 'closing_odds.py':90, 'model_reliability_experiment.py':90, 'model_comparison.py':90,
+    'dc_decay_validation.py':85, 'market_blend_validation.py':90, 'refresh_training_data.py':70, 'format_football_output.py':60, 'ucl_training.py':90, 'quote_policy.py':95, 'pipeline_health.py':90, 'refresh_ucl_training.py':75, 'league_registry.py':90, 'historical_benchmark.py':85, 'publish_scheduled_forecasts.py':80, 'odds_api_usage.py':90, 'closing_odds.py':90,
     'excel_book.py':90, 'predictions_workbook.py':90, 'performance_report_layout.py':90, 'model_activity.py':85, 'odds_provider.py':85,
     'shortlist_replay.py':95, 'market_implied.py':95, 'market_implied_calibration.py':85, 'price_edge_shortlist.py':90, 'price_edge_tracking.py':90, 'narrow_margin.py':90, 'cagey_correction_report.py':90, 'price_edge_cagey_shortlist.py':95, 'staking.py':95, 'elo_ratings.py':95, 'clv_report.py':90}
 
@@ -507,6 +510,8 @@ def archive_check(root):
         for name,digest in digests.items():
             require(name in ('predictions.csv','shortlist.csv','selection_summary.json','pipeline_health.json','run_manifest.json','bet365_vs_pinnacle.csv',*SIDECARS), 'Unexpected snapshot path')
             path=directory/name
+            if name in RETIRED_SIDECARS and not path.exists():
+                continue
             valid=path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest()==digest
             if name in (*SIDECARS, 'pipeline_health.json'):
                 if not valid: warnings.append(f'{directory.name}/{name}: optional artifact missing/tampered; excluded from grading')

@@ -1,5 +1,4 @@
 """Regressions for gaps exposed by the first real BBS collection."""
-import copy
 import json
 import tempfile
 import unittest
@@ -26,14 +25,11 @@ class LiveCoverageTests(unittest.TestCase):
     def test_upcoming_only_response_never_claims_training_complete(self):
         upcoming = {**match(day='2026-10-17'), 'status': 'scheduled', 'score': None}
         def sender(path, params, key):
-            if path == '/v1/matches': payload = {'data': [upcoming]}
-            elif path == '/v1/standings': payload = {'data': {'standings': []}}
-            else: payload = {'data': []}
+            payload = {'data': [upcoming]} if path == '/v1/matches' else {'data': []}
             return 200, {}, json.dumps(payload).encode()
         report = collect(self.client(sender), ['EPL'], [2026])
         self.assertEqual(report['status'], 'partial')
         self.assertEqual(report['coverage']['EPL']['completed_matches'], 0)
-        self.assertEqual(report['statistics_fetched'], 0)
         self.assertTrue(any('status was not honored' in e['error'] for e in report['errors']))
 
     def test_two_hundred_record_pages_do_not_truncate_history(self):
@@ -46,42 +42,6 @@ class LiveCoverageTests(unittest.TestCase):
         pages = list(self.client(sender).pages('/v1/matches', {}))
         self.assertEqual(offsets, [0, 200])
         self.assertEqual(sum(len(p[0]) for p in pages), 201)
-
-    def test_statistics_are_fetched_before_directories_and_backlog_is_visible(self):
-        calls = []
-        def sender(path, params, key):
-            calls.append((path, params.copy()))
-            if path == '/v1/matches':
-                data = [match()] if params['status'] == 'finished' else []
-            elif path == '/v1/standings': data = {'standings': []}
-            elif path.endswith('/statistics'): data = {'home': {'team_id':'h1','total_shots':0}, 'away':None}
-            else: data = []
-            return 200, {}, json.dumps({'data':data}).encode()
-        report = collect(self.client(sender, max_requests=7), ['EPL'], [2026])
-        self.assertEqual(report['statistics_fetched'], 1)
-        self.assertEqual(report['coverage']['EPL']['statistics_available'], 1)
-        self.assertEqual(report['status'], 'partial')  # Directories deferred by budget.
-        self.assertTrue(calls[-1][0].endswith('/statistics'))
-        self.assertIn('finished', [p['status'] for path,p in calls if path=='/v1/matches'])
-        report = collect(self.client(sender), ['EPL'], [2026], stats_limit=0)
-        self.assertEqual(report['coverage']['EPL']['statistics_missing'], 0)
-
-    def test_fresh_statistics_do_not_consume_backfill_slots(self):
-        calls = []
-        def sender(path, params, key):
-            calls.append(path)
-            if path == '/v1/matches':
-                data = [match(), match(mid='m2', day='2026-10-09')] if params['status']=='finished' else []
-            elif path == '/v1/standings': data = {'standings':[]}
-            elif path.endswith('/statistics'): data = {'home':{'team_id':'h1','total_shots':1},'away':None}
-            else: data = []
-            return 200, {}, json.dumps({'data':data}).encode()
-        self.store.put('statistics','EPL','m1',NOW.isoformat(), {
-            'available':True,'team_ids':{'home':'h1','away':'a1'},'home':{'total_shots':0},'away':None})
-        report = collect(self.client(sender), ['EPL'], [2026], stats_limit=1)
-        self.assertIn('/v1/matches/m2/statistics', calls)
-        self.assertNotIn('/v1/matches/m1/statistics', calls)
-        self.assertEqual(report['coverage']['EPL']['statistics_missing'],0)
 
     def test_forbidden_history_is_not_requested_again_until_cache_expiry(self):
         calls = []
@@ -99,16 +59,14 @@ class LiveCoverageTests(unittest.TestCase):
 
     def test_wrong_season_results_are_quarantined(self):
         def sender(path, params, key):
-            if path == '/v1/matches': data = [match(day='2025-10-10')] if params['status']=='finished' else []
-            elif path == '/v1/standings': data = {'standings':[]}
-            else: data = []
+            data = [match(day='2025-10-10')] if path == '/v1/matches' and params['status']=='finished' else []
             return 200, {}, json.dumps({'data':data}).encode()
         report = collect(self.client(sender), ['EPL'], [2026])
         self.assertEqual(report['status'], 'partial')
         self.assertFalse(self.store.latest('match'))
         self.assertTrue(any('season was not honored' in e['error'] for e in report['errors']))
 
-    def test_reviewed_aliases_bridge_fixture_and_standings_ids(self):
+    def test_reviewed_aliases_bridge_fixture_and_team_ids(self):
         baseline = [dict(base()[0], league='UCL', HomeTeam='FK Shakhtar Donetsk', AwayTeam='AS Roma')]
         row = dict(match(), league='UEFA Champions League')
         row['home'] = {'id':'fixture-id', 'name':'Shakhtar Donetsk'}
@@ -116,22 +74,11 @@ class LiveCoverageTests(unittest.TestCase):
         value = normal_match(row, 'UCL', NOW.isoformat(), {})
         value['requested_season'] = 2026
         self.store.put('match','UCL','m1',NOW.isoformat(),value)
-        standings = {'data':{'standings':[{'rows':[
-            {'team_id':'standings-id','team_name':'Shakhtar Donetsk','games_played':1,'wins':1,
-             'ties':0,'losses':0,'points_for':2,'points_against':1}]}]}}
-        self.store.put('standings','UCL','2026',NOW.isoformat(),standings)
+        self.store.put('team','UCL','team-id',NOW.isoformat(),{'id':'team-id','name':'Shakhtar Donetsk','sport':'football'})
         out = build_dataset(self.store, baseline, NOW.isoformat())
         self.assertEqual(out['report']['join_counts'], {'matched':1})
-        self.assertEqual(out['report']['standings_checks'][0]['compared_teams'], 1)
-        self.assertFalse(out['report']['standings_checks'][0]['unmapped_teams'])
-        self.assertFalse(out['report']['standings_checks'][0]['differences'])
         self.assertEqual(len([m for m in out['team_mappings'] if m['name']=='FK Shakhtar Donetsk']), 2)
-        changed = copy.deepcopy(standings)
-        changed['data']['standings'][0]['rows'][0]['points_for']=3
-        self.store.put('standings','UCL','2026',(NOW+timedelta(hours=1)).isoformat(),changed)
-        out=build_dataset(self.store,baseline,(NOW+timedelta(hours=1)).isoformat())
-        self.assertEqual(out['report']['data_quality_status'], 'partial')
-        self.assertEqual(out['report']['standings_checks'][0]['differences'][0]['field'], 'points_for')
+        self.assertNotIn('standings_checks', out['report'])
 
     def test_existing_results_without_bbs_confirmation_are_visible(self):
         row = {**match(day='2026-10-17'), 'status':'scheduled','score':None}

@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 import hashlib
 import json
+import math
 from pathlib import Path
 import re
 import time
@@ -185,8 +186,33 @@ def normal_match(row, league, year, observed):
         'training_scope_eligible': league != 'UCL' or main_ucl_stage(competition.get('round'))}
 
 
+STAT_FIELDS = ('shots_on_target', 'shots_off_target', 'total_shots', 'blocked_shots',
+ 'shots_inside_box', 'shots_outside_box', 'fouls', 'corner_kicks', 'offsides',
+ 'ball_possession', 'yellow_cards', 'red_cards', 'goalkeeper_saves', 'total_passes',
+ 'accurate_passes', 'pass_percentage')
+
+
+def clean(values):
+    """Validate one side's statistics (moved unchanged from the retired BBS statistics model)."""
+    if not isinstance(values, dict):
+        raise ValueError('Invalid statistics side')
+    out = {}
+    for key in STAT_FIELDS:
+        value = values.get(key)
+        if value is not None:
+            if (isinstance(value, bool) or not isinstance(value, (int, float))
+                    or not math.isfinite(value) or value < 0
+                    or (key in ('ball_possession', 'pass_percentage') and value > 100)
+                    or (key not in ('ball_possession', 'pass_percentage') and value != int(value))):
+                raise ValueError('Invalid feature statistic: '+key)
+        out[key] = value
+    for part, total in [('shots_on_target', 'total_shots'), ('accurate_passes', 'total_passes')]:
+        if out[part] is not None and out[total] is not None and out[part] > out[total]:
+            raise ValueError('Inconsistent feature statistics')
+    return out
+
+
 def normal_statistics(rows, match):
-    from bbs_statistics_model import clean
     if match['status'] != 'FT':
         raise ValueError('API-Football extra-time statistics are not regulation-only features')
     if len(rows) != 2:

@@ -16,6 +16,8 @@ Outputs go to `football_output_v2/performance/ah_close_backtest/`:
 `per_match.csv` (one row per scored match, including the refit date and the
 last training date so the lookahead rule can be audited).
 
+The last committed output was removed on 25 Nov 2026 (nothing live read it); rerun the script to regenerate it, or see git history.
+
 ## Data
 
 - football-data.co.uk CSVs already in `.football_cache`: E0, SP1, D1, I1, F1,

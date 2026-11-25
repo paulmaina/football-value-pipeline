@@ -248,7 +248,7 @@ def run(root, cache, cfg, labels):
             train = train_all.loc[train_all.Date < origin]
             models[(league_key, origin)] = (train, DixonColesModel(
                 half_life_days=profile['half_life_days'], l2=cfg['baseline_l2'], max_goals=cfg['max_goals'],
-                shot_features=profile['shot_features'], bbs_statistics=False).fit(train.copy(), as_of=origin))
+                shot_features=profile['shot_features']).fit(train.copy(), as_of=origin))
         train, model = models[(league_key, origin)]
         teams = (row.get('model_home_team'), row.get('model_away_team'))
         if not all(t in model.teams for t in teams):

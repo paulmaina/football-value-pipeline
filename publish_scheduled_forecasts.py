@@ -22,11 +22,10 @@ class ForecastStopped(RuntimeError):
 
 
 def training_files(work):
-    """Every registry league's refreshed training files, plus shared feature models."""
+    """Every registry league's refreshed training files."""
     cache = work/'.football_cache'
     training = [p for league in league_registry.REGISTRY for pattern in league.cache_globs()
                 for p in sorted(cache.glob(pattern)) if p.is_file()]
-    training += list((cache/'bbs/feature_models').glob('*/*.json'))
     status = work/'docs/ucl_training_refresh_status.json'
     if status.exists(): training.append(status)
     return training

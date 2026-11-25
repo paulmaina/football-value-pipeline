@@ -36,7 +36,7 @@ class DoubleChanceTests(OfflineQuotePolicyTestCase):
     def test_current_forecast_and_readable_output_include_12(self):
         from football_value_pipeline_v2_standalone import FootballValuePipelineV2, DixonColesModel
         from format_football_output import readable_predictions_frame, build_match_summary
-        from test_recency_experiment import history
+        from forecast_fixtures import history
         model = DixonColesModel().fit(history())
         pipeline = FootballValuePipelineV2.__new__(FootballValuePipelineV2)
         pipeline.market_weight = 0.0; pipeline.devig_method = 'power'
@@ -263,11 +263,6 @@ class DoubleChanceAdjustedThresholdTests(OfflineQuotePolicyTestCase):
             self.assertEqual(audit.loc[audit.market.eq('Double Chance 12'), 'decision'].iloc[0], 'REJECTED')
         _, audit, _ = build_conservative_shortlist(pd.DataFrame([row]), as_of=NOW)
         self.assertEqual(audit.loc[audit.market.eq('Double Chance 12'), 'decision'].iloc[0], 'REJECTED')
-
-    def test_market_led_experiment_remains_at_three_percent(self):
-        from archive.market_led_experiment import settings
-        self.assertEqual(settings()['min_ev'],.03)
-        self.assertEqual(settings()['min_probability'],.80)
 
 
 

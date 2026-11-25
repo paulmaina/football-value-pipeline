@@ -297,7 +297,7 @@ def production_predictors(cache_dir: Path):
     """Two pipeline instances sharing one fit: blend-only and full production replica."""
     from football_value_pipeline_v2_standalone import FootballValuePipelineV2
     common = dict(cache_dir=str(cache_dir), market_weight=0.70, shot_features=True,
-                  live_odds=False, bbs_statistics=False, devig_method='power')
+                  live_odds=False, devig_method='power')
     return (FootballValuePipelineV2(totals_anchor=False, **common),
             FootballValuePipelineV2(totals_anchor=True, **common))
 
@@ -312,7 +312,7 @@ def run_division(division: str, cache_dir: str) -> Dict[str, object]:
 
     def fit(train, as_of):
         model = DixonColesModel(half_life_days=production.half_life_days, l2=production.l2,
-                                max_goals=production.max_goals, bbs_statistics=False,
+                                max_goals=production.max_goals,
                                 shot_features=True).fit(train, as_of=as_of)
         model.league_key = division
         return model

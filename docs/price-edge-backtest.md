@@ -16,6 +16,8 @@ Outputs go to `football_output_v2/performance/price_edge_backtest/`:
 `report.md` (verdict and tables), `summary.json` (every metric and the drop
 counts) and `bets.csv` (every bet the 2% rule places, per source).
 
+The last committed output was removed on 25 Nov 2026 (nothing live read it); rerun the script to regenerate it, or see git history.
+
 Settlement, margin removal, data loading and the gameweek block bootstrap are
 reused from `ah_close_backtest.py`; see [ah-close-backtest.md](ah-close-backtest.md).
 

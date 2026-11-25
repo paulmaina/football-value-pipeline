@@ -52,7 +52,7 @@ class SeasonCarryOverTest(unittest.TestCase):
 
     def test_defaults_are_unchanged(self):
         defaults = {k: p.default for k, p in inspect.signature(DixonColesModel.__init__).parameters.items() if k != 'self'}
-        self.assertEqual(defaults, {'half_life_days': 240.0, 'l2': 0.08, 'max_goals': 10, 'bbs_statistics': True,
+        self.assertEqual(defaults, {'half_life_days': 240.0, 'l2': 0.08, 'max_goals': 10,
                                     'shot_features': False, 'season_carry_over': 1.0})
         self.assertEqual(CFG['baseline_l2'], .08)
         self.assertEqual(fvp.SEASON_GAP_DAYS, 45)
@@ -89,30 +89,30 @@ class SeasonCarryOverTest(unittest.TestCase):
     def test_a_default_fit_never_computes_the_multipliers(self):
         history = seasons()
         with patch.object(fvp, 'season_carry_over_multipliers', side_effect=AssertionError('default fit scaled')):
-            model = DixonColesModel(bbs_statistics=False).fit(history)
+            model = DixonColesModel().fit(history)
             self.assertEqual(model.season_carry_over, 1.)
             with self.assertRaises(AssertionError):
-                DixonColesModel(bbs_statistics=False, season_carry_over=.7).fit(history)
+                DixonColesModel(season_carry_over=.7).fit(history)
 
     def test_the_carried_fit_is_the_default_fit_on_weights_one_half_life_older_per_summer(self):
         history = seasons()
         as_of = history.Date.max() + pd.Timedelta(days=3)
-        carried = DixonColesModel(half_life_days=480., bbs_statistics=False, season_carry_over=.5).fit(history, as_of=as_of)
+        carried = DixonColesModel(half_life_days=480., season_carry_over=.5).fit(history, as_of=as_of)
         # Halving a weight is ageing the match by one half-life: move each earlier season back 480 days per summer.
         summers = np.round(-np.log2(season_carry_over_multipliers(history.Date, as_of, .5))).astype(int)
         self.assertEqual(sorted(set(summers)), [0, 1, 2])
         aged = history.assign(Date=history.Date - pd.to_timedelta(480 * summers, unit='D'))
-        plain = DixonColesModel(half_life_days=480., bbs_statistics=False).fit(aged, as_of=as_of)
+        plain = DixonColesModel(half_life_days=480.).fit(aged, as_of=as_of)
         for name in ('attack', 'weakness'):
             np.testing.assert_allclose(getattr(carried, name), getattr(plain, name), atol=2e-4)
         for name in ('base', 'home_adv', 'rho'):
             self.assertAlmostEqual(getattr(carried, name), getattr(plain, name), places=3)
-        default = DixonColesModel(half_life_days=480., bbs_statistics=False).fit(history, as_of=as_of)
+        default = DixonColesModel(half_life_days=480.).fit(history, as_of=as_of)
         self.assertGreater(np.abs(carried.attack - default.attack).max(), 1e-3)
 
     def test_a_larger_penalty_pulls_team_strengths_together(self):
         history = seasons()
-        spread = [float(np.square(DixonColesModel(l2=l2, bbs_statistics=False).fit(history).attack).sum())
+        spread = [float(np.square(DixonColesModel(l2=l2).fit(history).attack).sum())
                   for l2 in (.08, 1., 3.)]
         self.assertGreater(spread[0], spread[1])
         self.assertGreater(spread[1], spread[2])
