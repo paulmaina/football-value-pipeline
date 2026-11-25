@@ -1,0 +1,334 @@
+{
+  "fixture": {
+    "away_team": "Barcelona",
+    "home_team": "Sabah FK",
+    "kickoff_utc": "2026-11-25T17:45:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "1639984879"
+  },
+  "observed_at_utc": "2026-11-25T17:39:33.420175+00:00",
+  "payload": {
+    "away_team": "Barcelona",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-25T17:39:33Z",
+            "outcomes": [
+              {
+                "name": "Sabah FK",
+                "price": 34.0
+              },
+              {
+                "name": "Barcelona",
+                "price": 1.0745
+              },
+              {
+                "name": "Draw",
+                "price": 14.0
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-25T17:39:33Z",
+            "outcomes": [
+              {
+                "name": "Sabah FK",
+                "point": 3.25,
+                "price": 2.0
+              },
+              {
+                "name": "Barcelona",
+                "point": -3.25,
+                "price": 1.8929
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-25T17:39:33Z",
+            "outcomes": [
+              {
+                "name": "Sabah FK",
+                "point": 2.25,
+                "price": 3.25
+              },
+              {
+                "name": "Sabah FK",
+                "point": 2.5,
+                "price": 2.72
+              },
+              {
+                "name": "Sabah FK",
+                "point": 2.75,
+                "price": 2.49
+              },
+              {
+                "name": "Sabah FK",
+                "point": 3.0,
+                "price": 2.26
+              },
+              {
+                "name": "Sabah FK",
+                "point": 3.5,
+                "price": 1.8
+              },
+              {
+                "name": "Sabah FK",
+                "point": 3.75,
+                "price": 1.6289
+              },
+              {
+                "name": "Sabah FK",
+                "point": 4.0,
+                "price": 1.463
+              },
+              {
+                "name": "Sabah FK",
+                "point": 4.25,
+                "price": 1.3937
+              },
+              {
+                "name": "Barcelona",
+                "point": -2.25,
+                "price": 1.3356
+              },
+              {
+                "name": "Barcelona",
+                "point": -2.5,
+                "price": 1.4505
+              },
+              {
+                "name": "Barcelona",
+                "point": -2.75,
+                "price": 1.5464
+              },
+              {
+                "name": "Barcelona",
+                "point": -3.0,
+                "price": 1.6803
+              },
+              {
+                "name": "Barcelona",
+                "point": -3.5,
+                "price": 2.07
+              },
+              {
+                "name": "Barcelona",
+                "point": -3.75,
+                "price": 2.31
+              },
+              {
+                "name": "Barcelona",
+                "point": -4.0,
+                "price": 2.68
+              },
+              {
+                "name": "Barcelona",
+                "point": -4.25,
+                "price": 2.95
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-25T17:39:33Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 4.75,
+                "price": 1.9434
+              },
+              {
+                "name": "Under",
+                "point": 4.75,
+                "price": 1.8929
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-25T17:45:00Z",
+    "home_team": "Sabah FK",
+    "id": "1639984879",
+    "odds_provider": "pinnapi",
+    "sport_key": "soccer_uefa_champs_league"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 34.0,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.020791251212824248,
+      "selection": "home",
+      "updated_at_utc": "2026-11-25T17:39:33+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 14.0,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.055097979664348457,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-25T17:39:33+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.0745,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.9241107691228272,
+      "selection": "away",
+      "updated_at_utc": "2026-11-25T17:39:33+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.8929,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -3.25",
+      "updated_at_utc": "2026-11-25T17:39:33+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.0,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +3.25",
+      "updated_at_utc": "2026-11-25T17:39:33+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.95,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -4.25",
+      "updated_at_utc": "2026-11-25T17:39:33+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.68,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -4.00",
+      "updated_at_utc": "2026-11-25T17:39:33+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.31,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -3.75",
+      "updated_at_utc": "2026-11-25T17:39:33+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.07,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -3.50",
+      "updated_at_utc": "2026-11-25T17:39:33+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6803,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -3.00",
+      "updated_at_utc": "2026-11-25T17:39:33+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5464,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -2.75",
+      "updated_at_utc": "2026-11-25T17:39:33+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4505,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -2.50",
+      "updated_at_utc": "2026-11-25T17:39:33+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3356,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -2.25",
+      "updated_at_utc": "2026-11-25T17:39:33+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.25,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +2.25",
+      "updated_at_utc": "2026-11-25T17:39:33+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.72,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +2.50",
+      "updated_at_utc": "2026-11-25T17:39:33+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.49,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +2.75",
+      "updated_at_utc": "2026-11-25T17:39:33+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.26,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +3.00",
+      "updated_at_utc": "2026-11-25T17:39:33+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.8,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +3.50",
+      "updated_at_utc": "2026-11-25T17:39:33+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6289,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +3.75",
+      "updated_at_utc": "2026-11-25T17:39:33+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.463,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +4.00",
+      "updated_at_utc": "2026-11-25T17:39:33+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3937,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +4.25",
+      "updated_at_utc": "2026-11-25T17:39:33+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

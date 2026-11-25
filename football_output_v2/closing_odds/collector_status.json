@@ -1,18 +1,17 @@
 {
-  "already_complete_fixtures": 6,
-  "checked_at_utc": "2026-11-24T19:55:09.043722+00:00",
+  "already_complete_fixtures": 1,
+  "checked_at_utc": "2026-11-25T17:40:07.176208+00:00",
   "coverage_checks": [
     {
-      "event_id": "1639986893",
+      "event_id": "1639986827",
       "missing_required_quotes": [
         {
           "bookmaker": "pinnacle",
-          "selection": "draw_away"
+          "selection": "Asian Handicap Home +1.25"
         }
       ],
       "requested_markets": [
         "alternate_spreads",
-        "double_chance",
         "draw_no_bet",
         "h2h",
         "spreads",
@@ -24,14 +23,14 @@
     }
   ],
   "daily_request_cap": 100,
-  "daily_requests": 46,
-  "eligible_fixtures": 7,
+  "daily_requests": 12,
+  "eligible_fixtures": 2,
   "errors": [],
   "reason": "CHECKED_ELIGIBLE_FIXTURES",
-  "request_limit": 35,
+  "request_limit": 10,
   "requests": 1,
-  "reservation_allowance": 42,
-  "reservation_id": "actions-45437911423-1-2",
-  "reservation_used": 8,
+  "reservation_allowance": 12,
+  "reservation_id": "actions-45632909395-1-1",
+  "reservation_used": 3,
   "written": 1
 }
