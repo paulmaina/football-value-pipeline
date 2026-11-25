@@ -257,7 +257,7 @@ fresh `main`:
    `price_edge_tagged_candidates.csv`,
    `cagey_tier_shortlist.csv` and `cagey_correction_monitoring.csv`.
 4. **Review**: `performance_tracking.py review` grades results and refreshes:
-   - performance tracking and the BBS forward assessment. The dashboard
+   - performance tracking. The dashboard
      (`performance/README.md`), the weekly files and the price-edge report
      lead with closing-line value (`clv_report.py`) and give returns second,
      per pick and with one row per fixture, a match's picks averaged
