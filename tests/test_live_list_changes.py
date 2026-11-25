@@ -102,7 +102,7 @@ class StrongVersionTest(unittest.TestCase):
     def test_v1_is_frozen_exactly_as_released(self):
         """The config v1 runs recorded (summary config_sha256) is the one main had before the change."""
         try:
-            released = subprocess.run(['git', 'show', '121d64bfa:master_strong_config.json'], cwd=REPO, check=True,
+            released = subprocess.run(['git', 'show', 'b3d2e4486:master_strong_config.json'], cwd=REPO, check=True,
                                       capture_output=True, stdin=subprocess.DEVNULL).stdout
         except (OSError, subprocess.CalledProcessError):
             self.skipTest('git history unavailable')

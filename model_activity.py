@@ -1012,9 +1012,9 @@ BACKFILL_SWITCHES = (
 # the workflow and are logged by it.
 BACKFILL_FITS = (
     {'id': 'backfill:refit:C6', 'fit': 'C6', 'when': '2026-11-15T06:04:52Z', 'file': 'research_c6_live_fits.json',
-     'commit': '1325c5c37', 'merged_in': 'PR #176'},
+     'commit': '50bc4cec9', 'merged_in': 'PR #176'},
     {'id': 'backfill:refit:CE3n', 'fit': 'CE3n', 'when': '2026-11-15T11:44:02Z', 'file': 'research_ce3n_live_fits.json',
-     'commit': '54c292159', 'merged_in': 'PR #178'},
+     'commit': '4c166c064', 'merged_in': 'PR #178'},
 )
 
 

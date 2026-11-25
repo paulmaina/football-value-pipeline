@@ -13,6 +13,8 @@ Read `docs/plan.md` first. It holds the current plan, the release rules and the 
 - **A retirement removes its outputs and references in the same PR.** Retiring a list, experiment, model or collector deletes its code, its committed outputs (reports, folders, cache data, snapshot sidecars) and every reference in code, tests, workflows, READMEs and CLAUDE.md, and records the retirement in `docs/plan.md`; names that archived runs still need to verify stay on the allow-lists only. Nothing is left marked ARCHIVED. The monthly `repo-hygiene.yml` report (`scripts/repo_hygiene.py`, report only) lists what slipped through.
 - Work on a branch and open a PR; don't push to `main`.
 
+- **History rewrite (25 Nov 2026).** Every commit before it has a new SHA. The commit SHAs written in grades, snapshot metadata, health files, ledgers, declarations, the model activity log and docs predate the rewrite and are left as written: resolve one through `docs/history-rewrite-2026-11-25-commit-map.txt` (old -> new) or the mirror backup (`K:\Betting Pipeline\backups\fvp-mirror-2026-11-25`). The SHAs the code resolves with git (historical benchmark dataset, model_activity refit backfill, one test) were updated.
+
 ## Useful commands
 
 ```bash

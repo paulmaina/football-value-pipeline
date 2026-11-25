@@ -40,7 +40,7 @@
   "prospective_validation_start": "2026-10-14",
   "promotion_policy": "No automatic promotion. Historical periods have already been inspected and are retrospective diagnostics. Select candidates using development only; audit scores cannot select. A candidate needs later, genuinely untouched pre-kickoff forecasts, adequate paired coverage, calibration checks and manual approval before production changes. Historical closing inputs are oracle diagnostics and never promotion-eligible. No ROI, CLV or live bet recommendation can be inferred from these untimestamped CSV odds.",
   "historical_split_reason": "Chosen on odds coverage only before calculating scores: Pinnacle columns stop in January 2026, so a February boundary would leave no market-informed audit cohort. Both periods remain retrospective and already inspected.",
-  "dataset_source_commit": "1caa1ee2ad9ac255f2952727df8e91ba4081d389",
+  "dataset_source_commit": "a21d3019d66d81b83064319cd2df252d22a57c61",
   "input_manifest": "historical_benchmark_inputs.json",
   "model_upgrade_comparison": {
     "production_v1": {
