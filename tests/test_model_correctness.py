@@ -147,35 +147,3 @@ class ModelCorrectnessTests(OfflineQuotePolicyTestCase):
                 result, _, _, _ = pipe.backtest_league('EPL', min_train=30,
                     test_start='2024-02-15', history_override=pipe._validation_history, now=NOW)
             self.assertFalse(result.empty)
-
-    def test_adaptive_totals_capture_reconstructs_actual_grid_and_preserves_legacy(self):
-        import archive.totals_anchor_experiment as trial
-        from test_totals_anchor_experiment import sample, NOW
-        from archive.benchmark_forward_experiment import simplex
-        from performance_tracking import capture, snapshots, fixture_key, write_json
-        row, legacy, inputs = sample()
-        registry, _ = trial.registry()
-        before = trial.decision(row, legacy, inputs, NOW, registry)
-        self.assertEqual(before['status'], 'available')
-        original_inputs = copy.deepcopy(inputs)
-        raw, meta = score_grid(inputs['lambda_home'], inputs['lambda_away'], inputs['rho'], 10)
-        matrix = reweight_matrix_to_1x2(raw, simplex(row, 'p_'))
-        for key, value in goals(matrix).items():
-            row['p_'+key] = value
-        inputs = dict(inputs, max_goals=matrix.shape[0]-1, score_engine_version=meta['score_engine_version'])
-        self.assertEqual(trial.decision(row, matrix, inputs, NOW, registry)['status'], 'available')
-        self.assertEqual(trial.decision(row, matrix, dict(inputs, score_engine_version='unknown'), NOW, registry)['status'], 'unavailable')
-        with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp); output = root/'raw'; output.mkdir()
-            predictions = pd.DataFrame([row]); predictions.to_csv(output/'all_leagues_predictions.csv', index=False)
-            pd.DataFrame(columns=['decision']).to_csv(output/'conservative_bet_shortlist.csv', index=False)
-            write_json(output/'conservative_bet_summary.json', {'generated_at_utc': NOW.isoformat()})
-            key = fixture_key(row)
-            data = trial.write_experiment(predictions, output, NOW.isoformat(), {key: matrix}, {key: inputs})
-            self.assertIsNotNone(trial.capture_file(output, NOW.isoformat()))
-            self.assertTrue(capture('e'*40, root=root, captured_at=NOW))
-            self.assertEqual(trial.evaluate(root, snapshots(root), [], NOW)[0]['rejected_snapshot_commits'], [])
-            trial.validate(data, NOW.isoformat(), [row])
-        # Legacy decisions still use the original fixed-grid solver.
-        old_row, old_matrix, _ = sample()
-        self.assertEqual(before, trial.decision(old_row, old_matrix, original_inputs, NOW, registry))

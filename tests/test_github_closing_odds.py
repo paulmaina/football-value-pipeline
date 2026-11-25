@@ -115,7 +115,7 @@ class ActionsClosingTests(OfflineQuotePolicyTestCase):
             with self.assertRaises(ValueError):g.utc('2026-10-10')
 
     def test_reservations_count_unknown_usage_and_settle_without_resetting_other_runs(self):
-        from tests.test_benchmark_forward_experiment import NOW
+        from forecast_fixtures import NOW
         clock=NOW
         held,amount=g.reserve({},'run-1',clock,10)
         self.assertEqual(amount,10)

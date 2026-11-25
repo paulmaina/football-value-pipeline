@@ -15,7 +15,6 @@ from test_conservative_bet_filter import fixture, NOW
 from test_double_chance import event as dc_event
 from test_graded_candidates import sample_report
 from double_chance import parse_quotes
-from archived_hooks import setUpModule, tearDownModule  # noqa: F401  (retired capture/review hooks)
 
 
 def book(name='Book A', stamp=None, home=1.52, away=7.3, over=1.30, btts=1.49):
@@ -184,29 +183,3 @@ class FreshnessTests(OfflineQuotePolicyTestCase):
         current = market_snapshot(live)
         self.assertIsNone(current['market_p_home'])
         self.assertIsNone(current['market_p_over_2_5'])
-
-    def test_v10_archive_replays_missing_reference_metadata_without_backfill(self):
-        import archive.shortlist_policy_experiment as trial
-        import conservative_bet_filter as engine
-        from test_shortlist_policy_experiment import setup
-        from performance_tracking import capture, snapshots
-        row = fixture()
-        for field in list(row):
-            if field.startswith('market_reference_') and field.endswith('_last_update_utc'):
-                row.pop(field)
-        with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp)
-            with patch.object(trial, 'BASELINE_POLICY', trial.PREVIOUS_BASELINE_POLICY), patch.object(
-                    engine, 'SELECTION_POLICY_VERSION', trial.PREVIOUS_BASELINE_POLICY):
-                raw, data, predictions, picks, _, summary = setup(root, row=row)
-            self.assertFalse(picks.empty)
-            trial.validate(data, summary['generated_at_utc'], predictions.to_dict('records'))
-            self.assertIsNotNone(trial.capture_file(raw, summary['generated_at_utc']))
-            self.assertTrue(capture('c'*40, root=root, captured_at=NOW))
-            frozen, rejected = trial.frozen(root, snapshots(root))
-            self.assertEqual(len(frozen), 63); self.assertFalse(rejected)
-            current, _, _ = build_conservative_shortlist(predictions, as_of=NOW)
-            self.assertTrue(current.empty)
-            data['selection_policy_version'] = trial.BASELINE_POLICY
-            with self.assertRaisesRegex(ValueError, 'frozen replay'):
-                trial.validate(data, summary['generated_at_utc'], predictions.to_dict('records'))

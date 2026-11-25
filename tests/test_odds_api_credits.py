@@ -179,7 +179,7 @@ class LowCreditGuardTests(OfflineQuotePolicyTestCase):
 
     def test_closing_collects_picks_only_when_credits_are_low(self):
         from test_closing_odds import setup, payload
-        from test_totals_anchor_experiment import sample
+        from forecast_fixtures import sample
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             row, observed = setup(root)
@@ -203,7 +203,7 @@ class LowCreditGuardTests(OfflineQuotePolicyTestCase):
 
 class ClosingRetryTests(OfflineQuotePolicyTestCase):
     def test_handicap_request_expects_only_requested_bookmakers(self):
-        from test_totals_anchor_experiment import sample
+        from forecast_fixtures import sample
         row = sample()[0]
         selected = {'Asian Handicap Home -0.50', 'Home win'}
         self.assertEqual(c.required_quotes(row, selected, []),

@@ -291,30 +291,6 @@ class NewLeagueShortlistTests(OfflineQuotePolicyTestCase):
                     self.assertTrue(decisions.rejection_reasons.str.contains(
                         'per-market approval: market audit NOT_ASSESSED').all())
 
-    def test_market_led_experiment_skips_unvalidated_leagues_without_spending_credits(self):
-        from archive.market_led_experiment import write_experiment
-        import archive.market_led_experiment as market_led_experiment
-        kickoff = (datetime.now(timezone.utc)+timedelta(hours=10)).isoformat()
-        predictions = pd.DataFrame([{'league': 'Eredivisie', 'home_team': 'Ajax', 'away_team': 'PSV',
-                                     'kickoff_utc': kickoff, 'fixture_id': 'f1', 'odds_event_id': 'evt1'}])
-        api = MagicMock()
-        with tempfile.TemporaryDirectory() as tmp:
-            raw = Path(tmp)
-            predictions.to_csv(raw/'all_leagues_predictions.csv', index=False)
-            fetch = MagicMock(side_effect=AssertionError('no credits for unvalidated leagues'))
-            original = market_led_experiment.fetch_event
-            market_led_experiment.fetch_event = fetch
-            try:
-                data = write_experiment(predictions, raw, kickoff, api, market_led_experiment.settings())
-            finally:
-                market_led_experiment.fetch_event = original
-        fetch.assert_not_called()
-        self.assertTrue(data['rows'])
-        for row in data['rows']:
-            self.assertFalse(row['selected'])
-            self.assertIn('competition_excluded_from_shortlist_validation', row['reasons'])
-
-
 if __name__ == '__main__':
     unittest.main()
 

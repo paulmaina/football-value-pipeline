@@ -10,7 +10,7 @@ from football_value_pipeline_v2_standalone import (
     DixonColesModel, FootballValuePipelineV2, LEAGUES, TheOddsAPI,
 )
 from test_conservative_bet_filter import NOW
-from test_recency_experiment import history
+from forecast_fixtures import history
 
 
 def event(price=1.63, opposite=2.49, name='1xBet', stamp=None, key='totals'):
