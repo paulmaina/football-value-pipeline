@@ -95,8 +95,7 @@ def league_rows(league, cache, cfg, include_holdout=True):
         if test.empty or len(train) < cfg['min_train']:
             continue
         model = DixonColesModel(half_life_days=profile['half_life_days'], l2=cfg['baseline_l2'],
-                                max_goals=cfg['max_goals'], shot_features=profile['shot_features'],
-                                bbs_statistics=False).fit(train.copy(), as_of=origin)
+                                max_goals=cfg['max_goals'], shot_features=profile['shot_features']).fit(train.copy(), as_of=origin)
         for _, row in test.iterrows():
             if row.HomeTeam not in model.teams or row.AwayTeam not in model.teams:
                 continue

@@ -120,9 +120,6 @@ MODEL_PROFILES = {
 # Keep an independent historical profile after production so identical settings
 # resolve to the production identity for new forecasts.
 MODEL_PROFILES[SHOT_EXPERIMENT_MODEL_VERSION] = dict(MODEL_PROFILES[MODEL_VERSION])
-# Shots and BBS statistics never stack until their combination (and its gain
-# over shots alone) has been validated chronologically.
-SHOTS_WITH_BBS_VALIDATED = False
 DEFAULT_MARKET_WEIGHT = MODEL_PROFILES[MODEL_VERSION]["market_weight"]
 DEFAULT_HALF_LIFE_DAYS = MODEL_PROFILES[MODEL_VERSION]["half_life_days"]
 
@@ -1845,7 +1842,6 @@ class DixonColesModel:
         half_life_days: float = 240.0,
         l2: float = 0.08,
         max_goals: int = 10,
-        bbs_statistics: bool = True,
         shot_features: bool = False,
         *,
         season_carry_over: float = 1.0,
@@ -1865,9 +1861,6 @@ class DixonColesModel:
         # Below 1 is an offline research setting only (evaluation_harness.RATE_VARIANTS; docs/plan.md, Phase 2g).
         self.season_carry_over = float(season_carry_over)
         self.max_goals = int(max_goals)
-        self.bbs_statistics_enabled = bool(bbs_statistics)
-        self.statistics_model = None
-        self.bbs_statistics_report = {'status': 'NOT_FITTED'}
         self.shot_features_enabled = bool(shot_features)
         self.shot_model = None
         self.shot_features_report = {'status': 'DISABLED' if not shot_features else 'NOT_FITTED'}
@@ -2055,7 +2048,6 @@ class DixonColesModel:
         self.training_matches = len(df)
         self.training_end = latest
         self.training_as_of = reference
-        self.statistics_model = None
         self.shot_model = None
         if self.shot_features_enabled:
             if as_of is None:
@@ -2064,7 +2056,7 @@ class DixonColesModel:
                 from shot_features import fit_shot_model
                 def shot_baseline(past, origin):
                     return DixonColesModel(half_life_days=self.half_life_days, l2=self.l2,
-                        max_goals=self.max_goals, bbs_statistics=False,
+                        max_goals=self.max_goals,
                         season_carry_over=self.season_carry_over).fit(past, as_of=origin)
                 try:
                     self.shot_model = fit_shot_model(df, reference, shot_baseline, self.half_life_days)
@@ -2073,29 +2065,6 @@ class DixonColesModel:
                     self.shot_features_report = {'status': 'BASELINE_RETAINED_FEATURE_ERROR',
                                                  'error_type': type(exc).__name__}
                     warnings.warn('Shot feature fit unavailable; retained Dixon-Coles ('+type(exc).__name__+')')
-        enabled = self.bbs_statistics_enabled and df.attrs.get('bbs_statistics_enabled', True)
-        self.bbs_statistics_report = {'status': 'DISABLED' if not enabled else
-                                      'NO_OBSERVATIONS' if as_of is not None else 'NO_PREDICTION_CUTOFF'}
-        if enabled and df.attrs.get('bbs_statistics_source_error'):
-            self.bbs_statistics_report = {'status': 'BASELINE_RETAINED_SOURCE_ERROR',
-                                         'error_type': df.attrs['bbs_statistics_source_error']}
-        if enabled and as_of is not None and df.attrs.get('bbs_statistics_observations'):
-            from bbs_statistics_model import fit_statistics
-            def baseline_factory(past, origin):
-                return DixonColesModel(half_life_days=self.half_life_days, l2=self.l2,
-                    max_goals=self.max_goals, bbs_statistics=False,
-                    season_carry_over=self.season_carry_over).fit(past, as_of=origin)
-            try:
-                self.statistics_model = fit_statistics(df, reference, baseline_factory,
-                    validation_mode=df.attrs.get('bbs_statistics_validation', 'auto'))
-                self.bbs_statistics_report = self.statistics_model.report
-                if any(x.get('source') == 'api-football' for x in df.attrs['bbs_statistics_observations']):
-                    self.bbs_statistics_report['input_providers'] = sorted({
-                        x.get('source', 'bigballsdata') for x in df.attrs['bbs_statistics_observations']})
-            except (ValueError, RuntimeError, OSError, KeyError, TypeError) as exc:
-                self.bbs_statistics_report = {'status': 'BASELINE_RETAINED_FEATURE_ERROR',
-                                             'error_type': type(exc).__name__}
-                warnings.warn('BBS feature fit unavailable; retained Dixon-Coles ('+type(exc).__name__+')')
         return self
 
     def _check_fitted(self) -> None:
@@ -2204,32 +2173,18 @@ class DixonColesModel:
             "home_name_match_score": home_match_score,
             "away_name_match_score": away_match_score,
         }
-        meta.update(dc_lambda_home=lam, dc_lambda_away=mu, bbs_statistics_applied=False,
-                    bbs_statistics_status=self.bbs_statistics_report['status'])
+        meta.update(dc_lambda_home=lam, dc_lambda_away=mu)
         if self.shot_features_enabled:
             meta.update(shot_features_applied=False,
                         shot_features_status=self.shot_features_report.get('status'))
-        # BBS (production, own unchanged gate) first, on pure Dixon-Coles rates.
-        if self.statistics_model is not None:
-            if home is None or away is None:
-                meta['bbs_statistics_status'] = 'UNKNOWN_TEAM_BASELINE_RETAINED'
-            else:
-                rates, info = self.statistics_model.apply(home, away, [lam, mu])
-                meta.update(info)
-                meta.update(lambda_home=float(rates[0]), lambda_away=float(rates[1]))
-        # Experimental shots only where BBS did not apply: never both until the
-        # combination is validated chronologically (SHOTS_WITH_BBS_VALIDATED).
         if self.shot_model is not None:
             if home is None or away is None:
                 meta['shot_features_status'] = 'UNKNOWN_TEAM_BASELINE_RETAINED'
-            elif meta.get('bbs_statistics_applied') and not SHOTS_WITH_BBS_VALIDATED:
-                meta['shot_features_status'] = 'SKIPPED_BBS_STATISTICS_APPLIED'
             else:
                 rates, info = self.shot_model.apply(home, away, [lam, mu])
                 meta.update(info)
                 meta.update(lambda_home=float(rates[0]), lambda_away=float(rates[1]))
-        meta['goal_rate_features_used'] = ('bbs_statistics' if meta.get('bbs_statistics_applied') else
-                                           'shot_features' if meta.get('shot_features_applied') else 'none')
+        meta['goal_rate_features_used'] = 'shot_features' if meta.get('shot_features_applied') else 'none'
         return meta
 
     def score_matrix(self, home: str, away: str) -> Tuple[np.ndarray, Dict[str, object]]:
@@ -2244,14 +2199,11 @@ class DixonColesModel:
         try:
             matrix, grid_info = score_grid(lam, mu, self.rho, self.max_goals)
         except ValueError as exc:
-            if not (meta.get('bbs_statistics_applied') or meta.get('shot_features_applied')):
+            if not meta.get('shot_features_applied'):
                 raise RuntimeError(str(exc)) from exc
             # A rate adjustment must never invalidate the existing DC grid.
             matrix, grid_info = score_grid(meta['dc_lambda_home'], meta['dc_lambda_away'], self.rho, self.max_goals)
             meta.update(lambda_home=meta['dc_lambda_home'], lambda_away=meta['dc_lambda_away'])
-            if meta.get('bbs_statistics_applied'):
-                meta.update(bbs_statistics_applied=False, bbs_statistics_weight=0.,
-                    bbs_statistics_status='UNSAFE_ADJUSTMENT_BASELINE_RETAINED')
             if meta.get('shot_features_applied'):
                 meta.update(shot_features_applied=False, shot_features_weight=0.,
                     shot_features_status='UNSAFE_ADJUSTMENT_BASELINE_RETAINED')
@@ -2368,8 +2320,6 @@ class FootballValuePipeline:
         max_goals: int = 10,
         lookahead_days: int = 3,
         force_refresh: bool = False,
-        bbs_statistics: bool = True,
-        bbs_statistics_validation: str = 'auto',
     ):
         self.source = FootballDataUK(cache_dir=cache_dir, force_refresh=False, allow_training_download=False)
         self.seasons_back = int(seasons_back)
@@ -2377,10 +2327,6 @@ class FootballValuePipeline:
         self.l2 = float(l2)
         self.max_goals = int(max_goals)
         self.lookahead_days = int(lookahead_days)
-        self.bbs_statistics = bool(bbs_statistics)
-        if bbs_statistics_validation not in ('auto', 'strict'):
-            raise ValueError('Unknown BBS statistics validation mode')
-        self.bbs_statistics_validation = bbs_statistics_validation
 
     def _training_health(self, league, model, now):
         end = None if model.training_end is None else str(model.training_end.date())
@@ -3020,8 +2966,6 @@ class FootballValuePipelineV2(FootballValuePipeline):
         from api_football_integration import augment_history
         result = augment_history(result, self.source.http.cache_dir, league.key, now, seasons_back)
         result.attrs['training_seasons_requested'] = seasons_back
-        result.attrs['bbs_statistics_enabled'] = getattr(self, 'bbs_statistics', True)
-        result.attrs['bbs_statistics_validation'] = getattr(self, 'bbs_statistics_validation', 'auto')
         return result
 
     def _current_fixtures(
@@ -3267,8 +3211,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
         if half_life is None:
             return None, getattr(self, '_legacy_status', None) or 'UNAVAILABLE_HALF_LIFE_TUNING'
         try:
-            legacy = DixonColesModel(half_life_days=half_life, l2=self.l2, max_goals=self.max_goals,
-                                     bbs_statistics=getattr(self, 'bbs_statistics', True)).fit(history, as_of=pd.Timestamp(now))
+            legacy = DixonColesModel(half_life_days=half_life, l2=self.l2,
+                                     max_goals=self.max_goals).fit(history, as_of=pd.Timestamp(now))
         except (ValueError, RuntimeError) as exc:
             return None, 'UNAVAILABLE_FIT_' + type(exc).__name__
         legacy.league_key = league.key
@@ -3333,15 +3277,6 @@ class FootballValuePipelineV2(FootballValuePipeline):
         raw_under_3_5 = model.over_under(matrix, 3.5)["under"]
         raw_btts_yes = float(matrix[1:, 1:].sum())
         control = {}
-        if meta.get('bbs_statistics_applied'):
-            from score_probability import score_grid
-            control_matrix, _ = score_grid(meta['dc_lambda_home'], meta['dc_lambda_away'],
-                                           model.rho, model.max_goals)
-            control.update({'bbs_control_p_'+key: value
-                            for key, value in model.one_x_two(control_matrix).items()})
-            control.update(bbs_control_p_over_1_5=model.over_under(control_matrix, 1.5)['over'],
-                bbs_control_p_under_3_5=model.over_under(control_matrix, 3.5)['under'],
-                bbs_control_p_btts_yes=float(control_matrix[1:, 1:].sum()))
         snapshot = market_snapshot(row, devig_method=self.devig_method)
         market_probs = [
             snapshot["market_p_home"],
@@ -3473,7 +3408,6 @@ class FootballValuePipelineV2(FootballValuePipeline):
             half_life_days=self.half_life_days,
             l2=self.l2,
             max_goals=self.max_goals,
-            bbs_statistics=getattr(self, 'bbs_statistics', True),
             shot_features=getattr(self, 'shot_features', False),
         ).fit(history, as_of=pd.Timestamp(now))
         model.league_key = league.key
@@ -3498,7 +3432,6 @@ class FootballValuePipelineV2(FootballValuePipeline):
             "training_sha256": training_fingerprint(history),
             "training_as_of_utc": now.astimezone(timezone.utc).isoformat(),
             "training_data_provenance": training_provenance(history),
-            "bbs_statistics_model": getattr(model, 'bbs_statistics_report', {}),
             "model_version": self._model_version(),
             "totals_anchor_enabled": getattr(self, "totals_anchor", False),
             "shot_features_model": getattr(model, 'shot_features_report', {}),
@@ -3539,10 +3472,6 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 if self.additional_odds_coverage == "ranked" else None),
         }
 
-        feature_model = getattr(model, 'statistics_model', None)
-        if feature_model is not None and hasattr(self.source, 'http'):
-            artifact = feature_model.save(self.source.http.cache_dir, league.key)
-            diagnostics['bbs_statistics_model_artifact'] = artifact.relative_to(self.source.http.cache_dir).as_posix()
         if fixtures.empty:
             return pd.DataFrame(), diagnostics, {}
 
@@ -3756,8 +3685,6 @@ class FootballValuePipelineV2(FootballValuePipeline):
         diagnostics['shot_features_applied_fixtures'] = sum(r.get('shot_features_applied') is True for r in records)
         diagnostics['goal_rate_features_used'] = dict(Counter(str(r.get('goal_rate_features_used', 'none')) for r in records))
         diagnostics['legacy_comparison_status'] = dict(Counter(str(r.get('legacy_status')) for r in records))
-        diagnostics['bbs_statistics_applied_fixtures'] = sum(r.get('bbs_statistics_applied') is True for r in records)
-        diagnostics['training_data_provenance']['bbs_statistics_used_as_predictor_features'] = bool(diagnostics['bbs_statistics_applied_fixtures'])
         return pd.DataFrame(records), diagnostics, scorelines
 
     def _european_alternates(self, now):
@@ -3837,7 +3764,6 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 half_life_days=self.half_life_days,
                 l2=self.l2,
                 max_goals=self.max_goals,
-                bbs_statistics=getattr(self, 'bbs_statistics', True),
                 shot_features=getattr(self, 'shot_features', False),
             ).fit(train, as_of=s)
             model.league_key = league.key
@@ -4181,10 +4107,6 @@ def build_parser() -> argparse.ArgumentParser:
                    help="Explicit shared history override; otherwise domestic uses six seasons and UCL four; UEL always uses all verified cached history.")
     p.add_argument("--domestic-seasons-back", type=int, choices=range(1, 11), default=None,
                    help="Domestic CSV seasons including current season (default: 6); independent of UCL.")
-    p.add_argument('--no-bbs-statistics', action='store_true',
-        help='Use the original goal model without validated BBS/API-Football statistical features')
-    p.add_argument('--bbs-statistics-validation', choices=('auto', 'strict'), default='auto',
-        help='auto: assess labelled retrospective backfill when strict history is insufficient; strict: observed-before-origin inputs only')
     p.add_argument("--half-life-days", type=float, default=DEFAULT_HALF_LIFE_DAYS,
                    help=f"Fixed production half-life (default: {DEFAULT_HALF_LIFE_DAYS:g} days).")
     p.add_argument(
@@ -4388,8 +4310,6 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         fixture_provider=args.fixture_provider,
         live_odds=not args.no_live_odds,
         additional_odds_coverage=args.additional_odds_coverage,
-        bbs_statistics=not args.no_bbs_statistics,
-        bbs_statistics_validation=args.bbs_statistics_validation,
         totals_anchor=not args.no_totals_anchor,
         shot_features=not args.no_shot_features,
     )
@@ -4526,12 +4446,6 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
 
         print(f"[{league_key}] current-fixture model...", file=sys.stderr)
         predictions, diagnostics, scorelines = pipe.run_league(league_key)
-        assessment = diagnostics.get('bbs_statistics_model', {})
-        print(f"[{league_key}] BBS statistics: {assessment.get('status', 'NOT_RECORDED')}; "
-              f"validation={assessment.get('validation_mode', 'none')}; "
-              f"eligible={assessment.get('eligible_training_matches', 0)}/"
-              f"{assessment.get('required_training_matches', 120)}; "
-              f"applied fixtures={diagnostics.get('bbs_statistics_applied_fixtures', 0)}", file=sys.stderr)
         shots = diagnostics.get('shot_features_model', {})
         print(f"[{league_key}] shots: {shots.get('status', 'NOT_RECORDED')}; "
               f"failed gates={shots.get('failed_gates', [])}; "
@@ -4573,8 +4487,6 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
                 "step_days": 56,
                 "devig": pipe.devig_method,
                 "score_basis": "regulation_time",
-                "bbs_statistics": not args.no_bbs_statistics,
-                "bbs_statistics_validation": args.bbs_statistics_validation,
                 "half_life_days": pipe.half_life_days,
                 "market_weight": pipe.market_weight,
                 "l2": pipe.l2,

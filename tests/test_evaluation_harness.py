@@ -71,8 +71,7 @@ class IndependenceTest(unittest.TestCase):
                                      {**CFG, 'seasons': ['2223', '2324'], 'test_end_exclusive': '2024-07-01'})
         origin = pd.Timestamp('2024-03-01')
         train, row = data[data.Date < origin], data[data.Date >= origin].iloc[0]
-        model = DixonColesModel(half_life_days=480., l2=.08, max_goals=10, shot_features=True,
-                                bbs_statistics=False).fit(train.copy(), as_of=origin)
+        model = DixonColesModel(half_life_days=480., l2=.08, max_goals=10, shot_features=True).fit(train.copy(), as_of=origin)
         base, _, _ = eh.research_matrix(row, train, origin, model)
         odds = [c for c in row.index if any(c.startswith(p) for p in ('PS', 'P>', 'P<', 'PC', 'PAH', 'B365', 'Max', 'Avg', 'BW', 'IW', 'WH', 'VC', 'AH', '1X'))]
         self.assertTrue(odds)

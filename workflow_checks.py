@@ -36,7 +36,7 @@ COVERAGE_FLOORS = {'asian_handicap.py':85, 'api_football_data.py':85, 'api_footb
     'win_first_shortlist.py':85, 'per_market_shortlist.py':85, 'corners_cards_shortlist.py':85, 'count_markets.py':85,
     'no_loss_corners_shortlist.py':85,
     'collect_api_football_data.py':75, 'publish_api_football_data.py':75,
-    'prediction_runs.py':85, 'github_closing_odds.py':80, 'bbs_statistics_model.py':85, 'bbs_data.py':85, 'bbs_integration.py':85, 'collect_bbs_data.py':75,
+    'prediction_runs.py':85, 'github_closing_odds.py':80, 'bbs_data.py':85, 'bbs_integration.py':85, 'collect_bbs_data.py':75,
     'publish_bbs_data.py':75, 'forecast_integrity.py':100, 'api_key_config.py':90, 'conservative_bet_filter.py':90,
     'quote_freshness.py':95, 'score_probability.py':95,
     'double_chance.py':90, 'goal_market_validation.py':85,

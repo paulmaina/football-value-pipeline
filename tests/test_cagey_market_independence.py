@@ -196,8 +196,7 @@ class HarnessCageyResearchPerturbationTest(unittest.TestCase):
             if col in changed:
                 changed[col] = rng.integers(0, 6 if col.endswith('G') else 15, len(changed))
         cls.changed = changed
-        fit = lambda t: DixonColesModel(half_life_days=480., l2=.08, max_goals=10, shot_features=True,
-                                        bbs_statistics=False).fit(t.copy(), as_of=cls.origin)
+        fit = lambda t: DixonColesModel(half_life_days=480., l2=.08, max_goals=10, shot_features=True).fit(t.copy(), as_of=cls.origin)
         cls.model, cls.changed_model = fit(cls.train), fit(changed)
         xg = lambda t, seed: t.assign(HxG=np.random.default_rng(seed).uniform(0, 3, len(t)),
                                       AxG=np.random.default_rng(seed + 1).uniform(0, 3, len(t)))

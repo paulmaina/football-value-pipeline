@@ -67,7 +67,7 @@ class EuropaProductionTests(TestCase):
         self.assertFalse(europa.fresh(payload, NOW))
 
     def test_aliases_are_exact_and_unseen_clubs_do_not_get_fuzzy_identity(self):
-        model = DixonColesModel(bbs_statistics=False).fit(europa.frame(snapshot(), NOW))
+        model = DixonColesModel().fit(europa.frame(snapshot(), NOW))
         model.league_key = 'UEL'
         self.assertEqual(model.resolve_team('Roma'), ('roma', 100.0))
         self.assertEqual(model.resolve_team('Romaa'), (None, 0.0))
