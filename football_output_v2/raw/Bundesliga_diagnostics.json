@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "3fd60f6b326e72970c565c0b8aea8a583b339974fd68f30dcb45083b0801d762",
-  "training_as_of_utc": "2026-11-26T12:30:53.487945+00:00",
+  "training_as_of_utc": "2026-11-26T15:47:15.999852+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 90,
     "bbs_added_results": 0,
@@ -64,21 +64,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.7233098236746351,
-    "audit_candidate_poisson_score": 0.7146240867686299,
-    "audit_gain": 0.00868573690600527,
-    "audit_gain_lower95": -0.005863374217927008,
+    "audit_baseline_poisson_score": 0.7232815598831671,
+    "audit_candidate_poisson_score": 0.714603669419204,
+    "audit_gain": 0.008677890463963167,
+    "audit_gain_lower95": -0.0058737049521734,
     "audit_baseline_briers": [
-      0.5815979792072102,
-      0.1684514203173611,
-      0.2833926886102224,
-      0.24189018528841583
+      0.5815743468245348,
+      0.16846831511935528,
+      0.28338595115711396,
+      0.24188881100675705
     ],
     "audit_candidate_briers": [
-      0.5787955712246233,
-      0.16687862257027591,
-      0.2759003951704018,
-      0.24255362299497757
+      0.5787707994779124,
+      0.16689268923982567,
+      0.2758923953969445,
+      0.242553648207286
     ],
     "audit_brier_order": [
       "1x2",
@@ -94,10 +94,10 @@
   },
   "training_end": "2026-11-22",
   "fit_success": true,
-  "objective": 1592.626860101526,
-  "base": 0.21476429169176836,
-  "home_adv": 0.23328119585178056,
-  "rho": -0.06568215752371244,
+  "objective": 1592.3133131244258,
+  "base": 0.21483363526136948,
+  "home_adv": 0.2332393081187013,
+  "rho": -0.06566615275259004,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -125,7 +125,7 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 6,
+  "live_odds_matched": 7,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
@@ -211,6 +211,19 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640262047",
+      "event_id": "1640262047",
+      "home_team": "Freiburg",
+      "away_team": "RB Leipzig",
+      "kickoff_utc": "2026-11-29T14:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -218,14 +231,14 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 6
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 7
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 6
+    "none": 7
   },
   "legacy_comparison_status": {
-    "None": 6
+    "None": 7
   },
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }

@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "0ab4697dbbcc83ac023f3b5bd97b850828a30c795cde7e3029887ec728478299",
-  "training_as_of_utc": "2026-11-26T12:30:59.158304+00:00",
+  "training_as_of_utc": "2026-11-26T15:47:19.395619+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 120,
     "bbs_added_results": 0,
@@ -64,21 +64,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.2,
-    "audit_baseline_poisson_score": 0.7914063221311247,
-    "audit_candidate_poisson_score": 0.791987294553876,
-    "audit_gain": -0.0005809724227512358,
-    "audit_gain_lower95": -0.004663761975210138,
+    "audit_baseline_poisson_score": 0.791410046451595,
+    "audit_candidate_poisson_score": 0.7919901030689692,
+    "audit_gain": -0.0005800566173742583,
+    "audit_gain_lower95": -0.004663582595416446,
     "audit_baseline_briers": [
-      0.5234877713296077,
-      0.14284189076434406,
-      0.21194261962949063,
-      0.24164641193773076
+      0.5234887741214029,
+      0.1428426300148297,
+      0.21194433964893256,
+      0.24164703848636362
     ],
     "audit_candidate_briers": [
-      0.5281645577108285,
-      0.1411979265519641,
-      0.21183099345218137,
-      0.24227949147874198
+      0.5281650345132833,
+      0.14119854638854423,
+      0.21183238621834152,
+      0.24228006707407806
     ],
     "audit_brier_order": [
       "1x2",
@@ -94,10 +94,10 @@
   },
   "training_end": "2026-11-23",
   "fit_success": true,
-  "objective": 1828.622855596355,
-  "base": 0.148353037956107,
-  "home_adv": 0.11811133550240384,
-  "rho": -0.019217086607973916,
+  "objective": 1828.2629154423737,
+  "base": 0.14837812980771922,
+  "home_adv": 0.11809048387536243,
+  "rho": -0.019212891246552222,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -125,7 +125,7 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 5,
+  "live_odds_matched": 6,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
@@ -198,6 +198,19 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640264917",
+      "event_id": "1640264917",
+      "home_team": "Sassuolo",
+      "away_team": "Napoli",
+      "kickoff_utc": "2026-11-29T14:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -205,15 +218,15 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 4,
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 5,
     "ANCHORED_MAIN": 1
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 5
+    "none": 6
   },
   "legacy_comparison_status": {
-    "None": 5
+    "None": 6
   },
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }

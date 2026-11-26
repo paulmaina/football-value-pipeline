@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "2f01bb1cc9ab665e9a28461a7fbf40ec350ce82e73e9bace8aa1175d298cc576",
-  "training_as_of_utc": "2026-11-26T12:31:28.953295+00:00",
+  "training_as_of_utc": "2026-11-26T15:47:38.192239+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -53,21 +53,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8254125404425084,
-    "audit_candidate_poisson_score": 0.8177420388498149,
-    "audit_gain": 0.007670501592693557,
-    "audit_gain_lower95": -0.0045626050721987,
+    "audit_baseline_poisson_score": 0.825414699199813,
+    "audit_candidate_poisson_score": 0.81774372809003,
+    "audit_gain": 0.007670971109782987,
+    "audit_gain_lower95": -0.004563376860064975,
     "audit_baseline_briers": [
-      0.5677024983398063,
-      0.1765915030730068,
-      0.21544889048181046,
-      0.25297475308580075
+      0.5677008776968304,
+      0.17659321825031624,
+      0.21545301959478685,
+      0.2529741212814106
     ],
     "audit_candidate_briers": [
-      0.567668783899864,
-      0.17453158478653094,
-      0.21074651525401508,
-      0.2528835805257058
+      0.5676675102162633,
+      0.17453273302417438,
+      0.21074944498508683,
+      0.2528833570423278
     ],
     "audit_brier_order": [
       "1x2",
@@ -82,10 +82,10 @@
   },
   "training_end": "2026-11-23",
   "fit_success": true,
-  "objective": 1674.9076786881537,
-  "base": 0.14457511552537883,
-  "home_adv": 0.23107469873231368,
-  "rho": -0.08362210837445684,
+  "objective": 1674.5783102489072,
+  "base": 0.1445297262985268,
+  "home_adv": 0.23111376034625036,
+  "rho": -0.08373426275215848,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -113,7 +113,7 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 5,
+  "live_odds_matched": 6,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 18,
@@ -186,6 +186,19 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640928466",
+      "event_id": "1640928466",
+      "home_team": "Eyupspor",
+      "away_team": "Basaksehir",
+      "kickoff_utc": "2026-11-29T13:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -194,14 +207,14 @@
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
     "ANCHORED_MAIN": 3,
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 2
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 3
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 5
+    "none": 6
   },
   "legacy_comparison_status": {
-    "None": 5
+    "None": 6
   },
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }
