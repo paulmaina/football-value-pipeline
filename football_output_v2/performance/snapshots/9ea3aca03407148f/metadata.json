@@ -1,0 +1,25 @@
+{
+  "archive_id": "9ea3aca03407148f847d9f24c86baee86ba80d31",
+  "captured_at_utc": "2026-11-26T15:50:04Z",
+  "data_origin": "immutable prediction generation received at actual capture time",
+  "generated_at_utc": "2026-11-26T15:49:19.625728Z",
+  "git_commit_sha": "b137bfa854eb8d2dfabba614b0017472afec6131",
+  "n_all_forecasts": 73,
+  "n_pre_kickoff_forecasts": 73,
+  "n_shortlist": 9,
+  "prediction_run_id": "f715bee1cebf7ed32e01eb1bd16c99367f9a636ce1aa7f89f2e548663655d8a2",
+  "schema_version": 1,
+  "selection_policy_version": "48h-ah-price-edge-cagey-v28",
+  "sha256": {
+    "cagey_correction_monitoring.csv": "05d431e8812a0d7a6c7fd1d41901141d644c5dcd454fa90057c938308f7ad8a8",
+    "cagey_tier_shortlist.csv": "578f60ec0733fdb11754098abc8cc9d193213890460504da351ab19b8675940d",
+    "master_shortlist.csv": "9f03f279c6c15a0efcdc50da99b442f10bbb2522b352616640ad8dfedff7f674",
+    "master_shortlist_new.csv": "69f4730e5d31216966691f4beb24bd7c4635c97a7e01c7127989a7acec976e33",
+    "pipeline_health.json": "d56861f0331ea715d46eaf6b6b7305423f9621194a71f7ef797be9df2c7d2b44",
+    "predictions.csv": "d575f6e95038889bebf91e9a4c23f8c7ad5e5382bf04293c1c5e98d331fbcd28",
+    "price_edge_tagged_candidates.csv": "9620f8b0bd82b4e0287509fe96ee8bfc9af21c6077a1301034b1d62f2239c8cd",
+    "run_manifest.json": "3fb2d93b8ffc0febd80c2d5f39e117ad6e4db798e24a5a927e0fa56a767631e6",
+    "selection_summary.json": "dce3eee74d4be8a54b66b5ea4a12d4f42ecb55096ca0265046f761ea895a7c52",
+    "shortlist.csv": "b63916ef36994570cf125c58ea3b295aafd6083fe5c27f920f9ef3c2365b69fa"
+  }
+}

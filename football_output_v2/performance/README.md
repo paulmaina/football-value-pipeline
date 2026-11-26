@@ -76,7 +76,7 @@ Fallbacks to D: where D_pow2's power grid failed its fit check, the run priced t
 
 | D_pow2 runs | Domestic fixture forecasts | Priced by D (fallback) | Domestic fixtures | Fixtures with a fallback | Graded matches left out |
 |---|---|---|---|---|---|
-| 24 | 776 | 0 | 113 | 0 | 0 |
+| 25 | 831 | 0 | 126 | 0 | 0 |
 
 ## Cumulative shortlist — latest prediction per match
 
@@ -149,7 +149,7 @@ Whole-fixture 1X2 multiclass Brier (n=461): 0.5454
 | 2026-11-24T08:10:20.197784+00:00 | 3 | 2-1 | 66.7% | -15.3% |
 | 2026-11-24T16:35:48.587606+00:00 | 15 | 12-3 | 80.0% | +7.5% |
 | 2026-11-25T14:22:45.129589+00:00 | 13 | 9-4 | 69.2% | -3.0% |
-| 2026-11-26T12:32:19.639898+00:00 | 0 | 0-0 | — | — |
+| 2026-11-26T15:49:19.625728+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 

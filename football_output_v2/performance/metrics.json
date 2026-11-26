@@ -247,11 +247,11 @@
         "half_wins": 1,
         "losses": 6,
         "no_loss_rate": 0.666667,
-        "pending": 2,
+        "pending": 1,
         "profit_per_unit_staked": -0.1625,
         "refunds": 0,
         "settled_with_odds": 18,
-        "total": 20,
+        "total": 19,
         "win_rate": 0.666667,
         "wins": 12
       },
@@ -623,11 +623,11 @@
         "half_wins": 6,
         "losses": 1,
         "no_loss_rate": 0.933333,
-        "pending": 1,
+        "pending": 2,
         "profit_per_unit_staked": 4.36955,
         "refunds": 0,
         "settled_with_odds": 15,
-        "total": 16,
+        "total": 17,
         "win_rate": 0.933333,
         "wins": 14
       },
@@ -639,11 +639,11 @@
         "half_wins": 0,
         "losses": 2,
         "no_loss_rate": 0.75,
-        "pending": 1,
+        "pending": 0,
         "profit_per_unit_staked": 0.5635,
         "refunds": 0,
         "settled_with_odds": 8,
-        "total": 9,
+        "total": 8,
         "win_rate": 0.75,
         "wins": 6
       },
@@ -687,11 +687,11 @@
         "half_wins": 6,
         "losses": 5,
         "no_loss_rate": 0.761905,
-        "pending": 1,
+        "pending": 2,
         "profit_per_unit_staked": 0.58265,
         "refunds": 0,
         "settled_with_odds": 21,
-        "total": 22,
+        "total": 23,
         "win_rate": 0.761905,
         "wins": 16
       },
@@ -2155,7 +2155,7 @@
         "win_rate": 0.692308,
         "wins": 9
       },
-      "2026-11-26T12:32:19.639898+00:00": {
+      "2026-11-26T15:49:19.625728+00:00": {
         "brier": null,
         "flat_stake_roi": null,
         "graded": 0,
@@ -2502,12 +2502,12 @@
         "per_fixture": {
           "clv": {
             "independent_fixtures": 19,
-            "mean": -0.002345449709126475,
+            "mean": -0.002345449709126478,
             "median": -0.00706421580953102,
             "n": 19,
             "positive_share": 0.3684210526315789,
-            "standard_error": 0.010017396336900321,
-            "t_stat": -0.23413765715615345
+            "standard_error": 0.010017396336900323,
+            "t_stat": -0.2341376571561537
           },
           "return": {
             "independent_fixtures": 96,
@@ -2522,11 +2522,11 @@
         "per_pick": {
           "clv": {
             "independent_fixtures": 19,
-            "mean": -0.01616088062477144,
+            "mean": -0.016160880624771442,
             "median": -0.019746453302053157,
             "n": 49,
             "positive_share": 0.2653061224489796,
-            "standard_error": 0.006626657062396353,
+            "standard_error": 0.006626657062396354,
             "t_stat": -2.4387682164025084
           },
           "return": {
@@ -2614,12 +2614,12 @@
         "per_pick": {
           "clv": {
             "independent_fixtures": 14,
-            "mean": -0.0203391153648422,
+            "mean": -0.020339115364842196,
             "median": -0.01513270627082497,
             "n": 25,
             "positive_share": 0.36,
             "standard_error": 0.010125335716311117,
-            "t_stat": -2.008734913557235
+            "t_stat": -2.0087349135572348
           },
           "return": {
             "independent_fixtures": 22,
@@ -2660,12 +2660,12 @@
     "per_pick": {
       "clv": {
         "independent_fixtures": 123,
-        "mean": -0.019951740587486125,
+        "mean": -0.019951740587486128,
         "median": -0.020198665641348312,
         "n": 197,
         "positive_share": 0.29441624365482233,
         "standard_error": 0.0036382893604094834,
-        "t_stat": -5.483824570028314
+        "t_stat": -5.483824570028315
       },
       "return": {
         "independent_fixtures": 263,
@@ -2686,7 +2686,7 @@
   "prediction_1x2_multiclass_brier": 0.545423,
   "prediction_fixtures_graded": 461,
   "provider_errors": {},
-  "reviewed_at_utc": "2026-11-26T12:33:51Z",
+  "reviewed_at_utc": "2026-11-26T15:50:16Z",
   "run_history_groups": {
     "2026-10-11T06:32:27.587243+00:00": {
       "brier": 0.232708,
@@ -3931,6 +3931,22 @@
       "total": 9,
       "win_rate": null,
       "wins": 0
+    },
+    "2026-11-26T15:49:19.625728+00:00": {
+      "brier": null,
+      "flat_stake_roi": null,
+      "graded": 0,
+      "half_losses": 0,
+      "half_wins": 0,
+      "losses": 0,
+      "no_loss_rate": null,
+      "pending": 9,
+      "profit_per_unit_staked": null,
+      "refunds": 0,
+      "settled_with_odds": 0,
+      "total": 9,
+      "win_rate": null,
+      "wins": 0
     }
   },
   "run_provenance": {
@@ -4281,6 +4297,10 @@
     "2026-11-26T12:32:19.639898+00:00": {
       "first_snapshot_commit": "bec91d58601ca478b5465cadffc092b6a71180b7",
       "generated_at_utc": "2026-11-26T12:32:19.639898+00:00"
+    },
+    "2026-11-26T15:49:19.625728+00:00": {
+      "first_snapshot_commit": "9ea3aca03407148f847d9f24c86baee86ba80d31",
+      "generated_at_utc": "2026-11-26T15:49:19.625728+00:00"
     }
   },
   "shortlist": {
@@ -4307,17 +4327,17 @@
     "half_wins": 89,
     "losses": 528,
     "no_loss_rate": 0.727554,
-    "pending": 36,
+    "pending": 45,
     "profit_per_unit_staked": 72.96155,
     "refunds": 16,
     "settled_with_odds": 1938,
-    "total": 1974,
+    "total": 1983,
     "win_rate": 0.719298,
     "wins": 1394
   },
   "source": "football-data.org v4 FINISHED regulation-time scorelines; Europa: corroborated Cornerflick / Fixture Download league-phase scores",
   "status": "PARTIALLY_GRADED",
-  "tracked_prediction_runs": 87,
+  "tracked_prediction_runs": 88,
   "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
   "unique_shortlisted_fixtures": 271
 }

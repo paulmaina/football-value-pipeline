@@ -1,6 +1,6 @@
 # Candidate closing-line value
 
-Generated 2026-11-26T12:33:51.058863+00:00; 3261 priced candidates on 256 fixtures with a Pinnacle near-kickoff quote. CLV = entry odds × Pinnacle fair close probability − 1 (EV at the sharp close). Uncertainty is clustered by fixture. The descriptive t-ratio is not a proof of edge; independent fixture coverage matters.
+Generated 2026-11-26T15:50:16.338897+00:00; 3261 priced candidates on 256 fixtures with a Pinnacle near-kickoff quote. CLV = entry odds × Pinnacle fair close probability − 1 (EV at the sharp close). Uncertainty is clustered by fixture. The descriptive t-ratio is not a proof of edge; independent fixture coverage matters.
 
 **Overall:** mean -3.5%, 27% positive, t = -25.54 (n = 3261).
 

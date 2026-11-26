@@ -43989,7 +43989,7 @@
         "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
         "observations": 536,
         "rejected_files": [],
-        "reviewed_at_utc": "2026-11-26T12:33:51.058863+00:00",
+        "reviewed_at_utc": "2026-11-26T15:50:16.338897+00:00",
         "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
         "version": "local-closing-quotes-v4"
       },
@@ -44022,10 +44022,10 @@
       },
       "experiment_capture_counts": {},
       "forecast_freshness": {
-        "age_hours": 0.025394156944444444,
-        "generated_at_utc": "2026-11-26T12:32:19.639898+00:00",
+        "age_hours": 0.015753658055555557,
+        "generated_at_utc": "2026-11-26T15:49:19.625728+00:00",
         "status": "WITHIN_24_HOURS",
-        "upcoming_fixture_count": 60
+        "upcoming_fixture_count": 73
       },
       "quote_audit": {
         "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
@@ -44041,7 +44041,7 @@
         "unknown_kickoff_count": 0,
         "upcoming_kickoff_count": 9
       },
-      "reviewed_at_utc": "2026-11-26T12:33:51.058863+00:00",
+      "reviewed_at_utc": "2026-11-26T15:50:16.338897+00:00",
       "selection_policy_groups": {
         "48h-ah-price-edge-cagey-v28": {
           "brier": 0.205523,
@@ -44258,7 +44258,7 @@
             "usage": "supplementary_cached_observations"
           },
           "days_since_latest_result": 4,
-          "diagnostics_sha256": "92899acc117ffd32cb8cde9ed7d0f615fccaed25862b0fd54992ea49e1f78a8c",
+          "diagnostics_sha256": "3bcb8a72434af3500979ddbcd637e4d8501189e9cfe94d47dbf295370cc0c5eb",
           "forecast_training_health": {
             "days_since_latest_result": 4,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -44283,7 +44283,7 @@
             "usage": "supplementary_cached_observations"
           },
           "days_since_latest_result": 3,
-          "diagnostics_sha256": "1f833cdbafaa8e71920653e76420502b372a309a122aed4d44b55b6eef3389d7",
+          "diagnostics_sha256": "a2740488df71b0a51ce783f6185b80137ff5add80f63030ccf0c696d16ca9997",
           "forecast_training_health": {
             "days_since_latest_result": 3,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -44300,7 +44300,7 @@
             "status": "NOT_COLLECTED"
           },
           "days_since_latest_result": 4,
-          "diagnostics_sha256": "8257867fe9112afb3aacee25c3b83feaf28983249940df7dd4d66c45bf75431b",
+          "diagnostics_sha256": "d56417e4d5fa5830e374c24fb3a3f9e815bd846fae6c991aee03bde6df018893",
           "forecast_training_health": {
             "days_since_latest_result": 4,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -44325,7 +44325,7 @@
             "usage": "supplementary_cached_observations"
           },
           "days_since_latest_result": 3,
-          "diagnostics_sha256": "68e09b8e66977c418b78481cc2d39f9d3a9a4168da0a43e2313bd852996b3245",
+          "diagnostics_sha256": "55b474c62b1be570d1d93f4f3a8b690f6ca1a888378a60c4b3ff5870c864b0ad",
           "forecast_training_health": {
             "days_since_latest_result": 3,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -44350,7 +44350,7 @@
             "usage": "supplementary_cached_observations"
           },
           "days_since_latest_result": 4,
-          "diagnostics_sha256": "bd016164dc4ee5e78800560129a0043ffe1e03b7ebceed5cdb51c110e677da8c",
+          "diagnostics_sha256": "434dc01391cfddb701fa5786a477c2fc721e5e950159495cc02b2aa488fc35ba",
           "forecast_training_health": {
             "days_since_latest_result": 4,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -44367,7 +44367,7 @@
             "status": "NOT_COLLECTED"
           },
           "days_since_latest_result": 18,
-          "diagnostics_sha256": "e43b2f96d4238befc505fa580bd26dfe58b32b141e0c07c0c47ebade1c0a561f",
+          "diagnostics_sha256": "2499d2b8f68f1e2798e27b693aeabe8b57c48d74577901932ad580ead4e89a57",
           "forecast_training_health": {
             "days_since_latest_result": 18,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -44392,7 +44392,7 @@
             "usage": "supplementary_cached_observations"
           },
           "days_since_latest_result": 3,
-          "diagnostics_sha256": "ddd0165820c79df8bea2519423006e1b350d744511e7ad2367b1e9e5187d37d1",
+          "diagnostics_sha256": "de90e30611bf433ed7fd6206c50b772ab982a383355e9984fb088bd45b2f00bc",
           "forecast_training_health": {
             "days_since_latest_result": 3,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -44409,7 +44409,7 @@
             "status": "NOT_COLLECTED"
           },
           "days_since_latest_result": 3,
-          "diagnostics_sha256": "a5277612156dda57194c4a88fdba4e4d7a1f78591777154656aac8278e9dea9e",
+          "diagnostics_sha256": "a20c0b5450a22fb98a29141e00bb83a6a5ab567287885f64219b48f4edf5ee3f",
           "forecast_training_health": {
             "days_since_latest_result": 3,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -44436,11 +44436,11 @@
           "current_source_health": {
             "added_matches": 0,
             "cache_hash_verified": true,
-            "checked_at_utc": "2026-11-26T12:31:10.637291+00:00",
+            "checked_at_utc": "2026-11-26T15:47:26.380342+00:00",
             "completed_matches": 90,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 0.04456154777777778,
+            "download_age_hours": 0.047210709722222216,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-11-25",
             "latest_completed_utc": "2026-11-25T20:00:00+00:00",
@@ -44449,17 +44449,17 @@
             "overdue_unfinished_match_ids": [],
             "provider": "football-data.org",
             "season_start": 2026,
-            "sha256": "484b9eb8f76decdf41a9bc97ac5c409b37d52e94f32c261074fa737ccae1874d",
+            "sha256": "a12de627d1c407940db5a6b1c51a60f8395a9a44141d355a0924c28cdf7c653e",
             "source_schedule_matches": 144,
             "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
             "training_end": "2026-11-25"
           },
           "days_since_latest_result": 1,
-          "diagnostics_sha256": "f54867b98ec0edf88b298bcbb764d874c388ee021857842f21579e18d88a7009",
+          "diagnostics_sha256": "c9a29879491b56f93196decc8cb7932f6d246e3fd839453c3327689507222074",
           "forecast_training_health": {
             "added_matches": 0,
             "cache_hash_verified": true,
-            "checked_at_utc": "2026-11-26T12:31:10.637291+00:00",
+            "checked_at_utc": "2026-11-26T15:47:26.380342+00:00",
             "completed_matches": 90,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
@@ -44474,7 +44474,7 @@
             "overdue_unfinished_match_ids": [],
             "provider": "football-data.org",
             "season_start": 2026,
-            "sha256": "484b9eb8f76decdf41a9bc97ac5c409b37d52e94f32c261074fa737ccae1874d",
+            "sha256": "a12de627d1c407940db5a6b1c51a60f8395a9a44141d355a0924c28cdf7c653e",
             "source_schedule_matches": 144,
             "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
             "training_end": "2026-11-25"
@@ -44498,10 +44498,10 @@
               }
             },
             "status": "VERIFIED_WITHIN_24_HOURS",
-            "verified_at_utc": "2026-11-26T12:33:51.058863+00:00"
+            "verified_at_utc": "2026-11-26T15:50:16.338897+00:00"
           },
           "days_since_latest_result": 21,
-          "diagnostics_sha256": "3633c3958e0ce2e92c4185f1405e4850c70b9ee041f7fdc91790a712e88270f2",
+          "diagnostics_sha256": "a4ab80b388684c7c692536cef1bcae242a947dc6bc7b80cde737f14f1b1ad219",
           "forecast_training_health": {
             "official_source_health": {
               "2025": {
@@ -44513,7 +44513,7 @@
             "refresh_warning": null,
             "status": "VERIFIED_WITHIN_24_HOURS",
             "training_end": "2026-11-05",
-            "verified_at_utc": "2026-11-26T00:23:40.797553+00:00"
+            "verified_at_utc": "2026-11-26T13:56:32.821030+00:00"
           },
           "odds_provider_health": {
             "state": "NOT_RECORDED"
