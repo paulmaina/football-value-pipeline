@@ -1,0 +1,334 @@
+{
+  "fixture": {
+    "away_team": "Lech Poznan",
+    "home_team": "Union Saint-Gilloise",
+    "kickoff_utc": "2026-11-26T17:45:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "1640066616"
+  },
+  "observed_at_utc": "2026-11-26T17:39:37.617914+00:00",
+  "payload": {
+    "away_team": "Lech Poznan",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-26T17:39:37Z",
+            "outcomes": [
+              {
+                "name": "Union Saint-Gilloise",
+                "price": 1.3367
+              },
+              {
+                "name": "Lech Poznan",
+                "price": 8.99
+              },
+              {
+                "name": "Draw",
+                "price": 5.7
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-26T17:39:37Z",
+            "outcomes": [
+              {
+                "name": "Union Saint-Gilloise",
+                "point": -1.5,
+                "price": 1.9346
+              },
+              {
+                "name": "Lech Poznan",
+                "point": 1.5,
+                "price": 1.9615
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-26T17:39:37Z",
+            "outcomes": [
+              {
+                "name": "Union Saint-Gilloise",
+                "point": -2.5,
+                "price": 3.32
+              },
+              {
+                "name": "Union Saint-Gilloise",
+                "point": -2.25,
+                "price": 2.97
+              },
+              {
+                "name": "Union Saint-Gilloise",
+                "point": -2.0,
+                "price": 2.61
+              },
+              {
+                "name": "Union Saint-Gilloise",
+                "point": -1.75,
+                "price": 2.18
+              },
+              {
+                "name": "Union Saint-Gilloise",
+                "point": -1.25,
+                "price": 1.7042
+              },
+              {
+                "name": "Union Saint-Gilloise",
+                "point": -1.0,
+                "price": 1.4739
+              },
+              {
+                "name": "Union Saint-Gilloise",
+                "point": -0.75,
+                "price": 1.3817
+              },
+              {
+                "name": "Union Saint-Gilloise",
+                "point": -0.5,
+                "price": 1.3185
+              },
+              {
+                "name": "Lech Poznan",
+                "point": 2.5,
+                "price": 1.3484
+              },
+              {
+                "name": "Lech Poznan",
+                "point": 2.25,
+                "price": 1.4167
+              },
+              {
+                "name": "Lech Poznan",
+                "point": 2.0,
+                "price": 1.5128
+              },
+              {
+                "name": "Lech Poznan",
+                "point": 1.75,
+                "price": 1.7353
+              },
+              {
+                "name": "Lech Poznan",
+                "point": 1.25,
+                "price": 2.24
+              },
+              {
+                "name": "Lech Poznan",
+                "point": 1.0,
+                "price": 2.74
+              },
+              {
+                "name": "Lech Poznan",
+                "point": 0.75,
+                "price": 3.13
+              },
+              {
+                "name": "Lech Poznan",
+                "point": 0.5,
+                "price": 3.52
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-26T17:39:37Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.8475
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 2.05
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-26T17:45:00Z",
+    "home_team": "Union Saint-Gilloise",
+    "id": "1640066616",
+    "odds_provider": "pinnapi",
+    "sport_key": "soccer_uefa_europa_league"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3367,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7379880159092534,
+      "selection": "home",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.7,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.16167397880866674,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 8.99,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.10033800528207984,
+      "selection": "away",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9615,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9346,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.52,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.13,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.74,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.24,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7353,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5128,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.00",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4167,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.25",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3484,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.50",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.32,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.50",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.97,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.25",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.61,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.00",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.18,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7042,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4739,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3817,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3185,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

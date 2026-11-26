@@ -1,0 +1,334 @@
+{
+  "fixture": {
+    "away_team": "PFC Levski Sofia",
+    "home_team": "Marseille",
+    "kickoff_utc": "2026-11-26T17:45:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "1640066618"
+  },
+  "observed_at_utc": "2026-11-26T17:39:37.433360+00:00",
+  "payload": {
+    "away_team": "PFC Levski Sofia",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-26T17:39:37Z",
+            "outcomes": [
+              {
+                "name": "Marseille",
+                "price": 1.4098
+              },
+              {
+                "name": "PFC Levski Sofia",
+                "price": 7.9
+              },
+              {
+                "name": "Draw",
+                "price": 5.02
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-26T17:39:37Z",
+            "outcomes": [
+              {
+                "name": "Marseille",
+                "point": -1.25,
+                "price": 1.9346
+              },
+              {
+                "name": "PFC Levski Sofia",
+                "point": 1.25,
+                "price": 1.9709
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-26T17:39:37Z",
+            "outcomes": [
+              {
+                "name": "Marseille",
+                "point": -2.25,
+                "price": 3.7
+              },
+              {
+                "name": "Marseille",
+                "point": -2.0,
+                "price": 3.28
+              },
+              {
+                "name": "Marseille",
+                "point": -1.75,
+                "price": 2.56
+              },
+              {
+                "name": "Marseille",
+                "point": -1.5,
+                "price": 2.19
+              },
+              {
+                "name": "Marseille",
+                "point": -1.0,
+                "price": 1.6452
+              },
+              {
+                "name": "Marseille",
+                "point": -0.75,
+                "price": 1.4831
+              },
+              {
+                "name": "Marseille",
+                "point": -0.5,
+                "price": 1.3906
+              },
+              {
+                "name": "Marseille",
+                "point": -0.25,
+                "price": 1.2625
+              },
+              {
+                "name": "PFC Levski Sofia",
+                "point": 2.25,
+                "price": 1.2941
+              },
+              {
+                "name": "PFC Levski Sofia",
+                "point": 2.0,
+                "price": 1.3546
+              },
+              {
+                "name": "PFC Levski Sofia",
+                "point": 1.75,
+                "price": 1.5319
+              },
+              {
+                "name": "PFC Levski Sofia",
+                "point": 1.5,
+                "price": 1.7299
+              },
+              {
+                "name": "PFC Levski Sofia",
+                "point": 1.0,
+                "price": 2.35
+              },
+              {
+                "name": "PFC Levski Sofia",
+                "point": 0.75,
+                "price": 2.71
+              },
+              {
+                "name": "PFC Levski Sofia",
+                "point": 0.5,
+                "price": 3.09
+              },
+              {
+                "name": "PFC Levski Sofia",
+                "point": 0.25,
+                "price": 3.99
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-26T17:39:37Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 2.0
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.885
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-26T17:45:00Z",
+    "home_team": "Marseille",
+    "id": "1640066618",
+    "odds_provider": "pinnapi",
+    "sport_key": "soccer_uefa_europa_league"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4098,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6987398380514251,
+      "selection": "home",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.02,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.18562401527036937,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 7.9,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.11563614667820553,
+      "selection": "away",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9709,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9346,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.99,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.09,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.71,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.35,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7299,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5319,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3546,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.00",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2941,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.25",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.7,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.25",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.28,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.00",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.56,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.19,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6452,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4831,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3906,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2625,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

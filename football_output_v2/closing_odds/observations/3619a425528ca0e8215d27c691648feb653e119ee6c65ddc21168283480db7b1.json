@@ -1,0 +1,350 @@
+{
+  "fixture": {
+    "away_team": "Bournemouth",
+    "home_team": "Celta Vigo",
+    "kickoff_utc": "2026-11-26T17:45:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "1640061971"
+  },
+  "observed_at_utc": "2026-11-26T17:39:37.310108+00:00",
+  "payload": {
+    "away_team": "Bournemouth",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-26T17:39:37Z",
+            "outcomes": [
+              {
+                "name": "Celta Vigo",
+                "price": 3.98
+              },
+              {
+                "name": "Bournemouth",
+                "price": 1.9901
+              },
+              {
+                "name": "Draw",
+                "price": 3.61
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-26T17:39:37Z",
+            "outcomes": [
+              {
+                "name": "Celta Vigo",
+                "point": 0.5,
+                "price": 1.9174
+              },
+              {
+                "name": "Bournemouth",
+                "point": -0.5,
+                "price": 1.9901
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-26T17:39:37Z",
+            "outcomes": [
+              {
+                "name": "Celta Vigo",
+                "point": -0.5,
+                "price": 3.91
+              },
+              {
+                "name": "Celta Vigo",
+                "point": -0.25,
+                "price": 3.41
+              },
+              {
+                "name": "Celta Vigo",
+                "point": 0.0,
+                "price": 2.91
+              },
+              {
+                "name": "Celta Vigo",
+                "point": 0.25,
+                "price": 2.23
+              },
+              {
+                "name": "Celta Vigo",
+                "point": 0.75,
+                "price": 1.6711
+              },
+              {
+                "name": "Celta Vigo",
+                "point": 1.0,
+                "price": 1.4444
+              },
+              {
+                "name": "Celta Vigo",
+                "point": 1.25,
+                "price": 1.3509
+              },
+              {
+                "name": "Celta Vigo",
+                "point": 1.5,
+                "price": 1.2924
+              },
+              {
+                "name": "Bournemouth",
+                "point": 0.5,
+                "price": 1.2786
+              },
+              {
+                "name": "Bournemouth",
+                "point": 0.25,
+                "price": 1.3425
+              },
+              {
+                "name": "Bournemouth",
+                "point": 0.0,
+                "price": 1.4484
+              },
+              {
+                "name": "Bournemouth",
+                "point": -0.25,
+                "price": 1.7092
+              },
+              {
+                "name": "Bournemouth",
+                "point": -0.75,
+                "price": 2.3
+              },
+              {
+                "name": "Bournemouth",
+                "point": -1.0,
+                "price": 2.92
+              },
+              {
+                "name": "Bournemouth",
+                "point": -1.25,
+                "price": 3.35
+              },
+              {
+                "name": "Bournemouth",
+                "point": -1.5,
+                "price": 3.79
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-26T17:39:37Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 2.01
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.8772
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-26T17:45:00Z",
+    "home_team": "Celta Vigo",
+    "id": "1640061971",
+    "odds_provider": "pinnapi",
+    "sport_key": "soccer_uefa_europa_league"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.98,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24111646170355527,
+      "selection": "home",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.61,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.26660389511027455,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9901,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4922796431861703,
+      "selection": "away",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9901,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9174,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.79,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.50",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.35,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.25",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.92,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.00",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.3,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7092,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4484,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3425,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2786,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.91,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.41,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.91,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.23,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6711,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4444,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.00",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3509,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.25",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2924,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.50",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.01,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4821515797951017,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.8772,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5178484202048984,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

@@ -1,0 +1,334 @@
+{
+  "fixture": {
+    "away_team": "Bayer Leverkusen",
+    "home_team": "Dinamo Zagreb",
+    "kickoff_utc": "2026-11-26T17:45:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "1640077678"
+  },
+  "observed_at_utc": "2026-11-26T17:39:37.371359+00:00",
+  "payload": {
+    "away_team": "Bayer Leverkusen",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-26T17:39:37Z",
+            "outcomes": [
+              {
+                "name": "Dinamo Zagreb",
+                "price": 5.18
+              },
+              {
+                "name": "Bayer Leverkusen",
+                "price": 1.6211
+              },
+              {
+                "name": "Draw",
+                "price": 4.46
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-26T17:39:37Z",
+            "outcomes": [
+              {
+                "name": "Dinamo Zagreb",
+                "point": 1.0,
+                "price": 1.885
+              },
+              {
+                "name": "Bayer Leverkusen",
+                "point": -1.0,
+                "price": 2.03
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-26T17:39:37Z",
+            "outcomes": [
+              {
+                "name": "Dinamo Zagreb",
+                "point": 0.0,
+                "price": 4.03
+              },
+              {
+                "name": "Dinamo Zagreb",
+                "point": 0.25,
+                "price": 2.93
+              },
+              {
+                "name": "Dinamo Zagreb",
+                "point": 0.5,
+                "price": 2.42
+              },
+              {
+                "name": "Dinamo Zagreb",
+                "point": 0.75,
+                "price": 2.14
+              },
+              {
+                "name": "Dinamo Zagreb",
+                "point": 1.25,
+                "price": 1.6667
+              },
+              {
+                "name": "Dinamo Zagreb",
+                "point": 1.5,
+                "price": 1.5405
+              },
+              {
+                "name": "Dinamo Zagreb",
+                "point": 1.75,
+                "price": 1.3968
+              },
+              {
+                "name": "Dinamo Zagreb",
+                "point": 2.0,
+                "price": 1.2604
+              },
+              {
+                "name": "Bayer Leverkusen",
+                "point": 0.0,
+                "price": 1.2667
+              },
+              {
+                "name": "Bayer Leverkusen",
+                "point": -0.25,
+                "price": 1.4348
+              },
+              {
+                "name": "Bayer Leverkusen",
+                "point": -0.5,
+                "price": 1.6098
+              },
+              {
+                "name": "Bayer Leverkusen",
+                "point": -0.75,
+                "price": 1.7634
+              },
+              {
+                "name": "Bayer Leverkusen",
+                "point": -1.25,
+                "price": 2.3
+              },
+              {
+                "name": "Bayer Leverkusen",
+                "point": -1.5,
+                "price": 2.6
+              },
+              {
+                "name": "Bayer Leverkusen",
+                "point": -1.75,
+                "price": 3.1
+              },
+              {
+                "name": "Bayer Leverkusen",
+                "point": -2.0,
+                "price": 4.09
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-26T17:39:37Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 2.04
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.8547
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-26T17:45:00Z",
+    "home_team": "Dinamo Zagreb",
+    "id": "1640077678",
+    "odds_provider": "pinnapi",
+    "sport_key": "soccer_uefa_europa_league"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.18,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.18173841944068958,
+      "selection": "home",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.46,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.21224020249998496,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6211,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6060213780593254,
+      "selection": "away",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.03,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.00",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.885,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.00",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.09,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -2.00",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.1,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.75",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.6,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.50",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.3,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.25",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7634,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6098,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4348,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2667,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.03,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.93,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.42,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.14,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6667,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.25",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5405,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.50",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3968,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.75",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2604,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +2.00",
+      "updated_at_utc": "2026-11-26T17:39:37+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
