@@ -1,12 +1,12 @@
 {
   "version": "candidate-clv-v2-validated-fixture-clustered",
-  "generated_at_utc": "2026-11-25T22:14:35.517191+00:00",
+  "generated_at_utc": "2026-11-26T12:33:51.058863+00:00",
   "status": "OK",
   "candidates": 3261,
   "fixtures": 256,
   "uncertainty_method": "fixture-cluster-robust",
   "rejected_observation_files": [],
-  "entry_files": 125,
+  "entry_files": 126,
   "overall_pinnacle_fair": {
     "n": 3261,
     "independent_fixtures": 256,
@@ -28,11 +28,11 @@
   "shortlisted_pinnacle_fair": {
     "n": 212,
     "independent_fixtures": 120,
-    "mean": -0.020721744035527446,
+    "mean": -0.02072174403552745,
     "median": -0.019541618386008874,
     "positive_share": 0.25943396226415094,
-    "standard_error": 0.003462769172908928,
-    "t_stat": -5.984154011085865
+    "standard_error": 0.0034627691729089273,
+    "t_stat": -5.9841540110858675
   },
   "market_move_towards_model": {
     "n": 173,
