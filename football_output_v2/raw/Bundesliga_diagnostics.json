@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "3fd60f6b326e72970c565c0b8aea8a583b339974fd68f30dcb45083b0801d762",
-  "training_as_of_utc": "2026-11-25T22:12:39.676849+00:00",
+  "training_as_of_utc": "2026-11-26T12:30:53.487945+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 90,
     "bbs_added_results": 0,
@@ -34,7 +34,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-11-25",
+    "cutoff_date": "2026-11-26",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -55,8 +55,8 @@
       "max_goal_rate_ratio": 1.25
     },
     "shot_matches": 1619,
-    "tune_start_date": "2025-11-26",
-    "audit_start_date": "2026-05-27",
+    "tune_start_date": "2025-11-27",
+    "audit_start_date": "2026-05-28",
     "training_shot_matches": 1322,
     "tuning_matches": 207,
     "audit_matches": 84,
@@ -64,21 +64,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.7236554151416221,
-    "audit_candidate_poisson_score": 0.7148019786295168,
-    "audit_gain": 0.00885343651210535,
-    "audit_gain_lower95": -0.005795020797368516,
+    "audit_baseline_poisson_score": 0.7233098236746351,
+    "audit_candidate_poisson_score": 0.7146240867686299,
+    "audit_gain": 0.00868573690600527,
+    "audit_gain_lower95": -0.005863374217927008,
     "audit_baseline_briers": [
-      0.5818451574294956,
-      0.16899488653223665,
-      0.2835719430611051,
-      0.24184378682803417
+      0.5815979792072102,
+      0.1684514203173611,
+      0.2833926886102224,
+      0.24189018528841583
     ],
     "audit_candidate_briers": [
-      0.5789367545609461,
-      0.1671765818415252,
-      0.27604749502819076,
-      0.2425144258256762
+      0.5787955712246233,
+      0.16687862257027591,
+      0.2759003951704018,
+      0.24255362299497757
     ],
     "audit_brier_order": [
       "1x2",
@@ -94,10 +94,10 @@
   },
   "training_end": "2026-11-22",
   "fit_success": true,
-  "objective": 1593.9978449206712,
-  "base": 0.21479629163372096,
-  "home_adv": 0.23325408037393391,
-  "rho": -0.06563905237767963,
+  "objective": 1592.626860101526,
+  "base": 0.21476429169176836,
+  "home_adv": 0.23328119585178056,
+  "rho": -0.06568215752371244,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -115,7 +115,7 @@
   },
   "training_data_health": {
     "training_end": "2026-11-22",
-    "days_since_latest_result": 3,
+    "days_since_latest_result": 4,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",

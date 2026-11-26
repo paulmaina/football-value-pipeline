@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "0ab4697dbbcc83ac023f3b5bd97b850828a30c795cde7e3029887ec728478299",
-  "training_as_of_utc": "2026-11-25T22:12:42.477989+00:00",
+  "training_as_of_utc": "2026-11-26T12:30:59.158304+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 120,
     "bbs_added_results": 0,
@@ -34,7 +34,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-11-25",
+    "cutoff_date": "2026-11-26",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -55,8 +55,8 @@
       "max_goal_rate_ratio": 1.25
     },
     "shot_matches": 2019,
-    "tune_start_date": "2025-11-26",
-    "audit_start_date": "2026-05-27",
+    "tune_start_date": "2025-11-27",
+    "audit_start_date": "2026-05-28",
     "training_shot_matches": 1640,
     "tuning_matches": 260,
     "audit_matches": 119,
@@ -64,21 +64,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.2,
-    "audit_baseline_poisson_score": 0.7914041860824839,
-    "audit_candidate_poisson_score": 0.7919846952540031,
-    "audit_gain": -0.0005805091715191946,
-    "audit_gain_lower95": -0.004661726540592777,
+    "audit_baseline_poisson_score": 0.7914063221311247,
+    "audit_candidate_poisson_score": 0.791987294553876,
+    "audit_gain": -0.0005809724227512358,
+    "audit_gain_lower95": -0.004663761975210138,
     "audit_baseline_briers": [
-      0.5234862362938795,
-      0.14284138952635933,
-      0.2119422312678105,
-      0.24164662135933954
+      0.5234877713296077,
+      0.14284189076434406,
+      0.21194261962949063,
+      0.24164641193773076
     ],
     "audit_candidate_briers": [
-      0.5281622485859013,
-      0.1411976253649197,
-      0.21183052941940006,
-      0.2422797455565395
+      0.5281645577108285,
+      0.1411979265519641,
+      0.21183099345218137,
+      0.24227949147874198
     ],
     "audit_brier_order": [
       "1x2",
@@ -94,10 +94,10 @@
   },
   "training_end": "2026-11-23",
   "fit_success": true,
-  "objective": 1830.197157578107,
-  "base": 0.14837579396960957,
-  "home_adv": 0.11809391757825752,
-  "rho": -0.01921292077140672,
+  "objective": 1828.622855596355,
+  "base": 0.148353037956107,
+  "home_adv": 0.11811133550240384,
+  "rho": -0.019217086607973916,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -115,7 +115,7 @@
   },
   "training_data_health": {
     "training_end": "2026-11-23",
-    "days_since_latest_result": 2,
+    "days_since_latest_result": 3,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -125,7 +125,7 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 4,
+  "live_odds_matched": 5,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
@@ -185,6 +185,19 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640262088",
+      "event_id": "1640262088",
+      "home_team": "Udinese",
+      "away_team": "Fiorentina",
+      "kickoff_utc": "2026-11-29T11:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -192,15 +205,15 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 3,
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 4,
     "ANCHORED_MAIN": 1
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 4
+    "none": 5
   },
   "legacy_comparison_status": {
-    "None": 4
+    "None": 5
   },
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }
