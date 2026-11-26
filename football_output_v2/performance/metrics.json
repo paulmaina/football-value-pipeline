@@ -2502,12 +2502,12 @@
         "per_fixture": {
           "clv": {
             "independent_fixtures": 19,
-            "mean": -0.002345449709126478,
+            "mean": -0.002345449709126475,
             "median": -0.00706421580953102,
             "n": 19,
             "positive_share": 0.3684210526315789,
-            "standard_error": 0.010017396336900323,
-            "t_stat": -0.2341376571561537
+            "standard_error": 0.010017396336900321,
+            "t_stat": -0.23413765715615345
           },
           "return": {
             "independent_fixtures": 96,
@@ -2522,11 +2522,11 @@
         "per_pick": {
           "clv": {
             "independent_fixtures": 19,
-            "mean": -0.016160880624771442,
+            "mean": -0.01616088062477144,
             "median": -0.019746453302053157,
             "n": 49,
             "positive_share": 0.2653061224489796,
-            "standard_error": 0.006626657062396354,
+            "standard_error": 0.006626657062396353,
             "t_stat": -2.4387682164025084
           },
           "return": {
@@ -2593,13 +2593,13 @@
         "fixtures_with_picks": 28,
         "per_fixture": {
           "clv": {
-            "independent_fixtures": 14,
-            "mean": -0.021254442014405628,
-            "median": -0.018519975606324873,
-            "n": 14,
-            "positive_share": 0.21428571428571427,
-            "standard_error": 0.0117874100349297,
-            "t_stat": -1.803147761164006
+            "independent_fixtures": 17,
+            "mean": -0.02560678270486799,
+            "median": -0.021054214222279488,
+            "n": 17,
+            "positive_share": 0.17647058823529413,
+            "standard_error": 0.01105141651305847,
+            "t_stat": -2.317058874272881
           },
           "return": {
             "independent_fixtures": 22,
@@ -2613,13 +2613,13 @@
         },
         "per_pick": {
           "clv": {
-            "independent_fixtures": 14,
-            "mean": -0.020339115364842196,
+            "independent_fixtures": 17,
+            "mean": -0.02300983503877281,
             "median": -0.01513270627082497,
-            "n": 25,
-            "positive_share": 0.36,
-            "standard_error": 0.010125335716311117,
-            "t_stat": -2.0087349135572348
+            "n": 29,
+            "positive_share": 0.3103448275862069,
+            "standard_error": 0.009273124186043038,
+            "t_stat": -2.4813465858038297
           },
           "return": {
             "independent_fixtures": 22,
@@ -2639,13 +2639,13 @@
     "fixtures_with_picks": 271,
     "per_fixture": {
       "clv": {
-        "independent_fixtures": 123,
-        "mean": -0.01934721713976344,
-        "median": -0.017997924337519955,
-        "n": 123,
-        "positive_share": 0.2764227642276423,
-        "standard_error": 0.0048833638368659575,
-        "t_stat": -3.9618627212876456
+        "independent_fixtures": 126,
+        "mean": -0.019979847825174448,
+        "median": -0.018392084443468376,
+        "n": 126,
+        "positive_share": 0.2698412698412698,
+        "standard_error": 0.004822890035807104,
+        "t_stat": -4.142712704796482
       },
       "return": {
         "independent_fixtures": 263,
@@ -2659,13 +2659,13 @@
     },
     "per_pick": {
       "clv": {
-        "independent_fixtures": 123,
-        "mean": -0.019951740587486128,
+        "independent_fixtures": 126,
+        "mean": -0.020344777252428472,
         "median": -0.020198665641348312,
-        "n": 197,
-        "positive_share": 0.29441624365482233,
-        "standard_error": 0.0036382893604094834,
-        "t_stat": -5.483824570028315
+        "n": 201,
+        "positive_share": 0.2885572139303483,
+        "standard_error": 0.003593486643867506,
+        "t_stat": -5.661570298903995
       },
       "return": {
         "independent_fixtures": 263,
@@ -2686,7 +2686,7 @@
   "prediction_1x2_multiclass_brier": 0.545423,
   "prediction_fixtures_graded": 461,
   "provider_errors": {},
-  "reviewed_at_utc": "2026-11-26T15:50:16Z",
+  "reviewed_at_utc": "2026-11-26T17:51:29Z",
   "run_history_groups": {
     "2026-10-11T06:32:27.587243+00:00": {
       "brier": 0.232708,

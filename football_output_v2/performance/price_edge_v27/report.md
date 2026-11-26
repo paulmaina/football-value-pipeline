@@ -4,14 +4,14 @@
 
 | List | View | With a close | Mean CLV | 95% interval | Beat the close | Settled | Return per unit | 95% interval |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
-| value shortlist | per pick | 141 | -2.0% | -2.7% to -1.2% | 29% | 457 | +2.7% | -3.6% to +9.0% |
-| value shortlist | per fixture (a match's picks averaged) | 67 | -1.8% | -2.9% to -0.7% | 25% | 180 | +3.5% | -3.9% to +11.0% |
-| cagey tier | per pick | 86 | -1.8% | -2.9% to -0.8% | 30% | 271 | +2.6% | -5.5% to +10.7% |
-| cagey tier | per fixture (a match's picks averaged) | 42 | -2.2% | -3.2% to -1.1% | 29% | 121 | +3.6% | -4.7% to +11.9% |
-| strong master (live) | per pick | 1 | +2.2% | — | 100% | 5 | -1.6% | -51.4% to +48.2% |
-| strong master (live) | per fixture (a match's picks averaged) | 1 | +2.2% | — | 100% | 5 | -1.6% | -51.4% to +48.2% |
-| today's master (shadow) | per pick | 41 | -2.4% | -3.5% to -1.3% | 22% | 67 | -0.1% | -16.0% to +15.7% |
-| today's master (shadow) | per fixture (a match's picks averaged) | 41 | -2.4% | -3.5% to -1.3% | 22% | 67 | -0.1% | -16.0% to +15.7% |
+| value shortlist | per pick | 145 | -2.0% | -2.8% to -1.3% | 28% | 457 | +2.7% | -3.6% to +9.0% |
+| value shortlist | per fixture (a match's picks averaged) | 70 | -1.9% | -3.0% to -0.9% | 24% | 180 | +3.5% | -3.9% to +11.0% |
+| cagey tier | per pick | 100 | -2.1% | -3.2% to -1.0% | 30% | 271 | +2.6% | -5.5% to +10.7% |
+| cagey tier | per fixture (a match's picks averaged) | 50 | -2.2% | -3.4% to -1.1% | 28% | 121 | +3.6% | -4.7% to +11.9% |
+| strong master (live) | per pick | 6 | -1.6% | -6.3% to +3.1% | 50% | 5 | -1.6% | -51.4% to +48.2% |
+| strong master (live) | per fixture (a match's picks averaged) | 6 | -1.6% | -6.3% to +3.1% | 50% | 5 | -1.6% | -51.4% to +48.2% |
+| today's master (shadow) | per pick | 47 | -2.6% | -3.9% to -1.4% | 23% | 67 | -0.1% | -16.0% to +15.7% |
+| today's master (shadow) | per fixture (a match's picks averaged) | 47 | -2.6% | -3.9% to -1.4% | 23% | 67 | -0.1% | -16.0% to +15.7% |
 
 Closing-line value (CLV) leads because it is the less noisy measure: it compares the frozen price with the Pinnacle fair close and does not wait for results. Returns come second: with few matches they are mostly luck. Intervals are mean ± 1.96 standard errors, clustered by fixture. Near-kickoff feed quotes are not verified official closing prices. The headline CLV is clv_report's (the Pinnacle close with the margin removed by the power method). The STOP REVIEW rule and the tables below use this report's own CLV, with the same margin removal, priced from the latest near-kickoff observation after each pick was captured, so the two can still differ slightly.
 
@@ -24,11 +24,11 @@ value: 1716 captured recommendations; 1671 graded; 188 distinct fixtures.
 cagey: 1134 captured recommendations; 1031 graded; 141 distinct fixtures.
 Actual placed bets: NOT_RECORDED
 
-> **STOP REVIEW**: 138 graded picks with mean CLV -2.11% (below zero). Review the policy before relying on further picks.
+> **STOP REVIEW**: 142 graded picks with mean CLV -2.16% (below zero). Review the policy before relying on further picks.
 
-Reviewed 2026-11-26T15:50:16.338897+00:00. Frozen v27 picks: 470.
+Reviewed 2026-11-26T17:51:29.072212+00:00. Frozen v27 picks: 470.
 
-**Mean CLV vs Pinnacle close:** -2.11% ± 0.75% (n=138). **Flat-stake profit per bet:** +2.70% ± 6.49% (n=457).
+**Mean CLV vs Pinnacle close:** -2.16% ± 0.74% (n=142). **Flat-stake profit per bet:** +2.70% ± 6.49% (n=457).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
 
 ## CLV by bookmaker
@@ -36,16 +36,16 @@ STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
 | group | mean CLV (n) |
 |---|---|
 | 1xBet | -0.50% ± 2.05% (n=26) |
-| Pinnacle | -2.48% ± 0.78% (n=112) |
+| Pinnacle | -2.53% ± 0.76% (n=116) |
 
 ## CLV by odds_band
 
 | group | mean CLV (n) |
 |---|---|
-| 1.70-1.90 | -1.98% ± 2.32% (n=30) |
+| 1.70-1.90 | -1.94% ± 2.25% (n=31) |
 | 1.90-2.10 | -1.95% ± 1.79% (n=26) |
 | 2.10-2.40 | -10.12% (n=1) |
-| <1.70 | -1.98% ± 0.72% (n=78) |
+| <1.70 | -2.09% ± 0.73% (n=81) |
 | >=2.40 | -5.31% ± 6.49% (n=3) |
 
 ## CLV by reference_type
@@ -53,7 +53,7 @@ STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
 | group | mean CLV (n) |
 |---|---|
 |  | -3.19% ± 0.71% (n=13) |
-| a | -2.09% ± 1.01% (n=98) |
+| a | -2.16% ± 0.98% (n=102) |
 | b | -1.65% ± 1.01% (n=27) |
 | c-cagey | n/a (0) |
 
@@ -62,62 +62,62 @@ STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
 | group | mean CLV (n) |
 |---|---|
 |  | -2.80% ± 0.72% (n=17) |
-| favourite | -1.20% ± 0.99% (n=79) |
-| underdog | -3.53% ± 1.48% (n=42) |
+| favourite | -1.32% ± 0.99% (n=81) |
+| underdog | -3.45% ± 1.41% (n=44) |
 
 ## CLV by balanced
 
 | group | mean CLV (n) |
 |---|---|
-| no | -1.65% ± 0.83% (n=105) |
-| yes | -3.54% ± 1.56% (n=33) |
+| no | -1.75% ± 0.83% (n=108) |
+| yes | -3.45% ± 1.53% (n=34) |
 
 ## CLV by low_total
 
 | group | mean CLV (n) |
 |---|---|
-| no | -2.03% ± 0.76% (n=134) |
+| no | -2.09% ± 0.75% (n=138) |
 | yes | -4.53% ± 1.44% (n=4) |
 
 ## CLV by high_draw
 
 | group | mean CLV (n) |
 |---|---|
-| no | -1.79% ± 0.81% (n=113) |
-| yes | -3.53% ± 1.78% (n=25) |
+| no | -1.87% ± 0.81% (n=116) |
+| yes | -3.42% ± 1.73% (n=26) |
 
 ## CLV by even_odds
 
 | group | mean CLV (n) |
 |---|---|
-| no | -1.99% ± 0.77% (n=130) |
-| yes | -4.00% ± 3.21% (n=8) |
+| no | -2.06% ± 0.76% (n=133) |
+| yes | -3.62% ± 2.93% (n=9) |
 
 ## CLV by tagged
 
 | group | mean CLV (n) |
 |---|---|
-| any tag | -3.59% ± 1.31% (n=42) |
-| no tag | -1.45% ± 0.88% (n=96) |
+| any tag | -3.52% ± 1.29% (n=43) |
+| no tag | -1.56% ± 0.87% (n=99) |
 
 ## CLV by cagey_quintile
 
 | group | mean CLV (n) |
 |---|---|
-| Q1 cagiest | -3.79% ± 2.00% (n=18) |
+| Q1 cagiest | -3.62% ± 1.92% (n=19) |
 | Q2 | -1.89% ± 1.56% (n=17) |
 | Q3 | -2.06% ± 1.21% (n=21) |
-| Q4 | -0.39% ± 2.91% (n=15) |
-| Q5 most open | -1.85% ± 3.19% (n=11) |
+| Q4 | -0.60% ± 2.57% (n=17) |
+| Q5 most open | -2.59% ± 3.26% (n=12) |
 | n/a | -2.15% ± 1.24% (n=56) |
 
 ## CLV by value_market_group
 
 | group | mean CLV (n) |
 |---|---|
-| asian_handicap | -2.69% ± 1.24% (n=60) |
+| asian_handicap | -2.66% ± 1.20% (n=62) |
 | double_chance | -3.02% ± 0.70% (n=23) |
-| match_winner | -1.73% ± 1.28% (n=45) |
+| match_winner | -1.91% ± 1.28% (n=47) |
 | n/a | +5.47% ± 3.69% (n=5) |
 | over_1_5 | -1.91% ± 1.42% (n=5) |
 
@@ -133,7 +133,7 @@ Frozen picks: 112; CLV -1.02% ± 1.37% (n=41); realised profit per bet -0.81% ±
 
 ## New master (shadow, fill rule) beside the live master
 
-Frozen picks: 82; CLV -2.51% ± 1.12% (n=41); realised profit per bet -0.15% ± 15.86% (n=67). Live master: 112 frozen picks, realised profit per bet -0.81% ± 12.79% (n=112).
+Frozen picks: 82; CLV -2.71% ± 1.29% (n=47); realised profit per bet -0.15% ± 15.86% (n=67). Live master: 112 frozen picks, realised profit per bet -0.81% ± 12.79% (n=112).
 
 Comparison rule (decided 13 Nov 2026, before any live result of the new master): After at least 150 graded matches over at least 3 calendar weeks (on each list), compare flat-stake return per bet at Pinnacle prices: new master minus live master, whole kickoff weeks resampled (the same weeks for both lists), 95% interval. Hit rate, average price, vetoed, ignored and missing-view counts are context only. The new master is better only if the interval is entirely above zero.
 
@@ -155,8 +155,8 @@ By tier (context only; the comparison rule never reads it):
 
 | tier | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| fill | -1.24% ± 1.26% (n=22) | +11.34% ± 23.51% (n=36) |
-| safe | -3.98% ± 1.74% (n=19) | -13.48% ± 20.11% (n=31) |
+| fill | -1.07% ± 1.25% (n=23) | +11.34% ± 23.51% (n=36) |
+| safe | -4.27% ± 2.05% (n=24) | -13.48% ± 20.11% (n=31) |
 
 | labels | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
@@ -165,12 +165,12 @@ By tier (context only; the comparison rule never reads it):
 | one view missing | -1.47% ± 1.36% (n=17) | +5.38% ± 24.92% (n=29) |
 | one view missing; unvalidated view | -0.81% ± 4.94% (n=3) | +15.95% ± 57.77% (n=5) |
 | research too optimistic | -3.59% ± 2.22% (n=7) | -9.03% ± 53.58% (n=8) |
-| research too optimistic; unvalidated view | -8.01% ± 13.72% (n=2) | +22.07% ± 21.73% (n=3) |
-| unvalidated view | -2.90% ± 4.31% (n=4) | +19.58% ± 10.45% (n=7) |
+| research too optimistic; unvalidated view | -5.67% ± 7.91% (n=6) | +22.07% ± 21.73% (n=3) |
+| unvalidated view | -2.96% ± 2.89% (n=6) | +19.58% ± 10.45% (n=7) |
 
 ## Strong-team master (live since 23 Nov 2026) beside today's master (shadow, the rollback baseline)
 
-Frozen picks: 15; CLV +2.21% (n=1); realised profit per bet -1.58% ± 49.81% (n=5). Research gate (research no-loss at least 0.70 on every pick, since 24 Nov 2026): 5 graded picks (reviewed at 50).
+Frozen picks: 15; CLV -1.39% ± 4.55% (n=6); realised profit per bet -1.58% ± 49.81% (n=5). Research gate (research no-loss at least 0.70 on every pick, since 24 Nov 2026): 5 graded picks (reviewed at 50).
 
 Weak-link flags (flag only, since 24 Nov 2026): 4 flagged picks graded; each reason is reviewed once 50 flagged picks are graded.
 
@@ -203,20 +203,20 @@ By tier (context only; the comparison rule never reads it):
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| not proven: fill | n/a (0) | -10.38% ± 87.90% (n=3) |
-| not proven: safe | +2.21% (n=1) | +11.63% ± 22.79% (n=2) |
-| proven | n/a (0) | n/a (0) |
+| not proven: fill | +2.67% (n=1) | -10.38% ± 87.90% (n=3) |
+| not proven: safe | -3.83% ± 8.69% (n=3) | +11.63% ± 22.79% (n=2) |
+| proven | +0.23% ± 2.73% (n=2) | n/a (0) |
 
 By market group (context only; the comparison rule never reads it):
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| asian_handicap | +2.21% (n=1) | -1.58% ± 49.81% (n=5) |
-| match_result | n/a (0) | n/a (0) |
+| asian_handicap | +0.36% ± 1.78% (n=4) | -1.58% ± 49.81% (n=5) |
+| match_result | -4.90% ± 14.84% (n=2) | n/a (0) |
 
 ## Both tiers (value and cagey)
 
-Cagey-tier picks frozen: 303; CLV -1.78% ± 0.85% (n=86); realised profit per bet +2.59% ± 7.11% (n=271). Correction-only value picks: CLV n/a (0).
+Cagey-tier picks frozen: 303; CLV -2.02% ± 0.93% (n=100); realised profit per bet +2.59% ± 7.11% (n=271). Correction-only value picks: CLV n/a (0).
 Flags: >= 50 graded correction-only value picks with mean CLV < 0; recommends cagey_correction_enabled = false; >= 50 graded value-priced cagey-tier picks made under the active rule (no-loss-market-reference-120-200-v6) with realised ROI 95% interval entirely below 0; recommends cagey_tier_enabled = false.
 
 ### Cagey-tier realised profit per bet by rule
@@ -233,92 +233,92 @@ Only the active rule's value-priced picks count toward CAGEY TIER REVIEW.
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| cagey | -1.78% ± 0.85% (n=86) | +2.59% ± 7.11% (n=271) |
-| value | -2.11% ± 0.75% (n=138) | +2.70% ± 6.49% (n=457) |
+| cagey | -2.02% ± 0.93% (n=100) | +2.59% ± 7.11% (n=271) |
+| value | -2.16% ± 0.74% (n=142) | +2.70% ± 6.49% (n=457) |
 
 ### By policy
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| v28 | -1.98% ± 0.56% (n=224) | +2.66% ± 4.85% (n=728) |
+| v28 | -2.10% ± 0.58% (n=242) | +2.66% ± 4.85% (n=728) |
 
 ### By bookmaker
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
 | 1xBet | -0.38% ± 1.23% (n=52) | +7.86% ± 8.11% (n=242) |
-| Pinnacle | -2.46% ± 0.62% (n=172) | +0.07% ± 6.04% (n=486) |
+| Pinnacle | -2.57% ± 0.64% (n=190) | +0.07% ± 6.04% (n=486) |
 
 ### By reference_type
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
 |  | -3.27% ± 0.55% (n=21) | -1.49% ± 9.55% (n=118) |
-| a | -1.88% ± 0.73% (n=164) | +3.87% ± 6.36% (n=498) |
-| b | -1.68% ± 1.00% (n=39) | -0.71% ± 11.43% (n=95) |
+| a | -1.99% ± 0.73% (n=181) | +3.87% ± 6.36% (n=498) |
+| b | -1.95% ± 1.11% (n=40) | -0.71% ± 11.43% (n=95) |
 | c-cagey | n/a (0) | +14.82% ± 3.70% (n=17) |
 
 ### By corrected_cagey_quintile
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| Q1 cagiest | -3.09% ± 1.25% (n=34) | +3.70% ± 13.29% (n=121) |
-| Q2 | -2.02% ± 1.09% (n=37) | -5.32% ± 11.58% (n=125) |
+| Q1 cagiest | -2.89% ± 1.22% (n=36) | +3.70% ± 13.29% (n=121) |
+| Q2 | -2.22% ± 1.07% (n=39) | -5.32% ± 11.58% (n=125) |
 | Q3 | -1.85% ± 0.77% (n=42) | +9.99% ± 11.12% (n=127) |
-| Q4 | -0.58% ± 1.87% (n=31) | +2.91% ± 11.24% (n=121) |
-| Q5 most open | -1.97% ± 2.38% (n=24) | +3.36% ± 10.35% (n=108) |
+| Q4 | -0.73% ± 1.57% (n=37) | +2.91% ± 11.24% (n=121) |
+| Q5 most open | -2.87% ± 2.54% (n=32) | +3.36% ± 10.35% (n=108) |
 | n/a | -2.15% ± 1.24% (n=56) | +1.35% ± 13.13% (n=126) |
 
 ### By balanced
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| no | -1.52% ± 0.66% (n=165) | +2.29% ± 5.75% (n=517) |
-| yes | -3.27% ± 1.04% (n=59) | +3.55% ± 9.05% (n=211) |
+| no | -1.74% ± 0.68% (n=181) | +2.29% ± 5.75% (n=517) |
+| yes | -3.15% ± 1.02% (n=61) | +3.55% ± 9.05% (n=211) |
 
 ### By low_total
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| no | -1.90% ± 0.58% (n=216) | +2.37% ± 5.03% (n=681) |
+| no | -2.03% ± 0.59% (n=234) | +2.37% ± 5.03% (n=681) |
 | yes | -4.24% ± 1.07% (n=8) | +6.81% ± 18.74% (n=47) |
 
 ### By high_draw
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| no | -1.65% ± 0.64% (n=180) | +2.30% ± 5.30% (n=589) |
-| yes | -3.31% ± 1.13% (n=44) | +4.18% ± 11.93% (n=139) |
+| no | -1.85% ± 0.66% (n=196) | +2.30% ± 5.30% (n=589) |
+| yes | -3.15% ± 1.11% (n=46) | +4.18% ± 11.93% (n=139) |
 
 ### By even_odds
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| no | -1.91% ± 0.58% (n=211) | +2.46% ± 5.00% (n=672) |
-| yes | -3.16% ± 2.12% (n=13) | +5.01% ± 19.65% (n=56) |
+| no | -2.06% ± 0.60% (n=227) | +2.46% ± 5.00% (n=672) |
+| yes | -2.67% ± 1.96% (n=15) | +5.01% ± 19.65% (n=56) |
 
 ### By qualified_only_by_correction
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| no | -1.98% ± 0.56% (n=224) | +2.66% ± 4.85% (n=728) |
+| no | -2.10% ± 0.58% (n=242) | +2.66% ± 4.85% (n=728) |
 
 ### By cagey_tier_rule
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| n/a | -2.11% ± 0.75% (n=138) | +2.70% ± 6.49% (n=457) |
+| n/a | -2.16% ± 0.74% (n=142) | +2.70% ± 6.49% (n=457) |
 | narrow-63-flagged-v2 | -6.39% (n=1) | +14.29% ± 11.83% (n=7) |
-| no-loss-market-reference-120-200-v6 | -4.70% ± 3.51% (n=9) | -1.98% ± 26.51% (n=15) |
+| no-loss-market-reference-120-200-v6 | -3.96% ± 2.83% (n=23) | -1.98% ± 26.51% (n=15) |
 | no-loss-market-reference-v5 | -1.37% ± 0.84% (n=76) | +2.54% ± 7.57% (n=249) |
 
 ### By price_flag
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| below fair | -2.15% ± 0.85% (n=79) | +1.45% ± 7.35% (n=255) |
-| n/a | -2.11% ± 0.75% (n=138) | +2.70% ± 6.49% (n=457) |
-| value | +2.43% ± 3.06% (n=7) | +20.72% ± 27.13% (n=16) |
+| below fair | -2.36% ± 0.95% (n=92) | +1.45% ± 7.35% (n=255) |
+| n/a | -2.16% ± 0.74% (n=142) | +2.70% ± 6.49% (n=457) |
+| value | +1.97% ± 2.79% (n=8) | +20.72% ± 27.13% (n=16) |
 
 ## Tagged candidates (narrow-margin hypothesis)
 

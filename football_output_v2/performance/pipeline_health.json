@@ -6,32 +6,32 @@
         "covered_selections": 37,
         "mean_fair_close_ev": -0.019197941154740654,
         "mean_same_book_offered_price_clv": 0.019371207678824987,
-        "missing_selections": 507,
-        "pending_selections": 9,
+        "missing_selections": 512,
+        "pending_selections": 4,
         "positive_fair_close_ev": 11
       },
       "bet365": {
         "covered_selections": 0,
         "mean_fair_close_ev": null,
         "mean_same_book_offered_price_clv": null,
-        "missing_selections": 544,
-        "pending_selections": 9,
+        "missing_selections": 549,
+        "pending_selections": 4,
         "positive_fair_close_ev": 0
       },
       "pinnacle": {
-        "covered_selections": 197,
-        "mean_fair_close_ev": -0.019807968176923905,
-        "mean_same_book_offered_price_clv": -0.002622180469682603,
-        "missing_selections": 347,
-        "pending_selections": 9,
+        "covered_selections": 201,
+        "mean_fair_close_ev": -0.02051417383253449,
+        "mean_same_book_offered_price_clv": -0.00231191214220173,
+        "missing_selections": 348,
+        "pending_selections": 4,
         "positive_fair_close_ev": 33
       }
     },
     "frozen_selections": 553,
     "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
-    "observations": 536,
+    "observations": 546,
     "rejected_files": [],
-    "reviewed_at_utc": "2026-11-26T15:50:16.338897+00:00",
+    "reviewed_at_utc": "2026-11-26T17:51:29.072212+00:00",
     "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
     "version": "local-closing-quotes-v4"
   },
@@ -65,10 +65,10 @@
   "experiment_capture_counts": {},
   "experimental_reports": {},
   "forecast_freshness": {
-    "age_hours": 0.015753658055555557,
+    "age_hours": 2.0359573566666667,
     "generated_at_utc": "2026-11-26T15:49:19.625728+00:00",
     "status": "WITHIN_24_HOURS",
-    "upcoming_fixture_count": 73
+    "upcoming_fixture_count": 65
   },
   "quote_audit": {
     "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
@@ -78,13 +78,13 @@
     "costs_recorded": 9,
     "exchange_quotes": 0,
     "missing_quote_age": 9,
-    "past_kickoff_count": 0,
+    "past_kickoff_count": 5,
     "quote_age_over_24h": 0,
     "selected_quotes": 9,
     "unknown_kickoff_count": 0,
-    "upcoming_kickoff_count": 9
+    "upcoming_kickoff_count": 4
   },
-  "reviewed_at_utc": "2026-11-26T15:50:16.338897+00:00",
+  "reviewed_at_utc": "2026-11-26T17:51:29.072212+00:00",
   "selection_policy_groups": {
     "48h-ah-price-edge-cagey-v28": {
       "brier": 0.205523,
@@ -61799,7 +61799,7 @@
         "completed_matches": 90,
         "corrected_scores": 0,
         "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-        "download_age_hours": 0.047210709722222216,
+        "download_age_hours": 2.0674144083333332,
         "download_status": "VERIFIED_LIVE",
         "latest_completed_date": "2026-11-25",
         "latest_completed_utc": "2026-11-25T20:00:00+00:00",
@@ -61857,7 +61857,7 @@
           }
         },
         "status": "VERIFIED_WITHIN_24_HOURS",
-        "verified_at_utc": "2026-11-26T15:50:16.338897+00:00"
+        "verified_at_utc": "2026-11-26T17:51:29.072212+00:00"
       },
       "days_since_latest_result": 21,
       "diagnostics_sha256": "a4ab80b388684c7c692536cef1bcae242a947dc6bc7b80cde737f14f1b1ad219",
