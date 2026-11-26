@@ -1,0 +1,334 @@
+{
+  "fixture": {
+    "away_team": "Jagiellonia Bia\u0142ystok",
+    "home_team": "Sunderland",
+    "kickoff_utc": "2026-11-26T20:00:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "1640061996"
+  },
+  "observed_at_utc": "2026-11-26T19:54:33.055705+00:00",
+  "payload": {
+    "away_team": "Jagiellonia Bia\u0142ystok",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-26T19:54:32Z",
+            "outcomes": [
+              {
+                "name": "Sunderland",
+                "price": 1.2786
+              },
+              {
+                "name": "Jagiellonia Bia\u0142ystok",
+                "price": 11.82
+              },
+              {
+                "name": "Draw",
+                "price": 5.95
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-26T19:54:32Z",
+            "outcomes": [
+              {
+                "name": "Sunderland",
+                "point": -1.5,
+                "price": 1.8547
+              },
+              {
+                "name": "Jagiellonia Bia\u0142ystok",
+                "point": 1.5,
+                "price": 2.06
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-26T19:54:32Z",
+            "outcomes": [
+              {
+                "name": "Sunderland",
+                "point": -2.5,
+                "price": 3.19
+              },
+              {
+                "name": "Sunderland",
+                "point": -2.25,
+                "price": 2.83
+              },
+              {
+                "name": "Sunderland",
+                "point": -2.0,
+                "price": 2.48
+              },
+              {
+                "name": "Sunderland",
+                "point": -1.75,
+                "price": 2.08
+              },
+              {
+                "name": "Sunderland",
+                "point": -1.25,
+                "price": 1.6173
+              },
+              {
+                "name": "Sunderland",
+                "point": -1.0,
+                "price": 1.3922
+              },
+              {
+                "name": "Sunderland",
+                "point": -0.75,
+                "price": 1.3145
+              },
+              {
+                "name": "Sunderland",
+                "point": -0.5,
+                "price": 1.2625
+              },
+              {
+                "name": "Jagiellonia Bia\u0142ystok",
+                "point": 2.5,
+                "price": 1.3704
+              },
+              {
+                "name": "Jagiellonia Bia\u0142ystok",
+                "point": 2.25,
+                "price": 1.4484
+              },
+              {
+                "name": "Jagiellonia Bia\u0142ystok",
+                "point": 2.0,
+                "price": 1.565
+              },
+              {
+                "name": "Jagiellonia Bia\u0142ystok",
+                "point": 1.75,
+                "price": 1.8065
+              },
+              {
+                "name": "Jagiellonia Bia\u0142ystok",
+                "point": 1.25,
+                "price": 2.4
+              },
+              {
+                "name": "Jagiellonia Bia\u0142ystok",
+                "point": 1.0,
+                "price": 3.08
+              },
+              {
+                "name": "Jagiellonia Bia\u0142ystok",
+                "point": 0.75,
+                "price": 3.54
+              },
+              {
+                "name": "Jagiellonia Bia\u0142ystok",
+                "point": 0.5,
+                "price": 4.0
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-26T19:54:32Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.885
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.01
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-26T20:00:00Z",
+    "home_team": "Sunderland",
+    "id": "1640061996",
+    "odds_provider": "pinnapi",
+    "sport_key": "soccer_uefa_europa_league"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2786,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7722437573190397,
+      "selection": "home",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.95,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.15328279439261766,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 11.82,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.07447344828834257,
+      "selection": "away",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.06,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.8547,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.0,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.54,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.08,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.4,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.8065,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.565,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.00",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4484,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.25",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3704,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.50",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.19,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.50",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.83,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.25",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.48,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.00",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.08,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6173,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3922,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3145,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2625,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

@@ -1,0 +1,334 @@
+{
+  "fixture": {
+    "away_team": "Lillestrom",
+    "home_team": "Lyon",
+    "kickoff_utc": "2026-11-26T20:00:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "1640061979"
+  },
+  "observed_at_utc": "2026-11-26T19:55:14.619145+00:00",
+  "payload": {
+    "away_team": "Lillestrom",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-26T19:55:14Z",
+            "outcomes": [
+              {
+                "name": "Lyon",
+                "price": 1.2445
+              },
+              {
+                "name": "Lillestrom",
+                "price": 12.16
+              },
+              {
+                "name": "Draw",
+                "price": 6.74
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-26T19:55:14Z",
+            "outcomes": [
+              {
+                "name": "Lyon",
+                "point": -1.75,
+                "price": 1.9091
+              },
+              {
+                "name": "Lillestrom",
+                "point": 1.75,
+                "price": 2.0
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-26T19:55:14Z",
+            "outcomes": [
+              {
+                "name": "Lyon",
+                "point": -2.75,
+                "price": 3.34
+              },
+              {
+                "name": "Lyon",
+                "point": -2.5,
+                "price": 2.76
+              },
+              {
+                "name": "Lyon",
+                "point": -2.25,
+                "price": 2.48
+              },
+              {
+                "name": "Lyon",
+                "point": -2.0,
+                "price": 2.19
+              },
+              {
+                "name": "Lyon",
+                "point": -1.5,
+                "price": 1.7092
+              },
+              {
+                "name": "Lyon",
+                "point": -1.25,
+                "price": 1.5076
+              },
+              {
+                "name": "Lyon",
+                "point": -1.0,
+                "price": 1.3165
+              },
+              {
+                "name": "Lyon",
+                "point": -0.75,
+                "price": 1.2618
+              },
+              {
+                "name": "Lillestrom",
+                "point": 2.75,
+                "price": 1.3289
+              },
+              {
+                "name": "Lillestrom",
+                "point": 2.5,
+                "price": 1.4484
+              },
+              {
+                "name": "Lillestrom",
+                "point": 2.25,
+                "price": 1.5618
+              },
+              {
+                "name": "Lillestrom",
+                "point": 2.0,
+                "price": 1.7299
+              },
+              {
+                "name": "Lillestrom",
+                "point": 1.5,
+                "price": 2.23
+              },
+              {
+                "name": "Lillestrom",
+                "point": 1.25,
+                "price": 2.63
+              },
+              {
+                "name": "Lillestrom",
+                "point": 1.0,
+                "price": 3.42
+              },
+              {
+                "name": "Lillestrom",
+                "point": 0.75,
+                "price": 3.87
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-26T19:55:14Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 2.05
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.8547
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-26T20:00:00Z",
+    "home_team": "Lyon",
+    "id": "1640061979",
+    "odds_provider": "pinnapi",
+    "sport_key": "soccer_uefa_europa_league"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2445,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7941570667017982,
+      "selection": "home",
+      "updated_at_utc": "2026-11-26T19:55:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.74,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1339254619962293,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-26T19:55:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 12.16,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.07191747130197267,
+      "selection": "away",
+      "updated_at_utc": "2026-11-26T19:55:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.0,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-11-26T19:55:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9091,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-11-26T19:55:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.87,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-26T19:55:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.42,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-26T19:55:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.63,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-26T19:55:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.23,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-26T19:55:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7299,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.00",
+      "updated_at_utc": "2026-11-26T19:55:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5618,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.25",
+      "updated_at_utc": "2026-11-26T19:55:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4484,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.50",
+      "updated_at_utc": "2026-11-26T19:55:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3289,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.75",
+      "updated_at_utc": "2026-11-26T19:55:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.34,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.75",
+      "updated_at_utc": "2026-11-26T19:55:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.76,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.50",
+      "updated_at_utc": "2026-11-26T19:55:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.48,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.25",
+      "updated_at_utc": "2026-11-26T19:55:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.19,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.00",
+      "updated_at_utc": "2026-11-26T19:55:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7092,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-26T19:55:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5076,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-26T19:55:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3165,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-26T19:55:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2618,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-26T19:55:14+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

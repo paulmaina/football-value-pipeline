@@ -1,0 +1,334 @@
+{
+  "fixture": {
+    "away_team": "Rennes",
+    "home_team": "NEC Nijmegen",
+    "kickoff_utc": "2026-11-26T20:00:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "1640066617"
+  },
+  "observed_at_utc": "2026-11-26T19:54:32.870876+00:00",
+  "payload": {
+    "away_team": "Rennes",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-26T19:54:32Z",
+            "outcomes": [
+              {
+                "name": "NEC Nijmegen",
+                "price": 2.95
+              },
+              {
+                "name": "Rennes",
+                "price": 2.27
+              },
+              {
+                "name": "Draw",
+                "price": 4.0
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-26T19:54:32Z",
+            "outcomes": [
+              {
+                "name": "NEC Nijmegen",
+                "point": 0.25,
+                "price": 1.9091
+              },
+              {
+                "name": "Rennes",
+                "point": -0.25,
+                "price": 2.0
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-26T19:54:32Z",
+            "outcomes": [
+              {
+                "name": "NEC Nijmegen",
+                "point": -0.75,
+                "price": 3.58
+              },
+              {
+                "name": "NEC Nijmegen",
+                "point": -0.5,
+                "price": 2.91
+              },
+              {
+                "name": "NEC Nijmegen",
+                "point": -0.25,
+                "price": 2.58
+              },
+              {
+                "name": "NEC Nijmegen",
+                "point": 0.0,
+                "price": 2.23
+              },
+              {
+                "name": "NEC Nijmegen",
+                "point": 0.5,
+                "price": 1.6944
+              },
+              {
+                "name": "NEC Nijmegen",
+                "point": 0.75,
+                "price": 1.5348
+              },
+              {
+                "name": "NEC Nijmegen",
+                "point": 1.0,
+                "price": 1.3663
+              },
+              {
+                "name": "NEC Nijmegen",
+                "point": 1.25,
+                "price": 1.3106
+              },
+              {
+                "name": "Rennes",
+                "point": 0.75,
+                "price": 1.3185
+              },
+              {
+                "name": "Rennes",
+                "point": 0.5,
+                "price": 1.4386
+              },
+              {
+                "name": "Rennes",
+                "point": 0.25,
+                "price": 1.5495
+              },
+              {
+                "name": "Rennes",
+                "point": 0.0,
+                "price": 1.7092
+              },
+              {
+                "name": "Rennes",
+                "point": -0.5,
+                "price": 2.25
+              },
+              {
+                "name": "Rennes",
+                "point": -0.75,
+                "price": 2.62
+              },
+              {
+                "name": "Rennes",
+                "point": -1.0,
+                "price": 3.26
+              },
+              {
+                "name": "Rennes",
+                "point": -1.25,
+                "price": 3.63
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-26T19:54:32Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 1.9524
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.9346
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-26T20:00:00Z",
+    "home_team": "NEC Nijmegen",
+    "id": "1640066617",
+    "odds_provider": "pinnapi",
+    "sport_key": "soccer_uefa_europa_league"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.95,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3289090114506327,
+      "selection": "home",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.0,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24051933613113555,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.27,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4305716524182318,
+      "selection": "away",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.0,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9091,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.63,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.25",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.26,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.00",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.62,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.25,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7092,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5495,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4386,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3185,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.58,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.91,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.58,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.23,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6944,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5348,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3663,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.00",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3106,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.25",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

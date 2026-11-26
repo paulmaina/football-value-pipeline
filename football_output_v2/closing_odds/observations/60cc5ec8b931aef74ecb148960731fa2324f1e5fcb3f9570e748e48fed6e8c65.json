@@ -1,0 +1,350 @@
+{
+  "fixture": {
+    "away_team": "SK Sturm Graz",
+    "home_team": "TSG Hoffenheim",
+    "kickoff_utc": "2026-11-26T20:00:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "1640060302"
+  },
+  "observed_at_utc": "2026-11-26T19:54:33.178478+00:00",
+  "payload": {
+    "away_team": "SK Sturm Graz",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-26T19:54:32Z",
+            "outcomes": [
+              {
+                "name": "TSG Hoffenheim",
+                "price": 1.3195
+              },
+              {
+                "name": "SK Sturm Graz",
+                "price": 9.42
+              },
+              {
+                "name": "Draw",
+                "price": 5.84
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-26T19:54:32Z",
+            "outcomes": [
+              {
+                "name": "TSG Hoffenheim",
+                "point": -1.75,
+                "price": 1.9804
+              },
+              {
+                "name": "SK Sturm Graz",
+                "point": 1.75,
+                "price": 1.9259
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-26T19:54:32Z",
+            "outcomes": [
+              {
+                "name": "TSG Hoffenheim",
+                "point": -2.75,
+                "price": 3.36
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "point": -2.5,
+                "price": 2.81
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "point": -2.25,
+                "price": 2.52
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "point": -2.0,
+                "price": 2.26
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "point": -1.5,
+                "price": 1.7752
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "point": -1.25,
+                "price": 1.5882
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "point": -1.0,
+                "price": 1.4184
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "point": -0.75,
+                "price": 1.3521
+              },
+              {
+                "name": "SK Sturm Graz",
+                "point": 2.75,
+                "price": 1.3425
+              },
+              {
+                "name": "SK Sturm Graz",
+                "point": 2.5,
+                "price": 1.4566
+              },
+              {
+                "name": "SK Sturm Graz",
+                "point": 2.25,
+                "price": 1.5464
+              },
+              {
+                "name": "SK Sturm Graz",
+                "point": 2.0,
+                "price": 1.6897
+              },
+              {
+                "name": "SK Sturm Graz",
+                "point": 1.5,
+                "price": 2.13
+              },
+              {
+                "name": "SK Sturm Graz",
+                "point": 1.25,
+                "price": 2.42
+              },
+              {
+                "name": "SK Sturm Graz",
+                "point": 1.0,
+                "price": 2.95
+              },
+              {
+                "name": "SK Sturm Graz",
+                "point": 0.75,
+                "price": 3.3
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-26T19:54:32Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.8696
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.02
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-26T20:00:00Z",
+    "home_team": "TSG Hoffenheim",
+    "id": "1640060302",
+    "odds_provider": "pinnapi",
+    "sport_key": "soccer_uefa_europa_league"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3195,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7476979061741545,
+      "selection": "home",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.84,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.15713019253697302,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 9.42,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.09517190128887246,
+      "selection": "away",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9259,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9804,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.3,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.95,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.42,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.13,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6897,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.00",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5464,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.25",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4566,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.50",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3425,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.75",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.36,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.75",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.81,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.50",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.52,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.25",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.26,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.00",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7752,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5882,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4184,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3521,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.8696,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5201926312706279,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.02,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.47980736872937224,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-26T19:54:32+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
