@@ -7,11 +7,11 @@
   "source_schedule_matches": 144,
   "provider": "football-data.org",
   "season_start": 2026,
-  "checked_at_utc": "2026-11-25T22:12:48.132562+00:00",
+  "checked_at_utc": "2026-11-26T00:35:42.750070+00:00",
   "download_status": "VERIFIED_LIVE",
-  "added_matches": 9,
+  "added_matches": 0,
   "corrected_scores": 0,
-  "sha256": "753f97595b57294ee74c9a279c31fbdb01f1680d232ff9c1f78dc1d0fd123e07",
+  "sha256": "5ebe347520f32ed886d2cbfc07ba2d3df3ae7f020bfc77ce4a3e4557895b0f57",
   "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
   "note": "Provider schedule comparison is not independent proof of complete coverage."
 }
