@@ -9,10 +9,10 @@
     "eligible": false,
     "fallbacks": {
       "domestic_fixtures": 138,
-      "domestic_records": 898,
+      "domestic_records": 965,
       "fallback_fixtures": 0,
       "fallback_records": 0,
-      "runs": 26
+      "runs": 27
     },
     "graded_fallbacks": 0,
     "interval_95": [
@@ -108,9 +108,9 @@
   "home_favourites": {
     "all": {
       "actual_home_win": 0.5454545454545454,
-      "fixtures": 13,
+      "fixtures": 15,
       "graded": 11,
-      "picks": 19,
+      "picks": 23,
       "v4_predicted_home_win": 0.6042655189779201,
       "v5_predicted_home_win": 0.613932673254064
     },
@@ -123,11 +123,19 @@
         "v4_predicted_home_win": 0.5650460947573996,
         "v5_predicted_home_win": 0.573312173429668
       },
+      "Primeira Liga": {
+        "actual_home_win": null,
+        "fixtures": 1,
+        "graded": 0,
+        "picks": 2,
+        "v4_predicted_home_win": null,
+        "v5_predicted_home_win": null
+      },
       "Super Lig": {
         "actual_home_win": 0.8333333333333334,
-        "fixtures": 7,
+        "fixtures": 8,
         "graded": 6,
-        "picks": 11,
+        "picks": 13,
         "v4_predicted_home_win": 0.6369483724950203,
         "v5_predicted_home_win": 0.6477830897743938
       }
@@ -184,8 +192,8 @@
           "Home win"
         ],
         "picks": 1,
-        "v4_p_home": 0.6394911043849948,
-        "v5_p_home": 0.656119431046097
+        "v4_p_home": 0.6395187874676573,
+        "v5_p_home": 0.6561477735485127
       },
       {
         "fixture": "SC Telstar v FC Zwolle",
@@ -214,6 +222,20 @@
         "v5_p_home": 0.4314401614804066
       },
       {
+        "fixture": "Arouca v Rio Ave",
+        "graded": false,
+        "home_won": null,
+        "kickoff_utc": "2026-11-28T15:30:00+00:00",
+        "league": "Primeira Liga",
+        "markets": [
+          "Asian Handicap Home +0.25",
+          "Home win"
+        ],
+        "picks": 2,
+        "v4_p_home": 0.5380335707763885,
+        "v5_p_home": 0.5487890495300161
+      },
+      {
         "fixture": "Alanyaspor v Torku Konyaspor",
         "graded": false,
         "home_won": null,
@@ -223,8 +245,8 @@
           "Asian Handicap Home +0.25"
         ],
         "picks": 1,
-        "v4_p_home": 0.40296190122278147,
-        "v5_p_home": 0.40140662503099717
+        "v4_p_home": 0.40296036345593095,
+        "v5_p_home": 0.4014046678553694
       },
       {
         "fixture": "Amed SK v Çaykur Rizespor",
@@ -294,6 +316,20 @@
         "picks": 2,
         "v4_p_home": 0.5337766610889291,
         "v5_p_home": 0.5429318796089154
+      },
+      {
+        "fixture": "Samsunspor v Genclerbirligi SK",
+        "graded": false,
+        "home_won": null,
+        "kickoff_utc": "2026-11-28T13:00:00+00:00",
+        "league": "Super Lig",
+        "markets": [
+          "Asian Handicap Home +0.50",
+          "Home win"
+        ],
+        "picks": 2,
+        "v4_p_home": 0.509429414879977,
+        "v5_p_home": 0.5180282713180394
       },
       {
         "fixture": "Trabzonspor v Eyüpspor",

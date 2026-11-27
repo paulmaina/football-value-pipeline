@@ -20,13 +20,13 @@ Closing-line value (CLV) leads because it is the less noisy measure: it compares
 Every captured generation is graded at its own offered odds; re-uploads deduplicate. Repeated fixtures and overlapping lists are correlated recommendations, not independent bets. Unit returns are hypothetical, not actual betting ROI. Latest-view reports remain separate.
 
 Latest-view tables below are simulated recommendations, not executed-bet ROI.
-value: 1728 captured recommendations; 1671 graded; 197 distinct fixtures.
-cagey: 1146 captured recommendations; 1031 graded; 150 distinct fixtures.
+value: 1762 captured recommendations; 1671 graded; 210 distinct fixtures.
+cagey: 1178 captured recommendations; 1031 graded; 162 distinct fixtures.
 Actual placed bets: NOT_RECORDED
 
 > **STOP REVIEW**: 145 graded picks with mean CLV -2.15% (below zero). Review the policy before relying on further picks.
 
-Reviewed 2026-11-27T10:46:28.819006+00:00. Frozen v27 picks: 482.
+Reviewed 2026-11-27T15:36:56.680645+00:00. Frozen v27 picks: 504.
 
 **Mean CLV vs Pinnacle close:** -2.15% ± 0.72% (n=145). **Flat-stake profit per bet:** +2.70% ± 6.49% (n=457).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -105,8 +105,8 @@ STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
 | group | mean CLV (n) |
 |---|---|
 | Q1 cagiest | -3.62% ± 1.92% (n=19) |
-| Q2 | -1.89% ± 1.56% (n=17) |
-| Q3 | -2.06% ± 1.21% (n=21) |
+| Q2 | -2.04% ± 1.34% (n=20) |
+| Q3 | -1.92% ± 1.41% (n=18) |
 | Q4 | -0.60% ± 2.57% (n=17) |
 | Q5 most open | -2.49% ± 2.63% (n=15) |
 | n/a | -2.15% ± 1.24% (n=56) |
@@ -133,7 +133,7 @@ Frozen picks: 112; CLV -1.02% ± 1.37% (n=41); realised profit per bet -0.81% ±
 
 ## New master (shadow, fill rule) beside the live master
 
-Frozen picks: 91; CLV -2.58% ± 1.16% (n=54); realised profit per bet -0.15% ± 15.86% (n=67). Live master: 112 frozen picks, realised profit per bet -0.81% ± 12.79% (n=112).
+Frozen picks: 100; CLV -2.58% ± 1.16% (n=54); realised profit per bet -0.15% ± 15.86% (n=67). Live master: 112 frozen picks, realised profit per bet -0.81% ± 12.79% (n=112).
 
 Comparison rule (decided 13 Nov 2026, before any live result of the new master): After at least 150 graded matches over at least 3 calendar weeks (on each list), compare flat-stake return per bet at Pinnacle prices: new master minus live master, whole kickoff weeks resampled (the same weeks for both lists), 95% interval. Hit rate, average price, vetoed, ignored and missing-view counts are context only. The new master is better only if the interval is entirely above zero.
 
@@ -149,7 +149,7 @@ Release incidents: new master failed (old master published) in 0 runs; compariso
 | live master | 112 | 3 | -0.81% | 67.0% | 1.53 |
 
 **Status:** waiting for at least 150 graded matches over at least 3 weeks on each list (not yet comparable).
-Context, new master offers (newest pre-kickoff generation per fixture): 203 offers on 111 fixtures; included (cagey safe) 54; labels: both agree 5, research too optimistic 45, research strongly disagrees 0, one view missing 93, no research check 0, unvalidated view 73; no view 0.
+Context, new master offers (newest pre-kickoff generation per fixture): 237 offers on 124 fixtures; included (cagey safe) 73; labels: both agree 5, research too optimistic 58, research strongly disagrees 0, one view missing 95, no research check 0, unvalidated view 73; no view 0.
 
 By tier (context only; the comparison rule never reads it):
 
@@ -170,7 +170,7 @@ By tier (context only; the comparison rule never reads it):
 
 ## Strong-team master (live since 23 Nov 2026) beside today's master (shadow, the rollback baseline)
 
-Frozen picks: 21; CLV -2.06% ± 3.08% (n=11); realised profit per bet -1.58% ± 49.81% (n=5). Research gate (research no-loss at least 0.70 on every pick, since 24 Nov 2026): 5 graded picks (reviewed at 50).
+Frozen picks: 25; CLV -2.06% ± 3.08% (n=11); realised profit per bet -1.58% ± 49.81% (n=5). Research gate (research no-loss at least 0.70 on every pick, since 24 Nov 2026): 5 graded picks (reviewed at 50).
 
 Weak-link flags (flag only, since 24 Nov 2026): 4 flagged picks graded; each reason is reviewed once 50 flagged picks are graded.
 
@@ -216,7 +216,7 @@ By market group (context only; the comparison rule never reads it):
 
 ## Both tiers (value and cagey)
 
-Cagey-tier picks frozen: 315; CLV -2.09% ± 0.85% (n=114); realised profit per bet +2.59% ± 7.11% (n=271). Correction-only value picks: CLV n/a (0).
+Cagey-tier picks frozen: 335; CLV -2.09% ± 0.85% (n=114); realised profit per bet +2.59% ± 7.11% (n=271). Correction-only value picks: CLV n/a (0).
 Flags: >= 50 graded correction-only value picks with mean CLV < 0; recommends cagey_correction_enabled = false; >= 50 graded value-priced cagey-tier picks made under the active rule (no-loss-market-reference-120-200-v6) with realised ROI 95% interval entirely below 0; recommends cagey_tier_enabled = false.
 
 ### Cagey-tier realised profit per bet by rule
@@ -262,10 +262,10 @@ Only the active rule's value-priced picks count toward CAGEY TIER REVIEW.
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| Q1 cagiest | -3.30% ± 1.23% (n=33) | +2.50% ± 13.42% (n=117) |
-| Q2 | -1.82% ± 1.04% (n=43) | -3.96% ± 11.56% (n=129) |
-| Q3 | -1.76% ± 0.72% (n=45) | +10.69% ± 11.12% (n=128) |
-| Q4 | -0.92% ± 1.60% (n=38) | +2.10% ± 11.22% (n=120) |
+| Q1 cagiest | -2.77% ± 1.21% (n=37) | +4.36% ± 13.24% (n=122) |
+| Q2 | -2.17% ± 1.04% (n=41) | -6.50% ± 11.51% (n=126) |
+| Q3 | -1.74% ± 0.75% (n=43) | +10.67% ± 11.12% (n=128) |
+| Q4 | -0.92% ± 1.60% (n=38) | +2.74% ± 11.27% (n=118) |
 | Q5 most open | -2.93% ± 1.87% (n=44) | +3.36% ± 10.35% (n=108) |
 | n/a | -2.15% ± 1.24% (n=56) | +1.35% ± 13.13% (n=126) |
 
@@ -322,7 +322,7 @@ Only the active rule's value-priced picks count toward CAGEY TIER REVIEW.
 
 ## Tagged candidates (narrow-margin hypothesis)
 
-Frozen tagged candidates: 3443 (3443 with an offered price).
+Frozen tagged candidates: 3488 (3488 with an offered price).
 1xBet edge vs fair at capture: -3.80% ± 0.21% (n=529).
 Return at the capture fair price, all tagged lines: +0.97% ± 3.60% (n=2305); plus lines only: +2.12% ± 2.81% (n=1346).
 
@@ -335,11 +335,11 @@ Return at the capture fair price, all tagged lines: +0.97% ± 3.60% (n=2305); pl
 
 Forward monitoring of cagey-correction-monitoring-v1 started 2026-11-03T13:58:25Z (first eligible capture). Earlier forecasts are not backfilled. One record per fixture: its first pre-kickoff capture at least 20 minutes before kickoff. Quintiles use the fixed training-period boundaries stored with the model.
 
-Fixtures: eligible 189, pending 40, graded 149, excluded 124.
+Fixtures: eligible 198, pending 49, graded 149, excluded 115.
 
 | excluded because | fixtures |
 |---|---:|
-| no usable market-implied fit (missing input: over_2_5) | 92 |
+| no usable market-implied fit (missing input: over_2_5) | 83 |
 | no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line) | 32 |
 
 | quintile | n | 2+ actual | 2+ corrected | 2+ uncorrected | 3+ actual | 3+ corrected | 3+ uncorrected |
