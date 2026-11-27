@@ -1,0 +1,334 @@
+{
+  "fixture": {
+    "away_team": "Kasimpasa SK",
+    "home_team": "Caykur Rizespor",
+    "kickoff_utc": "2026-11-27T17:00:00+00:00",
+    "league": "Super Lig",
+    "odds_event_id": "1640743626"
+  },
+  "observed_at_utc": "2026-11-27T16:54:07.536966+00:00",
+  "payload": {
+    "away_team": "Kasimpasa SK",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-27T16:54:07Z",
+            "outcomes": [
+              {
+                "name": "Caykur Rizespor",
+                "price": 1.9804
+              },
+              {
+                "name": "Kasimpasa SK",
+                "price": 3.84
+              },
+              {
+                "name": "Draw",
+                "price": 3.76
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-27T16:54:07Z",
+            "outcomes": [
+              {
+                "name": "Caykur Rizespor",
+                "point": -0.5,
+                "price": 1.9804
+              },
+              {
+                "name": "Kasimpasa SK",
+                "point": 0.5,
+                "price": 1.9259
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-27T16:54:07Z",
+            "outcomes": [
+              {
+                "name": "Caykur Rizespor",
+                "point": -1.5,
+                "price": 3.52
+              },
+              {
+                "name": "Caykur Rizespor",
+                "point": -1.25,
+                "price": 3.14
+              },
+              {
+                "name": "Caykur Rizespor",
+                "point": -1.0,
+                "price": 2.78
+              },
+              {
+                "name": "Caykur Rizespor",
+                "point": -0.75,
+                "price": 2.26
+              },
+              {
+                "name": "Caykur Rizespor",
+                "point": -0.25,
+                "price": 1.7194
+              },
+              {
+                "name": "Caykur Rizespor",
+                "point": 0.0,
+                "price": 1.4651
+              },
+              {
+                "name": "Caykur Rizespor",
+                "point": 0.25,
+                "price": 1.3597
+              },
+              {
+                "name": "Caykur Rizespor",
+                "point": 0.5,
+                "price": 1.2941
+              },
+              {
+                "name": "Kasimpasa SK",
+                "point": 1.5,
+                "price": 1.33
+              },
+              {
+                "name": "Kasimpasa SK",
+                "point": 1.25,
+                "price": 1.3922
+              },
+              {
+                "name": "Kasimpasa SK",
+                "point": 1.0,
+                "price": 1.4902
+              },
+              {
+                "name": "Kasimpasa SK",
+                "point": 0.75,
+                "price": 1.7042
+              },
+              {
+                "name": "Kasimpasa SK",
+                "point": 0.25,
+                "price": 2.23
+              },
+              {
+                "name": "Kasimpasa SK",
+                "point": 0.0,
+                "price": 2.86
+              },
+              {
+                "name": "Kasimpasa SK",
+                "point": -0.25,
+                "price": 3.32
+              },
+              {
+                "name": "Kasimpasa SK",
+                "point": -0.5,
+                "price": 3.79
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-27T16:54:07Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.8333
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.07
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-27T17:00:00Z",
+    "home_team": "Caykur Rizespor",
+    "id": "1640743626",
+    "odds_provider": "pinnapi",
+    "sport_key": "soccer_turkey_super_league"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9804,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.49456449982737455,
+      "selection": "home",
+      "updated_at_utc": "2026-11-27T16:54:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.76,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2554588259464404,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-27T16:54:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.84,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24997667422618494,
+      "selection": "away",
+      "updated_at_utc": "2026-11-27T16:54:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9259,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-27T16:54:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9804,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-27T16:54:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.79,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-27T16:54:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.32,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-27T16:54:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.86,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-27T16:54:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.23,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-27T16:54:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7042,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-27T16:54:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4902,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-27T16:54:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3922,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-27T16:54:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.33,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-27T16:54:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.52,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-27T16:54:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.14,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-27T16:54:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.78,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-27T16:54:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.26,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-27T16:54:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7194,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-27T16:54:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4651,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-27T16:54:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3597,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-27T16:54:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2941,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-27T16:54:07+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
