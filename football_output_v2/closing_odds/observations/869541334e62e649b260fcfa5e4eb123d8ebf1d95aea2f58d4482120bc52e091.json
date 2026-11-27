@@ -1,0 +1,334 @@
+{
+  "fixture": {
+    "away_team": "Willem II",
+    "home_team": "Groningen",
+    "kickoff_utc": "2026-11-27T19:00:00+00:00",
+    "league": "Eredivisie",
+    "odds_event_id": "1640270692"
+  },
+  "observed_at_utc": "2026-11-27T18:54:20.787638+00:00",
+  "payload": {
+    "away_team": "Willem II",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-27T18:54:20Z",
+            "outcomes": [
+              {
+                "name": "Groningen",
+                "price": 1.3067
+              },
+              {
+                "name": "Willem II",
+                "price": 9.43
+              },
+              {
+                "name": "Draw",
+                "price": 6.11
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-27T18:54:20Z",
+            "outcomes": [
+              {
+                "name": "Groningen",
+                "point": -1.75,
+                "price": 2.06
+              },
+              {
+                "name": "Willem II",
+                "point": 1.75,
+                "price": 1.8547
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-27T18:54:20Z",
+            "outcomes": [
+              {
+                "name": "Groningen",
+                "point": -2.75,
+                "price": 3.84
+              },
+              {
+                "name": "Groningen",
+                "point": -2.5,
+                "price": 3.09
+              },
+              {
+                "name": "Groningen",
+                "point": -2.25,
+                "price": 2.77
+              },
+              {
+                "name": "Groningen",
+                "point": -2.0,
+                "price": 2.44
+              },
+              {
+                "name": "Groningen",
+                "point": -1.5,
+                "price": 1.8264
+              },
+              {
+                "name": "Groningen",
+                "point": -1.25,
+                "price": 1.6289
+              },
+              {
+                "name": "Groningen",
+                "point": -1.0,
+                "price": 1.4255
+              },
+              {
+                "name": "Groningen",
+                "point": -0.75,
+                "price": 1.3497
+              },
+              {
+                "name": "Willem II",
+                "point": 2.75,
+                "price": 1.2899
+              },
+              {
+                "name": "Willem II",
+                "point": 2.5,
+                "price": 1.4032
+              },
+              {
+                "name": "Willem II",
+                "point": 2.25,
+                "price": 1.4902
+              },
+              {
+                "name": "Willem II",
+                "point": 2.0,
+                "price": 1.6135
+              },
+              {
+                "name": "Willem II",
+                "point": 1.5,
+                "price": 2.07
+              },
+              {
+                "name": "Willem II",
+                "point": 1.25,
+                "price": 2.4
+              },
+              {
+                "name": "Willem II",
+                "point": 1.0,
+                "price": 2.98
+              },
+              {
+                "name": "Willem II",
+                "point": 0.75,
+                "price": 3.38
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-27T18:54:20Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 2.04
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.8547
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-27T19:00:00Z",
+    "home_team": "Groningen",
+    "id": "1640270692",
+    "odds_provider": "pinnapi",
+    "sport_key": "soccer_netherlands_eredivisie"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3067,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7552914226257257,
+      "selection": "home",
+      "updated_at_utc": "2026-11-27T18:54:20+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.11,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.14973667044190292,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-27T18:54:20+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 9.43,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.09497190693237124,
+      "selection": "away",
+      "updated_at_utc": "2026-11-27T18:54:20+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.8547,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-11-27T18:54:20+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.06,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-11-27T18:54:20+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.38,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-27T18:54:20+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.98,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-27T18:54:20+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.4,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-27T18:54:20+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.07,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-27T18:54:20+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6135,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.00",
+      "updated_at_utc": "2026-11-27T18:54:20+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4902,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.25",
+      "updated_at_utc": "2026-11-27T18:54:20+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4032,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.50",
+      "updated_at_utc": "2026-11-27T18:54:20+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2899,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.75",
+      "updated_at_utc": "2026-11-27T18:54:20+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.84,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.75",
+      "updated_at_utc": "2026-11-27T18:54:20+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.09,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.50",
+      "updated_at_utc": "2026-11-27T18:54:20+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.77,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.25",
+      "updated_at_utc": "2026-11-27T18:54:20+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.44,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.00",
+      "updated_at_utc": "2026-11-27T18:54:20+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.8264,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-27T18:54:20+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6289,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-27T18:54:20+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4255,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-27T18:54:20+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3497,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-27T18:54:20+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
