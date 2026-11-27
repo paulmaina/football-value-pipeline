@@ -92,6 +92,7 @@ La Liga|sevilla|real betis|2026-11-21,La Liga,Sevilla,Real Betis,2026-11-21T17:3
 La Liga|valencia|real madrid|2026-11-07,La Liga,Valencia,Real Madrid,2026-11-07T20:00:00+00:00,2026-W45,3,0,,3,-0.18000000000000002
 La Liga|villarreal|getafe|2026-11-08,La Liga,Villarreal,Getafe,2026-11-08T17:30:00+00:00,2026-W45,4,0,,4,0.012500000000000011
 Ligue 1|angers|nice|2026-11-08,Ligue 1,Angers,Nice,2026-11-08T16:15:00+00:00,2026-W45,3,0,,3,-0.15
+Ligue 1|angers|rc lens|2026-11-28,Ligue 1,Angers,RC Lens,2026-11-28T16:15:00+00:00,2026-W48,2,0,,0,
 Ligue 1|as monaco|auxerre|2026-11-21,Ligue 1,AS Monaco,Auxerre,2026-11-21T19:45:00+00:00,2026-W47,2,0,,2,-0.010000000000000009
 Ligue 1|as monaco|lille|2026-10-25,Ligue 1,AS Monaco,Lille,2026-10-25T14:00:00+00:00,2026-W43,1,0,,1,0.25
 Ligue 1|auxerre|paris|2026-11-07,Ligue 1,Auxerre,Paris FC,2026-11-07T18:00:00+00:00,2026-W45,4,0,,4,0.1225
@@ -221,7 +222,8 @@ Super Lig|erzurum bb|goztepe|2026-11-22,Super Lig,Erzurum BB,Goztepe,2026-11-22T
 Super Lig|eyupspor|kocaelispor|2026-11-07,Super Lig,Eyüpspor,Kocaelispor,2026-11-07T10:30:00+00:00,2026-W45,4,0,,4,0.1825
 Super Lig|galatasaray|amed sk|2026-11-07,Super Lig,Galatasaray,Amed SK,2026-11-07T16:00:00+00:00,2026-W45,3,0,,3,0.33
 Super Lig|galatasaray|samsunspor|2026-11-21,Super Lig,Galatasaray,Samsunspor,2026-11-21T13:00:00+00:00,2026-W47,2,0,,2,-0.4
-Super Lig|gazisehir gaziantep|kasimpasa sk|2026-11-06,Super Lig,Gazişehir Gaziantep,Kasimpasa SK,2026-11-06T17:00:00+00:00,2026-W45,4,4,-0.051263844229428646,4,0.7625
+Super Lig|gazisehir gaziantep|amed sk|2026-11-28,Super Lig,Gazişehir Gaziantep,Amed SK,2026-11-28T16:00:00+00:00,2026-W48,1,0,,0,
+Super Lig|gazisehir gaziantep|kasimpasa sk|2026-11-06,Super Lig,Gazişehir Gaziantep,Kasimpasa SK,2026-11-06T17:00:00+00:00,2026-W45,4,4,-0.05126384422942859,4,0.7625
 Super Lig|genclerbirligi sk|gazisehir gaziantep|2026-11-21,Super Lig,Genclerbirligi SK,Gazişehir Gaziantep,2026-11-21T10:30:00+00:00,2026-W47,1,0,,1,0.83
 Super Lig|goztepe|basaksehir|2026-11-07,Super Lig,Goztepe,Basaksehir,2026-11-07T16:00:00+00:00,2026-W45,4,0,,4,-0.024999999999999994
 Super Lig|kasimpasa sk|alanyaspor|2026-11-22,Super Lig,Kasimpasa SK,Alanyaspor,2026-11-22T13:00:00+00:00,2026-W47,2,0,,2,0.845
@@ -237,7 +239,7 @@ UEFA Champions League|as roma|sk slovan bratislava|2026-10-20,UEFA Champions Lea
 UEFA Champions League|aston villa|fenerbahce|2026-10-14,UEFA Champions League,Aston Villa,Fenerbahce,2026-10-14T19:00:00+00:00,2026-W42,1,1,0.041073340750114706,1,0.72
 UEFA Champions League|ath madrid|man united|2026-10-13,UEFA Champions League,Atlético Madrid,Manchester United,2026-10-13T19:00:00+00:00,2026-W42,1,0,,1,0.18
 UEFA Champions League|ath madrid|viking fk|2026-11-25,UEFA Champions League,Atletico Madrid,Viking FK,2026-11-25T20:00:00+00:00,2026-W48,1,0,,1,0.4367
-UEFA Champions League|bodo glimt|lask|2026-11-24,UEFA Champions League,Bodø/Glimt,LASK,2026-11-24T17:45:00+00:00,2026-W48,3,3,-0.014488253183266112,3,0.33626666666666666
+UEFA Champions League|bodo glimt|lask|2026-11-24,UEFA Champions League,Bodø/Glimt,LASK,2026-11-24T17:45:00+00:00,2026-W48,3,3,-0.01448825318326615,3,0.33626666666666666
 UEFA Champions League|bodo glimt|lille|2026-11-03,UEFA Champions League,Bodø/Glimt,Lille,2026-11-03T20:00:00+00:00,2026-W45,1,1,0.12425131314475002,1,-1.0
 UEFA Champions League|brugge|liverpool|2026-11-25,UEFA Champions League,Club Brugge,Liverpool,2026-11-25T20:00:00+00:00,2026-W48,2,0,,2,-0.1753
 UEFA Champions League|como|aek athens|2026-11-24,UEFA Champions League,Como,AEK Athens,2026-11-24T20:00:00+00:00,2026-W48,2,2,-0.009063554840281818,2,0.221025
@@ -282,7 +284,7 @@ UEFA Europa League|juventus|omonoia|2026-11-26,UEFA Europa League,Juventus,Omono
 UEFA Europa League|lillestrom|viktoria plzen|2026-11-05,UEFA Europa League,Lillestrom,Viktoria Plzeň,2026-11-05T17:45:00+00:00,2026-W45,4,0,,4,0.325
 UEFA Europa League|milan|ferencvaros tc|2026-11-05,UEFA Europa League,AC Milan,Ferencváros TC,2026-11-05T17:45:00+00:00,2026-W45,4,0,,4,-0.41500000000000004
 UEFA Europa League|nec nijmegen|omonoia|2026-11-05,UEFA Europa League,NEC Nijmegen,Omonoia FC,2026-11-05T17:45:00+00:00,2026-W45,4,0,,4,0.057499999999999996
-UEFA Europa League|olympiakos piraeus|milan|2026-11-26,UEFA Europa League,Olympiakos Piraeus,AC Milan,2026-11-26T17:45:00+00:00,2026-W48,1,1,-0.005896271466455438,0,
+UEFA Europa League|olympiakos piraeus|milan|2026-11-26,UEFA Europa League,Olympiakos Piraeus,AC Milan,2026-11-26T17:45:00+00:00,2026-W48,1,1,-0.005896271466455216,0,
 UEFA Europa League|pfc levski sofia|jagiellonia bialystok|2026-11-05,UEFA Europa League,PFC Levski Sofia,Jagiellonia Białystok,2026-11-05T17:45:00+00:00,2026-W45,4,0,,4,0.16750000000000004
 UEFA Europa League|real sociedad|lyon|2026-11-05,UEFA Europa League,Real Sociedad,Lyon,2026-11-05T17:45:00+00:00,2026-W45,4,0,,4,-0.11624999999999999
 UEFA Europa League|sk sturm graz|nk celje|2026-11-05,UEFA Europa League,SK Sturm Graz,NK Celje,2026-11-05T20:00:00+00:00,2026-W45,4,0,,4,-0.255

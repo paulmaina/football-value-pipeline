@@ -5,23 +5,23 @@
       "not_replayed:no corrected D distribution": 50,
       "offer_out_of_scope:pinnacle draw_no_bet": 2
     },
-    "d_pow2_minus_d_log_loss": 0.004286578317378803,
+    "d_pow2_minus_d_log_loss": 0.00428657832324153,
     "eligible": false,
     "fallbacks": {
-      "domestic_fixtures": 138,
-      "domestic_records": 965,
+      "domestic_fixtures": 139,
+      "domestic_records": 1033,
       "fallback_fixtures": 0,
       "fallback_records": 0,
-      "runs": 27
+      "runs": 28
     },
     "graded_fallbacks": 0,
     "interval_95": [
-      -0.0016909090541802896,
-      0.006279074107898501
+      -0.0016909090409676641,
+      0.006279074111311261
     ],
     "log_loss": {
-      "D": 0.8992596793855594,
-      "D_pow2": 0.9035462577029382
+      "D": 0.8992596793846286,
+      "D_pow2": 0.9035462577078701
     },
     "matches": 16,
     "rule": "After at least 150 graded domestic matches across at least 3 weeks, roll back the cagey correction D_pow2 if its log loss on AH all lines minus D's, on the same frozen Pinnacle quotes, matches and offers, has a week-resampled 95% interval entirely above zero. Rolling back is setting cagey_correction_config.json cagey_correction_live.domestic to \"D\".",
@@ -37,12 +37,12 @@
           "note": "Logistic calibration slopes (1 = calibrated, below 1 too sharp); reported, not a trigger.",
           "slopes": {
             "CE": {
-              "away": 1.6405467415655874,
-              "home": 0.45862510255723665
+              "away": 1.6405467415655872,
+              "home": 0.4586251025572366
             },
             "CE3n": {
-              "away": 2.4590233539536124,
-              "home": 1.0831530051127474
+              "away": 2.459023353953612,
+              "home": 1.0831530051127476
             }
           }
         },
@@ -81,12 +81,12 @@
       "note": "Logistic calibration slopes (1 = calibrated, below 1 too sharp); reported, not a trigger.",
       "slopes": {
         "CE": {
-          "away": 1.6405467415655874,
-          "home": 0.45862510255723665
+          "away": 1.6405467415655872,
+          "home": 0.4586251025572366
         },
         "CE3n": {
-          "away": 2.4590233539536124,
-          "home": 1.0831530051127474
+          "away": 2.459023353953612,
+          "home": 1.0831530051127476
         }
       }
     },
@@ -192,8 +192,8 @@
           "Home win"
         ],
         "picks": 1,
-        "v4_p_home": 0.6395187874676573,
-        "v5_p_home": 0.6561477735485127
+        "v4_p_home": 0.6394886218410626,
+        "v5_p_home": 0.6561165871214081
       },
       {
         "fixture": "SC Telstar v FC Zwolle",
@@ -232,8 +232,8 @@
           "Home win"
         ],
         "picks": 2,
-        "v4_p_home": 0.5380335707763885,
-        "v5_p_home": 0.5487890495300161
+        "v4_p_home": 0.5380332096077055,
+        "v5_p_home": 0.5487886657131754
       },
       {
         "fixture": "Alanyaspor v Torku Konyaspor",
@@ -245,8 +245,8 @@
           "Asian Handicap Home +0.25"
         ],
         "picks": 1,
-        "v4_p_home": 0.40296036345593095,
-        "v5_p_home": 0.4014046678553694
+        "v4_p_home": 0.40296864530843224,
+        "v5_p_home": 0.40141417420335473
       },
       {
         "fixture": "Amed SK v Çaykur Rizespor",
@@ -324,12 +324,12 @@
         "kickoff_utc": "2026-11-28T13:00:00+00:00",
         "league": "Super Lig",
         "markets": [
-          "Asian Handicap Home +0.50",
+          "Asian Handicap Home +0.25",
           "Home win"
         ],
         "picks": 2,
-        "v4_p_home": 0.509429414879977,
-        "v5_p_home": 0.5180282713180394
+        "v4_p_home": 0.5094255489806041,
+        "v5_p_home": 0.5180240584741467
       },
       {
         "fixture": "Trabzonspor v Eyüpspor",
@@ -359,7 +359,7 @@
     "eligible": false,
     "interval_95": [
       -0.006757434482906277,
-      0.004118334232158044
+      0.004118334232158036
     ],
     "log_loss": {
       "v4": 0.9748191841997474,
@@ -368,7 +368,7 @@
     "matches": 66,
     "rule": "After at least 150 graded matches across at least 3 weeks, roll back research v5 if its research log loss on AH all lines minus v4's, on the same frozen inputs, matches and offers, has a week-resampled 95% interval entirely above zero.",
     "triggered": false,
-    "v5_minus_v4_log_loss": 0.003459196734275358,
+    "v5_minus_v4_log_loss": 0.0034591967342753505,
     "weeks": 2
   },
   "ucl_live_check": {

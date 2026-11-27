@@ -44638,7 +44638,7 @@
             "mean_fair_close_ev": -0.019197941154740654,
             "mean_same_book_offered_price_clv": 0.019371207678824987,
             "missing_selections": 516,
-            "pending_selections": 34,
+            "pending_selections": 37,
             "positive_fair_close_ev": 11
           },
           "bet365": {
@@ -44646,7 +44646,7 @@
             "mean_fair_close_ev": null,
             "mean_same_book_offered_price_clv": null,
             "missing_selections": 553,
-            "pending_selections": 34,
+            "pending_selections": 37,
             "positive_fair_close_ev": 0
           },
           "pinnacle": {
@@ -44654,15 +44654,15 @@
             "mean_fair_close_ev": -0.02055157180350422,
             "mean_same_book_offered_price_clv": -0.0020206683929016116,
             "missing_selections": 349,
-            "pending_selections": 34,
+            "pending_selections": 37,
             "positive_fair_close_ev": 33
           }
         },
-        "frozen_selections": 587,
+        "frozen_selections": 590,
         "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
         "observations": 559,
         "rejected_files": [],
-        "reviewed_at_utc": "2026-11-27T15:36:56.680645+00:00",
+        "reviewed_at_utc": "2026-11-27T16:32:21.182806+00:00",
         "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
         "version": "local-closing-quotes-v4"
       },
@@ -44695,26 +44695,26 @@
       },
       "experiment_capture_counts": {},
       "forecast_freshness": {
-        "age_hours": 0.014381626388888888,
-        "generated_at_utc": "2026-11-27T15:36:04.906790+00:00",
+        "age_hours": 0.030244580277777777,
+        "generated_at_utc": "2026-11-27T16:30:32.302317+00:00",
         "status": "WITHIN_24_HOURS",
-        "upcoming_fixture_count": 67
+        "upcoming_fixture_count": 68
       },
       "quote_audit": {
         "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
         "bookmakers": {
-          "Pinnacle": 34
+          "Pinnacle": 37
         },
-        "costs_recorded": 34,
+        "costs_recorded": 37,
         "exchange_quotes": 0,
-        "missing_quote_age": 34,
+        "missing_quote_age": 37,
         "past_kickoff_count": 0,
         "quote_age_over_24h": 0,
-        "selected_quotes": 34,
+        "selected_quotes": 37,
         "unknown_kickoff_count": 0,
-        "upcoming_kickoff_count": 34
+        "upcoming_kickoff_count": 37
       },
-      "reviewed_at_utc": "2026-11-27T15:36:56.680645+00:00",
+      "reviewed_at_utc": "2026-11-27T16:32:21.182806+00:00",
       "selection_policy_groups": {
         "48h-ah-price-edge-cagey-v28": {
           "brier": 0.205523,
@@ -44724,11 +44724,11 @@
           "half_wins": 20,
           "losses": 134,
           "no_loss_rate": 0.706783,
-          "pending": 47,
+          "pending": 50,
           "profit_per_unit_staked": 12.3293,
           "refunds": 2,
           "settled_with_odds": 457,
-          "total": 504,
+          "total": 507,
           "win_rate": 0.702407,
           "wins": 321
         },
@@ -44909,11 +44909,11 @@
         "half_wins": 22,
         "losses": 153,
         "no_loss_rate": 0.716667,
-        "pending": 47,
+        "pending": 50,
         "profit_per_unit_staked": 15.0443,
         "refunds": 5,
         "settled_with_odds": 540,
-        "total": 587,
+        "total": 590,
         "win_rate": 0.707407,
         "wins": 382
       },
@@ -44931,7 +44931,7 @@
             "usage": "supplementary_cached_observations"
           },
           "days_since_latest_result": 5,
-          "diagnostics_sha256": "e60ee761f6856c7fcde973c86a568becbef480f29f568b8b16f029ddc6c1fc22",
+          "diagnostics_sha256": "4ea4bf7f134d6bc213672a213f5aff0e9f089ac8c099d53ca94d2a322f2caabb",
           "forecast_training_health": {
             "days_since_latest_result": 5,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -44956,7 +44956,7 @@
             "usage": "supplementary_cached_observations"
           },
           "days_since_latest_result": 4,
-          "diagnostics_sha256": "5869219751eb2d1e2b56f3c135f70b4a364d930f72f31ac59b93f2d272c76935",
+          "diagnostics_sha256": "dd09b7db14786544014b4046c7d6038ecfd5dd81ae098b03762926bd8f0aa040",
           "forecast_training_health": {
             "days_since_latest_result": 4,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -44973,7 +44973,7 @@
             "status": "NOT_COLLECTED"
           },
           "days_since_latest_result": 5,
-          "diagnostics_sha256": "49d915880228e29ff1977e9d9bf149b41f693d50bd0c26280682ca0cd4687046",
+          "diagnostics_sha256": "285ed47511a86bcf97e3dfe9d0568c2dd064830f80885a161e1be9601bce2a7e",
           "forecast_training_health": {
             "days_since_latest_result": 5,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -44998,7 +44998,7 @@
             "usage": "supplementary_cached_observations"
           },
           "days_since_latest_result": 4,
-          "diagnostics_sha256": "d750446a4742bf2b0a69a58e39cbbc767fb4660512ebb8e3555cc4911860f770",
+          "diagnostics_sha256": "f6526d9b0c71d1df57e2677a980501a9825cca874ac5b9258d2457b2542eadce",
           "forecast_training_health": {
             "days_since_latest_result": 4,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -45023,7 +45023,7 @@
             "usage": "supplementary_cached_observations"
           },
           "days_since_latest_result": 5,
-          "diagnostics_sha256": "bc9f51dca94a7f066f4aca5d4d6d85284c42c34dd98337bafca3c51401f59e52",
+          "diagnostics_sha256": "d7304c16c3752fb0c0f0f2b395821d21611e19a5eb12fc7b4c30ac579fb486a3",
           "forecast_training_health": {
             "days_since_latest_result": 5,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -45040,7 +45040,7 @@
             "status": "NOT_COLLECTED"
           },
           "days_since_latest_result": 19,
-          "diagnostics_sha256": "fffe40eecf22c3af201b3761428ea994513d6b4b5f9f3da4f9742ff6745d3b73",
+          "diagnostics_sha256": "5700fb1c9849877e86e3ff97f5a19d75338f190e0d471ef4ced50977af43c7dc",
           "forecast_training_health": {
             "days_since_latest_result": 19,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -45065,7 +45065,7 @@
             "usage": "supplementary_cached_observations"
           },
           "days_since_latest_result": 4,
-          "diagnostics_sha256": "1e7987c2538554d7832b42173727ce5fc5ee8793177ed4919915bc918764e6d3",
+          "diagnostics_sha256": "0cc16087385dff15d41366f1b46893393265debd95a2d944b37f2f9eb34f35dd",
           "forecast_training_health": {
             "days_since_latest_result": 4,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -45082,7 +45082,7 @@
             "status": "NOT_COLLECTED"
           },
           "days_since_latest_result": 4,
-          "diagnostics_sha256": "609ff81eeef161f604129114089228751b45851564bf326f480a1ec3926fe8e2",
+          "diagnostics_sha256": "fddf698243f6cab75bc2096bc768750863845239969f4af789053d2c6a056982",
           "forecast_training_health": {
             "days_since_latest_result": 4,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -45109,11 +45109,11 @@
           "current_source_health": {
             "added_matches": 0,
             "cache_hash_verified": true,
-            "checked_at_utc": "2026-11-27T15:35:12.331462+00:00",
+            "checked_at_utc": "2026-11-27T16:29:25.441059+00:00",
             "completed_matches": 90,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 0.028985884166666667,
+            "download_age_hours": 0.04881715194444444,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-11-25",
             "latest_completed_utc": "2026-11-25T20:00:00+00:00",
@@ -45128,11 +45128,11 @@
             "training_end": "2026-11-25"
           },
           "days_since_latest_result": 2,
-          "diagnostics_sha256": "a2c34af2d1703faa8be5b0f07391797af1dfe64feb5332df42dc085cfaf2311d",
+          "diagnostics_sha256": "71b95ae120e54c3a84a977d525aed2fb02b98f101b4995b8e74c78cc7289a35f",
           "forecast_training_health": {
             "added_matches": 0,
             "cache_hash_verified": true,
-            "checked_at_utc": "2026-11-27T15:35:12.331462+00:00",
+            "checked_at_utc": "2026-11-27T16:29:25.441059+00:00",
             "completed_matches": 90,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
@@ -45174,7 +45174,7 @@
             "verified_at_utc": "2026-11-26T13:56:32.821030+00:00"
           },
           "days_since_latest_result": 22,
-          "diagnostics_sha256": "d7ab4e99bb54a82d5b84dff5c4a01b94601796a0b569ae2ac000afd9aee9b8f3",
+          "diagnostics_sha256": "66effdeb0d12ecf5abe4d9a4dc8fa4d343a07b07101332406e6ed3d20094c4e3",
           "forecast_training_health": {
             "official_source_health": {
               "2025": {
@@ -45292,11 +45292,11 @@
           "half_wins": 6,
           "losses": 10,
           "no_loss_rate": 0.72973,
-          "pending": 43,
+          "pending": 46,
           "profit_per_unit_staked": 0.4193,
           "refunds": 0,
           "settled_with_odds": 37,
-          "total": 80,
+          "total": 83,
           "win_rate": 0.72973,
           "wins": 27
         }
