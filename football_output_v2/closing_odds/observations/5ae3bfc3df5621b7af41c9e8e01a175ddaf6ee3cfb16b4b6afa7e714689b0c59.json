@@ -1,0 +1,334 @@
+{
+  "fixture": {
+    "away_team": "Real Racing Club de Santander",
+    "home_team": "Levante",
+    "kickoff_utc": "2026-11-27T20:00:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "1640273345"
+  },
+  "observed_at_utc": "2026-11-27T19:54:44.130162+00:00",
+  "payload": {
+    "away_team": "Real Racing Club de Santander",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-27T19:54:44Z",
+            "outcomes": [
+              {
+                "name": "Levante",
+                "price": 2.01
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "price": 3.56
+              },
+              {
+                "name": "Draw",
+                "price": 3.99
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-27T19:54:44Z",
+            "outcomes": [
+              {
+                "name": "Levante",
+                "point": -0.5,
+                "price": 2.02
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "point": 0.5,
+                "price": 1.9091
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-27T19:54:44Z",
+            "outcomes": [
+              {
+                "name": "Levante",
+                "point": -1.5,
+                "price": 3.6
+              },
+              {
+                "name": "Levante",
+                "point": -1.25,
+                "price": 3.22
+              },
+              {
+                "name": "Levante",
+                "point": -1.0,
+                "price": 2.85
+              },
+              {
+                "name": "Levante",
+                "point": -0.75,
+                "price": 2.31
+              },
+              {
+                "name": "Levante",
+                "point": -0.25,
+                "price": 1.7634
+              },
+              {
+                "name": "Levante",
+                "point": 0.0,
+                "price": 1.5208
+              },
+              {
+                "name": "Levante",
+                "point": 0.25,
+                "price": 1.4082
+              },
+              {
+                "name": "Levante",
+                "point": 0.5,
+                "price": 1.3367
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "point": 1.5,
+                "price": 1.3268
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "point": 1.25,
+                "price": 1.3876
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "point": 1.0,
+                "price": 1.4808
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "point": 0.75,
+                "price": 1.6849
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "point": 0.25,
+                "price": 2.18
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "point": 0.0,
+                "price": 2.71
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "point": -0.25,
+                "price": 3.11
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "point": -0.5,
+                "price": 3.53
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-27T19:54:44Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.8696
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 2.05
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-27T20:00:00Z",
+    "home_team": "Levante",
+    "id": "1640273345",
+    "odds_provider": "pinnapi",
+    "sport_key": "soccer_spain_la_liga"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.01,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.487858026719635,
+      "selection": "home",
+      "updated_at_utc": "2026-11-27T19:54:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.99,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2410783676887654,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-27T19:54:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.56,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2710636055915995,
+      "selection": "away",
+      "updated_at_utc": "2026-11-27T19:54:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9091,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-27T19:54:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.02,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-27T19:54:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.53,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-27T19:54:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.11,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-27T19:54:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.71,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-27T19:54:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.18,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-27T19:54:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6849,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-27T19:54:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4808,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-27T19:54:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3876,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-27T19:54:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3268,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-27T19:54:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.6,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-27T19:54:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.22,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-27T19:54:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.85,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-27T19:54:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.31,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-27T19:54:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7634,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-27T19:54:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5208,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-27T19:54:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4082,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-27T19:54:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3367,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-27T19:54:44+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
