@@ -8,32 +8,32 @@
           "covered_selections": 37,
           "mean_fair_close_ev": -0.019197941154740654,
           "mean_same_book_offered_price_clv": 0.019371207678824987,
-          "missing_selections": 512,
-          "pending_selections": 4,
+          "missing_selections": 516,
+          "pending_selections": 0,
           "positive_fair_close_ev": 11
         },
         "bet365": {
           "covered_selections": 0,
           "mean_fair_close_ev": null,
           "mean_same_book_offered_price_clv": null,
-          "missing_selections": 549,
-          "pending_selections": 4,
+          "missing_selections": 553,
+          "pending_selections": 0,
           "positive_fair_close_ev": 0
         },
         "pinnacle": {
-          "covered_selections": 201,
-          "mean_fair_close_ev": -0.02051417383253449,
-          "mean_same_book_offered_price_clv": -0.00231191214220173,
-          "missing_selections": 348,
-          "pending_selections": 4,
+          "covered_selections": 204,
+          "mean_fair_close_ev": -0.02055157180350422,
+          "mean_same_book_offered_price_clv": -0.0020206683929016116,
+          "missing_selections": 349,
+          "pending_selections": 0,
           "positive_fair_close_ev": 33
         }
       },
       "frozen_selections": 553,
       "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
-      "observations": 546,
+      "observations": 559,
       "rejected_files": [],
-      "reviewed_at_utc": "2026-11-26T17:51:29.072212+00:00",
+      "reviewed_at_utc": "2026-11-27T10:04:14.918780+00:00",
       "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
       "version": "local-closing-quotes-v4"
     },
@@ -67,10 +67,10 @@
     "experiment_capture_counts": {},
     "experimental_reports": {},
     "forecast_freshness": {
-      "age_hours": 2.0359573566666667,
+      "age_hours": 18.248692514444443,
       "generated_at_utc": "2026-11-26T15:49:19.625728+00:00",
       "status": "WITHIN_24_HOURS",
-      "upcoming_fixture_count": 65
+      "upcoming_fixture_count": 55
     },
     "quote_audit": {
       "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
@@ -80,13 +80,13 @@
       "costs_recorded": 9,
       "exchange_quotes": 0,
       "missing_quote_age": 9,
-      "past_kickoff_count": 5,
+      "past_kickoff_count": 9,
       "quote_age_over_24h": 0,
       "selected_quotes": 9,
       "unknown_kickoff_count": 0,
-      "upcoming_kickoff_count": 4
+      "upcoming_kickoff_count": 0
     },
-    "reviewed_at_utc": "2026-11-26T17:51:29.072212+00:00",
+    "reviewed_at_utc": "2026-11-27T10:04:14.918780+00:00",
     "selection_policy_groups": {
       "48h-ah-price-edge-cagey-v28": {
         "brier": 0.205523,
@@ -61618,7 +61618,7 @@
           "unmapped": 668,
           "usage": "supplementary_cached_observations"
         },
-        "days_since_latest_result": 4,
+        "days_since_latest_result": 5,
         "diagnostics_sha256": "3bcb8a72434af3500979ddbcd637e4d8501189e9cfe94d47dbf295370cc0c5eb",
         "forecast_training_health": {
           "days_since_latest_result": 4,
@@ -61643,7 +61643,7 @@
           "unmapped": 38,
           "usage": "supplementary_cached_observations"
         },
-        "days_since_latest_result": 3,
+        "days_since_latest_result": 4,
         "diagnostics_sha256": "a2740488df71b0a51ce783f6185b80137ff5add80f63030ccf0c696d16ca9997",
         "forecast_training_health": {
           "days_since_latest_result": 3,
@@ -61660,7 +61660,7 @@
         "api_football": {
           "status": "NOT_COLLECTED"
         },
-        "days_since_latest_result": 4,
+        "days_since_latest_result": 5,
         "diagnostics_sha256": "d56417e4d5fa5830e374c24fb3a3f9e815bd846fae6c991aee03bde6df018893",
         "forecast_training_health": {
           "days_since_latest_result": 4,
@@ -61685,7 +61685,7 @@
           "unmapped": 566,
           "usage": "supplementary_cached_observations"
         },
-        "days_since_latest_result": 3,
+        "days_since_latest_result": 4,
         "diagnostics_sha256": "55b474c62b1be570d1d93f4f3a8b690f6ca1a888378a60c4b3ff5870c864b0ad",
         "forecast_training_health": {
           "days_since_latest_result": 3,
@@ -61710,7 +61710,7 @@
           "unmapped": 242,
           "usage": "supplementary_cached_observations"
         },
-        "days_since_latest_result": 4,
+        "days_since_latest_result": 5,
         "diagnostics_sha256": "434dc01391cfddb701fa5786a477c2fc721e5e950159495cc02b2aa488fc35ba",
         "forecast_training_health": {
           "days_since_latest_result": 4,
@@ -61727,7 +61727,7 @@
         "api_football": {
           "status": "NOT_COLLECTED"
         },
-        "days_since_latest_result": 18,
+        "days_since_latest_result": 19,
         "diagnostics_sha256": "2499d2b8f68f1e2798e27b693aeabe8b57c48d74577901932ad580ead4e89a57",
         "forecast_training_health": {
           "days_since_latest_result": 18,
@@ -61752,7 +61752,7 @@
           "unmapped": 223,
           "usage": "supplementary_cached_observations"
         },
-        "days_since_latest_result": 3,
+        "days_since_latest_result": 4,
         "diagnostics_sha256": "de90e30611bf433ed7fd6206c50b772ab982a383355e9984fb088bd45b2f00bc",
         "forecast_training_health": {
           "days_since_latest_result": 3,
@@ -61769,7 +61769,7 @@
         "api_football": {
           "status": "NOT_COLLECTED"
         },
-        "days_since_latest_result": 3,
+        "days_since_latest_result": 4,
         "diagnostics_sha256": "a20c0b5450a22fb98a29141e00bb83a6a5ab567287885f64219b48f4edf5ee3f",
         "forecast_training_health": {
           "days_since_latest_result": 3,
@@ -61797,11 +61797,11 @@
         "current_source_health": {
           "added_matches": 0,
           "cache_hash_verified": true,
-          "checked_at_utc": "2026-11-26T15:47:26.380342+00:00",
+          "checked_at_utc": "2026-11-27T00:44:15.001321+00:00",
           "completed_matches": 90,
           "corrected_scores": 0,
           "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-          "download_age_hours": 2.0674144083333332,
+          "download_age_hours": 9.333310405277777,
           "download_status": "VERIFIED_LIVE",
           "latest_completed_date": "2026-11-25",
           "latest_completed_utc": "2026-11-25T20:00:00+00:00",
@@ -61812,10 +61812,10 @@
           "season_start": 2026,
           "sha256": "a12de627d1c407940db5a6b1c51a60f8395a9a44141d355a0924c28cdf7c653e",
           "source_schedule_matches": 144,
-          "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+          "status": "REFRESH_OVERDUE",
           "training_end": "2026-11-25"
         },
-        "days_since_latest_result": 1,
+        "days_since_latest_result": 2,
         "diagnostics_sha256": "c9a29879491b56f93196decc8cb7932f6d246e3fd839453c3327689507222074",
         "forecast_training_health": {
           "added_matches": 0,
@@ -61859,9 +61859,9 @@
             }
           },
           "status": "VERIFIED_WITHIN_24_HOURS",
-          "verified_at_utc": "2026-11-26T17:51:29.072212+00:00"
+          "verified_at_utc": "2026-11-26T13:56:32.821030+00:00"
         },
-        "days_since_latest_result": 21,
+        "days_since_latest_result": 22,
         "diagnostics_sha256": "a4ab80b388684c7c692536cef1bcae242a947dc6bc7b80cde737f14f1b1ad219",
         "forecast_training_health": {
           "official_source_health": {
@@ -61990,7 +61990,7 @@
       }
     }
   },
-  "reviewed_at_utc": "2026-11-26T17:51:29Z",
+  "reviewed_at_utc": "2026-11-27T10:04:14Z",
   "snapshots": 107,
   "shortlist": {
     "brier": 0.197091,
@@ -62194,7 +62194,9 @@
       "wins": 2
     }
   },
-  "provider_errors": {},
+  "provider_errors": {
+    "UEL": "Current Europa sources disagree or coverage is incomplete; prior snapshot retained; {\"declared_rows\": 170, \"eligibility\": \"CORROBORATED_LEAGUE_PHASE_ONLY; refresh SLA and knockout "
+  },
   "training_end_dates": {
     "Bundesliga": "2026-11-22",
     "EPL": "2026-11-23",
@@ -62209,7 +62211,10 @@
   },
   "experiments": {},
   "warnings": [
-    "UEL: live UEFA denied access; using reviewed factual attestations for covered matches only"
+    "Result provider has errors; cached verified results used where available",
+    "UCL training/source health: REFRESH_OVERDUE",
+    "UEL: live UEFA denied access; using reviewed factual attestations for covered matches only",
+    "Stored shortlist has no remaining future kickoffs; regenerate forecasts for current selections"
   ],
   "master_rollback": {
     "baseline_missing_runs": 0,

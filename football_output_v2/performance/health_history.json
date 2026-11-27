@@ -44628,6 +44628,679 @@
           "wins": 27
         }
       }
+    },
+    "2026-11-27": {
+      "closing_odds": {
+        "automatic_production_change": false,
+        "by_bookmaker": {
+          "1xbet": {
+            "covered_selections": 37,
+            "mean_fair_close_ev": -0.019197941154740654,
+            "mean_same_book_offered_price_clv": 0.019371207678824987,
+            "missing_selections": 516,
+            "pending_selections": 0,
+            "positive_fair_close_ev": 11
+          },
+          "bet365": {
+            "covered_selections": 0,
+            "mean_fair_close_ev": null,
+            "mean_same_book_offered_price_clv": null,
+            "missing_selections": 553,
+            "pending_selections": 0,
+            "positive_fair_close_ev": 0
+          },
+          "pinnacle": {
+            "covered_selections": 204,
+            "mean_fair_close_ev": -0.02055157180350422,
+            "mean_same_book_offered_price_clv": -0.0020206683929016116,
+            "missing_selections": 349,
+            "pending_selections": 0,
+            "positive_fair_close_ev": 33
+          }
+        },
+        "frozen_selections": 553,
+        "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
+        "observations": 559,
+        "rejected_files": [],
+        "reviewed_at_utc": "2026-11-27T10:04:14.918780+00:00",
+        "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
+        "version": "local-closing-quotes-v4"
+      },
+      "dependencies": {
+        "PyYAML": "6.0.4",
+        "coverage": "7.17.5",
+        "numpy": "2.5.5",
+        "pandas": "3.1.1",
+        "python": "3.14.10",
+        "python-dotenv": "1.2.4",
+        "rapidfuzz": "3.14.6",
+        "requests": "2.34.2",
+        "scipy": "1.18.1"
+      },
+      "evidence": {
+        "assessment": "Forward evidence collection; improvements are not assumed from software or data changes.",
+        "graded_selections": 540,
+        "model_improvement_established": false,
+        "prediction_fixtures_graded": 461
+      },
+      "execution_policy": {
+        "account_availability": "USER_ALLOWLIST",
+        "allowed_bookmakers": [
+          "Pinnacle"
+        ],
+        "asian_handicap_risk_tolerance": 0,
+        "exchange_policy": "EXCLUDED_UNTIL_COMMISSION_AND_LIQUIDITY_ADAPTER",
+        "min_adjusted_no_loss_probability": 0.75,
+        "per_stake_cost_bps": 0
+      },
+      "experiment_capture_counts": {},
+      "forecast_freshness": {
+        "age_hours": 18.248692514444443,
+        "generated_at_utc": "2026-11-26T15:49:19.625728+00:00",
+        "status": "WITHIN_24_HOURS",
+        "upcoming_fixture_count": 55
+      },
+      "quote_audit": {
+        "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
+        "bookmakers": {
+          "Pinnacle": 9
+        },
+        "costs_recorded": 9,
+        "exchange_quotes": 0,
+        "missing_quote_age": 9,
+        "past_kickoff_count": 9,
+        "quote_age_over_24h": 0,
+        "selected_quotes": 9,
+        "unknown_kickoff_count": 0,
+        "upcoming_kickoff_count": 0
+      },
+      "reviewed_at_utc": "2026-11-27T10:04:14.918780+00:00",
+      "selection_policy_groups": {
+        "48h-ah-price-edge-cagey-v28": {
+          "brier": 0.205523,
+          "flat_stake_roi": 0.026979,
+          "graded": 457,
+          "half_losses": 1,
+          "half_wins": 20,
+          "losses": 134,
+          "no_loss_rate": 0.706783,
+          "pending": 13,
+          "profit_per_unit_staked": 12.3293,
+          "refunds": 2,
+          "settled_with_odds": 457,
+          "total": 470,
+          "win_rate": 0.702407,
+          "wins": 321
+        },
+        "48h-top-ten-probability-ev-no-under35-v14": {
+          "brier": 0.164736,
+          "flat_stake_roi": 0.035556,
+          "graded": 9,
+          "losses": 2,
+          "pending": 0,
+          "profit_per_unit_staked": 0.32,
+          "settled_with_odds": 9,
+          "total": 9,
+          "win_rate": 0.777778,
+          "wins": 7
+        },
+        "48h-top-twelve-probability-ev-no-under35-v15": {
+          "brier": 0.178699,
+          "flat_stake_roi": -0.114167,
+          "graded": 12,
+          "losses": 4,
+          "pending": 0,
+          "profit_per_unit_staked": -1.37,
+          "settled_with_odds": 12,
+          "total": 12,
+          "win_rate": 0.666667,
+          "wins": 8
+        },
+        "48h-top-twelve-profitable-win-probability-v23": {
+          "brier": 0.036291,
+          "flat_stake_roi": 0.15,
+          "graded": 1,
+          "losses": 0,
+          "pending": 0,
+          "profit_per_unit_staked": 0.15,
+          "settled_with_odds": 1,
+          "total": 1,
+          "win_rate": 1.0,
+          "wins": 1
+        },
+        "48h-two-per-market-group-probability-ev-corners-cards-v25": {
+          "brier": 0.144883,
+          "flat_stake_roi": 0.02625,
+          "graded": 16,
+          "half_losses": 0,
+          "half_wins": 0,
+          "losses": 4,
+          "no_loss_rate": 0.75,
+          "pending": 0,
+          "profit_per_unit_staked": 0.42,
+          "refunds": 0,
+          "settled_with_odds": 16,
+          "total": 16,
+          "win_rate": 0.75,
+          "wins": 12
+        },
+        "48h-two-per-market-group-probability-ev-v24": {
+          "brier": 0.22596,
+          "flat_stake_roi": -0.095,
+          "graded": 4,
+          "losses": 2,
+          "pending": 0,
+          "profit_per_unit_staked": -0.38,
+          "settled_with_odds": 4,
+          "total": 4,
+          "win_rate": 0.5,
+          "wins": 2
+        },
+        "48h-zero-tolerance-ev05-no-loss75-corners-v26": {
+          "brier": 0.130579,
+          "flat_stake_roi": 0.014167,
+          "graded": 12,
+          "half_losses": 0,
+          "half_wins": 0,
+          "losses": 2,
+          "no_loss_rate": 0.833333,
+          "pending": 0,
+          "profit_per_unit_staked": 0.17,
+          "refunds": 3,
+          "settled_with_odds": 12,
+          "total": 12,
+          "win_rate": 0.583333,
+          "wins": 7
+        },
+        "48h-zero-tolerance-ev1-common-no-loss75-v22": {
+          "brier": 0.031233,
+          "flat_stake_roi": 0.316875,
+          "graded": 8,
+          "half_losses": 0,
+          "half_wins": 2,
+          "losses": 0,
+          "no_loss_rate": 1.0,
+          "pending": 0,
+          "profit_per_unit_staked": 2.535,
+          "refunds": 0,
+          "settled_with_odds": 8,
+          "total": 8,
+          "win_rate": 1.0,
+          "wins": 8
+        },
+        "72h-all-markets-ev15-one-book-v6": {
+          "brier": 0.086104,
+          "flat_stake_roi": 0.45,
+          "graded": 1,
+          "losses": 0,
+          "pending": 0,
+          "profit_per_unit_staked": 0.45,
+          "settled_with_odds": 1,
+          "total": 1,
+          "win_rate": 1.0,
+          "wins": 1
+        },
+        "72h-all-markets-net-ev15-execution-v7": {
+          "brier": 0.044032,
+          "flat_stake_roi": 0.37,
+          "graded": 5,
+          "losses": 0,
+          "pending": 0,
+          "profit_per_unit_staked": 1.85,
+          "settled_with_odds": 5,
+          "total": 5,
+          "win_rate": 1.0,
+          "wins": 5
+        },
+        "72h-seven-markets-fresh-references-net-ev15-v11": {
+          "brier": 0.129009,
+          "flat_stake_roi": 0.072,
+          "graded": 5,
+          "losses": 1,
+          "pending": 0,
+          "profit_per_unit_staked": 0.36,
+          "settled_with_odds": 5,
+          "total": 5,
+          "win_rate": 0.8,
+          "wins": 4
+        },
+        "72h-ucl-v2": {
+          "brier": 0.041443,
+          "flat_stake_roi": 0.28,
+          "graded": 1,
+          "losses": 0,
+          "pending": 0,
+          "profit_per_unit_staked": 0.28,
+          "settled_with_odds": 1,
+          "total": 1,
+          "win_rate": 1.0,
+          "wins": 1
+        },
+        "72h-ucl-v3": {
+          "brier": 0.395022,
+          "flat_stake_roi": -0.387143,
+          "graded": 7,
+          "losses": 4,
+          "pending": 0,
+          "profit_per_unit_staked": -2.71,
+          "settled_with_odds": 7,
+          "total": 7,
+          "win_rate": 0.428571,
+          "wins": 3
+        },
+        "legacy/unspecified": {
+          "brier": 0.022742,
+          "flat_stake_roi": 0.32,
+          "graded": 2,
+          "losses": 0,
+          "pending": 0,
+          "profit_per_unit_staked": 0.64,
+          "settled_with_odds": 2,
+          "total": 2,
+          "win_rate": 1.0,
+          "wins": 2
+        }
+      },
+      "shortlist_performance": {
+        "brier": 0.197091,
+        "flat_stake_roi": 0.02786,
+        "graded": 540,
+        "half_losses": 1,
+        "half_wins": 22,
+        "losses": 153,
+        "no_loss_rate": 0.716667,
+        "pending": 13,
+        "profit_per_unit_staked": 15.0443,
+        "refunds": 5,
+        "settled_with_odds": 540,
+        "total": 553,
+        "win_rate": 0.707407,
+        "wins": 382
+      },
+      "training": {
+        "Bundesliga": {
+          "api_football": {
+            "added_results": 2,
+            "ambiguous": 0,
+            "conflicts": 0,
+            "excluded_phase": 0,
+            "matched_results": 254,
+            "source": "api-football",
+            "status": "AVAILABLE",
+            "unmapped": 668,
+            "usage": "supplementary_cached_observations"
+          },
+          "days_since_latest_result": 5,
+          "diagnostics_sha256": "3bcb8a72434af3500979ddbcd637e4d8501189e9cfe94d47dbf295370cc0c5eb",
+          "forecast_training_health": {
+            "days_since_latest_result": 4,
+            "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+            "training_end": "2026-11-22"
+          },
+          "odds_provider_health": {
+            "state": "NOT_RECORDED"
+          },
+          "training_end": "2026-11-22",
+          "training_matches": 1622
+        },
+        "EPL": {
+          "api_football": {
+            "added_results": 0,
+            "ambiguous": 0,
+            "conflicts": 0,
+            "excluded_phase": 0,
+            "matched_results": 1102,
+            "source": "api-football",
+            "status": "AVAILABLE",
+            "unmapped": 38,
+            "usage": "supplementary_cached_observations"
+          },
+          "days_since_latest_result": 4,
+          "diagnostics_sha256": "a2740488df71b0a51ce783f6185b80137ff5add80f63030ccf0c696d16ca9997",
+          "forecast_training_health": {
+            "days_since_latest_result": 3,
+            "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+            "training_end": "2026-11-23"
+          },
+          "odds_provider_health": {
+            "state": "NOT_RECORDED"
+          },
+          "training_end": "2026-11-23",
+          "training_matches": 2010
+        },
+        "Eredivisie": {
+          "api_football": {
+            "status": "NOT_COLLECTED"
+          },
+          "days_since_latest_result": 5,
+          "diagnostics_sha256": "d56417e4d5fa5830e374c24fb3a3f9e815bd846fae6c991aee03bde6df018893",
+          "forecast_training_health": {
+            "days_since_latest_result": 4,
+            "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+            "training_end": "2026-11-22"
+          },
+          "odds_provider_health": {
+            "state": "NOT_RECORDED"
+          },
+          "training_end": "2026-11-22",
+          "training_matches": 1647
+        },
+        "LaLiga": {
+          "api_football": {
+            "added_results": 0,
+            "ambiguous": 0,
+            "conflicts": 0,
+            "excluded_phase": 0,
+            "matched_results": 574,
+            "source": "api-football",
+            "status": "AVAILABLE",
+            "unmapped": 566,
+            "usage": "supplementary_cached_observations"
+          },
+          "days_since_latest_result": 4,
+          "diagnostics_sha256": "55b474c62b1be570d1d93f4f3a8b690f6ca1a888378a60c4b3ff5870c864b0ad",
+          "forecast_training_health": {
+            "days_since_latest_result": 3,
+            "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+            "training_end": "2026-11-23"
+          },
+          "odds_provider_health": {
+            "state": "NOT_RECORDED"
+          },
+          "training_end": "2026-11-23",
+          "training_matches": 2029
+        },
+        "Ligue1": {
+          "api_football": {
+            "added_results": 2,
+            "ambiguous": 0,
+            "conflicts": 0,
+            "excluded_phase": 0,
+            "matched_results": 752,
+            "source": "api-football",
+            "status": "AVAILABLE",
+            "unmapped": 242,
+            "usage": "supplementary_cached_observations"
+          },
+          "days_since_latest_result": 5,
+          "diagnostics_sha256": "434dc01391cfddb701fa5786a477c2fc721e5e950159495cc02b2aa488fc35ba",
+          "forecast_training_health": {
+            "days_since_latest_result": 4,
+            "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+            "training_end": "2026-11-22"
+          },
+          "odds_provider_health": {
+            "state": "NOT_RECORDED"
+          },
+          "training_end": "2026-11-22",
+          "training_matches": 1779
+        },
+        "PrimeiraLiga": {
+          "api_football": {
+            "status": "NOT_COLLECTED"
+          },
+          "days_since_latest_result": 19,
+          "diagnostics_sha256": "2499d2b8f68f1e2798e27b693aeabe8b57c48d74577901932ad580ead4e89a57",
+          "forecast_training_health": {
+            "days_since_latest_result": 18,
+            "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+            "training_end": "2026-11-08"
+          },
+          "odds_provider_health": {
+            "state": "NOT_RECORDED"
+          },
+          "training_end": "2026-11-08",
+          "training_matches": 1628
+        },
+        "SerieA": {
+          "api_football": {
+            "added_results": 0,
+            "ambiguous": 0,
+            "conflicts": 0,
+            "excluded_phase": 0,
+            "matched_results": 918,
+            "source": "api-football",
+            "status": "AVAILABLE",
+            "unmapped": 223,
+            "usage": "supplementary_cached_observations"
+          },
+          "days_since_latest_result": 4,
+          "diagnostics_sha256": "de90e30611bf433ed7fd6206c50b772ab982a383355e9984fb088bd45b2f00bc",
+          "forecast_training_health": {
+            "days_since_latest_result": 3,
+            "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+            "training_end": "2026-11-23"
+          },
+          "odds_provider_health": {
+            "state": "NOT_RECORDED"
+          },
+          "training_end": "2026-11-23",
+          "training_matches": 2020
+        },
+        "SuperLig": {
+          "api_football": {
+            "status": "NOT_COLLECTED"
+          },
+          "days_since_latest_result": 4,
+          "diagnostics_sha256": "a20c0b5450a22fb98a29141e00bb83a6a5ab567287885f64219b48f4edf5ee3f",
+          "forecast_training_health": {
+            "days_since_latest_result": 3,
+            "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+            "training_end": "2026-11-23"
+          },
+          "odds_provider_health": {
+            "state": "NOT_RECORDED"
+          },
+          "training_end": "2026-11-23",
+          "training_matches": 1858
+        },
+        "UCL": {
+          "api_football": {
+            "added_results": 0,
+            "ambiguous": 0,
+            "conflicts": 1,
+            "excluded_phase": 460,
+            "matched_results": 139,
+            "source": "api-football",
+            "status": "AVAILABLE",
+            "unmapped": 78,
+            "usage": "supplementary_cached_observations"
+          },
+          "current_source_health": {
+            "added_matches": 0,
+            "cache_hash_verified": true,
+            "checked_at_utc": "2026-11-27T00:44:15.001321+00:00",
+            "completed_matches": 90,
+            "corrected_scores": 0,
+            "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+            "download_age_hours": 9.333310405277777,
+            "download_status": "VERIFIED_LIVE",
+            "latest_completed_date": "2026-11-25",
+            "latest_completed_utc": "2026-11-25T20:00:00+00:00",
+            "next_fixture_utc": "2026-12-08T17:45:00+00:00",
+            "note": "Provider schedule comparison is not independent proof of complete coverage.",
+            "overdue_unfinished_match_ids": [],
+            "provider": "football-data.org",
+            "season_start": 2026,
+            "sha256": "a12de627d1c407940db5a6b1c51a60f8395a9a44141d355a0924c28cdf7c653e",
+            "source_schedule_matches": 144,
+            "status": "REFRESH_OVERDUE",
+            "training_end": "2026-11-25"
+          },
+          "days_since_latest_result": 2,
+          "diagnostics_sha256": "c9a29879491b56f93196decc8cb7932f6d246e3fd839453c3327689507222074",
+          "forecast_training_health": {
+            "added_matches": 0,
+            "cache_hash_verified": true,
+            "checked_at_utc": "2026-11-26T15:47:26.380342+00:00",
+            "completed_matches": 90,
+            "corrected_scores": 0,
+            "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+            "download_age_hours": 0.0,
+            "download_status": "VERIFIED_LIVE",
+            "last_refresh_error": null,
+            "last_refresh_error_reason": null,
+            "latest_completed_date": "2026-11-25",
+            "latest_completed_utc": "2026-11-25T20:00:00+00:00",
+            "next_fixture_utc": "2026-12-08T17:45:00+00:00",
+            "note": "Provider schedule comparison is not independent proof of complete coverage.",
+            "overdue_unfinished_match_ids": [],
+            "provider": "football-data.org",
+            "season_start": 2026,
+            "sha256": "a12de627d1c407940db5a6b1c51a60f8395a9a44141d355a0924c28cdf7c653e",
+            "source_schedule_matches": 144,
+            "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+            "training_end": "2026-11-25"
+          },
+          "odds_provider_health": {
+            "state": "NOT_RECORDED"
+          },
+          "training_end": "2026-11-25",
+          "training_matches": 593
+        },
+        "UEL": {
+          "api_football": {
+            "status": "NOT_COLLECTED"
+          },
+          "current_source_health": {
+            "official_source_health": {
+              "2025": {
+                "original_source_sha256": "d6f3819c7189cf41ed644ab2c1aa144448031564a9334a678413508ec72c083b",
+                "recorded_at_utc": "2026-10-22T08:05:26.556956+00:00",
+                "status": "REVIEWED_HISTORICAL_FACTS"
+              }
+            },
+            "status": "VERIFIED_WITHIN_24_HOURS",
+            "verified_at_utc": "2026-11-26T13:56:32.821030+00:00"
+          },
+          "days_since_latest_result": 22,
+          "diagnostics_sha256": "a4ab80b388684c7c692536cef1bcae242a947dc6bc7b80cde737f14f1b1ad219",
+          "forecast_training_health": {
+            "official_source_health": {
+              "2025": {
+                "original_source_sha256": "d6f3819c7189cf41ed644ab2c1aa144448031564a9334a678413508ec72c083b",
+                "recorded_at_utc": "2026-10-22T08:05:26.556956+00:00",
+                "status": "REVIEWED_HISTORICAL_FACTS"
+              }
+            },
+            "refresh_warning": null,
+            "status": "VERIFIED_WITHIN_24_HOURS",
+            "training_end": "2026-11-05",
+            "verified_at_utc": "2026-11-26T13:56:32.821030+00:00"
+          },
+          "odds_provider_health": {
+            "state": "NOT_RECORDED"
+          },
+          "training_end": "2026-11-05",
+          "training_matches": 732
+        }
+      },
+      "weekly_performance": {
+        "2026-W41": {
+          "brier": 0.391789,
+          "flat_stake_roi": -0.496,
+          "graded": 5,
+          "losses": 3,
+          "pending": 0,
+          "profit_per_unit_staked": -2.48,
+          "settled_with_odds": 5,
+          "total": 5,
+          "win_rate": 0.4,
+          "wins": 2
+        },
+        "2026-W42": {
+          "brier": 0.121932,
+          "flat_stake_roi": 0.194583,
+          "graded": 24,
+          "losses": 3,
+          "pending": 0,
+          "profit_per_unit_staked": 4.67,
+          "settled_with_odds": 24,
+          "total": 24,
+          "win_rate": 0.875,
+          "wins": 21
+        },
+        "2026-W43": {
+          "brier": 0.146779,
+          "flat_stake_roi": 0.004512,
+          "graded": 41,
+          "half_losses": 0,
+          "half_wins": 2,
+          "losses": 11,
+          "no_loss_rate": 0.731707,
+          "pending": 0,
+          "profit_per_unit_staked": 0.185,
+          "refunds": 0,
+          "settled_with_odds": 41,
+          "total": 41,
+          "win_rate": 0.731707,
+          "wins": 30
+        },
+        "2026-W44": {
+          "brier": 0.123246,
+          "flat_stake_roi": 0.026154,
+          "graded": 13,
+          "half_losses": 0,
+          "half_wins": 0,
+          "losses": 2,
+          "no_loss_rate": 0.846154,
+          "pending": 0,
+          "profit_per_unit_staked": 0.34,
+          "refunds": 3,
+          "settled_with_odds": 13,
+          "total": 13,
+          "win_rate": 0.615385,
+          "wins": 8
+        },
+        "2026-W45": {
+          "brier": 0.197092,
+          "flat_stake_roi": 0.036694,
+          "graded": 307,
+          "half_losses": 0,
+          "half_wins": 11,
+          "losses": 80,
+          "no_loss_rate": 0.739414,
+          "pending": 4,
+          "profit_per_unit_staked": 11.265,
+          "refunds": 0,
+          "settled_with_odds": 307,
+          "total": 311,
+          "win_rate": 0.739414,
+          "wins": 227
+        },
+        "2026-W47": {
+          "brier": 0.239061,
+          "flat_stake_roi": 0.005708,
+          "graded": 113,
+          "half_losses": 1,
+          "half_wins": 3,
+          "losses": 44,
+          "no_loss_rate": 0.610619,
+          "pending": 0,
+          "profit_per_unit_staked": 0.645,
+          "refunds": 2,
+          "settled_with_odds": 113,
+          "total": 113,
+          "win_rate": 0.59292,
+          "wins": 67
+        },
+        "2026-W48": {
+          "brier": 0.17305,
+          "flat_stake_roi": 0.011332,
+          "graded": 37,
+          "half_losses": 0,
+          "half_wins": 6,
+          "losses": 10,
+          "no_loss_rate": 0.72973,
+          "pending": 9,
+          "profit_per_unit_staked": 0.4193,
+          "refunds": 0,
+          "settled_with_odds": 37,
+          "total": 46,
+          "win_rate": 0.72973,
+          "wins": 27
+        }
+      }
     }
   },
   "schema_version": 1

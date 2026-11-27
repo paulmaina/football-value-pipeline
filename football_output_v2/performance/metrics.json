@@ -2502,12 +2502,12 @@
         "per_fixture": {
           "clv": {
             "independent_fixtures": 19,
-            "mean": -0.002345449709126475,
+            "mean": -0.002345449709126478,
             "median": -0.00706421580953102,
             "n": 19,
             "positive_share": 0.3684210526315789,
-            "standard_error": 0.010017396336900321,
-            "t_stat": -0.23413765715615345
+            "standard_error": 0.010017396336900323,
+            "t_stat": -0.2341376571561537
           },
           "return": {
             "independent_fixtures": 96,
@@ -2522,11 +2522,11 @@
         "per_pick": {
           "clv": {
             "independent_fixtures": 19,
-            "mean": -0.01616088062477144,
+            "mean": -0.016160880624771442,
             "median": -0.019746453302053157,
             "n": 49,
             "positive_share": 0.2653061224489796,
-            "standard_error": 0.006626657062396353,
+            "standard_error": 0.006626657062396354,
             "t_stat": -2.4387682164025084
           },
           "return": {
@@ -2593,13 +2593,13 @@
         "fixtures_with_picks": 28,
         "per_fixture": {
           "clv": {
-            "independent_fixtures": 17,
-            "mean": -0.02560678270486799,
+            "independent_fixtures": 19,
+            "mean": -0.024382111049151445,
             "median": -0.021054214222279488,
-            "n": 17,
-            "positive_share": 0.17647058823529413,
-            "standard_error": 0.01105141651305847,
-            "t_stat": -2.317058874272881
+            "n": 19,
+            "positive_share": 0.21052631578947367,
+            "standard_error": 0.010004366434523165,
+            "t_stat": -2.437146940661172
           },
           "return": {
             "independent_fixtures": 22,
@@ -2613,13 +2613,13 @@
         },
         "per_pick": {
           "clv": {
-            "independent_fixtures": 17,
-            "mean": -0.02300983503877281,
-            "median": -0.01513270627082497,
-            "n": 29,
-            "positive_share": 0.3103448275862069,
-            "standard_error": 0.009273124186043038,
-            "t_stat": -2.4813465858038297
+            "independent_fixtures": 19,
+            "mean": -0.02277465159707239,
+            "median": -0.018349290302527133,
+            "n": 32,
+            "positive_share": 0.3125,
+            "standard_error": 0.008451276949950045,
+            "t_stat": -2.69481780468773
           },
           "return": {
             "independent_fixtures": 22,
@@ -2639,13 +2639,13 @@
     "fixtures_with_picks": 271,
     "per_fixture": {
       "clv": {
-        "independent_fixtures": 126,
-        "mean": -0.019979847825174448,
+        "independent_fixtures": 128,
+        "mean": -0.019885981483774233,
         "median": -0.018392084443468376,
-        "n": 126,
-        "positive_share": 0.2698412698412698,
-        "standard_error": 0.004822890035807104,
-        "t_stat": -4.142712704796482
+        "n": 128,
+        "positive_share": 0.2734375,
+        "standard_error": 0.0047526640705022015,
+        "t_stat": -4.18417569362796
       },
       "return": {
         "independent_fixtures": 263,
@@ -2659,13 +2659,13 @@
     },
     "per_pick": {
       "clv": {
-        "independent_fixtures": 126,
-        "mean": -0.020344777252428472,
-        "median": -0.020198665641348312,
-        "n": 201,
-        "positive_share": 0.2885572139303483,
-        "standard_error": 0.003593486643867506,
-        "t_stat": -5.661570298903995
+        "independent_fixtures": 128,
+        "mean": -0.020347077758431514,
+        "median": -0.02034585960357793,
+        "n": 204,
+        "positive_share": 0.28921568627450983,
+        "standard_error": 0.003545102632868639,
+        "t_stat": -5.7394890545007975
       },
       "return": {
         "independent_fixtures": 263,
@@ -2680,13 +2680,14 @@
     "picks": 553
   },
   "pending_reason_counts": {
-    "PENDING_KICKOFF_OR_FINAL_SCORE": 9,
-    "UNVERIFIED_FIXTURE_OR_RESULT": 4
+    "UNVERIFIED_FIXTURE_OR_RESULT": 13
   },
   "prediction_1x2_multiclass_brier": 0.545423,
   "prediction_fixtures_graded": 461,
-  "provider_errors": {},
-  "reviewed_at_utc": "2026-11-26T17:51:29Z",
+  "provider_errors": {
+    "UEL": "Current Europa sources disagree or coverage is incomplete; prior snapshot retained; {\"declared_rows\": 170, \"eligibility\": \"CORROBORATED_LEAGUE_PHASE_ONLY; refresh SLA and knockout "
+  },
+  "reviewed_at_utc": "2026-11-27T10:04:14Z",
   "run_history_groups": {
     "2026-10-11T06:32:27.587243+00:00": {
       "brier": 0.232708,
