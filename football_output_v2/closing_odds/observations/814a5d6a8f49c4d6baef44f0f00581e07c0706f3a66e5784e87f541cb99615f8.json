@@ -1,0 +1,350 @@
+{
+  "fixture": {
+    "away_team": "Paris FC",
+    "home_team": "Brest",
+    "kickoff_utc": "2026-11-27T19:45:00+00:00",
+    "league": "Ligue 1",
+    "odds_event_id": "1640267728"
+  },
+  "observed_at_utc": "2026-11-27T19:39:39.943384+00:00",
+  "payload": {
+    "away_team": "Paris FC",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-27T19:39:39Z",
+            "outcomes": [
+              {
+                "name": "Brest",
+                "price": 3.33
+              },
+              {
+                "name": "Paris FC",
+                "price": 2.31
+              },
+              {
+                "name": "Draw",
+                "price": 3.42
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-27T19:39:39Z",
+            "outcomes": [
+              {
+                "name": "Brest",
+                "point": 0.25,
+                "price": 1.9346
+              },
+              {
+                "name": "Paris FC",
+                "point": -0.25,
+                "price": 1.9901
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-27T19:39:39Z",
+            "outcomes": [
+              {
+                "name": "Brest",
+                "point": -0.75,
+                "price": 4.23
+              },
+              {
+                "name": "Brest",
+                "point": -0.5,
+                "price": 3.29
+              },
+              {
+                "name": "Brest",
+                "point": -0.25,
+                "price": 2.85
+              },
+              {
+                "name": "Brest",
+                "point": 0.0,
+                "price": 2.38
+              },
+              {
+                "name": "Brest",
+                "point": 0.5,
+                "price": 1.6897
+              },
+              {
+                "name": "Brest",
+                "point": 0.75,
+                "price": 1.5102
+              },
+              {
+                "name": "Brest",
+                "point": 1.0,
+                "price": 1.3268
+              },
+              {
+                "name": "Brest",
+                "point": 1.25,
+                "price": 1.2732
+              },
+              {
+                "name": "Paris FC",
+                "point": 0.75,
+                "price": 1.2597
+              },
+              {
+                "name": "Paris FC",
+                "point": 0.5,
+                "price": 1.3745
+              },
+              {
+                "name": "Paris FC",
+                "point": 0.25,
+                "price": 1.4808
+              },
+              {
+                "name": "Paris FC",
+                "point": 0.0,
+                "price": 1.6536
+              },
+              {
+                "name": "Paris FC",
+                "point": -0.5,
+                "price": 2.31
+              },
+              {
+                "name": "Paris FC",
+                "point": -0.75,
+                "price": 2.74
+              },
+              {
+                "name": "Paris FC",
+                "point": -1.0,
+                "price": 3.6
+              },
+              {
+                "name": "Paris FC",
+                "point": -1.25,
+                "price": 4.07
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-27T19:39:39Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.9259
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.9804
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-27T19:45:00Z",
+    "home_team": "Brest",
+    "id": "1640267728",
+    "odds_provider": "pinnapi",
+    "sport_key": "soccer_france_ligue_one"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.33,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2917749948305853,
+      "selection": "home",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.42,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.28391537976532427,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.31,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.42430962540409056,
+      "selection": "away",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9901,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9346,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.07,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.25",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.6,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.00",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.74,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.31,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6536,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4808,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3745,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2597,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.23,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.29,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.85,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.38,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6897,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5102,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3268,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.00",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2732,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.25",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9259,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5072250189706813,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9804,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.49277498102931877,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-11-27T19:39:39+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
