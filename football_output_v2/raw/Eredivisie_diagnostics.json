@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "6a6942c4484010b7ee31ba0d63440397e3d2574de9f7102f07acd6e30191f1e0",
-  "training_as_of_utc": "2026-11-26T15:47:33.035249+00:00",
+  "training_as_of_utc": "2026-11-27T10:44:41.740185+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -23,7 +23,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-11-26",
+    "cutoff_date": "2026-11-27",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -44,8 +44,8 @@
       "max_goal_rate_ratio": 1.25
     },
     "shot_matches": 1647,
-    "tune_start_date": "2025-11-27",
-    "audit_start_date": "2026-05-28",
+    "tune_start_date": "2025-11-28",
+    "audit_start_date": "2026-05-29",
     "training_shot_matches": 1341,
     "tuning_matches": 189,
     "audit_matches": 111,
@@ -53,21 +53,21 @@
     "selected_shrinkage": 40.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.6311439313941188,
-    "audit_candidate_poisson_score": 0.6227065000780101,
-    "audit_gain": 0.008437431316108746,
-    "audit_gain_lower95": -0.004729437846289241,
+    "audit_baseline_poisson_score": 0.6311181107640731,
+    "audit_candidate_poisson_score": 0.62269790574776,
+    "audit_gain": 0.008420205016313131,
+    "audit_gain_lower95": -0.0047506688409067795,
     "audit_baseline_briers": [
-      0.628359907762681,
-      0.10548318749305356,
-      0.29182884576144286,
-      0.2252947396500241
+      0.6283465297433395,
+      0.10548313071638538,
+      0.29183626563080606,
+      0.2252888882038489
     ],
     "audit_candidate_briers": [
-      0.6242840343019999,
-      0.10495426488308351,
-      0.2893205825755018,
-      0.21912365318274707
+      0.6242787172621592,
+      0.10495405408083512,
+      0.2893258345720715,
+      0.21911897918293916
     ],
     "audit_brier_order": [
       "1x2",
@@ -82,10 +82,10 @@
   },
   "training_end": "2026-11-22",
   "fit_success": true,
-  "objective": 1649.0298878298056,
-  "base": 0.3097305350678849,
-  "home_adv": 0.16448545334766984,
-  "rho": -0.06775281230046662,
+  "objective": 1647.1507703669993,
+  "base": 0.3097578550958215,
+  "home_adv": 0.16453083126721518,
+  "rho": -0.06774698896803624,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -103,7 +103,7 @@
   },
   "training_data_health": {
     "training_end": "2026-11-22",
-    "days_since_latest_result": 4,
+    "days_since_latest_result": 5,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -113,13 +113,13 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 8,
+  "live_odds_matched": 9,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 18,
+  "additional_event_odds_calls_used_before_this_league": 5,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 0,
+  "over_1_5_in_window_quote_fixtures": 1,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -128,12 +128,18 @@
       "home_team": "Groningen",
       "away_team": "Willem II",
       "kickoff_utc": "2026-11-27T19:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "asian_handicap_quotes": 18,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 0,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "1640270576",
@@ -225,21 +231,35 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640270697",
+      "event_id": "1640270697",
+      "home_team": "NEC Nijmegen",
+      "away_team": "FC Twente Enschede",
+      "kickoff_utc": "2026-11-29T19:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 0,
+  "additional_odds_in_window_linked_fixtures": 1,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 0,
+  "additional_event_odds_calls_this_league": 1,
   "totals_anchor_fixtures": {
+    "ANCHORED_ALTERNATE": 1,
     "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 8
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 8
+    "none": 9
   },
   "legacy_comparison_status": {
-    "None": 8
+    "None": 9
   },
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }

@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "7c4358696eb2cbce74fd03dae1bbda40ec31361c408685b979e64a31f267fc34",
-  "training_as_of_utc": "2026-11-26T15:47:12.065037+00:00",
+  "training_as_of_utc": "2026-11-27T10:44:20.235679+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 129,
     "bbs_added_results": 0,
@@ -34,7 +34,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-11-26",
+    "cutoff_date": "2026-11-27",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -55,30 +55,30 @@
       "max_goal_rate_ratio": 1.25
     },
     "shot_matches": 2029,
-    "tune_start_date": "2025-11-27",
-    "audit_start_date": "2026-05-28",
+    "tune_start_date": "2025-11-28",
+    "audit_start_date": "2026-05-29",
     "training_shot_matches": 1650,
     "tuning_matches": 250,
-    "audit_matches": 113,
+    "audit_matches": 112,
     "audit_matchdays": 53,
     "selected_shrinkage": 40.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8151953090687293,
-    "audit_candidate_poisson_score": 0.8186952732392122,
-    "audit_gain": -0.0034999641704829276,
-    "audit_gain_lower95": -0.011737068474286122,
+    "audit_baseline_poisson_score": 0.816283572829486,
+    "audit_candidate_poisson_score": 0.8198774449181047,
+    "audit_gain": -0.0035938720886186104,
+    "audit_gain_lower95": -0.011967321480545447,
     "audit_baseline_briers": [
-      0.5398541900409285,
-      0.1913328831419183,
-      0.2003154598972512,
-      0.25572896301360953
+      0.5425785140624926,
+      0.191697998167005,
+      0.19567917906890955,
+      0.2536200864496917
     ],
     "audit_candidate_briers": [
-      0.5506198241173083,
-      0.18872980795223473,
-      0.20080950224170688,
-      0.2511534456042887
+      0.5529303547568837,
+      0.18915859606271304,
+      0.19634444325091313,
+      0.24954612837698412
     ],
     "audit_brier_order": [
       "1x2",
@@ -94,10 +94,10 @@
   },
   "training_end": "2026-11-23",
   "fit_success": true,
-  "objective": 1840.8376391674085,
-  "base": 0.08408014398550717,
-  "home_adv": 0.280461688452365,
-  "rho": -0.028327978388063384,
+  "objective": 1838.7400117462278,
+  "base": 0.0841086917625945,
+  "home_adv": 0.2804356694406869,
+  "rho": -0.02830618097593327,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -115,7 +115,7 @@
   },
   "training_data_health": {
     "training_end": "2026-11-23",
-    "days_since_latest_result": 3,
+    "days_since_latest_result": 4,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -125,10 +125,10 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 7,
+  "live_odds_matched": 9,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 0,
+  "additional_event_odds_calls_used_before_this_league": 1,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "over_1_5_in_window_quote_fixtures": 0,
@@ -140,10 +140,16 @@
       "home_team": "Levante",
       "away_team": "Real Racing Club de Santander",
       "kickoff_utc": "2026-11-27T20:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
+      "asian_handicap_quotes": 18,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -224,22 +230,49 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640273566",
+      "event_id": "1640273566",
+      "home_team": "Celta Vigo",
+      "away_team": "Villarreal",
+      "kickoff_utc": "2026-11-29T17:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640272464",
+      "event_id": "1640272464",
+      "home_team": "Real Sociedad",
+      "away_team": "Sevilla",
+      "kickoff_utc": "2026-11-29T20:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 0,
+  "additional_odds_in_window_linked_fixtures": 1,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 0,
+  "additional_event_odds_calls_this_league": 1,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 6,
+    "ANCHORED_ALTERNATE": 1,
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 7,
     "ANCHORED_MAIN": 1
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 7
+    "none": 9
   },
   "legacy_comparison_status": {
-    "None": 7
+    "None": 9
   },
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }
