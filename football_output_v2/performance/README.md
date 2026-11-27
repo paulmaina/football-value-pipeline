@@ -20,7 +20,7 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 | per pick | 204 | -2.0% | -2.7% to -1.3% | 29% | 540 | +2.8% | -2.9% to +8.5% |
 | per fixture (a match's picks averaged) | 128 | -2.0% | -2.9% to -1.1% | 27% | 263 | +3.5% | -3.1% to +10.0% |
 
-553 picks on 271 matches. A match can hold several picks (one per market group); the per-fixture row averages them, so each match counts once. Closing-line value (CLV) leads because it is the less noisy measure: it compares the frozen price with the Pinnacle fair close and does not wait for results. Returns come second: with few matches they are mostly luck. Intervals are mean ± 1.96 standard errors, clustered by fixture. Near-kickoff feed quotes are not verified official closing prices.
+565 picks on 280 matches. A match can hold several picks (one per market group); the per-fixture row averages them, so each match counts once. Closing-line value (CLV) leads because it is the less noisy measure: it compares the frozen price with the Pinnacle fair close and does not wait for results. Returns come second: with few matches they are mostly luck. Intervals are mean ± 1.96 standard errors, clustered by fixture. Near-kickoff feed quotes are not verified official closing prices.
 
 ## Research v5 (C6) rollback check
 
@@ -36,9 +36,9 @@ C6 was too confident on these leagues' home sides in the holdout (home slope 0.7
 
 | League | Matches | Picks | Graded | v5 predicted home win | v4 on the same forecasts | Actual home win |
 |---|---|---|---|---|---|---|
-| Eredivisie | 5 | 7 | 5 | 57.3% | 56.5% | 20.0% |
-| Super Lig | 6 | 10 | 6 | 64.8% | 63.7% | 83.3% |
-| All three | 11 | 17 | 11 | 61.4% | 60.4% | 54.5% |
+| Eredivisie | 6 | 8 | 5 | 57.3% | 56.5% | 20.0% |
+| Super Lig | 7 | 11 | 6 | 64.8% | 63.7% | 83.3% |
+| All three | 13 | 19 | 11 | 61.4% | 60.4% | 54.5% |
 
 ## Research v6 (CE3n, UCL/UEL) rollback check
 
@@ -76,7 +76,7 @@ Fallbacks to D: where D_pow2's power grid failed its fit check, the run priced t
 
 | D_pow2 runs | Domestic fixture forecasts | Priced by D (fallback) | Domestic fixtures | Fixtures with a fallback | Graded matches left out |
 |---|---|---|---|---|---|
-| 25 | 831 | 0 | 126 | 0 | 0 |
+| 26 | 898 | 0 | 138 | 0 | 0 |
 
 ## Cumulative shortlist — latest prediction per match
 
@@ -84,7 +84,7 @@ Fallbacks to D: where D_pow2's power grid failed its fit check, the run priced t
 |---|---:|---:|---:|---:|
 | All selections | 540 | 382-153 | 70.7% | +2.8% |
 
-Unsettled / unverified entries: **13**.
+Unsettled / unverified entries: **25**.
 Whole-fixture 1X2 multiclass Brier (n=461): 0.5454
 
 ## First-prediction reference — historical comparison
@@ -150,6 +150,7 @@ Whole-fixture 1X2 multiclass Brier (n=461): 0.5454
 | 2026-11-24T16:35:48.587606+00:00 | 15 | 12-3 | 80.0% | +7.5% |
 | 2026-11-25T14:22:45.129589+00:00 | 13 | 9-4 | 69.2% | -3.0% |
 | 2026-11-26T15:49:19.625728+00:00 | 0 | 0-0 | — | — |
+| 2026-11-27T10:45:41.761501+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
@@ -339,10 +340,10 @@ A missing, ambiguous or unverified result is **never called a win**.
 | PrimeiraLiga | 2026-11-08 | 1628 | 19 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | SerieA | 2026-11-23 | 2020 | 4 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | SuperLig | 2026-11-23 | 1858 | 4 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| UCL | 2026-11-25 | 593 | 2 | REFRESH_OVERDUE |
+| UCL | 2026-11-25 | 593 | 2 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 | UEL | 2026-11-05 | 732 | 22 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 9, "exchange_quotes": 0, "missing_quote_age": 9, "quote_age_over_24h": 0, "costs_recorded": 9, "bookmakers": {"Pinnacle": 9}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 9, "upcoming_kickoff_count": 0, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 12, "exchange_quotes": 0, "missing_quote_age": 12, "quote_age_over_24h": 0, "costs_recorded": 12, "bookmakers": {"Pinnacle": 12}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 12, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 

@@ -8,11 +8,11 @@
     "d_pow2_minus_d_log_loss": 0.004286578317378803,
     "eligible": false,
     "fallbacks": {
-      "domestic_fixtures": 126,
-      "domestic_records": 831,
+      "domestic_fixtures": 138,
+      "domestic_records": 898,
       "fallback_fixtures": 0,
       "fallback_records": 0,
-      "runs": 25
+      "runs": 26
     },
     "graded_fallbacks": 0,
     "interval_95": [
@@ -108,26 +108,26 @@
   "home_favourites": {
     "all": {
       "actual_home_win": 0.5454545454545454,
-      "fixtures": 11,
+      "fixtures": 13,
       "graded": 11,
-      "picks": 17,
+      "picks": 19,
       "v4_predicted_home_win": 0.6042655189779201,
       "v5_predicted_home_win": 0.613932673254064
     },
     "by_league": {
       "Eredivisie": {
         "actual_home_win": 0.2,
-        "fixtures": 5,
+        "fixtures": 6,
         "graded": 5,
-        "picks": 7,
+        "picks": 8,
         "v4_predicted_home_win": 0.5650460947573996,
         "v5_predicted_home_win": 0.573312173429668
       },
       "Super Lig": {
         "actual_home_win": 0.8333333333333334,
-        "fixtures": 6,
+        "fixtures": 7,
         "graded": 6,
-        "picks": 10,
+        "picks": 11,
         "v4_predicted_home_win": 0.6369483724950203,
         "v5_predicted_home_win": 0.6477830897743938
       }
@@ -175,6 +175,19 @@
         "v5_p_home": 0.48103443880280056
       },
       {
+        "fixture": "Groningen v Willem II",
+        "graded": false,
+        "home_won": null,
+        "kickoff_utc": "2026-11-27T19:00:00+00:00",
+        "league": "Eredivisie",
+        "markets": [
+          "Home win"
+        ],
+        "picks": 1,
+        "v4_p_home": 0.6394911043849948,
+        "v5_p_home": 0.656119431046097
+      },
+      {
         "fixture": "SC Telstar v FC Zwolle",
         "graded": true,
         "home_won": false,
@@ -199,6 +212,19 @@
         "picks": 1,
         "v4_p_home": 0.43299104116004705,
         "v5_p_home": 0.4314401614804066
+      },
+      {
+        "fixture": "Alanyaspor v Torku Konyaspor",
+        "graded": false,
+        "home_won": null,
+        "kickoff_utc": "2026-11-27T17:00:00+00:00",
+        "league": "Super Lig",
+        "markets": [
+          "Asian Handicap Home +0.25"
+        ],
+        "picks": 1,
+        "v4_p_home": 0.40296190122278147,
+        "v5_p_home": 0.40140662503099717
       },
       {
         "fixture": "Amed SK v Çaykur Rizespor",

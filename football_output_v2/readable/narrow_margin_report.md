@@ -1,48 +1,34 @@
 # Narrow-margin report
 
-Run 2026-11-26T15:49:19.625728+00:00. Narrow = draw or one-goal win. P(narrow) = 1 - corrected P(margin 2+); draw and one-goal split from the corrected scoreline matrix. Quotes are the Pinnacle prices that fed the fit. Uncertain probabilities, not predictions or betting advice.
+Run 2026-11-27T10:45:41.761501+00:00. Narrow = draw or one-goal win. P(narrow) = 1 - corrected P(margin 2+); draw and one-goal split from the corrected scoreline matrix. Quotes are the Pinnacle prices that fed the fit. Uncertain probabilities, not predictions or betting advice.
 
 Out of domain = competition not in the training data (eight domestic leagues); treat those figures as less certain.
 
 | Kick-off (UTC) | League | Match | Pinnacle 1X2 | O/U 2.5 | Main AH (home) | P(narrow) | P(draw) | P(margin 3+) | Quintile | Quote age at kick-off (h) | Out of domain |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 2026-11-27T17:00:00+00:00 | Super Lig | Alanyaspor v Torku Konyaspor | 2.72 / 3.25 / 2.70 | 2.05 / 1.82 | +0.00 @ 1.94 / 1.93 | 70% | 30% | 9% | Q2 | 25.2 | no |
-| 2026-11-28T18:00:00+00:00 | Primeira Liga | Academico de Viseu v Alverca | 2.63 / 3.12 / 2.90 | 2.03 / 1.82 | +0.00 @ 1.83 / 2.03 | 70% | 31% | 10% | Q2 | 50.2 | no |
-| 2026-11-29T14:05:00+00:00 | Premier League | Sunderland v Tottenham Hotspur | 3.84 / 3.41 / 2.09 | 2.03 / 1.86 | +0.50 @ 1.82 / 2.09 | 69% | 29% | 12% | Q2 | 70.3 | no |
-| 2026-11-26T17:45:00+00:00 | UEFA Europa League | Olympiakos Piraeus v AC Milan | 2.89 / 3.51 / 2.51 | 1.92 / 1.97 | +0.00 @ 2.10 / 1.82 | 68% | 28% | 11% | Q2 | 2.0 | yes |
-| 2026-11-27T19:45:00+00:00 | Ligue 1 | Brest v Paris FC | 3.54 / 3.41 / 2.20 | 1.94 / 1.94 | +0.25 @ 2.02 / 1.89 | 68% | 29% | 12% | Q2 | 28.0 | no |
-| 2026-11-28T17:00:00+00:00 | Serie A | Torino v Lazio | 3.60 / 3.54 / 2.12 | 1.89 / 2.00 | +0.25 @ 2.07 / 1.83 | 67% | 28% | 13% | Q2 | 49.2 | no |
-| 2026-11-26T17:45:00+00:00 | UEFA Europa League | Celta Vigo v Bournemouth | 4.18 / 3.74 / 1.90 | 1.92 / 1.97 | +0.50 @ 2.00 / 1.91 | 67% | 27% | 13% | Q3 | 2.0 | yes |
-| 2026-11-29T10:30:00+00:00 | Super Lig | Çorum FK v Kocaelispor | 1.92 / 3.59 / 4.01 | 1.89 / 1.95 | -0.50 @ 1.93 / 1.93 | 66% | 27% | 13% | Q3 | 66.7 | no |
-| 2026-11-28T13:00:00+00:00 | Super Lig | Samsunspor v Genclerbirligi SK | 1.86 / 3.68 / 4.13 | 1.87 / 1.96 | -0.50 @ 1.87 / 1.99 | 66% | 26% | 14% | Q3 | 45.2 | no |
-| 2026-11-26T20:00:00+00:00 | UEFA Europa League | Sparta Prague v AZ Alkmaar | 2.93 / 3.65 / 2.41 | 1.75 / 2.15 | +0.25 @ 1.83 / 2.09 | 65% | 27% | 13% | Q3 | 4.2 | yes |
-| 2026-11-28T15:30:00+00:00 | Primeira Liga | Arouca v Rio Ave | 1.68 / 3.86 / 5.12 | 1.93 / 1.90 | -0.75 @ 1.88 / 1.98 | 64% | 25% | 15% | Q3 | 47.7 | no |
-| 2026-11-28T15:15:00+00:00 | La Liga | Malaga v Athletic Bilbao | 4.91 / 3.90 / 1.75 | 1.89 / 2.01 | +0.75 @ 1.93 / 1.97 | 64% | 25% | 15% | Q3 | 47.5 | no |
-| 2026-11-26T20:00:00+00:00 | UEFA Europa League | OFI Crete v Anderlecht | 4.52 / 3.89 / 1.80 | 1.75 / 2.14 | +0.75 @ 1.88 / 2.04 | 63% | 26% | 16% | Q3 | 4.2 | yes |
-| 2026-11-26T20:00:00+00:00 | UEFA Europa League | Crystal Palace v Real Sociedad | 2.11 / 4.02 / 3.24 | 1.51 / 2.62 | -0.25 @ 1.86 / 2.05 | 60% | 24% | 17% | Q4 | 4.2 | yes |
-| 2026-11-26T20:00:00+00:00 | UEFA Europa League | NEC Nijmegen v Rennes | 3.15 / 4.03 / 2.15 | 1.48 / 2.72 | +0.25 @ 2.01 / 1.90 | 60% | 24% | 18% | Q4 | 4.2 | yes |
-| 2026-11-26T17:45:00+00:00 | UEFA Europa League | Dinamo Zagreb v Bayer Leverkusen | 5.10 / 4.45 / 1.63 | 1.49 / 2.69 | +1.00 @ 1.88 / 2.03 | 56% | 22% | 23% | Q4 | 2.0 | yes |
-| 2026-11-26T17:45:00+00:00 | UEFA Europa League | Marseille v PFC Levski Sofia | 1.41 / 5.15 / 7.61 | 1.70 / 2.22 | -1.25 @ 1.93 / 1.98 | 56% | 20% | 22% | Q5 most open | 2.0 | yes |
-| 2026-11-26T20:00:00+00:00 | UEFA Europa League | Torreense v Celtic | 4.96 / 4.58 / 1.63 | 1.43 / 2.91 | +1.00 @ 1.89 / 2.02 | 54% | 21% | 24% | Q5 most open | 4.2 | yes |
-| 2026-11-26T17:45:00+00:00 | UEFA Europa League | Union Saint-Gilloise v Lech Poznan | 1.38 / 5.51 / 7.65 | 1.52 / 2.58 | -1.50 @ 2.07 / 1.85 | 51% | 18% | 26% | Q5 most open | 2.0 | yes |
-| 2026-11-26T20:00:00+00:00 | UEFA Europa League | Ferencváros TC v NK Celje | 1.38 / 5.53 / 7.58 | 1.51 / 2.61 | -1.50 @ 2.07 / 1.85 | 51% | 18% | 27% | Q5 most open | 4.2 | yes |
-| 2026-11-26T17:45:00+00:00 | UEFA Europa League | Viktoria Plzen v Benfica | 6.60 / 5.46 / 1.43 | 1.43 / 2.87 | +1.25 @ 2.01 / 1.90 | 51% | 18% | 27% | Q5 most open | 2.0 | yes |
-| 2026-11-26T20:00:00+00:00 | UEFA Europa League | Sunderland v Jagiellonia Białystok | 1.25 / 6.47 / 12.72 | 1.55 / 2.49 | -1.75 @ 1.92 / 1.99 | 45% | 16% | 30% | Q5 most open | 4.2 | yes |
-| 2026-11-26T20:00:00+00:00 | UEFA Europa League | TSG Hoffenheim v SK Sturm Graz | 1.30 / 6.42 / 8.89 | 1.33 / 3.36 | -1.75 @ 2.00 / 1.91 | 43% | 15% | 35% | Q5 most open | 4.2 | yes |
-| 2026-11-26T17:45:00+00:00 | UEFA Europa League | Besiktas JK v Hapoel Be'er Sheva | 1.25 / 7.05 / 10.64 | 1.37 / 3.07 | -1.75 @ 1.89 / 2.02 | 42% | 14% | 35% | Q5 most open | 2.0 | yes |
-| 2026-11-26T20:00:00+00:00 | UEFA Europa League | Juventus v Omonoia FC | 1.20 / 7.81 / 14.28 | 1.45 / 2.71 | -2.00 @ 1.99 / 1.92 | 41% | 13% | 35% | Q5 most open | 4.2 | yes |
-| 2026-11-26T20:00:00+00:00 | UEFA Europa League | Lyon v Lillestrom | 1.19 / 7.85 / 14.75 | 1.44 / 2.78 | -2.00 @ 1.94 / 1.96 | 39% | 13% | 36% | Q5 most open | 4.2 | yes |
-| 2026-11-26T17:45:00+00:00 | UEFA Europa League | Salzburg v Ararat-Armenia | 1.14 / 10.00 / 17.67 | 1.25 / 3.85 | -2.25 @ 1.85 / 2.07 | 31% | 10% | 46% | Q5 most open | 2.0 | yes |
+| 2026-11-27T20:15:00+00:00 | Primeira Liga | CS Maritimo v Nacional | 2.19 / 3.26 / 3.73 | 2.39 / 1.63 | -0.25 @ 1.87 / 2.04 | 73% | 30% | 9% | Q1 cagiest | 9.5 | no |
+| 2026-11-27T17:00:00+00:00 | Super Lig | Alanyaspor v Torku Konyaspor | 2.80 / 3.14 / 2.82 | 2.29 / 1.68 | +0.00 @ 1.94 / 1.96 | 72% | 32% | 8% | Q1 cagiest | 6.3 | no |
+| 2026-11-27T19:45:00+00:00 | Serie A | Venezia v Bologna | 3.25 / 3.22 / 2.46 | 2.18 / 1.75 | +0.25 @ 1.85 / 2.09 | 71% | 31% | 9% | Q1 cagiest | 9.0 | no |
+| 2026-11-28T18:00:00+00:00 | Primeira Liga | Academico de Viseu v Alverca | 2.63 / 3.12 / 2.90 | 2.04 / 1.83 | +0.00 @ 1.84 / 2.04 | 70% | 31% | 10% | Q2 | 31.3 | no |
+| 2026-11-29T19:45:00+00:00 | Ligue 1 | Lyon v AS Monaco | 2.44 / 3.34 / 3.11 | 1.99 / 1.90 | -0.25 @ 2.10 / 1.83 | 69% | 30% | 11% | Q2 | 57.0 | no |
+| 2026-11-27T20:00:00+00:00 | Premier League | Nottingham Forest v Chelsea | 2.37 / 3.47 / 3.18 | 1.96 / 1.94 | -0.25 @ 2.04 / 1.89 | 68% | 29% | 11% | Q2 | 9.3 | no |
+| 2026-11-29T14:05:00+00:00 | Premier League | Sunderland v Tottenham Hotspur | 3.95 / 3.43 / 2.05 | 2.03 / 1.87 | +0.50 @ 1.85 / 2.06 | 68% | 29% | 12% | Q2 | 51.4 | no |
+| 2026-11-27T19:45:00+00:00 | Ligue 1 | Brest v Paris FC | 3.66 / 3.46 / 2.16 | 1.97 / 1.93 | +0.25 @ 2.07 / 1.86 | 68% | 29% | 12% | Q2 | 9.0 | no |
+| 2026-11-28T17:00:00+00:00 | Serie A | Torino v Lazio | 3.46 / 3.48 / 2.20 | 1.90 / 1.99 | +0.25 @ 2.01 / 1.90 | 67% | 28% | 12% | Q2 | 30.3 | no |
+| 2026-11-29T10:30:00+00:00 | Super Lig | Çorum FK v Kocaelispor | 1.93 / 3.51 / 4.03 | 1.94 / 1.89 | -0.50 @ 1.94 / 1.91 | 67% | 27% | 13% | Q2 | 47.8 | no |
+| 2026-11-29T14:05:00+00:00 | Premier League | Fulham v Bournemouth | 2.87 / 3.52 / 2.52 | 1.83 / 2.05 | +0.00 @ 2.09 / 1.83 | 67% | 28% | 12% | Q3 | 51.4 | no |
+| 2026-11-29T18:00:00+00:00 | Primeira Liga | Gil Vicente v Estoril | 1.79 / 3.77 / 4.38 | 1.96 / 1.88 | -0.75 @ 2.05 / 1.81 | 66% | 25% | 14% | Q3 | 55.3 | no |
+| 2026-11-29T19:45:00+00:00 | Serie A | Como v Juventus | 2.04 / 3.54 / 3.85 | 1.87 / 2.03 | -0.50 @ 2.05 / 1.86 | 66% | 28% | 13% | Q3 | 57.0 | no |
+| 2026-11-28T13:00:00+00:00 | Super Lig | Samsunspor v Genclerbirligi SK | 1.86 / 3.68 / 4.13 | 1.88 / 1.97 | -0.50 @ 1.88 / 2.00 | 66% | 26% | 14% | Q3 | 26.3 | no |
+| 2026-11-28T15:30:00+00:00 | Primeira Liga | Arouca v Rio Ave | 1.68 / 3.86 / 5.12 | 1.94 / 1.91 | -0.75 @ 1.89 / 1.99 | 64% | 25% | 15% | Q3 | 28.8 | no |
+| 2026-11-28T15:15:00+00:00 | La Liga | Malaga v Athletic Bilbao | 4.91 / 3.90 / 1.75 | 1.89 / 2.01 | +0.75 @ 1.93 / 1.97 | 64% | 25% | 15% | Q3 | 28.5 | no |
+| 2026-11-27T17:00:00+00:00 | Super Lig | Caykur Rizespor v Kasimpasa SK | 1.98 / 3.90 / 3.69 | 1.69 / 2.26 | -0.50 @ 1.99 / 1.92 | 63% | 25% | 15% | Q3 | 6.3 | no |
+| 2026-11-27T20:00:00+00:00 | La Liga | Levante v Real Racing Club de Santander | 2.04 / 4.09 / 3.43 | 1.42 / 2.95 | -0.50 @ 2.05 / 1.89 | 58% | 24% | 20% | Q4 | 9.3 | no |
+| 2026-11-27T19:30:00+00:00 | Bundesliga | Werder Bremen v Borussia Monchengladbach | 1.67 / 4.41 / 4.87 | 1.55 / 2.55 | -0.75 @ 1.85 / 2.09 | 58% | 22% | 21% | Q4 | 8.8 | no |
+| 2026-11-27T19:00:00+00:00 | Eredivisie | Groningen v Willem II | 1.30 / 6.42 / 8.91 | 1.43 / 2.93 | -1.75 @ 1.99 / 1.91 | 44% | 14% | 32% | Q5 most open | 8.3 | no |
 
-## Not scored (46)
+## Not scored (47)
 
-- 2026-11-27T17:00:00+00:00 Caykur Rizespor v Kasimpasa SK [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-27T19:00:00+00:00 Groningen v Willem II [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-27T19:30:00+00:00 Werder Bremen v Borussia Monchengladbach [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-27T19:45:00+00:00 Venezia v Bologna [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-27T20:00:00+00:00 Nottingham Forest v Chelsea [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-27T20:00:00+00:00 Levante v Real Racing Club de Santander [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-27T20:15:00+00:00 CS Maritimo v Nacional [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
 - 2026-11-28T13:00:00+00:00 Real Betis v Rayo Vallecano [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
 - 2026-11-28T14:00:00+00:00 Frosinone v Parma [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
 - 2026-11-28T14:30:00+00:00 1. FC Köln v Elversberg [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
@@ -78,7 +64,15 @@ Out of domain = competition not in the training data (eight domestic leagues); t
 - 2026-11-29T14:00:00+00:00 Auxerre v Marseille [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
 - 2026-11-29T14:05:00+00:00 Brighton v Newcastle United [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
 - 2026-11-29T14:05:00+00:00 Crystal Palace v Hull City [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
-- 2026-11-29T14:05:00+00:00 Fulham v Bournemouth [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
 - 2026-11-29T14:30:00+00:00 Freiburg v RB Leipzig [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
 - 2026-11-29T15:15:00+00:00 Deportivo La Coruna v Barcelona [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
 - 2026-11-29T15:45:00+00:00 FC Zwolle v AZ Alkmaar [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
+- 2026-11-29T16:00:00+00:00 Fenerbahce v Erzurum BB [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
+- 2026-11-29T16:15:00+00:00 Toulouse v Rennes [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
+- 2026-11-29T16:30:00+00:00 Arsenal v Manchester City [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
+- 2026-11-29T16:30:00+00:00 TSG Hoffenheim v Augsburg [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
+- 2026-11-29T17:00:00+00:00 AS Roma v Monza [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
+- 2026-11-29T17:30:00+00:00 Celta Vigo v Villarreal [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
+- 2026-11-29T18:30:00+00:00 Borussia Dortmund v Bayer Leverkusen [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
+- 2026-11-29T19:00:00+00:00 NEC Nijmegen v FC Twente Enschede [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
+- 2026-11-29T20:00:00+00:00 Real Sociedad v Sevilla [UNUSABLE]: no usable market-implied fit (missing input: over_2_5)
