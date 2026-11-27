@@ -1,0 +1,334 @@
+{
+  "fixture": {
+    "away_team": "Nacional",
+    "home_team": "CS Maritimo",
+    "kickoff_utc": "2026-11-27T20:15:00+00:00",
+    "league": "Primeira Liga",
+    "odds_event_id": "1640277271"
+  },
+  "observed_at_utc": "2026-11-27T20:09:13.236136+00:00",
+  "payload": {
+    "away_team": "Nacional",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-27T20:09:13Z",
+            "outcomes": [
+              {
+                "name": "CS Maritimo",
+                "price": 2.14
+              },
+              {
+                "name": "Nacional",
+                "price": 3.86
+              },
+              {
+                "name": "Draw",
+                "price": 3.28
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-27T20:09:13Z",
+            "outcomes": [
+              {
+                "name": "CS Maritimo",
+                "point": -0.25,
+                "price": 1.8333
+              },
+              {
+                "name": "Nacional",
+                "point": 0.25,
+                "price": 2.09
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-27T20:09:13Z",
+            "outcomes": [
+              {
+                "name": "CS Maritimo",
+                "point": -1.25,
+                "price": 3.92
+              },
+              {
+                "name": "CS Maritimo",
+                "point": -1.0,
+                "price": 3.4
+              },
+              {
+                "name": "CS Maritimo",
+                "point": -0.75,
+                "price": 2.55
+              },
+              {
+                "name": "CS Maritimo",
+                "point": -0.5,
+                "price": 2.14
+              },
+              {
+                "name": "CS Maritimo",
+                "point": 0.0,
+                "price": 1.5076
+              },
+              {
+                "name": "CS Maritimo",
+                "point": 0.25,
+                "price": 1.3759
+              },
+              {
+                "name": "CS Maritimo",
+                "point": 0.5,
+                "price": 1.2933
+              },
+              {
+                "name": "CS Maritimo",
+                "point": 0.75,
+                "price": 1.1976
+              },
+              {
+                "name": "Nacional",
+                "point": 1.25,
+                "price": 1.2817
+              },
+              {
+                "name": "Nacional",
+                "point": 1.0,
+                "price": 1.3484
+              },
+              {
+                "name": "Nacional",
+                "point": 0.75,
+                "price": 1.565
+              },
+              {
+                "name": "Nacional",
+                "point": 0.5,
+                "price": 1.7813
+              },
+              {
+                "name": "Nacional",
+                "point": 0.0,
+                "price": 2.73
+              },
+              {
+                "name": "Nacional",
+                "point": -0.25,
+                "price": 3.28
+              },
+              {
+                "name": "Nacional",
+                "point": -0.5,
+                "price": 3.81
+              },
+              {
+                "name": "Nacional",
+                "point": -0.75,
+                "price": 5.03
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-27T20:09:13Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 1.9804
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 1.9091
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-27T20:15:00Z",
+    "home_team": "CS Maritimo",
+    "id": "1640277271",
+    "odds_provider": "pinnapi",
+    "sport_key": "soccer_portugal_primeira_liga"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.14,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.45683593117036075,
+      "selection": "home",
+      "updated_at_utc": "2026-11-27T20:09:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.28,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.29429636745685184,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-27T20:09:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.86,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24886770137278746,
+      "selection": "away",
+      "updated_at_utc": "2026-11-27T20:09:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.09,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-27T20:09:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.8333,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-27T20:09:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.03,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-27T20:09:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.81,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-27T20:09:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.28,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-27T20:09:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.73,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-27T20:09:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7813,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-27T20:09:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.565,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-27T20:09:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3484,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-27T20:09:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2817,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-27T20:09:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.92,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-27T20:09:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.4,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-27T20:09:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.55,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-27T20:09:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.14,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-27T20:09:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5076,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-27T20:09:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3759,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-27T20:09:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2933,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-27T20:09:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.1976,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-27T20:09:13+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
