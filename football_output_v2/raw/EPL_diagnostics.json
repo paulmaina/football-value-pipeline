@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "44ca042bb959dc0ef064621877ebe03bc8ecc5a142761703d267cb3023a987c0",
-  "training_as_of_utc": "2026-11-27T15:34:52.037266+00:00",
+  "training_as_of_utc": "2026-11-27T16:28:46.772586+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 110,
     "bbs_added_results": 0,
@@ -64,21 +64,21 @@
     "selected_shrinkage": 15.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.9482824759096682,
-    "audit_candidate_poisson_score": 0.9343590295819174,
-    "audit_gain": 0.013923446327750777,
-    "audit_gain_lower95": 0.0027728093347119285,
+    "audit_baseline_poisson_score": 0.9482419645544503,
+    "audit_candidate_poisson_score": 0.9343213409186768,
+    "audit_gain": 0.01392062363577351,
+    "audit_gain_lower95": 0.002770743522038135,
     "audit_baseline_briers": [
-      0.6443772776167027,
-      0.1699592176587434,
-      0.22461963484303793,
-      0.26280496165400397
+      0.6443692561023265,
+      0.1699471656580319,
+      0.22461181969885027,
+      0.2627818691732897
     ],
     "audit_candidate_briers": [
-      0.6405219825177411,
-      0.16883816435808938,
-      0.22309163840120375,
-      0.2598147151462495
+      0.6405079957019194,
+      0.1688271847952281,
+      0.2230845379731673,
+      0.25979297660501594
     ],
     "audit_brier_order": [
       "1x2",
@@ -90,10 +90,10 @@
   },
   "training_end": "2026-11-23",
   "fit_success": true,
-  "objective": 1879.1872686987967,
-  "base": 0.2081158314912952,
-  "home_adv": 0.19211185621133597,
-  "rho": -0.05736992331643689,
+  "objective": 1879.085704500973,
+  "base": 0.20808953463758437,
+  "home_adv": 0.19216840742247804,
+  "rho": -0.05728798031396274,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -284,9 +284,9 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 3,
   "totals_anchor_fixtures": {
-    "ANCHORED_MAIN": 3,
+    "ANCHORED_MAIN": 2,
     "ANCHORED_ALTERNATE": 2,
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 5
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 6
   },
   "shot_features_applied_fixtures": 10,
   "goal_rate_features_used": {
