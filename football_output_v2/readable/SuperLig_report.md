@@ -1,6 +1,6 @@
 # Super Lig — football model report
 
-Fixtures in this report: **8**.
+Fixtures in this report: **7**.
 
 > Each match shows the two models the shortlists use, side by side, and the master's verdict on them: **Research** (the value shortlist's model, independent of bookmaker odds) and **Cagey** (the cagey tier's market view, built from Pinnacle's prices). Probabilities are model estimates, not guarantees. No probability here is blended or averaged. The production model (70% Pinnacle blend) is kept only as a benchmark at the end of this report.
 
@@ -17,229 +17,9 @@ Fixtures in this report: **8**.
 
 ---
 
-## 2026-11-27 — Alanyaspor vs Torku Konyaspor
-
-Research leans **Alanyaspor win** at **40.1%**. Cagey leans **Alanyaspor win** at **34.2%**. The two views agree on the lean.
-
-**Fixture source:** The Odds API
-
-### The two views
-
-- **Research:** research v5, C6
-- **Cagey:** cagey D_pow2 (fit B)
-
-| Measure | Research | Cagey |
-| --- | --- | --- |
-| Alanyaspor win | 40.1% | 34.2% |
-| Draw | 31.2% | 32.1% |
-| Torku Konyaspor win | 28.7% | 33.7% |
-| Alanyaspor expected goals | 1.17 | 1.18 |
-| Torku Konyaspor expected goals | 0.95 | 1.17 |
-| Expected total goals | 2.12 | 2.35 |
-| Most likely score | 1-1 | 1-1 |
-| Most likely score probability | 14.1% | 15.3% |
-| Over 1.5 | 62.9% | 70.6% |
-| Under 1.5 | 37.1% | 29.4% |
-| Over 2.5 | 35.4% | 41.7% |
-| Under 2.5 | 64.6% | 58.3% |
-| Over 3.5 | 16.6% | 21.1% |
-| Under 3.5 | 83.4% | 78.9% |
-| BTTS Yes | 43.0% | 51.0% |
-| BTTS No | 57.0% | 49.0% |
-| Double Chance 1X | 71.3% | 66.3% |
-| Double Chance X2 | 59.9% | 65.8% |
-
-_Cagey Over/Under 1.5 come from the uncorrected Pinnacle grid, as the cagey tier prices Over 1.5; its other figures from the corrected grid._
-
-### 5 most likely scorelines
-
-| Rank | Research | Cagey |
-| --- | --- | --- |
-| 1 | 1-1 (14.12%) | 1-1 (15.25%) |
-| 2 | 1-0 (13.68%) | 0-0 (11.25%) |
-| 3 | 0-0 (12.64%) | 1-0 (9.64%) |
-| 4 | 0-1 (10.81%) | 0-1 (9.54%) |
-| 5 | 2-0 (8.08%) | 2-1 (8.17%) |
-
-### No-loss on the quoted Pinnacle Asian handicap lines
-
-| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
-| --- | --- | --- | --- |
-| Alanyaspor -1.00 | 5.00 | 40.1% | 34.2% |
-| Alanyaspor -0.75 | 3.47 | 40.1% | 34.2% |
-| Alanyaspor -0.50 | 2.79 | 40.1% | 34.2% |
-| Alanyaspor -0.25 | 2.37 | 40.1% | 34.2% |
-| Alanyaspor +0.00 | 1.93 | 71.3% | 66.3% |
-| Alanyaspor +0.25 | 1.63 | 71.3% | 66.3% |
-| Alanyaspor +0.50 | 1.47 | 71.3% | 66.3% |
-| Alanyaspor +0.75 | 1.32 | 71.3% | 66.3% |
-| Alanyaspor +1.00 | 1.18 | 89.5% | 86.1% |
-| Torku Konyaspor -1.00 | 5.27 | 28.7% | 33.7% |
-| Torku Konyaspor -0.75 | 3.56 | 28.7% | 33.7% |
-| Torku Konyaspor -0.50 | 2.83 | 28.7% | 33.7% |
-| Torku Konyaspor -0.25 | 2.40 | 28.7% | 33.7% |
-| Torku Konyaspor +0.00 | 1.97 | 59.9% | 65.8% |
-| Torku Konyaspor +0.25 | 1.65 | 59.9% | 65.8% |
-| Torku Konyaspor +0.50 | 1.49 | 59.9% | 65.8% |
-| Torku Konyaspor +0.75 | 1.34 | 59.9% | 65.8% |
-| Torku Konyaspor +1.00 | 1.20 | 82.9% | 85.8% |
-
-_No-loss: win, half win or refund, from each view's own goal-margin distribution._
-
-### On the lists
-
-- **Value shortlist:** yes: Asian Handicap Home +0.25 @ 1.63
-- **Cagey tier:** yes: Asian Handicap Home +0.00 @ 1.93 (in between, fair price)
-- **Master shortlist:** no
-
-### The master's verdict on every Pinnacle offer
-
-| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Asian Handicap Home +1.00 | 1.18 | 89.5% | 86.1% | +3.4 | both agree (gap within ±4 points) | safe, fair price | both agree | offered odds outside (1.20, 2.00] |
-| Asian Handicap Away +1.00 | 1.20 | 82.9% | 85.8% | -2.9 | both agree (gap within ±4 points) | safe, fair price | none | offered odds outside (1.20, 2.00] |
-| Over 1.5 | 1.38 | 62.9% | 70.6% | -7.8 | research too pessimistic | in between, fair price | none | market outside the native Pinnacle master markets |
-| Asian Handicap Home +0.00 | 1.93 | 71.3% | 66.3% | +5.0 | research too optimistic | in between, fair price | research too optimistic | eligible |
-| **best** Asian Handicap Home +0.25 | 1.63 | 71.3% | 66.3% | +5.0 | research too optimistic | in between, fair price | research too optimistic | eligible |
-| Asian Handicap Home +0.50 | 1.47 | 71.3% | 66.3% | +5.0 | research too optimistic | in between, fair price | research too optimistic | eligible |
-| Asian Handicap Home +0.75 | 1.32 | 71.3% | 66.3% | +5.0 | research too optimistic | in between, fair price | research too optimistic | eligible |
-| Asian Handicap Away +0.00 | 1.97 | 59.9% | 65.8% | -6.0 | research too pessimistic | in between, fair price | none | eligible |
-| Asian Handicap Away +0.25 | 1.65 | 59.9% | 65.8% | -6.0 | research too pessimistic | in between, fair price | none | eligible |
-| Asian Handicap Away +0.50 | 1.49 | 59.9% | 65.8% | -6.0 | research too pessimistic | in between, fair price | none | eligible |
-| Asian Handicap Away +0.75 | 1.34 | 59.9% | 65.8% | -6.0 | research too pessimistic | in between, fair price | none | eligible |
-| Asian Handicap Home -0.75 | 3.47 | 40.1% | 34.2% | +6.0 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
-| Asian Handicap Home -1.00 | 5.00 | 40.1% | 34.2% | +6.0 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
-| Asian Handicap Home -0.25 | 2.37 | 40.1% | 34.2% | +6.0 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
-| Asian Handicap Home -0.50 | 2.79 | 40.1% | 34.2% | +6.0 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
-| Home win | 2.81 | 40.1% | 34.2% | +6.0 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
-| Asian Handicap Away -0.25 | 2.40 | 28.7% | 33.7% | -5.0 | research too pessimistic | risky, below fair price | none | offered odds outside (1.20, 2.00] |
-| Asian Handicap Away -0.50 | 2.83 | 28.7% | 33.7% | -5.0 | research too pessimistic | risky, below fair price | none | offered odds outside (1.20, 2.00] |
-| Asian Handicap Away -0.75 | 3.56 | 28.7% | 33.7% | -5.0 | research too pessimistic | risky, below fair price | none | offered odds outside (1.20, 2.00] |
-| Asian Handicap Away -1.00 | 5.27 | 28.7% | 33.7% | -5.0 | research too pessimistic | risky, below fair price | none | offered odds outside (1.20, 2.00] |
-| Away win | 2.85 | 28.7% | 33.7% | -5.0 | research too pessimistic | risky, below fair price | none | offered odds outside (1.20, 2.00] |
-
-_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
-
-### Safest Asian handicap (cagey tier)
-
-_No quoted Pinnacle line has cagey EV >= 0 at odds >= 1.20 (18 lines checked)._
-
-
----
-
-## 2026-11-27 — Caykur Rizespor vs Kasimpasa SK
-
-Research leans **Kasimpasa SK win** at **37.7%**. Cagey leans **Caykur Rizespor win** at **49.8%**. The two views lean differently.
-
-**Fixture source:** The Odds API
-
-### The two views
-
-- **Research:** research v5, C6
-- **Cagey:** cagey D_pow2 (fit B)
-
-| Measure | Research | Cagey |
-| --- | --- | --- |
-| Caykur Rizespor win | 36.4% | 49.8% |
-| Draw | 25.9% | 25.5% |
-| Kasimpasa SK win | 37.7% | 24.7% |
-| Caykur Rizespor expected goals | 1.46 | 1.81 |
-| Kasimpasa SK expected goals | 1.49 | 1.23 |
-| Expected total goals | 2.94 | 3.04 |
-| Most likely score | 1-1 | 1-1 |
-| Most likely score probability | 12.1% | 11.8% |
-| Over 1.5 | 79.5% | 81.8% |
-| Under 1.5 | 20.5% | 18.2% |
-| Over 2.5 | 56.3% | 58.8% |
-| Under 2.5 | 43.7% | 41.2% |
-| Over 3.5 | 34.2% | 36.1% |
-| Under 3.5 | 65.8% | 63.9% |
-| BTTS Yes | 60.0% | 60.6% |
-| BTTS No | 40.0% | 39.4% |
-| Double Chance 1X | 62.3% | 75.3% |
-| Double Chance X2 | 63.6% | 50.2% |
-
-_Cagey Over/Under 1.5 come from the uncorrected Pinnacle grid, as the cagey tier prices Over 1.5; its other figures from the corrected grid._
-
-### 5 most likely scorelines
-
-| Rank | Research | Cagey |
-| --- | --- | --- |
-| 1 | 1-1 (12.05%) | 1-1 (11.82%) |
-| 2 | 1-2 (8.37%) | 2-1 (9.92%) |
-| 3 | 2-1 (8.19%) | 1-0 (7.83%) |
-| 4 | 0-1 (7.50%) | 2-0 (7.37%) |
-| 5 | 1-0 (7.33%) | 1-2 (6.67%) |
-
-### No-loss on the quoted Pinnacle Asian handicap lines
-
-| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
-| --- | --- | --- | --- |
-| Caykur Rizespor -1.50 | 3.47 | 17.3% | 27.6% |
-| Caykur Rizespor -1.25 | 3.09 | 17.3% | 27.6% |
-| Caykur Rizespor -1.00 | 2.72 | 36.4% | 49.8% |
-| Caykur Rizespor -0.75 | 2.23 | 36.4% | 49.8% |
-| Caykur Rizespor -0.50 | 1.95 | 36.4% | 49.8% |
-| Caykur Rizespor -0.25 | 1.70 | 36.4% | 49.8% |
-| Caykur Rizespor +0.00 | 1.46 | 62.3% | 75.3% |
-| Caykur Rizespor +0.25 | 1.36 | 62.3% | 75.3% |
-| Caykur Rizespor +0.50 | 1.29 | 62.3% | 75.3% |
-| Kasimpasa SK -0.50 | 3.80 | 37.7% | 24.7% |
-| Kasimpasa SK -0.25 | 3.34 | 37.7% | 24.7% |
-| Kasimpasa SK +0.00 | 2.89 | 63.6% | 50.2% |
-| Kasimpasa SK +0.25 | 2.26 | 63.6% | 50.2% |
-| Kasimpasa SK +0.50 | 1.95 | 63.6% | 50.2% |
-| Kasimpasa SK +0.75 | 1.72 | 63.6% | 50.2% |
-| Kasimpasa SK +1.00 | 1.51 | 82.7% | 72.4% |
-| Kasimpasa SK +1.25 | 1.40 | 82.7% | 72.4% |
-| Kasimpasa SK +1.50 | 1.34 | 82.7% | 72.4% |
-
-_No-loss: win, half win or refund, from each view's own goal-margin distribution._
-
-### On the lists
-
-- **Value shortlist:** yes: Asian Handicap Away +1.25 @ 1.40; Home win @ 1.95
-- **Cagey tier:** yes: Asian Handicap Home +0.50 @ 1.29 (safe, fair price); Home win @ 1.95 (risky, below fair price)
-- **Master shortlist:** no
-
-### The master's verdict on every Pinnacle offer
-
-| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Over 1.5 | 1.20 | 79.5% | 81.8% | -2.3 | both agree (gap within ±4 points) | safe, fair price | none | market outside the native Pinnacle master markets |
-| Asian Handicap Home +0.50 | 1.29 | 62.3% | 75.3% | -12.9 | research too pessimistic | safe, fair price | none | eligible |
-| **best** Asian Handicap Home +0.00 | 1.46 | 62.3% | 75.3% | -12.9 | research too pessimistic | safe, fair price | none | eligible |
-| Asian Handicap Home +0.25 | 1.36 | 62.3% | 75.3% | -12.9 | research too pessimistic | safe, below fair price | none | eligible |
-| Asian Handicap Away +1.00 | 1.51 | 82.7% | 72.4% | +10.3 | research too optimistic | in between, below fair price | research too optimistic | eligible |
-| Asian Handicap Away +1.25 | 1.40 | 82.7% | 72.4% | +10.3 | research too optimistic | in between, below fair price | research too optimistic | eligible |
-| Asian Handicap Away +1.50 | 1.34 | 82.7% | 72.4% | +10.3 | research too optimistic | in between, below fair price | research too optimistic | eligible |
-| Asian Handicap Away +0.00 | 2.89 | 63.6% | 50.2% | +13.4 | research too optimistic | in between, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
-| Asian Handicap Away +0.25 | 2.26 | 63.6% | 50.2% | +13.4 | research too optimistic | in between, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
-| Asian Handicap Away +0.50 | 1.95 | 63.6% | 50.2% | +13.4 | research too optimistic | in between, fair price | research too optimistic | eligible |
-| Asian Handicap Away +0.75 | 1.72 | 63.6% | 50.2% | +13.4 | research too optimistic | in between, fair price | research too optimistic | eligible |
-| Asian Handicap Home -0.75 | 2.23 | 36.4% | 49.8% | -13.4 | research too pessimistic | risky, below fair price | none | offered odds outside (1.20, 2.00] |
-| Asian Handicap Home -1.00 | 2.72 | 36.4% | 49.8% | -13.4 | research too pessimistic | risky, below fair price | none | offered odds outside (1.20, 2.00] |
-| Asian Handicap Home -0.25 | 1.70 | 36.4% | 49.8% | -13.4 | research too pessimistic | risky, below fair price | none | eligible |
-| Asian Handicap Home -0.50 | 1.95 | 36.4% | 49.8% | -13.4 | research too pessimistic | risky, below fair price | none | eligible |
-| Home win | 1.95 | 36.4% | 49.8% | -13.4 | research too pessimistic | risky, below fair price | none | eligible |
-| Asian Handicap Home -1.25 | 3.09 | 17.3% | 27.6% | -10.3 | research too pessimistic | risky, below fair price | none | offered odds outside (1.20, 2.00] |
-| Asian Handicap Home -1.50 | 3.47 | 17.3% | 27.6% | -10.3 | research too pessimistic | risky, below fair price | none | offered odds outside (1.20, 2.00] |
-| Asian Handicap Away -0.25 | 3.34 | 37.7% | 24.7% | +12.9 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
-| Asian Handicap Away -0.50 | 3.80 | 37.7% | 24.7% | +12.9 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
-| Away win | 3.85 | 37.7% | 24.7% | +12.9 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
-
-_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (safe step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
-
-### Safest Asian handicap (cagey tier)
-
-_No quoted Pinnacle line has cagey EV >= 0 at odds >= 1.20 (18 lines checked)._
-
-
----
-
 ## 2026-11-28 — Gazişehir Gaziantep vs Amed SK
 
-Research leans **Amed SK win** at **62.6%**. Cagey leans **Amed SK win** at **47.2%**. The two views agree on the lean.
+Research leans **Amed SK win** at **62.6%**. Cagey leans **Amed SK win** at **43.4%**. The two views agree on the lean.
 
 **Fixture source:** The Odds API
 
@@ -250,24 +30,24 @@ Research leans **Amed SK win** at **62.6%**. Cagey leans **Amed SK win** at **47
 
 | Measure | Research | Cagey |
 | --- | --- | --- |
-| Gazişehir Gaziantep win | 17.4% | 27.6% |
-| Draw | 20.0% | 25.2% |
-| Amed SK win | 62.6% | 47.2% |
-| Gazişehir Gaziantep expected goals | 1.29 | 1.29 |
-| Amed SK expected goals | 2.44 | 1.74 |
-| Expected total goals | 3.72 | 3.03 |
+| Gazişehir Gaziantep win | 17.4% | 30.0% |
+| Draw | 20.0% | 26.6% |
+| Amed SK win | 62.6% | 43.4% |
+| Gazişehir Gaziantep expected goals | 1.29 | 1.34 |
+| Amed SK expected goals | 2.44 | 1.65 |
+| Expected total goals | 3.72 | 2.99 |
 | Most likely score | 1-2 | 1-1 |
-| Most likely score probability | 9.5% | 11.6% |
-| Over 1.5 | 88.8% | 81.3% |
-| Under 1.5 | 11.2% | 18.7% |
-| Over 2.5 | 71.7% | 58.5% |
-| Under 2.5 | 28.3% | 41.5% |
-| Over 3.5 | 51.3% | 35.8% |
-| Under 3.5 | 48.7% | 64.2% |
-| BTTS Yes | 67.0% | 60.8% |
-| BTTS No | 33.0% | 39.2% |
-| Double Chance 1X | 37.4% | 52.8% |
-| Double Chance X2 | 82.6% | 72.4% |
+| Most likely score probability | 9.5% | 12.4% |
+| Over 1.5 | 88.8% | 81.2% |
+| Under 1.5 | 11.2% | 18.8% |
+| Over 2.5 | 71.7% | 57.5% |
+| Under 2.5 | 28.3% | 42.5% |
+| Over 3.5 | 51.3% | 35.1% |
+| Under 3.5 | 48.7% | 64.9% |
+| BTTS Yes | 67.0% | 61.2% |
+| BTTS No | 33.0% | 38.8% |
+| Double Chance 1X | 37.4% | 56.6% |
+| Double Chance X2 | 82.6% | 70.0% |
 
 _Cagey Over/Under 1.5 come from the uncorrected Pinnacle grid, as the cagey tier prices Over 1.5; its other figures from the corrected grid._
 
@@ -275,70 +55,70 @@ _Cagey Over/Under 1.5 come from the uncorrected Pinnacle grid, as the cagey tier
 
 | Rank | Research | Cagey |
 | --- | --- | --- |
-| 1 | 1-2 (9.46%) | 1-1 (11.63%) |
-| 2 | 1-1 (8.17%) | 1-2 (9.66%) |
-| 3 | 1-3 (7.55%) | 0-1 (7.95%) |
-| 4 | 0-2 (7.12%) | 2-1 (7.10%) |
-| 5 | 2-2 (6.39%) | 0-2 (6.98%) |
+| 1 | 1-2 (9.46%) | 1-1 (12.37%) |
+| 2 | 1-1 (8.17%) | 1-2 (9.30%) |
+| 3 | 1-3 (7.55%) | 2-1 (7.53%) |
+| 4 | 0-2 (7.12%) | 0-1 (7.30%) |
+| 5 | 2-2 (6.39%) | 0-2 (6.62%) |
 
 ### No-loss on the quoted Pinnacle Asian handicap lines
 
 | Line | Pinnacle odds | Research no-loss | Cagey no-loss |
 | --- | --- | --- | --- |
-| Gazişehir Gaziantep -0.50 | 3.40 | 17.4% | 27.6% |
-| Gazişehir Gaziantep -0.25 | 3.00 | 17.4% | 27.6% |
-| Gazişehir Gaziantep +0.00 | 2.60 | 37.4% | 52.8% |
-| Gazişehir Gaziantep +0.25 | 2.11 | 37.4% | 52.8% |
-| Gazişehir Gaziantep +0.50 | 1.85 | 37.4% | 52.8% |
-| Gazişehir Gaziantep +0.75 | 1.64 | 37.4% | 52.8% |
-| Gazişehir Gaziantep +1.00 | 1.44 | 59.3% | 74.8% |
-| Gazişehir Gaziantep +1.25 | 1.35 | 59.3% | 74.8% |
-| Gazişehir Gaziantep +1.50 | 1.30 | 59.3% | 74.8% |
-| Amed SK -1.50 | 3.70 | 40.7% | 25.2% |
-| Amed SK -1.25 | 3.31 | 40.7% | 25.2% |
-| Amed SK -1.00 | 2.93 | 62.6% | 47.2% |
-| Amed SK -0.75 | 2.36 | 62.6% | 47.2% |
-| Amed SK -0.50 | 2.05 | 62.6% | 47.2% |
-| Amed SK -0.25 | 1.79 | 62.6% | 47.2% |
-| Amed SK +0.00 | 1.53 | 82.6% | 72.4% |
-| Amed SK +0.25 | 1.41 | 82.6% | 72.4% |
-| Amed SK +0.50 | 1.34 | 82.6% | 72.4% |
+| Gazişehir Gaziantep -0.75 | 3.98 | 17.4% | 30.0% |
+| Gazişehir Gaziantep -0.50 | 3.16 | 17.4% | 30.0% |
+| Gazişehir Gaziantep -0.25 | 2.77 | 17.4% | 30.0% |
+| Gazişehir Gaziantep +0.00 | 2.37 | 37.4% | 56.6% |
+| Gazişehir Gaziantep +0.25 | 1.95 | 37.4% | 56.6% |
+| Gazişehir Gaziantep +0.50 | 1.72 | 37.4% | 56.6% |
+| Gazişehir Gaziantep +0.75 | 1.54 | 37.4% | 56.6% |
+| Gazişehir Gaziantep +1.00 | 1.36 | 59.3% | 77.4% |
+| Gazişehir Gaziantep +1.25 | 1.30 | 59.3% | 77.4% |
+| Amed SK -1.25 | 3.74 | 40.7% | 22.6% |
+| Amed SK -1.00 | 3.32 | 62.6% | 43.4% |
+| Amed SK -0.75 | 2.61 | 62.6% | 43.4% |
+| Amed SK -0.50 | 2.23 | 62.6% | 43.4% |
+| Amed SK -0.25 | 1.95 | 62.6% | 43.4% |
+| Amed SK +0.00 | 1.65 | 82.6% | 70.0% |
+| Amed SK +0.25 | 1.49 | 82.6% | 70.0% |
+| Amed SK +0.50 | 1.39 | 82.6% | 70.0% |
+| Amed SK +0.75 | 1.28 | 82.6% | 70.0% |
 
 _No-loss: win, half win or refund, from each view's own goal-margin distribution._
 
 ### On the lists
 
-- **Value shortlist:** yes: Asian Handicap Away +0.25 @ 1.41
-- **Cagey tier:** yes: Asian Handicap Home +1.00 @ 1.44 (in between, fair price)
+- **Value shortlist:** yes: Asian Handicap Away +0.25 @ 1.49
+- **Cagey tier:** yes: Asian Handicap Home +1.00 @ 1.36 (safe, below fair price)
 - **Master shortlist:** no
 
 ### The master's verdict on every Pinnacle offer
 
 | Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Over 1.5 | 1.20 | 88.8% | 81.3% | +7.6 | research too optimistic | safe, fair price | research too optimistic | market outside the native Pinnacle master markets |
-| Asian Handicap Home +1.00 | 1.44 | 59.3% | 74.8% | -15.6 | research too pessimistic | in between, fair price | none | eligible |
-| **best** Asian Handicap Home +1.25 | 1.35 | 59.3% | 74.8% | -15.6 | research too pessimistic | in between, below fair price | none | eligible |
-| Asian Handicap Home +1.50 | 1.30 | 59.3% | 74.8% | -15.6 | research too pessimistic | in between, below fair price | none | eligible |
-| Asian Handicap Away +0.00 | 1.53 | 82.6% | 72.4% | +10.2 | research too optimistic | in between, below fair price | research too optimistic | eligible |
-| Asian Handicap Away +0.25 | 1.41 | 82.6% | 72.4% | +10.2 | research too optimistic | in between, below fair price | research too optimistic | eligible |
-| Asian Handicap Away +0.50 | 1.34 | 82.6% | 72.4% | +10.2 | research too optimistic | in between, below fair price | research too optimistic | eligible |
-| Asian Handicap Home +0.50 | 1.85 | 37.4% | 52.8% | -15.4 | research too pessimistic | in between, fair price | none | eligible |
-| Asian Handicap Home +0.75 | 1.64 | 37.4% | 52.8% | -15.4 | research too pessimistic | in between, below fair price | none | eligible |
-| Asian Handicap Home +0.00 | 2.60 | 37.4% | 52.8% | -15.4 | research too pessimistic | in between, below fair price | none | offered odds outside (1.20, 2.00] |
-| Asian Handicap Home +0.25 | 2.11 | 37.4% | 52.8% | -15.4 | research too pessimistic | in between, below fair price | none | offered odds outside (1.20, 2.00] |
-| Asian Handicap Away -0.25 | 1.79 | 62.6% | 47.2% | +15.4 | research too optimistic | risky, below fair price | research too optimistic | eligible |
-| Asian Handicap Away -0.50 | 2.05 | 62.6% | 47.2% | +15.4 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
-| Asian Handicap Away -0.75 | 2.36 | 62.6% | 47.2% | +15.4 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
-| Asian Handicap Away -1.00 | 2.93 | 62.6% | 47.2% | +15.4 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
-| Away win | 2.05 | 62.6% | 47.2% | +15.4 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
-| Asian Handicap Home -0.25 | 3.00 | 17.4% | 27.6% | -10.2 | research too pessimistic | risky, below fair price | none | offered odds outside (1.20, 2.00] |
-| Asian Handicap Home -0.50 | 3.40 | 17.4% | 27.6% | -10.2 | research too pessimistic | risky, below fair price | none | offered odds outside (1.20, 2.00] |
-| Home win | 3.44 | 17.4% | 27.6% | -10.2 | research too pessimistic | risky, below fair price | none | offered odds outside (1.20, 2.00] |
-| Asian Handicap Away -1.25 | 3.31 | 40.7% | 25.2% | +15.6 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
-| Asian Handicap Away -1.50 | 3.70 | 40.7% | 25.2% | +15.6 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
+| Over 1.5 | 1.21 | 88.8% | 81.2% | +7.7 | research too optimistic | safe, fair price | research too optimistic | market outside the native Pinnacle master markets |
+| **best** Asian Handicap Home +1.00 | 1.36 | 59.3% | 77.4% | -18.1 | research too pessimistic | safe, below fair price | none | eligible |
+| Asian Handicap Home +1.25 | 1.30 | 59.3% | 77.4% | -18.1 | research too pessimistic | safe, below fair price | none | eligible |
+| Asian Handicap Away +0.00 | 1.65 | 82.6% | 70.0% | +12.6 | research too optimistic | in between, fair price | research too optimistic | eligible |
+| Asian Handicap Away +0.25 | 1.49 | 82.6% | 70.0% | +12.6 | research too optimistic | in between, fair price | research too optimistic | eligible |
+| Asian Handicap Away +0.50 | 1.39 | 82.6% | 70.0% | +12.6 | research too optimistic | in between, below fair price | research too optimistic | eligible |
+| Asian Handicap Away +0.75 | 1.28 | 82.6% | 70.0% | +12.6 | research too optimistic | in between, fair price | research too optimistic | eligible |
+| Asian Handicap Home +0.00 | 2.37 | 37.4% | 56.6% | -19.2 | research too pessimistic | in between, below fair price | none | offered odds outside (1.20, 2.00] |
+| Asian Handicap Home +0.25 | 1.95 | 37.4% | 56.6% | -19.2 | research too pessimistic | in between, fair price | none | eligible |
+| Asian Handicap Home +0.50 | 1.72 | 37.4% | 56.6% | -19.2 | research too pessimistic | in between, fair price | none | eligible |
+| Asian Handicap Home +0.75 | 1.54 | 37.4% | 56.6% | -19.2 | research too pessimistic | in between, below fair price | none | eligible |
+| Asian Handicap Away -0.25 | 1.95 | 62.6% | 43.4% | +19.2 | research too optimistic | risky, fair price | research too optimistic | eligible |
+| Asian Handicap Away -0.50 | 2.23 | 62.6% | 43.4% | +19.2 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
+| Asian Handicap Away -0.75 | 2.61 | 62.6% | 43.4% | +19.2 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
+| Asian Handicap Away -1.00 | 3.32 | 62.6% | 43.4% | +19.2 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
+| Away win | 2.23 | 62.6% | 43.4% | +19.2 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
+| Asian Handicap Home -0.25 | 2.77 | 17.4% | 30.0% | -12.6 | research too pessimistic | risky, below fair price | none | offered odds outside (1.20, 2.00] |
+| Asian Handicap Home -0.50 | 3.16 | 17.4% | 30.0% | -12.6 | research too pessimistic | risky, below fair price | none | offered odds outside (1.20, 2.00] |
+| Asian Handicap Home -0.75 | 3.98 | 17.4% | 30.0% | -12.6 | research too pessimistic | risky, below fair price | none | offered odds outside (1.20, 2.00] |
+| Home win | 3.19 | 17.4% | 30.0% | -12.6 | research too pessimistic | risky, below fair price | none | offered odds outside (1.20, 2.00] |
+| Asian Handicap Away -1.25 | 3.74 | 40.7% | 22.6% | +18.1 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
 
-_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+_Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (safe step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
 
 ### Safest Asian handicap (cagey tier)
 
@@ -361,22 +141,22 @@ Research leans **Samsunspor win** at **51.8%**. Cagey leans **Samsunspor win** a
 | Measure | Research | Cagey |
 | --- | --- | --- |
 | Samsunspor win | 51.8% | 51.6% |
-| Draw | 26.2% | 26.0% |
-| Genclerbirligi SK win | 22.0% | 22.4% |
-| Samsunspor expected goals | 1.64 | 1.66 |
-| Genclerbirligi SK expected goals | 1.01 | 1.03 |
-| Expected total goals | 2.66 | 2.70 |
+| Draw | 26.2% | 26.2% |
+| Genclerbirligi SK win | 22.0% | 22.2% |
+| Samsunspor expected goals | 1.64 | 1.73 |
+| Genclerbirligi SK expected goals | 1.01 | 1.08 |
+| Expected total goals | 2.66 | 2.80 |
 | Most likely score | 1-1 | 1-1 |
-| Most likely score probability | 12.5% | 12.4% |
-| Over 1.5 | 74.7% | 76.3% |
-| Under 1.5 | 25.3% | 23.7% |
-| Over 2.5 | 49.4% | 51.0% |
-| Under 2.5 | 50.6% | 49.0% |
-| Over 3.5 | 27.8% | 28.3% |
-| Under 3.5 | 72.2% | 71.7% |
-| BTTS Yes | 52.3% | 53.9% |
-| BTTS No | 47.7% | 46.1% |
-| Double Chance 1X | 78.0% | 77.6% |
+| Most likely score probability | 12.5% | 12.5% |
+| Over 1.5 | 74.7% | 78.4% |
+| Under 1.5 | 25.3% | 21.6% |
+| Over 2.5 | 49.4% | 53.5% |
+| Under 2.5 | 50.6% | 46.5% |
+| Over 3.5 | 27.8% | 30.7% |
+| Under 3.5 | 72.2% | 69.3% |
+| BTTS Yes | 52.3% | 56.1% |
+| BTTS No | 47.7% | 43.9% |
+| Double Chance 1X | 78.0% | 77.8% |
 | Double Chance X2 | 48.2% | 48.4% |
 
 _Cagey Over/Under 1.5 come from the uncorrected Pinnacle grid, as the cagey tier prices Over 1.5; its other figures from the corrected grid._
@@ -385,68 +165,68 @@ _Cagey Over/Under 1.5 come from the uncorrected Pinnacle grid, as the cagey tier
 
 | Rank | Research | Cagey |
 | --- | --- | --- |
-| 1 | 1-1 (12.48%) | 1-1 (12.39%) |
-| 2 | 1-0 (11.37%) | 1-0 (11.08%) |
-| 3 | 2-1 (9.75%) | 2-1 (10.37%) |
-| 4 | 2-0 (9.38%) | 2-0 (8.64%) |
-| 5 | 0-0 (7.49%) | 0-0 (7.36%) |
+| 1 | 1-1 (12.48%) | 1-1 (12.47%) |
+| 2 | 1-0 (11.37%) | 2-1 (10.33%) |
+| 3 | 2-1 (9.75%) | 1-0 (9.81%) |
+| 4 | 2-0 (9.38%) | 2-0 (8.40%) |
+| 5 | 0-0 (7.49%) | 0-0 (7.12%) |
 
 ### No-loss on the quoted Pinnacle Asian handicap lines
 
 | Line | Pinnacle odds | Research no-loss | Cagey no-loss |
 | --- | --- | --- | --- |
-| Samsunspor -1.50 | 3.41 | 27.5% | 26.6% |
-| Samsunspor -1.25 | 3.02 | 27.5% | 26.6% |
-| Samsunspor -1.00 | 2.64 | 51.8% | 51.6% |
+| Samsunspor -1.50 | 3.39 | 27.5% | 27.6% |
+| Samsunspor -1.25 | 3.01 | 27.5% | 27.6% |
+| Samsunspor -1.00 | 2.63 | 51.8% | 51.6% |
 | Samsunspor -0.75 | 2.15 | 51.8% | 51.6% |
 | Samsunspor -0.50 | 1.89 | 51.8% | 51.6% |
 | Samsunspor -0.25 | 1.64 | 51.8% | 51.6% |
-| Samsunspor +0.00 | 1.40 | 78.0% | 77.6% |
-| Samsunspor +0.25 | 1.31 | 78.0% | 77.6% |
-| Samsunspor +0.50 | 1.25 | 78.0% | 77.6% |
-| Genclerbirligi SK -0.50 | 4.13 | 22.0% | 22.4% |
-| Genclerbirligi SK -0.25 | 3.63 | 22.0% | 22.4% |
-| Genclerbirligi SK +0.00 | 3.13 | 48.2% | 48.4% |
-| Genclerbirligi SK +0.25 | 2.36 | 48.2% | 48.4% |
-| Genclerbirligi SK +0.50 | 2.01 | 48.2% | 48.4% |
-| Genclerbirligi SK +0.75 | 1.76 | 48.2% | 48.4% |
-| Genclerbirligi SK +1.00 | 1.52 | 72.5% | 73.4% |
-| Genclerbirligi SK +1.25 | 1.41 | 72.5% | 73.4% |
-| Genclerbirligi SK +1.50 | 1.34 | 72.5% | 73.4% |
+| Samsunspor +0.00 | 1.40 | 78.0% | 77.8% |
+| Samsunspor +0.25 | 1.31 | 78.0% | 77.8% |
+| Samsunspor +0.50 | 1.25 | 78.0% | 77.8% |
+| Genclerbirligi SK -0.50 | 4.21 | 22.0% | 22.2% |
+| Genclerbirligi SK -0.25 | 3.69 | 22.0% | 22.2% |
+| Genclerbirligi SK +0.00 | 3.17 | 48.2% | 48.4% |
+| Genclerbirligi SK +0.25 | 2.38 | 48.2% | 48.4% |
+| Genclerbirligi SK +0.50 | 2.02 | 48.2% | 48.4% |
+| Genclerbirligi SK +0.75 | 1.78 | 48.2% | 48.4% |
+| Genclerbirligi SK +1.00 | 1.53 | 72.5% | 72.4% |
+| Genclerbirligi SK +1.25 | 1.42 | 72.5% | 72.4% |
+| Genclerbirligi SK +1.50 | 1.35 | 72.5% | 72.4% |
 
 _No-loss: win, half win or refund, from each view's own goal-margin distribution._
 
 ### On the lists
 
-- **Value shortlist:** yes: Asian Handicap Home +0.25 @ 1.31; Home win @ 1.88
-- **Cagey tier:** yes: Asian Handicap Home +0.50 @ 1.25 (safe, below fair price); Home win @ 1.88 (in between, below fair price)
+- **Value shortlist:** yes: Asian Handicap Home +0.25 @ 1.31; Home win @ 1.89
+- **Cagey tier:** yes: Asian Handicap Home +0.00 @ 1.40 (safe, fair price); Home win @ 1.89 (in between, below fair price)
 - **Master shortlist:** no
 
 ### The master's verdict on every Pinnacle offer
 
 | Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Asian Handicap Home +0.50 | 1.25 | 78.0% | 77.6% | +0.4 | both agree (gap within ±4 points) | safe, below fair price | none | eligible |
-| **best** Asian Handicap Home +0.00 | 1.40 | 78.0% | 77.6% | +0.4 | both agree (gap within ±4 points) | safe, below fair price | none | eligible |
-| Asian Handicap Home +0.25 | 1.31 | 78.0% | 77.6% | +0.4 | both agree (gap within ±4 points) | safe, below fair price | none | eligible |
-| Over 1.5 | 1.28 | 74.7% | 76.3% | -1.6 | both agree (gap within ±4 points) | safe, fair price | none | market outside the native Pinnacle master markets |
-| Asian Handicap Away +1.00 | 1.52 | 72.5% | 73.4% | -0.9 | both agree (gap within ±4 points) | in between, fair price | none | eligible |
-| Asian Handicap Away +1.25 | 1.41 | 72.5% | 73.4% | -0.9 | both agree (gap within ±4 points) | in between, fair price | none | eligible |
-| Asian Handicap Away +1.50 | 1.34 | 72.5% | 73.4% | -0.9 | both agree (gap within ±4 points) | in between, fair price | none | eligible |
-| Asian Handicap Home -0.25 | 1.64 | 51.8% | 51.6% | +0.2 | both agree (gap within ±4 points) | in between, below fair price | none | eligible |
-| Asian Handicap Home -0.50 | 1.89 | 51.8% | 51.6% | +0.2 | both agree (gap within ±4 points) | in between, below fair price | none | eligible |
+| Over 1.5 | 1.25 | 74.7% | 78.4% | -3.7 | both agree (gap within ±4 points) | safe, fair price | none | market outside the native Pinnacle master markets |
+| **best** Asian Handicap Home +0.00 | 1.40 | 78.0% | 77.8% | +0.2 | both agree (gap within ±4 points) | safe, fair price | none | eligible |
+| Asian Handicap Home +0.25 | 1.31 | 78.0% | 77.8% | +0.2 | both agree (gap within ±4 points) | safe, fair price | none | eligible |
+| Asian Handicap Home +0.50 | 1.25 | 78.0% | 77.8% | +0.2 | both agree (gap within ±4 points) | safe, fair price | none | eligible |
+| Asian Handicap Away +1.00 | 1.53 | 72.5% | 72.4% | +0.1 | both agree (gap within ±4 points) | in between, fair price | none | eligible |
+| Asian Handicap Away +1.25 | 1.42 | 72.5% | 72.4% | +0.1 | both agree (gap within ±4 points) | in between, fair price | none | eligible |
+| Asian Handicap Away +1.50 | 1.35 | 72.5% | 72.4% | +0.1 | both agree (gap within ±4 points) | in between, fair price | none | eligible |
+| Asian Handicap Home -0.25 | 1.64 | 51.8% | 51.6% | +0.2 | both agree (gap within ±4 points) | in between, fair price | none | eligible |
+| Asian Handicap Home -0.50 | 1.89 | 51.8% | 51.6% | +0.2 | both agree (gap within ±4 points) | in between, fair price | none | eligible |
+| Home win | 1.89 | 51.8% | 51.6% | +0.2 | both agree (gap within ±4 points) | in between, below fair price | none | eligible |
 | Asian Handicap Home -0.75 | 2.15 | 51.8% | 51.6% | +0.2 | both agree (gap within ±4 points) | in between, below fair price | none | offered odds outside (1.20, 2.00] |
-| Asian Handicap Home -1.00 | 2.64 | 51.8% | 51.6% | +0.2 | both agree (gap within ±4 points) | in between, below fair price | none | offered odds outside (1.20, 2.00] |
-| Home win | 1.88 | 51.8% | 51.6% | +0.2 | both agree (gap within ±4 points) | in between, below fair price | none | eligible |
-| Asian Handicap Away +0.00 | 3.13 | 48.2% | 48.4% | -0.2 | both agree (gap within ±4 points) | risky, below fair price | none | offered odds outside (1.20, 2.00] |
-| Asian Handicap Away +0.25 | 2.36 | 48.2% | 48.4% | -0.2 | both agree (gap within ±4 points) | risky, below fair price | none | offered odds outside (1.20, 2.00] |
-| Asian Handicap Away +0.50 | 2.01 | 48.2% | 48.4% | -0.2 | both agree (gap within ±4 points) | risky, below fair price | none | offered odds outside (1.20, 2.00] |
-| Asian Handicap Away +0.75 | 1.76 | 48.2% | 48.4% | -0.2 | both agree (gap within ±4 points) | risky, below fair price | none | eligible |
-| Asian Handicap Home -1.25 | 3.02 | 27.5% | 26.6% | +0.9 | both agree (gap within ±4 points) | risky, below fair price | none | offered odds outside (1.20, 2.00] |
-| Asian Handicap Home -1.50 | 3.41 | 27.5% | 26.6% | +0.9 | both agree (gap within ±4 points) | risky, below fair price | none | offered odds outside (1.20, 2.00] |
-| Asian Handicap Away -0.25 | 3.63 | 22.0% | 22.4% | -0.4 | both agree (gap within ±4 points) | risky, below fair price | none | offered odds outside (1.20, 2.00] |
-| Asian Handicap Away -0.50 | 4.13 | 22.0% | 22.4% | -0.4 | both agree (gap within ±4 points) | risky, below fair price | none | offered odds outside (1.20, 2.00] |
-| Away win | 4.19 | 22.0% | 22.4% | -0.4 | both agree (gap within ±4 points) | risky, below fair price | none | offered odds outside (1.20, 2.00] |
+| Asian Handicap Home -1.00 | 2.63 | 51.8% | 51.6% | +0.2 | both agree (gap within ±4 points) | in between, below fair price | none | offered odds outside (1.20, 2.00] |
+| Asian Handicap Away +0.00 | 3.17 | 48.2% | 48.4% | -0.2 | both agree (gap within ±4 points) | risky, below fair price | none | offered odds outside (1.20, 2.00] |
+| Asian Handicap Away +0.25 | 2.38 | 48.2% | 48.4% | -0.2 | both agree (gap within ±4 points) | risky, below fair price | none | offered odds outside (1.20, 2.00] |
+| Asian Handicap Away +0.50 | 2.02 | 48.2% | 48.4% | -0.2 | both agree (gap within ±4 points) | risky, fair price | none | offered odds outside (1.20, 2.00] |
+| Asian Handicap Away +0.75 | 1.78 | 48.2% | 48.4% | -0.2 | both agree (gap within ±4 points) | risky, fair price | none | eligible |
+| Asian Handicap Home -1.25 | 3.01 | 27.5% | 27.6% | -0.1 | both agree (gap within ±4 points) | risky, below fair price | none | offered odds outside (1.20, 2.00] |
+| Asian Handicap Home -1.50 | 3.39 | 27.5% | 27.6% | -0.1 | both agree (gap within ±4 points) | risky, below fair price | none | offered odds outside (1.20, 2.00] |
+| Asian Handicap Away -0.25 | 3.69 | 22.0% | 22.2% | -0.2 | both agree (gap within ±4 points) | risky, below fair price | none | offered odds outside (1.20, 2.00] |
+| Asian Handicap Away -0.50 | 4.21 | 22.0% | 22.2% | -0.2 | both agree (gap within ±4 points) | risky, below fair price | none | offered odds outside (1.20, 2.00] |
+| Away win | 4.27 | 22.0% | 22.2% | -0.2 | both agree (gap within ±4 points) | risky, below fair price | none | offered odds outside (1.20, 2.00] |
 
 _Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (safe step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
 
@@ -503,8 +283,8 @@ Research leans **Basaksehir win** at **52.1%**. Cagey: no cagey grid: needs Pinn
 
 | Line | Pinnacle odds | Research no-loss | Cagey no-loss |
 | --- | --- | --- | --- |
-| Eyupspor +1.25 | 1.93 | 72.5% | — |
-| Basaksehir -1.25 | 1.93 | 27.5% | — |
+| Eyupspor +1.25 | 1.99 | 72.5% | — |
+| Basaksehir -1.25 | 1.88 | 27.5% | — |
 
 _No-loss: win, half win or refund, from each view's own goal-margin distribution._
 
@@ -518,10 +298,10 @@ _No-loss: win, half win or refund, from each view's own goal-margin distribution
 
 | Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **best** Away win | 1.43 | 52.1% | — | — | one view missing (no cagey view) | in between, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
-| Home win | 6.48 | 21.3% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.20, 2.00] |
-| Asian Handicap Away -1.25 | 1.93 | 27.5% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
-| Asian Handicap Home +1.25 | 1.93 | 72.5% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+| **best** Away win | 1.40 | 52.1% | — | — | one view missing (no cagey view) | in between, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Home win | 6.91 | 21.3% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.20, 2.00] |
+| Asian Handicap Away -1.25 | 1.88 | 27.5% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+| Asian Handicap Home +1.25 | 1.99 | 72.5% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
 
 _Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (fill step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
 
@@ -557,8 +337,8 @@ Research leans **Fenerbahce win** at **78.0%**. Cagey: no cagey grid: needs Pinn
 | Most likely score probability | 12.8% | — |
 | Over 1.5 | 83.6% | — |
 | Under 1.5 | 16.4% | — |
-| Over 2.5 | 62.4% | — |
-| Under 2.5 | 37.6% | — |
+| Over 2.5 | 62.5% | — |
+| Under 2.5 | 37.5% | — |
 | Over 3.5 | 40.6% | — |
 | Under 3.5 | 59.4% | — |
 | BTTS Yes | 46.8% | — |
@@ -580,8 +360,8 @@ Research leans **Fenerbahce win** at **78.0%**. Cagey: no cagey grid: needs Pinn
 
 | Line | Pinnacle odds | Research no-loss | Cagey no-loss |
 | --- | --- | --- | --- |
-| Fenerbahce -1.75 | 1.98 | 55.7% | — |
-| Erzurum BB +1.75 | 1.86 | 44.3% | — |
+| Fenerbahce -1.75 | 1.89 | 55.7% | — |
+| Erzurum BB +1.75 | 1.97 | 44.3% | — |
 
 _No-loss: win, half win or refund, from each view's own goal-margin distribution._
 
@@ -595,10 +375,10 @@ _No-loss: win, half win or refund, from each view's own goal-margin distribution
 
 | Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **best** Home win | 1.24 | 78.0% | — | — | one view missing (no cagey view) | safe, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
-| Away win | 11.05 | 6.0% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.20, 2.00] |
-| Asian Handicap Away +1.75 | 1.86 | 44.3% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
-| Asian Handicap Home -1.75 | 1.98 | 55.7% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+| **best** Home win | 1.21 | 78.0% | — | — | one view missing (no cagey view) | safe, below fair price (Pinnacle stand-in: no cagey view) | one view missing | eligible |
+| Away win | 11.95 | 6.0% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.20, 2.00] |
+| Asian Handicap Away +1.75 | 1.97 | 44.3% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+| Asian Handicap Home -1.75 | 1.89 | 55.7% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
 
 _Best offer: the master's rule over every Pinnacle offer of this match, nominated or not (safe step); not on the master. Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
 
@@ -632,14 +412,14 @@ Research leans **Çorum FK win** at **39.1%**. Cagey leans **Çorum FK win** at 
 | Expected total goals | 2.79 | 2.62 |
 | Most likely score | 1-1 | 1-1 |
 | Most likely score probability | 12.6% | 13.1% |
-| Over 1.5 | 77.1% | 75.2% |
-| Under 1.5 | 22.9% | 24.8% |
+| Over 1.5 | 77.1% | 75.1% |
+| Under 1.5 | 22.9% | 24.9% |
 | Over 2.5 | 52.8% | 49.0% |
 | Under 2.5 | 47.2% | 51.0% |
 | Over 3.5 | 30.8% | 26.5% |
 | Under 3.5 | 69.2% | 73.5% |
-| BTTS Yes | 57.2% | 53.2% |
-| BTTS No | 42.8% | 46.8% |
+| BTTS Yes | 57.2% | 53.1% |
+| BTTS No | 42.8% | 46.9% |
 | Double Chance 1X | 65.8% | 77.0% |
 | Double Chance X2 | 60.9% | 50.4% |
 
@@ -659,8 +439,8 @@ _Cagey Over/Under 1.5 come from the uncorrected Pinnacle grid, as the cagey tier
 
 | Line | Pinnacle odds | Research no-loss | Cagey no-loss |
 | --- | --- | --- | --- |
-| Çorum FK -0.50 | 1.94 | 39.1% | 49.6% |
-| Kocaelispor +0.50 | 1.91 | 60.9% | 50.4% |
+| Çorum FK -0.50 | 1.95 | 39.1% | 49.6% |
+| Kocaelispor +0.50 | 1.92 | 60.9% | 50.4% |
 
 _No-loss: win, half win or refund, from each view's own goal-margin distribution._
 
@@ -674,8 +454,8 @@ _No-loss: win, half win or refund, from each view's own goal-margin distribution
 
 | Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **best** Asian Handicap Away +0.50 | 1.91 | 60.9% | 50.4% | +10.5 | research too optimistic | in between, below fair price | research too optimistic | eligible |
-| Asian Handicap Home -0.50 | 1.94 | 39.1% | 49.6% | -10.5 | research too pessimistic | risky, below fair price | none | eligible |
+| **best** Asian Handicap Away +0.50 | 1.92 | 60.9% | 50.4% | +10.5 | research too optimistic | in between, below fair price | research too optimistic | eligible |
+| Asian Handicap Home -0.50 | 1.95 | 39.1% | 49.6% | -10.5 | research too pessimistic | risky, below fair price | none | eligible |
 | Home win | 1.93 | 39.1% | 49.6% | -10.5 | research too pessimistic | risky, below fair price | none | eligible |
 | Away win | 4.03 | 34.2% | 23.0% | +11.2 | research too optimistic | risky, below fair price | research too optimistic | offered odds outside (1.20, 2.00] |
 
@@ -684,6 +464,83 @@ _Best offer: the master's rule over every Pinnacle offer of this match, nominate
 ### Safest Asian handicap (cagey tier)
 
 _No quoted Pinnacle line has cagey EV >= 0 at odds >= 1.20 (2 lines checked)._
+
+
+---
+
+## 2026-11-30 — Besiktas vs Galatasaray
+
+Research leans **Besiktas win** at **38.8%**. Cagey: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote). Only one view is available.
+
+**Fixture source:** The Odds API
+
+### The two views
+
+- **Research:** research v5, C6
+- **Cagey:** unavailable: no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)
+
+| Measure | Research | Cagey |
+| --- | --- | --- |
+| Besiktas win | 38.8% | — |
+| Draw | 25.2% | — |
+| Galatasaray win | 36.1% | — |
+| Besiktas expected goals | 1.58 | — |
+| Galatasaray expected goals | 1.52 | — |
+| Expected total goals | 3.11 | — |
+| Most likely score | 1-1 | — |
+| Most likely score probability | 11.4% | — |
+| Over 1.5 | 81.9% | — |
+| Under 1.5 | 18.1% | — |
+| Over 2.5 | 59.9% | — |
+| Under 2.5 | 40.1% | — |
+| Over 3.5 | 37.9% | — |
+| Under 3.5 | 62.1% | — |
+| BTTS Yes | 62.8% | — |
+| BTTS No | 37.2% | — |
+| Double Chance 1X | 63.9% | — |
+| Double Chance X2 | 61.2% | — |
+
+### 5 most likely scorelines
+
+| Rank | Research | Cagey |
+| --- | --- | --- |
+| 1 | 1-1 (11.40%) | — |
+| 2 | 2-1 (8.45%) | — |
+| 3 | 1-2 (8.08%) | — |
+| 4 | 2-2 (6.81%) | — |
+| 5 | 1-0 (6.78%) | — |
+
+### No-loss on the quoted Pinnacle Asian handicap lines
+
+| Line | Pinnacle odds | Research no-loss | Cagey no-loss |
+| --- | --- | --- | --- |
+| Besiktas -0.25 | 1.90 | 38.8% | — |
+| Galatasaray +0.25 | 1.95 | 61.2% | — |
+
+_No-loss: win, half win or refund, from each view's own goal-margin distribution._
+
+### On the lists
+
+- **Value shortlist:** no
+- **Cagey tier:** no
+- **Master shortlist:** no
+
+### The master's verdict on every Pinnacle offer
+
+| Offer | Pinnacle odds | Research no-loss | Cagey no-loss | Gap (points) | Gap label | Cagey tier | Master labels | Master check |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Home win | 2.18 | 38.8% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.20, 2.00] |
+| Away win | 3.16 | 36.1% | — | — | one view missing (no cagey view) | risky, below fair price (Pinnacle stand-in: no cagey view) | one view missing | offered odds outside (1.20, 2.00] |
+| Asian Handicap Away +0.25 | 1.95 | 61.2% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+| Asian Handicap Home -0.25 | 1.90 | 38.8% | — | — | one view missing (no cagey view) | no market view | one view missing | eligible |
+
+_Best offer: none (no offer passes the master checks with a market view). Gap = research minus cagey no-loss, in points; the cagey tier decides safety (safe at 75% or more, risky below 50%) and fair price; the research view only labels. No probability is blended._
+
+_Views the master could not use: cagey: cagey settlement probabilities unavailable._
+
+### Safest Asian handicap (cagey tier)
+
+_no cagey grid: needs Pinnacle 1X2 and O/U 2.5 (no Pinnacle O/U 2.5 quote)._
 
 
 ---
@@ -794,433 +651,81 @@ The production forecasting model blends 70% of Pinnacle's prices into its score 
 | Training seasons requested | 6 |
 | Training seasons loaded | ['2122', '2223', '2324', '2425', '2526', '2627'] |
 | Training sha256 | 2f01bb1cc9ab665e9a28461a7fbf40ec350ce82e73e9bace8aa1175d298cc576 |
-| Training as of utc | 2026-11-27T16:29:41.698058+00:00 |
+| Training as of utc | 2026-11-28T06:36:21.785296+00:00 |
 | Training data provenance | {'bbs_confirmed_rows': 0, 'bbs_added_results': 0, 'bbs_result_conflicts': 0, 'note': 'Confirmed rows retain primary results; BBS-only verified additions extend score history.'} |
 | Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
 | Totals anchor enabled | 1 |
-| Shot features model | {'version': 'football-data-lagged-shot-strength-v1', 'status': 'BASELINE_RETAINED_AUDIT_NOT_IMPROVED', 'cutoff_date': '2026-11-27', 'selected_weight': 0.0, 'feature_source': 'football-data.co.uk HST/AST (+HS/AS candidate)', 'lag_rule': 'matches dated strictly before the origin date', 'gates': {'min_form': 3, 'min_train': 60, 'min_tune': 20, 'min_audit': 40, 'min_audit_matchdays': 8, 'min_audit_gain': 0.01, 'bootstrap_lower95': '>0', 'market_brier_safety': ['1x2', 'over_1_5', 'under_3_5', 'btts_yes'], 'max_goal_rate_ratio': 1.25}, 'shot_matches': 1827, 'tune_start_date': '2025-11-28', 'audit_start_date': '2026-05-29', 'training_shot_matches': 1530, 'tuning_matches': 189, 'audit_matches': 94, 'audit_matchdays': 39, 'selected_shrinkage': 5.0, 'selected_component': 'shots_on_target_and_total_shots', 'proposed_weight': 0.3, 'audit_baseline_poisson_score': 0.825412239625013, 'audit_candidate_poisson_score': 0.8177429659396743, 'audit_gain': 0.007669273685338651, 'audit_gain_lower95': -0.00456549805302061, 'audit_baseline_briers': [0.5677091194673735, 0.17658989223544963, 0.21544877267110418, 0.2529740021610395], 'audit_candidate_briers': [0.5676766480904392, 0.17452978828392274, 0.21074625287215845, 0.25288310428786087], 'audit_brier_order': ['1x2', 'over_1_5', 'under_3_5', 'btts_yes'], 'failed_gates': ['audit_gain_below_minimum', 'bootstrap_lower95_not_positive']} |
-| Optimizer objective | 1672.092 |
+| Shot features model | {'version': 'football-data-lagged-shot-strength-v1', 'status': 'BASELINE_RETAINED_AUDIT_NOT_IMPROVED', 'cutoff_date': '2026-11-28', 'selected_weight': 0.0, 'feature_source': 'football-data.co.uk HST/AST (+HS/AS candidate)', 'lag_rule': 'matches dated strictly before the origin date', 'gates': {'min_form': 3, 'min_train': 60, 'min_tune': 20, 'min_audit': 40, 'min_audit_matchdays': 8, 'min_audit_gain': 0.01, 'bootstrap_lower95': '>0', 'market_brier_safety': ['1x2', 'over_1_5', 'under_3_5', 'btts_yes'], 'max_goal_rate_ratio': 1.25}, 'shot_matches': 1827, 'tune_start_date': '2025-11-29', 'audit_start_date': '2026-05-30', 'training_shot_matches': 1531, 'tuning_matches': 188, 'audit_matches': 94, 'audit_matchdays': 39, 'selected_shrinkage': 5.0, 'selected_component': 'shots_on_target_and_total_shots', 'proposed_weight': 0.3, 'audit_baseline_poisson_score': 0.8258300220756576, 'audit_candidate_poisson_score': 0.8178395732435885, 'audit_gain': 0.00799044883206912, 'audit_gain_lower95': -0.0043316020326658565, 'audit_baseline_briers': [0.5670281954607237, 0.17673453082949744, 0.21682236735849583, 0.25267499250972575], 'audit_candidate_briers': [0.5669761037060433, 0.17467048679773556, 0.2118853550757633, 0.25261574402087367], 'audit_brier_order': ['1x2', 'over_1_5', 'under_3_5', 'btts_yes'], 'failed_gates': ['audit_gain_below_minimum', 'bootstrap_lower95_not_positive']} |
+| Optimizer objective | 1670.673 |
 | Base scoring parameter | 0.145 |
 | Home-advantage parameter | 0.231 |
 | Dixon-Coles low-score adjustment | -0.084 |
 | Xi per day | 0.0014 |
 | Elo ratings | {'version': 'venue-elo-v1', 'teams': 32, 'matches': 1858, 'k_factor': 20.0, 'home_advantage': 60.0, 'venue_weight': 0.5, 'season_regression': 0.2, 'last_match_date': '2026-11-23'} |
-| Training data health | {'training_end': '2026-11-23', 'days_since_latest_result': 4, 'status': 'RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED'} |
+| Training data health | {'training_end': '2026-11-23', 'days_since_latest_result': 5, 'status': 'RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED'} |
 | Training source | Football-Data.co.uk |
 | Fixture provider mode | auto |
 | Fixture sources | ['The Odds API'] |
 | The odds api enabled | 1.00 |
 | Odds regions | — |
-| Live odds matched | 8.00 |
+| Live odds matched | 7.00 |
 | Excluded started fixtures | [] |
 | Excluded unresolved team fixtures | [] |
-| Additional event odds calls used before this league | 20.00 |
-| Over 1 5 in window quote fixtures | 4 |
+| Additional event odds calls used before this league | 27.00 |
+| Over 1 5 in window quote fixtures | 2 |
 | Additional odds coverage mode | — |
 | Additional odds coverage | — |
-| Additional odds in window linked fixtures | 4.00 |
+| Additional odds in window linked fixtures | 2.00 |
 | Additional odds unrequested linked fixtures | 0.00 |
 | Additional event odds hard cap applies | 0.00 |
-| Additional event odds calls this league | 4.00 |
-| Totals anchor fixtures | {'ANCHORED_ALTERNATE': 3, 'ANCHORED_MAIN': 2, 'NOT_ANCHORED_PINNACLE_NO_2_5_LINE': 3} |
+| Additional event odds calls this league | 2.00 |
+| Totals anchor fixtures | {'ANCHORED_ALTERNATE': 2, 'ANCHORED_MAIN': 1, 'NOT_ANCHORED_PINNACLE_NO_2_5_LINE': 4} |
 | Shot features applied fixtures | 0 |
-| Goal rate features used | {'none': 8} |
-| Legacy comparison status | {'None': 8} |
+| Goal rate features used | {'none': 7} |
+| Legacy comparison status | {'None': 7} |
 | Goal market validation | SKIPPED: not required by 48h-ah-price-edge-cagey-v28 |
 
 </details>
 
-### 2026-11-27 — Alanyaspor vs Torku Konyaspor
-
-The model's most likely 1X2 outcome is **Alanyaspor win** at **37.0%**. Expected goals are 1.34 for Alanyaspor and 1.04 for Torku Konyaspor (2.38 combined). The most likely exact score is 1-1 at 14.6%. Goal-market probabilities: at least one goal: 89.5%; Over 2.5 goals: 42.7%; Under 3.5 goals: 77.9%; Double Chance 1X: 67.7%; Double Chance X2: 63.0%; Double Chance 12 (either team wins): 69.2%; Under 4.5 goals: 90.5%; BTTS Yes (both teams score): 49.9%; BTTS No (at least one team does not score): 50.1%.
-
-| Outcome | Benchmark probability | Benchmark fair odds |
-| --- | --- | --- |
-| Alanyaspor win | 37.0% | 2.71 |
-| Draw | 30.8% | 3.25 |
-| Torku Konyaspor win | 32.3% | 3.10 |
-
-| Measure | Benchmark estimate |
-| --- | --- |
-| Alanyaspor expected goals | 1.34 |
-| Torku Konyaspor expected goals | 1.04 |
-| Expected total goals | 2.38 |
-| Over 0.5 | 89.5% |
-| Under 0.5 | 10.5% |
-| Over 1.5 | 70.2% |
-| Under 1.5 | 29.8% |
-| Over 2.5 | 42.7% |
-| Under 2.5 | 57.3% |
-| Over 3.5 | 22.1% |
-| Under 3.5 | 77.9% |
-| Over 4.5 | 9.5% |
-| Under 4.5 | 90.5% |
-
-| Rank | Score | Benchmark probability |
-| --- | --- | --- |
-| 1 | 1-1 | 14.58% |
-| 2 | 0-0 | 10.54% |
-| 3 | 0-1 | 9.66% |
-| 4 | 1-0 | 9.63% |
-| 5 | 1-2 | 7.79% |
-
-| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
-| --- | --- | --- | --- | --- |
-| Alanyaspor win | 37.0% | 34.6% | 2.81 | +3.9% |
-| Draw | 30.8% | 31.3% | 3.10 | -4.6% |
-| Torku Konyaspor win | 32.3% | 34.1% | 2.85 | -8.0% |
-
-<details>
-<summary>Additional technical details (forecast row)</summary>
-
-| Field | Value |
-| --- | --- |
-| Kickoff utc | 2026-11-27T17:00:00+00:00 |
-| Fixture id | 1,640,743,621 |
-| Odds source | — |
-| Odds schedule provider | — |
-| Odds provider | — |
-| Odds match method | — |
-| Odds event id | 1640743621.00 |
-| Odds last update utc | — |
-| Odds h2h last update utc | — |
-| Market best home last update utc | 2026-11-27T16:28:52Z |
-| Market best draw last update utc | 2026-11-27T16:28:52Z |
-| Market best away last update utc | 2026-11-27T16:28:52Z |
-| Odds bookmakers 1x2 | 1.00 |
-| Odds bookmakers ou25 | 0.00 |
-| Best home bookmaker | Pinnacle |
-| Best draw bookmaker | Pinnacle |
-| Best away bookmaker | Pinnacle |
-| Matched home-team name | Alanyaspor |
-| Matched away-team name | Konyaspor |
-| Home-name matching confidence | 100/100 |
-| Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.3397 |
-| Dc lambda away | 1.0406 |
-| Shot features applied | 0 |
-| Shot features status | BASELINE_RETAINED_AUDIT_NOT_IMPROVED |
-| Shot features version | football-data-lagged-shot-strength-v1 |
-| Shot features weight | 0 |
-| Goal rate features used | none |
-| Score engine version | dc-positive-tail-bounded-v1 |
-| Score grid max goals | 14 |
-| Score grid omitted mass | 0 |
-| P btts yes | 49.9% |
-| P btts no | 50.1% |
-| Fair Over 0.5 odds | 1.12 |
-| Fair Under 0.5 odds | 9.49 |
-| Fair Over 1.5 odds | 1.43 |
-| Fair Under 1.5 odds | 3.35 |
-| Fair Over 2.5 odds | 2.34 |
-| Fair Under 2.5 odds | 1.74 |
-| Fair Over 3.5 odds | 4.53 |
-| Fair Under 3.5 odds | 1.28 |
-| Fair Over 4.5 odds | 10.52 |
-| Fair Under 4.5 odds | 1.11 |
-| Score matrix json | [[0.1054108286967172,0.09655809360656305,0.057391426340576146,0.020157983028687546,0.005310169641544092,0.0011190763116268954,0.000196530411735318,2.9583737181070373e-05,3.896586846977003e-06,4.5620827906157123e-07,4.8071145813471924e-08,4.604824685804219e-09,4.0434601379167993e-10,3.2774126475165525e-11,2.4667458217262075e-12],[0.09630282319411161,0.14583899900129813,0.07785570036048746,0.027345789896211413,0.0072036365505542075,0.001518109507882086,0.0002666079904860322,4.013252021032981e-05,5.286007289426299e-06,6.188801593083871e-07,6.521205279390167e-08,6.2467841245666805e-09,5.485251735147332e-10,4.446051846289747e-11,3.3463225399229902e-12],[0.0716421397715662,0.07549007559512737,0.048090034186765176,0.018548289875617224,0.0048861319934584285,0.0010297137263907926,0.0001808366958665122,2.722136098922469e-05,3.5854292694060525e-06,4.1977827799775856e-07,4.4232478315534816e-08,4.2371115690067974e-09,3.7205741582305067e-10,3.01569853202268e-11,2.269766597468173e-12],[0.03239594786707545,0.03413595073038211,0.017984705016940564,0.007637958343400083,0.002209466074526046,0.00046562752459004136,8.177276935649008e-05,1.2309260922267479e-05,1.6212996996338268e-06,1.898200591594195e-07,2.000153912363086e-08,1.9159847253893056e-09,1.6824110342033783e-10,1.3636724522429342e-11,1.0263685673887666e-12],[0.010986872826027755,0.01157698336252184,0.006099394518274587,0.002142332035015505,0.0006823732788124789,0.00015791451504859838,2.773269734962571e-05,4.17460495029358e-06,5.498531386037178e-07,6.437622564312017e-08,6.783390551739063e-09,6.497936285376657e-10,5.705786461239614e-11,4.6248055067336026e-12,3.4808615475002836e-13],[0.0029809005741236708,0.003141006262510675,0.001654855654491541,0.0005812462649074008,0.00015311632447450937,3.901635662956612e-05,7.524289646427592e-06,1.1326318680589244e-06,1.491832628356833e-07,1.7466219097838783e-08,1.840433862334485e-09,1.7629859114971958e-10,1.5480639857634105e-11,1.2547779162031857e-12,9.444090552143062e-14],[0.0006739685602925881,0.0007101677550035909,0.00037415561345168174,0.0001314172340183637,3.461893015123975e-05,7.29566610509515e-06,1.5492051091631438e-06,2.5608310323519964e-07,3.372968214569669e-08,3.949035617394238e-09,4.161140332149296e-10,3.986033908350629e-11,3.5001048501340767e-12,2.83699789590939e-13,2.1352674986725746e-14],[0.000130612576099394,0.00013762784409924704,7.250995285856907e-05,2.5468166455040155e-05,6.709018662377112e-06,1.4138726944975408e-06,2.483020861972886e-07,4.5193663707208344e-08,6.5366857382050935e-09,7.653082732408202e-10,8.064133704651752e-11,7.72478403092265e-12,6.783071763696671e-13,5.497995387387521e-14,4.1380682289075816e-15],[2.2148198425494323e-05,2.3337789445814818e-05,1.229563700292317e-05,4.31868064335931e-06,1.1376597951915155e-06,2.3975281646914197e-07,4.21050103963707e-08,6.338070279169005e-09,1.0093976393601318e-09,1.2977463578630665e-10,1.3674489758507436e-11,1.3099048699626604e-12,1.1502171065242364e-13,9.323045025131874e-15,7.016993230600881e-16],[3.338407087550113e-06,3.5177146328966716e-06,1.853326438923937e-06,6.509565153642702e-07,1.7147993035480485e-07,3.6138040954128804e-08,6.346505590577303e-09,9.553399484182327e-10,1.2583146796545085e-10,1.781320126747883e-11,2.061161483720714e-12,1.9744250154748887e-13,1.733726990734323e-14,1.4052664235490486e-15,1.057674285027375e-16],[4.5287953003159243e-07,4.772039202985865e-07,2.5141739297915926e-07,8.83070497449477e-08,2.3262516593182995e-08,4.902391641990732e-09,8.609502657486729e-10,1.295989061590322e-10,1.7069966178749713e-11,1.99853363978996e-12,2.5462830790198043e-13,2.6784530754967877e-14,2.3519284622147233e-15,1.9063474908121628e-16,1.434813132634496e-17],[5.5851315079554234e-08,5.88511176646372e-08,3.100602058737248e-08,1.089045658280666e-08,2.86884713844008e-09,6.045868759426976e-10,1.0617659084039569e-10,1.5982769946234384e-11,2.105151582762369e-12,2.4646892741036633e-13,2.597068990594689e-14,3.0080567318043067e-15,2.9005130255845865e-16,2.3510008136830637e-17,1.769481617892097e-18],[6.313868825645255e-09,6.652989936725038e-09,3.5051627077191576e-09,1.2311422607915956e-09,3.2431688469891236e-10,6.834722195836468e-11,1.2003031011276527e-11,1.8068171316512282e-12,2.3798277502917437e-13,2.7862772345645467e-14,2.935929604237471e-15,2.812381708111334e-16,2.985989249206626e-17,2.657754920441275e-18,2.0003602079642224e-19],[6.588637292371152e-10,6.94251635777322e-10,3.6577012240267656e-10,1.2847194067001648e-10,3.3843058512615126e-11,7.132157285178149e-12,1.2525381810462603e-12,1.8854466354669265e-13,2.4833936684437697e-14,2.9075311194259155e-15,3.06369609702473e-16,2.9347716137500124e-17,2.5769997434800187e-18,2.525609742763193e-19,2.0874123660656627e-20],[6.384265828123618e-11,6.727167998068638e-11,3.5442438091224885e-11,1.2448689832144845e-11,3.279328826181582e-12,6.910926496027969e-13,1.2136859797902034e-13,1.826962388641391e-14,2.4063618365487927e-15,2.8173430629502045e-16,2.9686639940914894e-17,2.843738590483021e-18,2.497064365712245e-19,2.0239868960510096e-20,1.841937466752631e-21]] |
-| Score matrix version | published-score-matrix-v1 |
-| Goal margin distribution | {"-1": 0.1953372514735406, "-10": 5.470397216453884e-08, "-11": 5.184533213206568e-09, "-12": 4.510762988520456e-10, "-13": 3.612044901508852e-11, "-14": 2.4667458217262075e-12, "-2": 0.09011787559291845, "-3": 0.028477433894206556, "-4": 0.007021992849527918, "-5": 0.0014145932200093666, "-6": 0.00024044514451914268, "-7": 3.531018984972431e-05, "-8": 4.5616738033215174e-06, "-9": 5.258304037743124e-07, "0": 0.30770080528986393, "1": 0.19208060259978738, "10": 5.15367561673445e-07, "11": 6.288252382851408e-08, "12": 7.043562899513802e-09, "13": 7.261354092178016e-10, "14": 6.384265828123618e-11, "2": 0.11249480716564579, "3": 0.04576615936782385, "4": 0.014528677543455253, "5": 0.003768073452959711, "6": 0.0008245668772075738, "7": 0.00015589493749904593, "8": 2.592855247836354e-05, "9": 3.847882704848025e-06} |
-| Raw goal margin distribution | {"-1": 0.17012648144323372, "-10": 4.306694543317127e-08, "-11": 4.031982492920997e-09, "-12": 3.465216624685183e-10, "-13": 2.7414147237764833e-11, "-14": 1.8531532862356935e-12, "-2": 0.07782999453181576, "-3": 0.0243455828663096, "-4": 0.005937561305509578, "-5": 0.0011825200318984308, "-6": 0.00019865538208689495, "-7": 2.882785003926862e-05, "-8": 3.6796771360518674e-06, "-9": 4.1904961634902085e-07, "0": 0.29566623874138764, "1": 0.2221295233772236, "10": 5.387222695550329e-07, "11": 6.49324189589569e-08, "12": 7.184481314560013e-09, "13": 7.317485274529738e-10, "14": 6.368256478974378e-11, "2": 0.1290004340718392, "3": 0.05195010553886584, "4": 0.0163115957651885, "5": 0.004182336149623602, "6": 0.0009045505683858471, "7": 0.00016899227604938943, "8": 2.777067277549088e-05, "9": 4.07159169750357e-06} |
-| Research history json | {"away": [{"away": "Besiktas", "away_goals": 4.0, "away_xg": 1.42, "date": "2026-11-22T00:00:00+00:00", "home": "Konyaspor", "home_goals": 2.0, "home_xg": 0.77, "source": "pipeline training history"}, {"away": "Konyaspor", "away_goals": 0.0, "away_xg": 0.96, "date": "2026-11-07T00:00:00+00:00", "home": "Samsunspor", "home_goals": 1.0, "home_xg": 0.66, "source": "pipeline training history"}, {"away": "Galatasaray", "away_goals": 4.0, "away_xg": 2.8, "date": "2026-10-30T00:00:00+00:00", "home": "Konyaspor", "home_goals": 0.0, "home_xg": 1.38, "source": "pipeline training history"}, {"away": "Genclerbirligi", "away_goals": 0.0, "away_xg": 1.16, "date": "2026-10-25T00:00:00+00:00", "home": "Konyaspor", "home_goals": 2.0, "home_xg": 2.27, "source": "pipeline training history"}, {"away": "Konyaspor", "away_goals": 0.0, "away_xg": 0.25, "date": "2026-10-17T00:00:00+00:00", "home": "Amedspor", "home_goals": 1.0, "home_xg": 1.65, "source": "pipeline training history"}, {"away": "Buyuksehyr", "away_goals": 0.0, "away_xg": 0.97, "date": "2026-10-11T00:00:00+00:00", "home": "Konyaspor", "home_goals": 0.0, "home_xg": 0.41, "source": "pipeline training history"}, {"away": "Konyaspor", "away_goals": 0.0, "away_xg": 1.15, "date": "2026-09-18T00:00:00+00:00", "home": "Kasimpasa", "home_goals": 0.0, "home_xg": 0.56, "source": "pipeline training history"}, {"away": "Trabzonspor", "away_goals": 0.0, "away_xg": 0.92, "date": "2026-09-12T00:00:00+00:00", "home": "Konyaspor", "home_goals": 1.0, "home_xg": 1.05, "source": "pipeline training history"}, {"away": "Konyaspor", "away_goals": 0.0, "away_xg": 1.44, "date": "2026-09-05T00:00:00+00:00", "home": "Erzurumspor", "home_goals": 1.0, "home_xg": 0.98, "source": "pipeline training history"}, {"away": "Kocaelispor", "away_goals": 2.0, "away_xg": 0.77, "date": "2026-08-29T00:00:00+00:00", "home": "Konyaspor", "home_goals": 1.0, "home_xg": 0.86, "source": "pipeline training history"}], "h2h": [{"away": "Konyaspor", "away_goals": 1.0, "away_xg": null, "date": "2026-02-14T00:00:00+00:00", "home": "Alanyaspor", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Alanyaspor", "away_goals": 2.0, "away_xg": null, "date": "2025-09-13T00:00:00+00:00", "home": "Konyaspor", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Alanyaspor", "away_goals": 2.0, "away_xg": null, "date": "2025-05-25T00:00:00+00:00", "home": "Konyaspor", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Konyaspor", "away_goals": 1.0, "away_xg": null, "date": "2025-01-03T00:00:00+00:00", "home": "Alanyaspor", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Alanyaspor", "away_goals": 2.0, "away_xg": null, "date": "2024-04-20T00:00:00+00:00", "home": "Konyaspor", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Konyaspor", "away_goals": 2.0, "away_xg": null, "date": "2023-12-02T00:00:00+00:00", "home": "Alanyaspor", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Konyaspor", "away_goals": 3.0, "away_xg": null, "date": "2023-05-16T00:00:00+00:00", "home": "Alanyaspor", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Alanyaspor", "away_goals": 2.0, "away_xg": null, "date": "2022-12-25T00:00:00+00:00", "home": "Konyaspor", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}], "home": [{"away": "Alanyaspor", "away_goals": 1.0, "away_xg": 1.27, "date": "2026-11-22T00:00:00+00:00", "home": "Kasimpasa", "home_goals": 2.0, "home_xg": 2.01, "source": "pipeline training history"}, {"away": "Trabzonspor", "away_goals": 2.0, "away_xg": 2.84, "date": "2026-11-08T00:00:00+00:00", "home": "Alanyaspor", "home_goals": 0.0, "home_xg": 2.13, "source": "pipeline training history"}, {"away": "Alanyaspor", "away_goals": 0.0, "away_xg": 0.5, "date": "2026-11-02T00:00:00+00:00", "home": "Genclerbirligi", "home_goals": 5.0, "home_xg": 1.91, "source": "pipeline training history"}, {"away": "Kocaelispor", "away_goals": 2.0, "away_xg": 1.54, "date": "2026-10-23T00:00:00+00:00", "home": "Alanyaspor", "home_goals": 1.0, "home_xg": 0.5, "source": "pipeline training history"}, {"away": "Alanyaspor", "away_goals": 0.0, "away_xg": 0.96, "date": "2026-10-17T00:00:00+00:00", "home": "Fenerbahce", "home_goals": 3.0, "home_xg": 3.84, "source": "pipeline training history"}, {"away": "Erzurumspor", "away_goals": 0.0, "away_xg": 1.69, "date": "2026-10-10T00:00:00+00:00", "home": "Alanyaspor", "home_goals": 0.0, "home_xg": 0.98, "source": "pipeline training history"}, {"away": "Alanyaspor", "away_goals": 2.0, "away_xg": 1.16, "date": "2026-09-19T00:00:00+00:00", "home": "Corum", "home_goals": 1.0, "home_xg": 1.14, "source": "pipeline training history"}, {"away": "Goztep", "away_goals": 2.0, "away_xg": 1.79, "date": "2026-09-12T00:00:00+00:00", "home": "Alanyaspor", "home_goals": 2.0, "home_xg": 1.73, "source": "pipeline training history"}, {"away": "Alanyaspor", "away_goals": 1.0, "away_xg": 2.06, "date": "2026-09-07T00:00:00+00:00", "home": "Rizespor", "home_goals": 0.0, "home_xg": 1.29, "source": "pipeline training history"}, {"away": "Alanyaspor", "away_goals": 1.0, "away_xg": 0.66, "date": "2026-08-30T00:00:00+00:00", "home": "Eyupspor", "home_goals": 2.0, "home_xg": 1.47, "source": "pipeline training history"}], "teams": {"away": "Konyaspor", "home": "Alanyaspor"}} |
-| Unadjusted home-win probability | 42.5% |
-| Unadjusted draw probability | 29.6% |
-| Unadjusted away-win probability | 28.0% |
-| Raw p over 1 5 | 69.8% |
-| Raw p under 3 5 | 78.3% |
-| Raw p btts yes | 48.8% |
-| P home draw | 67.7% |
-| P draw away | 63.0% |
-| P home away | 69.2% |
-| Raw p home draw | 72.0% |
-| Raw p draw away | 57.5% |
-| Raw p home away | 70.4% |
-| Market blending weight | 70.0% |
-| Market blend applied | Yes |
-| Totals anchor applied | 1 |
-| Totals anchor status | ANCHORED_ALTERNATE |
-| Totals anchor scale | 1.0126 |
-| Totals anchor target over 2 5 | 0.4269 |
-| Totals anchor reference over odds | 2.25 |
-| Totals anchor reference under odds | 1.70 |
-| Totals anchor reference last update utc | 2026-11-27T16:28:52Z |
-| Totals anchor reference source | live_pinnacle_alternate |
-| Unanchored p over 2 5 | 0.4198 |
-| Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
-| Bet365 pinnacle quotes | [] |
-| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 5.27, "price": 1.1845, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 5.0, "price": 1.1984, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 3.56, "price": 1.3247, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 3.47, "price": 1.3378, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 2.83, "price": 1.4739, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 2.79, "price": 1.4854, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 2.4, "price": 1.6329, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 2.37, "price": 1.6494, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.9709, "price": 1.9346, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.9346, "price": 1.9709, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.6494, "price": 2.37, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.6329, "price": 2.4, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.4854, "price": 2.79, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.4739, "price": 2.83, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.3378, "price": 3.47, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.3247, "price": 3.56, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.1984, "price": 5.0, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.1845, "price": 5.27, "quote_source": "The Odds API", "side": "away"}] |
-| Price edge quotes | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "market": "h2h", "market_key": "h2h", "point": null, "prices": {"away": 2.85, "draw": 3.1, "home": 2.81}}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "market": "totals", "market_key": "alternate_totals", "point": 2.5, "prices": {"over": 2.25, "under": 1.6993}}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "market": "totals", "market_key": "alternate_totals", "point": 1.5, "prices": {"over": 1.3802, "under": 3.16}}] |
-| 1X2 market source | The Odds API / Pinnacle |
-| Reference home odds | 2.81 |
-| Reference draw odds | 3.10 |
-| Reference away odds | 2.85 |
-| Market reference 1x2 last update utc | 2026-11-27T16:28:52Z |
-| Market reference home last update utc | 2026-11-27T16:28:52Z |
-| Market reference draw last update utc | 2026-11-27T16:28:52Z |
-| Market reference away last update utc | 2026-11-27T16:28:52Z |
-| O/U 2.5 market source | The Odds API / unavailable reference |
-| Home probability edge | +2.4% |
-| Draw probability edge | -0.5% |
-| Away probability edge | -1.8% |
-| Raw edge prob home | 0.0786 |
-| Raw ev home | 0.1934 |
-| Raw edge prob draw | -0.0172 |
-| Raw ev draw | -0.0834 |
-| Raw edge prob away | -0.0614 |
-| Raw ev away | -0.2030 |
-| Market p over 1 5 | 70.8% |
-| Market over 1 5 odds | 1.38 |
-| Best over 1 5 bookmaker | Pinnacle |
-| Market best over 1 5 last update utc | 2026-11-27T16:28:52Z |
-| Market reference over 1 5 odds | 1.38 |
-| Market reference over 1 5 opposite odds | 3.16 |
-| Market reference over 1 5 last update utc | 2026-11-27T16:28:52Z |
-| Market over 1 5 bookmakers | 1 |
-| Market p under 3 5 | 77.9% |
-| Market under 3 5 odds | 1.26 |
-| Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-11-27T16:28:52Z |
-| Market reference under 3 5 odds | 1.26 |
-| Market reference under 3 5 opposite odds | 4.05 |
-| Market reference under 3 5 last update utc | 2026-11-27T16:28:52Z |
-| Market under 3 5 bookmakers | 1 |
-| Odds extra markets provider | — |
-| Training data status | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Training cutoff | 2026-11-23 |
-| Elo home rating | 1,436.8246 |
-| Elo away rating | 1,411.7584 |
-| Elo rating diff | 85.0662 |
-| Elo home expectancy | 0.6200 |
-| Research p home | 0.4014 |
-| Research p draw | 0.3116 |
-| Research p away | 0.2870 |
-| Research p over 1 5 | 0.6287 |
-| Research v4 p home | 0.4030 |
-| Research v4 p draw | 0.2954 |
-| Research v4 p away | 0.3016 |
-| Research v4 p over 1 5 | 0.6268 |
-| Research version | team-form-research-v5 |
-| Research probability basis | team_form_poisson_v1 |
-| Team research json | {"base_rates": [1.3397201677998019, 1.0406196186273609], "c6_fit": {"candidate_version": "research-low-score-then-sharpen-walk-forward-v1", "delta": 0.055466179703356835, "end_exclusive": "2026-11-30", "expected_origin": "2026-11-16", "fits_version": "research-c6-live-fits-v1", "low_score_status": "fitted", "origin": "2026-11-16", "rho": -0.016463701485858812, "slope": 1.1507759984871408, "slope_status": "fitted", "stale": false}, "coverage": {"form": "last ten, exponential rank half-life five matches", "h2h": "last four years; descriptive only", "training_cache": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED", "venue_splits": "home team home matches / away team away matches", "xg": "verified supplied xG; no goals-to-xG substitution"}, "evidence": {"coverage": {}, "errors": ["free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing"], "news": [], "quality_review": {"absence_note": "Reported absences only; not proof of complete coverage or a fitted player-value effect", "assessed_at_utc": "2026-11-27T16:30:31.250028+00:00", "availability": "UNAVAILABLE_OR_STALE", "form": {"away": {"matches": 10.0, "venue_matches": 4.0, "xg_matches": 10.0}, "home": {"matches": 10.0, "venue_matches": 4.0, "xg_matches": 10.0}}, "lineups": "UNCONFIRMED_OR_STALE", "probability_effect": "NONE; factual coverage/freshness review, not a calibrated confidence score", "status": "REVIEW_REQUIRED", "summary_max_age_minutes": 5, "training": {"cutoff": "2026-11-23", "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}, "version": "pre-match-research-quality-v1", "warnings": ["Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"], "weather": "UNAVAILABLE_INCOMPLETE_OR_STALE", "weather_max_age_minutes": 15}, "review_links": [{"label": "Sofascore", "status": "reference only; no authorized public bulk API", "url": "https://www.sofascore.com/football"}, {"label": "Sports Mole previews", "status": "reference only; article reproduction requires permission", "url": "https://www.sportsmole.co.uk/football/"}], "sources": [{"observed_at_utc": "2026-11-27T16:30:31.166952+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20261127"}, {"observed_at_utc": "2026-11-27T16:30:31.168273+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/news?limit=20"}, {"observed_at_utc": "2026-11-27T16:30:31.169680+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://www.bing.com/news/search?q=%22Alanyaspor%22+%22Torku+Konyaspor%22+injury+suspension+lineup+preview&format=rss"}, {"observed_at_utc": "2026-11-27T16:29:48.450142+00:00", "reason": null, "status": "available", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"}, {"observed_at_utc": "2026-11-27T16:29:48.521989+00:00", "reason": null, "status": "available", "url": "https://www.theguardian.com/football/rss"}, {"observed_at_utc": "2026-11-27T16:30:31.249602+00:00", "reason": "TheSportsDB free source limit: 30 requests per minute", "status": "unavailable", "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=Alanyaspor_vs_Torku+Konyaspor&d=2026-11-27"}]}, "evidence_quality_version": "pre-match-research-quality-v1", "form": {"away": {"all": {"goals_against": 1.6190774430299144, "goals_for": 0.6879135758229943, "last_match": "2026-11-22T00:00:00+00:00", "matches": 10, "points_per_game": 0.699255578452423, "results": "LLLWLDDWLL", "xg_against": 1.2860939849814017, "xg_for": 1.0560030957639637, "xg_matches": 10}, "venue": {"goals_against": 0.7695192334124757, "goals_for": 0.0, "last_match": "2026-11-07T00:00:00+00:00", "matches": 4, "points_per_game": 0.23048076658752426, "results": "LLDL", "xg_against": 0.9632637235825583, "xg_for": 0.9121264800381849, "xg_matches": 4}}, "home": {"all": {"goals_against": 2.12994907532334, "goals_for": 0.6740370669262747, "last_match": "2026-11-22T00:00:00+00:00", "matches": 10, "points_per_game": 0.5478966255727946, "results": "LLLLLDWDWL", "xg_against": 2.0743978441890842, "xg_for": 1.1916256589229264, "xg_matches": 10}, "venue": {"goals_against": 1.5390384668249515, "goals_for": 0.6660431998009282, "last_match": "2026-11-08T00:00:00+00:00", "matches": 4, "points_per_game": 0.43112592776921604, "results": "LLDD", "xg_against": 2.020090958514763, "xg_for": 1.3531418637284724, "xg_matches": 4}}}, "goal_rates": [1.1620233246017733, 0.9631623657088222], "h2h": [{"away": "Konyaspor", "away_goals": 1.0, "away_xg": null, "date": "2026-02-14T00:00:00+00:00", "home": "Alanyaspor", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Alanyaspor", "away_goals": 2.0, "away_xg": null, "date": "2025-09-13T00:00:00+00:00", "home": "Konyaspor", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Alanyaspor", "away_goals": 2.0, "away_xg": null, "date": "2025-05-25T00:00:00+00:00", "home": "Konyaspor", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Konyaspor", "away_goals": 1.0, "away_xg": null, "date": "2025-01-03T00:00:00+00:00", "home": "Alanyaspor", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Alanyaspor", "away_goals": 2.0, "away_xg": null, "date": "2024-04-20T00:00:00+00:00", "home": "Konyaspor", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Konyaspor", "away_goals": 2.0, "away_xg": null, "date": "2023-12-02T00:00:00+00:00", "home": "Alanyaspor", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Konyaspor", "away_goals": 3.0, "away_xg": null, "date": "2023-05-16T00:00:00+00:00", "home": "Alanyaspor", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Alanyaspor", "away_goals": 2.0, "away_xg": null, "date": "2022-12-25T00:00:00+00:00", "home": "Konyaspor", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}], "margin_distribution": {"-1": 0.18246808825735797, "-10": 2.398167240786728e-08, "-11": 2.082108015024138e-09, "-12": 1.6541318849514042e-10, "-13": 1.1283894598023936e-11, "-2": 0.07588444378642643, "-3": 0.022382398393503963, "-4": 0.005113361402927958, "-5": 0.0009504440675416443, "-6": 0.00014868628210982677, "-7": 2.0063507688589916e-05, "-8": 2.379020576027456e-06, "-9": 2.51501736831782e-07, "0": 0.31161568333629863, "1": 0.23049291719824985, "10": 1.6373065199551288e-07, "11": 1.7150197343741923e-08, "12": 1.6438089459915314e-09, "13": 1.3528684474909827e-10, "2": 0.11541986302744506, "3": 0.041072369816610284, "4": 0.011320483335515231, "5": 0.002538635715599817, "6": 0.0004791373916435848, "7": 7.800301071191976e-05, "8": 1.1158814083613059e-05, "9": 1.4232335502273294e-06}, "model_note": "Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient", "observed_at_utc": "2026-11-27T16:30:31.250028+00:00", "p_over_1_5": 0.6287039760345786, "shadow_v4": {"grid": "independent Poisson (C)", "margin_distribution": {"-1": 0.19256427686800984, "-10": 2.501942201449085e-08, "-11": 2.1722062674225094e-09, "-12": 1.7257104923027704e-10, "-13": 1.1772178191475063e-11, "-2": 0.07916816188368384, "-3": 0.023350943236128498, "-4": 0.005334629907232596, "-5": 0.000991572264959831, "-6": 0.00015512032591401015, "-7": 2.0931708073334253e-05, "-8": 2.4819670104934684e-06, "-9": 2.6238487392178354e-07, "0": 0.29544294676971, "1": 0.23232238838674496, "10": 1.6346722108150175e-07, "11": 1.712260390227773e-08, "12": 1.6411641749127842e-09, "13": 1.3506917788750836e-10, "2": 0.1152341607191614, "3": 0.04100628730982537, "4": 0.011302269487125965, "5": 0.002534551232219636, "6": 0.00047836649383380244, "7": 7.787750944409349e-05, "8": 1.114086034949242e-05, "9": 1.4209436691915054e-06}, "p_over_1_5": 0.6268190991202135, "version": "team-form-research-v4"}, "version": "team-form-research-v5", "warnings": ["availability unavailable or unconfirmed", "lineups unavailable or unconfirmed", "rotation unavailable or unconfirmed", "tactics unavailable or unconfirmed", "motivation unavailable or unconfirmed", "rivalry unavailable or unconfirmed", "weather unavailable or unconfirmed", "travel unavailable or unconfirmed", "free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing", "Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"]} |
-
-</details>
-
-
-### 2026-11-27 — Caykur Rizespor vs Kasimpasa SK
-
-The model's most likely 1X2 outcome is **Caykur Rizespor win** at **47.8%**. Expected goals are 1.59 for Caykur Rizespor and 1.35 for Kasimpasa SK (2.93 combined). The most likely exact score is 1-1 at 11.7%. Goal-market probabilities: at least one goal: 94.4%; Over 2.5 goals: 58.8%; Under 3.5 goals: 63.6%; Double Chance 1X: 73.1%; Double Chance X2: 52.2%; Double Chance 12 (either team wins): 74.7%; Under 4.5 goals: 80.7%; BTTS Yes (both teams score): 61.5%; BTTS No (at least one team does not score): 38.5%.
-
-| Outcome | Benchmark probability | Benchmark fair odds |
-| --- | --- | --- |
-| Caykur Rizespor win | 47.8% | 2.09 |
-| Draw | 25.3% | 3.95 |
-| Kasimpasa SK win | 26.9% | 3.72 |
-
-| Measure | Benchmark estimate |
-| --- | --- |
-| Caykur Rizespor expected goals | 1.59 |
-| Kasimpasa SK expected goals | 1.35 |
-| Expected total goals | 2.93 |
-| Over 0.5 | 94.4% |
-| Under 0.5 | 5.6% |
-| Over 1.5 | 81.7% |
-| Under 1.5 | 18.3% |
-| Over 2.5 | 58.8% |
-| Under 2.5 | 41.2% |
-| Over 3.5 | 36.4% |
-| Under 3.5 | 63.6% |
-| Over 4.5 | 19.3% |
-| Under 4.5 | 80.7% |
-
-| Rank | Score | Benchmark probability |
-| --- | --- | --- |
-| 1 | 1-1 | 11.70% |
-| 2 | 2-1 | 10.13% |
-| 3 | 1-0 | 7.79% |
-| 4 | 2-0 | 7.25% |
-| 5 | 1-2 | 6.50% |
-
-| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
-| --- | --- | --- | --- | --- |
-| Caykur Rizespor win | 47.8% | 50.2% | 1.95 | -6.8% |
-| Draw | 25.3% | 24.9% | 3.85 | -2.5% |
-| Kasimpasa SK win | 26.9% | 24.9% | 3.85 | +3.6% |
-
-<details>
-<summary>Additional technical details (forecast row)</summary>
-
-| Field | Value |
-| --- | --- |
-| Kickoff utc | 2026-11-27T17:00:00+00:00 |
-| Fixture id | 1,640,743,626 |
-| Odds source | — |
-| Odds schedule provider | — |
-| Odds provider | — |
-| Odds match method | — |
-| Odds event id | 1640743626.00 |
-| Odds last update utc | — |
-| Odds h2h last update utc | — |
-| Market best home last update utc | 2026-11-27T16:28:52Z |
-| Market best draw last update utc | 2026-11-27T16:28:52Z |
-| Market best away last update utc | 2026-11-27T16:28:52Z |
-| Odds bookmakers 1x2 | 1.00 |
-| Odds bookmakers ou25 | 0.00 |
-| Best home bookmaker | Pinnacle |
-| Best draw bookmaker | Pinnacle |
-| Best away bookmaker | Pinnacle |
-| Matched home-team name | Rizespor |
-| Matched away-team name | Kasimpasa |
-| Home-name matching confidence | 90/100 |
-| Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.5864 |
-| Dc lambda away | 1.3480 |
-| Shot features applied | 0 |
-| Shot features status | BASELINE_RETAINED_AUDIT_NOT_IMPROVED |
-| Shot features version | football-data-lagged-shot-strength-v1 |
-| Shot features weight | 0 |
-| Goal rate features used | none |
-| Score engine version | dc-positive-tail-bounded-v1 |
-| Score grid max goals | 15 |
-| Score grid omitted mass | 0 |
-| P btts yes | 61.5% |
-| P btts no | 38.5% |
-| Fair Over 0.5 odds | 1.06 |
-| Fair Under 0.5 odds | 17.85 |
-| Fair Over 1.5 odds | 1.22 |
-| Fair Under 1.5 odds | 5.48 |
-| Fair Over 2.5 odds | 1.70 |
-| Fair Under 2.5 odds | 2.43 |
-| Fair Over 3.5 odds | 2.75 |
-| Fair Under 3.5 odds | 1.57 |
-| Fair Over 4.5 odds | 5.18 |
-| Fair Under 4.5 odds | 1.24 |
-| Score matrix json | [[0.05600845380555727,0.0487671215752835,0.0395178966338877,0.01840861006989268,0.0064314580273249706,0.0017975785113681418,0.00041868273243847004,8.358636561044357e-05,1.4601379464260156e-05,2.2672520885942776e-06,3.168460104222083e-07,4.025353174744918e-08,4.687822689172436e-09,5.03937012258173e-10,5.030332049511543e-11,4.686556173748067e-12],[0.07786604680226217,0.11699034516449905,0.06499196687164162,0.030275188654384923,0.010577311614551298,0.002956335559616543,0.0006885744585159736,0.00013746790106274032,2.4013736844680488e-05,3.7287706376867246e-06,5.210916361148983e-07,6.620180790577209e-08,7.70969213613361e-09,8.287854464903783e-10,8.272990259174338e-11,7.70760919813553e-12],[0.07251583708274238,0.10134009265083258,0.06202703421101278,0.024895607125648176,0.008697834963392874,0.0024310259289874593,0.0005662220437885452,0.0001130413057475623,1.974674922520358e-05,3.066207445219544e-06,4.2849915147593283e-07,5.443844527096028e-08,6.339761204199209e-09,6.815190188514633e-10,6.802967195280816e-11,6.338048382302068e-12],[0.03975369206357229,0.05555535175493184,0.03881899954950831,0.015839913240727036,0.004768214319307373,0.0013327055174065766,0.00031040690797918473,6.19700390967723e-05,1.0825306850689954e-05,1.6809164933338272e-06,2.3490624948367546e-07,2.98435386914456e-08,3.4755016946263233e-09,3.7361352086407435e-10,3.7294344777568415e-11,3.474562713611997e-12],[0.01634494025300402,0.022841876012846114,0.015960636493924863,0.0074349385648225215,0.002275344222873254,0.0005479489055261818,0.00012762543808323638,2.547930856065616e-05,4.450882031586138e-06,6.911176856201053e-07,9.658294396223457e-08,1.2270328402952842e-08,1.4289708602923856e-09,1.5361317048168064e-10,1.533376663957364e-11,1.428584793293795e-12],[0.0053762467435134464,0.007513246278598779,0.00524983992884861,0.0024455313772103384,0.0008544008671658617,0.00020918059350986986,4.197909782866111e-05,8.380761725392419e-06,1.4640029059561475e-06,2.273253465100156e-07,3.176846962536141e-08,4.0360082139848455e-09,4.700231273595868e-10,5.052709246894476e-11,5.04364725020342e-12,4.69896140572739e-13],[0.001473648144305019,0.002059407234149388,0.0014389995917468436,0.0006703287530866837,0.00023419428319778756,6.545679209488783e-05,1.3354670648801697e-05,2.297196269756025e-06,4.012883464142359e-07,6.231067713589625e-08,8.707849275576524e-09,1.1062840488328687e-09,1.288349925995476e-10,1.384965378380839e-11,1.382481453210629e-12,1.288001850745739e-13],[0.00034622754872100825,0.0004838492290397583,0.0003380870143164367,0.0001574909736189881,5.5022980152622195e-05,1.537880311642618e-05,3.581951647562784e-06,6.263994876034029e-07,9.428104059048045e-08,1.4639636393042656e-08,2.0458732438717314e-09,2.5991687086010187e-10,3.026924971853926e-11,3.253918989233368e-12,3.24808310957504e-13,3.026107183422186e-14],[7.1176641766244e-05,9.94685817793983e-05,6.950312992918659e-05,3.237662240369125e-05,1.1311494309744132e-05,3.1615380239239885e-06,7.363691600636456e-07,1.4700969748347725e-07,2.2494985194498348e-08,3.0095818746512107e-09,4.205857896522894e-10,5.343309645507141e-11,6.222680869007127e-12,6.689329808924852e-13,6.677332545351628e-14,6.2209996788631986e-15],[1.3006511923116855e-05,1.8176458776154744e-05,1.2700701602174077e-05,5.916364060935162e-06,2.0670135870013698e-06,5.777257957547581e-07,1.345609180556421e-07,2.686391680872287e-08,4.69275390018238e-09,6.382855088281455e-10,7.68560296195426e-11,9.764133132529126e-12,1.137105810390685e-12,1.222379221025636e-13,1.220186892927011e-14,1.1367985969691269e-15],[2.1390784025127923e-06,2.98933877369017e-06,2.0887841916850944e-06,9.730177205816551e-07,3.399454171718905e-07,9.501400372201977e-08,2.2130172588665964e-08,4.418096457537318e-09,7.717802109839048e-10,1.1983938227014994e-10,1.4669971714963002e-11,1.6058299432248924e-12,1.8701082156049989e-13,2.0103506665219366e-14,2.0067451174595044e-15,1.8696029659278359e-16],[3.198157716649218e-07,4.4693905821896355e-07,3.1229623342488184e-07,1.4547686180455663e-07,5.082558254483227e-08,1.420563962668955e-08,3.308704447302173e-09,6.605540620659436e-10,1.153896385665824e-10,1.7917307038186668e-11,2.5039241472610225e-12,2.786494550296363e-13,2.7960176745650902e-14,3.0056955788788956e-15,3.0003048860724835e-16,2.795262270671547e-17],[4.383131401122158e-08,6.125378402288382e-08,4.2800748069764836e-08,1.993785978073449e-08,6.965735481800669e-09,1.946907896274887e-09,4.534637639821364e-10,9.053009601457367e-11,1.5814352917379837e-11,2.4555984432470333e-12,3.4316720838228703e-13,4.359749424931271e-14,4.447438975993378e-15,4.1193586562082397e-16,4.1119706169034294e-17,3.830956106126369e-18],[5.5450695484384675e-09,7.749174310059737e-09,5.414693356244763e-09,2.5223250004068413e-09,8.812304302061634e-10,2.463019859839103e-10,5.7367390544894e-11,1.1452900510787865e-11,2.0006629682142624e-12,3.10656079061558e-13,4.341384875516361e-14,5.515489170326779e-15,6.423196711473938e-16,6.048359337433235e-17,5.2020258954653846e-18,4.846516360437465e-19],[6.51395600999711e-10,9.103182589250618e-10,6.360799268989259e-10,2.9630492371719685e-10,1.0352072605924822e-10,2.8933817472603704e-11,6.739115806455432e-12,1.3454058504127246e-12,2.3502375311862276e-13,3.649368173957411e-14,5.099952282752541e-15,6.479207071305643e-16,7.545517771527664e-17,8.111368398184588e-18,7.092442205134733e-19,5.693345069497152e-20],[7.141993025374809e-11,9.980857479135809e-11,6.974069819509055e-11,3.248728875854619e-11,1.1350158066192024e-11,3.1723444596441964e-12,7.388861394370883e-13,1.4751219052138497e-13,2.5768334987134174e-14,4.001218615143856e-15,5.591659442781399e-16,7.103893800051096e-17,8.273011855527737e-18,8.893418444516894e-19,8.877468164265575e-20,7.244819657958665e-21]] |
-| Score matrix version | published-score-matrix-v1 |
-| Goal margin distribution | {"-1": 0.14401523246061793, "-10": 3.8977699671582383e-07, "-11": 4.868346583200511e-08, "-12": 5.5881123703292345e-09, "-13": 5.930049632322185e-10, "-14": 5.801092969325096e-11, "-15": 4.686556173748067e-12, "-2": 0.07996004832740351, "-3": 0.031754362244018224, "-4": 0.010020672851318026, "-5": 0.0026107436058722335, "-6": 0.0005776790503287456, "-7": 0.00011091397068204069, "-8": 1.8789973702809543e-05, "-9": 2.8464164572926794e-06, "0": 0.2533642754565395, "1": 0.22638366900317283, "10": 2.6314472268724464e-06, "11": 3.8679190412583374e-07, "12": 5.2249055536938786e-08, "13": 6.525128505558619e-09, "14": 7.512041757910692e-10, "15": 7.141993025374809e-11, "2": 0.1467276938182468, "3": 0.06857406037343408, "4": 0.025466589123930964, "5": 0.007808283043245945, "6": 0.0020332714835473867, "7": 0.00045942268105216813, "8": 9.159458051998418e-05, "9": 1.632899569314646e-05} |
-| Raw goal margin distribution | {"-1": 0.1715047521699004, "-10": 3.5204804450433917e-07, "-11": 4.2464330968632456e-08, "-12": 4.7064401073987416e-09, "-13": 4.822245826421449e-10, "-14": 4.559181369613009e-11, "-15": 3.586037813392065e-12, "-2": 0.0933728393849146, "-3": 0.03610753435535159, "-4": 0.011061100086650556, "-5": 0.002792415662906392, "-6": 0.0005980203274264697, "-7": 0.0001110439498314131, "-8": 1.8183655498723435e-05, "-9": 2.6615307824921286e-06, "0": 0.2632107570463519, "1": 0.2035170677112369, "10": 1.7938090321634266e-06, "11": 2.5463376013034946e-07, "12": 3.321250711965395e-08, "13": 4.0047544906635144e-09, "14": 4.4558529237930486e-10, "15": 4.1245471240713244e-11, "2": 0.12931694002972052, "3": 0.05885049419610091, "4": 0.021216220976303147, "5": 0.006303288721529827, "6": 0.0015886217656273182, "7": 0.0003471497767638326, "8": 6.689915171095682e-05, "9": 1.152360428948061e-05} |
-| Research history json | {"away": [{"away": "Alanyaspor", "away_goals": 1.0, "away_xg": 1.27, "date": "2026-11-22T00:00:00+00:00", "home": "Kasimpasa", "home_goals": 2.0, "home_xg": 2.01, "source": "pipeline training history"}, {"away": "Kasimpasa", "away_goals": 2.0, "away_xg": 2.46, "date": "2026-11-06T00:00:00+00:00", "home": "Gaziantep", "home_goals": 0.0, "home_xg": 1.15, "source": "pipeline training history"}, {"away": "Besiktas", "away_goals": 2.0, "away_xg": 1.26, "date": "2026-11-01T00:00:00+00:00", "home": "Kasimpasa", "home_goals": 2.0, "home_xg": 1.33, "source": "pipeline training history"}, {"away": "Kasimpasa", "away_goals": 1.0, "away_xg": 0.59, "date": "2026-10-24T00:00:00+00:00", "home": "Eyupspor", "home_goals": 0.0, "home_xg": 0.43, "source": "pipeline training history"}, {"away": "Samsunspor", "away_goals": 1.0, "away_xg": 1.07, "date": "2026-10-18T00:00:00+00:00", "home": "Kasimpasa", "home_goals": 4.0, "home_xg": 2.41, "source": "pipeline training history"}, {"away": "Kasimpasa", "away_goals": 1.0, "away_xg": 0.51, "date": "2026-10-09T00:00:00+00:00", "home": "Galatasaray", "home_goals": 3.0, "home_xg": 2.4, "source": "pipeline training history"}, {"away": "Konyaspor", "away_goals": 0.0, "away_xg": 1.15, "date": "2026-09-18T00:00:00+00:00", "home": "Kasimpasa", "home_goals": 0.0, "home_xg": 0.56, "source": "pipeline training history"}, {"away": "Kasimpasa", "away_goals": 2.0, "away_xg": 1.31, "date": "2026-09-13T00:00:00+00:00", "home": "Genclerbirligi", "home_goals": 1.0, "home_xg": 1.15, "source": "pipeline training history"}, {"away": "Amedspor", "away_goals": 2.0, "away_xg": 1.11, "date": "2026-09-06T00:00:00+00:00", "home": "Kasimpasa", "home_goals": 2.0, "home_xg": 1.03, "source": "pipeline training history"}, {"away": "Kasimpasa", "away_goals": 1.0, "away_xg": 1.58, "date": "2026-08-30T00:00:00+00:00", "home": "Buyuksehyr", "home_goals": 1.0, "home_xg": 0.77, "source": "pipeline training history"}], "h2h": [{"away": "Rizespor", "away_goals": 3.0, "away_xg": null, "date": "2026-02-28T00:00:00+00:00", "home": "Kasimpasa", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Kasimpasa", "away_goals": 2.0, "away_xg": null, "date": "2025-09-28T00:00:00+00:00", "home": "Rizespor", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Rizespor", "away_goals": 2.0, "away_xg": null, "date": "2025-02-09T00:00:00+00:00", "home": "Kasimpasa", "home_goals": 3.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Kasimpasa", "away_goals": 1.0, "away_xg": null, "date": "2024-08-31T00:00:00+00:00", "home": "Rizespor", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Kasimpasa", "away_goals": 0.0, "away_xg": null, "date": "2024-05-18T00:00:00+00:00", "home": "Rizespor", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Rizespor", "away_goals": 2.0, "away_xg": null, "date": "2023-12-25T00:00:00+00:00", "home": "Kasimpasa", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}], "home": [{"away": "Rizespor", "away_goals": 2.0, "away_xg": 1.19, "date": "2026-11-21T00:00:00+00:00", "home": "Amedspor", "home_goals": 0.0, "home_xg": 0.56, "source": "pipeline training history"}, {"away": "Erzurumspor", "away_goals": 1.0, "away_xg": 0.68, "date": "2026-11-08T00:00:00+00:00", "home": "Rizespor", "home_goals": 2.0, "home_xg": 3.59, "source": "pipeline training history"}, {"away": "Rizespor", "away_goals": 0.0, "away_xg": 1.17, "date": "2026-10-31T00:00:00+00:00", "home": "Kocaelispor", "home_goals": 0.0, "home_xg": 0.62, "source": "pipeline training history"}, {"away": "Trabzonspor", "away_goals": 4.0, "away_xg": 2.63, "date": "2026-10-26T00:00:00+00:00", "home": "Rizespor", "home_goals": 3.0, "home_xg": 1.81, "source": "pipeline training history"}, {"away": "Rizespor", "away_goals": 1.0, "away_xg": 0.84, "date": "2026-10-16T00:00:00+00:00", "home": "Corum", "home_goals": 2.0, "home_xg": 0.71, "source": "pipeline training history"}, {"away": "Fenerbahce", "away_goals": 3.0, "away_xg": 0.96, "date": "2026-10-10T00:00:00+00:00", "home": "Rizespor", "home_goals": 0.0, "home_xg": 1.52, "source": "pipeline training history"}, {"away": "Rizespor", "away_goals": 2.0, "away_xg": 0.78, "date": "2026-09-20T00:00:00+00:00", "home": "Goztep", "home_goals": 2.0, "home_xg": 2.78, "source": "pipeline training history"}, {"away": "Rizespor", "away_goals": 2.0, "away_xg": 2.05, "date": "2026-09-12T00:00:00+00:00", "home": "Eyupspor", "home_goals": 0.0, "home_xg": 1.43, "source": "pipeline training history"}, {"away": "Alanyaspor", "away_goals": 1.0, "away_xg": 2.06, "date": "2026-09-07T00:00:00+00:00", "home": "Rizespor", "home_goals": 0.0, "home_xg": 1.29, "source": "pipeline training history"}, {"away": "Rizespor", "away_goals": 2.0, "away_xg": 0.93, "date": "2026-08-29T00:00:00+00:00", "home": "Gaziantep", "home_goals": 1.0, "home_xg": 0.8, "source": "pipeline training history"}], "teams": {"away": "Kasimpasa", "home": "Rizespor"}} |
-| Unadjusted home-win probability | 42.1% |
-| Unadjusted draw probability | 26.3% |
-| Unadjusted away-win probability | 31.6% |
-| Raw p over 1 5 | 80.0% |
-| Raw p under 3 5 | 66.2% |
-| Raw p btts yes | 59.8% |
-| P home draw | 73.1% |
-| P draw away | 52.2% |
-| P home away | 74.7% |
-| Raw p home draw | 68.4% |
-| Raw p draw away | 57.9% |
-| Raw p home away | 73.7% |
-| Market blending weight | 70.0% |
-| Market blend applied | Yes |
-| Totals anchor applied | 1 |
-| Totals anchor status | ANCHORED_ALTERNATE |
-| Totals anchor scale | 1.0367 |
-| Totals anchor target over 2 5 | 0.5883 |
-| Totals anchor reference over odds | 1.66 |
-| Totals anchor reference under odds | 2.33 |
-| Totals anchor reference last update utc | 2026-11-27T16:28:52Z |
-| Totals anchor reference source | live_pinnacle_alternate |
-| Unanchored p over 2 5 | 0.5662 |
-| Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
-| Bet365 pinnacle quotes | [] |
-| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 3.8, "price": 1.2941, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 3.47, "price": 1.3378, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 3.34, "price": 1.3571, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 3.09, "price": 1.4032, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 2.89, "price": 1.4587, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.72, "price": 1.5051, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 2.26, "price": 1.7042, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.23, "price": 1.7246, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.5, "market_key": "spreads", "opposite_price": 1.9524, "price": 1.9524, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.5, "market_key": "spreads", "opposite_price": 1.9524, "price": 1.9524, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.7246, "price": 2.23, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.7042, "price": 2.26, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.5051, "price": 2.72, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 1.4587, "price": 2.89, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.4032, "price": 3.09, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.3571, "price": 3.34, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.3378, "price": 3.47, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.2941, "price": 3.8, "quote_source": "The Odds API", "side": "away"}] |
-| Price edge quotes | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "market": "h2h", "market_key": "h2h", "point": null, "prices": {"away": 3.85, "draw": 3.85, "home": 1.9524}}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "market": "totals", "market_key": "alternate_totals", "point": 2.5, "prices": {"over": 1.6579, "under": 2.33}}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "market": "totals", "market_key": "alternate_totals", "point": 1.5, "prices": {"over": 1.2024, "under": 4.78}}] |
-| 1X2 market source | The Odds API / Pinnacle |
-| Reference home odds | 1.95 |
-| Reference draw odds | 3.85 |
-| Reference away odds | 3.85 |
-| Market reference 1x2 last update utc | 2026-11-27T16:28:52Z |
-| Market reference home last update utc | 2026-11-27T16:28:52Z |
-| Market reference draw last update utc | 2026-11-27T16:28:52Z |
-| Market reference away last update utc | 2026-11-27T16:28:52Z |
-| O/U 2.5 market source | The Odds API / unavailable reference |
-| Home probability edge | -2.4% |
-| Draw probability edge | +0.4% |
-| Away probability edge | +2.0% |
-| Raw edge prob home | -0.0805 |
-| Raw ev home | -0.1776 |
-| Raw edge prob draw | 0.0141 |
-| Raw ev draw | 0.0134 |
-| Raw edge prob away | 0.0664 |
-| Raw ev away | 0.2149 |
-| Market p over 1 5 | 81.8% |
-| Market over 1 5 odds | 1.20 |
-| Best over 1 5 bookmaker | Pinnacle |
-| Market best over 1 5 last update utc | 2026-11-27T16:28:52Z |
-| Market reference over 1 5 odds | 1.20 |
-| Market reference over 1 5 opposite odds | 4.78 |
-| Market reference over 1 5 last update utc | 2026-11-27T16:28:52Z |
-| Market over 1 5 bookmakers | 1 |
-| Market p under 3 5 | 64.5% |
-| Market under 3 5 odds | 1.51 |
-| Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-11-27T16:28:52Z |
-| Market reference under 3 5 odds | 1.51 |
-| Market reference under 3 5 opposite odds | 2.64 |
-| Market reference under 3 5 last update utc | 2026-11-27T16:28:52Z |
-| Market under 3 5 bookmakers | 1 |
-| Odds extra markets provider | — |
-| Training data status | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Training cutoff | 2026-11-23 |
-| Elo home rating | 1,475.3064 |
-| Elo away rating | 1,517.6571 |
-| Elo rating diff | 17.6493 |
-| Elo home expectancy | 0.5254 |
-| Research p home | 0.3637 |
-| Research p draw | 0.2595 |
-| Research p away | 0.3768 |
-| Research p over 1 5 | 0.7953 |
-| Research v4 p home | 0.3716 |
-| Research v4 p draw | 0.2452 |
-| Research v4 p away | 0.3832 |
-| Research v4 p over 1 5 | 0.7937 |
-| Research version | team-form-research-v5 |
-| Research probability basis | team_form_poisson_v1 |
-| Team research json | {"base_rates": [1.5864261411874196, 1.3480389182011252], "c6_fit": {"candidate_version": "research-low-score-then-sharpen-walk-forward-v1", "delta": 0.055466179703356835, "end_exclusive": "2026-11-30", "expected_origin": "2026-11-16", "fits_version": "research-c6-live-fits-v1", "low_score_status": "fitted", "origin": "2026-11-16", "rho": -0.016463701485858812, "slope": 1.1507759984871408, "slope_status": "fitted", "stale": false}, "coverage": {"form": "last ten, exponential rank half-life five matches", "h2h": "last four years; descriptive only", "training_cache": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED", "venue_splits": "home team home matches / away team away matches", "xg": "verified supplied xG; no goals-to-xG substitution"}, "evidence": {"coverage": {}, "errors": ["free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing"], "news": [], "quality_review": {"absence_note": "Reported absences only; not proof of complete coverage or a fitted player-value effect", "assessed_at_utc": "2026-11-27T16:30:31.360467+00:00", "availability": "UNAVAILABLE_OR_STALE", "form": {"away": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 10.0}, "home": {"matches": 10.0, "venue_matches": 4.0, "xg_matches": 10.0}}, "lineups": "UNCONFIRMED_OR_STALE", "probability_effect": "NONE; factual coverage/freshness review, not a calibrated confidence score", "status": "REVIEW_REQUIRED", "summary_max_age_minutes": 5, "training": {"cutoff": "2026-11-23", "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}, "version": "pre-match-research-quality-v1", "warnings": ["Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"], "weather": "UNAVAILABLE_INCOMPLETE_OR_STALE", "weather_max_age_minutes": 15}, "review_links": [{"label": "Sofascore", "status": "reference only; no authorized public bulk API", "url": "https://www.sofascore.com/football"}, {"label": "Sports Mole previews", "status": "reference only; article reproduction requires permission", "url": "https://www.sportsmole.co.uk/football/"}], "sources": [{"observed_at_utc": "2026-11-27T16:30:31.166952+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20261127"}, {"observed_at_utc": "2026-11-27T16:30:31.168273+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/news?limit=20"}, {"observed_at_utc": "2026-11-27T16:30:31.279796+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://www.bing.com/news/search?q=%22Caykur+Rizespor%22+%22Kasimpasa+SK%22+injury+suspension+lineup+preview&format=rss"}, {"observed_at_utc": "2026-11-27T16:29:48.450142+00:00", "reason": null, "status": "available", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"}, {"observed_at_utc": "2026-11-27T16:29:48.521989+00:00", "reason": null, "status": "available", "url": "https://www.theguardian.com/football/rss"}, {"observed_at_utc": "2026-11-27T16:30:31.360026+00:00", "reason": "TheSportsDB free source limit: 30 requests per minute", "status": "unavailable", "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=Caykur+Rizespor_vs_Kasimpasa+SK&d=2026-11-27"}]}, "evidence_quality_version": "pre-match-research-quality-v1", "form": {"away": {"all": {"goals_against": 1.0210839407563672, "goals_for": 1.7982693199559783, "last_match": "2026-11-22T00:00:00+00:00", "matches": 10, "points_per_game": 2.116227938372414, "results": "WWDWWLDWDD", "xg_against": 1.1819433237977102, "xg_for": 1.5053420797697392, "xg_matches": 10}, "venue": {"goals_against": 0.9081338779854057, "goals_for": 1.4297084291836109, "last_match": "2026-11-06T00:00:00+00:00", "matches": 5, "points_per_game": 2.1139773227934184, "results": "WWLWD", "xg_against": 1.176478561514074, "xg_for": 1.3286384524191786, "xg_matches": 5}}, "home": {"all": {"goals_against": 1.3196708791728549, "goals_for": 1.4666569734134702, "last_match": "2026-11-21T00:00:00+00:00", "matches": 10, "points_per_game": 1.5194078348993623, "results": "WWDLLLDWLW", "xg_against": 1.1919717142062753, "xg_for": 1.630633442877044, "xg_matches": 10}, "venue": {"goals_against": 2.2552201654876827, "goals_for": 1.4025010218991127, "last_match": "2026-11-08T00:00:00+00:00", "matches": 4, "points_per_game": 0.9123635843797178, "results": "WLLL", "xg_against": 1.5376930480784539, "xg_for": 2.180160820607104, "xg_matches": 4}}}, "goal_rates": [1.463252229403088, 1.48930331223956], "h2h": [{"away": "Rizespor", "away_goals": 3.0, "away_xg": null, "date": "2026-02-28T00:00:00+00:00", "home": "Kasimpasa", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Kasimpasa", "away_goals": 2.0, "away_xg": null, "date": "2025-09-28T00:00:00+00:00", "home": "Rizespor", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Rizespor", "away_goals": 2.0, "away_xg": null, "date": "2025-02-09T00:00:00+00:00", "home": "Kasimpasa", "home_goals": 3.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Kasimpasa", "away_goals": 1.0, "away_xg": null, "date": "2024-08-31T00:00:00+00:00", "home": "Rizespor", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Kasimpasa", "away_goals": 0.0, "away_xg": null, "date": "2024-05-18T00:00:00+00:00", "home": "Rizespor", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Rizespor", "away_goals": 2.0, "away_xg": null, "date": "2023-12-25T00:00:00+00:00", "home": "Kasimpasa", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}], "margin_distribution": {"-1": 0.19528740435853126, "-10": 9.289647241749186e-07, "-11": 1.2375823963853003e-07, "-12": 1.5150028329833302e-08, "-13": 1.7145381167283903e-09, "-14": 1.7900135445773398e-10, "-15": 1.5518004362239053e-11, "-2": 0.11190560729185228, "-3": 0.04769358009443244, "-4": 0.016115233478412015, "-5": 0.004489501373411724, "-6": 0.0010613096625779427, "-7": 0.0002175778610554806, "-8": 3.934179442346736e-05, "-9": 6.35917277497465e-06, "0": 0.2594592799288401, "1": 0.19095219121052026, "10": 7.750813415306847e-07, "11": 1.0145144142630607e-07, "12": 1.2202071983199597e-08, "13": 1.356760906472211e-09, "14": 1.3917093118786763e-10, "15": 1.1853978210850295e-11, "2": 0.10752553083122864, "3": 0.0450252061239128, "4": 0.014947495350246389, "5": 0.004091343777380457, "6": 0.000950267817648123, "7": 0.0001914056023878342, "8": 3.400401084914426e-05, "9": 5.4002348242813036e-06}, "model_note": "Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient", "observed_at_utc": "2026-11-27T16:30:31.360467+00:00", "p_over_1_5": 0.7953490221828611, "shadow_v4": {"grid": "independent Poisson (C)", "margin_distribution": {"-1": 0.19948241460890456, "-10": 9.400100428781202e-07, "-11": 1.25229715533558e-07, "-12": 1.5330160994627615e-08, "-13": 1.7349238422949582e-09, "-14": 1.8112966671420472e-10, "-15": 1.5702512233591043e-11, "-2": 0.11323615630523018, "-3": 0.04826065307205015, "-4": 0.016306842357752035, "-5": 0.00454288119742155, "-6": 0.001073928552360192, "-7": 0.00022016484499101505, "-8": 3.980956531557414e-05, "-9": 6.434782847306195e-06, "0": 0.24519885893655316, "1": 0.19599304285723548, "10": 7.879395215830537e-07, "11": 1.0313446594326275e-07, "12": 1.2404497754747777e-08, "13": 1.3792688357548106e-09, "14": 1.4147970162960665e-10, "15": 1.2050629295071937e-11, "2": 0.1093093212046675, "3": 0.0457721499299564, "4": 0.015195466209880106, "5": 0.004159216956783545, "6": 0.0009660322465442709, "7": 0.0001945809177601208, "8": 3.456811898924932e-05, "9": 5.489821797899523e-06}, "p_over_1_5": 0.793652409444621, "version": "team-form-research-v4"}, "version": "team-form-research-v5", "warnings": ["availability unavailable or unconfirmed", "lineups unavailable or unconfirmed", "rotation unavailable or unconfirmed", "tactics unavailable or unconfirmed", "motivation unavailable or unconfirmed", "rivalry unavailable or unconfirmed", "weather unavailable or unconfirmed", "travel unavailable or unconfirmed", "free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing", "Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"]} |
-
-</details>
-
-
 ### 2026-11-28 — Gazişehir Gaziantep vs Amed SK
 
-The model's most likely 1X2 outcome is **Amed SK win** at **51.9%**. Expected goals are 1.32 for Gazişehir Gaziantep and 2.47 for Amed SK (3.79 combined). The most likely exact score is 1-1 at 10.8%. Goal-market probabilities: at least one goal: 94.5%; Over 2.5 goals: 58.6%; Under 3.5 goals: 64.1%; Double Chance 1X: 48.1%; Double Chance X2: 75.0%; Double Chance 12 (either team wins): 76.9%; Under 4.5 goals: 80.9%; BTTS Yes (both teams score): 57.8%; BTTS No (at least one team does not score): 42.2%.
+The model's most likely 1X2 outcome is **Amed SK win** at **49.3%**. Expected goals are 1.32 for Gazişehir Gaziantep and 2.47 for Amed SK (3.79 combined). The most likely exact score is 1-1 at 11.3%. Goal-market probabilities: at least one goal: 94.2%; Over 2.5 goals: 57.8%; Under 3.5 goals: 64.8%; Double Chance 1X: 50.7%; Double Chance X2: 73.3%; Double Chance 12 (either team wins): 76.0%; Under 4.5 goals: 81.4%; BTTS Yes (both teams score): 57.9%; BTTS No (at least one team does not score): 42.1%.
 
 | Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
-| Gazişehir Gaziantep win | 25.0% | 4.00 |
-| Draw | 23.1% | 4.34 |
-| Amed SK win | 51.9% | 1.93 |
+| Gazişehir Gaziantep win | 26.7% | 3.75 |
+| Draw | 24.0% | 4.16 |
+| Amed SK win | 49.3% | 2.03 |
 
 | Measure | Benchmark estimate |
 | --- | --- |
 | Gazişehir Gaziantep expected goals | 1.32 |
 | Amed SK expected goals | 2.47 |
 | Expected total goals | 3.79 |
-| Over 0.5 | 94.5% |
-| Under 0.5 | 5.5% |
-| Over 1.5 | 81.3% |
-| Under 1.5 | 18.7% |
-| Over 2.5 | 58.6% |
-| Under 2.5 | 41.4% |
-| Over 3.5 | 35.9% |
-| Under 3.5 | 64.1% |
-| Over 4.5 | 19.1% |
-| Under 4.5 | 80.9% |
+| Over 0.5 | 94.2% |
+| Under 0.5 | 5.8% |
+| Over 1.5 | 80.8% |
+| Under 1.5 | 19.2% |
+| Over 2.5 | 57.8% |
+| Under 2.5 | 42.2% |
+| Over 3.5 | 35.2% |
+| Under 3.5 | 64.8% |
+| Over 4.5 | 18.6% |
+| Under 4.5 | 81.4% |
 
 | Rank | Score | Benchmark probability |
 | --- | --- | --- |
-| 1 | 1-1 | 10.81% |
-| 2 | 1-2 | 8.88% |
-| 3 | 0-2 | 8.36% |
-| 4 | 0-1 | 7.64% |
-| 5 | 2-1 | 7.03% |
+| 1 | 1-1 | 11.29% |
+| 2 | 1-2 | 8.44% |
+| 3 | 0-2 | 7.99% |
+| 4 | 2-1 | 7.51% |
+| 5 | 0-1 | 7.34% |
 
 | Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
-| Gazişehir Gaziantep win | 25.0% | 27.8% | 3.44 | -14.0% |
-| Draw | 23.1% | 24.6% | 3.88 | -10.5% |
-| Amed SK win | 51.9% | 47.6% | 2.05 | +6.5% |
+| Gazişehir Gaziantep win | 26.7% | 30.3% | 3.19 | -14.9% |
+| Draw | 24.0% | 26.0% | 3.70 | -11.1% |
+| Amed SK win | 49.3% | 43.8% | 2.23 | +9.9% |
 
 <details>
 <summary>Additional technical details (forecast row)</summary>
@@ -1236,9 +741,9 @@ The model's most likely 1X2 outcome is **Amed SK win** at **51.9%**. Expected go
 | Odds event id | 1640831650.00 |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-11-27T16:28:52Z |
-| Market best draw last update utc | 2026-11-27T16:28:52Z |
-| Market best away last update utc | 2026-11-27T16:28:52Z |
+| Market best home last update utc | 2026-11-28T06:35:43Z |
+| Market best draw last update utc | 2026-11-28T06:35:43Z |
+| Market best away last update utc | 2026-11-28T06:35:43Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 0.00 |
 | Best home bookmaker | Pinnacle |
@@ -1249,7 +754,7 @@ The model's most likely 1X2 outcome is **Amed SK win** at **51.9%**. Expected go
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
 | Dc lambda home | 1.3170 |
-| Dc lambda away | 2.4741 |
+| Dc lambda away | 2.4743 |
 | Shot features applied | 0 |
 | Shot features status | BASELINE_RETAINED_AUDIT_NOT_IMPROVED |
 | Shot features version | football-data-lagged-shot-strength-v1 |
@@ -1258,22 +763,22 @@ The model's most likely 1X2 outcome is **Amed SK win** at **51.9%**. Expected go
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 18 |
 | Score grid omitted mass | 0 |
-| P btts yes | 57.8% |
-| P btts no | 42.2% |
+| P btts yes | 57.9% |
+| P btts no | 42.1% |
 | Fair Over 0.5 odds | 1.06 |
-| Fair Under 0.5 odds | 18.02 |
-| Fair Over 1.5 odds | 1.23 |
-| Fair Under 1.5 odds | 5.34 |
-| Fair Over 2.5 odds | 1.71 |
-| Fair Under 2.5 odds | 2.41 |
-| Fair Over 3.5 odds | 2.79 |
-| Fair Under 3.5 odds | 1.56 |
-| Fair Over 4.5 odds | 5.24 |
-| Fair Under 4.5 odds | 1.24 |
-| Score matrix json | [[0.05548023847831692,0.0764178226122939,0.08362992708764698,0.05559166360493628,0.027715255501109544,0.011053965111755739,0.003673973728025621,0.0010466638235567852,0.0002609074221972799,5.7811352753428104e-05,1.1528753115305282e-05,2.090060516794507e-06,3.47333619703592e-07,5.3281038032668656e-08,7.58951194519242e-09,1.0090014655653202e-09,1.25759563600529e-10,1.4752353398402086e-11],[0.05535388419259563,0.1081155773872055,0.08877510404983843,0.0590118381385126,0.029420385459624384,0.011734039920074862,0.003900008182956125,0.0011110578841480331,0.00027695926995923364,6.136808956641521e-05,1.2238038379532464e-05,2.2186476338121603e-06,3.6870267980597084e-07,5.6559055591144166e-08,8.056442664547893e-09,1.0710784190702924e-09,1.3349668871764828e-10,1.5659964722324632e-11],[0.03526915434376134,0.07033382781216976,0.05279632007035325,0.031321216299927304,0.015615210196388528,0.006227977538099947,0.002069974495340031,0.0005897068352532635,0.000146999339019094,3.257182402472186e-05,6.495480555485192e-06,1.1775729179769636e-06,1.956932159520209e-07,3.0019373565889896e-08,4.276050217449257e-09,5.684872713021098e-10,7.08549130910857e-11,8.311707579179019e-12],[0.012479674663735332,0.024886995599493866,0.024814851615043775,0.012418233531143814,0.005525302397596102,0.0022037141217219718,0.0007324419523158421,0.00020866248675008206,5.2014400710090415e-05,1.1525248467004123e-05,2.298367670712604e-06,4.166736396892795e-07,6.924429333285995e-08,1.0622086712371371e-08,1.513042105842291e-09,2.011541339260919e-10,2.507137696258382e-11,2.941023350808109e-12],[0.0033118659054316053,0.006604530521464733,0.006585384893968804,0.00437752984467947,0.0016430036156601096,0.0005848233917713878,0.00019437602300896356,5.537501531336608e-05,1.3803622686077678e-05,3.0585795285527107e-06,6.099426252591899e-07,1.1057717914626913e-07,1.837610518014602e-08,2.81889774975202e-09,4.015323074393083e-10,5.33824427188269e-11,6.653461793029774e-12,7.804910965286491e-13],[0.0007031244689372246,0.0014021724152141954,0.0013981077098336222,0.0009293698583173715,0.000463337871328045,0.00013912244117115388,4.126692983799907e-05,1.1756372192106342e-05,2.9305730206770994e-06,6.493505981594472e-07,1.2949364398002536e-07,2.3476047214437104e-08,3.9013322292832745e-09,5.984650465564144e-10,8.524716836100555e-11,1.1333339802704194e-11,1.412560750767627e-12,1.6570187423860108e-13],[0.00012439715076412633,0.0002480730809956669,0.00024735395118241605,0.00016442460401852775,8.19739798295515e-05,3.26945394052512e-05,8.180754651006136e-06,2.079943550010637e-06,5.18478519783953e-07,1.1488344927052768e-07,2.2910083583817784e-08,4.153394617448324e-09,6.902257494190914e-10,1.058807507240725e-10,1.508197385144001e-11,2.005100437237007e-12,2.4991099078421663e-13,2.9316062720323115e-14],[1.886435084931624e-05,3.761933137075233e-05,3.75102780924414e-05,2.493436062974432e-05,1.2431039670286238e-05,4.958001516987441e-06,1.6478763170286317e-06,3.5342394234755313e-07,7.862527915598543e-08,1.7421634502932974e-08,3.4742263151330344e-09,6.298463654346147e-10,1.0467008787816126e-10,1.6056409793783647e-11,2.287123495081088e-12,3.040657917308525e-13,3.789804334178723e-14,4.44566848420308e-15],[2.503118153692725e-06,4.991723915446872e-06,4.977253592940667e-06,3.30855014527555e-06,1.649479556254954e-06,6.578791765663733e-07,2.1865735837627223e-07,6.22924287730071e-08,1.1690004332773942e-08,2.3116835527299205e-09,4.6099645987880316e-10,8.357456262079176e-11,1.3888715239089969e-11,2.130531347671912e-12,3.034793185307054e-13,4.034660981859524e-14,5.028706316798586e-15,5.898975043984458e-16],[2.952353199673541e-07,5.88758946592883e-07,5.870522152151222e-07,3.9023362094491515e-07,1.945511936190932e-07,7.759488656454195e-08,2.578998321281791e-08,7.347206168918215e-09,1.8314769066635305e-09,3.055120415611174e-10,5.4373157389854264e-11,9.857370376256738e-12,1.6381325354134885e-12,2.512898175431515e-13,3.579448040745028e-14,4.758762282882314e-15,5.931209105218036e-16,6.957665110697684e-17],[3.133991283027266e-08,6.249812544889417e-08,6.231695196121788e-08,4.142420244707725e-08,2.0652059684871326e-08,8.236876879353527e-09,2.7376664346030216e-09,7.799229472456063e-10,1.9441551441690427e-10,4.307820678323353e-11,6.4673596308686225e-12,1.0463826901258232e-12,1.7389156172089812e-13,2.6674995992377595e-14,3.799666977170747e-15,5.05153635215503e-16,6.296115802005227e-17,7.385722619353478e-18],[3.0243675584790418e-09,6.031200664055723e-09,6.013717041125687e-09,3.997522733879238e-09,1.99296723207109e-09,7.94875957441716e-10,2.6419057371316657e-10,7.526420614305363e-11,1.8761506384904137e-11,4.157137633989067e-12,8.290173325128139e-13,1.1314629051640728e-13,1.6780901746923104e-14,2.574193263995858e-15,3.666758615767137e-16,4.874838914413889e-17,6.075884281853696e-18,7.127377796763059e-19],[2.675363493656488e-10,5.335215964175364e-10,5.319749905364907e-10,3.536219120357459e-10,1.7629840532405517e-10,7.031493617774012e-11,2.337036760954488e-11,6.657891463279213e-12,1.6596477874342164e-12,3.6774148806413764e-13,7.333509119270742e-14,1.3295000514315692e-14,1.6633226720904405e-15,2.2771381291943203e-16,3.243624311856861e-17,4.31229532022813e-18,5.374743209958053e-19,6.304897137749747e-20],[2.1845848433915134e-11,4.356504063538833e-11,4.3438751561980405e-11,2.8875219055508557e-11,1.4395756879325789e-11,5.741610222392298e-12,1.908322027468579e-12,5.436543039520533e-13,1.355195811856501e-13,3.002816189336501e-14,5.988222874692981e-15,1.0856116069955481e-15,1.8041076132489339e-16,2.083475902396009e-17,2.6486017792124933e-18,3.5212317949076825e-19,4.3887802840384474e-20,5.148303308664021e-21],[1.6564195680002788e-12,3.303235670039477e-12,3.2936600432081225e-12,2.1894081165364497e-12,1.0915306614537547e-12,4.353465855524383e-13,1.4469485851772064e-13,4.1221545137872413e-14,1.0275512384065515e-14,2.2768277964444343e-15,4.54045517032395e-16,8.231441843585938e-17,1.3679300039107016e-17,2.0984070193548533e-18,2.250251653496155e-19,2.6699064887289092e-20,3.3277084953354964e-21,3.9036022648736057e-22],[1.1722184838233851e-13,2.3376407666565e-13,2.3308642669201074e-13,1.5494049408842403e-13,7.724567143098626e-14,3.080869873265594e-14,1.0239796181196356e-14,2.9171749764287923e-15,7.271796216401417e-16,1.6112702838310014e-16,3.213198864856863e-17,5.825244077029075e-18,9.680595823294757e-19,1.485005093028508e-19,2.1152860958341477e-20,2.117128655915488e-21,2.354959747135587e-22,2.762509461237481e-23],[7.777106645201195e-15,1.5509123760922218e-14,1.546416493979938e-14,1.0279557632085515e-14,5.124879302700572e-15,2.0440091924010335e-15,6.793612967656166e-16,1.9354054903144842e-16,4.824487538591408e-17,1.0690004469751484e-17,2.131803122803882e-18,3.8647696693552107e-19,6.422610387552621e-20,9.852295571624589e-21,1.4033907312872602e-21,1.8657633255674798e-22,1.7506767507246157e-23,1.8327923492851325e-24],[4.856222813148296e-16,9.684290579479685e-16,9.656217150279158e-16,6.418816734731162e-16,3.200104733006681e-16,1.276331227442739e-16,4.2421043946451483e-17,1.2085163189265378e-17,3.0125324899734826e-18,6.675110159470036e-19,1.3311519862581453e-19,2.4132602897334756e-20,4.010440965631039e-21,6.152023458020293e-22,8.763127980562434e-23,1.1650299833739556e-23,1.4520659016937304e-24,1.2823506628619076e-25]] |
+| Fair Under 0.5 odds | 17.11 |
+| Fair Over 1.5 odds | 1.24 |
+| Fair Under 1.5 odds | 5.22 |
+| Fair Over 2.5 odds | 1.73 |
+| Fair Under 2.5 odds | 2.37 |
+| Fair Over 3.5 odds | 2.84 |
+| Fair Under 3.5 odds | 1.54 |
+| Fair Over 4.5 odds | 5.39 |
+| Fair Under 4.5 odds | 1.23 |
+| Score matrix json | [[0.058433408008976784,0.07343666572827677,0.07990711140433039,0.05284002131340372,0.026206064172496633,0.010397540081821349,0.0034377806297515284,0.0009742690976046383,0.00024159489207691712,5.32529959774517e-05,1.0564351756677279e-05,1.9052368619285338e-06,3.149680755007579e-07,4.806423030059113e-08,6.810715884073569e-09,9.007417891831888e-10,1.1168095954285807e-10],[0.059781225406630105,0.11286020263682728,0.08437829834765181,0.05579667447266825,0.027672419418039402,0.010979332423447419,0.003630140979107309,0.0010287841362780967,0.00025511328747431254,5.6232757054063786e-05,1.1155478013264128e-05,2.0118440215577317e-06,3.3259205316672745e-07,5.07536549986431e-08,7.191808172361333e-09,9.511426215536805e-10,1.1793004600524992e-10],[0.037850345720183226,0.07508767515524764,0.05453850697480969,0.0294593832934278,0.014610412143681521,0.005796839421437829,0.0019166324072787961,0.0005431747766914035,0.00013469405103405636,2.968962504231933e-05,5.889840312528555e-06,1.062208182078888e-06,1.7560108854491367e-07,2.6796782967411935e-08,3.797112202917769e-09,5.021818113692621e-10,6.226439944520396e-11],[0.01332275149487429,0.026429730492204546,0.026215705297787585,0.012694186480687007,0.005142644975212665,0.0020404001495374765,0.0006746257341470456,0.00019118933870885583,4.7410276857993286e-05,1.0450300753894997e-05,2.0731350621843356e-06,3.7388127839775787e-07,6.180893781548203e-08,9.43206392290731e-09,1.3365262936198943e-09,1.7676043245625945e-10,2.1916130619216578e-11],[0.0035170558686507766,0.006977150235837487,0.006920650002657209,0.004576404868305586,0.001661992386324363,0.0005386425861870674,0.00017809357161225754,5.0471825282348514e-05,1.2515777429453341e-05,2.758761327177247e-06,5.472842332731592e-07,9.870043323058296e-08,1.631686124016105e-08,2.4899583082603644e-09,3.528278408848513e-10,4.6662757055456326e-11,5.785610865900188e-12],[0.0007427704097292465,0.0014735110652090988,0.0014615787266519602,0.0009664953432833229,0.00047933438251806794,0.00013926217057687535,3.7611752584222686e-05,1.065919329826699e-05,2.6432190663270317e-06,5.826254565921169e-07,1.1558148331109855e-07,2.0844639371412178e-08,3.4459736101659e-09,5.258566886356542e-10,7.451405087814611e-11,9.854752517898967e-12,1.2218687202848548e-12],[0.0001307219973593519,0.0002593268485822602,0.00025722684687389143,0.0001700959005065408,8.435924084349835e-05,3.347044341221009e-05,8.103540328967103e-06,1.8759377324909805e-06,4.6518664621352076e-07,1.0253769186347684e-07,2.0341470470923747e-08,3.668499521756184e-09,6.064653993590104e-10,9.254681630126448e-11,1.3113911694029743e-11,1.7343622144175615e-12,2.1503969131561696e-13],[1.9719503057880016e-05,3.911963316740451e-05,3.8802846467795764e-05,2.5659083382507885e-05,1.2725649403908785e-05,5.049039370178034e-06,1.66938425907086e-06,3.464358731071261e-07,7.017372498735167e-08,1.546788122194444e-08,3.068524787381244e-09,5.533956717188053e-10,9.148572190404083e-11,1.3960750783458598e-11,1.9782425833067926e-12,2.6162973089113313e-13,3.2438885085322764e-14],[2.6028630040602657e-06,5.163570583141906e-06,5.121756528387597e-06,3.3868540529848116e-06,1.6797138314720147e-06,6.664446737884987e-07,2.203492914979794e-07,6.244712170627193e-08,1.1339320253599179e-08,2.0416729400140367e-09,4.050279371986966e-10,7.304510241947307e-11,1.2075598469435966e-11,1.8427402362276537e-12,2.611168454921207e-13,3.453364647678827e-14,4.2817495772444796e-15],[3.053895221517594e-07,6.058330194569385e-07,6.009270470024811e-07,3.973738684000417e-07,1.9707798817869036e-07,7.819282849361306e-08,2.585321038105954e-08,7.326815367494305e-09,1.8168708956584452e-09,2.9325548303758635e-10,4.7521244109380285e-11,8.570258553220697e-12,1.416809582573091e-12,2.1620560102991633e-13,3.0636398668013506e-14,4.0517744419329324e-15,5.023704495121071e-16],[3.224775337201279e-08,6.397322887312629e-08,6.345518035382375e-08,4.196088462484725e-08,2.081054488398807e-08,8.256809306866393e-09,2.729982176103829e-09,7.736785902425838e-10,1.9185335547585014e-10,4.228883268013515e-11,6.143138115046368e-12,9.049805710796613e-13,1.4960868883778173e-13,2.2830334356382463e-14,3.235065242224678e-15,4.2784906961394637e-16,5.30480490722373e-17],[3.0956518333312137e-09,6.141167136842622e-09,6.091436607399747e-09,4.028072527056799e-09,1.9977268084247383e-09,7.926197702333706e-10,2.6206707273294527e-10,7.426996599310925e-11,1.8417133893271612e-11,4.059554192984897e-12,8.053360695076304e-13,1.0635282930762309e-13,1.4361819458868274e-14,2.191618299439032e-15,3.105529719391375e-16,4.1071752858571264e-17,5.092394762223577e-18],[2.7240570267850793e-10,5.403995795540056e-10,5.360234802551118e-10,3.544552121005592e-10,1.757924354248299e-10,6.974755466442582e-11,2.3060915419514975e-11,6.535477296389219e-12,1.6206384211244209e-12,3.5722548013790666e-13,7.086654110921194e-14,1.278048568510657e-14,1.5471438471482377e-15,1.928541564118106e-16,2.7327491945031164e-17,3.614159569630149e-18,4.481115604099158e-19],[2.2126777770469426e-11,4.3895194874677623e-11,4.353973617562678e-11,2.8791437295972827e-11,1.4279143623382363e-11,5.665405044456067e-12,1.8731757288995187e-12,5.308591279082715e-13,1.3164007154734845e-13,2.9016458668962825e-14,5.756297284040241e-15,1.0381242528052634e-15,1.7161960518954155e-16,1.9177329425577153e-17,2.2197381895694972e-18,2.935683975698617e-19,3.639888892219869e-20],[1.6689198096719038e-12,3.3108101430624126e-12,3.283999548654135e-12,2.171604042424299e-12,1.077009309960069e-12,4.2731512046578797e-13,1.4128492243137357e-13,4.004023197149276e-14,9.92899758975324e-15,2.188576356734057e-15,4.3417069884059864e-16,7.830087816581306e-17,1.2944467640071588e-17,1.9753299529858327e-18,2.0496334298676778e-19,2.2142497171542974e-20,2.7453986930432224e-21],[1.174869262939141e-13,2.330710588950266e-13,2.3118367382662086e-13,1.528743817367876e-13,7.581821048790449e-14,3.008169701832993e-14,9.946032860260322e-15,2.818711693134496e-15,6.989715151317665e-16,1.540691815281207e-16,3.056430908066855e-17,5.512145909289758e-18,9.112515213310492e-19,1.3905727719669858e-19,1.9704457986252793e-20,1.9082611841800398e-21,1.9326779634809878e-22],[7.753805281340077e-15,1.538203155359419e-14,1.5257469470195084e-14,1.0089277385016625e-14,5.003787735770563e-15,1.9853070343238776e-15,6.564100751716006e-16,1.8602701000216247e-16,4.61301456808621e-17,1.0168130796408175e-17,2.017158067250198e-18,3.6378606038297554e-19,6.014002648303068e-20,9.177387513221419e-21,1.300438569799105e-21,1.719877005621132e-22,1.561500004377337e-23]] |
 | Score matrix version | published-score-matrix-v1 |
-| Goal margin distribution | {"-1": 0.2026676966172144, "-10": 1.3954129171785736e-05, "-11": 2.490350436591743e-06, "-12": 4.083766988097788e-07, "-13": 6.193181983657777e-08, "-14": 8.734386300704605e-09, "-15": 1.1508098618621474e-09, "-16": 1.414195283228536e-10, "-17": 1.4752353398402086e-11, "-2": 0.1606673583106558, "-3": 0.09203089258622582, "-4": 0.04174240893063256, "-5": 0.015598886864079295, "-6": 0.004944190324922687, "-7": 0.00135860787193165, "-8": 0.00032920665592023416, "-9": 7.129911453277688e-05, "0": 0.23060104170454265, "1": 0.15537783791936535, "10": 3.793308673472703e-08, "11": 3.603596646676762e-09, "12": 3.1455524305075903e-10, "13": 2.5392770098752006e-11, "14": 1.9062896912792014e-12, "15": 1.3369659385828864e-13, "16": 8.745535703149164e-15, "17": 4.856222813148296e-16, "2": 0.06775806288009956, "3": 0.020659853006940544, "4": 0.004988056521521557, "5": 0.0009922194372274011, "6": 0.00016740544020886727, "7": 2.4486616414875136e-05, "8": 3.1583737626571976e-06, "9": 3.641156259092238e-07} |
-| Raw goal margin distribution | {"-1": 0.20592809779042032, "-10": 7.162480455656032e-05, "-11": 1.5729239354635045e-05, "-12": 3.1777481951358024e-06, "-13": 5.94294230353883e-07, "-14": 1.0344045916306712e-07, "-15": 1.683486756822439e-08, "-16": 2.570608083791084e-09, "-17": 3.65450737879932e-10, "-18": 4.2532068526794056e-11, "-2": 0.18229976001816825, "-3": 0.12158387150150952, "-4": 0.06551045554785472, "-5": 0.029437468314875103, "-6": 0.011307608582067436, "-7": 0.0037855530826032572, "-8": 0.0011216916008534653, "-9": 0.00029787163982351595, "0": 0.19507846296137657, "1": 0.10673626391869839, "10": 1.3081757546767597e-07, "11": 1.5292223322590093e-08, "12": 1.644533238979595e-09, "13": 1.637136735223249e-10, "14": 1.5168203404901573e-11, "15": 1.3140553936336011e-12, "16": 1.06807094827954e-13, "17": 8.08264195976445e-15, "18": 5.007272970400196e-16, "2": 0.05165431731715476, "3": 0.01833820240754314, "4": 0.005259587418204468, "5": 0.0012580612333803135, "6": 0.00025723635928798786, "7": 4.584069490512105e-05, "8": 7.230287799818258e-06, "9": 1.022048576219182e-06} |
+| Goal margin distribution | {"-1": 0.19299519488491154, "-10": 1.2761591828335925e-05, "-11": 2.2660101089820684e-06, "-12": 3.697013887456409e-07, "-13": 5.578013641494094e-08, "-14": 7.824122905072454e-09, "-15": 1.0186718351884387e-09, "-16": 1.1168095954285807e-10, "-2": 0.1525438320034056, "-3": 0.08703712661207837, "-4": 0.039306337651978975, "-5": 0.014621144219147597, "-6": 0.004612277867381592, "-7": 0.0012612473861503902, "-8": 0.00030410822681965923, "-9": 6.553505734977043e-05, "0": 0.2403360202732309, "1": 0.16617554924526, "10": 3.8954843173823555e-08, "11": 3.6818405566207924e-09, "12": 3.197427752713122e-10, "13": 2.5678860864743475e-11, "14": 1.9172483380371258e-12, "15": 1.3286895784750828e-13, "16": 7.753805281340077e-15, "2": 0.07225685771063367, "3": 0.021944995097617142, "4": 0.0052752135766784775, "5": 0.0010444925623661824, "6": 0.00017538238769005787, "7": 2.552803096093744e-05, "8": 3.2763608783883183e-06, "9": 3.7582335943518975e-07} |
+| Raw goal margin distribution | {"-1": 0.205920886635719, "-10": 7.166902849679052e-05, "-11": 1.574025592822331e-05, "-12": 3.180238978873904e-06, "-13": 5.94809863477416e-07, "-14": 1.0353891094120789e-07, "-15": 1.6852310928973903e-08, "-16": 2.5734882853479995e-09, "-17": 3.658899748977652e-10, "-18": 4.258593856750792e-11, "-2": 0.18230174938194624, "-3": 0.12159278703236773, "-4": 0.0655198179670349, "-5": 0.029443856083113187, "-6": 0.011310933289418165, "-7": 0.0037869653753279885, "-8": 0.0011222003569755982, "-9": 0.0002980310317829422, "0": 0.1950633201061337, "1": 0.10672940470296577, "10": 1.3085693882711926e-07, "11": 1.5297608861443472e-08, "12": 1.6451975083263222e-09, "13": 1.6378833661981737e-10, "14": 1.5175916462441965e-11, "15": 1.3147928144291555e-12, "16": 1.068726499734741e-13, "17": 8.088005104697289e-15, "18": 5.010760596141475e-16, "2": 0.05165161247605805, "3": 0.018337806458239393, "4": 0.005259673404209154, "5": 0.0012581351786997773, "6": 0.00025726315085601055, "7": 4.5847641722837626e-05, "8": 7.2317365035898235e-06, "9": 1.0223043328175403e-06} |
 | Research history json | {"away": [{"away": "Rizespor", "away_goals": 2.0, "away_xg": 1.19, "date": "2026-11-21T00:00:00+00:00", "home": "Amedspor", "home_goals": 0.0, "home_xg": 0.56, "source": "pipeline training history"}, {"away": "Amedspor", "away_goals": 3.0, "away_xg": 1.39, "date": "2026-11-07T00:00:00+00:00", "home": "Galatasaray", "home_goals": 4.0, "home_xg": 1.73, "source": "pipeline training history"}, {"away": "Eyupspor", "away_goals": 1.0, "away_xg": 0.98, "date": "2026-11-01T00:00:00+00:00", "home": "Amedspor", "home_goals": 5.0, "home_xg": 4.95, "source": "pipeline training history"}, {"away": "Amedspor", "away_goals": 2.0, "away_xg": 1.63, "date": "2026-10-24T00:00:00+00:00", "home": "Samsunspor", "home_goals": 1.0, "home_xg": 1.08, "source": "pipeline training history"}, {"away": "Konyaspor", "away_goals": 0.0, "away_xg": 0.25, "date": "2026-10-17T00:00:00+00:00", "home": "Amedspor", "home_goals": 1.0, "home_xg": 1.65, "source": "pipeline training history"}, {"away": "Amedspor", "away_goals": 2.0, "away_xg": 2.16, "date": "2026-10-10T00:00:00+00:00", "home": "Genclerbirligi", "home_goals": 2.0, "home_xg": 0.5, "source": "pipeline training history"}, {"away": "Besiktas", "away_goals": 2.0, "away_xg": 2.04, "date": "2026-09-20T00:00:00+00:00", "home": "Amedspor", "home_goals": 3.0, "home_xg": 1.54, "source": "pipeline training history"}, {"away": "Buyuksehyr", "away_goals": 0.0, "away_xg": 0.4, "date": "2026-09-13T00:00:00+00:00", "home": "Amedspor", "home_goals": 5.0, "home_xg": 4.25, "source": "pipeline training history"}, {"away": "Amedspor", "away_goals": 2.0, "away_xg": 1.11, "date": "2026-09-06T00:00:00+00:00", "home": "Kasimpasa", "home_goals": 2.0, "home_xg": 1.03, "source": "pipeline training history"}, {"away": "Trabzonspor", "away_goals": 1.0, "away_xg": 0.84, "date": "2026-08-31T00:00:00+00:00", "home": "Amedspor", "home_goals": 2.0, "home_xg": 2.39, "source": "pipeline training history"}], "h2h": [], "home": [{"away": "Gaziantep", "away_goals": 0.0, "away_xg": 0.96, "date": "2026-11-21T00:00:00+00:00", "home": "Genclerbirligi", "home_goals": 1.0, "home_xg": 0.49, "source": "pipeline training history"}, {"away": "Kasimpasa", "away_goals": 2.0, "away_xg": 2.46, "date": "2026-11-06T00:00:00+00:00", "home": "Gaziantep", "home_goals": 0.0, "home_xg": 1.15, "source": "pipeline training history"}, {"away": "Gaziantep", "away_goals": 0.0, "away_xg": 0.51, "date": "2026-11-01T00:00:00+00:00", "home": "Trabzonspor", "home_goals": 2.0, "home_xg": 1.37, "source": "pipeline training history"}, {"away": "Erzurumspor", "away_goals": 3.0, "away_xg": 1.2, "date": "2026-10-24T00:00:00+00:00", "home": "Gaziantep", "home_goals": 1.0, "home_xg": 1.6, "source": "pipeline training history"}, {"away": "Gaziantep", "away_goals": 1.0, "away_xg": 1.42, "date": "2026-10-18T00:00:00+00:00", "home": "Buyuksehyr", "home_goals": 2.0, "home_xg": 1.95, "source": "pipeline training history"}, {"away": "Corum", "away_goals": 3.0, "away_xg": 2.67, "date": "2026-10-11T00:00:00+00:00", "home": "Gaziantep", "home_goals": 0.0, "home_xg": 0.99, "source": "pipeline training history"}, {"away": "Gaziantep", "away_goals": 0.0, "away_xg": 0.88, "date": "2026-09-19T00:00:00+00:00", "home": "Kocaelispor", "home_goals": 2.0, "home_xg": 1.16, "source": "pipeline training history"}, {"away": "Fenerbahce", "away_goals": 0.0, "away_xg": 1.33, "date": "2026-09-14T00:00:00+00:00", "home": "Gaziantep", "home_goals": 0.0, "home_xg": 0.49, "source": "pipeline training history"}, {"away": "Gaziantep", "away_goals": 4.0, "away_xg": 1.23, "date": "2026-09-07T00:00:00+00:00", "home": "Goztep", "home_goals": 2.0, "home_xg": 3.05, "source": "pipeline training history"}, {"away": "Rizespor", "away_goals": 2.0, "away_xg": 0.93, "date": "2026-08-29T00:00:00+00:00", "home": "Gaziantep", "home_goals": 1.0, "home_xg": 0.8, "source": "pipeline training history"}], "teams": {"away": "Amedspor", "home": "Gaziantep"}} |
 | Unadjusted home-win probability | 18.4% |
 | Unadjusted draw probability | 19.5% |
@@ -1281,9 +786,9 @@ The model's most likely 1X2 outcome is **Amed SK win** at **51.9%**. Expected go
 | Raw p over 1 5 | 89.8% |
 | Raw p under 3 5 | 47.5% |
 | Raw p btts yes | 67.7% |
-| P home draw | 48.1% |
-| P draw away | 75.0% |
-| P home away | 76.9% |
+| P home draw | 50.7% |
+| P draw away | 73.3% |
+| P home away | 76.0% |
 | Raw p home draw | 37.9% |
 | Raw p draw away | 81.6% |
 | Raw p home away | 80.5% |
@@ -1291,50 +796,42 @@ The model's most likely 1X2 outcome is **Amed SK win** at **51.9%**. Expected go
 | Market blend applied | Yes |
 | Totals anchor applied | 1 |
 | Totals anchor status | ANCHORED_ALTERNATE |
-| Totals anchor scale | 0.8060 |
-| Totals anchor target over 2 5 | 0.5857 |
-| Totals anchor reference over odds | 1.66 |
-| Totals anchor reference under odds | 2.30 |
-| Totals anchor reference last update utc | 2026-11-27T16:28:52Z |
+| Totals anchor scale | 0.8018 |
+| Totals anchor target over 2 5 | 0.5777 |
+| Totals anchor reference over odds | 1.68 |
+| Totals anchor reference under odds | 2.27 |
+| Totals anchor reference last update utc | 2026-11-28T06:35:43Z |
 | Totals anchor reference source | live_pinnacle_alternate |
-| Unanchored p over 2 5 | 0.7138 |
+| Unanchored p over 2 5 | 0.7095 |
 | Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
 | Bet365 pinnacle quotes | [] |
-| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 3.7, "price": 1.2985, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 3.4, "price": 1.339, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 3.31, "price": 1.3534, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 3.0, "price": 1.4149, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.93, "price": 1.4386, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 2.6, "price": 1.5348, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.36, "price": 1.6369, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 2.11, "price": 1.7874, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.5, "market_key": "spreads", "opposite_price": 2.05, "price": 1.8475, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.5, "market_key": "spreads", "opposite_price": 1.8475, "price": 2.05, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.7874, "price": 2.11, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.6369, "price": 2.36, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 1.5348, "price": 2.6, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.4386, "price": 2.93, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.4149, "price": 3.0, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.3534, "price": 3.31, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.339, "price": 3.4, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.2985, "price": 3.7, "quote_source": "The Odds API", "side": "away"}] |
-| Price edge quotes | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "market": "h2h", "market_key": "h2h", "point": null, "prices": {"away": 2.05, "draw": 3.88, "home": 3.44}}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "market": "totals", "market_key": "alternate_totals", "point": 2.5, "prices": {"over": 1.6579, "under": 2.3}}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "market": "totals", "market_key": "alternate_totals", "point": 1.5, "prices": {"over": 1.2004, "under": 4.71}}] |
+| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 3.98, "price": 1.2755, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 3.74, "price": 1.3012, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 3.32, "price": 1.3597, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 3.16, "price": 1.3891, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 2.77, "price": 1.4902, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.61, "price": 1.5405, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 2.37, "price": 1.6494, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 2.23, "price": 1.7246, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -0.25, "market_key": "spreads", "opposite_price": 1.9524, "price": 1.9524, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 0.25, "market_key": "spreads", "opposite_price": 1.9524, "price": 1.9524, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.7246, "price": 2.23, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 1.6494, "price": 2.37, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.5405, "price": 2.61, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.4902, "price": 2.77, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.3891, "price": 3.16, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.3597, "price": 3.32, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.3012, "price": 3.74, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.2755, "price": 3.98, "quote_source": "The Odds API", "side": "home"}] |
+| Price edge quotes | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "market": "h2h", "market_key": "h2h", "point": null, "prices": {"away": 2.23, "draw": 3.7, "home": 3.19}}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "market": "totals", "market_key": "alternate_totals", "point": 2.5, "prices": {"over": 1.6849, "under": 2.27}}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "market": "totals", "market_key": "alternate_totals", "point": 1.5, "prices": {"over": 1.2075, "under": 4.7}}] |
 | 1X2 market source | The Odds API / Pinnacle |
-| Reference home odds | 3.44 |
-| Reference draw odds | 3.88 |
-| Reference away odds | 2.05 |
-| Market reference 1x2 last update utc | 2026-11-27T16:28:52Z |
-| Market reference home last update utc | 2026-11-27T16:28:52Z |
-| Market reference draw last update utc | 2026-11-27T16:28:52Z |
-| Market reference away last update utc | 2026-11-27T16:28:52Z |
+| Reference home odds | 3.19 |
+| Reference draw odds | 3.70 |
+| Reference away odds | 2.23 |
+| Market reference 1x2 last update utc | 2026-11-28T06:35:43Z |
+| Market reference home last update utc | 2026-11-28T06:35:43Z |
+| Market reference draw last update utc | 2026-11-28T06:35:43Z |
+| Market reference away last update utc | 2026-11-28T06:35:43Z |
 | O/U 2.5 market source | The Odds API / unavailable reference |
-| Home probability edge | -2.8% |
-| Draw probability edge | -1.5% |
-| Away probability edge | +4.4% |
-| Raw edge prob home | -0.0949 |
-| Raw ev home | -0.3686 |
-| Raw edge prob draw | -0.0507 |
-| Raw ev draw | -0.2431 |
-| Raw edge prob away | 0.1456 |
-| Raw ev away | 0.2738 |
-| Market p over 1 5 | 81.8% |
-| Market over 1 5 odds | 1.20 |
-| Best over 1 5 bookmaker | Pinnacle |
-| Market best over 1 5 last update utc | 2026-11-27T16:28:52Z |
-| Market reference over 1 5 odds | 1.20 |
-| Market reference over 1 5 opposite odds | 4.71 |
-| Market reference over 1 5 last update utc | 2026-11-27T16:28:52Z |
-| Market over 1 5 bookmakers | 1 |
-| Market p under 3 5 | 64.3% |
-| Market under 3 5 odds | 1.51 |
+| Home probability edge | -3.6% |
+| Draw probability edge | -1.9% |
+| Away probability edge | +5.5% |
+| Raw edge prob home | -0.1191 |
+| Raw ev home | -0.4145 |
+| Raw edge prob draw | -0.0647 |
+| Raw ev draw | -0.2783 |
+| Raw edge prob away | 0.1838 |
+| Raw ev away | 0.3857 |
+| Market p under 3 5 | 64.8% |
+| Market under 3 5 odds | 1.50 |
 | Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-11-27T16:28:52Z |
-| Market reference under 3 5 odds | 1.51 |
-| Market reference under 3 5 opposite odds | 2.61 |
-| Market reference under 3 5 last update utc | 2026-11-27T16:28:52Z |
+| Market best under 3 5 last update utc | 2026-11-28T06:35:43Z |
+| Market reference under 3 5 odds | 1.50 |
+| Market reference under 3 5 opposite odds | 2.66 |
+| Market reference under 3 5 last update utc | 2026-11-28T06:35:43Z |
 | Market under 3 5 bookmakers | 1 |
 | Odds extra markets provider | — |
 | Training data status | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
@@ -1343,6 +840,14 @@ The model's most likely 1X2 outcome is **Amed SK win** at **51.9%**. Expected go
 | Elo away rating | 1,445.1013 |
 | Elo rating diff | -5.1313 |
 | Elo home expectancy | 0.4926 |
+| Market p over 1 5 | 81.4% |
+| Market over 1 5 odds | 1.21 |
+| Best over 1 5 bookmaker | Pinnacle |
+| Market best over 1 5 last update utc | 2026-11-28T06:35:43Z |
+| Market reference over 1 5 odds | 1.21 |
+| Market reference over 1 5 opposite odds | 4.70 |
+| Market reference over 1 5 last update utc | 2026-11-28T06:35:43Z |
+| Market over 1 5 bookmakers | 1 |
 | Research p home | 0.1739 |
 | Research p draw | 0.2000 |
 | Research p away | 0.6261 |
@@ -1350,55 +855,53 @@ The model's most likely 1X2 outcome is **Amed SK win** at **51.9%**. Expected go
 | Research v4 p home | 0.2013 |
 | Research v4 p draw | 0.1887 |
 | Research v4 p away | 0.6100 |
-| Research v4 p over 1 5 | 0.8858 |
+| Research v4 p over 1 5 | 0.8859 |
 | Research version | team-form-research-v5 |
 | Research probability basis | team_form_poisson_v1 |
-| Team research json | {"base_rates": [1.316972807575565, 2.474095978118627], "c6_fit": {"candidate_version": "research-low-score-then-sharpen-walk-forward-v1", "delta": 0.055466179703356835, "end_exclusive": "2026-11-30", "expected_origin": "2026-11-16", "fits_version": "research-c6-live-fits-v1", "low_score_status": "fitted", "origin": "2026-11-16", "rho": -0.016463701485858812, "slope": 1.1507759984871408, "slope_status": "fitted", "stale": false}, "coverage": {"form": "last ten, exponential rank half-life five matches", "training_cache": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED", "venue_splits": "home team home matches / away team away matches", "xg": "verified supplied xG; no goals-to-xG substitution"}, "evidence": {"coverage": {}, "errors": ["free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing"], "news": [], "quality_review": {"absence_note": "Reported absences only; not proof of complete coverage or a fitted player-value effect", "assessed_at_utc": "2026-11-27T16:30:31.576688+00:00", "availability": "UNAVAILABLE_OR_STALE", "form": {"away": {"matches": 10.0, "venue_matches": 4.0, "xg_matches": 10.0}, "home": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 10.0}}, "lineups": "UNCONFIRMED_OR_STALE", "probability_effect": "NONE; factual coverage/freshness review, not a calibrated confidence score", "status": "REVIEW_REQUIRED", "summary_max_age_minutes": 180, "training": {"cutoff": "2026-11-23", "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}, "version": "pre-match-research-quality-v1", "warnings": ["Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"], "weather": "UNAVAILABLE_INCOMPLETE_OR_STALE", "weather_max_age_minutes": 180}, "review_links": [{"label": "Sofascore", "status": "reference only; no authorized public bulk API", "url": "https://www.sofascore.com/football"}, {"label": "Sports Mole previews", "status": "reference only; article reproduction requires permission", "url": "https://www.sportsmole.co.uk/football/"}], "sources": [{"observed_at_utc": "2026-11-27T16:30:31.387587+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20261128"}, {"observed_at_utc": "2026-11-27T16:30:31.168273+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/news?limit=20"}, {"observed_at_utc": "2026-11-27T16:30:31.494235+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://www.bing.com/news/search?q=%22Gazi%C5%9Fehir+Gaziantep%22+%22Amed+SK%22+injury+suspension+lineup+preview&format=rss"}, {"observed_at_utc": "2026-11-27T16:29:48.450142+00:00", "reason": null, "status": "available", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"}, {"observed_at_utc": "2026-11-27T16:29:48.521989+00:00", "reason": null, "status": "available", "url": "https://www.theguardian.com/football/rss"}, {"observed_at_utc": "2026-11-27T16:30:31.576262+00:00", "reason": "TheSportsDB free source limit: 30 requests per minute", "status": "unavailable", "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=Gazi%C5%9Fehir+Gaziantep_vs_Amed+SK&d=2026-11-28"}]}, "evidence_quality_version": "pre-match-research-quality-v1", "form": {"away": {"all": {"goals_against": 1.6771975769468308, "goals_for": 2.3696797927526694, "last_match": "2026-11-21T00:00:00+00:00", "matches": 10, "points_per_game": 1.7449608468983888, "results": "LLWWWDWWDW", "xg_against": 1.0641448473420096, "xg_for": 2.063911160563444, "xg_matches": 10}, "venue": {"goals_against": 2.343489512148934, "goals_for": 2.304121194793239, "last_match": "2026-11-07T00:00:00+00:00", "matches": 4, "points_per_game": 1.2253845600818503, "results": "LWDD", "xg_against": 1.1339676739357567, "xg_for": 1.574830235726531, "xg_matches": 4}}, "home": {"all": {"goals_against": 1.8967676422229864, "goals_for": 0.49031746654875347, "last_match": "2026-11-21T00:00:00+00:00", "matches": 10, "points_per_game": 0.23621244102169386, "results": "LLLLLLLDWL", "xg_against": 1.5876711252338989, "xg_for": 1.0214473457055786, "xg_matches": 10}, "venue": {"goals_against": 2.079974104267636, "goals_for": 0.3740829150788852, "last_match": "2026-11-06T00:00:00+00:00", "matches": 5, "points_per_game": 0.17080955577585924, "results": "LLLDL", "xg_against": 1.79669599082956, "xg_for": 1.0552509360578024, "xg_matches": 5}}}, "goal_rates": [1.3289194950150918, 2.3935107413791443], "h2h": [], "margin_distribution": {"-1": 0.218693403147637, "-10": 5.6270182203647455e-05, "-11": 1.196136777707572e-05, "-12": 2.3389226907360857e-06, "-13": 4.233438365215511e-07, "-14": 7.131074262071481e-08, "-15": 1.1231296745160781e-08, "-16": 1.6596548781342333e-09, "-17": 2.2844327856327666e-10, "-18": 2.5814977606046064e-11, "-2": 0.1840536684017627, "-3": 0.11923537447326862, "-4": 0.06232755949532348, "-5": 0.027150562323889647, "-6": 0.010105105363364142, "-7": 0.0032767450495407415, "-8": 0.0009402096123066516, "-9": 0.00024173591823168023, "0": 0.1999819224528721, "1": 0.1021733329182864, "10": 1.324421462913876e-07, "11": 1.56311893592514e-08, "12": 1.6970332018146708e-09, "13": 1.7054186381520499e-10, "14": 1.594982838610261e-11, "15": 1.3947431884693228e-12, "16": 1.1443145645376265e-13, "17": 8.745191316987318e-15, "18": 5.486886477111311e-16, "2": 0.04797180206460862, "3": 0.017254801475669185, "4": 0.005007814813795059, "5": 0.0012111843737878155, "6": 0.00025028542975886976, "7": 4.506098341923832e-05, "8": 7.17870310463858e-06, "9": 1.0247685338798436e-06}, "model_note": "Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient", "observed_at_utc": "2026-11-27T16:30:31.576688+00:00", "p_over_1_5": 0.8883504801549442, "shadow_v4": {"grid": "independent Poisson (C)", "margin_distribution": {"-1": 0.21389810333676137, "-10": 5.471060182959167e-05, "-11": 1.1629847357175935e-05, "-12": 2.2740972755329827e-06, "-13": 4.1161046881133074e-07, "-14": 6.933429914221118e-08, "-15": 1.0920010922137199e-08, "-16": 1.6136560013885258e-09, "-17": 2.2211176087700284e-10, "-18": 2.50994915199095e-11, "-2": 0.17895244999849702, "-3": 0.11593065530159963, "-4": 0.06060009328240263, "-5": 0.026398059266556875, "-6": 0.009825032980704487, "-7": 0.0031859270164383544, "-8": 0.0009141508294588327, "-9": 0.0002350359826883039, "0": 0.18872340742461038, "1": 0.1187600099539088, "10": 1.5230158006448133e-07, "11": 1.797505480214272e-08, "12": 1.9514999212532934e-09, "13": 1.961142736923942e-10, "14": 1.8341473110955676e-11, "15": 1.60388212767784e-12, "16": 1.3159022346741633e-13, "17": 1.0056515186736757e-14, "18": 6.309634081736632e-16, "2": 0.05516507741354493, "3": 0.01984212429373963, "4": 0.005758726584914157, "5": 0.0013927990374865207, "6": 0.00028781522715229813, "7": 5.181778735985091e-05, "8": 8.255135213867712e-06, "9": 1.1784305168755123e-06}, "p_over_1_5": 0.8858345639005207, "version": "team-form-research-v4"}, "version": "team-form-research-v5", "warnings": ["availability unavailable or unconfirmed", "lineups unavailable or unconfirmed", "rotation unavailable or unconfirmed", "h2h unavailable or unconfirmed", "tactics unavailable or unconfirmed", "motivation unavailable or unconfirmed", "rivalry unavailable or unconfirmed", "weather unavailable or unconfirmed", "travel unavailable or unconfirmed", "free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing", "Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"]} |
+| Team research json | {"base_rates": [1.3170446005012895, 2.4743091336515963], "c6_fit": {"candidate_version": "research-low-score-then-sharpen-walk-forward-v1", "delta": 0.055466179703356835, "end_exclusive": "2026-11-30", "expected_origin": "2026-11-16", "fits_version": "research-c6-live-fits-v1", "low_score_status": "fitted", "origin": "2026-11-16", "rho": -0.016463701485858812, "slope": 1.1507759984871408, "slope_status": "fitted", "stale": false}, "coverage": {"form": "last ten, exponential rank half-life five matches", "training_cache": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED", "venue_splits": "home team home matches / away team away matches", "xg": "verified supplied xG; no goals-to-xG substitution"}, "evidence": {"coverage": {}, "errors": ["free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing"], "news": [], "quality_review": {"absence_note": "Reported absences only; not proof of complete coverage or a fitted player-value effect", "assessed_at_utc": "2026-11-28T06:36:58.825767+00:00", "availability": "UNAVAILABLE_OR_STALE", "form": {"away": {"matches": 10.0, "venue_matches": 4.0, "xg_matches": 10.0}, "home": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 10.0}}, "lineups": "UNCONFIRMED_OR_STALE", "probability_effect": "NONE; factual coverage/freshness review, not a calibrated confidence score", "status": "REVIEW_REQUIRED", "summary_max_age_minutes": 180, "training": {"cutoff": "2026-11-23", "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}, "version": "pre-match-research-quality-v1", "warnings": ["Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"], "weather": "UNAVAILABLE_INCOMPLETE_OR_STALE", "weather_max_age_minutes": 180}, "review_links": [{"label": "Sofascore", "status": "reference only; no authorized public bulk API", "url": "https://www.sofascore.com/football"}, {"label": "Sports Mole previews", "status": "reference only; article reproduction requires permission", "url": "https://www.sportsmole.co.uk/football/"}], "sources": [{"observed_at_utc": "2026-11-28T06:36:58.342422+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20261128"}, {"observed_at_utc": "2026-11-28T06:36:58.387112+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/news?limit=20"}, {"observed_at_utc": "2026-11-28T06:36:58.769020+00:00", "reason": null, "status": "available", "url": "https://www.bing.com/news/search?q=%22Gazi%C5%9Fehir+Gaziantep%22+%22Amed+SK%22+injury+suspension+lineup+preview&format=rss"}, {"observed_at_utc": "2026-11-28T06:36:29.662572+00:00", "reason": null, "status": "available", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"}, {"observed_at_utc": "2026-11-28T06:36:29.767100+00:00", "reason": null, "status": "available", "url": "https://www.theguardian.com/football/rss"}, {"observed_at_utc": "2026-11-28T06:36:58.825414+00:00", "reason": "TheSportsDB free source limit: 30 requests per minute", "status": "unavailable", "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=Gazi%C5%9Fehir+Gaziantep_vs_Amed+SK&d=2026-11-28"}]}, "evidence_quality_version": "pre-match-research-quality-v1", "form": {"away": {"all": {"goals_against": 1.6771975769468308, "goals_for": 2.3696797927526694, "last_match": "2026-11-21T00:00:00+00:00", "matches": 10, "points_per_game": 1.7449608468983888, "results": "LLWWWDWWDW", "xg_against": 1.0641448473420096, "xg_for": 2.063911160563444, "xg_matches": 10}, "venue": {"goals_against": 2.343489512148934, "goals_for": 2.304121194793239, "last_match": "2026-11-07T00:00:00+00:00", "matches": 4, "points_per_game": 1.2253845600818503, "results": "LWDD", "xg_against": 1.1339676739357567, "xg_for": 1.574830235726531, "xg_matches": 4}}, "home": {"all": {"goals_against": 1.8967676422229864, "goals_for": 0.49031746654875347, "last_match": "2026-11-21T00:00:00+00:00", "matches": 10, "points_per_game": 0.23621244102169386, "results": "LLLLLLLDWL", "xg_against": 1.5876711252338989, "xg_for": 1.0214473457055786, "xg_matches": 10}, "venue": {"goals_against": 2.079974104267636, "goals_for": 0.3740829150788852, "last_match": "2026-11-06T00:00:00+00:00", "matches": 5, "points_per_game": 0.17080955577585924, "results": "LLLDL", "xg_against": 1.79669599082956, "xg_for": 1.0552509360578024, "xg_matches": 5}}}, "goal_rates": [1.3289707756763238, 2.3936629953312654], "h2h": [], "margin_distribution": {"-1": 0.2186879128447663, "-10": 5.629619480450719e-05, "-11": 1.1967630828933834e-05, "-12": 2.340291604025677e-06, "-13": 4.2361783204696935e-07, "-14": 7.136132915882957e-08, "-15": 1.12399641145443e-08, "-16": 1.661039029741716e-09, "-17": 2.2864757859841204e-10, "-18": 2.583931131138696e-11, "-2": 0.1840559536106578, "-3": 0.11924241364791008, "-4": 0.062334466491448, "-5": 0.027155064443632054, "-6": 0.010107358116509165, "-7": 0.0032776674064078056, "-8": 0.0009405302825853083, "-9": 0.00024183294841507189, "0": 0.19997197467775932, "1": 0.10216713065930243, "10": 1.3246880784968266e-07, "11": 1.563490316747317e-08, "12": 1.6974985480959933e-09, "13": 1.7059492024298984e-10, "14": 1.5955382399294214e-11, "15": 1.3952808588254648e-12, "16": 1.144798294951961e-13, "17": 8.749196450600814e-15, "18": 5.489526941408294e-16, "2": 0.04796948519349438, "3": 0.017254340761166425, "4": 0.005007815087701579, "5": 0.0012112207441062092, "6": 0.00025030097477544104, "7": 4.506529255280901e-05, "8": 7.179637552869687e-06, "9": 1.0249380893694918e-06}, "model_note": "Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient", "observed_at_utc": "2026-11-28T06:36:58.825767+00:00", "p_over_1_5": 0.8883686583312045, "shadow_v4": {"grid": "independent Poisson (C)", "margin_distribution": {"-1": 0.2138924782669786, "-10": 5.473585262643528e-05, "-11": 1.1635928140700202e-05, "-12": 2.2754265503319148e-06, "-13": 4.1187656297857836e-07, "-14": 6.938343185766277e-08, "-15": 1.0928429913185912e-08, "-16": 1.61500058493155e-09, "-17": 2.2231023267227932e-10, "-18": 2.512313204862336e-11, "-2": 0.17895453834553646, "-3": 0.11593741287341659, "-4": 0.06060676362357263, "-5": 0.02640241690596458, "-6": 0.009827215964222806, "-7": 0.0031868214315125313, "-8": 0.0009144619297460453, "-9": 0.0002351301481499763, "0": 0.1887140465403444, "1": 0.11875391536245006, "10": 1.5233375125449006e-07, "11": 1.7979503919930545e-08, "12": 1.95205441777615e-09, "13": 1.9617723271929806e-10, "14": 1.8348042026183114e-11, "15": 1.6045163441015956e-12, "16": 1.3164715643675513e-13, "17": 1.0061220731259747e-14, "18": 6.312733126927703e-16, "2": 0.05516296057833979, "3": 0.019841791409146665, "4": 0.005758784050990022, "5": 0.0013928546843746323, "6": 0.00028783595964315727, "7": 5.182325694166707e-05, "8": 8.256291717498583e-06, "9": 1.1786371938549791e-06}, "p_over_1_5": 0.8858528786764251, "version": "team-form-research-v4"}, "version": "team-form-research-v5", "warnings": ["availability unavailable or unconfirmed", "lineups unavailable or unconfirmed", "rotation unavailable or unconfirmed", "h2h unavailable or unconfirmed", "tactics unavailable or unconfirmed", "motivation unavailable or unconfirmed", "rivalry unavailable or unconfirmed", "weather unavailable or unconfirmed", "travel unavailable or unconfirmed", "free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing", "Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"]} |
 
 </details>
 
 
 ### 2026-11-28 — Samsunspor vs Genclerbirligi SK
 
-The model's most likely 1X2 outcome is **Samsunspor win** at **50.3%**. Expected goals are 1.47 for Samsunspor and 1.02 for Genclerbirligi SK (2.48 combined). The most likely exact score is 1-1 at 12.6%. Goal-market probabilities: at least one goal: 92.5%; Over 2.5 goals: 51.3%; Under 3.5 goals: 70.9%; Double Chance 1X: 76.7%; Double Chance X2: 49.7%; Double Chance 12 (either team wins): 73.7%; Under 4.5 goals: 85.9%; BTTS Yes (both teams score): 54.4%; BTTS No (at least one team does not score): 45.6%.
+The model's most likely 1X2 outcome is **Samsunspor win** at **50.3%**. Expected goals are 1.47 for Samsunspor and 1.02 for Genclerbirligi SK (2.48 combined). The most likely exact score is 1-1 at 12.6%. Goal-market probabilities: at least one goal: 93.0%; Over 2.5 goals: 53.7%; Under 3.5 goals: 68.4%; Double Chance 1X: 76.8%; Double Chance X2: 49.7%; Double Chance 12 (either team wins): 73.5%; Under 4.5 goals: 84.3%; BTTS Yes (both teams score): 56.7%; BTTS No (at least one team does not score): 43.3%.
 
 | Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
 | Samsunspor win | 50.3% | 1.99 |
-| Draw | 26.3% | 3.80 |
-| Genclerbirligi SK win | 23.3% | 4.28 |
+| Draw | 26.5% | 3.77 |
+| Genclerbirligi SK win | 23.2% | 4.31 |
 
 | Measure | Benchmark estimate |
 | --- | --- |
 | Samsunspor expected goals | 1.47 |
 | Genclerbirligi SK expected goals | 1.02 |
 | Expected total goals | 2.48 |
-| Over 0.5 | 92.5% |
-| Under 0.5 | 7.5% |
-| Over 1.5 | 76.6% |
-| Under 1.5 | 23.4% |
-| Over 2.5 | 51.3% |
-| Under 2.5 | 48.7% |
-| Over 3.5 | 29.1% |
-| Under 3.5 | 70.9% |
-| Over 4.5 | 14.1% |
-| Under 4.5 | 85.9% |
+| Over 0.5 | 93.0% |
+| Under 0.5 | 7.0% |
+| Over 1.5 | 78.4% |
+| Under 1.5 | 21.6% |
+| Over 2.5 | 53.7% |
+| Under 2.5 | 46.3% |
+| Over 3.5 | 31.6% |
+| Under 3.5 | 68.4% |
+| Over 4.5 | 15.7% |
+| Under 4.5 | 84.3% |
 
 | Rank | Score | Benchmark probability |
 | --- | --- | --- |
 | 1 | 1-1 | 12.56% |
-| 2 | 1-0 | 10.12% |
-| 3 | 2-1 | 9.96% |
-| 4 | 2-0 | 8.96% |
-| 5 | 0-0 | 7.46% |
+| 2 | 2-1 | 9.93% |
+| 3 | 1-0 | 9.26% |
+| 4 | 2-0 | 8.57% |
+| 5 | 0-0 | 6.96% |
 
 | Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
-| Samsunspor win | 50.3% | 52.0% | 1.88 | -5.5% |
-| Draw | 26.3% | 25.5% | 3.73 | -1.8% |
-| Genclerbirligi SK win | 23.3% | 22.6% | 4.19 | -2.2% |
-| Over 2.5 | 51.3% | 51.3% | 1.89 | -3.3% |
-| Under 2.5 | 48.7% | 48.7% | 1.98 | -3.6% |
+| Samsunspor win | 50.3% | 52.0% | 1.89 | -5.1% |
+| Draw | 26.5% | 25.7% | 3.73 | -1.2% |
+| Genclerbirligi SK win | 23.2% | 22.3% | 4.27 | -1.0% |
 
 <details>
 <summary>Additional technical details (forecast row)</summary>
@@ -1414,16 +917,14 @@ The model's most likely 1X2 outcome is **Samsunspor win** at **50.3%**. Expected
 | Odds event id | 1640822652.00 |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-11-27T16:28:52Z |
-| Market best draw last update utc | 2026-11-27T16:28:52Z |
-| Market best away last update utc | 2026-11-27T16:28:52Z |
+| Market best home last update utc | 2026-11-28T06:35:43Z |
+| Market best draw last update utc | 2026-11-28T06:35:43Z |
+| Market best away last update utc | 2026-11-28T06:35:43Z |
 | Odds bookmakers 1x2 | 1.00 |
-| Odds bookmakers ou25 | 1.00 |
+| Odds bookmakers ou25 | 0.00 |
 | Best home bookmaker | Pinnacle |
 | Best draw bookmaker | Pinnacle |
 | Best away bookmaker | Pinnacle |
-| Best over 2 5 bookmaker | Pinnacle |
-| Best under 2 5 bookmaker | Pinnacle |
 | Matched home-team name | Samsunspor |
 | Matched away-team name | Genclerbirligi |
 | Home-name matching confidence | 100/100 |
@@ -1438,22 +939,22 @@ The model's most likely 1X2 outcome is **Samsunspor win** at **50.3%**. Expected
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 15 |
 | Score grid omitted mass | 0 |
-| P btts yes | 54.4% |
-| P btts no | 45.6% |
-| Fair Over 0.5 odds | 1.08 |
-| Fair Under 0.5 odds | 13.40 |
-| Fair Over 1.5 odds | 1.31 |
-| Fair Under 1.5 odds | 4.27 |
-| Fair Over 2.5 odds | 1.95 |
-| Fair Under 2.5 odds | 2.05 |
-| Fair Over 3.5 odds | 3.43 |
-| Fair Under 3.5 odds | 1.41 |
-| Fair Over 4.5 odds | 7.10 |
-| Fair Under 4.5 odds | 1.16 |
-| Score matrix json | [[0.07460770036576125,0.05847707972538224,0.0375751321689558,0.013933632123311505,0.0038751581087220995,0.0008621930152710649,0.00015985945491897864,2.5405360723210513e-05,3.53281142850215e-06,4.3667972197179927e-07,4.857894770114993e-08,4.9129290894875564e-09,4.554537976941063e-10,3.897499366806836e-11,3.0970134791963546e-12,2.296872639384161e-13],[0.1012333148561631,0.12555619716629457,0.060289538158406465,0.022356601217164308,0.006217715791793894,0.0013833941677267806,0.00025649551048771875,4.076306259850065e-05,5.6684183695594905e-06,7.006553867180381e-07,7.794523005147159e-08,7.882825920035516e-09,7.307785104254774e-10,6.253562482252627e-11,4.969177792683106e-12,3.6853467344969114e-13],[0.08955723364758818,0.09962899467786161,0.051698908414311226,0.017935654306069217,0.004988182234488489,0.0011098323631738073,0.00020577433763207712,3.2702296387612586e-05,4.547506633545744e-06,5.621030084936106e-07,6.253180827579986e-08,6.324022121400617e-09,5.862693801253052e-10,5.016940355718064e-11,3.986538660739456e-12,2.956581118295835e-13],[0.04789838335169354,0.05328511819382851,0.029638827265658495,0.010253340547895458,0.002667856689676472,0.0005935776912962585,0.00011005541044989037,1.7490347401957228e-05,2.4321677563765317e-06,3.006326154502906e-07,3.344422781363486e-08,3.3823112166171127e-09,3.1355764769491463e-10,2.6832375523832085e-11,2.1321421982487483e-12,1.5812843926351722e-13],[0.01921331505783602,0.021374077622514573,0.01188892163684566,0.004408656759630751,0.0011438574823686874,0.000238099793691152,4.414615122325291e-05,7.015843366515757e-06,9.756071522008945e-07,1.2059173510922825e-07,1.3415368972503942e-08,1.3567349559871848e-09,1.2577630918608735e-10,1.0763179226827198e-11,8.552589239238249e-13,6.34295212192464e-14],[0.0061655772020725854,0.006858968653145499,0.0038151700516391275,0.0014147435529537418,0.0003934620135276009,8.166922357350252e-05,1.416655599109262e-05,2.251393046108395e-06,3.130735741167968e-07,3.869804094242421e-08,4.305008940168714e-09,4.353779703663324e-10,4.036177734785529e-11,3.453917882623907e-12,2.744536748260547e-13,2.035461391178644e-14],[0.0016487846284502087,0.001834209792803596,0.001020244095549017,0.0003783275023342579,0.00010521871651616038,2.3410358986858423e-05,4.049323222023427e-06,6.020624063835238e-07,8.372142293575078e-08,1.0348542069274168e-08,1.1512356967170675e-09,1.1642778633354118e-10,1.079345467374949e-11,9.236388623737078e-13,7.339377732919412e-14,5.443184544751267e-15],[0.0003779264865351174,0.0004204287513367622,0.0002338554470886023,8.671841139809021e-05,2.4117728394923512e-05,5.366009949246926e-06,9.949134478974451e-07,1.4750708548917187e-07,1.919022210170028e-08,2.3720430658537926e-09,2.638807122086342e-10,2.6687017494489792e-11,2.4740237942783386e-12,2.1171205993853652e-13,1.6822968822577622e-14,1.2476605950006415e-15],[7.579818092381923e-05,8.432257514303145e-05,4.690281872264437e-05,1.739253021623783e-05,4.837131043949938e-06,1.0762246295596385e-06,1.9954311807744624e-07,3.1712011636478185e-08,4.1139539511788365e-09,4.757447701352619e-10,5.2924784789958725e-11,5.3524361282799435e-12,4.961983609241371e-13,4.246166806169195e-14,3.3740700372187857e-15,2.502349183790032e-16],[1.3513184732557845e-05,1.503290080507331e-05,8.361763384714627e-06,3.100713907828881e-06,8.623563860745005e-07,1.9186769465595302e-07,3.557424444527511e-08,5.653569337177723e-09,7.861724375345442e-10,9.065691273993891e-11,9.435350361724013e-12,9.542241949494421e-13,8.846149120516944e-14,7.570001780740405e-15,6.015240888082835e-16,4.461150171915792e-17],[2.1681990708957298e-06,2.412038479715062e-06,1.3416502446019951e-06,4.975115153920855e-07,1.38365629721826e-07,3.0785293439054385e-08,5.70791011005909e-09,9.071187900347051e-10,1.261418668035613e-10,1.559199986740797e-11,1.6181822886951148e-12,1.5310587798972422e-13,1.419370243485111e-14,1.2146115924941975e-15,9.651492200304215e-17,7.15794377810097e-18],[3.1626265243728207e-07,3.518300960530945e-07,1.956987578754298e-07,7.256912595714299e-08,2.0182593770737744e-08,4.490472618398985e-09,8.325798195896744e-10,1.3231616896392923e-10,1.8399584205247157e-11,2.2743147993468256e-12,2.530088166094321e-13,2.387088888256741e-14,2.07035324394685e-15,1.7716836478699858e-16,1.4078073200100283e-17,1.0440878402940797e-18],[4.2287119502469025e-08,4.7042801929680234e-08,2.616665830437936e-08,9.703135282936997e-09,2.6985916549922815e-09,6.004159858061638e-10,1.1132330060159293e-10,1.7691844439950605e-11,2.460187474198604e-12,3.0409604474333353e-13,3.382952106639604e-14,3.4212770345084055e-15,2.9589158698051914e-16,2.3688980523207864e-17,1.882363153503258e-18,1.3960379745549058e-19],[5.2192270580806e-09,5.8061903389985635e-09,3.229582261657531e-09,1.1975955518550856e-09,3.3306980352785367e-10,7.410548167133257e-11,1.3739918668632656e-11,2.1835905186909617e-12,3.03645109535981e-13,3.7532618056120525e-14,4.175360104661015e-15,4.2226620970608886e-16,3.914624969044573e-17,3.1251612491908535e-18,2.3232797172019504e-19,1.7230398420681216e-20],[5.981630682545447e-10,6.654335190625925e-10,3.7013466042306216e-10,1.372535476716886e-10,3.8172329619709494e-11,8.493051135297181e-12,1.5746990535069162e-12,2.5025606089497475e-13,3.480003616614543e-14,4.301523142457673e-15,4.785279857493182e-16,4.839491534037616e-17,4.4864575855618844e-18,3.8392402670615474e-19,2.8460523047693864e-20,1.9747345482135896e-21],[6.398376274734994e-11,7.117948711222794e-11,3.9592227527832184e-11,1.4681612584480526e-11,4.0831830173469986e-12,9.08476965031746e-13,1.6844097535487976e-13,2.6769162584903135e-14,3.722458600045689e-15,4.601214130494018e-16,5.1186746111718e-17,5.1766632640031564e-18,4.799033122661513e-19,4.106723591186408e-20,3.2632662946801478e-21,2.257807322666428e-22]] |
+| P btts yes | 56.7% |
+| P btts no | 43.3% |
+| Fair Over 0.5 odds | 1.07 |
+| Fair Under 0.5 odds | 14.38 |
+| Fair Over 1.5 odds | 1.27 |
+| Fair Under 1.5 odds | 4.64 |
+| Fair Over 2.5 odds | 1.86 |
+| Fair Under 2.5 odds | 2.16 |
+| Fair Over 3.5 odds | 3.17 |
+| Fair Under 3.5 odds | 1.46 |
+| Fair Over 4.5 odds | 6.37 |
+| Fair Under 4.5 odds | 1.19 |
+| Score matrix json | [[0.06955227167055049,0.053493270174886684,0.03603622105981352,0.013919357803732683,0.004032370403379979,0.0009345265090143442,0.00018048519619264384,2.9877534525757676e-05,4.327688376374699e-06,5.572045865910795e-07,6.45677858211222e-08,6.801808798889243e-09,6.568169996735425e-10,5.854667605891074e-11,4.845910834291869e-12,3.7435649357092805e-13],[0.09261689829365788,0.12560544774477542,0.060225062342383895,0.023262544374570628,0.006739046209314145,0.0015618151851322475,0.0003016335196339705,4.993243815614983e-05,7.232592502775733e-06,9.312208655066914e-07,1.0790806616299786e-07,1.1367433845911695e-08,1.0976968058670617e-09,9.784536535434105e-11,8.098664996433774e-12,6.256383855056207e-13],[0.08570837498729907,0.09931720112199367,0.05611332236432934,0.01943861126386704,0.0056312713451626625,0.0013050815835510112,0.00025205053402181773,4.1724466556440226e-05,6.043687733707405e-06,7.781453358633517e-07,9.0169970945703e-08,9.49883744617171e-09,9.17255703041821e-10,8.176139249725498e-11,6.7673938880930785e-12,5.227949777020735e-13],[0.04774633294934813,0.0553275237463176,0.032056230236013665,0.012074320531909403,0.003137062820454869,0.0007270334996261811,0.00014041205097226585,2.324382270265834e-05,3.366811315909871e-06,4.3348839940810494e-07,5.0231794214329395e-08,5.2916025464706166e-09,5.109838589707618e-10,4.5547552023413905e-11,3.769972792368983e-12,2.912380858149421e-13],[0.019948858356442695,0.023116349806358866,0.01339338870480697,0.005173332944018875,0.0014614432137951723,0.0003037613028799007,5.866545016880892e-05,9.711483544704952e-06,1.4066848259363853e-06,1.8111545211497558e-07,2.0987307000826247e-08,2.2108803578720697e-09,2.1349377000009763e-10,1.903018740228079e-11,1.5751294098835783e-12,1.216819588655573e-13],[0.006667853636384395,0.007726579354175607,0.004476705081722875,0.0017291729815637749,0.0005009330208691278,0.00011320905448569674,1.9608773005894188e-05,3.24603792914971e-06,4.70180717325984e-07,6.053736531746039e-08,7.014952374865087e-09,7.389809667522696e-10,7.135973323409839e-11,6.360790277023237e-12,5.264828781581005e-13,4.0671875924270434e-14],[0.001857260505916189,0.0021521574201978314,0.0012469391198914558,0.0004816429486441416,0.0001395296247495326,3.233684410835975e-05,6.09000836779732e-06,9.041497272253831e-07,1.309638940134876e-07,1.686204644967374e-08,1.9539412091511636e-09,2.0583537657208895e-10,1.987650321614909e-11,1.7717312364907929e-12,1.4664626879457723e-13,1.1328723300625889e-14],[0.0004434174698411412,0.0005138235562130799,0.00029770438117158755,0.00011499135257240508,3.3312436772999233e-05,7.720361011016593e-06,1.4910340780177694e-06,2.4069165672014476e-07,3.126738459091779e-08,4.025782031783285e-09,4.664998067962183e-10,4.914281092644571e-11,4.7454779430882154e-12,4.229975168376922e-13,3.5011522219635074e-14,2.704711485810595e-15],[9.263195466777613e-05,0.00010734011085178368,6.219181835791126e-05,2.402222393828875e-05,6.959121692104602e-06,1.6128190245809797e-06,3.1148389614088374e-07,5.156307030984117e-08,7.283167350932227e-09,8.410044349495249e-10,9.745396132262232e-11,1.0266159868749608e-11,9.913522303452864e-13,8.836613230040016e-14,7.314068478765569e-15,5.650267045923563e-16],[1.7201104520501365e-05,1.993230600202405e-05,1.1548584629690506e-05,4.4607585606863755e-06,1.2922601064189914e-06,2.9948918506543393e-07,5.784037563698494e-08,9.574900637458738e-09,1.3869011232486241e-09,1.7413035973431336e-10,1.8096517348245742e-11,1.9063539095107604e-12,1.8408715860482016e-13,1.6408971215420062e-14,1.35817123609847e-15,1.0492149752669037e-16],[2.8747120581416913e-06,3.331160527644907e-06,1.930042076651101e-06,7.454984304978883e-07,2.1596727731934398e-07,5.005173769884965e-08,9.666497002730791e-09,1.600192725136055e-09,2.3178403326956042e-10,2.984298202740934e-11,3.3722031066098366e-12,3.185968996481863e-13,3.076532521266802e-14,2.7423278172890883e-15,2.269825885180818e-16,1.7534867818445713e-17],[4.3675680600921065e-07,5.061053082647334e-07,2.9323250322553535e-07,1.1326404412121081e-07,3.2812043897529346e-08,7.6043919009724e-09,1.468636952439504e-09,2.4311828436876115e-10,3.5215093549294934e-11,4.5340629769046406e-12,5.25398416016817e-13,5.397188430714198e-14,4.6741951555334634e-15,4.166435852652473e-16,3.448560703674275e-17,2.664083465503231e-18],[6.082700751443457e-08,7.048515550382735e-08,4.0838414952599396e-08,1.5774254157199893e-08,4.569724874938492e-09,1.0590616950646877e-09,2.0453668886874794e-10,3.385902064198906e-11,4.904396978989052e-12,6.314577791863468e-13,7.31721016350985e-14,7.70821917470827e-15,7.258457120534774e-16,5.80258444587025e-17,4.802801580886074e-18,3.7102621583835966e-19],[7.819718417322083e-09,9.061337901758408e-09,5.25005122869641e-09,2.0278858157423534e-09,5.874686792404097e-10,1.3614946025435198e-10,2.6294558590367506e-11,4.3528034359378845e-12,6.304930153494492e-13,8.117811852725129e-14,9.406762787966517e-15,9.909431009065772e-16,9.56904690544879e-17,8.317577149993392e-18,6.174322478035117e-19,4.7697900190339624e-20],[9.334715685909227e-10,1.081688732672228e-09,6.267199525724411e-10,2.420769716146071e-10,7.012852384733076e-11,1.6252714412952083e-11,3.1388883260021487e-12,5.196118369316391e-13,7.52645137093598e-14,9.690561934945436e-15,1.122923505224236e-15,1.1829290537348974e-16,1.1422960198876795e-17,1.0182080407935116e-18,8.218262205991036e-20,5.693892200841854e-21],[1.0400347531801234e-10,1.2051720823170454e-10,6.982650067967755e-11,2.697119782703555e-11,7.813425115940298e-12,1.8108090692571763e-12,3.497217328559309e-13,5.789296500893158e-14,8.38565550069151e-15,1.0796816453018725e-15,1.2511141312626838e-16,1.3179697891472925e-17,1.2726981721530631e-18,1.1344445658813334e-19,9.389802432466512e-21,7.073538183758799e-22]] |
 | Score matrix version | published-score-matrix-v1 |
-| Goal margin distribution | {"-1": 0.13962301696718046, "-10": 5.7075750990372416e-08, "-11": 5.696072575189683e-09, "-12": 5.221340896166356e-10, "-13": 4.423982957258104e-11, "-14": 3.465548152646046e-12, "-15": 2.296872639384161e-13, "-2": 0.06555997700353361, "-3": 0.021378575223534636, "-4": 0.005482832445102638, "-5": 0.0011539480055917028, "-6": 0.00020548451852200363, "-7": 3.167072436652265e-05, "-8": 4.2995102395811125e-06, "-9": 5.212735748684527e-07, "0": 0.2633458742367654, "1": 0.23532769335930884, "10": 2.5474325016116438e-06, "11": 3.6667637335930886e-07, "12": 4.847812611447513e-08, "13": 5.9242528046710246e-09, "14": 6.693425553667727e-10, "15": 6.398376274734994e-11, "2": 0.15625680708281936, "3": 0.07349118898127711, "4": 0.027184281059391715, "5": 0.008251928964440198, "6": 0.0021193598820619356, "7": 0.0004711291335819093, "8": 9.224807539805656e-05, "9": 1.613096683672691e-05} |
-| Raw goal margin distribution | {"-1": 0.15557058922788386, "-10": 3.0985184119879595e-08, "-11": 2.831243271031911e-09, "-12": 2.3754394007777944e-10, "-13": 1.8418983275320718e-11, "-14": 1.3222666166858373e-12, "-15": 8.149795924519926e-14, "-2": 0.06900070818083665, "-3": 0.02094814675012428, "-4": 0.004969446308984586, "-5": 0.0009638742286200355, "-6": 0.0001578168298106326, "-7": 2.2331678769323097e-05, "-8": 2.780498627772175e-06, "-9": 3.0894978639978567e-07, "0": 0.28369138836781627, "1": 0.22899038214499567, "10": 1.2070289964949578e-06, "11": 1.5907325636046984e-07, "12": 1.9249537629282364e-08, "13": 2.1527736168318236e-09, "14": 2.2289899195546823e-10, "15": 1.981491287490852e-11, "2": 0.14353779570069558, "3": 0.06285136213407223, "4": 0.021504703132867637, "5": 0.006015921763210076, "6": 0.0014206643694552304, "7": 0.00028994518940882196, "8": 5.206832210188708e-05, "9": 8.344400860949271e-06} |
+| Goal margin distribution | {"-1": 0.1366183129540144, "-10": 7.689963872338495e-08, "-11": 7.985158652004795e-09, "-12": 7.617209970017917e-10, "-13": 6.71681360330466e-11, "-14": 5.4715492197974895e-12, "-15": 3.7435649357092805e-13, "-2": 0.06571911685633848, "-3": 0.022114096650831416, "-4": 0.005870949171519967, "-5": 0.0012814396475957508, "-6": 0.00023691655707679647, "-7": 3.794078820600998e-05, "-8": 5.354590819284822e-06, "-9": 6.751420420582236e-07, "0": 0.2649263527405946, "1": 0.22969847647508718, "10": 3.423755606507683e-06, "11": 5.127419031384649e-07, "12": 7.054203656659246e-08, "13": 8.971233650673987e-09, "14": 1.0539887768226272e-09, "15": 1.0400347531801234e-10, "2": 0.156306031700937, "3": 0.07585601551829603, "4": 0.02904463670856133, "5": 0.009143081476672503, "6": 0.0024379604196829233, "7": 0.000563085561681262, "8": 0.00011461227586168898, "9": 2.0841875876644392e-05} |
+| Raw goal margin distribution | {"-1": 0.15557611965054272, "-10": 3.0994171142873326e-08, "-11": 2.8321476881876554e-09, "-12": 2.3762681074468614e-10, "-13": 1.8425951193544372e-11, "-14": 1.322805635201057e-12, "-15": 8.153348693552173e-14, "-2": 0.06900471172301527, "-3": 0.02094995249048678, "-4": 0.004970017079896138, "-5": 0.000964012815498446, "-6": 0.0001578441118946512, "-7": 2.2336191360097033e-05, "-8": 2.7811418842651406e-06, "-9": 3.090303216127332e-07, "0": 0.28369204333898407, "1": 0.22898739131198773, "10": 1.2068354940139278e-06, "11": 1.590452669607169e-07, "12": 1.9245850002848483e-08, "13": 2.152327619175773e-09, "14": 2.2284931493867517e-10, "15": 1.981016477771974e-11, "2": 0.1435331960752667, "3": 0.06284828870481556, "4": 0.021503299327457304, "5": 0.006015432132437835, "6": 0.0014205260901881923, "7": 0.0002899123759552855, "8": 5.206160873283892e-05, "9": 8.343193900374103e-06} |
 | Research history json | {"away": [{"away": "Gaziantep", "away_goals": 0.0, "away_xg": 0.96, "date": "2026-11-21T00:00:00+00:00", "home": "Genclerbirligi", "home_goals": 1.0, "home_xg": 0.49, "source": "pipeline training history"}, {"away": "Genclerbirligi", "away_goals": 0.0, "away_xg": 0.29, "date": "2026-11-08T00:00:00+00:00", "home": "Besiktas", "home_goals": 3.0, "home_xg": 3.94, "source": "pipeline training history"}, {"away": "Alanyaspor", "away_goals": 0.0, "away_xg": 0.5, "date": "2026-11-02T00:00:00+00:00", "home": "Genclerbirligi", "home_goals": 5.0, "home_xg": 1.91, "source": "pipeline training history"}, {"away": "Genclerbirligi", "away_goals": 0.0, "away_xg": 1.16, "date": "2026-10-25T00:00:00+00:00", "home": "Konyaspor", "home_goals": 2.0, "home_xg": 2.27, "source": "pipeline training history"}, {"away": "Galatasaray", "away_goals": 1.0, "away_xg": 1.92, "date": "2026-10-17T00:00:00+00:00", "home": "Genclerbirligi", "home_goals": 0.0, "home_xg": 1.74, "source": "pipeline training history"}, {"away": "Amedspor", "away_goals": 2.0, "away_xg": 2.16, "date": "2026-10-10T00:00:00+00:00", "home": "Genclerbirligi", "home_goals": 2.0, "home_xg": 0.5, "source": "pipeline training history"}, {"away": "Genclerbirligi", "away_goals": 0.0, "away_xg": 0.46, "date": "2026-09-19T00:00:00+00:00", "home": "Buyuksehyr", "home_goals": 4.0, "home_xg": 2.78, "source": "pipeline training history"}, {"away": "Kasimpasa", "away_goals": 2.0, "away_xg": 1.31, "date": "2026-09-13T00:00:00+00:00", "home": "Genclerbirligi", "home_goals": 1.0, "home_xg": 1.15, "source": "pipeline training history"}, {"away": "Genclerbirligi", "away_goals": 0.0, "away_xg": 0.86, "date": "2026-09-06T00:00:00+00:00", "home": "Trabzonspor", "home_goals": 5.0, "home_xg": 3.2, "source": "pipeline training history"}, {"away": "Erzurumspor", "away_goals": 1.0, "away_xg": 0.86, "date": "2026-08-28T00:00:00+00:00", "home": "Genclerbirligi", "home_goals": 1.0, "home_xg": 0.76, "source": "pipeline training history"}], "h2h": [{"away": "Samsunspor", "away_goals": 1.0, "away_xg": null, "date": "2026-01-18T00:00:00+00:00", "home": "Genclerbirligi", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Genclerbirligi", "away_goals": 1.0, "away_xg": null, "date": "2025-08-09T00:00:00+00:00", "home": "Samsunspor", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}], "home": [{"away": "Samsunspor", "away_goals": 1.0, "away_xg": 0.88, "date": "2026-11-21T00:00:00+00:00", "home": "Galatasaray", "home_goals": 2.0, "home_xg": 1.7, "source": "pipeline training history"}, {"away": "Konyaspor", "away_goals": 0.0, "away_xg": 0.96, "date": "2026-11-07T00:00:00+00:00", "home": "Samsunspor", "home_goals": 1.0, "home_xg": 0.66, "source": "pipeline training history"}, {"away": "Samsunspor", "away_goals": 2.0, "away_xg": 0.99, "date": "2026-11-01T00:00:00+00:00", "home": "Buyuksehyr", "home_goals": 5.0, "home_xg": 3.89, "source": "pipeline training history"}, {"away": "Amedspor", "away_goals": 2.0, "away_xg": 1.63, "date": "2026-10-24T00:00:00+00:00", "home": "Samsunspor", "home_goals": 1.0, "home_xg": 1.08, "source": "pipeline training history"}, {"away": "Samsunspor", "away_goals": 1.0, "away_xg": 1.07, "date": "2026-10-18T00:00:00+00:00", "home": "Kasimpasa", "home_goals": 4.0, "home_xg": 2.41, "source": "pipeline training history"}, {"away": "Trabzonspor", "away_goals": 3.0, "away_xg": 2.02, "date": "2026-10-10T00:00:00+00:00", "home": "Samsunspor", "home_goals": 0.0, "home_xg": 1.66, "source": "pipeline training history"}, {"away": "Samsunspor", "away_goals": 0.0, "away_xg": 0.36, "date": "2026-09-20T00:00:00+00:00", "home": "Erzurumspor", "home_goals": 1.0, "home_xg": 0.72, "source": "pipeline training history"}, {"away": "Corum", "away_goals": 5.0, "away_xg": 1.73, "date": "2026-09-12T00:00:00+00:00", "home": "Samsunspor", "home_goals": 1.0, "home_xg": 1.24, "source": "pipeline training history"}, {"away": "Samsunspor", "away_goals": 0.0, "away_xg": 1.74, "date": "2026-09-06T00:00:00+00:00", "home": "Kocaelispor", "home_goals": 1.0, "home_xg": 1.59, "source": "pipeline training history"}, {"away": "Fenerbahce", "away_goals": 2.0, "away_xg": 1.56, "date": "2026-08-30T00:00:00+00:00", "home": "Samsunspor", "home_goals": 0.0, "home_xg": 0.46, "source": "pipeline training history"}], "teams": {"away": "Genclerbirligi", "home": "Samsunspor"}} |
 | Unadjusted home-win probability | 46.5% |
 | Unadjusted draw probability | 28.4% |
@@ -1461,68 +962,52 @@ The model's most likely 1X2 outcome is **Samsunspor win** at **50.3%**. Expected
 | Raw p over 1 5 | 71.9% |
 | Raw p under 3 5 | 76.1% |
 | Raw p btts yes | 50.1% |
-| P home draw | 76.7% |
+| P home draw | 76.8% |
 | P draw away | 49.7% |
-| P home away | 73.7% |
+| P home away | 73.5% |
 | Raw p home draw | 74.8% |
 | Raw p draw away | 53.5% |
 | Raw p home away | 71.6% |
 | Market blending weight | 70.0% |
 | Market blend applied | Yes |
 | Totals anchor applied | 1 |
-| Totals anchor status | ANCHORED_MAIN |
-| Totals anchor scale | 1.0946 |
-| Totals anchor target over 2 5 | 0.5130 |
-| Totals anchor reference over odds | 1.89 |
-| Totals anchor reference under odds | 1.98 |
-| Totals anchor reference last update utc | 2026-11-27T16:28:52Z |
-| Totals anchor reference source | live_pinnacle |
-| Unanchored p over 2 5 | 0.4598 |
+| Totals anchor status | ANCHORED_ALTERNATE |
+| Totals anchor scale | 1.1401 |
+| Totals anchor target over 2 5 | 0.5370 |
+| Totals anchor reference over odds | 1.81 |
+| Totals anchor reference under odds | 2.08 |
+| Totals anchor reference last update utc | 2026-11-28T06:35:43Z |
+| Totals anchor reference source | live_pinnacle_alternate |
+| Unanchored p over 2 5 | 0.4593 |
 | Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
 | Bet365 pinnacle quotes | [] |
-| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 4.13, "price": 1.2538, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 3.63, "price": 1.3077, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 3.41, "price": 1.3378, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 3.13, "price": 1.3953, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 3.02, "price": 1.4082, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.64, "price": 1.5208, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 2.36, "price": 1.6369, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.15, "price": 1.7576, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.5, "market_key": "spreads", "opposite_price": 2.01, "price": 1.885, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.5, "market_key": "spreads", "opposite_price": 1.885, "price": 2.01, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.7576, "price": 2.15, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.6369, "price": 2.36, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.5208, "price": 2.64, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.4082, "price": 3.02, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 1.3953, "price": 3.13, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.3378, "price": 3.41, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.3077, "price": 3.63, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.2538, "price": 4.13, "quote_source": "The Odds API", "side": "away"}] |
-| Price edge quotes | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "market": "h2h", "market_key": "h2h", "point": null, "prices": {"away": 4.19, "draw": 3.73, "home": 1.8772}}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "market": "totals", "market_key": "totals", "point": 2.5, "prices": {"over": 1.885, "under": 1.9804}}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "market": "totals", "market_key": "alternate_totals", "point": 1.5, "prices": {"over": 1.2762, "under": 3.81}}] |
+| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 4.21, "price": 1.2538, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 3.69, "price": 1.3077, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 3.39, "price": 1.3484, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 3.17, "price": 1.3953, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 3.01, "price": 1.4202, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.63, "price": 1.5348, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 2.38, "price": 1.641, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.15, "price": 1.7752, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -0.5, "market_key": "spreads", "opposite_price": 2.02, "price": 1.8929, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 0.5, "market_key": "spreads", "opposite_price": 1.8929, "price": 2.02, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.7752, "price": 2.15, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.641, "price": 2.38, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.5348, "price": 2.63, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.4202, "price": 3.01, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 1.3953, "price": 3.17, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.3484, "price": 3.39, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.3077, "price": 3.69, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.2538, "price": 4.21, "quote_source": "The Odds API", "side": "away"}] |
+| Price edge quotes | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "market": "h2h", "market_key": "h2h", "point": null, "prices": {"away": 4.27, "draw": 3.73, "home": 1.885}}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "market": "totals", "market_key": "alternate_totals", "point": 2.5, "prices": {"over": 1.8065, "under": 2.08}}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "market": "totals", "market_key": "alternate_totals", "point": 1.5, "prices": {"over": 1.2506, "under": 4.14}}] |
 | 1X2 market source | The Odds API / Pinnacle |
-| Reference home odds | 1.88 |
+| Reference home odds | 1.89 |
 | Reference draw odds | 3.73 |
-| Reference away odds | 4.19 |
-| Market reference 1x2 last update utc | 2026-11-27T16:28:52Z |
-| Market reference home last update utc | 2026-11-27T16:28:52Z |
-| Market reference draw last update utc | 2026-11-27T16:28:52Z |
-| Market reference away last update utc | 2026-11-27T16:28:52Z |
-| O/U 2.5 market source | The Odds API / Pinnacle |
-| Reference Over 2.5 odds | 1.89 |
-| Reference Under 2.5 odds | 1.98 |
-| Market reference over 2 5 last update utc | 2026-11-27T16:28:52Z |
-| Market reference under 2 5 last update utc | 2026-11-27T16:28:52Z |
-| Market best over 2 5 last update utc | 2026-11-27T16:28:52Z |
-| Market best under 2 5 last update utc | 2026-11-27T16:28:52Z |
+| Reference away odds | 4.27 |
+| Market reference 1x2 last update utc | 2026-11-28T06:35:43Z |
+| Market reference home last update utc | 2026-11-28T06:35:43Z |
+| Market reference draw last update utc | 2026-11-28T06:35:43Z |
+| Market reference away last update utc | 2026-11-28T06:35:43Z |
+| O/U 2.5 market source | The Odds API / unavailable reference |
 | Home probability edge | -1.7% |
-| Draw probability edge | +0.9% |
+| Draw probability edge | +0.8% |
 | Away probability edge | +0.8% |
-| Over 2.5 probability edge | -0.0% |
-| Under 2.5 probability edge | +0.0% |
-| Raw edge prob home | -0.0551 |
-| Raw ev home | -0.1277 |
-| Raw edge prob draw | 0.0291 |
+| Raw edge prob home | -0.0550 |
+| Raw ev home | -0.1241 |
+| Raw edge prob draw | 0.0268 |
 | Raw ev draw | 0.0582 |
-| Raw edge prob away | 0.0260 |
-| Raw ev away | 0.0544 |
-| Market p over 1 5 | 76.7% |
-| Market over 1 5 odds | 1.28 |
-| Best over 1 5 bookmaker | Pinnacle |
-| Market best over 1 5 last update utc | 2026-11-27T16:28:52Z |
-| Market reference over 1 5 odds | 1.28 |
-| Market reference over 1 5 opposite odds | 3.81 |
-| Market reference over 1 5 last update utc | 2026-11-27T16:28:52Z |
-| Market over 1 5 bookmakers | 1 |
-| Market p under 3 5 | 71.1% |
-| Market under 3 5 odds | 1.37 |
+| Raw edge prob away | 0.0282 |
+| Raw ev away | 0.0745 |
+| Market p under 3 5 | 69.1% |
+| Market under 3 5 odds | 1.41 |
 | Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-11-27T16:28:52Z |
-| Market reference under 3 5 odds | 1.37 |
-| Market reference under 3 5 opposite odds | 3.16 |
-| Market reference under 3 5 last update utc | 2026-11-27T16:28:52Z |
+| Market best under 3 5 last update utc | 2026-11-28T06:35:43Z |
+| Market reference under 3 5 odds | 1.41 |
+| Market reference under 3 5 opposite odds | 3.00 |
+| Market reference under 3 5 last update utc | 2026-11-28T06:35:43Z |
 | Market under 3 5 bookmakers | 1 |
 | Odds extra markets provider | — |
 | Training data status | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
@@ -1531,60 +1016,68 @@ The model's most likely 1X2 outcome is **Samsunspor win** at **50.3%**. Expected
 | Elo away rating | 1,403.3647 |
 | Elo rating diff | 99.2836 |
 | Elo home expectancy | 0.6391 |
+| Market p over 1 5 | 78.5% |
+| Market over 1 5 odds | 1.25 |
+| Best over 1 5 bookmaker | Pinnacle |
+| Market best over 1 5 last update utc | 2026-11-28T06:35:43Z |
+| Market reference over 1 5 odds | 1.25 |
+| Market reference over 1 5 opposite odds | 4.14 |
+| Market reference over 1 5 last update utc | 2026-11-28T06:35:43Z |
+| Market over 1 5 bookmakers | 1 |
 | Research p home | 0.5180 |
 | Research p draw | 0.2621 |
 | Research p away | 0.2199 |
 | Research p over 1 5 | 0.7469 |
 | Research v4 p home | 0.5094 |
 | Research v4 p draw | 0.2476 |
-| Research v4 p away | 0.2429 |
+| Research v4 p away | 0.2430 |
 | Research v4 p over 1 5 | 0.7441 |
 | Research version | team-form-research-v5 |
 | Research probability basis | team_form_poisson_v1 |
-| Team research json | {"base_rates": [1.465888904425004, 1.016353285419263], "c6_fit": {"candidate_version": "research-low-score-then-sharpen-walk-forward-v1", "delta": 0.055466179703356835, "end_exclusive": "2026-11-30", "expected_origin": "2026-11-16", "fits_version": "research-c6-live-fits-v1", "low_score_status": "fitted", "origin": "2026-11-16", "rho": -0.016463701485858812, "slope": 1.1507759984871408, "slope_status": "fitted", "stale": false}, "coverage": {"form": "last ten, exponential rank half-life five matches", "h2h": "last four years; descriptive only", "training_cache": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED", "venue_splits": "home team home matches / away team away matches", "xg": "verified supplied xG; no goals-to-xG substitution"}, "evidence": {"coverage": {}, "errors": ["free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing"], "news": [], "quality_review": {"absence_note": "Reported absences only; not proof of complete coverage or a fitted player-value effect", "assessed_at_utc": "2026-11-27T16:30:31.469833+00:00", "availability": "UNAVAILABLE_OR_STALE", "form": {"away": {"matches": 10.0, "venue_matches": 4.0, "xg_matches": 10.0}, "home": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 10.0}}, "lineups": "UNCONFIRMED_OR_STALE", "probability_effect": "NONE; factual coverage/freshness review, not a calibrated confidence score", "status": "REVIEW_REQUIRED", "summary_max_age_minutes": 180, "training": {"cutoff": "2026-11-23", "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}, "version": "pre-match-research-quality-v1", "warnings": ["Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"], "weather": "UNAVAILABLE_INCOMPLETE_OR_STALE", "weather_max_age_minutes": 180}, "review_links": [{"label": "Sofascore", "status": "reference only; no authorized public bulk API", "url": "https://www.sofascore.com/football"}, {"label": "Sports Mole previews", "status": "reference only; article reproduction requires permission", "url": "https://www.sportsmole.co.uk/football/"}], "sources": [{"observed_at_utc": "2026-11-27T16:30:31.387587+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20261128"}, {"observed_at_utc": "2026-11-27T16:30:31.168273+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/news?limit=20"}, {"observed_at_utc": "2026-11-27T16:30:31.389629+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://www.bing.com/news/search?q=%22Samsunspor%22+%22Genclerbirligi+SK%22+injury+suspension+lineup+preview&format=rss"}, {"observed_at_utc": "2026-11-27T16:29:48.450142+00:00", "reason": null, "status": "available", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"}, {"observed_at_utc": "2026-11-27T16:29:48.521989+00:00", "reason": null, "status": "available", "url": "https://www.theguardian.com/football/rss"}, {"observed_at_utc": "2026-11-27T16:30:31.469418+00:00", "reason": "TheSportsDB free source limit: 30 requests per minute", "status": "unavailable", "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=Samsunspor_vs_Genclerbirligi+SK&d=2026-11-28"}]}, "evidence_quality_version": "pre-match-research-quality-v1", "form": {"away": {"all": {"goals_against": 1.7158139086942839, "goals_for": 1.114196353913528, "last_match": "2026-11-21T00:00:00+00:00", "matches": 10, "points_per_game": 1.0460808010921065, "results": "WLWLLDLLLD", "xg_against": 1.9776990129736665, "xg_for": 0.9221275688995505, "xg_matches": 10}, "venue": {"goals_against": 3.367018211513363, "goals_for": 0.0, "last_match": "2026-11-08T00:00:00+00:00", "matches": 4, "points_per_game": 0.0, "results": "LLLL", "xg_against": 3.0820275861633206, "xg_for": 0.6738844755641072, "xg_matches": 4}}, "home": {"all": {"goals_against": 2.440612612949438, "goals_for": 0.8628753224041704, "last_match": "2026-11-21T00:00:00+00:00", "matches": 10, "points_per_game": 0.4507691201637004, "results": "LWLLLLLLLL", "xg_against": 1.8804377663145873, "xg_for": 0.9828816899949744, "xg_matches": 10}, "venue": {"goals_against": 2.1908395762495783, "goals_for": 0.6550929892654612, "last_match": "2026-11-07T00:00:00+00:00", "matches": 5, "points_per_game": 0.7766966202232553, "results": "WLLLL", "xg_against": 1.5397312012822262, "xg_for": 1.0202000423224724, "xg_matches": 5}}}, "goal_rates": [1.621650817557692, 1.038943714763699], "h2h": [{"away": "Samsunspor", "away_goals": 1.0, "away_xg": null, "date": "2026-01-18T00:00:00+00:00", "home": "Genclerbirligi", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Genclerbirligi", "away_goals": 1.0, "away_xg": null, "date": "2025-08-09T00:00:00+00:00", "home": "Samsunspor", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}], "margin_distribution": {"-1": 0.1383867126984526, "-10": 2.9987573456027024e-08, "-11": 2.7969868500803462e-09, "-12": 2.39593634089937e-10, "-13": 1.89698054905757e-11, "-14": 1.389292320234071e-12, "-15": 8.650964857681701e-14, "-2": 0.0583158744881613, "-3": 0.01787208850807303, "-4": 0.004298487486167378, "-5": 0.0008473735933874162, "-6": 0.00014122558773277825, "-7": 2.0361931281632828e-05, "-8": 2.5849694163159143e-06, "-9": 2.930009282667048e-07, "0": 0.2620909062176531, "1": 0.24277850519988703, "10": 2.8797491398555014e-06, "11": 4.192461491666612e-07, "12": 5.605563256551164e-08, "13": 6.927430637620242e-09, "14": 7.918962173308244e-10, "15": 7.696699068630188e-11, "2": 0.1589562186482499, "3": 0.07603811851854665, "4": 0.028545460114669633, "5": 0.008783379188685724, "6": 0.002284890658995701, "7": 0.0005142050340991468, "8": 0.0001018915317466228, "9": 1.8026732050867756e-05}, "model_note": "Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient", "observed_at_utc": "2026-11-27T16:30:31.469833+00:00", "p_over_1_5": 0.7468972693876326, "shadow_v4": {"grid": "independent Poisson (C)", "margin_distribution": {"-1": 0.15361931975151497, "-10": 3.286820169778603e-08, "-11": 3.0656674528635184e-09, "-12": 2.626091738406677e-10, "-13": 2.079205888219997e-11, "-14": 1.5227487567674785e-12, "-15": 9.4819828699942e-14, "-2": 0.06391774004890104, "-3": 0.019588894403390466, "-4": 0.004711403338383917, "-5": 0.0009287729206124741, "-6": 0.00015479182099531954, "-7": 2.2317913295070426e-05, "-8": 2.833283469323305e-06, "-9": 3.211468117628913e-07, "0": 0.2476280201731334, "1": 0.2397790100923425, "10": 2.8211696036184507e-06, "11": 4.107178906987779e-07, "12": 5.491535513171858e-08, "13": 6.786513615213736e-09, "14": 7.757875526846245e-10, "15": 7.540133673486386e-11, "2": 0.15572274895412336, "3": 0.07449135958128104, "4": 0.02796479154460297, "5": 0.008604708667581517, "6": 0.0022384116677169486, "7": 0.000503745132571128, "8": 9.981886555719925e-05, "9": 1.766003427542805e-05}, "p_over_1_5": 0.7441001079219358, "version": "team-form-research-v4"}, "version": "team-form-research-v5", "warnings": ["availability unavailable or unconfirmed", "lineups unavailable or unconfirmed", "rotation unavailable or unconfirmed", "tactics unavailable or unconfirmed", "motivation unavailable or unconfirmed", "rivalry unavailable or unconfirmed", "weather unavailable or unconfirmed", "travel unavailable or unconfirmed", "free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing", "Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"]} |
+| Team research json | {"base_rates": [1.4658662001641682, 1.0163833131372446], "c6_fit": {"candidate_version": "research-low-score-then-sharpen-walk-forward-v1", "delta": 0.055466179703356835, "end_exclusive": "2026-11-30", "expected_origin": "2026-11-16", "fits_version": "research-c6-live-fits-v1", "low_score_status": "fitted", "origin": "2026-11-16", "rho": -0.016463701485858812, "slope": 1.1507759984871408, "slope_status": "fitted", "stale": false}, "coverage": {"form": "last ten, exponential rank half-life five matches", "h2h": "last four years; descriptive only", "training_cache": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED", "venue_splits": "home team home matches / away team away matches", "xg": "verified supplied xG; no goals-to-xG substitution"}, "evidence": {"coverage": {}, "errors": ["free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing"], "news": [], "quality_review": {"absence_note": "Reported absences only; not proof of complete coverage or a fitted player-value effect", "assessed_at_utc": "2026-11-28T06:36:58.582659+00:00", "availability": "UNAVAILABLE_OR_STALE", "form": {"away": {"matches": 10.0, "venue_matches": 4.0, "xg_matches": 10.0}, "home": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 10.0}}, "lineups": "UNCONFIRMED_OR_STALE", "probability_effect": "NONE; factual coverage/freshness review, not a calibrated confidence score", "status": "REVIEW_REQUIRED", "summary_max_age_minutes": 180, "training": {"cutoff": "2026-11-23", "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}, "version": "pre-match-research-quality-v1", "warnings": ["Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"], "weather": "UNAVAILABLE_INCOMPLETE_OR_STALE", "weather_max_age_minutes": 180}, "review_links": [{"label": "Sofascore", "status": "reference only; no authorized public bulk API", "url": "https://www.sofascore.com/football"}, {"label": "Sports Mole previews", "status": "reference only; article reproduction requires permission", "url": "https://www.sportsmole.co.uk/football/"}], "sources": [{"observed_at_utc": "2026-11-28T06:36:58.342422+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20261128"}, {"observed_at_utc": "2026-11-28T06:36:58.387112+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/news?limit=20"}, {"observed_at_utc": "2026-11-28T06:36:58.525736+00:00", "reason": null, "status": "available", "url": "https://www.bing.com/news/search?q=%22Samsunspor%22+%22Genclerbirligi+SK%22+injury+suspension+lineup+preview&format=rss"}, {"observed_at_utc": "2026-11-28T06:36:29.662572+00:00", "reason": null, "status": "available", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"}, {"observed_at_utc": "2026-11-28T06:36:29.767100+00:00", "reason": null, "status": "available", "url": "https://www.theguardian.com/football/rss"}, {"observed_at_utc": "2026-11-28T06:36:58.582313+00:00", "reason": "TheSportsDB free source limit: 30 requests per minute", "status": "unavailable", "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=Samsunspor_vs_Genclerbirligi+SK&d=2026-11-28"}]}, "evidence_quality_version": "pre-match-research-quality-v1", "form": {"away": {"all": {"goals_against": 1.7158139086942839, "goals_for": 1.114196353913528, "last_match": "2026-11-21T00:00:00+00:00", "matches": 10, "points_per_game": 1.0460808010921065, "results": "WLWLLDLLLD", "xg_against": 1.9776990129736665, "xg_for": 0.9221275688995505, "xg_matches": 10}, "venue": {"goals_against": 3.367018211513363, "goals_for": 0.0, "last_match": "2026-11-08T00:00:00+00:00", "matches": 4, "points_per_game": 0.0, "results": "LLLL", "xg_against": 3.0820275861633206, "xg_for": 0.6738844755641072, "xg_matches": 4}}, "home": {"all": {"goals_against": 2.440612612949438, "goals_for": 0.8628753224041704, "last_match": "2026-11-21T00:00:00+00:00", "matches": 10, "points_per_game": 0.4507691201637004, "results": "LWLLLLLLLL", "xg_against": 1.8804377663145873, "xg_for": 0.9828816899949744, "xg_matches": 10}, "venue": {"goals_against": 2.1908395762495783, "goals_for": 0.6550929892654612, "last_match": "2026-11-07T00:00:00+00:00", "matches": 5, "points_per_game": 0.7766966202232553, "results": "WLLLL", "xg_against": 1.5397312012822262, "xg_for": 1.0202000423224724, "xg_matches": 5}}}, "goal_rates": [1.6216346002285236, 1.0389651631336858], "h2h": [{"away": "Samsunspor", "away_goals": 1.0, "away_xg": null, "date": "2026-01-18T00:00:00+00:00", "home": "Genclerbirligi", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Genclerbirligi", "away_goals": 1.0, "away_xg": null, "date": "2025-08-09T00:00:00+00:00", "home": "Samsunspor", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}], "margin_distribution": {"-1": 0.13839076491207972, "-10": 2.999385014174614e-08, "-11": 2.7976296728801515e-09, "-12": 2.396536197232138e-10, "-13": 1.8974944621527493e-11, "-14": 1.3896971207370072e-12, "-15": 8.653654849481108e-14, "-2": 0.05831866287236181, "-3": 0.017873291693968476, "-4": 0.004298862396025593, "-5": 0.0008474645498214381, "-6": 0.00014124360779951738, "-7": 2.0364943775549417e-05, "-8": 2.585404621707004e-06, "-9": 2.930562520942682e-07, "0": 0.2620923210413903, "1": 0.2427762493856378, "10": 2.879447476868861e-06, "11": 4.191979844857076e-07, "12": 5.604862587398205e-08, "13": 6.926494762185917e-09, "14": 7.917811662997388e-10, "15": 7.695495619239115e-11, "2": 0.1589528687812245, "3": 0.07603566911503502, "4": 0.028544233751461163, "5": 0.008782909385624225, "6": 0.0022847447099183273, "7": 0.0005141668939878969, "8": 0.00010188293133680169, "9": 1.8025026775396425e-05}, "model_note": "Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient", "observed_at_utc": "2026-11-28T06:36:58.582659+00:00", "p_over_1_5": 0.7468981184884027, "shadow_v4": {"grid": "independent Poisson (C)", "margin_distribution": {"-1": 0.15362279078898344, "-10": 3.2874868726543754e-08, "-11": 3.0663521957592958e-09, "-12": 2.626732230443499e-10, "-13": 2.0797557185162306e-11, "-14": 1.5231825923640907e-12, "-15": 9.484869926237094e-14, "-2": 0.06392038291769775, "-3": 0.01959008648018241, "-4": 0.0047117837915085755, "-5": 0.0009288666074583964, "-6": 0.00015481057093133307, "-7": 2.232107082220875e-05, "-8": 2.8337421552066593e-06, "-9": 3.2120537282017337e-07, "0": 0.24762937634230747, "1": 0.23977707989332117, "10": 2.820877270255433e-06, "11": 4.106711706575355e-07, "12": 5.490855312592568e-08, "13": 6.7856044585471075e-09, "14": 7.756757200725253e-10, "15": 7.538963238623619e-11, "2": 0.1557196435041178, "3": 0.07448904432474694, "4": 0.027963621782715317, "5": 0.008604258161208626, "6": 0.002238271221239044, "7": 0.0005037083384988407, "8": 9.981055308135001e-05, "9": 1.7658383677743693e-05}, "p_over_1_5": 0.744101080858602, "version": "team-form-research-v4"}, "version": "team-form-research-v5", "warnings": ["availability unavailable or unconfirmed", "lineups unavailable or unconfirmed", "rotation unavailable or unconfirmed", "tactics unavailable or unconfirmed", "motivation unavailable or unconfirmed", "rivalry unavailable or unconfirmed", "weather unavailable or unconfirmed", "travel unavailable or unconfirmed", "free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing", "Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"]} |
 
 </details>
 
 
 ### 2026-11-29 — Eyupspor vs Basaksehir
 
-The model's most likely 1X2 outcome is **Basaksehir win** at **64.1%**. Expected goals are 0.96 for Eyupspor and 1.70 for Basaksehir (2.65 combined). The most likely exact score is 0-1 at 13.1%. Goal-market probabilities: at least one goal: 93.8%; Over 2.5 goals: 52.0%; Under 3.5 goals: 71.4%; Double Chance 1X: 35.9%; Double Chance X2: 84.4%; Double Chance 12 (either team wins): 79.7%; Under 4.5 goals: 86.0%; BTTS Yes (both teams score): 49.6%; BTTS No (at least one team does not score): 50.4%.
+The model's most likely 1X2 outcome is **Basaksehir win** at **65.2%**. Expected goals are 0.96 for Eyupspor and 1.70 for Basaksehir (2.65 combined). The most likely exact score is 0-1 at 13.3%. Goal-market probabilities: at least one goal: 93.9%; Over 2.5 goals: 52.2%; Under 3.5 goals: 71.3%; Double Chance 1X: 34.8%; Double Chance X2: 85.0%; Double Chance 12 (either team wins): 80.2%; Under 4.5 goals: 85.9%; BTTS Yes (both teams score): 49.4%; BTTS No (at least one team does not score): 50.6%.
 
 | Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
-| Eyupspor win | 15.6% | 6.40 |
-| Draw | 20.3% | 4.93 |
-| Basaksehir win | 64.1% | 1.56 |
+| Eyupspor win | 15.0% | 6.67 |
+| Draw | 19.8% | 5.04 |
+| Basaksehir win | 65.2% | 1.53 |
 
 | Measure | Benchmark estimate |
 | --- | --- |
 | Eyupspor expected goals | 0.96 |
 | Basaksehir expected goals | 1.70 |
 | Expected total goals | 2.65 |
-| Over 0.5 | 93.8% |
-| Under 0.5 | 6.2% |
-| Over 1.5 | 76.2% |
-| Under 1.5 | 23.8% |
-| Over 2.5 | 52.0% |
-| Under 2.5 | 48.0% |
-| Over 3.5 | 28.6% |
-| Under 3.5 | 71.4% |
-| Over 4.5 | 14.0% |
-| Under 4.5 | 86.0% |
+| Over 0.5 | 93.9% |
+| Under 0.5 | 6.1% |
+| Over 1.5 | 76.3% |
+| Under 1.5 | 23.7% |
+| Over 2.5 | 52.2% |
+| Under 2.5 | 47.8% |
+| Over 3.5 | 28.7% |
+| Under 3.5 | 71.3% |
+| Over 4.5 | 14.1% |
+| Under 4.5 | 85.9% |
 
 | Rank | Score | Benchmark probability |
 | --- | --- | --- |
-| 1 | 0-1 | 13.08% |
-| 2 | 0-2 | 12.06% |
-| 3 | 1-2 | 11.56% |
-| 4 | 1-1 | 9.68% |
-| 5 | 0-3 | 6.82% |
+| 1 | 0-1 | 13.30% |
+| 2 | 0-2 | 12.26% |
+| 3 | 1-2 | 11.76% |
+| 4 | 1-1 | 9.47% |
+| 5 | 0-3 | 6.93% |
 
 | Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
-| Eyupspor win | 15.6% | 13.6% | 6.48 | +1.3% |
-| Draw | 20.3% | 17.8% | 5.04 | +2.2% |
-| Basaksehir win | 64.1% | 68.5% | 1.43 | -8.6% |
+| Eyupspor win | 15.0% | 12.7% | 6.91 | +3.5% |
+| Draw | 19.8% | 17.2% | 5.20 | +3.2% |
+| Basaksehir win | 65.2% | 70.1% | 1.40 | -9.1% |
 
 <details>
 <summary>Additional technical details (forecast row)</summary>
@@ -1600,9 +1093,9 @@ The model's most likely 1X2 outcome is **Basaksehir win** at **64.1%**. Expected
 | Odds event id | 1640928466.00 |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-11-27T16:28:52Z |
-| Market best draw last update utc | 2026-11-27T16:28:52Z |
-| Market best away last update utc | 2026-11-27T16:28:52Z |
+| Market best home last update utc | 2026-11-28T06:35:43Z |
+| Market best draw last update utc | 2026-11-28T06:35:43Z |
+| Market best away last update utc | 2026-11-28T06:35:43Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 0.00 |
 | Best home bookmaker | Pinnacle |
@@ -1613,7 +1106,7 @@ The model's most likely 1X2 outcome is **Basaksehir win** at **64.1%**. Expected
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
 | Dc lambda home | 0.9588 |
-| Dc lambda away | 1.6959 |
+| Dc lambda away | 1.6958 |
 | Shot features applied | 0 |
 | Shot features status | BASELINE_RETAINED_AUDIT_NOT_IMPROVED |
 | Shot features version | football-data-lagged-shot-strength-v1 |
@@ -1622,22 +1115,22 @@ The model's most likely 1X2 outcome is **Basaksehir win** at **64.1%**. Expected
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 15 |
 | Score grid omitted mass | 0 |
-| P btts yes | 49.6% |
-| P btts no | 50.4% |
+| P btts yes | 49.4% |
+| P btts no | 50.6% |
 | Fair Over 0.5 odds | 1.07 |
-| Fair Under 0.5 odds | 16.03 |
+| Fair Under 0.5 odds | 16.38 |
 | Fair Over 1.5 odds | 1.31 |
-| Fair Under 1.5 odds | 4.21 |
+| Fair Under 1.5 odds | 4.22 |
 | Fair Over 2.5 odds | 1.92 |
-| Fair Under 2.5 odds | 2.08 |
-| Fair Over 3.5 odds | 3.50 |
+| Fair Under 2.5 odds | 2.09 |
+| Fair Over 3.5 odds | 3.48 |
 | Fair Under 3.5 odds | 1.40 |
-| Fair Over 4.5 odds | 7.14 |
+| Fair Over 4.5 odds | 7.10 |
 | Fair Under 4.5 odds | 1.16 |
-| Score matrix json | [[0.062386568447340675,0.13080245760163434,0.12059244192746126,0.06816904539668735,0.028901181591613926,0.009802435020538328,0.0027705825806027895,0.0006712146656729131,0.00014228523244444585,2.681054830843123e-05,4.546676695991177e-06,7.00954399808118e-07,9.905967475613055e-08,1.2922362598734438e-08,1.5653168673150566e-09,1.7696989111869295e-10],[0.04457663478027832,0.09675687936012647,0.1156203226039924,0.06535838311585239,0.027709563599922663,0.009398273069725658,0.00265634932546589,0.000643539967689805,0.00013641870264893146,2.5705128738294888e-05,4.35921371160861e-06,6.720535096656586e-07,9.497536801883297e-08,1.238956362928752e-08,1.5007776464573303e-09,1.6967328611393882e-10],[0.024906098145658976,0.04223709814667455,0.03629117418644364,0.03133180330354253,0.013283538468215303,0.004505387513819998,0.0012734129977399716,0.0003085031594169681,6.539702719916395e-05,1.2322643234501165e-05,2.0897399852766424e-06,3.221721127491087e-07,4.5529730198082014e-08,5.9393661859944e-09,7.194497137085628e-10,8.13387628785788e-11],[0.007959733507842764,0.013498543345727816,0.011445777190716228,0.0065563325757692185,0.004245282646434948,0.0014398756380802251,0.0004069697328001583,9.859444546172717e-05,2.0900219121685995e-05,3.938190385552088e-06,6.67859465027625e-07,1.0296290274550858e-07,1.4550834777139887e-08,1.8981605135225834e-09,2.2992874917310382e-10,2.5995034331941137e-11],[0.0019078868901505693,0.0032354970000023323,0.0027434647439183186,0.0015508382588759165,0.0006662595663227169,0.00034512711394592516,9.754751426444869e-05,2.3632330121699654e-05,5.00962174477948e-06,9.439539401801123e-07,1.600807761382593e-07,2.4679415727479953e-08,3.487723161171009e-09,4.549744731507596e-10,5.51121524086016e-11,6.230809757896755e-12],[0.00036584464864527095,0.0006204189930071095,0.0005260699156176263,0.00029737920044061274,0.0001260779027121415,4.333171859959386e-05,1.870511101393457e-05,4.531590187382621e-06,9.606142358470315e-07,1.810067983407854e-07,3.0696104472179614e-08,4.732372879231812e-09,6.687843294367851e-10,8.724310499312188e-11,1.0567967177770304e-11,1.194781733875936e-12],[5.846009863641127e-05,9.913977329286102e-05,8.406327459083505e-05,4.751967113514332e-05,2.0146602268795897e-05,6.833137911627981e-06,1.957067831141608e-06,7.241248718962389e-07,1.5350122842335088e-07,2.8923958089991045e-08,4.905080071123792e-09,7.56208916349132e-10,1.0686830601496622e-10,1.3941000755733252e-11,1.6887069576842224e-12,1.9091999369135106e-13],[8.007106244766448e-06,1.357888057588006e-05,1.151389728433603e-05,6.5086283528517104e-06,2.759420332842674e-06,9.359146241581765e-07,2.645290429562722e-07,6.49399968716847e-08,2.1024607781321827e-08,3.9616287151024826e-09,6.718342627652094e-10,1.0357569141485985e-10,1.463743477037311e-11,1.9094575071414565e-12,2.3129718118593906e-13,2.6149745029418112e-14],[9.596208853839473e-07,1.6273766080306314e-06,1.3798963031664684e-06,7.800340736930986e-07,3.3070591322298484e-07,1.1216576785970323e-07,3.170278832972702e-08,7.680470027717836e-09,1.6498131254290057e-09,4.747859637348924e-10,8.051675228955656e-11,1.2413148228768311e-11,1.7542402566815101e-12,2.2884113780852616e-13,2.772007751758465e-14,3.1339463609710876e-15],[1.0222833074246763e-07,1.7336429069251424e-07,1.4700023500840104e-07,8.30969630720236e-08,3.5230072615523174e-08,1.1949009644737777e-08,3.3772953258859866e-09,8.18199814332931e-10,1.734433955665304e-10,3.311709245709784e-11,8.577442726325034e-12,1.3223716178062159e-12,1.8687906431927758e-13,2.437842681384805e-14,2.9530174841293524e-15,3.3385903745761114e-16],[9.801337787671189e-09,1.6621634737223296e-08,1.4093930202323555e-08,7.967081124021516e-09,3.3777509569123982e-09,1.1456342767765009e-09,3.238046836656444e-10,7.84464805386426e-11,1.6629219069132586e-11,3.1334135913123605e-12,5.384615109948775e-13,1.2678492168280794e-13,1.7917389646628168e-14,2.337328548741378e-15,2.8312622973141265e-16,3.2009377203196886e-17],[8.542928251468462e-10,1.4487556296736227e-09,1.22843878160292e-09,6.944174753548228e-10,2.9440760742404493e-10,9.985444478033882e-11,2.822308790872011e-11,6.837461062354351e-12,1.449416686406285e-12,2.7311095763303814e-13,4.631562220230573e-14,7.235553519843876e-15,1.561694714748906e-15,2.0372351738681209e-16,2.4677519733547803e-17,2.789964173717905e-18],[6.825580612891214e-11,1.1575185987331115e-10,9.814910865476732e-11,5.548217563714183e-11,2.3522412905385586e-11,7.978114088533302e-12,2.254952353516153e-12,5.462956060831048e-13,1.1580467661115168e-13,2.1820865196518395e-14,3.700499450217337e-15,5.705005093950048e-16,8.169805798057298e-17,1.6276986645959592e-17,1.9716705479598405e-18,2.229109833799274e-19],[5.0339666643245806e-12,8.536870882973854e-12,7.238641943047614e-12,4.091892521115036e-12,1.734812745549454e-12,5.883977150603616e-13,1.6630607154212928e-13,4.029010901571447e-14,8.540766195514818e-15,1.609321085132787e-15,2.729173081417155e-16,4.207525643826746e-17,5.946123198879295e-18,7.86008954261791e-19,1.4541361935884012e-19,1.6440014748738703e-20],[3.447437384988792e-13,5.846349369247378e-13,4.957276540558597e-13,2.8022718848379023e-13,1.1880607707132435e-13,4.029554455568166e-14,1.1389224574094038e-14,2.7592083406194795e-15,5.849017016249314e-16,1.1021196688996934e-16,1.869033694176229e-17,2.8814615133677202e-18,4.072114254716863e-19,5.312084566446646e-20,6.520394722484072e-21,1.1258700192877274e-21],[2.2035312564017907e-14,3.736866585909979e-14,3.16858947208514e-14,1.7911547035092426e-14,7.593840729843872e-15,2.575608546475869e-15,7.279758711347031e-16,1.763629369442285e-16,3.7385716911500073e-17,7.044522836847876e-18,1.1946479963112707e-18,1.8417710895843354e-19,2.602811897027991e-20,3.395375483767575e-21,4.11290000183861e-22,4.711875797269192e-23]] |
+| Score matrix json | [[0.06105085631756415,0.13302153873801514,0.12263605249036447,0.0693230729364319,0.02938994086829059,0.009968036183666346,0.0028173399475965146,0.0006825305750792341,0.00014468150640677252,2.7261604336613774e-05,4.623089574592373e-06,7.12722584641931e-07,1.0072103332430906e-07,1.3138861002350154e-08,1.5915144289687993e-09,1.7992860761309448e-10],[0.042713808275813336,0.09468684257312987,0.11758362130788105,0.06646706079108727,0.028179117047082203,0.009557367250511995,0.0027012695432265497,0.0006544112847848926,0.00013872083383411542,2.6138464957631766e-05,4.43262485029835e-06,6.833594264353504e-07,9.65714698055414e-08,1.2597558590191992e-08,1.5259462949249702e-09,1.7251580453223334e-10],[0.023865837127620627,0.040472270615944037,0.03551546307535698,0.031864356144866844,0.013509088723786603,0.004581808647065034,0.0012949905373308523,0.00031372523465640953,6.6502866252751e-05,1.2530798662933865e-05,2.1250035010639924e-06,3.2760299432117774e-07,4.6296431205058684e-08,6.039278534301168e-09,7.315397374386273e-10,8.270419920494566e-11],[0.007627532844879085,0.012934956849792466,0.010967708176984283,0.006416298185611286,0.004317511151780032,0.001464348212784597,0.0004138795888230996,0.00010026673352428655,2.125434753907713e-05,4.004849185176016e-06,6.791521249883182e-07,1.0470207208334553e-07,1.4796361331427397e-08,1.9301562787606244e-09,2.3380044642094856e-10,2.6432301220855517e-11],[0.001828322331265829,0.0031005137497785973,0.002628963544385115,0.0014860869037589828,0.0006520398257125637,0.00035100478655831027,9.920708439930525e-05,2.403397162800933e-05,5.094674652010057e-06,9.599637717096115e-07,1.6279300550982655e-07,2.5097123855494825e-08,3.546693064965196e-09,4.6265914536969054e-10,5.604205002385887e-11,6.335831988095657e-12],[0.0003505996095971772,0.0005945553973901587,0.0005041307960552498,0.00028497244680299394,0.00012081581219447826,4.240759860131878e-05,1.9023978685196897e-05,4.608761226482314e-06,9.769562584638461e-07,1.840829255505543e-07,3.121723297958113e-08,4.812631599624187e-09,6.801148696121347e-10,8.871964913915002e-11,1.0746639431892182e-11,1.2149609417950453e-12],[5.6025900606463754e-05,9.501009324422758e-05,8.056022054588245e-05,4.553866445689808e-05,1.9306395387816002e-05,6.548051548125223e-06,1.9153614679360193e-06,7.364811349633091e-07,1.5611784136452968e-07,2.9416495078508674e-08,4.988521219782091e-09,7.690596688509325e-10,1.0868251715866802e-10,1.4177420933871963e-11,1.717315525126994e-12,1.9415104610057402e-13],[7.673959010732205e-06,1.3013687477929267e-05,1.1034464839880222e-05,6.237505165698411e-06,2.6444284741046422e-06,8.968973035067496e-07,2.534967325060165e-07,6.355712340484248e-08,2.1383715433521733e-08,4.0292253230791835e-09,6.832858901041742e-10,1.0533935754150914e-10,1.488642168766129e-11,1.941904475371845e-12,2.352235092281261e-13,2.6593185536310546e-14],[9.197253498528014e-07,1.559692754649142e-06,1.3224825700924542e-06,7.475661015008802e-07,3.1693522210702294e-07,1.0749330105831154e-07,3.038162839605687e-08,7.360272699322136e-09,1.6147073619731228e-09,4.829033703101816e-10,8.189193523794736e-11,1.2624940703050458e-11,1.7841402821663302e-12,2.3273759613444677e-13,2.8191579342016828e-14,3.1871980078181296e-15],[9.798155241397651e-08,1.6615951426565853e-07,1.4088868516978768e-07,7.964082665422196e-08,3.3764215677739665e-08,1.1451636636395823e-08,3.2366609396888266e-09,7.841155464348277e-10,1.6621529144242442e-10,3.2412936099719275e-11,8.724233757483259e-12,1.3449790085890998e-12,1.900706929508307e-13,2.479434863679672e-14,3.0033473681840862e-15,3.395433307418719e-16],[9.394485161782663e-09,1.59313978274453e-08,1.3508427144514585e-08,7.635973771002111e-09,3.23731779471692e-09,1.0979845471748343e-09,3.103315106006716e-10,7.518110996018799e-11,1.5936745751075657e-11,3.0028803809765843e-12,5.270210228742316e-13,1.2895677837103842e-13,1.822400503588693e-14,2.3772856688401153e-15,2.8796137222724503e-16,3.255546277690704e-17],[8.188587014649828e-10,1.388640624030581e-09,1.1774453756540454e-09,6.655802270017054e-10,2.8217680904914576e-10,9.570446757271722e-11,2.7049663011646298e-11,6.553068637240119e-12,1.3891067691917123e-12,2.617423612976957e-13,4.4386910132042184e-14,7.081938252053067e-15,1.5884729010893418e-15,2.0721317052230447e-16,2.5099797516666893e-17,2.8376567226416373e-18],[6.54269071658778e-11,1.1095255021735965e-10,9.407802487533763e-11,5.31799389144632e-11,2.254596044102925e-11,7.646798286490091e-12,2.161271276186033e-12,5.235909597263641e-13,1.1098979527090627e-13,2.091324564709936e-14,3.546519373114916e-15,5.467522126287192e-16,7.996486534056412e-17,1.6556356850156497e-17,2.0054767923541704e-18,2.2672910799964536e-19],[4.82549319358088e-12,8.183189441110221e-12,6.938626451507336e-12,3.9222308432855945e-12,1.6628537609931634e-12,5.639816198340517e-13,1.5940230532793278e-13,3.861690429557313e-14,8.185936411128659e-15,1.542434586888041e-15,2.6156983169753283e-16,4.032513830932166e-17,5.698696360942575e-18,7.693466590431241e-19,1.4791184591462007e-19,1.6722168521050778e-20],[3.3047783768990165e-13,5.604324041949584e-13,4.75197492617428e-13,2.6861717880649975e-13,1.1388189627094752e-13,3.862474129432871e-14,1.0916796910549356e-14,2.6447101918733604e-15,5.606205326774728e-16,1.056348909021278e-16,1.791382329567952e-17,2.7616999917725545e-18,3.902798689097452e-19,5.0911242472161744e-20,6.382275796040527e-21,1.1452313520355552e-21],[2.1124174677007455e-14,3.582289234165883e-14,3.037466872300721e-14,1.7170035503796312e-14,7.279341592744416e-15,2.4688971207843096e-15,6.978026921982205e-16,1.6905012588353024e-16,3.583491753207442e-17,6.752192228687411e-18,1.1450532812613556e-18,1.765281249704695e-19,2.4946726175039212e-20,3.254251439440134e-21,3.941885160696239e-22,4.6121414239556973e-23]] |
 | Score matrix version | published-score-matrix-v1 |
-| Goal margin distribution | {"-1": 0.2823644440135355, "-10": 5.266214403302582e-06, "-11": 8.021052935718765e-07, "-12": 1.1219468313345857e-07, "-13": 1.4504479008070347e-08, "-14": 1.7349901534289954e-09, "-15": 1.7696989111869295e-10, "-2": 0.2007764757987754, "-3": 0.10081558879598246, "-4": 0.03967665774351907, "-5": 0.012789163145665701, "-6": 0.0034836226878321454, "-7": 0.0008206492333968622, "-8": 0.00017018664075188578, "-9": 3.150695070092641e-05, "0": 0.20270256954590635, "1": 0.09994353180330545, "10": 1.1352455800206311e-08, "11": 9.775711479924185e-10, "12": 7.730631621297697e-11, "13": 5.65028749597017e-12, "14": 3.82112404357979e-13, "15": 2.2035312564017907e-14, "2": 0.04146660049053289, "3": 0.011771695137911887, "4": 0.0026192207717838103, "5": 0.0004773147577810891, "6": 7.350545237976593e-05, "7": 9.789752723753681e-06, "8": 1.147797646130348e-06, "9": 1.2013566227319695e-07} |
-| Raw goal margin distribution | {"-1": 0.23678195307902963, "-10": 4.416081975558962e-06, "-11": 6.72620303347659e-07, "-12": 9.40829370009126e-08, "-13": 1.2163000479479811e-08, "-14": 1.4549082429164127e-09, "-15": 1.4840139168959476e-10, "-2": 0.16836484578660213, "-3": 0.08454078593118032, "-4": 0.03327159885508921, "-5": 0.010724590479004882, "-6": 0.0029212565579814056, "-7": 0.0006881706687801056, "-8": 0.00014271317100838298, "-9": 2.6420739157131408e-05, "0": 0.2596062194235564, "1": 0.1297057102484556, "10": 1.4733102943849126e-08, "11": 1.2686820025361676e-09, "12": 1.0032735956169445e-10, "13": 7.332886276373713e-12, "14": 4.959016347304781e-13, "15": 2.859720699372095e-14, "2": 0.05381493700661518, "3": 0.015277187539220567, "4": 0.0033991983710394674, "5": 0.0006194542913683396, "6": 9.539463671161003e-05, "7": 1.2705042610363581e-05, "8": 1.4896002395216374e-06, "9": 1.5591085406087522e-07} |
+| Goal margin distribution | {"-1": 0.2871578144643951, "-10": 5.354732845522508e-06, "-11": 8.155734692601824e-07, "-12": 1.1407656395316054e-07, "-13": 1.4747511496480069e-08, "-14": 1.7640302335010326e-09, "-15": 1.7992860761309448e-10, "-2": 0.20418052629397074, "-3": 0.10252291925988709, "-4": 0.04034784924290508, "-5": 0.013005277274274935, "-6": 0.003542426664109396, "-7": 0.0008344871513558284, "-8": 0.00017305331409417444, "-9": 3.203710214250058e-05, "0": 0.19836588814222203, "1": 0.09576749886251154, "10": 1.0881242392325259e-08, "11": 9.37025774654249e-10, "12": 7.410246413510925e-11, "13": 5.416300266498846e-12, "14": 3.6630073003156047e-13, "15": 2.1124174677007455e-14, "2": 0.03973496444323854, "3": 0.01128047129019733, "4": 0.0025100041582234414, "5": 0.0004574266235645575, "6": 7.044504670385753e-05, "7": 9.382466410012323e-06, "8": 1.1000819925178842e-06, "9": 1.1514527773229528e-07} |
+| Raw goal margin distribution | {"-1": 0.23677993701009148, "-10": 4.415318831679903e-06, "-11": 6.724923542084968e-07, "-12": 9.406340439502871e-08, "-13": 1.2160264033577662e-08, "-14": 1.454555462303328e-09, "-15": 1.4836261536676522e-10, "-2": 0.16835986944930648, "-3": 0.08453668729066288, "-4": 0.03326937565689087, "-5": 0.010723680773045474, "-6": 0.0029209567706007587, "-7": 0.0006880878916783336, "-8": 0.00014269349725701714, "-9": 2.6416634495690223e-05, "0": 0.2596087195656438, "1": 0.12971178579701736, "10": 1.4738041602454595e-08, "11": 1.2691496385713238e-09, "12": 1.0036769331027271e-10, "13": 7.336079445794574e-12, "14": 4.961340997258115e-13, "15": 2.861152743245935e-14, "2": 0.053818813874558044, "3": 0.015278775086150415, "4": 0.0033996619478234066, "5": 0.0006195590875651977, "6": 9.541392348180634e-05, "7": 1.2708032345821586e-05, "8": 1.490000276372401e-06, "9": 1.5595791660166432e-07} |
 | Research history json | {"away": [{"away": "Corum", "away_goals": 2.0, "away_xg": 1.33, "date": "2026-11-23T00:00:00+00:00", "home": "Buyuksehyr", "home_goals": 4.0, "home_xg": 1.83, "source": "pipeline training history"}, {"away": "Buyuksehyr", "away_goals": 2.0, "away_xg": 1.4, "date": "2026-11-07T00:00:00+00:00", "home": "Goztep", "home_goals": 1.0, "home_xg": 1.54, "source": "pipeline training history"}, {"away": "Samsunspor", "away_goals": 2.0, "away_xg": 0.99, "date": "2026-11-01T00:00:00+00:00", "home": "Buyuksehyr", "home_goals": 5.0, "home_xg": 3.89, "source": "pipeline training history"}, {"away": "Buyuksehyr", "away_goals": 0.0, "away_xg": 0.38, "date": "2026-10-26T00:00:00+00:00", "home": "Besiktas", "home_goals": 2.0, "home_xg": 1.88, "source": "pipeline training history"}, {"away": "Gaziantep", "away_goals": 1.0, "away_xg": 1.42, "date": "2026-10-18T00:00:00+00:00", "home": "Buyuksehyr", "home_goals": 2.0, "home_xg": 1.95, "source": "pipeline training history"}, {"away": "Buyuksehyr", "away_goals": 0.0, "away_xg": 0.97, "date": "2026-10-11T00:00:00+00:00", "home": "Konyaspor", "home_goals": 0.0, "home_xg": 0.41, "source": "pipeline training history"}, {"away": "Genclerbirligi", "away_goals": 0.0, "away_xg": 0.46, "date": "2026-09-19T00:00:00+00:00", "home": "Buyuksehyr", "home_goals": 4.0, "home_xg": 2.78, "source": "pipeline training history"}, {"away": "Buyuksehyr", "away_goals": 0.0, "away_xg": 0.4, "date": "2026-09-13T00:00:00+00:00", "home": "Amedspor", "home_goals": 5.0, "home_xg": 4.25, "source": "pipeline training history"}, {"away": "Galatasaray", "away_goals": 3.0, "away_xg": 2.12, "date": "2026-09-04T00:00:00+00:00", "home": "Buyuksehyr", "home_goals": 2.0, "home_xg": 1.98, "source": "pipeline training history"}, {"away": "Kasimpasa", "away_goals": 1.0, "away_xg": 1.58, "date": "2026-08-30T00:00:00+00:00", "home": "Buyuksehyr", "home_goals": 1.0, "home_xg": 0.77, "source": "pipeline training history"}], "h2h": [{"away": "Buyuksehyr", "away_goals": 2.0, "away_xg": null, "date": "2026-02-08T00:00:00+00:00", "home": "Eyupspor", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Eyupspor", "away_goals": 0.0, "away_xg": null, "date": "2025-08-31T00:00:00+00:00", "home": "Buyuksehyr", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Buyuksehyr", "away_goals": 3.0, "away_xg": null, "date": "2025-03-31T00:00:00+00:00", "home": "Eyupspor", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Eyupspor", "away_goals": 1.0, "away_xg": null, "date": "2024-10-28T00:00:00+00:00", "home": "Buyuksehyr", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}], "home": [{"away": "Eyupspor", "away_goals": 0.0, "away_xg": 0.59, "date": "2026-11-22T00:00:00+00:00", "home": "Trabzonspor", "home_goals": 1.0, "home_xg": 2.43, "source": "pipeline training history"}, {"away": "Kocaelispor", "away_goals": 2.0, "away_xg": 1.14, "date": "2026-11-07T00:00:00+00:00", "home": "Eyupspor", "home_goals": 0.0, "home_xg": 0.58, "source": "pipeline training history"}, {"away": "Eyupspor", "away_goals": 1.0, "away_xg": 0.98, "date": "2026-11-01T00:00:00+00:00", "home": "Amedspor", "home_goals": 5.0, "home_xg": 4.95, "source": "pipeline training history"}, {"away": "Kasimpasa", "away_goals": 1.0, "away_xg": 0.59, "date": "2026-10-24T00:00:00+00:00", "home": "Eyupspor", "home_goals": 0.0, "home_xg": 0.43, "source": "pipeline training history"}, {"away": "Eyupspor", "away_goals": 0.0, "away_xg": 0.43, "date": "2026-10-17T00:00:00+00:00", "home": "Erzurumspor", "home_goals": 2.0, "home_xg": 1.29, "source": "pipeline training history"}, {"away": "Goztep", "away_goals": 4.0, "away_xg": 3.21, "date": "2026-10-12T00:00:00+00:00", "home": "Eyupspor", "home_goals": 0.0, "home_xg": 1.39, "source": "pipeline training history"}, {"away": "Eyupspor", "away_goals": 0.0, "away_xg": 0.72, "date": "2026-09-20T00:00:00+00:00", "home": "Fenerbahce", "home_goals": 8.0, "home_xg": 5.14, "source": "pipeline training history"}, {"away": "Rizespor", "away_goals": 2.0, "away_xg": 2.05, "date": "2026-09-12T00:00:00+00:00", "home": "Eyupspor", "home_goals": 0.0, "home_xg": 1.43, "source": "pipeline training history"}, {"away": "Eyupspor", "away_goals": 0.0, "away_xg": 0.72, "date": "2026-09-06T00:00:00+00:00", "home": "Corum", "home_goals": 3.0, "home_xg": 2.58, "source": "pipeline training history"}, {"away": "Alanyaspor", "away_goals": 1.0, "away_xg": 0.66, "date": "2026-08-30T00:00:00+00:00", "home": "Eyupspor", "home_goals": 2.0, "home_xg": 1.47, "source": "pipeline training history"}], "teams": {"away": "Buyuksehyr", "home": "Eyupspor"}} |
 | Unadjusted home-win probability | 20.3% |
 | Unadjusted draw probability | 26.0% |
@@ -1645,9 +1138,9 @@ The model's most likely 1X2 outcome is **Basaksehir win** at **64.1%**. Expected
 | Raw p over 1 5 | 75.3% |
 | Raw p under 3 5 | 72.4% |
 | Raw p btts yes | 51.3% |
-| P home draw | 35.9% |
-| P draw away | 84.4% |
-| P home away | 79.7% |
+| P home draw | 34.8% |
+| P draw away | 85.0% |
+| P home away | 80.2% |
 | Raw p home draw | 46.3% |
 | Raw p draw away | 79.7% |
 | Raw p home away | 74.0% |
@@ -1655,29 +1148,29 @@ The model's most likely 1X2 outcome is **Basaksehir win** at **64.1%**. Expected
 | Market blend applied | Yes |
 | Totals anchor applied | 0 |
 | Totals anchor status | NOT_ANCHORED_PINNACLE_NO_2_5_LINE |
-| Unanchored p over 2 5 | 0.5200 |
+| Unanchored p over 2 5 | 0.5220 |
 | Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
 | Bet365 pinnacle quotes | [] |
-| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -1.25, "market_key": "spreads", "opposite_price": 1.9259, "price": 1.9259, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 1.25, "market_key": "spreads", "opposite_price": 1.9259, "price": 1.9259, "quote_source": "The Odds API", "side": "home"}] |
-| Price edge quotes | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "market": "h2h", "market_key": "h2h", "point": null, "prices": {"away": 1.4255, "draw": 5.04, "home": 6.48}}] |
+| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -1.25, "market_key": "spreads", "opposite_price": 1.9901, "price": 1.8772, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 1.25, "market_key": "spreads", "opposite_price": 1.8772, "price": 1.9901, "quote_source": "The Odds API", "side": "home"}] |
+| Price edge quotes | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "market": "h2h", "market_key": "h2h", "point": null, "prices": {"away": 1.3953, "draw": 5.2, "home": 6.91}}] |
 | 1X2 market source | The Odds API / Pinnacle |
-| Reference home odds | 6.48 |
-| Reference draw odds | 5.04 |
-| Reference away odds | 1.43 |
-| Market reference 1x2 last update utc | 2026-11-27T16:28:52Z |
-| Market reference home last update utc | 2026-11-27T16:28:52Z |
-| Market reference draw last update utc | 2026-11-27T16:28:52Z |
-| Market reference away last update utc | 2026-11-27T16:28:52Z |
+| Reference home odds | 6.91 |
+| Reference draw odds | 5.20 |
+| Reference away odds | 1.40 |
+| Market reference 1x2 last update utc | 2026-11-28T06:35:43Z |
+| Market reference home last update utc | 2026-11-28T06:35:43Z |
+| Market reference draw last update utc | 2026-11-28T06:35:43Z |
+| Market reference away last update utc | 2026-11-28T06:35:43Z |
 | O/U 2.5 market source | The Odds API / unavailable reference |
-| Home probability edge | +2.0% |
-| Draw probability edge | +2.4% |
-| Away probability edge | -4.4% |
-| Raw edge prob home | 0.0665 |
-| Raw ev home | 0.3150 |
-| Raw edge prob draw | 0.0813 |
-| Raw ev draw | 0.3084 |
-| Raw edge prob away | -0.1478 |
-| Raw ev away | -0.2338 |
+| Home probability edge | +2.3% |
+| Draw probability edge | +2.6% |
+| Away probability edge | -4.9% |
+| Raw edge prob home | 0.0759 |
+| Raw ev home | 0.4023 |
+| Raw edge prob draw | 0.0875 |
+| Raw ev draw | 0.3500 |
+| Raw edge prob away | -0.1634 |
+| Raw ev away | -0.2501 |
 | Training data status | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | Training cutoff | 2026-11-23 |
 | Elo home rating | 1,354.1895 |
@@ -1686,7 +1179,7 @@ The model's most likely 1X2 outcome is **Basaksehir win** at **64.1%**. Expected
 | Elo home expectancy | 0.3228 |
 | Research p home | 0.2125 |
 | Research p draw | 0.2660 |
-| Research p away | 0.5215 |
+| Research p away | 0.5214 |
 | Research p over 1 5 | 0.7309 |
 | Research v4 p home | 0.2360 |
 | Research v4 p draw | 0.2514 |
@@ -1694,50 +1187,50 @@ The model's most likely 1X2 outcome is **Basaksehir win** at **64.1%**. Expected
 | Research v4 p over 1 5 | 0.7280 |
 | Research version | team-form-research-v5 |
 | Research probability basis | team_form_poisson_v1 |
-| Team research json | {"base_rates": [0.9587692292817183, 1.6958536780694526], "c6_fit": {"candidate_version": "research-low-score-then-sharpen-walk-forward-v1", "delta": 0.055466179703356835, "end_exclusive": "2026-11-30", "expected_origin": "2026-11-16", "fits_version": "research-c6-live-fits-v1", "low_score_status": "fitted", "origin": "2026-11-16", "rho": -0.016463701485858812, "slope": 1.1507759984871408, "slope_status": "fitted", "stale": false}, "coverage": {"form": "last ten, exponential rank half-life five matches", "h2h": "last four years; descriptive only", "training_cache": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED", "venue_splits": "home team home matches / away team away matches", "xg": "verified supplied xG; no goals-to-xG substitution"}, "evidence": {"coverage": {}, "errors": ["free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing"], "news": [], "quality_review": {"absence_note": "Reported absences only; not proof of complete coverage or a fitted player-value effect", "assessed_at_utc": "2026-11-27T16:30:31.785266+00:00", "availability": "UNAVAILABLE_OR_STALE", "form": {"away": {"matches": 10.0, "venue_matches": 4.0, "xg_matches": 10.0}, "home": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 10.0}}, "lineups": "UNCONFIRMED_OR_STALE", "probability_effect": "NONE; factual coverage/freshness review, not a calibrated confidence score", "status": "REVIEW_REQUIRED", "summary_max_age_minutes": 180, "training": {"cutoff": "2026-11-23", "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}, "version": "pre-match-research-quality-v1", "warnings": ["Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"], "weather": "UNAVAILABLE_INCOMPLETE_OR_STALE", "weather_max_age_minutes": 180}, "review_links": [{"label": "Sofascore", "status": "reference only; no authorized public bulk API", "url": "https://www.sofascore.com/football"}, {"label": "Sports Mole previews", "status": "reference only; article reproduction requires permission", "url": "https://www.sportsmole.co.uk/football/"}], "sources": [{"observed_at_utc": "2026-11-27T16:30:31.598706+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20261129"}, {"observed_at_utc": "2026-11-27T16:30:31.168273+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/news?limit=20"}, {"observed_at_utc": "2026-11-27T16:30:31.704135+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://www.bing.com/news/search?q=%22Eyupspor%22+%22Basaksehir%22+injury+suspension+lineup+preview&format=rss"}, {"observed_at_utc": "2026-11-27T16:29:48.450142+00:00", "reason": null, "status": "available", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"}, {"observed_at_utc": "2026-11-27T16:29:48.521989+00:00", "reason": null, "status": "available", "url": "https://www.theguardian.com/football/rss"}, {"observed_at_utc": "2026-11-27T16:30:31.784816+00:00", "reason": "TheSportsDB free source limit: 30 requests per minute", "status": "unavailable", "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=Eyupspor_vs_Basaksehir&d=2026-11-29"}]}, "evidence_quality_version": "pre-match-research-quality-v1", "form": {"away": {"all": {"goals_against": 1.6313348236181207, "goals_for": 2.307154970609583, "last_match": "2026-11-23T00:00:00+00:00", "matches": 10, "points_per_game": 2.0196311913317273, "results": "WWWLWDWLLD", "xg_against": 1.492222575448381, "xg_for": 1.7412579779098012, "xg_matches": 10}, "venue": {"goals_against": 1.8368527555767877, "goals_for": 0.6082423895864785, "last_match": "2026-11-07T00:00:00+00:00", "matches": 4, "points_per_game": 1.1428443509672421, "results": "WLDL", "xg_against": 1.9133210988872476, "xg_for": 0.8302001741993772, "xg_matches": 4}}, "home": {"all": {"goals_against": 2.73668379471441, "goals_for": 0.22993800715635923, "last_match": "2026-11-22T00:00:00+00:00", "matches": 10, "points_per_game": 0.14869835499703501, "results": "LLLLLLLLLW", "xg_against": 2.410129126726227, "xg_for": 0.790195561943629, "xg_matches": 10}, "venue": {"goals_against": 2.0183343963961224, "goals_for": 0.29739670999407, "last_match": "2026-11-07T00:00:00+00:00", "matches": 5, "points_per_game": 0.44609506499110496, "results": "LLLLW", "xg_against": 1.5062518946890704, "xg_for": 0.982650985491942, "xg_matches": 5}}}, "goal_rates": [0.9897279445684928, 1.5865493109042663], "h2h": [{"away": "Buyuksehyr", "away_goals": 2.0, "away_xg": null, "date": "2026-02-08T00:00:00+00:00", "home": "Eyupspor", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Eyupspor", "away_goals": 0.0, "away_xg": null, "date": "2025-08-31T00:00:00+00:00", "home": "Buyuksehyr", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Buyuksehyr", "away_goals": 3.0, "away_xg": null, "date": "2025-03-31T00:00:00+00:00", "home": "Eyupspor", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Eyupspor", "away_goals": 1.0, "away_xg": null, "date": "2024-10-28T00:00:00+00:00", "home": "Buyuksehyr", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}], "margin_distribution": {"-1": 0.24688780243353917, "-10": 2.492752774255972e-06, "-11": 3.553486582877448e-07, "-12": 4.651702294117403e-08, "-13": 5.62787627515597e-09, "-14": 6.30164413468456e-10, "-15": 6.033625225344394e-11, "-2": 0.16009266428793104, "-3": 0.07547547859428609, "-4": 0.02785459436128806, "-5": 0.008413616241190995, "-6": 0.0021466568617406947, "-7": 0.0004735401094839841, "-8": 9.194061747357966e-05, "-9": 1.593346402217446e-05, "0": 0.26602406480522384, "1": 0.13625503296394223, "10": 1.978006487425939e-08, "11": 1.7589983868120516e-09, "12": 1.4364315363716498e-10, "13": 1.0841261447147086e-11, "14": 7.572711447428618e-13, "15": 4.5231201374856136e-14, "2": 0.055388789429254244, "3": 0.016289905858091532, "4": 0.003750349956842473, "5": 0.0007066753028522381, "6": 0.00011247657965029646, "7": 1.5478130366768155e-05, "8": 1.8746983794043756e-06, "9": 2.0267325835701437e-07}, "model_note": "Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient", "observed_at_utc": "2026-11-27T16:30:31.785266+00:00", "p_over_1_5": 0.7309245975792343, "shadow_v4": {"grid": "independent Poisson (C)", "margin_distribution": {"-1": 0.24371390973692023, "-10": 2.4408545022293927e-06, "-11": 3.479504190710211e-07, "-12": 4.554855421238553e-08, "-13": 5.510705789227154e-09, "-14": 6.170446029162776e-10, "-15": 5.908007183120044e-11, "-2": 0.15675958901208276, "-3": 0.07390410458564953, "-4": 0.027274671101235277, "-5": 0.008238447588718866, "-6": 0.0021019641898845395, "-7": 0.0004636811641159137, "-8": 9.002644482669144e-05, "-9": 1.5601734675129467e-05, "0": 0.25140299946549743, "1": 0.15203464858535878, "10": 2.1785346409339442e-08, "11": 1.9373237364877247e-09, "12": 1.5820554084167406e-10, "13": 1.1940336780576866e-11, "14": 8.340424725041747e-13, "15": 4.9816691538971826e-14, "2": 0.06100404485935453, "3": 0.01794135885549463, "4": 0.004130556370034334, "5": 0.0007783172790092933, "6": 0.00012387933336902742, "7": 1.7047286444837093e-05, "8": 2.064753268908617e-06, "9": 2.2322005358854665e-07}, "p_over_1_5": 0.7280004504785182, "version": "team-form-research-v4"}, "version": "team-form-research-v5", "warnings": ["availability unavailable or unconfirmed", "lineups unavailable or unconfirmed", "rotation unavailable or unconfirmed", "tactics unavailable or unconfirmed", "motivation unavailable or unconfirmed", "rivalry unavailable or unconfirmed", "weather unavailable or unconfirmed", "travel unavailable or unconfirmed", "free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing", "Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"]} |
+| Team research json | {"base_rates": [0.9588014203010946, 1.6958244707496264], "c6_fit": {"candidate_version": "research-low-score-then-sharpen-walk-forward-v1", "delta": 0.055466179703356835, "end_exclusive": "2026-11-30", "expected_origin": "2026-11-16", "fits_version": "research-c6-live-fits-v1", "low_score_status": "fitted", "origin": "2026-11-16", "rho": -0.016463701485858812, "slope": 1.1507759984871408, "slope_status": "fitted", "stale": false}, "coverage": {"form": "last ten, exponential rank half-life five matches", "h2h": "last four years; descriptive only", "training_cache": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED", "venue_splits": "home team home matches / away team away matches", "xg": "verified supplied xG; no goals-to-xG substitution"}, "evidence": {"coverage": {}, "errors": ["free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing"], "news": [], "quality_review": {"absence_note": "Reported absences only; not proof of complete coverage or a fitted player-value effect", "assessed_at_utc": "2026-11-28T06:36:59.151184+00:00", "availability": "UNAVAILABLE_OR_STALE", "form": {"away": {"matches": 10.0, "venue_matches": 4.0, "xg_matches": 10.0}, "home": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 10.0}}, "lineups": "UNCONFIRMED_OR_STALE", "probability_effect": "NONE; factual coverage/freshness review, not a calibrated confidence score", "status": "REVIEW_REQUIRED", "summary_max_age_minutes": 180, "training": {"cutoff": "2026-11-23", "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}, "version": "pre-match-research-quality-v1", "warnings": ["Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"], "weather": "UNAVAILABLE_INCOMPLETE_OR_STALE", "weather_max_age_minutes": 180}, "review_links": [{"label": "Sofascore", "status": "reference only; no authorized public bulk API", "url": "https://www.sofascore.com/football"}, {"label": "Sports Mole previews", "status": "reference only; article reproduction requires permission", "url": "https://www.sportsmole.co.uk/football/"}], "sources": [{"observed_at_utc": "2026-11-28T06:36:58.872994+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20261129"}, {"observed_at_utc": "2026-11-28T06:36:58.387112+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/news?limit=20"}, {"observed_at_utc": "2026-11-28T06:36:59.093166+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://www.bing.com/news/search?q=%22Eyupspor%22+%22Basaksehir%22+injury+suspension+lineup+preview&format=rss"}, {"observed_at_utc": "2026-11-28T06:36:29.662572+00:00", "reason": null, "status": "available", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"}, {"observed_at_utc": "2026-11-28T06:36:29.767100+00:00", "reason": null, "status": "available", "url": "https://www.theguardian.com/football/rss"}, {"observed_at_utc": "2026-11-28T06:36:59.150836+00:00", "reason": "TheSportsDB free source limit: 30 requests per minute", "status": "unavailable", "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=Eyupspor_vs_Basaksehir&d=2026-11-29"}]}, "evidence_quality_version": "pre-match-research-quality-v1", "form": {"away": {"all": {"goals_against": 1.6313348236181207, "goals_for": 2.307154970609583, "last_match": "2026-11-23T00:00:00+00:00", "matches": 10, "points_per_game": 2.0196311913317273, "results": "WWWLWDWLLD", "xg_against": 1.492222575448381, "xg_for": 1.7412579779098012, "xg_matches": 10}, "venue": {"goals_against": 1.8368527555767877, "goals_for": 0.6082423895864785, "last_match": "2026-11-07T00:00:00+00:00", "matches": 4, "points_per_game": 1.1428443509672421, "results": "WLDL", "xg_against": 1.9133210988872476, "xg_for": 0.8302001741993772, "xg_matches": 4}}, "home": {"all": {"goals_against": 2.73668379471441, "goals_for": 0.22993800715635923, "last_match": "2026-11-22T00:00:00+00:00", "matches": 10, "points_per_game": 0.14869835499703501, "results": "LLLLLLLLLW", "xg_against": 2.410129126726227, "xg_for": 0.790195561943629, "xg_matches": 10}, "venue": {"goals_against": 2.0183343963961224, "goals_for": 0.29739670999407, "last_match": "2026-11-07T00:00:00+00:00", "matches": 5, "points_per_game": 0.44609506499110496, "results": "LLLLW", "xg_against": 1.5062518946890704, "xg_for": 0.982650985491942, "xg_matches": 5}}}, "goal_rates": [0.9897509381537616, 1.5865284485329616], "h2h": [{"away": "Buyuksehyr", "away_goals": 2.0, "away_xg": null, "date": "2026-02-08T00:00:00+00:00", "home": "Eyupspor", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Eyupspor", "away_goals": 0.0, "away_xg": null, "date": "2025-08-31T00:00:00+00:00", "home": "Buyuksehyr", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Buyuksehyr", "away_goals": 3.0, "away_xg": null, "date": "2025-03-31T00:00:00+00:00", "home": "Eyupspor", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Eyupspor", "away_goals": 1.0, "away_xg": null, "date": "2024-10-28T00:00:00+00:00", "home": "Buyuksehyr", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}], "margin_distribution": {"-1": 0.24688527675472524, "-10": 2.4924201738298e-06, "-11": 3.552965318581609e-07, "-12": 4.6509583124186525e-08, "-13": 5.626901668450956e-09, "-14": 6.30046897894184e-10, "-15": 6.032414962702361e-11, "-2": 0.16008866891014348, "-3": 0.07547252542108054, "-4": 0.02785311959582354, "-5": 0.008413056213323509, "-6": 0.0021464850101686594, "-7": 0.00047349584877074145, "-8": 9.193079600049586e-05, "-9": 1.593154976978638e-05, "0": 0.26602604412311515, "1": 0.13625987139284176, "10": 1.9784799694944542e-08, "11": 1.759460114910662e-09, "12": 1.4368418303503465e-10, "13": 1.084460904544012e-11, "14": 7.575224531520058e-13, "15": 4.52472197648986e-14, "2": 0.05539193399820529, "3": 0.016291192505835196, "4": 0.0037507308040217124, "5": 0.0007067631540070488, "6": 0.00011249313693207928, "7": 1.5480764408115023e-05, "8": 1.8750605829493522e-06, "9": 2.0271709147554342e-07}, "model_note": "Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient", "observed_at_utc": "2026-11-28T06:36:59.151184+00:00", "p_over_1_5": 0.730924864495558, "shadow_v4": {"grid": "independent Poisson (C)", "margin_distribution": {"-1": 0.2437117498724491, "-10": 2.440531830807797e-06, "-11": 3.4789980617235656e-07, "-12": 4.5541325352765133e-08, "-13": 5.509758256200755e-09, "-14": 6.169302934383439e-10, "-15": 5.906829389241529e-11, "-2": 0.1567558697884042, "-3": 0.07390130387147786, "-4": 0.027273260614181533, "-5": 0.008237909361583202, "-6": 0.002101798503588159, "-7": 0.0004636383956500831, "-8": 9.001693864721109e-05, "-9": 1.559987948080114e-05, "0": 0.2514048956546929, "1": 0.15203883252039896, "10": 2.1790392716883977e-08, "11": 1.937817287247729e-09, "12": 1.5824950587384855e-10, "13": 1.1943931381908026e-11, "14": 8.343128058181648e-13, "15": 4.983394844660613e-14, "2": 0.06100703640062774, "3": 0.017942637176115276, "4": 0.004130943878892587, "5": 0.0007784080163102358, "6": 0.00012389661100943906, "7": 1.7050055659475904e-05, "8": 2.0651362207551684e-06, "9": 2.232666037455663e-07}, "p_over_1_5": 0.7280008680745608, "version": "team-form-research-v4"}, "version": "team-form-research-v5", "warnings": ["availability unavailable or unconfirmed", "lineups unavailable or unconfirmed", "rotation unavailable or unconfirmed", "tactics unavailable or unconfirmed", "motivation unavailable or unconfirmed", "rivalry unavailable or unconfirmed", "weather unavailable or unconfirmed", "travel unavailable or unconfirmed", "free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing", "Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"]} |
 
 </details>
 
 
 ### 2026-11-29 — Fenerbahce vs Erzurum BB
 
-The model's most likely 1X2 outcome is **Fenerbahce win** at **79.6%**. Expected goals are 2.61 for Fenerbahce and 0.57 for Erzurum BB (3.18 combined). The most likely exact score is 2-0 at 14.0%. Goal-market probabilities: at least one goal: 95.5%; Over 2.5 goals: 61.6%; Under 3.5 goals: 60.9%; Double Chance 1X: 93.3%; Double Chance X2: 20.4%; Double Chance 12 (either team wins): 86.3%; Under 4.5 goals: 78.5%; BTTS Yes (both teams score): 41.0%; BTTS No (at least one team does not score): 59.0%.
+The model's most likely 1X2 outcome is **Fenerbahce win** at **80.7%**. Expected goals are 2.61 for Fenerbahce and 0.57 for Erzurum BB (3.18 combined). The most likely exact score is 2-0 at 14.2%. Goal-market probabilities: at least one goal: 95.7%; Over 2.5 goals: 62.0%; Under 3.5 goals: 60.6%; Double Chance 1X: 93.8%; Double Chance X2: 19.3%; Double Chance 12 (either team wins): 87.0%; Under 4.5 goals: 78.3%; BTTS Yes (both teams score): 40.7%; BTTS No (at least one team does not score): 59.3%.
 
 | Outcome | Benchmark probability | Benchmark fair odds |
 | --- | --- | --- |
-| Fenerbahce win | 79.6% | 1.26 |
-| Draw | 13.7% | 7.30 |
-| Erzurum BB win | 6.7% | 14.95 |
+| Fenerbahce win | 80.7% | 1.24 |
+| Draw | 13.0% | 7.68 |
+| Erzurum BB win | 6.2% | 16.01 |
 
 | Measure | Benchmark estimate |
 | --- | --- |
 | Fenerbahce expected goals | 2.61 |
 | Erzurum BB expected goals | 0.57 |
 | Expected total goals | 3.18 |
-| Over 0.5 | 95.5% |
-| Under 0.5 | 4.5% |
-| Over 1.5 | 83.0% |
-| Under 1.5 | 17.0% |
-| Over 2.5 | 61.6% |
-| Under 2.5 | 38.4% |
-| Over 3.5 | 39.1% |
-| Under 3.5 | 60.9% |
-| Over 4.5 | 21.5% |
-| Under 4.5 | 78.5% |
+| Over 0.5 | 95.7% |
+| Under 0.5 | 4.3% |
+| Over 1.5 | 83.2% |
+| Under 1.5 | 16.8% |
+| Over 2.5 | 62.0% |
+| Under 2.5 | 38.0% |
+| Over 3.5 | 39.4% |
+| Under 3.5 | 60.6% |
+| Over 4.5 | 21.7% |
+| Under 4.5 | 78.3% |
 
 | Rank | Score | Benchmark probability |
 | --- | --- | --- |
-| 1 | 2-0 | 13.99% |
-| 2 | 3-0 | 12.16% |
-| 3 | 1-0 | 10.22% |
-| 4 | 2-1 | 8.02% |
-| 5 | 4-0 | 7.92% |
+| 1 | 2-0 | 14.19% |
+| 2 | 3-0 | 12.33% |
+| 3 | 1-0 | 10.36% |
+| 4 | 2-1 | 8.13% |
+| 5 | 4-0 | 8.04% |
 
 | Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
 | --- | --- | --- | --- | --- |
-| Fenerbahce win | 79.6% | 79.3% | 1.24 | -1.6% |
-| Draw | 13.7% | 13.5% | 6.23 | -14.6% |
-| Erzurum BB win | 6.7% | 7.2% | 11.05 | -26.1% |
+| Fenerbahce win | 80.7% | 80.9% | 1.21 | -2.0% |
+| Draw | 13.0% | 12.5% | 6.64 | -13.5% |
+| Erzurum BB win | 6.2% | 6.6% | 11.95 | -25.3% |
 
 <details>
 <summary>Additional technical details (forecast row)</summary>
@@ -1753,9 +1246,9 @@ The model's most likely 1X2 outcome is **Fenerbahce win** at **79.6%**. Expected
 | Odds event id | 1640923596.00 |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-11-27T16:28:52Z |
-| Market best draw last update utc | 2026-11-27T16:28:52Z |
-| Market best away last update utc | 2026-11-27T16:28:52Z |
+| Market best home last update utc | 2026-11-28T06:35:43Z |
+| Market best draw last update utc | 2026-11-28T06:35:43Z |
+| Market best away last update utc | 2026-11-28T06:35:43Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 0.00 |
 | Best home bookmaker | Pinnacle |
@@ -1765,7 +1258,7 @@ The model's most likely 1X2 outcome is **Fenerbahce win** at **79.6%**. Expected
 | Matched away-team name | Erzurumspor |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 2.6070 |
+| Dc lambda home | 2.6072 |
 | Dc lambda away | 0.5732 |
 | Shot features applied | 0 |
 | Shot features status | BASELINE_RETAINED_AUDIT_NOT_IMPROVED |
@@ -1775,22 +1268,22 @@ The model's most likely 1X2 outcome is **Fenerbahce win** at **79.6%**. Expected
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 19 |
 | Score grid omitted mass | 0 |
-| P btts yes | 41.0% |
-| P btts no | 59.0% |
-| Fair Over 0.5 odds | 1.05 |
-| Fair Under 0.5 odds | 22.08 |
-| Fair Over 1.5 odds | 1.21 |
-| Fair Under 1.5 odds | 5.87 |
-| Fair Over 2.5 odds | 1.62 |
-| Fair Under 2.5 odds | 2.61 |
-| Fair Over 3.5 odds | 2.56 |
-| Fair Under 3.5 odds | 1.64 |
-| Fair Over 4.5 odds | 4.65 |
-| Fair Under 4.5 odds | 1.27 |
-| Score matrix json | [[0.04527985726522613,0.022835428810204592,0.008372338475989836,0.0015996821440101663,0.00022923550294851378,2.6279678626818044e-05,2.510596816540926e-06,2.055829568019978e-07,1.4730086435174027e-08,9.381471424281872e-10,5.377484091811404e-11,2.802170930131953e-12,1.3385097885888105e-13,5.901825621807168e-15,2.416387119323678e-16,9.233863009441321e-18,3.3080466001524537e-19,1.1154005945383542e-20,3.5519475226232624e-22,1.0715714004666521e-23],[0.10219027473699349,0.06517429426383078,0.02182675420366521,0.004170384303194822,0.0005976188124691455,6.851133498530186e-05,6.545146230804353e-06,5.359564331337451e-07,3.840145461645056e-08,2.4457571971527393e-09,1.4019144572653063e-10,7.305282306018455e-12,3.4895058577136436e-13,1.5386107187317093e-14,6.299540787276286e-16,2.40727556387481e-17,8.624104274195807e-19,2.9078583821507995e-20,9.259955954115875e-22,2.793595318289817e-23],[0.13992129799579586,0.08020325597651047,0.022466922823928356,0.0054361128244934725,0.0007789985417251163,8.930480254576416e-05,8.531624612197883e-06,6.986213805994232e-07,5.0056451574443514e-08,3.1880544090034942e-09,1.8274011711929086e-10,9.522465063919788e-12,4.548585014031036e-13,2.0055853014776302e-14,8.211476922138356e-16,3.137893444219181e-17,1.1241554839157158e-18,3.7904051746289033e-20,1.2070390078403865e-21,3.6414628082515984e-23],[0.12159198563899287,0.06969684593112727,0.019975207688316222,0.0037303676686706883,0.0006769518354602652,7.760611446703356e-05,7.414004816870784e-06,6.071038654850872e-07,4.3499191532382405e-08,2.770427886736214e-09,1.5880165503542077e-10,8.275047843929634e-12,3.9527326548987397e-13,1.742859040532703e-14,7.135795610054791e-16,2.726837872942349e-17,9.768941498840425e-19,3.293872327951744e-20,1.0489201558967978e-21,3.164441009539225e-23],[0.07924782279433931,0.04542506043180439,0.013018882049214309,0.0024874858092309043,0.000348403260074475,5.0579942211819855e-05,4.83209264850871e-06,3.956811733674975e-07,2.8350686142177706e-08,1.805631983709958e-09,1.0349930015172886e-10,5.393279184513259e-12,2.576201509849842e-13,1.1359119079584752e-14,4.650769234752094e-16,1.7772221039749964e-17,6.366927398380348e-19,2.1467879579473558e-20,6.836358350682554e-22,2.0624308341477122e-23],[0.041319943150128345,0.023684700076925948,0.006788066185083722,0.0012969791295201838,0.0001858579619598451,2.082537142276317e-05,2.5194609327083613e-06,2.0630880461600424e-07,1.4782093669652098e-08,9.414594406028056e-10,5.3964702720552024e-11,2.812064501446173e-12,1.3432356395016814e-13,5.9226630846634e-15,2.424918611114818e-16,9.266464832980093e-18,3.319726257020434e-19,1.1193387180865378e-20,3.5644883158138418e-22,1.0753547771175172e-23],[0.01795357106487594,0.010291034148725389,0.0029494239187161935,0.0005635391822030911,8.075553530883118e-05,9.257857042019326e-06,8.644518527565608e-07,8.964145404376075e-08,6.422839649645725e-09,4.0906539755266606e-10,2.344773616382202e-11,1.2218458210916478e-12,5.836376982186773e-14,2.5734051036198336e-15,1.0536304092435542e-16,4.026291476118961e-18,1.4424255390381824e-19,4.863541836884489e-21,1.5487749839192352e-22,4.672431019758845e-24],[0.006686443592703368,0.0038326870513608283,0.0010984531485242006,0.00020987874448281487,3.0075762069277006e-05,3.4479011822822364e-06,3.2939100416364513e-07,2.636302756874277e-08,2.3920564252731625e-09,1.5234811484461523e-10,8.732634007432226e-12,4.550517071053848e-13,2.173640293406098e-14,9.584125634031843e-16,3.924032869843254e-17,1.49951064028263e-18,5.3720215151637885e-20,1.8113275646148332e-21,5.768098463723431e-23,1.7401522149282165e-24],[0.0021789515738814226,0.0012489807723602092,0.00035795953164455155,6.839444830045907e-05,9.800969407421367e-06,1.123588287788729e-06,1.0734062689588552e-07,8.789704231617897e-09,6.155535838680664e-10,4.964659613382441e-11,2.8457559464629768e-12,1.482904356624988e-13,7.0833723080200216e-15,3.1232366421725414e-16,1.2787481834196502e-17,4.886545477271816e-19,1.7506129488872946e-20,5.902682035692732e-22,1.8796849254136462e-23,5.670738644454893e-25],[0.0006311715997360455,0.0003617892208250861,0.00010368926640549215,1.981165339529213e-05,2.839022956727183e-06,3.2546708497289873e-07,3.10930981700803e-08,2.5460922342548885e-09,1.824283455491939e-10,1.135615730433426e-11,8.24323199614691e-13,4.295492962054602e-14,2.0518232184550156e-15,9.047003574672169e-17,3.70411874345063e-18,1.4154737365633777e-19,5.070957926336917e-21,1.7098155405835303e-22,5.444837579660795e-24,1.6426290628982961e-25],[0.00016454694715557408,9.43187428354787e-05,2.703187571646117e-05,5.164914083052828e-06,7.401355837769184e-07,8.484953260620523e-08,8.105995871225662e-09,6.637683072216198e-10,4.7559217409838295e-11,3.029007610072015e-12,1.6970004367032257e-13,1.1198384935727866e-14,5.34911974557933e-16,2.358561157917156e-17,9.656667559051046e-19,3.6901514933149767e-20,1.322002837710139e-21,4.457502959889756e-23,1.419473566088533e-24,4.2823472685078127e-26],[3.899774760798715e-05,2.235361148525595e-05,6.406574444461329e-06,1.2240884398626742e-06,1.7541267820990218e-07,2.0109401690108335e-08,1.9211269887527407e-09,1.5731357744811692e-10,1.1271569537104193e-11,7.178770334072363e-13,4.114890034235412e-14,2.0957869807270484e-15,1.2677453174854398e-16,5.589807306937896e-18,2.2886373203026215e-19,8.745686204404276e-21,3.133156457367696e-22,1.0564314829085405e-23,3.3641628011604756e-25,1.0149194551092204e-26],[8.472286983869189e-06,4.856337179591739e-06,1.3918326212737966e-06,2.659340395861535e-07,3.810852271116833e-08,4.368781087182783e-09,4.173661347004586e-10,3.417648085723304e-11,2.4487560880932964e-12,1.559592699376588e-13,8.9396263670278e-15,4.658379402753047e-16,2.1748795035803032e-17,1.2143894094849548e-18,4.97208002228977e-20,1.9000062295752445e-21,6.80680354645542e-23,2.2951045255143197e-24,7.308666387197004e-26,2.204919364993365e-27],[1.6990246748508142e-06,9.738854117231078e-07,2.7911683956278277e-07,5.333016881981062e-08,7.642248253826068e-09,8.761113593386889e-10,8.369822252873493e-11,6.853720180461487e-12,4.910713039210125e-13,3.12759292030956e-14,1.792744486871797e-15,9.341871403982685e-17,4.462321046696427e-18,1.923087523089358e-19,9.970963754281554e-21,3.810255097076919e-22,1.3650301511632966e-23,4.6025816023878055e-25,1.4656732657596425e-26,4.421725107179109e-28],[3.163836489673766e-07,1.8135193961447792e-07,5.1975704353363246e-08,9.930870140387713e-09,1.4231002201732945e-09,1.6314495773504983e-10,1.5585853135446565e-11,1.2762645721352767e-12,9.144477613389562e-14,5.824042906845709e-15,3.3383567102840913e-16,1.739595314138421e-17,8.309505073795969e-19,3.6638693543489026e-20,1.4662010737394697e-21,7.095261351725763e-23,2.5418890412139234e-24,8.570691076993519e-26,2.7293014803077212e-27,8.233909400184722e-29],[5.498764898937576e-08,3.1519065007343786e-08,9.033405475556064e-09,1.7259905915524099e-09,2.4733558652287185e-10,2.8354681727709923e-11,2.708829688920708e-12,2.218154716250422e-13,1.589315145828281e-14,1.0122218013033842e-15,5.802081984500951e-17,3.023426047130198e-18,1.4441964676892775e-19,6.367824717156678e-21,2.607181338566341e-22,9.7378161203682e-24,4.417816875948116e-25,1.4895907360455597e-26,4.743540706834053e-28,1.4310578988055257e-29],[8.959577886829809e-09,5.1356536066473955e-09,1.4718850765414083e-09,2.812294655466562e-10,4.030036730729412e-11,4.620055304506139e-12,4.4137130839565957e-13,3.6142170670225166e-14,2.5895984093660765e-15,1.649294020422129e-16,9.453796698228044e-18,4.926310117307764e-19,2.353144928717831e-20,1.0375606626511447e-21,4.2480892886487294e-23,1.6233439679249913e-24,5.684236755728188e-26,2.4271094444643295e-27,7.729030646580094e-29,2.331737206547676e-30],[1.3739818884128712e-09,7.875700317386836e-10,2.2571860667295995e-10,4.312749964673386e-11,6.180199053574019e-12,7.085012700417888e-13,6.768579853434421e-14,5.5425253885913956e-15,3.971237660606717e-16,2.5292487451431414e-17,1.449772032139651e-18,7.554664922145039e-20,3.608628167205877e-21,1.5911347349386676e-22,6.514590103116253e-24,2.4894534527925474e-25,8.918507911940998e-27,2.939171110032149e-28,1.1852732637102631e-29,3.5757986936464093e-31],[1.9899899495542921e-10,1.140667472364226e-10,3.26916797444432e-11,6.246318934054059e-12,8.951016098955761e-13,1.0261491934644367e-13,9.803190271051602e-15,8.027449205452753e-16,5.751693743960154e-17,3.663206644282363e-18,2.0997596820110907e-19,1.0941707015283066e-20,5.226512696403422e-22,2.304500632517231e-23,9.435327306710197e-25,3.60556961683309e-26,1.291701241439506e-27,4.3553326383043004e-29,1.3555964234721227e-30,5.178964527840617e-32],[2.7304841646564897e-11,1.5651207038140314e-11,4.4856565169194145e-12,8.57063370629013e-13,1.2281774448789603e-13,1.4079890825364345e-14,1.3451050747374978e-15,1.1014539517137926e-16,7.891953771602967e-18,5.026320729065842e-19,2.881100260129232e-20,1.5013220416632128e-21,7.171347853843164e-23,3.16202726849877e-24,1.2946302470066958e-25,4.947236414703673e-27,1.772355576975478e-28,5.975993398039528e-30,1.9030306285756222e-31,5.6114328058678244e-33]] |
+| P btts yes | 40.7% |
+| P btts no | 59.3% |
+| Fair Over 0.5 odds | 1.04 |
+| Fair Under 0.5 odds | 23.23 |
+| Fair Over 1.5 odds | 1.20 |
+| Fair Under 1.5 odds | 5.95 |
+| Fair Over 2.5 odds | 1.61 |
+| Fair Under 2.5 odds | 2.63 |
+| Fair Over 3.5 odds | 2.54 |
+| Fair Under 3.5 odds | 1.65 |
+| Fair Over 4.5 odds | 4.60 |
+| Fair Under 4.5 odds | 1.28 |
+| Score matrix json | [[0.043051407369748156,0.021332323012748195,0.007820937879187657,0.0014942533733406716,0.00021411688517067174,2.4545256558568054e-05,2.3447847929948045e-06,1.9199574859981855e-07,1.3755877145619821e-08,8.760571577483335e-10,5.021333950324089e-11,2.6164538796119924e-12,1.2497366352328685e-13,5.510129579275442e-15,2.2559030931444075e-16,8.620170263290258e-18,3.0880372086597947e-19,1.0411666930608765e-20,3.315388485261325e-22,1.0001554069674509e-23],[0.10360492240310593,0.06196878483675177,0.02039097912641408,0.0038958613168946737,0.0005582518367453725,6.3995114380096e-05,6.113391834644822e-06,5.005769592515656e-07,3.586472723281428e-08,2.2840819724101133e-09,1.3091769471828086e-10,6.821695462684691e-12,3.2583500900016465e-13,1.436617180323552e-14,5.881656854215866e-16,2.247476129079601e-17,8.05122137984712e-19,2.71456040608867e-20,8.643978310941291e-22,2.6076345755046152e-23],[0.1418696174046116,0.08131601004485028,0.021362750455117523,0.0050787020699654675,0.0007277452989781047,8.342497163860342e-05,7.969507443829792e-06,6.52559481032645e-07,4.6753785522639304e-08,2.9775628282621603e-09,1.706662309249792e-10,8.892862463242406e-12,4.2476330651199395e-13,1.8727952701542304e-14,7.667414317546217e-16,2.9298429129024186e-17,1.0495690519130783e-18,3.538740841123619e-20,1.1268417166221471e-21,3.399350756891137e-23],[0.12329554553246072,0.07066983052762482,0.020253063179352063,0.0035471582567286226,0.0006324663115872509,7.250267941356499e-05,6.926111354128882e-06,5.671240867368693e-07,4.0632614630101185e-08,2.5877297760008357e-09,1.4832200460406847e-10,7.728577469998689e-12,3.6915179272814293e-13,1.6276022923620866e-14,6.663569327949222e-16,2.546257520667531e-17,9.1215576102205e-19,3.0754363794467585e-20,9.793116152799744e-22,2.954295737837466e-23],[0.08036494261201634,0.04606311485323083,0.013201095409384864,0.002522175940018368,0.00033130385505139554,4.725777922572675e-05,4.514490276961861e-06,3.696556472309974e-07,2.6484636803561948e-08,1.6867012838591275e-09,9.667737254114315e-11,5.037543588186199e-12,2.4061585120209873e-13,1.0608831345527263e-14,4.3433634550150303e-16,1.6596693630751415e-17,5.945498279859399e-19,2.004592031883873e-20,6.3832250728422095e-22,1.925631671484231e-23],[0.041905968123283455,0.024019421403904662,0.006883656796581713,0.0013151782494761413,0.00018845657319312346,1.980397583467638e-05,2.3540623497060724e-06,1.9275541381569625e-07,1.3810304712155138e-08,8.795234331982615e-10,5.0412017482685e-11,2.626806343225301e-12,1.2546814397804594e-13,5.5319313837783066e-15,2.2648289736534845e-16,8.654277495099927e-18,3.1002555753156333e-19,1.0452862536574882e-20,3.328506407547324e-22,1.0041126991402524e-23],[0.018209745311747738,0.010437356918086055,0.00299121205625097,0.0005714952317067309,8.189158618351562e-05,9.387629524221199e-06,8.22083239534334e-07,8.375959678865306e-08,6.001105397353851e-09,3.82186557941748e-10,2.1905948964367728e-11,1.141447785019416e-12,5.452070549608617e-14,2.403835684795876e-15,9.841547787075812e-17,3.760614444685738e-18,1.347179577422927e-19,4.542168409276785e-21,1.4463632905853537e-22,4.363253573296262e-24],[0.006782426176008379,0.0038875119644808834,0.0011141108566312648,0.00021285988093919602,3.050145008714643e-05,3.4965290906441526e-06,3.340200669910887e-07,2.5071806134387113e-08,2.235179769688466e-09,1.4234971825939643e-10,8.159119148711e-12,4.2514517381349514e-13,2.030685513501055e-14,8.953358650691508e-16,3.665596095978227e-17,1.4006835027537096e-18,5.017723133009705e-20,1.6917821412385485e-21,5.387144122084475e-23,1.6251432813283174e-24],[0.002210417610998149,0.001266954432862218,0.0003630928216827729,6.937181729560292e-05,9.940534652938656e-06,1.139531677715327e-06,1.0885836710107846e-07,8.913544537377819e-09,5.854253901462712e-10,4.639229620725117e-11,2.6590869090973412e-12,1.385563742296836e-13,6.618078700685891e-15,2.917932481016464e-16,1.194631235945844e-17,4.564878999897204e-19,1.635294405348756e-20,5.513580158371376e-22,1.7556900630282622e-23,5.296401665454698e-25],[0.0006403406409076483,0.00036702675978655047,0.00010518514193357462,2.0096471240081816e-05,2.87969490423715e-06,3.3011338726771084e-07,3.153541494187951e-08,2.582183924623173e-09,1.850051633619578e-10,1.0800713402303726e-11,7.703166167010576e-13,4.013869462251124e-14,1.917205479945847e-15,8.453021482106219e-17,3.460752970242682e-18,1.322409634232003e-19,4.737319601434315e-21,1.5972409171644882e-22,5.086096376544153e-24,1.534326011558563e-25],[0.00016695149410774613,9.569229564600882e-05,2.7424179384981896e-05,5.239611053062765e-06,7.508025199765403e-07,8.606813266013189e-08,8.22200607850196e-09,6.732345828710518e-10,4.8235089993891396e-11,3.071901224215211e-12,1.6140550732748501e-13,1.046507844522284e-14,4.998594481443832e-16,2.2038966075339917e-17,9.022976869012516e-19,3.447825269134405e-20,1.235127891311583e-21,4.164373468356771e-23,1.3260619973088734e-24,4.000339877147121e-26],[3.957098570834048e-05,2.2681069634289764e-05,6.500102417805996e-06,1.2418970863728833e-06,1.7795585446275573e-07,2.039994230443734e-08,1.948786902238296e-09,1.5957063576776282e-10,1.1432722222641277e-11,7.281046515367109e-13,4.1733082982245994e-14,1.99342034295517e-15,1.1847711327419986e-16,5.223694560235823e-18,2.1386336830262298e-19,8.172064896988695e-21,2.9275106758565795e-22,9.870433558036202e-24,3.143043470459616e-25,9.481639739320469e-27],[8.59755309033572e-06,4.927895952950867e-06,1.4122715072505162e-06,2.6982588231492126e-07,3.8664311214191476e-08,4.43227743415091e-09,4.2341120782880025e-10,3.466977099796637e-11,2.483977452588496e-12,1.5819465410961048e-13,9.067310054083905e-15,4.724680493939551e-16,2.0687227996168368e-17,1.1349475001796428e-18,4.646590500959582e-20,1.775537317351192e-21,6.36057657085265e-23,2.1445403752467316e-24,6.828862768716421e-26,2.0600674858868303e-27],[1.7242917794355563e-06,9.88319629120793e-07,2.8323967583526e-07,5.4115228584927176e-08,7.75436374555322e-09,8.889203083229468e-10,8.491770359647429e-11,6.953234309643832e-12,4.981768483193362e-13,3.1726904011615854e-14,1.818504407425501e-15,9.475635277340726e-17,4.5259917021559684e-18,1.8292855479554748e-19,9.319021027289863e-21,3.560948525960393e-22,1.2756524767401422e-23,4.301006694407268e-25,1.3695701336496735e-26,4.131591155848773e-28],[3.2111601507064933e-07,1.8405542768594528e-07,5.274791488241879e-08,1.0077915330268245e-08,1.4441003634521047e-09,1.6554422547759173e-10,1.581428091988969e-11,1.2949054910510825e-12,9.277580873529839e-14,5.908522622588912e-15,3.3866129599715684e-16,1.764653915776695e-17,8.428784715977168e-19,3.71627866796083e-20,1.3947338425472193e-21,6.631578333583537e-23,2.375656166962015e-24,8.00979362641487e-26,2.5505596496048036e-27,7.694289932192306e-29],[5.5814874222757436e-08,3.199164807786581e-08,9.168394276527069e-09,1.7516958052147134e-09,2.510067276880728e-10,2.8774118043607104e-11,2.7487638705057976e-12,2.2507437723862134e-13,1.6125854371778998e-14,1.0269915904056073e-15,5.886451236646856e-17,3.06723837283864e-18,1.4650516844183594e-19,6.459460652665196e-21,2.644568890212588e-22,9.263491938314638e-24,4.129253725521289e-25,1.3922246254526748e-26,4.433262726214752e-28,1.3373852584221223e-29],[9.095136293119103e-09,5.213097826726886e-09,1.4940066907839956e-09,2.854420495319669e-10,4.090200740579703e-11,4.6887953966614746e-12,4.4791612250302977e-13,3.667628325926617e-14,2.627737594981805e-15,1.6735016636152678e-16,9.592080431182544e-18,4.998121277334681e-19,2.3873286344907223e-20,1.0525809801444646e-21,4.309373590457575e-23,1.6466812865659217e-24,5.407551567123328e-26,2.2686556039869917e-27,7.22408305664295e-29,2.179293847946719e-30],[1.3948886285215022e-09,7.995142286512917e-10,2.291304799342324e-10,4.377722951719136e-11,6.272995057502588e-12,7.191038341245236e-13,6.86952988580947e-14,5.624910810131382e-15,4.030067468864219e-16,2.566589840060777e-17,1.471103179338023e-18,7.665440416764312e-20,3.66136081689531e-21,1.6143059240490081e-22,6.609132643705212e-24,2.5254563839441325e-25,9.047040886974529e-27,2.7962032354728745e-28,1.1079318640699942e-29,3.3423052813486155e-31],[2.0204414630475894e-10,1.1580649987632188e-10,3.318865124004993e-11,6.340959976685393e-12,9.086187278696748e-13,1.0415936964384588e-13,9.950244578053116e-15,8.147462667883426e-16,5.837394646770541e-17,3.717604707260354e-18,2.1308352503426106e-19,1.1103089762060289e-20,5.303337524139151e-22,2.338258808840588e-23,9.573069387107347e-25,3.6580245095605514e-26,1.310428384903018e-27,4.4182576044629934e-29,1.2897027644031334e-30,4.8411980960497066e-32],[2.7725023005757517e-11,1.5891268972694078e-11,4.55423300298195e-12,8.701230124579425e-13,1.2468302395482716e-13,1.4293019483399947e-14,1.365398428437116e-15,1.1180160080703012e-16,8.010224687790769e-18,5.10139382507208e-19,2.923987525385508e-20,1.523594841613392e-21,7.277377620347906e-23,3.208619524702038e-24,1.3136414682013115e-25,5.019636328894836e-27,1.7982038966885963e-28,6.062847945336108e-30,1.9305934774732887e-31,5.3388575815825415e-33]] |
 | Score matrix version | published-score-matrix-v1 |
-| Goal margin distribution | {"-1": 0.05082843916096078, "-10": 6.155288480540208e-11, "-11": 3.1719090575945546e-12, "-12": 1.5008615015988607e-13, "-13": 6.564157358127715e-15, "-14": 2.66869256167694e-16, "-15": 1.013524703307143e-17, "-16": 3.611219272546892e-19, "-17": 1.2116416168877646e-20, "-18": 3.8313070544522443e-22, "-19": 1.0715714004666521e-23, "-2": 0.01340437241490695, "-3": 0.0022944306450573817, "-4": 0.0003069148824670441, "-5": 3.356880627033892e-05, "-6": 3.0994864998356166e-06, "-7": 2.47336797698375e-07, "-8": 1.7367122446984284e-08, "-9": 1.0882679321756754e-09, "0": 0.13702156209511507, "1": 0.20505167839626032, "10": 0.00018834717333279742, "11": 4.414338452142032e-05, "12": 9.499915109319126e-06, "13": 1.8896975335654728e-06, "14": 3.4941863573240926e-07, "15": 6.035539033937465e-08, "16": 9.780696661683566e-09, "17": 1.4925342921662132e-09, "18": 2.1465020199356953e-10, "19": 2.7304841646564897e-11, "2": 0.22401831847715398, "3": 0.17439988255673697, "4": 0.10610196023674646, "5": 0.052780750723968144, "6": 0.0221647899705744, "7": 0.008044458412001966, "8": 0.002569035759307186, "9": 0.0007321706591941559} |
-| Raw goal margin distribution | {"-1": 0.04146659533234871, "-10": 5.021575731809344e-11, "-11": 2.5876905034555213e-12, "-12": 1.2244250967380043e-13, "-13": 5.355137032742123e-15, "-14": 2.177159014682105e-16, "-15": 8.268485010583524e-18, "-16": 2.9460862993820497e-19, "-17": 9.884752206577084e-21, "-18": 3.1256371795686875e-22, "-19": 8.742038584375236e-24, "-2": 0.01093548603475428, "-3": 0.0018718305863267399, "-4": 0.0002503857179724524, "-5": 2.7385930561316137e-05, "-6": 2.528607105556691e-06, "-7": 2.0178103184476465e-07, "-8": 1.41683563470422e-08, "-9": 8.87825136904079e-10, "0": 0.14155932008846434, "1": 0.2070552742190317, "10": 0.0001901875465141918, "11": 4.4574717254328695e-05, "12": 9.592740441833261e-06, "13": 1.9081620987627224e-06, "14": 3.5283286635186806e-07, "15": 6.09451334173709e-08, "16": 9.876265559867723e-09, "17": 1.5071181058492607e-09, "18": 2.1674758666964245e-10, "19": 2.7571642031191688e-11, "2": 0.22620724065831124, "3": 0.17610397431992278, "4": 0.1071387010524319, "5": 0.05329648067312231, "6": 0.022381366011038833, "7": 0.008123062222498936, "8": 0.0025941382571562947, "9": 0.0007393248267961507} |
+| Goal margin distribution | {"-1": 0.04748416840424018, "-10": 5.747651742241164e-11, "-11": 2.961700109562252e-12, "-12": 1.4013264448243568e-13, "-13": 6.128526232721288e-15, "-14": 2.491460423845786e-16, "-15": 9.4616783776182e-18, "-16": 3.371057096008667e-19, "-17": 1.1310058269271807e-20, "-18": 3.5761519428117867e-22, "-19": 1.0001554069674509e-23, "-2": 0.012521760566319623, "-3": 0.002143240149516892, "-4": 0.0002866760175793688, "-5": 3.1353578764226895e-05, "-6": 2.8948026271520154e-06, "-7": 2.309915261181842e-07, "-8": 1.621860017404017e-08, "-9": 1.0162477058481758e-09, "0": 0.13028205650066735, "1": 0.2078943588917748, "10": 0.00019110042380595277, "11": 4.479245501749801e-05, "12": 9.640413961317433e-06, "13": 1.9178074219673864e-06, "14": 3.5464636998056375e-07, "15": 6.12635681724192e-08, "16": 9.928709296022903e-09, "17": 1.5152493614008061e-09, "18": 2.1793541527745302e-10, "19": 2.7725023005757517e-11, "2": 0.22714122119589497, "3": 0.17684548561598712, "4": 0.10759871498524413, "5": 0.05352977546229409, "6": 0.022481218202072013, "7": 0.008159987836218035, "8": 0.002606150016529585, "9": 0.0007428107875475959} |
+| Raw goal margin distribution | {"-1": 0.04145735429262463, "-10": 5.018144839353138e-11, "-11": 2.585793431304216e-12, "-12": 1.2234664490306149e-13, "-13": 5.35067774923658e-15, "-14": 2.1752377891112875e-16, "-15": 8.260777557784004e-18, "-16": 2.9431937647120703e-19, "-17": 9.874556267843587e-21, "-18": 3.1222574403170386e-22, "-19": 8.732130823340102e-24, "-2": 0.010932466158951897, "-3": 0.0018712145373649485, "-4": 0.00025029035207712106, "-5": 2.737410102888514e-05, "-6": 2.5273867512934084e-06, "-7": 2.0167348105059125e-07, "-8": 1.4160093271962318e-08, "-9": 8.872629048011854e-10, "0": 0.14153619384211652, "1": 0.20703799405736606, "10": 0.0001903132370652427, "11": 4.460794455974294e-05, "12": 9.60070287175433e-06, "13": 1.9099075306759832e-06, "14": 3.531854997505053e-07, "15": 6.101120939898766e-08, "16": 9.887810651454063e-09, "17": 1.5090076996482644e-09, "18": 2.1703768901488988e-10, "19": 2.7610817238646426e-11, "2": 0.22620557409458, "3": 0.17611701825490636, "4": 0.1071554910505875, "5": 0.05330927396555281, "6": 0.022388612876917683, "7": 0.008126374963461936, "8": 0.00259541468326106, "9": 0.0007397509785154213} |
 | Research history json | {"away": [{"away": "Goztep", "away_goals": 1.0, "away_xg": 2.01, "date": "2026-11-22T00:00:00+00:00", "home": "Erzurumspor", "home_goals": 0.0, "home_xg": 0.95, "source": "pipeline training history"}, {"away": "Erzurumspor", "away_goals": 1.0, "away_xg": 0.68, "date": "2026-11-08T00:00:00+00:00", "home": "Rizespor", "home_goals": 2.0, "home_xg": 3.59, "source": "pipeline training history"}, {"away": "Corum", "away_goals": 3.0, "away_xg": 1.22, "date": "2026-10-31T00:00:00+00:00", "home": "Erzurumspor", "home_goals": 1.0, "home_xg": 0.59, "source": "pipeline training history"}, {"away": "Erzurumspor", "away_goals": 3.0, "away_xg": 1.2, "date": "2026-10-24T00:00:00+00:00", "home": "Gaziantep", "home_goals": 1.0, "home_xg": 1.6, "source": "pipeline training history"}, {"away": "Eyupspor", "away_goals": 0.0, "away_xg": 0.43, "date": "2026-10-17T00:00:00+00:00", "home": "Erzurumspor", "home_goals": 2.0, "home_xg": 1.29, "source": "pipeline training history"}, {"away": "Erzurumspor", "away_goals": 0.0, "away_xg": 1.69, "date": "2026-10-10T00:00:00+00:00", "home": "Alanyaspor", "home_goals": 0.0, "home_xg": 0.98, "source": "pipeline training history"}, {"away": "Samsunspor", "away_goals": 0.0, "away_xg": 0.36, "date": "2026-09-20T00:00:00+00:00", "home": "Erzurumspor", "home_goals": 1.0, "home_xg": 0.72, "source": "pipeline training history"}, {"away": "Erzurumspor", "away_goals": 0.0, "away_xg": 0.49, "date": "2026-09-11T00:00:00+00:00", "home": "Besiktas", "home_goals": 3.0, "home_xg": 2.29, "source": "pipeline training history"}, {"away": "Konyaspor", "away_goals": 0.0, "away_xg": 1.44, "date": "2026-09-05T00:00:00+00:00", "home": "Erzurumspor", "home_goals": 1.0, "home_xg": 0.98, "source": "pipeline training history"}, {"away": "Erzurumspor", "away_goals": 1.0, "away_xg": 0.86, "date": "2026-08-28T00:00:00+00:00", "home": "Genclerbirligi", "home_goals": 1.0, "home_xg": 0.76, "source": "pipeline training history"}], "h2h": [], "home": [{"away": "Fenerbahce", "away_goals": 2.0, "away_xg": 0.58, "date": "2026-11-21T00:00:00+00:00", "home": "Kocaelispor", "home_goals": 2.0, "home_xg": 1.39, "source": "pipeline training history"}, {"away": "Fenerbahce", "away_goals": 5.0, "away_xg": 1.17, "date": "2026-11-08T00:00:00+00:00", "home": "Corum", "home_goals": 0.0, "home_xg": 2.27, "source": "pipeline training history"}, {"away": "Goztep", "away_goals": 2.0, "away_xg": 1.4, "date": "2026-10-31T00:00:00+00:00", "home": "Fenerbahce", "home_goals": 1.0, "home_xg": 1.51, "source": "pipeline training history"}, {"away": "Fenerbahce", "away_goals": 1.0, "away_xg": 0.31, "date": "2026-10-26T00:00:00+00:00", "home": "Galatasaray", "home_goals": 2.0, "home_xg": 2.27, "source": "pipeline training history"}, {"away": "Alanyaspor", "away_goals": 0.0, "away_xg": 0.96, "date": "2026-10-17T00:00:00+00:00", "home": "Fenerbahce", "home_goals": 3.0, "home_xg": 3.84, "source": "pipeline training history"}, {"away": "Fenerbahce", "away_goals": 3.0, "away_xg": 0.96, "date": "2026-10-10T00:00:00+00:00", "home": "Rizespor", "home_goals": 0.0, "home_xg": 1.52, "source": "pipeline training history"}, {"away": "Eyupspor", "away_goals": 0.0, "away_xg": 0.72, "date": "2026-09-20T00:00:00+00:00", "home": "Fenerbahce", "home_goals": 8.0, "home_xg": 5.14, "source": "pipeline training history"}, {"away": "Fenerbahce", "away_goals": 0.0, "away_xg": 1.33, "date": "2026-09-14T00:00:00+00:00", "home": "Gaziantep", "home_goals": 0.0, "home_xg": 0.49, "source": "pipeline training history"}, {"away": "Besiktas", "away_goals": 2.0, "away_xg": 1.75, "date": "2026-09-05T00:00:00+00:00", "home": "Fenerbahce", "home_goals": 1.0, "home_xg": 0.59, "source": "pipeline training history"}, {"away": "Fenerbahce", "away_goals": 2.0, "away_xg": 1.56, "date": "2026-08-30T00:00:00+00:00", "home": "Samsunspor", "home_goals": 0.0, "home_xg": 0.46, "source": "pipeline training history"}], "teams": {"away": "Erzurumspor", "home": "Fenerbahce"}} |
 | Unadjusted home-win probability | 80.4% |
 | Unadjusted draw probability | 14.2% |
@@ -1798,9 +1291,9 @@ The model's most likely 1X2 outcome is **Fenerbahce win** at **79.6%**. Expected
 | Raw p over 1 5 | 83.1% |
 | Raw p under 3 5 | 60.7% |
 | Raw p btts yes | 40.9% |
-| P home draw | 93.3% |
-| P draw away | 20.4% |
-| P home away | 86.3% |
+| P home draw | 93.8% |
+| P draw away | 19.3% |
+| P home away | 87.0% |
 | Raw p home draw | 94.5% |
 | Raw p draw away | 19.6% |
 | Raw p home away | 85.8% |
@@ -1808,29 +1301,29 @@ The model's most likely 1X2 outcome is **Fenerbahce win** at **79.6%**. Expected
 | Market blend applied | Yes |
 | Totals anchor applied | 0 |
 | Totals anchor status | NOT_ANCHORED_PINNACLE_NO_2_5_LINE |
-| Unanchored p over 2 5 | 0.6162 |
+| Unanchored p over 2 5 | 0.6204 |
 | Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
 | Bet365 pinnacle quotes | [] |
-| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 1.75, "market_key": "spreads", "opposite_price": 1.9804, "price": 1.8621, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -1.75, "market_key": "spreads", "opposite_price": 1.8621, "price": 1.9804, "quote_source": "The Odds API", "side": "home"}] |
-| Price edge quotes | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "market": "h2h", "market_key": "h2h", "point": null, "prices": {"away": 11.05, "draw": 6.23, "home": 1.2364}}] |
+| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 1.75, "market_key": "spreads", "opposite_price": 1.885, "price": 1.9709, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -1.75, "market_key": "spreads", "opposite_price": 1.9709, "price": 1.885, "quote_source": "The Odds API", "side": "home"}] |
+| Price edge quotes | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "market": "h2h", "market_key": "h2h", "point": null, "prices": {"away": 11.95, "draw": 6.64, "home": 1.2137}}] |
 | 1X2 market source | The Odds API / Pinnacle |
-| Reference home odds | 1.24 |
-| Reference draw odds | 6.23 |
-| Reference away odds | 11.05 |
-| Market reference 1x2 last update utc | 2026-11-27T16:28:52Z |
-| Market reference home last update utc | 2026-11-27T16:28:52Z |
-| Market reference draw last update utc | 2026-11-27T16:28:52Z |
-| Market reference away last update utc | 2026-11-27T16:28:52Z |
+| Reference home odds | 1.21 |
+| Reference draw odds | 6.64 |
+| Reference away odds | 11.95 |
+| Market reference 1x2 last update utc | 2026-11-28T06:35:43Z |
+| Market reference home last update utc | 2026-11-28T06:35:43Z |
+| Market reference draw last update utc | 2026-11-28T06:35:43Z |
+| Market reference away last update utc | 2026-11-28T06:35:43Z |
 | O/U 2.5 market source | The Odds API / unavailable reference |
-| Home probability edge | +0.3% |
-| Draw probability edge | +0.2% |
-| Away probability edge | -0.5% |
-| Raw edge prob home | 0.0111 |
-| Raw ev home | -0.0061 |
-| Raw edge prob draw | 0.0065 |
-| Raw ev draw | -0.1181 |
-| Raw edge prob away | -0.0176 |
-| Raw ev away | -0.3972 |
+| Home probability edge | -0.1% |
+| Draw probability edge | +0.5% |
+| Away probability edge | -0.3% |
+| Raw edge prob home | -0.0048 |
+| Raw ev home | -0.0243 |
+| Raw edge prob draw | 0.0161 |
+| Raw ev draw | -0.0602 |
+| Raw edge prob away | -0.0113 |
+| Raw ev away | -0.3482 |
 | Training data status | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | Training cutoff | 2026-11-23 |
 | Elo home rating | 1,632.2488 |
@@ -1839,15 +1332,15 @@ The model's most likely 1X2 outcome is **Fenerbahce win** at **79.6%**. Expected
 | Elo home expectancy | 0.8370 |
 | Research p home | 0.7804 |
 | Research p draw | 0.1593 |
-| Research p away | 0.0604 |
+| Research p away | 0.0603 |
 | Research p over 1 5 | 0.8360 |
 | Research v4 p home | 0.7664 |
-| Research v4 p draw | 0.1497 |
+| Research v4 p draw | 0.1496 |
 | Research v4 p away | 0.0839 |
 | Research v4 p over 1 5 | 0.8314 |
 | Research version | team-form-research-v5 |
 | Research probability basis | team_form_poisson_v1 |
-| Team research json | {"base_rates": [2.60700809770889, 0.5732026298020785], "c6_fit": {"candidate_version": "research-low-score-then-sharpen-walk-forward-v1", "delta": 0.055466179703356835, "end_exclusive": "2026-11-30", "expected_origin": "2026-11-16", "fits_version": "research-c6-live-fits-v1", "low_score_status": "fitted", "origin": "2026-11-16", "rho": -0.016463701485858812, "slope": 1.1507759984871408, "slope_status": "fitted", "stale": false}, "coverage": {"form": "last ten, exponential rank half-life five matches", "training_cache": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED", "venue_splits": "home team home matches / away team away matches", "xg": "verified supplied xG; no goals-to-xG substitution"}, "evidence": {"coverage": {}, "errors": ["free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing"], "news": [], "quality_review": {"absence_note": "Reported absences only; not proof of complete coverage or a fitted player-value effect", "assessed_at_utc": "2026-11-27T16:30:31.892179+00:00", "availability": "UNAVAILABLE_OR_STALE", "form": {"away": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 10.0}, "home": {"matches": 10.0, "venue_matches": 4.0, "xg_matches": 10.0}}, "lineups": "UNCONFIRMED_OR_STALE", "probability_effect": "NONE; factual coverage/freshness review, not a calibrated confidence score", "status": "REVIEW_REQUIRED", "summary_max_age_minutes": 180, "training": {"cutoff": "2026-11-23", "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}, "version": "pre-match-research-quality-v1", "warnings": ["Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"], "weather": "UNAVAILABLE_INCOMPLETE_OR_STALE", "weather_max_age_minutes": 180}, "review_links": [{"label": "Sofascore", "status": "reference only; no authorized public bulk API", "url": "https://www.sofascore.com/football"}, {"label": "Sports Mole previews", "status": "reference only; article reproduction requires permission", "url": "https://www.sportsmole.co.uk/football/"}], "sources": [{"observed_at_utc": "2026-11-27T16:30:31.598706+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20261129"}, {"observed_at_utc": "2026-11-27T16:30:31.168273+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/news?limit=20"}, {"observed_at_utc": "2026-11-27T16:30:31.811222+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://www.bing.com/news/search?q=%22Fenerbahce%22+%22Erzurum+BB%22+injury+suspension+lineup+preview&format=rss"}, {"observed_at_utc": "2026-11-27T16:29:48.450142+00:00", "reason": null, "status": "available", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"}, {"observed_at_utc": "2026-11-27T16:29:48.521989+00:00", "reason": null, "status": "available", "url": "https://www.theguardian.com/football/rss"}, {"observed_at_utc": "2026-11-27T16:30:31.891750+00:00", "reason": "TheSportsDB free source limit: 30 requests per minute", "status": "unavailable", "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=Fenerbahce_vs_Erzurum+BB&d=2026-11-29"}]}, "evidence_quality_version": "pre-match-research-quality-v1", "form": {"away": {"all": {"goals_against": 1.2251771184430642, "goals_for": 1.002576552378916, "last_match": "2026-11-22T00:00:00+00:00", "matches": 10, "points_per_game": 1.1710756802050934, "results": "LLLWWDWLWD", "xg_against": 1.6518028551964956, "xg_for": 0.9382579784326376, "xg_matches": 10}, "venue": {"goals_against": 1.4043093292219662, "goals_for": 1.0837509086503372, "last_match": "2026-11-08T00:00:00+00:00", "matches": 5, "points_per_game": 1.0210606909800894, "results": "LWDLD", "xg_against": 1.9865113668120071, "xg_for": 0.989682601839494, "xg_matches": 5}}, "home": {"all": {"goals_against": 0.9484291504120593, "goals_for": 2.6545490047021434, "last_match": "2026-11-21T00:00:00+00:00", "matches": 10, "points_per_game": 1.6191497528287433, "results": "DWLLWWWDLW", "xg_against": 1.4575362032611168, "xg_for": 1.556300712052069, "xg_matches": 10}, "venue": {"goals_against": 1.009532711949862, "goals_for": 3.1428711209877593, "last_match": "2026-10-31T00:00:00+00:00", "matches": 4, "points_per_game": 1.4857009320752068, "results": "LWWL", "xg_against": 1.197007619061556, "xg_for": 2.778925838855036, "xg_matches": 4}}}, "goal_rates": [2.5117458483934536, 0.7084709670872273], "h2h": [], "margin_distribution": {"-1": 0.04447608041153589, "-10": 3.003194589909247e-10, "-11": 1.9088058237106798e-11, "-12": 1.1143551565031277e-12, "-13": 6.014669051958557e-14, "-14": 3.0183373781481645e-15, "-15": 1.4151721422411444e-16, "-16": 6.224904669055822e-18, "-17": 2.5685267513188777e-19, "-18": 9.200064321900874e-21, "-2": 0.01273482413588499, "-3": 0.00264556340997328, "-4": 0.00043219457972258754, "-5": 5.793840517625726e-05, "-6": 6.571240476097574e-06, "-7": 6.450633097156187e-07, "-8": 5.5773925990104653e-08, "-9": 4.3066534589054146e-09, "0": 0.1592835016028327, "1": 0.22354454375591595, "10": 0.00013175339001739893, "11": 2.9688873021916838e-05, "12": 6.144820816553492e-06, "13": 1.1758474120195451e-06, "14": 2.091995032840858e-07, "15": 3.477408996553384e-08, "16": 5.422915567887223e-09, "17": 7.933007531023949e-10, "18": 1.0073914774564701e-10, "2": 0.22384231784093558, "3": 0.16486218561255817, "4": 0.09548514877354813, "5": 0.04538127413661936, "6": 0.018247826562668868, "7": 0.006350673126301349, "8": 0.0019467145316458317, "9": 0.0005329231879139979}, "model_note": "Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient", "observed_at_utc": "2026-11-27T16:30:31.892179+00:00", "p_over_1_5": 0.836003048333948, "shadow_v4": {"grid": "independent Poisson (C)", "margin_distribution": {"-1": 0.06216180866141137, "-10": 4.118378273043295e-10, "-11": 2.6176074165297843e-11, "-12": 1.5281514159676628e-12, "-13": 8.248111003649806e-14, "-14": 4.1391440703332855e-15, "-15": 1.940671517857984e-16, "-16": 8.536413932997914e-18, "-17": 3.522304149689415e-19, "-18": 1.261634698638103e-20, "-2": 0.017463677914337537, "-3": 0.0036279470215486538, "-4": 0.0005926824631468086, "-5": 7.945281662880444e-05, "-6": 9.011355472813608e-06, "-7": 8.845962657219894e-07, "-8": 7.64845960270969e-08, "-9": 5.905853751294478e-09, "0": 0.14965486813996026, "1": 0.2203825874133595, "10": 0.0001292000221260505, "11": 2.9113505548681636e-05, "12": 6.02573478644068e-06, "13": 1.153059603473751e-06, "14": 2.0514523724583748e-07, "15": 3.4100171482243735e-08, "16": 5.3178199913202124e-09, "17": 7.779266616206754e-10, "18": 9.878683285476208e-11, "2": 0.21950427547994153, "3": 0.16166717248094126, "4": 0.09363465587202349, "5": 0.044501789455173045, "6": 0.017894185457678246, "7": 0.0062275976984356544, "8": 0.0019089873932544065, "9": 0.0005225951883354295}, "p_over_1_5": 0.8314175465081856, "version": "team-form-research-v4"}, "version": "team-form-research-v5", "warnings": ["availability unavailable or unconfirmed", "lineups unavailable or unconfirmed", "rotation unavailable or unconfirmed", "h2h unavailable or unconfirmed", "tactics unavailable or unconfirmed", "motivation unavailable or unconfirmed", "rivalry unavailable or unconfirmed", "weather unavailable or unconfirmed", "travel unavailable or unconfirmed", "free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing", "Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"]} |
+| Team research json | {"base_rates": [2.6072293938910613, 0.5731742393647073], "c6_fit": {"candidate_version": "research-low-score-then-sharpen-walk-forward-v1", "delta": 0.055466179703356835, "end_exclusive": "2026-11-30", "expected_origin": "2026-11-16", "fits_version": "research-c6-live-fits-v1", "low_score_status": "fitted", "origin": "2026-11-16", "rho": -0.016463701485858812, "slope": 1.1507759984871408, "slope_status": "fitted", "stale": false}, "coverage": {"form": "last ten, exponential rank half-life five matches", "rotation": "schedule congestion only; rotation unconfirmed", "training_cache": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED", "venue_splits": "home team home matches / away team away matches", "xg": "verified supplied xG; no goals-to-xG substitution"}, "evidence": {"coverage": {}, "errors": ["ESPN summary identity unverified; no summary injuries, lineups or venue used", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing"], "news": [], "quality_review": {"absence_note": "Reported absences only; not proof of complete coverage or a fitted player-value effect", "assessed_at_utc": "2026-11-28T06:36:59.238513+00:00", "availability": "UNAVAILABLE_OR_STALE", "form": {"away": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 10.0}, "home": {"matches": 10.0, "venue_matches": 4.0, "xg_matches": 10.0}}, "lineups": "UNCONFIRMED_OR_STALE", "probability_effect": "NONE; factual coverage/freshness review, not a calibrated confidence score", "status": "REVIEW_REQUIRED", "summary_max_age_minutes": 180, "training": {"cutoff": "2026-11-23", "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}, "version": "pre-match-research-quality-v1", "warnings": ["Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"], "weather": "UNAVAILABLE_INCOMPLETE_OR_STALE", "weather_max_age_minutes": 180}, "recent": {"away": [], "home": []}, "rest_and_travel": {}, "review_links": [{"label": "Sofascore", "status": "reference only; no authorized public bulk API", "url": "https://www.sofascore.com/football"}, {"label": "Sports Mole previews", "status": "reference only; article reproduction requires permission", "url": "https://www.sportsmole.co.uk/football/"}], "schedules": {"away": [], "home": []}, "sources": [{"observed_at_utc": "2026-11-28T06:36:58.872994+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20261129"}, {"observed_at_utc": "2026-11-28T06:36:59.170925+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/summary?event=401888238"}, {"observed_at_utc": "2026-11-28T06:36:59.171939+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/436/schedule"}, {"observed_at_utc": "2026-11-28T06:36:59.172938+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/19267/schedule"}, {"observed_at_utc": "2026-11-28T06:36:58.991241+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/v2/sports/soccer/tur.1/standings"}, {"observed_at_utc": "2026-11-28T06:36:58.387112+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/news?limit=20"}, {"observed_at_utc": "2026-11-28T06:36:59.182079+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://www.bing.com/news/search?q=%22Fenerbahce%22+%22Erzurum+BB%22+injury+suspension+lineup+preview&format=rss"}, {"observed_at_utc": "2026-11-28T06:36:29.662572+00:00", "reason": null, "status": "available", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"}, {"observed_at_utc": "2026-11-28T06:36:29.767100+00:00", "reason": null, "status": "available", "url": "https://www.theguardian.com/football/rss"}, {"observed_at_utc": "2026-11-28T06:36:59.237832+00:00", "reason": "TheSportsDB free source limit: 30 requests per minute", "status": "unavailable", "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=Fenerbahce_vs_Erzurum+BB&d=2026-11-29"}, {"observed_at_utc": "2026-11-28T06:36:59.238186+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://geocoding-api.open-meteo.com/v1/search?name=Istanbul&count=10&language=en&format=json"}], "venue": {"address": {"city": "Istanbul", "country": "T\u00fcrkiye"}, "fullName": "\u015e\u00fckr\u00fc Saraco\u011flu Stadium", "id": "1810"}}, "evidence_quality_version": "pre-match-research-quality-v1", "form": {"away": {"all": {"goals_against": 1.2251771184430642, "goals_for": 1.002576552378916, "last_match": "2026-11-22T00:00:00+00:00", "matches": 10, "points_per_game": 1.1710756802050934, "results": "LLLWWDWLWD", "xg_against": 1.6518028551964956, "xg_for": 0.9382579784326376, "xg_matches": 10}, "venue": {"goals_against": 1.4043093292219662, "goals_for": 1.0837509086503372, "last_match": "2026-11-08T00:00:00+00:00", "matches": 5, "points_per_game": 1.0210606909800894, "results": "LWDLD", "xg_against": 1.9865113668120071, "xg_for": 0.989682601839494, "xg_matches": 5}}, "home": {"all": {"goals_against": 0.9484291504120593, "goals_for": 2.6545490047021434, "last_match": "2026-11-21T00:00:00+00:00", "matches": 10, "points_per_game": 1.6191497528287433, "results": "DWLLWWWDLW", "xg_against": 1.4575362032611168, "xg_for": 1.556300712052069, "xg_matches": 10}, "venue": {"goals_against": 1.009532711949862, "goals_for": 3.1428711209877593, "last_match": "2026-10-31T00:00:00+00:00", "matches": 4, "points_per_game": 1.4857009320752068, "results": "LWWL", "xg_against": 1.197007619061556, "xg_for": 2.778925838855036, "xg_matches": 4}}}, "goal_rates": [2.5119039170950046, 0.7084506882033909], "h2h": [], "margin_distribution": {"-1": 0.04446835536215908, "-10": 3.0018455330502577e-10, "-11": 1.907892910665781e-11, "-12": 1.113789896357436e-12, "-13": 6.011444054970936e-14, "-14": 3.0166317740871234e-15, "-15": 1.4143316183245995e-16, "-16": 6.2210279311542935e-18, "-17": 2.5668524492514034e-19, "-18": 9.193775689579749e-21, "-2": 0.012732176928077116, "-3": 0.0026449276492271157, "-4": 0.0004320772589890316, "-5": 5.792091663890555e-05, "-6": 6.569060297644527e-06, "-7": 6.448301853081892e-07, "-8": 5.5752129134170006e-08, "-9": 4.3048443887343e-09, "0": 0.1592673918178633, "1": 0.22353284082456382, "10": 0.00013181862434418303, "11": 2.9705428750874354e-05, "12": 6.148632006072917e-06, "13": 1.1766503651022904e-06, "14": 2.0935547454592497e-07, "15": 3.480219755023442e-08, "16": 5.427639137186745e-09, "17": 7.940413436203158e-10, "18": 1.0083922774062026e-10, "2": 0.2238432104075178, "3": 0.16487258765773932, "4": 0.09549694169416079, "5": 0.04538965452058392, "6": 0.018252320908923578, "7": 0.006352630616698904, "8": 0.0019474355707193235, "9": 0.0005331537825828171}, "model_note": "Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient", "observed_at_utc": "2026-11-28T06:36:59.238513+00:00", "p_over_1_5": 0.8360205956458753, "shadow_v4": {"grid": "independent Poisson (C)", "margin_distribution": {"-1": 0.062152969543610125, "-10": 4.1166548800395927e-10, "-11": 2.6164359807362986e-11, "-12": 1.5274232340394932e-12, "-13": 8.243942012510867e-14, "-14": 4.1369323562293825e-15, "-15": 1.9395785340940052e-16, "-16": 8.53136002825105e-18, "-17": 3.5201163901378724e-19, "-18": 1.2608110957674712e-20, "-2": 0.01746058473276501, "-3": 0.003627186740511128, "-4": 0.0005925398016612563, "-5": 7.943127703031113e-05, "-6": 9.008642794519143e-06, "-7": 8.843037724357646e-07, "-8": 7.645705681583318e-08, "-9": 5.903554485259191e-09, "0": 0.14963960441263127, "1": 0.22037142493516676, "10": 0.00012926424859486843, "11": 2.9129798203963905e-05, "12": 6.029484074087498e-06, "13": 1.1538492838970147e-06, "14": 2.05298592979857e-07, "15": 3.412780203224555e-08, "16": 5.322462574640768e-09, "17": 7.786544439148464e-10, "18": 9.888516943359609e-11, "2": 0.21950558610626014, "3": 0.161677693599825, "4": 0.09364640598108617, "5": 0.04451009570744978, "6": 0.01789862820328036, "7": 0.006229529608230785, "8": 0.0019096982462710763, "9": 0.0005228223510445165}, "p_over_1_5": 0.8314352704051373, "version": "team-form-research-v4"}, "version": "team-form-research-v5", "warnings": ["availability unavailable or unconfirmed", "lineups unavailable or unconfirmed", "h2h unavailable or unconfirmed", "tactics unavailable or unconfirmed", "motivation unavailable or unconfirmed", "rivalry unavailable or unconfirmed", "weather unavailable or unconfirmed", "travel unavailable or unconfirmed", "ESPN summary identity unverified; no summary injuries, lineups or venue used", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing", "Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"]} |
 
 </details>
 
@@ -1869,8 +1362,8 @@ The model's most likely 1X2 outcome is **Çorum FK win** at **48.8%**. Expected 
 | Expected total goals | 2.72 |
 | Over 0.5 | 92.0% |
 | Under 0.5 | 8.0% |
-| Over 1.5 | 75.1% |
-| Under 1.5 | 24.9% |
+| Over 1.5 | 75.0% |
+| Under 1.5 | 25.0% |
 | Over 2.5 | 49.3% |
 | Under 2.5 | 50.7% |
 | Over 3.5 | 27.3% |
@@ -1891,8 +1384,8 @@ The model's most likely 1X2 outcome is **Çorum FK win** at **48.8%**. Expected 
 | Çorum FK win | 48.8% | 50.0% | 1.93 | -5.5% |
 | Draw | 26.9% | 26.8% | 3.51 | -5.7% |
 | Kocaelispor win | 24.3% | 23.2% | 4.03 | -2.0% |
-| Over 2.5 | 49.3% | 49.3% | 1.94 | -4.2% |
-| Under 2.5 | 50.7% | 50.7% | 1.89 | -4.0% |
+| Over 2.5 | 49.3% | 49.3% | 1.95 | -3.8% |
+| Under 2.5 | 50.7% | 50.7% | 1.90 | -3.6% |
 
 <details>
 <summary>Additional technical details (forecast row)</summary>
@@ -1908,9 +1401,9 @@ The model's most likely 1X2 outcome is **Çorum FK win** at **48.8%**. Expected 
 | Odds event id | 1640928472.00 |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-11-27T16:28:52Z |
-| Market best draw last update utc | 2026-11-27T16:28:52Z |
-| Market best away last update utc | 2026-11-27T16:28:52Z |
+| Market best home last update utc | 2026-11-28T06:35:43Z |
+| Market best draw last update utc | 2026-11-28T06:35:43Z |
+| Market best away last update utc | 2026-11-28T06:35:43Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 1.00 |
 | Best home bookmaker | Pinnacle |
@@ -1922,8 +1415,8 @@ The model's most likely 1X2 outcome is **Çorum FK win** at **48.8%**. Expected 
 | Matched away-team name | Kocaelispor |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.5699 |
-| Dc lambda away | 1.1529 |
+| Dc lambda home | 1.5700 |
+| Dc lambda away | 1.1527 |
 | Shot features applied | 0 |
 | Shot features status | BASELINE_RETAINED_AUDIT_NOT_IMPROVED |
 | Shot features version | football-data-lagged-shot-strength-v1 |
@@ -1944,10 +1437,10 @@ The model's most likely 1X2 outcome is **Çorum FK win** at **48.8%**. Expected 
 | Fair Under 3.5 odds | 1.37 |
 | Fair Over 4.5 odds | 7.78 |
 | Fair Under 4.5 odds | 1.15 |
-| Score matrix json | [[0.07990703511637044,0.06335872294555958,0.040435973838440935,0.015018525220543057,0.004183578600727192,0.0009323061832740789,0.00017313622744333349,2.7559450003283495e-05,3.838496909265056e-06,4.752250464821641e-07,5.2951706130849334e-08,5.363742357290368e-09,4.980435254960983e-10,4.2687879543615577e-11,3.3974821428216186e-12,2.523751323619838e-13],[0.10619819146205342,0.12824920406062917,0.061352799757952964,0.022787347083496667,0.006347671041325633,0.0014145719552607504,0.0002626965863520254,4.181547411832932e-05,5.824084593253374e-06,7.210506969184513e-07,8.034270266540534e-08,8.138312981280102e-09,7.556727782195341e-10,6.476957711455584e-11,5.154940559180869e-12,3.829243984961651e-13],[0.08885684395198387,0.09900828088691203,0.05001709860697379,0.017287422682270796,0.004815605429509597,0.0010731527112600764,0.00019929248055145928,3.172294576873531e-05,4.418391124335418e-06,5.470188402055293e-07,6.095129263286492e-08,6.174060363959308e-09,5.732845810747345e-10,4.913687637391464e-11,3.9107508224632904e-12,2.905022646077024e-13],[0.04494031458136169,0.05007451414346913,0.027897634785854625,0.009395569323332466,0.0024355447850344545,0.0005427586474254048,0.00010079433807622336,1.604422460767145e-05,2.2346493330151275e-06,2.766607237823153e-07,3.082677870645243e-08,3.12259813268388e-09,2.899449076996787e-10,2.485150927690472e-11,1.9779047329859084e-12,1.4692467768856243e-13],[0.017046789404565523,0.018994297327275006,0.010582149001626675,0.003930368347339955,0.0009927736318095083,0.0002058795637359636,3.8233373984225856e-05,6.085905730618853e-06,8.476486408210509e-07,1.0494312598309594e-07,1.169323378185656e-08,1.1844659579892684e-09,1.0998209128096518e-10,9.426690689092301e-12,7.502601118748682e-13,5.573156445881519e-14],[0.005172959410019384,0.005763943389217786,0.0032112221226556015,0.0011926959056448052,0.00033223881804355493,6.71362903154724e-05,1.160216666227609e-05,1.8468077812508223e-06,2.572245077275977e-07,3.184567593271924e-08,3.5483880448016316e-09,3.594339190690773e-10,3.337478281236384e-11,2.860590762763927e-12,2.276713235306265e-13,1.6912106670662405e-14],[0.0013081402223137132,0.001457588507648228,0.0008120552450678657,0.000301609458628442,8.401669660406492e-05,1.872303432487602e-05,3.152840165355202e-06,4.670215538240795e-07,6.504704523132035e-08,8.053148361007866e-09,8.973179098972931e-10,9.089380556271368e-11,8.439829572850629e-12,7.233874344930413e-13,5.757362317611828e-14,4.2767408801049635e-15],[0.00028354548648616224,0.00031593909846053324,0.00017601675691093375,6.537525505054041e-05,1.82110103375805e-05,4.0583049015604254e-06,7.536575570092506e-07,1.0878098566863167e-07,1.4099250042155658e-08,1.7455574187058453e-09,1.9449783666506491e-10,1.97016557378492e-11,1.829372372528679e-12,1.5679759595536446e-13,1.2479351000590599e-14,9.270035067645878e-16],[5.3777329328590484e-05,5.99211123274898e-05,3.3383395451127e-05,1.2399092168109985e-05,3.45390615264908e-06,7.696994295752929e-07,1.4293893775750645e-07,2.2752710780531284e-08,2.8735590813500938e-09,3.31062988626658e-10,3.688852305729102e-11,3.7366224448243415e-12,3.4695936007043726e-13,2.9738283123876886e-14,2.366837775774602e-15,1.758157870535188e-16],[9.066156264707882e-06,1.0101917940118265e-05,5.628005027121126e-06,2.0903252084115183e-06,5.822835253163973e-07,1.2976128403007522e-07,2.409764044068927e-08,3.835810256057706e-09,5.342539786044529e-10,5.997665310787695e-11,6.218923821378354e-12,6.299458044857171e-13,5.849282244347701e-14,5.013486634819834e-15,3.9901797646500196e-16,2.964024839333882e-17],[1.3755921202870637e-06,1.5327464376835289e-06,8.539274133604681e-07,3.171614079410474e-07,8.834886646684305e-08,1.9688453917891346e-08,3.656293068404454e-09,5.820008181073745e-10,8.106142688728282e-11,1.003580861754433e-11,1.0139798908290827e-12,9.558058118098945e-14,8.875014206385935e-15,7.606876065956362e-16,6.05423035134318e-17,4.4972633321958194e-18],[1.897419997212251e-07,2.114190462874752e-07,1.1778629190895353e-07,4.374758977579432e-08,1.2186381667426254e-08,2.7157226060733088e-09,5.043299886169312e-10,8.02781561761471e-11,1.1181190275093472e-11,1.3842870774186942e-12,1.5424347489007618e-13,1.4167430374969707e-14,1.2241731529565126e-15,1.049252794560123e-16,8.350889458403314e-18,6.203290389201278e-19],[2.399101964890949e-08,2.673187012410904e-08,1.489292432730585e-08,5.531454751428488e-09,1.5408487444102186e-09,3.433765560551549e-10,6.3767593280454e-11,1.0150387500025526e-11,1.4137521264774366e-12,1.7502955867903383e-13,1.950257846043957e-14,1.9755134217232566e-15,1.6633196188002556e-16,1.3266775119873058e-17,1.0558882765902128e-18,7.843453839101257e-20],[2.80008898548072e-09,3.1199847355892284e-09,1.738213464069357e-09,6.455984676692946e-10,1.7983869217125856e-10,4.0076867367579625e-11,7.442573854226733e-12,1.184692799769124e-12,1.650047315821091e-13,2.042840806947492e-14,2.276224851411542e-15,2.305701655781045e-16,2.1409301657201453e-17,1.6639340941247672e-18,1.232369935269869e-19,9.154412369460168e-21],[3.034661651899989e-10,3.381356121430716e-10,1.883829324560527e-10,6.996823752817453e-11,1.949043710717182e-11,4.343423839717588e-12,8.066062751565678e-13,1.2839384131658867e-13,1.788277208012771e-14,2.2139763021551542e-15,2.46691169584186e-16,2.498857869090112e-17,2.3202829292196253e-18,1.9887410059386627e-19,1.4352487071457655e-20,9.921307611054481e-22],[3.069626226159371e-11,3.420315218281319e-11,1.9055343111014023e-11,7.0774393178284756e-12,1.9715000802816394e-12,4.3934676280551423e-13,8.158997807400117e-14,1.298731614234449e-14,1.808881268171101e-15,2.239485155432669e-16,2.4953348042719538e-17,2.5276490529351844e-18,2.3470166195243354e-19,2.0116547573090284e-20,1.6010542544041082e-21,1.0784295050917785e-22]] |
+| Score matrix json | [[0.07992199005867381,0.06337068204138444,0.04043493099491686,0.01501504413939926,0.00418174728435514,0.0009317061042438597,0.0001729891449787306,2.7530365279809708e-05,3.833656071115467e-06,4.745279531560718e-07,5.2863140755053375e-08,5.353668039809335e-09,4.97005682633253e-10,4.259014941927713e-11,3.3890056251174962e-12,2.516936114282406e-13],[0.10621827753895852,0.12824906135990752,0.06135051914695808,0.022781805985583072,0.0063448201968941565,0.001413645374959003,0.0002624704331155578,4.177086891613697e-05,5.816673465410107e-06,7.199848141085785e-07,8.020741099988396e-08,8.122934935243742e-09,7.540894938678517e-10,6.462055735293928e-11,5.142020757227392e-12,3.8188599181822486e-13],[0.08887032458593454,0.09900290270125318,0.050006351930460324,0.01728302225242455,0.004813387872759021,0.0010724375621456329,0.000199118644896299,3.1688745722685844e-05,4.412718508856944e-06,5.462040003115162e-07,6.084796218515761e-08,6.162323800389494e-09,5.720769245021769e-10,4.902326582017648e-11,3.900904925001513e-12,2.897111887731968e-13],[0.04494662095331358,0.0500712241316072,0.027890055279592846,0.009391508609802002,0.002434395522084286,0.0005423907792217561,0.00010070527252589628,1.6026745138150657e-05,2.2317549431191658e-06,2.7624546528404156e-07,3.077416792231104e-08,3.1166267630750405e-09,2.893308289526187e-10,2.4793767289353875e-11,1.9729026067572943e-12,1.46522914689384e-13],[0.017048987481479698,0.018992833171793778,0.010579153521094679,0.003928446349931612,0.000992128843471404,0.00020573768191888984,3.819915477954146e-05,6.079206210251323e-06,8.465411032008627e-07,1.0478441714973787e-07,1.1673144555302886e-08,1.1821874379233773e-09,1.0974790932433113e-10,9.40468091191963e-12,7.483541839490392e-13,5.557853483321888e-14],[0.005173567542629215,0.005763433479372561,0.003210276583561475,0.0011920990939224064,0.0003320041621197454,6.707810183479586e-05,1.1591650679431034e-05,1.8447537701855664e-06,2.56885494213607e-07,3.179715277098401e-08,3.5422515182991078e-09,3.5873840395438826e-10,3.3303339695014824e-11,2.8538792680531098e-12,2.2709037241509525e-13,1.686547686144894e-14],[0.0013082791156572647,0.0014574429720716619,0.0008118068963341719,0.00030145510530631673,8.395640107789379e-05,1.8705743330609225e-05,3.1494227562665382e-06,4.664968247108759e-07,6.496057593251443e-08,8.040786278495351e-09,8.957559064631106e-10,9.071689081287832e-11,8.421667146629172e-12,7.216820142457574e-13,5.74260583532489e-14,4.264900568442398e-15],[0.0002835723645011874,0.0003159039571677078,0.00017596092328982764,6.53410545040462e-05,1.8197733865611433e-05,4.054510847517648e-06,7.527978636442303e-07,1.086394550773554e-07,1.4080347149230105e-08,1.7428580416466493e-09,1.9415705515106096e-10,1.9663084826573956e-11,1.8254148042497962e-12,1.56426157651256e-13,1.2447223957276757e-14,9.244265417690142e-16],[5.378181484984265e-05,5.991376544964818e-05,3.3372426166518245e-05,1.2392464624017953e-05,3.4513488476516446e-06,7.6897109523153e-07,1.4277426290495084e-07,2.2721816509424114e-08,2.8691965636054648e-09,3.3054726143811854e-10,3.682347118095609e-11,3.729264624850715e-12,3.4620482570301107e-13,2.9667498323648946e-14,2.360717679391431e-15,1.7532504339467556e-16],[9.066809262071571e-06,1.0100564382610142e-05,5.626091709794217e-06,2.0891841107751127e-06,5.818457741877324e-07,1.2963702076578317e-07,2.4069604436114285e-08,3.830558283574546e-09,5.33412574454904e-10,5.987258104905192e-11,6.207886262248269e-12,6.286982158507663e-13,5.836495345167992e-14,5.001496311241346e-15,3.9798167801518425e-16,2.955717897884577e-17],[1.3756755398060807e-06,1.5325236207978356e-06,8.536273926315423e-07,3.16984663101668e-07,8.828144238546763e-08,1.9669375782156284e-08,3.6519976453111117e-09,5.811973299757138e-10,8.093284088066757e-11,1.001782492059458e-11,1.0120003856223244e-12,9.539020094793692e-14,8.855512068757443e-15,7.588596979300553e-16,6.038438042661305e-17,4.484608308345335e-18],[1.8975134632857785e-07,2.1138590598748891e-07,1.1774356839812783e-07,4.372271284079882e-08,1.2176942937309625e-08,2.7130601861489762e-09,5.03731766637548e-10,8.01664147208812e-11,1.1163326725623123e-11,1.3817907718521738e-12,1.5393360829563317e-13,1.4136698806214288e-14,1.2214692264664102e-15,1.0467195584288998e-16,8.329011566769593e-18,6.185764300096571e-19],[2.3991928347703323e-08,2.6727375632867246e-08,1.4887352901934801e-08,5.528246381067538e-09,1.5396377843881736e-09,3.4303601449224425e-10,6.369122899767224e-11,1.0136143511441228e-11,1.4114773892532564e-12,1.747119366014329e-13,1.9463177321214324e-14,1.9711161480273226e-15,1.659350805290754e-16,1.3234594184370047e-17,1.0531100441896188e-18,7.821204789066988e-20],[2.8001631705198704e-09,3.1194246584589105e-09,1.7375434228704054e-09,6.45216661598897e-10,1.796953107438435e-10,4.0036665666144935e-11,7.433576457037958e-12,1.1830168605250392e-12,1.647373626716777e-13,2.0391105009629905e-14,2.2716003285071107e-15,2.300543233762809e-16,2.135700330729353e-17,1.659602969555556e-18,1.229113357420731e-19,9.128340699440064e-21],[3.034707509087376e-10,3.380710643837247e-10,1.8830817176169213e-10,6.992606247224285e-11,1.94746761404225e-11,4.339017497802226e-12,8.056219912841734e-13,1.2821074813814434e-13,1.7853592133138984e-14,2.209908341870821e-15,2.4618717391694084e-16,2.4932389297813634e-17,2.3145886279268053e-18,1.9834516777608907e-19,1.431201653529426e-20,9.892939225022243e-22],[3.0696376715318707e-11,3.4196233797808094e-11,1.9047564095256637e-11,7.073092709723395e-12,1.969883402025173e-12,4.3889605600557976e-13,8.148948806615341e-14,1.2968648253633098e-14,1.805909097332732e-15,2.235344881352085e-16,2.4902084337303147e-17,2.5219366677246127e-18,2.3412300609227567e-19,2.006281650368639e-20,1.5964489186769181e-21,1.0751548259449885e-22]] |
 | Score matrix version | published-score-matrix-v1 |
-| Goal margin distribution | {"-1": 0.1446524533593986, "-10": 6.168892237469963e-08, "-11": 6.170585648181261e-09, "-12": 5.66870778110806e-10, "-13": 4.813332236740415e-11, "-14": 3.780406541317784e-12, "-15": 2.523751323619838e-13, "-2": 0.0686218320107682, "-3": 0.022546494692885416, "-4": 0.005814367672835427, "-5": 0.0012290689489952026, "-6": 0.00021965881467650512, "-7": 3.3962598792232254e-05, "-8": 4.623734398131727e-06, "-9": 5.62041413057982e-07, "0": 0.26863208158514595, "1": 0.23738621428924225, "10": 1.6025696191533838e-06, "11": 2.1828402304701197e-07, "12": 2.73064647562726e-08, "13": 3.1572799407348054e-09, "14": 3.376693173728121e-10, "15": 3.069626226159371e-11, "2": 0.1507944248614436, "3": 0.06746644889068767, "4": 0.02369175069934405, "5": 0.006819566253373511, "6": 0.0016596441709932509, "7": 0.00034942430257971425, "8": 6.477850401705038e-05, "9": 1.0722404712757781e-05} |
-| Raw goal margin distribution | {"-1": 0.15840761105234452, "-10": 8.84364748876631e-08, "-11": 9.14499006848801e-09, "-12": 8.686191100100931e-10, "-13": 7.6261551223967e-11, "-14": 6.189468146218928e-12, "-15": 4.2450116460380355e-13, "-2": 0.07673038560356442, "-3": 0.025890230391045113, "-4": 0.006874178599844256, "-5": 0.0014982812331322238, "-6": 0.0002763502579563992, "-7": 4.412317920565826e-05, "-8": 6.205737833035415e-06, "-9": 7.795299478658059e-07, "0": 0.2704306367991743, "1": 0.2193069532177943, "10": 1.9386073454816744e-06, "11": 2.729779148786693e-07, "12": 3.530689262848259e-08, "13": 4.221060676603037e-09, "14": 4.665037459531353e-10, "15": 4.3567890487153625e-11, "2": 0.14227843087387204, "3": 0.06537225173189253, "4": 0.023635466788112087, "5": 0.007014917296124897, "6": 0.0017618743493128758, "7": 0.0003830607888639182, "8": 7.336352142691892e-05, "9": 1.2548892307794594e-05} |
+| Goal margin distribution | {"-1": 0.1446564292094733, "-10": 6.158371160174947e-08, "-11": 6.158809280638953e-09, "-12": 5.656736678258832e-10, "-13": 4.802188136527772e-11, "-14": 3.770891616935721e-12, "-15": 2.516936114282406e-13, "-2": 0.06861262628192553, "-3": 0.02253935150140114, "-4": 0.005811417303374824, "-5": 0.001228205457266266, "-6": 0.00021946101833245137, "-7": 3.392523313853582e-05, "-8": 4.6177181343113555e-06, "-9": 5.611966548214827e-07, "0": 0.2686313798964567, "1": 0.23739116783845296, "10": 1.6026139289292998e-06, "11": 2.1828816133018975e-07, "12": 2.730673427063365e-08, "13": 3.157281798998852e-09, "14": 3.376669847065457e-10, "15": 3.0696376715318707e-11, "2": 0.15080095893163972, "3": 0.06747017718107809, "4": 0.023693153631155074, "5": 0.006819965931799574, "6": 0.0016597357424971606, "7": 0.00034944173386627637, "8": 6.478130983096583e-05, "9": 1.0722788813466331e-05} |
+| Raw goal margin distribution | {"-1": 0.15838765727299642, "-10": 8.830856355009413e-08, "-11": 9.13036738527089e-09, "-12": 8.670974632334308e-10, "-13": 7.611629647045261e-11, "-14": 6.1767395132554674e-12, "-15": 4.2356799470736683e-13, "-2": 0.07671086503618924, "-3": 0.025879981966479223, "-4": 0.006870455428922717, "-5": 0.0014972475928276383, "-6": 0.00027611820892257363, "-7": 4.407947484223607e-05, "-8": 6.198650789028236e-06, "-9": 7.785212275747577e-07, "0": 0.27042829783687655, "1": 0.21932423736536355, "10": 1.9395749289033074e-06, "11": 2.7312557481083605e-07, "12": 3.5327459338244224e-08, "13": 4.223694641498103e-09, "14": 4.668147008919113e-10, "15": 4.359922291973703e-11, "2": 0.14229761739075056, "3": 0.06538454287058361, "4": 0.023641064236982343, "5": 0.007016903342213254, "6": 0.0017624519775812177, "7": 0.00038320311491213963, "8": 7.339393338707158e-05, "9": 1.255462733648316e-05} |
 | Research history json | {"away": [{"away": "Fenerbahce", "away_goals": 2.0, "away_xg": 0.58, "date": "2026-11-21T00:00:00+00:00", "home": "Kocaelispor", "home_goals": 2.0, "home_xg": 1.39, "source": "pipeline training history"}, {"away": "Kocaelispor", "away_goals": 2.0, "away_xg": 1.14, "date": "2026-11-07T00:00:00+00:00", "home": "Eyupspor", "home_goals": 0.0, "home_xg": 0.58, "source": "pipeline training history"}, {"away": "Rizespor", "away_goals": 0.0, "away_xg": 1.17, "date": "2026-10-31T00:00:00+00:00", "home": "Kocaelispor", "home_goals": 0.0, "home_xg": 0.62, "source": "pipeline training history"}, {"away": "Kocaelispor", "away_goals": 2.0, "away_xg": 1.54, "date": "2026-10-23T00:00:00+00:00", "home": "Alanyaspor", "home_goals": 1.0, "home_xg": 0.5, "source": "pipeline training history"}, {"away": "Goztep", "away_goals": 2.0, "away_xg": 0.83, "date": "2026-10-18T00:00:00+00:00", "home": "Kocaelispor", "home_goals": 1.0, "home_xg": 1.61, "source": "pipeline training history"}, {"away": "Kocaelispor", "away_goals": 1.0, "away_xg": 1.65, "date": "2026-10-11T00:00:00+00:00", "home": "Besiktas", "home_goals": 2.0, "home_xg": 2.21, "source": "pipeline training history"}, {"away": "Gaziantep", "away_goals": 0.0, "away_xg": 0.88, "date": "2026-09-19T00:00:00+00:00", "home": "Kocaelispor", "home_goals": 2.0, "home_xg": 1.16, "source": "pipeline training history"}, {"away": "Kocaelispor", "away_goals": 0.0, "away_xg": 0.82, "date": "2026-09-13T00:00:00+00:00", "home": "Galatasaray", "home_goals": 1.0, "home_xg": 2.26, "source": "pipeline training history"}, {"away": "Samsunspor", "away_goals": 0.0, "away_xg": 1.74, "date": "2026-09-06T00:00:00+00:00", "home": "Kocaelispor", "home_goals": 1.0, "home_xg": 1.59, "source": "pipeline training history"}, {"away": "Kocaelispor", "away_goals": 2.0, "away_xg": 0.77, "date": "2026-08-29T00:00:00+00:00", "home": "Konyaspor", "home_goals": 1.0, "home_xg": 0.86, "source": "pipeline training history"}], "h2h": [], "home": [{"away": "Corum", "away_goals": 2.0, "away_xg": 1.33, "date": "2026-11-23T00:00:00+00:00", "home": "Buyuksehyr", "home_goals": 4.0, "home_xg": 1.83, "source": "pipeline training history"}, {"away": "Fenerbahce", "away_goals": 5.0, "away_xg": 1.17, "date": "2026-11-08T00:00:00+00:00", "home": "Corum", "home_goals": 0.0, "home_xg": 2.27, "source": "pipeline training history"}, {"away": "Corum", "away_goals": 3.0, "away_xg": 1.22, "date": "2026-10-31T00:00:00+00:00", "home": "Erzurumspor", "home_goals": 1.0, "home_xg": 0.59, "source": "pipeline training history"}, {"away": "Corum", "away_goals": 0.0, "away_xg": 0.56, "date": "2026-10-25T00:00:00+00:00", "home": "Goztep", "home_goals": 2.0, "home_xg": 2.0, "source": "pipeline training history"}, {"away": "Rizespor", "away_goals": 1.0, "away_xg": 0.84, "date": "2026-10-16T00:00:00+00:00", "home": "Corum", "home_goals": 2.0, "home_xg": 0.71, "source": "pipeline training history"}, {"away": "Corum", "away_goals": 3.0, "away_xg": 2.67, "date": "2026-10-11T00:00:00+00:00", "home": "Gaziantep", "home_goals": 0.0, "home_xg": 0.99, "source": "pipeline training history"}, {"away": "Alanyaspor", "away_goals": 2.0, "away_xg": 1.16, "date": "2026-09-19T00:00:00+00:00", "home": "Corum", "home_goals": 1.0, "home_xg": 1.14, "source": "pipeline training history"}, {"away": "Corum", "away_goals": 5.0, "away_xg": 1.73, "date": "2026-09-12T00:00:00+00:00", "home": "Samsunspor", "home_goals": 1.0, "home_xg": 1.24, "source": "pipeline training history"}, {"away": "Eyupspor", "away_goals": 0.0, "away_xg": 0.72, "date": "2026-09-06T00:00:00+00:00", "home": "Corum", "home_goals": 3.0, "home_xg": 2.58, "source": "pipeline training history"}, {"away": "Corum", "away_goals": 2.0, "away_xg": 0.6, "date": "2026-08-31T00:00:00+00:00", "home": "Besiktas", "home_goals": 6.0, "home_xg": 2.86, "source": "pipeline training history"}], "teams": {"away": "Kocaelispor", "home": "Corum"}} |
 | Unadjusted home-win probability | 46.0% |
 | Unadjusted draw probability | 27.0% |
@@ -1965,60 +1458,213 @@ The model's most likely 1X2 outcome is **Çorum FK win** at **48.8%**. Expected 
 | Market blend applied | Yes |
 | Totals anchor applied | 1 |
 | Totals anchor status | ANCHORED_MAIN |
-| Totals anchor scale | 0.9665 |
-| Totals anchor target over 2 5 | 0.4930 |
-| Totals anchor reference over odds | 1.94 |
-| Totals anchor reference under odds | 1.89 |
-| Totals anchor reference last update utc | 2026-11-27T16:28:52Z |
+| Totals anchor scale | 0.9664 |
+| Totals anchor target over 2 5 | 0.4929 |
+| Totals anchor reference over odds | 1.95 |
+| Totals anchor reference under odds | 1.90 |
+| Totals anchor reference last update utc | 2026-11-28T06:35:43Z |
 | Totals anchor reference source | live_pinnacle |
 | Unanchored p over 2 5 | 0.5133 |
 | Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
 | Bet365 pinnacle quotes | [] |
-| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.5, "market_key": "spreads", "opposite_price": 1.9434, "price": 1.9091, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.5, "market_key": "spreads", "opposite_price": 1.9091, "price": 1.9434, "quote_source": "The Odds API", "side": "home"}] |
-| Price edge quotes | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "market": "h2h", "market_key": "h2h", "point": null, "prices": {"away": 4.03, "draw": 3.51, "home": 1.9346}}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "market": "totals", "market_key": "totals", "point": 2.5, "prices": {"over": 1.9434, "under": 1.8929}}] |
+| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 0.5, "market_key": "spreads", "opposite_price": 1.9524, "price": 1.9174, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -0.5, "market_key": "spreads", "opposite_price": 1.9174, "price": 1.9524, "quote_source": "The Odds API", "side": "home"}] |
+| Price edge quotes | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "market": "h2h", "market_key": "h2h", "point": null, "prices": {"away": 4.03, "draw": 3.51, "home": 1.9346}}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "market": "totals", "market_key": "totals", "point": 2.5, "prices": {"over": 1.9524, "under": 1.9009}}] |
 | 1X2 market source | The Odds API / Pinnacle |
 | Reference home odds | 1.93 |
 | Reference draw odds | 3.51 |
 | Reference away odds | 4.03 |
-| Market reference 1x2 last update utc | 2026-11-27T16:28:52Z |
-| Market reference home last update utc | 2026-11-27T16:28:52Z |
-| Market reference draw last update utc | 2026-11-27T16:28:52Z |
-| Market reference away last update utc | 2026-11-27T16:28:52Z |
+| Market reference 1x2 last update utc | 2026-11-28T06:35:43Z |
+| Market reference home last update utc | 2026-11-28T06:35:43Z |
+| Market reference draw last update utc | 2026-11-28T06:35:43Z |
+| Market reference away last update utc | 2026-11-28T06:35:43Z |
 | O/U 2.5 market source | The Odds API / Pinnacle |
-| Reference Over 2.5 odds | 1.94 |
-| Reference Under 2.5 odds | 1.89 |
-| Market reference over 2 5 last update utc | 2026-11-27T16:28:52Z |
-| Market reference under 2 5 last update utc | 2026-11-27T16:28:52Z |
-| Market best over 2 5 last update utc | 2026-11-27T16:28:52Z |
-| Market best under 2 5 last update utc | 2026-11-27T16:28:52Z |
+| Reference Over 2.5 odds | 1.95 |
+| Reference Under 2.5 odds | 1.90 |
+| Market reference over 2 5 last update utc | 2026-11-28T06:35:43Z |
+| Market reference under 2 5 last update utc | 2026-11-28T06:35:43Z |
+| Market best over 2 5 last update utc | 2026-11-28T06:35:43Z |
+| Market best under 2 5 last update utc | 2026-11-28T06:35:43Z |
 | Home probability edge | -1.2% |
 | Draw probability edge | +0.1% |
 | Away probability edge | +1.1% |
 | Over 2.5 probability edge | -0.0% |
 | Under 2.5 probability edge | +0.0% |
-| Raw edge prob home | -0.0406 |
-| Raw ev home | -0.1104 |
+| Raw edge prob home | -0.0405 |
+| Raw ev home | -0.1103 |
 | Raw edge prob draw | 0.0026 |
 | Raw ev draw | -0.0508 |
 | Raw edge prob away | 0.0380 |
-| Raw ev away | 0.0870 |
+| Raw ev away | 0.0868 |
 | Training data status | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | Training cutoff | 2026-11-23 |
 | Elo home rating | 1,429.1635 |
 | Elo away rating | 1,455.0895 |
 | Elo rating diff | 34.0740 |
 | Elo home expectancy | 0.5489 |
-| Research p home | 0.3913 |
+| Research p home | 0.3914 |
 | Research p draw | 0.2669 |
 | Research p away | 0.3417 |
 | Research p over 1 5 | 0.7712 |
-| Research v4 p home | 0.3957 |
+| Research v4 p home | 0.3958 |
 | Research v4 p draw | 0.2523 |
-| Research v4 p away | 0.3520 |
-| Research v4 p over 1 5 | 0.7695 |
+| Research v4 p away | 0.3519 |
+| Research v4 p over 1 5 | 0.7694 |
 | Research version | team-form-research-v5 |
 | Research probability basis | team_form_poisson_v1 |
-| Team research json | {"base_rates": [1.5699226669827722, 1.1529020645220025], "c6_fit": {"candidate_version": "research-low-score-then-sharpen-walk-forward-v1", "delta": 0.055466179703356835, "end_exclusive": "2026-11-30", "expected_origin": "2026-11-16", "fits_version": "research-c6-live-fits-v1", "low_score_status": "fitted", "origin": "2026-11-16", "rho": -0.016463701485858812, "slope": 1.1507759984871408, "slope_status": "fitted", "stale": false}, "coverage": {"form": "last ten, exponential rank half-life five matches", "training_cache": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED", "venue_splits": "home team home matches / away team away matches", "xg": "verified supplied xG; no goals-to-xG substitution"}, "evidence": {"coverage": {}, "errors": ["free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing"], "news": [], "quality_review": {"absence_note": "Reported absences only; not proof of complete coverage or a fitted player-value effect", "assessed_at_utc": "2026-11-27T16:30:31.681476+00:00", "availability": "UNAVAILABLE_OR_STALE", "form": {"away": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 10.0}, "home": {"matches": 10.0, "venue_matches": 4.0, "xg_matches": 10.0}}, "lineups": "UNCONFIRMED_OR_STALE", "probability_effect": "NONE; factual coverage/freshness review, not a calibrated confidence score", "status": "REVIEW_REQUIRED", "summary_max_age_minutes": 180, "training": {"cutoff": "2026-11-23", "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}, "version": "pre-match-research-quality-v1", "warnings": ["Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"], "weather": "UNAVAILABLE_INCOMPLETE_OR_STALE", "weather_max_age_minutes": 180}, "review_links": [{"label": "Sofascore", "status": "reference only; no authorized public bulk API", "url": "https://www.sofascore.com/football"}, {"label": "Sports Mole previews", "status": "reference only; article reproduction requires permission", "url": "https://www.sportsmole.co.uk/football/"}], "sources": [{"observed_at_utc": "2026-11-27T16:30:31.598706+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20261129"}, {"observed_at_utc": "2026-11-27T16:30:31.168273+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/news?limit=20"}, {"observed_at_utc": "2026-11-27T16:30:31.600793+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://www.bing.com/news/search?q=%22%C3%87orum+FK%22+%22Kocaelispor%22+injury+suspension+lineup+preview&format=rss"}, {"observed_at_utc": "2026-11-27T16:29:48.450142+00:00", "reason": null, "status": "available", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"}, {"observed_at_utc": "2026-11-27T16:29:48.521989+00:00", "reason": null, "status": "available", "url": "https://www.theguardian.com/football/rss"}, {"observed_at_utc": "2026-11-27T16:30:31.681043+00:00", "reason": "TheSportsDB free source limit: 30 requests per minute", "status": "unavailable", "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=%C3%87orum+FK_vs_Kocaelispor&d=2026-11-29"}]}, "evidence_quality_version": "pre-match-research-quality-v1", "form": {"away": {"all": {"goals_against": 0.9449042609069692, "goals_for": 1.3652143087990989, "last_match": "2026-11-21T00:00:00+00:00", "matches": 10, "points_per_game": 1.6406857220003337, "results": "DWDWLLWLWW", "xg_against": 1.0258571865873327, "xg_for": 1.239140596202865, "xg_matches": 10}, "venue": {"goals_against": 0.937309782329752, "goals_for": 1.4621722327107778, "last_match": "2026-11-07T00:00:00+00:00", "matches": 5, "points_per_game": 1.8989453654599109, "results": "WWLLW", "xg_against": 1.2103849371481965, "xg_for": 1.220542789261689, "xg_matches": 5}}, "home": {"all": {"goals_against": 2.4124189128454816, "goals_for": 1.866863561452814, "last_match": "2026-11-23T00:00:00+00:00", "matches": 10, "points_per_game": 1.3157311063901926, "results": "LLWLWWLWWL", "xg_against": 1.3162874344886248, "xg_for": 1.4702238081394359, "xg_matches": 10}, "venue": {"goals_against": 2.2463203845787896, "goals_for": 1.361922005007689, "last_match": "2026-11-08T00:00:00+00:00", "matches": 4, "points_per_game": 1.3961941158577094, "results": "LWLW", "xg_against": 0.9900364202479738, "xg_for": 1.6587422449198521, "xg_matches": 4}}}, "goal_rates": [1.4498350174644716, 1.3532861342713685], "h2h": [], "margin_distribution": {"-1": 0.18709557798556872, "-10": 4.0109852634649567e-07, "-11": 4.8631560699240945e-08, "-12": 5.4168927125398764e-09, "-13": 5.577529817504768e-10, "-14": 5.304599340143042e-11, "-15": 4.232179647424041e-12, "-2": 0.09956974406171501, "-3": 0.03906765209029915, "-4": 0.01210027178916603, "-5": 0.0030821608402661384, "-6": 0.0006651279768018993, "-7": 0.00012434357409173922, "-8": 2.048746893374383e-05, "-9": 3.015986770010916e-06, "0": 0.2669385729577578, "1": 0.20417397652377248, "10": 8.133043121758126e-07, "11": 1.056450538353101e-07, "12": 1.2606953423014046e-08, "13": 1.390691396447829e-09, "14": 1.417001816483457e-10, "15": 1.2111860698333495e-11, "2": 0.11633162012646715, "3": 0.04890087723990029, "4": 0.016226446293894078, "5": 0.004428050269493757, "6": 0.0010237441021084385, "7": 0.0002050399543210468, "8": 3.61936523777694e-05, "9": 5.708243461072655e-06}, "model_note": "Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient", "observed_at_utc": "2026-11-27T16:30:31.681476+00:00", "p_over_1_5": 0.7712197638543387, "shadow_v4": {"grid": "independent Poisson (C)", "margin_distribution": {"-1": 0.19358852498421847, "-10": 4.108202037912414e-07, "-11": 4.981027444585834e-08, "-12": 5.5481853507447204e-09, "-13": 5.712715918331754e-10, "-14": 5.43317025320078e-11, "-15": 4.334757649380926e-12, "-2": 0.10198307862028598, "-3": 0.040014559364192584, "-4": 0.012393553692741033, "-5": 0.0031568651125426445, "-6": 0.0006812491022242313, "-7": 0.00012735736756203103, "-8": 2.098403661362867e-05, "-9": 3.0890871396949916e-06, "0": 0.2523096593615674, "1": 0.20739991003641944, "10": 8.183542125790003e-07, "11": 1.0630101617556927e-07, "12": 1.2685231452800373e-08, "13": 1.3993263599399602e-09, "14": 1.4258001444121926e-10, "15": 1.2187064640213795e-11, "2": 0.11705393659102453, "3": 0.04920450843426757, "4": 0.01632719817293259, "5": 0.0044555445450146, "6": 0.0010301006474711055, "7": 0.00020631307107758445, "8": 3.641838294540449e-05, "9": 5.74368660397011e-06}, "p_over_1_5": 0.7694526619324018, "version": "team-form-research-v4"}, "version": "team-form-research-v5", "warnings": ["availability unavailable or unconfirmed", "lineups unavailable or unconfirmed", "rotation unavailable or unconfirmed", "h2h unavailable or unconfirmed", "tactics unavailable or unconfirmed", "motivation unavailable or unconfirmed", "rivalry unavailable or unconfirmed", "weather unavailable or unconfirmed", "travel unavailable or unconfirmed", "free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing", "Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"]} |
+| Team research json | {"base_rates": [1.5699859040458324, 1.1527241158798731], "c6_fit": {"candidate_version": "research-low-score-then-sharpen-walk-forward-v1", "delta": 0.055466179703356835, "end_exclusive": "2026-11-30", "expected_origin": "2026-11-16", "fits_version": "research-c6-live-fits-v1", "low_score_status": "fitted", "origin": "2026-11-16", "rho": -0.016463701485858812, "slope": 1.1507759984871408, "slope_status": "fitted", "stale": false}, "coverage": {"form": "last ten, exponential rank half-life five matches", "rotation": "schedule congestion only; rotation unconfirmed", "training_cache": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED", "travel": "previous fixture venue; itinerary and fatigue unverified", "venue_splits": "home team home matches / away team away matches", "xg": "verified supplied xG; no goals-to-xG substitution"}, "evidence": {"coverage": {}, "errors": ["TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing"], "news": [], "quality_review": {"absence_note": "Reported absences only; not proof of complete coverage or a fitted player-value effect", "assessed_at_utc": "2026-11-28T06:36:59.057395+00:00", "availability": "UNAVAILABLE_OR_STALE", "form": {"away": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 10.0}, "home": {"matches": 10.0, "venue_matches": 4.0, "xg_matches": 10.0}}, "lineups": "UNCONFIRMED_OR_STALE", "probability_effect": "NONE; factual coverage/freshness review, not a calibrated confidence score", "status": "REVIEW_REQUIRED", "summary_max_age_minutes": 180, "training": {"cutoff": "2026-11-23", "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}, "version": "pre-match-research-quality-v1", "warnings": ["Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"], "weather": "UNAVAILABLE_INCOMPLETE_OR_STALE", "weather_max_age_minutes": 180}, "recent": {"away": [], "home": [{"away": "\u00c7orum FK", "away_goals": 2.0, "away_xg": null, "competition": "tur.1", "date": "2026-11-23T17:00:00+00:00", "home": "Istanbul Basaksehir", "home_goals": 4.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/132334/schedule"}, {"away": "Fenerbahce", "away_goals": 5.0, "away_xg": null, "competition": "tur.1", "date": "2026-11-08T13:00:00+00:00", "home": "\u00c7orum FK", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/132334/schedule"}, {"away": "\u00c7orum FK", "away_goals": 3.0, "away_xg": null, "competition": "tur.1", "date": "2026-10-31T10:30:00+00:00", "home": "Erzurum BB", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/132334/schedule"}, {"away": "\u00c7orum FK", "away_goals": 0.0, "away_xg": null, "competition": "tur.1", "date": "2026-10-25T16:00:00+00:00", "home": "Goztepe", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/132334/schedule"}, {"away": "Caykur Rizespor", "away_goals": 1.0, "away_xg": null, "competition": "tur.1", "date": "2026-10-16T17:00:00+00:00", "home": "\u00c7orum FK", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/132334/schedule"}, {"away": "\u00c7orum FK", "away_goals": 3.0, "away_xg": null, "competition": "tur.1", "date": "2026-10-11T13:00:00+00:00", "home": "Gaziantep FK", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/132334/schedule"}, {"away": "Alanyaspor", "away_goals": 2.0, "away_xg": null, "competition": "tur.1", "date": "2026-09-19T14:00:00+00:00", "home": "\u00c7orum FK", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/132334/schedule"}, {"away": "\u00c7orum FK", "away_goals": 5.0, "away_xg": null, "competition": "tur.1", "date": "2026-09-12T14:00:00+00:00", "home": "Samsunspor", "home_goals": 1.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/132334/schedule"}, {"away": "Eyupspor", "away_goals": 0.0, "away_xg": null, "competition": "tur.1", "date": "2026-09-06T14:00:00+00:00", "home": "\u00c7orum FK", "home_goals": 3.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/132334/schedule"}, {"away": "\u00c7orum FK", "away_goals": 2.0, "away_xg": null, "competition": "tur.1", "date": "2026-08-31T18:30:00+00:00", "home": "Besiktas", "home_goals": 6.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/132334/schedule"}, {"away": "Kasimpasa", "away_goals": 1.0, "away_xg": null, "competition": "tur.1", "date": "2026-08-22T16:00:00+00:00", "home": "\u00c7orum FK", "home_goals": 0.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/132334/schedule"}, {"away": "\u00c7orum FK", "away_goals": 2.0, "away_xg": null, "competition": "tur.1", "date": "2026-08-14T18:30:00+00:00", "home": "Galatasaray", "home_goals": 2.0, "home_xg": null, "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/132334/schedule"}]}, "rest_and_travel": {"home": {"completed_matches_last_14_days": 1, "days_between_kickoffs": 5.729166666666667, "note": "schedule-derived travel context; actual itinerary and fatigue unverified", "previous_fixture": {"completed": true, "date": "2026-11-23T17:00Z", "home_away": "away", "name": "\u00c7orum FK at Istanbul Basaksehir", "venue": {"address": {"city": "Istanbul", "country": "T\u00fcrkiye"}, "fullName": "Basaksehir Fatih Terim Stadium"}}}}, "review_links": [{"label": "Sofascore", "status": "reference only; no authorized public bulk API", "url": "https://www.sofascore.com/football"}, {"label": "Sports Mole previews", "status": "reference only; article reproduction requires permission", "url": "https://www.sportsmole.co.uk/football/"}], "schedules": {"away": [], "home": [{"completed": true, "date": "2026-11-23T17:00Z", "home_away": "away", "name": "\u00c7orum FK at Istanbul Basaksehir", "venue": {"address": {"city": "Istanbul", "country": "T\u00fcrkiye"}, "fullName": "Basaksehir Fatih Terim Stadium"}}]}, "sources": [{"observed_at_utc": "2026-11-28T06:36:58.872994+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20261129"}, {"observed_at_utc": "2026-11-28T06:36:58.914683+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/summary?event=401888367"}, {"observed_at_utc": "2026-11-28T06:36:58.977481+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/132334/schedule"}, {"observed_at_utc": "2026-11-28T06:36:58.990097+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/995/schedule"}, {"observed_at_utc": "2026-11-28T06:36:58.991241+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/v2/sports/soccer/tur.1/standings"}, {"observed_at_utc": "2026-11-28T06:36:58.387112+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/news?limit=20"}, {"observed_at_utc": "2026-11-28T06:36:59.000003+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://www.bing.com/news/search?q=%22%C3%87orum+FK%22+%22Kocaelispor%22+injury+suspension+lineup+preview&format=rss"}, {"observed_at_utc": "2026-11-28T06:36:29.662572+00:00", "reason": null, "status": "available", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"}, {"observed_at_utc": "2026-11-28T06:36:29.767100+00:00", "reason": null, "status": "available", "url": "https://www.theguardian.com/football/rss"}, {"observed_at_utc": "2026-11-28T06:36:59.056679+00:00", "reason": "TheSportsDB free source limit: 30 requests per minute", "status": "unavailable", "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=%C3%87orum+FK_vs_Kocaelispor&d=2026-11-29"}, {"observed_at_utc": "2026-11-28T06:36:59.057056+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://geocoding-api.open-meteo.com/v1/search?name=%C3%87orum&count=10&language=en&format=json"}], "summary_identity_verified": true, "venue": {"address": {"city": "\u00c7orum", "country": "T\u00fcrkiye"}, "fullName": "\u00c7orum Sehir Stadyumu", "id": "11472", "images": [], "shortName": "\u00c7orum Sehir Stadyumu"}}, "evidence_quality_version": "pre-match-research-quality-v1", "form": {"away": {"all": {"goals_against": 0.9449042609069692, "goals_for": 1.3652143087990989, "last_match": "2026-11-21T00:00:00+00:00", "matches": 10, "points_per_game": 1.6406857220003337, "results": "DWDWLLWLWW", "xg_against": 1.0258571865873327, "xg_for": 1.239140596202865, "xg_matches": 10}, "venue": {"goals_against": 0.937309782329752, "goals_for": 1.4621722327107778, "last_match": "2026-11-07T00:00:00+00:00", "matches": 5, "points_per_game": 1.8989453654599109, "results": "WWLLW", "xg_against": 1.2103849371481965, "xg_for": 1.220542789261689, "xg_matches": 5}}, "home": {"all": {"goals_against": 2.4124189128454816, "goals_for": 1.866863561452814, "last_match": "2026-11-23T00:00:00+00:00", "matches": 10, "points_per_game": 1.3157311063901926, "results": "LLWLWWLWWL", "xg_against": 1.3162874344886248, "xg_for": 1.4702238081394359, "xg_matches": 10}, "venue": {"goals_against": 2.2463203845787896, "goals_for": 1.361922005007689, "last_match": "2026-11-08T00:00:00+00:00", "matches": 4, "points_per_game": 1.3961941158577094, "results": "LWLW", "xg_against": 0.9900364202479738, "xg_for": 1.6587422449198521, "xg_matches": 4}}}, "goal_rates": [1.4498801867952291, 1.3531590280984191], "h2h": [], "margin_distribution": {"-1": 0.18708080418086817, "-10": 4.007430677915381e-07, "-11": 4.858394276664041e-08, "-12": 5.411084592553699e-09, "-13": 5.571030140458807e-10, "-14": 5.2979274570172774e-11, "-15": 4.2264902898277766e-12, "-2": 0.09955382891856553, "-3": 0.039058032495077055, "-4": 0.012096216678742827, "-5": 0.003080849449620421, "-6": 0.0006647842803507085, "-7": 0.00012426789917024088, "-8": 2.0473109966383627e-05, "-9": 3.013593792777082e-06, "0": 0.2669417868176694, "1": 0.20419018955107907, "10": 8.136266602024894e-07, "11": 1.0569031307813254e-07, "12": 1.2612756951093304e-08, "13": 1.3913759339035874e-09, "14": 1.4177454499358617e-10, "15": 1.2118682459726219e-11, "2": 0.11634585488183001, "3": 0.0489087524497113, "4": 0.016229646334064974, "5": 0.0044290772015698684, "6": 0.0010240161147596469, "7": 0.00020510123793405325, "8": 3.6205655944800615e-05, "9": 5.710321879397426e-06}, "model_note": "Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient", "observed_at_utc": "2026-11-28T06:36:59.057395+00:00", "p_over_1_5": 0.7712059612505796, "shadow_v4": {"grid": "independent Poisson (C)", "margin_distribution": {"-1": 0.1935769224131703, "-10": 4.104636094784388e-07, "-11": 4.976240916801754e-08, "-12": 5.542337451506771e-09, "-13": 5.706162685652277e-10, "-14": 5.426435543218038e-11, "-15": 4.32900928105565e-12, "-2": 0.10196863586563638, "-3": 0.04000543561590712, "-4": 0.012389626067275701, "-5": 0.0031555794397638277, "-6": 0.0006809094833281604, "-7": 0.00012728217787226514, "-8": 2.0969711741644417e-05, "-9": 3.0866924099322346e-06, "0": 0.25231271427800095, "1": 0.20741342192577789, "10": 8.186672483581879e-07, "11": 1.0634508678004284e-07, "12": 1.2690895631163794e-08, "13": 1.3999958002324671e-09, "14": 1.4265286809585074e-10, "15": 1.2193760244485587e-11, "2": 0.11706664190463484, "3": 0.049211752450039045, "4": 0.016330192404006072, "5": 0.004456516265670043, "6": 0.0010303601098028, "7": 0.00020637188320813044, "8": 3.642995759253575e-05, "9": 5.745698523549366e-06}, "p_over_1_5": 0.7694387383019656, "version": "team-form-research-v4"}, "version": "team-form-research-v5", "warnings": ["availability unavailable or unconfirmed", "lineups unavailable or unconfirmed", "h2h unavailable or unconfirmed", "tactics unavailable or unconfirmed", "motivation unavailable or unconfirmed", "rivalry unavailable or unconfirmed", "weather unavailable or unconfirmed", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing", "Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"]} |
+
+</details>
+
+
+### 2026-11-30 — Besiktas vs Galatasaray
+
+The model's most likely 1X2 outcome is **Besiktas win** at **40.3%**. Expected goals are 1.35 for Besiktas and 1.63 for Galatasaray (2.98 combined). The most likely exact score is 1-1 at 12.0%. Goal-market probabilities: at least one goal: 94.0%; Over 2.5 goals: 57.2%; Under 3.5 goals: 65.5%; Double Chance 1X: 66.0%; Double Chance X2: 59.7%; Double Chance 12 (either team wins): 74.2%; Under 4.5 goals: 82.0%; BTTS Yes (both teams score): 60.6%; BTTS No (at least one team does not score): 39.4%.
+
+| Outcome | Benchmark probability | Benchmark fair odds |
+| --- | --- | --- |
+| Besiktas win | 40.3% | 2.48 |
+| Draw | 25.8% | 3.88 |
+| Galatasaray win | 34.0% | 2.94 |
+
+| Measure | Benchmark estimate |
+| --- | --- |
+| Besiktas expected goals | 1.35 |
+| Galatasaray expected goals | 1.63 |
+| Expected total goals | 2.98 |
+| Over 0.5 | 94.0% |
+| Under 0.5 | 6.0% |
+| Over 1.5 | 80.5% |
+| Under 1.5 | 19.5% |
+| Over 2.5 | 57.2% |
+| Under 2.5 | 42.8% |
+| Over 3.5 | 34.5% |
+| Under 3.5 | 65.5% |
+| Over 4.5 | 18.0% |
+| Under 4.5 | 82.0% |
+
+| Rank | Score | Benchmark probability |
+| --- | --- | --- |
+| 1 | 1-1 | 11.99% |
+| 2 | 2-1 | 9.85% |
+| 3 | 1-0 | 7.73% |
+| 4 | 1-2 | 7.18% |
+| 5 | 2-2 | 6.09% |
+
+| Selection | Benchmark | Market fair | Best quoted odds | Benchmark EV (display only) |
+| --- | --- | --- | --- | --- |
+| Besiktas win | 40.3% | 44.3% | 2.18 | -12.2% |
+| Draw | 25.8% | 25.6% | 3.68 | -5.2% |
+| Galatasaray win | 34.0% | 30.1% | 3.16 | +7.4% |
+
+<details>
+<summary>Additional technical details (forecast row)</summary>
+
+| Field | Value |
+| --- | --- |
+| Kickoff utc | 2026-11-30T18:00:00+00:00 |
+| Fixture id | 1,640,973,587 |
+| Odds source | — |
+| Odds schedule provider | — |
+| Odds provider | — |
+| Odds match method | — |
+| Odds event id | 1640973587.00 |
+| Odds last update utc | — |
+| Odds h2h last update utc | — |
+| Market best home last update utc | 2026-11-28T06:35:43Z |
+| Market best draw last update utc | 2026-11-28T06:35:43Z |
+| Market best away last update utc | 2026-11-28T06:35:43Z |
+| Odds bookmakers 1x2 | 1.00 |
+| Odds bookmakers ou25 | 0.00 |
+| Best home bookmaker | Pinnacle |
+| Best draw bookmaker | Pinnacle |
+| Best away bookmaker | Pinnacle |
+| Matched home-team name | Besiktas |
+| Matched away-team name | Galatasaray |
+| Home-name matching confidence | 100/100 |
+| Away-name matching confidence | 100/100 |
+| Dc lambda home | 1.3508 |
+| Dc lambda away | 1.6287 |
+| Shot features applied | 0 |
+| Shot features status | BASELINE_RETAINED_AUDIT_NOT_IMPROVED |
+| Shot features version | football-data-lagged-shot-strength-v1 |
+| Shot features weight | 0 |
+| Goal rate features used | none |
+| Score engine version | dc-positive-tail-bounded-v1 |
+| Score grid max goals | 15 |
+| Score grid omitted mass | 0 |
+| P btts yes | 60.6% |
+| P btts no | 39.4% |
+| Fair Over 0.5 odds | 1.06 |
+| Fair Under 0.5 odds | 16.79 |
+| Fair Over 1.5 odds | 1.24 |
+| Fair Under 1.5 odds | 5.13 |
+| Fair Over 2.5 odds | 1.75 |
+| Fair Under 2.5 odds | 2.33 |
+| Fair Over 3.5 odds | 2.90 |
+| Fair Under 3.5 odds | 1.53 |
+| Fair Over 4.5 odds | 5.55 |
+| Fair Under 4.5 odds | 1.22 |
+| Score matrix json | [[0.059571216539102044,0.057855084402428744,0.0531236463398369,0.028841373579323825,0.011743708601356973,0.0038254680578030703,0.0010384429625280825,0.0002416205815781316,4.919186137823504e-05,8.902255704839009e-06,1.4499378346854471e-06,2.1468713243804462e-07,2.9138962665088194e-08,3.650732840375451e-09,4.247186527849594e-10,4.6116824333620146e-11],[0.0773172652559545,0.11993982966654966,0.07175866675134543,0.038958517683259454,0.015863234736538445,0.00516738790428161,0.0014027140006850922,0.00032637764890640705,6.644766748385039e-05,1.2025040532275472e-05,1.958555427911913e-06,2.899963284498988e-07,3.93604967924794e-08,4.931358055033297e-09,5.737039222291055e-10,6.22939511308543e-11],[0.06046560082730976,0.09848218838383675,0.060871991465608864,0.026312306102593462,0.010713916057038532,0.0034900170841644057,0.0009473830719252274,0.00022043314565739575,4.487828260954868e-05,8.121626955978513e-06,1.322794423471057e-06,1.9586146025470568e-07,2.6583799937513877e-08,3.3306042006131598e-09,3.8747555378466684e-10,4.207289209053658e-11],[0.027225358188769987,0.044342780312750796,0.036111226751021,0.014880269706121378,0.004824068532624986,0.0015714218316075581,0.00042657053138041464,9.925265382444264e-05,2.0206982188622564e-05,3.6568594362204165e-06,5.956039714541498e-07,8.818895930661918e-08,1.1969673093705997e-08,1.4996442788303578e-09,1.7446549107000616e-10,1.8943821636267857e-11],[0.009193906763083638,0.014974399417800648,0.012194633016303334,0.006620591595615248,0.0020460989023458587,0.0005306635712595827,0.00014405135338157915,3.351726867736644e-05,6.823826115247189e-06,1.2349084434151226e-06,2.0113334573245436e-07,2.9781098334011116e-08,4.042116090634827e-09,5.064245466215855e-10,5.8916376679109e-11,6.397261283128848e-12],[0.0024837997276565917,0.004045441198631386,0.0032944674059982903,0.0017886002138006536,0.0007282870788878742,0.00018006214353316247,3.8916504323753364e-05,9.054930070305982e-06,1.8435054741562557e-06,3.3361935621876435e-07,5.433761318516698e-08,8.045576906255392e-09,1.0920065978249877e-09,1.3681421656656234e-10,1.5916680919331277e-11,1.72826593114744e-12],[0.0005591802308204131,0.0009107540829611795,0.0007416866279531024,0.00040266929304405243,0.0001639599732383701,5.340933274767701e-05,1.1004130122593305e-05,2.038545149352094e-06,4.1503016731947833e-07,7.510804777830259e-08,1.2233079319877006e-08,1.81130849698897e-09,2.4584449971145804e-10,3.0801116671102905e-11,3.583337743081142e-12,3.8908617773699067e-13],[0.00010790467307881389,0.00017574766803349852,0.000143122822848704,7.770285147786278e-05,3.163925749724762e-05,1.030636684176084e-05,2.797716241344258e-06,4.940779124228017e-07,8.008812195801058e-08,1.4493554840475985e-08,2.3606099643791984e-09,3.49527112082836e-10,4.74404653588498e-11,5.943672972811462e-12,6.914745307266153e-13,7.50817258803968e-14],[1.8219512424942982e-05,2.9674681642863638e-05,2.4166034470817184e-05,1.3119988482059373e-05,5.342232441277416e-06,1.7402117384881848e-06,4.7238941897730075e-07,1.099136016741646e-07,1.6984441381895015e-08,2.44721099617966e-09,3.9858480035463343e-10,5.901703216130691e-11,8.010238327855577e-12,1.0035786262828512e-12,1.1675424654596125e-13,1.2677416079699309e-14],[2.7345176155639976e-06,4.4537931529700714e-06,3.627015115306149e-06,1.969143782962698e-06,8.018012983218606e-07,2.6118369925160514e-07,7.089965732732902e-08,1.649663684504599e-08,3.358572633127182e-09,4.613197529317549e-10,5.982252062759111e-11,8.857707621333659e-12,1.202235125809385e-12,1.506244167334002e-13,1.7523330834844346e-14,1.90271928146181e-15],[3.6937475459735714e-07,6.016120516255669e-07,4.899320488965998e-07,2.659891446516577e-07,1.0830618026294748e-07,3.5280323032767724e-08,9.577024985051139e-09,2.2283422683542677e-09,4.5367121977851407e-10,8.210092261687566e-11,1.0149341201425418e-11,1.1964865613968425e-12,1.6239621278598834e-13,2.0346132221128366e-14,2.367026633878142e-15,2.5701661735781473e-16],[4.535874280225324e-08,7.387718293353889e-08,6.016302283762202e-08,3.266312342758088e-08,1.3299859054516607e-08,4.332378102472442e-09,1.1760462990526097e-09,2.7363755256053975e-10,5.5710239854235444e-11,1.0081887260719696e-11,1.642068063311721e-12,1.8453905177485055e-13,1.9942045188900783e-14,2.4984787589092102e-15,2.906678135304542e-16,3.156130866427563e-17],[5.105828780691955e-09,8.316020761487448e-09,6.772279709712286e-09,3.6767402569092258e-09,1.4971050550440749e-09,4.87676232581661e-10,1.3238221939499573e-10,3.080214320385235e-11,6.271050043584478e-12,1.1348725065836052e-12,1.8484018426312282e-13,2.7368627929747407e-14,2.8194318064091657e-15,2.8124246764953224e-16,3.271916275137307e-17,3.5527139461712716e-18],[5.305293060577495e-10,8.640894384154932e-10,7.036845552693443e-10,3.82037577215484e-10,1.5555909531311038e-10,5.0672778967990184e-11,1.375538624710673e-11,3.2005459565795665e-12,6.516034851104844e-13,1.1792074298665044e-13,1.9206114991464973e-14,2.8437810602324714e-15,3.8597949118218543e-16,3.670377148117605e-17,3.399736938872449e-18,3.691504250223796e-19],[5.118796067316325e-11,8.337140981028733e-11,6.789479286092195e-11,3.6860780836955445e-11,1.500907256643346e-11,4.88914785177019e-12,1.3271843086165454e-12,3.088037148700194e-13,6.286976645678626e-14,1.1377547452381088e-14,1.8530962335949543e-15,2.7438136105231647e-16,3.7241115221504117e-17,4.6658271234289214e-18,4.119935558156873e-19,3.561736783013865e-20],[4.609598003531642e-12,7.507794394602705e-12,6.1140881079480545e-12,3.3194012717081957e-12,1.3516027993153833e-12,4.402794305557585e-13,1.195161139233424e-13,2.7808511392685455e-14,5.661572489517847e-15,1.0245752972354425e-15,1.6687573770075405e-16,2.4708696292645105e-17,3.3536512905922096e-18,4.201688660798261e-19,4.88815705082531e-20,4.028503145776001e-21]] |
+| Score matrix version | published-score-matrix-v1 |
+| Goal margin distribution | {"-1": 0.16132182700609746, "-10": 1.7680782519943007e-06, "-11": 2.5755909618349035e-07, "-12": 3.4476740095542426e-08, "-13": 4.266509654695093e-09, "-14": 4.870126039158136e-10, "-15": 4.6116824333620146e-11, "-2": 0.10452103812652393, "-3": 0.04865663423445627, "-4": 0.017964902267629413, "-5": 0.005470113292161101, "-6": 0.001413565184309727, "-7": 0.00031681638459961505, "-8": 6.263206788201486e-05, "-9": 1.1069164996413053e-05, "0": 0.25750098408739386, "1": 0.21931587947024947, "10": 4.5042170416982086e-07, "11": 5.44166605026463e-08, "12": 6.041132413240079e-09, "13": 6.200148039759848e-10, "14": 5.869575506776596e-11, "15": 4.609598003531642e-12, "2": 0.11896637006024134, "3": 0.0459303469597129, "4": 0.014064350714339905, "5": 0.00355163491108148, "6": 0.0007611758513127165, "7": 0.00014148616058677393, "8": 2.319744988306407e-05, "9": 3.4001299980433745e-06} |
+| Raw goal margin distribution | {"-1": 0.20468511713597282, "-10": 2.2433375001470863e-06, "-11": 3.2679095414509775e-07, "-12": 4.3744084206632885e-08, "-13": 5.413347001085081e-09, "-14": 6.17921540619768e-10, "-15": 5.851302186349116e-11, "-2": 0.1326162821804169, "-3": 0.061735532398510665, "-4": 0.022793866107448966, "-5": 0.006940479169695479, "-6": 0.0017935313571599545, "-7": 0.0004019765954542319, "-8": 7.946756114046401e-05, "-9": 1.4044555383088854e-05, "0": 0.2601269606200524, "1": 0.16815781230607768, "10": 3.453554232886583e-07, "11": 4.172331983087818e-08, "12": 4.631965605571168e-09, "13": 4.753888924314131e-10, "14": 4.500426411297681e-11, "15": 3.5343538176837446e-12, "2": 0.0912160331283224, "3": 0.03521654100861465, "4": 0.010783671721999677, "5": 0.002723173343398366, "6": 0.000583622427368857, "7": 0.00010848281161093819, "8": 1.7786365642279382e-05, "9": 2.6070087738667457e-06} |
+| Research history json | {"away": [{"away": "Samsunspor", "away_goals": 1.0, "away_xg": 0.88, "date": "2026-11-21T00:00:00+00:00", "home": "Galatasaray", "home_goals": 2.0, "home_xg": 1.7, "source": "pipeline training history"}, {"away": "Amedspor", "away_goals": 3.0, "away_xg": 1.39, "date": "2026-11-07T00:00:00+00:00", "home": "Galatasaray", "home_goals": 4.0, "home_xg": 1.73, "source": "pipeline training history"}, {"away": "Galatasaray", "away_goals": 4.0, "away_xg": 2.8, "date": "2026-10-30T00:00:00+00:00", "home": "Konyaspor", "home_goals": 0.0, "home_xg": 1.38, "source": "pipeline training history"}, {"away": "Fenerbahce", "away_goals": 1.0, "away_xg": 0.31, "date": "2026-10-26T00:00:00+00:00", "home": "Galatasaray", "home_goals": 2.0, "home_xg": 2.27, "source": "pipeline training history"}, {"away": "Galatasaray", "away_goals": 1.0, "away_xg": 1.92, "date": "2026-10-17T00:00:00+00:00", "home": "Genclerbirligi", "home_goals": 0.0, "home_xg": 1.74, "source": "pipeline training history"}, {"away": "Kasimpasa", "away_goals": 1.0, "away_xg": 0.51, "date": "2026-10-09T00:00:00+00:00", "home": "Galatasaray", "home_goals": 3.0, "home_xg": 2.4, "source": "pipeline training history"}, {"away": "Galatasaray", "away_goals": 0.0, "away_xg": 0.86, "date": "2026-09-19T00:00:00+00:00", "home": "Trabzonspor", "home_goals": 4.0, "home_xg": 2.28, "source": "pipeline training history"}, {"away": "Kocaelispor", "away_goals": 0.0, "away_xg": 0.82, "date": "2026-09-13T00:00:00+00:00", "home": "Galatasaray", "home_goals": 1.0, "home_xg": 2.26, "source": "pipeline training history"}, {"away": "Galatasaray", "away_goals": 3.0, "away_xg": 2.12, "date": "2026-09-04T00:00:00+00:00", "home": "Buyuksehyr", "home_goals": 2.0, "home_xg": 1.98, "source": "pipeline training history"}, {"away": "Goztep", "away_goals": 2.0, "away_xg": 0.63, "date": "2026-08-29T00:00:00+00:00", "home": "Galatasaray", "home_goals": 3.0, "home_xg": 2.92, "source": "pipeline training history"}], "h2h": [{"away": "Galatasaray", "away_goals": 1.0, "away_xg": null, "date": "2026-03-07T00:00:00+00:00", "home": "Besiktas", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Besiktas", "away_goals": 1.0, "away_xg": null, "date": "2025-10-04T00:00:00+00:00", "home": "Galatasaray", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Galatasaray", "away_goals": 1.0, "away_xg": null, "date": "2025-03-29T00:00:00+00:00", "home": "Besiktas", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Besiktas", "away_goals": 1.0, "away_xg": null, "date": "2024-10-28T00:00:00+00:00", "home": "Galatasaray", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Galatasaray", "away_goals": 1.0, "away_xg": null, "date": "2024-03-03T00:00:00+00:00", "home": "Besiktas", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Besiktas", "away_goals": 1.0, "away_xg": null, "date": "2023-10-21T00:00:00+00:00", "home": "Galatasaray", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Galatasaray", "away_goals": 1.0, "away_xg": null, "date": "2023-04-30T00:00:00+00:00", "home": "Besiktas", "home_goals": 3.0, "home_xg": null, "source": "pipeline training history"}], "home": [{"away": "Besiktas", "away_goals": 4.0, "away_xg": 1.42, "date": "2026-11-22T00:00:00+00:00", "home": "Konyaspor", "home_goals": 2.0, "home_xg": 0.77, "source": "pipeline training history"}, {"away": "Genclerbirligi", "away_goals": 0.0, "away_xg": 0.29, "date": "2026-11-08T00:00:00+00:00", "home": "Besiktas", "home_goals": 3.0, "home_xg": 3.94, "source": "pipeline training history"}, {"away": "Besiktas", "away_goals": 2.0, "away_xg": 1.26, "date": "2026-11-01T00:00:00+00:00", "home": "Kasimpasa", "home_goals": 2.0, "home_xg": 1.33, "source": "pipeline training history"}, {"away": "Buyuksehyr", "away_goals": 0.0, "away_xg": 0.38, "date": "2026-10-26T00:00:00+00:00", "home": "Besiktas", "home_goals": 2.0, "home_xg": 1.88, "source": "pipeline training history"}, {"away": "Besiktas", "away_goals": 0.0, "away_xg": 1.19, "date": "2026-10-19T00:00:00+00:00", "home": "Trabzonspor", "home_goals": 2.0, "home_xg": 2.35, "source": "pipeline training history"}, {"away": "Kocaelispor", "away_goals": 1.0, "away_xg": 1.65, "date": "2026-10-11T00:00:00+00:00", "home": "Besiktas", "home_goals": 2.0, "home_xg": 2.21, "source": "pipeline training history"}, {"away": "Besiktas", "away_goals": 2.0, "away_xg": 2.04, "date": "2026-09-20T00:00:00+00:00", "home": "Amedspor", "home_goals": 3.0, "home_xg": 1.54, "source": "pipeline training history"}, {"away": "Erzurumspor", "away_goals": 0.0, "away_xg": 0.49, "date": "2026-09-11T00:00:00+00:00", "home": "Besiktas", "home_goals": 3.0, "home_xg": 2.29, "source": "pipeline training history"}, {"away": "Besiktas", "away_goals": 2.0, "away_xg": 1.75, "date": "2026-09-05T00:00:00+00:00", "home": "Fenerbahce", "home_goals": 1.0, "home_xg": 0.59, "source": "pipeline training history"}, {"away": "Corum", "away_goals": 2.0, "away_xg": 0.6, "date": "2026-08-31T00:00:00+00:00", "home": "Besiktas", "home_goals": 6.0, "home_xg": 2.86, "source": "pipeline training history"}], "teams": {"away": "Galatasaray", "home": "Besiktas"}} |
+| Unadjusted home-win probability | 30.9% |
+| Unadjusted draw probability | 26.0% |
+| Unadjusted away-win probability | 43.1% |
+| Raw p over 1 5 | 80.7% |
+| Raw p under 3 5 | 65.2% |
+| Raw p btts yes | 60.5% |
+| P home draw | 66.0% |
+| P draw away | 59.7% |
+| P home away | 74.2% |
+| Raw p home draw | 56.9% |
+| Raw p draw away | 69.1% |
+| Raw p home away | 74.0% |
+| Market blending weight | 70.0% |
+| Market blend applied | Yes |
+| Totals anchor applied | 0 |
+| Totals anchor status | NOT_ANCHORED_PINNACLE_NO_2_5_LINE |
+| Unanchored p over 2 5 | 0.5717 |
+| Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
+| Bet365 pinnacle quotes | [] |
+| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 0.25, "market_key": "spreads", "opposite_price": 1.9009, "price": 1.9524, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -0.25, "market_key": "spreads", "opposite_price": 1.9524, "price": 1.9009, "quote_source": "The Odds API", "side": "home"}] |
+| Price edge quotes | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "market": "h2h", "market_key": "h2h", "point": null, "prices": {"away": 3.16, "draw": 3.68, "home": 2.18}}] |
+| 1X2 market source | The Odds API / Pinnacle |
+| Reference home odds | 2.18 |
+| Reference draw odds | 3.68 |
+| Reference away odds | 3.16 |
+| Market reference 1x2 last update utc | 2026-11-28T06:35:43Z |
+| Market reference home last update utc | 2026-11-28T06:35:43Z |
+| Market reference draw last update utc | 2026-11-28T06:35:43Z |
+| Market reference away last update utc | 2026-11-28T06:35:43Z |
+| O/U 2.5 market source | The Odds API / unavailable reference |
+| Home probability edge | -4.0% |
+| Draw probability edge | +0.1% |
+| Away probability edge | +3.9% |
+| Raw edge prob home | -0.1342 |
+| Raw ev home | -0.3268 |
+| Raw edge prob draw | 0.0038 |
+| Raw ev draw | -0.0427 |
+| Raw edge prob away | 0.1305 |
+| Raw ev away | 0.3622 |
+| Training data status | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Training cutoff | 2026-11-23 |
+| Elo home rating | 1,585.5209 |
+| Elo away rating | 1,691.0276 |
+| Elo rating diff | -45.5067 |
+| Elo home expectancy | 0.4349 |
+| Research p home | 0.3876 |
+| Research p draw | 0.2515 |
+| Research p away | 0.3609 |
+| Research p over 1 5 | 0.8194 |
+| Research v4 p home | 0.3929 |
+| Research v4 p draw | 0.2377 |
+| Research v4 p away | 0.3694 |
+| Research v4 p over 1 5 | 0.8177 |
+| Research version | team-form-research-v5 |
+| Research probability basis | team_form_poisson_v1 |
+| Team research json | {"base_rates": [1.3507857930590568, 1.62873083267795], "c6_fit": {"candidate_version": "research-low-score-then-sharpen-walk-forward-v1", "delta": 0.055466179703356835, "end_exclusive": "2026-11-30", "expected_origin": "2026-11-16", "fits_version": "research-c6-live-fits-v1", "low_score_status": "fitted", "origin": "2026-11-16", "rho": -0.016463701485858812, "slope": 1.1507759984871408, "slope_status": "fitted", "stale": false}, "coverage": {"form": "last ten, exponential rank half-life five matches", "h2h": "last four years; descriptive only", "training_cache": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED", "venue_splits": "home team home matches / away team away matches", "xg": "verified supplied xG; no goals-to-xG substitution"}, "evidence": {"coverage": {}, "errors": ["free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing"], "news": [], "quality_review": {"absence_note": "Reported absences only; not proof of complete coverage or a fitted player-value effect", "assessed_at_utc": "2026-11-28T06:36:59.404008+00:00", "availability": "UNAVAILABLE_OR_STALE", "form": {"away": {"matches": 10.0, "venue_matches": 4.0, "xg_matches": 10.0}, "home": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 10.0}}, "lineups": "UNCONFIRMED_OR_STALE", "probability_effect": "NONE; factual coverage/freshness review, not a calibrated confidence score", "status": "REVIEW_REQUIRED", "summary_max_age_minutes": 180, "training": {"cutoff": "2026-11-23", "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}, "version": "pre-match-research-quality-v1", "warnings": ["Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"], "weather": "UNAVAILABLE_INCOMPLETE_OR_STALE", "weather_max_age_minutes": 180}, "review_links": [{"label": "Sofascore", "status": "reference only; no authorized public bulk API", "url": "https://www.sofascore.com/football"}, {"label": "Sports Mole previews", "status": "reference only; article reproduction requires permission", "url": "https://www.sportsmole.co.uk/football/"}], "sources": [{"observed_at_utc": "2026-11-28T06:36:59.256420+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20261130"}, {"observed_at_utc": "2026-11-28T06:36:58.387112+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/news?limit=20"}, {"observed_at_utc": "2026-11-28T06:36:59.347280+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://www.bing.com/news/search?q=%22Besiktas%22+%22Galatasaray%22+injury+suspension+lineup+preview&format=rss"}, {"observed_at_utc": "2026-11-28T06:36:29.662572+00:00", "reason": null, "status": "available", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"}, {"observed_at_utc": "2026-11-28T06:36:29.767100+00:00", "reason": null, "status": "available", "url": "https://www.theguardian.com/football/rss"}, {"observed_at_utc": "2026-11-28T06:36:59.403650+00:00", "reason": "TheSportsDB free source limit: 30 requests per minute", "status": "unavailable", "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=Besiktas_vs_Galatasaray&d=2026-11-30"}]}, "evidence_quality_version": "pre-match-research-quality-v1", "form": {"away": {"all": {"goals_against": 1.337059051379755, "goals_for": 2.4401350538542625, "last_match": "2026-11-21T00:00:00+00:00", "matches": 10, "points_per_game": 2.7746154399181497, "results": "WWWWWWLWWW", "xg_against": 1.16194279608169, "xg_for": 2.053422440220837, "xg_matches": 10}, "venue": {"goals_against": 1.3232133887134805, "goals_for": 2.083173140155577, "last_match": "2026-10-30T00:00:00+00:00", "matches": 4, "points_per_game": 2.308557700237427, "results": "WWLW", "xg_against": 1.8031308225153029, "xg_for": 1.983446071071613, "xg_matches": 4}}, "home": {"all": {"goals_against": 1.2728274519974647, "goals_for": 2.5608577565107375, "last_match": "2026-11-22T00:00:00+00:00", "matches": 10, "points_per_game": 2.2156071889407416, "results": "WWDWLWLWWW", "xg_against": 0.9801513736330276, "xg_for": 2.069119271109314, "xg_matches": 10}, "venue": {"goals_against": 0.4936053657315738, "goals_for": 3.0245018491717515, "last_match": "2026-11-08T00:00:00+00:00", "matches": 5, "points_per_game": 3.0, "results": "WWWWW", "xg_against": 0.6573867834146243, "xg_for": 2.6938368413785407, "xg_matches": 5}}}, "goal_rates": [1.5859491718829308, 1.5314903813252714], "h2h": [{"away": "Galatasaray", "away_goals": 1.0, "away_xg": null, "date": "2026-03-07T00:00:00+00:00", "home": "Besiktas", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Besiktas", "away_goals": 1.0, "away_xg": null, "date": "2025-10-04T00:00:00+00:00", "home": "Galatasaray", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Galatasaray", "away_goals": 1.0, "away_xg": null, "date": "2025-03-29T00:00:00+00:00", "home": "Besiktas", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Besiktas", "away_goals": 1.0, "away_xg": null, "date": "2024-10-28T00:00:00+00:00", "home": "Galatasaray", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Galatasaray", "away_goals": 1.0, "away_xg": null, "date": "2024-03-03T00:00:00+00:00", "home": "Besiktas", "home_goals": 0.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Besiktas", "away_goals": 1.0, "away_xg": null, "date": "2023-10-21T00:00:00+00:00", "home": "Galatasaray", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Galatasaray", "away_goals": 1.0, "away_xg": null, "date": "2023-04-30T00:00:00+00:00", "home": "Besiktas", "home_goals": 3.0, "home_xg": null, "source": "pipeline training history"}], "margin_distribution": {"-1": 0.18586484946573106, "-10": 1.058013586472131e-06, "-11": 1.446813429079963e-07, "-12": 1.8184891799163666e-08, "-13": 2.1131573250552136e-09, "-14": 2.2617726074761474e-10, "-15": 1.9874402686725173e-11, "-2": 0.10700530227092071, "-3": 0.046219082075403393, "-4": 0.015902366481622528, "-5": 0.004523861062429454, "-6": 0.0010939921817967205, "-7": 0.00022970257763617162, "-8": 4.257416404337497e-05, "-9": 7.058218533520058e-06, "0": 0.2515004615572005, "1": 0.19434612711769572, "10": 1.5146258882977147e-06, "11": 2.1448733492637378e-07, "12": 2.7917391320312196e-08, "13": 3.359471300853839e-09, "14": 3.723600112430802e-10, "15": 3.388310259505718e-11, "2": 0.11582958525042014, "3": 0.05180963230625056, "4": 0.018459755433939653, "5": 0.00543811558822303, "6": 0.0013618472097081692, "7": 0.00029611133117497974, "8": 5.68342689561705e-05, "9": 9.757402955076358e-06}, "model_note": "Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient", "observed_at_utc": "2026-11-28T06:36:59.404008+00:00", "p_over_1_5": 0.8193571203445238, "shadow_v4": {"grid": "independent Poisson (C)", "margin_distribution": {"-1": 0.19110527672700836, "-10": 1.0777669352220409e-06, "-11": 1.4738257572826335e-07, "-12": 1.8524407769734532e-08, "-13": 2.1526104418572645e-09, "-14": 2.3040004046232926e-10, "-15": 2.0245462200975904e-11, "-2": 0.10900311504088242, "-3": 0.04708200260762492, "-4": 0.016199267197338087, "-5": 0.0046083225536663235, "-6": 0.0011144172589157791, "-7": 0.00023399117580052043, "-8": 4.336903314603824e-05, "-9": 7.189997041876075e-06, "0": 0.23766305110175595, "1": 0.1979008546598803, "10": 1.5285328105244932e-06, "11": 2.1645670486022763e-07, "12": 2.8173721938232953e-08, "13": 3.390317139727343e-09, "14": 3.7577892924569003e-10, "15": 3.419420890601626e-11, "2": 0.11689310400187108, "3": 0.05228533560212571, "4": 0.018629248366239706, "5": 0.0054880470274846745, "6": 0.0013743513556999246, "7": 0.0002988301525584876, "8": 5.735610722943388e-05, "9": 9.84699302816305e-06}, "p_over_1_5": 0.8177194054183716, "version": "team-form-research-v4"}, "version": "team-form-research-v5", "warnings": ["availability unavailable or unconfirmed", "lineups unavailable or unconfirmed", "rotation unavailable or unconfirmed", "tactics unavailable or unconfirmed", "motivation unavailable or unconfirmed", "rivalry unavailable or unconfirmed", "weather unavailable or unconfirmed", "travel unavailable or unconfirmed", "free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing", "Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"]} |
 
 </details>
 
@@ -2077,9 +1723,9 @@ The model's most likely 1X2 outcome is **Trabzonspor win** at **44.6%**. Expecte
 | Odds event id | 1640973590.00 |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-11-27T16:28:52Z |
-| Market best draw last update utc | 2026-11-27T16:28:52Z |
-| Market best away last update utc | 2026-11-27T16:28:52Z |
+| Market best home last update utc | 2026-11-28T06:35:43Z |
+| Market best draw last update utc | 2026-11-28T06:35:43Z |
+| Market best away last update utc | 2026-11-28T06:35:43Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 0.00 |
 | Best home bookmaker | Pinnacle |
@@ -2111,10 +1757,10 @@ The model's most likely 1X2 outcome is **Trabzonspor win** at **44.6%**. Expecte
 | Fair Under 3.5 odds | 1.47 |
 | Fair Over 4.5 odds | 6.16 |
 | Fair Under 4.5 odds | 1.19 |
-| Score matrix json | [[0.06299371792335974,0.086642261958276,0.07270308826456859,0.03605323273667026,0.013409013514333533,0.003989692569114906,0.0009892379964563601,0.0002102400043570469,3.9096508768960175e-05,6.4626118985444824e-06,9.614366724716517e-07,1.3002911483703912e-07,1.6120257239635233e-08,1.844765734299205e-09,1.960314693764924e-10,1.9442277784467822e-11],[0.06277185230959044,0.11781152152669847,0.09858003942088864,0.04888553140270809,0.018181635916591863,0.0054097296294942695,0.0013413339517632876,0.00028506997999789115,5.301198982961913e-05,8.762826324544158e-06,1.3036374015921018e-06,1.7630991437189723e-07,2.1857882960558667e-08,2.5013666289901904e-09,2.6580425178839567e-10,2.6362298441162073e-11],[0.04861283075780402,0.07232084949080274,0.054821788896034104,0.033142592204976735,0.012326480402534421,0.0036675977105073733,0.0009093750829415736,0.0001932669611202712,3.594017924084818e-05,5.940873937627151e-06,8.838182084633954e-07,1.1953163699062202e-07,1.4818840680246236e-08,1.6958345702910115e-09,1.8020550601775282e-10,1.7872668696671417e-11],[0.0219718074653911,0.03268725058744607,0.02431425709171795,0.012287383964016962,0.005571266883834464,0.001657664231841524,0.0004110152386673913,8.735192731960237e-05,1.6244079726313678e-05,2.685129343403827e-06,3.994641580843797e-07,5.402536887978598e-08,6.697752614095739e-09,7.664756421452944e-10,8.14484698937187e-11,8.078007994482938e-12],[0.007448038652100862,0.011080376805125598,0.008242085995951054,0.004087224514677049,0.0015491311364008251,0.000561917688856873,0.00013932660701761255,2.961069689130934e-05,5.506444285931609e-06,9.102094657921639e-07,1.3541100313334782e-07,1.831360648159997e-08,2.2704149592868595e-09,2.598211466027138e-10,2.7609533393118692e-11,2.7382961492657394e-12],[0.0020197985022603975,0.0030048351681366183,0.002235132459392867,0.0011083951545845022,0.00041223725249826365,0.0001249962288366924,3.778332596324796e-05,8.029985345884762e-06,1.493266676102418e-06,2.468354155535541e-07,3.672147179864154e-08,4.9663806366107204e-09,6.157031331978512e-10,7.045967230791887e-11,7.4872992475408e-12,7.425856281602789e-13],[0.0004564496977315653,0.0006790559071581648,0.0005051125319372844,0.0002504837154354926,9.316056482166091e-05,2.771881859960983e-05,7.003951753030425e-06,1.814678236376601e-06,3.3745996057367807e-07,5.578177758463335e-08,8.298602402165358e-09,1.1223411334664943e-09,1.3914135926233334e-10,1.5923022069390755e-11,1.6920378317644535e-12,1.6781524747851564e-13],[8.841603032299893e-05,0.00013153569380522752,9.7842205093447e-05,4.851964168105617e-05,1.8045553245220314e-05,5.369239848335052e-06,1.3312945742180177e-06,2.883339634424011e-07,6.536726884728312e-08,1.080514098903884e-08,1.6074706266096925e-09,2.1740171629532044e-10,2.695220678392619e-11,3.0843495112773204e-12,3.2775411832768456e-13,3.250644722400028e-14],[1.4985704119888536e-05,2.2294090578014277e-05,1.658335406612853e-05,8.223633107922788e-06,3.058555339169332e-06,9.10036782039675e-07,2.256421885574597e-07,4.7955107744940615e-08,9.087921435484652e-09,1.8313720401592857e-09,2.7245148989140467e-10,3.6847591818541156e-11,4.568151213829239e-12,5.22768880365596e-13,5.555130922967931e-14,5.509543895016135e-15],[2.257723599049699e-06,3.358794088996652e-06,2.498423132270788e-06,1.238960170916667e-06,4.6079733811622994e-07,1.3710477014472804e-07,3.3994912082328505e-08,7.224844263876254e-09,1.3435415775453574e-09,2.2632278629293238e-10,4.104713087906945e-11,5.551402653577132e-12,6.88230777611704e-13,7.875957169631974e-14,8.369276531991693e-15,8.300595802682008e-16],[3.0613071151236884e-07,4.554277701313293e-07,3.3876779755633025e-07,1.679938849989654e-07,6.248072927966143e-08,1.8590398246185614e-08,4.60946000119059e-09,9.796357339744524e-10,1.8217435440437934e-10,3.0113229734674183e-11,4.565380896699865e-12,7.527293619761692e-13,9.331903060395126e-14,1.0679218542053713e-14,1.1348123307302992e-15,1.125499729072766e-16],[3.773552044373593e-08,5.613877760102312e-08,4.175856478826296e-08,2.0707940900418112e-08,7.701752056905052e-09,2.291564768560588e-09,5.681898795785561e-10,1.2075581729183546e-10,2.245591120534503e-11,3.711938572467604e-12,5.522215979480672e-13,7.610976535231893e-14,1.1503067332735553e-14,1.3163849769463902e-15,1.3988382183061893e-16,1.3873589430483715e-17],[4.26388248159668e-09,6.343337723621874e-09,4.718461830221058e-09,2.339870376688796e-09,8.702507686889461e-10,2.589327709598773e-10,6.420197324077712e-11,1.3644667089440335e-11,2.5373803056333783e-12,4.194263035408835e-13,6.239765530624744e-14,8.438945714978708e-15,1.0661704145462e-15,1.4874343261298522e-16,1.5806014342684844e-17,1.5676305569365512e-18],[4.44731613888818e-10,6.616230244253302e-10,4.921451643857688e-10,2.440532386637847e-10,9.076892492170439e-11,2.7007214578429938e-11,6.696396370550419e-12,1.423166525309605e-12,2.6465392591014074e-13,4.374701640728814e-14,6.508202340706653e-15,8.801991995654652e-16,1.0912200345975546e-16,1.272590446111479e-17,1.6485994391524019e-18,1.6350705503186164e-19],[4.307309661350082e-11,6.407943929057703e-11,4.766518851244735e-11,2.363701702220562e-11,8.791141782049233e-12,2.6156997309597136e-12,6.485586336192472e-13,1.3783636541090554e-13,2.5632232483296362e-14,4.236981148667797e-15,6.303316864529251e-16,8.524895460093715e-17,1.0568672095471638e-17,1.2094549019250904e-18,1.3097286364354723e-19,1.5835967038172032e-20],[3.893596694441008e-12,5.792467052977586e-12,4.308699281532536e-12,2.136670417962447e-12,7.946761035105227e-13,2.364464277435478e-13,5.862651981282375e-14,1.2459731454957619e-14,2.31702811069368e-15,3.8300231680326773e-16,5.6978893177726e-17,7.70608741733052e-18,9.55356126465753e-19,1.093287917157778e-19,1.1617672253296712e-20,1.1742147761774495e-21]] |
+| Score matrix json | [[0.06299448873051237,0.08664444542775007,0.0727027167215169,0.03605212275585573,0.013408256394825534,0.003989364859691742,0.000989131342852128,0.0002102119398141247,3.909028610282891e-05,6.461417384345693e-06,9.612342834843823e-07,1.299984047666008e-07,1.6116036160873753e-08,1.8442353279753703e-09,1.9597007443398576e-10,1.9435689609869172e-11],[0.06277323781814038,0.1178118421742178,0.09858060611565012,0.04888455718431544,0.0181808067423256,0.00540934401930671,0.0013412039013597293,0.00028503502171728205,5.300412792016839e-05,8.76130178951732e-06,1.3033771302935148e-06,1.762701878809755e-07,2.1852396781900084e-08,2.5006745916813866e-09,2.657238902396316e-10,2.635365153348523e-11],[0.0486139286414203,0.07232062577819147,0.05482132497988388,0.033142291610532996,0.012326052100605469,0.003667376104760479,0.0009092967875407207,0.00019324535912948265,3.593523937362868e-05,5.939904859959179e-06,8.836513496034494e-07,1.1950600159817198e-07,1.4815282131003462e-08,1.695383804502302e-09,1.8015298011194326e-10,1.7867000427803278e-11],[0.021972542280142105,0.03268750442612286,0.02431382158662278,0.012287097909350118,0.005571133798411635,0.0016575820710440369,0.0004109843139155963,8.73431122021277e-05,1.6242023398440874e-05,2.6847204972500967e-06,3.993930789523446e-07,5.4014368849204106e-08,6.696216950842112e-09,7.662802280446729e-10,8.142561366724434e-11,8.075533767594614e-12],[0.007448368622094057,0.01108058317503529,0.008242027867328925,0.004087090741991277,0.001549072117241998,0.000561895939445667,0.00013931763693581948,2.9608030240102057e-05,5.505807015767958e-06,9.100807569674204e-07,1.3538837878758827e-07,1.8310076501353515e-08,2.2699190465758044e-09,2.597577255071327e-10,2.760208528177347e-11,2.7374871580323897e-12],[0.0020199099193263324,0.0030049237628738306,0.002235140967002951,0.0011083709131213765,0.0004122176517687707,0.00012498961454990615,3.778130367353518e-05,8.029349379446024e-06,1.4931100713862832e-06,2.4680319163227573e-07,3.6715735102497585e-08,4.9654772776686175e-09,6.155753334556619e-10,7.04432383780157e-11,7.485360712326134e-12,7.423743030300639e-13],[0.0004564798335045604,0.0006790833025999594,0.000505119939614442,0.00025048095711698097,9.315714688395922e-05,2.771708992314841e-05,7.0034773520621705e-06,1.8145542198742572e-06,3.374282339371388e-07,5.577510103137136e-08,8.297396080007038e-09,1.1221491707594584e-09,1.3911398871642327e-10,1.5919481071236635e-11,1.6916181157344876e-12,1.6776931238510304e-13],[8.842282791325678e-05,0.00013154242881566948,9.784470247717142e-05,4.8519634255609216e-05,1.804508712809986e-05,5.368963298367332e-06,1.3311918222110724e-06,2.8831016131580826e-07,6.536183303747131e-08,1.0803965034946477e-08,1.6072544105133268e-09,2.1736689276564963e-10,2.6947197623520318e-11,3.0836970922095353e-12,3.276763759620587e-13,3.249790231533894e-14],[1.4987018991906676e-05,2.2295474205325705e-05,1.6583957433722568e-05,8.223721150182316e-06,3.058509548741738e-06,9.099997909862987e-07,2.2562722310713508e-07,4.795069591816153e-08,9.087036566869093e-09,1.831192611544635e-09,2.7241780141683993e-10,3.684208961611513e-11,4.567351803750817e-12,5.226639769038969e-13,5.553873570476772e-14,5.508155424240759e-15],[2.257946214564167e-06,3.359039019768641e-06,2.498541166204477e-06,1.2389868893015324e-06,4.607954431444393e-07,1.3710068589499328e-07,3.399302653799911e-08,7.224258032407815e-09,1.3433980658624139e-09,2.2629739642361484e-10,4.1042501101868014e-11,5.55063397399203e-12,6.881178119165083e-13,7.874462218113643e-14,8.367473085473548e-15,8.298594067380462e-16],[3.06164221154058e-07,4.554659268144098e-07,3.387874809586642e-07,1.679993321082329e-07,6.248115081381053e-08,1.859004631996069e-08,4.609254386816558e-09,9.79566882347113e-10,1.821568733044529e-10,3.010956698427107e-11,4.564801089279468e-12,7.526333074707655e-13,9.330472647609885e-14,1.0677307441892154e-14,1.1345801169741498e-15,1.1252405273983212e-16],[3.7740060861202536e-08,5.6144090688932585e-08,4.176144456788043e-08,2.070883721979951e-08,7.701887652001785e-09,2.291546271746951e-09,5.68170704034324e-10,1.2074864142533545e-10,2.2454000205782344e-11,3.711527382943463e-12,5.521462478526448e-13,7.609897167646466e-14,1.1501429012745215e-14,1.3161636953261597e-15,1.3985671645469197e-16,1.3870544973357805e-17],[4.264441828207697e-09,6.344006959106466e-09,4.718838469196149e-09,2.3399970651463202e-09,8.702755403639867e-10,2.5893349267375094e-10,6.4200503670544e-11,1.364400441979165e-11,2.5371919255848126e-12,4.1938439571075004e-13,6.238981869399473e-14,8.437669196001518e-15,1.0660034167049532e-15,1.4872004408681937e-16,1.580312320636169e-17,1.5673035711829086e-18],[4.447947848728522e-10,6.617000124008266e-10,4.921897932508538e-10,2.4406910285661193e-10,9.077249434986346e-11,2.700758312808385e-11,6.696315806204865e-12,1.4231128609992365e-12,2.6463715116403496e-13,4.37431203388217e-14,6.507455630111142e-15,8.800756127188511e-16,1.0910388034641569e-16,1.2723722614351611e-17,1.6483157866986557e-18,1.6347472491323696e-19],[4.3079682641810696e-11,6.40875916439947e-11,4.7670028547763543e-11,2.3638810191400782e-11,8.791582955082318e-12,2.61576383008349e-12,6.485578734541797e-13,1.3783266463623559e-13,2.563088614143357e-14,4.236649812559414e-15,6.302662101377591e-16,8.52379105738909e-17,1.0567031584368175e-17,1.209236115207796e-18,1.3094846799215855e-19,1.583300773464034e-20],[3.894234326315226e-12,5.793266894419886e-12,4.309183590107452e-12,2.1368557156282224e-12,7.947246132472993e-13,2.3645478963576606e-13,5.86270877250157e-14,1.2459532220253206e-14,2.3169315673875294e-15,3.829765243589172e-16,5.697359311214981e-17,7.705172761372079e-18,9.552182049541228e-19,1.093102014612321e-19,1.1615398529572966e-20,1.1739786646086712e-21]] |
 | Score matrix version | published-score-matrix-v1 |
-| Goal margin distribution | {"-1": 0.22453774340148472, "-10": 1.1533602552849618e-06, "-11": 1.5366701913393178e-07, "-12": 1.880990738263766e-08, "-13": 2.128442654784272e-09, "-14": 2.2239376781765447e-10, "-15": 1.9442277784467822e-11, "-2": 0.13572046943721522, "-3": 0.05834464299279915, "-4": 0.01982123195444264, "-5": 0.00554148564248696, "-6": 0.0013130738047043634, "-7": 0.00026961127784827814, "-8": 4.879952127002339e-05, "-9": 7.892746166002402e-06, "0": 0.24959584127995005, "1": 0.16393552010178358, "10": 3.672410317704866e-07, "11": 4.459543502486929e-08, "12": 4.97530736495242e-09, "13": 5.131197524609276e-10, "14": 4.8865563666478405e-11, "15": 3.893596694441008e-12, "2": 0.09074932535343805, "3": 0.03555679103280207, "4": 0.011009706386762717, "5": 0.0028054002174597885, "6": 0.0006058725437190413, "7": 0.00011338450543966058, "8": 1.870487186634357e-05, "9": 2.757343247597152e-06} |
-| Raw goal margin distribution | {"-1": 0.19895943696314586, "-10": 1.0219747625986374e-06, "-11": 1.3616197946741213e-07, "-12": 1.6667169294058926e-08, "-13": 1.885980262334025e-09, "-14": 1.9705969321156247e-10, "-15": 1.7227502969788987e-11, "-2": 0.12025981812474039, "-3": 0.051698289756600055, "-4": 0.01756328842461212, "-5": 0.00491022509920384, "-6": 0.0011634944794466494, "-7": 0.0002388984017875944, "-8": 4.3240504375224386e-05, "-9": 6.993640844038525e-06, "0": 0.2696214573222666, "1": 0.1804667685107821, "10": 4.0427359627148997e-07, "11": 4.9092436125337e-08, "12": 5.4770170731967505e-09, "13": 5.648627187578525e-10, "14": 5.379316429332693e-11, "15": 4.286226760947013e-12, "2": 0.09990048209747543, "3": 0.03914233579348086, "4": 0.012119924544955099, "5": 0.0030882966138764544, "6": 0.0006669686961464879, "7": 0.00012481819244044426, "8": 2.0591070068472247e-05, "9": 3.035393581939596e-06} |
+| Goal margin distribution | {"-1": 0.2245400359845163, "-10": 1.1531143781839907e-06, "-11": 1.5363034845382847e-07, "-12": 1.880493926643468e-08, "-13": 2.1278262186428053e-09, "-14": 2.22323725967471e-10, "-15": 1.9435689609869172e-11, "-2": 0.13571860357405918, "-3": 0.05834244847706536, "-4": 0.01982000144349271, "-5": 0.005541004089698978, "-6": 0.0013129268205504083, "-7": 0.000269574307577705, "-8": 4.8791595697199855e-05, "-9": 7.891264144043755e-06, "0": 0.2495961166312454, "1": 0.16393609118322425, "10": 3.6728024745278807e-07, "11": 4.4600691148364505e-08, "12": 4.975948724871916e-09, "13": 5.131915601069543e-10, "14": 4.8872949536230583e-11, "15": 3.894234326315226e-12, "2": 0.0907505909955886, "3": 0.03555773746168982, "4": 0.011010132301657174, "5": 0.002805541613126749, "6": 0.0006059100449899698, "7": 0.00011339281027450526, "8": 1.870645227399468e-05, "9": 2.757607029896871e-06} |
+| Raw goal margin distribution | {"-1": 0.19895693831075367, "-10": 1.021733630707245e-06, "-11": 1.3612638666404986e-07, "-12": 1.6662387734842568e-08, "-13": 1.8853911190595588e-09, "-14": 1.9699314484556867e-10, "-15": 1.7221273176443e-11, "-2": 0.12025542670157811, "-3": 0.05169516817637922, "-4": 0.017561798221070696, "-5": 0.004909686613437139, "-6": 0.0011633377508712716, "-7": 0.00023886020436284257, "-8": 4.3232497281154896e-05, "-9": 6.992168441661066e-06, "0": 0.2696223751599177, "1": 0.18047147747547929, "10": 4.043259079007926e-07, "11": 4.909933236712763e-08, "12": 5.477846956935108e-09, "13": 5.649545405894475e-10, "14": 5.380251137945057e-11, "15": 4.287025617320283e-12, "2": 0.09990413410822352, "3": 0.03914426267626558, "4": 0.012120667446314608, "5": 0.0030885220965408498, "6": 0.0006670250598714031, "7": 0.00012483015703030733, "8": 2.0593275439507517e-05, "9": 3.035752599627576e-06} |
 | Research history json | {"away": [{"away": "Eyupspor", "away_goals": 0.0, "away_xg": 0.59, "date": "2026-11-22T00:00:00+00:00", "home": "Trabzonspor", "home_goals": 1.0, "home_xg": 2.43, "source": "pipeline training history"}, {"away": "Trabzonspor", "away_goals": 2.0, "away_xg": 2.84, "date": "2026-11-08T00:00:00+00:00", "home": "Alanyaspor", "home_goals": 0.0, "home_xg": 2.13, "source": "pipeline training history"}, {"away": "Gaziantep", "away_goals": 0.0, "away_xg": 0.51, "date": "2026-11-01T00:00:00+00:00", "home": "Trabzonspor", "home_goals": 2.0, "home_xg": 1.37, "source": "pipeline training history"}, {"away": "Trabzonspor", "away_goals": 4.0, "away_xg": 2.63, "date": "2026-10-26T00:00:00+00:00", "home": "Rizespor", "home_goals": 3.0, "home_xg": 1.81, "source": "pipeline training history"}, {"away": "Besiktas", "away_goals": 0.0, "away_xg": 1.19, "date": "2026-10-19T00:00:00+00:00", "home": "Trabzonspor", "home_goals": 2.0, "home_xg": 2.35, "source": "pipeline training history"}, {"away": "Trabzonspor", "away_goals": 3.0, "away_xg": 2.02, "date": "2026-10-10T00:00:00+00:00", "home": "Samsunspor", "home_goals": 0.0, "home_xg": 1.66, "source": "pipeline training history"}, {"away": "Galatasaray", "away_goals": 0.0, "away_xg": 0.86, "date": "2026-09-19T00:00:00+00:00", "home": "Trabzonspor", "home_goals": 4.0, "home_xg": 2.28, "source": "pipeline training history"}, {"away": "Trabzonspor", "away_goals": 0.0, "away_xg": 0.92, "date": "2026-09-12T00:00:00+00:00", "home": "Konyaspor", "home_goals": 1.0, "home_xg": 1.05, "source": "pipeline training history"}, {"away": "Genclerbirligi", "away_goals": 0.0, "away_xg": 0.86, "date": "2026-09-06T00:00:00+00:00", "home": "Trabzonspor", "home_goals": 5.0, "home_xg": 3.2, "source": "pipeline training history"}, {"away": "Trabzonspor", "away_goals": 1.0, "away_xg": 0.84, "date": "2026-08-31T00:00:00+00:00", "home": "Amedspor", "home_goals": 2.0, "home_xg": 2.39, "source": "pipeline training history"}], "h2h": [{"away": "Goztep", "away_goals": 1.0, "away_xg": null, "date": "2026-05-02T00:00:00+00:00", "home": "Trabzonspor", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Trabzonspor", "away_goals": 2.0, "away_xg": null, "date": "2025-12-07T00:00:00+00:00", "home": "Goztep", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Goztep", "away_goals": 1.0, "away_xg": null, "date": "2025-03-29T00:00:00+00:00", "home": "Trabzonspor", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Trabzonspor", "away_goals": 1.0, "away_xg": null, "date": "2024-10-26T00:00:00+00:00", "home": "Goztep", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}], "home": [{"away": "Goztep", "away_goals": 1.0, "away_xg": 2.01, "date": "2026-11-22T00:00:00+00:00", "home": "Erzurumspor", "home_goals": 0.0, "home_xg": 0.95, "source": "pipeline training history"}, {"away": "Buyuksehyr", "away_goals": 2.0, "away_xg": 1.4, "date": "2026-11-07T00:00:00+00:00", "home": "Goztep", "home_goals": 1.0, "home_xg": 1.54, "source": "pipeline training history"}, {"away": "Goztep", "away_goals": 2.0, "away_xg": 1.4, "date": "2026-10-31T00:00:00+00:00", "home": "Fenerbahce", "home_goals": 1.0, "home_xg": 1.51, "source": "pipeline training history"}, {"away": "Corum", "away_goals": 0.0, "away_xg": 0.56, "date": "2026-10-25T00:00:00+00:00", "home": "Goztep", "home_goals": 2.0, "home_xg": 2.0, "source": "pipeline training history"}, {"away": "Goztep", "away_goals": 2.0, "away_xg": 0.83, "date": "2026-10-18T00:00:00+00:00", "home": "Kocaelispor", "home_goals": 1.0, "home_xg": 1.61, "source": "pipeline training history"}, {"away": "Goztep", "away_goals": 4.0, "away_xg": 3.21, "date": "2026-10-12T00:00:00+00:00", "home": "Eyupspor", "home_goals": 0.0, "home_xg": 1.39, "source": "pipeline training history"}, {"away": "Rizespor", "away_goals": 2.0, "away_xg": 0.78, "date": "2026-09-20T00:00:00+00:00", "home": "Goztep", "home_goals": 2.0, "home_xg": 2.78, "source": "pipeline training history"}, {"away": "Goztep", "away_goals": 2.0, "away_xg": 1.79, "date": "2026-09-12T00:00:00+00:00", "home": "Alanyaspor", "home_goals": 2.0, "home_xg": 1.73, "source": "pipeline training history"}, {"away": "Gaziantep", "away_goals": 4.0, "away_xg": 1.23, "date": "2026-09-07T00:00:00+00:00", "home": "Goztep", "home_goals": 2.0, "home_xg": 3.05, "source": "pipeline training history"}, {"away": "Goztep", "away_goals": 2.0, "away_xg": 0.63, "date": "2026-08-29T00:00:00+00:00", "home": "Galatasaray", "home_goals": 3.0, "home_xg": 2.92, "source": "pipeline training history"}], "teams": {"away": "Trabzonspor", "home": "Goztep"}} |
 | Unadjusted home-win probability | 33.6% |
 | Unadjusted draw probability | 27.0% |
@@ -2135,16 +1781,16 @@ The model's most likely 1X2 outcome is **Trabzonspor win** at **44.6%**. Expecte
 | Unanchored p over 2 5 | 0.5485 |
 | Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
 | Bet365 pinnacle quotes | [] |
-| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": -0.25, "market_key": "spreads", "opposite_price": 2.04, "price": 1.8197, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "line": 0.25, "market_key": "spreads", "opposite_price": 1.8197, "price": 2.04, "quote_source": "The Odds API", "side": "home"}] |
-| Price edge quotes | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-27T16:28:52Z", "market": "h2h", "market_key": "h2h", "point": null, "prices": {"away": 2.07, "draw": 3.9, "home": 3.25}}] |
+| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": -0.25, "market_key": "spreads", "opposite_price": 2.04, "price": 1.8197, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "line": 0.25, "market_key": "spreads", "opposite_price": 1.8197, "price": 2.04, "quote_source": "The Odds API", "side": "home"}] |
+| Price edge quotes | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-11-28T06:35:43Z", "market": "h2h", "market_key": "h2h", "point": null, "prices": {"away": 2.07, "draw": 3.9, "home": 3.25}}] |
 | 1X2 market source | The Odds API / Pinnacle |
 | Reference home odds | 3.25 |
 | Reference draw odds | 3.90 |
 | Reference away odds | 2.07 |
-| Market reference 1x2 last update utc | 2026-11-27T16:28:52Z |
-| Market reference home last update utc | 2026-11-27T16:28:52Z |
-| Market reference draw last update utc | 2026-11-27T16:28:52Z |
-| Market reference away last update utc | 2026-11-27T16:28:52Z |
+| Market reference 1x2 last update utc | 2026-11-28T06:35:43Z |
+| Market reference home last update utc | 2026-11-28T06:35:43Z |
+| Market reference draw last update utc | 2026-11-28T06:35:43Z |
+| Market reference away last update utc | 2026-11-28T06:35:43Z |
 | O/U 2.5 market source | The Odds API / unavailable reference |
 | Home probability edge | +1.3% |
 | Draw probability edge | +0.9% |
@@ -2171,6 +1817,6 @@ The model's most likely 1X2 outcome is **Trabzonspor win** at **44.6%**. Expecte
 | Research v4 p over 1 5 | 0.8027 |
 | Research version | team-form-research-v5 |
 | Research probability basis | team_form_poisson_v1 |
-| Team research json | {"base_rates": [1.355926436881926, 1.4876905615950535], "c6_fit": {"candidate_version": "research-low-score-then-sharpen-walk-forward-v1", "delta": 0.055466179703356835, "end_exclusive": "2026-11-30", "expected_origin": "2026-11-16", "fits_version": "research-c6-live-fits-v1", "low_score_status": "fitted", "origin": "2026-11-16", "rho": -0.016463701485858812, "slope": 1.1507759984871408, "slope_status": "fitted", "stale": false}, "coverage": {"form": "last ten, exponential rank half-life five matches", "h2h": "last four years; descriptive only", "training_cache": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED", "venue_splits": "home team home matches / away team away matches", "xg": "verified supplied xG; no goals-to-xG substitution"}, "evidence": {"coverage": {}, "errors": ["free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing"], "news": [], "quality_review": {"absence_note": "Reported absences only; not proof of complete coverage or a fitted player-value effect", "assessed_at_utc": "2026-11-27T16:30:31.995988+00:00", "availability": "UNAVAILABLE_OR_STALE", "form": {"away": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 10.0}, "home": {"matches": 10.0, "venue_matches": 4.0, "xg_matches": 10.0}}, "lineups": "UNCONFIRMED_OR_STALE", "probability_effect": "NONE; factual coverage/freshness review, not a calibrated confidence score", "status": "REVIEW_REQUIRED", "summary_max_age_minutes": 180, "training": {"cutoff": "2026-11-23", "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}, "version": "pre-match-research-quality-v1", "warnings": ["Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"], "weather": "UNAVAILABLE_INCOMPLETE_OR_STALE", "weather_max_age_minutes": 180}, "review_links": [{"label": "Sofascore", "status": "reference only; no authorized public bulk API", "url": "https://www.sofascore.com/football"}, {"label": "Sports Mole previews", "status": "reference only; article reproduction requires permission", "url": "https://www.sportsmole.co.uk/football/"}], "sources": [{"observed_at_utc": "2026-11-27T16:30:31.913524+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20261130"}, {"observed_at_utc": "2026-11-27T16:30:31.168273+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/news?limit=20"}, {"observed_at_utc": "2026-11-27T16:30:31.915669+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://www.bing.com/news/search?q=%22Goztepe%22+%22Trabzonspor%22+injury+suspension+lineup+preview&format=rss"}, {"observed_at_utc": "2026-11-27T16:29:48.450142+00:00", "reason": null, "status": "available", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"}, {"observed_at_utc": "2026-11-27T16:29:48.521989+00:00", "reason": null, "status": "available", "url": "https://www.theguardian.com/football/rss"}, {"observed_at_utc": "2026-11-27T16:30:31.995586+00:00", "reason": "TheSportsDB free source limit: 30 requests per minute", "status": "unavailable", "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=Goztepe_vs_Trabzonspor&d=2026-11-30"}]}, "evidence_quality_version": "pre-match-research-quality-v1", "form": {"away": {"all": {"goals_against": 0.5061542334622432, "goals_for": 2.2821404902383073, "last_match": "2026-11-22T00:00:00+00:00", "matches": 10, "points_per_game": 2.6550929892654613, "results": "WWWWWWWLWL", "xg_against": 1.2566372095618092, "xg_for": 2.187415585281156, "xg_matches": 10}, "venue": {"goals_against": 1.1443599460154796, "goals_for": 2.1566603093524503, "last_match": "2026-11-08T00:00:00+00:00", "matches": 5, "points_per_game": 2.041476267681317, "results": "WWWLL", "xg_against": 1.8198461246384823, "xg_for": 2.006427087594339, "xg_matches": 5}}, "home": {"all": {"goals_against": 1.1879573271765764, "goals_for": 1.8497436266121, "last_match": "2026-11-22T00:00:00+00:00", "matches": 10, "points_per_game": 1.948660825183836, "results": "WLWWWWDDLL", "xg_against": 1.301685163037578, "xg_for": 1.8793055692719491, "xg_matches": 10}, "venue": {"goals_against": 1.871784567488294, "goals_for": 1.6958788052067608, "last_match": "2026-11-07T00:00:00+00:00", "matches": 4, "points_per_game": 1.0247393989001585, "results": "LWDL", "xg_against": 1.0005998302673098, "xg_for": 2.250556667574155, "xg_matches": 4}}}, "goal_rates": [1.3742672765188384, 1.6381282406880016], "h2h": [{"away": "Goztep", "away_goals": 1.0, "away_xg": null, "date": "2026-05-02T00:00:00+00:00", "home": "Trabzonspor", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Trabzonspor", "away_goals": 2.0, "away_xg": null, "date": "2025-12-07T00:00:00+00:00", "home": "Goztep", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Goztep", "away_goals": 1.0, "away_xg": null, "date": "2025-03-29T00:00:00+00:00", "home": "Trabzonspor", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Trabzonspor", "away_goals": 1.0, "away_xg": null, "date": "2024-10-26T00:00:00+00:00", "home": "Goztep", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}], "margin_distribution": {"-1": 0.21176164097469763, "-10": 2.3228386877837933e-06, "-11": 3.401981774389711e-07, "-12": 4.578697961373336e-08, "-13": 5.697126947912417e-09, "-14": 6.536648266678303e-10, "-15": 6.207018621630174e-11, "-2": 0.13246057882567228, "-3": 0.06183214862151576, "-4": 0.022914734000969262, "-5": 0.007007408966208904, "-6": 0.001819317178336685, "-7": 0.0004097685080611149, "-8": 8.142178314314028e-05, "-9": 1.446523566554809e-05, "0": 0.2541817161569597, "1": 0.1693100596376565, "10": 3.8290107279846153e-07, "11": 4.704601285609076e-08, "12": 5.311976487174747e-09, "13": 5.544895337104283e-10, "14": 5.3372295337617114e-11, "15": 4.251744125459155e-12, "2": 0.0889954323888257, "3": 0.03485127853758547, "4": 0.010835339039998936, "5": 0.0027797673991254747, "6": 0.0006054561861491526, "7": 0.00011440267703227576, "8": 1.9070475673052253e-05, "9": 2.842298840853926e-06}, "model_note": "Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient", "observed_at_utc": "2026-11-27T16:30:31.995988+00:00", "p_over_1_5": 0.8045379862871073, "shadow_v4": {"grid": "independent Poisson (C)", "margin_distribution": {"-1": 0.21240217548070445, "-10": 2.3098730012336065e-06, "-11": 3.3829924964996177e-07, "-12": 4.553140455857623e-08, "-13": 5.665326563911695e-09, "-14": 6.500161818884791e-10, "-15": 6.172372109893273e-11, "-2": 0.13172120662804945, "-3": 0.06148701218911199, "-4": 0.02278682789194843, "-5": 0.006968294813055411, "-6": 0.0018091620623599534, "-7": 0.0004074812506369985, "-8": 8.096730073584129e-05, "-9": 1.4384493204825164e-05, "0": 0.24016576333973386, "1": 0.17818956536757427, "10": 3.98860640167047e-07, "11": 4.900692146914998e-08, "12": 5.533383144481318e-09, "13": 5.776010204549041e-10, "14": 5.5596887545811534e-11, "15": 4.428959603881094e-12, "2": 0.09270482026889947, "3": 0.036303902641343706, "4": 0.011286963064205699, "5": 0.0028956299240097856, "6": 0.0006306919963310172, "7": 0.0001191710555011555, "8": 1.986534558300219e-05, "9": 2.960767717163752e-06}, "p_over_1_5": 0.8026955019885256, "version": "team-form-research-v4"}, "version": "team-form-research-v5", "warnings": ["availability unavailable or unconfirmed", "lineups unavailable or unconfirmed", "rotation unavailable or unconfirmed", "tactics unavailable or unconfirmed", "motivation unavailable or unconfirmed", "rivalry unavailable or unconfirmed", "weather unavailable or unconfirmed", "travel unavailable or unconfirmed", "free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing", "Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"]} |
+| Team research json | {"base_rates": [1.3559411609507908, 1.4876523621786135], "c6_fit": {"candidate_version": "research-low-score-then-sharpen-walk-forward-v1", "delta": 0.055466179703356835, "end_exclusive": "2026-11-30", "expected_origin": "2026-11-16", "fits_version": "research-c6-live-fits-v1", "low_score_status": "fitted", "origin": "2026-11-16", "rho": -0.016463701485858812, "slope": 1.1507759984871408, "slope_status": "fitted", "stale": false}, "coverage": {"form": "last ten, exponential rank half-life five matches", "h2h": "last four years; descriptive only", "training_cache": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED", "venue_splits": "home team home matches / away team away matches", "xg": "verified supplied xG; no goals-to-xG substitution"}, "evidence": {"coverage": {}, "errors": ["free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing"], "news": [], "quality_review": {"absence_note": "Reported absences only; not proof of complete coverage or a fitted player-value effect", "assessed_at_utc": "2026-11-28T06:36:59.321656+00:00", "availability": "UNAVAILABLE_OR_STALE", "form": {"away": {"matches": 10.0, "venue_matches": 5.0, "xg_matches": 10.0}, "home": {"matches": 10.0, "venue_matches": 4.0, "xg_matches": 10.0}}, "lineups": "UNCONFIRMED_OR_STALE", "probability_effect": "NONE; factual coverage/freshness review, not a calibrated confidence score", "status": "REVIEW_REQUIRED", "summary_max_age_minutes": 180, "training": {"cutoff": "2026-11-23", "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}, "version": "pre-match-research-quality-v1", "warnings": ["Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"], "weather": "UNAVAILABLE_INCOMPLETE_OR_STALE", "weather_max_age_minutes": 180}, "review_links": [{"label": "Sofascore", "status": "reference only; no authorized public bulk API", "url": "https://www.sofascore.com/football"}, {"label": "Sports Mole previews", "status": "reference only; article reproduction requires permission", "url": "https://www.sportsmole.co.uk/football/"}], "sources": [{"observed_at_utc": "2026-11-28T06:36:59.256420+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20261130"}, {"observed_at_utc": "2026-11-28T06:36:58.387112+00:00", "reason": null, "status": "available", "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/news?limit=20"}, {"observed_at_utc": "2026-11-28T06:36:59.265124+00:00", "reason": "free research request budget reached", "status": "unavailable", "url": "https://www.bing.com/news/search?q=%22Goztepe%22+%22Trabzonspor%22+injury+suspension+lineup+preview&format=rss"}, {"observed_at_utc": "2026-11-28T06:36:29.662572+00:00", "reason": null, "status": "available", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"}, {"observed_at_utc": "2026-11-28T06:36:29.767100+00:00", "reason": null, "status": "available", "url": "https://www.theguardian.com/football/rss"}, {"observed_at_utc": "2026-11-28T06:36:59.321311+00:00", "reason": "TheSportsDB free source limit: 30 requests per minute", "status": "unavailable", "url": "https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=Goztepe_vs_Trabzonspor&d=2026-11-30"}]}, "evidence_quality_version": "pre-match-research-quality-v1", "form": {"away": {"all": {"goals_against": 0.5061542334622432, "goals_for": 2.2821404902383073, "last_match": "2026-11-22T00:00:00+00:00", "matches": 10, "points_per_game": 2.6550929892654613, "results": "WWWWWWWLWL", "xg_against": 1.2566372095618092, "xg_for": 2.187415585281156, "xg_matches": 10}, "venue": {"goals_against": 1.1443599460154796, "goals_for": 2.1566603093524503, "last_match": "2026-11-08T00:00:00+00:00", "matches": 5, "points_per_game": 2.041476267681317, "results": "WWWLL", "xg_against": 1.8198461246384823, "xg_for": 2.006427087594339, "xg_matches": 5}}, "home": {"all": {"goals_against": 1.1879573271765764, "goals_for": 1.8497436266121, "last_match": "2026-11-22T00:00:00+00:00", "matches": 10, "points_per_game": 1.948660825183836, "results": "WLWWWWDDLL", "xg_against": 1.301685163037578, "xg_for": 1.8793055692719491, "xg_matches": 10}, "venue": {"goals_against": 1.871784567488294, "goals_for": 1.6958788052067608, "last_match": "2026-11-07T00:00:00+00:00", "matches": 4, "points_per_game": 1.0247393989001585, "results": "LWDL", "xg_against": 1.0005998302673098, "xg_for": 2.250556667574155, "xg_matches": 4}}}, "goal_rates": [1.3742777937108848, 1.6381009553905446], "h2h": [{"away": "Goztep", "away_goals": 1.0, "away_xg": null, "date": "2026-05-02T00:00:00+00:00", "home": "Trabzonspor", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Trabzonspor", "away_goals": 2.0, "away_xg": null, "date": "2025-12-07T00:00:00+00:00", "home": "Goztep", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Goztep", "away_goals": 1.0, "away_xg": null, "date": "2025-03-29T00:00:00+00:00", "home": "Trabzonspor", "home_goals": 1.0, "home_xg": null, "source": "pipeline training history"}, {"away": "Trabzonspor", "away_goals": 1.0, "away_xg": null, "date": "2024-10-26T00:00:00+00:00", "home": "Goztep", "home_goals": 2.0, "home_xg": null, "source": "pipeline training history"}], "margin_distribution": {"-1": 0.21175952908370607, "-10": 2.322481258409148e-06, "-11": 3.4014021341910106e-07, "-12": 4.577842152680435e-08, "-13": 5.695967899800764e-09, "-14": 6.535211167275543e-10, "-15": 6.205557919530794e-11, "-2": 0.13245732041541433, "-3": 0.06182967132912927, "-4": 0.02291345263503441, "-5": 0.007006904411655052, "-6": 0.0018191566551620075, "-7": 0.00040972566293834257, "-8": 8.141193488293654e-05, "-9": 1.4463248189495604e-05, "0": 0.2541831837709282, "1": 0.16931362824919224, "10": 3.829377264981352e-07, "11": 4.70508833811712e-08, "12": 5.312567743803959e-09, "13": 5.545555623539938e-10, "14": 5.3379072480610116e-11, "15": 4.2523215449642035e-12, "2": 0.08899814988183723, "3": 0.03485265093721563, "4": 0.01083585733461898, "5": 0.0027799232284866798, "6": 0.0006054950185388153, "7": 0.00011441092765403658, "8": 1.9072001941041464e-05, "9": 2.84254867298372e-06}, "model_note": "Poisson team rates with ten-match shrinkage; qualitative context has no fitted coefficient", "observed_at_utc": "2026-11-28T06:36:59.321656+00:00", "p_over_1_5": 0.8045354636064093, "shadow_v4": {"grid": "independent Poisson (C)", "margin_distribution": {"-1": 0.21240056935769314, "-10": 2.3095228295071455e-06, "-11": 3.3824237990318185e-07, "-12": 4.5522997971306087e-08, "-13": 5.664186891971142e-09, "-14": 6.498747549339303e-10, "-15": 6.170933622432019e-11, "-2": 0.13171826654234733, "-3": 0.06148468882515785, "-4": 0.022785605598251917, "-5": 0.006967808951869188, "-6": 0.001809006557247475, "-7": 0.0004074395730707546, "-8": 8.095769191923766e-05, "-9": 1.4382549594974347e-05, "0": 0.2401671623463137, "1": 0.17819254965896425, "10": 3.9889713163940916e-07, "11": 4.901178735634692e-08, "12": 5.533975599695232e-09, "13": 5.776673538556793e-10, "14": 5.5603711592493566e-11, "15": 4.429542324299932e-12, "2": 0.09270725826292274, "3": 0.03630517843206703, "4": 0.01128745514097163, "5": 0.0028957799801072937, "6": 0.0006307297751146503, "7": 0.00011917914509690229, "8": 1.9866851298444026e-05, "9": 2.9610154177487035e-06}, "p_over_1_5": 0.8026930181024667, "version": "team-form-research-v4"}, "version": "team-form-research-v5", "warnings": ["availability unavailable or unconfirmed", "lineups unavailable or unconfirmed", "rotation unavailable or unconfirmed", "tactics unavailable or unconfirmed", "motivation unavailable or unconfirmed", "rivalry unavailable or unconfirmed", "weather unavailable or unconfirmed", "travel unavailable or unconfirmed", "free-source fixture identity missing or ambiguous", "TheSportsDB venue: exact fixture identity/time unavailable", "weather unavailable: verified venue coordinates/location missing", "Research review: starting XIs not freshly confirmed for both teams; check before betting tight AH", "Research review: missing absence reports do not mean both teams have full squads", "Research review: match-window weather missing, incomplete or stale; no numerical weather adjustment", "Research review: inspect training status RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED; completeness/freshness not established by this review"]} |
 
 </details>

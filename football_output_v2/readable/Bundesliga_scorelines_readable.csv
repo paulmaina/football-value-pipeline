@@ -1,884 +1,810 @@
 ﻿Match date,League,Home team,Away team,Model,Rank,Score,Probability,Probability (decimal)
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,1,2-1,9.94%,0.09939215567008428
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,2,1-1,9.74%,0.09740716652372125
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,3,2-0,8.01%,0.0801114543056821
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,4,1-0,7.44%,0.0743582204669951
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,5,3-1,6.99%,0.06993002669205914
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,6,2-2,6.27%,0.06273781332025548
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,7,3-0,5.64%,0.05636457022354544
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,8,1-2,5.05%,0.05050280648995479
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,9,3-2,4.34%,0.043380164292544314
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,10,0-0,3.82%,0.03817160811994277
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,11,0-1,3.72%,0.03723015012941596
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,12,4-1,3.69%,0.03690086456156815
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,13,4-0,2.97%,0.02974260800798792
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,14,0-2,2.39%,0.023926692828388524
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,15,4-2,2.29%,0.02289096176477687
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,16,2-3,2.20%,0.022042182584719003
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,17,1-3,2.09%,0.020885830654845998
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,18,3-3,1.83%,0.01825480512581213
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,19,5-1,1.56%,0.015577557965334745
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,20,5-0,1.26%,0.012555727509083922
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,21,0-3,0.99%,0.009895070972810968
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,22,5-2,0.97%,0.009663331415395965
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,23,4-3,0.95%,0.009466736290007563
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,24,2-4,0.68%,0.006836787765733464
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,25,1-4,0.65%,0.006478123976580443
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,26,6-1,0.55%,0.005480005121977817
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,27,3-4,0.48%,0.004810206074336965
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,28,6-0,0.44%,0.004416960040402528
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,29,5-3,0.40%,0.003996346293027449
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,30,6-2,0.34%,0.003399448473861036
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,31,0-4,0.31%,0.003069137999740454
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,32,4-4,0.30%,0.0029877726773831557
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,33,2-5,0.17%,0.0016964442345591324
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,34,7-1,0.17%,0.0016524021949890551
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,35,1-5,0.16%,0.0016074473052843357
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,36,6-3,0.14%,0.001405868506714741
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,37,7-0,0.13%,0.0013318590591583075
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,38,5-4,0.12%,0.0012395402015563447
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,39,3-5,0.12%,0.0011935790083685322
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,40,7-2,0.10%,0.0010250457791420489
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,41,0-5,0.08%,0.0007615596158801432
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,42,4-5,0.06%,0.0006298309812648678
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,43,6-4,0.04%,0.00043605593819918205
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,44,8-1,0.04%,0.00043597201719253095
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,45,7-3,0.04%,0.00042391569983113366
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,46,8-0,0.04%,0.00035139948518480375
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,47,2-6,0.04%,0.0003507888913603183
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,48,1-6,0.03%,0.000332386203244318
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,49,5-5,0.03%,0.00031296651629661925
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,50,8-2,0.03%,0.00027044945679838473
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,51,3-6,0.02%,0.00024680696751894985
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,52,0-6,0.02%,0.00015747446801798982
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,53,7-4,0.01%,0.00013148524013756514
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,54,4-6,0.01%,0.0001302357644073701
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,55,8-3,0.01%,0.00011184648830376733
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,56,6-5,0.01%,0.00010820060643259041
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Research,57,9-1,0.01%,0.00010224661625699741
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,1,2-1,10.25%,0.10246122824934292
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,2,1-1,10.13%,0.10133279951960043
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,3,1-0,8.21%,0.08205713447170829
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,4,2-0,7.96%,0.07962794068863693
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,5,3-1,6.30%,0.06295875684283175
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,6,3-0,5.92%,0.05919028482961024
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,7,2-2,5.76%,0.05758473508115429
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,8,1-2,5.63%,0.05628089779692711
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,9,0-0,4.52%,0.04516429543566556
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,10,0-1,4.32%,0.043209543851175126
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,11,3-2,4.05%,0.0405060805251291
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,12,4-1,3.51%,0.035099615014065985
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,13,4-0,3.04%,0.03042726920740248
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,14,0-2,2.45%,0.024537695960012904
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,15,2-3,2.22%,0.0222495730057141
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,16,1-3,1.94%,0.019401014519144055
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,17,4-2,1.87%,0.01866715233174642
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,18,3-3,1.52%,0.01517668003835341
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,19,5-1,1.44%,0.01443460443798922
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,20,5-0,1.25%,0.01251311716556023
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,21,0-3,1.02%,0.010232589786294474
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,22,5-2,0.83%,0.008325575574992614
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,23,4-3,0.80%,0.00800665084511499
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,24,1-4,0.61%,0.006067887038045276
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,25,2-4,0.58%,0.005752364112324761
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,26,6-1,0.49%,0.0049468207651688825
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,27,3-4,0.44%,0.004397970877462002
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,28,6-0,0.43%,0.0042883161847286026
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,29,5-3,0.30%,0.002951880192903783
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,30,0-4,0.30%,0.002950971048762584
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,31,6-2,0.29%,0.0028532219440641294
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,32,4-4,0.22%,0.0022499284640685718
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,33,7-1,0.15%,0.0014531173010267364
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,34,2-5,0.14%,0.0014392936246029752
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,35,1-5,0.14%,0.0013999317357892614
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,36,7-0,0.13%,0.001259683084573889
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,37,6-3,0.11%,0.0010971188498021338
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,38,5-4,0.09%,0.0009495827331278377
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,39,3-5,0.09%,0.0009096347093425905
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,40,7-2,0.08%,0.000838127429192835
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,41,0-5,0.07%,0.0006808231591418817
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,42,4-5,0.05%,0.0005215960189627857
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,43,8-1,0.04%,0.0003734936521724267
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,44,8-0,0.03%,0.0003237754003100077
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,45,7-3,0.03%,0.0003222761562649032
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,46,6-4,0.03%,0.0002917422981289049
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,47,2-6,0.03%,0.00027671807467292975
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,48,1-6,0.03%,0.00026915037208477614
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,49,8-2,0.02%,0.00021542326575695977
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,50,5-5,0.02%,0.00021347185099806048
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,51,3-6,0.02%,0.00018966570559938244
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,Cagey,52,0-6,0.01%,0.00013089481574161182
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,"Benchmark (70% Pinnacle blend), display only",1,2-1,10.66%,0.10655504397982835
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,"Benchmark (70% Pinnacle blend), display only",2,1-1,10.23%,0.10233482055596882
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,"Benchmark (70% Pinnacle blend), display only",3,2-0,8.03%,0.08029181082594869
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,"Benchmark (70% Pinnacle blend), display only",4,1-0,7.92%,0.07916585418210756
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,"Benchmark (70% Pinnacle blend), display only",5,3-1,6.58%,0.06576790151713029
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,"Benchmark (70% Pinnacle blend), display only",6,2-2,5.90%,0.058993456308708045
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,"Benchmark (70% Pinnacle blend), display only",7,1-2,5.61%,0.05612783635000147
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,"Benchmark (70% Pinnacle blend), display only",8,3-0,4.96%,0.04955770942230299
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,"Benchmark (70% Pinnacle blend), display only",9,0-0,4.54%,0.04538470439511884
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,"Benchmark (70% Pinnacle blend), display only",10,3-2,4.36%,0.04364020170008437
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,"Benchmark (70% Pinnacle blend), display only",11,0-1,4.01%,0.04012688739940175
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,"Benchmark (70% Pinnacle blend), display only",12,4-1,3.04%,0.03044494686792428
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,"Benchmark (70% Pinnacle blend), display only",13,0-2,3.03%,0.030312173227387367
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,"Benchmark (70% Pinnacle blend), display only",14,1-3,2.48%,0.024829033036887545
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,"Benchmark (70% Pinnacle blend), display only",15,2-3,2.30%,0.022987462703005276
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,"Benchmark (70% Pinnacle blend), display only",16,4-0,2.29%,0.022941006105616116
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,"Benchmark (70% Pinnacle blend), display only",17,4-2,2.02%,0.02020170313201352
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,"Benchmark (70% Pinnacle blend), display only",18,3-3,1.61%,0.016107395365125423
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,"Benchmark (70% Pinnacle blend), display only",19,0-3,1.34%,0.013409067575480119
-2026-11-27,Bundesliga,Werder Bremen,Borussia Monchengladbach,"Benchmark (70% Pinnacle blend), display only",20,5-1,1.13%,0.011274737595807993
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,1,1-1,11.26%,0.11263795422710757
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,2,2-1,8.81%,0.0881192088603492
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,3,1-2,7.65%,0.07648830192279703
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,4,1-0,6.99%,0.06986475125636386
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,5,2-2,6.82%,0.0681766517442383
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,6,0-1,6.05%,0.06046402267018645
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,7,2-0,5.94%,0.059394948372515945
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,8,3-1,4.87%,0.048722664957069756
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,9,0-0,4.69%,0.046853172866046094
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,10,0-2,4.61%,0.04611193208504495
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,11,1-3,3.78%,0.03782638556080338
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,12,3-2,3.61%,0.036142827018362626
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,13,3-0,3.28%,0.032840514651950106
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,14,2-3,3.14%,0.03137231372225681
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,15,0-3,2.28%,0.022804110931407988
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,16,4-1,2.02%,0.02020471567340963
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,17,3-3,1.86%,0.01864214747689683
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,18,4-2,1.50%,0.01498800494970222
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,19,1-4,1.40%,0.01402994387990296
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,20,4-0,1.36%,0.013618574880822795
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,21,2-4,1.16%,0.01163610517844635
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,22,0-4,0.85%,0.008458127623228841
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,23,4-3,0.74%,0.007412140677235911
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,24,5-1,0.67%,0.0067029262180633665
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,25,3-4,0.64%,0.006433807808160787
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,26,5-2,0.50%,0.004972279390500768
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,27,5-0,0.45%,0.004517970165819298
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,28,1-5,0.42%,0.004163005740145498
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,29,2-5,0.35%,0.003452698960556638
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,30,4-4,0.29%,0.0028673369868314823
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,31,0-5,0.25%,0.0025097202203939544
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,32,5-3,0.25%,0.002458981996109145
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,33,3-5,0.19%,0.0019090581591514916
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,34,6-1,0.19%,0.0018530830710942329
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,35,6-2,0.14%,0.0013746304917481066
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,36,6-0,0.12%,0.0012490326996926822
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,37,1-6,0.10%,0.001029382639305577
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,38,5-4,0.09%,0.0009120453592280878
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,39,2-6,0.09%,0.0008537457285901304
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,40,4-5,0.08%,0.000791663948259912
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,41,6-3,0.07%,0.0006798072604224338
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,42,0-6,0.06%,0.0006205762340114886
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,43,3-6,0.05%,0.00047205107297943
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,44,7-1,0.04%,0.00043911527890893193
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,45,7-2,0.03%,0.00032573890571686994
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,46,7-0,0.03%,0.0002959766622702246
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,47,5-5,0.03%,0.0002822549118868504
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,48,6-4,0.03%,0.00025214298356754643
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,49,1-7,0.02%,0.00021817243547687552
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,50,4-6,0.02%,0.00019575402374400275
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,51,2-7,0.02%,0.0001809470820395244
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,52,7-3,0.02%,0.00016109032531846703
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,53,0-7,0.01%,0.0001315279889164344
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,54,3-7,0.01%,0.00010004883347447047
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,1,1-1,11.83%,0.11831547398158096
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,2,2-1,9.61%,0.09608733593818915
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,3,1-0,7.46%,0.07456934513131254
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,4,1-2,7.09%,0.07088613117407178
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,5,2-0,6.90%,0.06904033164361485
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,6,2-2,6.29%,0.06292715578977076
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,7,0-0,5.65%,0.056467864680134684
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,8,3-1,5.30%,0.052964067621198624
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,9,0-1,5.27%,0.05273575145046854
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,10,3-0,4.20%,0.04197548834497532
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,11,0-2,3.79%,0.037857526902537436
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,12,3-2,3.69%,0.036856544841364094
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,13,1-3,2.90%,0.02904227959372466
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,14,2-3,2.72%,0.027190033387215908
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,15,4-1,2.42%,0.024151020318951315
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,16,4-0,1.85%,0.018465390656972256
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,17,0-3,1.71%,0.017108005351129236
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,18,3-3,1.61%,0.016091454830892107
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,19,4-2,1.52%,0.015236705083468062
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,20,1-4,0.98%,0.009843263322064703
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,21,5-1,0.85%,0.00849939891183745
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,22,2-4,0.84%,0.008354884150629197
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,23,4-3,0.71%,0.007068594858938091
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,24,5-0,0.65%,0.006498471666365535
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,25,0-4,0.56%,0.0055939215222592775
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,26,5-2,0.56%,0.005558213190067343
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,27,3-4,0.52%,0.0052146865920955415
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,28,1-5,0.26%,0.002574815306235738
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,29,6-1,0.25%,0.002492640783857382
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,30,5-3,0.23%,0.0023377578269199928
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,31,4-4,0.23%,0.002314595183434495
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,32,2-5,0.23%,0.0022653683077345763
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,33,6-0,0.19%,0.0019058236560428148
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,34,6-2,0.16%,0.001630071611727743
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,35,0-5,0.15%,0.001463266224434753
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,36,3-5,0.13%,0.0012818844828423716
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,37,5-4,0.08%,0.0008133974602588941
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,38,6-3,0.07%,0.0007106608853198514
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,39,7-1,0.06%,0.0006265913432028388
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,40,4-5,0.06%,0.000600064498631321
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,41,1-6,0.06%,0.0005612699809933913
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,42,2-6,0.05%,0.0004938153132560282
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,43,7-0,0.05%,0.00047907930106945483
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,44,7-2,0.04%,0.0004097617142927012
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,45,0-6,0.03%,0.0003189694437452487
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,46,3-6,0.03%,0.0002896449977894213
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,47,6-4,0.02%,0.00022417542159653707
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,48,5-5,0.02%,0.00021307610706843333
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,49,7-3,0.02%,0.00017864345379328513
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,50,8-1,0.01%,0.000137821552419204
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,51,4-6,0.01%,0.0001229241930323703
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,52,8-0,0.01%,0.00010537562275884367
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,53,1-7,0.01%,0.00010486987689720848
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",1,1-1,11.42%,0.114206490714326
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",2,2-1,9.99%,0.09993085011278176
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",3,1-0,7.70%,0.07702549871085478
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",4,1-2,6.92%,0.06922199247841139
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",5,2-0,6.59%,0.06590240298935643
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",6,2-2,6.26%,0.0625960070179407
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",7,0-1,5.33%,0.05326038959503771
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",8,0-0,5.29%,0.052907877269412054
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",9,3-1,5.13%,0.05132387248731589
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",10,0-2,4.49%,0.04492654340386983
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",11,3-2,3.89%,0.038912376302619976
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",12,1-3,3.50%,0.03498816553515473
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",13,3-0,3.38%,0.03384707048740306
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",14,2-3,2.70%,0.026954561246072557
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",15,0-3,2.27%,0.02270806258613759
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",16,4-1,1.98%,0.01976971989221579
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",17,3-3,1.62%,0.016249632470016713
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",18,4-2,1.50%,0.0149888685822258
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",19,1-4,1.33%,0.013263541871073464
-2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",20,4-0,1.30%,0.013037736053011475
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,1,1-1,10.89%,0.10893419176675188
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,2,2-1,10.14%,0.10139001237467767
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,3,1-0,9.30%,0.09296981589221102
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,4,2-0,9.12%,0.09117127959946524
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,5,3-1,6.51%,0.06507209754058804
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,6,3-0,5.85%,0.058513716095357056
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,7,2-2,5.74%,0.057368085982587025
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,8,0-0,5.18%,0.05181559240611847
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,9,1-2,5.07%,0.05065778335335595
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,10,0-1,4.58%,0.04581719061782005
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,11,3-2,3.62%,0.036182780388031056
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,12,4-1,3.13%,0.031322448181710746
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,13,4-0,2.82%,0.028165571874688225
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,14,0-2,2.63%,0.026310269558402002
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,15,1-3,1.88%,0.018778549939684527
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,16,2-3,1.81%,0.0180781065815977
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,17,4-2,1.74%,0.01741657802051667
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,18,3-3,1.36%,0.013648529460797578
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,19,5-1,1.21%,0.012061646047097306
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,20,5-0,1.08%,0.010845996350468337
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,21,0-3,0.98%,0.009753066125746356
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,22,5-2,0.67%,0.006706774585959363
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,23,4-3,0.65%,0.0064562256476036126
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,24,1-4,0.52%,0.00522082562383572
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,25,2-4,0.50%,0.005026087870191752
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,26,6-1,0.39%,0.0038705814788557442
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,27,6-0,0.35%,0.0034804795655533683
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,28,3-4,0.32%,0.003225742580325077
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,29,0-4,0.27%,0.0027115542842130747
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,30,5-3,0.25%,0.0024861628985647566
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,31,6-2,0.22%,0.0021522035544660925
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,32,4-4,0.18%,0.0018265177180667312
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,33,1-5,0.12%,0.0011611980810892176
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,34,2-5,0.11%,0.0011178851796173493
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,35,7-1,0.11%,0.001064630879871832
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,36,7-0,0.10%,0.0009573305826251318
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,37,6-3,0.08%,0.0007978095221024045
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,38,3-5,0.07%,0.0007174585715447224
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,39,5-4,0.07%,0.0006912047526324935
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,40,0-5,0.06%,0.0006030945789919271
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,41,7-2,0.06%,0.0005919788477187399
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,42,4-5,0.03%,0.00034534861759630156
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,43,8-1,0.03%,0.0002562299881806856
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,44,8-0,0.02%,0.00023040549406248384
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,45,6-4,0.02%,0.0002218075628475464
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,46,7-3,0.02%,0.00021944316587209727
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,47,1-6,0.02%,0.00021522473657698183
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,48,2-6,0.02%,0.00020719681441496498
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,49,5-5,0.02%,0.00015643786898480395
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,50,8-2,0.01%,0.000142474482021834
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,51,3-6,0.01%,0.00013297889014832648
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,52,0-6,0.01%,0.00011178185187215305
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,1,2-1,10.51%,0.10508065637141506
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,2,2-0,9.55%,0.09552423748034311
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,3,1-0,9.44%,0.09436285905645934
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,4,1-1,9.12%,0.09117788222005668
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,5,3-0,7.37%,0.07373247708703132
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,6,3-1,6.93%,0.06932796447162018
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,7,2-2,4.85%,0.0485152511546297
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,8,1-2,4.33%,0.043340144578169905
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,9,0-0,4.30%,0.04298430119968257
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,10,4-0,4.12%,0.041187744189019784
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,11,4-1,4.01%,0.0401342320550803
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,12,3-2,3.81%,0.038131830223042076
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,13,0-1,3.78%,0.03776686108139105
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,14,4-2,1.89%,0.018868378792740725
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,15,5-0,1.84%,0.018406328808161176
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,16,5-1,1.79%,0.017935526361402086
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,17,0-2,1.72%,0.017181415305969602
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,18,2-3,1.57%,0.01572733833195237
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,19,1-3,1.25%,0.012469636830647569
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,20,3-3,1.17%,0.011736859311306646
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,21,5-2,0.87%,0.008738383118471684
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,22,4-3,0.69%,0.006918668603570139
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,23,6-0,0.69%,0.006854647073316821
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,24,6-1,0.67%,0.006679316911206671
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,25,0-3,0.58%,0.00578338304834305
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,26,2-4,0.34%,0.0033937507457742155
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,27,6-2,0.33%,0.003254235697560429
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,28,1-4,0.31%,0.003148024405197197
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,29,3-4,0.29%,0.002853580363138502
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,30,5-3,0.27%,0.002738794528141368
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,31,7-0,0.22%,0.002188044914462758
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,32,7-1,0.21%,0.002132078463461888
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,33,4-4,0.16%,0.0015971585853605584
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,34,0-4,0.14%,0.0014088634974787964
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,35,6-3,0.11%,0.0010569993025792252
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,36,7-2,0.10%,0.0010387717693341205
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,37,5-4,0.08%,0.000753197131625251
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,38,2-5,0.07%,0.0006854159631398736
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,39,1-5,0.06%,0.0006135006637577511
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,40,8-0,0.06%,0.0006111325549567694
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,41,8-1,0.06%,0.0005955008282193765
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,42,3-5,0.05%,0.000492611796408185
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,43,7-3,0.03%,0.0003374005873478265
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,44,4-5,0.03%,0.00031065348949781824
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,45,8-2,0.03%,0.00029013446717385944
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,46,0-5,0.03%,0.00027456543520448497
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,47,6-4,0.02%,0.0002484644928219455
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,48,9-0,0.02%,0.00015172672482759137
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,49,9-1,0.01%,0.0001478458144063943
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,50,5-5,0.01%,0.00013909904742348412
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,51,2-6,0.01%,0.00011131403228700225
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",1,2-1,10.88%,0.10882085571375859
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",2,1-1,9.67%,0.09665799317953362
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",3,2-0,9.37%,0.09371903282740385
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",4,1-0,8.60%,0.08599432436904114
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",5,3-1,7.30%,0.0730350371463002
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",6,3-0,6.29%,0.06289945984131202
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",7,2-2,5.30%,0.05301257590238755
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",8,1-2,4.50%,0.04496099102677018
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",9,0-0,4.48%,0.04475277767722476
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",10,3-2,4.24%,0.042401927333070924
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",11,4-1,3.68%,0.03676305853304625
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",12,0-1,3.34%,0.03337698807429683
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",13,4-0,3.17%,0.031661194601860836
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",14,0-2,2.23%,0.022330348594519777
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",15,4-2,2.13%,0.021343516719750533
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",16,2-3,1.75%,0.01751900094734256
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",17,1-3,1.74%,0.017401991782118598
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",18,5-1,1.48%,0.014804099791138671
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",19,3-3,1.38%,0.013770861454870569
-2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",20,5-0,1.27%,0.012749632459749813
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,1,1-2,9.29%,0.09291962852081649
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,2,0-2,8.82%,0.0882040370650422
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,3,1-3,8.29%,0.08288025137693206
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,4,0-3,7.87%,0.07867414970103126
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,5,1-1,7.21%,0.07206152017901163
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,6,0-1,6.48%,0.06478212184655296
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,7,1-4,5.54%,0.0554441739946628
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,8,0-4,5.26%,0.052630429715615004
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,9,2-2,5.00%,0.0499614926831706
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,10,2-3,4.37%,0.043655610479469906
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,11,1-5,2.97%,0.029672269365785663
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,12,2-4,2.92%,0.02920417376944195
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,13,0-5,2.82%,0.028166427143618517
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,14,2-1,2.81%,0.028079251889893308
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,15,0-0,2.63%,0.026316586999974995
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,16,1-0,1.90%,0.019044286906227954
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,17,3-3,1.56%,0.015648645309716998
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,18,2-5,1.56%,0.01562930869482356
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,19,1-6,1.32%,0.013233184328806364
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,20,3-2,1.32%,0.013192227547331238
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,21,0-6,1.26%,0.012561611573437185
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,22,2-0,1.05%,0.010493507646694197
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,23,3-4,1.03%,0.01025516544068107
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,24,3-1,0.99%,0.009860144507245715
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,25,2-6,0.70%,0.00697033045705973
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,26,3-5,0.55%,0.00548829587353717
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,27,1-7,0.51%,0.005058609687663154
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,28,0-7,0.48%,0.004801889584483907
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,29,3-0,0.37%,0.00368483826385468
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,30,4-2,0.35%,0.0034743786221377157
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,31,4-3,0.31%,0.0030989940248943473
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,32,4-4,0.28%,0.0027570244376004392
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,33,2-7,0.27%,0.0026645273201205658
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,34,4-1,0.26%,0.002596822649113071
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,35,3-6,0.24%,0.002447660138502578
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,36,1-8,0.17%,0.0016920221104200562
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,37,0-8,0.16%,0.0016061534394633003
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,38,4-5,0.14%,0.0014454282104042154
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,39,4-0,0.10%,0.0009704595561317224
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,40,3-7,0.09%,0.0009356597007254801
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,41,2-8,0.09%,0.0008912407593844206
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,42,5-2,0.07%,0.0007320253848962496
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,43,5-3,0.07%,0.0006529346800057945
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,44,4-6,0.06%,0.0006446294250884385
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,45,5-1,0.05%,0.0005471309566297884
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,46,1-9,0.05%,0.0005030699472197632
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,47,0-9,0.05%,0.00047753957885163223
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,48,5-4,0.04%,0.0004367919185084257
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,49,3-8,0.03%,0.00031296284932152393
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,50,5-5,0.03%,0.0003108740407500892
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,51,2-9,0.03%,0.0002649826140110631
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,52,4-7,0.02%,0.0002464205571146337
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,53,5-0,0.02%,0.0002044685128952561
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,54,5-6,0.01%,0.00013581856047844055
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,55,1-10,0.01%,0.00013461492802808555
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,56,6-2,0.01%,0.00012852685866333828
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,57,0-10,0.01%,0.00012778333588190407
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,58,6-3,0.01%,0.00011464034590192624
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",1,0-3,8.68%,0.08681274574298078
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",2,0-2,8.53%,0.0853041842722266
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",3,1-3,8.14%,0.0814068789961424
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",4,1-2,8.00%,0.07999225629233443
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",5,0-4,6.63%,0.06626098902181125
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",6,1-4,6.21%,0.062134888941690294
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",7,1-1,5.55%,0.05547946373974419
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",8,0-1,5.24%,0.05243991104473536
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",9,0-5,4.05%,0.040459668714059434
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",10,2-3,3.82%,0.03816881893997921
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",11,1-5,3.79%,0.037940227866779065
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",12,2-2,3.73%,0.03726153158063137
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",13,2-4,2.91%,0.029132861437710645
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",14,2-1,2.79%,0.02791301418371231
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",15,0-0,2.16%,0.021603226108988315
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",16,0-6,2.06%,0.020587588773546533
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",17,1-6,1.93%,0.019305590829627135
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",18,2-5,1.78%,0.01778883683843556
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",19,1-0,1.56%,0.015589887333546722
-2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",20,3-2,1.33%,0.013318874023925781
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,1,0-0,18.92%,0.18923521668796184
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,2,1-0,17.53%,0.17526456185186431
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,3,1-1,13.66%,0.1365961461531893
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,4,0-1,12.30%,0.12303389186324008
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,5,2-0,8.68%,0.086792847501867
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,6,2-1,6.37%,0.06373808857308749
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,7,0-2,4.59%,0.04591586917394586
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,8,1-2,4.49%,0.04492621314589778
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,9,3-0,2.83%,0.02830738069835525
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,10,2-2,2.41%,0.024140078763563014
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,11,3-1,2.08%,0.020788099367117348
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,12,0-3,1.12%,0.011239750050664427
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,13,1-3,1.10%,0.010997492055955582
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,14,3-2,0.76%,0.007633081278379346
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,15,4-0,0.69%,0.006924313106426007
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,16,2-3,0.54%,0.0053802278064740685
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,17,4-1,0.51%,0.005085009822677815
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,18,0-4,0.21%,0.002063534625515088
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,19,1-4,0.20%,0.0020190578570695125
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,20,3-3,0.19%,0.001927295357128717
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,21,4-2,0.19%,0.0018671400685746976
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,22,5-0,0.14%,0.0013550137331811516
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,23,5-1,0.10%,0.0009950818279281866
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,24,2-4,0.10%,0.0009877698633664928
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,25,4-3,0.05%,0.0004570573977562484
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,26,5-2,0.04%,0.00036537926517845974
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,27,3-4,0.03%,0.0003221599287208106
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,28,0-5,0.03%,0.00030307970419310074
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,29,1-5,0.03%,0.0002965472207264929
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,30,6-0,0.02%,0.00022096803308494563
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,31,6-1,0.02%,0.00016227235849458938
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,32,2-5,0.01%,0.00014507776816453873
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,1,1-1,13.47%,0.13470565272486507
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,2,2-1,8.58%,0.08583274038693291
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,3,1-2,8.30%,0.0830097894659218
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,4,0-0,7.44%,0.07442710068623219
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,5,1-0,7.42%,0.07415385152172528
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,6,0-1,7.13%,0.07131025736605698
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,7,2-0,6.17%,0.061748448109658315
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,8,2-2,6.03%,0.06028580498693376
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,9,0-2,5.78%,0.057800821525897286
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,10,3-1,4.07%,0.04071900309694918
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,11,1-3,3.81%,0.03811580538088187
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,12,3-2,2.83%,0.028300497653223494
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,13,2-3,2.74%,0.027369723270917946
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,14,3-0,2.62%,0.02623156587417203
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,15,0-3,2.38%,0.02376642232731622
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,16,3-3,1.33%,0.013251495679187597
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,17,4-1,1.30%,0.01297348246920356
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,18,1-4,1.18%,0.011754283556618112
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,19,4-2,1.01%,0.010069304962115415
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,20,2-4,0.94%,0.009425566420251946
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,21,4-0,0.94%,0.009375503107425649
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,22,0-4,0.82%,0.008221779137775474
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,23,4-3,0.47%,0.004665574953156451
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,24,3-4,0.45%,0.004512128971451961
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,25,5-1,0.37%,0.003709513211299726
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,26,1-5,0.33%,0.0032530305821999806
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,27,5-0,0.27%,0.002680741483416991
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,28,5-2,0.26%,0.002566545179743979
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,29,2-5,0.23%,0.0023253509514653955
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,30,0-5,0.23%,0.0022754001846602145
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,31,4-4,0.16%,0.0016384653484786808
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,32,5-3,0.13%,0.0013280076584544058
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,33,3-5,0.12%,0.0012431070901576479
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,34,6-1,0.09%,0.0008838855396942583
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,35,1-6,0.08%,0.0007502376982935536
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,36,6-0,0.06%,0.0006387546014482605
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,37,6-2,0.06%,0.0006115444378085567
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,38,2-6,0.05%,0.0005362894388691232
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,39,0-6,0.05%,0.0005247694277997608
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,40,5-4,0.05%,0.00046149555199164014
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,41,4-5,0.04%,0.00044631743595265056
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,42,6-3,0.03%,0.0002820776994450722
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,43,3-6,0.03%,0.0002555691019852608
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,44,7-1,0.02%,0.00018052125581964225
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,45,1-7,0.01%,0.00014830740304238948
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,46,7-0,0.01%,0.00013045669109362413
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,47,5-5,0.01%,0.0001296550976901626
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,48,7-2,0.01%,0.000124899395843612
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,49,6-4,0.01%,0.00010946661335792951
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,50,2-7,0.01%,0.00010601399281673944
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,51,0-7,0.01%,0.00010373671065856108
-2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,52,4-6,0.01%,0.00010246832714742216
-2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",1,1-1,14.76%,0.1476069376340489
-2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",2,1-2,8.04%,0.08035482760361513
-2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",3,0-0,7.60%,0.07603587266711336
-2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",4,2-1,7.39%,0.07390640702508953
-2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",5,2-2,7.17%,0.07165117659583474
-2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",6,0-1,6.91%,0.06907436787074005
-2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",7,1-0,6.57%,0.06567357278816727
-2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",8,2-0,6.02%,0.060177415651170164
-2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",9,0-2,4.77%,0.0476936319725756
-2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",10,3-1,4.15%,0.0415061462762892
-2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",11,3-0,3.38%,0.033795887489140156
-2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",12,1-3,3.29%,0.032895710852327585
-2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",13,2-3,2.77%,0.02771155251876288
-2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",14,3-2,2.55%,0.025487719167935748
-2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",15,0-3,1.95%,0.019524849640727607
-2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",16,4-1,1.75%,0.01748251858046499
-2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",17,3-3,1.65%,0.01647331303321551
-2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",18,4-0,1.42%,0.014234933473207529
-2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",19,4-2,1.07%,0.010735507000842859
-2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",20,1-4,1.01%,0.010100150402456263
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,1,2-1,9.52%,0.09521325451883221
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,2,1-1,9.30%,0.09303230645796573
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,3,2-2,6.82%,0.06816403308780111
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,4,2-0,6.79%,0.06785423855154607
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,5,3-1,6.74%,0.06737970150340197
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,6,1-0,6.24%,0.06244581090714427
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,7,1-2,5.60%,0.05604492325684185
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,8,3-0,4.80%,0.04801850711278346
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,9,3-2,4.73%,0.047273691412606476
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,10,0-1,3.63%,0.036311277618619596
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,11,4-1,3.58%,0.03576201809530819
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,12,0-0,3.22%,0.03223019707123178
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,13,2-3,2.78%,0.02782648719105721
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,14,0-2,2.64%,0.026398749294314197
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,15,1-3,2.62%,0.026214130251609836
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,16,4-0,2.55%,0.0254859947723328
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,17,4-2,2.51%,0.025090681169673786
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,18,3-3,2.26%,0.02256244316624397
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,19,5-1,1.52%,0.015184655434361977
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,20,0-3,1.23%,0.012347599251931622
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,21,4-3,1.17%,0.011735770986235551
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,22,5-0,1.08%,0.010821426463921962
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,23,5-2,1.07%,0.010653575174632422
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,24,2-4,0.98%,0.009761550876716695
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,25,1-4,0.92%,0.00919593495158113
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,26,3-4,0.69%,0.006907970824097294
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,27,6-1,0.54%,0.005372873534098939
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,28,5-3,0.50%,0.004983042014229863
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,29,0-4,0.43%,0.004331546324028123
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,30,4-4,0.42%,0.004200872482824296
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,31,6-0,0.38%,0.0038290072567357656
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,32,6-2,0.38%,0.0037696154744337883
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,33,2-5,0.27%,0.002739487017947469
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,34,1-5,0.26%,0.002580752252988235
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,35,3-5,0.19%,0.0019386567392803077
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,36,6-3,0.18%,0.0017631782738363891
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,37,5-4,0.17%,0.0017480545714859087
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,38,7-1,0.16%,0.0016295267927287109
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,39,0-5,0.12%,0.001215607547630212
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,40,7-0,0.12%,0.0011612910437598795
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,41,7-2,0.11%,0.0011432782429904656
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,42,4-5,0.10%,0.0010289490134834315
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,43,2-6,0.06%,0.0006406759554470648
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,44,6-4,0.06%,0.0006185241531423616
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,45,1-6,0.06%,0.0006035531121787225
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,46,7-3,0.05%,0.0005347503936839635
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,47,5-5,0.05%,0.0005005792533915747
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,48,3-6,0.05%,0.0004533880798065967
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,49,8-1,0.04%,0.00043243859313781116
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,50,8-0,0.03%,0.0003081796920602511
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,51,8-2,0.03%,0.00030339951277264725
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,52,0-6,0.03%,0.00028429064343957536
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,53,4-6,0.02%,0.00024063734852583016
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,54,7-4,0.02%,0.00018759080650208255
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,55,6-5,0.02%,0.0001735829592264931
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,56,8-3,0.01%,0.00014191034412963012
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,57,2-7,0.01%,0.00012842832373847012
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,58,1-7,0.01%,0.00012098677002816688
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,59,5-6,0.01%,0.00010217530823526406
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,60,9-1,0.01%,0.000102008148170217
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",1,2-1,8.88%,0.08880311311553545
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",2,1-1,8.62%,0.08618954997044097
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",3,3-1,6.64%,0.06640387206036193
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",4,2-0,6.41%,0.06407784881929403
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",5,1-2,6.40%,0.06398586335515906
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",6,2-2,6.29%,0.06286049123912421
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",7,1-0,5.19%,0.051928928849816695
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",8,3-0,4.79%,0.047915181412206936
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",9,3-2,4.60%,0.04601333120994459
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",10,4-1,3.72%,0.03724087537510137
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",11,0-1,3.51%,0.03509881213451355
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",12,2-3,3.32%,0.03315427376385664
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",13,0-0,3.13%,0.03132646150161626
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",14,1-3,2.96%,0.02955854462461539
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",15,0-2,2.85%,0.028523155277040902
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",16,4-0,2.69%,0.026871976651080348
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",17,4-2,2.58%,0.02580537369304529
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",18,3-3,2.17%,0.02171410815025908
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",19,5-1,1.67%,0.016708456970016924
-2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",20,0-3,1.32%,0.013176394189002839
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,1,1-1,11.18%,0.11175864175883504
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,2,2-1,9.38%,0.09384043720713768
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,3,1-0,7.60%,0.0760345290126385
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,4,1-2,6.85%,0.06846869788550188
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,5,2-0,6.84%,0.0684111553726558
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,6,2-2,6.63%,0.06631596429811384
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,7,0-1,5.51%,0.05511523920903589
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,8,3-1,5.50%,0.05501669658864753
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,9,0-0,4.74%,0.04738240162992228
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,10,3-0,4.01%,0.040108037541516796
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,11,0-2,3.89%,0.038928379582770276
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,12,3-2,3.77%,0.03773354530739815
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,13,1-3,3.13%,0.03130645633049816
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,14,2-3,2.75%,0.02753148632607425
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,15,4-1,2.42%,0.024191358706423475
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,16,0-3,1.78%,0.01779951500557327
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,17,3-3,1.78%,0.01777724342810531
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,18,4-0,1.76%,0.017635881165895793
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,19,4-2,1.66%,0.01659179460776111
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,20,1-4,1.07%,0.010735864397615348
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,21,2-4,0.94%,0.00944132100871447
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,22,5-1,0.85%,0.0085097342785006
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,23,4-3,0.76%,0.007586390706613046
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,24,5-0,0.62%,0.006203730195986761
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,25,0-4,0.61%,0.006103954322578339
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,26,5-2,0.58%,0.0058364544558638515
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,27,3-4,0.55%,0.0055352501415344936
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,28,1-5,0.29%,0.0029453038861304
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,29,4-4,0.27%,0.0026806077967261787
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,30,5-3,0.27%,0.0026686458511741814
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,31,2-5,0.26%,0.002590155615541114
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,32,6-1,0.25%,0.0024945401086359713
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,33,6-0,0.18%,0.001818558992628359
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,34,6-2,0.17%,0.0017108959288144575
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,35,0-5,0.17%,0.0016745740930786824
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,36,3-5,0.15%,0.0015185543658866084
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,37,5-4,0.09%,0.0009151537204022131
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,38,6-3,0.08%,0.0007822857792772275
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,39,1-6,0.07%,0.0006733516945610885
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,40,4-5,0.07%,0.0006677226307322255
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,41,7-1,0.06%,0.0006267844212226766
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,42,2-6,0.06%,0.000592158140664033
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,43,7-0,0.05%,0.00045693570598755905
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,44,7-2,0.04%,0.00042988401381149866
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,45,0-6,0.04%,0.0003828390369334903
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,46,3-6,0.03%,0.00034717000183512336
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,47,6-4,0.03%,0.0002682677961964508
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,48,5-5,0.03%,0.00025869146928852164
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,49,7-3,0.02%,0.00019655909227417464
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,50,4-6,0.02%,0.00015265391358004884
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,51,8-1,0.01%,0.00013780150123121507
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,52,1-7,0.01%,0.00013194927695966272
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,53,2-7,0.01%,0.00011603867508988465
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,54,8-0,0.01%,0.00010045946280604951
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",1,1-1,10.53%,0.10529567291720505
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",2,2-1,8.98%,0.08975926721189137
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",3,1-2,7.44%,0.07440235387814792
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",4,2-0,6.73%,0.06731434272171115
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",5,1-0,6.49%,0.06487067413469476
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",6,2-2,6.24%,0.062371711944653026
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",7,3-1,5.67%,0.05665615177507764
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",8,0-1,5.16%,0.05160396807219752
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",9,0-0,4.56%,0.045620324499045656
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",10,3-0,4.25%,0.042488889853321006
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",11,0-2,3.93%,0.03929141292814317
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",12,3-2,3.78%,0.03777363382571102
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",13,1-3,3.31%,0.03307022195131877
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",14,2-3,3.13%,0.031310942685501345
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",15,4-1,2.68%,0.026821070684404348
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",16,4-0,2.01%,0.020114276779368
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",17,4-2,1.79%,0.017882070544930052
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",18,3-3,1.75%,0.017498703523045434
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",19,0-3,1.75%,0.017464175238899784
-2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",20,1-4,1.10%,0.011024243752764071
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,1,1-1,9.81%,0.09811949907903834
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,2,1-2,8.31%,0.08307678338209998
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,3,2-1,7.66%,0.07656944823843365
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,4,2-2,7.37%,0.07371233325768713
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,5,0-1,5.29%,0.05288065783939498
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,6,1-3,5.00%,0.049965411663872125
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,7,0-2,4.91%,0.04907428976725608
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,8,1-0,4.86%,0.04864658186528014
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,9,3-1,4.32%,0.04320757702359811
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,10,2-0,4.24%,0.04243697959022814
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,11,2-3,4.23%,0.042292671998756186
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,12,3-2,3.90%,0.03897992227960473
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,13,0-0,3.32%,0.03319213141515561
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,14,0-3,2.95%,0.02951507016172485
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,15,3-3,2.50%,0.025016949427711183
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,16,3-0,2.39%,0.02394687576412856
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,17,1-4,2.25%,0.02253826756198884
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,18,2-4,1.91%,0.0190772681676637
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,19,4-1,1.83%,0.018286288675184854
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,20,4-2,1.65%,0.01649706279414424
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,21,0-4,1.33%,0.013313580860513942
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,22,3-4,1.08%,0.010765162250972328
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,23,4-0,1.01%,0.010134784527548976
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,24,4-3,0.99%,0.009921936071633806
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,25,1-5,0.81%,0.008133202353869013
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,26,2-5,0.69%,0.0068842594906589625
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,27,5-1,0.62%,0.0061912910011975965
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,28,5-2,0.56%,0.005585502790524246
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,29,0-5,0.48%,0.0048043642615982094
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,30,4-4,0.48%,0.00477585430677448
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,31,3-5,0.39%,0.003884737046384758
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,32,5-0,0.34%,0.0034313906642872306
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,33,5-3,0.34%,0.003359325372464799
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,34,1-6,0.24%,0.002445802468588346
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,35,2-6,0.21%,0.0020702225426183734
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,36,6-1,0.17%,0.0017468500097894094
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,37,4-5,0.16%,0.0016440964282394062
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,38,6-2,0.16%,0.0015759290917546477
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,39,5-4,0.15%,0.0015153157264415093
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,40,0-6,0.14%,0.0014447600661779594
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,41,3-6,0.12%,0.0011682113692086638
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,42,6-0,0.10%,0.0009681542693344538
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,43,6-3,0.09%,0.000947821312007599
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,44,1-7,0.06%,0.0006304263987558747
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,45,5-5,0.06%,0.0005835092736740129
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,46,2-7,0.05%,0.0005336174768518466
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,47,4-6,0.05%,0.0004944098188916135
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,48,6-4,0.04%,0.0004275407650934798
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,49,7-1,0.04%,0.0004224576964334951
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,50,7-2,0.04%,0.00038112223151056876
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,51,0-7,0.04%,0.000372399201196558
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,52,3-7,0.03%,0.00030111642127050403
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,53,7-0,0.02%,0.00023413814587584095
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,54,7-3,0.02%,0.00022922082941143589
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,55,5-6,0.02%,0.0001673950967842542
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,56,6-5,0.02%,0.00015428317848607543
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,57,1-8,0.01%,0.000142185547763381
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,58,4-7,0.01%,0.00012743833798372234
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,59,2-8,0.01%,0.00012035138977686421
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,60,7-4,0.01%,0.0001033963338240928
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",1,1-1,10.92%,0.10921843191455033
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",2,1-2,8.45%,0.0845084188750759
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",3,2-1,8.24%,0.08236043865618792
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",4,2-2,6.58%,0.06584520974416129
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",5,0-1,5.93%,0.0593409423107787
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",6,1-0,5.68%,0.056827777409343125
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",7,0-2,5.68%,0.056787239506630026
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",8,1-3,4.86%,0.04864534964618107
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",9,2-0,4.77%,0.04769315394870796
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",10,0-0,4.66%,0.046611083025340026
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",11,3-1,4.09%,0.04085513171129175
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",12,2-3,3.62%,0.03619599772713052
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",13,3-2,3.53%,0.03527599131645892
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",14,0-3,3.27%,0.0326882831085149
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",15,3-0,2.37%,0.023658325745876566
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",16,1-4,2.10%,0.021001192014643667
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",17,3-3,1.88%,0.018801543435692035
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",18,2-4,1.56%,0.015626552259528276
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",19,4-1,1.52%,0.015199728908512716
-2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",20,0-4,1.41%,0.014112200142133173
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,1,2-1,8.66%,0.08664835932984608
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,2,1-1,7.74%,0.07743027210013144
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,3,2-2,7.17%,0.0717354481768945
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,4,3-1,6.71%,0.06714582942083061
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,5,3-2,5.44%,0.054398132391311985
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,6,1-2,5.43%,0.054341799270766766
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,7,2-0,5.35%,0.053476798737357875
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,8,1-0,4.48%,0.04477883892244787
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,9,3-0,4.14%,0.04144041541885131
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,10,4-1,3.90%,0.03902464896751632
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,11,2-3,3.41%,0.034115964964325014
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,12,4-2,3.16%,0.03161578372581476
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,13,3-3,3.00%,0.030023837629530797
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,14,1-3,2.93%,0.02934997270479474
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,15,0-1,2.77%,0.027748552171152508
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,16,4-0,2.41%,0.0240848564793664
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,17,0-2,2.34%,0.023375131364366426
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,18,0-0,2.15%,0.021477068115601225
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,19,5-1,1.81%,0.018144665009564007
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,20,4-3,1.71%,0.01707566554375268
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,21,5-2,1.47%,0.014699883788762337
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,22,2-4,1.38%,0.01381950893148827
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,23,0-3,1.26%,0.012624894219949253
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,24,1-4,1.19%,0.011888926792983432
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,25,5-0,1.12%,0.011198349355692966
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,26,3-4,1.07%,0.010709058966264038
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,27,5-3,0.79%,0.007939398285546344
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,28,4-4,0.71%,0.007068399968410739
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,29,6-1,0.70%,0.007030361515515972
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,30,6-2,0.57%,0.005695640962045798
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,31,0-4,0.51%,0.005114023261957445
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,32,2-5,0.45%,0.004478345016644034
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,33,6-0,0.43%,0.004338930716332836
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,34,1-5,0.39%,0.003852721274001827
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,35,3-5,0.35%,0.003470373737031973
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,36,5-4,0.32%,0.003216048135601113
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,37,6-3,0.31%,0.0030762122162981556
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,38,7-1,0.23%,0.0023348531536229564
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,39,4-5,0.20%,0.0020169550073611295
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,40,7-2,0.19%,0.0018915791503448336
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,41,0-5,0.17%,0.0016572485103291117
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,42,7-0,0.14%,0.001441002151030596
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,43,6-4,0.12%,0.001246095259000885
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,44,2-6,0.12%,0.0012093757086164769
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,45,5-5,0.11%,0.0010650156847752134
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,46,1-6,0.10%,0.001040426207344643
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,47,7-3,0.10%,0.0010216407475754222
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,48,3-6,0.09%,0.0009371733713656958
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,49,8-1,0.07%,0.0006784995099231526
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,50,8-2,0.05%,0.0005496857583948419
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,51,4-6,0.05%,0.0005446780858127894
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,52,0-6,0.04%,0.00044753945577752683
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,53,8-0,0.04%,0.00041874978379490626
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,54,7-4,0.04%,0.00041384065937031693
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,55,6-5,0.04%,0.0004038091744848558
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,56,8-3,0.03%,0.00029688494347999826
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,57,2-7,0.03%,0.0002799356074281533
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,58,5-6,0.03%,0.0002532502320097772
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,59,1-7,0.02%,0.00024082866909108362
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,60,3-7,0.02%,0.00021692861458154477
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,61,9-1,0.02%,0.0001752616849211924
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,62,9-2,0.01%,0.00014198809399932342
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,63,7-5,0.01%,0.00013410905291669792
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,64,4-7,0.01%,0.00012607727252868163
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,65,8-4,0.01%,0.00012026053293044819
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,66,6-6,0.01%,0.00011143674015162052
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,67,9-0,0.01%,0.00010816631640101344
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,68,0-7,0.01%,0.00010359248040831718
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",1,2-1,10.05%,0.10047805044521103
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",2,1-1,8.87%,0.08873320809475646
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",3,2-0,7.16%,0.07164426444315772
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",4,3-1,6.87%,0.06868691822848072
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",5,1-0,6.34%,0.0634343141380342
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",6,2-2,5.99%,0.05987099329394319
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",7,1-2,5.87%,0.058657621016781694
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",8,3-0,4.90%,0.048976106836688404
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",9,3-2,4.82%,0.04816524873504017
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",10,0-1,3.53%,0.03529531441941156
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",11,4-1,3.52%,0.03521584600931262
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",12,0-0,3.44%,0.03441819830744042
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",13,0-2,2.86%,0.028602260593082494
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",14,2-3,2.81%,0.028118170027787066
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",15,1-3,2.74%,0.027421610784565467
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",16,4-0,2.51%,0.025110094920247978
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",17,4-2,2.47%,0.024694367227413333
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",18,3-3,1.91%,0.019133208836750723
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",19,5-1,1.44%,0.014444157253075247
-2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",20,0-3,1.34%,0.013371153550837534
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,1,1-1,11.28%,0.11281016037407758
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,2,2-1,8.81%,0.08807995138225919
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,3,1-2,7.66%,0.07656860492089791
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,4,1-0,7.00%,0.07001106641680042
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,5,2-2,6.81%,0.06810898175709512
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,6,0-1,6.07%,0.06068340755164155
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,7,2-0,5.94%,0.05940867424830159
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,8,3-1,4.86%,0.04861123365359941
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,9,0-0,4.70%,0.04703862694939748
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,10,0-2,4.62%,0.04624554512713771
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,11,1-3,3.78%,0.03784048420635536
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,12,3-2,3.60%,0.036035773824418284
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,13,3-0,3.28%,0.03278758559256473
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,14,2-3,3.13%,0.03132618587635222
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,15,0-3,2.29%,0.022854717306206692
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,16,4-1,2.01%,0.02012136701009346
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,17,3-3,1.86%,0.018576757619967386
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,18,4-2,1.49%,0.01491607959964107
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,19,1-4,1.40%,0.014025679125772664
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,20,4-0,1.36%,0.013571575816899637
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,21,2-4,1.16%,0.01161113660544108
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,22,0-4,0.85%,0.008471163574414863
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,23,4-3,0.74%,0.007371581016711284
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,24,5-1,0.67%,0.006662976928171822
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,25,3-4,0.64%,0.006408174228677465
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,26,5-2,0.49%,0.004939301300022418
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,27,5-0,0.45%,0.004494083155561751
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,28,1-5,0.42%,0.004158925110289065
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,29,2-5,0.34%,0.0034429596709246828
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,30,4-4,0.29%,0.0028500860247367425
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,31,0-5,0.25%,0.002511887986818549
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,32,5-3,0.24%,0.002441020742470346
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,33,3-5,0.19%,0.0019001658651795076
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,34,6-1,0.18%,0.0018386450219427587
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,35,6-2,0.14%,0.0013629976277965915
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,36,6-0,0.12%,0.0012401399121214746
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,37,1-6,0.10%,0.0010276779896531418
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,38,5-4,0.09%,0.0009047710247717778
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,39,2-6,0.09%,0.0008507616221122085
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,40,4-5,0.08%,0.0007865246750531215
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,41,6-3,0.07%,0.0006735984057855016
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,42,0-6,0.06%,0.0006206921086752013
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,43,3-6,0.05%,0.0004695344553101302
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,44,7-1,0.04%,0.0004348912616891706
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,45,7-2,0.03%,0.00032238727484519314
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,46,7-0,0.03%,0.00029332796957388756
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,47,5-5,0.03%,0.000279850441574795
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,48,6-4,0.02%,0.0002496710942613336
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,49,1-7,0.02%,0.00021766380682039475
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,50,4-6,0.02%,0.00019435168353271987
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,51,2-7,0.02%,0.00018019264325018649
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,52,7-3,0.02%,0.0001593249686958828
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Research,53,0-7,0.01%,0.00013146356017921694
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,1,1-1,11.83%,0.11830835061871497
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,2,2-1,9.65%,0.09650739605806635
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,3,1-0,7.36%,0.07359799183663689
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,4,1-2,7.02%,0.07019703297825688
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,5,2-0,6.93%,0.06934645179472963
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,6,2-2,6.28%,0.06282140082453158
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,7,0-0,5.66%,0.05664985763769343
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,8,3-1,5.35%,0.053511555175833954
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,9,0-1,5.10%,0.050968845772280766
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,10,3-0,4.28%,0.04282353744061738
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,11,3-2,3.72%,0.037235220515130694
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,12,0-2,3.71%,0.03707430010949874
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,13,1-3,2.86%,0.028608579164040887
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,14,2-3,2.71%,0.027083955315514153
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,15,4-1,2.48%,0.0247837563487871
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,16,4-0,1.90%,0.0189998232319358
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,17,0-3,1.68%,0.016827585807461003
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,18,3-3,1.62%,0.016158821729845594
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,19,4-2,1.55%,0.015484677639739451
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,20,1-4,0.97%,0.009738821487335991
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,21,5-1,0.88%,0.008796788267261522
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,22,2-4,0.83%,0.008278485359479863
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,23,4-3,0.72%,0.007183188560886078
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,24,5-0,0.67%,0.006743829294259309
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,25,5-2,0.57%,0.005737354879734478
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,26,0-4,0.55%,0.005487561403853261
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,27,3-4,0.52%,0.005224869231723638
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,28,6-1,0.26%,0.0026019557168142577
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,29,1-5,0.25%,0.002540703415185156
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,30,5-3,0.24%,0.002389766629593858
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,31,4-4,0.23%,0.0023379449980709395
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,32,2-5,0.23%,0.0022545038854033367
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,33,6-0,0.20%,0.0019947217839403533
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,34,6-2,0.17%,0.0016970220124855376
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,35,0-5,0.14%,0.0014316173695080303
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,36,3-5,0.13%,0.0012776273756512748
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,37,5-4,0.08%,0.0008314417992547272
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,38,6-3,0.07%,0.0007378766907907487
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,39,7-1,0.07%,0.000659673249558125
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,40,4-5,0.06%,0.0006047696838350974
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,41,1-6,0.06%,0.0005523575458905704
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,42,7-0,0.05%,0.0005057213666908255
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,43,2-6,0.05%,0.0004901367967230408
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,44,7-2,0.04%,0.00043024561037443583
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,45,0-6,0.03%,0.00031123847519925584
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,46,3-6,0.03%,0.00028994996844491645
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,47,6-4,0.02%,0.00023050950255431348
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,48,5-5,0.02%,0.00021649051022710802
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,49,7-3,0.02%,0.00018707371199349146
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,50,8-1,0.01%,0.00014634095968626208
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,51,4-6,0.01%,0.00012323598763331944
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,52,8-0,0.01%,0.00011218849663065278
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,Cagey,53,1-7,0.01%,0.00010292949020521068
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",1,1-1,11.41%,0.1140909315134312
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",2,2-1,10.05%,0.10051008890882399
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",3,1-0,7.68%,0.07675907608733588
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",4,1-2,6.84%,0.06842006252968717
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",5,2-0,6.59%,0.06594360953535726
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",6,2-2,6.31%,0.06305667334364412
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",7,0-0,5.25%,0.052475439688886155
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",8,0-1,5.22%,0.05216914278739234
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",9,3-1,5.18%,0.05179236689344876
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",10,0-2,4.43%,0.04425945997122096
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",11,3-2,3.95%,0.03947050698269579
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",12,1-3,3.48%,0.03476155165734917
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",13,3-0,3.40%,0.033980425810106976
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",14,2-3,2.69%,0.02686869134385385
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",15,0-3,2.25%,0.022486496609797967
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",16,4-1,2.00%,0.020016268746356484
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",17,3-3,1.65%,0.016508318667549333
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",18,4-2,1.53%,0.015254222247574344
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",19,1-4,1.32%,0.013245736290093088
+2026-11-28,Bundesliga,1. FC Köln,Elversberg,"Benchmark (70% Pinnacle blend), display only",20,4-0,1.31%,0.01313246286909439
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,1,1-1,10.91%,0.10909460717073383
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,2,2-1,10.14%,0.10138536124182886
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,3,1-0,9.32%,0.09318753786172232
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,4,2-0,9.12%,0.09124609859766733
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,5,3-1,6.50%,0.06497140876284921
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,6,3-0,5.85%,0.05847380230626818
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,7,2-2,5.73%,0.05731663045132764
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,8,0-0,5.20%,0.05201077440507948
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,9,1-2,5.07%,0.05069960541019727
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,10,0-1,4.60%,0.04596602798235678
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,11,3-2,3.61%,0.0360955144880046
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,12,4-1,3.12%,0.031227022606550983
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,13,4-0,2.81%,0.028104096575368075
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,14,0-2,2.64%,0.026371588709597694
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,15,1-3,1.88%,0.018777781144725173
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,16,2-3,1.81%,0.01805022262784888
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,17,4-2,1.73%,0.01734848402358359
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,18,3-3,1.36%,0.01360402356263073
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,19,5-1,1.20%,0.012006843741736769
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,20,5-0,1.08%,0.010806073327411417
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,21,0-3,0.98%,0.009767332846498458
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,22,5-2,0.67%,0.006670521857036939
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,23,4-3,0.64%,0.006425415613236547
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,24,1-4,0.52%,0.005216091849231771
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,25,2-4,0.50%,0.005013990652052592
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,26,6-1,0.38%,0.003847210007149375
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,27,6-0,0.35%,0.0034624614376128834
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,28,3-4,0.32%,0.003213146673222203
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,29,0-4,0.27%,0.0027131696155520413
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,30,5-3,0.25%,0.0024705833218842395
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,31,6-2,0.21%,0.0021373559107873467
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,32,4-4,0.18%,0.001816254179543852
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,33,1-5,0.12%,0.0011591407512922243
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,34,2-5,0.11%,0.0011142290165477846
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,35,7-1,0.11%,0.0010566134607996754
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,36,7-0,0.10%,0.0009509445431060193
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,37,6-3,0.08%,0.0007916196032775663
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,38,3-5,0.07%,0.000714038279321987
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,39,5-4,0.07%,0.0006862786092140784
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,40,0-5,0.06%,0.0006029313818577442
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,41,7-2,0.06%,0.0005870121520948661
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,42,4-5,0.03%,0.00034318617858075597
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,43,8-1,0.03%,0.00025391855475391875
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,44,8-0,0.02%,0.00022852487971699724
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,45,6-4,0.02%,0.00021989608508714121
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,46,7-3,0.02%,0.00021741363926107586
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,47,1-6,0.02%,0.00021465740381600525
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,48,2-6,0.02%,0.00020634034967882044
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,49,5-5,0.02%,0.0001551907571238037
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,50,8-2,0.01%,0.00014106698694724956
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,51,3-6,0.01%,0.00013223036382219682
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Research,52,0-6,0.01%,0.0001116548486148009
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,1,2-1,10.49%,0.10485421095247555
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,2,2-0,9.54%,0.0953950212410654
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,3,1-0,9.28%,0.09282168604938056
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,4,1-1,9.15%,0.0914916601682551
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,5,3-0,7.41%,0.07408042838665604
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,6,3-1,6.96%,0.06957432336382717
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,7,2-2,4.85%,0.048476650768619955
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,8,0-0,4.34%,0.04337285403060684
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,9,1-2,4.31%,0.04309378028336334
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,10,4-0,4.16%,0.04157171218807401
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,11,4-1,4.05%,0.040521734880268535
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,12,3-2,3.82%,0.0382365907777904
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,13,0-1,3.65%,0.03652950015278411
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,14,4-2,1.90%,0.019028455607114893
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,15,5-0,1.87%,0.01866303737044114
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,16,5-1,1.82%,0.018191664778303567
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,17,0-2,1.70%,0.01702511783324064
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,18,2-3,1.57%,0.015714764593572805
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,19,1-3,1.24%,0.01241690643837542
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,20,3-3,1.18%,0.011785136974980133
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,21,5-2,0.89%,0.00886609882511178
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,22,6-0,0.70%,0.006982090816841641
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,23,4-3,0.70%,0.006971760413946866
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,24,6-1,0.68%,0.006805744052831665
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,25,0-3,0.57%,0.005741212255042445
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,26,2-4,0.34%,0.003396002167419838
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,27,6-2,0.33%,0.003316925640735625
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,28,1-4,0.31%,0.0031404229964210667
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,29,3-4,0.29%,0.002865307065283707
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,30,5-3,0.28%,0.0027755996199804525
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,31,7-0,0.22%,0.0022389369903575854
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,32,7-1,0.22%,0.0021823881279280934
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,33,4-4,0.16%,0.0016116071627422434
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,34,0-4,0.14%,0.0013990515944933743
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,35,6-3,0.11%,0.0010777166680344423
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,36,7-2,0.11%,0.0010636337604482582
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,37,5-4,0.08%,0.0007627057059340484
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,38,2-5,0.07%,0.000687120152214429
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,39,8-0,0.06%,0.000628212108092668
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,40,8-1,0.06%,0.0006123453462185878
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,41,1-5,0.06%,0.0006122210579018662
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,42,3-5,0.05%,0.0004953603445262718
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,43,7-3,0.03%,0.00034558984929943
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,44,4-5,0.03%,0.00031346258594503715
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,45,8-2,0.03%,0.0002984396656839434
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,46,0-5,0.03%,0.00027274314581703053
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,47,6-4,0.03%,0.00025304054522017614
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,48,9-0,0.02%,0.0001566816770454006
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,49,9-1,0.02%,0.00015272436576838818
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,50,5-5,0.01%,0.00014104695580631122
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,Cagey,51,2-6,0.01%,0.00011162759150965169
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",1,2-1,10.88%,0.10876184753327302
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",2,1-1,9.68%,0.09677275605200886
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",3,2-0,9.32%,0.09324973759437234
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",4,1-0,8.52%,0.08522015636016736
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",5,3-1,7.33%,0.07325102117133428
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",6,3-0,6.28%,0.06280362698562167
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",7,2-2,5.35%,0.05349412160972838
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",8,1-2,4.46%,0.04461222723247761
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",9,0-0,4.45%,0.04450356992854399
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",10,3-2,4.27%,0.04271817059125973
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",11,4-1,3.70%,0.037000880071950924
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",12,0-1,3.28%,0.032828018882304286
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",13,4-0,3.17%,0.03172364607372749
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",14,0-2,2.21%,0.02207982077150556
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",15,4-2,2.16%,0.021577991428178084
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",16,2-3,1.75%,0.01752225414146266
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",17,1-3,1.73%,0.017344492976786988
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",18,5-1,1.50%,0.014952038666018323
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",19,3-3,1.40%,0.01400718520560794
+2026-11-28,Bundesliga,FSV Mainz 05,Union Berlin,"Benchmark (70% Pinnacle blend), display only",20,5-0,1.28%,0.012819510827825667
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,1,1-2,9.30%,0.09299015461849368
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,2,0-2,8.84%,0.08840598954283228
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,3,1-3,8.29%,0.0828587419035703
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,4,0-3,7.88%,0.07877402828624239
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,5,1-1,7.22%,0.07218979479663062
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,6,0-1,6.50%,0.06499834975729366
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,7,1-4,5.54%,0.055373371014460056
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,8,0-4,5.26%,0.052643612422622575
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,9,2-2,4.99%,0.04992313406238189
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,10,2-3,4.36%,0.04357763122697589
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,11,1-5,2.96%,0.029604216980011158
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,12,2-4,2.91%,0.02912233865040957
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,13,0-5,2.81%,0.028144808528343952
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,14,2-1,2.81%,0.028085730416586886
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,15,0-0,2.64%,0.026427672295639346
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,16,1-0,1.91%,0.01909814675973095
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,17,3-3,1.56%,0.01559686208925958
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,18,2-5,1.56%,0.015569650475983342
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,19,1-6,1.32%,0.013189397222037717
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,20,3-2,1.32%,0.013161711665665678
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,21,0-6,1.25%,0.01253919533386636
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,22,2-0,1.05%,0.010506621888495469
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,23,3-4,1.02%,0.010210811838873063
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,24,3-1,0.98%,0.009847358485993347
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,25,2-6,0.69%,0.006936657195651843
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,26,3-5,0.55%,0.005458997414860791
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,27,1-7,0.50%,0.005036739940456692
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,28,0-7,0.48%,0.004788442177914434
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,29,3-0,0.37%,0.003683809204110865
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,30,4-2,0.35%,0.0034610483100845366
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,31,4-3,0.31%,0.0030839620583236337
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,32,4-4,0.27%,0.0027409123600727783
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,33,2-7,0.26%,0.0026489564126720663
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,34,4-1,0.26%,0.0025894947642450218
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,35,3-6,0.24%,0.002432115849822718
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,36,1-8,0.17%,0.001682992421915111
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,37,0-8,0.16%,0.0016000254119687514
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,38,4-5,0.14%,0.0014355164630104518
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,39,4-0,0.10%,0.00096870695426505
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,40,3-7,0.09%,0.0009287714089125962
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,41,2-8,0.09%,0.0008851307832475252
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,42,5-2,0.07%,0.0007281031956345126
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,43,5-3,0.06%,0.0006487752925431375
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,44,4-6,0.06%,0.0006395574273152865
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,45,5-1,0.05%,0.0005447538560591738
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,46,1-9,0.05%,0.0004998759825175276
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,47,0-9,0.05%,0.0004752334380393507
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,48,5-4,0.04%,0.00043356770998061764
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,49,3-8,0.03%,0.0003103426544491375
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,50,5-5,0.03%,0.00030827126215950774
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,51,2-9,0.03%,0.0002628981652982646
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,52,4-7,0.02%,0.000244232877677859
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,53,5-0,0.02%,0.0002037875712334483
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,54,5-6,0.01%,0.00013454415104904264
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,55,1-10,0.01%,0.00013362412996023587
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,56,6-2,0.01%,0.0001276429894444901
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,57,0-10,0.01%,0.00012703681894497352
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Research,58,6-3,0.01%,0.00011373609992984951
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,1,1-2,9.40%,0.09395367680519089
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,2,0-2,8.73%,0.08731982995210273
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,3,0-3,8.34%,0.08342325745296715
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,4,1-3,7.85%,0.07851595075970254
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,5,0-1,7.46%,0.07463266121808677
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,6,1-1,6.15%,0.061486677985821775
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,7,0-4,5.69%,0.05693375941076659
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,8,1-4,5.63%,0.056259182862449776
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,9,2-2,4.47%,0.04469500066452842
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,10,2-3,4.22%,0.04224047542108007
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,11,0-5,3.11%,0.031084405568512254
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,12,1-5,3.07%,0.030716103681689692
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,13,2-1,3.03%,0.030334282923232557
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,14,1-0,2.69%,0.02692661826060965
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,15,2-4,2.65%,0.02647489061368519
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,16,0-0,1.98%,0.01978016914644471
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,17,2-5,1.52%,0.015176082799859495
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,18,0-6,1.41%,0.014142755246737847
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,19,1-6,1.40%,0.013975185581274474
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,20,3-2,1.36%,0.013637939203717253
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,21,3-3,1.34%,0.01339623341496776
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,22,2-0,1.02%,0.010205015829192723
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,23,3-4,0.95%,0.009495412124734908
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,24,3-1,0.92%,0.009176111781097045
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,25,2-6,0.69%,0.006904800677934063
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,26,0-7,0.55%,0.005515421335947783
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,27,1-7,0.55%,0.0054500721665652835
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,28,3-5,0.48%,0.004761120604409881
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,29,3-0,0.35%,0.0035291392454507155
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,30,4-2,0.31%,0.003094104488487921
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,31,4-3,0.31%,0.003065729066267767
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,32,2-7,0.27%,0.002692748641628964
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,33,4-1,0.24%,0.002379989660183163
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,34,3-6,0.23%,0.002274329841023398
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,35,4-4,0.23%,0.0022585462626703193
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,36,0-8,0.19%,0.0018820511268509046
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,37,1-8,0.19%,0.001859751746552705
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,38,4-5,0.13%,0.0012807079066193515
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,39,2-8,0.09%,0.0009188582896238802
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,40,3-7,0.09%,0.000886947918656553
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,41,4-0,0.09%,0.0008718311078159418
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,42,5-2,0.06%,0.0006420093273316403
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,43,0-9,0.06%,0.0005708626337887856
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,44,1-9,0.06%,0.0005640987989559944
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,45,5-3,0.06%,0.0005564292917124311
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,46,4-6,0.05%,0.0005351360497694275
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,47,5-1,0.05%,0.00047035809645713816
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,48,5-4,0.04%,0.0004134947912891675
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,49,3-8,0.03%,0.0003026570824038009
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,50,2-9,0.03%,0.00027870755252596335
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,51,5-5,0.02%,0.0002436998430880192
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,52,4-7,0.02%,0.00021910974113423807
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,53,5-0,0.02%,0.00017230025288129418
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,54,0-10,0.02%,0.00015583834456261086
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,55,1-10,0.02%,0.0001539919024225092
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,56,5-6,0.01%,0.00011515826243459745
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,Cagey,57,6-2,0.01%,0.00010573375246239452
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",1,0-2,9.57%,0.09572378302494478
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",2,0-3,9.13%,0.09134707282637733
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",3,1-2,8.41%,0.08407317264708598
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",4,1-3,8.02%,0.08022915499000556
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",5,0-4,6.54%,0.06537785686791935
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",6,0-1,6.30%,0.06300894249491337
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",7,1-1,6.19%,0.06194840632990718
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",8,1-4,5.74%,0.05742067095614801
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",9,0-5,3.74%,0.037433179073104735
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",10,2-2,3.65%,0.03653670582325221
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",11,2-3,3.52%,0.03523220345902356
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",12,1-5,3.29%,0.03287715996475304
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",13,2-1,3.12%,0.031187940000310898
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",14,0-0,2.69%,0.02694087395444714
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",15,2-4,2.52%,0.02521597992815294
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",16,1-0,2.01%,0.020134637903800386
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",17,0-6,1.79%,0.017860824274060782
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",18,1-6,1.57%,0.015686970524567214
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",19,2-5,1.44%,0.01443782860703619
+2026-11-28,Bundesliga,Hamburger SV,Bayern Munich,"Benchmark (70% Pinnacle blend), display only",20,3-2,1.31%,0.013069803517125358
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,1,0-0,18.94%,0.18944826132232165
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,2,1-0,17.53%,0.1753407349541989
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,3,1-1,13.66%,0.13657025788112306
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,4,0-1,12.31%,0.12310143758622297
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,5,2-0,8.68%,0.08676868145378754
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,6,2-1,6.37%,0.06368053403278418
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,7,0-2,4.59%,0.04591184645237367
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,8,1-2,4.49%,0.04489060236443266
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,9,3-0,2.83%,0.028279544952656558
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,10,2-2,2.41%,0.024103418226240517
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,11,3-1,2.08%,0.02075468354037881
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,12,0-3,1.12%,0.011231744186698986
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,13,1-3,1.10%,0.010981909923121048
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,14,3-2,0.76%,0.007616050569102352
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,15,4-0,0.69%,0.006912626618239452
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,16,2-3,0.54%,0.005368816434689011
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,17,4-1,0.51%,0.005073256239962284
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,18,0-4,0.21%,0.0020607765842032087
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,19,1-4,0.20%,0.002014937523790599
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,20,3-3,0.19%,0.0019218102244008988
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,21,4-2,0.19%,0.001861660574028757
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,22,5-0,0.14%,0.0013517730032273044
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,23,5-1,0.10%,0.0009920817660743386
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,24,2-4,0.10%,0.0009850590442217113
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,25,4-3,0.05%,0.0004554313743762129
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,26,5-2,0.04%,0.00036405011352770686
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,27,3-4,0.03%,0.0003210492663407046
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,28,0-5,0.03%,0.00030248553096709263
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,29,1-5,0.03%,0.0002957571681575444
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,30,6-0,0.02%,0.00022028412077987978
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,31,6-1,0.02%,0.00016166905172664405
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Research,32,2-5,0.01%,0.00014458923413114606
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,1,1-1,12.87%,0.12873809983844275
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,2,2-1,8.34%,0.083449329012545
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,3,1-2,8.29%,0.0828739708314591
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,4,2-2,6.52%,0.0651694819624522
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,5,0-0,6.46%,0.06455374878097464
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,6,1-0,5.93%,0.05928432029476768
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,7,0-1,5.88%,0.05879450140645321
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,8,2-0,5.78%,0.057776521140981946
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,9,0-2,5.70%,0.057043277237042944
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,10,3-1,4.39%,0.043917262200753225
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,11,1-3,4.34%,0.043359906649562865
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,12,3-2,3.17%,0.0317158768851635
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,13,2-3,3.15%,0.03149720539370733
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,14,3-0,2.61%,0.026084795150320948
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,15,0-3,2.56%,0.025603438341131435
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,16,3-3,1.65%,0.01651227390360681
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,17,4-1,1.49%,0.014870739429874638
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,18,1-4,1.46%,0.014596321645835988
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,19,4-2,1.25%,0.0125184453030456
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,20,2-4,1.24%,0.012359573264300762
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,21,4-0,0.99%,0.00987645549329848
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,22,0-4,0.96%,0.009637618990390178
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,23,4-3,0.60%,0.006026991819452689
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,24,3-4,0.60%,0.00598543751228578
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,25,5-1,0.45%,0.004504392548539177
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,26,1-5,0.44%,0.004395465478017849
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,27,5-2,0.34%,0.0033910772910709613
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,28,2-5,0.33%,0.003328499910833232
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,29,5-0,0.30%,0.002991608637874407
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,30,0-5,0.29%,0.0029022258203411215
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,31,4-4,0.24%,0.002353379825298671
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,32,5-3,0.19%,0.0019031116234157449
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,33,3-5,0.19%,0.0018789591654825304
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,34,6-1,0.11%,0.001136995256524505
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,35,1-6,0.11%,0.0011030242891113503
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,36,6-2,0.09%,0.0008559730869162537
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,37,2-6,0.08%,0.0008352735941881773
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,38,6-0,0.08%,0.0007551395208093181
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,39,0-6,0.07%,0.0007283018347731347
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,40,5-4,0.07%,0.000687188259494261
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,41,4-5,0.07%,0.0006824503018410999
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,42,6-3,0.04%,0.00042960597025096985
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,43,3-6,0.04%,0.00042167821931955295
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,44,7-1,0.02%,0.00024599953415538415
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,45,1-7,0.02%,0.00023725670176378365
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,46,5-5,0.02%,0.00021466297410342426
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,47,7-2,0.02%,0.00018519776527001384
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,48,6-4,0.02%,0.0001808248630072976
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,49,2-7,0.02%,0.00017966445524706138
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,50,4-6,0.02%,0.00017853000817937923
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,51,7-0,0.02%,0.0001633814822669038
+2026-11-28,Bundesliga,Paderborn,Schalke 04,Cagey,52,0-7,0.02%,0.00015665520053597165
+2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",1,1-1,14.12%,0.1412218497997925
+2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",2,1-2,8.18%,0.08175661089225497
+2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",3,2-2,7.95%,0.0795394907480301
+2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",4,2-1,7.16%,0.07158530213668561
+2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",5,0-0,6.39%,0.06390217930248589
+2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",6,0-1,6.00%,0.05996690916380527
+2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",7,1-0,5.44%,0.05443572231782213
+2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",8,2-0,5.41%,0.05410566184211666
+2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",9,0-2,4.50%,0.04504937284798185
+2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",10,3-1,4.33%,0.04330486991197336
+2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",11,1-3,3.61%,0.03605643410278481
+2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",12,3-0,3.27%,0.03273072233599383
+2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",13,2-3,3.27%,0.032718012113632226
+2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",14,3-2,2.86%,0.028647576714655378
+2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",15,3-3,2.12%,0.021220498203183374
+2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",16,0-3,1.99%,0.019867748011297724
+2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",17,4-1,1.96%,0.01964766197234382
+2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",18,4-0,1.49%,0.014850112005311548
+2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",19,4-2,1.30%,0.01299756597261391
+2026-11-28,Bundesliga,Paderborn,Schalke 04,"Benchmark (70% Pinnacle blend), display only",20,1-4,1.19%,0.01192625060548732
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,1,2-1,9.53%,0.09526024773360292
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,2,1-1,9.33%,0.09325813377370916
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,3,2-2,6.81%,0.0681454343657265
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,4,2-0,6.79%,0.06794297592384489
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,5,3-1,6.73%,0.0672860788043775
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,6,1-0,6.26%,0.06264658532491416
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,7,1-2,5.62%,0.05615299993420474
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,8,3-0,4.80%,0.04799080981817688
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,9,3-2,4.72%,0.04716961870430979
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,10,0-1,3.65%,0.036482052550363686
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,11,4-1,3.56%,0.03564511306066965
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,12,0-0,3.24%,0.03239161799785989
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,13,2-3,2.78%,0.027805046270788156
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,14,0-2,2.65%,0.02649953145220943
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,15,1-3,2.62%,0.02624332445448088
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,16,4-0,2.54%,0.025423354611217426
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,17,4-2,2.50%,0.024988324800915788
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,18,3-3,2.25%,0.02249552660175035
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,19,5-1,1.51%,0.0151065314868699
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,20,0-3,1.24%,0.012384659815270862
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,21,4-3,1.17%,0.011678391467824815
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,22,5-0,1.08%,0.010774512239097945
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,23,5-2,1.06%,0.010590144987523704
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,24,2-4,0.97%,0.009746097959296159
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,25,1-4,0.92%,0.009198690353544701
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,26,3-4,0.69%,0.006884054271602108
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,27,6-1,0.53%,0.005335170190449664
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,28,5-3,0.49%,0.00494934573848632
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,29,0-4,0.43%,0.00434101445387622
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,30,4-4,0.42%,0.004177130955471937
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,31,6-0,0.38%,0.0038052319663606097
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,32,6-2,0.37%,0.003740119027262117
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,33,2-5,0.27%,0.0027329262323721143
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,34,1-5,0.26%,0.0025794263792199906
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,35,3-5,0.19%,0.0019303738360222054
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,36,6-3,0.17%,0.0017479592763667935
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,37,5-4,0.17%,0.001734822087039287
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,38,7-1,0.16%,0.0016150464066753086
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,39,0-5,0.12%,0.0012172740645181857
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,40,7-0,0.12%,0.001151908185579128
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,41,7-2,0.11%,0.0011321973957514042
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,42,4-5,0.10%,0.0010226245139714329
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,43,2-6,0.06%,0.0006386218893945114
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,44,6-4,0.06%,0.0006126867105496927
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,45,1-6,0.06%,0.0006027525106016916
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,46,7-3,0.05%,0.0005291368873975939
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,47,5-5,0.05%,0.0004964093941857193
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,48,3-6,0.05%,0.00045108388649341954
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,49,8-1,0.04%,0.00042778917115633973
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,50,8-0,0.03%,0.0003051143582750104
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,51,8-2,0.03%,0.00029989341700150437
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,52,0-6,0.03%,0.0002844489008833564
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,53,4-6,0.02%,0.00023896378596605263
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,54,7-4,0.02%,0.00018547064760226454
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,55,6-5,0.02%,0.00017180492033633932
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,56,8-3,0.01%,0.0001401563630323408
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,57,2-7,0.01%,0.0001279124748461563
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,58,1-7,0.01%,0.0001207280342737639
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,59,5-6,0.01%,0.00010127374124956682
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,Research,60,9-1,0.01%,0.00010072146765277013
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",1,2-1,9.04%,0.09040263474132697
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",2,1-1,8.57%,0.08570933302865644
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",3,3-1,6.74%,0.06744340747585234
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",4,2-0,6.53%,0.06530191248853416
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",5,2-2,6.23%,0.062291473616008966
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",6,1-2,6.23%,0.06225355189961624
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",7,1-0,5.30%,0.053039355637468484
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",8,3-0,4.87%,0.04871742406090867
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",9,3-2,4.67%,0.04668363834535855
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",10,4-1,3.77%,0.03773628853546969
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",11,0-1,3.43%,0.0342669984472838
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",12,2-3,3.21%,0.032147539846724554
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",13,0-0,3.12%,0.031246117293222405
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",14,1-3,2.87%,0.02872751552117971
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",15,0-2,2.78%,0.02781534585494896
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",16,4-0,2.73%,0.027258628231758824
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",17,4-2,2.61%,0.026120673797757323
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",18,3-3,2.14%,0.021444748335119314
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",19,5-1,1.69%,0.016891524621641764
+2026-11-28,Bundesliga,VfB Stuttgart,Eintracht Frankfurt,"Benchmark (70% Pinnacle blend), display only",20,0-3,1.28%,0.012835665683197004
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,1,1-1,11.19%,0.11193305971404442
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,2,2-1,9.38%,0.09382434130295991
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,3,1-0,7.62%,0.0762135652527043
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,4,1-2,6.85%,0.06853044577586705
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,5,2-0,6.85%,0.06845699254668808
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,6,2-2,6.63%,0.0662533544386896
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,7,0-1,5.53%,0.05530599082126478
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,8,3-1,5.49%,0.05491587691935459
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,9,0-0,4.76%,0.0475707844177663
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,10,3-0,4.01%,0.04006823522292608
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,11,0-2,3.90%,0.03902832413754894
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,12,3-2,3.76%,0.037632722292897
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,13,1-3,3.13%,0.03130833776030384
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,14,2-3,2.75%,0.027487400376881528
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,15,4-1,2.41%,0.024106912150471137
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,16,0-3,1.78%,0.017830205837465845
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,17,3-3,1.77%,0.017716042936826694
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,18,4-0,1.76%,0.017589110485515386
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,19,4-2,1.65%,0.016519971658291183
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,20,1-4,1.07%,0.010727480343398502
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,21,2-4,0.94%,0.00941827539653001
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,22,5-1,0.85%,0.008465940941399625
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,23,4-3,0.75%,0.007547198133804687
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,24,5-0,0.62%,0.0061769989309566516
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,25,0-4,0.61%,0.006109336883502044
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,26,5-2,0.58%,0.005801535407758784
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,27,3-4,0.55%,0.005512565772226858
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,28,1-5,0.29%,0.0029405287600777303
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,29,4-4,0.27%,0.002664698659398976
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,30,5-3,0.27%,0.0026504486877048337
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,31,2-5,0.26%,0.0025816602582610947
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,32,6-1,0.25%,0.0024775797212538476
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,33,6-0,0.18%,0.0018077148654210636
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,34,6-2,0.17%,0.0016978344850139013
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,35,0-5,0.17%,0.0016746412238356192
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,36,3-5,0.15%,0.001511059230700752
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,37,5-4,0.09%,0.0009081490182014703
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,38,6-3,0.08%,0.0007756607288351498
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,39,1-6,0.07%,0.0006716946502544195
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,40,4-5,0.07%,0.0006633231439089191
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,41,7-1,0.06%,0.0006214887209474501
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,42,2-6,0.06%,0.0005897195796182524
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,43,7-0,0.05%,0.00045345640744091323
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,44,7-2,0.04%,0.00042589345296132665
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,45,0-6,0.04%,0.00038253240927871914
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,46,3-6,0.03%,0.00034516594949148666
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,47,6-4,0.03%,0.0002657721813732111
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,48,5-5,0.03%,0.0002565130453376363
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,49,7-3,0.02%,0.0001945706893374806
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,50,4-6,0.02%,0.00015152057453156337
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,51,8-1,0.01%,0.0001364102226792315
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,52,1-7,0.01%,0.0001315138699753969
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,Research,53,2-7,0.01%,0.00011546363230149944
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",1,1-1,10.57%,0.10573604908023038
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",2,2-1,8.82%,0.08815388077368018
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",3,1-2,7.65%,0.07652812444938814
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",4,2-0,6.62%,0.06619056280059575
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",5,1-0,6.39%,0.0639215886561968
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",6,2-2,6.24%,0.06241426900801285
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",7,3-1,5.55%,0.05552262593620125
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",8,0-1,5.33%,0.05325979218115015
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",9,0-0,4.60%,0.045950940406889504
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",10,3-0,4.17%,0.04168930314388804
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",11,0-2,4.05%,0.040501513540903485
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",12,3-2,3.70%,0.0369730573357315
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",13,1-3,3.40%,0.033973882242943156
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",14,2-3,3.21%,0.032097041085773874
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",15,4-1,2.62%,0.026227676794789535
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",16,4-0,1.97%,0.019693116999082407
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",17,0-3,1.80%,0.017980234869203356
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",18,4-2,1.75%,0.017465265404252497
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",19,3-3,1.75%,0.017451652544754948
+2026-11-29,Bundesliga,Borussia Dortmund,Bayer Leverkusen,"Benchmark (70% Pinnacle blend), display only",20,1-4,1.13%,0.011311769525536136
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,1,1-1,9.83%,0.09831770047328502
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,2,1-2,8.32%,0.08315979376723778
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,3,2-1,7.66%,0.07658944696270768
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,4,2-2,7.37%,0.0736579149245754
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,5,0-1,5.31%,0.05308214748427148
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,6,1-3,5.00%,0.04996103010216568
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,7,0-2,4.92%,0.04920543377224712
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,8,1-0,4.88%,0.048795223354593735
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,9,3-1,4.31%,0.043146742990797536
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,10,2-0,4.25%,0.04249420399019809
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,11,2-3,4.22%,0.042218395827233024
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,12,3-2,3.89%,0.038882775456501276
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,13,0-0,3.33%,0.03334658888347163
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,14,0-3,2.96%,0.029561811622167207
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,15,3-3,2.49%,0.024929667468860453
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,16,3-0,2.39%,0.023939153119310896
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,17,1-4,2.25%,0.02251182105973025
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,18,2-4,1.90%,0.01902308600018906
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,19,4-1,1.82%,0.018230071222675018
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,20,4-2,1.64%,0.016428488381115602
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,21,0-4,1.33%,0.013320185994540473
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,22,3-4,1.07%,0.010716674882659037
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,23,4-0,1.01%,0.010114609727752561
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,24,4-3,0.99%,0.009869964382539842
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,25,1-5,0.81%,0.008114838087028906
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,26,2-5,0.69%,0.006857253457975482
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,27,5-1,0.62%,0.006161957519800473
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,28,5-2,0.56%,0.005553003402041324
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,29,0-5,0.48%,0.0048015285990417895
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,30,4-4,0.47%,0.004746091175927242
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,31,3-5,0.39%,0.003863040723065771
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,32,5-0,0.34%,0.003418845418127031
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,33,5-3,0.33%,0.0033361526954160713
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,34,1-6,0.24%,0.0024376303233448826
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,35,2-6,0.21%,0.002059862289888601
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,36,6-1,0.17%,0.0017356725238954758
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,37,4-5,0.16%,0.0016321859458222174
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,38,6-2,0.16%,0.0015641450625146984
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,39,5-4,0.15%,0.0015032290638036273
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,40,0-6,0.14%,0.0014423395249426678
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,41,3-6,0.12%,0.001160425520000609
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,42,6-0,0.10%,0.0009630050250461922
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,43,6-3,0.09%,0.000939712510244797
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,44,1-7,0.06%,0.0006276377241187164
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,45,5-5,0.06%,0.0005782766314931608
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,46,2-7,0.05%,0.0005303705271641114
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,47,4-6,0.05%,0.0004902951743711622
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,48,6-4,0.04%,0.00042342281243924567
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,49,7-1,0.04%,0.0004190540935629596
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,50,7-2,0.04%,0.00037764116349666224
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,51,0-7,0.04%,0.00037137160962097485
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,52,3-7,0.03%,0.00029878477692345907
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,53,7-0,0.02%,0.00023250422663924683
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,54,7-3,0.02%,0.00022688057151852532
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,55,5-6,0.02%,0.00016572497165455124
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,56,6-5,0.02%,0.00015263125787035105
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,57,1-8,0.01%,0.00014140289048087916
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,58,4-7,0.01%,0.00012624053140528936
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,59,2-8,0.01%,0.00011948919366211914
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,Research,60,7-4,0.01%,0.00010222957408023853
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",1,1-1,11.03%,0.11030226603189741
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",2,1-2,8.65%,0.08650527311315613
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",3,2-1,7.98%,0.07977059721582065
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",4,2-2,6.62%,0.06618869873740385
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",5,0-1,6.10%,0.06102671737020954
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",6,0-2,5.83%,0.058295056455350665
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",7,1-0,5.53%,0.055290713567992235
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",8,1-3,4.97%,0.049710055702387894
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",9,0-0,4.73%,0.04726486459800192
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",10,2-0,4.63%,0.04627217572682957
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",11,3-1,3.95%,0.03945776147610634
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",12,2-3,3.69%,0.036882904027195386
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",13,3-2,3.40%,0.03401146745649329
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",14,0-3,3.35%,0.033499119756303146
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",15,3-0,2.29%,0.022888088299878165
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",16,1-4,2.14%,0.021424326653781984
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",17,3-3,1.88%,0.01881373882663607
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",18,2-4,1.59%,0.015896006806944037
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",19,4-1,1.46%,0.014638052694651165
+2026-11-29,Bundesliga,Freiburg,RB Leipzig,"Benchmark (70% Pinnacle blend), display only",20,0-4,1.44%,0.014437643936068346
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,1,2-1,8.67%,0.08674292019017109
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,2,1-1,7.76%,0.07763581721783146
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,3,2-2,7.17%,0.0717419200389846
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,4,3-1,6.71%,0.06711640275703447
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,5,1-2,5.44%,0.05443902538399864
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,6,3-2,5.43%,0.05431821884648195
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,7,2-0,5.36%,0.05359042409195168
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,8,1-0,4.49%,0.04494392132571371
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,9,3-0,4.15%,0.041465015005147
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,10,4-1,3.89%,0.03894794678201491
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,11,2-3,3.41%,0.03408959357275924
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,12,4-2,3.15%,0.03152110378419951
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,13,3-3,2.99%,0.029949751169709365
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,14,1-3,2.94%,0.029372163118871343
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,15,0-1,2.79%,0.02787117168622191
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,16,4-0,2.41%,0.024062332476045115
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,17,0-2,2.35%,0.02345278670158345
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,18,0-0,2.16%,0.02158607272383751
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,19,5-1,1.81%,0.018081333280343895
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,20,4-3,1.70%,0.017006972397204514
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,21,5-2,1.46%,0.0146334692834079
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,22,2-4,1.38%,0.01379458618168183
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,23,0-3,1.27%,0.012653773129330916
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,24,1-4,1.19%,0.011885645823875746
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,25,5-0,1.12%,0.011170782774169805
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,26,3-4,1.07%,0.010673412884954827
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,27,5-3,0.79%,0.007895377328220628
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,28,4-4,0.70%,0.0070329247110343185
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,29,6-1,0.70%,0.006995118703446879
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,30,6-2,0.57%,0.0056612448370696195
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,31,0-4,0.51%,0.005120435466132682
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,32,2-5,0.45%,0.004465658589157423
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,33,6-0,0.43%,0.00432163659085273
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,34,1-5,0.38%,0.0038476860169648543
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,35,3-5,0.35%,0.003455255365950446
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,36,5-4,0.32%,0.0031949182016082554
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,37,6-3,0.31%,0.0030544817001656485
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,38,7-1,0.23%,0.0023195991254775306
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,39,4-5,0.20%,0.002005100043851867
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,40,7-2,0.19%,0.0018772831641456075
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,41,0-5,0.17%,0.0016576152643075425
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,42,7-0,0.14%,0.0014330656678969704
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,43,6-4,0.12%,0.0012360168203053943
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,44,2-6,0.12%,0.001204706105488752
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,45,5-5,0.11%,0.0010569603405021079
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,46,1-6,0.10%,0.0010379948990941216
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,47,7-3,0.10%,0.0010128738883301734
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,48,3-6,0.09%,0.0009321284088958229
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,49,8-1,0.07%,0.0006730368403515058
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,50,8-2,0.05%,0.0005446978813554808
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,51,4-6,0.05%,0.0005409182580166465
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,52,0-6,0.04%,0.00044717686979277755
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,53,8-0,0.04%,0.00041580718777820566
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,54,7-4,0.04%,0.00040986631635616874
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,55,6-5,0.04%,0.0004001300986664959
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,56,8-3,0.03%,0.00029388760928073865
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,57,2-7,0.03%,0.00027856715963636567
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,58,5-6,0.03%,0.0002511178151536968
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,59,1-7,0.02%,0.00024001811681727652
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,60,3-7,0.02%,0.00021553834756828888
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,61,9-1,0.02%,0.00017358500862211043
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,62,9-2,0.01%,0.00014048471162760598
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,63,7-5,0.01%,0.0001326841568087609
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,64,4-7,0.01%,0.0001250778609360629
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,65,8-4,0.01%,0.00011892362240396897
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,66,6-6,0.01%,0.00011031102588656551
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,67,9-0,0.01%,0.00010724211506448752
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,Research,68,0-7,0.01%,0.00010340180887745825
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",1,2-1,10.04%,0.10041605109981375
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",2,1-1,8.90%,0.0890340694252007
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",3,2-0,7.17%,0.07172824591871758
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",4,3-1,6.85%,0.06846619570013066
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",5,1-0,6.37%,0.06367340491744211
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",6,2-2,5.98%,0.059803843498755636
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",7,1-2,5.90%,0.05899268769450043
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",8,3-0,4.89%,0.04890612674478217
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",9,3-2,4.79%,0.047924669828292174
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",10,0-1,3.57%,0.03565702166987377
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",11,4-1,3.50%,0.0350114839881705
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",12,0-0,3.47%,0.03466906208529997
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",13,0-2,2.88%,0.028840572010122686
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",14,2-3,2.82%,0.02815491197948263
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",15,1-3,2.75%,0.027528963270430327
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",16,4-0,2.50%,0.02500907281233841
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",17,4-2,2.45%,0.02450718625700431
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",18,3-3,1.90%,0.01902803003271413
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",19,5-1,1.43%,0.014323027573171625
+2026-11-29,Bundesliga,TSG Hoffenheim,Augsburg,"Benchmark (70% Pinnacle blend), display only",20,0-3,1.35%,0.013458465423315236

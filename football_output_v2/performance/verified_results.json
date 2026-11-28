@@ -809,6 +809,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "BL1:565869": {
+    "away_goals": 3,
+    "away_short_name": "M'gladbach",
+    "away_team": "Borussia Mönchengladbach",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 3,
+    "home_short_name": "Bremen",
+    "home_team": "SV Werder Bremen",
+    "kickoff_utc": "2026-11-27T19:30:00Z",
+    "league_code": "BL1",
+    "match_id": 565869,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "CL:575341": {
     "away_goals": 2,
     "away_short_name": "Sporting CP",
@@ -1890,6 +1905,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "DED:558820": {
+    "away_goals": 1,
+    "away_short_name": "Willem II",
+    "away_team": "Willem II Tilburg",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 1,
+    "home_short_name": "Groningen",
+    "home_team": "FC Groningen",
+    "kickoff_utc": "2026-11-27T19:00:00Z",
+    "league_code": "DED",
+    "match_id": 558820,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "DED:558828": {
     "away_goals": 1,
     "away_short_name": "Willem II",
@@ -2430,6 +2460,19 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "EL:032c5e7aad9676882b1a": {
+    "away_goals": 0,
+    "away_team": "benfica",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 4,
+    "home_team": "viktoria plzen",
+    "kickoff_utc": "2026-11-26T17:45:00+00:00",
+    "league_code": "EL",
+    "match_id": "032c5e7aad9676882b1a",
+    "source": "Cornerflick + Fixture Download",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "EL:0633c9d8f097282a9155": {
     "away_goals": 0,
     "away_team": "sturm graz",
@@ -2465,6 +2508,19 @@
     "kickoff_utc": "2026-10-22T19:00:00+00:00",
     "league_code": "EL",
     "match_id": "096f308c29395b45366a",
+    "source": "Cornerflick + Fixture Download",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "EL:0e36f48ec6ebb72d25c9": {
+    "away_goals": 1,
+    "away_team": "jagiellonia",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 1,
+    "home_team": "sunderland",
+    "kickoff_utc": "2026-11-26T20:00:00+00:00",
+    "league_code": "EL",
+    "match_id": "0e36f48ec6ebb72d25c9",
     "source": "Cornerflick + Fixture Download",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
@@ -2530,6 +2586,19 @@
     "kickoff_utc": "2026-09-17T19:00:00+00:00",
     "league_code": "EL",
     "match_id": "1484b8451a08f082faa8",
+    "source": "Cornerflick + Fixture Download",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "EL:1c6f94e256412636fe36": {
+    "away_goals": 1,
+    "away_team": "omonia",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 4,
+    "home_team": "juventus",
+    "kickoff_utc": "2026-11-26T20:00:00+00:00",
+    "league_code": "EL",
+    "match_id": "1c6f94e256412636fe36",
     "source": "Cornerflick + Fixture Download",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
@@ -2703,6 +2772,19 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "EL:52ad611fe1cdac3f087f": {
+    "away_goals": 0,
+    "away_team": "levski sofia",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 1,
+    "home_team": "marseille",
+    "kickoff_utc": "2026-11-26T17:45:00+00:00",
+    "league_code": "EL",
+    "match_id": "52ad611fe1cdac3f087f",
+    "source": "Cornerflick + Fixture Download",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "EL:56e763fd0d99752bc86f": {
     "away_goals": 0,
     "away_team": "sparta praha",
@@ -2738,6 +2820,32 @@
     "kickoff_utc": "2026-10-15T19:00:00+00:00",
     "league_code": "EL",
     "match_id": "5cf60426602e34e263e0",
+    "source": "Cornerflick + Fixture Download",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "EL:5d674f56cff90d8297e0": {
+    "away_goals": 0,
+    "away_team": "lillestrøm",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 0,
+    "home_team": "lyon",
+    "kickoff_utc": "2026-11-26T20:00:00+00:00",
+    "league_code": "EL",
+    "match_id": "5d674f56cff90d8297e0",
+    "source": "Cornerflick + Fixture Download",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "EL:5fb52834c9aa8b7be3fb": {
+    "away_goals": 1,
+    "away_team": "real sociedad",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 2,
+    "home_team": "crystal palace",
+    "kickoff_utc": "2026-11-26T20:00:00+00:00",
+    "league_code": "EL",
+    "match_id": "5fb52834c9aa8b7be3fb",
     "source": "Cornerflick + Fixture Download",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
@@ -2820,6 +2928,19 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "EL:74df22fe45f7056e5df7": {
+    "away_goals": 0,
+    "away_team": "ararat-armenia",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 2,
+    "home_team": "salzburg",
+    "kickoff_utc": "2026-11-26T17:45:00+00:00",
+    "league_code": "EL",
+    "match_id": "74df22fe45f7056e5df7",
+    "source": "Cornerflick + Fixture Download",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "EL:76c7659c585f7d266323": {
     "away_goals": 2,
     "away_team": "sunderland",
@@ -2885,6 +3006,19 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "EL:84acd22a95ef52b9ecf7": {
+    "away_goals": 1,
+    "away_team": "h. beer-sheva",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 2,
+    "home_team": "besiktas",
+    "kickoff_utc": "2026-11-26T17:45:00+00:00",
+    "league_code": "EL",
+    "match_id": "84acd22a95ef52b9ecf7",
+    "source": "Cornerflick + Fixture Download",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "EL:8538939f1b6f27a52ee3": {
     "away_goals": 1,
     "away_team": "torreense",
@@ -2937,6 +3071,19 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "EL:8bdb88c780544f2dbcad": {
+    "away_goals": 0,
+    "away_team": "celje",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 0,
+    "home_team": "ferencvaros",
+    "kickoff_utc": "2026-11-26T20:00:00+00:00",
+    "league_code": "EL",
+    "match_id": "8bdb88c780544f2dbcad",
+    "source": "Cornerflick + Fixture Download",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "EL:92cb57a790e7253f5f5c": {
     "away_goals": 0,
     "away_team": "celje",
@@ -2959,6 +3106,19 @@
     "kickoff_utc": "2026-10-22T19:00:00+00:00",
     "league_code": "EL",
     "match_id": "951623d459c00a507782",
+    "source": "Cornerflick + Fixture Download",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "EL:960c04c7078bdc0c2b8f": {
+    "away_goals": 2,
+    "away_team": "lech poznan",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 2,
+    "home_team": "union sg",
+    "kickoff_utc": "2026-11-26T17:45:00+00:00",
+    "league_code": "EL",
+    "match_id": "960c04c7078bdc0c2b8f",
     "source": "Cornerflick + Fixture Download",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
@@ -3011,6 +3171,19 @@
     "kickoff_utc": "2026-10-22T19:00:00+00:00",
     "league_code": "EL",
     "match_id": "9f17e77a9efdab704065",
+    "source": "Cornerflick + Fixture Download",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "EL:a8f5f8e70b2f89a2b8b9": {
+    "away_goals": 2,
+    "away_team": "leverkusen",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 0,
+    "home_team": "gnk dinamo",
+    "kickoff_utc": "2026-11-26T17:45:00+00:00",
+    "league_code": "EL",
+    "match_id": "a8f5f8e70b2f89a2b8b9",
     "source": "Cornerflick + Fixture Download",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
@@ -3080,6 +3253,19 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "EL:bdb6ae77f9bccceec5b1": {
+    "away_goals": 2,
+    "away_team": "celtic",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 1,
+    "home_team": "torreense",
+    "kickoff_utc": "2026-11-26T20:00:00+00:00",
+    "league_code": "EL",
+    "match_id": "bdb6ae77f9bccceec5b1",
+    "source": "Cornerflick + Fixture Download",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "EL:c54882085ae18cf8d516": {
     "away_goals": 2,
     "away_team": "lyon",
@@ -3089,6 +3275,19 @@
     "kickoff_utc": "2026-09-16T19:00:00+00:00",
     "league_code": "EL",
     "match_id": "c54882085ae18cf8d516",
+    "source": "Cornerflick + Fixture Download",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "EL:c5e7aabc1addcf7df06b": {
+    "away_goals": 2,
+    "away_team": "bournemouth",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 1,
+    "home_team": "celta",
+    "kickoff_utc": "2026-11-26T17:45:00+00:00",
+    "league_code": "EL",
+    "match_id": "c5e7aabc1addcf7df06b",
     "source": "Cornerflick + Fixture Download",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
@@ -3119,6 +3318,19 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "EL:cdc50ae13efb1970ce0e": {
+    "away_goals": 4,
+    "away_team": "az alkmaar",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 2,
+    "home_team": "sparta praha",
+    "kickoff_utc": "2026-11-26T20:00:00+00:00",
+    "league_code": "EL",
+    "match_id": "cdc50ae13efb1970ce0e",
+    "source": "Cornerflick + Fixture Download",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "EL:d0680c77d8f54d199964": {
     "away_goals": 0,
     "away_team": "n.e.c.",
@@ -3145,6 +3357,19 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "EL:d677539136ea70486331": {
+    "away_goals": 4,
+    "away_team": "milan",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 2,
+    "home_team": "olympiacos",
+    "kickoff_utc": "2026-11-26T17:45:00+00:00",
+    "league_code": "EL",
+    "match_id": "d677539136ea70486331",
+    "source": "Cornerflick + Fixture Download",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "EL:d9ef2e274a17d28a28db": {
     "away_goals": 0,
     "away_team": "rennes",
@@ -3167,6 +3392,19 @@
     "kickoff_utc": "2026-11-04T15:30:00+00:00",
     "league_code": "EL",
     "match_id": "dbd674d47c85cd4db5a0",
+    "source": "Cornerflick + Fixture Download",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "EL:dd6c057813b80c7e3a16": {
+    "away_goals": 1,
+    "away_team": "sturm graz",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 3,
+    "home_team": "hoffenheim",
+    "kickoff_utc": "2026-11-26T20:00:00+00:00",
+    "league_code": "EL",
+    "match_id": "dd6c057813b80c7e3a16",
     "source": "Cornerflick + Fixture Download",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
@@ -3223,6 +3461,19 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "EL:eb326e2c0db4d1316d18": {
+    "away_goals": 3,
+    "away_team": "anderlecht",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 1,
+    "home_team": "ofi crete",
+    "kickoff_utc": "2026-11-26T20:00:00+00:00",
+    "league_code": "EL",
+    "match_id": "eb326e2c0db4d1316d18",
+    "source": "Cornerflick + Fixture Download",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "EL:eb5c967505283eafc999": {
     "away_goals": 0,
     "away_team": "hoffenheim",
@@ -3271,6 +3522,19 @@
     "kickoff_utc": "2026-11-05T17:45:00+00:00",
     "league_code": "EL",
     "match_id": "f8a3bbf684e63f750d69",
+    "source": "Cornerflick + Fixture Download",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "EL:f8a9a56e58e336e25487": {
+    "away_goals": 1,
+    "away_team": "rennes",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 3,
+    "home_team": "n.e.c.",
+    "kickoff_utc": "2026-11-26T20:00:00+00:00",
+    "league_code": "EL",
+    "match_id": "f8a9a56e58e336e25487",
     "source": "Cornerflick + Fixture Download",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
@@ -3363,6 +3627,21 @@
     "league_code": "EL",
     "match_id": "ff710579f792c0d6b60a",
     "source": "Cornerflick + Fixture Download",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "FL1:559616": {
+    "away_goals": 0,
+    "away_short_name": "Paris FC",
+    "away_team": "Paris FC",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 1,
+    "home_short_name": "Brest",
+    "home_team": "Stade Brestois 29",
+    "kickoff_utc": "2026-11-27T19:45:00Z",
+    "league_code": "FL1",
+    "match_id": 559616,
+    "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
@@ -5076,6 +5355,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PD:564765": {
+    "away_goals": 3,
+    "away_short_name": "Santander",
+    "away_team": "Real Racing Club de Santander",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 1,
+    "home_short_name": "Levante",
+    "home_team": "Levante UD",
+    "kickoff_utc": "2026-11-27T20:00:00Z",
+    "league_code": "PD",
+    "match_id": 564765,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PL:560592": {
     "away_goals": 2,
     "away_short_name": "Brighton Hove",
@@ -5976,6 +6270,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PL:560658": {
+    "away_goals": 2,
+    "away_short_name": "Chelsea",
+    "away_team": "Chelsea FC",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 3,
+    "home_short_name": "Nottingham",
+    "home_team": "Nottingham Forest FC",
+    "kickoff_utc": "2026-11-27T20:00:00Z",
+    "league_code": "PL",
+    "match_id": 560658,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PPL:567329": {
     "away_goals": 0,
     "away_short_name": "Marítimo",
@@ -6362,6 +6671,36 @@
     "kickoff_utc": "2026-11-08T20:30:00Z",
     "league_code": "PPL",
     "match_id": 567355,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "PPL:567361": {
+    "away_goals": 2,
+    "away_short_name": "CD Nacional",
+    "away_team": "CD Nacional",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 1,
+    "home_short_name": "Marítimo",
+    "home_team": "CS Marítimo",
+    "kickoff_utc": "2026-11-27T20:15:00Z",
+    "league_code": "PPL",
+    "match_id": 567361,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "SA:558515": {
+    "away_goals": 0,
+    "away_short_name": "Bologna",
+    "away_team": "Bologna FC 1909",
+    "first_verified_at_utc": "2026-11-28T06:38:23Z",
+    "home_goals": 0,
+    "home_short_name": "Venezia FC",
+    "home_team": "Venezia FC",
+    "kickoff_utc": "2026-11-27T19:45:00Z",
+    "league_code": "SA",
+    "match_id": 558515,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
