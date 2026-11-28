@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "6a6942c4484010b7ee31ba0d63440397e3d2574de9f7102f07acd6e30191f1e0",
-  "training_as_of_utc": "2026-11-27T16:29:31.705468+00:00",
+  "training_as_of_utc": "2026-11-28T06:36:14.158945+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -23,7 +23,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-11-27",
+    "cutoff_date": "2026-11-28",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -44,30 +44,30 @@
       "max_goal_rate_ratio": 1.25
     },
     "shot_matches": 1647,
-    "tune_start_date": "2025-11-28",
-    "audit_start_date": "2026-05-29",
-    "training_shot_matches": 1341,
-    "tuning_matches": 189,
+    "tune_start_date": "2025-11-29",
+    "audit_start_date": "2026-05-30",
+    "training_shot_matches": 1342,
+    "tuning_matches": 188,
     "audit_matches": 111,
     "audit_matchdays": 39,
     "selected_shrinkage": 40.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.6311183728032694,
-    "audit_candidate_poisson_score": 0.6226974031738606,
-    "audit_gain": 0.008420969629408859,
-    "audit_gain_lower95": -0.004751405037299755,
+    "audit_baseline_poisson_score": 0.6299552325288893,
+    "audit_candidate_poisson_score": 0.6217954080785197,
+    "audit_gain": 0.008159824450369557,
+    "audit_gain_lower95": -0.004949025264524944,
     "audit_baseline_briers": [
-      0.6283426712895571,
-      0.1054826960069693,
-      0.2918376765585792,
-      0.22528894955585324
+      0.6270125579752631,
+      0.10562103310227236,
+      0.29191336205189095,
+      0.22502052890509913
     ],
     "audit_candidate_briers": [
-      0.624275672862308,
-      0.10495366882988051,
-      0.28932692855939396,
-      0.2191186108785649
+      0.6232563979965874,
+      0.10503893239957653,
+      0.2893380200401538,
+      0.2188416625206137
     ],
     "audit_brier_order": [
       "1x2",
@@ -82,10 +82,10 @@
   },
   "training_end": "2026-11-22",
   "fit_success": true,
-  "objective": 1646.5813548932906,
-  "base": 0.3097596090011479,
-  "home_adv": 0.16451139696596612,
-  "rho": -0.06775242544250235,
+  "objective": 1645.1840604382642,
+  "base": 0.3097175858900258,
+  "home_adv": 0.16450384846297944,
+  "rho": -0.06772188036474922,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -103,7 +103,7 @@
   },
   "training_data_health": {
     "training_end": "2026-11-22",
-    "days_since_latest_result": 5,
+    "days_since_latest_result": 6,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -113,34 +113,15 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 9,
+  "live_odds_matched": 8,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 15,
+  "additional_event_odds_calls_used_before_this_league": 20,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "over_1_5_in_window_quote_fixtures": 2,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
-    {
-      "fixture_id": "1640270692",
-      "event_id": "1640270692",
-      "home_team": "Groningen",
-      "away_team": "Willem II",
-      "kickoff_utc": "2026-11-27T19:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
-    },
     {
       "fixture_id": "1640270576",
       "event_id": "1640270576",
@@ -166,10 +147,16 @@
       "home_team": "PSV",
       "away_team": "Go Ahead Eagles",
       "kickoff_utc": "2026-11-28T17:45:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
+      "asian_handicap_quotes": 18,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -179,12 +166,18 @@
       "home_team": "SC Cambuur",
       "away_team": "Sparta Rotterdam",
       "kickoff_utc": "2026-11-28T20:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "asian_handicap_quotes": 18,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 0,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "1640270577",
@@ -252,20 +245,20 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 2,
+  "additional_odds_in_window_linked_fixtures": 3,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 2,
+  "additional_event_odds_calls_this_league": 3,
   "totals_anchor_fixtures": {
-    "ANCHORED_ALTERNATE": 2,
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 7
+    "ANCHORED_ALTERNATE": 3,
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 5
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 9
+    "none": 8
   },
   "legacy_comparison_status": {
-    "None": 9
+    "None": 8
   },
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }

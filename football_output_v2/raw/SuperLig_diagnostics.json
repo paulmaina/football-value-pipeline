@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "2f01bb1cc9ab665e9a28461a7fbf40ec350ce82e73e9bace8aa1175d298cc576",
-  "training_as_of_utc": "2026-11-27T16:29:41.698058+00:00",
+  "training_as_of_utc": "2026-11-28T06:36:21.785296+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -23,7 +23,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-11-27",
+    "cutoff_date": "2026-11-28",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -44,30 +44,30 @@
       "max_goal_rate_ratio": 1.25
     },
     "shot_matches": 1827,
-    "tune_start_date": "2025-11-28",
-    "audit_start_date": "2026-05-29",
-    "training_shot_matches": 1530,
-    "tuning_matches": 189,
+    "tune_start_date": "2025-11-29",
+    "audit_start_date": "2026-05-30",
+    "training_shot_matches": 1531,
+    "tuning_matches": 188,
     "audit_matches": 94,
     "audit_matchdays": 39,
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.825412239625013,
-    "audit_candidate_poisson_score": 0.8177429659396743,
-    "audit_gain": 0.007669273685338651,
-    "audit_gain_lower95": -0.00456549805302061,
+    "audit_baseline_poisson_score": 0.8258300220756576,
+    "audit_candidate_poisson_score": 0.8178395732435885,
+    "audit_gain": 0.00799044883206912,
+    "audit_gain_lower95": -0.0043316020326658565,
     "audit_baseline_briers": [
-      0.5677091194673735,
-      0.17658989223544963,
-      0.21544877267110418,
-      0.2529740021610395
+      0.5670281954607237,
+      0.17673453082949744,
+      0.21682236735849583,
+      0.25267499250972575
     ],
     "audit_candidate_briers": [
-      0.5676766480904392,
-      0.17452978828392274,
-      0.21074625287215845,
-      0.25288310428786087
+      0.5669761037060433,
+      0.17467048679773556,
+      0.2118853550757633,
+      0.25261574402087367
     ],
     "audit_brier_order": [
       "1x2",
@@ -82,10 +82,10 @@
   },
   "training_end": "2026-11-23",
   "fit_success": true,
-  "objective": 1672.0918620628524,
-  "base": 0.14453987285713682,
-  "home_adv": 0.23112014938575615,
-  "rho": -0.08373551722817393,
+  "objective": 1670.6730632819867,
+  "base": 0.14451342691971247,
+  "home_adv": 0.23115901058838542,
+  "rho": -0.08373157856941112,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -103,7 +103,7 @@
   },
   "training_data_health": {
     "training_end": "2026-11-23",
-    "days_since_latest_result": 4,
+    "days_since_latest_result": 5,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -113,53 +113,15 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 8,
+  "live_odds_matched": 7,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 20,
+  "additional_event_odds_calls_used_before_this_league": 27,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 4,
+  "over_1_5_in_window_quote_fixtures": 2,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
-    {
-      "fixture_id": "1640743621",
-      "event_id": "1640743621",
-      "home_team": "Alanyaspor",
-      "away_team": "Torku Konyaspor",
-      "kickoff_utc": "2026-11-27T17:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
-    },
-    {
-      "fixture_id": "1640743626",
-      "event_id": "1640743626",
-      "home_team": "Caykur Rizespor",
-      "away_team": "Kasimpasa SK",
-      "kickoff_utc": "2026-11-27T17:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
-    },
     {
       "fixture_id": "1640822652",
       "event_id": "1640822652",
@@ -249,23 +211,36 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "1640973587",
+      "event_id": "1640973587",
+      "home_team": "Besiktas",
+      "away_team": "Galatasaray",
+      "kickoff_utc": "2026-11-30T18:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 4,
+  "additional_odds_in_window_linked_fixtures": 2,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 4,
+  "additional_event_odds_calls_this_league": 2,
   "totals_anchor_fixtures": {
-    "ANCHORED_ALTERNATE": 3,
-    "ANCHORED_MAIN": 2,
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 3
+    "ANCHORED_ALTERNATE": 2,
+    "ANCHORED_MAIN": 1,
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 4
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 8
+    "none": 7
   },
   "legacy_comparison_status": {
-    "None": 8
+    "None": 7
   },
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }
