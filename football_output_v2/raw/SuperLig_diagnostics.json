@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "2f01bb1cc9ab665e9a28461a7fbf40ec350ce82e73e9bace8aa1175d298cc576",
-  "training_as_of_utc": "2026-11-28T06:36:21.785296+00:00",
+  "training_as_of_utc": "2026-11-28T11:21:30.535173+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -82,10 +82,10 @@
   },
   "training_end": "2026-11-23",
   "fit_success": true,
-  "objective": 1670.6730632819867,
-  "base": 0.14451342691971247,
-  "home_adv": 0.23115901058838542,
-  "rho": -0.08373157856941112,
+  "objective": 1670.1955038029469,
+  "base": 0.14454460250595721,
+  "home_adv": 0.23108131823923775,
+  "rho": -0.08370206391759165,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -116,10 +116,10 @@
   "live_odds_matched": 7,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 27,
+  "additional_event_odds_calls_used_before_this_league": 28,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 2,
+  "over_1_5_in_window_quote_fixtures": 3,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -166,12 +166,18 @@
       "home_team": "\u00c7orum FK",
       "away_team": "Kocaelispor",
       "kickoff_utc": "2026-11-29T10:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "asian_handicap_quotes": 18,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 0,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "1640928466",
@@ -226,13 +232,13 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 2,
+  "additional_odds_in_window_linked_fixtures": 3,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 2,
+  "additional_event_odds_calls_this_league": 3,
   "totals_anchor_fixtures": {
-    "ANCHORED_ALTERNATE": 2,
-    "ANCHORED_MAIN": 1,
+    "ANCHORED_ALTERNATE": 1,
+    "ANCHORED_MAIN": 2,
     "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 4
   },
   "shot_features_applied_fixtures": 0,

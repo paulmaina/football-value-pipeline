@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "f94844cd551c2027dbb362726fd58b807b84f6c8d01dfed6c8dfc941fd1bc530",
-  "training_as_of_utc": "2026-11-28T06:35:53.226927+00:00",
+  "training_as_of_utc": "2026-11-28T11:21:01.811862+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 91,
     "bbs_added_results": 1,
@@ -94,10 +94,10 @@
   },
   "training_end": "2026-11-27",
   "fit_success": true,
-  "objective": 1592.6799739379858,
-  "base": 0.2161973324331084,
-  "home_adv": 0.23218195927008692,
-  "rho": -0.06579671560250258,
+  "objective": 1592.2247098806004,
+  "base": 0.21614751239698818,
+  "home_adv": 0.2322190960140147,
+  "rho": -0.06574910662562532,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,

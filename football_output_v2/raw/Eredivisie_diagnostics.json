@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "6a6942c4484010b7ee31ba0d63440397e3d2574de9f7102f07acd6e30191f1e0",
-  "training_as_of_utc": "2026-11-28T06:36:14.158945+00:00",
+  "training_as_of_utc": "2026-11-28T11:21:22.719434+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -82,10 +82,10 @@
   },
   "training_end": "2026-11-22",
   "fit_success": true,
-  "objective": 1645.1840604382642,
-  "base": 0.3097175858900258,
-  "home_adv": 0.16450384846297944,
-  "rho": -0.06772188036474922,
+  "objective": 1644.713763787671,
+  "base": 0.3097160480207355,
+  "home_adv": 0.16447877308049916,
+  "rho": -0.06773094107846085,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -119,7 +119,7 @@
   "additional_event_odds_calls_used_before_this_league": 20,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 2,
+  "over_1_5_in_window_quote_fixtures": 3,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -185,12 +185,18 @@
       "home_team": "ADO Den Haag",
       "away_team": "FC Utrecht",
       "kickoff_utc": "2026-11-29T11:15:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "asian_handicap_quotes": 18,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 0,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "1640270575",
@@ -245,13 +251,13 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 3,
+  "additional_odds_in_window_linked_fixtures": 4,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 3,
+  "additional_event_odds_calls_this_league": 4,
   "totals_anchor_fixtures": {
-    "ANCHORED_ALTERNATE": 3,
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 5
+    "ANCHORED_ALTERNATE": 4,
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 4
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {

@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "7c73b44b6e1c6ee16fc6ee45d20634ecf277c8dff8e4ce224e38cad97bc36515",
-  "training_as_of_utc": "2026-11-28T06:36:18.188141+00:00",
+  "training_as_of_utc": "2026-11-28T11:21:26.894588+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -83,9 +83,9 @@
   },
   "training_end": "2026-11-08",
   "fit_success": true,
-  "objective": 1441.2754245736119,
-  "base": 0.08331210680662099,
-  "home_adv": 0.1744857131217825,
+  "objective": 1440.8634465379564,
+  "base": 0.08330704377832326,
+  "home_adv": 0.1744745720448927,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -128,7 +128,7 @@
       "away_best_score": 72.0
     }
   ],
-  "additional_event_odds_calls_used_before_this_league": 23,
+  "additional_event_odds_calls_used_before_this_league": 24,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "over_1_5_in_window_quote_fixtures": 4,
